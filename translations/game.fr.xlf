@@ -275,7 +275,7 @@
       </trans-unit>
       <trans-unit id="NqjEmUx" resname="Karte">
         <source>Karte</source>
-        <target>Karte</target>
+        <target>Carte</target>
       </trans-unit>
       <trans-unit id="VgeAGfB" resname="Bitte wähle einen Gegenstand:">
         <source>Bitte wähle einen Gegenstand:</source>
@@ -311,7 +311,7 @@
       </trans-unit>
       <trans-unit id="Ja76Y2N" resname="Tor schließen">
         <source>Tor schließen</source>
-        <target>Tor schließen</target>
+        <target>Fermer les portes</target>
       </trans-unit>
       <trans-unit id="0UyjBX6" resname="Tor öffnen">
         <source>Tor öffnen</source>
@@ -630,7 +630,8 @@
       </trans-unit>
       <trans-unit id="EB14a2E" resname="Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.">
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</target>
+        <target>Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'évolution du jour.
+Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</target>
       </trans-unit>
       <trans-unit id="PhutSSq" resname="Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.">
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
@@ -642,23 +643,23 @@
       </trans-unit>
       <trans-unit id="HDgwb1i" resname="Aktuelles Level:">
         <source>Aktuelles Level:</source>
-        <target>Aktuelles Level:</target>
+        <target>Actuellement :</target>
       </trans-unit>
       <trans-unit id="tSHIOru" resname="Nächstes Level:">
         <source>Nächstes Level:</source>
-        <target>Nächstes Level:</target>
+        <target>Prochain niveau :</target>
       </trans-unit>
       <trans-unit id="vihCVqO" resname="Max. Level">
         <source>Max. Level</source>
-        <target>Max. Level</target>
+        <target>Niveau Max.</target>
       </trans-unit>
       <trans-unit id="QMbrYas" resname="Level %lv%">
         <source>Level %lv%</source>
-        <target>Level %lv%</target>
+        <target>Niveau %lv%</target>
       </trans-unit>
       <trans-unit id="sGKanc7" resname="Abstimmen">
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Voter</target>
       </trans-unit>
       <trans-unit id="_fJ2tva" resname="Stimmen:">
         <source>Stimmen:</source>
@@ -666,7 +667,7 @@
       </trans-unit>
       <trans-unit id="qOmfTuV" resname="In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
-        <target>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</target>
+        <target>L'atelier permet la fabrication de matériaux de constructions avancés, nécessaires pour certains chantiers en ville. Les objets à transformer sont à placer directement dans la Banque de la ville. Chaque transformation coûte 3PA de base (certains objets peuvent réduire ce coût).</target>
       </trans-unit>
       <trans-unit id="pOcBXgj" resname="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
@@ -812,15 +813,15 @@
       </trans-unit>
       <trans-unit id="VG34_F_" resname="Punkt(e)">
         <source>Punkt(e)</source>
-        <target>Punkt(e)</target>
+        <target>points</target>
       </trans-unit>
       <trans-unit id="MwvCTQm" resname="Stadt in %km% Entfernung">
         <source>Stadt in %km% Entfernung</source>
-        <target>Stadt in %km% Entfernung</target>
+        <target>Ville à %km% vers (direction)</target>
       </trans-unit>
       <trans-unit id="AW6aLpM" resname="Am Boden">
         <source>Am Boden</source>
-        <target>Am Boden</target>
+        <target>Par terre</target>
       </trans-unit>
       <trans-unit id="uBY6LwO" resname="Temporäre Zonenkontrolle">
         <source>Temporäre Zonenkontrolle</source>
@@ -876,7 +877,7 @@
       </trans-unit>
       <trans-unit id="M8h1dhU" resname="Stadt betreten">
         <source>Stadt betreten</source>
-        <target>Stadt betreten</target>
+        <target>Entrer en ville</target>
       </trans-unit>
       <trans-unit id="WrJhBrF" resname="In die Stadt zurückkehren">
         <source>In die Stadt zurückkehren</source>
@@ -888,11 +889,11 @@
       </trans-unit>
       <trans-unit id="IUt.xlO" resname="In dieser Zone graben">
         <source>In dieser Zone graben</source>
-        <target>In dieser Zone graben</target>
+        <target>Fouiller les environs</target>
       </trans-unit>
       <trans-unit id="K5c71RM" resname="Nächste automatische Ausgrabung:">
         <source>Nächste automatische Ausgrabung:</source>
-        <target>Nächste automatische Ausgrabung:</target>
+        <target>Prochaine fouille auto :</target>
       </trans-unit>
       <trans-unit id="GwPmPsr" resname="%ruin% durchsuchen">
         <source>%ruin% durchsuchen</source>
@@ -900,7 +901,7 @@
       </trans-unit>
       <trans-unit id="ZaxaGah" resname="Zone freiräumen">
         <source>Zone freiräumen</source>
-        <target>Zone freiräumen</target>
+        <target>Déblayer la zone</target>
       </trans-unit>
       <trans-unit id="ftAsu0Q" resname="Müll durchwühlen">
         <source>Müll durchwühlen</source>
@@ -912,11 +913,11 @@
       </trans-unit>
       <trans-unit id="AcukbqL" resname="Zonenregister">
         <source>Zonenregister</source>
-        <target>Zonenregister</target>
+        <target>Discussions</target>
       </trans-unit>
       <trans-unit id="T478uEB" resname="Zonenchat">
         <source>Zonenchat</source>
-        <target>Zonenchat</target>
+        <target></target>
       </trans-unit>
       <trans-unit id="nq1XXly" resname="Stadtregister">
         <source>Stadtregister</source>

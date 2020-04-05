@@ -7,137 +7,136 @@
     <body>
       <trans-unit id="KHtB91o" resname="Dein Name muss mindestens {{ limit }} Zeichen umfassen.">
         <source>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</source>
-        <target>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</target>
+        <target>Le pseudo doit contenir {{ limit }} caractères au minimum.</target>
       </trans-unit>
       <trans-unit id="ouF_pon" resname="Dein Name kann höchstens {{ limit }} Zeichen umfassen.">
         <source>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</source>
-        <target>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</target>
+        <target>Le pseudo doit contenir {{ limit }} caractères au maximum.</target>
       </trans-unit>
       <trans-unit id="WvW8_JI" resname="Die eingegebene E-Mail Adresse ist nicht gültig.">
         <source>Die eingegebene E-Mail Adresse ist nicht gültig.</source>
-        <target>Die eingegebene E-Mail Adresse ist nicht gültig.</target>
+        <target>Cette adresse e-mail ne semble pas valide.</target>
       </trans-unit>
       <trans-unit id="6UV8ek7" resname="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
-        <target>Die eingegebenen E-Mail Adressen stimmen nicht überein.</target>
+        <target>L'adresse e-mail de vérification ne correspond pas à l'adresse e-mail.</target>
       </trans-unit>
       <trans-unit id="AHjj6mV" resname="Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.">
         <source>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</source>
-        <target>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</target>
+        <target>Votre mot de passe doit contenir au moins {{ limit }} caractères.</target>
       </trans-unit>
       <trans-unit id="OK9eVbg" resname="Die eingegebenen Passwörter stimmen nicht überein.">
         <source>Die eingegebenen Passwörter stimmen nicht überein.</source>
-        <target>Die eingegebenen Passwörter stimmen nicht überein.</target>
+        <target>Le mot de passe de confirmation ne correspond pas au mot de passe.</target>
       </trans-unit>
       <trans-unit id="a9.cyds" resname="Der Validierungscode muss {{ limit }} Zeichen umfassen.">
         <source>Der Validierungscode muss {{ limit }} Zeichen umfassen.</source>
-        <target>Der Validierungscode muss {{ limit }} Zeichen umfassen.</target>
+        <target>Le code de vérification est composé de {{ limit }} caractères.</target>
       </trans-unit>
       <trans-unit id="0f1ZNLd" resname="Der angegebene Validierungscode ist nicht gültig.">
         <source>Der angegebene Validierungscode ist nicht gültig.</source>
-        <target>Der angegebene Validierungscode ist nicht gültig.</target>
+        <target>Ce code de vérification est invalide.</target>
       </trans-unit>
       <trans-unit id="ePGiZSF" resname="Der angegebene Name existiert bereits im Spiel.">
         <source>Der angegebene Name existiert bereits im Spiel.</source>
-        <target>Der angegebene Name existiert bereits im Spiel.</target>
+        <target>Ce pseudo est déjà utilisé par un autre joueur.</target>
       </trans-unit>
       <trans-unit id="kVhhGdk" resname="Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.">
         <source>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</source>
-        <target>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</target>
+        <target>Cette adresse e-mail est déjà utilisée par un autre joueur.</target>
       </trans-unit>
       <trans-unit id="Qu4FAIf" resname="E-Mail Adresse validieren">
         <source>E-Mail Adresse validieren</source>
-        <target>E-Mail Adresse validieren</target>
+        <target>Vérification de l'adresse e-mail</target>
       </trans-unit>
       <trans-unit id="TM0i7i7" resname="Hallo %name%!">
         <source>Hallo %name%!</source>
-        <target>Hallo %name%!</target>
+        <target>Bienvenue %name%!</target>
       </trans-unit>
       <trans-unit id="UA_FeeT" resname="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
         <source>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</source>
-        <target>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</target>
+        <target>Avant de commencer, vous devez valider votre adresse e-mail.</target>
       </trans-unit>
       <trans-unit id="JeRbwqT" resname="Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.">
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
-        <target>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</target>
+        <target>Veuillez saisir le code de vérification que vous avez reçu par e-mail.</target>
       </trans-unit>
       <trans-unit id="ANnpnHZ" resname="Validierungscode">
         <source>Validierungscode</source>
-        <target>Validierungscode</target>
+        <target>Code de vérification</target>
       </trans-unit>
       <trans-unit id="ocoTV1m" resname="Prüfen">
         <source>Prüfen</source>
-        <target>Prüfen</target>
+        <target>Vérifier</target>
       </trans-unit>
       <trans-unit id="tkZocIU" resname="Ausloggen">
         <source>Ausloggen</source>
-        <target>Ausloggen</target>
+        <target>Déconnexion</target>
       </trans-unit>
       <trans-unit id="VBEBU.F" resname="Du hast noch keinen Account?">
         <source>Du hast noch keinen Account?</source>
-        <target>Du hast noch keinen Account?</target>
+        <target>Pas de compte?</target>
       </trans-unit>
       <trans-unit id="pMJydfA" resname="Registrieren!">
         <source>Registrieren!</source>
-        <target>Registrieren!</target>
+        <target>S'inscrire!</target>
       </trans-unit>
       <trans-unit id="0wO.38C" resname="Du hast deine E-Mail Adresse schon validiert?">
         <source>Du hast deine E-Mail Adresse schon validiert?</source>
-        <target>Du hast deine E-Mail Adresse schon validiert?</target>
+        <target>Avez-vous déjà validé votres adresse e-mail ?</target>
       </trans-unit>
       <trans-unit id="cLGN4MZ" resname="Einloggen!">
         <source>Einloggen!</source>
-        <target>Einloggen!</target>
+        <target>Connexion!</target>
       </trans-unit>
       <trans-unit id="m8bXbyH" resname="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
         <source>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
-        <target>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</target>
+        <target>La vérification a échoué. Veuillez vérifier votre saisie.</target>
       </trans-unit>
       <trans-unit id="Bw.Ze07" resname="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
-        <target>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</target>
+        <target>Certains champs ne sont pas remplis correctement. Veuillez vérifier votre saisie.</target>
       </trans-unit>
       <trans-unit id="O63JhDQ" resname="Registrieren">
         <source>Registrieren</source>
-        <target>Registrieren</target>
+        <target>S'inscrire</target>
       </trans-unit>
       <trans-unit id="VR0KmfL" resname="Spielername">
         <source>Spielername</source>
-        <target>Spielername</target>
+        <target>Pseudo</target>
       </trans-unit>
       <trans-unit id="Up_TjZv" resname="E-Mail Adresse">
         <source>E-Mail Adresse</source>
-        <target>E-Mail Adresse</target>
+        <target>Adresse mail</target>
       </trans-unit>
       <trans-unit id="QNpwRBL" resname="wiederholen">
         <source>wiederholen</source>
-        <target>wiederholen</target>
+        <target>confirmation</target>
       </trans-unit>
       <trans-unit id="o2wQFXD" resname="Passwort">
         <source>Passwort</source>
-        <target>Passwort</target>
+        <target>Mot de passe</target>
       </trans-unit>
       <trans-unit id="MI8TC0R" resname="Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen&#10;                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.">
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
-        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
-                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+        <target>Pour finaliser votre inscription, vous devrez consulter votre boite mail et renseigner le code qui vous a été envoyé.</target>
       </trans-unit>
       <trans-unit id="._jFtS_" resname="Du hast schon einen Account?">
         <source>Du hast schon einen Account?</source>
-        <target>Du hast schon einen Account?</target>
+        <target>Déjà inscrit ?</target>
       </trans-unit>
       <trans-unit id="kTHLCAW" resname="Einloggen">
         <source>Einloggen</source>
-        <target>Einloggen</target>
+        <target>Se Connecter</target>
       </trans-unit>
       <trans-unit id="k.cRHPZ" resname="Bitte gib deinen Spielernamen und dein Passwort ein.">
         <source>Bitte gib deinen Spielernamen und dein Passwort ein.</source>
-        <target>Bitte gib deinen Spielernamen und dein Passwort ein.</target>
+        <target>Veuillez renseigner votre pseudo et votre mot de passe.</target>
       </trans-unit>
       <trans-unit id="ku3di7g" resname="Login fehlgeschlagen. Bitte prüfe deine Eingaben.">
         <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
-        <target>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</target>
+        <target>La connexion a échoué. Veuillez vérifier votre saisie.</target>
       </trans-unit>
     </body>
   </file>
