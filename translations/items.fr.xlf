@@ -191,7 +191,7 @@
       </trans-unit>
       <trans-unit id="fxoSn0F" resname="Riemen">
         <source>Riemen</source>
-        <target>Ceinture à poches</target>
+        <target>Ceinture</target>
       </trans-unit>
       <trans-unit id="toP999A" resname="Handvoll Schrauben und Muttern">
         <source>Handvoll Schrauben und Muttern</source>
@@ -239,7 +239,7 @@
       </trans-unit>
       <trans-unit id=".HTB.ix" resname="Zeltplane">
         <source>Zeltplane</source>
-        <target>Rideau</target>
+        <target>Toile de tente</target>
       </trans-unit>
       <trans-unit id="17I74tP" resname="Superpraktischer Rucksack">
         <source>Superpraktischer Rucksack</source>
@@ -283,7 +283,7 @@
       </trans-unit>
       <trans-unit id=".v0f_Ta" resname="Videoprojektor">
         <source>Videoprojektor</source>
-        <target>Videoprojektor</target>
+        <target>Vidéoprojecteur</target>
       </trans-unit>
       <trans-unit id="1QAZbip" resname="Sprengstoff">
         <source>Sprengstoff</source>
@@ -315,7 +315,7 @@
       </trans-unit>
       <trans-unit id="sOILTLw" resname="Klebeband">
         <source>Klebeband</source>
-        <target>Klebeband</target>
+        <target>Ruban adhésif</target>
       </trans-unit>
       <trans-unit id="lvvVLfS" resname="Zerlegter Rasenmäher">
         <source>Zerlegter Rasenmäher</source>
@@ -335,111 +335,111 @@
       </trans-unit>
       <trans-unit id="E_mYVPX" resname="Twinoid 500mg">
         <source>Twinoid 500mg</source>
-        <target>Twinoid 500mg</target>
+        <target>Twinoïde 500mg</target>
       </trans-unit>
       <trans-unit id="07uvmvu" resname="Metallkiste">
         <source>Metallkiste</source>
-        <target>Metallkiste</target>
+        <target>Boîte en métal</target>
       </trans-unit>
       <trans-unit id="noOxbGo" resname="Großer Metallkoffer">
         <source>Großer Metallkoffer</source>
-        <target>Großer Metallkoffer</target>
+        <target>Gros coffre en métal</target>
       </trans-unit>
       <trans-unit id="Cu3BBfx" resname="Werkzeugkiste">
         <source>Werkzeugkiste</source>
-        <target>Werkzeugkiste</target>
+        <target>Outils en vrac</target>
       </trans-unit>
       <trans-unit id="lRZoAQB" resname="Nachttischlampe (an)">
         <source>Nachttischlampe (an)</source>
-        <target>Nachttischlampe (an)</target>
+        <target>Lampe de chevet (Allumée)</target>
       </trans-unit>
       <trans-unit id="bhfe9ps" resname="Mini Hi-Fi Anlage (an)">
         <source>Mini Hi-Fi Anlage (an)</source>
-        <target>Mini Hi-Fi Anlage (an)</target>
+        <target>Petite chaîne HiFi (Allumée)</target>
       </trans-unit>
       <trans-unit id="Ly8qhtu" resname="Pharmazeutische Substanz">
         <source>Pharmazeutische Substanz</source>
-        <target>Pharmazeutische Substanz</target>
+        <target>Produits Pharmaceutiques</target>
       </trans-unit>
       <trans-unit id="b9Bz03N" resname="Unverarbeitete Blechplatten">
         <source>Unverarbeitete Blechplatten</source>
-        <target>Unverarbeitete Blechplatten</target>
+        <target>Débris métalliques</target>
       </trans-unit>
       <trans-unit id="ueb3oVd" resname="'Wake The Dead'">
         <source>'Wake The Dead'</source>
-        <target>'Wake The Dead'</target>
+        <target>"Debout-les-morts"</target>
       </trans-unit>
       <trans-unit id="wiaY28_" resname="Heißer Kaffee">
         <source>Heißer Kaffee</source>
-        <target>Heißer Kaffee</target>
+        <target>Café brûlant</target>
       </trans-unit>
       <trans-unit id="GknQp7i" resname="Kaffeekocher">
         <source>Kaffeekocher</source>
-        <target>Kaffeekocher</target>
+        <target>Cafetière</target>
       </trans-unit>
       <trans-unit id="MS.4Q1R" resname="Unvollständiger Kaffeekocher">
         <source>Unvollständiger Kaffeekocher</source>
-        <target>Unvollständiger Kaffeekocher</target>
+        <target>Cafetière incomplète</target>
       </trans-unit>
       <trans-unit id="W3yXIHZ" resname="Elektronisches Bauteil">
         <source>Elektronisches Bauteil</source>
-        <target>Elektronisches Bauteil</target>
+        <target>Composant électronique</target>
       </trans-unit>
       <trans-unit id="jmju1vc" resname="Habseligkeiten eines Bürgers">
         <source>Habseligkeiten eines Bürgers</source>
-        <target>Habseligkeiten eines Bürgers</target>
+        <target>Affaires d'un citoyen</target>
       </trans-unit>
       <trans-unit id="amQyoPc" resname="Hydraton 100mg">
         <source>Hydraton 100mg</source>
-        <target>Hydraton 100mg</target>
+        <target>Hydratone 100mg</target>
       </trans-unit>
       <trans-unit id="lOo2w0W" resname="Kassettenradio (ohne Strom)">
         <source>Kassettenradio (ohne Strom)</source>
-        <target>Kassettenradio (ohne Strom)</target>
+        <target>Radio K7 éteint</target>
       </trans-unit>
       <trans-unit id="z5_Zr48" resname="Kassettenradio">
         <source>Kassettenradio</source>
-        <target>Kassettenradio</target>
+        <target>Radio K7</target>
       </trans-unit>
       <trans-unit id="pVtld9L" resname="Zyanid">
         <source>Zyanid</source>
-        <target>Zyanid</target>
+        <target>Cyanure</target>
       </trans-unit>
       <trans-unit id="TKW8Gi8" resname="Alte Tür">
         <source>Alte Tür</source>
-        <target>Alte Tür</target>
+        <target>Vieille porte</target>
       </trans-unit>
       <trans-unit id="f2f7XU." resname="Verdächtiges Gemüse">
         <source>Verdächtiges Gemüse</source>
-        <target>Verdächtiges Gemüse</target>
+        <target>Légume suspect</target>
       </trans-unit>
       <trans-unit id="Hm4Wet3" resname="Reparaturset (kaputt)">
         <source>Reparaturset (kaputt)</source>
-        <target>Reparaturset (kaputt)</target>
+        <target>Kit de bricolage abimé</target>
       </trans-unit>
       <trans-unit id="jBFNQQG" resname="Reparaturset">
         <source>Reparaturset</source>
-        <target>Reparaturset</target>
+        <target>Kit de bricolage</target>
       </trans-unit>
       <trans-unit id="1LjG807" resname="Wasserpistole (leer)">
         <source>Wasserpistole (leer)</source>
-        <target>Wasserpistole (leer)</target>
+        <target>Pistolet à eau (Vide)</target>
       </trans-unit>
       <trans-unit id="6p7Eyez" resname="Aqua-Splash (3 Ladungen)">
         <source>Aqua-Splash (3 Ladungen)</source>
-        <target>Aqua-Splash (3 Ladungen)</target>
+        <target>Pistolet à eau (3 Charges)</target>
       </trans-unit>
       <trans-unit id="SslDPfH" resname="Aqua-Splash (2 Ladungen)">
         <source>Aqua-Splash (2 Ladungen)</source>
-        <target>Aqua-Splash (2 Ladungen)</target>
+        <target>Pistolet à eau (2 Charges)</target>
       </trans-unit>
       <trans-unit id="UESHvBl" resname="Aqua-Splash (1 Ladung)">
         <source>Aqua-Splash (1 Ladung)</source>
-        <target>Aqua-Splash (1 Ladung)</target>
+        <target>Pistolet à eau (1 Charge)</target>
       </trans-unit>
       <trans-unit id="jJPD2VA" resname="Handmixer (ohne Strom)">
         <source>Handmixer (ohne Strom)</source>
-        <target>Handmixer (ohne Strom)</target>
+        <target>Batteur électrique éteint</target>
       </trans-unit>
       <trans-unit id="hEtEe9i" resname="Kettensäge (ohne Strom)">
         <source>Kettensäge (ohne Strom)</source>
@@ -447,11 +447,11 @@
       </trans-unit>
       <trans-unit id="4yWesEi" resname="Batteriewerfer 1-PDTG (entladen)">
         <source>Batteriewerfer 1-PDTG (entladen)</source>
-        <target>Batteriewerfer 1-PDTG (entladen)</target>
+        <target>Lance-Pile 1-PDTG (Vide)</target>
       </trans-unit>
       <trans-unit id="VjisjD7" resname="Taser (ohne Strom)">
         <source>Taser (ohne Strom)</source>
-        <target>Taser (ohne Strom)</target>
+        <target>Taser</target>
       </trans-unit>
       <trans-unit id="Pv.PdId" resname="Elektrischer Bauchmuskeltrainer (ohne Strom)">
         <source>Elektrischer Bauchmuskeltrainer (ohne Strom)</source>
