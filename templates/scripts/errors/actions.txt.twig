@@ -1,3 +1,3 @@
-{{ constant('App\\Service\\ActionHandler::ErrorActionUnregistered') }}: '{% trans from 'game' %}Diese Aktion ist ungültig.{% endtrans %}',
-{{ constant('App\\Service\\ActionHandler::ErrorActionImpossible') }}: '{% trans from 'game' %}Diese Aktion ist nicht verfügbar.{% endtrans %}',
-{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}: '{% trans from 'game' %}Das kannst du zur Zeit nicht tun.{% endtrans %}',
+{{ constant('App\\Service\\ActionHandler::ErrorActionUnregistered') }}: '{{'Diese Aktion ist ungültig.'|trans({},'game')|e('js')}}',
+{{ constant('App\\Service\\ActionHandler::ErrorActionImpossible') }}: '{{'Diese Aktion ist nicht verfügbar.'|trans({},'game')|e('js')}}',
+{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}: '{{'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js')}}',
