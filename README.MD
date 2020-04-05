@@ -41,6 +41,18 @@ bin/console app:users --help
 
 ```
 
+## Configuration
+
+* Edit .env.local to configure database access
+* If you don't run MyHordes in your web root, you'll need to create an additional file in the project root named webpack.config.local.js:
+
+```javascript
+module.exports = {
+    output_path: 'public/build/',   // Path to the build directory
+    public_path: '/myhordes/build/' // URL to access the build directory via the webserver
+};
+```
+
 ## Update
 
 ```bash

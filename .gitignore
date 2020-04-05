@@ -24,4 +24,6 @@ yarn-error.log
 # Composer
 composer.phar
 
+# Local webpack config
+webpack.config.local.js
 .vscode/

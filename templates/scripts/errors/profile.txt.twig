@@ -1,3 +1,3 @@
-{{ constant('App\\Service\\UserFactory::ErrorInvalidParams') }}:  '{% trans from 'login' %}Der angegebene Validierungscode ist nicht gültig.{% endtrans %}',
-{{ constant('App\\Service\\UserFactory::ErrorUserExists') }}:     '{% trans from 'login' %}Der angegebene Name existiert bereits im Spiel.{% endtrans %}',
-{{ constant('App\\Service\\UserFactory::ErrorMailExists') }}:     '{% trans from 'login' %}Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.{% endtrans %}',
+{{ constant('App\\Service\\UserFactory::ErrorInvalidParams') }}:  '{{'Der angegebene Validierungscode ist nicht gültig.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorUserExists') }}:     '{{'Der angegebene Name existiert bereits im Spiel.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorMailExists') }}:     '{{'Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.'|trans({},'login')|e('js')}}',

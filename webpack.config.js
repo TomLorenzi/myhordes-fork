@@ -6,11 +6,14 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
 
+var local = [];
+try { local = require('./webpack.config.local'); } catch (e) {}
+
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('public/build/')
+    .setOutputPath( local.output_path ? local.output_path :  'public/build/')
     // public path used by the web server to access the output path
-    .setPublicPath('/build/')
+    .setPublicPath( local.public_path ? local.public_path : '/build/')
     // only needed for CDN's or sub-directory deploy
     .setManifestKeyPrefix('build')
 
