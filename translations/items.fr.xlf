@@ -111,11 +111,11 @@
       </trans-unit>
       <trans-unit id="DJ1c6UW" resname="Jagdmesser">
         <source>Jagdmesser</source>
-        <target>Jagdmesser</target>
+        <target>Couteau à dents</target>
       </trans-unit>
       <trans-unit id="rdcUdHR" resname="Machete">
         <source>Machete</source>
-        <target>Machete</target>
+        <target>Machette</target>
       </trans-unit>
       <trans-unit id="Ea27AVu" resname="Lächerliches Taschenmesser">
         <source>Lächerliches Taschenmesser</source>
@@ -127,7 +127,7 @@
       </trans-unit>
       <trans-unit id="2IVF.rU" resname="Teppichmesser">
         <source>Teppichmesser</source>
-        <target>Teppichmesser</target>
+        <target>Cutter</target>
       </trans-unit>
       <trans-unit id="8uv0wqA" resname="Einkaufswagen">
         <source>Einkaufswagen</source>
@@ -179,7 +179,7 @@
       </trans-unit>
       <trans-unit id="qaikS7a" resname="Fußabstreifer">
         <source>Fußabstreifer</source>
-        <target>Fußabstreifer</target>
+        <target>Paillasson</target>
       </trans-unit>
       <trans-unit id="aXcoDsG" resname="Ein paar Würfel">
         <source>Ein paar Würfel</source>
@@ -191,7 +191,7 @@
       </trans-unit>
       <trans-unit id="fxoSn0F" resname="Riemen">
         <source>Riemen</source>
-        <target>Riemen</target>
+        <target>Ceinture à poches</target>
       </trans-unit>
       <trans-unit id="toP999A" resname="Handvoll Schrauben und Muttern">
         <source>Handvoll Schrauben und Muttern</source>
@@ -239,7 +239,7 @@
       </trans-unit>
       <trans-unit id=".HTB.ix" resname="Zeltplane">
         <source>Zeltplane</source>
-        <target>Zeltplane</target>
+        <target>Rideau</target>
       </trans-unit>
       <trans-unit id="17I74tP" resname="Superpraktischer Rucksack">
         <source>Superpraktischer Rucksack</source>
@@ -275,7 +275,7 @@
       </trans-unit>
       <trans-unit id="mQY0FL_" resname="Grüne Bierflasche">
         <source>Grüne Bierflasche</source>
-        <target>Grüne Bierflasche</target>
+        <target>Bière</target>
       </trans-unit>
       <trans-unit id="S8U3w9C" resname="Kanisterpumpe (leer)">
         <source>Kanisterpumpe (leer)</source>
