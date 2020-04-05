@@ -251,7 +251,7 @@
       </trans-unit>
       <trans-unit id="2dPpxn7" resname="Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.">
         <source>Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.</source>
-        <target>Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.</target>
+        <target>Malheureusement, vous n'avez actuellement accès à aucun forum. Veuillez réessayer ultérieurement.</target>
       </trans-unit>
       <trans-unit id="QI_O4UJ" resname="Verschüttete Ruine">
         <source>Verschüttete Ruine</source>
@@ -271,7 +271,7 @@
       </trans-unit>
       <trans-unit id="wkJT.qQ" resname="Stadttor">
         <source>Stadttor</source>
-        <target>Stadttor</target>
+        <target>Grande Porte</target>
       </trans-unit>
       <trans-unit id="NqjEmUx" resname="Karte">
         <source>Karte</source>
@@ -299,7 +299,7 @@
       </trans-unit>
       <trans-unit id="dizwCRc" resname="Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!">
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
-        <target>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</target>
+        <target>Vous pouvez sortir de la ville et explorer l'Outre-Monde depuis ici. N'oubliez pas de garder la Grande Porte fermée lors de l'attaque à minuit !</target>
       </trans-unit>
       <trans-unit id="UgTjBPn" resname="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
@@ -307,7 +307,7 @@
       </trans-unit>
       <trans-unit id="_rfFVtg" resname="Meine Aktionen">
         <source>Meine Aktionen</source>
-        <target>Meine Aktionen</target>
+        <target>Mes Actions</target>
       </trans-unit>
       <trans-unit id="Ja76Y2N" resname="Tor schließen">
         <source>Tor schließen</source>
@@ -315,19 +315,19 @@
       </trans-unit>
       <trans-unit id="0UyjBX6" resname="Tor öffnen">
         <source>Tor öffnen</source>
-        <target>Tor öffnen</target>
+        <target>Ouvrir les portes</target>
       </trans-unit>
       <trans-unit id="uhQorE4" resname="Route planen...">
         <source>Route planen...</source>
-        <target>Route planen...</target>
+        <target>Préparer une expédition</target>
       </trans-unit>
       <trans-unit id="wKVgmMx" resname="Stadt verlassen">
         <source>Stadt verlassen</source>
-        <target>Stadt verlassen</target>
+        <target>Sortir dans l'Outre-Monde...</target>
       </trans-unit>
       <trans-unit id="VHo.w1Y" resname="Stadttor-Register">
         <source>Stadttor-Register</source>
-        <target>Stadttor-Register</target>
+        <target>Porte de la ville</target>
       </trans-unit>
       <trans-unit id="oCYA07E" resname="Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.">
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
@@ -363,11 +363,11 @@
       </trans-unit>
       <trans-unit id="ZI5NoYl" resname="Tag %day%">
         <source>Tag %day%</source>
-        <target>Tag %day%</target>
+        <target>Jour %day%</target>
       </trans-unit>
       <trans-unit id="HMtmyP_" resname="Rucksack">
         <source>Rucksack</source>
-        <target>Rucksack</target>
+        <target>Sac à dos</target>
       </trans-unit>
       <trans-unit id="n__v7g9" resname="Truhe">
         <source>Truhe</source>
@@ -375,27 +375,27 @@
       </trans-unit>
       <trans-unit id="X3ACy1e" resname="Truhe und Aktionen">
         <source>Truhe und Aktionen</source>
-        <target>Truhe und Aktionen</target>
+        <target>Coffre et Actions</target>
       </trans-unit>
       <trans-unit id="jsTL6lr" resname="Mein(e) %type%">
         <source>Mein(e) %type%</source>
-        <target>Mein(e) %type%</target>
+        <target>Aménagements</target>
       </trans-unit>
       <trans-unit id="lQhjNcE" resname="Bauarbeiten">
         <source>Bauarbeiten</source>
-        <target>Bauarbeiten</target>
+        <target>Travaux</target>
       </trans-unit>
       <trans-unit id="PA2qVgw" resname="Dein Beschreibungstext">
         <source>Dein Beschreibungstext</source>
-        <target>Dein Beschreibungstext</target>
+        <target></target>
       </trans-unit>
       <trans-unit id="9rL.OfV" resname="Speichern">
         <source>Speichern</source>
-        <target>Speichern</target>
+        <target>Inscrire mon annonce</target>
       </trans-unit>
       <trans-unit id="vwfykUF" resname="Du hast %num% anonyme Anzeige(n).">
         <source>Du hast %num% anonyme Anzeige(n).</source>
-        <target>Du hast %num% anonyme Anzeige(n).</target>
+        <target>Vous avez reçu %num% plaintes anonymes.</target>
       </trans-unit>
       <trans-unit id="0drragL" resname="Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...">
         <source>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</source>
@@ -403,61 +403,60 @@
       </trans-unit>
       <trans-unit id="2zVOnFs" resname="In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.">
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</target>
+        <target>La colonne de gauche présente les actions permises par vos objets. Celle de droite montre le contenu de votre sac à dos et de votre coffre de maison.</target>
       </trans-unit>
       <trans-unit id="mvdJ1gZ" resname="Meine Spezialaktionen">
         <source>Meine Spezialaktionen</source>
-        <target>Meine Spezialaktionen</target>
+        <target>Mes actions spéciales</target>
       </trans-unit>
       <trans-unit id="zSx1h9s" resname="Rucksack ausleeren">
         <source>Rucksack ausleeren</source>
-        <target>Rucksack ausleeren</target>
+        <target>Vider mon sac à dos dans le coffre</target>
       </trans-unit>
       <trans-unit id="bd_whxO" resname="Mein Register">
         <source>Mein Register</source>
-        <target>Mein Register</target>
+        <target>Mon registre</target>
       </trans-unit>
       <trans-unit id="HbM7uO9" resname="Verteidigung und Dekoration">
         <source>Verteidigung und Dekoration</source>
-        <target>Verteidigung und Dekoration</target>
+        <target>Défense et Décoration</target>
       </trans-unit>
       <trans-unit id="77.Cp5H" resname="Verteidigung">
         <source>Verteidigung</source>
-        <target>Verteidigung</target>
+        <target>Défense</target>
       </trans-unit>
       <trans-unit id="ESh2aNj" resname="durch Haus">
         <source>durch Haus</source>
-        <target>durch Haus</target>
+        <target>Habitations</target>
       </trans-unit>
       <trans-unit id="bhU20pv" resname="durch Beruf">
         <source>durch Beruf</source>
-        <target>durch Beruf</target>
+        <target>Bonus Héros</target>
       </trans-unit>
       <trans-unit id="d5El4_h" resname="durch Ausbauten">
         <source>durch Ausbauten</source>
-        <target>durch Ausbauten</target>
+        <target>Travaux</target>
       </trans-unit>
       <trans-unit id="0Rphz24" resname="durch Gegenstände">
         <source>durch Gegenstände</source>
-        <target>durch Gegenstände</target>
+        <target>Objets</target>
       </trans-unit>
       <trans-unit id=".k1cQGO" resname="Dekoration">
         <source>Dekoration</source>
-        <target>Dekoration</target>
+        <target>Décoration</target>
       </trans-unit>
       <trans-unit id="aai5fCx" resname="Gegenstände">
         <source>Gegenstände</source>
-        <target>Gegenstände</target>
+        <target>Objets</target>
       </trans-unit>
       <trans-unit id="UfaHlFI" resname="Ausbauten">
         <source>Ausbauten</source>
-        <target>Ausbauten</target>
+        <target>Travaux</target>
       </trans-unit>
       <trans-unit id="32LY7bW" resname="Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine&#10;                        Ausbauten funktionslos.">
         <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</source>
-        <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</target>
+        <target>Seul les héros peuvent effectuer des améliorations. En tant qu'habitant, vous ne bénéficiez pas des avantages de celles-ci.</target>
       </trans-unit>
       <trans-unit id="XhECS_Z" resname="Stufe %level%">
         <source>Stufe %level%</source>
@@ -465,19 +464,19 @@
       </trans-unit>
       <trans-unit id="RmaV9PR" resname="Mein Haus ausbauen">
         <source>Mein Haus ausbauen</source>
-        <target>Mein Haus ausbauen</target>
+        <target>Améliorer sa maison</target>
       </trans-unit>
       <trans-unit id="J53z_38" resname="Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.">
         <source>Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.</source>
-        <target>Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.</target>
+        <target>En améliorant votre maison, vous augmentez la défense qu'elle vous procurera pendant l'attaque de minuit !</target>
       </trans-unit>
       <trans-unit id="9.thJKR" resname="Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.">
         <source>Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.</source>
-        <target>Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.</target>
+        <target>Le premier niveau d'amélioration vous donne aussi accès aux travaux personnels.</target>
       </trans-unit>
       <trans-unit id="LpICvqt" resname="Bauen">
         <source>Bauen</source>
-        <target>Bauen</target>
+        <target>Construire</target>
       </trans-unit>
       <trans-unit id="0uS2PQd" resname="Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:">
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
@@ -489,7 +488,7 @@
       </trans-unit>
       <trans-unit id="1XZ6TGN" resname="Für diesen Ausbau werden keine Gegenstände benötigt.">
         <source>Für diesen Ausbau werden keine Gegenstände benötigt.</source>
-        <target>Für diesen Ausbau werden keine Gegenstände benötigt.</target>
+        <target>Cette amélioration ne nécessite aucun objet.</target>
       </trans-unit>
       <trans-unit id="x7duHnG" resname="Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.">
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
@@ -521,15 +520,15 @@
       </trans-unit>
       <trans-unit id="u_yrL5q" resname="Tot!">
         <source>Tot!</source>
-        <target>Tot!</target>
+        <target>Mort!</target>
       </trans-unit>
       <trans-unit id="fV5wxwj" resname="In der Stadt">
         <source>In der Stadt</source>
-        <target>In der Stadt</target>
+        <target>--</target>
       </trans-unit>
       <trans-unit id="5TOztAt" resname="Am Stadttor">
         <source>Am Stadttor</source>
-        <target>Am Stadttor</target>
+        <target>[0,0]</target>
       </trans-unit>
       <trans-unit id="Voc3Ntu" resname="Neue einfache Route">
         <source>Neue einfache Route</source>
@@ -711,15 +710,15 @@
       </trans-unit>
       <trans-unit id="hbYU0EF" resname="Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.">
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</target>
+        <target>Voici l'intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des dons des citoyens. Ils serviront notamment à construire des bâtiments communautaires ou défendre la ville lors des attaques quotidiennes de la Horde.</target>
       </trans-unit>
       <trans-unit id="U0vMVpy" resname="Bankregister">
         <source>Bankregister</source>
-        <target>Bankregister</target>
+        <target>Banque</target>
       </trans-unit>
       <trans-unit id="TygUMhY" resname="In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.">
         <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</target>
+        <target>Cette section permet de participer à la construction de nouveaux bâtiments. Commencez par récupérer des ressources dans le désert (bois, métal...), puis apportez des Points d'Action (PA) au bâtiment qui vous intéresse le plus.</target>
       </trans-unit>
       <trans-unit id="yrqg0t2" resname="Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle&#10;                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class=&quot;ap&quot;&gt;&lt;/div&gt;.">
         <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
@@ -733,7 +732,7 @@
       </trans-unit>
       <trans-unit id="m_7J.WC" resname="Baustellenregister">
         <source>Baustellenregister</source>
-        <target>Baustellenregister</target>
+        <target>Constructions</target>
       </trans-unit>
       <trans-unit id="0m1lFXV" resname="Wie viele Aktionspunkte möchtest du in den Bau investieren?">
         <source>Wie viele Aktionspunkte möchtest du in den Bau investieren?</source>
@@ -741,7 +740,7 @@
       </trans-unit>
       <trans-unit id="CNDL68g" resname="%rations% Rationen Wasser übrig">
         <source>%rations% Rationen Wasser übrig</source>
-        <target>%rations% Rationen Wasser übrig</target>
+        <target>%rations% rations d'eau restantes</target>
       </trans-unit>
       <trans-unit id="qv0A9J5" resname="Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.">
         <source>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</source>
@@ -753,7 +752,7 @@
       </trans-unit>
       <trans-unit id="syHx5ID" resname="Deine Ration Wasser erhalten">
         <source>Deine Ration Wasser erhalten</source>
-        <target>Deine Ration Wasser erhalten</target>
+        <target>Obtenir votre ration d'eau !</target>
       </trans-unit>
       <trans-unit id="unhSN_Y" resname="Eine weitere Ration erhalten">
         <source>Eine weitere Ration erhalten</source>
@@ -765,35 +764,35 @@
       </trans-unit>
       <trans-unit id="BMwsxtX" resname="Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).">
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</target>
+        <target>L'eau est indispensable pour récupérer ses Points d'action une fois par jour (en buvant) et pour servir de munitions contre les zombies (l'eau pure détruit les morts-vivants).</target>
       </trans-unit>
       <trans-unit id="96udPgY" resname="Brunnenregister">
         <source>Brunnenregister</source>
-        <target>Brunnenregister</target>
+        <target>Puits</target>
       </trans-unit>
       <trans-unit id="Inm9E03" resname="Stadt">
         <source>Stadt</source>
-        <target>Stadt</target>
+        <target>Ville</target>
       </trans-unit>
       <trans-unit id="uq5UdLr" resname="Mein Haus">
         <source>Mein Haus</source>
-        <target>Mein Haus</target>
+        <target>Ma Maison</target>
       </trans-unit>
       <trans-unit id="lQNhv.P" resname="Brunnen">
         <source>Brunnen</source>
-        <target>Brunnen</target>
+        <target>Puits</target>
       </trans-unit>
       <trans-unit id="Z2xHG8j" resname="Bank">
         <source>Bank</source>
-        <target>Bank</target>
+        <target>Banque</target>
       </trans-unit>
       <trans-unit id="FlZntyi" resname="Bürger">
         <source>Bürger</source>
-        <target>Bürger</target>
+        <target>Citoyens</target>
       </trans-unit>
       <trans-unit id="OlFB1V6" resname="Konstruktionen">
         <source>Konstruktionen</source>
-        <target>Konstruktionen</target>
+        <target>Chantiers</target>
       </trans-unit>
       <trans-unit id="SVMpOGM" resname="Kaum erforschte Zone">
         <source>Kaum erforschte Zone</source>
@@ -957,7 +956,7 @@
       </trans-unit>
       <trans-unit id=".1viyI2" resname="Zeitung">
         <source>Zeitung</source>
-        <target>Zeitung</target>
+        <target>Gazette</target>
       </trans-unit>
       <trans-unit id="r6ej4.8" resname="Aktionspunkte">
         <source>Aktionspunkte</source>
@@ -987,55 +986,53 @@
       </trans-unit>
       <trans-unit id="6UFJBEW" resname="Verbannt">
         <source>Verbannt</source>
-        <target>Verbannt</target>
+        <target>Banni</target>
       </trans-unit>
       <trans-unit id="IV3fj_Y" resname="Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur&#10;                        Verfügung.">
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</target>
+        <target>Les citoyens ont décidé de vous exclure de la communauté. Certains actions net sont désormais plus disponibles pour vous.</target>
       </trans-unit>
       <trans-unit id="Qc.QL70" resname="Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in&#10;                dieser Stadt zur Verfügung.">
         <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.</source>
-        <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</target>
+        <target>Selon la profession que vous choisissez, vous aurez différentes actions et manières de jouer disponibles lors de cette ville.</target>
       </trans-unit>
       <trans-unit id="kw2Iw8G" resname="Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der&#10;                Stadt aus, musst du als einfacher Einwohner weiterspielen.">
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
+        <target>En tant que %hero%, un jour héros vous sera déduit chaque jour.
+                Si vous êtes toujours en ville et n'en avez plus, vous continuerez la partie en tant qu'habitant.</target>
       </trans-unit>
       <trans-unit id="hc1h_MP" resname="Held">
         <source>Held</source>
-        <target>Held</target>
+        <target>Héros</target>
       </trans-unit>
       <trans-unit id="nbN6CQm" resname="Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage&#10;                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.">
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</target>
+        <target>En tant qu'%citizen%, vous n'utiliserez pas de jours héros.
+                Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
       </trans-unit>
       <trans-unit id="hlH9eeR" resname="Einwohner">
         <source>Einwohner</source>
-        <target>Einwohner</target>
+        <target>Habitant</target>
       </trans-unit>
       <trans-unit id="ssGV66L" resname="Wähle einen Beruf">
         <source>Wähle einen Beruf</source>
-        <target>Wähle einen Beruf</target>
+        <target>Choisissez votre profession</target>
       </trans-unit>
       <trans-unit id="CreTS5x" resname="Alle Einträge anzeigen">
         <source>Alle Einträge anzeigen</source>
-        <target>Alle Einträge anzeigen</target>
+        <target>Afficher toutes les entrées</target>
       </trans-unit>
       <trans-unit id="FQORaiq" resname="Tag">
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Jour</target>
       </trans-unit>
       <trans-unit id="UTfIdgy" resname="Clean">
         <source>Clean</source>
-        <target>Clean</target>
+        <target>Clair(e)</target>
       </trans-unit>
       <trans-unit id="2rjbtHk" resname="Getrunken">
         <source>Getrunken</source>
@@ -1407,11 +1404,11 @@
       </trans-unit>
       <trans-unit id="ZWfE2Vb" resname="%citizen% hat der Stadt folgendes gespendet: %item%">
         <source>%citizen% hat der Stadt folgendes gespendet: %item%</source>
-        <target>%citizen% hat der Stadt folgendes gespendet: %item%</target>
+        <target>%citizen% a donné %item% à la ville.</target>
       </trans-unit>
       <trans-unit id="d8vpz_8" resname="%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%">
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</target>
+        <target>%citizen% a pris %item% dans les coffres de la Banque !</target>
       </trans-unit>
       <trans-unit id="R43wWvR" resname="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
@@ -1572,6 +1569,10 @@
       <trans-unit id="4hCJabi" resname="Leiche grillen">
         <source>Leiche grillen</source>
         <target>Leiche grillen</target>
+      </trans-unit>
+      <trans-unit id="yFVdfG6" resname="Rucksack in der Bank ausleeren">
+        <source>Rucksack in der Bank ausleeren</source>
+        <target>Vider son sac dans la banque</target>
       </trans-unit>
     </body>
   </file>
