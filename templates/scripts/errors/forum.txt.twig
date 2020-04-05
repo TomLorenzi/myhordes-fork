@@ -1,3 +1,3 @@
-{{ constant('App\\Controller\\ForumController::ErrorForumNotFound') }}: '{% trans from 'global' %}Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.{% endtrans %}',
-{{ constant('App\\Controller\\ForumController::ErrorPostTextLength') }}: '{% trans from 'global' %}Dein Text muss mindestens 10 Zeichen lang sein.{% endtrans %}',
-{{ constant('App\\Controller\\ForumController::ErrorPostTitleLength') }}: '{% trans from 'global' %}Dein Titel muss zwischen 3 und 64 Zeichen lang sein.{% endtrans %}',
+{{ constant('App\\Controller\\ForumController::ErrorForumNotFound') }}  : '{{'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.'|trans({},'global')|e('js')}}',
+{{ constant('App\\Controller\\ForumController::ErrorPostTextLength') }} : '{{'Dein Text muss mindestens 10 Zeichen lang sein.'|trans({},'global')|e('js')}}',
+{{ constant('App\\Controller\\ForumController::ErrorPostTitleLength') }}: '{{'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.'|trans({},'global')|e('js')}}',
