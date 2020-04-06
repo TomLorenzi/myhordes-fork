@@ -143,7 +143,7 @@ class GameFactory
         return $resolution;
     }
 
-    public function createTown( ?string $name, int $population, string $type, string $language = "de" ): ?Town {
+    public function createTown( ?string $name, ?string $language, int $population, string $type ): ?Town {
         if (!$this->validator->validateTownType($type) || !$this->validator->validateTownPopulation( $population, $type ))
             return null;
 
@@ -153,6 +153,7 @@ class GameFactory
             ->setType( $townClass )
             ->setPopulation( $population )
             ->setName( $name ?: $this->createTownName($language) )
+            ->setLanguage( $language )
             ->setBank( new Inventory() )
             ->setWell( $this->getDefaultWell($townClass) );
 

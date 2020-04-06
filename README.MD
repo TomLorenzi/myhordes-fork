@@ -19,8 +19,8 @@ bin/console doctrine:fixtures:load --append
 yarn install
 yarn encore dev
 
-# Create a new town
-bin/console app:create-town remote 40
+# Create a new town (available languages de, en, fr)
+bin/console app:create-town remote 40 de
 
 # Add debug users (password = password)
 bin/console app:debug --add-debug-users
