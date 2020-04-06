@@ -675,15 +675,15 @@
       </trans-unit>
       <trans-unit id="ONUCqKb" resname="Geldbündel">
         <source>Geldbündel</source>
-        <target>Geldbündel</target>
+        <target>Liasse de billets</target>
       </trans-unit>
       <trans-unit id="vi1Y.GI" resname="Loses Werkzeug">
         <source>Loses Werkzeug</source>
-        <target>Loses Werkzeug</target>
+        <target>Outils en vrac</target>
       </trans-unit>
       <trans-unit id="Qu3viNf" resname="Radius Mark II (entladen)">
         <source>Radius Mark II (entladen)</source>
-        <target>Radius Mark II (entladen)</target>
+        <target>Radius Mark II (déchargé)</target>
       </trans-unit>
       <trans-unit id="BY3bv3L" resname="Radius Mark II">
         <source>Radius Mark II</source>
@@ -691,215 +691,215 @@
       </trans-unit>
       <trans-unit id="HEOYOjQ" resname="Reparatur Fix">
         <source>Reparatur Fix</source>
-        <target>Reparatur Fix</target>
+        <target>Clé à molette</target>
       </trans-unit>
       <trans-unit id="1homVRE" resname="Unvollständiger Motor">
         <source>Unvollständiger Motor</source>
-        <target>Unvollständiger Motor</target>
+        <target>Moteur incomplet</target>
       </trans-unit>
       <trans-unit id="qx9.KDV" resname="Alte Waschmaschine">
         <source>Alte Waschmaschine</source>
-        <target>Alte Waschmaschine</target>
+        <target>Vieille machine à laver</target>
       </trans-unit>
       <trans-unit id="pqPAanY" resname="Krebserregender Ofen">
         <source>Krebserregender Ofen</source>
-        <target>Krebserregender Ofen</target>
+        <target>Four cancérigène</target>
       </trans-unit>
       <trans-unit id="sfRw7Bh" resname="Minibar">
         <source>Minibar</source>
-        <target>Minibar</target>
+        <target>Réfrigérateur d'étudiant</target>
       </trans-unit>
       <trans-unit id="t9rX1Ix" resname="Ein Brief ohne Adresse">
         <source>Ein Brief ohne Adresse</source>
-        <target>Ein Brief ohne Adresse</target>
+        <target>Une lettre sans adresse</target>
       </trans-unit>
       <trans-unit id="5MZoarU" resname="Aufgewelltes Blatt">
         <source>Aufgewelltes Blatt</source>
-        <target>Aufgewelltes Blatt</target>
+        <target>Feuille raccornie</target>
       </trans-unit>
       <trans-unit id="9.sIwMj" resname="Betriebsanleitung">
         <source>Betriebsanleitung</source>
-        <target>Betriebsanleitung</target>
+        <target>Manuel d'instructions</target>
       </trans-unit>
       <trans-unit id="_qPfDwA" resname="Unleserliches Notizbuch">
         <source>Unleserliches Notizbuch</source>
-        <target>Unleserliches Notizbuch</target>
+        <target>Carnet illisible</target>
       </trans-unit>
       <trans-unit id="G40OxHQ" resname="Fotoalbum">
         <source>Fotoalbum</source>
-        <target>Fotoalbum</target>
+        <target>Album photo</target>
       </trans-unit>
       <trans-unit id="d99K37k" resname="Blätterstapel">
         <source>Blätterstapel</source>
-        <target>Blätterstapel</target>
+        <target>Pile de feuilles</target>
       </trans-unit>
       <trans-unit id="JB5ivlG" resname="Große rostige Kette">
         <source>Große rostige Kette</source>
-        <target>Große rostige Kette</target>
+        <target>Grosse chaîne rouillée</target>
       </trans-unit>
       <trans-unit id="mRVfEiv" resname="Verdächtige Speise">
         <source>Verdächtige Speise</source>
-        <target>Verdächtige Speise</target>
+        <target>Plat fait-maison douteux</target>
       </trans-unit>
       <trans-unit id="fPytc7G" resname="Leckere Speise">
         <source>Leckere Speise</source>
-        <target>Leckere Speise</target>
+        <target>Bon plat fait-maison</target>
       </trans-unit>
       <trans-unit id="p512E0m" resname="Schrankkoffer">
         <source>Schrankkoffer</source>
-        <target>Schrankkoffer</target>
+        <target>Cantine en fer</target>
       </trans-unit>
       <trans-unit id="rdJsF0L" resname="Kartons">
         <source>Kartons</source>
-        <target>Kartons</target>
+        <target>Cartons</target>
       </trans-unit>
       <trans-unit id="qwrpOoz" resname="Nagelbare Barrikade">
         <source>Nagelbare Barrikade</source>
-        <target>Nagelbare Barrikade</target>
+        <target>Barricades à clouer</target>
       </trans-unit>
       <trans-unit id="PaCdCNf" resname="Ein Briefumschlag">
         <source>Ein Briefumschlag</source>
-        <target>Ein Briefumschlag</target>
+        <target>Une enveloppe</target>
       </trans-unit>
       <trans-unit id="bolKfwN" resname="Ein Paket">
         <source>Ein Paket</source>
-        <target>Ein Paket</target>
+        <target>Un colis</target>
       </trans-unit>
       <trans-unit id="yXOvAeJ" resname="Maschendrahtzaunstück">
         <source>Maschendrahtzaunstück</source>
-        <target>Maschendrahtzaunstück</target>
+        <target>Morceau de grillage</target>
       </trans-unit>
       <trans-unit id="tAL1.1o" resname="Wasserpistole (3 Ladungen)">
         <source>Wasserpistole (3 Ladungen)</source>
-        <target>Wasserpistole (3 Ladungen)</target>
+        <target>Pistolet à eau (3 charges)</target>
       </trans-unit>
       <trans-unit id="1hL22Tg" resname="Wasserpistole (2 Ladungen)">
         <source>Wasserpistole (2 Ladungen)</source>
-        <target>Wasserpistole (2 Ladungen)</target>
+        <target>Pistolet à eau (2 charges)</target>
       </trans-unit>
       <trans-unit id="AAqFf0Z" resname="Wasserpistole (1 Ladung)">
         <source>Wasserpistole (1 Ladung)</source>
-        <target>Wasserpistole (1 Ladung)</target>
+        <target>Pistolet à eau (1 charge)</target>
       </trans-unit>
       <trans-unit id="138nZNe" resname="Aqua-Splash (5 Ladungen)">
         <source>Aqua-Splash (5 Ladungen)</source>
-        <target>Aqua-Splash (5 Ladungen)</target>
+        <target>Aqua-Splash (5 charges)</target>
       </trans-unit>
       <trans-unit id="ZS835lb" resname="Aqua-Splash (4 Ladungen)">
         <source>Aqua-Splash (4 Ladungen)</source>
-        <target>Aqua-Splash (4 Ladungen)</target>
+        <target>Aqua-Splash (4 charges)</target>
       </trans-unit>
       <trans-unit id="utDsdSV" resname="Angefangene Zigarettenschachtel">
         <source>Angefangene Zigarettenschachtel</source>
-        <target>Angefangene Zigarettenschachtel</target>
+        <target>Paquet de cigarettes entamé</target>
       </trans-unit>
       <trans-unit id="BBIHHfq" resname="Druckregler PDTT Mark II">
         <source>Druckregler PDTT Mark II</source>
-        <target>Druckregler PDTT Mark II</target>
+        <target>Calibrateur PDTT Mark II</target>
       </trans-unit>
       <trans-unit id="sM.vO4L" resname="Batteriewerfer Mark II (leer)">
         <source>Batteriewerfer Mark II (leer)</source>
-        <target>Batteriewerfer Mark II (leer)</target>
+        <target>Lance-pile Mark II (vide)</target>
       </trans-unit>
       <trans-unit id="pSPwIaf" resname="Batteriewerfer Mark II (geladen)">
         <source>Batteriewerfer Mark II (geladen)</source>
-        <target>Batteriewerfer Mark II (geladen)</target>
+        <target>Lance-pile Mark II (chargé)</target>
       </trans-unit>
       <trans-unit id="DrdIvIa" resname="Zerquetschte Batterie">
         <source>Zerquetschte Batterie</source>
-        <target>Zerquetschte Batterie</target>
+        <target>Pile broyée</target>
       </trans-unit>
       <trans-unit id="hxmelON" resname="Kiste mit Materialien (3)">
         <source>Kiste mit Materialien (3)</source>
-        <target>Kiste mit Materialien (3)</target>
+        <target>Caisse de matériel (3)</target>
       </trans-unit>
       <trans-unit id="_Ya0SdM" resname="Kiste mit Materialien (2)">
         <source>Kiste mit Materialien (2)</source>
-        <target>Kiste mit Materialien (2)</target>
+        <target>Caisse de matériel (2)</target>
       </trans-unit>
       <trans-unit id="C60bLXY" resname="Kiste mit Materialien (1)">
         <source>Kiste mit Materialien (1)</source>
-        <target>Kiste mit Materialien (1)</target>
+        <target>Caisse de matériel (1)</target>
       </trans-unit>
       <trans-unit id="TeBNdiF" resname="Autotür">
         <source>Autotür</source>
-        <target>Autotür</target>
+        <target>Portière de voiture</target>
       </trans-unit>
       <trans-unit id="2Xg3q.j" resname="Beschädigte Autotür">
         <source>Beschädigte Autotür</source>
-        <target>Beschädigte Autotür</target>
+        <target>Portière de voiture incomplète</target>
       </trans-unit>
       <trans-unit id="SLEpWnE" resname="Giftfläschchen">
         <source>Giftfläschchen</source>
-        <target>Giftfläschchen</target>
+        <target>Fiole de poison</target>
       </trans-unit>
       <trans-unit id="cNhsjiq" resname="Ätzmittel">
         <source>Ätzmittel</source>
-        <target>Ätzmittel</target>
+        <target>Produit corrosif</target>
       </trans-unit>
       <trans-unit id="sm0ZoHJ" resname="Vorräte eines umsichtigen Bürgers">
         <source>Vorräte eines umsichtigen Bürgers</source>
-        <target>Vorräte eines umsichtigen Bürgers</target>
+        <target>Réserves d'un citoyen avisé</target>
       </trans-unit>
       <trans-unit id="vfyB7g4" resname="Postpaket">
         <source>Postpaket</source>
-        <target>Postpaket</target>
+        <target>Colis postal</target>
       </trans-unit>
       <trans-unit id="kiXYPyy" resname="Lunch-Box">
         <source>Lunch-Box</source>
-        <target>Lunch-Box</target>
+        <target>Boîte-déjeuner</target>
       </trans-unit>
       <trans-unit id="UVBggyY" resname="Eine Handvoll Bonbons">
         <source>Eine Handvoll Bonbons</source>
-        <target>Eine Handvoll Bonbons</target>
+        <target>Poignée de bonbons</target>
       </trans-unit>
       <trans-unit id="yK9GDNM" resname="Sperrholzstück">
         <source>Sperrholzstück</source>
-        <target>Sperrholzstück</target>
+        <target>Morceau de contreplaqué</target>
       </trans-unit>
       <trans-unit id="2.wFBkZ" resname="Fackel">
         <source>Fackel</source>
-        <target>Fackel</target>
+        <target>Torche</target>
       </trans-unit>
       <trans-unit id="oAz7EXL" resname="Verbrauchte Fackel">
         <source>Verbrauchte Fackel</source>
-        <target>Verbrauchte Fackel</target>
+        <target>Torche consumée</target>
       </trans-unit>
       <trans-unit id="9vWCENy" resname="Getrocknete Marshmallows">
         <source>Getrocknete Marshmallows</source>
-        <target>Getrocknete Marshmallows</target>
+        <target>Chamallows séchés</target>
       </trans-unit>
       <trans-unit id="g3eU0or" resname="Geröstete Marshmallows">
         <source>Geröstete Marshmallows</source>
-        <target>Geröstete Marshmallows</target>
+        <target>Chamallows calcinés</target>
       </trans-unit>
       <trans-unit id="f4_LJsB" resname="PC-Gehäuse">
         <source>PC-Gehäuse</source>
-        <target>PC-Gehäuse</target>
+        <target>Unité centrale</target>
       </trans-unit>
       <trans-unit id="T58Nq80" resname="Safe">
         <source>Safe</source>
-        <target>Safe</target>
+        <target>Coffre-fort</target>
       </trans-unit>
       <trans-unit id="5KDa1D7" resname="Eine Enzyklopädie">
         <source>Eine Enzyklopädie</source>
-        <target>Eine Enzyklopädie</target>
+        <target>Une encyclopédie</target>
       </trans-unit>
       <trans-unit id="AHASEYQ" resname="Wasserspender (leer)">
         <source>Wasserspender (leer)</source>
-        <target>Wasserspender (leer)</target>
+        <target>Bonbonne d'eau (vide)</target>
       </trans-unit>
       <trans-unit id="SPLICbh" resname="Wasserspender (1 Ration)">
         <source>Wasserspender (1 Ration)</source>
-        <target>Wasserspender (1 Ration)</target>
+        <target>Bonbonne d'eau (1 ration)</target>
       </trans-unit>
       <trans-unit id="DqdgpMC" resname="Wasserspender (2 Rationen)">
         <source>Wasserspender (2 Rationen)</source>
-        <target>Wasserspender (2 Rationen)</target>
+        <target>Bonbonne d'eau (2 rations)</target>
       </trans-unit>
       <trans-unit id="hbYHhbK" resname="Wasserspender (3 Rationen)">
         <source>Wasserspender (3 Rationen)</source>
-        <target>Wasserspender (3 Rationen)</target>
+        <target>Bonbonne d'eau (3 rations)</target>
       </trans-unit>
       <trans-unit id="9kUAXmE" resname="Abgelaufene Betapropin-Tablette 5mg">
         <source>Abgelaufene Betapropin-Tablette 5mg</source>
