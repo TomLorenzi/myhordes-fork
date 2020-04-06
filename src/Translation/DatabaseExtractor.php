@@ -87,13 +87,13 @@ class DatabaseExtractor implements ExtractorInterface
         //<editor-fold desc="Game Domain">
         foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status)
             /** @var $status CitizenStatus */
-            if ($status->getLabel())
+            if (!$status->getHidden() && $status->getLabel())
                 $this->insert( $c, $status->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession)
             /** @var $profession CitizenProfession */
             if ($profession->getLabel())
-                $this->insert( $c, $status->getLabel(), 'game' );
+                $this->insert( $c, $profession->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone)
             /** @var $zone ZonePrototype */
