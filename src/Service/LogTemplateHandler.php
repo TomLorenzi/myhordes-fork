@@ -608,7 +608,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackProduction( Building $building, ?array $items = [] ): TownLogEntry {
-        $items = array_map( function(Item $e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
+        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
 
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )
