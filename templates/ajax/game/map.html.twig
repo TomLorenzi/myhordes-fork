@@ -121,6 +121,7 @@
                                     {% endif %}
 
                                     {% if plane_x == 0 and plane_y == 0 %}
+                                        <div class="ruin" style="background-image: url({{ asset('build/images/building/town.gif') }})"></div>
                                         {% if zone_players > 0 %}
                                             {% for n in 1..zone_players %}
                                                 <div class="actor citizen" style="left: {{ random(45,55) }}%; top: {{ random(45,55) }}%"></div>

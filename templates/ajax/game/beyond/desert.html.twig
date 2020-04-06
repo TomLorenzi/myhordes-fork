@@ -96,7 +96,7 @@
                 </button>
             {% endif %}
             {% if show_ventilation %}
-                <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{{ 'Durch die Lüftungsschächte klettern' }}</button>
+                <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
             {% endif %}
             {% if zone.x != 0 or zone.y != 0 %}
                 {% if not digging %}

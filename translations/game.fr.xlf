@@ -1610,6 +1610,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Westen</source>
         <target>l'Ouest</target>
       </trans-unit>
+      <trans-unit id="25G93ga" resname="Durch die Lüftungsschächte klettern">
+        <source>Durch die Lüftungsschächte klettern</source>
+        <target>Passer par la conduite d'aération</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
