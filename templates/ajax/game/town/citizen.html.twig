@@ -3,8 +3,8 @@
 
     <div class="row-table">
         <div class="row">
-            <div class="padded cell rw-12 rw-md-12">
-                {{ "In der Stadt wohnen @citizens Bürger."|trans({ [ '@citizens' => citizens|length ] },'game') }}
+            <div class="padded cell small rw-12 rw-md-12">
+                {{ "In der Stadt wohnen @citizens Bürger."|trans({ '@citizens': citizens|length },'game') }}
             </div>
         </div>
         {% for citizen in citizens %}
