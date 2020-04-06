@@ -9,7 +9,7 @@
                 {% if scout and not entry.action.keepsCover %}
                     <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
                 {% endif %}
-                <span>{{ entry.action.label|trans({},'game') }}: <b>{{ entry.item.prototype.label|trans({},'items') }}</b></span>
+                <span>{{ entry.action.label|trans({},'items') }}: <b>{{ entry.item.prototype.label|trans({},'items') }}</b></span>
                 {% if entry.targets is not null and not entry.crossed %}
                     <div class="targets" x-target-selection-for="{{ entry.action.id }}-{{ entry.item.id }}">
                         {% if entry.targets|length > 0 %}
