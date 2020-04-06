@@ -21,6 +21,17 @@
                     <div x-ajax-href="{{ path(addon[1]) }}" class="cell padded-small rw-12 {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}"><div><div><div></div><span>{{ addon[0]|trans({},'buildings') }}</span></div></div></div>
                 {% endfor %}
             </div>
+
+            <div class="row town-buildings">
+                <ul>
+                {% for building in buildings %}
+                    <li class="cell padded-small rw-12">
+                        <img alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" /> {{ building.label|trans({},'buildings') }}<br />
+                        {% if building.defense > 0 %}<em>+ {{building.defense}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
         </div>
         <div class="padded cell rw-8 rw-sm-12">
             {% block content %}
