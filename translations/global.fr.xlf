@@ -19,7 +19,7 @@
       </trans-unit>
       <trans-unit id="1rA34oT" resname="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
         <source>Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</source>
-        <target>Votre tritre doit contenir entre 3 et 64 charactères.</target>
+        <target>Votre titre doit contenir entre 3 et 64 charactères.</target>
       </trans-unit>
       <trans-unit id="3r067AY" resname="Kommunikationsfehler.">
         <source>Kommunikationsfehler.</source>

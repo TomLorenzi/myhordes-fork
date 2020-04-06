@@ -11,15 +11,15 @@
       </trans-unit>
       <trans-unit id="yeqnW9g" resname="Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!">
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>Wow, vous avez fait un triple. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
       </trans-unit>
       <trans-unit id="rmGP8Al" resname="Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!">
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>Wow, vous avez eu une suite. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
       </trans-unit>
       <trans-unit id="Gk9gFU8" resname="Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!">
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>Wow, vous avez tiré 4-2-1. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
       </trans-unit>
       <trans-unit id="087WiZd" resname="Nicht schlecht, du hast einen Pasch geworfen.">
         <source>Nicht schlecht, du hast einen Pasch geworfen.</source>
@@ -27,19 +27,19 @@
       </trans-unit>
       <trans-unit id="oGFgAoX" resname="Was für ein Spaß!">
         <source>Was für ein Spaß!</source>
-        <target>Was für ein Spaß!</target>
+        <target>C'était fun !</target>
       </trans-unit>
       <trans-unit id="zcpU78C" resname="Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!">
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</target>
+        <target>Vous tirez une carte... et vous trouvez votre nom inscrit en lettres de sang ! Vous êtes terrorisés !</target>
       </trans-unit>
       <trans-unit id="NcJ93EV" resname="Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.">
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</target>
+        <target>Vous tirez une carte... et vous trouvez les règles du jeu. Cela vous fait sourire et vous gagnez 1 PA.</target>
       </trans-unit>
       <trans-unit id="Awf25tt" resname="Du ziehst eine Karte... es ist {article} {color} {value}.">
         <source>Du ziehst eine Karte... es ist {article} {color} {value}.</source>
-        <target>Du ziehst eine Karte... es ist {article} {color} {value}.</target>
+        <target>Vous tirez une carte... c'est {article} {color} {value}.</target>
       </trans-unit>
       <trans-unit id="kPlE9C6" resname="Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.">
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
@@ -47,7 +47,7 @@
       </trans-unit>
       <trans-unit id="i6dx5ZQ" resname="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
-        <target>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</target>
+        <target>Le symbole de l'amour... Votre cœur fond et vous gagnez 1 PA.</target>
       </trans-unit>
       <trans-unit id="9tVy8rd" resname="Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.">
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
@@ -1603,7 +1603,7 @@
       </trans-unit>
       <trans-unit id="Kl2AzsC" resname="Du ziehst eine Karte... es ist: {color} {value}.">
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Du ziehst eine Karte... es ist: {color} {value}.</target>
+        <target>Vous tirez une carte... es ist: {color} {value}.</target>
       </trans-unit>
     </body>
   </file>
