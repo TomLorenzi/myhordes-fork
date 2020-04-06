@@ -13,6 +13,7 @@ use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\DigTimer;
 use App\Entity\Forum;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\ItemGroup;
 use App\Entity\Town;
@@ -236,6 +237,11 @@ class GameFactory
         $chest
             ->addItem( $this->item_factory->createItem( 'chest_citizen_#00' ) )
             ->addItem( $this->item_factory->createItem( 'food_bag_#00' ) );
+
+        $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
+        foreach ($heroic_actions as $heroic_action)
+            /** @var $heroic_action HeroicActionPrototype */
+            $citizen->addHeroicAction( $heroic_action );
 
         $this->entity_manager->persist( $this->log->citizenJoin( $citizen ) );
 

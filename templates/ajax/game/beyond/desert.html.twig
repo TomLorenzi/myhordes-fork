@@ -138,7 +138,7 @@
                     {% endif %}
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode)} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode)} %}
                 {% endembed %}
 
             {% else %}
@@ -296,10 +296,19 @@
             'up', '{{ path('beyond_dashboard') }}'
         );
 
+        handleHeroicActions(
+            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
+
+        handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
             '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}'

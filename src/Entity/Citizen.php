@@ -130,12 +130,18 @@ class Citizen
      */
     private $trashCounter;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\HeroicActionPrototype")
+     */
+    private $heroicActions;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
         $this->digTimers = new ArrayCollection();
         $this->expeditionRoutes = new ArrayCollection();
         $this->complaints = new ArrayCollection();
+        $this->heroicActions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -472,6 +478,32 @@ class Citizen
     public function setTrashCounter(?TrashCounter $trashCounter): self
     {
         $this->trashCounter = $trashCounter;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|HeroicActionPrototype[]
+     */
+    public function getHeroicActions(): Collection
+    {
+        return $this->heroicActions;
+    }
+
+    public function addHeroicAction(HeroicActionPrototype $heroicAction): self
+    {
+        if (!$this->heroicActions->contains($heroicAction)) {
+            $this->heroicActions[] = $heroicAction;
+        }
+
+        return $this;
+    }
+
+    public function removeHeroicAction(HeroicActionPrototype $heroicAction): self
+    {
+        if ($this->heroicActions->contains($heroicAction)) {
+            $this->heroicActions->removeElement($heroicAction);
+        }
 
         return $this;
     }

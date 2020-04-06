@@ -233,7 +233,7 @@ ul.inventory {
   &.bank { background: url("../img/inv_bank.gif") repeat center; min-height: 100px;}
 }
 
-ul.actions {
+ul.actions, ul.heroic_actions {
   padding: 5px 2px; .box();
   &>li {
     list-style: none; padding: 2px 2px 2px 10px; font-size: 12px; font-variant: small-caps;
@@ -249,6 +249,7 @@ ul.actions {
       &>ul {
         margin: 0; padding: 0; font-size: 0;
         &>li {
+          &>div { font-size: 12px; }
           list-style: none; padding: 2px; margin: 2px; display: inline-block; cursor: pointer; border: 1px solid transparent;
           &:hover { background: saturate( @myhordes-smalltext, 30% ); border-color: darken(@myhordes-smalltext, 20%) }
         }

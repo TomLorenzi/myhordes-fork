@@ -115,7 +115,7 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
-    public function wellAdd( Citizen $citizen, Item $item, int $count ): TownLogEntry {
+    public function wellAdd( Citizen $citizen, ?Item $item, int $count ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeWell )
             ->setClass( TownLogEntry::ClassInfo )
@@ -123,7 +123,9 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.', [
+            ->setText( $this->trans->trans($item
+                ? '%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.'
+                : '%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%item%'    => $this->wrap( $this->iconize( $item ) ),
                 '%num%'     => $this->wrap( "$count" ),

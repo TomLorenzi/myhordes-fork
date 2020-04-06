@@ -1,30 +1,73 @@
 {% if scout is not defined %}
     {% set scout = false %}
 {% endif %}
+
+{% macro target_popup( action_id, provoking_id, targets, target_for, text_having, text_missing, close_button = false, big = false ) %}
+    <div class="targets" x-target-selection-for="{{ target_for }}">
+        {% if targets|length > 0 %}
+            <span>{{ text_having }}</span>
+            <ul>
+                {% for target in targets %}
+                    {# @var item \App\Entity\Item #}
+                    <li x-action-id="{{ action_id }}" {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}" >
+                        {% if big %}
+                            <div><img src="{{ asset(target[2]) }}" alt="{{ target[1] }}"> {{ target[1] }}</div>
+                        {% else %}
+                            <img src="{{ asset(target[2]) }}" alt="{{ target[1] }}">
+                        {% endif %}
+
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <span>{{ text_missing }}</span>
+        {% endif %}
+        {% if close_button %}
+            <div class="right"><span x-close-for="{{ target_for }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% if heroics|length > 0 %}
+    <button x-heroic-toggle="1"><img src="{{ asset('build/images/star.gif') }}" alt="">{{ 'Heldentaten' }}</button>
+    <ul class="heroic_actions">
+        {% for entry in heroics %}
+            <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}"{% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
+                <img src="{{ asset('build/images/star.gif') }}" alt="">
+                {% if scout and not entry.action.keepsCover %}
+                    <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
+                {% endif %}
+                <span><b>{{ entry.action.label|trans({},'game') }}</b></span>
+                {% if entry.targets is not null and not entry.crossed %}
+                    {% if entry.target_mode == 2 %}
+                        {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true ) }}
+                    {% else %}
+                        {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false ) }}
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% endfor %}
+        <li><div class="right pointer small" x-heroic-toggle="0">{{ 'Schließen'|trans({},'global') }}</div></li>
+    </ul>
+
+{% endif %}
+
 {% if list|length > 0 or recipes.recipes|length > 0  %}
     <ul class="actions">
         {% for entry in list %}
-            <li class="action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.action.id }}" x-provoking-id="{{ entry.item.id }}"{% else %}x-target-definition="{{ entry.action.id }}-{{ entry.item.id }}"{% endif %}>
+            <li class="action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-provoking-id="{{ entry.item.id }}"{% else %}x-target-definition="{{ entry.id }}--{{ entry.item.id }}"{% endif %}>
                 <img src="{{ asset('build/images/item/item_' ~ entry.item.prototype.icon ~ '.gif') }}" alt="{{ entry.item.prototype.label|trans({},'items') }}">
                 {% if scout and not entry.action.keepsCover %}
                     <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
                 {% endif %}
-                <span>{{ entry.action.label|trans({},'items') }}: <b>{{ entry.item.prototype.label|trans({},'items') }}</b></span>
+                <span>{{ '%action%: %item%'|trans({'%action%': entry.action.label|trans({},'items')|e('html'), '%item%': '<b>' ~ entry.item.prototype.label|trans({},'items')|e('html') ~ '</b>'},'items')|raw }}</span>
                 {% if entry.targets is not null and not entry.crossed %}
-                    <div class="targets" x-target-selection-for="{{ entry.action.id }}-{{ entry.item.id }}">
-                        {% if entry.targets|length > 0 %}
-                            <span>{{ 'Bitte wähle einen Gegenstand:'|trans({},'game') }}</span>
-                            <ul>
-                                {% for item in entry.targets %}
-                                    {# @var item \App\Entity\Item #}
-                                    <li x-action-id="{{ entry.action.id }}" x-provoking-id="{{ entry.item.id }}" x-target-id="{{ item.id }}" ><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item.prototype.label|trans({},'items') }}"></li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            <span>{{ 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game') }}</span>
-                        {% endif %}
-                        <div class="right"><span x-close-for="{{ entry.action.id }}-{{ entry.item.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
-                    </div>
+
+                    {% if entry.target_mode == 2 %}
+                        {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true ) }}
+                    {% else %}
+                        {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false ) }}
+                    {% endif %}
                 {% endif %}
             </li>
         {% endfor %}

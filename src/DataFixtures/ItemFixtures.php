@@ -400,8 +400,8 @@ class ItemFixtures extends Fixture
         'concrete_wall_#00'=> [ 'impoundable', 'defence' ],
         'wood_bad_#00'     => [ 'impoundable', 'ressource' ],
         'metal_bad_#00'    => [ 'impoundable', 'ressource' ],
-        'wood2_#00'        => [ 'impoundable', 'ressource' ],
-        'metal_#00'        => [ 'impoundable', 'ressource' ],
+        'wood2_#00'        => [ 'impoundable', 'ressource', 'hero_find' ],
+        'metal_#00'        => [ 'impoundable', 'ressource', 'hero_find' ],
         'wood_beam_#00'    => [ 'impoundable', 'ressource' ],
         'metal_beam_#00'   => [ 'impoundable', 'ressource' ],
         'courroie_#00'     => [ 'impoundable', 'ressource' ],
@@ -412,7 +412,7 @@ class ItemFixtures extends Fixture
         'meca_parts_#00'   => [ 'impoundable', 'ressource' ],
         'explo_#00'        => [ 'impoundable', 'ressource' ],
         'mecanism_#00'     => [ 'impoundable', 'ressource' ],
-        'grenade_#00'        => [ 'impoundable', 'weapon' ],
+        'grenade_#00'        => [ 'impoundable', 'weapon', 'hero_find' ],
         'bgrenade_#00'       => [ 'impoundable', 'weapon' ],
         'boomfruit_#00'      => [ 'impoundable', 'weapon' ],
         'pilegun_#00'        => [ 'impoundable', 'weapon' ],
@@ -450,7 +450,7 @@ class ItemFixtures extends Fixture
         'pharma_part_#00'     => [ 'impoundable', 'drug' ],
         'lsd_#00'             => [ 'impoundable', 'drug' ],
         'radio_on_#00'        => [ 'impoundable' ],
-        'water_#00'        => [ 'can_poison' ],
+        'water_#00'        => [ 'can_poison', 'hero_find' ],
         'can_open_#00'     => [ 'can_poison' ],
         'vegetable_#00'    => [ 'can_poison' ],
         'fruit_#00'        => [ 'can_poison' ],
@@ -459,6 +459,10 @@ class ItemFixtures extends Fixture
         'water_can_1_#00'  => [ 'can_poison' ],
         'cyanure_#00'      => [ 'can_poison' ],
         'lock_#00'         => [ 'lock' ],
+        'pile_#00'       => [ 'hero_find' ],
+        'food_bag_#00'   => [ 'hero_find' ],
+        'rsc_pack_2_#00' => [ 'hero_find' ],
+
     ];
 
     public static $item_groups = [
