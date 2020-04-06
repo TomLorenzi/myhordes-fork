@@ -1,5 +1,54 @@
 @import (once) "../theme";
 
+div.zone-beyond {
+  background: black;
+  border: 1px solid #b18a63;
+  height: 80px;
+  background-size: cover;
+
+  &.night-beyond {
+    background: url("../../img/night_outerworld.jpg") 50% 50% no-repeat, black;
+  }
+
+  &.night-city-open {
+    background: url("../../img/night_city_open.jpg") 50% 50% no-repeat, black;
+  }
+}
+div.ambiant {
+  padding: 20px 20px 20px 60px;
+}
+div.zone-camp {
+  padding: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: justify;
+  color: #e2d890;
+  font-size: 8pt;
+  background-color: #996739;
+  overflow: hidden;
+
+  & > input {
+    display: none;
+
+    & + label {
+      cursor: pointer;
+    }
+
+    & + label + .zone-camp-info {
+      max-height: 0;
+      opacity: 0;
+      transition: 200ms;
+
+      p {
+        
+      }
+    }
+    &:checked + label + .zone-camp-info {
+      max-height: 200px;
+      opacity: 1;
+    }
+  }
+}
 div.zone-blocked-warning {
   background: url("../../img/feist.gif") top left no-repeat, #91181a; border: 1px solid #d2161f;
   outline: 1px solid rgba(0,0,0,0.3); padding: 10px 10px 10px 90px;
