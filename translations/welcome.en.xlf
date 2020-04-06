@@ -7,43 +7,42 @@
     <body>
       <trans-unit id="7VfCrWl" resname="Foren">
         <source>Foren</source>
-        <target>Foren</target>
+        <target>Forums</target>
       </trans-unit>
       <trans-unit id="a66OWC." resname="Willkommen bei MyHordes">
         <source>Willkommen bei MyHordes</source>
-        <target>Willkommen bei MyHordes</target>
+        <target>Welcome to MyHordes</target>
       </trans-unit>
       <trans-unit id="Sq5rAhc" resname="MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels&#10;                    &quot;Die Verdammten&quot; von %motiontwin%.">
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</source>
-        <target>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</target>
+        <target>MyHordes is an open implementation of the browser game "Die2Nite"
+          by %motiontwin% and developed by the community.</target>
       </trans-unit>
       <trans-unit id="yIFGZLw" resname="Ziel des Projektes ist es, einer Version von &quot;Die Verdammten&quot; zu erschaffen, die nicht nur nach der&#10;                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen&#10;                    Inhalten versorgt werden kann.">
         <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
-        <target>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
-                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                    Inhalten versorgt werden kann.</target>
+        <target>The aim of this project is to create a version of "Die2Nite", that will
+          not only work after the removal of Flash support in common browsers,
+          but will also be developed beyond the original and receive new content.</target>
       </trans-unit>
       <trans-unit id="mbIzlHW" resname="Zum Spiel">
         <source>Zum Spiel</source>
-        <target>Zum Spiel</target>
+        <target>Game</target>
       </trans-unit>
       <trans-unit id="M_25pDW" resname="Account validieren">
         <source>Account validieren</source>
-        <target>Account validieren</target>
+        <target>Validate account</target>
       </trans-unit>
       <trans-unit id="vMG7P9w" resname="Zum Login">
         <source>Zum Login</source>
-        <target>Zum Login</target>
+        <target>Login</target>
       </trans-unit>
       <trans-unit id="RVQn34R" resname="Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus &quot;Die Verdammten&quot; und sind&#10;                    damit Eigentum von %motiontwin%.">
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
                     damit Eigentum von %motiontwin%.</source>
-        <target>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
-                    damit Eigentum von %motiontwin%.</target>
+        <target>All graphical assets are taken from Die2Nite if not stated otherwise and therefore are property of %motiontwin%.</target>
       </trans-unit>
     </body>
   </file>
