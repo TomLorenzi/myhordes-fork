@@ -19,8 +19,8 @@ bin/console doctrine:fixtures:load --append
 yarn install
 yarn encore dev
 
-# Create a new town
-bin/console app:create-town remote 40
+# Create a new town (available languages de, en, fr)
+bin/console app:create-town remote 40 de
 
 # Add debug users (password = password)
 bin/console app:debug --add-debug-users
@@ -31,7 +31,7 @@ bin/console app:schedule --add "tomorrow"
 bin/console app:schedule --add "now"
 
 
-#EVERYTHING
+# Every commands
 bin/console app:citizen --help
 bin/console app:create-town --help
 bin/console app:create-user --help
@@ -55,6 +55,10 @@ module.exports = {
     public_path: '/myhordes/build/' // URL to access the build directory via the webserver
 };
 ```
+
+## If you have found an untranslatable string
+Add `T::__('text','domain')` in the PHP file you found it
+Run the `bin/console translation:update --force --sort=asc fr --prefix=""` cmdlet to update FR location (available languages : fr, en, de, es)
 
 ## Update
 
