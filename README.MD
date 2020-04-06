@@ -27,6 +27,9 @@ bin/console app:debug --add-debug-users
 
 # Schedule an attack
 bin/console app:schedule --add "tomorrow"
+# Or, to make the attack now
+bin/console app:schedule --add "now"
+
 
 #EVERYTHING
 bin/console app:citizen --help

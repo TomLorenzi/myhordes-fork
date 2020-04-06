@@ -1363,7 +1363,7 @@
       </trans-unit>
       <trans-unit id="u_g_Kg2" resname="Trinken">
         <source>Trinken</source>
-        <target>Trinken</target>
+        <target>Boire</target>
       </trans-unit>
       <trans-unit id="ih8Me2k" resname="Befüllen">
         <source>Befüllen</source>
@@ -1387,7 +1387,7 @@
       </trans-unit>
       <trans-unit id="ohJAffK" resname="Essen">
         <source>Essen</source>
-        <target>Essen</target>
+        <target>Manger</target>
       </trans-unit>
       <trans-unit id="m8ZO.Qg" resname="Einnehmen">
         <source>Einnehmen</source>
