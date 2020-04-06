@@ -219,7 +219,7 @@
       </trans-unit>
       <trans-unit id="4lQ8bY." resname="Du kannst keinen weiteren schweren Gegenstand tragen!">
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Du kannst keinen weiteren schweren Gegenstand tragen!</target>
+        <target>Vous ne pouvez pas porter plus d'un encombrant !</target>
       </trans-unit>
       <trans-unit id="QRxC8ol" resname="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
@@ -263,11 +263,11 @@
       </trans-unit>
       <trans-unit id="8Nqa1HE" resname="Entfernung">
         <source>Entfernung</source>
-        <target>Entfernung</target>
+        <target>Distance</target>
       </trans-unit>
       <trans-unit id="VasxdH5" resname="Routen">
         <source>Routen</source>
-        <target>Routen</target>
+        <target>Expédition</target>
       </trans-unit>
       <trans-unit id="wkJT.qQ" resname="Stadttor">
         <source>Stadttor</source>
@@ -287,11 +287,11 @@
       </trans-unit>
       <trans-unit id="bxRbnw9" resname="Herstellen">
         <source>Herstellen</source>
-        <target>Herstellen</target>
+        <target>Assembler </target>
       </trans-unit>
       <trans-unit id="IzfDfwc" resname="aus">
         <source>aus</source>
-        <target>aus</target>
+        <target>Nécessite </target>
       </trans-unit>
       <trans-unit id="SQxs_a5" resname="Kombinieren">
         <source>Kombinieren</source>
@@ -816,7 +816,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="MwvCTQm" resname="Stadt in %km% Entfernung">
         <source>Stadt in %km% Entfernung</source>
-        <target>Ville à %km% vers (direction)</target>
+        <target>Ville à %km%</target>
       </trans-unit>
       <trans-unit id="AW6aLpM" resname="Am Boden">
         <source>Am Boden</source>
@@ -824,39 +824,39 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="uBY6LwO" resname="Temporäre Zonenkontrolle">
         <source>Temporäre Zonenkontrolle</source>
-        <target>Temporäre Zonenkontrolle</target>
+        <target>Contrôle temporaire</target>
       </trans-unit>
       <trans-unit id="V566.Sb" resname="%z% Zombies kontrollieren diese Zone!">
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% Zombies kontrollieren diese Zone!</target>
+        <target>%z% zombies contrôlent cette zone !</target>
       </trans-unit>
       <trans-unit id="5GwqUxA" resname="Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:">
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</target>
+        <target>C'est votre chance ! Saisissez là et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
       </trans-unit>
       <trans-unit id="1lHHd11" resname="Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...">
         <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</target>
+        <target>Votre Tenue de camouflage vous permet de vous déplacer sans être vu(e).</target>
       </trans-unit>
       <trans-unit id="DJhmFr9" resname="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</target>
+        <target>toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
       </trans-unit>
       <trans-unit id="Zkh813p" resname="Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...">
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</source>
-        <target>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</target>
+        <target>Vous avez été surpris et maintenant vous êtes entouré de zombies ! Si vous ne faites rien, vous allez mourir ici ce soir...</target>
       </trans-unit>
       <trans-unit id="EV7eyTa" resname="Hilfe rufen!">
         <source>Hilfe rufen!</source>
-        <target>Hilfe rufen!</target>
+        <target>Demander de l'aide !</target>
       </trans-unit>
       <trans-unit id="9IuEojL" resname="Die Flucht wagen!">
         <source>Die Flucht wagen!</source>
-        <target>Die Flucht wagen!</target>
+        <target>Prendre la fuite !</target>
       </trans-unit>
       <trans-unit id="vTDaFPO" resname="Gegen einen Zombie kämpfen!">
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>Gegen einen Zombie kämpfen!</target>
+        <target>Attaquer un zombie !</target>
       </trans-unit>
       <trans-unit id="seBLTh9" resname="Diese Zone">
         <source>Diese Zone</source>
@@ -884,7 +884,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Dc6dT95" resname="Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:">
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+        <target>Vous avez déjà creusé dans cette zone. La prochaine fouille est possible dans :</target>
       </trans-unit>
       <trans-unit id="IUt.xlO" resname="In dieser Zone graben">
         <source>In dieser Zone graben</source>
@@ -904,7 +904,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="ftAsu0Q" resname="Müll durchwühlen">
         <source>Müll durchwühlen</source>
-        <target>Müll durchwühlen</target>
+        <target>Fouiller les poubelles</target>
       </trans-unit>
       <trans-unit id="s5pZm5S" resname="Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!">
         <source>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</source>
@@ -1264,7 +1264,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="3jRHmba" resname="Flugzeugwrack">
         <source>Flugzeugwrack</source>
-        <target>Flugzeugwrack</target>
+        <target>Carlingue d'avion</target>
       </trans-unit>
       <trans-unit id="jeS33HC" resname="Gartenhaus">
         <source>Gartenhaus</source>
@@ -1280,7 +1280,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="9x03HdM" resname="Indianerfriedhof">
         <source>Indianerfriedhof</source>
-        <target>Indianerfriedhof</target>
+        <target>Cimetière indien</target>
       </trans-unit>
       <trans-unit id="ruzMP1g" resname="Jahrmarktstand">
         <source>Jahrmarktstand</source>
@@ -1412,7 +1412,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="R43wWvR" resname="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
-        <target>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</target>
+        <target>%citizen% a déposé : %item%.</target>
       </trans-unit>
       <trans-unit id="6zpuvqo" resname="%citizen% hat diesen Gegenstand mitgenommen: %item%">
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
@@ -1472,11 +1472,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="07sRf7u" resname="%citizen% (%profession%) ist aus dem %direction% angekommen.">
         <source>%citizen% (%profession%) ist aus dem %direction% angekommen.</source>
-        <target>%citizen% (%profession%) est arrivé depuis le %direction%.</target>
+        <target>%citizen% (%profession%) est arrivé depuis %direction%.</target>
       </trans-unit>
       <trans-unit id="pCkOgOT" resname="%citizen% hat ein(e,n) %item% ausgegraben!">
         <source>%citizen% hat ein(e,n) %item% ausgegraben!</source>
-        <target>%citizen% a déposé %item% !</target>
+        <target>%citizen% a trouvé %item%.</target>
       </trans-unit>
       <trans-unit id="nHE1X2F" resname="%citizen% hat hier durch Graben nichts gefunden...">
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
@@ -1488,7 +1488,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="WmDHw.1" resname="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</target>
+        <target>%citizen% a déterré le bâtiment, révélant %type%. Hourra !</target>
       </trans-unit>
       <trans-unit id="zTh0a4e" resname="%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!">
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
@@ -1552,7 +1552,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="e.cUavH" resname="%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.">
         <source>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</source>
-        <target>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</target>
+        <target>%citizen% a tué %kills% zombie(s) avec %item%.</target>
       </trans-unit>
       <trans-unit id="41pWf5b" resname="%citizen% hat %kills% Zombies getötet.">
         <source>%citizen% hat %kills% Zombies getötet.</source>
@@ -1577,6 +1577,38 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="mwAKBpm" resname="Meine objekte">
         <source>Meine objekte</source>
         <target>Mes objets</target>
+      </trans-unit>
+      <trans-unit id="LQgPbVT" resname="Nordosten">
+        <source>Nordosten</source>
+        <target>le Nord-Est</target>
+      </trans-unit>
+      <trans-unit id="R9OI7Nm" resname="Nordwesten">
+        <source>Nordwesten</source>
+        <target>le Nord-Ouest</target>
+      </trans-unit>
+      <trans-unit id="dOCvO1b" resname="Norden">
+        <source>Norden</source>
+        <target>le Nord</target>
+      </trans-unit>
+      <trans-unit id="ac.6Rc5" resname="Südosten">
+        <source>Südosten</source>
+        <target>le Sud-Est</target>
+      </trans-unit>
+      <trans-unit id="YE0v6eT" resname="Südwesten">
+        <source>Südwesten</source>
+        <target>le Sud-Ouest</target>
+      </trans-unit>
+      <trans-unit id="qxvJIc." resname="Süden">
+        <source>Süden</source>
+        <target>le Sud</target>
+      </trans-unit>
+      <trans-unit id="xMKWHhf" resname="Osten">
+        <source>Osten</source>
+        <target>l'Est</target>
+      </trans-unit>
+      <trans-unit id="jdRT5Z5" resname="Westen">
+        <source>Westen</source>
+        <target>l'Ouest</target>
       </trans-unit>
     </body>
   </file>

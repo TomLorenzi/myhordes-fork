@@ -373,15 +373,15 @@ class LogTemplateHandler
 
         $str = 'Horizont';
         if ($d_north) {
-            if ($d_east)     $str = 'Nordosten';
-            elseif ($d_west) $str = 'Nordwesten';
-            else             $str = 'Norden';
+            if ($d_east)     $str = T::__('Nordosten', "game");
+            elseif ($d_west) $str = T::__('Nordwesten', "game");
+            else             $str = T::__('Norden', "game");
         } elseif ($d_south) {
-            if ($d_east)     $str = 'Südosten';
-            elseif ($d_west) $str = 'Südwesten';
-            else             $str = 'Süden';
-        } elseif ($d_east)   $str = 'Osten';
-        elseif ($d_west)     $str = 'Westen';
+            if ($d_east)     $str = T::__('Südosten', "game");
+            elseif ($d_west) $str = T::__('Südwesten', "game");
+            else             $str = T::__('Süden', "game");
+        } elseif ($d_east)   $str = T::__('Osten', "game");
+        elseif ($d_west)     $str = T::__('Westen', "game");
 
         if ($is_zero_zone)
             $base = $depart ?  T::__('%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.', 'game') : T::__('%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.', 'game');
