@@ -903,103 +903,103 @@
       </trans-unit>
       <trans-unit id="9kUAXmE" resname="Abgelaufene Betapropin-Tablette 5mg">
         <source>Abgelaufene Betapropin-Tablette 5mg</source>
-        <target>Abgelaufene Betapropin-Tablette 5mg</target>
+        <target>Betapropine 5mg périmée</target>
       </trans-unit>
       <trans-unit id="U4wYZ3W" resname="Betapropin-Tablette 5mg">
         <source>Betapropin-Tablette 5mg</source>
-        <target>Betapropin-Tablette 5mg</target>
+        <target>Betapropine 5mg</target>
       </trans-unit>
       <trans-unit id="05SJi6V" resname="Aasbeeren">
         <source>Aasbeeren</source>
-        <target>Aasbeeren</target>
+        <target>Des carottes</target>
       </trans-unit>
       <trans-unit id="Ts1kvBr" resname="Schleimige Kugel">
         <source>Schleimige Kugel</source>
-        <target>Schleimige Kugel</target>
+        <target>Boule de pâtes visqueuse</target>
       </trans-unit>
       <trans-unit id="n2b6vg0" resname="Fleischfetzen">
         <source>Fleischfetzen</source>
-        <target>Fleischfetzen</target>
+        <target>Purée de charognardes</target>
       </trans-unit>
       <trans-unit id="YbU6RJg" resname="Makabre Bombe">
         <source>Makabre Bombe</source>
-        <target>Makabre Bombe</target>
+        <target>Bombe macabre</target>
       </trans-unit>
       <trans-unit id="zc4zxPy" resname="Dickflüssige Substanz">
         <source>Dickflüssige Substanz</source>
-        <target>Dickflüssige Substanz</target>
+        <target>Substance épaisse</target>
       </trans-unit>
       <trans-unit id="n_Aw_Kk" resname="Aasbeerenbrei">
         <source>Aasbeerenbrei</source>
-        <target>Aasbeerenbrei</target>
+        <target>Bouillie de carotte</target>
       </trans-unit>
       <trans-unit id="dBvAcX0" resname="Eisengefäß mit modrigem wasser">
         <source>Eisengefäß mit modrigem wasser</source>
-        <target>Eisengefäß mit modrigem wasser</target>
+        <target>Eau croupie</target>
       </trans-unit>
       <trans-unit id="_YIwmCU" resname="Gereinigtes modriges Wasser">
         <source>Gereinigtes modriges Wasser</source>
-        <target>Gereinigtes modriges Wasser</target>
+        <target>eau croupie purifiée</target>
       </trans-unit>
       <trans-unit id="u9xpwxV" resname="Notizzettel eines Verbannten">
         <source>Notizzettel eines Verbannten</source>
-        <target>Notizzettel eines Verbannten</target>
+        <target>Note d'un citoyen banni</target>
       </trans-unit>
       <trans-unit id="TyGvbgL" resname="Blutdurchtränkter Verband">
         <source>Blutdurchtränkter Verband</source>
-        <target>Blutdurchtränkter Verband</target>
+        <target>Pansement ensanglanté</target>
       </trans-unit>
       <trans-unit id="3KOSs2o" resname="Verfluchter Teddybär">
         <source>Verfluchter Teddybär</source>
-        <target>Verfluchter Teddybär</target>
+        <target>Teddy n'Ours maudit</target>
       </trans-unit>
       <trans-unit id="exRnrLk" resname="Sägemehlsteak">
         <source>Sägemehlsteak</source>
-        <target>Sägemehlsteak</target>
+        <target>Steak de sciure</target>
       </trans-unit>
       <trans-unit id="lo_4TvW" resname="Abgetragene rote Jacke">
         <source>Abgetragene rote Jacke</source>
-        <target>Abgetragene rote Jacke</target>
+        <target>Vest rouge usée</target>
       </trans-unit>
       <trans-unit id="4W9Uon4" resname="Zerrissene rote Hose">
         <source>Zerrissene rote Hose</source>
-        <target>Zerrissene rote Hose</target>
+        <target>Pantalon rouge déchiré</target>
       </trans-unit>
       <trans-unit id="c8xWEv1" resname="Schweißtriefende rote Mütze">
         <source>Schweißtriefende rote Mütze</source>
-        <target>Schweißtriefende rote Mütze</target>
+        <target>Bonnet rouge malodorant</target>
       </trans-unit>
       <trans-unit id="BQMFMHP" resname="Übelriechender Anzug aus einer anderen Zeit">
         <source>Übelriechender Anzug aus einer anderen Zeit</source>
-        <target>Übelriechender Anzug aus einer anderen Zeit</target>
+        <target>Costume malodorant d'une autre époque</target>
       </trans-unit>
       <trans-unit id="0zCq8DA" resname="Mobiltelefon">
         <source>Mobiltelefon</source>
-        <target>Mobiltelefon</target>
+        <target>Téléphone portable</target>
       </trans-unit>
       <trans-unit id="8E71ssC" resname="Ekliger Hautfetzen">
         <source>Ekliger Hautfetzen</source>
-        <target>Ekliger Hautfetzen</target>
+        <target>Lambeau de chair</target>
       </trans-unit>
       <trans-unit id="9z__4T5" resname="MagLite Kinderlampe (aus)">
         <source>MagLite Kinderlampe (aus)</source>
-        <target>MagLite Kinderlampe (aus)</target>
+        <target>Maglite Pif'Gadget (éteinte)</target>
       </trans-unit>
       <trans-unit id="CohhMIg" resname="MagLite Kinderlampe (1 Ladung)">
         <source>MagLite Kinderlampe (1 Ladung)</source>
-        <target>MagLite Kinderlampe (1 Ladung)</target>
+        <target>Maglite Pif'Gadget (1 charge)</target>
       </trans-unit>
       <trans-unit id="WaA0OSd" resname="MagLite Kinderlampe (2 Ladungen)">
         <source>MagLite Kinderlampe (2 Ladungen)</source>
-        <target>MagLite Kinderlampe (2 Ladungen)</target>
+        <target>Maglite Pif'Gadget (2 charges)</target>
       </trans-unit>
       <trans-unit id="KC3QuZx" resname="Leiche eines Reisenden">
         <source>Leiche eines Reisenden</source>
-        <target>Leiche eines Reisenden</target>
+        <target>Cadavre d'un voyageur</target>
       </trans-unit>
       <trans-unit id="Q6uV4Fz" resname="Angenagte Leiche">
         <source>Angenagte Leiche</source>
-        <target>Angenagte Leiche</target>
+        <target>Cadavre rongé</target>
       </trans-unit>
       <trans-unit id="Bg371ce" resname="Rauchgranate 'Tannenduft'">
         <source>Rauchgranate 'Tannenduft'</source>
