@@ -255,7 +255,7 @@
       </trans-unit>
       <trans-unit id="QI_O4UJ" resname="Verschüttete Ruine">
         <source>Verschüttete Ruine</source>
-        <target>Verschüttete Ruine</target>
+        <target>Bâtiment non déterré</target>
       </trans-unit>
       <trans-unit id="qKBuSla" resname="Zone">
         <source>Zone</source>
@@ -492,7 +492,7 @@
       </trans-unit>
       <trans-unit id="x7duHnG" resname="Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.">
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
-        <target>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</target>
+        <target>Vous pouvez effectuer les travaux de construction suivants sur votre maison. Chaque amélioration vous apporte des avantages particuliers.</target>
       </trans-unit>
       <trans-unit id="r5DiSCv" resname="Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.">
         <source>Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.</source>
@@ -500,23 +500,23 @@
       </trans-unit>
       <trans-unit id="jvbOgSC" resname="Erfordert">
         <source>Erfordert</source>
-        <target>Erfordert</target>
+        <target>Nécessite</target>
       </trans-unit>
       <trans-unit id="MzBikVy" resname="Einbauen">
         <source>Einbauen</source>
-        <target>Einbauen</target>
+        <target>Installer</target>
       </trans-unit>
       <trans-unit id="lxPyIGw" resname="Upgrade auf St. %level%">
         <source>Upgrade auf St. %level%</source>
-        <target>Upgrade auf St. %level%</target>
+        <target>Améliorer au niv. %level%</target>
       </trans-unit>
       <trans-unit id="W2jpIKn" resname="Kein weiterer Ausbau möglich">
         <source>Kein weiterer Ausbau möglich</source>
-        <target>Kein weiterer Ausbau möglich</target>
+        <target>Aucune amélioration possible</target>
       </trans-unit>
       <trans-unit id="u1m7Ptc" resname="Leiche nicht beseitigt!">
         <source>Leiche nicht beseitigt!</source>
-        <target>Leiche nicht beseitigt!</target>
+        <target>Corps non retiré !</target>
       </trans-unit>
       <trans-unit id="u_yrL5q" resname="Tot!">
         <source>Tot!</source>
@@ -532,25 +532,24 @@
       </trans-unit>
       <trans-unit id="Voc3Ntu" resname="Neue einfache Route">
         <source>Neue einfache Route</source>
-        <target>Neue einfache Route</target>
+        <target>Nouvelle expédition simple</target>
       </trans-unit>
       <trans-unit id="v88wslY" resname="Neue komplexe Route">
         <source>Neue komplexe Route</source>
-        <target>Neue komplexe Route</target>
+        <target>Nouvelle expédition complexe</target>
       </trans-unit>
       <trans-unit id="fn_qM4v" resname="Name der Route">
         <source>Name der Route</source>
-        <target>Name der Route</target>
+        <target>Nom de l'expédition</target>
       </trans-unit>
       <trans-unit id="QL.qpuP" resname="Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer&#10;                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.">
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</target>
+        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexent commencent et terminent où vous voulez.</target>
       </trans-unit>
       <trans-unit id="dLIxjrY" resname="Nur Helden können komplexe Routen planen.">
         <source>Nur Helden können komplexe Routen planen.</source>
-        <target>Nur Helden können komplexe Routen planen.</target>
+        <target>Seuls les héros peuvent créer des expéditions complexes.</target>
       </trans-unit>
       <trans-unit id="qjGq_3f" resname="Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).">
         <source>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</source>
@@ -861,11 +860,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="seBLTh9" resname="Diese Zone">
         <source>Diese Zone</source>
-        <target>Diese Zone</target>
+        <target>Secteur</target>
       </trans-unit>
       <trans-unit id="X_hg9YY" resname="Es muss noch aufgeräumt werden">
         <source>Es muss noch aufgeräumt werden</source>
-        <target>Es muss noch aufgeräumt werden</target>
+        <target>Reste à déblayer</target>
       </trans-unit>
       <trans-unit id="tJrpqeH" resname="Ruine">
         <source>Ruine</source>
@@ -897,7 +896,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="GwPmPsr" resname="%ruin% durchsuchen">
         <source>%ruin% durchsuchen</source>
-        <target>%ruin% durchsuchen</target>
+        <target>Fouiller %ruin%</target>
       </trans-unit>
       <trans-unit id="ZaxaGah" resname="Zone freiräumen">
         <source>Zone freiräumen</source>
@@ -1329,7 +1328,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Xf.22AP" resname="Räuberhöhle">
         <source>Räuberhöhle</source>
-        <target>Räuberhöhle</target>
+        <target>Caverne de voleurs</target>
       </trans-unit>
       <trans-unit id="BoMLh_D" resname="Schützengraben">
         <source>Schützengraben</source>
@@ -1469,7 +1468,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="PFgh04I" resname="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</target>
+        <target>%citizen% (%profession%) est parti vers le %direction%.</target>
       </trans-unit>
       <trans-unit id="07sRf7u" resname="%citizen% (%profession%) ist aus dem %direction% angekommen.">
         <source>%citizen% (%profession%) ist aus dem %direction% angekommen.</source>
@@ -1477,15 +1476,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="pCkOgOT" resname="%citizen% hat ein(e,n) %item% ausgegraben!">
         <source>%citizen% hat ein(e,n) %item% ausgegraben!</source>
-        <target>%citizen% hat ein(e,n) %item% ausgegraben!</target>
+        <target>%citizen% a déposé %item% !</target>
       </trans-unit>
       <trans-unit id="nHE1X2F" resname="%citizen% hat hier durch Graben nichts gefunden...">
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
-        <target>%citizen% hat hier durch Graben nichts gefunden...</target>
+        <target>Après des recherches épuisantes, %citizen% n'a rien trouvé d'autre que la vacuité de ces moments perdus...</target>
       </trans-unit>
       <trans-unit id="J84MRtT" resname="%citizen% hat etwas Schutt entfernt.">
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% hat etwas Schutt entfernt.</target>
+        <target>%citizen% a déplayé quelques débris.</target>
       </trans-unit>
       <trans-unit id="WmDHw.1" resname="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
@@ -1574,6 +1573,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="yFVdfG6" resname="Rucksack in der Bank ausleeren">
         <source>Rucksack in der Bank ausleeren</source>
         <target>Vider son sac dans la banque</target>
+      </trans-unit>
+      <trans-unit id="mwAKBpm" resname="Meine objekte">
+        <source>Meine objekte</source>
+        <target>Mes objets</target>
       </trans-unit>
     </body>
   </file>

@@ -135,7 +135,7 @@
       </trans-unit>
       <trans-unit id="3XvS9ox" resname="Rückgängig">
         <source>Rückgängig</source>
-        <target>Annuler</target>
+        <target>Annuler le dernier point</target>
       </trans-unit>
       <trans-unit id="9.8ReK8" resname="Abbrechen">
         <source>Abbrechen</source>

@@ -151,6 +151,7 @@
         </div>
 
         <div class="padded cell rw-6 rw-md-12">
+            <h5>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
