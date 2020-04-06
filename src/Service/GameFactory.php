@@ -66,29 +66,33 @@ class GameFactory
 
     private static $town_name_snippets = [
         'de' => [
-            [
+            [  // Sächlich Singular
                 ['Tödliches','Modriges','Schimmliges','Eisiges','Rotes','Einsames','Ghulverseuchtes','Zombifiziertes','Bekanntes','Abgenagtes','Verstörendes','Letztes'],
                 ['Wasserloch','Hospital','Trainingslager','Pony','Niemandsland','Gericht','Reich','Dreckloch','Gehirn','Rattenloch','Gebiet','Lager'],
             ],
-            [
-                ['Eifriger','Weinender','Schimmliger','Alberner','Autoritärer','Einsamer','Triefender','Kontaminierter','Verschlafener','Masochistischer','Besoffener','Kontaminierter'],
+            [  // Männlich Singular
+                ['Eifriger','Weinender','Schimmliger','Alberner','Autoritärer','Einsamer','Triefender','Kontaminierter','Verschlafener','Masochistischer','Besoffener'],
                 ['Müllberg','Seelenfänger','Monarch','Fels','Untergang','Wald','Folterkeller','Bezirk','Bunker','Tisch','Husten','Laster'],
             ],
-            [
+            [  // Weiblich Singular
+                ['Eifrige','Weinende','Schimmlige','Alberne','Autoritäre','Einsame','Triefende','Kontaminierte','Verschlafene','Masochistische','Besoffene'],
+                ['Region','Insel','Anhöhe','Felsspalte','Apokalypse','Wiese','Höhle','Kammer','Untiefe','Miliz','Träne','Latrine'],
+            ],
+            [  // Plural
                 ['Eifrige','Modrige','Glitschige','Eisige','Drogensüchtige','Gespenstische','Ghulverseuchte','Zombifizierte','Bewegte','Betrunkene','Virulente','Betroffene'],
                 ['Metzger','Zombieforscher','Gestalten','Wächter','Todesgesänge','Schaffner','Soldaten','Zwillinge','Regionen','Oberfläche','Schmarotzer','Entwickler'],
             ],
-            [
+            [  // Plural mit Suffix
                 ['Ghulgebeine','Gesänge','Schmerzen','Schreie','Räume','Meute','Ghetto','Bürger','Hinterlassenschaft','Revier','Folterkeller','Alkoholpanscher'],
                 ['des Todes','der Verdammnis','ohne Zukunft','am Abgrund','der Verwirrten','ohne Ideen','der Versager','der Ghule','der Superhelden','der Mutlosen','der Fröhlichen','der Revolutionäre'],
             ],
         ],
         'en' => [
-            [
+            [   // Prefixed Adjective
                 ['Deadly', 'Mouldy', 'Moldy', 'Icy', 'Red', 'Lonely', 'Ghoulish', 'Zombified', 'Known', 'Gnawed', 'Disturbing', 'Last', 'Eager', 'Crying', 'Silly', 'Authoritarian', 'Lonely', 'Dripping', 'Contaminated', 'Sleepy', 'Masochistic', 'Drunk', 'Musty', 'Slippery', 'Icy', 'Drug addicts', 'Spooky', 'Ghoul-infested', 'Moving', 'Virulent', 'Affected'],
                 ['Waterhole', 'Hospital', 'Training camp', 'Pony', 'No man\'s land', 'Court', 'Empire', 'Shithole', 'Brain', 'Rathole', 'Area', 'Camp', 'Garbage Mountain', 'Soul Catcher', 'Monarch', 'Rock', 'Fall', 'Forest', 'Torture Basement', 'District', 'Bunker', 'Table', 'Cough', 'Truck', 'Butchers', 'Zombie researchers', 'Figures', 'Guardians', 'Death songs', 'Conductor', 'Soldiers', 'Twins', 'Regions', 'Surface', 'Parasites', 'Developers'],
             ],
-            [
+            [  // Suffixed
               ['Ghoul bones', 'Songs', 'Pain', 'Screams', 'Rooms', 'Mob', 'Ghetto', 'Citizens', 'Legacy', 'Territory', 'Torture chamber', 'Alcohol adulterator'],
               ['of Death', 'of Damnation', 'without Future', 'at the Abyss', 'of the Confused', 'without Ideas', 'of the Failures', 'of the Ghouls', 'of the Superheroes', 'of the Discouraged', 'of the Cheerful', 'of the Revolutionaries'],
             ],
@@ -139,7 +143,7 @@ class GameFactory
         return $resolution;
     }
 
-    public function createTown( ?string $name, int $population, string $type, string $language = "de" ): ?Town {
+    public function createTown( ?string $name, ?string $language, int $population, string $type ): ?Town {
         if (!$this->validator->validateTownType($type) || !$this->validator->validateTownPopulation( $population, $type ))
             return null;
 
@@ -149,6 +153,7 @@ class GameFactory
             ->setType( $townClass )
             ->setPopulation( $population )
             ->setName( $name ?: $this->createTownName($language) )
+            ->setLanguage( $language )
             ->setBank( new Inventory() )
             ->setWell( $this->getDefaultWell($townClass) );
 
