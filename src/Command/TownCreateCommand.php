@@ -39,6 +39,7 @@ class TownCreateCommand extends Command
 
             ->addArgument('townClass', InputArgument::REQUIRED, 'Town type [' . implode(', ', $this->gameValidator->getValidTownTypes()) . ']')
             ->addArgument('citizens', InputArgument::REQUIRED, 'Number of citizens [1 - 40]')
+            ->addArgument('lang', InputArgument::OPTIONAL, 'Town language')
             ->addArgument('name', InputArgument::OPTIONAL, 'Town name');
     }
 
@@ -49,9 +50,10 @@ class TownCreateCommand extends Command
         $town_type     = $input->getArgument('townClass');
         $town_citizens = (int)$input->getArgument('citizens');
         $town_name = $input->getArgument('name');
+        $town_lang = $input->getArgument('lang');
 
         $output->writeln("<info>Creating a new '$town_type' town " . ($town_name === null ? '' : "called '$town_name' ") . "with $town_citizens unlucky inhabitants.</info>");
-        $town = $this->gameFactory->createTown($town_name, $town_citizens, $town_type);
+        $town = $this->gameFactory->createTown($town_name, $town_citizens, $town_type, $town_lang);
 
         if ($town === null) {
             $output->writeln('<error>Town creation service terminated with an error. Please check if the town parameters are valid.</error>');

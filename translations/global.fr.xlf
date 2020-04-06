@@ -179,7 +179,7 @@
       </trans-unit>
       <trans-unit id="YeLCoLU" resname="Seite neu laden">
         <source>Seite neu laden</source>
-        <target>Rechercher la page</target>
+        <target>Recharger la page</target>
       </trans-unit>
     </body>
   </file>
