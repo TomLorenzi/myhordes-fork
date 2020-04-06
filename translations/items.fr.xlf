@@ -55,7 +55,7 @@
       </trans-unit>
       <trans-unit id="6MESOb8" resname="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
         <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
-        <target>Trotz intensiver Suche hast du nichts verwertbares gefunden...</target>
+        <target>Après des recherches épuisantes, vous n'avez rien trouvé d'autre que la vacuité de ces moments perdus..</target>
       </trans-unit>
       <trans-unit id="23PgQVZ" resname="Ration Wasser">
         <source>Ration Wasser</source>
@@ -395,7 +395,7 @@
       </trans-unit>
       <trans-unit id="lOo2w0W" resname="Kassettenradio (ohne Strom)">
         <source>Kassettenradio (ohne Strom)</source>
-        <target>Radio K7 éteint</target>
+        <target>Radio K7 (éteint)</target>
       </trans-unit>
       <trans-unit id="z5_Zr48" resname="Kassettenradio">
         <source>Kassettenradio</source>
@@ -415,7 +415,7 @@
       </trans-unit>
       <trans-unit id="Hm4Wet3" resname="Reparaturset (kaputt)">
         <source>Reparaturset (kaputt)</source>
-        <target>Kit de bricolage abimé</target>
+        <target>Kit de bricolage (abimé)</target>
       </trans-unit>
       <trans-unit id="jBFNQQG" resname="Reparaturset">
         <source>Reparaturset</source>
@@ -439,11 +439,11 @@
       </trans-unit>
       <trans-unit id="jJPD2VA" resname="Handmixer (ohne Strom)">
         <source>Handmixer (ohne Strom)</source>
-        <target>Batteur électrique éteint</target>
+        <target>Batteur électrique (éteint)</target>
       </trans-unit>
       <trans-unit id="hEtEe9i" resname="Kettensäge (ohne Strom)">
         <source>Kettensäge (ohne Strom)</source>
-        <target>Tronçonneuse éteinte</target>
+        <target>Tronçonneuse (éteinte)</target>
       </trans-unit>
       <trans-unit id="4yWesEi" resname="Batteriewerfer 1-PDTG (entladen)">
         <source>Batteriewerfer 1-PDTG (entladen)</source>
@@ -455,55 +455,55 @@
       </trans-unit>
       <trans-unit id="Pv.PdId" resname="Elektrischer Bauchmuskeltrainer (ohne Strom)">
         <source>Elektrischer Bauchmuskeltrainer (ohne Strom)</source>
-        <target>Elektrischer Bauchmuskeltrainer (ohne Strom)</target>
+        <target>Sport-élec (éteint)</target>
       </trans-unit>
       <trans-unit id="OI3OQ.V" resname="Elektrischer Bauchmuskeltrainer (geladen)">
         <source>Elektrischer Bauchmuskeltrainer (geladen)</source>
-        <target>Elektrischer Bauchmuskeltrainer (geladen)</target>
+        <target>Sport-élec (chargé)</target>
       </trans-unit>
       <trans-unit id="bZVhk3Y" resname="Zerstörer (entladen)">
         <source>Zerstörer (entladen)</source>
-        <target>Zerstörer (entladen)</target>
+        <target>Devastator (vide)</target>
       </trans-unit>
       <trans-unit id="6JzGDe3" resname="Zerstörer (geladen)">
         <source>Zerstörer (geladen)</source>
-        <target>Zerstörer (geladen)</target>
+        <target>Devastator (chargé)</target>
       </trans-unit>
       <trans-unit id="NWwA1_1" resname="Unvollständiger Zerstörer">
         <source>Unvollständiger Zerstörer</source>
-        <target>Unvollständiger Zerstörer</target>
+        <target>Devastatpor incomplet</target>
       </trans-unit>
       <trans-unit id=".NeFZzB" resname="Zonenmarker 'Radius'">
         <source>Zonenmarker 'Radius'</source>
-        <target>Zonenmarker 'Radius'</target>
+        <target>Balise "Radius"</target>
       </trans-unit>
       <trans-unit id="xOfrB2C" resname="Leuchtrakete">
         <source>Leuchtrakete</source>
-        <target>Leuchtrakete</target>
+        <target>Fusée éclairante</target>
       </trans-unit>
       <trans-unit id="TNcHwKw" resname="Kanisterpumpe (einsatzbereit)">
         <source>Kanisterpumpe (einsatzbereit)</source>
-        <target>Kanisterpumpe (einsatzbereit)</target>
+        <target>Pompe à jerrycan (prête)</target>
       </trans-unit>
       <trans-unit id="pWpcN5b" resname="Ektorp-Gluten Stuhl">
         <source>Ektorp-Gluten Stuhl</source>
-        <target>Ektorp-Gluten Stuhl</target>
+        <target>Chaise Ektörp-Gluten</target>
       </trans-unit>
       <trans-unit id="Sw3QJuK" resname="Revolver (entladen)">
         <source>Revolver (entladen)</source>
-        <target>Revolver (entladen)</target>
+        <target>Revolver (vide)</target>
       </trans-unit>
       <trans-unit id="y1obQuD" resname="Sturmgewehr (entladen)">
         <source>Sturmgewehr (entladen)</source>
-        <target>Sturmgewehr (entladen)</target>
+        <target>Fusil d'assault (vide)</target>
       </trans-unit>
       <trans-unit id="UyQlEYn" resname="Zünder">
         <source>Zünder</source>
-        <target>Zünder</target>
+        <target>Détonateur compact</target>
       </trans-unit>
       <trans-unit id="A58TR.A" resname="Zementsack">
         <source>Zementsack</source>
-        <target>Zementsack</target>
+        <target>Sac de ciment</target>
       </trans-unit>
       <trans-unit id="dwyq0AP" resname="Unförmige Zementblöcke">
         <source>Unförmige Zementblöcke</source>
