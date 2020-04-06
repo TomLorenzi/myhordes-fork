@@ -7,43 +7,43 @@
     <body>
       <trans-unit id="Ytua8lq" resname="Die gewählte Stadt ist bereits voll.">
         <source>Die gewählte Stadt ist bereits voll.</source>
-        <target>Die gewählte Stadt ist bereits voll.</target>
+        <target>Cette ville est déjà pleine.</target>
       </trans-unit>
       <trans-unit id="9O4x._6" resname="Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.">
         <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
-        <target>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</target>
+        <target>Vous ne pouvez pas rejoindre plus d'une ville à la fois.</target>
       </trans-unit>
       <trans-unit id="KGUlxGY" resname="Du bist dieser Stadt bereits beigetreten.">
         <source>Du bist dieser Stadt bereits beigetreten.</source>
-        <target>Du bist dieser Stadt bereits beigetreten.</target>
+        <target>Vous avez déjà rejoint cette ville.</target>
       </trans-unit>
       <trans-unit id="xkZqSVc" resname="Wähle eine Stadt">
         <source>Wähle eine Stadt</source>
-        <target>Wähle eine Stadt</target>
+        <target>Choisissez votre prochaine existence :</target>
       </trans-unit>
       <trans-unit id="Bfb7kn4" resname="Stadtname">
         <source>Stadtname</source>
-        <target>Stadtname</target>
+        <target>Nouvelles villes disponibles</target>
       </trans-unit>
       <trans-unit id="Vlb5Lbe" resname="Aktionen">
         <source>Aktionen</source>
-        <target>Aktionen</target>
+        <target>Action</target>
       </trans-unit>
       <trans-unit id="rgtSNg9" resname="Aktuell gibt es keine Stadt diesen Typs.">
         <source>Aktuell gibt es keine Stadt diesen Typs.</source>
-        <target>Aktuell gibt es keine Stadt diesen Typs.</target>
+        <target>Aucune ville de ce type n'est actuellement disponible.</target>
       </trans-unit>
       <trans-unit id="Enh.KhP" resname="Nächtlicher Angriff">
         <source>Nächtlicher Angriff</source>
-        <target>Nächtlicher Angriff</target>
+        <target>Attaque en cours</target>
       </trans-unit>
       <trans-unit id="xOWTZkZ" resname="Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.">
         <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
-        <target>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</target>
+        <target>Le site est actuellement submergé de zombies ! C'est l'assaut quotidien ! Impossible de se connecter ou même de s'inscrire... Le site devrait ré-ouvrir d'ici quelque dizaines de minutes. Avec quelque cadavres en plus.</target>
       </trans-unit>
       <trans-unit id="e6r4m6r" resname="Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.">
         <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
-        <target>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</target>
+        <target>L'assaut quotidien a lieu tous les jours à minuit et dure environ 20 minutes. Le site ne peut pas être atteint durant cette période.</target>
       </trans-unit>
     </body>
   </file>

@@ -11,7 +11,7 @@
       </trans-unit>
       <trans-unit id="YoYmlHE" resname="Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.">
         <source>Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</source>
-        <target>Le forum sélectionné n\'existe pas ou vous n\'avez pas l\'autorisation d\'y accéder.</target>
+        <target>Le forum sélectionné n'existe pas ou vous n'avez pas l'autorisation d'y accéder.</target>
       </trans-unit>
       <trans-unit id="cLv91_L" resname="Dein Text muss mindestens 10 Zeichen lang sein.">
         <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
@@ -19,7 +19,7 @@
       </trans-unit>
       <trans-unit id="1rA34oT" resname="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
         <source>Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</source>
-        <target>Votre tritre doit contenir entre 3 et 64 charactères.</target>
+        <target>Votre titre doit contenir entre 3 et 64 charactères.</target>
       </trans-unit>
       <trans-unit id="3r067AY" resname="Kommunikationsfehler.">
         <source>Kommunikationsfehler.</source>
@@ -31,15 +31,15 @@
       </trans-unit>
       <trans-unit id="XEsiQcR" resname="Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.">
         <source>Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</source>
-        <target>Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</target>
+        <target>Une erreur de base de données est survenue durant cette action. Veuillez réessayer plus tard.</target>
       </trans-unit>
       <trans-unit id="F4Wu0dW" resname="Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.">
         <source>Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</source>
-        <target>Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</target>
+        <target>Une erreur interne est survenue durant cette action. Veuillez réessayer plus tard.</target>
       </trans-unit>
       <trans-unit id="6MqeHWt" resname="Für diese Aktion hast du nicht genug AP.">
         <source>Für diese Aktion hast du nicht genug AP.</source>
-        <target>Vous n\'avez pas assez de PA pour cette action.</target>
+        <target>Vous n'avez pas assez de PA pour cette action.</target>
       </trans-unit>
       <trans-unit id="doUPd7A" resname="Diese Aktion steht dir aktuell nicht zur Verfügung.">
         <source>Diese Aktion steht dir aktuell nicht zur Verfügung.</source>
@@ -47,11 +47,11 @@
       </trans-unit>
       <trans-unit id="KlavWsd" resname="Hierfür fehlen dir notwendige Gegenstände.">
         <source>Hierfür fehlen dir notwendige Gegenstände.</source>
-        <target>Vous n\'avez pas les élements nécessaire pour cela.</target>
+        <target>Vous n'avez pas les élements nécessaire pour cela.</target>
       </trans-unit>
       <trans-unit id="OAMaKv3" resname="Diese Aktion steht nur Helden zur Verfügung.">
         <source>Diese Aktion steht nur Helden zur Verfügung.</source>
-        <target>Cette ation n\'est disponible que pour les héros.</target>
+        <target>Cette action n'est disponible que pour les héros.</target>
       </trans-unit>
       <trans-unit id="OA0ZiO0" resname="Neuer Thread">
         <source>Neuer Thread</source>
@@ -147,7 +147,7 @@
       </trans-unit>
       <trans-unit id="R4MmGpY" resname="Achtung">
         <source>Achtung</source>
-	<target>Attention</target>
+        <target>Attention</target>
       </trans-unit>
       <trans-unit id="fDDOLlJ" resname="Bist du sicher?">
         <source>Bist du sicher?</source>
@@ -159,7 +159,7 @@
       </trans-unit>
       <trans-unit id="Tae9Qqu" resname="Forum">
         <source>Forum</source>
-        <target>Forum</target>
+        <target>Forums</target>
       </trans-unit>
       <trans-unit id="BNcLxkK" resname="Deine Seele">
         <source>Deine Seele</source>
@@ -167,7 +167,7 @@
       </trans-unit>
       <trans-unit id="lUcvZQo" resname="Hilfe">
         <source>Hilfe</source>
-	<target>Aide</target>
+        <target>Aide</target>
       </trans-unit>
       <trans-unit id="mbIzlHW" resname="Zum Spiel">
         <source>Zum Spiel</source>
@@ -179,7 +179,7 @@
       </trans-unit>
       <trans-unit id="YeLCoLU" resname="Seite neu laden">
         <source>Seite neu laden</source>
-        <target>Rechercher la page</target>
+        <target>Recharger la page</target>
       </trans-unit>
     </body>
   </file>
