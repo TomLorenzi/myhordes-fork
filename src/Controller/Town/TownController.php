@@ -15,6 +15,7 @@ use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Translation\T;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -51,16 +52,22 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $addons = [];
         $town = $this->getActiveCitizen()->getTown();
+
+        $data["buildings"] = array();
+
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
             if ($b->getPrototype()->getMaxLevel() > 0)
-                $addons['upgrade']  = ['Verbesserung des Tages', 'town_upgrades'];
+                $addons['upgrade']  = [T::__('Verbesserung des Tages', 'buildings'), 'town_upgrades'];
 
             if ($b->getPrototype()->getName() === 'item_tagger_#00')
                 $addons['watchtower'] = ['Wachturm', 'town_watchtower'];
 
             if ($b->getPrototype()->getName() === 'small_refine_#00')
                 $addons['workshop'] = ['Werkstatt', 'town_workshop'];
+
+            $data["buildings"][] = $b->getPrototype();
+
         }
 
         $data['addons'] = $addons;

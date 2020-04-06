@@ -26,3 +26,7 @@ composer.phar
 
 # Local webpack config
 webpack.config.local.js
+
+# Mac trash
+.DS_Store
+.vscode/
