@@ -12,6 +12,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
@@ -98,6 +99,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $zone ZonePrototype */
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
+
+            foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
+            /** @var $town TownClass */
+            if ($town->getLabel())
+                $this->insert( $c, $town->getLabel(), 'game' );
         //</editor-fold>
     }
 

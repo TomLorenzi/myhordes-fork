@@ -12,7 +12,7 @@
                             {% if town.open %}{% set found = true %}{% endif %}
                         {% endfor %}
 
-                        <h5>{{ townClass.getLabel }}</h5>
+                        <h5>{{ townClass.getLabel|trans({},'game') }}</h5>
                         {% if found %}
                             <div class="row-table">
                                 <div class="row header">
