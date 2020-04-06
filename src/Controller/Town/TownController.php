@@ -53,7 +53,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $addons = [];
         $town = $this->getActiveCitizen()->getTown();
 
-        $data["buildings"] = array();
+        $data["builtbuildings"] = array();
 
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
@@ -66,7 +66,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($b->getPrototype()->getName() === 'small_refine_#00')
                 $addons['workshop'] = ['Werkstatt', 'town_workshop'];
 
-            $data["buildings"][] = $b->getPrototype();
+            $data["builtbuildings"][] = $b;
 
         }
 

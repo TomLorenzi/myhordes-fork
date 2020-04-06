@@ -24,10 +24,11 @@
 
             <div class="row town-buildings">
                 <ul>
-                {% for building in buildings %}
+                {% for building in builtbuildings %}
                     <li class="cell padded-small rw-12">
-                        <img alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" /> {{ building.label|trans({},'buildings') }}<br />
-                        {% if building.defense > 0 %}<em>+ {{building.defense}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
+                        <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" /> {{ building.prototype.label|trans({},'buildings') }}<br />
+                        {% if building.prototype.defense > 0 %}<em>+ {{building.prototype.defense}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
+                        {% if building.prototype.maxLevel > 0 and building.level > 0 %}<p><em>{% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}</em></p>{% endif %}
                     </li>
                 {% endfor %}
                 </ul>

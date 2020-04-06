@@ -638,7 +638,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="_LKq1VW" resname="Du hast bereits für folgendes Projekt abgestimmt:">
         <source>Du hast bereits für folgendes Projekt abgestimmt:</source>
-        <target>Du hast bereits für folgendes Projekt abgestimmt:</target>
+        <target>Vous avez voté pour le projet :</target>
       </trans-unit>
       <trans-unit id="HDgwb1i" resname="Aktuelles Level:">
         <source>Aktuelles Level:</source>
@@ -662,7 +662,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="_fJ2tva" resname="Stimmen:">
         <source>Stimmen:</source>
-        <target>Stimmen:</target>
+        <target>Vote(s) :</target>
       </trans-unit>
       <trans-unit id="qOmfTuV" resname="In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
@@ -1460,11 +1460,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="gaihf5j" resname="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
         <source>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</source>
-        <target>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</target>
+        <target>%citizen% a quitté la ville vers %direction%.</target>
       </trans-unit>
       <trans-unit id="o9wb9sd" resname="%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.">
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</target>
+        <target>%citizen% est entré dans la ville depuis %direction%.</target>
       </trans-unit>
       <trans-unit id="PFgh04I" resname="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
