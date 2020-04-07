@@ -27,7 +27,7 @@
                     </div>
                 {% else %}
                     <div class="note">
-                        {% trans with {'%pumpname%':'<b>' ~ pump.prototype.label ~ '</b>' } from 'game' %}
+                        {% trans with {'%pumpname%':'<b>' ~ pump.prototype.label|trans({}, 'buildings') ~ '</b>' } from 'game' %}
                             Die Stadt verfügt über eine %pumpname%.
                         {% endtrans %}
                     </div>
