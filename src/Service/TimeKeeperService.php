@@ -13,10 +13,12 @@ use Doctrine\ORM\EntityManagerInterface;
 class TimeKeeperService
 {
     private $entity_manager;
+    private $env;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, string $env)
     {
         $this->entity_manager = $em;
+        $this->env = $env;
     }
 
     /**
@@ -86,8 +88,11 @@ class TimeKeeperService
 
     public function isDuringAttack( ?DateTimeInterface $time = null ): bool {
         if ($this->getCurrentAttackTime() < ($time ?? new DateTime('now'))) return true;
-        $dif = $this->sinceLastAttack( $time );
-        return ( $dif->i < 20 && $dif->h === 0 && $dif->d === 0 );
+        if ($this->env === 'dev') return false;
+        else {
+            $dif = $this->sinceLastAttack( $time );
+            return ( $dif->i < 20 && $dif->h === 0 && $dif->d === 0 );
+        }
     }
 
 }

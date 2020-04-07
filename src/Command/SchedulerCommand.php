@@ -14,12 +14,16 @@ use App\Service\NightlyHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Translation\TranslatorBagInterface;
+use Symfony\Contracts\Translation\LocaleAwareInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class SchedulerCommand extends Command
 {
@@ -28,12 +32,14 @@ class SchedulerCommand extends Command
     private $entityManager;
     private $night;
     private $locksmith;
+    private $trans;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls)
+    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator)
     {
         $this->entityManager = $em;
         $this->night = $nh;
         $this->locksmith = $ls;
+        $this->trans = $translator;
         parent::__construct();
     }
 
@@ -63,12 +69,15 @@ class SchedulerCommand extends Command
                 sleep( (int)$input->getOption('delay') );
             $output->writeln( 'Beginning <info>execution</info>...' );
 
-            foreach ( $this->entityManager->getRepository(Town::class)->findAll() as $town )
+            foreach ( $this->entityManager->getRepository(Town::class)->findAll() as $town ) {
+                $this->trans->setLocale($town->getLanguage() ?? 'de');
+
                 /** @var Town $town */
                 if ($this->night->advance_day($town)) {
                     foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
-                    $this->entityManager->persist( $town );
+                    $this->entityManager->persist($town);
                 }
+            }
 
             $s->setCompleted( true );
             $this->entityManager->persist($s);
