@@ -521,7 +521,7 @@ class LogTemplateHandler
         if ($door_open)
             $str = T::__('... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!', 'game');
         else $str = $num_zombies > 0 ? T::__('%num% Zombies sind durch unsere Verteidigung gebrochen!', 'game') : T::__('Nicht ein Zombie hat die Stadt betreten!', 'game');
-
+        
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )
             ->setClass( TownLogEntry::ClassCritical )
@@ -632,8 +632,8 @@ class LogTemplateHandler
             ->setCitizen( $complaint->getCulprit() )
             ->setTimestamp( new DateTime('now') )
             ->setText( $this->trans->trans( $complaint->getSeverity() > Complaint::SeverityNone
-                    ? 'Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!'
-                    : 'Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.' ,
+                    ? T::__('Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!', 'game')
+                    : T::__('Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.', 'game'),
                 [
                     '%citizen%'  => $this->wrap( $this->iconize( $complaint->getCulprit() ) ),
                 ], 'game' ) );

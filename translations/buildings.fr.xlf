@@ -845,13 +845,9 @@
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
         <target>Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie... un peu (chaque niveau ajoute 1 pt de défense)..</target>
       </trans-unit>
-      <trans-unit id="266wx0d" resname="Verbesserung des Tages">
-        <source>Verbesserung des Tages</source>
-        <target>Améliorations du jour</target>
-      </trans-unit>
       <trans-unit id="77.Cp5H" resname="Verteidigung">
         <source>Verteidigung</source>
-        <target>Défense</target>
+        <target>en défense</target>
       </trans-unit>
     </body>
   </file>

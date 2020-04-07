@@ -66,17 +66,12 @@
                 {% endif %}
             {% endif %}
         </div>
-        <div class="padded cell rw-6">
-            {% if (citizen.alive) %}
-                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
-                    {% block class %}rucksack{% endblock %}
-                    {% block title %}{% trans from 'game' %}Dein Rucksack{% endtrans %}{% endblock %}
-                {% endembed %}
-            {% endif %}
-
+        <div class="padded cell rw-6 citizen-chest">
+            <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': citizen.user.username}, 'game') }}</h5>
+            <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
             {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items} %}
                 {% block class %}chest{% endblock %}
-                {% block title %}{{ '%citizen%s Truhe'|trans({'%citizen%': citizen.user.username}, 'game') }}{% endblock %}
+                {% block title %}{% endblock %}
             {% endembed %}
         </div>
     </div>

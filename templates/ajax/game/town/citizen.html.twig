@@ -1,7 +1,7 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
 
-    <div class="row-table">
+    <div class="row-table citizens-list">
         <div class="row">
             <div class="padded cell small rw-12 rw-md-12">
                 {{ "In der Stadt wohnen @citizens Bürger."|trans({ '@citizens': citizens|length },'game') }}
@@ -9,7 +9,7 @@
         </div>
         {% for citizen in citizens %}
             {# @var \App\Entity\Citizen citizen  #}
-            <div class="row">
+            <div class="row pointer" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
                 <div class="padded cell rw-1 rw-md-2">
                     {% if citizen.alive %}
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
@@ -18,7 +18,7 @@
                     {% endif %}
                 </div>
                 <div class="padded cell rw-3 rw-md-5 small">
-                    <span class="pointer" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
+                    <span>
                         {% if citizen.alive %}
                             {% if citizen.banished %}
                                 <img alt="" src="{{ asset('build/images/banished.gif') }}" />
@@ -45,7 +45,7 @@
                             <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
                         {% endfor %}
                     {% else %}
-                        <span>---</span>
+                        <em>{{ 'leere Truhe'|trans({},'game') }}</em>
                     {% endif %}
                 </div>
                 <div class="padded cell rw-2 small hide-md hide-sm right ">

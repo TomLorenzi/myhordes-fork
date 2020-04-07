@@ -7,31 +7,45 @@
         {% endtrans %}
     </div>
 
-    <h5>{{ 'Heutige Abschätzung'|trans({},'game') }}</h5>
-    <div class="row">
-        <div class="padded cell rw-4 rw-md-6 left">
-            <b>{{ z0[2] }} - {{ z0[3] }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/small_zombie.gif') }}" />
+    <h5>{{ 'Wachturm'|trans({},'buildings') }}</h5>
+    <div class="block watchtower">
+        <div class="row">
+            <div class="padded cell rw-12 left">
+                {{ 'Heutige Abschätzung'|trans({},'game') }}
+            </div>
+            <div class="cell rw-12 center">
+                <b>{{ z0[2] }} - {{ z0[3] }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/small_zombie.gif') }}" />
+            </div>
         </div>
-        <div class="padded cell rw-4 rw-md-6 center small">
-            <div class="watchtower-prediction">
-                <p>{{ 'Qualität der Abschätzung'|trans({},'game') }}</p>
-                <div class="watchtower-prediction-bar">
-                    <div class="watchtower-prediction-progress" style="width: {{ z0[4] }}%;"></div>
-                    <div class="watchtower-prediction-text" style="width: {{ z0[4] }}%;">{{ z0[4] }}%</div>
+        <div class="row">
+            <div class="padded cell rw-12 center small">
+                <div class="watchtower-prediction">
+                    <p>{{ 'Qualität der Abschätzung'|trans({},'game') }}</p>
+                    <div class="watchtower-prediction-bar">
+                        <div class="watchtower-prediction-progress" style="width: {{ z0[4] }}%;"></div>
+                        <div class="watchtower-prediction-text" style="width: {{ z0[4] }}%;">{{ z0[4] }}%</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="padded cell rw-4 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12 right">
+        <div class="row">
+            <div class="padded cell rw-12 center small">
             {% if z0[4] < 100 %}
                 <button {% if not z0_av %}disabled{% endif%} x-predict-attack="0">{{ 'Abschätzung verbessern'|trans({},'game') }}</button>
             {% endif %}
+            </div>
         </div>
     </div>
 
-    {% if z1[0] %}
-        <h5>{{ 'Morgige Abschätzung'|trans({},'game') }}</h5>
+    <div class="block">
         <div class="row">
-            <div class="padded cell rw-4 rw-md-6 left">
+            <div class="padded cell rw-12 center">
+                <strong>{{ 'Morgige Abschätzung'|trans({},'game') }}</strong>
+            </div>
+        </div>
+        <div class="row">
+            {% if z1[0] %}
+            <div class="padded cell rw-12 center">
                 {% if z1[1] %}
                     <b>{{ z1[2] }} - {{ z1[3] }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/small_zombie.gif') }}" />
                 {% else %}
@@ -54,9 +68,17 @@
                     <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1">{{ 'Abschätzung verbessern'|trans({},'game') }}</button>
                 {% endif %}
             </div>
+            {% else %}
+                <div class="padded cell rw-12 center">
+                    {{'Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.'|trans({}, 'game')}}
+                </div>
+                <div class="padded cell rw-12 center">
+                    <button disabled>{{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
+                </div>
+            {% endif %}
         </div>
+    </div>
 
-    {% endif %}
 
     <div class="small-note">
         {% trans from 'game' %}

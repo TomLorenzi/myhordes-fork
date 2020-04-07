@@ -1363,11 +1363,11 @@
       </trans-unit>
       <trans-unit id="u_g_Kg2" resname="Trinken">
         <source>Trinken</source>
-        <target>Boire </target>
+        <target>Boire</target>
       </trans-unit>
       <trans-unit id="ih8Me2k" resname="Befüllen">
         <source>Befüllen</source>
-        <target>Remplir </target>
+        <target>Remplir</target>
       </trans-unit>
       <trans-unit id="qv4Y2EG" resname="Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!">
         <source>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</source>
@@ -1379,7 +1379,7 @@
       </trans-unit>
       <trans-unit id="vDhaMLU" resname="Öffnen">
         <source>Öffnen</source>
-        <target>Ouvrir </target>
+        <target>Ouvrir</target>
       </trans-unit>
       <trans-unit id=".pqCaKH" resname="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
@@ -1387,7 +1387,7 @@
       </trans-unit>
       <trans-unit id="ohJAffK" resname="Essen">
         <source>Essen</source>
-        <target>Manger </target>
+        <target>Manger</target>
       </trans-unit>
       <trans-unit id="m8ZO.Qg" resname="Einnehmen">
         <source>Einnehmen</source>
@@ -1427,7 +1427,7 @@
       </trans-unit>
       <trans-unit id="4W5shcA" resname="Waffe einsetzen">
         <source>Waffe einsetzen</source>
-        <target>Attaquer avec </target>
+        <target>Attaquer avec</target>
       </trans-unit>
       <trans-unit id="LNBNFk1" resname="Zum Glück sind hier keine Zombies...">
         <source>Zum Glück sind hier keine Zombies...</source>
@@ -1603,15 +1603,15 @@
       </trans-unit>
       <trans-unit id="Kl2AzsC" resname="Du ziehst eine Karte... es ist: {color} {value}.">
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Vous tirez une carte... es ist: {color} {value}.</target>
+        <target>Vous tirez une carte... vous obtenez: {color} {value}.</target>
       </trans-unit>
       <trans-unit id="m5CJEyF" resname="Die Rückkehr des Helden">
         <source>Die Rückkehr des Helden</source>
-        <target>Die Rückkehr des Helden</target>
+        <target>Retour du Héros</target>
       </trans-unit>
       <trans-unit id="AfDbNyS" resname="Hierfür bist du zu weit von der Stadt entfernt ...">
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>Hierfür bist du zu weit von der Stadt entfernt ...</target>
+        <target>Vous êtes trop loin de la ville pour cela ...</target>
       </trans-unit>
       <trans-unit id="9XqTW0w" resname="Fund">
         <source>Fund</source>
@@ -1635,7 +1635,7 @@
       </trans-unit>
       <trans-unit id="VREDhkf" resname="Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!">
         <source>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</source>
-        <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
+        <target>Usant de votre volonté à toute épreuve, vous avez affronté l'Outre-Monde, sauvé {citizen} et êtes revenu(e) indemne !</target>
       </trans-unit>
       <trans-unit id="vgypnNf" resname="%action%: %item%">
         <source>%action%: %item%</source>
@@ -1643,7 +1643,7 @@
       </trans-unit>
       <trans-unit id="cbZMBy4" resname="Heldentaten">
         <source>Heldentaten</source>
-        <target>Pouvoirs héroïques</target>
+        <target>Actions héroïques</target>
       </trans-unit>
     </body>
   </file>
