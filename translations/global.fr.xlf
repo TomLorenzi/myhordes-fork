@@ -181,6 +181,22 @@
         <source>Seite neu laden</source>
         <target>Recharger la page</target>
       </trans-unit>
+      <trans-unit id="gBz_D6E" resname="Deutsch">
+        <source>Deutsch</source>
+        <target>Allemand</target>
+      </trans-unit>
+      <trans-unit id="mD6lfyI" resname="Englisch">
+        <source>Englisch</source>
+        <target>Anglais</target>
+      </trans-unit>
+      <trans-unit id="vp_4VdN" resname="Französisch">
+        <source>Französisch</source>
+        <target>Français</target>
+      </trans-unit>
+      <trans-unit id="bjgV6Xr" resname="Spanisch">
+        <source>Spanisch</source>
+        <target>Espagnol</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

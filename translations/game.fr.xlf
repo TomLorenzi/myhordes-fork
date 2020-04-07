@@ -1576,19 +1576,19 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="MJMhV5L" resname="Kleine Stadt">
         <source>Kleine Stadt</source>
-        <target>Kleine Stadt</target>
+        <target>Petite carte</target>
       </trans-unit>
       <trans-unit id="bElrYkF" resname="Entfernte Regionen">
         <source>Entfernte Regionen</source>
-        <target>Entfernte Regionen</target>
+        <target>Région éloignée</target>
       </trans-unit>
       <trans-unit id="7H7gGH1" resname="Pandämonium">
         <source>Pandämonium</source>
-        <target>Pandämonium</target>
+        <target>Pandémonium</target>
       </trans-unit>
       <trans-unit id="2ZxNAfn" resname="Private Stadt">
         <source>Private Stadt</source>
-        <target>Private Stadt</target>
+        <target>Ville privée</target>
       </trans-unit>
       <trans-unit id="GOlt3k3" resname="%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.">
         <source>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
@@ -1729,6 +1729,114 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="TSuzaPk" resname="Übersicht">
         <source>Übersicht</source>
         <target>Vue d'ensemble</target>
+      </trans-unit>
+      <trans-unit id="0.KJY95" resname="Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.">
+        <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
+        <target>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+      </trans-unit>
+      <trans-unit id="0lltLsX" resname="Unsere Verteidigung :">
+        <source>Unsere Verteidigung :</source>
+        <target>Nos défenses :</target>
+      </trans-unit>
+      <trans-unit id="fCsY_QS" resname="Geschätzter Angriff :">
+        <source>Geschätzter Angriff :</source>
+        <target>Attaque estimée :</target>
+      </trans-unit>
+      <trans-unit id="vaASCIq" resname="Wir brauchen mehr Menschen, die in den Wachturm gehen.">
+        <source>Wir brauchen mehr Menschen, die in den Wachturm gehen.</source>
+        <target>Wir brauchen mehr Menschen, die in den Wachturm gehen.</target>
+      </trans-unit>
+      <trans-unit id="aVClbc0" resname="Meine täglichen Aufgaben">
+        <source>Meine täglichen Aufgaben</source>
+        <target>Meine täglichen Aufgaben</target>
+      </trans-unit>
+      <trans-unit id="OSdFB8R" resname="Einen Blick ins Forum werfen.">
+        <source>Einen Blick ins Forum werfen.</source>
+        <target>Jeter un oeil au forum de votre ville.</target>
+      </trans-unit>
+      <trans-unit id=".vMt2eO" resname="Meine Ration Wasser im Brunnen entnehmen (optional).">
+        <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
+        <target>Prendre mon eau au puits (optionnel).</target>
+      </trans-unit>
+      <trans-unit id="UgqaO9M" resname="An der Angriffsabschätzung teilnehmen">
+        <source>An der Angriffsabschätzung teilnehmen</source>
+        <target>participer à l'estimation de l'attaque</target>
+      </trans-unit>
+      <trans-unit id="h3w5_BE" resname="Für ein Tagesprojekt abstimmen.">
+        <source>Für ein Tagesprojekt abstimmen.</source>
+        <target>Voter pour un projet du jour.</target>
+      </trans-unit>
+      <trans-unit id="G7Kbsmc" resname="Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).">
+        <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
+        <target>Travailler au chantier, à l'atelier ou sortir (au choix).</target>
+      </trans-unit>
+      <trans-unit id="4tgoaqE" resname="Heldentafel">
+        <source>Heldentafel</source>
+        <target>Le mots des héros</target>
+      </trans-unit>
+      <trans-unit id="eeHEERB" resname="Unsere Situation">
+        <source>Unsere Situation</source>
+        <target>Notre situation</target>
+      </trans-unit>
+      <trans-unit id="PouMrbo" resname="Stadttyp:">
+        <source>Stadttyp:</source>
+        <target>Type de ville :</target>
+      </trans-unit>
+      <trans-unit id="jVUAKv9" resname="Stadttor:">
+        <source>Stadttor:</source>
+        <target>Portes :</target>
+      </trans-unit>
+      <trans-unit id="dKGSLP." resname="Offen!">
+        <source>Offen!</source>
+        <target>Ouvertes !</target>
+      </trans-unit>
+      <trans-unit id="UlrC9u_" resname="Geschlossen">
+        <source>Geschlossen</source>
+        <target>Fermées</target>
+      </trans-unit>
+      <trans-unit id="gGd7K.3" resname="Wasservorräte:">
+        <source>Wasservorräte:</source>
+        <target>Réserves d'eau :</target>
+      </trans-unit>
+      <trans-unit id="xa6ARi1" resname="Einwohner am Leben:">
+        <source>Einwohner am Leben:</source>
+        <target>Habitants en vie :</target>
+      </trans-unit>
+      <trans-unit id="J2.6H7T" resname="Unbekannt">
+        <source>Unbekannt</source>
+        <target>Inconnue</target>
+      </trans-unit>
+      <trans-unit id="3Nw75Vc" resname="Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.">
+        <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
+        <target>Il n'est pas possible d'évaluer avec précision notre situation face à l'attaque de ce soir.</target>
+      </trans-unit>
+      <trans-unit id="Bij.q6J" resname="Lesen Sie das Mitteilungsblatt">
+        <source>Lesen Sie das Mitteilungsblatt</source>
+        <target>Lire la gazette</target>
+      </trans-unit>
+      <trans-unit id="3MPDTZN" resname="Unsere Verteidigungen">
+        <source>Unsere Verteidigungen</source>
+        <target>Nos défenses en détail</target>
+      </trans-unit>
+      <trans-unit id="BlKVHJ7" resname="Grundbefestigungsmauer">
+        <source>Grundbefestigungsmauer</source>
+        <target>Muraille de base</target>
+      </trans-unit>
+      <trans-unit id="8UxoSSm" resname="Verteidigungsgegenstände">
+        <source>Verteidigungsgegenstände</source>
+        <target>Objets de défense</target>
+      </trans-unit>
+      <trans-unit id="FAUZkS8" resname="Häuser">
+        <source>Häuser</source>
+        <target>Maisons citoyens</target>
+      </trans-unit>
+      <trans-unit id="CoBxwRL" resname="Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.">
+        <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
+        <target> Note : les objets de défense (plaques de bois, ...etc.) sont à poser dans la Banque.</target>
+      </trans-unit>
+      <trans-unit id="fTFJ5hh" resname="Nachtwächter">
+        <source>Nachtwächter</source>
+        <target>Nachtwächter</target>
       </trans-unit>
     </body>
   </file>

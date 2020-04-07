@@ -67,6 +67,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 ["name"=>"Spraykanone","temporary"=>1,"img"=>"small_gazspray","vp"=>150,"ap"=>40,"bp"=>2,"rsc"=>["water_#00" => 2,"pharma_#00" => 7,"drug_#00" => 3,]],
                 ["name"=>"Säurespray","temporary"=>1,"img"=>"small_acidspray","vp"=>35,"ap"=>30,"bp"=>1,"rsc"=>["water_#00" => 2,"pharma_#00" => 5,]],
             ]],
+            ["name"=>"Brustwehr","temporary"=>0,"img"=>"small_round_path","vp"=>0,"ap"=>20,"bp"=>0,"rsc"=>["wood2_#00" => 6,"metal_#00" => 2,"meca_parts_#00" => 1,]],
         ]],
 
         ["name"=>"Pumpe","maxLevel" => 5,"temporary"=>0,"img"=>"small_water","vp"=>0,"ap"=>25,"bp"=>0,"rsc"=>["metal_#00" => 8,"tube_#00" => 1,],
