@@ -13,6 +13,25 @@
   body {background: black;}
   #wrapper, div.game-menu-area, footer { width: 100%; }
 }
+@media (max-width: (@screen-large-threshold - 1)) and (min-width: @screen-small-threshold) {
+  .row > .cell.town-addons {
+    flex-wrap: wrap;
+    & > .town-addon {
+      flex-basis: 30%;
+      width: 30%;
+      height: auto;
+
+      & > div {
+        height: 0;
+        width: 100%;
+        padding-bottom: 100%;
+      }
+    }
+  }
+  .row > .cell.town-addons > .town-addon.town-addon-empty > div {
+    display: none;
+  }
+}
 @media (max-width: (@screen-large-threshold - 1)) and (min-width: @screen-medium-threshold) {
   .hide-@{screen-large} {display: none !important;};
 }
@@ -29,6 +48,25 @@
       &>ul>li { padding: 16px; }
       & *[x-close-for] { display: inline-block; padding: 16px; }
     }
+  }
+  .row > .cell.town-addons {
+    flex-wrap: wrap;
+    & > .town-addon {
+      flex-basis: 15%;
+      width: 15%;
+      height: auto;
+
+      & > div {
+        height: 0;
+        width: 100%;
+        padding-bottom: 100%;
+      }
+    }
+  }
+  .row > .cell.town-addons > .town-addon.town-addon-empty > div {
+    height: 0;
+    width: calc(100% - 4px);
+    padding-bottom: 100%;
   }
 }
 
