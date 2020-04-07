@@ -748,7 +748,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6KUjC8g" resname="Die Stadt verfügt über eine %pumpname%.">
         <source>Die Stadt verfügt über eine %pumpname%.</source>
-        <target>Die Stadt verfügt über eine %pumpname%.</target>
+        <target>(la ville dispose d'une Pompe pour le Puits)</target>
       </trans-unit>
       <trans-unit id="syHx5ID" resname="Deine Ration Wasser erhalten">
         <source>Deine Ration Wasser erhalten</source>
@@ -756,11 +756,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="unhSN_Y" resname="Eine weitere Ration erhalten">
         <source>Eine weitere Ration erhalten</source>
-        <target>Prendre une ration supplémentaire</target>
+        <target>Ration supplémentaires !</target>
       </trans-unit>
       <trans-unit id="eEQntCE" resname="Wasser hinzufügen">
         <source>Wasser hinzufügen</source>
-        <target>Remplir le puits</target>
+        <target>Ajouter de l'eau</target>
       </trans-unit>
       <trans-unit id="BMwsxtX" resname="Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).">
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
@@ -1380,7 +1380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Msm_smP" resname="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
         <source>%citizen% hat mehr Wasser genommen, als erlaubt ist...</source>
-        <target>%citizen% a pris une ration supplémentaire, au détriment d'autres citoyens...</target>
+        <target>%citizen% s'est permis de prendre plus d'eau que prévu au puits...</target>
       </trans-unit>
       <trans-unit id="EMJ_Kff" resname="%citizen% hat eine Ration Wasser genommen.">
         <source>%citizen% hat eine Ration Wasser genommen.</source>
@@ -1649,6 +1649,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="gd8sEx3" resname="Werkstatt">
         <source>Werkstatt</source>
         <target>Atelier</target>
+      </trans-unit>
+      <trans-unit id="fIJzVR7" resname="Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.">
+        <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
+        <target>Le Puits est l'endroit où chaque jour les citoyens viennent récupérer leur ration d'eau.</target>
       </trans-unit>
     </body>
   </file>
