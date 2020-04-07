@@ -1603,15 +1603,15 @@
       </trans-unit>
       <trans-unit id="Kl2AzsC" resname="Du ziehst eine Karte... es ist: {color} {value}.">
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Vous tirez une carte... es ist: {color} {value}.</target>
+        <target>Vous tirez une carte... vous obtenez: {color} {value}.</target>
       </trans-unit>
       <trans-unit id="m5CJEyF" resname="Die Rückkehr des Helden">
         <source>Die Rückkehr des Helden</source>
-        <target>Die Rückkehr des Helden</target>
+        <target>Retour du Héros</target>
       </trans-unit>
       <trans-unit id="AfDbNyS" resname="Hierfür bist du zu weit von der Stadt entfernt ...">
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>Hierfür bist du zu weit von der Stadt entfernt ...</target>
+        <target>Vous êtes trop loin de la ville pour cela ...</target>
       </trans-unit>
       <trans-unit id="9XqTW0w" resname="Fund">
         <source>Fund</source>
@@ -1635,7 +1635,7 @@
       </trans-unit>
       <trans-unit id="VREDhkf" resname="Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!">
         <source>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</source>
-        <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
+        <target>Usant de votre volonté à toute épreuve, vous avez affronté l'Outre-Monde, sauvé {citizen} et êtes revenu(e) indemne !</target>
       </trans-unit>
       <trans-unit id="vgypnNf" resname="%action%: %item%">
         <source>%action%: %item%</source>
@@ -1643,7 +1643,7 @@
       </trans-unit>
       <trans-unit id="cbZMBy4" resname="Heldentaten">
         <source>Heldentaten</source>
-        <target>Pouvoirs héroïques</target>
+        <target>Actions héroïques</target>
       </trans-unit>
     </body>
   </file>

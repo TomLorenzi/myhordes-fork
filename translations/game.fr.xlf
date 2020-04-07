@@ -279,7 +279,7 @@
       </trans-unit>
       <trans-unit id="VgeAGfB" resname="Bitte wähle einen Gegenstand:">
         <source>Bitte wähle einen Gegenstand:</source>
-        <target>Bitte wähle einen Gegenstand:</target>
+        <target>Choisissez un objet :</target>
       </trans-unit>
       <trans-unit id="m.LKoYd" resname="Du verfügst über keine geeigneten Gegenstände">
         <source>Du verfügst über keine geeigneten Gegenstände</source>
@@ -331,11 +331,11 @@
       </trans-unit>
       <trans-unit id="oCYA07E" resname="Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.">
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</target>
+        <target>La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici.</target>
       </trans-unit>
       <trans-unit id="MVukZx5" resname="Heutige Abschätzung">
         <source>Heutige Abschätzung</source>
-        <target>Heutige Abschätzung</target>
+        <target>Si nos estimations tombent juste, nous devrions être attaqués par environ :</target>
       </trans-unit>
       <trans-unit id="8N0dl_g" resname="Zombies">
         <source>Zombies</source>
@@ -343,15 +343,15 @@
       </trans-unit>
       <trans-unit id="ItcOxwd" resname="Qualität der Abschätzung">
         <source>Qualität der Abschätzung</source>
-        <target>Qualität der Abschätzung</target>
+        <target>Qualité de l'estimation :</target>
       </trans-unit>
       <trans-unit id="GHVvmus" resname="Abschätzung verbessern">
         <source>Abschätzung verbessern</source>
-        <target>Abschätzung verbessern</target>
+        <target>Scruter les environs</target>
       </trans-unit>
       <trans-unit id="PudnUuv" resname="Morgige Abschätzung">
         <source>Morgige Abschätzung</source>
-        <target>Morgige Abschätzung</target>
+        <target>Attaque du lendemain</target>
       </trans-unit>
       <trans-unit id="Y5SuVaF" resname="Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.">
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
@@ -748,7 +748,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6KUjC8g" resname="Die Stadt verfügt über eine %pumpname%.">
         <source>Die Stadt verfügt über eine %pumpname%.</source>
-        <target>(la ville dispose d'une Pompe pour le Puits)</target>
+        <target>La ville dispose d'une Pompe pour le Puits.</target>
       </trans-unit>
       <trans-unit id="syHx5ID" resname="Deine Ration Wasser erhalten">
         <source>Deine Ration Wasser erhalten</source>
@@ -1638,9 +1638,25 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Heute ist nichts Erwähnenswertes passiert...</source>
         <target>Rien de notable pour cette journée...</target>
       </trans-unit>
+      <trans-unit id="IbZvvYE" resname="Wachturm">
+        <source>Wachturm</source>
+        <target>Tour</target>
+      </trans-unit>
+      <trans-unit id="266wx0d" resname="Verbesserung des Tages">
+        <source>Verbesserung des Tages</source>
+        <target>Projet</target>
+      </trans-unit>
+      <trans-unit id="gd8sEx3" resname="Werkstatt">
+        <source>Werkstatt</source>
+        <target>Atelier</target>
+      </trans-unit>
       <trans-unit id="fIJzVR7" resname="Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.">
         <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
         <target>Le Puits est l'endroit où chaque jour les citoyens viennent récupérer leur ration d'eau.</target>
+      </trans-unit>
+      <trans-unit id="VGRstc7" resname="Rucksack auf dem Boden ausleeren">
+        <source>Rucksack auf dem Boden ausleeren</source>
+        <target>Vider son sac à dos au sol</target>
       </trans-unit>
       <trans-unit id="476j_uq" resname="Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:">
         <source>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</source>
@@ -1701,18 +1717,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="cePRD7K" resname="In der Stadt wohnen @citizens Bürger.">
         <source>In der Stadt wohnen @citizens Bürger.</source>
         <target>il y a @citizens citoyen(s) en ville.</target>
-      </trans-unit>
-      <trans-unit id="IbZvvYE" resname="Wachturm">
-        <source>Wachturm</source>
-        <target>Tour</target>
-      </trans-unit>
-      <trans-unit id="266wx0d" resname="Verbesserung des Tages">
-        <source>Verbesserung des Tages</source>
-        <target>Projet</target>
-      </trans-unit>
-      <trans-unit id="gd8sEx3" resname="Werkstatt">
-        <source>Werkstatt</source>
-        <target>Atelier</target>
       </trans-unit>
     </body>
   </file>
