@@ -1,6 +1,9 @@
 @import (once) "../theme";
 
 .town-menu {
+  font-weight: bold;
+  color: @myhordes-cell-header-text-color;
+  font-variant: small-caps;
   &>.cell {
     &>div:first-child { width: 100%; padding-top: 55.1724138% }
     &>div:last-child {
@@ -8,13 +11,13 @@
       &>img { vertical-align: bottom };
     }
     cursor: pointer;
-    &:not(.selected):hover {
+    &:hover {
       &>div:last-child { color: @myhordes-input-border; }
       outline: 1px solid @myhordes-input-border;
     }
     &.selected {
       &>div:first-child { filter: contrast( 120% ) brightness( 120% ); }
-      &>div:last-child { font-weight: bold; background: lighten(@myhordes-cell-header-background-color, 10%) };
+      &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%);color: @myhordes-input-border; };
     }
   }
   &>.town-menu-house>div:first-child { background: url("../../img/menu_home.gif") center/cover no-repeat }
@@ -23,9 +26,13 @@
   &>.town-menu-citizens>div:first-child { background: url("../../img/menu_houses.gif") center/cover no-repeat }
   &>.town-menu-construct>div:first-child { background: url("../../img/menu_construction.gif") center/cover no-repeat }
   &>.town-menu-door>div:first-child { background: url("../../img/menu_door.gif") center/cover no-repeat }
+
 }
 
 .town-addons {
+  font-weight: bold;
+  color: @myhordes-cell-header-text-color;
+  font-variant: small-caps;
   &>.cell {
 
     &>div {
@@ -46,7 +53,7 @@
       background: lighten(@myhordes-cell-header-background-color, 10%);
       &>div:first-child {
         &>div:first-child { filter: contrast( 120% ) brightness( 120% ); }
-        &>span:last-child { padding: 1px 4px; height: 40px; }
+        &>span:last-child { padding: 4px; height: 40px; }
         font-weight: bold; ;
       };
     }
