@@ -5,8 +5,9 @@
 {% endblock %}
 {# @var zone \App\Entity\Zone #}
 {% block content %}
+    {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 zone-beyond {% if zone.x == 0 and zone.y == 0 %}night-city-open{% else %}night-beyond{% endif %}"></div>
+        <div class="cell rw-12 zone-beyond time-{{ hour }} {% if hour < 7 or hour > 18 %}night-{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% else if zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
     </div>
     <div class="row">
         <div class="cell rw-12 ambiant small">
