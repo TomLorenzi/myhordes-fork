@@ -331,11 +331,11 @@
       </trans-unit>
       <trans-unit id="oCYA07E" resname="Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.">
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</target>
+        <target>La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici.</target>
       </trans-unit>
       <trans-unit id="MVukZx5" resname="Heutige Abschätzung">
         <source>Heutige Abschätzung</source>
-        <target>Heutige Abschätzung</target>
+        <target>Si nos estimations tombent juste, nous devrions être attaqués par environ :</target>
       </trans-unit>
       <trans-unit id="8N0dl_g" resname="Zombies">
         <source>Zombies</source>
@@ -343,15 +343,15 @@
       </trans-unit>
       <trans-unit id="ItcOxwd" resname="Qualität der Abschätzung">
         <source>Qualität der Abschätzung</source>
-        <target>Qualität der Abschätzung</target>
+        <target>Qualité de l'estimation :</target>
       </trans-unit>
       <trans-unit id="GHVvmus" resname="Abschätzung verbessern">
         <source>Abschätzung verbessern</source>
-        <target>Abschätzung verbessern</target>
+        <target>Scruter les environs</target>
       </trans-unit>
       <trans-unit id="PudnUuv" resname="Morgige Abschätzung">
         <source>Morgige Abschätzung</source>
-        <target>Morgige Abschätzung</target>
+        <target>Attaque du lendemain</target>
       </trans-unit>
       <trans-unit id="Y5SuVaF" resname="Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.">
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
