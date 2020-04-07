@@ -1658,6 +1658,50 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>leere Truhe</source>
         <target>Coffre vide</target>
       </trans-unit>
+      <trans-unit id="a8zlw81" resname="Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.">
+        <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
+        <target>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</target>
+      </trans-unit>
+      <trans-unit id="Fak6Ovg" resname="Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...">
+        <source>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</source>
+        <target>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</target>
+      </trans-unit>
+      <trans-unit id="v3pLWJA" resname="Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...">
+        <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
+        <target>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</target>
+      </trans-unit>
+      <trans-unit id="is0j5bp" resname="Die Zone untersuchen">
+        <source>Die Zone untersuchen</source>
+        <target>Die Zone untersuchen</target>
+      </trans-unit>
+      <trans-unit id="Utl2PJa" resname="Du schaust dir die Gegend etwas genauer an...">
+        <source>Du schaust dir die Gegend etwas genauer an...</source>
+        <target>Du schaust dir die Gegend etwas genauer an...</target>
+      </trans-unit>
+      <trans-unit id="BsmmJg2" resname="Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.">
+        <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
+        <target>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</target>
+      </trans-unit>
+      <trans-unit id="u.HzZ0w" resname="Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.">
+        <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</target>
+      </trans-unit>
+      <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
+        <source>Sich verstecken und die Nacht hier schlafen!</source>
+        <target>Sich verstecken und die Nacht hier schlafen!</target>
+      </trans-unit>
+      <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
+        <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
+        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
+        <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
+        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="cePRD7K" resname="In der Stadt wohnen @citizens Bürger.">
+        <source>In der Stadt wohnen @citizens Bürger.</source>
+        <target>il y a @citizens citoyen(s) en ville.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
