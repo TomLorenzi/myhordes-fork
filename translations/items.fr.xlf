@@ -1411,7 +1411,7 @@
       </trans-unit>
       <trans-unit id="ANXSLZW" resname="Laden">
         <source>Laden</source>
-        <target>Laden</target>
+        <target>Assembler</target>
       </trans-unit>
       <trans-unit id="VahlHoL" resname="Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!">
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>

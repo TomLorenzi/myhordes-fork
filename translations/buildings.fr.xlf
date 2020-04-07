@@ -853,6 +853,10 @@
         <source>Brustwehr</source>
         <target>Chemin de ronde</target>
       </trans-unit>
+      <trans-unit id="A5G3UvL" resname="Hämame">
+        <source>Hämame</source>
+        <target>Hamame</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -295,7 +295,7 @@
       </trans-unit>
       <trans-unit id="SQxs_a5" resname="Kombinieren">
         <source>Kombinieren</source>
-        <target>Kombinieren</target>
+        <target>Combiner</target>
       </trans-unit>
       <trans-unit id="dizwCRc" resname="Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!">
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
@@ -1048,7 +1048,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="LoyMaAF" resname="Immunisiert">
         <source>Immunisiert</source>
-        <target>Immunisiert</target>
+        <target>Immunisé</target>
       </trans-unit>
       <trans-unit id="dIXELzM" resname="Den Tod besiegen">
         <source>Den Tod besiegen</source>
@@ -1068,7 +1068,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="csu4Gzn" resname="Dehydriert">
         <source>Dehydriert</source>
-        <target>Dehydriert</target>
+        <target>Déshydratation</target>
       </trans-unit>
       <trans-unit id="4cxMzfa" resname="Rauschzustand">
         <source>Rauschzustand</source>
@@ -1468,7 +1468,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="GtC0MNC" resname="... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!">
         <source>... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!</source>
-        <target>... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!</target>
+        <target>... qui sont grandes ouvertes ! %num% zombies sont entrés dans la ville !</target>
       </trans-unit>
       <trans-unit id="4ETWhR_" resname="%num% Zombies sind durch unsere Verteidigung gebrochen!">
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
@@ -1748,7 +1748,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="aVClbc0" resname="Meine täglichen Aufgaben">
         <source>Meine täglichen Aufgaben</source>
-        <target>Meine täglichen Aufgaben</target>
+        <target>Mes tâches quotidiennes</target>
       </trans-unit>
       <trans-unit id="OSdFB8R" resname="Einen Blick ins Forum werfen.">
         <source>Einen Blick ins Forum werfen.</source>

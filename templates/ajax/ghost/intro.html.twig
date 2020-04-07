@@ -27,7 +27,7 @@
                                             <div class="padded cell rw-1"><span class="language">{{ town.getLanguage }}</span></div>
                                             <div class="padded cell rw-7">{{ town.getName }}</div>
                                             <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /></div>
-                                            <div class="padded cell rw-3"><button x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}">{% trans from 'ghost' %}Beitreten{% endtrans %}</button></div>
+                                            <div class="padded cell rw-3"><button x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}">{% trans from 'ghost' %}Beitreten{% endtrans %}</button></div>
                                             <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden">
                                                 <ul class="citizen-list">
                                                     {% for denizen in town.citizens %}
