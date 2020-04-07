@@ -37,7 +37,7 @@
                 {% if scout and not entry.action.keepsCover %}
                     <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
                 {% endif %}
-                <span><b>{{ entry.action.label|trans({},'game') }}</b></span>
+                <span><b>{{ entry.action.label|trans({},'items') }}</b></span>
                 {% if entry.targets is not null and not entry.crossed %}
                     {% if entry.target_mode == 2 %}
                         {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true ) }}
