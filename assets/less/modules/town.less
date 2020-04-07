@@ -29,39 +29,83 @@
 
 }
 
-.town-addons {
+.row > .cell.town-addons {
   font-weight: bold;
   color: @myhordes-cell-header-text-color;
   font-variant: small-caps;
-  &>.cell {
+  display: flex;
+  align-items: stretch;
 
-    &>div {
-      &:after { clear: both; content: " "; display: block; }
-      padding: 0; margin: 0; background: @myhordes-cell-header-background-color;
+  & > .town-addon {
+    height: 55px;
+    width: 40px;
+    flex-basis: 40px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: small;
+    padding: 0;
+    cursor: pointer;
+    margin: 3px;
+    background-color: @myhordes-cell-header-background-color;
+
+    &:nth-child(n+7) {
+      display: none;
     }
 
-    &>div>div:first-child {
-      &>div:first-child { width: 40px; height: 40px; display: inline-block; float: left }
-      &>span:last-child { display: block; padding: 4px; margin-left: 40px; text-align: center}
-      font-size: small; padding: 0; cursor: pointer;
+    &.town-addon-empty {
+      background-color: transparent;
+
+      & > div {
+        height: 36px;
+        width: 36px;
+        margin: 2px;
+        border: 1px dotted @myhordes-cell-header-background-color;
+      }
     }
-    &:not(.selected):hover>div {
-      &>div:first-child { color: @myhordes-input-border; }
-      outline: 1px solid @myhordes-input-border; cursor: pointer;
+
+    & > div {
+      padding: 0;
+      margin: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 40px;
+      width: 40px;
     }
-    &.selected>div {
+
+    &:not(.selected):hover > div {
+      outline: 1px solid @myhordes-input-border;
+      cursor: pointer;
+    }
+    &.selected {
       background: lighten(@myhordes-cell-header-background-color, 10%);
-      &>div:first-child {
-        &>div:first-child { filter: contrast( 120% ) brightness( 120% ); }
-        &>span:last-child { padding: 4px; height: 40px; }
-        font-weight: bold; ;
-      };
+      filter: contrast(120%) brightness(120%);
+      outline: 1px solid @myhordes-input-border;
     }
 
-    &.town-addon-upgrade >div>div:first-child>div:first-child { background: url("../../img/smenu_upgrades.gif") center/cover no-repeat }
-    &.town-addon-workshop>div>div:first-child>div:first-child { background: url("../../img/smenu_workshop.gif") center/cover no-repeat }
-    &.town-addon-watchtower>div>div:first-child>div:first-child { background: url("../../img/smenu_tower.gif") center/cover no-repeat }
-    &.town-addon-battlement>div>div:first-child>div:first-child { background: url("../../img/smenu_watch.gif") center/cover no-repeat }
+    & > span {
+      display: block;
+      padding: 1px 2px;
+      text-align: center;
+      text-overflow: ellipsis;
+      line-height: 13px;
+      height: 15px;
+      font-size: 10px;
+      overflow: hidden;
+    }
+
+    &.town-addon-upgrade > div {
+      background-image: url("../../img/smenu_upgrades.gif");
+    }
+    &.town-addon-workshop > div {
+      background-image: url("../../img/smenu_workshop.gif");
+    }
+    &.town-addon-watchtower > div {
+      background-image: url("../../img/smenu_tower.gif");
+    }
+    &.town-addon-battlement > div {
+      background-image: url("../../img/smenu_watch.gif");
+    }
   }
 }
 
