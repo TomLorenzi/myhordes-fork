@@ -69,9 +69,9 @@ class ActionHandler
     const ActionValidityAllow = 4;
     const ActionValidityFull = 5;
 
-    protected function evaluate( Citizen $citizen, Item $item, ?Item $target, ItemAction $action, ?string &$message ): int {
+    protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message ): int {
 
-        if (!$item->getPrototype()->getActions()->contains( $action )) return self::ActionValidityNone;
+        if ($item && !$item->getPrototype()->getActions()->contains( $action )) return self::ActionValidityNone;
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
             return self::ActionValidityNone;
 
@@ -165,7 +165,6 @@ class ActionHandler
                 $town = $citizen->getTown();
                 $building = $this->town_handler->getBuilding($town, $building_condition->getBuilding(), false);
 
-                $cpl = true;
                 if ($building) {
                     if ($building_condition->getComplete() !== null && $building_condition->getComplete() !== $building->getComplete()) $current_state = min( $current_state, $this_state );
                     if ($building->getComplete()) {
@@ -224,17 +223,59 @@ class ActionHandler
 
     }
 
-    public function targetDefinitionApplies(Item $item, ItemTargetDefinition $definition): bool {
-        if ($definition->getHeavy() !== null && $item->getPrototype()->getHeavy() !== $definition->getHeavy()) return false;
-        if ($definition->getBroken() !== null && $item->getBroken() !== $definition->getBroken()) return false;
-        if ($definition->getPoison() !== null && $item->getPoison() !== $definition->getPoison()) return false;
-        if ($definition->getPrototype() !== null && $item->getPrototype()->getId() !== $definition->getPrototype()->getId()) return false;
-        if ($definition->getTag() !== null && !$item->getPrototype()->getProperties()->contains($definition->getTag())) return false;
+    /**
+     * @param Citizen $citizen
+     * @param ItemAction[] $available
+     * @param ItemAction[] $crossed
+     */
+    public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
+        $available = $crossed = [];
+
+        if (!$citizen->getProfession()->getHeroic()) return;
+
+         foreach ($citizen->getHeroicActions() as $heroic) {
+            $mode = $this->evaluate( $citizen, null, null, $heroic->getAction(), $tx );
+            if ($mode >= self::ActionValidityAllow) $available[] = $heroic;
+            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $heroic;
+         }
+
+    }
+
+    /**
+     * @param Item|ItemPrototype|Citizen $target
+     * @param ItemTargetDefinition $definition
+     * @return bool
+     */
+    public function targetDefinitionApplies($target, ItemTargetDefinition $definition): bool {
+
+        switch ($definition->getSpawner()) {
+            case ItemTargetDefinition::ItemSelectionType:
+                if (!is_a( $target, Item::class )) return false;
+                if ($definition->getHeavy() !== null && $target->getPrototype()->getHeavy() !== $definition->getHeavy()) return false;
+                if ($definition->getBroken() !== null && $target->getBroken() !== $definition->getBroken()) return false;
+                if ($definition->getPoison() !== null && $target->getPoison() !== $definition->getPoison()) return false;
+                if ($definition->getPrototype() !== null && $target->getPrototype()->getId() !== $definition->getPrototype()->getId()) return false;
+                if ($definition->getTag() !== null && !$target->getPrototype()->getProperties()->contains($definition->getTag())) return false;
+                break;
+            case ItemTargetDefinition::ItemTypeSelectionType:
+                if (!is_a( $target, ItemPrototype::class )) return false;
+                if ($definition->getPrototype() && $target->getId() !== $definition->getPrototype()->getId()) return false;
+                if ($definition->getTag() && !$target->getProperties()->contains( $definition->getTag() ) ) return false;
+                break;
+            case ItemTargetDefinition::ItemHeroicRescueType:
+                if (!is_a( $target, Citizen::class )) return false;
+                if (!$target->getZone() || !$target->getAlive()) return false;
+                if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
+                break;
+
+            default: return false;
+        }
+
         return true;
     }
 
     /**
-     * @param ItemPrototype|BuildingPrototype|string $o
+     * @param ItemPrototype|BuildingPrototype|Citizen|string $o
      * @param $c
      * @return string
      */
@@ -246,6 +287,9 @@ class ActionHandler
         } else if (is_a($o, BuildingPrototype::class)) {
             $s =  $this->translator->trans($o->getLabel(), [], 'buildings');
             $i = 'build/images/building/' . $o->getIcon() . '.gif';
+        } else if (is_a($o, Citizen::class)) {
+            $s =  $o->getUser()->getUsername();
+            $i = 'build/images/professions/' . $o->getProfession()->getIcon() . '.gif';
         }
         else if (is_string($o)) $s = $o;
         else if (is_null($o)) $s = 'NULL';
@@ -266,12 +310,21 @@ class ActionHandler
     const ErrorActionForbidden    = ErrorHelper::BaseActionErrors + 2;
     const ErrorActionImpossible   = ErrorHelper::BaseActionErrors + 3;
 
-    public function execute( Citizen &$citizen, Item &$item, ?Item &$target, ItemAction $action, ?string &$message, ?array &$remove ): int {
+    /**
+     * @param Citizen $citizen
+     * @param Item|null $item
+     * @param Item|ItemPrototype|Citizen|null $target
+     * @param ItemAction $action
+     * @param string|null $message
+     * @param array|null $remove
+     * @return int
+     */
+    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove ): int {
 
         $remove = [];
         $tags = [];
 
-        $kill_by_poison = $item->getPoison() && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
+        $kill_by_poison = $item && $item->getPoison() && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
         $spread_poison = false;
 
         $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
@@ -283,10 +336,15 @@ class ActionHandler
         }
         if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
 
+        $target_item_prototype = null;
+        if ($target && is_a( $target, Item::class )) $target_item_prototype = $target->getPrototype();
+        if ($target && is_a( $target, ItemPrototype::class )) $target_item_prototype = $target;
+
         $execute_info_cache = [
             'ap' => 0,
-            'item'   => $item->getPrototype(),
-            'target' => $target ? $target->getPrototype() : null,
+            'item'   => $item ? $item->getPrototype() : null,
+            'target' => $target_item_prototype,
+            'citizen' => is_a($target, Citizen::class) ? $target : null,
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
             'items_consume' => [],
@@ -297,7 +355,7 @@ class ActionHandler
             'well' => 0,
         ];
 
-        $item_in_chest = $item->getInventory() && $item->getInventory()->getId() === $citizen->getHome()->getChest()->getId();
+        $item_in_chest = $item && $item->getInventory() && $item->getInventory()->getId() === $citizen->getHome()->getChest()->getId();
 
         $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest) {
             if ($status = $result->getStatus()) {
@@ -360,7 +418,7 @@ class ActionHandler
                 } else $tags[] = 'bp_fail';
             }
 
-            if ($item_result = $result->getItem()) {
+            if ($item && $item_result = $result->getItem()) {
                 if ($execute_info_cache['item_morph'][0] === null) $execute_info_cache['item_morph'][0] = $item->getPrototype();
                 if ($item_result->getConsume()) {
                     $item->getInventory()->removeItem($item);
@@ -374,17 +432,26 @@ class ActionHandler
                 }
             }
 
-            if ($target_result = $result->getTarget()) {
-                if ($execute_info_cache['item_target_morph'][0] === null) $execute_info_cache['item_target_morph'][0] = $target->getPrototype();
-                if ($target_result->getConsume()) {
-                    $target->getInventory()->removeItem($target);
-                    $remove[] = $target;
-                    $execute_info_cache['items_consume'][] = $target->getPrototype();
-                } else {
-                    if ($target_result->getMorph())
-                        $target->setPrototype( $execute_info_cache['item_target_morph'][1] = $target_result->getMorph() );
-                    if ($target_result->getBreak()  !== null) $target->setBroken( $target_result->getBreak() );
-                    if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
+            if ($target && $target_result = $result->getTarget()) {
+
+                if (is_a($target, Item::class)) {
+                    if ($execute_info_cache['item_target_morph'][0] === null) $execute_info_cache['item_target_morph'][0] = $target->getPrototype();
+                    if ($target_result->getConsume()) {
+                        $target->getInventory()->removeItem($target);
+                        $remove[] = $target;
+                        $execute_info_cache['items_consume'][] = $target->getPrototype();
+                    } else {
+                        if ($target_result->getMorph())
+                            $target->setPrototype( $execute_info_cache['item_target_morph'][1] = $target_result->getMorph() );
+                        if ($target_result->getBreak()  !== null) $target->setBroken( $target_result->getBreak() );
+                        if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
+                    }
+                } elseif (is_a($target, ItemPrototype::class)) {
+                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
+                            $citizen->getZone()
+                                ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
+                                : ( [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ])
+                        )) $execute_info_cache['items_spawn'][] = $target;
                 }
             }
 
@@ -488,11 +555,12 @@ class ActionHandler
                 }
             }
 
-            if ($result->getCasino())
+            if ($result->getCustom())
             {
                 $ap     = false;
                 $terror = false;
-                switch ($result->getCasino()) {
+                switch ($result->getCustom()) {
+                    // Dice
                     case 1:
                         $dice = [ mt_rand(1, 6), mt_rand(1, 6), mt_rand(1, 6) ];
                         $cmg = $this->translator->trans('Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.', [
@@ -517,6 +585,7 @@ class ActionHandler
 
                         $execute_info_cache['casino'] = $cmg;
                         break;
+                    // Cards
                     case 2:
                         $card = mt_rand(0, 53);
                         $color = floor($card / 13);
@@ -551,16 +620,17 @@ class ActionHandler
 
                         $execute_info_cache['casino'] = $cmg;
                         break;
+                    // Guitar
                     case 3:
                         $count = 0;
-                        foreach ($citizen->getTown()->getCitizens() as $target) {
+                        foreach ($citizen->getTown()->getCitizens() as $target_citizen) {
                             $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
-                            if ($target->getZone()) continue;
-                            else if ($this->citizen_handler->hasStatusEffect($target, ['drunk','drugged'], false)) {
-                                $this->citizen_handler->setAP($target, true, 2, 0);
+                            if ($target_citizen->getZone()) continue;
+                            else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
+                                $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;
                             } else {
-                                $this->citizen_handler->setAP($target, true, 1, 0);
+                                $this->citizen_handler->setAP($target_citizen, true, 1, 0);
                                 $count++;
                             }
                         }
@@ -569,21 +639,21 @@ class ActionHandler
 
                     // Tamer
                     case 4:case 5: {
-                        $heavy = $result->getCasino() === 5;
+                        $heavy = $result->getCustom() === 5;
 
                         $source = $citizen->getInventory();
-                        $target = $citizen->getTown()->getBank();
+                        $bank = $citizen->getTown()->getBank();
 
-                        foreach ( $citizen->getInventory()->getItems() as &$item )
-                            if ($heavy || !$item->getPrototype()->getHeavy())
-                                $this->inventory_handler->transferItem($citizen,$item,$source,$target, InventoryHandler::ModalityTamer);
+                        foreach ( $citizen->getInventory()->getItems() as &$target_item )
+                            if ($heavy || !$target_item->getPrototype()->getHeavy())
+                                $this->inventory_handler->transferItem($citizen,$target_item,$source,$bank, InventoryHandler::ModalityTamer);
 
                         break;
                     }
 
                     // Survivalist
                     case 6:case 7: {
-                        $drink = $result->getCasino() === 6;
+                        $drink = $result->getCustom() === 6;
                         $can_fail = $citizen->getTown()->getDay() > 4;
 
                         if (!$can_fail || $this->random_generator->chance(0.85)) {
@@ -606,6 +676,40 @@ class ActionHandler
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
                         break;
                     }
+                    // Heroic teleport action
+                    case 8:case 9: {
+                        $zone = null; $cp_ok = true;
+                        $jumper = null;
+                        if ($result->getCustom() === 8 && $citizen->getZone()) {
+                            $zone = $citizen->getZone();
+                            $cp_ok = $this->zone_handler->check_cp( $zone );
+                            $citizen->setZone(null);
+                            $zone->removeCitizen( $citizen );
+                            $jumper = $citizen;
+                        }
+
+                        if ($result->getCustom() === 9 && is_a( $target, Citizen::class )) {
+                            $zone = $target->getZone();
+                            $this->zone_handler->updateZone( $zone );
+                            $cp_ok = $this->zone_handler->check_cp( $zone );
+                            $target->setZone(null);
+                            $zone->removeCitizen( $target );
+                            $jumper = $target;
+                        }
+
+                        if (!$zone) break;
+                        $others_are_here = $zone->getCitizens()->count() > 0;
+
+                        if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
+                            $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
+                            if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
+                            $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
+                        }
+                        $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
+                        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+                    }
+
+
                 }
 
                 if ($ap) {
@@ -640,6 +744,7 @@ class ActionHandler
                 '{well}'      => $execute_info_cache['well'],
                 '{item}'      => $this->wrap($execute_info_cache['item']),
                 '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
+                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
                 '{item_from}' => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
                 '{item_to}'   => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
                 '{target_from}' => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
@@ -695,8 +800,8 @@ class ActionHandler
         if ( ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ) )
             return ErrorHelper::ErrorNoAP;
 
-        $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : [$c_inv, $citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest()];
-        $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : [$c_inv, $citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest()];
+        $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
+        $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
 
         $s = [];
         foreach ($recipe->getSource()->getEntries() as $entry)

@@ -83,21 +83,6 @@
 
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
 
-            {% if allow_enter_town %}
-                <button id="town-enter">
-                    {% if zone.x == 0 and zone.y == 0 %}
-                        {% trans from 'game' %}Stadt betreten{% endtrans %}
-                    {% else %}
-                        {% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
-                    {% endif %}
-                    {% if enter_costs_ap %}
-                        (<div class="ap">1</div>)
-                    {% endif %}
-                </button>
-            {% endif %}
-            {% if show_ventilation %}
-                <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{{ 'Durch die Lüftungsschächte klettern' }}</button>
-            {% endif %}
             {% if zone.x != 0 or zone.y != 0 %}
                 {% if not digging %}
                     {% if dig_timeout > 0 %}
@@ -138,7 +123,7 @@
                     {% endif %}
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode)} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode)} %}
                 {% endembed %}
 
             {% else %}
@@ -148,9 +133,26 @@
                 {% endif %}
 
             {% endif %}
+
+            {% if allow_enter_town %}
+                <button id="town-enter">
+                    {% if zone.x == 0 and zone.y == 0 %}
+                        {% trans from 'game' %}Stadt betreten{% endtrans %}
+                    {% else %}
+                        {% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
+                    {% endif %}
+                    {% if enter_costs_ap %}
+                        (<div class="ap">1</div>)
+                    {% endif %}
+                </button>
+            {% endif %}
+            {% if show_ventilation %}
+                <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+            {% endif %}
         </div>
 
         <div class="padded cell rw-6 rw-md-12">
+            <h5>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
@@ -296,10 +298,19 @@
             'up', '{{ path('beyond_dashboard') }}'
         );
 
+        handleHeroicActions(
+            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
+
+        handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
             '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}'

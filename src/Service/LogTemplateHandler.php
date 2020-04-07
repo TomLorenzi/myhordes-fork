@@ -115,7 +115,7 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
-    public function wellAdd( Citizen $citizen, Item $item, int $count ): TownLogEntry {
+    public function wellAdd( Citizen $citizen, ?Item $item, int $count ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeWell )
             ->setClass( TownLogEntry::ClassInfo )
@@ -123,7 +123,9 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.', [
+            ->setText( $this->trans->trans($item
+                ? '%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.'
+                : '%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%item%'    => $this->wrap( $this->iconize( $item ) ),
                 '%num%'     => $this->wrap( "$count" ),
@@ -373,15 +375,15 @@ class LogTemplateHandler
 
         $str = 'Horizont';
         if ($d_north) {
-            if ($d_east)     $str = 'Nordosten';
-            elseif ($d_west) $str = 'Nordwesten';
-            else             $str = 'Norden';
+            if ($d_east)     $str = T::__('Nordosten', "game");
+            elseif ($d_west) $str = T::__('Nordwesten', "game");
+            else             $str = T::__('Norden', "game");
         } elseif ($d_south) {
-            if ($d_east)     $str = 'Südosten';
-            elseif ($d_west) $str = 'Südwesten';
-            else             $str = 'Süden';
-        } elseif ($d_east)   $str = 'Osten';
-        elseif ($d_west)     $str = 'Westen';
+            if ($d_east)     $str = T::__('Südosten', "game");
+            elseif ($d_west) $str = T::__('Südwesten', "game");
+            else             $str = T::__('Süden', "game");
+        } elseif ($d_east)   $str = T::__('Osten', "game");
+        elseif ($d_west)     $str = T::__('Westen', "game");
 
         if ($is_zero_zone)
             $base = $depart ?  T::__('%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.', 'game') : T::__('%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.', 'game');
@@ -606,7 +608,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackProduction( Building $building, ?array $items = [] ): TownLogEntry {
-        $items = array_map( function(Item $e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
+        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
 
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )

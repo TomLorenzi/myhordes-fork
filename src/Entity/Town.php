@@ -25,6 +25,11 @@ class Town
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=8)
+     */
+    private $language;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $population;
@@ -105,6 +110,18 @@ class Town
         $this->name = $name;
 
         return $this;
+    }
+
+    public function getLanguage(): ?string
+    {
+      return $this->language;
+    }
+
+    public function setLanguage(string $language): self
+    {
+      $this->language = $language;
+
+      return $this;
     }
 
     public function getPopulation(): ?int

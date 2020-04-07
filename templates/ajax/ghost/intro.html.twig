@@ -12,7 +12,7 @@
                             {% if town.open %}{% set found = true %}{% endif %}
                         {% endfor %}
 
-                        <h5>{{ townClass.getLabel }}</h5>
+                        <h5>{{ townClass.getLabel|trans({},'game') }}</h5>
                         {% if found %}
                             <div class="row-table">
                                 <div class="row header">
@@ -24,7 +24,8 @@
                                     {% if town.open %}
                                         {% set found = true %}
                                         <div class="row">
-                                            <div class="padded cell rw-8">{{ town.getName }}</div>
+                                            <div class="padded cell rw-1"><span class="language">{{ town.getLanguage }}</span></div>
+                                            <div class="padded cell rw-7">{{ town.getName }}</div>
                                             <div class="padded cell rw-1 center"><img class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /></div>
                                             <div class="padded cell rw-3"><button x-town-id="{{ town.getId }}">Beitreten</button></div>
                                         </div>

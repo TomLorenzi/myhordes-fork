@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ItemTargetDefinition
 {
+    const ItemSelectionType = 0;
+    const ItemTypeSelectionType = 1;
+    const ItemHeroicRescueType = 2;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -40,6 +44,11 @@ class ItemTargetDefinition
      * @ORM\ManyToOne(targetEntity="App\Entity\ItemPrototype")
      */
     private $prototype;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $spawner = 0;
 
     public function getId(): ?int
     {
@@ -102,6 +111,18 @@ class ItemTargetDefinition
     public function setPrototype(?ItemPrototype $prototype): self
     {
         $this->prototype = $prototype;
+
+        return $this;
+    }
+
+    public function getSpawner(): ?int
+    {
+        return $this->spawner;
+    }
+
+    public function setSpawner(int $spawner): self
+    {
+        $this->spawner = $spawner;
 
         return $this;
     }

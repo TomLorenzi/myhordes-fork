@@ -12,6 +12,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
@@ -86,18 +87,23 @@ class DatabaseExtractor implements ExtractorInterface
         //<editor-fold desc="Game Domain">
         foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status)
             /** @var $status CitizenStatus */
-            if ($status->getLabel())
+            if (!$status->getHidden() && $status->getLabel())
                 $this->insert( $c, $status->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession)
             /** @var $profession CitizenProfession */
             if ($profession->getLabel())
-                $this->insert( $c, $status->getLabel(), 'game' );
+                $this->insert( $c, $profession->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone)
             /** @var $zone ZonePrototype */
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
+
+            foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
+            /** @var $town TownClass */
+            if ($town->getLabel())
+                $this->insert( $c, $town->getLabel(), 'game' );
         //</editor-fold>
     }
 

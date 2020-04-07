@@ -7,219 +7,219 @@
     <body>
       <trans-unit id="rn1xaB2" resname="%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!">
         <source>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</target>
+        <target>L'alarme de %victim% a réveillé la moitié de la ville et vous a effrayé !</target>
       </trans-unit>
       <trans-unit id="uPyX7.a" resname="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target>Mist, dein Einbruch bei %victim% ist aufgeflogen...</target>
+        <target>Votre visite chez %victim% n'est pas passée inaperçue...</target>
       </trans-unit>
       <trans-unit id="w4JJj.q" resname="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</source>
-        <target>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</target>
+        <target>Parfait, personne ne vous a vu vous infiltrer chez %victim%.</target>
       </trans-unit>
       <trans-unit id="kwtIuD9" resname="Deine Route wurde gespeichert.">
         <source>Deine Route wurde gespeichert.</source>
-        <target>Deine Route wurde gespeichert.</target>
+        <target>Votre expédition a été sauvegardée.</target>
       </trans-unit>
       <trans-unit id="YY4H.QM" resname="Du hast deine Beschreibung geändert.">
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>Du hast deine Beschreibung geändert.</target>
+        <target>Vous avez changé votre annonce.</target>
       </trans-unit>
       <trans-unit id="f7yKfIC" resname="%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.">
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</target>
+        <target>%citizen% a versé %item% dans le puits et a ajouté %num% ration(s) d'eau.</target>
       </trans-unit>
       <trans-unit id="uHRiWHu" resname="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</source>
-        <target>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</target>
+        <target>%citizen% a travaillé sur le projet %plan% et a dépensé %ap%.</target>
       </trans-unit>
       <trans-unit id="XyE6HNd" resname="Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%">
         <source>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</source>
-        <target>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</target>
+        <target>La construction du chantier %building% a donné à la ville : %list%</target>
       </trans-unit>
       <trans-unit id="RScnWL2" resname="Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!">
         <source>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</source>
-        <target>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</target>
+        <target>La construction du chantier %building% a apporté %num% rations d'eau !</target>
       </trans-unit>
       <trans-unit id="IrDOx2H" resname="%citizen% hat das Stadttor %action%.">
         <source>%citizen% hat das Stadttor %action%.</source>
-        <target>%citizen% hat das Stadttor %action%.</target>
+        <target>%citizen% a %action% les portes de la ville.</target>
       </trans-unit>
       <trans-unit id="7F6V04y" resname="geöffnet">
         <source>geöffnet</source>
-        <target>geöffnet</target>
+        <target>ouvert</target>
       </trans-unit>
       <trans-unit id="2nMdNJ8" resname="geschlossen">
         <source>geschlossen</source>
-        <target>geschlossen</target>
+        <target>fermé</target>
       </trans-unit>
       <trans-unit id="_B_xHpE" resname="Das Stadttor wurde automatisch %action%.">
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>Das Stadttor wurde automatisch %action%.</target>
+        <target>La porte a été %action% automatiquement.</target>
       </trans-unit>
       <trans-unit id="lnVaJJH" resname="%citizen% hat die Stadt %action%.">
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% hat die Stadt %action%.</target>
+        <target>%citizen% est %action% de la ville.</target>
       </trans-unit>
       <trans-unit id="RvCIvJN" resname="betreten">
         <source>betreten</source>
-        <target>betreten</target>
+        <target>entré</target>
       </trans-unit>
       <trans-unit id="N0kS6xp" resname="verlassen">
         <source>verlassen</source>
-        <target>verlassen</target>
+        <target>sorti</target>
       </trans-unit>
       <trans-unit id="o6VrUc4" resname="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</source>
-        <target>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</target>
+        <target>Un nouveau citoyen est arrivé en ville : %citizen%.</target>
       </trans-unit>
       <trans-unit id="uTUmYsJ" resname="%citizen% hat seine neue Berufung als %profession% gefunden.">
         <source>%citizen% hat seine neue Berufung als %profession% gefunden.</source>
-        <target>%citizen% hat seine neue Berufung als %profession% gefunden.</target>
+        <target>%citizen% a choisi le métier %profession%.</target>
       </trans-unit>
       <trans-unit id="nK4zXOH" resname="%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
         <source>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+        <target>%zombies% ont tenté en vain d'entrer dans la maison de %citizen%.</target>
       </trans-unit>
       <trans-unit id="fPimUWN" resname="%num% Zombies">
         <source>%num% Zombies</source>
-        <target>%num% Zombies</target>
+        <target>%num% zombies</target>
       </trans-unit>
       <trans-unit id="DyVRMkF" resname="%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...">
         <source>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</source>
-        <target>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</target>
+        <target>%citizen% a amélioré sa maison en %home%...</target>
       </trans-unit>
       <trans-unit id="0uk_Ijd" resname="%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.">
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+        <target>%citizen% a produit : %list2%. Cela a consommé : %list1%.</target>
       </trans-unit>
       <trans-unit id="wxkGehN" resname="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</target>
+        <target>%zombie% a ressucité et a dévoré %victim% !</target>
       </trans-unit>
       <trans-unit id="Wqb2b8u" resname="%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!">
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</target>
+        <target>%zombie% a ressucité et le bâtiment %building% a été détruit !</target>
       </trans-unit>
       <trans-unit id="kWsuJms" resname="%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!">
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</target>
+        <target>%zombie% a ressucité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
       </trans-unit>
       <trans-unit id="ByzkImj" resname="Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...">
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% de zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
       </trans-unit>
       <trans-unit id="XX6_Va3" resname="%num% Zombies attackieren die Stadtbewohner!">
         <source>%num% Zombies attackieren die Stadtbewohner!</source>
-        <target>%num% Zombies attackieren die Stadtbewohner!</target>
+        <target>%num% zombies ont attaqués les citoyens !</target>
       </trans-unit>
       <trans-unit id="eJyeGor" resname="Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.">
         <source>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</source>
-        <target>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</target>
+        <target>L'utilisation de %building% pour défendre la ville nous a couté %num% ration(s) d'eau.</target>
       </trans-unit>
       <trans-unit id="F2roj_A" resname="Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.">
         <source>Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
-        <target>Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
+        <target>En améliorant le chantier %building%, %num% rations d'eau ont été ajoutées au puits.</target>
       </trans-unit>
       <trans-unit id="Bv9VF1c" resname="Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%">
         <source>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</source>
-        <target>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</target>
+        <target>En améliorant le chantier %building% la ville a reçu : %items%</target>
       </trans-unit>
       <trans-unit id="icmQw3h" resname="Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%">
         <source>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</source>
-        <target>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</target>
+        <target>Quelle chance ! Un plan est apparu dans la banque après l'attaque. Vous avez reçu : %item%</target>
       </trans-unit>
       <trans-unit id="v7qhwcN" resname="Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%">
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</target>
+        <target>Le chaniter %building% a produit : %items%</target>
       </trans-unit>
       <trans-unit id="ThZ6eEv" resname="Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!">
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</target>
+        <target>La dernière plainte a été celle de trop. %citizen% a été bannis de la ville !</target>
       </trans-unit>
       <trans-unit id="gaDgdbl" resname="Du kannst die Stadt von hier aus nicht betreten.">
         <source>Du kannst die Stadt von hier aus nicht betreten.</source>
-        <target>Du kannst die Stadt von hier aus nicht betreten.</target>
+        <target>Vous ne pouvez pas rentrer en ville.</target>
       </trans-unit>
       <trans-unit id="4rHd9Vd" resname="Du kannst diese Zone von hier aus nicht betreten.">
         <source>Du kannst diese Zone von hier aus nicht betreten.</source>
-        <target>Du kannst diese Zone von hier aus nicht betreten.</target>
+        <target>Vous ne pouvez pas entrer dans cette zone d'ici.</target>
       </trans-unit>
       <trans-unit id="E3IPzEv" resname="Zombies blockieren deine Zone!">
         <source>Zombies blockieren deine Zone!</source>
-        <target>Zombies blockieren deine Zone!</target>
+        <target>Les zombie sont en surnombre !</target>
       </trans-unit>
       <trans-unit id="eDXR6Le" resname="Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.">
         <source>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</source>
-        <target>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</target>
+        <target>Ces actions ne peuvent être effectuées que lorsque la zone est sous contrôle.</target>
       </trans-unit>
       <trans-unit id="scZCiSc" resname="Du kannst nicht angreifen wenn du bereits verwundet bist.">
         <source>Du kannst nicht angreifen wenn du bereits verwundet bist.</source>
-        <target>Du kannst nicht angreifen wenn du bereits verwundet bist.</target>
+        <target>Vous ne pouvez pas attaquer si vous êtes blessé.</target>
       </trans-unit>
       <trans-unit id="Lil.cvr" resname="Du kannst auf dieser Zone nicht graben.">
         <source>Du kannst auf dieser Zone nicht graben.</source>
-        <target>Du kannst auf dieser Zone nicht graben.</target>
+        <target>Vous ne pouvez pas creuser dans cette zone.</target>
       </trans-unit>
       <trans-unit id="MPn9B5E" resname="Das Stadttor ist geschlossen!">
         <source>Das Stadttor ist geschlossen!</source>
-        <target>Das Stadttor ist geschlossen!</target>
+        <target>La porte de la ville est fermée!</target>
       </trans-unit>
       <trans-unit id="Wevnltm" resname="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
         <source>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</source>
-        <target>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</target>
+        <target>Votre message doit contenir entre 2 et 256 caractères.</target>
       </trans-unit>
       <trans-unit id="7CYUPCo" resname="Heute wirst du nichts mehr im Müll finden.">
         <source>Heute wirst du nichts mehr im Müll finden.</source>
-        <target>Heute wirst du nichts mehr im Müll finden.</target>
+        <target>Vous ne trouvez rien dans les poubelles aujourd'hui.</target>
       </trans-unit>
       <trans-unit id="4cWeVEO" resname="Du hast bereits einen Beruf gewählt.">
         <source>Du hast bereits einen Beruf gewählt.</source>
-        <target>Du hast bereits einen Beruf gewählt.</target>
+        <target>Vous avez déjà choisi une profession.</target>
       </trans-unit>
       <trans-unit id="3fRIOKg" resname="Ungültige Auswahl.">
         <source>Ungültige Auswahl.</source>
-        <target>Ungültige Auswahl.</target>
+        <target>Sélection non valable.</target>
       </trans-unit>
       <trans-unit id="iSpeYjc" resname="Der Brunnen ist leer!">
         <source>Der Brunnen ist leer!</source>
-        <target>Der Brunnen ist leer!</target>
+        <target>Le puits est vide!</target>
       </trans-unit>
       <trans-unit id="t9s1UYK" resname="Du kannst heute keine weiteren Rationen entnehmen.">
         <source>Du kannst heute keine weiteren Rationen entnehmen.</source>
-        <target>Du kannst heute keine weiteren Rationen entnehmen.</target>
+        <target>Vous ne pouvez plus prendre de ration aujourd'hui.</target>
       </trans-unit>
       <trans-unit id="GNSPYmK" resname="Hierfür brauchst du klares Wasser (keine Kanister)!">
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Hierfür brauchst du klares Wasser (keine Kanister)!</target>
+        <target>Vous avez besoin d'une ration d'eau pour faire ceci !</target>
       </trans-unit>
       <trans-unit id="TEo9cyt" resname="Das Tor ist bereits geschlossen.">
         <source>Das Tor ist bereits geschlossen.</source>
-        <target>Das Tor ist bereits geschlossen.</target>
+        <target>La porte est déjà fermée.</target>
       </trans-unit>
       <trans-unit id="JsP4vsH" resname="Das Tor ist bereits offen.">
         <source>Das Tor ist bereits offen.</source>
-        <target>Das Tor ist bereits offen.</target>
+        <target>La porte est déjà ouverte.</target>
       </trans-unit>
       <trans-unit id="GjXgBou" resname="Für dieses Gebäude fehlen Baumaterialien.">
         <source>Für dieses Gebäude fehlen Baumaterialien.</source>
-        <target>Für dieses Gebäude fehlen Baumaterialien.</target>
+        <target>Il manque des ressources pour ce chantier.</target>
       </trans-unit>
       <trans-unit id="P242oK2" resname="Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.">
         <source>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</source>
-        <target>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</target>
+        <target>Vous avez déjà amélioré votre maison aujourd'hui.</target>
       </trans-unit>
       <trans-unit id="s1D0Mug" resname="Dieser Gegenstand ist außerhalb deiner Reichweite.">
         <source>Dieser Gegenstand ist außerhalb deiner Reichweite.</source>
-        <target>Dieser Gegenstand ist außerhalb deiner Reichweite.</target>
+        <target>Ce point est hors de votre portée.</target>
       </trans-unit>
       <trans-unit id="WFi0NxJ" resname="Du hast keinen Platz mehr für diesen Gegenstand!">
         <source>Du hast keinen Platz mehr für diesen Gegenstand!</source>
-        <target>Du hast keinen Platz mehr für diesen Gegenstand!</target>
+        <target>Vous n'avez plus de place pour cet objet!</target>
       </trans-unit>
       <trans-unit id="4lQ8bY." resname="Du kannst keinen weiteren schweren Gegenstand tragen!">
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Du kannst keinen weiteren schweren Gegenstand tragen!</target>
+        <target>Vous ne pouvez pas porter plus d'un encombrant !</target>
       </trans-unit>
       <trans-unit id="QRxC8ol" resname="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
@@ -255,7 +255,7 @@
       </trans-unit>
       <trans-unit id="QI_O4UJ" resname="Verschüttete Ruine">
         <source>Verschüttete Ruine</source>
-        <target>Verschüttete Ruine</target>
+        <target>Bâtiment non déterré</target>
       </trans-unit>
       <trans-unit id="qKBuSla" resname="Zone">
         <source>Zone</source>
@@ -263,11 +263,11 @@
       </trans-unit>
       <trans-unit id="8Nqa1HE" resname="Entfernung">
         <source>Entfernung</source>
-        <target>Entfernung</target>
+        <target>Distance</target>
       </trans-unit>
       <trans-unit id="VasxdH5" resname="Routen">
         <source>Routen</source>
-        <target>Routen</target>
+        <target>Expédition</target>
       </trans-unit>
       <trans-unit id="wkJT.qQ" resname="Stadttor">
         <source>Stadttor</source>
@@ -287,11 +287,11 @@
       </trans-unit>
       <trans-unit id="bxRbnw9" resname="Herstellen">
         <source>Herstellen</source>
-        <target>Herstellen</target>
+        <target>Assembler </target>
       </trans-unit>
       <trans-unit id="IzfDfwc" resname="aus">
         <source>aus</source>
-        <target>aus</target>
+        <target>Nécessite </target>
       </trans-unit>
       <trans-unit id="SQxs_a5" resname="Kombinieren">
         <source>Kombinieren</source>
@@ -371,7 +371,7 @@
       </trans-unit>
       <trans-unit id="n__v7g9" resname="Truhe">
         <source>Truhe</source>
-        <target>Truhe</target>
+        <target>Coffre</target>
       </trans-unit>
       <trans-unit id="X3ACy1e" resname="Truhe und Aktionen">
         <source>Truhe und Aktionen</source>
@@ -480,11 +480,11 @@
       </trans-unit>
       <trans-unit id="0uS2PQd" resname="Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:">
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
-        <target>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</target>
+        <target>Pour améliorer votre maison, la ville a besoin du chantier suivant :</target>
       </trans-unit>
       <trans-unit id="N6UlT0G" resname="Für diesen Ausbau benötigst du folgende Gegenstände:">
         <source>Für diesen Ausbau benötigst du folgende Gegenstände:</source>
-        <target>Für diesen Ausbau benötigst du folgende Gegenstände:</target>
+        <target>Cette amélioration nécessite les ressources suivantes :</target>
       </trans-unit>
       <trans-unit id="1XZ6TGN" resname="Für diesen Ausbau werden keine Gegenstände benötigt.">
         <source>Für diesen Ausbau werden keine Gegenstände benötigt.</source>
@@ -492,7 +492,7 @@
       </trans-unit>
       <trans-unit id="x7duHnG" resname="Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.">
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
-        <target>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</target>
+        <target>Vous pouvez effectuer les travaux de construction suivants sur votre maison. Chaque amélioration vous apporte des avantages particuliers.</target>
       </trans-unit>
       <trans-unit id="r5DiSCv" resname="Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.">
         <source>Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.</source>
@@ -500,23 +500,23 @@
       </trans-unit>
       <trans-unit id="jvbOgSC" resname="Erfordert">
         <source>Erfordert</source>
-        <target>Erfordert</target>
+        <target>Nécessite</target>
       </trans-unit>
       <trans-unit id="MzBikVy" resname="Einbauen">
         <source>Einbauen</source>
-        <target>Einbauen</target>
+        <target>Installer</target>
       </trans-unit>
       <trans-unit id="lxPyIGw" resname="Upgrade auf St. %level%">
         <source>Upgrade auf St. %level%</source>
-        <target>Upgrade auf St. %level%</target>
+        <target>Améliorer au niv. %level%</target>
       </trans-unit>
       <trans-unit id="W2jpIKn" resname="Kein weiterer Ausbau möglich">
         <source>Kein weiterer Ausbau möglich</source>
-        <target>Kein weiterer Ausbau möglich</target>
+        <target>Aucune amélioration possible</target>
       </trans-unit>
       <trans-unit id="u1m7Ptc" resname="Leiche nicht beseitigt!">
         <source>Leiche nicht beseitigt!</source>
-        <target>Leiche nicht beseitigt!</target>
+        <target>Corps non retiré !</target>
       </trans-unit>
       <trans-unit id="u_yrL5q" resname="Tot!">
         <source>Tot!</source>
@@ -532,25 +532,24 @@
       </trans-unit>
       <trans-unit id="Voc3Ntu" resname="Neue einfache Route">
         <source>Neue einfache Route</source>
-        <target>Neue einfache Route</target>
+        <target>Nouvelle expédition simple</target>
       </trans-unit>
       <trans-unit id="v88wslY" resname="Neue komplexe Route">
         <source>Neue komplexe Route</source>
-        <target>Neue komplexe Route</target>
+        <target>Nouvelle expédition complexe</target>
       </trans-unit>
       <trans-unit id="fn_qM4v" resname="Name der Route">
         <source>Name der Route</source>
-        <target>Name der Route</target>
+        <target>Nom de l'expédition</target>
       </trans-unit>
       <trans-unit id="QL.qpuP" resname="Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer&#10;                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.">
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</target>
+        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexent commencent et terminent où vous voulez.</target>
       </trans-unit>
       <trans-unit id="dLIxjrY" resname="Nur Helden können komplexe Routen planen.">
         <source>Nur Helden können komplexe Routen planen.</source>
-        <target>Nur Helden können komplexe Routen planen.</target>
+        <target>Seuls les héros peuvent créer des expéditions complexes.</target>
       </trans-unit>
       <trans-unit id="qjGq_3f" resname="Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).">
         <source>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</source>
@@ -558,7 +557,7 @@
       </trans-unit>
       <trans-unit id="Qsm1_.k" resname="Dein Rucksack">
         <source>Dein Rucksack</source>
-        <target>Dein Rucksack</target>
+        <target>Votre sac</target>
       </trans-unit>
       <trans-unit id="ZHTFO77" resname="%citizen%s Truhe">
         <source>%citizen%s Truhe</source>
@@ -639,7 +638,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="_LKq1VW" resname="Du hast bereits für folgendes Projekt abgestimmt:">
         <source>Du hast bereits für folgendes Projekt abgestimmt:</source>
-        <target>Du hast bereits für folgendes Projekt abgestimmt:</target>
+        <target>Vous avez voté pour le projet :</target>
       </trans-unit>
       <trans-unit id="HDgwb1i" resname="Aktuelles Level:">
         <source>Aktuelles Level:</source>
@@ -663,7 +662,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="_fJ2tva" resname="Stimmen:">
         <source>Stimmen:</source>
-        <target>Stimmen:</target>
+        <target>Vote(s) :</target>
       </trans-unit>
       <trans-unit id="qOmfTuV" resname="In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
@@ -757,11 +756,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="unhSN_Y" resname="Eine weitere Ration erhalten">
         <source>Eine weitere Ration erhalten</source>
-        <target>Eine weitere Ration erhalten</target>
+        <target>Prendre une ration supplémentaire</target>
       </trans-unit>
       <trans-unit id="eEQntCE" resname="Wasser hinzufügen">
         <source>Wasser hinzufügen</source>
-        <target>Wasser hinzufügen</target>
+        <target>Remplir le puits</target>
       </trans-unit>
       <trans-unit id="BMwsxtX" resname="Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).">
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
@@ -817,7 +816,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="MwvCTQm" resname="Stadt in %km% Entfernung">
         <source>Stadt in %km% Entfernung</source>
-        <target>Ville à %km% vers (direction)</target>
+        <target>Ville à %km%</target>
       </trans-unit>
       <trans-unit id="AW6aLpM" resname="Am Boden">
         <source>Am Boden</source>
@@ -825,47 +824,47 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="uBY6LwO" resname="Temporäre Zonenkontrolle">
         <source>Temporäre Zonenkontrolle</source>
-        <target>Temporäre Zonenkontrolle</target>
+        <target>Contrôle temporaire</target>
       </trans-unit>
       <trans-unit id="V566.Sb" resname="%z% Zombies kontrollieren diese Zone!">
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% Zombies kontrollieren diese Zone!</target>
+        <target>%z% zombies contrôlent cette zone !</target>
       </trans-unit>
       <trans-unit id="5GwqUxA" resname="Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:">
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</target>
+        <target>C'est votre chance ! Saisissez là et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
       </trans-unit>
       <trans-unit id="1lHHd11" resname="Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...">
         <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</target>
+        <target>Votre Tenue de camouflage vous permet de vous déplacer sans être vu(e).</target>
       </trans-unit>
       <trans-unit id="DJhmFr9" resname="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</target>
+        <target>toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
       </trans-unit>
       <trans-unit id="Zkh813p" resname="Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...">
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</source>
-        <target>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</target>
+        <target>Vous avez été surpris et maintenant vous êtes entouré de zombies ! Si vous ne faites rien, vous allez mourir ici ce soir...</target>
       </trans-unit>
       <trans-unit id="EV7eyTa" resname="Hilfe rufen!">
         <source>Hilfe rufen!</source>
-        <target>Hilfe rufen!</target>
+        <target>Demander de l'aide !</target>
       </trans-unit>
       <trans-unit id="9IuEojL" resname="Die Flucht wagen!">
         <source>Die Flucht wagen!</source>
-        <target>Die Flucht wagen!</target>
+        <target>Prendre la fuite !</target>
       </trans-unit>
       <trans-unit id="vTDaFPO" resname="Gegen einen Zombie kämpfen!">
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>Gegen einen Zombie kämpfen!</target>
+        <target>Attaquer un zombie !</target>
       </trans-unit>
       <trans-unit id="seBLTh9" resname="Diese Zone">
         <source>Diese Zone</source>
-        <target>Diese Zone</target>
+        <target>Secteur</target>
       </trans-unit>
       <trans-unit id="X_hg9YY" resname="Es muss noch aufgeräumt werden">
         <source>Es muss noch aufgeräumt werden</source>
-        <target>Es muss noch aufgeräumt werden</target>
+        <target>Reste à déblayer</target>
       </trans-unit>
       <trans-unit id="tJrpqeH" resname="Ruine">
         <source>Ruine</source>
@@ -885,7 +884,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Dc6dT95" resname="Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:">
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+        <target>Vous avez déjà creusé dans cette zone. La prochaine fouille est possible dans :</target>
       </trans-unit>
       <trans-unit id="IUt.xlO" resname="In dieser Zone graben">
         <source>In dieser Zone graben</source>
@@ -897,7 +896,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="GwPmPsr" resname="%ruin% durchsuchen">
         <source>%ruin% durchsuchen</source>
-        <target>%ruin% durchsuchen</target>
+        <target>Fouiller %ruin%</target>
       </trans-unit>
       <trans-unit id="ZaxaGah" resname="Zone freiräumen">
         <source>Zone freiräumen</source>
@@ -905,7 +904,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="ftAsu0Q" resname="Müll durchwühlen">
         <source>Müll durchwühlen</source>
-        <target>Müll durchwühlen</target>
+        <target>Fouiller les poubelles</target>
       </trans-unit>
       <trans-unit id="s5pZm5S" resname="Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!">
         <source>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</source>
@@ -929,15 +928,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="V3rm2Ma" resname="Herzlichen Glückwunsch, du bist TOT!">
         <source>Herzlichen Glückwunsch, du bist TOT!</source>
-        <target>Herzlichen Glückwunsch, du bist TOT!</target>
+        <target>Bravo, vous êtes mort !</target>
       </trans-unit>
       <trans-unit id="AEDztPF" resname="Du hast %sp% Seelenpunkte gewonnen!">
         <source>Du hast %sp% Seelenpunkte gewonnen!</source>
-        <target>Du hast %sp% Seelenpunkte gewonnen!</target>
+        <target>Vous avez gagné %sp% points d'âme !</target>
       </trans-unit>
       <trans-unit id="wD7XaTz" resname="Du hast folgende Auszeichnungen verliehen bekommen:">
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Du hast folgende Auszeichnungen verliehen bekommen:</target>
+        <target>Vous avez gagné les distinctions suivantes :</target>
       </trans-unit>
       <trans-unit id="RcinBjy" resname="Begrüße den Tod wie es sich gehört...">
         <source>Begrüße den Tod wie es sich gehört...</source>
@@ -945,15 +944,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="uFR9Aa." resname="Der Tod in &quot;MyHordes&quot; ist nicht weiter schlimm!">
         <source>Der Tod in "MyHordes" ist nicht weiter schlimm!</source>
-        <target>Der Tod in "MyHordes" ist nicht weiter schlimm!</target>
+        <target>La mort dans "MyHordes" n'est pas grave !</target>
       </trans-unit>
       <trans-unit id="mkPbtI8" resname="Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!">
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</target>
+        <target>Vous pouvez renaître dans une nouvelle ville aussi souvent que vous le souhaitez. Soyez inventif, essayez différentes options et trouvez votre propre style de jeu !</target>
       </trans-unit>
       <trans-unit id="em6PCOi" resname="Wiedergeboren werden">
         <source>Wiedergeboren werden</source>
-        <target>Wiedergeboren werden</target>
+        <target>Valider la mort</target>
       </trans-unit>
       <trans-unit id=".1viyI2" resname="Zeitung">
         <source>Zeitung</source>
@@ -961,7 +960,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="r6ej4.8" resname="Aktionspunkte">
         <source>Aktionspunkte</source>
-        <target>Aktionspunkte</target>
+        <target>Points d'action</target>
       </trans-unit>
       <trans-unit id="dWg5UEc" resname="Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,&#10;                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem&#10;                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu&#10;                    auffüllen.">
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
@@ -1123,46 +1122,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Bandagiert</source>
         <target>Bandagiert</target>
       </trans-unit>
-      <trans-unit id="qsjDwdX" resname="tg_dice">
-        <source>tg_dice</source>
-        <target>tg_dice</target>
-      </trans-unit>
-      <trans-unit id="ekEtK_D" resname="tg_cards">
-        <source>tg_cards</source>
-        <target>tg_cards</target>
-      </trans-unit>
-      <trans-unit id="TxIoVDY" resname="tg_meta_wound">
-        <source>tg_meta_wound</source>
-        <target>tg_meta_wound</target>
-      </trans-unit>
-      <trans-unit id="LJ2TI_g" resname="tg_clothes">
-        <source>tg_clothes</source>
-        <target>tg_clothes</target>
-      </trans-unit>
-      <trans-unit id="Fs0l96M" resname="tg_teddy">
-        <source>tg_teddy</source>
-        <target>tg_teddy</target>
-      </trans-unit>
-      <trans-unit id="rePnXfd" resname="tg_guitar">
-        <source>tg_guitar</source>
-        <target>tg_guitar</target>
-      </trans-unit>
-      <trans-unit id="S.v59pK" resname="tg_sbook">
-        <source>tg_sbook</source>
-        <target>tg_sbook</target>
-      </trans-unit>
-      <trans-unit id="Vaet2kz" resname="tg_steal">
-        <source>tg_steal</source>
-        <target>tg_steal</target>
-      </trans-unit>
-      <trans-unit id="yD4A901" resname="tg_home_upgrade">
-        <source>tg_home_upgrade</source>
-        <target>tg_home_upgrade</target>
-      </trans-unit>
-      <trans-unit id="RXBorL8" resname="tg_never">
-        <source>tg_never</source>
-        <target>tg_never</target>
-      </trans-unit>
       <trans-unit id="UUnigxa" resname="Abgelegenes Haus">
         <source>Abgelegenes Haus</source>
         <target>Abgelegenes Haus</target>
@@ -1265,7 +1224,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="3jRHmba" resname="Flugzeugwrack">
         <source>Flugzeugwrack</source>
-        <target>Flugzeugwrack</target>
+        <target>Carlingue d'avion</target>
       </trans-unit>
       <trans-unit id="jeS33HC" resname="Gartenhaus">
         <source>Gartenhaus</source>
@@ -1281,7 +1240,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="9x03HdM" resname="Indianerfriedhof">
         <source>Indianerfriedhof</source>
-        <target>Indianerfriedhof</target>
+        <target>Cimetière indien</target>
       </trans-unit>
       <trans-unit id="ruzMP1g" resname="Jahrmarktstand">
         <source>Jahrmarktstand</source>
@@ -1329,7 +1288,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Xf.22AP" resname="Räuberhöhle">
         <source>Räuberhöhle</source>
-        <target>Räuberhöhle</target>
+        <target>Caverne de voleurs</target>
       </trans-unit>
       <trans-unit id="BoMLh_D" resname="Schützengraben">
         <source>Schützengraben</source>
@@ -1413,7 +1372,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="R43wWvR" resname="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
-        <target>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</target>
+        <target>%citizen% a déposé : %item%.</target>
       </trans-unit>
       <trans-unit id="6zpuvqo" resname="%citizen% hat diesen Gegenstand mitgenommen: %item%">
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
@@ -1421,23 +1380,23 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Msm_smP" resname="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
         <source>%citizen% hat mehr Wasser genommen, als erlaubt ist...</source>
-        <target>%citizen% hat mehr Wasser genommen, als erlaubt ist...</target>
+        <target>%citizen% a pris une ration supplémentaire, au détriment d'autres citoyens...</target>
       </trans-unit>
       <trans-unit id="EMJ_Kff" resname="%citizen% hat eine Ration Wasser genommen.">
         <source>%citizen% hat eine Ration Wasser genommen.</source>
-        <target>%citizen% hat eine Ration Wasser genommen.</target>
+        <target>%citizen% a pris une ration d'eau.</target>
       </trans-unit>
       <trans-unit id="mdts1Bm" resname="Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%">
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</target>
+        <target>Un nouveau chanteir a été construit : %plan%. La construction a utilisé : %list%</target>
       </trans-unit>
       <trans-unit id="T6_1xeh" resname="Es wurde ein neues Gebäude gebaut: %plan%.">
         <source>Es wurde ein neues Gebäude gebaut: %plan%.</source>
-        <target>Es wurde ein neues Gebäude gebaut: %plan%.</target>
+        <target>Un nouveau chantier a été construit : %plan%.</target>
       </trans-unit>
       <trans-unit id="WsxqQWs" resname="%citizen% wurde von %zombies% zerfleischt!">
         <source>%citizen% wurde von %zombies% zerfleischt!</source>
-        <target>%citizen% wurde von %zombies% zerfleischt!</target>
+        <target>%citizen% a été tué par %zombies% zombies!</target>
       </trans-unit>
       <trans-unit id="26dC9N0" resname="Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...">
         <source>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</source>
@@ -1461,35 +1420,35 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="gaihf5j" resname="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
         <source>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</source>
-        <target>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</target>
+        <target>%citizen% a quitté la ville vers %direction%.</target>
       </trans-unit>
       <trans-unit id="o9wb9sd" resname="%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.">
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</target>
+        <target>%citizen% est entré dans la ville depuis %direction%.</target>
       </trans-unit>
       <trans-unit id="PFgh04I" resname="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</target>
+        <target>%citizen% (%profession%) est parti vers le %direction%.</target>
       </trans-unit>
       <trans-unit id="07sRf7u" resname="%citizen% (%profession%) ist aus dem %direction% angekommen.">
         <source>%citizen% (%profession%) ist aus dem %direction% angekommen.</source>
-        <target>%citizen% (%profession%) est arrivé depuis le %direction%.</target>
+        <target>%citizen% (%profession%) est arrivé depuis %direction%.</target>
       </trans-unit>
       <trans-unit id="pCkOgOT" resname="%citizen% hat ein(e,n) %item% ausgegraben!">
         <source>%citizen% hat ein(e,n) %item% ausgegraben!</source>
-        <target>%citizen% hat ein(e,n) %item% ausgegraben!</target>
+        <target>%citizen% a trouvé %item%.</target>
       </trans-unit>
       <trans-unit id="nHE1X2F" resname="%citizen% hat hier durch Graben nichts gefunden...">
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
-        <target>%citizen% hat hier durch Graben nichts gefunden...</target>
+        <target>Après des recherches épuisantes, %citizen% n'a rien trouvé d'autre que la vacuité de ces moments perdus...</target>
       </trans-unit>
       <trans-unit id="J84MRtT" resname="%citizen% hat etwas Schutt entfernt.">
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% hat etwas Schutt entfernt.</target>
+        <target>%citizen% a déplayé quelques débris.</target>
       </trans-unit>
       <trans-unit id="WmDHw.1" resname="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</target>
+        <target>%citizen% a déterré le bâtiment, révélant %type%. Hourra !</target>
       </trans-unit>
       <trans-unit id="zTh0a4e" resname="%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!">
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
@@ -1521,11 +1480,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="qdFcLMD" resname="%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.">
         <source>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</source>
-        <target>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</target>
+        <target>%citizen% s'est débarrasé du corps de %disposed%.</target>
       </trans-unit>
       <trans-unit id="33.BZ8y" resname="%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.">
         <source>%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.</target>
+        <target>%citizen% s'est débarrassé du corps de %disposed% en l'arrosant d'eau.</target>
       </trans-unit>
       <trans-unit id="SS1lJ6A" resname="%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.">
         <source>%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.</source>
@@ -1553,27 +1512,127 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="e.cUavH" resname="%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.">
         <source>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</source>
-        <target>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</target>
+        <target>%citizen% a tué %kills% zombie(s) avec %item%.</target>
       </trans-unit>
       <trans-unit id="41pWf5b" resname="%citizen% hat %kills% Zombies getötet.">
         <source>%citizen% hat %kills% Zombies getötet.</source>
-        <target>%citizen% hat %kills% Zombies getötet.</target>
+        <target>%citizen% a tué %kills% zombies.</target>
       </trans-unit>
       <trans-unit id="TxkwDJh" resname="Leiche aus der Stadt ziehen">
         <source>Leiche aus der Stadt ziehen</source>
-        <target>Leiche aus der Stadt ziehen</target>
+        <target>Sortir le cadavre</target>
       </trans-unit>
       <trans-unit id="hXIZAOO" resname="Leiche mit Wasser übergießen">
         <source>Leiche mit Wasser übergießen</source>
-        <target>Leiche mit Wasser übergießen</target>
+        <target>Arroser le cadavre</target>
       </trans-unit>
       <trans-unit id="4hCJabi" resname="Leiche grillen">
         <source>Leiche grillen</source>
-        <target>Leiche grillen</target>
+        <target>Faire griller au Crémato-Cue</target>
       </trans-unit>
       <trans-unit id="yFVdfG6" resname="Rucksack in der Bank ausleeren">
         <source>Rucksack in der Bank ausleeren</source>
         <target>Vider son sac dans la banque</target>
+      </trans-unit>
+      <trans-unit id="mwAKBpm" resname="Meine objekte">
+        <source>Meine objekte</source>
+        <target>Mes objets</target>
+      </trans-unit>
+      <trans-unit id="LQgPbVT" resname="Nordosten">
+        <source>Nordosten</source>
+        <target>le Nord-Est</target>
+      </trans-unit>
+      <trans-unit id="R9OI7Nm" resname="Nordwesten">
+        <source>Nordwesten</source>
+        <target>le Nord-Ouest</target>
+      </trans-unit>
+      <trans-unit id="dOCvO1b" resname="Norden">
+        <source>Norden</source>
+        <target>le Nord</target>
+      </trans-unit>
+      <trans-unit id="ac.6Rc5" resname="Südosten">
+        <source>Südosten</source>
+        <target>le Sud-Est</target>
+      </trans-unit>
+      <trans-unit id="YE0v6eT" resname="Südwesten">
+        <source>Südwesten</source>
+        <target>le Sud-Ouest</target>
+      </trans-unit>
+      <trans-unit id="qxvJIc." resname="Süden">
+        <source>Süden</source>
+        <target>le Sud</target>
+      </trans-unit>
+      <trans-unit id="xMKWHhf" resname="Osten">
+        <source>Osten</source>
+        <target>l'Est</target>
+      </trans-unit>
+      <trans-unit id="jdRT5Z5" resname="Westen">
+        <source>Westen</source>
+        <target>l'Ouest</target>
+      </trans-unit>
+      <trans-unit id="25G93ga" resname="Durch die Lüftungsschächte klettern">
+        <source>Durch die Lüftungsschächte klettern</source>
+        <target>Passer par la conduite d'aération</target>
+      </trans-unit>
+      <trans-unit id="MJMhV5L" resname="Kleine Stadt">
+        <source>Kleine Stadt</source>
+        <target>Kleine Stadt</target>
+      </trans-unit>
+      <trans-unit id="bElrYkF" resname="Entfernte Regionen">
+        <source>Entfernte Regionen</source>
+        <target>Entfernte Regionen</target>
+      </trans-unit>
+      <trans-unit id="7H7gGH1" resname="Pandämonium">
+        <source>Pandämonium</source>
+        <target>Pandämonium</target>
+      </trans-unit>
+      <trans-unit id="2ZxNAfn" resname="Private Stadt">
+        <source>Private Stadt</source>
+        <target>Private Stadt</target>
+      </trans-unit>
+      <trans-unit id="GOlt3k3" resname="%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.">
+        <source>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
+        <target>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
+      </trans-unit>
+      <trans-unit id="rDzEZM3" resname="Bitte wähle einen Bürger:">
+        <source>Bitte wähle einen Bürger:</source>
+        <target>Bitte wähle einen Bürger:</target>
+      </trans-unit>
+      <trans-unit id="MgtBTg_" resname="Es ist kein Bürger in der Nähe...">
+        <source>Es ist kein Bürger in der Nähe...</source>
+        <target>Es ist kein Bürger in der Nähe...</target>
+      </trans-unit>
+      <trans-unit id="f1TzhOn" resname="Gammler">
+        <source>Gammler</source>
+        <target>Gammler</target>
+      </trans-unit>
+      <trans-unit id="sBbkqrg" resname="Buddler">
+        <source>Buddler</source>
+        <target>Buddler</target>
+      </trans-unit>
+      <trans-unit id="aMWLa_K" resname="Wächter">
+        <source>Wächter</source>
+        <target>Wächter</target>
+      </trans-unit>
+      <trans-unit id="N55mPtD" resname="Aufklärer">
+        <source>Aufklärer</source>
+        <target>Aufklärer</target>
+      </trans-unit>
+      <trans-unit id="l9gYoq8" resname="Dompteur">
+        <source>Dompteur</source>
+        <target>Dompteur</target>
+      </trans-unit>
+      <trans-unit id="CcGFUIM" resname="Techniker">
+        <source>Techniker</source>
+        <target>Techniker</target>
+      </trans-unit>
+      <trans-unit id="gMJ9FD2" resname="Schamane">
+        <source>Schamane</source>
+        <target>Schamane</target>
+      </trans-unit>
+      <trans-unit id="jYiPQYC" resname="Einsiedler">
+        <source>Einsiedler</source>
+        <target>Einsiedler</target>
       </trans-unit>
     </body>
   </file>

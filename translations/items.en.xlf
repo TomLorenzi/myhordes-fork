@@ -1605,6 +1605,42 @@
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
         <target>Du ziehst eine Karte... es ist: {color} {value}.</target>
       </trans-unit>
+      <trans-unit id="m5CJEyF" resname="Die Rückkehr des Helden">
+        <source>Die Rückkehr des Helden</source>
+        <target>Die Rückkehr des Helden</target>
+      </trans-unit>
+      <trans-unit id="AfDbNyS" resname="Hierfür bist du zu weit von der Stadt entfernt ...">
+        <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
+        <target>Hierfür bist du zu weit von der Stadt entfernt ...</target>
+      </trans-unit>
+      <trans-unit id="9XqTW0w" resname="Fund">
+        <source>Fund</source>
+        <target>Fund</target>
+      </trans-unit>
+      <trans-unit id="AAim.UY" resname="Wildstyle Uppercut">
+        <source>Wildstyle Uppercut</source>
+        <target>Wildstyle Uppercut</target>
+      </trans-unit>
+      <trans-unit id="zV1VWf6" resname="Zweite Lunge">
+        <source>Zweite Lunge</source>
+        <target>Zweite Lunge</target>
+      </trans-unit>
+      <trans-unit id="dIXELzM" resname="Den Tod besiegen">
+        <source>Den Tod besiegen</source>
+        <target>Den Tod besiegen</target>
+      </trans-unit>
+      <trans-unit id="0A55k5c" resname="Rettung">
+        <source>Rettung</source>
+        <target>Rettung</target>
+      </trans-unit>
+      <trans-unit id="VREDhkf" resname="Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!">
+        <source>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</source>
+        <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
+      </trans-unit>
+      <trans-unit id="vgypnNf" resname="%action%: %item%">
+        <source>%action%: %item%</source>
+        <target>%action%: %item%</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

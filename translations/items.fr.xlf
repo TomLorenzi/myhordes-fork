@@ -11,15 +11,15 @@
       </trans-unit>
       <trans-unit id="yeqnW9g" resname="Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!">
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>Wow, vous avez fait un triple. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
       </trans-unit>
       <trans-unit id="rmGP8Al" resname="Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!">
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>Wow, vous avez eu une suite. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
       </trans-unit>
       <trans-unit id="Gk9gFU8" resname="Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!">
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>Wow, vous avez tiré 4-2-1. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
       </trans-unit>
       <trans-unit id="087WiZd" resname="Nicht schlecht, du hast einen Pasch geworfen.">
         <source>Nicht schlecht, du hast einen Pasch geworfen.</source>
@@ -27,19 +27,19 @@
       </trans-unit>
       <trans-unit id="oGFgAoX" resname="Was für ein Spaß!">
         <source>Was für ein Spaß!</source>
-        <target>Was für ein Spaß!</target>
+        <target>C'était fun !</target>
       </trans-unit>
       <trans-unit id="zcpU78C" resname="Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!">
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</target>
+        <target>Vous tirez une carte... et vous trouvez votre nom inscrit en lettres de sang ! Vous êtes terrorisés !</target>
       </trans-unit>
       <trans-unit id="NcJ93EV" resname="Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.">
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</target>
+        <target>Vous tirez une carte... et vous trouvez les règles du jeu. Cela vous fait sourire et vous gagnez 1 PA.</target>
       </trans-unit>
       <trans-unit id="Awf25tt" resname="Du ziehst eine Karte... es ist {article} {color} {value}.">
         <source>Du ziehst eine Karte... es ist {article} {color} {value}.</source>
-        <target>Du ziehst eine Karte... es ist {article} {color} {value}.</target>
+        <target>Vous tirez une carte... c'est {article} {color} {value}.</target>
       </trans-unit>
       <trans-unit id="kPlE9C6" resname="Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.">
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
@@ -47,7 +47,7 @@
       </trans-unit>
       <trans-unit id="i6dx5ZQ" resname="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
-        <target>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</target>
+        <target>Le symbole de l'amour... Votre cœur fond et vous gagnez 1 PA.</target>
       </trans-unit>
       <trans-unit id="9tVy8rd" resname="Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.">
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
@@ -55,7 +55,7 @@
       </trans-unit>
       <trans-unit id="6MESOb8" resname="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
         <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
-        <target>Trotz intensiver Suche hast du nichts verwertbares gefunden...</target>
+        <target>Après des recherches épuisantes, vous n'avez rien trouvé d'autre que la vacuité de ces moments perdus..</target>
       </trans-unit>
       <trans-unit id="23PgQVZ" resname="Ration Wasser">
         <source>Ration Wasser</source>
@@ -363,7 +363,7 @@
       </trans-unit>
       <trans-unit id="b9Bz03N" resname="Unverarbeitete Blechplatten">
         <source>Unverarbeitete Blechplatten</source>
-        <target>Débris métalliques</target>
+        <target>Plâques de tôle</target>
       </trans-unit>
       <trans-unit id="ueb3oVd" resname="'Wake The Dead'">
         <source>'Wake The Dead'</source>
@@ -395,7 +395,7 @@
       </trans-unit>
       <trans-unit id="lOo2w0W" resname="Kassettenradio (ohne Strom)">
         <source>Kassettenradio (ohne Strom)</source>
-        <target>Radio K7 éteint</target>
+        <target>Radio K7 (éteint)</target>
       </trans-unit>
       <trans-unit id="z5_Zr48" resname="Kassettenradio">
         <source>Kassettenradio</source>
@@ -415,7 +415,7 @@
       </trans-unit>
       <trans-unit id="Hm4Wet3" resname="Reparaturset (kaputt)">
         <source>Reparaturset (kaputt)</source>
-        <target>Kit de bricolage abimé</target>
+        <target>Kit de bricolage (abimé)</target>
       </trans-unit>
       <trans-unit id="jBFNQQG" resname="Reparaturset">
         <source>Reparaturset</source>
@@ -439,11 +439,11 @@
       </trans-unit>
       <trans-unit id="jJPD2VA" resname="Handmixer (ohne Strom)">
         <source>Handmixer (ohne Strom)</source>
-        <target>Batteur électrique éteint</target>
+        <target>Batteur électrique (éteint)</target>
       </trans-unit>
       <trans-unit id="hEtEe9i" resname="Kettensäge (ohne Strom)">
         <source>Kettensäge (ohne Strom)</source>
-        <target>Tronçonneuse éteinte</target>
+        <target>Tronçonneuse (éteinte)</target>
       </trans-unit>
       <trans-unit id="4yWesEi" resname="Batteriewerfer 1-PDTG (entladen)">
         <source>Batteriewerfer 1-PDTG (entladen)</source>
@@ -455,235 +455,235 @@
       </trans-unit>
       <trans-unit id="Pv.PdId" resname="Elektrischer Bauchmuskeltrainer (ohne Strom)">
         <source>Elektrischer Bauchmuskeltrainer (ohne Strom)</source>
-        <target>Elektrischer Bauchmuskeltrainer (ohne Strom)</target>
+        <target>Sport-élec (éteint)</target>
       </trans-unit>
       <trans-unit id="OI3OQ.V" resname="Elektrischer Bauchmuskeltrainer (geladen)">
         <source>Elektrischer Bauchmuskeltrainer (geladen)</source>
-        <target>Elektrischer Bauchmuskeltrainer (geladen)</target>
+        <target>Sport-élec (chargé)</target>
       </trans-unit>
       <trans-unit id="bZVhk3Y" resname="Zerstörer (entladen)">
         <source>Zerstörer (entladen)</source>
-        <target>Zerstörer (entladen)</target>
+        <target>Devastator (vide)</target>
       </trans-unit>
       <trans-unit id="6JzGDe3" resname="Zerstörer (geladen)">
         <source>Zerstörer (geladen)</source>
-        <target>Zerstörer (geladen)</target>
+        <target>Devastator (chargé)</target>
       </trans-unit>
       <trans-unit id="NWwA1_1" resname="Unvollständiger Zerstörer">
         <source>Unvollständiger Zerstörer</source>
-        <target>Unvollständiger Zerstörer</target>
+        <target>Devastatpor incomplet</target>
       </trans-unit>
       <trans-unit id=".NeFZzB" resname="Zonenmarker 'Radius'">
         <source>Zonenmarker 'Radius'</source>
-        <target>Zonenmarker 'Radius'</target>
+        <target>Balise "Radius"</target>
       </trans-unit>
       <trans-unit id="xOfrB2C" resname="Leuchtrakete">
         <source>Leuchtrakete</source>
-        <target>Leuchtrakete</target>
+        <target>Fusée éclairante</target>
       </trans-unit>
       <trans-unit id="TNcHwKw" resname="Kanisterpumpe (einsatzbereit)">
         <source>Kanisterpumpe (einsatzbereit)</source>
-        <target>Kanisterpumpe (einsatzbereit)</target>
+        <target>Pompe à jerrycan (prête)</target>
       </trans-unit>
       <trans-unit id="pWpcN5b" resname="Ektorp-Gluten Stuhl">
         <source>Ektorp-Gluten Stuhl</source>
-        <target>Ektorp-Gluten Stuhl</target>
+        <target>Chaise Ektörp-Gluten</target>
       </trans-unit>
       <trans-unit id="Sw3QJuK" resname="Revolver (entladen)">
         <source>Revolver (entladen)</source>
-        <target>Revolver (entladen)</target>
+        <target>Revolver (vide)</target>
       </trans-unit>
       <trans-unit id="y1obQuD" resname="Sturmgewehr (entladen)">
         <source>Sturmgewehr (entladen)</source>
-        <target>Sturmgewehr (entladen)</target>
+        <target>Fusil d'assault (vide)</target>
       </trans-unit>
       <trans-unit id="UyQlEYn" resname="Zünder">
         <source>Zünder</source>
-        <target>Zünder</target>
+        <target>Détonateur compact</target>
       </trans-unit>
       <trans-unit id="A58TR.A" resname="Zementsack">
         <source>Zementsack</source>
-        <target>Zementsack</target>
+        <target>Sac de ciment</target>
       </trans-unit>
       <trans-unit id="dwyq0AP" resname="Unförmige Zementblöcke">
         <source>Unförmige Zementblöcke</source>
-        <target>Unförmige Zementblöcke</target>
+        <target>Pavés de béton informes</target>
       </trans-unit>
       <trans-unit id="0tVAPnt" resname="Etikettenloses Medikament">
         <source>Etikettenloses Medikament</source>
-        <target>Etikettenloses Medikament</target>
+        <target>Médicament sans étiquette</target>
       </trans-unit>
       <trans-unit id="dNMAng3" resname="Paracetoid 7g">
         <source>Paracetoid 7g</source>
-        <target>Paracetoid 7g</target>
+        <target>Paracétoïd 7g</target>
       </trans-unit>
       <trans-unit id="vJEMpEU" resname="Unkrautbekämpfungsmittel Ness-Quick">
         <source>Unkrautbekämpfungsmittel Ness-Quick</source>
-        <target>Unkrautbekämpfungsmittel Ness-Quick</target>
+        <target>Désherbant Ness-Quick</target>
       </trans-unit>
       <trans-unit id="TZNVizA" resname="Nahrungsmittelkiste">
         <source>Nahrungsmittelkiste</source>
-        <target>Nahrungsmittelkiste</target>
+        <target>Caisse de nourriture</target>
       </trans-unit>
       <trans-unit id="D.ZgZ97" resname="Doggybag">
         <source>Doggybag</source>
-        <target>Doggybag</target>
+        <target>Doggy-bag</target>
       </trans-unit>
       <trans-unit id="CQMPkHO" resname="Tüte mit labbrigen Chips">
         <source>Tüte mit labbrigen Chips</source>
-        <target>Tüte mit labbrigen Chips</target>
+        <target>Paquet de chips molles</target>
       </trans-unit>
       <trans-unit id="eLF86FS" resname="Verschimmelte Waffeln">
         <source>Verschimmelte Waffeln</source>
-        <target>Verschimmelte Waffeln</target>
+        <target>Napolitains moisis</target>
       </trans-unit>
       <trans-unit id="cawv7Wu" resname="Trockene Kaugummis">
         <source>Trockene Kaugummis</source>
-        <target>Trockene Kaugummis</target>
+        <target>Chewing-gums séchés</target>
       </trans-unit>
       <trans-unit id="vdCq1pu" resname="Ranzige Butterkekse">
         <source>Ranzige Butterkekse</source>
-        <target>Ranzige Butterkekse</target>
+        <target>Petits beurres rances</target>
       </trans-unit>
       <trans-unit id="XGZ8Sav" resname="Angebissene Hähnchenflügel">
         <source>Angebissene Hähnchenflügel</source>
-        <target>Angebissene Hähnchenflügel</target>
+        <target>Ailerons de poulet entamés</target>
       </trans-unit>
       <trans-unit id="EvcAYYI" resname="Abgelaufene Pim's Kekse">
         <source>Abgelaufene Pim's Kekse</source>
-        <target>Abgelaufene Pim's Kekse</target>
+        <target>Pim's périmé</target>
       </trans-unit>
       <trans-unit id="waXFemL" resname="Fades Gebäck">
         <source>Fades Gebäck</source>
-        <target>Fades Gebäck</target>
+        <target>Biscuit fade</target>
       </trans-unit>
       <trans-unit id="K5mq7cU" resname="Verschimmelte Stulle">
         <source>Verschimmelte Stulle</source>
-        <target>Verschimmelte Stulle</target>
+        <target>Jambon-beurre moisi</target>
       </trans-unit>
       <trans-unit id="DgKxwGF" resname="Chinesische Nudeln">
         <source>Chinesische Nudeln</source>
-        <target>Chinesische Nudeln</target>
+        <target>Nouilles chinoises</target>
       </trans-unit>
       <trans-unit id="HVgdDzQ" resname="Starke Gewürze">
         <source>Starke Gewürze</source>
-        <target>Starke Gewürze</target>
+        <target>Epices fortes</target>
       </trans-unit>
       <trans-unit id="CVAyh_q" resname="Gewürzte chinesische Nudeln">
         <source>Gewürzte chinesische Nudeln</source>
-        <target>Gewürzte chinesische Nudeln</target>
+        <target>Nouilles chinoises épicées</target>
       </trans-unit>
       <trans-unit id="OCweNsQ" resname="Unvollständiges Kartenspiel">
         <source>Unvollständiges Kartenspiel</source>
-        <target>Unvollständiges Kartenspiel</target>
+        <target>jeu de cartes incomplet</target>
       </trans-unit>
       <trans-unit id="rkpAWb5" resname="Gesellschaftsspiel">
         <source>Gesellschaftsspiel</source>
-        <target>Gesellschaftsspiel</target>
+        <target>Boîte de jeu</target>
       </trans-unit>
       <trans-unit id="t1E42CN" resname="Aqua-Splash (zerlegt)">
         <source>Aqua-Splash (zerlegt)</source>
-        <target>Aqua-Splash (zerlegt)</target>
+        <target>Aqua-Splash (démonté)</target>
       </trans-unit>
       <trans-unit id="st5DmJu" resname="Vibrator (entladen)">
         <source>Vibrator (entladen)</source>
-        <target>Vibrator (entladen)</target>
+        <target>Petit manche vibrant (déchargé)</target>
       </trans-unit>
       <trans-unit id="PO8Wz9d" resname="Knochen mit Fleisch">
         <source>Knochen mit Fleisch</source>
-        <target>Knochen mit Fleisch</target>
+        <target>Os charnu</target>
       </trans-unit>
       <trans-unit id="q2s5pwg" resname="Angeknackster menschlicher Knochen">
         <source>Angeknackster menschlicher Knochen</source>
-        <target>Angeknackster menschlicher Knochen</target>
+        <target>Os humain fêlé</target>
       </trans-unit>
       <trans-unit id="JSbTMpA" resname="Zusammengeschusterter Holzbalken">
         <source>Zusammengeschusterter Holzbalken</source>
-        <target>Zusammengeschusterter Holzbalken</target>
+        <target>Poutre rafistolée</target>
       </trans-unit>
       <trans-unit id="Sl0KV.H" resname="Metallstruktur">
         <source>Metallstruktur</source>
-        <target>Metallstruktur</target>
+        <target>Structures métalliques</target>
       </trans-unit>
       <trans-unit id="TqQ0G6m" resname="Metalltrümmer">
         <source>Metalltrümmer</source>
-        <target>Metalltrümmer</target>
+        <target>Débris métalliques</target>
       </trans-unit>
       <trans-unit id="6hpmLkn" resname="Verrotteter Baumstumpf">
         <source>Verrotteter Baumstumpf</source>
-        <target>Verrotteter Baumstumpf</target>
+        <target>Souche de bois pourrie</target>
       </trans-unit>
       <trans-unit id="dOiqM_." resname="Metallsäge">
         <source>Metallsäge</source>
-        <target>Metallsäge</target>
+        <target>Scie à métaux</target>
       </trans-unit>
       <trans-unit id="2837wRf" resname="Gut erhaltener Holzscheit">
         <source>Gut erhaltener Holzscheit</source>
-        <target>Gut erhaltener Holzscheit</target>
+        <target>Buche en bon état</target>
       </trans-unit>
       <trans-unit id="JEMbD4T" resname="Defektes Elektrogerät">
         <source>Defektes Elektrogerät</source>
-        <target>Defektes Elektrogerät</target>
+        <target>Appareil électronique en panne</target>
       </trans-unit>
       <trans-unit id="u9wBpM0" resname="Möbelpackung">
         <source>Möbelpackung</source>
-        <target>Möbelpackung</target>
+        <target>Meuble en kit</target>
       </trans-unit>
       <trans-unit id="a2W.7cU" resname="Beschädigte Metallsäge">
         <source>Beschädigte Metallsäge</source>
-        <target>Beschädigte Metallsäge</target>
+        <target>Scie à métaux abimée</target>
       </trans-unit>
       <trans-unit id="pCgdjBM" resname="Getriebe">
         <source>Getriebe</source>
-        <target>Getriebe</target>
+        <target>Mécanisme</target>
       </trans-unit>
       <trans-unit id="Mx8QtmO" resname="Holzbock">
         <source>Holzbock</source>
-        <target>Holzbock</target>
+        <target>Tréteau</target>
       </trans-unit>
       <trans-unit id="GKrE3iB" resname="Järpen-Tisch">
         <source>Järpen-Tisch</source>
-        <target>Järpen-Tisch</target>
+        <target>Table Järpen</target>
       </trans-unit>
       <trans-unit id="PNLZ7WL" resname="Micropur Brausetablette">
         <source>Micropur Brausetablette</source>
-        <target>Micropur Brausetablette</target>
+        <target>Micropur effervescent</target>
       </trans-unit>
       <trans-unit id="e8QsLCX" resname="Darmmelone">
         <source>Darmmelone</source>
-        <target>Darmmelone</target>
+        <target>Melon d'intestin</target>
       </trans-unit>
       <trans-unit id="5lKQGxL" resname="Raketenpulver">
         <source>Raketenpulver</source>
-        <target>Raketenpulver</target>
+        <target>Poudre super-fuzz</target>
       </trans-unit>
       <trans-unit id="Ij90JBp" resname="Schießpulverbombe">
         <source>Schießpulverbombe</source>
-        <target>Schießpulverbombe</target>
+        <target>Poudre-comète brute</target>
       </trans-unit>
       <trans-unit id="1Ogs2Gm" resname="Teddybär">
         <source>Teddybär</source>
-        <target>Teddybär</target>
+        <target>Teddy n'Ours</target>
       </trans-unit>
       <trans-unit id="1wOOrVV" resname="Holzkistendeckel">
         <source>Holzkistendeckel</source>
-        <target>Holzkistendeckel</target>
+        <target>Morceau de caisse</target>
       </trans-unit>
       <trans-unit id="ALleEEO" resname="Solide Holzplatte">
         <source>Solide Holzplatte</source>
-        <target>Solide Holzplatte</target>
+        <target>Plaque de bois solide</target>
       </trans-unit>
       <trans-unit id="ONUCqKb" resname="Geldbündel">
         <source>Geldbündel</source>
-        <target>Geldbündel</target>
+        <target>Liasse de billets</target>
       </trans-unit>
       <trans-unit id="vi1Y.GI" resname="Loses Werkzeug">
         <source>Loses Werkzeug</source>
-        <target>Loses Werkzeug</target>
+        <target>Outils en vrac</target>
       </trans-unit>
       <trans-unit id="Qu3viNf" resname="Radius Mark II (entladen)">
         <source>Radius Mark II (entladen)</source>
-        <target>Radius Mark II (entladen)</target>
+        <target>Radius Mark II (déchargé)</target>
       </trans-unit>
       <trans-unit id="BY3bv3L" resname="Radius Mark II">
         <source>Radius Mark II</source>
@@ -691,315 +691,315 @@
       </trans-unit>
       <trans-unit id="HEOYOjQ" resname="Reparatur Fix">
         <source>Reparatur Fix</source>
-        <target>Reparatur Fix</target>
+        <target>Clé à molette</target>
       </trans-unit>
       <trans-unit id="1homVRE" resname="Unvollständiger Motor">
         <source>Unvollständiger Motor</source>
-        <target>Unvollständiger Motor</target>
+        <target>Moteur incomplet</target>
       </trans-unit>
       <trans-unit id="qx9.KDV" resname="Alte Waschmaschine">
         <source>Alte Waschmaschine</source>
-        <target>Alte Waschmaschine</target>
+        <target>Vieille machine à laver</target>
       </trans-unit>
       <trans-unit id="pqPAanY" resname="Krebserregender Ofen">
         <source>Krebserregender Ofen</source>
-        <target>Krebserregender Ofen</target>
+        <target>Four cancérigène</target>
       </trans-unit>
       <trans-unit id="sfRw7Bh" resname="Minibar">
         <source>Minibar</source>
-        <target>Minibar</target>
+        <target>Réfrigérateur d'étudiant</target>
       </trans-unit>
       <trans-unit id="t9rX1Ix" resname="Ein Brief ohne Adresse">
         <source>Ein Brief ohne Adresse</source>
-        <target>Ein Brief ohne Adresse</target>
+        <target>Une lettre sans adresse</target>
       </trans-unit>
       <trans-unit id="5MZoarU" resname="Aufgewelltes Blatt">
         <source>Aufgewelltes Blatt</source>
-        <target>Aufgewelltes Blatt</target>
+        <target>Feuille raccornie</target>
       </trans-unit>
       <trans-unit id="9.sIwMj" resname="Betriebsanleitung">
         <source>Betriebsanleitung</source>
-        <target>Betriebsanleitung</target>
+        <target>Manuel d'instructions</target>
       </trans-unit>
       <trans-unit id="_qPfDwA" resname="Unleserliches Notizbuch">
         <source>Unleserliches Notizbuch</source>
-        <target>Unleserliches Notizbuch</target>
+        <target>Carnet illisible</target>
       </trans-unit>
       <trans-unit id="G40OxHQ" resname="Fotoalbum">
         <source>Fotoalbum</source>
-        <target>Fotoalbum</target>
+        <target>Album photo</target>
       </trans-unit>
       <trans-unit id="d99K37k" resname="Blätterstapel">
         <source>Blätterstapel</source>
-        <target>Blätterstapel</target>
+        <target>Pile de feuilles</target>
       </trans-unit>
       <trans-unit id="JB5ivlG" resname="Große rostige Kette">
         <source>Große rostige Kette</source>
-        <target>Große rostige Kette</target>
+        <target>Grosse chaîne rouillée</target>
       </trans-unit>
       <trans-unit id="mRVfEiv" resname="Verdächtige Speise">
         <source>Verdächtige Speise</source>
-        <target>Verdächtige Speise</target>
+        <target>Plat fait-maison douteux</target>
       </trans-unit>
       <trans-unit id="fPytc7G" resname="Leckere Speise">
         <source>Leckere Speise</source>
-        <target>Leckere Speise</target>
+        <target>Bon plat fait-maison</target>
       </trans-unit>
       <trans-unit id="p512E0m" resname="Schrankkoffer">
         <source>Schrankkoffer</source>
-        <target>Schrankkoffer</target>
+        <target>Cantine en fer</target>
       </trans-unit>
       <trans-unit id="rdJsF0L" resname="Kartons">
         <source>Kartons</source>
-        <target>Kartons</target>
+        <target>Cartons</target>
       </trans-unit>
       <trans-unit id="qwrpOoz" resname="Nagelbare Barrikade">
         <source>Nagelbare Barrikade</source>
-        <target>Nagelbare Barrikade</target>
+        <target>Barricades à clouer</target>
       </trans-unit>
       <trans-unit id="PaCdCNf" resname="Ein Briefumschlag">
         <source>Ein Briefumschlag</source>
-        <target>Ein Briefumschlag</target>
+        <target>Une enveloppe</target>
       </trans-unit>
       <trans-unit id="bolKfwN" resname="Ein Paket">
         <source>Ein Paket</source>
-        <target>Ein Paket</target>
+        <target>Un colis</target>
       </trans-unit>
       <trans-unit id="yXOvAeJ" resname="Maschendrahtzaunstück">
         <source>Maschendrahtzaunstück</source>
-        <target>Maschendrahtzaunstück</target>
+        <target>Morceau de grillage</target>
       </trans-unit>
       <trans-unit id="tAL1.1o" resname="Wasserpistole (3 Ladungen)">
         <source>Wasserpistole (3 Ladungen)</source>
-        <target>Wasserpistole (3 Ladungen)</target>
+        <target>Pistolet à eau (3 charges)</target>
       </trans-unit>
       <trans-unit id="1hL22Tg" resname="Wasserpistole (2 Ladungen)">
         <source>Wasserpistole (2 Ladungen)</source>
-        <target>Wasserpistole (2 Ladungen)</target>
+        <target>Pistolet à eau (2 charges)</target>
       </trans-unit>
       <trans-unit id="AAqFf0Z" resname="Wasserpistole (1 Ladung)">
         <source>Wasserpistole (1 Ladung)</source>
-        <target>Wasserpistole (1 Ladung)</target>
+        <target>Pistolet à eau (1 charge)</target>
       </trans-unit>
       <trans-unit id="138nZNe" resname="Aqua-Splash (5 Ladungen)">
         <source>Aqua-Splash (5 Ladungen)</source>
-        <target>Aqua-Splash (5 Ladungen)</target>
+        <target>Aqua-Splash (5 charges)</target>
       </trans-unit>
       <trans-unit id="ZS835lb" resname="Aqua-Splash (4 Ladungen)">
         <source>Aqua-Splash (4 Ladungen)</source>
-        <target>Aqua-Splash (4 Ladungen)</target>
+        <target>Aqua-Splash (4 charges)</target>
       </trans-unit>
       <trans-unit id="utDsdSV" resname="Angefangene Zigarettenschachtel">
         <source>Angefangene Zigarettenschachtel</source>
-        <target>Angefangene Zigarettenschachtel</target>
+        <target>Paquet de cigarettes entamé</target>
       </trans-unit>
       <trans-unit id="BBIHHfq" resname="Druckregler PDTT Mark II">
         <source>Druckregler PDTT Mark II</source>
-        <target>Druckregler PDTT Mark II</target>
+        <target>Calibrateur PDTT Mark II</target>
       </trans-unit>
       <trans-unit id="sM.vO4L" resname="Batteriewerfer Mark II (leer)">
         <source>Batteriewerfer Mark II (leer)</source>
-        <target>Batteriewerfer Mark II (leer)</target>
+        <target>Lance-pile Mark II (vide)</target>
       </trans-unit>
       <trans-unit id="pSPwIaf" resname="Batteriewerfer Mark II (geladen)">
         <source>Batteriewerfer Mark II (geladen)</source>
-        <target>Batteriewerfer Mark II (geladen)</target>
+        <target>Lance-pile Mark II (chargé)</target>
       </trans-unit>
       <trans-unit id="DrdIvIa" resname="Zerquetschte Batterie">
         <source>Zerquetschte Batterie</source>
-        <target>Zerquetschte Batterie</target>
+        <target>Pile broyée</target>
       </trans-unit>
       <trans-unit id="hxmelON" resname="Kiste mit Materialien (3)">
         <source>Kiste mit Materialien (3)</source>
-        <target>Kiste mit Materialien (3)</target>
+        <target>Caisse de matériel (3)</target>
       </trans-unit>
       <trans-unit id="_Ya0SdM" resname="Kiste mit Materialien (2)">
         <source>Kiste mit Materialien (2)</source>
-        <target>Kiste mit Materialien (2)</target>
+        <target>Caisse de matériel (2)</target>
       </trans-unit>
       <trans-unit id="C60bLXY" resname="Kiste mit Materialien (1)">
         <source>Kiste mit Materialien (1)</source>
-        <target>Kiste mit Materialien (1)</target>
+        <target>Caisse de matériel (1)</target>
       </trans-unit>
       <trans-unit id="TeBNdiF" resname="Autotür">
         <source>Autotür</source>
-        <target>Autotür</target>
+        <target>Portière de voiture</target>
       </trans-unit>
       <trans-unit id="2Xg3q.j" resname="Beschädigte Autotür">
         <source>Beschädigte Autotür</source>
-        <target>Beschädigte Autotür</target>
+        <target>Portière de voiture incomplète</target>
       </trans-unit>
       <trans-unit id="SLEpWnE" resname="Giftfläschchen">
         <source>Giftfläschchen</source>
-        <target>Giftfläschchen</target>
+        <target>Fiole de poison</target>
       </trans-unit>
       <trans-unit id="cNhsjiq" resname="Ätzmittel">
         <source>Ätzmittel</source>
-        <target>Ätzmittel</target>
+        <target>Produit corrosif</target>
       </trans-unit>
       <trans-unit id="sm0ZoHJ" resname="Vorräte eines umsichtigen Bürgers">
         <source>Vorräte eines umsichtigen Bürgers</source>
-        <target>Vorräte eines umsichtigen Bürgers</target>
+        <target>Réserves d'un citoyen avisé</target>
       </trans-unit>
       <trans-unit id="vfyB7g4" resname="Postpaket">
         <source>Postpaket</source>
-        <target>Postpaket</target>
+        <target>Colis postal</target>
       </trans-unit>
       <trans-unit id="kiXYPyy" resname="Lunch-Box">
         <source>Lunch-Box</source>
-        <target>Lunch-Box</target>
+        <target>Boîte-déjeuner</target>
       </trans-unit>
       <trans-unit id="UVBggyY" resname="Eine Handvoll Bonbons">
         <source>Eine Handvoll Bonbons</source>
-        <target>Eine Handvoll Bonbons</target>
+        <target>Poignée de bonbons</target>
       </trans-unit>
       <trans-unit id="yK9GDNM" resname="Sperrholzstück">
         <source>Sperrholzstück</source>
-        <target>Sperrholzstück</target>
+        <target>Morceau de contreplaqué</target>
       </trans-unit>
       <trans-unit id="2.wFBkZ" resname="Fackel">
         <source>Fackel</source>
-        <target>Fackel</target>
+        <target>Torche</target>
       </trans-unit>
       <trans-unit id="oAz7EXL" resname="Verbrauchte Fackel">
         <source>Verbrauchte Fackel</source>
-        <target>Verbrauchte Fackel</target>
+        <target>Torche consumée</target>
       </trans-unit>
       <trans-unit id="9vWCENy" resname="Getrocknete Marshmallows">
         <source>Getrocknete Marshmallows</source>
-        <target>Getrocknete Marshmallows</target>
+        <target>Chamallows séchés</target>
       </trans-unit>
       <trans-unit id="g3eU0or" resname="Geröstete Marshmallows">
         <source>Geröstete Marshmallows</source>
-        <target>Geröstete Marshmallows</target>
+        <target>Chamallows calcinés</target>
       </trans-unit>
       <trans-unit id="f4_LJsB" resname="PC-Gehäuse">
         <source>PC-Gehäuse</source>
-        <target>PC-Gehäuse</target>
+        <target>Unité centrale</target>
       </trans-unit>
       <trans-unit id="T58Nq80" resname="Safe">
         <source>Safe</source>
-        <target>Safe</target>
+        <target>Coffre-fort</target>
       </trans-unit>
       <trans-unit id="5KDa1D7" resname="Eine Enzyklopädie">
         <source>Eine Enzyklopädie</source>
-        <target>Eine Enzyklopädie</target>
+        <target>Une encyclopédie</target>
       </trans-unit>
       <trans-unit id="AHASEYQ" resname="Wasserspender (leer)">
         <source>Wasserspender (leer)</source>
-        <target>Wasserspender (leer)</target>
+        <target>Bonbonne d'eau (vide)</target>
       </trans-unit>
       <trans-unit id="SPLICbh" resname="Wasserspender (1 Ration)">
         <source>Wasserspender (1 Ration)</source>
-        <target>Wasserspender (1 Ration)</target>
+        <target>Bonbonne d'eau (1 ration)</target>
       </trans-unit>
       <trans-unit id="DqdgpMC" resname="Wasserspender (2 Rationen)">
         <source>Wasserspender (2 Rationen)</source>
-        <target>Wasserspender (2 Rationen)</target>
+        <target>Bonbonne d'eau (2 rations)</target>
       </trans-unit>
       <trans-unit id="hbYHhbK" resname="Wasserspender (3 Rationen)">
         <source>Wasserspender (3 Rationen)</source>
-        <target>Wasserspender (3 Rationen)</target>
+        <target>Bonbonne d'eau (3 rations)</target>
       </trans-unit>
       <trans-unit id="9kUAXmE" resname="Abgelaufene Betapropin-Tablette 5mg">
         <source>Abgelaufene Betapropin-Tablette 5mg</source>
-        <target>Abgelaufene Betapropin-Tablette 5mg</target>
+        <target>Betapropine 5mg périmée</target>
       </trans-unit>
       <trans-unit id="U4wYZ3W" resname="Betapropin-Tablette 5mg">
         <source>Betapropin-Tablette 5mg</source>
-        <target>Betapropin-Tablette 5mg</target>
+        <target>Betapropine 5mg</target>
       </trans-unit>
       <trans-unit id="05SJi6V" resname="Aasbeeren">
         <source>Aasbeeren</source>
-        <target>Aasbeeren</target>
+        <target>Des carottes</target>
       </trans-unit>
       <trans-unit id="Ts1kvBr" resname="Schleimige Kugel">
         <source>Schleimige Kugel</source>
-        <target>Schleimige Kugel</target>
+        <target>Boule de pâtes visqueuse</target>
       </trans-unit>
       <trans-unit id="n2b6vg0" resname="Fleischfetzen">
         <source>Fleischfetzen</source>
-        <target>Fleischfetzen</target>
+        <target>Purée de charognardes</target>
       </trans-unit>
       <trans-unit id="YbU6RJg" resname="Makabre Bombe">
         <source>Makabre Bombe</source>
-        <target>Makabre Bombe</target>
+        <target>Bombe macabre</target>
       </trans-unit>
       <trans-unit id="zc4zxPy" resname="Dickflüssige Substanz">
         <source>Dickflüssige Substanz</source>
-        <target>Dickflüssige Substanz</target>
+        <target>Substance épaisse</target>
       </trans-unit>
       <trans-unit id="n_Aw_Kk" resname="Aasbeerenbrei">
         <source>Aasbeerenbrei</source>
-        <target>Aasbeerenbrei</target>
+        <target>Bouillie de carotte</target>
       </trans-unit>
       <trans-unit id="dBvAcX0" resname="Eisengefäß mit modrigem wasser">
         <source>Eisengefäß mit modrigem wasser</source>
-        <target>Eisengefäß mit modrigem wasser</target>
+        <target>Eau croupie</target>
       </trans-unit>
       <trans-unit id="_YIwmCU" resname="Gereinigtes modriges Wasser">
         <source>Gereinigtes modriges Wasser</source>
-        <target>Gereinigtes modriges Wasser</target>
+        <target>eau croupie purifiée</target>
       </trans-unit>
       <trans-unit id="u9xpwxV" resname="Notizzettel eines Verbannten">
         <source>Notizzettel eines Verbannten</source>
-        <target>Notizzettel eines Verbannten</target>
+        <target>Note d'un citoyen banni</target>
       </trans-unit>
       <trans-unit id="TyGvbgL" resname="Blutdurchtränkter Verband">
         <source>Blutdurchtränkter Verband</source>
-        <target>Blutdurchtränkter Verband</target>
+        <target>Pansement ensanglanté</target>
       </trans-unit>
       <trans-unit id="3KOSs2o" resname="Verfluchter Teddybär">
         <source>Verfluchter Teddybär</source>
-        <target>Verfluchter Teddybär</target>
+        <target>Teddy n'Ours maudit</target>
       </trans-unit>
       <trans-unit id="exRnrLk" resname="Sägemehlsteak">
         <source>Sägemehlsteak</source>
-        <target>Sägemehlsteak</target>
+        <target>Steak de sciure</target>
       </trans-unit>
       <trans-unit id="lo_4TvW" resname="Abgetragene rote Jacke">
         <source>Abgetragene rote Jacke</source>
-        <target>Abgetragene rote Jacke</target>
+        <target>Vest rouge usée</target>
       </trans-unit>
       <trans-unit id="4W9Uon4" resname="Zerrissene rote Hose">
         <source>Zerrissene rote Hose</source>
-        <target>Zerrissene rote Hose</target>
+        <target>Pantalon rouge déchiré</target>
       </trans-unit>
       <trans-unit id="c8xWEv1" resname="Schweißtriefende rote Mütze">
         <source>Schweißtriefende rote Mütze</source>
-        <target>Schweißtriefende rote Mütze</target>
+        <target>Bonnet rouge malodorant</target>
       </trans-unit>
       <trans-unit id="BQMFMHP" resname="Übelriechender Anzug aus einer anderen Zeit">
         <source>Übelriechender Anzug aus einer anderen Zeit</source>
-        <target>Übelriechender Anzug aus einer anderen Zeit</target>
+        <target>Costume malodorant d'une autre époque</target>
       </trans-unit>
       <trans-unit id="0zCq8DA" resname="Mobiltelefon">
         <source>Mobiltelefon</source>
-        <target>Mobiltelefon</target>
+        <target>Téléphone portable</target>
       </trans-unit>
       <trans-unit id="8E71ssC" resname="Ekliger Hautfetzen">
         <source>Ekliger Hautfetzen</source>
-        <target>Ekliger Hautfetzen</target>
+        <target>Lambeau de chair</target>
       </trans-unit>
       <trans-unit id="9z__4T5" resname="MagLite Kinderlampe (aus)">
         <source>MagLite Kinderlampe (aus)</source>
-        <target>MagLite Kinderlampe (aus)</target>
+        <target>Maglite Pif'Gadget (éteinte)</target>
       </trans-unit>
       <trans-unit id="CohhMIg" resname="MagLite Kinderlampe (1 Ladung)">
         <source>MagLite Kinderlampe (1 Ladung)</source>
-        <target>MagLite Kinderlampe (1 Ladung)</target>
+        <target>Maglite Pif'Gadget (1 charge)</target>
       </trans-unit>
       <trans-unit id="WaA0OSd" resname="MagLite Kinderlampe (2 Ladungen)">
         <source>MagLite Kinderlampe (2 Ladungen)</source>
-        <target>MagLite Kinderlampe (2 Ladungen)</target>
+        <target>Maglite Pif'Gadget (2 charges)</target>
       </trans-unit>
       <trans-unit id="KC3QuZx" resname="Leiche eines Reisenden">
         <source>Leiche eines Reisenden</source>
-        <target>Leiche eines Reisenden</target>
+        <target>Cadavre d'un voyageur</target>
       </trans-unit>
       <trans-unit id="Q6uV4Fz" resname="Angenagte Leiche">
         <source>Angenagte Leiche</source>
-        <target>Angenagte Leiche</target>
+        <target>Cadavre rongé</target>
       </trans-unit>
       <trans-unit id="Bg371ce" resname="Rauchgranate 'Tannenduft'">
         <source>Rauchgranate 'Tannenduft'</source>
@@ -1315,19 +1315,19 @@
       </trans-unit>
       <trans-unit id="J4KATtV" resname="Bürgerbekleidung">
         <source>Bürgerbekleidung</source>
-        <target>Bürgerbekleidung</target>
+        <target>Uniforme de citoyen</target>
       </trans-unit>
       <trans-unit id="tH36hZc" resname="Dreckige Bürgerbekleidung">
         <source>Dreckige Bürgerbekleidung</source>
-        <target>Dreckige Bürgerbekleidung</target>
+        <target>Uniforme de citoyen sale</target>
       </trans-unit>
       <trans-unit id="Ppxhgkz" resname="Tarnanzug">
         <source>Tarnanzug</source>
-        <target>Tarnanzug</target>
+        <target>Camouflage</target>
       </trans-unit>
       <trans-unit id="3yuRr1g" resname="Tarnanzug (abgelegt)">
         <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <target>Camouflage (enlevé)</target>
       </trans-unit>
       <trans-unit id="zozlCDV" resname="Kleine Schaufel">
         <source>Kleine Schaufel</source>
@@ -1363,11 +1363,11 @@
       </trans-unit>
       <trans-unit id="u_g_Kg2" resname="Trinken">
         <source>Trinken</source>
-        <target>Trinken</target>
+        <target>Boire </target>
       </trans-unit>
       <trans-unit id="ih8Me2k" resname="Befüllen">
         <source>Befüllen</source>
-        <target>Befüllen</target>
+        <target>Remplir </target>
       </trans-unit>
       <trans-unit id="qv4Y2EG" resname="Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!">
         <source>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</source>
@@ -1379,15 +1379,15 @@
       </trans-unit>
       <trans-unit id="vDhaMLU" resname="Öffnen">
         <source>Öffnen</source>
-        <target>Öffnen</target>
+        <target>Ouvrir </target>
       </trans-unit>
       <trans-unit id=".pqCaKH" resname="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <target>Vous n'avez pas les outils pour ouvrir cet objet...</target>
       </trans-unit>
       <trans-unit id="ohJAffK" resname="Essen">
         <source>Essen</source>
-        <target>Essen</target>
+        <target>Manger </target>
       </trans-unit>
       <trans-unit id="m8ZO.Qg" resname="Einnehmen">
         <source>Einnehmen</source>
@@ -1427,7 +1427,7 @@
       </trans-unit>
       <trans-unit id="4W5shcA" resname="Waffe einsetzen">
         <source>Waffe einsetzen</source>
-        <target>Waffe einsetzen</target>
+        <target>Attaquer avec </target>
       </trans-unit>
       <trans-unit id="LNBNFk1" resname="Zum Glück sind hier keine Zombies...">
         <source>Zum Glück sind hier keine Zombies...</source>
@@ -1483,7 +1483,7 @@
       </trans-unit>
       <trans-unit id="j6UDssn" resname="Reinigen">
         <source>Reinigen</source>
-        <target>Reinigen</target>
+        <target>Nettoyer</target>
       </trans-unit>
       <trans-unit id="8ngzajs" resname="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
         <source>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</source>
@@ -1603,7 +1603,47 @@
       </trans-unit>
       <trans-unit id="Kl2AzsC" resname="Du ziehst eine Karte... es ist: {color} {value}.">
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Du ziehst eine Karte... es ist: {color} {value}.</target>
+        <target>Vous tirez une carte... es ist: {color} {value}.</target>
+      </trans-unit>
+      <trans-unit id="m5CJEyF" resname="Die Rückkehr des Helden">
+        <source>Die Rückkehr des Helden</source>
+        <target>Die Rückkehr des Helden</target>
+      </trans-unit>
+      <trans-unit id="AfDbNyS" resname="Hierfür bist du zu weit von der Stadt entfernt ...">
+        <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
+        <target>Hierfür bist du zu weit von der Stadt entfernt ...</target>
+      </trans-unit>
+      <trans-unit id="9XqTW0w" resname="Fund">
+        <source>Fund</source>
+        <target>Trouvaille</target>
+      </trans-unit>
+      <trans-unit id="AAim.UY" resname="Wildstyle Uppercut">
+        <source>Wildstyle Uppercut</source>
+        <target>Uppercut sauvage</target>
+      </trans-unit>
+      <trans-unit id="zV1VWf6" resname="Zweite Lunge">
+        <source>Zweite Lunge</source>
+        <target>Second souffle</target>
+      </trans-unit>
+      <trans-unit id="dIXELzM" resname="Den Tod besiegen">
+        <source>Den Tod besiegen</source>
+        <target>Vaincre la mort</target>
+      </trans-unit>
+      <trans-unit id="0A55k5c" resname="Rettung">
+        <source>Rettung</source>
+        <target>Sauvetage</target>
+      </trans-unit>
+      <trans-unit id="VREDhkf" resname="Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!">
+        <source>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</source>
+        <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
+      </trans-unit>
+      <trans-unit id="vgypnNf" resname="%action%: %item%">
+        <source>%action%: %item%</source>
+        <target>%action% : %item%</target>
+      </trans-unit>
+      <trans-unit id="cbZMBy4" resname="Heldentaten">
+        <source>Heldentaten</source>
+        <target>Pouvoirs héroïques</target>
       </trans-unit>
     </body>
   </file>

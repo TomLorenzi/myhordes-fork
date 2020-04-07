@@ -7,11 +7,11 @@
     <body>
       <trans-unit id="dFL__mK" resname="Wassergraben">
         <source>Wassergraben</source>
-        <target>Wassergraben</target>
+        <target>Great Moat</target>
       </trans-unit>
       <trans-unit id="pmF7FgU" resname="Großer Graben">
         <source>Großer Graben</source>
-        <target>Großer Graben</target>
+        <target>Great Pit</target>
       </trans-unit>
       <trans-unit id="39k_QT1" resname="Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.">
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</source>
@@ -35,47 +35,47 @@
       </trans-unit>
       <trans-unit id="wlt3nkJ" resname="Rasierklingenmauer">
         <source>Rasierklingenmauer</source>
-        <target>Rasierklingenmauer</target>
+        <target>Grater</target>
       </trans-unit>
       <trans-unit id="nDqxP50" resname="Pfahlgraben">
         <source>Pfahlgraben</source>
-        <target>Pfahlgraben</target>
+        <target>Spiked Pit</target>
       </trans-unit>
       <trans-unit id="CrQIj8M" resname="Köder">
         <source>Köder</source>
-        <target>Köder</target>
+        <target>Bait</target>
       </trans-unit>
       <trans-unit id="I6Ou0iS" resname="Stacheldraht">
         <source>Stacheldraht</source>
-        <target>Stacheldraht</target>
+        <target>Barbed Wire</target>
       </trans-unit>
       <trans-unit id="N_IRvC9" resname="Weiterentwickelte Stadtmauer">
         <source>Weiterentwickelte Stadtmauer</source>
-        <target>Weiterentwickelte Stadtmauer</target>
+        <target>Wall Upgrade v2</target>
       </trans-unit>
       <trans-unit id="HbQ4h88" resname="Groooße Mauer">
         <source>Groooße Mauer</source>
-        <target>Groooße Mauer</target>
+        <target>Überwall</target>
       </trans-unit>
       <trans-unit id="rrm6H8d" resname="Zackenmauer">
         <source>Zackenmauer</source>
-        <target>Zackenmauer</target>
+        <target>Spiked Wall</target>
       </trans-unit>
       <trans-unit id="2g3app1" resname="Dritte Schicht">
         <source>Dritte Schicht</source>
-        <target>Dritte Schicht</target>
+        <target>Third Wall</target>
       </trans-unit>
       <trans-unit id="9lvn8i4" resname="Zweite Schicht">
         <source>Zweite Schicht</source>
-        <target>Zweite Schicht</target>
+        <target>Inner Wall</target>
       </trans-unit>
       <trans-unit id="Y45k2Pv" resname="Betonschicht">
         <source>Betonschicht</source>
-        <target>Betonschicht</target>
+        <target>Concrete Reinforcement</target>
       </trans-unit>
       <trans-unit id="jULo0MF" resname="Entwicklungsfähige Stadtmauer">
         <source>Entwicklungsfähige Stadtmauer</source>
-        <target>Entwicklungsfähige Stadtmauer</target>
+        <target>Evolutive Wall</target>
       </trans-unit>
       <trans-unit id="i.v_PDf" resname="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.">
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</source>
@@ -99,119 +99,119 @@
       </trans-unit>
       <trans-unit id="lgS6PS2" resname="Verstärkende Balken">
         <source>Verstärkende Balken</source>
-        <target>Verstärkende Balken</target>
+        <target>Metal Patches</target>
       </trans-unit>
       <trans-unit id="GP9xakw" resname="Zombiereibe">
         <source>Zombiereibe</source>
-        <target>Zombiereibe</target>
+        <target>Zombie Grater</target>
       </trans-unit>
       <trans-unit id="FMhDGIY" resname="Fallgruben">
         <source>Fallgruben</source>
-        <target>Fallgruben</target>
+        <target>Old-school traps</target>
       </trans-unit>
       <trans-unit id="rCdMakD" resname="Zaun">
         <source>Zaun</source>
-        <target>Zaun</target>
+        <target>Wooden Fencing</target>
       </trans-unit>
       <trans-unit id="1VFjm8C" resname="Holzzaun">
         <source>Holzzaun</source>
-        <target>Holzzaun</target>
+        <target>Small Fence</target>
       </trans-unit>
       <trans-unit id="sUMdYSq" resname="Sperrholz">
         <source>Sperrholz</source>
-        <target>Sperrholz</target>
+        <target>Plywood</target>
       </trans-unit>
       <trans-unit id="XQiF0XP" resname="Rüstungsplatten 3.0">
         <source>Rüstungsplatten 3.0</source>
-        <target>Rüstungsplatten 3.0</target>
+        <target>Armour Plating v3</target>
       </trans-unit>
       <trans-unit id="00gaKK_" resname="Extramauer">
         <source>Extramauer</source>
-        <target>Extramauer</target>
+        <target>Extrawall</target>
       </trans-unit>
       <trans-unit id="zlG5ILw" resname="Rüstungsplatten">
         <source>Rüstungsplatten</source>
-        <target>Rüstungsplatten</target>
+        <target>Armour Plating</target>
       </trans-unit>
       <trans-unit id="95xxaU2" resname="Rüstungsplatten 2.0">
         <source>Rüstungsplatten 2.0</source>
-        <target>Rüstungsplatten 2.0</target>
+        <target>Armour Plating v2</target>
       </trans-unit>
       <trans-unit id="XbhNL1e" resname="Einseifer">
         <source>Einseifer</source>
-        <target>Einseifer</target>
+        <target>Slip 'n' Slide</target>
       </trans-unit>
       <trans-unit id="3q79VCE" resname="Spraykanone">
         <source>Spraykanone</source>
-        <target>Spraykanone</target>
+        <target>Gas Gun</target>
       </trans-unit>
       <trans-unit id="2NZcCax" resname="Säurespray">
         <source>Säurespray</source>
-        <target>Säurespray</target>
+        <target>Acid Spray</target>
       </trans-unit>
       <trans-unit id="i0za.Ug" resname="Zerstäuber">
         <source>Zerstäuber</source>
-        <target>Zerstäuber</target>
+        <target>Vaporiser</target>
       </trans-unit>
       <trans-unit id="uQSIZwY" resname="Verstärkte Stadtmauer">
         <source>Verstärkte Stadtmauer</source>
-        <target>Verstärkte Stadtmauer</target>
+        <target>Wall Upgrade v1</target>
       </trans-unit>
       <trans-unit id="2gSRbEU" resname="Minen">
         <source>Minen</source>
-        <target>Minen</target>
+        <target>Mines</target>
       </trans-unit>
       <trans-unit id="rCKz3m3" resname="Wasserfilter">
         <source>Wasserfilter</source>
-        <target>Wasserfilter</target>
+        <target>Water Filter</target>
       </trans-unit>
       <trans-unit id="14diVFD" resname="Wasserreiniger">
         <source>Wasserreiniger</source>
-        <target>Wasserreiniger</target>
+        <target>Water Purifier</target>
       </trans-unit>
       <trans-unit id="MHnbW88" resname="Dünger">
         <source>Dünger</source>
-        <target>Dünger</target>
+        <target>Fertilizer</target>
       </trans-unit>
       <trans-unit id="kP2Srb9" resname="Granatapfel">
         <source>Granatapfel</source>
-        <target>Granatapfel</target>
+        <target>Grapeboom</target>
       </trans-unit>
       <trans-unit id="ruRpI7F" resname="Gemüsebeet">
         <source>Gemüsebeet</source>
-        <target>Gemüsebeet</target>
+        <target>Vegetable Plot</target>
       </trans-unit>
       <trans-unit id="aMK4lTK" resname="Projekt Eden">
         <source>Projekt Eden</source>
-        <target>Projekt Eden</target>
+        <target>Eden Project</target>
       </trans-unit>
       <trans-unit id="g7vkdOB" resname="Brunnenbohrer">
         <source>Brunnenbohrer</source>
-        <target>Brunnenbohrer</target>
+        <target>Drilling Rig</target>
       </trans-unit>
       <trans-unit id="18uh4Vj" resname="Kärcher">
         <source>Kärcher</source>
-        <target>Kärcher</target>
+        <target>Boiling Fog</target>
       </trans-unit>
       <trans-unit id="CfQ_Bib" resname="Kreischender Rotor">
         <source>Kreischender Rotor</source>
-        <target>Kreischender Rotor</target>
+        <target>Saniflow Macerator</target>
       </trans-unit>
       <trans-unit id="OcCCWxy" resname="Sprinkleranlage">
         <source>Sprinkleranlage</source>
-        <target>Sprinkleranlage</target>
+        <target>Automatic Sprinkler</target>
       </trans-unit>
       <trans-unit id="MULCyIk" resname="Dusche">
         <source>Dusche</source>
-        <target>Dusche</target>
+        <target>Shower</target>
       </trans-unit>
       <trans-unit id="7j0r7B9" resname="Wasserleitungsnetz">
         <source>Wasserleitungsnetz</source>
-        <target>Wasserleitungsnetz</target>
+        <target>Hydraulic Network</target>
       </trans-unit>
       <trans-unit id="Rhgjmll" resname="Wasserturm">
         <source>Wasserturm</source>
-        <target>Wasserturm</target>
+        <target>Water Turrets</target>
       </trans-unit>
       <trans-unit id="_TjOaCj" resname="Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.">
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</source>
@@ -235,35 +235,35 @@
       </trans-unit>
       <trans-unit id="aD._KEu" resname="Wasserfänger">
         <source>Wasserfänger</source>
-        <target>Wasserfänger</target>
+        <target>Water Catcher</target>
       </trans-unit>
       <trans-unit id="ABN1XUN" resname="Wasserkanone">
         <source>Wasserkanone</source>
-        <target>Wasserkanone</target>
+        <target>Mist Spray</target>
       </trans-unit>
       <trans-unit id="gCJBWWD" resname="Schleuse">
         <source>Schleuse</source>
-        <target>Schleuse</target>
+        <target>Sluice</target>
       </trans-unit>
       <trans-unit id="qo4gzuN" resname="Wasserfall">
         <source>Wasserfall</source>
-        <target>Wasserfall</target>
+        <target>Decon Shower</target>
       </trans-unit>
       <trans-unit id="bZnWnKs" resname="Wünschelrakete">
         <source>Wünschelrakete</source>
-        <target>Wünschelrakete</target>
+        <target>Divining Rocket</target>
       </trans-unit>
       <trans-unit id="kBVya6M" resname="Wünschelrute">
         <source>Wünschelrute</source>
-        <target>Wünschelrute</target>
+        <target>Divining Rods</target>
       </trans-unit>
       <trans-unit id="FL6iCcw" resname="Apfelbaum">
         <source>Apfelbaum</source>
-        <target>Apfelbaum</target>
+        <target>Apple Tree</target>
       </trans-unit>
       <trans-unit id="sfG6Jkq" resname="Pumpe">
         <source>Pumpe</source>
-        <target>Pumpe</target>
+        <target>Pump</target>
       </trans-unit>
       <trans-unit id="soE_FyU" resname="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
         <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
@@ -283,15 +283,15 @@
       </trans-unit>
       <trans-unit id="Mjl71we" resname="Kremato-Cue">
         <source>Kremato-Cue</source>
-        <target>Kremato-Cue</target>
+        <target>Cremato-Cue</target>
       </trans-unit>
       <trans-unit id="j.YCYvG" resname="Metzgerei">
         <source>Metzgerei</source>
-        <target>Metzgerei</target>
+        <target>Butcher</target>
       </trans-unit>
       <trans-unit id="aejltM1" resname="Verteidigungsanlage">
         <source>Verteidigungsanlage</source>
-        <target>Verteidigungsanlage</target>
+        <target>Defensive Focus</target>
       </trans-unit>
       <trans-unit id="u73yQTm" resname="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.">
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
@@ -315,39 +315,39 @@
       </trans-unit>
       <trans-unit id="Vln90x5" resname="Steinkanone">
         <source>Steinkanone</source>
-        <target>Steinkanone</target>
+        <target>Rock Cannon</target>
       </trans-unit>
       <trans-unit id="u_k83kB" resname="Selbstgebaute Railgun">
         <source>Selbstgebaute Railgun</source>
-        <target>Selbstgebaute Railgun</target>
+        <target>Railgun</target>
       </trans-unit>
       <trans-unit id="Vj3WnMj" resname="Blechplattenwerfer">
         <source>Blechplattenwerfer</source>
-        <target>Blechplattenwerfer</target>
+        <target>Plate Gun</target>
       </trans-unit>
       <trans-unit id="CAZwcmO" resname="Brutale Kanone">
         <source>Brutale Kanone</source>
-        <target>Brutale Kanone</target>
+        <target>Brutal Cannon</target>
       </trans-unit>
       <trans-unit id="ZyMPQfA" resname="Kanonenhügel">
         <source>Kanonenhügel</source>
-        <target>Kanonenhügel</target>
+        <target>Cannone Mounds</target>
       </trans-unit>
       <trans-unit id="fXSFcSL" resname="Holzbalkendrehkreuz">
         <source>Holzbalkendrehkreuz</source>
-        <target>Holzbalkendrehkreuz</target>
+        <target>War Mill</target>
       </trans-unit>
       <trans-unit id="G2Xnwsv" resname="Manufaktur">
         <source>Manufaktur</source>
-        <target>Manufaktur</target>
+        <target>Factory</target>
       </trans-unit>
       <trans-unit id="885G31O" resname="Kreischende Sägen">
         <source>Kreischende Sägen</source>
-        <target>Kreischende Sägen</target>
+        <target>Screaming Saws</target>
       </trans-unit>
       <trans-unit id="EicSNbc" resname="Bauhaus">
         <source>Bauhaus</source>
-        <target>Bauhaus</target>
+        <target>Building Registry</target>
       </trans-unit>
       <trans-unit id="apLtnCI" resname="Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.">
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
@@ -363,59 +363,59 @@
       </trans-unit>
       <trans-unit id="erBRQsV" resname="Baustellenbuch">
         <source>Baustellenbuch</source>
-        <target>Baustellenbuch</target>
+        <target>Architect's Study</target>
       </trans-unit>
       <trans-unit id="Cou_v9E" resname="Galgen">
         <source>Galgen</source>
-        <target>Galgen</target>
+        <target>Gallows</target>
       </trans-unit>
       <trans-unit id="3ZbLUsz" resname="Kleines Cafe">
         <source>Kleines Cafe</source>
-        <target>Kleines Cafe</target>
+        <target>Small Café</target>
       </trans-unit>
       <trans-unit id="fIiQQtV" resname="Sarg-Katapult">
         <source>Sarg-Katapult</source>
-        <target>Sarg-Katapult</target>
+        <target>Coffin Catapult</target>
       </trans-unit>
       <trans-unit id="Ddy6W0H" resname="Kleiner Friedhof">
         <source>Kleiner Friedhof</source>
-        <target>Kleiner Friedhof</target>
+        <target>Small Cemetary</target>
       </trans-unit>
       <trans-unit id="FN3dAwg" resname="Hühnerstall">
         <source>Hühnerstall</source>
-        <target>Hühnerstall</target>
+        <target>Henhouse</target>
       </trans-unit>
       <trans-unit id="rvXKPYg" resname="Schlachthof">
         <source>Schlachthof</source>
-        <target>Schlachthof</target>
+        <target>Abbatoir</target>
       </trans-unit>
       <trans-unit id="Fs4XN5W" resname="Pentagon">
         <source>Pentagon</source>
-        <target>Pentagon</target>
+        <target>Defensive Thinktank</target>
       </trans-unit>
       <trans-unit id="NBHNMKt" resname="Kantine">
         <source>Kantine</source>
-        <target>Kantine</target>
+        <target>Central Cafeteria</target>
       </trans-unit>
       <trans-unit id="jaLVdqp" resname="Bollwerk">
         <source>Bollwerk</source>
-        <target>Bollwerk</target>
+        <target>Community Involvement</target>
       </trans-unit>
       <trans-unit id="zkW4TlC" resname="Baumarkt">
         <source>Baumarkt</source>
-        <target>Baumarkt</target>
+        <target>Builder's Merchant</target>
       </trans-unit>
       <trans-unit id="YpxBmf9" resname="Krankenstation">
         <source>Krankenstation</source>
-        <target>Krankenstation</target>
+        <target>Infirmary</target>
       </trans-unit>
       <trans-unit id="e2uWnIv" resname="Labor">
         <source>Labor</source>
-        <target>Labor</target>
+        <target>Central Laboratory</target>
       </trans-unit>
       <trans-unit id="gd8sEx3" resname="Werkstatt">
         <source>Werkstatt</source>
-        <target>Werkstatt</target>
+        <target>Workshop</target>
       </trans-unit>
       <trans-unit id="FXAUu02" resname="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
@@ -443,15 +443,15 @@
       </trans-unit>
       <trans-unit id="fxriL78" resname="Verbesserte Karte">
         <source>Verbesserte Karte</source>
-        <target>Verbesserte Karte</target>
+        <target>Upgraded Map</target>
       </trans-unit>
       <trans-unit id="wBOW_40" resname="Rechenmaschine">
         <source>Rechenmaschine</source>
-        <target>Rechenmaschine</target>
+        <target>Predictor</target>
       </trans-unit>
       <trans-unit id="kOf03MZ" resname="Forschungsturm">
         <source>Forschungsturm</source>
-        <target>Forschungsturm</target>
+        <target>Searchtower</target>
       </trans-unit>
       <trans-unit id="3BWnOol" resname="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.">
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</source>
@@ -475,95 +475,95 @@
       </trans-unit>
       <trans-unit id="iJl3i40" resname="Verteidigungspfähle">
         <source>Verteidigungspfähle</source>
-        <target>Verteidigungspfähle</target>
+        <target>Spikes</target>
       </trans-unit>
       <trans-unit id="ZwtYGJS" resname="Notfallabstützung">
         <source>Notfallabstützung</source>
-        <target>Notfallabstützung</target>
+        <target>Wood Plating</target>
       </trans-unit>
       <trans-unit id="CZ3TwGn" resname="Guerilla">
         <source>Guerilla</source>
-        <target>Guerilla</target>
+        <target>Guerilla Traps</target>
       </trans-unit>
       <trans-unit id="2oexLnE" resname="Trümmerberg">
         <source>Trümmerberg</source>
-        <target>Trümmerberg</target>
+        <target>Mount Killaman-Jaro</target>
       </trans-unit>
       <trans-unit id="fhLdJ84" resname="Abfallberg">
         <source>Abfallberg</source>
-        <target>Abfallberg</target>
+        <target>Rubbish Heap</target>
       </trans-unit>
       <trans-unit id="Rj.C34H" resname="Wolfsfalle">
         <source>Wolfsfalle</source>
-        <target>Wolfsfalle</target>
+        <target>Pits</target>
       </trans-unit>
       <trans-unit id="mdZatxx" resname="Sprengfalle">
         <source>Sprengfalle</source>
-        <target>Sprengfalle</target>
+        <target>Bomb Factory</target>
       </trans-unit>
       <trans-unit id="Bomnue9" resname="Nackte Panik">
         <source>Nackte Panik</source>
-        <target>Nackte Panik</target>
+        <target>Abject Panic</target>
       </trans-unit>
       <trans-unit id="0lzRs8w" resname="Dollhouse">
         <source>Dollhouse</source>
-        <target>Dollhouse</target>
+        <target>Frat House</target>
       </trans-unit>
       <trans-unit id="thcdfWu" resname="Heiliger Regen">
         <source>Heiliger Regen</source>
-        <target>Heiliger Regen</target>
+        <target>Holy Raincloud</target>
       </trans-unit>
       <trans-unit id="kDKItz." resname="Voodoo-Puppe">
         <source>Voodoo-Puppe</source>
-        <target>Voodoo-Puppe</target>
+        <target>XXL Voodoo Doll</target>
       </trans-unit>
       <trans-unit id="Pb0lyLQ" resname="Spirituelles Wunder">
         <source>Spirituelles Wunder</source>
-        <target>Spirituelles Wunder</target>
+        <target>Spirit Mirage</target>
       </trans-unit>
       <trans-unit id="5CaCw2S" resname="Bokors Guillotine">
         <source>Bokors Guillotine</source>
-        <target>Bokors Guillotine</target>
+        <target>Sword of Bokor</target>
       </trans-unit>
       <trans-unit id="vSThV6l" resname="Notfallkonstruktion">
         <source>Notfallkonstruktion</source>
-        <target>Notfallkonstruktion</target>
+        <target>Emergency Supplies</target>
       </trans-unit>
       <trans-unit id="aPBadh7" resname="Verbesserter Katapult">
         <source>Verbesserter Katapult</source>
-        <target>Verbesserter Katapult</target>
+        <target>Upgraded Catapult</target>
       </trans-unit>
       <trans-unit id="GWsFaiN" resname="Katapult">
         <source>Katapult</source>
-        <target>Katapult</target>
+        <target>Catapult</target>
       </trans-unit>
       <trans-unit id="d_fImyz" resname="Kleine Waffenschmiede">
         <source>Kleine Waffenschmiede</source>
-        <target>Kleine Waffenschmiede</target>
+        <target>Miniature Armory</target>
       </trans-unit>
       <trans-unit id="IILr3kv" resname="Schwedische Schreinerei">
         <source>Schwedische Schreinerei</source>
-        <target>Schwedische Schreinerei</target>
+        <target>Swedish Workshop</target>
       </trans-unit>
       <trans-unit id="Vw74UDb" resname="Schießstand">
         <source>Schießstand</source>
-        <target>Schießstand</target>
+        <target>Shooting Gallery</target>
       </trans-unit>
       <trans-unit id="sgVOApH" resname="Kleiner Tribok">
         <source>Kleiner Tribok</source>
-        <target>Kleiner Tribok</target>
+        <target>Small Trebuchet</target>
       </trans-unit>
       <trans-unit id="rDDj6vk" resname="Wächter-Turm">
         <source>Wächter-Turm</source>
-        <target>Wächter-Turm</target>
+        <target>Guard Tower</target>
       </trans-unit>
       <trans-unit id="NIEy.oJ" resname="Krähennest">
         <source>Krähennest</source>
-        <target>Krähennest</target>
+        <target>Crows' Nest</target>
       </trans-unit>
       <trans-unit id="IbZvvYE" resname="Wachturm">
         <source>Wachturm</source>
-        <target>Wachturm</target>
+        <target>Watchtower</target>
       </trans-unit>
       <trans-unit id="Sy.Q4GU" resname="Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.">
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
@@ -587,75 +587,75 @@
       </trans-unit>
       <trans-unit id="2B9BF5F" resname="Bohrturm">
         <source>Bohrturm</source>
-        <target>Bohrturm</target>
+        <target>Mechanical Pump</target>
       </trans-unit>
       <trans-unit id="ukqZW.g" resname="Falsche Stadt">
         <source>Falsche Stadt</source>
-        <target>Falsche Stadt</target>
+        <target>False Town</target>
       </trans-unit>
       <trans-unit id="0dmkB9a" resname="Wasserhahn">
         <source>Wasserhahn</source>
-        <target>Wasserhahn</target>
+        <target>Faucet</target>
       </trans-unit>
       <trans-unit id="BlCgW4T" resname="Großer Umbau">
         <source>Großer Umbau</source>
-        <target>Großer Umbau</target>
+        <target>The Big Rebuild</target>
       </trans-unit>
       <trans-unit id="zaMjBQ." resname="Vogelscheuche">
         <source>Vogelscheuche</source>
-        <target>Vogelscheuche</target>
+        <target>Scarecrows</target>
       </trans-unit>
       <trans-unit id="WP.9MMH" resname="Fleischkäfig">
         <source>Fleischkäfig</source>
-        <target>Fleischkäfig</target>
+        <target>Meat Locker</target>
       </trans-unit>
       <trans-unit id="lFBoBtv" resname="Bürgergericht">
         <source>Bürgergericht</source>
-        <target>Bürgergericht</target>
+        <target>People's Court</target>
       </trans-unit>
       <trans-unit id="ksEwaBK" resname="Befestigungen">
         <source>Befestigungen</source>
-        <target>Befestigungen</target>
+        <target>Fortifications</target>
       </trans-unit>
       <trans-unit id="k0lGB7h" resname="Holzabfall">
         <source>Holzabfall</source>
-        <target>Holzabfall</target>
+        <target>Wood Dump</target>
       </trans-unit>
       <trans-unit id="EdJMx7W" resname="Metallabfall">
         <source>Metallabfall</source>
-        <target>Metallabfall</target>
+        <target>Metal Dump</target>
       </trans-unit>
       <trans-unit id="_vBaevU" resname="Tierabfälle">
         <source>Tierabfälle</source>
-        <target>Tierabfälle</target>
+        <target>Animal Dump</target>
       </trans-unit>
       <trans-unit id="dBs_6pB" resname="Müll für Alle">
         <source>Müll für Alle</source>
-        <target>Müll für Alle</target>
+        <target>Free Dump</target>
       </trans-unit>
       <trans-unit id="NNvtYXk" resname="Waffenabfall">
         <source>Waffenabfall</source>
-        <target>Waffenabfall</target>
+        <target>Weapons Dump</target>
       </trans-unit>
       <trans-unit id="SrT9K6G" resname="Biomüll">
         <source>Biomüll</source>
-        <target>Biomüll</target>
+        <target>Food Dump</target>
       </trans-unit>
       <trans-unit id="KRW3IVw" resname="Rüstungsabfall">
         <source>Rüstungsabfall</source>
-        <target>Rüstungsabfall</target>
+        <target>Defence Dump</target>
       </trans-unit>
       <trans-unit id="9.Bs0jf" resname="Verbesserte Müllhalde">
         <source>Verbesserte Müllhalde</source>
-        <target>Verbesserte Müllhalde</target>
+        <target>Dump Upgrade</target>
       </trans-unit>
       <trans-unit id="K6Bt5zV" resname="Müllhalde">
         <source>Müllhalde</source>
-        <target>Müllhalde</target>
+        <target>Garbage Dump</target>
       </trans-unit>
       <trans-unit id="QNQV_hH" resname="Leuchtturm">
         <source>Leuchtturm</source>
-        <target>Leuchtturm</target>
+        <target>Lighthouse</target>
       </trans-unit>
       <trans-unit id="MwGqzqF" resname="Altar">
         <source>Altar</source>
@@ -663,19 +663,19 @@
       </trans-unit>
       <trans-unit id="Uqbfdqj" resname="Riesige Sandburg">
         <source>Riesige Sandburg</source>
-        <target>Riesige Sandburg</target>
+        <target>Giant Sandcastle</target>
       </trans-unit>
       <trans-unit id="Pp2_CqH" resname="Leuchtfeuer">
         <source>Leuchtfeuer</source>
-        <target>Leuchtfeuer</target>
+        <target>Bonfire</target>
       </trans-unit>
       <trans-unit id="9zmUkLt" resname="Ministerium für Sklaverei">
         <source>Ministerium für Sklaverei</source>
-        <target>Ministerium für Sklaverei</target>
+        <target>Ministry of Slavery</target>
       </trans-unit>
       <trans-unit id="J1OKCl2" resname="Reaktor">
         <source>Reaktor</source>
-        <target>Reaktor</target>
+        <target>Reactor</target>
       </trans-unit>
       <trans-unit id="3zCLWcZ" resname="Labyrinth">
         <source>Labyrinth</source>
@@ -683,35 +683,35 @@
       </trans-unit>
       <trans-unit id="EUDSTNQ" resname="Alles oder nichts">
         <source>Alles oder nichts</source>
-        <target>Alles oder nichts</target>
+        <target>All or Nothing</target>
       </trans-unit>
       <trans-unit id="PXNOlXe" resname="Riesiger KVF">
         <source>Riesiger KVF</source>
-        <target>Riesiger KVF</target>
+        <target>Giant BRD</target>
       </trans-unit>
       <trans-unit id="GKI2tai" resname="Riesenrad">
         <source>Riesenrad</source>
-        <target>Riesenrad</target>
+        <target>Wonder Wheel</target>
       </trans-unit>
       <trans-unit id="oemK25y" resname="Feuerwerk">
         <source>Feuerwerk</source>
-        <target>Feuerwerk</target>
+        <target>Firework Foray</target>
       </trans-unit>
       <trans-unit id="0iB.kKU" resname="Krähenstatue">
         <source>Krähenstatue</source>
-        <target>Krähenstatue</target>
+        <target>Crow Statue</target>
       </trans-unit>
       <trans-unit id="bhbqmFu" resname="Kino">
         <source>Kino</source>
-        <target>Kino</target>
+        <target>Cinema</target>
       </trans-unit>
       <trans-unit id="gEG0Yxp" resname="Luftschlag">
         <source>Luftschlag</source>
-        <target>Luftschlag</target>
+        <target>Air Strike</target>
       </trans-unit>
       <trans-unit id="20Mg3eL" resname="Heißluftballon">
         <source>Heißluftballon</source>
-        <target>Heißluftballon</target>
+        <target>Hot Air Balloon</target>
       </trans-unit>
       <trans-unit id="sEt2j5e" resname="Tunnelratte">
         <source>Tunnelratte</source>
@@ -719,27 +719,27 @@
       </trans-unit>
       <trans-unit id="45eKiS1" resname="Fundament">
         <source>Fundament</source>
-        <target>Fundament</target>
+        <target>Foundations</target>
       </trans-unit>
       <trans-unit id="oqi.Bcz" resname="Torpanzerung">
         <source>Torpanzerung</source>
-        <target>Torpanzerung</target>
+        <target>Reinforced Gates</target>
       </trans-unit>
       <trans-unit id="TsPH66_" resname="Automatiktür">
         <source>Automatiktür</source>
-        <target>Automatiktür</target>
+        <target>Last-Minute Lock</target>
       </trans-unit>
       <trans-unit id="ZyEH3qK" resname="Kolbenschließmechanismus">
         <source>Kolbenschließmechanismus</source>
-        <target>Kolbenschließmechanismus</target>
+        <target>Automatic Piston Lock</target>
       </trans-unit>
       <trans-unit id="aNUYPPj" resname="Ventilationssystem">
         <source>Ventilationssystem</source>
-        <target>Ventilationssystem</target>
+        <target>Ventilation System</target>
       </trans-unit>
       <trans-unit id="tl._DOx" resname="Portal">
         <source>Portal</source>
-        <target>Portal</target>
+        <target>Portal Lock</target>
       </trans-unit>
       <trans-unit id="7I8s6VU" resname="Feldbett">
         <source>Feldbett</source>
@@ -844,6 +844,14 @@
       <trans-unit id="_a49kpt" resname="Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.">
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
         <target>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</target>
+      </trans-unit>
+      <trans-unit id="266wx0d" resname="Verbesserung des Tages">
+        <source>Verbesserung des Tages</source>
+        <target>Verbesserung des Tages</target>
+      </trans-unit>
+      <trans-unit id="77.Cp5H" resname="Verteidigung">
+        <source>Verteidigung</source>
+        <target>Verteidigung</target>
       </trans-unit>
     </body>
   </file>

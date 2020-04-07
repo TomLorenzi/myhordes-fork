@@ -48,7 +48,7 @@
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
 
                 <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                {% embed "ajax/game/actions.html.twig" with {'list': actions, 'recipes': recipes} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes} %}
                 {% endembed %}
             </div>
 
@@ -311,11 +311,19 @@
             'up', '{{ path('town_house') }}'
         );
 
+        handleHeroicActions(
+            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            '{{ path('town_house_heroic_controller') }}', '{{ path('town_house') }}'
+        );
+
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('town_house_action_controller') }}', '{{ path('town_house') }}'
         );
+
         handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
             '{{ path('town_house_recipe_controller') }}', '{{ path('town_house') }}'

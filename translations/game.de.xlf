@@ -1125,46 +1125,6 @@
         <source>Bandagiert</source>
         <target>Bandagiert</target>
       </trans-unit>
-      <trans-unit id="qsjDwdX" resname="tg_dice">
-        <source>tg_dice</source>
-        <target>tg_dice</target>
-      </trans-unit>
-      <trans-unit id="ekEtK_D" resname="tg_cards">
-        <source>tg_cards</source>
-        <target>tg_cards</target>
-      </trans-unit>
-      <trans-unit id="TxIoVDY" resname="tg_meta_wound">
-        <source>tg_meta_wound</source>
-        <target>tg_meta_wound</target>
-      </trans-unit>
-      <trans-unit id="LJ2TI_g" resname="tg_clothes">
-        <source>tg_clothes</source>
-        <target>tg_clothes</target>
-      </trans-unit>
-      <trans-unit id="Fs0l96M" resname="tg_teddy">
-        <source>tg_teddy</source>
-        <target>tg_teddy</target>
-      </trans-unit>
-      <trans-unit id="rePnXfd" resname="tg_guitar">
-        <source>tg_guitar</source>
-        <target>tg_guitar</target>
-      </trans-unit>
-      <trans-unit id="S.v59pK" resname="tg_sbook">
-        <source>tg_sbook</source>
-        <target>tg_sbook</target>
-      </trans-unit>
-      <trans-unit id="Vaet2kz" resname="tg_steal">
-        <source>tg_steal</source>
-        <target>tg_steal</target>
-      </trans-unit>
-      <trans-unit id="yD4A901" resname="tg_home_upgrade">
-        <source>tg_home_upgrade</source>
-        <target>tg_home_upgrade</target>
-      </trans-unit>
-      <trans-unit id="RXBorL8" resname="tg_never">
-        <source>tg_never</source>
-        <target>tg_never</target>
-      </trans-unit>
       <trans-unit id="UUnigxa" resname="Abgelegenes Haus">
         <source>Abgelegenes Haus</source>
         <target>Abgelegenes Haus</target>
@@ -1572,6 +1532,110 @@
       <trans-unit id="Lzd32wL" resname="Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...">
         <source>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
         <target>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
+      </trans-unit>
+      <trans-unit id="MJMhV5L" resname="Kleine Stadt">
+        <source>Kleine Stadt</source>
+        <target>Kleine Stadt</target>
+      </trans-unit>
+      <trans-unit id="bElrYkF" resname="Entfernte Regionen">
+        <source>Entfernte Regionen</source>
+        <target>Entfernte Regionen</target>
+      </trans-unit>
+      <trans-unit id="7H7gGH1" resname="Pandämonium">
+        <source>Pandämonium</source>
+        <target>Pandämonium</target>
+      </trans-unit>
+      <trans-unit id="2ZxNAfn" resname="Private Stadt">
+        <source>Private Stadt</source>
+        <target>Private Stadt</target>
+      </trans-unit>
+      <trans-unit id="GOlt3k3" resname="%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.">
+        <source>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
+        <target>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
+      </trans-unit>
+      <trans-unit id="LQgPbVT" resname="Nordosten">
+        <source>Nordosten</source>
+        <target>Nordosten</target>
+      </trans-unit>
+      <trans-unit id="R9OI7Nm" resname="Nordwesten">
+        <source>Nordwesten</source>
+        <target>Nordwesten</target>
+      </trans-unit>
+      <trans-unit id="dOCvO1b" resname="Norden">
+        <source>Norden</source>
+        <target>Norden</target>
+      </trans-unit>
+      <trans-unit id="ac.6Rc5" resname="Südosten">
+        <source>Südosten</source>
+        <target>Südosten</target>
+      </trans-unit>
+      <trans-unit id="YE0v6eT" resname="Südwesten">
+        <source>Südwesten</source>
+        <target>Südwesten</target>
+      </trans-unit>
+      <trans-unit id="qxvJIc." resname="Süden">
+        <source>Süden</source>
+        <target>Süden</target>
+      </trans-unit>
+      <trans-unit id="xMKWHhf" resname="Osten">
+        <source>Osten</source>
+        <target>Osten</target>
+      </trans-unit>
+      <trans-unit id="jdRT5Z5" resname="Westen">
+        <source>Westen</source>
+        <target>Westen</target>
+      </trans-unit>
+      <trans-unit id="rDzEZM3" resname="Bitte wähle einen Bürger:">
+        <source>Bitte wähle einen Bürger:</source>
+        <target>Bitte wähle einen Bürger:</target>
+      </trans-unit>
+      <trans-unit id="MgtBTg_" resname="Es ist kein Bürger in der Nähe...">
+        <source>Es ist kein Bürger in der Nähe...</source>
+        <target>Es ist kein Bürger in der Nähe...</target>
+      </trans-unit>
+      <trans-unit id="yFVdfG6" resname="Rucksack in der Bank ausleeren">
+        <source>Rucksack in der Bank ausleeren</source>
+        <target>Rucksack in der Bank ausleeren</target>
+      </trans-unit>
+      <trans-unit id="25G93ga" resname="Durch die Lüftungsschächte klettern">
+        <source>Durch die Lüftungsschächte klettern</source>
+        <target>Durch die Lüftungsschächte klettern</target>
+      </trans-unit>
+      <trans-unit id="mwAKBpm" resname="Meine objekte">
+        <source>Meine objekte</source>
+        <target>Meine objekte</target>
+      </trans-unit>
+      <trans-unit id="f1TzhOn" resname="Gammler">
+        <source>Gammler</source>
+        <target>Gammler</target>
+      </trans-unit>
+      <trans-unit id="sBbkqrg" resname="Buddler">
+        <source>Buddler</source>
+        <target>Buddler</target>
+      </trans-unit>
+      <trans-unit id="aMWLa_K" resname="Wächter">
+        <source>Wächter</source>
+        <target>Wächter</target>
+      </trans-unit>
+      <trans-unit id="N55mPtD" resname="Aufklärer">
+        <source>Aufklärer</source>
+        <target>Aufklärer</target>
+      </trans-unit>
+      <trans-unit id="l9gYoq8" resname="Dompteur">
+        <source>Dompteur</source>
+        <target>Dompteur</target>
+      </trans-unit>
+      <trans-unit id="CcGFUIM" resname="Techniker">
+        <source>Techniker</source>
+        <target>Techniker</target>
+      </trans-unit>
+      <trans-unit id="gMJ9FD2" resname="Schamane">
+        <source>Schamane</source>
+        <target>Schamane</target>
+      </trans-unit>
+      <trans-unit id="jYiPQYC" resname="Einsiedler">
+        <source>Einsiedler</source>
+        <target>Einsiedler</target>
       </trans-unit>
     </body>
   </file>

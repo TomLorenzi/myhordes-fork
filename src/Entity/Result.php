@@ -78,7 +78,7 @@ class Result
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $casino;
+    private $custom;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\AffectWell")
@@ -234,14 +234,14 @@ class Result
         return $this;
     }
 
-    public function getCasino(): ?int
+    public function getCustom(): ?int
     {
-        return $this->casino;
+        return $this->custom;
     }
 
-    public function setCasino(?int $casino): self
+    public function setCustom(?int $custom): self
     {
-        $this->casino = $casino;
+        $this->custom = $custom;
 
         return $this;
     }
