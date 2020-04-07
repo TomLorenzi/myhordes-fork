@@ -634,7 +634,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="PhutSSq" resname="Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.">
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</target>
+        <target>Vous avez été banni et ne pouvez plus voter pour les projets.</target>
       </trans-unit>
       <trans-unit id="_LKq1VW" resname="Du hast bereits für folgendes Projekt abgestimmt:">
         <source>Du hast bereits für folgendes Projekt abgestimmt:</source>
@@ -670,11 +670,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="pOcBXgj" resname="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</target>
+        <target>Vous avez été banni et ne pouvez plus travailler à l'Atelier.</target>
       </trans-unit>
       <trans-unit id="x01nfA5" resname="Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).">
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</target>
+        <target>Chaque transformation coûte %ap%</target>
       </trans-unit>
       <trans-unit id="pVNCjNA" resname="Du trägst eine Säge bei dir.">
         <source>Du trägst eine Säge bei dir.</source>
@@ -686,15 +686,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="uLqulMX" resname="Vorrat">
         <source>Vorrat</source>
-        <target>Vorrat</target>
+        <target>Stock</target>
       </trans-unit>
       <trans-unit id="hQll2q4" resname="Umwandlung">
         <source>Umwandlung</source>
-        <target>Umwandlung</target>
+        <target>Objet obtenu</target>
       </trans-unit>
       <trans-unit id="cXTeIrr" resname="Anzahl">
         <source>Anzahl</source>
-        <target>Anzahl</target>
+        <target>Stock</target>
       </trans-unit>
       <trans-unit id="UNwR9SS" resname="Zufälliger Gegenstand">
         <source>Zufälliger Gegenstand</source>
@@ -702,11 +702,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="MkWoNw1" resname="Herst.">
         <source>Herst.</source>
-        <target>Herst.</target>
+        <target>Transformer</target>
       </trans-unit>
       <trans-unit id="5WqPLsh" resname="Werkstatt-Register">
         <source>Werkstatt-Register</source>
-        <target>Werkstatt-Register</target>
+        <target>Atelier</target>
       </trans-unit>
       <trans-unit id="hbYU0EF" resname="Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.">
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
@@ -748,7 +748,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6KUjC8g" resname="Die Stadt verfügt über eine %pumpname%.">
         <source>Die Stadt verfügt über eine %pumpname%.</source>
-        <target>La ville possède le chantier %pumpname%.</target>
+        <target>(la ville dispose d'une Pompe pour le Puits)</target>
       </trans-unit>
       <trans-unit id="syHx5ID" resname="Deine Ration Wasser erhalten">
         <source>Deine Ration Wasser erhalten</source>
@@ -756,11 +756,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="unhSN_Y" resname="Eine weitere Ration erhalten">
         <source>Eine weitere Ration erhalten</source>
-        <target>Prendre une ration supplémentaire</target>
+        <target>Ration supplémentaires !</target>
       </trans-unit>
       <trans-unit id="eEQntCE" resname="Wasser hinzufügen">
         <source>Wasser hinzufügen</source>
-        <target>Remplir le puits</target>
+        <target>Ajouter de l'eau</target>
       </trans-unit>
       <trans-unit id="BMwsxtX" resname="Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).">
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
@@ -1380,7 +1380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Msm_smP" resname="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
         <source>%citizen% hat mehr Wasser genommen, als erlaubt ist...</source>
-        <target>%citizen% a pris une ration supplémentaire, au détriment d'autres citoyens...</target>
+        <target>%citizen% s'est permis de prendre plus d'eau que prévu au puits...</target>
       </trans-unit>
       <trans-unit id="EMJ_Kff" resname="%citizen% hat eine Ration Wasser genommen.">
         <source>%citizen% hat eine Ration Wasser genommen.</source>
@@ -1640,7 +1640,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="fIJzVR7" resname="Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.">
         <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
-        <target>Le Puits est l'endroit où chaque jour les citoyens viennent récupérer 1 ration d'eau.</target>
+        <target>Le Puits est l'endroit où chaque jour les citoyens viennent récupérer leur ration d'eau.</target>
       </trans-unit>
       <trans-unit id="476j_uq" resname="Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:">
         <source>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</source>
@@ -1701,6 +1701,18 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="cePRD7K" resname="In der Stadt wohnen @citizens Bürger.">
         <source>In der Stadt wohnen @citizens Bürger.</source>
         <target>il y a @citizens citoyen(s) en ville.</target>
+      </trans-unit>
+      <trans-unit id="IbZvvYE" resname="Wachturm">
+        <source>Wachturm</source>
+        <target>Tour</target>
+      </trans-unit>
+      <trans-unit id="266wx0d" resname="Verbesserung des Tages">
+        <source>Verbesserung des Tages</source>
+        <target>Projet</target>
+      </trans-unit>
+      <trans-unit id="gd8sEx3" resname="Werkstatt">
+        <source>Werkstatt</source>
+        <target>Atelier</target>
       </trans-unit>
     </body>
   </file>

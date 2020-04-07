@@ -521,7 +521,7 @@ class LogTemplateHandler
         if ($door_open)
             $str = T::__('... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!', 'game');
         else $str = $num_zombies > 0 ? T::__('%num% Zombies sind durch unsere Verteidigung gebrochen!', 'game') : T::__('Nicht ein Zombie hat die Stadt betreten!', 'game');
-
+        
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )
             ->setClass( TownLogEntry::ClassCritical )

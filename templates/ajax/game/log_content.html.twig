@@ -1,6 +1,6 @@
 {# @var entries \App\Entity\TownLogEntry[] #}
 {% if entries|length == 0 %}
-    <i>{{ 'Heute ist nichts Erwähnenswertes passiert...'|trans({}, "game") }}</i>
+    <i>{{ 'Heute ist nichts Erwähnenswertes passiert...'|trans({},'game') }}</i>
 {% else %}
     {% for entry in entries %}
         <div class="log-entry log-entry-type-{{ entry.type }} log-entry-class-{{ entry.class }}">
