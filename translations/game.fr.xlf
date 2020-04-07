@@ -748,7 +748,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6KUjC8g" resname="Die Stadt verfügt über eine %pumpname%.">
         <source>Die Stadt verfügt über eine %pumpname%.</source>
-        <target>Die Stadt verfügt über eine %pumpname%.</target>
+        <target>La ville dispose d'une Pompe pour le Puits.</target>
       </trans-unit>
       <trans-unit id="syHx5ID" resname="Deine Ration Wasser erhalten">
         <source>Deine Ration Wasser erhalten</source>
