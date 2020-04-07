@@ -17,6 +17,7 @@ use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -157,7 +158,7 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function unsubscribe_api(EntityManagerInterface $em): Response {
+    public function unsubscribe_api(EntityManagerInterface $em, SessionInterface $session): Response {
         if ($this->getActiveCitizen()->getAlive())
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -172,7 +173,10 @@ class GameController extends AbstractController implements GameInterfaceControll
         $this->entity_manager->persist( $active );
         $this->entity_manager->flush();
 
-        return AjaxResponse::success();
+        if ($session->has('_town_lang')) {
+            $session->remove('_town_lang');
+            return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
+        } else return AjaxResponse::success();
     }
 
 }
