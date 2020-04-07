@@ -27,6 +27,7 @@ composer.phar
 # Local webpack config
 webpack.config.local.js
 
-# Mac trash
+# Misc
 .DS_Store
 .vscode/
+symfony.lock
