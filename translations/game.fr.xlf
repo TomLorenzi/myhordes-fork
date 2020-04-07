@@ -1838,6 +1838,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Nachtwächter</source>
         <target>Nachtwächter</target>
       </trans-unit>
+      <trans-unit id="RPns7ug" resname="Wächt">
+        <source>Wächt</source>
+        <target>Veille</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

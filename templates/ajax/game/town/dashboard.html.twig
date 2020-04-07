@@ -84,9 +84,10 @@
         <div class="padded cell rw-12 defense-detail">
             <ul class="overview-list">
                 <li>{{'Grundbefestigungsmauer'|trans({}, 'game')}}: + {{def_summary.base_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_defense }} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
                 <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}}: + {{def_summary.item_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img src="{{ asset('build/images/small_def.gif') }}" /> )</li>
                 {% if def_summary.guardian_defense > 0 %}
-                <li>{{'Wächter'|trans({}, 'game')}}: + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
                 {% endif %}
                 <li>{{'Häuser'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
                 {% if has_battlement %}
