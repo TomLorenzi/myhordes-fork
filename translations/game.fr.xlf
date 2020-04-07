@@ -131,7 +131,7 @@
       </trans-unit>
       <trans-unit id="v7qhwcN" resname="Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%">
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Le chaniter %building% a produit : %items%</target>
+        <target>Le chantier %building% a produit : %items%</target>
       </trans-unit>
       <trans-unit id="ThZ6eEv" resname="Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!">
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
@@ -561,7 +561,7 @@
       </trans-unit>
       <trans-unit id="ZHTFO77" resname="%citizen%s Truhe">
         <source>%citizen%s Truhe</source>
-        <target>%citizen%s Truhe</target>
+        <target>Coffre de %citizen%</target>
       </trans-unit>
       <trans-unit id="ygfGVvY" resname="Tot">
         <source>Tot</source>
@@ -569,55 +569,55 @@
       </trans-unit>
       <trans-unit id="UJdq1Y9" resname="Haus">
         <source>Haus</source>
-        <target>Haus</target>
+        <target>Habitation</target>
       </trans-unit>
       <trans-unit id="7F000hR" resname="Todesursache">
         <source>Todesursache</source>
-        <target>Todesursache</target>
+        <target>Cause du décès</target>
       </trans-unit>
       <trans-unit id="rD2ZHAN" resname="Letzte Worte">
         <source>Letzte Worte</source>
-        <target>Letzte Worte</target>
+        <target>Dernières paroles</target>
       </trans-unit>
       <trans-unit id="tTFjSe8" resname="Gemeinschaft">
         <source>Gemeinschaft</source>
-        <target>Gemeinschaft</target>
+        <target>Espionnage et ragots de voisinage</target>
       </trans-unit>
       <trans-unit id="qvB2Xk." resname="%citizen% hat bereits %num% Anzeige(n).">
         <source>%citizen% hat bereits %num% Anzeige(n).</source>
-        <target>%citizen% hat bereits %num% Anzeige(n).</target>
+        <target>%citizen% a reçu %num% plainte(s).</target>
       </trans-unit>
       <trans-unit id="S8vqbzA" resname="Verbannung">
         <source>Verbannung</source>
-        <target>Verbannung</target>
+        <target>un bannissement</target>
       </trans-unit>
       <trans-unit id="utVVlIc" resname="Todesstrafe">
         <source>Todesstrafe</source>
-        <target>Todesstrafe</target>
+        <target>la peine de mort</target>
       </trans-unit>
       <trans-unit id="VfVtXGi" resname="Eine davon stammt von dir. Du hast %punishment% gefordert.">
         <source>Eine davon stammt von dir. Du hast %punishment% gefordert.</source>
-        <target>Eine davon stammt von dir. Du hast %punishment% gefordert.</target>
+        <target>L'une d'entre elle est la vôtre. Vous avez demandé %punishment%.</target>
       </trans-unit>
       <trans-unit id="MAnMgpF" resname="Anzeige erstatten">
         <source>Anzeige erstatten</source>
-        <target>Anzeige erstatten</target>
+        <target>Envoyer une dénonciation</target>
       </trans-unit>
       <trans-unit id="hWJotD4" resname="Anzeige zurückziehen">
         <source>Anzeige zurückziehen</source>
-        <target>Anzeige zurückziehen</target>
+        <target>Retirer ma plainte</target>
       </trans-unit>
       <trans-unit id="NiNilxh" resname="Anzeige: Todesstrafe fordern">
         <source>Anzeige: Todesstrafe fordern</source>
-        <target>Anzeige: Todesstrafe fordern</target>
+        <target>Plainte : Exiger la peine de mort</target>
       </trans-unit>
       <trans-unit id="WwHdsjz" resname="Anzeige: Verbannung fordern">
         <source>Anzeige: Verbannung fordern</source>
-        <target>Anzeige: Verbannung fordern</target>
+        <target>Plainte : Demander un bannissement</target>
       </trans-unit>
       <trans-unit id="ZU0JC0f" resname="%citizen%s Register">
         <source>%citizen%s Register</source>
-        <target>%citizen%s Register</target>
+        <target>Citoyen %citizen%</target>
       </trans-unit>
       <trans-unit id="oYgU.Rg" resname="Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?">
         <source>Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?</source>
@@ -682,7 +682,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="bwiADmE" resname="Die Stadt verfügt über eine Manufaktur.">
         <source>Die Stadt verfügt über eine Manufaktur.</source>
-        <target>Die Stadt verfügt über eine Manufaktur.</target>
+        <target>La ville possède une manufacture.</target>
       </trans-unit>
       <trans-unit id="uLqulMX" resname="Vorrat">
         <source>Vorrat</source>
@@ -748,7 +748,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6KUjC8g" resname="Die Stadt verfügt über eine %pumpname%.">
         <source>Die Stadt verfügt über eine %pumpname%.</source>
-        <target>Die Stadt verfügt über eine %pumpname%.</target>
+        <target>La ville possède le chantier %pumpname%.</target>
       </trans-unit>
       <trans-unit id="syHx5ID" resname="Deine Ration Wasser erhalten">
         <source>Deine Ration Wasser erhalten</source>
@@ -1368,7 +1368,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="d8vpz_8" resname="%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%">
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% a pris %item% dans les coffres de la Banque !</target>
+        <target>%citizen% a pris %item% dans le coffre de la Banque !</target>
       </trans-unit>
       <trans-unit id="R43wWvR" resname="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
@@ -1388,7 +1388,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="mdts1Bm" resname="Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%">
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Un nouveau chanteir a été construit : %plan%. La construction a utilisé : %list%</target>
+        <target>Un nouveau chantier a été construit : %plan%. La construction a utilisé : %list%</target>
       </trans-unit>
       <trans-unit id="T6_1xeh" resname="Es wurde ein neues Gebäude gebaut: %plan%.">
         <source>Es wurde ein neues Gebäude gebaut: %plan%.</source>
@@ -1476,7 +1476,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="IT1iVPi" resname="Nicht ein Zombie hat die Stadt betreten!">
         <source>Nicht ein Zombie hat die Stadt betreten!</source>
-        <target>Nicht ein Zombie hat die Stadt betreten!</target>
+        <target>Aucun Zombie n'a pu rentrer en ville !</target>
       </trans-unit>
       <trans-unit id="qdFcLMD" resname="%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.">
         <source>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</source>
@@ -1600,7 +1600,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="MgtBTg_" resname="Es ist kein Bürger in der Nähe...">
         <source>Es ist kein Bürger in der Nähe...</source>
-        <target>Es ist kein Bürger in der Nähe...</target>
+        <target>Il n'y a personne à sauver...</target>
       </trans-unit>
       <trans-unit id="f1TzhOn" resname="Gammler">
         <source>Gammler</source>
@@ -1608,35 +1608,55 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="sBbkqrg" resname="Buddler">
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>Fouineur</target>
       </trans-unit>
       <trans-unit id="aMWLa_K" resname="Wächter">
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>Gardien</target>
       </trans-unit>
       <trans-unit id="N55mPtD" resname="Aufklärer">
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>Éclaireur</target>
       </trans-unit>
       <trans-unit id="l9gYoq8" resname="Dompteur">
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>Apprivoiseur</target>
       </trans-unit>
       <trans-unit id="CcGFUIM" resname="Techniker">
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>Technicien</target>
       </trans-unit>
       <trans-unit id="gMJ9FD2" resname="Schamane">
         <source>Schamane</source>
-        <target>Schamane</target>
+        <target>Chaman</target>
       </trans-unit>
       <trans-unit id="jYiPQYC" resname="Einsiedler">
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>Ermite</target>
       </trans-unit>
       <trans-unit id="aARNmv6" resname="Heute ist nichts Erwähnenswertes passiert...">
         <source>Heute ist nichts Erwähnenswertes passiert...</source>
-        <target>Rien d'intéressant à signaler...</target>
+        <target>Rien de notable pour cette journée...</target>
+      </trans-unit>
+      <trans-unit id="fIJzVR7" resname="Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.">
+        <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
+        <target>Le Puits est l'endroit où chaque jour les citoyens viennent récupérer 1 ration d'eau.</target>
+      </trans-unit>
+      <trans-unit id="476j_uq" resname="Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:">
+        <source>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</source>
+        <target>En jetant un oeil par la fenêtre, vous pouvez apercevoir les choses suivantes dans la maison :</target>
+      </trans-unit>
+      <trans-unit id="Wf9i_SY" resname="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
+        <source>Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!</source>
+        <target>Une plainte anonyme a été envoyée contre %citizen% !</target>
+      </trans-unit>
+      <trans-unit id="6S5k6T1" resname="Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.">
+        <source>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</source>
+        <target>Quelqu'un a retiré sa plainte contre %citizen%.</target>
+      </trans-unit>
+      <trans-unit id="U_9lkcG" resname="leere Truhe">
+        <source>leere Truhe</source>
+        <target>Coffre vide</target>
       </trans-unit>
     </body>
   </file>
