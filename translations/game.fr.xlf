@@ -279,7 +279,7 @@
       </trans-unit>
       <trans-unit id="VgeAGfB" resname="Bitte wähle einen Gegenstand:">
         <source>Bitte wähle einen Gegenstand:</source>
-        <target>Bitte wähle einen Gegenstand:</target>
+        <target>Choisissez un objet :</target>
       </trans-unit>
       <trans-unit id="m.LKoYd" resname="Du verfügst über keine geeigneten Gegenstände">
         <source>Du verfügst über keine geeigneten Gegenstände</source>
@@ -1653,6 +1653,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="fIJzVR7" resname="Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.">
         <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
         <target>Le Puits est l'endroit où chaque jour les citoyens viennent récupérer leur ration d'eau.</target>
+      </trans-unit>
+      <trans-unit id="VGRstc7" resname="Rucksack auf dem Boden ausleeren">
+        <source>Rucksack auf dem Boden ausleeren</source>
+        <target>Vider son sac à dos au sol</target>
       </trans-unit>
     </body>
   </file>
