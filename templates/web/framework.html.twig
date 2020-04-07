@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" x-ajax-landing="{{ ajax_landing }}">
+<html lang="{{ app.request.locale }}" x-ajax-landing="{{ ajax_landing }}">
 <head>
     {% block html_head %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -96,6 +96,12 @@
                 {{ include('scripts/errors/inventory.txt.twig') }}
                 {{ include('scripts/errors/actions.txt.twig') }}
                 {{ include('scripts/errors/forum.txt.twig') }}
+            },
+            'langs': {
+                'de': '{{ 'Deutsch'|trans({},'global') }}',
+                'en': '{{ 'Englisch'|trans({},'global') }}',
+                'fr': '{{ 'Französisch'|trans({},'global') }}',
+                'es': '{{ 'Spanisch'|trans({},'global') }}',
             }
         };
     })();

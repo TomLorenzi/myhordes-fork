@@ -7,7 +7,7 @@
 @import (once) "modules/constructions";
 @import (once) "modules/forum";
 
-@myhordes-font: 'Open Sans',sans-serif;
+@myhordes-font: "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
 @myhordes-background: url(../img/bg_colored.jpg) top center no-repeat, #100C0B;
 
@@ -443,6 +443,10 @@ div.tooltip {
     font-size: 12px; font-weight: bold; margin: 4px; padding: 0; text-align: center;
     border-bottom: 1px solid darken(@myhordes-smalltext, 20%); font-variant: small-caps;
   }
+}
+
+ul.citizen-list li {
+  list-style: none; color: @myhordes-smalltext;
 }
 
 span.language {

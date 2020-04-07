@@ -2,9 +2,18 @@ import {Global} from "./defaults";
 
 declare var $: Global;
 
+interface eventListener { (e: Event, element: HTMLElement, index: number): void }
+
 export default class HTML {
 
     constructor() {}
+
+    addEventListenerAll(query: string, event: string, handler: eventListener ): number {
+        const elements = <NodeListOf<HTMLElement>>document.querySelectorAll(query);
+        for (let i = 0; i < elements.length; i++)
+            elements[i].addEventListener( event, function(e) { handler(e,elements[i],i) } );
+        return elements.length;
+    }
 
     serializeForm(form: ParentNode): object {
         let data: object = {};

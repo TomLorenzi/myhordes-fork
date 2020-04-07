@@ -13,6 +13,7 @@ use App\Controller\LandingController;
 use App\Controller\TownInterfaceController;
 use App\Controller\WebController;
 use App\Entity\Citizen;
+use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\Locksmith;
 use App\Service\TimeKeeperService;
@@ -58,17 +59,23 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 throw new DynamicAjaxResetException($event->getRequest());
         }
 
+        /** @var User $user */
         $user = $this->security->getUser();
+
+        if ($user && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown()->getLanguage() &&$event->getRequest()->getLocale() !== $user->getActiveCitizen()->getTown()->getLanguage()) {
+            $event->getRequest()->getSession()->set('_town_lang', $user->getActiveCitizen()->getTown()->getLanguage());
+            throw new DynamicAjaxResetException($event->getRequest());
+        }
 
         if ($controller instanceof GhostInterfaceController) {
             // This is a ghost controller; it is not available to players in a game
-            if (!$user || $this->em->getRepository(Citizen::class)->findActiveByUser($user))
+            if (!$user || $user->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
         }
 
         if ($controller instanceof GameInterfaceController) {
             // This is a game controller; it is not available to players outside of a game
-            if (!$user || !$citizen = $this->em->getRepository(Citizen::class)->findActiveByUser($user))
+            if (!$user || !$citizen = $user->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
 
             /** @var $citizen Citizen */
