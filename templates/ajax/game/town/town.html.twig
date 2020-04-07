@@ -18,7 +18,7 @@
             </div>
             <div class="row town-addons">
                 {% for name, addon in addons %}
-                    <div x-ajax-href="{{ path(addon[1]) }}" class="cell padded-small rw-12 {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}"><div><div><div></div><span>{{ addon[0]|trans({},'buildings') }}</span></div></div></div>
+                    <div x-ajax-href="{{ path(addon[1]) }}" class="cell padded-small rw-12 {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}"><div><div><div></div><span>{{ addon[0]|trans({},'game') }}</span></div></div></div>
                 {% endfor %}
             </div>
 

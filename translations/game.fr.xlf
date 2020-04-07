@@ -634,7 +634,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="PhutSSq" resname="Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.">
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</target>
+        <target>Vous avez été banni et ne pouvez plus voter pour les projets.</target>
       </trans-unit>
       <trans-unit id="_LKq1VW" resname="Du hast bereits für folgendes Projekt abgestimmt:">
         <source>Du hast bereits für folgendes Projekt abgestimmt:</source>
@@ -670,11 +670,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="pOcBXgj" resname="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</target>
+        <target>Vous avez été banni et ne pouvez plus travailler à l'Atelier.</target>
       </trans-unit>
       <trans-unit id="x01nfA5" resname="Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).">
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</target>
+        <target>Chaque transformation coûte %ap%</target>
       </trans-unit>
       <trans-unit id="pVNCjNA" resname="Du trägst eine Säge bei dir.">
         <source>Du trägst eine Säge bei dir.</source>
@@ -686,15 +686,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="uLqulMX" resname="Vorrat">
         <source>Vorrat</source>
-        <target>Vorrat</target>
+        <target>Stock</target>
       </trans-unit>
       <trans-unit id="hQll2q4" resname="Umwandlung">
         <source>Umwandlung</source>
-        <target>Umwandlung</target>
+        <target>Objet obtenu</target>
       </trans-unit>
       <trans-unit id="cXTeIrr" resname="Anzahl">
         <source>Anzahl</source>
-        <target>Anzahl</target>
+        <target>Stock</target>
       </trans-unit>
       <trans-unit id="UNwR9SS" resname="Zufälliger Gegenstand">
         <source>Zufälliger Gegenstand</source>
@@ -702,11 +702,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="MkWoNw1" resname="Herst.">
         <source>Herst.</source>
-        <target>Herst.</target>
+        <target>Transformer</target>
       </trans-unit>
       <trans-unit id="5WqPLsh" resname="Werkstatt-Register">
         <source>Werkstatt-Register</source>
-        <target>Werkstatt-Register</target>
+        <target>Atelier</target>
       </trans-unit>
       <trans-unit id="hbYU0EF" resname="Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.">
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
@@ -1633,6 +1633,22 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="jYiPQYC" resname="Einsiedler">
         <source>Einsiedler</source>
         <target>Einsiedler</target>
+      </trans-unit>
+      <trans-unit id="aARNmv6" resname="Heute ist nichts Erwähnenswertes passiert...">
+        <source>Heute ist nichts Erwähnenswertes passiert...</source>
+        <target>Rien de notable pour cette journée...</target>
+      </trans-unit>
+      <trans-unit id="IbZvvYE" resname="Wachturm">
+        <source>Wachturm</source>
+        <target>Tour</target>
+      </trans-unit>
+      <trans-unit id="266wx0d" resname="Verbesserung des Tages">
+        <source>Verbesserung des Tages</source>
+        <target>Projet</target>
+      </trans-unit>
+      <trans-unit id="gd8sEx3" resname="Werkstatt">
+        <source>Werkstatt</source>
+        <target>Atelier</target>
       </trans-unit>
     </body>
   </file>
