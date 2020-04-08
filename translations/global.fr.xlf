@@ -197,6 +197,42 @@
         <source>Spanisch</source>
         <target>Espagnol</target>
       </trans-unit>
+      <trans-unit id="wMIPplV" resname="Statistiken">
+        <source>Statistiken</source>
+        <target>Statistiques</target>
+      </trans-unit>
+      <trans-unit id="9jh.PAO" resname="%points% Punkte">
+        <source>%points% Punkte</source>
+        <target>%points% points</target>
+      </trans-unit>
+      <trans-unit id="ZyZ8Dxn" resname="Seelenpunktzahl">
+        <source>Seelenpunktzahl</source>
+        <target>Score d'âme</target>
+      </trans-unit>
+      <trans-unit id="LM1P67a" resname="Dieser Spieler hat bisher noch keine Preise gewonnen...">
+        <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
+        <target>Ce joueur n'a pas encore gagné de distinctions...</target>
+      </trans-unit>
+      <trans-unit id="rxbTazw" resname="Aktuelles Leben">
+        <source>Aktuelles Leben</source>
+        <target>Incarnation actuelle</target>
+      </trans-unit>
+      <trans-unit id="IzQFaI2" resname="Es wurde keine Stadt gefunden...">
+        <source>Es wurde keine Stadt gefunden...</source>
+        <target>Aucune ville trouvée...</target>
+      </trans-unit>
+      <trans-unit id="fmZlI_I" resname="Saison">
+        <source>Saison</source>
+        <target>Saison</target>
+      </trans-unit>
+      <trans-unit id="hn7LsRJ" resname="Punkte">
+        <source>Punkte</source>
+        <target>Points</target>
+      </trans-unit>
+      <trans-unit id="Z3DDGf9" resname="Tage">
+        <source>Tage</source>
+        <target>Jours</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
