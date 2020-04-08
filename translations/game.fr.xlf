@@ -357,9 +357,9 @@
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
         <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
       </trans-unit>
-      <trans-unit id="sdTkF5i" resname="Morgiger Angriff">
-        <source>Morgiger Angriff</source>
-        <target>Morgiger Angriff</target>
+      <trans-unit id="I9U6Iz0" resname="Morgiger Angriff :">
+        <source>Morgiger Angriff :</source>
+        <target>Attaque du lendemain :</target>
       </trans-unit>
       <trans-unit id="ZI5NoYl" resname="Tag %day%">
         <source>Tag %day%</source>
@@ -920,7 +920,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="nq1XXly" resname="Stadtregister">
         <source>Stadtregister</source>
-        <target>Stadtregister</target>
+        <target>Registre de la ville</target>
       </trans-unit>
       <trans-unit id="eR2SPb." resname="Das Stadtregister steht nicht zur Verfügung.">
         <source>Das Stadtregister steht nicht zur Verfügung.</source>
@@ -1084,43 +1084,43 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="3dkb1Z2" resname="Trunkenheit">
         <source>Trunkenheit</source>
-        <target>Trunkenheit</target>
+        <target>Ivre</target>
       </trans-unit>
       <trans-unit id="EPpwyta" resname="Kater">
         <source>Kater</source>
-        <target>Kater</target>
+        <target>Gueule de bois</target>
       </trans-unit>
       <trans-unit id="E6kbVNC" resname="Verwundung - Kopf">
         <source>Verwundung - Kopf</source>
-        <target>Verwundung - Kopf</target>
+        <target>Blessure - Tête</target>
       </trans-unit>
       <trans-unit id="yI0ueHI" resname="Verwundung - Hände">
         <source>Verwundung - Hände</source>
-        <target>Verwundung - Hände</target>
+        <target>Blessure - Main</target>
       </trans-unit>
       <trans-unit id="lfaLaVU" resname="Verwundung - Arme">
         <source>Verwundung - Arme</source>
-        <target>Verwundung - Arme</target>
+        <target>Blessure - Bras</target>
       </trans-unit>
       <trans-unit id="KRP.Csa" resname="Verwundung - Bein">
         <source>Verwundung - Bein</source>
-        <target>Verwundung - Bein</target>
+        <target>Blessure - Jambe</target>
       </trans-unit>
       <trans-unit id="15_YwON" resname="Verwundung - Auge">
         <source>Verwundung - Auge</source>
-        <target>Verwundung - Auge</target>
+        <target>Blessure - Œil</target>
       </trans-unit>
       <trans-unit id="iU.tgTh" resname="Verwundung - Fuß">
         <source>Verwundung - Fuß</source>
-        <target>Verwundung - Fuß</target>
+        <target>Blessure - Pied</target>
       </trans-unit>
       <trans-unit id="72h0.SN" resname="Ghul">
         <source>Ghul</source>
-        <target>Ghul</target>
+        <target>Goule</target>
       </trans-unit>
       <trans-unit id="AdfvkQI" resname="Bandagiert">
         <source>Bandagiert</source>
-        <target>Bandagiert</target>
+        <target>Bandage</target>
       </trans-unit>
       <trans-unit id="UUnigxa" resname="Abgelegenes Haus">
         <source>Abgelegenes Haus</source>
@@ -1132,11 +1132,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="z79LmBi" resname="Alte Höhle">
         <source>Alte Höhle</source>
-        <target>Alte Höhle</target>
+        <target>Caverne</target>
       </trans-unit>
       <trans-unit id="7N1b8YP" resname="Alte Hydraulikpumpe">
         <source>Alte Hydraulikpumpe</source>
-        <target>Alte Hydraulikpumpe</target>
+        <target>Vieille Pompe Hydraulique</target>
       </trans-unit>
       <trans-unit id="S85DdXs" resname="Alter Fahrradverleih">
         <source>Alter Fahrradverleih</source>
@@ -1152,27 +1152,27 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="yKnc_Mp" resname="Altes Flugfeld">
         <source>Altes Flugfeld</source>
-        <target>Altes Flugfeld</target>
+        <target>Ancien aérodrome</target>
       </trans-unit>
       <trans-unit id="Kt0e8zP" resname="Altes Polizeipräsidium">
         <source>Altes Polizeipräsidium</source>
-        <target>Altes Polizeipräsidium</target>
+        <target>Ancien commissariat</target>
       </trans-unit>
       <trans-unit id="GRuqR5L" resname="Atombunker">
         <source>Atombunker</source>
-        <target>Atombunker</target>
+        <target>Abri anti-atomique</target>
       </trans-unit>
       <trans-unit id="pSDkjjr" resname="Atomic Cafe">
         <source>Atomic Cafe</source>
-        <target>Atomic Cafe</target>
+        <target>Atomic' Café</target>
       </trans-unit>
       <trans-unit id="yMlxN96" resname="Autobahnraststätte">
         <source>Autobahnraststätte</source>
-        <target>Autobahnraststätte</target>
+        <target>Relais autoroutier</target>
       </trans-unit>
       <trans-unit id="wuZIxTk" resname="Autowracks">
         <source>Autowracks</source>
-        <target>Autowracks</target>
+        <target>Carcasses de voitures</target>
       </trans-unit>
       <trans-unit id="lVmO2OQ" resname="Bar der verlorenen Hoffnungen">
         <source>Bar der verlorenen Hoffnungen</source>
@@ -1192,7 +1192,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="JNOFU3C" resname="Dukes Villa">
         <source>Dukes Villa</source>
-        <target>Dukes Villa</target>
+        <target>Villa de Duke</target>
       </trans-unit>
       <trans-unit id=".ebOOu8" resname="Dunkler Hain">
         <source>Dunkler Hain</source>
@@ -1212,7 +1212,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="XbKWmCS" resname="E-KEA">
         <source>E-KEA</source>
-        <target>E-KEA</target>
+        <target>Meubles Kiela</target>
       </trans-unit>
       <trans-unit id="04ljFsj" resname="Familiengrab">
         <source>Familiengrab</source>
@@ -1332,7 +1332,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="c9WjvSB" resname="Verlassene Silos">
         <source>Verlassene Silos</source>
-        <target>Verlassene Silos</target>
+        <target>Silos à l'abandon</target>
       </trans-unit>
       <trans-unit id="dSZWbRo" resname="Versperrte Straße">
         <source>Versperrte Straße</source>
@@ -1416,7 +1416,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="VImW6PC" resname="%citizen% hat seinen letzten Atemzug getan: %cod%!">
         <source>%citizen% hat seinen letzten Atemzug getan: %cod%!</source>
-        <target>%citizen% hat seinen letzten Atemzug getan: %cod%!</target>
+        <target>%citizen% nous a quitté : %cod%!</target>
       </trans-unit>
       <trans-unit id="gaihf5j" resname="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
         <source>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</source>
@@ -1720,7 +1720,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="vv.mZRz" resname="Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.">
         <source>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</source>
-        <target> Nous ne disposons pas de la technologie suffisante pour évaluer l'attaque du lendemain.</target>
+        <target>Nous ne disposons pas de la technologie suffisante pour évaluer l'attaque du lendemain.</target>
       </trans-unit>
       <trans-unit id="cHKuQLy" resname="Den morgigen Angriff berechnen">
         <source>Den morgigen Angriff berechnen</source>
@@ -1732,7 +1732,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="0.KJY95" resname="Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.">
         <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Nos défenses suffisent à couvrir toute l'attaque de ce soir.</target>
       </trans-unit>
       <trans-unit id="0lltLsX" resname="Unsere Verteidigung :">
         <source>Unsere Verteidigung :</source>

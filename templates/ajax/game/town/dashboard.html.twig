@@ -12,19 +12,21 @@
                 <span class="counter">{{ def }} <img src="{{ asset('build/images/small_def.gif') }}" alt="" /></span>
                 
             </div>
-            <div class="padded cell rw-4 center">
+            <div class="padded cell rw-4 center attack-estimation">
                 <em>{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</em><br />
                 <span class="counter">
                 {% if zeds_today[0] %}
                     {{ zeds_today[1] }} - {{ zeds_today[2] }} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
-                    {% if zeds_tomorrow[0] %}
-                        <div><span class="small">{{ 'Morgiger Angriff'|trans({},'game') }}</span></div>
-                        {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
-                    {% endif %}
                 {% else %}
                     {{ 'Unbekannt'|trans({}, 'game')}} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
                 {% endif %}
                 </span>
+                {% if zeds_tomorrow[0] %}
+                    <br /><em>{{ 'Morgiger Angriff :'|trans({},'game') }}</em><br />
+                    <span class="counter">
+                        {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
+                    </span>
+                {% endif %}
             </div>
             <div class="padded cell rw-4 center">
                 {% if zeds_today[0] %}
