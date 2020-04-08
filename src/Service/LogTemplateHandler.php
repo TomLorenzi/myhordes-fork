@@ -743,7 +743,7 @@ class LogTemplateHandler
             ->setZone( $sender->getZone() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $sender )
-            ->setText( $this->wrap( $this->iconize( $sender ) ) . ': ' . $message );
+            ->setText( $this->wrap( $this->iconize( $sender ) ) . ': ' . htmlentities( $message ) );
     }
 
 }
