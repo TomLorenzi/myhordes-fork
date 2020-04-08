@@ -209,6 +209,16 @@
         </div>
     </div>
 
+    <div class="other_citizens">
+    {% if other_citizens|length == 1 %}
+        <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
+    {% else %}
+        {% for citizen in other_citizens %}
+            {{ citizen.user.username }}<br />
+        {% endfor %}
+    {% endif %}
+    </div>
+
     {% if zone.x != 0 or zone.y != 0 %}
         <div class="row">
             <h5>{{ 'Zonenregister'|trans({},'game') }}</h5>

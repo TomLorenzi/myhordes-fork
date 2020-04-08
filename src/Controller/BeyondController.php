@@ -207,8 +207,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'dig_ruin' => empty($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $this->getActiveCitizen() )),
             'dig_timeout' => $dig_timeout,
             'actions' => $this->getItemActions(),
-            'floor' => $this->getActiveCitizen()->getZone()->getFloor(),
-
+            'floor' => $zone->getFloor(),
+            'other_citizens' => $zone->getCitizens(),
             'log' => $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );

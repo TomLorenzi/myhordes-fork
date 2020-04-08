@@ -1562,7 +1562,7 @@
         <target>Renvoyer</target>
       </trans-unit>
       <trans-unit id="l2NsvcD" resname="Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.">
-        <source>Du hast den {item} avec vos objets en ville.</source>
+        <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
         <target>Vous avez renvoyé {item} mit deinen Gegenständen in die Stadt geschickt.</target>
       </trans-unit>
       <trans-unit id="AYQyaTb" resname="Dopen">
@@ -1591,7 +1591,7 @@
       </trans-unit>
       <trans-unit id="zSZ7bky" resname="Du bist nun getarnt.">
         <source>Du bist nun getarnt.</source>
-        <target>Du bist nun getarnt.</target>
+        <target>Vous êtes maintenant camouflé.</target>
       </trans-unit>
       <trans-unit id="1Qhkwmq" resname="Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.">
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>

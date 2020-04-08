@@ -1688,31 +1688,31 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="is0j5bp" resname="Die Zone untersuchen">
         <source>Die Zone untersuchen</source>
-        <target>Die Zone untersuchen</target>
+        <target>Inspecter le secteur</target>
       </trans-unit>
       <trans-unit id="Utl2PJa" resname="Du schaust dir die Gegend etwas genauer an...">
         <source>Du schaust dir die Gegend etwas genauer an...</source>
-        <target>Du schaust dir die Gegend etwas genauer an...</target>
+        <target> Vous inspectez les environs...</target>
       </trans-unit>
       <trans-unit id="BsmmJg2" resname="Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.">
         <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
-        <target>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</target>
+        <target>Dormir dans un endroit pareil revient à se suicider, purement et simplement. A vous de voir.</target>
       </trans-unit>
       <trans-unit id="u.HzZ0w" resname="Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.">
         <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</target>
+        <target>Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite.</target>
       </trans-unit>
       <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>Sich verstecken und die Nacht hier schlafen!</target>
+        <target>Se cacher pour passer la nuit ici !</target>
       </trans-unit>
       <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+        <target>Améliorer un peu le campement (bonus permanent faible, 1PA)</target>
       </trans-unit>
       <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+        <target> Creuser une "tombe" (bonus temporaire moyen, 1PA)</target>
       </trans-unit>
       <trans-unit id="cePRD7K" resname="In der Stadt wohnen @citizens Bürger.">
         <source>In der Stadt wohnen @citizens Bürger.</source>
@@ -1969,6 +1969,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="K6Bt5zV" resname="Müllhalde">
         <source>Müllhalde</source>
         <target>Déchetterie</target>
+      </trans-unit>
+      <trans-unit id="B.iCi_d" resname="Sie sind allein in dieser Gegend...">
+        <source>Sie sind allein in dieser Gegend...</source>
+        <target>Vous êtes seul(e) dans cette zone...</target>
       </trans-unit>
     </body>
   </file>
