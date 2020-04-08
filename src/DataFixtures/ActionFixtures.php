@@ -256,7 +256,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_break_40' => [[['do_nothing'], 60], [['break_item'], 40]],
                 'g_break_50' => [[['do_nothing'], 50], [['break_item'], 50]],
                 'g_break_60' => [[['do_nothing'], 40], [['break_item'], 60]],
-                'g_break_66' => [[['do_nothing'], 44], [['break_item'], 66]],
+                'g_break_66' => [[['do_nothing'], 34], [['break_item'], 66]],
                 'g_break_80' => [[['do_nothing'], 20], [['break_item'], 80]],
 
                 'g_kill_1z_10' => [[['do_nothing'], 90], [['kill_1_zombie'], 10]],
@@ -448,7 +448,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_lawn'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_2_zombie' ] ],
             'throw_b_screw'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_66'], ['group' => 'g_kill_1z_20'] ] ],
             'throw_b_swiss_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_33'] ] ],
-            'throw_b_cutter'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_66'], 'kill_2_zombie' ] ],
+            'throw_b_cutter'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_80'], ['group' => 'g_kill_1z_20'] ] ],
             'throw_b_concrete_wall' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_1_zombie' ] ],
             'throw_b_torch_off'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_10'] ] ],
             'throw_b_wrench'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_50'] ] ],
