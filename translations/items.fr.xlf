@@ -1399,11 +1399,11 @@
       </trans-unit>
       <trans-unit id="0yUwJX." resname="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
         <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</target>
+        <target>Vous avez ouvert {items_spawn} et avez obtenu {item} !</target>
       </trans-unit>
       <trans-unit id="v4TehoJ" resname="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
         <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</target>
+        <target>Vous avez ouvert {items_spawn} et avez obtenu {item} !</target>
       </trans-unit>
       <trans-unit id="TbNnR3t" resname="&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;">
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>

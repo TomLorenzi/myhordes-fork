@@ -857,6 +857,10 @@
         <source>Hämame</source>
         <target>Hamame</target>
       </trans-unit>
+      <trans-unit id="Pnjrt1t" resname="Hammam">
+        <source>Hammam</source>
+        <target>Hammam</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

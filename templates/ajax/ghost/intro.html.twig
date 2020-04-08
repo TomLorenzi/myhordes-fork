@@ -77,6 +77,7 @@
 
             const user_lang = '{{ app.request.locale|e('js') }}';
             const town_lang = elem.getAttribute('x-town-lang');
+            const town_name = elem.getAttribute('x-town-name');
             if (user_lang && town_lang && user_lang.split('_')[0] !== town_lang.split('_')[0]) {
                 let message =
                     ('{{ 'Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.'|trans({},'ghost')|e('js') }}' + "\n\n" +
@@ -85,7 +86,7 @@
                     .replace(/%lang_user%/g, window.c.langs[user_lang.split('_')[0]] ?? user_lang).replace(/%lang_town%/g, window.c.langs[town_lang.split('_')[0]] ?? town_lang);
 
                 if (!confirm(message)) return;
-            } else if (!confirm('{{ 'Bestätigen'|trans({},'ghost')|e('js') }}'))
+            } else if (!confirm('{{ 'Möchtest du die schrelickliche Welt der Verdammten als Bürge der Stadt %town_name% betreten'|trans({},'ghost')|e('js') }} ?'.replace('%town_name%', town_name)))
                 return;
 
             $.ajax.easySend( '{{ path('api_join') }}', {town: elem.getAttribute('x-town-id')},

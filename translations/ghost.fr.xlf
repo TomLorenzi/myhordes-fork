@@ -63,7 +63,11 @@
       </trans-unit>
       <trans-unit id="FbY7TeM" resname="Bestätigen">
         <source>Bestätigen</source>
-        <target>Bestätigen</target>
+        <target>Confirmer</target>
+      </trans-unit>
+      <trans-unit id="d6L1eXP" resname="Möchtest du die schrelickliche Welt der Verdammten als Bürge der Stadt %town_name% betreten">
+        <source>Möchtest du die schrelickliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
+        <target>Rejoindre le monde terrifiant de Hordes en tant que citoyen de %town_name%</target>
       </trans-unit>
     </body>
   </file>

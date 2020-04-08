@@ -22,6 +22,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 
 class DebugCommand extends Command
 {
@@ -33,8 +34,9 @@ class DebugCommand extends Command
     private $entity_manager;
     private $citizen_handler;
     private $randomizer;
+    private $trans;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, Translator $translator)
     {
         $this->kernel = $kernel;
 
@@ -42,6 +44,7 @@ class DebugCommand extends Command
         $this->entity_manager = $em;
         $this->randomizer = $rg;
         $this->citizen_handler = $ch;
+        $this->trans = $translator;
 
         parent::__construct();
     }
@@ -80,6 +83,8 @@ class DebugCommand extends Command
                 $output->writeln('<error>Town not found!</error>');
                 return 2;
             }
+            $this->trans->setLocale($town->getLanguage() ?? 'de');
+            
             $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
             for ($i = $town->getCitizenCount(); $i < $town->getPopulation(); $i++)
                 for ($u = 1; $u <= 80; $u++) {

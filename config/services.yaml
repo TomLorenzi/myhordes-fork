@@ -29,6 +29,14 @@ services:
         arguments:
             $translator: '@translator.default'
 
+    App\Command\DebugCommand:
+        arguments:
+            $translator: '@translator.default'
+
+    App\Command\TownInspectorCommand:
+        arguments:
+            $translator: '@translator.default'
+
     # TimeKeeperService should not keep the attack going for 20 minutes after
     # it has finished processing in dev mode, so we need to pass the environment
     App\Service\TimeKeeperService:
