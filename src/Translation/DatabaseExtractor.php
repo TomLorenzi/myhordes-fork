@@ -44,9 +44,11 @@ class DatabaseExtractor implements ExtractorInterface
 
         //<editor-fold desc="Item Domain">
         // Get item labels
-        foreach ($this->em->getRepository(ItemPrototype::class)->findAll() as $item)
+        foreach ($this->em->getRepository(ItemPrototype::class)->findAll() as $item) {
             /** @var ItemPrototype $item */
-            $this->insert( $c, $item->getLabel(), 'items' );
+            $this->insert($c, $item->getLabel(), 'items');
+            $this->insert($c, $item->getDescription(), 'items');
+        }
 
         // Get Action labels and messages as well as requirement messages
         foreach ($this->em->getRepository(ItemAction::class)->findAll() as $action) {
