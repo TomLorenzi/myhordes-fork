@@ -65,8 +65,8 @@
         <source>Bestätigen</source>
         <target>Confirmer</target>
       </trans-unit>
-      <trans-unit id="d6L1eXP" resname="Möchtest du die schrelickliche Welt der Verdammten als Bürge der Stadt %town_name% betreten">
-        <source>Möchtest du die schrelickliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
+      <trans-unit id="d6L1eXP" resname="Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten">
+        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
         <target>Rejoindre le monde terrifiant de Hordes en tant que citoyen de %town_name%</target>
       </trans-unit>
     </body>

@@ -530,3 +530,14 @@ strong {
   text-align: center;
   font-size: 12px;
 }
+
+div.item-tag {
+  font-size: 11px; text-align: center; padding: 2px; background: #022142; border: 1px solid #011d37;
+  position: relative; color: @myhordes-smalltext; height: 18px; margin-top: 3px;
+  &:after {position: absolute; display: block; content: " "; height: 16px; width: 16px; top: 0; left: 1px; }
+  &.item-tag-deco:after { background: url("../img/item/cat_deco.gif") center/contain no-repeat }
+  &.item-tag-defense:after { background: url("../img/item/cat_def.gif") center/contain no-repeat }
+  &.item-tag-essential:after { background: url("../img/item/cat_job.gif") center/contain no-repeat }
+  &.item-tag-weapon:after { background: url("../img/item/cat_weapon.gif") center/contain no-repeat }
+  &.item-tag-heavy:after { background: url("../img/item/cat_heavy.gif") center/contain no-repeat }
+}
