@@ -28,30 +28,6 @@
     </div>
 {% endmacro %}
 
-{% if heroics|length > 0 %}
-    <button x-heroic-toggle="1"><img src="{{ asset('build/images/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
-    <ul class="heroic_actions">
-        {% for entry in heroics %}
-            <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}"{% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
-                <img src="{{ asset('build/images/star.gif') }}" alt="">
-                {% if scout and not entry.action.keepsCover %}
-                    <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
-                {% endif %}
-                <span><b>{{ entry.action.label|trans({},'items') }}</b></span>
-                {% if entry.targets is not null and not entry.crossed %}
-                    {% if entry.target_mode == 2 %}
-                        {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true ) }}
-                    {% else %}
-                        {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false ) }}
-                    {% endif %}
-                {% endif %}
-            </li>
-        {% endfor %}
-        <li><div class="right pointer small" x-heroic-toggle="0">{{ 'Schließen'|trans({},'global') }}</div></li>
-    </ul>
-
-{% endif %}
-
 {% if list|length > 0 or recipes.recipes|length > 0  %}
     <ul class="actions">
         {% for entry in list %}
@@ -110,4 +86,28 @@
             </li>
         {% endfor %}
     </ul>
+{% endif %}
+
+{% if heroics|length > 0 %}
+    <button x-heroic-toggle="1"><img src="{{ asset('build/images/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
+    <ul class="heroic_actions">
+        {% for entry in heroics %}
+            <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}"{% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
+                <img src="{{ asset('build/images/star.gif') }}" alt="">
+                {% if scout and not entry.action.keepsCover %}
+                    <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
+                {% endif %}
+                <span><b>{{ entry.action.label|trans({},'items') }}</b></span>
+                {% if entry.targets is not null and not entry.crossed %}
+                    {% if entry.target_mode == 2 %}
+                        {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true ) }}
+                    {% else %}
+                        {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false ) }}
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% endfor %}
+        <li><div class="right pointer small" x-heroic-toggle="0">{{ 'Schließen'|trans({},'global') }}</div></li>
+    </ul>
+
 {% endif %}
