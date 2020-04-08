@@ -314,6 +314,7 @@ class InventoryHandler
     const ErrorStealLimitHit   = ErrorHelper::BaseInventoryErrors + 5;
     const ErrorStealBlocked    = ErrorHelper::BaseInventoryErrors + 6;
     const ErrorBankBlocked     = ErrorHelper::BaseInventoryErrors + 7;
+    const ErrorExpandBlocked   = ErrorHelper::BaseInventoryErrors + 8;
 
     const ModalityNone    = 0;
     const ModalityTamer   = 1;
@@ -331,6 +332,17 @@ class InventoryHandler
 
         // Check inventory size
         if ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) return self::ErrorInventoryFull;
+
+        // Check exp_b items already in inventory
+        if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
+          (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
+          (
+            !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
+            !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bag_#00' ) ] )) ||
+            !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'cart_#00' ) ] ))
+          ))) {
+          return self::ErrorExpandBlocked;
+        }
 
         // Check Heavy item limit
         if ($item->getPrototype()->getHeavy() &&
