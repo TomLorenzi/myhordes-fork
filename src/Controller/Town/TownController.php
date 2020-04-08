@@ -228,8 +228,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             case 2:
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
-                $ac->getInventory()->removeItem( $items[0] );
-                $em->remove( $items[0] );
+                $this->inventory_handler->forceRemoveItem( $items[0] );
                 break;
             case 3:
                 $town = $ac->getTown();
@@ -241,7 +240,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         foreach ($spawn_items as $item_spec)
             for ($i = 0; $i < $item_spec[1]; $i++)
-                $ac->getTown()->getBank()->addItem( $if->createItem( $item_spec[0] ) );
+                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $if->createItem( $item_spec[0] )  );
         $em->persist( $this->log->citizenDisposal( $ac, $c, $action, $spawn_items ) );
         $c->getHome()->setHoldsBody( false );
 
@@ -547,7 +546,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $res = $items = [];
         if (!$building->getComplete() && $building->getPrototype()->getResources())
             foreach ($building->getPrototype()->getResources()->getEntries() as $entry)
-                $res[] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance() );
+                if (!isset($res[ $entry->getPrototype()->getName() ]))
+                    $res[ $entry->getPrototype()->getName() ] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance() );
+                else $res[ $entry->getPrototype()->getName() ]->addCount( $entry->getChance() );
 
         // If the building needs resources, check if they are present in the bank; otherwise fail
         if (!empty($res)) {
@@ -573,10 +574,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $building->setComplete( $building->getComplete() || $building->getAp() >= $building->getPrototype()->getAp() );
         if (!$was_completed && $building->getComplete()) {
             // Remove resources, create a log entry, trigger
-            foreach ($items as $item) {
-                $town->getBank()->removeItem( $item );
-                $this->entity_manager->remove( $item );
-            }
+            foreach ($items as $item)
+                $this->inventory_handler->forceRemoveItem( $item, $res[ $item->getPrototype()->getName() ]->getCount() );
+
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
         }

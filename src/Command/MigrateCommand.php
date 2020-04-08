@@ -7,10 +7,12 @@ namespace App\Command;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\Item;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
+use App\Service\InventoryHandler;
 use App\Service\RandomGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -34,8 +36,9 @@ class MigrateCommand extends Command
     private $entity_manager;
     private $citizen_handler;
     private $randomizer;
+    private $inventory_handler;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih)
     {
         $this->kernel = $kernel;
 
@@ -43,6 +46,7 @@ class MigrateCommand extends Command
         $this->entity_manager = $em;
         $this->randomizer = $rg;
         $this->citizen_handler = $ch;
+        $this->inventory_handler = $ih;
 
         parent::__construct();
     }
@@ -54,6 +58,7 @@ class MigrateCommand extends Command
             ->setHelp('Migrations.')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
+            ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
         ;
     }
 
@@ -67,6 +72,36 @@ class MigrateCommand extends Command
                     $citizen->addHeroicAction( $heroic_action );
                 $this->entity_manager->persist( $citizen );
             }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('init-item-stacks')) {
+            foreach ($this->entity_manager->getRepository(Item::class)->findAll() as $item) {
+                /** @var $item Item */
+                if ($item->getCount() == 0) {
+                    $item->setCount( 1 );
+                    $this->entity_manager->persist( $item );
+                }
+            }
+            $this->entity_manager->flush();
+
+            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $town) {
+                /** @var $town Town*/
+                foreach ($town->getBank()->getItems() as $item)
+                    if ($item->getCount() <= 1) {
+                        $target = $this->inventory_handler->findStackPrototype( $town->getBank(), $item );
+                        if ($target) {
+                            $target->setCount( $target->getCount() + 1);
+                            $this->inventory_handler->forceRemoveItem( $item );
+                            $this->entity_manager->persist($target);
+                        }
+
+                    }
+            }
+
             $this->entity_manager->flush();
             $output->writeln('OK!');
 

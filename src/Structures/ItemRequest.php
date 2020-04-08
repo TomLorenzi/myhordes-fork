@@ -46,6 +46,11 @@ class ItemRequest
         return $this->count;
     }
 
+    public function addCount(int $c): self {
+        $this->count += $c;
+        return $this;
+    }
+
     public function getAll(): bool {
         return $this->all;
     }

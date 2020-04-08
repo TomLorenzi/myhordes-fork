@@ -220,7 +220,7 @@ class GameFactory
         ];
         shuffle($zone_list);
         for ($i = 0; $i < min(count($item_spawns),count($zone_list)); $i++)
-            $zone_list[$i]->getFloor()->addItem( $this->item_factory->createItem( $item_spawns[$i] ) );
+            $this->inventory_handler->forceMoveItem( $zone_list[$i]->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
 
@@ -273,9 +273,8 @@ class GameFactory
 
         $this->citizen_handler->applyProfession( $citizen, $base_profession );
 
-        $chest
-            ->addItem( $this->item_factory->createItem( 'chest_citizen_#00' ) )
-            ->addItem( $this->item_factory->createItem( 'food_bag_#00' ) );
+        $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'chest_citizen_#00' ) );
+        $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'food_bag_#00' ) );
 
         $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
         foreach ($heroic_actions as $heroic_action)

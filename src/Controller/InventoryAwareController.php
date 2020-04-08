@@ -201,7 +201,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected function renderInventoryAsBank( Inventory $inventory ) {
         $qb = $this->entity_manager->createQueryBuilder();
         $data = $qb
-            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'COUNT(i) as n')->from('App:Item','i')
+            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory)
             ->groupBy('i.prototype', 'i.broken')
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
@@ -261,7 +261,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if ($inv_target->getHome() && $inv_target->getHome()->getId() !== $citizen->getHome()->getId()) $steal_up = false;
 
             $errors = [];
-            foreach ($items as &$current_item)
+            $item_count = count($items);
+            foreach ($items as $current_item)
                 if (($error = $handler->transferItem(
                         $citizen,
                         $current_item,$inv_source, $inv_target
@@ -294,14 +295,15 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                     else $this->entity_manager->remove($current_item);
                 } else $errors[] = $error;
 
-            if (count($errors) < count($items)) {
+            if (count($errors) < $item_count) {
                 try {
                     $this->entity_manager->flush();
                 } catch (Exception $e) {
                     return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
                 }
                 return AjaxResponse::success();
-            } else return AjaxResponse::error($errors[0]);
+            } else
+                return AjaxResponse::error($errors[0]);
         }
         return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
     }

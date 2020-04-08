@@ -69,6 +69,14 @@ class ItemGroup implements RandomGroup
         return $this;
     }
 
+    public function findEntry( string $item_prototype_name ): ?ItemGroupEntry {
+        foreach ($this->entries as $entry)
+            /** @var ItemGroupEntry $entry */
+            if ($entry->getPrototype()->getName() === $item_prototype_name)
+                return $entry;
+        return null;
+    }
+
     public function removeEntry(ItemGroupEntry $entry): self
     {
         if ($this->entries->contains($entry)) {

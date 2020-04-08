@@ -421,8 +421,7 @@ class ActionHandler
             if ($item && $item_result = $result->getItem()) {
                 if ($execute_info_cache['item_morph'][0] === null) $execute_info_cache['item_morph'][0] = $item->getPrototype();
                 if ($item_result->getConsume()) {
-                    $item->getInventory()->removeItem($item);
-                    $remove[] = $item;
+                    $this->inventory_handler->forceRemoveItem( $item );
                     $execute_info_cache['items_consume'][] = $item->getPrototype();
                 } else {
                     if ($item_result->getMorph())
@@ -437,8 +436,7 @@ class ActionHandler
                 if (is_a($target, Item::class)) {
                     if ($execute_info_cache['item_target_morph'][0] === null) $execute_info_cache['item_target_morph'][0] = $target->getPrototype();
                     if ($target_result->getConsume()) {
-                        $target->getInventory()->removeItem($target);
-                        $remove[] = $target;
+                        $this->inventory_handler->forceRemoveItem( $target );
                         $execute_info_cache['items_consume'][] = $target->getPrototype();
                     } else {
                         if ($target_result->getMorph())
@@ -486,8 +484,7 @@ class ActionHandler
                         if ($action->getPoisonHandler() & ItemAction::PoisonHandlerTransgress) $spread_poison = true;
                     }
 
-                    $consume_item->getInventory()->removeItem( $consume_item );
-                    $remove[] = $consume_item;
+                    $this->inventory_handler->forceRemoveItem( $consume_item );
                     $execute_info_cache['items_consume'][] = $consume_item->getPrototype();
                 }
             }
@@ -803,17 +800,14 @@ class ActionHandler
         $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
         $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
 
-        $s = [];
-        foreach ($recipe->getSource()->getEntries() as $entry)
-            $s[] = (new ItemRequest($entry->getPrototype()->getName(), $entry->getChance() ));
-        $items = $this->inventory_handler->fetchSpecificItems( $source_inv, $s );
+        $items = $this->inventory_handler->fetchSpecificItems( $source_inv, $recipe->getSource() );
         if (empty($items)) return ErrorHelper::ErrorItemsMissing;
 
         $list = [];
         foreach ($items as $item) {
-            $item->getInventory()->removeItem( $item );
+            $r = $recipe->getSource()->findEntry( $item->getPrototype()->getName() );
+            $this->inventory_handler->forceRemoveItem( $item, $r->getChance() );
             $list[] = $item->getPrototype();
-            $remove[] = $item;
         }
 
         $this->citizen_handler->deductAPBP( $citizen, $ap );

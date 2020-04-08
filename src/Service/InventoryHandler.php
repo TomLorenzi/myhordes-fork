@@ -77,6 +77,23 @@ class InventoryHandler
         return 0;
     }
 
+    public function findStackPrototype( Inventory $inv, Item $item ): ?Item {
+        try {
+            return $this->entity_manager->createQueryBuilder()->select('i')->from('App:Item', 'i')
+                ->where('i.inventory = :inv')->setParameter('inv', $inv)
+                ->andWhere('i.id != :id')->setParameter( 'id', $item->getId() ?? -1 )
+                ->andWhere('i.poison = :p')->setParameter('p', $item->getPoison())
+                ->andWhere('i.broken = :b')->setParameter('b', $item->getBroken())
+                ->andWhere('i.essential = :e')->setParameter('e', $item->getEssential())
+                ->andWhere('i.prototype = :proto')->setParameter('proto', $item->getPrototype())
+                ->orderBy('i.count', 'DESC')
+                ->setMaxResults(1)
+                ->getQuery()->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
     /**
      * @param string|string[]|ItemProperty|ItemProperty[] $props
      * @return ItemPrototype[]
@@ -108,8 +125,8 @@ class InventoryHandler
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
         try {
-            return $this->entity_manager->createQueryBuilder()
-                ->select('count(i.id)')->from('App:Item', 'i')
+            return (int)$this->entity_manager->createQueryBuilder()
+                ->select('SUM(i.count)')->from('App:Item', 'i')
                 ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
                 ->where('i.inventory IN (:inv)')->setParameter('inv', $inventory)
                 ->andWhere('p.id IN (:type)')->setParameter('type', $prototype)
@@ -171,12 +188,19 @@ class InventoryHandler
             if ($request->filterPoison()) $qb->andWhere('i.poison = :isp')->setParameter('isp', $request->getPoison());
 
             $result = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_SCALAR);
-            if (!$request->getAll() && count($result) !== $request->getCount()) return [];
-            else $return = array_merge($return, array_map(function(array $a): int { return $a['id']; }, $result));
+
+            $n = 0;
+            $return = array_merge($return, array_map(function(array $a) use (&$n): Item {
+                /** @var Item $inst */
+                $inst = $this->entity_manager->getRepository(Item::class)->find( (int)$a['id'] );
+                $n += $inst->getCount();
+                return $inst;
+            }, $result));
+
+            if (!$request->getAll() && $n < $request->getCount()) return [];
         }
-        return array_map(function(int $id): Item {
-            return $this->entity_manager->getRepository(Item::class)->find( $id );
-        }, $return);
+
+        return $return;
     }
 
     public function fetchHeavyItems(Inventory $inventory) {
@@ -193,8 +217,8 @@ class InventoryHandler
 
     public function countHeavyItems(Inventory $inventory): int {
         try {
-            return $this->entity_manager->createQueryBuilder()
-                ->select('count(i.id)')->from('App:Item', 'i')
+            return (int)$this->entity_manager->createQueryBuilder()
+                ->select('SUM(i.count)')->from('App:Item', 'i')
                 ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
                 ->where('i.inventory = :inv')->setParameter('inv', $inventory)
                 ->andWhere('p.heavy = :hv')->setParameter('hv', true)
@@ -207,7 +231,7 @@ class InventoryHandler
     public function countEssentialItems(Inventory $inventory): int {
         try {
             return $this->entity_manager->createQueryBuilder()
-                ->select('count(i.id)')->from('App:Item', 'i')
+                ->select('SUM(i.count)')->from('App:Item', 'i')
                 ->where('i.inventory = :inv')->setParameter('inv', $inventory)
                 ->andWhere('i.essential = :ev')->setParameter('ev', true)
                 ->getQuery()->getSingleScalarResult();
@@ -296,6 +320,8 @@ class InventoryHandler
     const ModalityImpound = 2;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone ): int {
+
+
         // Check if the source is valid
         if ($item->getInventory() && ( !$from || $from->getId() !== $item->getInventory()->getId() ) )
             return self::ErrorInvalidTransfer;
@@ -338,10 +364,9 @@ class InventoryHandler
         if ($type_from === self::TransferTypeImpound && $type_to === self::TransferTypeTamer && $modality !== self::ModalityImpound)
             return self::ErrorInvalidTransfer;
 
-        if ($to !== null)
-            $to->addItem( $item );
-        elseif ($from !== null)
-            $from->removeItem( $item );
+        if ($to)
+            $this->forceMoveItem( $to, $item );
+        else $this->forceRemoveItem( $item );
 
         return self::ErrorNone;
     }
@@ -372,6 +397,46 @@ class InventoryHandler
             if ($this->transferItem( $citizen, $item, $source, $inventory ) == self::ErrorNone)
                 return true;
         return false;
+    }
+
+    public function forceMoveItem( Inventory $to, Item $item ): Item {
+        if ($item->getInventory() && $item->getInventory()->getId() === $to->getId())
+            return $item;
+
+        if ($item->getInventory()) {
+            $inv = $item->getInventory();
+            if ($item->getCount() > 1) {
+                $item->setCount( $item->getCount() - 1);
+                $this->entity_manager->persist( $item );
+                $item = $this->item_factory->createBaseItemCopy( $item );
+            } else
+                $item->getInventory()->removeItem( $item );
+            $this->entity_manager->persist($inv);
+        }
+
+        // This is a bank inventory
+        if ($to->getTown() && $possible_stack = $this->findStackPrototype( $to, $item )) {
+            $possible_stack->setCount( $possible_stack->getCount() + 1 );
+            $this->entity_manager->persist($possible_stack);
+            $this->entity_manager->remove( $item );
+            $item = $possible_stack;
+        } else {
+            $to->addItem( $item );
+            $this->entity_manager->persist($item);
+            $this->entity_manager->persist($to);
+        }
+
+        return $item;
+    }
+
+    public function forceRemoveItem( Item $item, int $count = 1 ) {
+        if ($item->getCount() > $count) {
+            $item->setCount($item->getCount() - $count);
+            $this->entity_manager->persist($item);
+        } else {
+            $item->getInventory()->removeItem($item);
+            $this->entity_manager->remove( $item );
+        }
     }
 
 }
