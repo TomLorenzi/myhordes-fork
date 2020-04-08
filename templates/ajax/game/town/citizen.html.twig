@@ -7,6 +7,20 @@
                 {{ "In der Stadt wohnen @citizens Bürger."|trans({ '@citizens': citizens|length },'game') }}
             </div>
         </div>
+        <div class="row">
+            <div class="padded cell rw-4 rw-md-7">
+                Citoyen
+            </div>
+            <div class="padded cell rw-3">
+                Annonce personnelle
+            </div>
+            <div class="padded cell rw-3 hide-md hide-sm">
+                Coffre
+            </div>
+            <div class="padded cell rw-2 rw-md-5">
+                Position
+            </div>
+        </div>
         {% for citizen in citizens %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row pointer" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
@@ -38,7 +52,7 @@
                 <div class="padded cell rw-3 small hide-md hide-sm">
                     {{ citizen.home.description }}
                 </div>
-                <div class="padded cell rw-3 rw-md-5 small">
+                <div class="padded cell rw-2 rw-md-5 small">
                     {% if not hidden[citizen.id] %}
                         {% for item in citizen.home.chest.items %}
                             {# @var \App\Entity\Item item #}
@@ -48,7 +62,7 @@
                         <em>{{ 'leere Truhe'|trans({},'game') }}</em>
                     {% endif %}
                 </div>
-                <div class="padded cell rw-2 small hide-md hide-sm right ">
+                <div class="padded cell rw-3 small hide-md hide-sm right ">
                     {% if citizen.alive %}
                         {% if not citizen.zone %}
                             {{ "In der Stadt"|trans({},'game') }}
@@ -58,7 +72,7 @@
                             [{{ citizen.zone.x }}|{{ citizen.zone.y }}]
                         {% endif %}
                     {% else %}
-                        {{ citizen.causeOfDeath.label }}
+                        {{ citizen.causeOfDeath.label|trans({}, "game") }}
                     {% endif %}
                 </div>
                 <div class="padded cell rw-12 small hide-desktop hide-lg">

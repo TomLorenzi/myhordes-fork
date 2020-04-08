@@ -291,7 +291,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         ]],
         
         // TODO: Action in house
-        ["name" => "Hammam","temporary" => 0,"img" => "small_spa4souls","vp" => 28,"ap" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"metal_beam_#00" => 2,], "orderby" => 7],
+        ["name" => "Hammam","temporary" => 0,"img" => "small_spa4souls","vp" => 28,"ap" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"plate_#00" => 2,], "orderby" => 7],
     ];
 
     protected static $recipe_data = [
