@@ -62,7 +62,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Lächerliches Taschenmesser','icon'=>'small_knife','category'=>'weapon','deco'=>0,'heavy'=>false],                        // -- Out
         ['label'=>'Schweizer Taschenmesser','icon'=>'swiss_knife','category'=>'weapon','deco'=>0,'heavy'=>false],                           // -- Out
         ['label'=>'Teppichmesser','icon'=>'cutter','category'=>'weapon','deco'=>0,'heavy'=>false],                                          // -- Out
-        ['label'=>'Einkaufswagen','icon'=>'cart','category'=>'exp_b','deco'=>0,'heavy'=>false],                                             // -- ---
+        ['label'=>'Einkaufswagen','icon'=>'cart','category'=>'exp_b','deco'=>0,'heavy'=>true],                                             // -- ---
         ['label'=>'Dosenöffner','icon'=>'can_opener','category'=>'weapon','deco'=>0,'heavy'=>false],                                        // -- Out
         ['label'=>'Extra Tasche','icon'=>'bag','category'=>'exp_b','deco'=>0,'heavy'=>false],                                               // -- ---
         ['label'=>'Streichholzschachtel','icon'=>'lights','category'=>'misc','deco'=>0,'heavy'=>false],                                     // -- ---

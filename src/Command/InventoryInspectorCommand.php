@@ -25,11 +25,13 @@ class InventoryInspectorCommand extends Command
 
     private $entityManager;
     private $itemFactory;
+    private $inventoryHandler;
 
-    public function __construct(EntityManagerInterface $em, ItemFactory $if)
+    public function __construct(EntityManagerInterface $em, ItemFactory $if, InventoryHandler $ih)
     {
         $this->entityManager = $em;
         $this->itemFactory = $if;
+        $this->inventoryHandler = $ih;
         parent::__construct();
     }
 
@@ -85,6 +87,7 @@ class InventoryInspectorCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        /** @var Inventory $inventory */
         $inventory = $this->entityManager->getRepository(Inventory::class)->find( (int)$input->getArgument('InventoryID') );
 
         $updated = false;
@@ -108,7 +111,7 @@ class InventoryInspectorCommand extends Command
             $output->writeln( "Spawning <info>{$input->getOption('number')}</info> instances of '<info>{$spawn->getLabel()}</info>'.\n" );
 
             for ($i = 0; $i < $input->getOption('number'); $i++)
-                $inventory->addItem($this->itemFactory->createItem( $spawn->getName(), (bool)$input->getOption('set-broken'), (bool)$input->getOption('set-poison') ));
+                $this->inventoryHandler->forceMoveItem( $inventory, $this->itemFactory->createItem( $spawn->getName(), (bool)$input->getOption('set-broken'), (bool)$input->getOption('set-poison') ) );
 
             $updated = true;
         }

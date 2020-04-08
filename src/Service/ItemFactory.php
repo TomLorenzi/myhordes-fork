@@ -39,4 +39,16 @@ class ItemFactory
 
     }
 
+    /**
+     * @param Item $item
+     * @return Item
+     */
+    public function createBaseItemCopy( Item $item ): Item {
+        return (new Item())
+            ->setPrototype( $item->getPrototype() )
+            ->setBroken( $item->getBroken() )
+            ->setPoison( $item->getPoison() )
+            ->setEssential( $item->getEssential() );
+    }
+
 }

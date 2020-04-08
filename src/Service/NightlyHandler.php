@@ -505,7 +505,7 @@ class NightlyHandler
 
                     $tx = [];
                     foreach ($plans as $plan) {
-                        $town->getBank()->addItem( $plan );
+                        $this->inventory_handler->forceMoveItem( $town->getBank(), $plan );
                         $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
                     }
 
@@ -557,7 +557,7 @@ class NightlyHandler
         foreach ($daily_items as $item_id => $count)
             for ($i = 0; $i < $count; $i++) {
                 $item = $this->item_factory->createItem( $item_id );
-                $town->getBank()->addItem( $item );
+                $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 $tx[] = "<info>{$item->getPrototype()->getLabel()}</info>";
             }
 

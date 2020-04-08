@@ -212,8 +212,8 @@ class TownHomeController extends TownController
 
         // Consume items
         foreach ($items as $item) {
-            $item->getInventory()->removeItem($item);
-            $em->remove($item);
+            $r = $next->getResources()->findEntry( $item->getPrototype()->getName() );
+            $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
 
         // Create log & persist
@@ -307,8 +307,8 @@ class TownHomeController extends TownController
 
         // Consume items
         foreach ($items as $item) {
-            $item->getInventory()->removeItem($item);
-            $em->remove($item);
+            $r = $costs->getResources()->findEntry( $item->getPrototype()->getName() );
+            $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
 
         // Persist and flush
