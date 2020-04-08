@@ -191,7 +191,7 @@
       </trans-unit>
       <trans-unit id="fxoSn0F" resname="Riemen">
         <source>Riemen</source>
-        <target>Ceinture</target>
+        <target>Courroie</target>
       </trans-unit>
       <trans-unit id="toP999A" resname="Handvoll Schrauben und Muttern">
         <source>Handvoll Schrauben und Muttern</source>
@@ -315,7 +315,7 @@
       </trans-unit>
       <trans-unit id="sOILTLw" resname="Klebeband">
         <source>Klebeband</source>
-        <target>Ruban adhésif</target>
+        <target>Rustine</target>
       </trans-unit>
       <trans-unit id="lvvVLfS" resname="Zerlegter Rasenmäher">
         <source>Zerlegter Rasenmäher</source>
@@ -655,11 +655,11 @@
       </trans-unit>
       <trans-unit id="5lKQGxL" resname="Raketenpulver">
         <source>Raketenpulver</source>
-        <target>Poudre super-fuzz</target>
+        <target>Poudre-comète brute</target>
       </trans-unit>
       <trans-unit id="Ij90JBp" resname="Schießpulverbombe">
         <source>Schießpulverbombe</source>
-        <target>Poudre-comète brute</target>
+        <target>Poudre super-fuzz</target>
       </trans-unit>
       <trans-unit id="1Ogs2Gm" resname="Teddybär">
         <source>Teddybär</source>
@@ -919,7 +919,7 @@
       </trans-unit>
       <trans-unit id="n2b6vg0" resname="Fleischfetzen">
         <source>Fleischfetzen</source>
-        <target>Purée de charognardes</target>
+        <target>Lambeau de chair</target>
       </trans-unit>
       <trans-unit id="YbU6RJg" resname="Makabre Bombe">
         <source>Makabre Bombe</source>
@@ -931,7 +931,7 @@
       </trans-unit>
       <trans-unit id="n_Aw_Kk" resname="Aasbeerenbrei">
         <source>Aasbeerenbrei</source>
-        <target>Bouillie de carotte</target>
+        <target>Purée de charognardes</target>
       </trans-unit>
       <trans-unit id="cbLBQdq" resname="Eisengefäß mit modrigem Wasser">
         <source>Eisengefäß mit modrigem Wasser</source>
@@ -959,7 +959,7 @@
       </trans-unit>
       <trans-unit id="lo_4TvW" resname="Abgetragene rote Jacke">
         <source>Abgetragene rote Jacke</source>
-        <target>Vest rouge usée</target>
+        <target>Veste rouge usée</target>
       </trans-unit>
       <trans-unit id="4W9Uon4" resname="Zerrissene rote Hose">
         <source>Zerrissene rote Hose</source>
@@ -1131,7 +1131,7 @@
       </trans-unit>
       <trans-unit id="GNoTm5X" resname="Brezel">
         <source>Brezel</source>
-        <target>Brezel</target>
+        <target>Bretzel</target>
       </trans-unit>
       <trans-unit id="1_ZEQrG" resname="Dackel">
         <source>Dackel</source>
@@ -1171,15 +1171,15 @@
       </trans-unit>
       <trans-unit id="7Qjcs1W" resname="Drahtspule">
         <source>Drahtspule</source>
-        <target>Drahtspule</target>
+        <target>Bobine de fil de fer</target>
       </trans-unit>
       <trans-unit id="ynO9FV_" resname="Ölkännchen">
         <source>Ölkännchen</source>
-        <target>Ölkännchen</target>
+        <target>Bidon d'huile vide</target>
       </trans-unit>
       <trans-unit id="nBuv_E9" resname="Konvexlinse">
         <source>Konvexlinse</source>
-        <target>Konvexlinse</target>
+        <target>Lentille convexe</target>
       </trans-unit>
       <trans-unit id="rKEzMvW" resname="Wütende Mieze (halb verdaut)">
         <source>Wütende Mieze (halb verdaut)</source>
@@ -1191,7 +1191,7 @@
       </trans-unit>
       <trans-unit id="ccfd8bG" resname="Laserdiode">
         <source>Laserdiode</source>
-        <target>Laserdiode</target>
+        <target>Diode laser</target>
       </trans-unit>
       <trans-unit id="cAR.8i4" resname="Selbstgebaute Gitarre">
         <source>Selbstgebaute Gitarre</source>
@@ -1239,11 +1239,11 @@
       </trans-unit>
       <trans-unit id="02YzXu0" resname="Trockene Kräuter">
         <source>Trockene Kräuter</source>
-        <target>Trockene Kräuter</target>
+        <target>Sachet d'herbe fraîche</target>
       </trans-unit>
       <trans-unit id="SrwSSZ5" resname="Mutterkorn">
         <source>Mutterkorn</source>
-        <target>Mutterkorn</target>
+        <target>Claviceps Purpurea</target>
       </trans-unit>
       <trans-unit id="OPGDZvS" resname="Korn-Bräu">
         <source>Korn-Bräu</source>
@@ -1259,11 +1259,11 @@
       </trans-unit>
       <trans-unit id="p57UGdl" resname="Ohrstöpsel">
         <source>Ohrstöpsel</source>
-        <target>Ohrstöpsel</target>
+        <target>Boules Quies</target>
       </trans-unit>
       <trans-unit id="vJ9pHA2" resname="Kaputter Stock">
         <source>Kaputter Stock</source>
-        <target>Kaputter Stock</target>
+        <target>Grand Bâton Sec</target>
       </trans-unit>
       <trans-unit id="My1HFp_" resname="Britney Spears CD">
         <source>Britney Spears CD</source>
@@ -1323,11 +1323,11 @@
       </trans-unit>
       <trans-unit id="Ppxhgkz" resname="Tarnanzug">
         <source>Tarnanzug</source>
-        <target>Camouflage</target>
+        <target>Tenue de camouflage</target>
       </trans-unit>
       <trans-unit id="3yuRr1g" resname="Tarnanzug (abgelegt)">
         <source>Tarnanzug (abgelegt)</source>
-        <target>Camouflage (enlevé)</target>
+        <target>Tenue de camouflage (enlevé)</target>
       </trans-unit>
       <trans-unit id="zozlCDV" resname="Kleine Schaufel">
         <source>Kleine Schaufel</source>
@@ -1335,19 +1335,19 @@
       </trans-unit>
       <trans-unit id="6nEfpGY" resname="Dreibeiniger Malteser">
         <source>Dreibeiniger Malteser</source>
-        <target>Dreibeiniger Malteser</target>
+        <target>Bichon maltais à 3 pattes</target>
       </trans-unit>
       <trans-unit id="DcZugEP" resname="Dreibeiniger Malteser (gedopt)">
         <source>Dreibeiniger Malteser (gedopt)</source>
-        <target>Dreibeiniger Malteser (gedopt)</target>
+        <target>Bichon maltais shooté</target>
       </trans-unit>
       <trans-unit id="TpCsDff" resname="Dreibeiniger Malteser (erschöpft)">
         <source>Dreibeiniger Malteser (erschöpft)</source>
-        <target>Dreibeiniger Malteser (erschöpft)</target>
+        <target>Bichon maltais fatigué</target>
       </trans-unit>
       <trans-unit id="iZtaOjI" resname="Survivalbuch">
         <source>Survivalbuch</source>
-        <target>Survivalbuch</target>
+        <target>Livre de survie</target>
       </trans-unit>
       <trans-unit id="y1Nwhhg" resname="Schraubenschlüssel">
         <source>Schraubenschlüssel</source>
@@ -1359,7 +1359,7 @@
       </trans-unit>
       <trans-unit id="1F8QOk_" resname="Voodoo-Maske">
         <source>Voodoo-Maske</source>
-        <target>Voodoo-Maske</target>
+        <target>Masque Voodoo</target>
       </trans-unit>
       <trans-unit id="u_g_Kg2" resname="Trinken">
         <source>Trinken</source>
@@ -1587,7 +1587,7 @@
       </trans-unit>
       <trans-unit id="TmH05e3" resname="Tarnen">
         <source>Tarnen</source>
-        <target>Tarnen</target>
+        <target>Remettre</target>
       </trans-unit>
       <trans-unit id="zSZ7bky" resname="Du bist nun getarnt.">
         <source>Du bist nun getarnt.</source>
@@ -2767,23 +2767,27 @@
       </trans-unit>
       <trans-unit id="wESWf2D" resname="Berufsgegenstand">
         <source>Berufsgegenstand</source>
-        <target>Berufsgegenstand</target>
+        <target>Objet de métier</target>
       </trans-unit>
       <trans-unit id="m3.VXgQ" resname="Schwerer Gegenstand">
         <source>Schwerer Gegenstand</source>
-        <target>Schwerer Gegenstand</target>
+        <target>Objet encombrant</target>
       </trans-unit>
       <trans-unit id="ZFVsUqp" resname="Einrichtungsgegenstand">
         <source>Einrichtungsgegenstand</source>
-        <target>Einrichtungsgegenstand</target>
+        <target>Aménagement de maison</target>
       </trans-unit>
       <trans-unit id="r0TQqLv" resname="Verteidigungsgegenstand">
         <source>Verteidigungsgegenstand</source>
-        <target>Verteidigungsgegenstand</target>
+        <target>Objet de défense</target>
       </trans-unit>
       <trans-unit id="HRMX4o6" resname="Waffe">
         <source>Waffe</source>
-        <target>Waffe</target>
+        <target>Arme</target>
+      </trans-unit>
+      <trans-unit id="XfbyTTX" resname="Kaputt">
+        <source>Kaputt</source>
+        <target>Cassé</target>
       </trans-unit>
     </body>
   </file>

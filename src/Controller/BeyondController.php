@@ -497,7 +497,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $uncover_fun = function(ItemAction &$a) {
 
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-                $this->addFlash( 'notice', 'Deine Tarnung ist aufgeflogen!' );
+                $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         };
 
         return $this->generic_action_api( $parser, $uncover_fun);
@@ -515,7 +515,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $uncover_fun = function(ItemAction &$a) {
 
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-                $this->addFlash( 'notice', 'Deine Tarnung ist aufgeflogen!' );
+                $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         };
 
         return $this->generic_heroic_action_api( $parser, $uncover_fun);
@@ -532,7 +532,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $uncover_fun = function(Recipe &$r) {
             if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-                $this->addFlash( 'notice', 'Deine Tarnung ist aufgeflogen!' );
+                $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         };
 
         return $this->generic_recipe_api( $parser, $handler, $uncover_fun);
@@ -549,7 +549,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'notice', 'Deine Tarnung ist aufgeflogen!' );
+            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
     }
 
@@ -694,7 +694,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'notice', 'Deine Tarnung ist aufgeflogen!' );
+            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
 
         if ($zone->getRuinDigs() > 0) {
             $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
@@ -740,7 +740,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'notice', 'Deine Tarnung ist aufgeflogen!' );
+            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
 
         $this->citizen_handler->setAP($citizen, true, -1);
         $zone->setBuryCount( $zone->getBuryCount() - 1 );

@@ -1124,7 +1124,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="UUnigxa" resname="Abgelegenes Haus">
         <source>Abgelegenes Haus</source>
-        <target>Abgelegenes Haus</target>
+        <target>Maison d'un citoyen</target>
       </trans-unit>
       <trans-unit id="BuoM8x8" resname="Albi Supermarkt">
         <source>Albi Supermarkt</source>
@@ -1324,7 +1324,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="kP_vzTg" resname="Verlassene Baustelle">
         <source>Verlassene Baustelle</source>
-        <target>Verlassene Baustelle</target>
+        <target>Chantier à l'abandon</target>
       </trans-unit>
       <trans-unit id="gy.Tm7F" resname="Verlassener Brunnen">
         <source>Verlassener Brunnen</source>
@@ -1376,7 +1376,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6zpuvqo" resname="%citizen% hat diesen Gegenstand mitgenommen: %item%">
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
-        <target>%citizen% hat diesen Gegenstand mitgenommen: %item%</target>
+        <target>%citizen% a ramassé %item% qui traînait là...</target>
       </trans-unit>
       <trans-unit id="Msm_smP" resname="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
         <source>%citizen% hat mehr Wasser genommen, als erlaubt ist...</source>
@@ -1676,15 +1676,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="a8zlw81" resname="Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.">
         <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
-        <target>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</target>
+        <target> Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
       </trans-unit>
       <trans-unit id="Fak6Ovg" resname="Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...">
         <source>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</source>
-        <target>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</target>
+        <target>Déciderez-vous de vous avancer ou de rester derrière les enceintes fortifiées ? Certains pensent qu'il faut être fou, d'autres qu'il faut être malin. Peut-être faut-il être un peu des deux...</target>
       </trans-unit>
       <trans-unit id="v3pLWJA" resname="Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...">
         <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
-        <target>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</target>
+        <target>Les nuits sont glaciales dans le désert... Une brume de poussière épaisse enveloppe tout et vous entendez des grincements lugubres tout autour de vous. Parfois, vous apercevez une forme indistincte qui se déplace dans les ombres. Pourvu que ce soit votre imagination...</target>
       </trans-unit>
       <trans-unit id="is0j5bp" resname="Die Zone untersuchen">
         <source>Die Zone untersuchen</source>
@@ -1957,6 +1957,18 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="GlL3R9k" resname="Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.">
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
         <target>Salutations de Shaïtan du passé, qui est assis devant son PC le 08/04/2020 et traduit ce texte.</target>
+      </trans-unit>
+      <trans-unit id="7v7JSoB" resname="Müllkippe">
+        <source>Müllkippe</source>
+        <target>Déchetterie</target>
+      </trans-unit>
+      <trans-unit id="GWsFaiN" resname="Katapult">
+        <source>Katapult</source>
+        <target>Catapulte</target>
+      </trans-unit>
+      <trans-unit id="Lm_z2Dh" resname="Deine Tarnung ist aufgeflogen!">
+        <source>Deine Tarnung ist aufgeflogen!</source>
+        <target>Votre camouflage a été repéré !</target>
       </trans-unit>
     </body>
   </file>
