@@ -16,16 +16,18 @@
                         {% if found %}
                             <div class="row-table">
                                 <div class="row header">
-                                    <div class="padded cell rw-8">{% trans from 'ghost' %}Stadtname{% endtrans %}</div>
+                                    <div class="padded cell rw-6">{% trans from 'ghost' %}Stadtname{% endtrans %}</div>
+                                    <div class="padded cell rw-2">{% trans from 'game' %}Bürger{% endtrans %}</div>
                                     <div class="padded cell rw-4">{% trans from 'ghost' %}Aktionen{% endtrans %}</div>
                                 </div>
                                 {% for town in townClass.towns %}
                                     {# @var town \App\Entity\Town #}
                                     {% if town.open %}
                                         {% set found = true %}
-                                        <div class="row">
+                                        <div class="row town-row">
                                             <div class="padded cell rw-1"><span class="language">{{ town.getLanguage }}</span></div>
-                                            <div class="padded cell rw-7">{{ town.getName }}</div>
+                                            <div class="padded cell rw-5">{{ town.getName }}</div>
+                                            <div class="padded cell rw-2">{{ town.citizens|length }}/{{ town.population }}</div>
                                             <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /></div>
                                             <div class="padded cell rw-3"><button x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}">{% trans from 'ghost' %}Beitreten{% endtrans %}</button></div>
                                             <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden">
