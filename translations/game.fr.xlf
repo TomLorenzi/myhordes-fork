@@ -1958,10 +1958,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
         <target>Salutations de Shaïtan du passé, qui est assis devant son PC le 08/04/2020 et traduit ce texte.</target>
       </trans-unit>
-      <trans-unit id="7v7JSoB" resname="Müllkippe">
-        <source>Müllkippe</source>
-        <target>Déchetterie</target>
-      </trans-unit>
       <trans-unit id="GWsFaiN" resname="Katapult">
         <source>Katapult</source>
         <target>Catapulte</target>
@@ -1969,6 +1965,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="Lm_z2Dh" resname="Deine Tarnung ist aufgeflogen!">
         <source>Deine Tarnung ist aufgeflogen!</source>
         <target>Votre camouflage a été repéré !</target>
+      </trans-unit>
+      <trans-unit id="K6Bt5zV" resname="Müllhalde">
+        <source>Müllhalde</source>
+        <target>Déchetterie</target>
       </trans-unit>
     </body>
   </file>
