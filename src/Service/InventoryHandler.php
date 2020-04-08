@@ -334,6 +334,7 @@ class InventoryHandler
         if ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
+      /* This snippet restores original Hordes functionality, but was intentionally left out.
         if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
           (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
           (
@@ -343,6 +344,7 @@ class InventoryHandler
           ))) {
           return self::ErrorExpandBlocked;
         }
+      */
 
         // Check Heavy item limit
         if ($item->getPrototype()->getHeavy() &&
