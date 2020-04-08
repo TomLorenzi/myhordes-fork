@@ -31,3 +31,4 @@ webpack.config.local.js
 .DS_Store
 .vscode/
 symfony.lock
+composer.lock

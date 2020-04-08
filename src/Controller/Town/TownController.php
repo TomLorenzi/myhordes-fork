@@ -66,6 +66,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($b->getPrototype()->getName() === 'small_refine_#00')
                 $addons['workshop'] = [T::__('Werkstatt', 'game'), 'town_workshop'];
 
+            if ($b->getPrototype()->getName() === 'small_round_path_#00')
+                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_dashboard'];
+
             $data["builtbuildings"][] = $b;
 
         }
@@ -87,15 +90,43 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $has_zombie_est_today    = !empty($th->getBuilding($town, 'item_tagger_#00'));
         $has_zombie_est_tomorrow = !empty($th->getBuilding($town, 'item_tagger_#02'));
 
+        $citizens = $town->getCitizens();
+        $alive = 0;
+        foreach ($citizens as $citizen) {
+            if($citizen->getAlive())
+                $alive++;
+        }
+
         $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
         if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
         if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
 
+        $defSummary;
+
+        $item_def_factor = 1;
+        $has_battlement = false;
+        foreach ($town->getBuildings() as $building) {
+            if ($building->getComplete() && $building->getPrototype()->getName() === 'item_meca_parts_#00')
+                $item_def_factor += (1+$building->getLevel()) * 0.5;
+
+            //TODO: fetch the Battlement's name
+            if($building->getComplete() && $building->getPrototype()->getName() === 'TOBEDEFINED#00')
+                $has_battlement = true;
+        }
+
+        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ));
+
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
-            'def' => $th->calculate_town_def($town),
+            'def' => $th->calculate_town_def($town, $defSummary),
             'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max ],
             'zeds_tomorrow' => [ $has_zombie_est_tomorrow, $z_tomorrow_min, $z_tomorrow_max ],
+            'living_citizens' => $alive,
+            'def_summary' => $defSummary,
+            'item_def_count' => $item_def_count,
+            'item_def_factor' => $item_def_factor,
+            'has_battlement' => $has_battlement
         ]) );
     }
 

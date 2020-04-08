@@ -67,6 +67,8 @@ class BuildingPrototypeRepository extends ServiceEntityRepository
             $qb->andWhere('b.id NOT IN (:existing)')->andWhere('b.parent IN (:existing) OR b.parent IS NULL')->setParameter('existing', $include);
         else $qb->andWhere('b.parent IS NULL');
 
+        $qb->orderBy("b.parent", "ASC")->orderBy("b.orderBy", "ASC");
+
         return $qb->getQuery()->getResult();
     }
 

@@ -6,6 +6,7 @@ namespace App\Translation;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
@@ -92,6 +93,15 @@ class DatabaseExtractor implements ExtractorInterface
             if (!$status->getHidden() && $status->getLabel())
                 $this->insert( $c, $status->getLabel(), 'game' );
 
+        foreach ($this->em->getRepository(CauseOfDeath::class)->findAll() as $causeOfDeath){
+            /** @var $status CitizenStatus */
+            if ($causeOfDeath->getLabel())
+                $this->insert( $c, $causeOfDeath->getLabel(), 'game' );
+
+            if ($causeOfDeath->getDescription())
+                $this->insert( $c, $causeOfDeath->getDescription(), 'game' );
+        }
+
         foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession)
             /** @var $profession CitizenProfession */
             if ($profession->getLabel())
@@ -102,7 +112,7 @@ class DatabaseExtractor implements ExtractorInterface
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
 
-            foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
+        foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
             /** @var $town TownClass */
             if ($town->getLabel())
                 $this->insert( $c, $town->getLabel(), 'game' );

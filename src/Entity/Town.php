@@ -35,6 +35,11 @@ class Town
     private $population;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $wordsOfHeroes;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="town", orphanRemoval=true, cascade={"persist", "remove"})
      * @OrderBy({"alive" = "DESC", "id" = "ASC"})
      */
@@ -120,6 +125,18 @@ class Town
     public function setLanguage(string $language): self
     {
       $this->language = $language;
+
+      return $this;
+    }
+
+    public function getWordsOfHeroes(): ?string
+    {
+      return $this->wordsOfHeroes;
+    }
+
+    public function setWordsOfHeroes(string $wordsOfHeroes): self
+    {
+      $this->wordsOfHeroes = $wordsOfHeroes;
 
       return $this;
     }

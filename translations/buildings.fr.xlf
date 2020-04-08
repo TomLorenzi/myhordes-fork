@@ -849,6 +849,18 @@
         <source>Verteidigung</source>
         <target>en défense</target>
       </trans-unit>
+      <trans-unit id="6lSJGc4" resname="Brustwehr">
+        <source>Brustwehr</source>
+        <target>Chemin de ronde</target>
+      </trans-unit>
+      <trans-unit id="A5G3UvL" resname="Hämame">
+        <source>Hämame</source>
+        <target>Hamame</target>
+      </trans-unit>
+      <trans-unit id="Pnjrt1t" resname="Hammam">
+        <source>Hammam</source>
+        <target>Hammam</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

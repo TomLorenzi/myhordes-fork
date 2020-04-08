@@ -17,6 +17,7 @@ use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -33,14 +34,16 @@ class TownInspectorCommand extends Command
     private $townHandler;
     private $zonehandler;
     private $nighthandler;
+    private $trans;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh)
+    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator)
     {
         $this->entityManager = $em;
         $this->gameFactory = $gf;
         $this->zonehandler = $zh;
         $this->townHandler = $th;
         $this->nighthandler = $nh;
+        $this->trans = $translator;
         parent::__construct();
     }
 
@@ -71,6 +74,7 @@ class TownInspectorCommand extends Command
     }
 
     protected function info(Town $town, OutputInterface $output, bool $zones) {
+        $this->trans->setLocale($town->getLanguage() ?? 'de');
         $output->writeln('<comment>Common town data</comment>');
         $table = new Table( $output );
         $table->setHeaders( ['ID', 'Open?', 'Name', 'Population', 'Type', 'Day', 'BankID'] );
@@ -144,6 +148,8 @@ class TownInspectorCommand extends Command
             $output->writeln("<error>The given town ID is not valid.</error>");
             return -1;
         }
+
+        $this->trans->setLocale($town->getLanguage() ?? 'de');
 
         $citizen = null;
         $citizen_id = (int)$input->getOption('citizen');

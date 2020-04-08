@@ -180,6 +180,7 @@ class TownHandler
 
         $summary->house_defense = $home->getPrototype()->getDefense();
 
+
         if ($home->getCitizen()->getProfession()->getHeroic())
             $summary->job_defense += 2;
 
@@ -193,6 +194,7 @@ class TownHandler
             );
             $summary->upgrades_defense = ($n ? $n->getLevel() : 0) + $home->getAdditionalDefense();
         } else $summary->upgrades_defense = $home->getAdditionalDefense();
+
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
             $this->inventory_handler->resolveItemProperties( 'defence' )
@@ -245,6 +247,7 @@ class TownHandler
             if ($citizen->getAlive()) {
                 $home = $citizen->getHome();
                 $f_house_def += $this->calculate_home_def( $home ) * $home_def_factor;
+
                 if (!$citizen->getZone() && $citizen->getProfession()->getName() === 'guardian')
                     $summary->guardian_defense += $guardian_bonus;
             }
@@ -260,10 +263,14 @@ class TownHandler
                     $item_def_factor += (1+$building->getLevel()) * 0.5;
             }
 
+
         $summary->item_defense = floor($this->inventory_handler->countSpecificItems( $town->getBank(),
             $this->inventory_handler->resolveItemProperties( 'defence' )
         ) * $item_def_factor);
 
+        if ($summary->item_defense > 500)
+            $summary->item_defense = 500;
+        
         return $summary->sum();
     }
 
