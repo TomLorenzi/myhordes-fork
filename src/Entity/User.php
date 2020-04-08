@@ -64,6 +64,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $foundTexts;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $soulPoints;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -232,6 +237,25 @@ class User implements UserInterface, EquatableInterface
         if ($this->foundTexts->contains($foundText)) {
             $this->foundTexts->removeElement($foundText);
         }
+
+        return $this;
+    }
+
+    public function getSoulPoints(): ?int
+    {
+        return $this->soulPoints;
+    }
+
+    public function setSoulPoints(int $soulPoints): self
+    {
+        $this->soulPoints = $soulPoints;
+
+        return $this;
+    }
+
+    public function addSoulPoints(int $soulPoints): self
+    {
+        $this->soulPoints += $soulPoints;
 
         return $this;
     }

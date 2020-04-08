@@ -75,6 +75,13 @@ class NightlyHandler
     private function kill_wrap( Citizen &$citizen, CauseOfDeath &$cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false ) {
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
+
+        $days = $citizen->getSurvivedDays();
+        $nbSoulPoints = $days * ( $days + 1 ) / 2;
+
+        $citizen->getUser()->addSoulPoints($nbSoulPoints);
+
+        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> earns <info>{$nbSoulPoints}</info> soul points.");
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
