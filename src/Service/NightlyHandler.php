@@ -75,6 +75,13 @@ class NightlyHandler
     private function kill_wrap( Citizen &$citizen, CauseOfDeath &$cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false ) {
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
+
+        $days = $citizen->getSurvivedDays();
+        $nbSoulPoints = $days * ( $days + 1 ) / 2;
+
+        $citizen->getUser()->addSoulPoints($nbSoulPoints);
+
+        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> earns <info>{$nbSoulPoints}</info> soul points.");
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
@@ -281,7 +288,7 @@ class NightlyHandler
         $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
         $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero'];
         $status_morph_list = [
             'drunk' => $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hungover' ),
         ];
@@ -498,7 +505,7 @@ class NightlyHandler
 
                     $tx = [];
                     foreach ($plans as $plan) {
-                        $town->getBank()->addItem( $plan );
+                        $this->inventory_handler->forceMoveItem( $town->getBank(), $plan );
                         $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
                     }
 
@@ -550,7 +557,7 @@ class NightlyHandler
         foreach ($daily_items as $item_id => $count)
             for ($i = 0; $i < $count; $i++) {
                 $item = $this->item_factory->createItem( $item_id );
-                $town->getBank()->addItem( $item );
+                $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 $tx[] = "<info>{$item->getPrototype()->getLabel()}</info>";
             }
 

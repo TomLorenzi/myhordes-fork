@@ -1,30 +1,135 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
+    <div class="town-header">
+        <b>{{ town.name }}</b>
+        <span>{{ 'Tag %day%'|trans({'%day%':town.day},'game') }}</span>
+    </div>
+
     <div class="dashboard">
         <div class="row">
-            <div class="padded cell rw-6 center">
-                {{ def }} <i class="fa fa-shield-alt"></i>
+            <div class="padded cell rw-4 rw-md-6 center">
+                <em>{{ 'Unsere Verteidigung :'|trans({}, 'game') }}</em><br />
+                <span class="counter">{{ def }} <img src="{{ asset('build/images/small_def.gif') }}" alt="" /></span>
+                
             </div>
-            <div class="padded cell rw-6 center">
+            <div class="padded cell rw-4 rw-md-6 center attack-estimation">
+                <em>{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</em><br />
+                <span class="counter">
                 {% if zeds_today[0] %}
                     {{ zeds_today[1] }} - {{ zeds_today[2] }} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
-                    {% if zeds_tomorrow[0] %}
-                        <div><span class="small">{{ 'Morgiger Angriff'|trans({},'game') }}</span></div>
+                {% else %}
+                    {{ 'Unbekannt'|trans({}, 'game')}} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
+                {% endif %}
+                </span>
+                {% if zeds_tomorrow[0] %}
+                    <br /><em>{{ 'Morgiger Angriff :'|trans({},'game') }}</em><br />
+                    <span class="counter">
                         {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
+                    </span>
+                {% endif %}
+            </div>
+            <div class="padded cell rw-4 rw-md-12 center">
+                {% if zeds_today[0] %}
+                    {% if def < zeds_today[1] %}
+                        Pas assez de def
+                    {% elseif def > zeds_today[1] and def < zeds_today[2] %}
+                        Moyen de def
+                    {% else %}
+                        {{ 'Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.'|trans({}, 'game')}}
                     {% endif %}
                 {% else %}
-                    ??? <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
+                    {{ 'Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.'|trans({}, 'game')}}
                 {% endif %}
-
             </div>
         </div>
     </div>
 
-    <b>{{ town.name }}</b><br />
-    <i>{% trans with {'%day%':town.day} from 'game' %}Tag %day%{% endtrans %}</i>
+    <div class="row">
+        <div class="padded cell rw-6 rw-md-12">
+            <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>
+            <ul class="overview-checklist">
+                <li>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
+                <li{% if active_citizen.wellCounter.taken > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
+                <li{% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }}</li>
+                <li{% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }}</li>
+                <li>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
+            </ul>
+        </div>
+        <div class="padded cell rw-6 rw-md-12">
+            <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
+            <div class="words-of-heroes">
+                <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
+                {% if active_citizen.profession.heroic %}
+                <div class="content hidden" id="words-of-heroes-editor">
+                    <textarea>{{ town.wordsOfHeroes }}</textarea>
+                </div>
+                <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
+                <div class="cancel hidden"><a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
+                {% else %}
+                <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="row">
+        <h5>{{ 'Unsere Situation'|trans({}, 'game')}}</h5>
+        <div class="padded cell rw-12">
+            <ul class="overview-list">
+                <li>{{ 'Stadttyp:'|trans({}, 'game') }} <strong>{{ town.type.label|trans({}, 'game') }}</strong></li>
+                <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
+                <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong></li>
+                <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens }}</strong></li>
+                <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{{ zeds_today[1] }} - {{ zeds_today[2] }}</strong></li>
+            </ul>
+        </div>
+        <div class="padded cell rw-6 rw-md-8 rw-sm-12">
+            <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Die Zeitung lesen{% endtrans %}</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5>{{ 'Unsere Verteidigungen'|trans({}, 'game')}}</h5>
+        <div class="padded cell rw-12 defense-detail">
+            <ul class="overview-list">
+                <li>{{'Grundbefestigungsmauer'|trans({}, 'game')}}: + {{def_summary.base_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_defense }} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}}: + {{def_summary.item_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img src="{{ asset('build/images/small_def.gif') }}" /> )</li>
+                {% if def_summary.guardian_defense > 0 %}
+                <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                {% endif %}
+                <li>{{'Häuser'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                {% if has_battlement %}
+                <li>{{'Nachtwächter'|trans({}, 'game')}} : + 30 <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                {% endif %}
+                <li class="separator">TOTAL: {{def}} </li>
+            </ul>
+
+            <em>{{'Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.'|trans({}, 'game')}}</em>
+        </div>
+    </div>
 {% endblock %}
 {% block js %}
     {{ parent() }}
     <script>
+        document.getElementById("edit-wordsofheroes").addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById("words-of-heroes-content").classList.add('hidden');
+            document.getElementById("words-of-heroes-editor").classList.remove('hidden');
+            document.getElementById("edit-wordsofheroes").parentNode.classList.add('hidden');
+            document.getElementById("canceledit-wordsofheroes").parentNode.classList.remove('hidden');
+        });
+
+        document.getElementById("canceledit-wordsofheroes").addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById("words-of-heroes-content").classList.remove('hidden');
+            document.getElementById("words-of-heroes-editor").classList.add('hidden');
+            document.getElementById("edit-wordsofheroes").parentNode.classList.remove('hidden');
+            document.getElementById("canceledit-wordsofheroes").parentNode.classList.add('hidden');
+        });
     </script>
 {% endblock %}

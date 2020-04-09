@@ -1,5 +1,77 @@
 @import (once) "../theme";
 
+div.zone-beyond {
+  background: black;
+  border: 1px solid #b18a63;
+  height: 80px;
+  background-size: cover;
+
+  &.outerworld {
+    background: url("../../img/outerworld.jpg") 50% 50% no-repeat, black;
+  }
+
+  &.oldruins {
+    background: url("../../img/oldRuins.jpg") 50% 50% no-repeat, black;
+  }
+
+  &.city {
+    background: url("../../img/city.jpg") 50% 50% no-repeat, black;
+  }
+
+  &.city-open {
+    background: url("../../img/city_open.jpg") 50% 50% no-repeat, black;
+  }
+
+
+  &.night-oldruins {
+    background: url("../../img/night_oldRuins.jpg") 50% 50% no-repeat, black;
+  }
+
+  &.night-outerworld {
+    background: url("../../img/night_outerworld.jpg") 50% 50% no-repeat, black;
+  }
+
+  &.night-city {
+    background: url("../../img/night_city.jpg") 50% 50% no-repeat, black;
+  }
+
+  &.night-city-open {
+    background: url("../../img/night_city_open.jpg") 50% 50% no-repeat, black;
+  }
+}
+
+div.zone-camp {
+  padding: 5px 5px 0 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: justify;
+  color: #e2d890;
+  font-size: 8pt;
+  background-color: #996739;
+  overflow: hidden;
+
+  & > input {
+    display: none;
+
+    & + label {
+      cursor: pointer;
+    }
+
+    & + label + .zone-camp-info {
+      max-height: 0;
+      opacity: 0;
+      transition: 200ms;
+
+      p {
+
+      }
+    }
+    &:checked + label + .zone-camp-info {
+      max-height: 200px;
+      opacity: 1;
+    }
+  }
+}
 div.zone-blocked-warning {
   background: url("../../img/feist.gif") top left no-repeat, #91181a; border: 1px solid #d2161f;
   outline: 1px solid rgba(0,0,0,0.3); padding: 10px 10px 10px 90px;
@@ -7,6 +79,23 @@ div.zone-blocked-warning {
   &>span {
     display: block; font-size: 13px; margin-bottom: 6px;
     *[x-countdown] { display: block; font-size: 25px; text-align: center; margin: 10px 0; font-weight: bold }
+  }
+}
+
+.beyond-rp {
+  padding-left: 40px;
+}
+
+div.ruin-info {
+  margin-top: 5px;
+  padding: 5px;
+  background: #9a8652;
+  color: white;
+  img {
+    vertical-align: middle;
+  }
+  .ruin-name {
+    color: #e2d880;
   }
 }
 
@@ -19,6 +108,14 @@ div.zone-info {
       &:last-child { color: #f15b30; }
     }
     &.zone-dist { font-size: 10px; }
+  }
+}
+
+div.other_citizens {
+  em {
+    color: #f0d79e;
+    font-style: italic;
+    font-size: 10pt;
   }
 }
 

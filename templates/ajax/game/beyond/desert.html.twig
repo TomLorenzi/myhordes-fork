@@ -5,8 +5,62 @@
 {% endblock %}
 {# @var zone \App\Entity\Zone #}
 {% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 zone-beyond time-{{ hour }} {% if hour < 7 or hour > 18 %}night-{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% elseif zone.prototype and zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
+    </div>
+    <div class="row">
+        <div class="cell rw-12 {% if not zone.prototype %}ambiant {% endif %}small">
+            {% if zone.x == 0 and zone.y == 0 %}
+                <p>{% trans from 'game' %}Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.{% endtrans %}</p>
+                <p>{% trans from 'game' %}Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...{% endtrans %}</p>
+            {% else %}
+                {% if zone.prototype %}
+                    <div class="ruin-info">
+                        {% if zone.buryCount > 0 %}
+                            <b>{{ 'Verschüttete Ruine'|trans({},'game') }}</b>
+                            {% if scout %}<b>(<i>{{ zone.prototype.label|trans({}, 'game') }}</i>)</b>{% endif %}
+                            <br />
+                            {{ 'Es muss noch aufgeräumt werden'|trans({},'game') }}:
+                            <div class="ruin-bury-count">{% for p in 1..zone.buryCount %}<div></div>{% endfor %}</div>
+                        {% else %}
+                            <img src="{{ asset('build/images/small_help.gif') }}" /> <span class="ruin-name">{{ 'Ruine'|trans({},'game') }} : <b>{{ zone.prototype.label|trans({}, 'game') }}</b></span><br />
+                            <span class="ruin-desc">{{ zone.prototype.description|trans({}, 'game') }}</span>
+                        {% endif %}
+
+                    </div>
+                {% else %}
+                    <p class="beyond-rp">
+                        <img alt="" src="{{ asset('build/images/small_rp.gif') }}" />
+                        {% if hour >= 7 and hour <= 18 %}
+                            {% trans from 'game' %}Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?{% endtrans %}
+                        {% else %}
+                            {% trans from 'game' %}Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...{% endtrans %}
+                        {% endif %}
+                    </p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% if zone.x != 0 or zone.y != 0 %}
+        <div class="row">
+            <div class="cell rw-12 zone-camp">
+                <input type="checkbox" name="zone-camp" id="zone-camp" /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>
+                <div class="zone-camp-info">
+                    <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
+                    <p>{% trans from 'game' %}Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.{% endtrans %}</p>
+                    <p>{% trans from 'game' %}Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.{% endtrans %}</p>
+                    <ul>
+                        <li>{% trans from 'game' %}Sich verstecken und die Nacht hier schlafen!{% endtrans %}</li>
+                        <li>{% trans from 'game' %}Schlafplatz verbessern (schwacher permanenter Bonus, 1AP){% endtrans %}</li>
+                        <li>{% trans from 'game' %}"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP){% endtrans %}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     {% if zone_blocked %}
-        <div>
+        <div class="row">
             <div class="cell rw-12">
                 <div class="zone-blocked-warning">
                     <b>
@@ -55,23 +109,6 @@
         <div class="padded cell rw-6 rw-md-12">
             <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
 
-            {% if zone.prototype %}
-                <div class="note">
-                    {% if zone.buryCount > 0 %}
-                        <b>{{ 'Verschüttete Ruine'|trans({},'game') }}</b>
-                        {% if scout %}<b>(<i>{{ zone.prototype.label|trans({}, 'game') }}</i>)</b>{% endif %}
-                        <br />
-                        {{ 'Es muss noch aufgeräumt werden'|trans({},'game') }}:
-                        <div class="ruin-bury-count">{% for p in 1..zone.buryCount %}<div></div>{% endfor %}</div>
-                    {% else %}
-                        {{ 'Ruine'|trans({},'game') }}:
-                        <b>{{ zone.prototype.label|trans({}, 'game') }}</b>
-                    {% endif %}
-
-                </div>
-
-            {% endif %}
-
             {% if zone.digs <= 0 %}
                 <div class="note">
                     <img alt="" src="{{ asset('build/images/Small_broken.gif') }}" />
@@ -83,21 +120,6 @@
 
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
 
-            {% if allow_enter_town %}
-                <button id="town-enter">
-                    {% if zone.x == 0 and zone.y == 0 %}
-                        {% trans from 'game' %}Stadt betreten{% endtrans %}
-                    {% else %}
-                        {% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
-                    {% endif %}
-                    {% if enter_costs_ap %}
-                        (<div class="ap">1</div>)
-                    {% endif %}
-                </button>
-            {% endif %}
-            {% if show_ventilation %}
-                <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{{ 'Durch die Lüftungsschächte klettern' }}</button>
-            {% endif %}
             {% if zone.x != 0 or zone.y != 0 %}
                 {% if not digging %}
                     {% if dig_timeout > 0 %}
@@ -138,7 +160,7 @@
                     {% endif %}
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode)} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode)} %}
                 {% endembed %}
 
             {% else %}
@@ -148,13 +170,32 @@
                 {% endif %}
 
             {% endif %}
+
+            {% if allow_enter_town %}
+                <button id="town-enter">
+                    {% if zone.x == 0 and zone.y == 0 %}
+                        {% trans from 'game' %}Stadt betreten{% endtrans %}
+                    {% else %}
+                        {% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
+                    {% endif %}
+                    {% if enter_costs_ap %}
+                        (<div class="ap">1</div>)
+                    {% endif %}
+                </button>
+            {% endif %}
+            {% if show_ventilation %}
+                <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+            {% endif %}
         </div>
 
         <div class="padded cell rw-6 rw-md-12">
+            {% if zone.x != 0 or zone.y != 0 %}
+            <h5>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}
+            {% endif %}
 
             {% if allow_floor_access %}
                 {% if (zone_blocked and active_scout_mode) %}
@@ -165,13 +206,23 @@
                     </div>
                 {% endif %}
 
-                <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack ausleeren{% endtrans %}</button>
+                <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
                 {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items} %}
                     {% block class %}desert{% endblock %}
                     {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
                 {% endembed %}
             {% endif %}
         </div>
+    </div>
+
+    <div class="other_citizens">
+    {% if other_citizens|length == 1 %}
+        <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
+    {% else %}
+        {% for citizen in other_citizens %}
+            {{ citizen.user.username }}<br />
+        {% endfor %}
+    {% endif %}
     </div>
 
     {% if zone.x != 0 or zone.y != 0 %}
@@ -296,10 +347,19 @@
             'up', '{{ path('beyond_dashboard') }}'
         );
 
+        handleHeroicActions(
+            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
+
+        handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
             '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}'

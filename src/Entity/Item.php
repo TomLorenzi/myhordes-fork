@@ -43,6 +43,11 @@ class Item
      */
     private $essential = false;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $count = 1;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class Item
     public function setEssential(bool $essential): self
     {
         $this->essential = $essential;
+
+        return $this;
+    }
+
+    public function getCount(): ?int
+    {
+        return $this->count;
+    }
+
+    public function setCount(int $count): self
+    {
+        $this->count = $count;
 
         return $this;
     }

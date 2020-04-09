@@ -43,6 +43,11 @@ class Recipe
     private $type;
 
     /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $action;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ItemGroup", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
@@ -91,6 +96,18 @@ class Recipe
         $this->type = $type;
 
         return $this;
+    }
+
+    public function getAction(): ?string
+    {
+      return $this->action;
+    }
+
+    public function setAction(string $action): self
+    {
+      $this->action = $action;
+
+      return $this;
     }
 
     public function getSource(): ?ItemGroup

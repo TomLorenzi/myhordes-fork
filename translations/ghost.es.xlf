@@ -45,6 +45,26 @@
         <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
         <target>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</target>
       </trans-unit>
+      <trans-unit id="gqk_gdE" resname="Beitreten">
+        <source>Beitreten</source>
+        <target>Beitreten</target>
+      </trans-unit>
+      <trans-unit id="1Wm5ylA" resname="Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.">
+        <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
+        <target>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</target>
+      </trans-unit>
+      <trans-unit id="5jsjI47" resname="Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.">
+        <source>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</source>
+        <target>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</target>
+      </trans-unit>
+      <trans-unit id="0C3XaFv" resname="Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?">
+        <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
+        <target>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</target>
+      </trans-unit>
+      <trans-unit id="FbY7TeM" resname="Bestätigen">
+        <source>Bestätigen</source>
+        <target>Bestätigen</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

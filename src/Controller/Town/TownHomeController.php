@@ -96,6 +96,7 @@ class TownHomeController extends TownController
         return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
             'home' => $home,
             'tab' => $tab,
+            'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(true),
             'chest' => $home->getChest(),
@@ -143,7 +144,17 @@ class TownHomeController extends TownController
      * @return Response
      */
     public function action_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
-        return $this->generic_action_api( $parser, $handler);
+        return $this->generic_action_api( $parser );
+    }
+
+    /**
+     * @Route("api/town/house/heroic", name="town_house_heroic_controller")
+     * @param JSONRequestParser $parser
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function heroic_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+        return $this->generic_heroic_action_api( $parser );
     }
 
     /**
@@ -201,8 +212,8 @@ class TownHomeController extends TownController
 
         // Consume items
         foreach ($items as $item) {
-            $item->getInventory()->removeItem($item);
-            $em->remove($item);
+            $r = $next->getResources()->findEntry( $item->getPrototype()->getName() );
+            $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
 
         // Create log & persist
@@ -296,8 +307,8 @@ class TownHomeController extends TownController
 
         // Consume items
         foreach ($items as $item) {
-            $item->getInventory()->removeItem($item);
-            $em->remove($item);
+            $r = $costs->getResources()->findEntry( $item->getPrototype()->getName() );
+            $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
 
         // Persist and flush

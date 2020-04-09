@@ -13,7 +13,9 @@
         </div>
         <div class="cell padded rw-9 rw-lg-8 rw-md-12">
             <div class="help">
-                Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.
+                {% trans from 'game' %}
+                    Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.
+                {% endtrans %}
             </div>
             {% if pump is not null %}
                 {# @var pump \App\Entity\Building #}
@@ -25,7 +27,7 @@
                     </div>
                 {% else %}
                     <div class="note">
-                        {% trans with {'%pumpname%':'<b>' ~ pump.prototype.label ~ '</b>' } from 'game' %}
+                        {% trans with {'%pumpname%':'<b>' ~ pump.prototype.label|trans({}, 'buildings') ~ '</b>' } from 'game' %}
                             Die Stadt verfügt über eine %pumpname%.
                         {% endtrans %}
                     </div>

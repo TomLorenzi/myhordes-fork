@@ -1,6 +1,9 @@
 @import (once) "../theme";
 
 .town-menu {
+  font-weight: bold;
+  color: @myhordes-cell-header-text-color;
+  font-variant: small-caps;
   &>.cell {
     &>div:first-child { width: 100%; padding-top: 55.1724138% }
     &>div:last-child {
@@ -8,13 +11,13 @@
       &>img { vertical-align: bottom };
     }
     cursor: pointer;
-    &:not(.selected):hover {
+    &:hover {
       &>div:last-child { color: @myhordes-input-border; }
       outline: 1px solid @myhordes-input-border;
     }
     &.selected {
       &>div:first-child { filter: contrast( 120% ) brightness( 120% ); }
-      &>div:last-child { font-weight: bold; background: lighten(@myhordes-cell-header-background-color, 10%) };
+      &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%);color: @myhordes-input-border; };
     }
   }
   &>.town-menu-house>div:first-child { background: url("../../img/menu_home.gif") center/cover no-repeat }
@@ -23,37 +26,111 @@
   &>.town-menu-citizens>div:first-child { background: url("../../img/menu_houses.gif") center/cover no-repeat }
   &>.town-menu-construct>div:first-child { background: url("../../img/menu_construction.gif") center/cover no-repeat }
   &>.town-menu-door>div:first-child { background: url("../../img/menu_door.gif") center/cover no-repeat }
+
 }
 
-.town-addons {
-  &>.cell {
+.row > .cell.town-addons {
+  font-weight: bold;
+  color: @myhordes-cell-header-text-color;
+  font-variant: small-caps;
+  display: flex;
+  align-items: stretch;
 
-    &>div {
-      &:after { clear: both; content: " "; display: block; }
-      padding: 0; margin: 0; background: @myhordes-cell-header-background-color;
+  & > .town-addon {
+    height: 55px;
+    width: 40px;
+    flex-basis: 40px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: small;
+    padding: 0;
+    cursor: pointer;
+    margin: 3px;
+    background-color: @myhordes-cell-header-background-color;
+
+    &:nth-child(n+7) {
+      display: none;
     }
 
-    &>div>div:first-child {
-      &>div:first-child { width: 40px; height: 40px; display: inline-block; float: left }
-      &>span:last-child { display: block; padding: 4px; margin-left: 40px; text-align: center}
-      font-size: small; padding: 0; cursor: pointer;
+    &.town-addon-empty {
+      background-color: transparent;
+
+      & > div {
+        height: 36px;
+        width: 36px;
+        margin: 2px;
+        border: 1px dotted @myhordes-cell-header-background-color;
+      }
     }
-    &:not(.selected):hover>div {
-      &>div:first-child { color: @myhordes-input-border; }
-      outline: 1px solid @myhordes-input-border; cursor: pointer;
+
+    & > div {
+      padding: 0;
+      margin: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 40px;
+      width: 40px;
     }
-    &.selected>div {
+
+    &:not(.selected):hover > div {
+      outline: 1px solid @myhordes-input-border;
+      cursor: pointer;
+    }
+    &.selected {
       background: lighten(@myhordes-cell-header-background-color, 10%);
-      &>div:first-child {
-        &>div:first-child { filter: contrast( 120% ) brightness( 120% ); }
-        &>span:last-child { padding: 1px 4px; height: 40px; }
-        font-weight: bold; ;
-      };
+      filter: contrast(120%) brightness(120%);
+      outline: 1px solid @myhordes-input-border;
     }
 
-    &.town-addon-upgrade >div>div:first-child>div:first-child { background: url("../../img/smenu_upgrades.gif") center/cover no-repeat }
-    &.town-addon-workshop>div>div:first-child>div:first-child { background: url("../../img/smenu_workshop.gif") center/cover no-repeat }
-    &.town-addon-watchtower>div>div:first-child>div:first-child { background: url("../../img/smenu_tower.gif") center/cover no-repeat }
+    & > span {
+      display: block;
+      padding: 1px 2px;
+      text-align: center;
+      text-overflow: ellipsis;
+      line-height: 13px;
+      height: 15px;
+      font-size: 10px;
+      overflow: hidden;
+    }
+
+    &.town-addon-upgrade > div {
+      background-image: url("../../img/smenu_upgrades.gif");
+    }
+    &.town-addon-workshop > div {
+      background-image: url("../../img/smenu_workshop.gif");
+    }
+    &.town-addon-watchtower > div {
+      background-image: url("../../img/smenu_tower.gif");
+    }
+    &.town-addon-battlement > div {
+      background-image: url("../../img/smenu_watch.gif");
+    }
+    &.town-addon-dump > div {
+      background-image: url("../../img/smenu_decharge.gif");
+    }
+    &.town-addon-catapult > div {
+      background-image: url("../../img/smenu_catapult.gif");
+    }
+  }
+}
+
+.town-buildings {
+  &>ul{
+    background-color: #3e2417;
+    list-style-type: none;
+    font-size: 8pt;
+    background-image: url("../../img/log/home.gif");
+    background-repeat: no-repeat;;
+    background-position: 4px 2px;
+    &>li {
+      padding-bottom: 5px;
+      &>em {
+        color: #e7c48f;
+        padding-left: 20px;
+        font-style: normal;
+      }
+    }
   }
 }
 
@@ -91,5 +168,136 @@
       text-align: center;
       font-size: 10px;
     }
+  }
+}
+
+.citizens-list {
+  &>.row:hover {
+    outline: 1px solid #EFDBAB;
+  }
+}
+
+.citizen-chest {
+  &>p {
+    margin-top: 0;
+    font-size: 12px;
+  }
+}
+
+.buildings {
+  button {
+    min-height: 20px;
+  }
+}
+
+.dashboard {
+  padding: 5px; background: @myhordes-cell-header-background-color; margin: 10px 0;
+  border: 1px solid darken(@myhordes-cell-header-background-color, 5%); color: @myhordes-smalltext;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  font-size: 12px;
+  .attack-estimation {
+    border-left:1px dashed #fff;
+    border-right:1px dashed #fff;
+  }
+
+  em {
+    color: @myhordes-cell-header-text-color;
+  }
+
+  .counter {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+}
+
+.words-of-heroes {
+  min-height: 260px;
+  background: url("../../img/town/cityBoard.png") no-repeat;
+  padding: 5px;
+  margin-top: 10px;
+  .content {
+    padding: 40px 10px 0 5px;
+    height: 230px;
+    max-height: 230px;
+    overflow: auto;
+    color: #E4E3E8;
+    font-size: 11.5pt;
+    line-height: 11pt;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+    textarea, textarea:focus {
+      width: 100%;
+      overflow: hidden;
+      background: #3b3249;
+      border: 1px dashed #696486;
+      color: #E4E3E8;
+      font-size: 11.5pt;
+      line-height: 11pt;
+      font-style: italic;
+      font-weight: bold;
+      font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+      outline: none;
+      padding: 0;
+    }
+  }
+  .edit, .cancel {
+    max-width: 240px;
+    text-align: right;
+    font-size: 12px;
+    color: #ddab76;
+    .disabled {
+      text-decoration: line-through;
+      font-weight: normal;
+      color: grey;
+    }
+  }
+}
+
+.overview-list, .overview-checklist {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  background-color: #996739;
+  strong {
+    color: white;
+  }
+
+  .separator {
+    margin-top: 7px;
+    padding-top: 5px;
+    border-top: 1px solid #f0d79e;
+  }
+}
+
+.overview-checklist {
+  list-style: none;
+  padding-left: 10px;
+  li {
+    padding-left: 20px;
+    background: url("../../img/tickOff.gif") 5px 5px no-repeat;
+  }
+  li.checked {
+    background: url("../../img/tickOn.gif") 5px 5px no-repeat;
+    text-decoration: line-through;
+    font-style: italic;
+    color: #b37c4a;
+  }
+}
+
+.overview-list {
+  list-style: url("../../img/small_dot.gif");
+  padding-left: 20px;
+  .warning {
+    color: #f86;
+  }
+}
+
+.defense-detail {
+  em {
+    font-size: 12px;
+    color: @myhordes-smalltext;
   }
 }

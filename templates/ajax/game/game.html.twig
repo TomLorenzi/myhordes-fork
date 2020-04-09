@@ -3,16 +3,6 @@
     <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
 {% endblock %}
 {% block menu_bar %}
-    {% if status is defined %}
-        <ul class="status">
-            {% for stat in status %}
-                {# @var stat \App\Entity\CitizenStatus #}
-                {% if not stat.hidden %}
-                    <li class="status"><img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'status') }}"></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    {% endif %}
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
@@ -21,6 +11,7 @@
             <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"></li>
         </ul>
     {% endif %}
+    
     {% if rucksack is defined %}
         <ul class="rucksack">
             {% for item in rucksack.items %}
@@ -33,12 +24,20 @@
             {% endif %}
         </ul>
     {% endif %}
+    {% if status is defined %}
+        <ul class="status">
+            {% for stat in status %}
+                {# @var stat \App\Entity\CitizenStatus #}
+                {% if not stat.hidden %}
+                    <li class="status"><img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'status') }}"></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
     {% if ap is defined and max_ap is defined %}
         <div class="ulcont">
             <ul class="ap">
-                <li>{{ ap }}</li>
-                <li>/</li>
-                <li>{{ max_ap }}</li>
+                <li><img src="{{ asset("build/images/ap_small.gif") }}" alt="" /> {{ ap }}<em>/{{ max_ap }}</em></li>
             </ul>
             <div class="tooltip">
                 <b>{{ 'Aktionspunkte'|trans({},'game') }}</b><br />

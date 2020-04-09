@@ -56,8 +56,7 @@ class DeathHandler
         $rucksack = $citizen->getInventory();
         foreach ($rucksack->getItems() as $item)
             if ( !$this->inventory_handler->moveItem($citizen, $rucksack, $item, $citizen->getZone() ? [$citizen->getZone()->getFloor()] : [$citizen->getHome()->getChest(), $citizen->getTown()->getBank()]) ) {
-                $rucksack->removeItem( $item );
-                $remove[] = $item;
+                $this->inventory_handler->forceRemoveItem( $item, PHP_INT_MAX );
             }
 
         foreach ($this->entity_manager->getRepository(DigTimer::class)->findAllByCitizen($citizen) as $dt)

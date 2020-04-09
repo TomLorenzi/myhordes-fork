@@ -7,19 +7,76 @@
     {{ parent() }}
     {# @var home \App\Entity\CitizenHome #}
     <div class="row">
+
         <div class="padded-small cell rw-4 rw-sm-12">
             <div class="row town-menu">
-                <div x-ajax-href="{{ path('town_house', {tab: 'dash'}) }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house"><div></div><div class="hide-sm"><img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %}</div></div>
-                <div x-ajax-href="{{ path('town_well') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'well' %}selected{% endif %} town-menu-well"><div></div><div class="hide-sm">{% trans from 'game' %}Brunnen{% endtrans %}</div></div>
-                <div x-ajax-href="{{ path('town_bank') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'bank' %}selected{% endif %} town-menu-bank"><div></div><div class="hide-sm">{% trans from 'game' %}Bank{% endtrans %}</div></div>
-                <div x-ajax-href="{{ path('town_citizens') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'citizens' %}selected{% endif %} town-menu-citizens"><div></div><div class="hide-sm">{% trans from 'game' %}Bürger{% endtrans %}</div></div>
-                <div x-ajax-href="{{ path('town_constructions') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'constructions' %}selected{% endif %} town-menu-construct"><div></div><div class="hide-sm">{% trans from 'game' %}Konstruktionen{% endtrans %}</div></div>
-                <div x-ajax-href="{{ path('town_door') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'door' %}selected{% endif %} town-menu-door"><div></div><div class="hide-sm">{% trans from 'game' %}Stadttor{% endtrans %}</div></div>
+                <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
+                    <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
+                </div>
+                <div x-ajax-href="{{ path('town_house', {tab: 'dash'}) }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
+                    <div></div>
+                    <div class="hide-sm">
+                        <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %}
+                    </div>
+                </div>
+                <div x-ajax-href="{{ path('town_well') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'well' %}selected{% endif %} town-menu-well">
+                    <div></div>
+                    <div class="hide-sm">
+                        {% trans from 'game' %}Brunnen{% endtrans %}
+                    </div>
+                </div>
+                <div x-ajax-href="{{ path('town_bank') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'bank' %}selected{% endif %} town-menu-bank">
+                    <div></div>
+                    <div class="hide-sm">
+                        {% trans from 'game' %}Bank{% endtrans %}
+                    </div>
+                </div>
+                <div x-ajax-href="{{ path('town_citizens') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'citizens' %}selected{% endif %} town-menu-citizens">
+                    <div></div>
+                    <div class="hide-sm">
+                        {% trans from 'game' %}Bürger{% endtrans %}
+                    </div>
+                </div>
+                <div x-ajax-href="{{ path('town_constructions') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'constructions' %}selected{% endif %} town-menu-construct">
+                    <div></div>
+                    <div class="hide-sm">
+                        {% trans from 'game' %}Konstruktionen{% endtrans %}
+                    </div>
+                </div>
+                <div x-ajax-href="{{ path('town_door') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'door' %}selected{% endif %} town-menu-door">
+                    <div></div>
+                    <div class="hide-sm">
+                        {% trans from 'game' %}Stadttor{% endtrans %}
+                    </div>
+                </div>
             </div>
-            <div class="row town-addons">
+            <div class="row">
+                <div class="cell padded-small rw-12 town-addons">
                 {% for name, addon in addons %}
-                    <div x-ajax-href="{{ path(addon[1]) }}" class="cell padded-small rw-12 {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}"><div><div><div></div><span>{{ addon[0]|trans({},'game') }}</span></div></div></div>
+                    <div x-ajax-href="{{ path(addon[1]) }}" class="town-addon {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}">
+                        <div></div>
+                        <span>{{ addon[0]|trans({},'game') }}</span>
+                    </div>
                 {% endfor %}
+                    {% for i in 0..5 %}
+                        <div class="town-addon town-addon-empty">
+                            <div></div>
+                            <span></span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row town-buildings">
+                <ul>
+                {% for building in builtbuildings %}
+                    <li class="cell padded-small rw-12">
+                        <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" /> {{ building.prototype.label|trans({},'buildings') }}<br />
+                        {% if building.prototype.defense > 0 %}<em>+ {{building.prototype.defense}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
+                        {% if building.prototype.maxLevel > 0 and building.level > 0 %}<em>{% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}</em>{% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
             </div>
         </div>
         <div class="padded cell rw-8 rw-sm-12">

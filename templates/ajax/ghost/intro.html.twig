@@ -12,21 +12,40 @@
                             {% if town.open %}{% set found = true %}{% endif %}
                         {% endfor %}
 
-                        <h5>{{ townClass.getLabel }}</h5>
+                        <h5>{{ townClass.getLabel|trans({},'game') }}</h5>
                         {% if found %}
                             <div class="row-table">
                                 <div class="row header">
-                                    <div class="padded cell rw-8">{% trans from 'ghost' %}Stadtname{% endtrans %}</div>
+                                    <div class="padded cell rw-6">{% trans from 'ghost' %}Stadtname{% endtrans %}</div>
+                                    <div class="padded cell rw-2">{% trans from 'game' %}Bürger{% endtrans %}</div>
                                     <div class="padded cell rw-4">{% trans from 'ghost' %}Aktionen{% endtrans %}</div>
                                 </div>
                                 {% for town in townClass.towns %}
                                     {# @var town \App\Entity\Town #}
                                     {% if town.open %}
                                         {% set found = true %}
-                                        <div class="row">
-                                            <div class="padded cell rw-8">{{ town.getName }}</div>
-                                            <div class="padded cell rw-1 center"><img class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /></div>
-                                            <div class="padded cell rw-3"><button x-town-id="{{ town.getId }}">Beitreten</button></div>
+                                        <div class="row town-row">
+                                            <div class="padded cell rw-1"><span class="language">{{ town.getLanguage }}</span></div>
+                                            <div class="padded cell rw-5">{{ town.getName }}</div>
+                                            <div class="padded cell rw-2">{{ town.citizens|length }}/{{ town.population }}</div>
+                                            <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /></div>
+                                            <div class="padded cell rw-3"><button x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}">{% trans from 'ghost' %}Beitreten{% endtrans %}</button></div>
+                                            <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden">
+                                                <ul class="citizen-list">
+                                                    {% for denizen in town.citizens %}
+                                                        {# @var denizen \App\Entity\Citizen #}
+                                                        <li>
+                                                            {% if denizen.alive %}
+                                                                <img src="{{ asset('build/images/professions/' ~ denizen.profession.icon ~ '.gif') }}" alt="{{ denizen.profession.label|trans({},'game') }}" />
+                                                            {% else %}
+                                                                <img src="{{ asset('build/images/professions/death.gif') }}" alt="{{ denizen.profession.label|trans({},'game') }}" />
+                                                            {% endif %}
+                                                            {{ denizen.user.username }}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                                <div class="right"><span class="small pointer" x-town-toggle="{{ town.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+                                            </div>
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -47,14 +66,35 @@
 {% endblock %}
 {% block js %}
     <script>
-        let joinButtons = document.querySelectorAll('button[x-town-id]');
-        for (let i = 0; i < joinButtons.length; i++)
-            joinButtons[i].addEventListener('click', function (e) {
-                e.preventDefault();
-                $.ajax.easySend( '{{ path('api_join') }}', {town: this.getAttribute('x-town-id')},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } )
+        $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
+            const id = elem.getAttribute('x-town-toggle');
+            document.querySelectorAll('[x-town-details="' + id + '"]').forEach(function( target ) {
+                if (target.classList.contains('hidden')) target.classList.remove('hidden');
+                else target.classList.add('hidden');
             })
+        } );
+
+        $.html.addEventListenerAll( 'button[x-town-id][x-town-lang]', 'click', function(e,elem) {
+            e.preventDefault();
+
+            const user_lang = '{{ app.request.locale|e('js') }}';
+            const town_lang = elem.getAttribute('x-town-lang');
+            const town_name = elem.getAttribute('x-town-name');
+            if (user_lang && town_lang && user_lang.split('_')[0] !== town_lang.split('_')[0]) {
+                let message =
+                    ('{{ 'Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.'|trans({},'ghost')|e('js') }}' + "\n\n" +
+                    '{{ 'Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.'|trans({},'ghost')|e('js') }}'  + "\n\n" +
+                    '{{ 'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?'|trans({},'ghost')|e('js') }}')
+                    .replace(/%lang_user%/g, window.c.langs[user_lang.split('_')[0]] ?? user_lang).replace(/%lang_town%/g, window.c.langs[town_lang.split('_')[0]] ?? town_lang);
+
+                if (!confirm(message)) return;
+            } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten'|trans({},'ghost')|e('js') }} ?'.replace('%town_name%', town_name)))
+                return;
+
+            $.ajax.easySend( '{{ path('api_join') }}', {town: elem.getAttribute('x-town-id')},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } )
+        } );
     </script>
 {% endblock %}

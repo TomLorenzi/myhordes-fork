@@ -118,6 +118,8 @@
 
                                     {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ current_surrounding.prototype.icon ~ '.gif') }})"></div>
+                                    {% elseif (pos_x + plane_x) == 0 and (pos_y + plane_y) == 0 %}
+                                        <div class="ruin" style="background-image: url({{ asset('build/images/ruin/town.gif') }})"></div>
                                     {% endif %}
 
                                     {% if plane_x == 0 and plane_y == 0 %}
@@ -138,7 +140,7 @@
                     {% endfor %}
                 </div>
                 <div class="zone-sub-container censor-master">
-                    {% for plane_y in -2..2 %}
+                    {% for plane_y in 2..-2 %}
                         {% for plane_x in -2..2 %}
                             <div class="zone-subplane{% if plane_x == 0 and plane_y == 0 %} center{% endif %}" x-preview-for="{{ pos_x + plane_x }},{{ pos_y + plane_y }}">
                                 {% if map_x0 <= pos_x + plane_x and map_x1 >= pos_x + plane_x and map_y0 <= pos_y + plane_y and map_y1 >= pos_y + plane_y %}

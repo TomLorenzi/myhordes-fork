@@ -845,6 +845,10 @@
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
         <target>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</target>
       </trans-unit>
+      <trans-unit id="77.Cp5H" resname="Verteidigung">
+        <source>Verteidigung</source>
+        <target>Verteidigung</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

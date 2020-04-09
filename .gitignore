@@ -24,4 +24,11 @@ yarn-error.log
 # Composer
 composer.phar
 
+# Local webpack config
+webpack.config.local.js
+
+# Misc
+.DS_Store
 .vscode/
+symfony.lock
+composer.lock

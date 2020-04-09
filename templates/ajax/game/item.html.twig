@@ -8,8 +8,13 @@
     {% if count is defined and count > 1 %}<span>{{ count }}</span>{% endif %}
     {% if no_tooltip is not defined or not no_tooltip %}
         <div class="tooltip">
-            <h1>{{ item.prototype.label|trans({},'items') }}</h1>
-            Add item description here! Hopefully, there will be enough space. Maybe there will, maybe there won't.
+            <h1>{{ item.prototype.label|trans({},'items') }} <span class="broken">{% if item.broken %}({{ 'Kaputt'|trans({},'items') }})</span>{% endif %}</h1>
+            {{ item.prototype.description|trans({},'items') }}
+            {% if item.essential %}<div class="item-tag item-tag-essential">{{ 'Berufsgegenstand'|trans({},'items') }}</div>{% endif %}
+            {% if item.prototype.heavy %}<div class="item-tag item-tag-heavy">{{ 'Schwerer Gegenstand'|trans({},'items') }}</div>{% endif %}
+            {% if item.prototype.deco > 0 %}<div class="item-tag item-tag-deco">{{ 'Einrichtungsgegenstand'|trans({},'items') }}</div>{% endif %}
+            {% if item.prototype.hasProperty('defence') %}<div class="item-tag item-tag-defense">{{ 'Verteidigungsgegenstand'|trans({},'items') }}</div>{% endif %}
+            {% if item.prototype.hasProperty('weapon') %}<div class="item-tag item-tag-weapon">{{ 'Waffe'|trans({},'items') }}</div>{% endif %}
         </div>
     {% endif %}
 </li>

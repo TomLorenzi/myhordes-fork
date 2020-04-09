@@ -6,12 +6,15 @@ namespace App\Translation;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\Recipe;
+use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
@@ -43,9 +46,11 @@ class DatabaseExtractor implements ExtractorInterface
 
         //<editor-fold desc="Item Domain">
         // Get item labels
-        foreach ($this->em->getRepository(ItemPrototype::class)->findAll() as $item)
+        foreach ($this->em->getRepository(ItemPrototype::class)->findAll() as $item) {
             /** @var ItemPrototype $item */
-            $this->insert( $c, $item->getLabel(), 'items' );
+            $this->insert($c, $item->getLabel(), 'items');
+            $this->insert($c, $item->getDescription(), 'items');
+        }
 
         // Get Action labels and messages as well as requirement messages
         foreach ($this->em->getRepository(ItemAction::class)->findAll() as $action) {
@@ -86,18 +91,41 @@ class DatabaseExtractor implements ExtractorInterface
         //<editor-fold desc="Game Domain">
         foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status)
             /** @var $status CitizenStatus */
-            if ($status->getLabel())
+            if (!$status->getHidden() && $status->getLabel())
                 $this->insert( $c, $status->getLabel(), 'game' );
+
+        foreach ($this->em->getRepository(CauseOfDeath::class)->findAll() as $causeOfDeath){
+            /** @var $status CitizenStatus */
+            if ($causeOfDeath->getLabel())
+                $this->insert( $c, $causeOfDeath->getLabel(), 'game' );
+
+            if ($causeOfDeath->getDescription())
+                $this->insert( $c, $causeOfDeath->getDescription(), 'game' );
+        }
 
         foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession)
             /** @var $profession CitizenProfession */
             if ($profession->getLabel())
-                $this->insert( $c, $status->getLabel(), 'game' );
+                $this->insert( $c, $profession->getLabel(), 'game' );
 
-        foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone)
+        foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone) {
             /** @var $zone ZonePrototype */
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
+
+            if ($zone->getDescription())
+                $this->insert( $c, $zone->getDescription(), 'game' );
+        }
+
+        foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
+            /** @var $town TownClass */
+            if ($town->getLabel())
+                $this->insert( $c, $town->getLabel(), 'game' );
+
+        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
+            /** @var $recipe Recipe */
+            if ($recipe->getAction())
+                $this->insert( $c, $recipe->getAction(), 'items' );
         //</editor-fold>
     }
 

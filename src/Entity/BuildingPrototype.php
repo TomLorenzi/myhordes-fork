@@ -85,6 +85,11 @@ class BuildingPrototype
      */
     private $upgradeTexts = [];
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $orderBy = 0;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -254,6 +259,18 @@ class BuildingPrototype
     public function setUpgradeTexts(?array $upgradeTexts): self
     {
         $this->upgradeTexts = $upgradeTexts;
+
+        return $this;
+    }
+
+    public function getOrderBy(): ?int
+    {
+        return $this->orderBy;
+    }
+
+    public function setOrderBy(int $orderBy): self
+    {
+        $this->orderBy = $orderBy;
 
         return $this;
     }

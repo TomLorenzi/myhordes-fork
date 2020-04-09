@@ -845,6 +845,22 @@
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
         <target>Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie... un peu (chaque niveau ajoute 1 pt de défense)..</target>
       </trans-unit>
+      <trans-unit id="77.Cp5H" resname="Verteidigung">
+        <source>Verteidigung</source>
+        <target>en défense</target>
+      </trans-unit>
+      <trans-unit id="6lSJGc4" resname="Brustwehr">
+        <source>Brustwehr</source>
+        <target>Chemin de ronde</target>
+      </trans-unit>
+      <trans-unit id="A5G3UvL" resname="Hämame">
+        <source>Hämame</source>
+        <target>Hamame</target>
+      </trans-unit>
+      <trans-unit id="Pnjrt1t" resname="Hammam">
+        <source>Hammam</source>
+        <target>Hammam</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -14,7 +14,9 @@ use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\TownLogEntry;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Translation\T;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -51,16 +53,32 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $addons = [];
         $town = $this->getActiveCitizen()->getTown();
+
+        $data["builtbuildings"] = array();
+
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
             if ($b->getPrototype()->getMaxLevel() > 0)
-                $addons['upgrade']  = ['Verbesserung des Tages', 'town_upgrades'];
+                $addons['upgrade']  = [T::__('Verbesserung des Tages', 'game'), 'town_upgrades'];
 
             if ($b->getPrototype()->getName() === 'item_tagger_#00')
-                $addons['watchtower'] = ['Wachturm', 'town_watchtower'];
+                $addons['watchtower'] = [T::__('Wachturm', 'game'), 'town_watchtower'];
 
             if ($b->getPrototype()->getName() === 'small_refine_#00')
-                $addons['workshop'] = ['Werkstatt', 'town_workshop'];
+                $addons['workshop'] = [T::__('Werkstatt', 'game'), 'town_workshop'];
+
+            if ($b->getPrototype()->getName() === 'small_round_path_#00')
+                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_dashboard'];
+
+            if ($b->getPrototype()->getName() === 'small_trash_#00')
+                $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dashboard'];
+
+            if ($b->getPrototype()->getName() === 'item_courroie_#00')
+                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard'];
+            
+
+            $data["builtbuildings"][] = $b;
+
         }
 
         $data['addons'] = $addons;
@@ -80,15 +98,48 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $has_zombie_est_today    = !empty($th->getBuilding($town, 'item_tagger_#00'));
         $has_zombie_est_tomorrow = !empty($th->getBuilding($town, 'item_tagger_#02'));
 
+        $citizens = $town->getCitizens();
+        $alive = 0;
+        foreach ($citizens as $citizen) {
+            if($citizen->getAlive())
+                $alive++;
+        }
+
+
         $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
         if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
         if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
 
+        $defSummary;
+
+        $item_def_factor = 1;
+        $has_battlement = false;
+        foreach ($town->getBuildings() as $building) {
+            if ($building->getComplete() && $building->getPrototype()->getName() === 'item_meca_parts_#00')
+                $item_def_factor += (1+$building->getLevel()) * 0.5;
+
+            //TODO: fetch the Battlement's name
+            if($building->getComplete() && $building->getPrototype()->getName() === 'TOBEDEFINED#00')
+                $has_battlement = true;
+        }
+
+        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ));
+
+        $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+        $has_estimated = $est0 && $est0->getCitizens()->contains($this->getActiveCitizen());
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
-            'def' => $th->calculate_town_def($town),
+            'def' => $th->calculate_town_def($town, $defSummary),
             'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max ],
             'zeds_tomorrow' => [ $has_zombie_est_tomorrow, $z_tomorrow_min, $z_tomorrow_max ],
+            'living_citizens' => $alive,
+            'def_summary' => $defSummary,
+            'item_def_count' => $item_def_count,
+            'item_def_factor' => $item_def_factor,
+            'has_battlement' => $has_battlement,
+            'active_citizen' => $this->getActiveCitizen(),
+            'has_estimated' => $has_estimated
         ]) );
     }
 
@@ -190,8 +241,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             case 2:
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
-                $ac->getInventory()->removeItem( $items[0] );
-                $em->remove( $items[0] );
+                $this->inventory_handler->forceRemoveItem( $items[0] );
                 break;
             case 3:
                 $town = $ac->getTown();
@@ -203,7 +253,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         foreach ($spawn_items as $item_spec)
             for ($i = 0; $i < $item_spec[1]; $i++)
-                $ac->getTown()->getBank()->addItem( $if->createItem( $item_spec[0] ) );
+                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $if->createItem( $item_spec[0] )  );
         $em->persist( $this->log->citizenDisposal( $ac, $c, $action, $spawn_items ) );
         $c->getHome()->setHoldsBody( false );
 
@@ -509,7 +559,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $res = $items = [];
         if (!$building->getComplete() && $building->getPrototype()->getResources())
             foreach ($building->getPrototype()->getResources()->getEntries() as $entry)
-                $res[] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance() );
+                if (!isset($res[ $entry->getPrototype()->getName() ]))
+                    $res[ $entry->getPrototype()->getName() ] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance() );
+                else $res[ $entry->getPrototype()->getName() ]->addCount( $entry->getChance() );
 
         // If the building needs resources, check if they are present in the bank; otherwise fail
         if (!empty($res)) {
@@ -535,10 +587,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $building->setComplete( $building->getComplete() || $building->getAp() >= $building->getPrototype()->getAp() );
         if (!$was_completed && $building->getComplete()) {
             // Remove resources, create a log entry, trigger
-            foreach ($items as $item) {
-                $town->getBank()->removeItem( $item );
-                $this->entity_manager->remove( $item );
-            }
+            foreach ($items as $item)
+                $this->inventory_handler->forceRemoveItem( $item, $res[ $item->getPrototype()->getName() ]->getCount() );
+
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
         }

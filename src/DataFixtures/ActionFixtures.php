@@ -18,6 +18,7 @@ use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenStatus;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
@@ -66,6 +67,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_yet_card'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_cards' ] ]],
             'not_yet_guitar' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_guitar' ] ]],
             'not_yet_sbook'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_sbook' ] ]],
+            'not_yet_hero'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hero' ] ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -94,9 +96,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_be_outside' => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
             'must_be_inside' =>  [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
             'must_be_at_buried_ruin' => [ 'type' => Requirement::CrossOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
-            'must_be_outside_3km' => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ 'min' => 3 ] ]],
-
-
+            'must_be_outside_3km'  => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ 'min' => 3 ] ]],
+            'must_be_outside_within_11km' => [ 'type' => Requirement::MessageOnFail,  'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Hierfür bist du zu weit von der Stadt entfernt ...'],
 
             'must_have_zombies'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => null  ] ], 'text' => 'Zum Glück sind hier keine Zombies...'],
             'must_be_blocked'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => true ] ], 'text' => 'Das kannst du nicht tun während du umzingelt bist...'],
@@ -137,6 +138,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'consume_micropur'=> [ 'consume' => [ 'water_cleaner_#00'  ] ],
             'consume_drug'    => [ 'consume' => [ 'drug_#00'  ] ],
 
+            'spawn_target'    => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => null ] ],
             'repair_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => false, 'poison' => null ] ],
             'poison_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => true  ] ],
 
@@ -174,9 +176,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'find_rp' => [ 'rp' => [true] ],
 
-            'casino_dice'   => [ 'casino' => [1], 'status' => [ 'from' => null, 'to' => 'tg_dice' ] ],
-            'casino_card'   => [ 'casino' => [2], 'status' => [ 'from' => null, 'to' => 'tg_cards' ] ],
-            'casino_guitar' => [ 'casino' => [3] ],
+            'casino_dice'   => [ 'custom' => [1], 'status' => [ 'from' => null, 'to' => 'tg_dice' ] ],
+            'casino_card'   => [ 'custom' => [2], 'status' => [ 'from' => null, 'to' => 'tg_cards' ] ],
+            'casino_guitar' => [ 'custom' => [3] ],
 
             'heal_wound'  => [ 'status' => 'heal_wound' ],
             'add_bandage' => [ 'status' => 'add_bandage' ],
@@ -188,13 +190,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'cyanide' => [ 'death' => [ CauseOfDeath::Cyanide ] ],
 
             'hero_tamer_0' => [ 'item' => [ 'consume' => false, 'morph' => 'tamed_pet_off_#00' ] ],
-            'hero_tamer_1' => [ 'casino' => [4] ],
-            'hero_tamer_2' => [ 'casino' => [5] ],
+            'hero_tamer_1' => [ 'custom' => [4] ],
+            'hero_tamer_2' => [ 'custom' => [5] ],
             'hero_tamer_3' => [ 'item' => [ 'consume' => false, 'morph' => 'tamed_pet_drug_#00' ] ],
 
             'hero_surv_0' => [ 'status' => [ 'from' => null, 'to' => 'tg_sbook' ] ],
-            'hero_surv_1' => [ 'casino' => [6] ],
-            'hero_surv_2' => [ 'casino' => [7] ],
+            'hero_surv_1' => [ 'custom' => [6] ],
+            'hero_surv_2' => [ 'custom' => [7] ],
+
+            'hero_act'    => [ 'status' => [ 'from' => null, 'to' => 'tg_hero' ] ],
+            'hero_immune' => [ 'status' => [ 'from' => null, 'to' => 'hsurvive' ] ],
 
             'hero_hunter' => [ 'item' => [ 'consume' => false, 'morph' => 'vest_on_#00' ] ],
         ],
@@ -251,7 +256,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_break_40' => [[['do_nothing'], 60], [['break_item'], 40]],
                 'g_break_50' => [[['do_nothing'], 50], [['break_item'], 50]],
                 'g_break_60' => [[['do_nothing'], 40], [['break_item'], 60]],
-                'g_break_66' => [[['do_nothing'], 44], [['break_item'], 66]],
+                'g_break_66' => [[['do_nothing'], 34], [['break_item'], 66]],
                 'g_break_80' => [[['do_nothing'], 20], [['break_item'], 80]],
 
                 'g_kill_1z_10' => [[['do_nothing'], 90], [['kill_1_zombie'], 10]],
@@ -443,7 +448,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_lawn'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_2_zombie' ] ],
             'throw_b_screw'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_66'], ['group' => 'g_kill_1z_20'] ] ],
             'throw_b_swiss_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_33'] ] ],
-            'throw_b_cutter'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_66'], 'kill_2_zombie' ] ],
+            'throw_b_cutter'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_80'], ['group' => 'g_kill_1z_20'] ] ],
             'throw_b_concrete_wall' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_1_zombie' ] ],
             'throw_b_torch_off'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_10'] ] ],
             'throw_b_wrench'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_50'] ] ],
@@ -517,8 +522,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_hunter_1' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_outside', 'must_have_control' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
             'hero_hunter_2' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
 
+            'hero_generic_return' => [ 'label' => 'Die Rückkehr des Helden',  'meta' => [ 'must_be_outside', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]] ] ],
+            'hero_generic_find'   => [ 'label' => 'Fund', 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target' ] ],
+            'hero_generic_punch'  => [ 'label' => 'Wildstyle Uppercut', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z'] ] ],
+            'hero_generic_ap'     => [ 'label' => 'Zweite Lunge', 'meta' => [ 'no_full_ap', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6' ] ],
+            'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
+            'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
+
         ],
 
+        'heroics' => [
+            'hero_generic_return', 'hero_generic_find', 'hero_generic_punch', 'hero_generic_ap', 'hero_generic_immune', 'hero_generic_rescue'
+        ],
 
         'items' => [
             'water_#00'           => [ 'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2' ],
@@ -1152,8 +1167,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'rp':
                         $result->setRolePlayerText( $sub_data[0] );
                         break;
-                    case 'casino':
-                        $result->setCasino( $sub_data[0] );
+                    case 'custom':
+                        $result->setCustom( $sub_data[0] );
                         break;
                     default:
                         throw new Exception('No handler for effect type ' . $sub_id);
@@ -1573,6 +1588,71 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         return $cache[$id];
     }
 
+    public function generate_action( ObjectManager $manager, ConsoleOutputInterface $out, string $action,
+                                     array &$set_meta_requirements, array &$set_sub_requirements,
+                                     array &$set_meta_results, array &$set_sub_results,
+                                     array &$set_actions): ItemAction {
+
+        if (!isset($set_actions[$action])) {
+            if (!isset(static::$item_actions['actions'][$action])) throw new Exception('Action definition not found: ' . $action);
+
+            $data = static::$item_actions['actions'][$action];
+            $new_action = $manager->getRepository(ItemAction::class)->findOneByName( $action );
+            if ($new_action) $out->writeln( "\t<comment>Update</comment> action <info>$action</info> ('<info>{$data['label']}</info>')", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $new_action = new ItemAction();
+                $out->writeln( "\t<comment>Create</comment> action <info>$action</info> ('<info>{$data['label']}</info>')", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $new_action->setName( $action )->setLabel( $data['label'] )->clearRequirements();
+            if (!empty($data['message'])) $new_action->setMessage( $data['message'] );
+            else $new_action->setMessage(null);
+
+            if ($new_action->getTarget() && !isset($data['target'])) {
+                $manager->remove( $new_action->getTarget() );
+                $new_action->setTarget(null);
+            }
+
+            if (isset($data['target'])) {
+                if (!$new_action->getTarget()) $new_action->setTarget( new ItemTargetDefinition() );
+                $new_action->getTarget()
+                    ->setSpawner( $data['target']['type'] ?? ItemTargetDefinition::ItemSelectionType )
+                    ->setHeavy( $data['target']['heavy'] ?? null )
+                    ->setPoison( $data['target']['poison'] ?? null )
+                    ->setBroken( $data['target']['broken'] ?? null );
+                if (isset( $data['target']['property'] )) {
+                    $prop = $manager->getRepository(ItemProperty::class)->findOneByName( $data['target']['property'] );
+                    if (!$prop) throw new Exception("Item property not found: '{$data['target']['property']}'");
+                    $new_action->getTarget()->setTag($prop);
+                } else $new_action->getTarget()->setTag(null);
+                if (isset( $data['target']['prototype'] )) {
+                    $proto = $manager->getRepository(ItemPrototype::class)->findOneByName( $data['target']['prototype'] );
+                    if (!$proto) throw new Exception("Item prototype not found: '{$data['target']['prototype']}'");
+                    $new_action->getTarget()->setPrototype($proto);
+                } else $new_action->getTarget()->setPrototype(null);
+            }
+
+            $new_action->setKeepsCover( $data['cover'] ?? false );
+            $new_action->setPoisonHandler( $data['poison'] ?? ItemAction::PoisonHandlerIgnore );
+
+            foreach ( $data['meta'] as $num => $requirement ) {
+                if (is_array($requirement))
+                    $new_action->addRequirement( $this->process_meta_requirement( $manager, $out, $set_meta_requirements, "{$action}_{$num}", $set_sub_requirements, $requirement ) );
+                else $new_action->addRequirement( $this->process_meta_requirement( $manager, $out, $set_meta_requirements, $requirement, $set_sub_requirements ) );
+            }
+
+            foreach ( $data['result'] as $num => $result ) {
+                if (is_array($result))
+                    $new_action->addResult( $this->process_meta_effect($manager,$out, $set_meta_results, "{$action}_{$num}", $set_sub_results, $result) );
+                else $new_action->addResult( $this->process_meta_effect($manager,$out, $set_meta_results, $result, $set_sub_results) );
+            }
+
+            $manager->persist( $set_actions[$action] = $new_action );
+        } else $out->writeln( "\t<comment>Skip</comment> action <info>$action</info> ('<info>{$set_actions[$action]->getLabel()}</info>')", OutputInterface::VERBOSITY_DEBUG );
+
+        return $set_actions[$action];
+    }
+
     /**
      * @param ObjectManager $manager
      * @param ConsoleOutputInterface $out
@@ -1598,66 +1678,20 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $item->getActions()->clear();
             $out->writeln( "Compiling action set for item <info>{$item->getLabel()}</info>...", OutputInterface::VERBOSITY_DEBUG );
 
-            foreach ($actions as $action) {
+            foreach ($actions as $action)
+                $item->addAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
-                if (!isset($set_actions[$action])) {
-                    if (!isset(static::$item_actions['actions'][$action])) throw new Exception('Action definition not found: ' . $action);
-
-                    $data = static::$item_actions['actions'][$action];
-                    $new_action = $manager->getRepository(ItemAction::class)->findOneByName( $action );
-                    if ($new_action) $out->writeln( "\t<comment>Update</comment> action <info>$action</info> ('<info>{$data['label']}</info>')", OutputInterface::VERBOSITY_DEBUG );
-                    else {
-                        $new_action = new ItemAction();
-                        $out->writeln( "\t<comment>Create</comment> action <info>$action</info> ('<info>{$data['label']}</info>')", OutputInterface::VERBOSITY_DEBUG );
-                    }
-
-                    $new_action->setName( $action )->setLabel( $data['label'] )->clearRequirements();
-                    if (!empty($data['message'])) $new_action->setMessage( $data['message'] );
-                    else $new_action->setMessage(null);
-
-                    if ($new_action->getTarget() && !isset($data['target'])) {
-                        $manager->remove( $new_action->getTarget() );
-                        $new_action->setTarget(null);
-                    }
-
-                    if (isset($data['target'])) {
-                        if (!$new_action->getTarget()) $new_action->setTarget( new ItemTargetDefinition() );
-                        $new_action->getTarget()->setHeavy( $data['target']['heavy'] ?? null );
-                        $new_action->getTarget()->setPoison( $data['target']['poison'] ?? null );
-                        $new_action->getTarget()->setBroken( $data['target']['broken'] ?? null );
-                        if (isset( $data['target']['property'] )) {
-                            $prop = $manager->getRepository(ItemProperty::class)->findOneByName( $data['target']['property'] );
-                            if (!$prop) throw new Exception("Item property not found: '{$data['target']['property']}'");
-                            $new_action->getTarget()->setTag($prop);
-                        } else $new_action->getTarget()->setTag(null);
-                        if (isset( $data['target']['prototype'] )) {
-                            $proto = $manager->getRepository(ItemPrototype::class)->findOneByName( $data['target']['prototype'] );
-                            if (!$proto) throw new Exception("Item prototype not found: '{$data['target']['prototype']}'");
-                            $new_action->getTarget()->setPrototype($proto);
-                        } else $new_action->getTarget()->setPrototype(null);
-                    }
-
-                    $new_action->setKeepsCover( $data['cover'] ?? false );
-                    $new_action->setPoisonHandler( $data['poison'] ?? ItemAction::PoisonHandlerIgnore );
-
-                    foreach ( $data['meta'] as $num => $requirement ) {
-                        if (is_array($requirement))
-                            $new_action->addRequirement( $this->process_meta_requirement( $manager, $out, $set_meta_requirements, "{$action}_{$num}", $set_sub_requirements, $requirement ) );
-                        else $new_action->addRequirement( $this->process_meta_requirement( $manager, $out, $set_meta_requirements, $requirement, $set_sub_requirements ) );
-                    }
-
-                    foreach ( $data['result'] as $num => $result ) {
-                        if (is_array($result))
-                            $new_action->addResult( $this->process_meta_effect($manager,$out, $set_meta_results, "{$action}_{$num}", $set_sub_results, $result) );
-                        else $new_action->addResult( $this->process_meta_effect($manager,$out, $set_meta_results, $result, $set_sub_results) );
-                    }
-
-                    $manager->persist( $set_actions[$action] = $new_action );
-                } else $out->writeln( "\t<comment>Skip</comment> action <info>$action</info> ('<info>{$set_actions[$action]->getLabel()}</info>')", OutputInterface::VERBOSITY_DEBUG );
-
-                $item->addAction( $set_actions[$action] );
-            }
             $manager->persist( $item );
+        }
+
+        foreach (static::$item_actions['heroics'] as $action) {
+
+            $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneByName( $action );
+            if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action );
+
+            $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+
+            $manager->persist( $action_proto );
         }
         $manager->flush();
     }

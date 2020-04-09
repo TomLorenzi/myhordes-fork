@@ -118,8 +118,8 @@ class TownHandler
                 break;
             case 'small_cafet_#00':
                 $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'woodsteak_#00' );
-                $town->getBank()->addItem( $this->item_factory->createItem( $proto ) );
-                $town->getBank()->addItem( $this->item_factory->createItem( $proto ) );
+                $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
+                $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteSpawnItems( $building, [ [$proto,2] ] ) );
                 break;
             case 'r_dhang_#00':case 'small_fleshcage_#00':
@@ -180,6 +180,7 @@ class TownHandler
 
         $summary->house_defense = $home->getPrototype()->getDefense();
 
+
         if ($home->getCitizen()->getProfession()->getHeroic())
             $summary->job_defense += 2;
 
@@ -193,6 +194,7 @@ class TownHandler
             );
             $summary->upgrades_defense = ($n ? $n->getLevel() : 0) + $home->getAdditionalDefense();
         } else $summary->upgrades_defense = $home->getAdditionalDefense();
+
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
             $this->inventory_handler->resolveItemProperties( 'defence' )
@@ -245,6 +247,7 @@ class TownHandler
             if ($citizen->getAlive()) {
                 $home = $citizen->getHome();
                 $f_house_def += $this->calculate_home_def( $home ) * $home_def_factor;
+
                 if (!$citizen->getZone() && $citizen->getProfession()->getName() === 'guardian')
                     $summary->guardian_defense += $guardian_bonus;
             }
@@ -260,10 +263,14 @@ class TownHandler
                     $item_def_factor += (1+$building->getLevel()) * 0.5;
             }
 
+
         $summary->item_defense = floor($this->inventory_handler->countSpecificItems( $town->getBank(),
             $this->inventory_handler->resolveItemProperties( 'defence' )
         ) * $item_def_factor);
 
+        if ($summary->item_defense > 500)
+            $summary->item_defense = 500;
+        
         return $summary->sum();
     }
 

@@ -66,6 +66,11 @@ class ItemPrototype
      */
     private $actions;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -151,6 +156,12 @@ class ItemPrototype
         return $this;
     }
 
+    public function hasProperty(string $prop) {
+        foreach ($this->getProperties() as $p)
+            if ($p->getName() === $prop) return true;
+        return false;
+    }
+
     public function getName(): ?string
     {
         return $this->name;
@@ -197,6 +208,18 @@ class ItemPrototype
         if ($this->actions->contains($action)) {
             $this->actions->removeElement($action);
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

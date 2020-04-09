@@ -1,0 +1,113 @@
+<?php
+
+
+namespace App\Command;
+
+
+use App\Entity\Citizen;
+use App\Entity\CitizenProfession;
+use App\Entity\HeroicActionPrototype;
+use App\Entity\Item;
+use App\Entity\Town;
+use App\Entity\User;
+use App\Service\CitizenHandler;
+use App\Service\GameFactory;
+use App\Service\InventoryHandler;
+use App\Service\RandomGenerator;
+use Doctrine\ORM\EntityManagerInterface;
+use Exception;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
+
+class MigrateCommand extends Command
+{
+    protected static $defaultName = 'app:migrate';
+
+    private $kernel;
+
+    private $game_factory;
+    private $entity_manager;
+    private $citizen_handler;
+    private $randomizer;
+    private $inventory_handler;
+
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih)
+    {
+        $this->kernel = $kernel;
+
+        $this->game_factory = $gf;
+        $this->entity_manager = $em;
+        $this->randomizer = $rg;
+        $this->citizen_handler = $ch;
+        $this->inventory_handler = $ih;
+
+        parent::__construct();
+    }
+
+    protected function configure()
+    {
+        $this
+            ->setDescription('Performs migrations to update content after a version update.')
+            ->setHelp('Migrations.')
+
+            ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
+            ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
+        ;
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        if ($input->getOption('assign-heroic-actions-all')) {
+            $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
+            foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
+                foreach ($heroic_actions as $heroic_action)
+                    /** @var $heroic_action HeroicActionPrototype */
+                    $citizen->addHeroicAction( $heroic_action );
+                $this->entity_manager->persist( $citizen );
+            }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('init-item-stacks')) {
+            foreach ($this->entity_manager->getRepository(Item::class)->findAll() as $item) {
+                /** @var $item Item */
+                if ($item->getCount() == 0) {
+                    $item->setCount( 1 );
+                    $this->entity_manager->persist( $item );
+                }
+            }
+            $this->entity_manager->flush();
+
+            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $town) {
+                /** @var $town Town*/
+                foreach ($town->getBank()->getItems() as $item)
+                    if ($item->getCount() <= 1) {
+                        $target = $this->inventory_handler->findStackPrototype( $town->getBank(), $item );
+                        if ($target) {
+                            $target->setCount( $target->getCount() + 1);
+                            $this->inventory_handler->forceRemoveItem( $item );
+                            $this->entity_manager->persist($target);
+                        }
+
+                    }
+            }
+
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        return 1;
+    }
+}

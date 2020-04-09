@@ -54,7 +54,7 @@ class UserFactory
         $validator = Validation::createValidator();
 
         $new_user = new User();
-        $new_user->setName( $name )->setEmail( $email )->setPassword( $this->encoder->encodePassword($new_user, $password) )->setValidated( $validated );
+        $new_user->setName( $name )->setEmail( $email )->setPassword( $this->encoder->encodePassword($new_user, $password) )->setValidated( $validated )->setSoulPoints(0);
 
         if ($validator->validate($new_user)->count() > 0) {
             $error = self::ErrorInvalidParams;

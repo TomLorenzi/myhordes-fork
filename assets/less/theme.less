@@ -6,8 +6,10 @@
 @import (once) "modules/beyond";
 @import (once) "modules/constructions";
 @import (once) "modules/forum";
+@import (once) "modules/ghost";
+@import (once) "modules/soul";
 
-@myhordes-font: 'Open Sans',sans-serif;
+@myhordes-font: "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
 @myhordes-background: url(../img/bg_colored.jpg) top center no-repeat, #100C0B;
 
@@ -30,8 +32,8 @@
                         url("../img/panel_01.gif") top left repeat-x, url("../img/panel_10.gif") top left repeat-y,
                         url("../img/panel_12.gif") top right repeat-y, url("../img/panel_21.gif") bottom left repeat-x;
 
-@myhordes-cell-header-background-color: #552012;
-@myhordes-cell-header-text-color: #EFA168;
+@myhordes-cell-header-background-color: #3e2417;
+@myhordes-cell-header-text-color: #f0d79e;
 
 @myhordes-button-background: url('../img/bg_button.gif');
 @myhordes-button-static-background: #a5381b;
@@ -143,6 +145,15 @@ footer {
   background: @color; border: 1px solid @myhordes-input-border;
 }
 
+div.town-header {
+  &:before {
+    position: absolute; left: -10px; right: -13px; top: -10px; height: 150px; content: " ";
+    background: url("../img/sign_header.jpg") center/cover no-repeat; }
+  position: relative; margin-bottom: 160px;
+  &>b { position: absolute; left: 260px; top: 15px; width: 308px; color: #572b23; text-align: center; font-size: 19pt; }
+  &>span { position: absolute; left: 260px; top: 107px; width: 308px; color: white; text-align: center; font-size: 13pt; font-weight: bold }
+}
+
 div.note {
   .box(); padding: 5px; font-size: 12px; margin: 5px 0;
   &.note-warning {
@@ -215,7 +226,9 @@ ul.inventory {
     vertical-align: text-bottom;
     &.title:first-child {
       &:empty {display: none}
-      background: @myhordes-cell-header-background-color; padding: 2px 6px;
+      background: @myhordes-cell-header-background-color;
+      padding: 2px 6px;
+      margin-right: 2px;
     }
     &.item { border-color: rgba(0,0,0,0); }
     &.item:not(.locked) { cursor: pointer; }
@@ -233,7 +246,7 @@ ul.inventory {
   &.bank { background: url("../img/inv_bank.gif") repeat center; min-height: 100px;}
 }
 
-ul.actions {
+ul.actions, ul.heroic_actions {
   padding: 5px 2px; .box();
   &>li {
     list-style: none; padding: 2px 2px 2px 10px; font-size: 12px; font-variant: small-caps;
@@ -249,6 +262,7 @@ ul.actions {
       &>ul {
         margin: 0; padding: 0; font-size: 0;
         &>li {
+          &>div { font-size: 12px; }
           list-style: none; padding: 2px; margin: 2px; display: inline-block; cursor: pointer; border: 1px solid transparent;
           &:hover { background: saturate( @myhordes-smalltext, 30% ); border-color: darken(@myhordes-smalltext, 20%) }
         }
@@ -328,7 +342,7 @@ div.game-menu-area {
         position: absolute; background: url("../img/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0;
         &>li { display: block; position: absolute; }
-        &>li:nth-child(1) { font-size: 10px; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; }
+        &>li:nth-child(1) { font-size: 10px; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; font-variant: small-caps }
         &>li:nth-child(2) { font-size: 10px; color: #704018; font-weight: bold; text-align: right; height: 12px; top: 25px; left: 0; right: 85px; }
         &>li:nth-child(3) { font-size: 10px; text-align: center; top: 32px; left: 215px; right: 25px; }
         &>li:nth-child(4) { color: #5e0000; font-size: 10px; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
@@ -357,8 +371,8 @@ div.game-menu-area {
           font-size: medium;
           &>li { margin-top: 3px; }
         }
-        &.ap:before { content: "AP" };
-        &.bp:before { content: "BP" };
+        &.ap:before { content: ""};
+        &.bp:before { content: "" };
         &.civil:before { content: " " };
       }
     }
@@ -392,12 +406,6 @@ span.icon {
   &>img { margin-right: 3px; }
   background: rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.15); padding: 0 5px; border-radius: 6px;
   font-variant: small-caps; color: white; font-size: 12px;
-}
-
-.dashboard {
-  padding: 5px; border-radius: 10px; background: @myhordes-cell-header-background-color; margin: 10px 0;
-  border: 1px solid darken(@myhordes-cell-header-background-color, 5%); font-size: 25px; color: @myhordes-smalltext;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 ul.summary {
@@ -440,4 +448,46 @@ div.tooltip {
     font-size: 12px; font-weight: bold; margin: 4px; padding: 0; text-align: center;
     border-bottom: 1px solid darken(@myhordes-smalltext, 20%); font-variant: small-caps;
   }
+}
+
+ul.citizen-list li {
+  list-style: none; color: @myhordes-smalltext;
+}
+
+span.language {
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 20px;
+  width: 20px;
+  background-color: saddlebrown;
+  display: inline-block;
+  text-align: center;
+  height: 20px;
+  color: sandybrown;
+}
+
+div.block {
+  width: 80%;
+  margin: 10px auto;
+  background-color: #5c2b20;
+  border: 1px solid #e1bd9b;
+  outline: 2px solid #43281a;
+}
+
+strong {
+  color: #afacc1;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+}
+
+div.item-tag {
+  font-size: 11px; text-align: center; padding: 2px; background: #022142; border: 1px solid #011d37;
+  position: relative; color: @myhordes-smalltext; height: 18px; margin-top: 3px;
+  &:after {position: absolute; display: block; content: " "; height: 16px; width: 16px; top: 0; left: 1px; }
+  &.item-tag-deco:after { background: url("../img/item/cat_deco.gif") center/contain no-repeat }
+  &.item-tag-defense:after { background: url("../img/item/cat_def.gif") center/contain no-repeat }
+  &.item-tag-essential:after { background: url("../img/item/cat_job.gif") center/contain no-repeat }
+  &.item-tag-weapon:after { background: url("../img/item/cat_weapon.gif") center/contain no-repeat }
+  &.item-tag-heavy:after { background: url("../img/item/cat_heavy.gif") center/contain no-repeat }
 }

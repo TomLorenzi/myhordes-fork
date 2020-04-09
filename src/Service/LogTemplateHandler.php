@@ -46,7 +46,12 @@ class LogTemplateHandler
     private function iconize($obj, bool $small = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj[0], $small) . ' x ' . $obj[1];
 
-        if ($obj instanceof Item)        return $this->iconize( $obj->getPrototype(), $small );
+        if ($obj instanceof Item) {
+            $str = $this->iconize( $obj->getPrototype(), $small );
+            if($obj->getBroken())
+                $str .= " (" . $this->trans->trans("Kaputt", [], 'items') . ")";
+            return $str;
+        }
         if ($obj instanceof Building)    return $this->iconize( $obj->getPrototype(), $small );
         if ($obj instanceof CitizenHome) return $this->iconize( $obj->getPrototype(), $small );
 
@@ -115,7 +120,7 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
-    public function wellAdd( Citizen $citizen, Item $item, int $count ): TownLogEntry {
+    public function wellAdd( Citizen $citizen, ?Item $item, int $count ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeWell )
             ->setClass( TownLogEntry::ClassInfo )
@@ -123,7 +128,9 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.', [
+            ->setText( $this->trans->trans($item
+                ? '%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.'
+                : '%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%item%'    => $this->wrap( $this->iconize( $item ) ),
                 '%num%'     => $this->wrap( "$count" ),
@@ -373,15 +380,15 @@ class LogTemplateHandler
 
         $str = 'Horizont';
         if ($d_north) {
-            if ($d_east)     $str = 'Nordosten';
-            elseif ($d_west) $str = 'Nordwesten';
-            else             $str = 'Norden';
+            if ($d_east)     $str = T::__('Nordosten', "game");
+            elseif ($d_west) $str = T::__('Nordwesten', "game");
+            else             $str = T::__('Norden', "game");
         } elseif ($d_south) {
-            if ($d_east)     $str = 'Südosten';
-            elseif ($d_west) $str = 'Südwesten';
-            else             $str = 'Süden';
-        } elseif ($d_east)   $str = 'Osten';
-        elseif ($d_west)     $str = 'Westen';
+            if ($d_east)     $str = T::__('Südosten', "game");
+            elseif ($d_west) $str = T::__('Südwesten', "game");
+            else             $str = T::__('Süden', "game");
+        } elseif ($d_east)   $str = T::__('Osten', "game");
+        elseif ($d_west)     $str = T::__('Westen', "game");
 
         if ($is_zero_zone)
             $base = $depart ?  T::__('%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.', 'game') : T::__('%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.', 'game');
@@ -519,7 +526,7 @@ class LogTemplateHandler
         if ($door_open)
             $str = T::__('... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!', 'game');
         else $str = $num_zombies > 0 ? T::__('%num% Zombies sind durch unsere Verteidigung gebrochen!', 'game') : T::__('Nicht ein Zombie hat die Stadt betreten!', 'game');
-
+        
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )
             ->setClass( TownLogEntry::ClassCritical )
@@ -606,7 +613,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackProduction( Building $building, ?array $items = [] ): TownLogEntry {
-        $items = array_map( function(Item $e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
+        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
 
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )
@@ -630,8 +637,8 @@ class LogTemplateHandler
             ->setCitizen( $complaint->getCulprit() )
             ->setTimestamp( new DateTime('now') )
             ->setText( $this->trans->trans( $complaint->getSeverity() > Complaint::SeverityNone
-                    ? 'Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!'
-                    : 'Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.' ,
+                    ? T::__('Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!', 'game')
+                    : T::__('Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.', 'game'),
                 [
                     '%citizen%'  => $this->wrap( $this->iconize( $complaint->getCulprit() ) ),
                 ], 'game' ) );
@@ -741,7 +748,7 @@ class LogTemplateHandler
             ->setZone( $sender->getZone() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $sender )
-            ->setText( $this->wrap( $this->iconize( $sender ) ) . ': ' . $message );
+            ->setText( $this->wrap( $this->iconize( $sender ) ) . ': ' . htmlentities( $message ) );
     }
 
 }

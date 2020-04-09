@@ -1125,46 +1125,6 @@
         <source>Bandagiert</source>
         <target>Bandagiert</target>
       </trans-unit>
-      <trans-unit id="qsjDwdX" resname="tg_dice">
-        <source>tg_dice</source>
-        <target>tg_dice</target>
-      </trans-unit>
-      <trans-unit id="ekEtK_D" resname="tg_cards">
-        <source>tg_cards</source>
-        <target>tg_cards</target>
-      </trans-unit>
-      <trans-unit id="TxIoVDY" resname="tg_meta_wound">
-        <source>tg_meta_wound</source>
-        <target>tg_meta_wound</target>
-      </trans-unit>
-      <trans-unit id="LJ2TI_g" resname="tg_clothes">
-        <source>tg_clothes</source>
-        <target>tg_clothes</target>
-      </trans-unit>
-      <trans-unit id="Fs0l96M" resname="tg_teddy">
-        <source>tg_teddy</source>
-        <target>tg_teddy</target>
-      </trans-unit>
-      <trans-unit id="rePnXfd" resname="tg_guitar">
-        <source>tg_guitar</source>
-        <target>tg_guitar</target>
-      </trans-unit>
-      <trans-unit id="S.v59pK" resname="tg_sbook">
-        <source>tg_sbook</source>
-        <target>tg_sbook</target>
-      </trans-unit>
-      <trans-unit id="Vaet2kz" resname="tg_steal">
-        <source>tg_steal</source>
-        <target>tg_steal</target>
-      </trans-unit>
-      <trans-unit id="yD4A901" resname="tg_home_upgrade">
-        <source>tg_home_upgrade</source>
-        <target>tg_home_upgrade</target>
-      </trans-unit>
-      <trans-unit id="RXBorL8" resname="tg_never">
-        <source>tg_never</source>
-        <target>tg_never</target>
-      </trans-unit>
       <trans-unit id="UUnigxa" resname="Abgelegenes Haus">
         <source>Abgelegenes Haus</source>
         <target>Abgelegenes Haus</target>
@@ -1572,6 +1532,206 @@
       <trans-unit id="4hCJabi" resname="Leiche grillen">
         <source>Leiche grillen</source>
         <target>Leiche grillen</target>
+      </trans-unit>
+      <trans-unit id="MJMhV5L" resname="Kleine Stadt">
+        <source>Kleine Stadt</source>
+        <target>Kleine Stadt</target>
+      </trans-unit>
+      <trans-unit id="bElrYkF" resname="Entfernte Regionen">
+        <source>Entfernte Regionen</source>
+        <target>Entfernte Regionen</target>
+      </trans-unit>
+      <trans-unit id="7H7gGH1" resname="Pandämonium">
+        <source>Pandämonium</source>
+        <target>Pandämonium</target>
+      </trans-unit>
+      <trans-unit id="2ZxNAfn" resname="Private Stadt">
+        <source>Private Stadt</source>
+        <target>Private Stadt</target>
+      </trans-unit>
+      <trans-unit id="GOlt3k3" resname="%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.">
+        <source>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
+        <target>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
+      </trans-unit>
+      <trans-unit id="LQgPbVT" resname="Nordosten">
+        <source>Nordosten</source>
+        <target>Nordosten</target>
+      </trans-unit>
+      <trans-unit id="R9OI7Nm" resname="Nordwesten">
+        <source>Nordwesten</source>
+        <target>Nordwesten</target>
+      </trans-unit>
+      <trans-unit id="dOCvO1b" resname="Norden">
+        <source>Norden</source>
+        <target>Norden</target>
+      </trans-unit>
+      <trans-unit id="ac.6Rc5" resname="Südosten">
+        <source>Südosten</source>
+        <target>Südosten</target>
+      </trans-unit>
+      <trans-unit id="YE0v6eT" resname="Südwesten">
+        <source>Südwesten</source>
+        <target>Südwesten</target>
+      </trans-unit>
+      <trans-unit id="qxvJIc." resname="Süden">
+        <source>Süden</source>
+        <target>Süden</target>
+      </trans-unit>
+      <trans-unit id="xMKWHhf" resname="Osten">
+        <source>Osten</source>
+        <target>Osten</target>
+      </trans-unit>
+      <trans-unit id="jdRT5Z5" resname="Westen">
+        <source>Westen</source>
+        <target>Westen</target>
+      </trans-unit>
+      <trans-unit id="rDzEZM3" resname="Bitte wähle einen Bürger:">
+        <source>Bitte wähle einen Bürger:</source>
+        <target>Bitte wähle einen Bürger:</target>
+      </trans-unit>
+      <trans-unit id="MgtBTg_" resname="Es ist kein Bürger in der Nähe...">
+        <source>Es ist kein Bürger in der Nähe...</source>
+        <target>Es ist kein Bürger in der Nähe...</target>
+      </trans-unit>
+      <trans-unit id="yFVdfG6" resname="Rucksack in der Bank ausleeren">
+        <source>Rucksack in der Bank ausleeren</source>
+        <target>Rucksack in der Bank ausleeren</target>
+      </trans-unit>
+      <trans-unit id="25G93ga" resname="Durch die Lüftungsschächte klettern">
+        <source>Durch die Lüftungsschächte klettern</source>
+        <target>Durch die Lüftungsschächte klettern</target>
+      </trans-unit>
+      <trans-unit id="mwAKBpm" resname="Meine objekte">
+        <source>Meine objekte</source>
+        <target>Meine objekte</target>
+      </trans-unit>
+      <trans-unit id="f1TzhOn" resname="Gammler">
+        <source>Gammler</source>
+        <target>Gammler</target>
+      </trans-unit>
+      <trans-unit id="sBbkqrg" resname="Buddler">
+        <source>Buddler</source>
+        <target>Buddler</target>
+      </trans-unit>
+      <trans-unit id="aMWLa_K" resname="Wächter">
+        <source>Wächter</source>
+        <target>Wächter</target>
+      </trans-unit>
+      <trans-unit id="N55mPtD" resname="Aufklärer">
+        <source>Aufklärer</source>
+        <target>Aufklärer</target>
+      </trans-unit>
+      <trans-unit id="l9gYoq8" resname="Dompteur">
+        <source>Dompteur</source>
+        <target>Dompteur</target>
+      </trans-unit>
+      <trans-unit id="CcGFUIM" resname="Techniker">
+        <source>Techniker</source>
+        <target>Techniker</target>
+      </trans-unit>
+      <trans-unit id="gMJ9FD2" resname="Schamane">
+        <source>Schamane</source>
+        <target>Schamane</target>
+      </trans-unit>
+      <trans-unit id="jYiPQYC" resname="Einsiedler">
+        <source>Einsiedler</source>
+        <target>Einsiedler</target>
+      </trans-unit>
+      <trans-unit id="266wx0d" resname="Verbesserung des Tages">
+        <source>Verbesserung des Tages</source>
+        <target>Verbesserung des Tages</target>
+      </trans-unit>
+      <trans-unit id="IbZvvYE" resname="Wachturm">
+        <source>Wachturm</source>
+        <target>Wachturm</target>
+      </trans-unit>
+      <trans-unit id="gd8sEx3" resname="Werkstatt">
+        <source>Werkstatt</source>
+        <target>Werkstatt</target>
+      </trans-unit>
+      <trans-unit id="Wf9i_SY" resname="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
+        <source>Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!</source>
+        <target>Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!</target>
+      </trans-unit>
+      <trans-unit id="6S5k6T1" resname="Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.">
+        <source>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</source>
+        <target>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</target>
+      </trans-unit>
+      <trans-unit id="vv.mZRz" resname="Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.">
+        <source>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</source>
+        <target>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</target>
+      </trans-unit>
+      <trans-unit id="cHKuQLy" resname="Den morgigen Angriff berechnen">
+        <source>Den morgigen Angriff berechnen</source>
+        <target>Den morgigen Angriff berechnen</target>
+      </trans-unit>
+      <trans-unit id="cePRD7K" resname="In der Stadt wohnen @citizens Bürger.">
+        <source>In der Stadt wohnen @citizens Bürger.</source>
+        <target>In der Stadt wohnen @citizens Bürger.</target>
+      </trans-unit>
+      <trans-unit id="U_9lkcG" resname="leere Truhe">
+        <source>leere Truhe</source>
+        <target>leere Truhe</target>
+      </trans-unit>
+      <trans-unit id="476j_uq" resname="Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:">
+        <source>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</source>
+        <target>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</target>
+      </trans-unit>
+      <trans-unit id="fIJzVR7" resname="Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.">
+        <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
+        <target>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</target>
+      </trans-unit>
+      <trans-unit id="TSuzaPk" resname="Übersicht">
+        <source>Übersicht</source>
+        <target>Übersicht</target>
+      </trans-unit>
+      <trans-unit id="a8zlw81" resname="Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.">
+        <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
+        <target>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</target>
+      </trans-unit>
+      <trans-unit id="Fak6Ovg" resname="Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...">
+        <source>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</source>
+        <target>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</target>
+      </trans-unit>
+      <trans-unit id="v3pLWJA" resname="Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...">
+        <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
+        <target>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</target>
+      </trans-unit>
+      <trans-unit id="is0j5bp" resname="Die Zone untersuchen">
+        <source>Die Zone untersuchen</source>
+        <target>Die Zone untersuchen</target>
+      </trans-unit>
+      <trans-unit id="Utl2PJa" resname="Du schaust dir die Gegend etwas genauer an...">
+        <source>Du schaust dir die Gegend etwas genauer an...</source>
+        <target>Du schaust dir die Gegend etwas genauer an...</target>
+      </trans-unit>
+      <trans-unit id="BsmmJg2" resname="Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.">
+        <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
+        <target>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</target>
+      </trans-unit>
+      <trans-unit id="u.HzZ0w" resname="Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.">
+        <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</target>
+      </trans-unit>
+      <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
+        <source>Sich verstecken und die Nacht hier schlafen!</source>
+        <target>Sich verstecken und die Nacht hier schlafen!</target>
+      </trans-unit>
+      <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
+        <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
+        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
+        <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
+        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="VGRstc7" resname="Rucksack auf dem Boden ausleeren">
+        <source>Rucksack auf dem Boden ausleeren</source>
+        <target>Rucksack auf dem Boden ausleeren</target>
+      </trans-unit>
+      <trans-unit id="aARNmv6" resname="Heute ist nichts Erwähnenswertes passiert...">
+        <source>Heute ist nichts Erwähnenswertes passiert...</source>
+        <target>Heute ist nichts Erwähnenswertes passiert...</target>
       </trans-unit>
     </body>
   </file>

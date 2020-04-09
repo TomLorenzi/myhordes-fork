@@ -23,6 +23,26 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    # Scheduler Command needs the fully featured translator class instead of
+    # just the interface, in order to set a locale
+    App\Command\SchedulerCommand:
+        arguments:
+            $translator: '@translator.default'
+
+    App\Command\DebugCommand:
+        arguments:
+            $translator: '@translator.default'
+
+    App\Command\TownInspectorCommand:
+        arguments:
+            $translator: '@translator.default'
+
+    # TimeKeeperService should not keep the attack going for 20 minutes after
+    # it has finished processing in dev mode, so we need to pass the environment
+    App\Service\TimeKeeperService:
+        arguments:
+            $env: '%kernel.environment%'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     App\Translation\DatabaseExtractor:
