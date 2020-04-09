@@ -6,7 +6,7 @@
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
-            <li>{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}</li>
+            <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}</li>
             <li>{{ clock.timestamp.format('G:i') }}</li>
             <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"></li>
         </ul>

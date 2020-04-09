@@ -2821,6 +2821,26 @@
         <source>Sonstiges</source>
         <target>Divers</target>
       </trans-unit>
+      <trans-unit id="9VFJt3E" resname="&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;">
+        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
+        <target><![CDATA[<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>]]></target>
+      </trans-unit>
+      <trans-unit id="_Rr9DQQ" resname="Behälter und Dosen">
+        <source>Behälter und Dosen</source>
+        <target>Behälter und Dosen</target>
+      </trans-unit>
+      <trans-unit id="77.Cp5H" resname="Verteidigung">
+        <source>Verteidigung</source>
+        <target>Verteidigung</target>
+      </trans-unit>
+      <trans-unit id="u1z.6sr" resname="Taschen und Behälter">
+        <source>Taschen und Behälter</source>
+        <target>Taschen und Behälter</target>
+      </trans-unit>
+      <trans-unit id="GBa7ihv" resname="Waffen">
+        <source>Waffen</source>
+        <target>Waffen</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

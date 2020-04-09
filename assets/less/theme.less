@@ -145,13 +145,31 @@ footer {
   background: @color; border: 1px solid @myhordes-input-border;
 }
 
-div.town-header {
+div.town-header,
+div.town-header-hardcore {
   &:before {
-    position: absolute; left: -10px; right: -13px; top: -10px; height: 150px; content: " ";
-    background: url("../img/sign_header.jpg") center/cover no-repeat; }
+    position: absolute;
+    left: -10px;
+    right: -13px;
+    top: -10px;
+    height: 150px;
+    content: " ";
+  }
   position: relative; margin-bottom: 160px;
   &>b { position: absolute; left: 260px; top: 15px; width: 308px; color: #572b23; text-align: center; font-size: 19pt; }
   &>span { position: absolute; left: 260px; top: 107px; width: 308px; color: white; text-align: center; font-size: 13pt; font-weight: bold }
+}
+
+div.town-header {
+  &:before {
+    background: url("../img/sign_header.jpg") center/cover no-repeat;
+  }
+}
+
+div.town-header-hardcore {
+  &:before {
+    background: url("../img/sign_header.jpg") center/cover no-repeat;
+  }
 }
 
 div.note {
@@ -343,9 +361,22 @@ div.game-menu-area {
         top: -130px; right: 0;
         &>li { display: block; position: absolute; }
         &>li:nth-child(1) { font-size: 10px; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; font-variant: small-caps }
-        &>li:nth-child(2) { font-size: 10px; color: #704018; font-weight: bold; text-align: right; height: 12px; top: 25px; left: 0; right: 85px; }
+        &>li:nth-child(2) {
+          font-size: 10px;
+          color: #704018;
+          font-weight: bold;
+          text-align: right;
+          height: 12px;
+          top: 25px;
+          left: 0;
+          right: 85px;
+        }
         &>li:nth-child(3) { font-size: 10px; text-align: center; top: 32px; left: 215px; right: 25px; }
         &>li:nth-child(4) { color: #5e0000; font-size: 10px; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
+        .hardcore {
+          color: lighten(#7C2727, 10%);
+          font-variant: small-caps;
+        }
       }
 
       &.status, &.rucksack, &.ap, &.bp, &.civil {

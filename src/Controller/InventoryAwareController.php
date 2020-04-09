@@ -70,7 +70,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'desc'      => $this->getActiveCitizen()->getTown()->getName(),
             'day'       => $this->getActiveCitizen()->getTown()->getDay(),
             'timestamp' => new DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true)
+            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+            'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );

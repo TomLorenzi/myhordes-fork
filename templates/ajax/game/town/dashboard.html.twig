@@ -1,6 +1,6 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
-    <div class="town-header">
+    <div class="town-header{% if town.type.name == 'panda' %}-hardcore{% endif %}">
         <b>{{ town.name }}</b><br />
         <span>{{ 'Tag %day%'|trans({'%day%':town.day},'game') }}</span>
     </div>
