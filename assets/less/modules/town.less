@@ -213,14 +213,30 @@
 }
 
 .words-of-heroes {
-  min-height: 200px;
-  background: grey;
+  min-height: 260px;
+  background: url("../../img/town/cityBoard.png") no-repeat;
   padding: 5px;
   margin-top: 10px;
+  .content {
+    padding: 40px 10px 0 10px;
+    height: 230px;
+    max-height: 230px;
+    overflow: auto;
+  }
+  .edit {
+    max-width: 240px;
+    text-align: right;
+    font-size: 12px;
+    color: #ddab76;
+    .disabled {
+      text-decoration: line-through;
+      font-weight: normal;
+      color: grey;
+    }
+  }
 }
 
 .overview-list, .overview-checklist {
-  padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 14px;
@@ -236,8 +252,24 @@
   }
 }
 
+.overview-checklist {
+  list-style: none;
+  padding-left: 10px;
+  li {
+    padding-left: 20px;
+    background: url("../../img/tickOff.gif") 5px 5px no-repeat;
+  }
+  li.checked {
+    background: url("../../img/tickOn.gif") 5px 5px no-repeat;
+    text-decoration: line-through;
+    font-style: italic;
+    color: #b37c4a;
+  }
+}
+
 .overview-list {
   list-style: url("../../img/small_dot.gif");
+  padding-left: 20px;
   .warning {
     color: #f86;
   }

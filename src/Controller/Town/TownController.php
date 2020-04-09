@@ -14,6 +14,7 @@ use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\TownLogEntry;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Translation\T;
 use App\Response\AjaxResponse;
@@ -104,6 +105,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $alive++;
         }
 
+
         $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
         if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
         if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
@@ -123,6 +125,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ));
 
+        $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+        $has_estimated = $est0 && $est0->getCitizens()->contains($this->getActiveCitizen());
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
@@ -133,7 +137,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'def_summary' => $defSummary,
             'item_def_count' => $item_def_count,
             'item_def_factor' => $item_def_factor,
-            'has_battlement' => $has_battlement
+            'has_battlement' => $has_battlement,
+            'active_citizen' => $this->getActiveCitizen(),
+            'has_estimated' => $has_estimated
         ]) );
     }
 
