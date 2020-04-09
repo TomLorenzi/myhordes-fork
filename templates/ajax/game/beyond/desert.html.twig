@@ -27,11 +27,8 @@
                     <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
                     <p>{% trans from 'game' %}Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.{% endtrans %}</p>
                     <p>{% trans from 'game' %}Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.{% endtrans %}</p>
-                    <ul>
-                        <li>{% trans from 'game' %}Sich verstecken und die Nacht hier schlafen!{% endtrans %}</li>
-                        <li>{% trans from 'game' %}Schlafplatz verbessern (schwacher permanenter Bonus, 1AP){% endtrans %}</li>
-                        <li>{% trans from 'game' %}"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP){% endtrans %}</li>
-                    </ul>
+                    {% embed "ajax/game/actions.html.twig" with {'list': camping} %}
+                    {% endembed %}
                 </div>
             </div>
         </div>

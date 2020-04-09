@@ -92,8 +92,13 @@ class NightlyHandler
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Vanished);
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone()) {
-                $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> without protection!" );
-                $this->kill_wrap($citizen,$cod);
+                if ($citizen->getStatus()->contains()) {
+
+                }
+                else {
+                  $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> without protection!");
+                  $this->kill_wrap($citizen, $cod);
+                }
             }
     }
 

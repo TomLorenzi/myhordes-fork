@@ -135,6 +135,11 @@ class Zone
      */
     private $scoutEstimationOffset;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $hideoutLevel = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
