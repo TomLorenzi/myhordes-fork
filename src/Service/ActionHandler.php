@@ -755,11 +755,11 @@ class ActionHandler
 
             do {
                 $message = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
-                    list(, $tag, $text) = $m;
+                    [, $tag, $text] = $m;
                     return in_array( $tag, $tags ) ? $text : '';
                 }, $message, -1, $c);
                 $message = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($tags): string {
-                    list(, $tag, $text) = $m;
+                    [, $tag, $text] = $m;
                     return !in_array( $tag, $tags ) ? $text : '';
                 }, $message, -1, $d);
             } while ($c > 0 || $d > 0);
@@ -820,8 +820,19 @@ class ActionHandler
 
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
-                $base = 'Du hast %item_list% in der Werkstatt zu %item% umgewandelt.';
-                break;
+              switch($recipe->getAction()) {
+                case "Öffnen":
+                  $base = 'Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.';
+                  break;
+
+                case "Zerlegen":
+                  $base = 'Du hast %item_list% in der Werkstatt zu %item% zerlegt.';
+                  break;
+
+                default:
+                  $base = 'Du hast %item_list% in der Werkstatt zu %item% umgewandelt.';
+              }
+              break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
                 $base = 'Du hast %item_list% zu %item% umgewandelt.';
                 break;
