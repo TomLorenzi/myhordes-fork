@@ -1,18 +1,18 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
-    <div class="right">
-        <b>{{ town.name }}</b><br />
-        <i>{% trans with {'%day%':town.day} from 'game' %}Tag %day%{% endtrans %}</i>
+    <div class="town-header">
+        <b>{{ town.name }}</b>
+        <span>{{ 'Tag %day%'|trans({'%day%':town.day},'game') }}</span>
     </div>
 
     <div class="dashboard">
         <div class="row">
-            <div class="padded cell rw-4 center">
+            <div class="padded cell rw-4 rw-md-6 center">
                 <em>{{ 'Unsere Verteidigung :'|trans({}, 'game') }}</em><br />
                 <span class="counter">{{ def }} <img src="{{ asset('build/images/small_def.gif') }}" alt="" /></span>
                 
             </div>
-            <div class="padded cell rw-4 center attack-estimation">
+            <div class="padded cell rw-4 rw-md-6 center attack-estimation">
                 <em>{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</em><br />
                 <span class="counter">
                 {% if zeds_today[0] %}
@@ -28,7 +28,7 @@
                     </span>
                 {% endif %}
             </div>
-            <div class="padded cell rw-4 center">
+            <div class="padded cell rw-4 rw-md-12 center">
                 {% if zeds_today[0] %}
                     {% if def < zeds_today[1] %}
                         Pas assez de def
@@ -45,7 +45,7 @@
     </div>
 
     <div class="row">
-        <div class="padded cell rw-6">
+        <div class="padded cell rw-6 rw-md-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>
             <ul class="overview-checklist">
                 <li>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
@@ -55,7 +55,7 @@
                 <li>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
             </ul>
         </div>
-        <div class="padded cell rw-6">
+        <div class="padded cell rw-6 rw-md-12">
             <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
             <div class="words-of-heroes">
                 <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
@@ -85,8 +85,8 @@
                 <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{{ zeds_today[1] }} - {{ zeds_today[2] }}</strong></li>
             </ul>
         </div>
-        <div class="padded cell rw-6">
-            <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Lesen Sie das Mitteilungsblatt{% endtrans %}</button>
+        <div class="padded cell rw-6 rw-md-8 rw-sm-12">
+            <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Die Zeitung lesen{% endtrans %}</button>
         </div>
     </div>
 

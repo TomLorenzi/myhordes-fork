@@ -12,6 +12,13 @@
   .hide-mobile {display: none !important;};
   body {background: black;}
   #wrapper, div.game-menu-area, footer { width: 100%; }
+
+  div.town-header {
+    &:before { display: none; }
+    position: relative; margin-bottom: 5px; padding-bottom: 5px; border-bottom: 2px solid rgba(0,0,0,0.25);
+    &>b { display: block; position: relative; left: 0; top: 0; width: 100%; color: @myhordes-smalltext }
+    &>span { position: relative; display: block; left: 0; top: 0; width: 100%; color: black; }
+  }
 }
 @media (max-width: (@screen-large-threshold - 1)) and (min-width: @screen-small-threshold) {
   .row > .cell.town-addons {
@@ -37,6 +44,7 @@
 }
 @media (max-width: (@screen-medium-threshold - 1)) and (min-width: @screen-small-threshold) {
   .hide-@{screen-medium} {display: none !important;};
+  .dashboard .attack-estimation { border-right: none; }
 }
 @media (max-width: (@screen-small-threshold - 1)) {
   .hide-@{screen-small} {display: none !important;};
@@ -68,6 +76,7 @@
     width: calc(100% - 4px);
     padding-bottom: 100%;
   }
+  .dashboard .attack-estimation { border-right: none; }
 }
 
 .postfix(@threshold, @postfix) {
