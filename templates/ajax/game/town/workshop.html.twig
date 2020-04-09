@@ -80,8 +80,8 @@
                             <span class="small">{{ result[recipe.id] }}</span>
                         {% endif %}
                     </div>
-                    <div class="padded cell rw-3">
-                        <button {% if banished%}disabled{% endif %} x-recipe-id="{{ recipe.id }}">{% trans from 'game' %}Herst.{% endtrans %}</button>
+                    <div class="padded cell rw-2">
+                        <button {% if banished%}disabled{% endif %} x-recipe-id="{{ recipe.id }}"><img src="{% if recipe.action == "Zerlegen" %}{{ asset('build/images/item/item_classicKey.gif') }}{% elseif recipe.action == "Öffnen" %}{{ asset('build/images/item/item_can_opener.gif') }}{% else %}{{ asset('build/images/small_refine.gif') }}{% endif %}" alt="" /><span class="hide-lg hide-md hide-sm">{{ recipe.action|trans({},'items') }}</span></button>
                     </div>
                 </div>
             {% endif %}

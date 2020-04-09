@@ -424,7 +424,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $item = null;
         if (($error = $this->action_handler->execute( $citizen, $item, $target, $heroic->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
 
-            if ($trigger_after) $trigger_after($heroic->getAction());
+            $heroic_action = $heroic->getAction();
+            if ($trigger_after) $trigger_after($heroic_action);
             $citizen->removeHeroicAction( $heroic );
 
             $this->entity_manager->persist($citizen);
