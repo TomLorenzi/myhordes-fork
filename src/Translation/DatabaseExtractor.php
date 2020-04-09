@@ -107,10 +107,14 @@ class DatabaseExtractor implements ExtractorInterface
             if ($profession->getLabel())
                 $this->insert( $c, $profession->getLabel(), 'game' );
 
-        foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone)
+        foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone) {
             /** @var $zone ZonePrototype */
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
+
+            if ($zone->getDescription())
+                $this->insert( $c, $zone->getDescription(), 'game' );
+        }
 
         foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
             /** @var $town TownClass */
