@@ -19,24 +19,32 @@ class ItemFixtures extends Fixture
         ["name"=>"root_rsc" ,"label"=>"Baustoffe"               ,"parent"=>null,"ordering"=>0],
             ["name"=>"rsc_b","label"=>"Grundlegend","parent"=>"root_rsc","ordering"=>0],
             ["name"=>"rsc"  ,"label"=>"Sonstiges"  ,"parent"=>"root_rsc","ordering"=>1],
-        ["name"=>"root_food","label"=>"Grundnahrungsmittel"     ,"parent"=>null,"ordering"=>1],
+
+        ["name"=>"root_rsc" ,"label"=>"Behälter und Dosen"      ,"parent"=>null,"ordering"=>1],
+
+        ["name"=>"root_exp" ,"label"=>"Expedition"              ,"parent"=>null,"ordering"=>2],
+            ["name"=>"exp_s","label"=>"Nützliches"          ,"parent"=>"root_exp","ordering"=>1],
+            ["name"=>"camp" ,"label"=>"Camping"             ,"parent"=>"root_exp","ordering"=>2],
+
+        ["name"=>"root_aud" ,"label"=>"Verteidigung","parent"=>null,"ordering"=>3],
+            ["name"=>"armor" ,"label"=>"Verteidigung"       ,"parent"=>"root_aud","ordering"=>0],
+            ["name"=>"aud_n" ,"label"=>"Nicht Einsatzbereit","parent"=>"root_aud","ordering"=>2],
+        
+        ["name"=>"root_weapon","label"=>"Waffen"             ,"parent"=>null,"ordering"=>4],
+        ["name"=>"root_exp_b","label"=>"Taschen und Behälter","parent"=>null,"ordering"=>5],
+        
+        ["name"=>"root_drug","label"=>"Apotheke und Labor"      ,"parent"=>null,"ordering"=>6],
+            ["name"=>"drug_d","label"=>"Drogen"                 ,"parent"=>"root_drug","ordering"=>0],
+            ["name"=>"drug"  ,"label"=>"Chemikalien und Zubehör","parent"=>"root_drug","ordering"=>1],
+        
+        ["name"=>"root_food","label"=>"Grundnahrungsmittel"     ,"parent"=>null,"ordering"=>7],
             ["name"=>"food"  ,"label"=>"Nahrung und Wasser","parent"=>"root_food","ordering"=>0],
             ["name"=>"food_7","label"=>"Leckeres Essen"    ,"parent"=>"root_food","ordering"=>1],
             ["name"=>"food_a","label"=>"Alkohol"           ,"parent"=>"root_food","ordering"=>2],
             ["name"=>"food_g","label"=>"Menschenfleisch"   ,"parent"=>"root_food","ordering"=>3],
             ["name"=>"food_n","label"=>"Nicht Essbar"      ,"parent"=>"root_food","ordering"=>4],
-        ["name"=>"root_drug","label"=>"Apotheke und Labor"      ,"parent"=>null,"ordering"=>2],
-            ["name"=>"drug_d","label"=>"Drogen"                 ,"parent"=>"root_drug","ordering"=>0],
-            ["name"=>"drug"  ,"label"=>"Chemikalien und Zubehör","parent"=>"root_drug","ordering"=>1],
-        ["name"=>"root_exp" ,"label"=>"Expedition"              ,"parent"=>null,"ordering"=>3],
-            ["name"=>"exp_b","label"=>"Taschen und Behälter","parent"=>"root_exp","ordering"=>0],
-            ["name"=>"exp_s","label"=>"Nützliches"          ,"parent"=>"root_exp","ordering"=>1],
-            ["name"=>"camp" ,"label"=>"Camping"             ,"parent"=>"root_exp","ordering"=>2],
-        ["name"=>"root_aud" ,"label"=>"Angriff und Verteidigung","parent"=>null,"ordering"=>4],
-            ["name"=>"armor" ,"label"=>"Verteidigung"       ,"parent"=>"root_aud","ordering"=>0],
-            ["name"=>"weapon","label"=>"Waffen"             ,"parent"=>"root_aud","ordering"=>1],
-            ["name"=>"aud_n" ,"label"=>"Nicht Einsatzbereit","parent"=>"root_aud","ordering"=>2],
-        ["name"=>"root_misc","label"=>"Sonstiges"               ,"parent"=>null,"ordering"=>5],
+
+        ["name"=>"root_misc","label"=>"Sonstiges"               ,"parent"=>null,"ordering"=>8],
             ["name"=>"box"      ,"label"=>"Kisten und Behälter","parent"=>"root_misc","ordering"=>0],
             ["name"=>"imp"      ,"label"=>"Wichtige Items"     ,"parent"=>"root_misc","ordering"=>1],
             ["name"=>"furniture","label"=>"Dekoration"         ,"parent"=>"root_misc","ordering"=>2],
@@ -48,22 +56,22 @@ class ItemFixtures extends Fixture
         ['label'=>'Batterie','icon'=>'pile','category'=>'misc','deco'=>0,'heavy'=>false],                                                   // In Out
         ['label'=>'Konservendose','icon'=>'can','category'=>'food_n','deco'=>0,'heavy'=>false],                                             // In Out
         ['label'=>'Offene Konservendose','icon'=>'can_open','category'=>'food','deco'=>0,'heavy'=>false],                                   // In Out
-        ['label'=>'Batteriewerfer 1-PDTG (geladen)','icon'=>'pilegun','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Taser','icon'=>'taser','category'=>'weapon','deco'=>0,'heavy'=>false],                                                   // -- Out
+        ['label'=>'Batteriewerfer 1-PDTG (geladen)','icon'=>'pilegun','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Taser','icon'=>'taser','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                                   // -- Out
         ['label'=>'Aqua-Splash (leer)','icon'=>'watergun_opt_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                          // In Out
-        ['label'=>'Handmixer (geladen)','icon'=>'mixergun','category'=>'weapon','deco'=>0,'heavy'=>false],                                  // -- Out
-        ['label'=>'Kettensäge (geladen)','icon'=>'chainsaw','category'=>'weapon','deco'=>0,'heavy'=>true],                                  // -- Out
-        ['label'=>'Rasenmäher','icon'=>'lawn','category'=>'weapon','deco'=>0,'heavy'=>true],                                                // -- Out
-        ['label'=>'Verstellbarer Schraubenschlüssel','icon'=>'wrench','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Schraubenzieher','icon'=>'screw','category'=>'weapon','deco'=>0,'heavy'=>false],                                         // -- Out
-        ['label'=>'Großer trockener Stock','icon'=>'staff','category'=>'weapon','deco'=>0,'heavy'=>false],                                  // -- Out
-        ['label'=>'Jagdmesser','icon'=>'knife','category'=>'weapon','deco'=>0,'heavy'=>false],                                              // -- Out
-        ['label'=>'Machete','icon'=>'cutcut','category'=>'weapon','deco'=>0,'heavy'=>false],                                                // -- Out
-        ['label'=>'Lächerliches Taschenmesser','icon'=>'small_knife','category'=>'weapon','deco'=>0,'heavy'=>false],                        // -- Out
-        ['label'=>'Schweizer Taschenmesser','icon'=>'swiss_knife','category'=>'weapon','deco'=>0,'heavy'=>false],                           // -- Out
-        ['label'=>'Teppichmesser','icon'=>'cutter','category'=>'weapon','deco'=>0,'heavy'=>false],                                          // -- Out
+        ['label'=>'Handmixer (geladen)','icon'=>'mixergun','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                  // -- Out
+        ['label'=>'Kettensäge (geladen)','icon'=>'chainsaw','category'=>'root_weapon','deco'=>0,'heavy'=>true],                                  // -- Out
+        ['label'=>'Rasenmäher','icon'=>'lawn','category'=>'root_weapon','deco'=>0,'heavy'=>true],                                                // -- Out
+        ['label'=>'Verstellbarer Schraubenschlüssel','icon'=>'wrench','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Schraubenzieher','icon'=>'screw','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                         // -- Out
+        ['label'=>'Großer trockener Stock','icon'=>'staff','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                  // -- Out
+        ['label'=>'Jagdmesser','icon'=>'knife','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                              // -- Out
+        ['label'=>'Machete','icon'=>'cutcut','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                                // -- Out
+        ['label'=>'Lächerliches Taschenmesser','icon'=>'small_knife','category'=>'root_weapon','deco'=>0,'heavy'=>false],                        // -- Out
+        ['label'=>'Schweizer Taschenmesser','icon'=>'swiss_knife','category'=>'root_weapon','deco'=>0,'heavy'=>false],                           // -- Out
+        ['label'=>'Teppichmesser','icon'=>'cutter','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                          // -- Out
         ['label'=>'Einkaufswagen','icon'=>'cart','category'=>'exp_b','deco'=>0,'heavy'=>true],                                             // -- ---
-        ['label'=>'Dosenöffner','icon'=>'can_opener','category'=>'weapon','deco'=>0,'heavy'=>false],                                        // -- Out
+        ['label'=>'Dosenöffner','icon'=>'can_opener','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                        // -- Out
         ['label'=>'Extra Tasche','icon'=>'bag','category'=>'exp_b','deco'=>0,'heavy'=>false],                                               // -- ---
         ['label'=>'Streichholzschachtel','icon'=>'lights','category'=>'misc','deco'=>0,'heavy'=>false],                                     // -- ---
         ['label'=>'Beruhigungsspritze','icon'=>'xanax','category'=>'drug_d','deco'=>0,'heavy'=>false],                                      // In Out
@@ -83,7 +91,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Übelriechendes Schwein','icon'=>'pet_pig','category'=>'food_n','deco'=>0,'heavy'=>true],                                 // -- Out
         ['label'=>'Riesige Ratte','icon'=>'pet_rat','category'=>'food_n','deco'=>0,'heavy'=>false],                                         // -- Out
         ['label'=>'Bissiger Hund','icon'=>'pet_dog','category'=>'armor','deco'=>0,'heavy'=>false],                                          // -- Out
-        ['label'=>'Großer knuddeliger Kater','icon'=>'pet_cat','category'=>'weapon','deco'=>5,'heavy'=>false],                              // -- Out
+        ['label'=>'Großer knuddeliger Kater','icon'=>'pet_cat','category'=>'root_weapon','deco'=>5,'heavy'=>false],                              // -- Out
         ['label'=>'Zwei-Meter Schlange','icon'=>'pet_snake','category'=>'food_n','deco'=>0,'heavy'=>true],                                  // -- Out
         ['label'=>'Vibrator (geladen)','icon'=>'vibr','category'=>'imp','deco'=>0,'heavy'=>false],                                          // In ---
         ['label'=>'Anaboles Steroid','icon'=>'drug','category'=>'drug_d','deco'=>0,'heavy'=>false],                                         // In Out
@@ -94,7 +102,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Kanister','icon'=>'jerrycan','category'=>'food_n','deco'=>0,'heavy'=>false],                                             // In ---
         ['label'=>'Krummes Holzbrett','icon'=>'wood2','category'=>'rsc_b','deco'=>0,'heavy'=>false],                                        // -- ---
         ['label'=>'Alteisen','icon'=>'metal','category'=>'rsc_b','deco'=>0,'heavy'=>false],                                                 // -- ---
-        ['label'=>'Wasserbombe','icon'=>'grenade','category'=>'weapon','deco'=>0,'heavy'=>false],                                           // -- Out
+        ['label'=>'Wasserbombe','icon'=>'grenade','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                           // -- Out
         ['label'=>'Blechplatte','icon'=>'plate','category'=>'armor','deco'=>0,'heavy'=>true],                                               // -- ---
         ['label'=>'Kanisterpumpe (zerlegt)','icon'=>'jerrygun_part','category'=>'aud_n','deco'=>0,'heavy'=>false],                          // -- ---
         ['label'=>'Bandage','icon'=>'bandage','category'=>'drug','deco'=>0,'heavy'=>false],                                                 // In Out
@@ -104,7 +112,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Sprengstoff','icon'=>'explo','category'=>'rsc','deco'=>0,'heavy'=>false],                                                // -- ---
         ['label'=>'Menschenfleisch','icon'=>'hmeat','category'=>'food_g','deco'=>0,'heavy'=>false],                                         // In Out
         ['label'=>'Plastiktüte','icon'=>'grenade_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                                      // In Out
-        ['label'=>'Explodierende Wasserbombe','icon'=>'bgrenade','category'=>'weapon','deco'=>0,'heavy'=>false],                            // -- Out
+        ['label'=>'Explodierende Wasserbombe','icon'=>'bgrenade','category'=>'root_weapon','deco'=>0,'heavy'=>false],                            // -- Out
         ['label'=>'Plastiktüte mit Sprengstoff','icon'=>'bgrenade_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                     // -- ---
         ['label'=>'Unvollständige Kettensäge','icon'=>'chainsaw_part','category'=>'aud_n','deco'=>0,'heavy'=>true],                         // -- ---
         ['label'=>'Unvollständiger Handmixer','icon'=>'mixergun_part','category'=>'aud_n','deco'=>0,'heavy'=>false],                        // -- ---
@@ -136,9 +144,9 @@ class ItemFixtures extends Fixture
         ['label'=>'Reparaturset (kaputt)','icon'=>'repair_kit_part','category'=>'imp','deco'=>0,'heavy'=>false],                            // -- ---
         ['label'=>'Reparaturset','icon'=>'repair_kit','category'=>'imp','deco'=>0,'heavy'=>false],                                          // In Out
         ['label'=>'Wasserpistole (leer)','icon'=>'watergun_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                            // In Out
-        ['label'=>'Aqua-Splash (3 Ladungen)','icon'=>'watergun_opt_3','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Aqua-Splash (2 Ladungen)','icon'=>'watergun_opt_2','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Aqua-Splash (1 Ladung)','icon'=>'watergun_opt_1','category'=>'weapon','deco'=>0,'heavy'=>false],                         // -- Out
+        ['label'=>'Aqua-Splash (3 Ladungen)','icon'=>'watergun_opt_3','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Aqua-Splash (2 Ladungen)','icon'=>'watergun_opt_2','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Aqua-Splash (1 Ladung)','icon'=>'watergun_opt_1','category'=>'root_weapon','deco'=>0,'heavy'=>false],                         // -- Out
         ['label'=>'Handmixer (ohne Strom)','icon'=>'mixergun_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                          // In Out
         ['label'=>'Kettensäge (ohne Strom)','icon'=>'chainsaw_empty','category'=>'aud_n','deco'=>0,'heavy'=>true],                          // In Out
         ['label'=>'Batteriewerfer 1-PDTG (entladen)','icon'=>'pilegun_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                 // In Out
@@ -146,11 +154,11 @@ class ItemFixtures extends Fixture
         ['label'=>'Elektrischer Bauchmuskeltrainer (ohne Strom)','icon'=>'sport_elec_empty','category'=>'imp','deco'=>0,'heavy'=>false],    // In Out
         ['label'=>'Elektrischer Bauchmuskeltrainer (geladen)','icon'=>'sport_elec','category'=>'imp','deco'=>0,'heavy'=>false],             // In Out
         ['label'=>'Zerstörer (entladen)','icon'=>'big_pgun_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                            // In Out
-        ['label'=>'Zerstörer (geladen)','icon'=>'big_pgun','category'=>'weapon','deco'=>0,'heavy'=>false],                                  // -- Out
+        ['label'=>'Zerstörer (geladen)','icon'=>'big_pgun','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                  // -- Out
         ['label'=>'Unvollständiger Zerstörer','icon'=>'big_pgun_part','category'=>'aud_n','deco'=>0,'heavy'=>false],                        // -- ---
         ['label'=>"Zonenmarker 'Radius'",'icon'=>'tagger','category'=>'exp_s','deco'=>0,'heavy'=>false],                                    // -- Out
         ['label'=>'Leuchtrakete','icon'=>'flare','category'=>'misc','deco'=>0,'heavy'=>false],                                              // --
-        ['label'=>'Kanisterpumpe (einsatzbereit)','icon'=>'jerrygun','category'=>'weapon','deco'=>0,'heavy'=>false],                        // -- Out
+        ['label'=>'Kanisterpumpe (einsatzbereit)','icon'=>'jerrygun','category'=>'root_weapon','deco'=>0,'heavy'=>false],                        // -- Out
         ['label'=>'Ektorp-Gluten Stuhl','icon'=>'chair_basic','category'=>'furniture','deco'=>2,'heavy'=>true],                             // -- Out
         ['label'=>'Revolver (entladen)','icon'=>'gun','category'=>'furniture','deco'=>5,'heavy'=>false],                                    // -- ---
         ['label'=>'Sturmgewehr (entladen)','icon'=>'machine_gun','category'=>'furniture','deco'=>15,'heavy'=>false],                        // -- ---
@@ -178,7 +186,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Aqua-Splash (zerlegt)','icon'=>'watergun_opt_part','category'=>'aud_n','deco'=>0,'heavy'=>false],                        // -- ---
         ['label'=>'Vibrator (entladen)','icon'=>'vibr_empty','category'=>'imp','deco'=>0,'heavy'=>false],                                   // In Out
         ['label'=>'Knochen mit Fleisch','icon'=>'bone_meat','category'=>'food_g','deco'=>0,'heavy'=>false],                                 // In Out
-        ['label'=>'Angeknackster menschlicher Knochen','icon'=>'bone','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Angeknackster menschlicher Knochen','icon'=>'bone','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
         ['label'=>'Zusammengeschusterter Holzbalken','icon'=>'wood_beam','category'=>'rsc_b','deco'=>0,'heavy'=>true],                      // -- ---
         ['label'=>'Metallstruktur','icon'=>'metal_beam','category'=>'rsc_b','deco'=>0,'heavy'=>true],                                       // -- ---
         ['label'=>'Metalltrümmer','icon'=>'metal_bad','category'=>'rsc_b','deco'=>0,'heavy'=>false],                                        // -- ---
@@ -222,15 +230,15 @@ class ItemFixtures extends Fixture
         ['label'=>'Ein Briefumschlag','icon'=>'book_gen_letter','category'=>'imp','deco'=>0,'heavy'=>false],                                // In Out
         ['label'=>'Ein Paket','icon'=>'book_gen_box','category'=>'box','deco'=>0,'heavy'=>false],                                           // In Out
         ['label'=>'Maschendrahtzaunstück','icon'=>'fence','category'=>'rsc','deco'=>0,'heavy'=>false],                                      // -- ---
-        ['label'=>'Wasserpistole (3 Ladungen)','icon'=>'watergun_3','category'=>'weapon','deco'=>0,'heavy'=>false],                         // -- Out
-        ['label'=>'Wasserpistole (2 Ladungen)','icon'=>'watergun_2','category'=>'weapon','deco'=>0,'heavy'=>false],                         // -- Out
-        ['label'=>'Wasserpistole (1 Ladung)','icon'=>'watergun_1','category'=>'weapon','deco'=>0,'heavy'=>false],                           // -- Out
-        ['label'=>'Aqua-Splash (5 Ladungen)','icon'=>'watergun_opt_5','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Aqua-Splash (4 Ladungen)','icon'=>'watergun_opt_4','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Wasserpistole (3 Ladungen)','icon'=>'watergun_3','category'=>'root_weapon','deco'=>0,'heavy'=>false],                         // -- Out
+        ['label'=>'Wasserpistole (2 Ladungen)','icon'=>'watergun_2','category'=>'root_weapon','deco'=>0,'heavy'=>false],                         // -- Out
+        ['label'=>'Wasserpistole (1 Ladung)','icon'=>'watergun_1','category'=>'root_weapon','deco'=>0,'heavy'=>false],                           // -- Out
+        ['label'=>'Aqua-Splash (5 Ladungen)','icon'=>'watergun_opt_5','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Aqua-Splash (4 Ladungen)','icon'=>'watergun_opt_4','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
         ['label'=>'Angefangene Zigarettenschachtel','icon'=>'cigs','category'=>'misc','deco'=>0,'heavy'=>false],                            //
         ['label'=>'Druckregler PDTT Mark II','icon'=>'pilegun_upkit','category'=>'misc','deco'=>0,'heavy'=>false],                          // -- ---
         ['label'=>'Batteriewerfer Mark II (leer)','icon'=>'pilegun_up_empty','category'=>'aud_n','deco'=>0,'heavy'=>false],                 // In Out
-        ['label'=>'Batteriewerfer Mark II (geladen)','icon'=>'pilegun_up','category'=>'weapon','deco'=>0,'heavy'=>false],                   // -- Out
+        ['label'=>'Batteriewerfer Mark II (geladen)','icon'=>'pilegun_up','category'=>'root_weapon','deco'=>0,'heavy'=>false],                   // -- Out
         ['label'=>'Zerquetschte Batterie','icon'=>'pile_broken','category'=>'misc','deco'=>0,'heavy'=>false],                               // -- ---
         ['label'=>'Kiste mit Materialien (3)','icon'=>'rsc_pack_3','category'=>'box','deco'=>0,'heavy'=>true],                              // In Out
         ['label'=>'Kiste mit Materialien (2)','icon'=>'rsc_pack_2','category'=>'box','deco'=>0,'heavy'=>true],                              // In Out
@@ -245,10 +253,10 @@ class ItemFixtures extends Fixture
         ['label'=>'Eine Handvoll Bonbons','icon'=>'food_candies','category'=>'food_7','deco'=>0,'heavy'=>false],                            // In Out
         ['label'=>'Sperrholzstück','icon'=>'out_def','category'=>'camp','deco'=>0,'heavy'=>false],                                          // -- ---
         ['label'=>'Fackel','icon'=>'torch','category'=>'armor','deco'=>0,'heavy'=>false],                                                   // -- Out
-        ['label'=>'Verbrauchte Fackel','icon'=>'torch_off','category'=>'weapon','deco'=>0,'heavy'=>false],                                  // -- Out
+        ['label'=>'Verbrauchte Fackel','icon'=>'torch_off','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                  // -- Out
         ['label'=>'Getrocknete Marshmallows','icon'=>'chama','category'=>'food_n','deco'=>0,'heavy'=>false],                                // -- ---
         ['label'=>'Geröstete Marshmallows','icon'=>'chama_tasty','category'=>'food_7','deco'=>0,'heavy'=>false],                            // In Out
-        ['label'=>'PC-Gehäuse','icon'=>'pc','category'=>'weapon','deco'=>3,'heavy'=>true],                                                  // -- Out
+        ['label'=>'PC-Gehäuse','icon'=>'pc','category'=>'root_weapon','deco'=>3,'heavy'=>true],                                                  // -- Out
         ['label'=>'Safe','icon'=>'safe','category'=>'box','deco'=>0,'heavy'=>true],                                                         // In Out
         ['label'=>'Eine Enzyklopädie','icon'=>'rp_twin','category'=>'misc','deco'=>0,'heavy'=>false],                                       // In Out
         ['label'=>'Wasserspender (leer)','icon'=>'water_can_empty','category'=>'exp_s','deco'=>0,'heavy'=>true],                            // -- ---
@@ -273,7 +281,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Zerrissene rote Hose','icon'=>'christmas_suit_2','category'=>'misc','deco'=>0,'heavy'=>false],                           // -- ---
         ['label'=>'Schweißtriefende rote Mütze','icon'=>'christmas_suit_3','category'=>'misc','deco'=>0,'heavy'=>false],                    // -- ---
         ['label'=>'Übelriechender Anzug aus einer anderen Zeit','icon'=>'christmas_suit_full','category'=>'misc','deco'=>0,'heavy'=>false], //
-        ['label'=>'Mobiltelefon','icon'=>'iphone','category'=>'weapon','deco'=>0,'heavy'=>false],                                           // -- Out
+        ['label'=>'Mobiltelefon','icon'=>'iphone','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                           // -- Out
         ['label'=>'Ekliger Hautfetzen','icon'=>'smelly_meat','category'=>'camp','deco'=>0,'heavy'=>false],                                  // -- ---
         ['label'=>'MagLite Kinderlampe (aus)','icon'=>'maglite_off','category'=>'furniture','deco'=>5,'heavy'=>false],                      // In Out
         ['label'=>'MagLite Kinderlampe (1 Ladung)','icon'=>'maglite_1','category'=>'exp_s','deco'=>5,'heavy'=>false],                       // -- ---
@@ -290,7 +298,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Versiegelter Architektenkoffer','icon'=>'bplan_box_e','category'=>'box','deco'=>0,'heavy'=>true],                        // In Out
         ['label'=>'Ei','icon'=>'egg','category'=>'food_7','deco'=>0,'heavy'=>false],                                                        // In Out
         ['label'=>'Apfel','icon'=>'apple','category'=>'food_7','deco'=>0,'heavy'=>false],                                                   // In Out
-        ['label'=>'Explosive Pampelmuse','icon'=>'boomfruit','category'=>'weapon','deco'=>0,'heavy'=>false],                                // -- Out
+        ['label'=>'Explosive Pampelmuse','icon'=>'boomfruit','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                // -- Out
         ['label'=>'Abgenutzte Kuriertasche','icon'=>'bplan_drop','category'=>'box','deco'=>0,'heavy'=>false],                               // In Out
         ['label'=>'Magnet-Schlüssel','icon'=>'magneticKey','category'=>'exp_s','deco'=>0,'heavy'=>false],                                   // --
         ['label'=>'Schlagschlüssel','icon'=>'bumpKey','category'=>'exp_s','deco'=>0,'heavy'=>false],                                        // --
@@ -313,28 +321,28 @@ class ItemFixtures extends Fixture
         ['label'=>'Schwache Seele','icon'=>'soul_blue','category'=>'imp','deco'=>0,'heavy'=>false],                                         //
         ['label'=>'Bierkrug','icon'=>'fest','category'=>'food_a','deco'=>0,'heavy'=>false],                                                 // In Out
         ['label'=>'Brezel','icon'=>'bretz','category'=>'food','deco'=>0,'heavy'=>false],                                                    // In Out
-        ['label'=>'Dackel','icon'=>'tekel','category'=>'weapon','deco'=>0,'heavy'=>false],                                                  // -- Out
-        ['label'=>'Pfahlwerfer','icon'=>'rlaunc','category'=>'weapon','deco'=>0,'heavy'=>false],                                            // --
-        ['label'=>'Kalaschni-Splash','icon'=>'kalach','category'=>'weapon','deco'=>0,'heavy'=>true],                                        // -- ---
+        ['label'=>'Dackel','icon'=>'tekel','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                                  // -- Out
+        ['label'=>'Pfahlwerfer','icon'=>'rlaunc','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                            // --
+        ['label'=>'Kalaschni-Splash','icon'=>'kalach','category'=>'root_weapon','deco'=>0,'heavy'=>true],                                        // -- ---
         ['label'=>'Schnellgebauter Tisch','icon'=>'bureau','category'=>'furniture','deco'=>0,'heavy'=>true],                                // -- ---
         ['label'=>'Leerer Automat','icon'=>'distri','category'=>'furniture','deco'=>0,'heavy'=>true],                                       // -- ---
         ['label'=>'Santas Rentier','icon'=>'renne','category'=>'misc','deco'=>0,'heavy'=>true],                                             // -- ---
         ['label'=>'Osterei','icon'=>'paques','category'=>'misc','deco'=>0,'heavy'=>false],                                                  // -- ---
         ['label'=>'ANZAC Badge','icon'=>'badge','category'=>'armor','deco'=>0,'heavy'=>false],                                              // -- ---
-        ['label'=>'Kalaschni-Splash (leer)','icon'=>'kalach','category'=>'weapon','deco'=>0,'heavy'=>false],                                // In Out
+        ['label'=>'Kalaschni-Splash (leer)','icon'=>'kalach','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                // In Out
         ['label'=>'Drahtspule','icon'=>'wire','category'=>'rsc','deco'=>0,'heavy'=>false],                                                  // -- ---
         ['label'=>'Ölkännchen','icon'=>'oilcan','category'=>'rsc','deco'=>0,'heavy'=>false],                                                // -- ---
         ['label'=>'Konvexlinse','icon'=>'lens','category'=>'rsc','deco'=>0,'heavy'=>false],                                                 // -- ---
-        ['label'=>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'weapon','deco'=>0,'heavy'=>false],                           // --
-        ['label'=>'Tretmine','icon'=>'claymo','category'=>'weapon','deco'=>0,'heavy'=>false],                                               // -- ---
+        ['label'=>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'root_weapon','deco'=>0,'heavy'=>false],                           // --
+        ['label'=>'Tretmine','icon'=>'claymo','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                               // -- ---
         ['label'=>'Laserdiode','icon'=>'diode','category'=>'rsc','deco'=>0,'heavy'=>false],                                                 // -- ---
         ['label'=>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'imp','deco'=>0,'heavy'=>false],                                     // In ---
         ['label'=>'LSD','icon'=>'lsd','category'=>'drug','deco'=>0,'heavy'=>false],                                                         //
-        ['label'=>'Starker Laserpointer (4 Schuss)','icon'=>'lpoint4','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Starker Laserpointer (3 Schuss)','icon'=>'lpoint3','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Starker Laserpointer (2 Schuss)','icon'=>'lpoint2','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Starker Laserpointer (1 Schuss)','icon'=>'lpoint1','category'=>'weapon','deco'=>0,'heavy'=>false],                       // -- Out
-        ['label'=>'Starker Laserpointer (Leer)','icon'=>'lpoint','category'=>'weapon','deco'=>0,'heavy'=>false],                            // In Out
+        ['label'=>'Starker Laserpointer (4 Schuss)','icon'=>'lpoint4','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Starker Laserpointer (3 Schuss)','icon'=>'lpoint3','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Starker Laserpointer (2 Schuss)','icon'=>'lpoint2','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Starker Laserpointer (1 Schuss)','icon'=>'lpoint1','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
+        ['label'=>'Starker Laserpointer (Leer)','icon'=>'lpoint','category'=>'root_weapon','deco'=>0,'heavy'=>false],                            // In Out
         ['label'=>'Teleskop','icon'=>'scope','category'=>'imp','deco'=>0,'heavy'=>false],                                                   // -- ---
         ['label'=>'Unpersönliche Explodierende Fußmatte','icon'=>'trapma','category'=>'furniture','deco'=>0,'heavy'=>false],                // -- ---
         ['label'=>'Chuck-Figur','icon'=>'chudol','category'=>'furniture','deco'=>15,'heavy'=>false],                                        // -- ---
@@ -706,24 +714,24 @@ class ItemFixtures extends Fixture
     
     public static $item_prototype_properties = [
         'saw_tool_#00'     => [ 'can_opener' ],
-        'can_opener_#00'   => [ 'impoundable', 'weapon', 'can_opener', 'box_opener' ],
-        'screw_#00'        => [ 'impoundable', 'weapon', 'can_opener', 'box_opener' ],
-        'swiss_knife_#00'  => [ 'impoundable', 'weapon', 'can_opener', 'box_opener' ],
-        'wrench_#00'       => [ 'impoundable', 'weapon', 'box_opener' ],
-        'cutter_#00'       => [ 'impoundable', 'weapon', 'box_opener' ],
-        'small_knife_#00'  => [ 'impoundable', 'weapon', 'box_opener' ],
-        'bone_#00'         => [ 'impoundable', 'weapon', 'box_opener' ],
-        'cutcut_#00'       => [ 'impoundable', 'weapon', 'box_opener' ],
+        'can_opener_#00'   => [ 'impoundable', 'root_weapon', 'can_opener', 'box_opener' ],
+        'screw_#00'        => [ 'impoundable', 'root_weapon', 'can_opener', 'box_opener' ],
+        'swiss_knife_#00'  => [ 'impoundable', 'root_weapon', 'can_opener', 'box_opener' ],
+        'wrench_#00'       => [ 'impoundable', 'root_weapon', 'box_opener' ],
+        'cutter_#00'       => [ 'impoundable', 'root_weapon', 'box_opener' ],
+        'small_knife_#00'  => [ 'impoundable', 'root_weapon', 'box_opener' ],
+        'bone_#00'         => [ 'impoundable', 'root_weapon', 'box_opener' ],
+        'cutcut_#00'       => [ 'impoundable', 'root_weapon', 'box_opener' ],
         'chair_basic_#00'  => [ 'box_opener' ],
-        'staff_#00'        => [ 'impoundable', 'weapon', 'box_opener' ],
-        'chain_#00'        => [ 'impoundable', 'weapon', 'box_opener' ],
+        'staff_#00'        => [ 'impoundable', 'root_weapon', 'box_opener' ],
+        'chain_#00'        => [ 'impoundable', 'root_weapon', 'box_opener' ],
         'pc_#00'           => [ 'box_opener' ],
         'door_#00'         => [ 'impoundable', 'defence' ],
         'car_door_#00'     => [ 'impoundable', 'defence' ],
         'pet_dog_#00'      => [ 'impoundable', 'defence' ],
         'plate_#00'        => [ 'impoundable', 'defence' ],
         'tekel_#00'        => [ 'impoundable', 'defence', 'lock' ],
-        'torch_#00'        => [ 'impoundable', 'defence', 'weapon' ],
+        'torch_#00'        => [ 'impoundable', 'defence', 'root_weapon' ],
         'trestle_#00'      => [ 'impoundable', 'defence' ],
         'table_#00'        => [ 'impoundable', 'defence' ],
         'bed_#00'          => [ 'impoundable', 'defence' ],
@@ -743,31 +751,31 @@ class ItemFixtures extends Fixture
         'meca_parts_#00'   => [ 'impoundable', 'ressource' ],
         'explo_#00'        => [ 'impoundable', 'ressource' ],
         'mecanism_#00'     => [ 'impoundable', 'ressource' ],
-        'grenade_#00'        => [ 'impoundable', 'weapon', 'hero_find' ],
-        'bgrenade_#00'       => [ 'impoundable', 'weapon' ],
-        'boomfruit_#00'      => [ 'impoundable', 'weapon' ],
-        'pilegun_#00'        => [ 'impoundable', 'weapon' ],
-        'pilegun_up_#00'     => [ 'impoundable', 'weapon' ],
-        'big_pgun_#00'       => [ 'impoundable', 'weapon' ],
-        'mixergun_#00'       => [ 'impoundable', 'weapon' ],
-        'chainsaw_#00'       => [ 'impoundable', 'weapon' ],
-        'taser_#00'          => [ 'impoundable', 'weapon' ],
-        'lpoint4_#00'        => [ 'impoundable', 'weapon' ],
-        'lpoint3_#00'        => [ 'impoundable', 'weapon' ],
-        'lpoint2_#00'        => [ 'impoundable', 'weapon' ],
-        'lpoint1_#00'        => [ 'impoundable', 'weapon' ],
-        'watergun_opt_5_#00' => [ 'impoundable', 'weapon' ],
-        'watergun_opt_4_#00' => [ 'impoundable', 'weapon' ],
-        'watergun_opt_3_#00' => [ 'impoundable', 'weapon' ],
-        'watergun_opt_2_#00' => [ 'impoundable', 'weapon' ],
-        'watergun_opt_1_#00' => [ 'impoundable', 'weapon' ],
-        'watergun_3_#00'     => [ 'impoundable', 'weapon' ],
-        'watergun_2_#00'     => [ 'impoundable', 'weapon' ],
-        'watergun_1_#00'     => [ 'impoundable', 'weapon' ],
-        'knife_#00'          => [ 'impoundable', 'weapon' ],
-        'lawn_#00'           => [ 'impoundable', 'weapon' ],
-        'torch_off_#00'      => [ 'impoundable', 'weapon' ],
-        'iphone_#00'         => [ 'impoundable', 'weapon' ],
+        'grenade_#00'        => [ 'impoundable', 'root_weapon', 'hero_find' ],
+        'bgrenade_#00'       => [ 'impoundable', 'root_weapon' ],
+        'boomfruit_#00'      => [ 'impoundable', 'root_weapon' ],
+        'pilegun_#00'        => [ 'impoundable', 'root_weapon' ],
+        'pilegun_up_#00'     => [ 'impoundable', 'root_weapon' ],
+        'big_pgun_#00'       => [ 'impoundable', 'root_weapon' ],
+        'mixergun_#00'       => [ 'impoundable', 'root_weapon' ],
+        'chainsaw_#00'       => [ 'impoundable', 'root_weapon' ],
+        'taser_#00'          => [ 'impoundable', 'root_weapon' ],
+        'lpoint4_#00'        => [ 'impoundable', 'root_weapon' ],
+        'lpoint3_#00'        => [ 'impoundable', 'root_weapon' ],
+        'lpoint2_#00'        => [ 'impoundable', 'root_weapon' ],
+        'lpoint1_#00'        => [ 'impoundable', 'root_weapon' ],
+        'watergun_opt_5_#00' => [ 'impoundable', 'root_weapon' ],
+        'watergun_opt_4_#00' => [ 'impoundable', 'root_weapon' ],
+        'watergun_opt_3_#00' => [ 'impoundable', 'root_weapon' ],
+        'watergun_opt_2_#00' => [ 'impoundable', 'root_weapon' ],
+        'watergun_opt_1_#00' => [ 'impoundable', 'root_weapon' ],
+        'watergun_3_#00'     => [ 'impoundable', 'root_weapon' ],
+        'watergun_2_#00'     => [ 'impoundable', 'root_weapon' ],
+        'watergun_1_#00'     => [ 'impoundable', 'root_weapon' ],
+        'knife_#00'          => [ 'impoundable', 'root_weapon' ],
+        'lawn_#00'           => [ 'impoundable', 'root_weapon' ],
+        'torch_off_#00'      => [ 'impoundable', 'root_weapon' ],
+        'iphone_#00'         => [ 'impoundable', 'root_weapon' ],
         'disinfect_#00'       => [ 'impoundable', 'drug' ],
         'drug_#00'            => [ 'can_poison', 'impoundable', 'drug' ],
         'drug_hero_#00'       => [ 'impoundable', 'drug' ],

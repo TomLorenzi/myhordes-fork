@@ -2767,7 +2767,7 @@
       </trans-unit>
       <trans-unit id="wESWf2D" resname="Berufsgegenstand">
         <source>Berufsgegenstand</source>
-        <target>Objet de métier</target>
+        <target>Objet de métier (ne peut être posé)</target>
       </trans-unit>
       <trans-unit id="m3.VXgQ" resname="Schwerer Gegenstand">
         <source>Schwerer Gegenstand</source>
@@ -2796,6 +2796,30 @@
       <trans-unit id="9fNbzu." resname="Zerlegen">
         <source>Zerlegen</source>
         <target>Démonter</target>
+      </trans-unit>
+      <trans-unit id="1PXqODy" resname="Baustoffe">
+        <source>Baustoffe</source>
+        <target>Ressources</target>
+      </trans-unit>
+      <trans-unit id="eEycb65" resname="Grundnahrungsmittel">
+        <source>Grundnahrungsmittel</source>
+        <target>Provisions</target>
+      </trans-unit>
+      <trans-unit id="8beKQr4" resname="Apotheke und Labor">
+        <source>Apotheke und Labor</source>
+        <target>Pharmacie</target>
+      </trans-unit>
+      <trans-unit id="bj.MFsK" resname="Expedition">
+        <source>Expedition</source>
+        <target>Expedition</target>
+      </trans-unit>
+      <trans-unit id="TWuwK4M" resname="Angriff und Verteidigung">
+        <source>Angriff und Verteidigung</source>
+        <target>Armurerie et défenses</target>
+      </trans-unit>
+      <trans-unit id="nz1fjZT" resname="Sonstiges">
+        <source>Sonstiges</source>
+        <target>Divers</target>
       </trans-unit>
     </body>
   </file>

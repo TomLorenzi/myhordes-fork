@@ -13,6 +13,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\ItemCategory;
 use App\Entity\Recipe;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
@@ -63,6 +64,17 @@ class DatabaseExtractor implements ExtractorInterface
                     $this->insert($c, $requirement->getFailureText(), 'items');
             }
         }
+
+        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
+            /** @var $recipe Recipe */
+            if ($recipe->getAction())
+                $this->insert( $c, $recipe->getAction(), 'items' );
+
+        foreach ($this->em->getRepository(ItemCategory::class)->findRootCategories() as $itemCategory)
+            /** @var $itemCategory ItemCategory */
+            if ($itemCategory->getLabel())
+                $this->insert( $c, $itemCategory->getLabel(), 'items' );
+
         //</editor-fold>
 
         //<editor-fold desc="Building Domain">
@@ -121,11 +133,6 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $town TownClass */
             if ($town->getLabel())
                 $this->insert( $c, $town->getLabel(), 'game' );
-
-        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
-            /** @var $recipe Recipe */
-            if ($recipe->getAction())
-                $this->insert( $c, $recipe->getAction(), 'items' );
         //</editor-fold>
     }
 
