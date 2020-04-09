@@ -129,7 +129,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if($building->getPrototype()->getName() === 'item_tagger_#00')
                 $has_watchtower = true;
 
-            if ($b->getPrototype()->getMaxLevel() > 0)
+            if ($building->getPrototype()->getMaxLevel() > 0)
                 $has_levelable_building = true;
         }
 
