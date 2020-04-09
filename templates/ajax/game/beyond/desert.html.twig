@@ -16,7 +16,7 @@
                 <p>{% trans from 'game' %}Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...{% endtrans %}</p>
             {% else %}
                 {% if zone.prototype %}
-                    <div class="note">
+                    <div class="ruin-info">
                         {% if zone.buryCount > 0 %}
                             <b>{{ 'Verschüttete Ruine'|trans({},'game') }}</b>
                             {% if scout %}<b>(<i>{{ zone.prototype.label|trans({}, 'game') }}</i>)</b>{% endif %}
@@ -24,13 +24,20 @@
                             {{ 'Es muss noch aufgeräumt werden'|trans({},'game') }}:
                             <div class="ruin-bury-count">{% for p in 1..zone.buryCount %}<div></div>{% endfor %}</div>
                         {% else %}
-                            <img src="{{ asset('build/images/small_help.gif') }}" /> <span class="building-name">{{ 'Ruine'|trans({},'game') }} : <b>{{ zone.prototype.label|trans({}, 'game') }}</b></span><br />
-                            <span class="building-desc">{{ zone.prototype.description }}</span>
+                            <img src="{{ asset('build/images/small_help.gif') }}" /> <span class="ruin-name">{{ 'Ruine'|trans({},'game') }} : <b>{{ zone.prototype.label|trans({}, 'game') }}</b></span><br />
+                            <span class="ruin-desc">{{ zone.prototype.description|trans({}, 'game') }}</span>
                         {% endif %}
 
                     </div>
                 {% else %}
-                    <p>{% trans from 'game' %}Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...{% endtrans %}</p>
+                    <p class="beyond-rp">
+                        <img alt="" src="{{ asset('build/images/small_rp.gif') }}" />
+                        {% if hour >= 7 and hour <= 18 %}
+                            {% trans from 'game' %}Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?{% endtrans %}
+                        {% else %}
+                            {% trans from 'game' %}Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...{% endtrans %}
+                        {% endif %}
+                    </p>
                 {% endif %}
             {% endif %}
         </div>

@@ -211,7 +211,7 @@
       </trans-unit>
       <trans-unit id="DtLEpHf" resname="Bissiger Hund">
         <source>Bissiger Hund</source>
-        <target>Chien hargneux ( alias Pepette )</target>
+        <target>Chien hargneux (alias Pepette)</target>
       </trans-unit>
       <trans-unit id="_l2reKv" resname="Großer knuddeliger Kater">
         <source>Großer knuddeliger Kater</source>
@@ -1127,7 +1127,7 @@
       </trans-unit>
       <trans-unit id="NzfKa_1" resname="Bierkrug">
         <source>Bierkrug</source>
-        <target>Bierkrug</target>
+        <target>Choppe de bière</target>
       </trans-unit>
       <trans-unit id="GNoTm5X" resname="Brezel">
         <source>Brezel</source>
@@ -1283,7 +1283,7 @@
       </trans-unit>
       <trans-unit id="ahj5_Qd" resname="Schrödingers Box">
         <source>Schrödingers Box</source>
-        <target>Schrödingers Box</target>
+        <target>Boîte de Schrödinger</target>
       </trans-unit>
       <trans-unit id="jKvG1Xa" resname="Geistiger Beistand">
         <source>Geistiger Beistand</source>
@@ -1391,11 +1391,11 @@
       </trans-unit>
       <trans-unit id="m8ZO.Qg" resname="Einnehmen">
         <source>Einnehmen</source>
-        <target>Einnehmen</target>
+        <target>Utiliser</target>
       </trans-unit>
       <trans-unit id="yvLm0Wo" resname="Einsetzen">
         <source>Einsetzen</source>
-        <target>Einsetzen</target>
+        <target>Installer</target>
       </trans-unit>
       <trans-unit id="0yUwJX." resname="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
         <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
@@ -1431,7 +1431,7 @@
       </trans-unit>
       <trans-unit id="LNBNFk1" resname="Zum Glück sind hier keine Zombies...">
         <source>Zum Glück sind hier keine Zombies...</source>
-        <target>Zum Glück sind hier keine Zombies...</target>
+        <target>Par chance, il n'y a aucun zombie...</target>
       </trans-unit>
       <trans-unit id="3Kj2SRD" resname="Lesen">
         <source>Lesen</source>
