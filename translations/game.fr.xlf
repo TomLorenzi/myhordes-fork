@@ -1810,10 +1810,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
         <target>Il n'est pas possible d'évaluer avec précision notre situation face à l'attaque de ce soir.</target>
       </trans-unit>
-      <trans-unit id="Bij.q6J" resname="Die Zeitung lesen">
-        <source>Die Zeitung lesen</source>
-        <target>Lire la gazette</target>
-      </trans-unit>
       <trans-unit id="3MPDTZN" resname="Unsere Verteidigungen">
         <source>Unsere Verteidigungen</source>
         <target>Nos défenses en détail</target>
@@ -1836,7 +1832,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="fTFJ5hh" resname="Nachtwächter">
         <source>Nachtwächter</source>
-        <target>Veuilleur</target>
+        <target>Veilleur</target>
       </trans-unit>
       <trans-unit id="RPns7ug" resname="Wächt">
         <source>Wächt</source>
@@ -2221,6 +2217,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="GrndoXV" resname="Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?">
         <source>Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?</source>
         <target>Le désert s'étend à perte de vue... Combien d'hommes se sont perdus dans ces immensités ? Qui sait si vous ne serez pas le prochain ?</target>
+      </trans-unit>
+      <trans-unit id="Bij.q6J" resname="Lesen Sie das Mitteilungsblatt">
+        <source>Lesen Sie das Mitteilungsblatt</source>
+        <target>Lire la gazette</target>
       </trans-unit>
     </body>
   </file>

@@ -114,13 +114,23 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $item_def_factor = 1;
         $has_battlement = false;
+        $has_watchtower = false;
+        $has_levelable_building = false;
         foreach ($town->getBuildings() as $building) {
-            if ($building->getComplete() && $building->getPrototype()->getName() === 'item_meca_parts_#00')
+            if (!$building->getComplete())
+                continue;
+
+            if ($building->getPrototype()->getName() === 'item_meca_parts_#00')
                 $item_def_factor += (1+$building->getLevel()) * 0.5;
 
-            //TODO: fetch the Battlement's name
-            if($building->getComplete() && $building->getPrototype()->getName() === 'TOBEDEFINED#00')
+            if($building->getPrototype()->getName() === 'small_round_path_#00')
                 $has_battlement = true;
+
+            if($building->getPrototype()->getName() === 'item_tagger_#00')
+                $has_watchtower = true;
+
+            if ($b->getPrototype()->getMaxLevel() > 0)
+                $has_levelable_building = true;
         }
 
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ));
@@ -138,6 +148,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'item_def_count' => $item_def_count,
             'item_def_factor' => $item_def_factor,
             'has_battlement' => $has_battlement,
+            'has_watchtower' => $has_watchtower,
+            'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
             'has_estimated' => $has_estimated
         ]) );
