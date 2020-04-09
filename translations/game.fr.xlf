@@ -91,7 +91,7 @@
       </trans-unit>
       <trans-unit id="0uk_Ijd" resname="%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.">
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% a produit : %list2%. Cela a consommé : %list1%.</target>
+        <target>%citizen% a produit %list2% a partir de %list1%.</target>
       </trans-unit>
       <trans-unit id="wxkGehN" resname="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
@@ -698,7 +698,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="UNwR9SS" resname="Zufälliger Gegenstand">
         <source>Zufälliger Gegenstand</source>
-        <target>Zufälliger Gegenstand</target>
+        <target>Objet aléatoire</target>
       </trans-unit>
       <trans-unit id="MkWoNw1" resname="Herst.">
         <source>Herst.</source>

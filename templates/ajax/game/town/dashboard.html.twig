@@ -58,9 +58,13 @@
         <div class="padded cell rw-6 rw-md-12">
             <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
             <div class="words-of-heroes">
-                <div class="content">{{ town.wordsOfHeroes|nl2br }}</div>
+                <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
                 {% if active_citizen.profession.heroic %}
-                <div class="edit"><a href="#">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
+                <div class="content hidden" id="words-of-heroes-editor">
+                    <textarea>{{ town.wordsOfHeroes }}</textarea>
+                </div>
+                <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
+                <div class="cancel hidden"><a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
                 {% else %}
                 <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
                 {% endif %}
@@ -110,5 +114,22 @@
 {% block js %}
     {{ parent() }}
     <script>
+        document.getElementById("edit-wordsofheroes").addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById("words-of-heroes-content").classList.add('hidden');
+            document.getElementById("words-of-heroes-editor").classList.remove('hidden');
+            document.getElementById("edit-wordsofheroes").parentNode.classList.add('hidden');
+            document.getElementById("canceledit-wordsofheroes").parentNode.classList.remove('hidden');
+        });
+
+        document.getElementById("canceledit-wordsofheroes").addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById("words-of-heroes-content").classList.remove('hidden');
+            document.getElementById("words-of-heroes-editor").classList.add('hidden');
+            document.getElementById("edit-wordsofheroes").parentNode.classList.remove('hidden');
+            document.getElementById("canceledit-wordsofheroes").parentNode.classList.add('hidden');
+        });
     </script>
 {% endblock %}

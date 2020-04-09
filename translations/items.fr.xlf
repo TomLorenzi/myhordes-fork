@@ -2789,6 +2789,14 @@
         <source>Kaputt</source>
         <target>Cassé</target>
       </trans-unit>
+      <trans-unit id="A7SKfkS" resname="Wandeln">
+        <source>Wandeln</source>
+        <target>Transformer</target>
+      </trans-unit>
+      <trans-unit id="9fNbzu." resname="Zerlegen">
+        <source>Zerlegen</source>
+        <target>Démonter</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

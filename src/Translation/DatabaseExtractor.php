@@ -13,6 +13,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\Recipe;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use Doctrine\ORM\EntityManagerInterface;
@@ -120,6 +121,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $town TownClass */
             if ($town->getLabel())
                 $this->insert( $c, $town->getLabel(), 'game' );
+
+        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
+            /** @var $recipe Recipe */
+            if ($recipe->getAction())
+                $this->insert( $c, $recipe->getAction(), 'items' );
         //</editor-fold>
     }
 
