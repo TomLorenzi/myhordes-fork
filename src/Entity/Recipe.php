@@ -43,7 +43,7 @@ class Recipe
     private $type;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=32, nullable=true)
      */
     private $action;
 

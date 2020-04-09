@@ -201,15 +201,21 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function renderInventoryAsBank( Inventory $inventory ) {
         $qb = $this->entity_manager->createQueryBuilder();
-        $data = $qb
+        $query = $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory)
             ->groupBy('i.prototype', 'i.broken')
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->orderBy('cr.ordering','ASC')->addOrderBy('c.ordering', 'ASC')->addOrderBy('p.id', 'ASC')->addOrderBy('i.id', 'ASC')
-            ->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+            ->orderBy('c.ordering','ASC')
+            ->addOrderBy('cr.ordering','ASC')
+            ->addOrderBy('c.ordering', 'ASC')
+            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('i.id', 'ASC')
+            ->getQuery();
+
+        $data = $query->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         $final = [];
         foreach ($data as $entry) {

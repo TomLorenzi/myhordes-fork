@@ -52,17 +52,6 @@
       display: none;
     }
 
-    &.town-addon-empty {
-      background-color: transparent;
-
-      & > div {
-        height: 36px;
-        width: 36px;
-        margin: 2px;
-        border: 1px dotted @myhordes-cell-header-background-color;
-      }
-    }
-
     & > div {
       padding: 0;
       margin: 0;
@@ -77,6 +66,7 @@
       outline: 1px solid @myhordes-input-border;
       cursor: pointer;
     }
+
     &.selected {
       background: lighten(@myhordes-cell-header-background-color, 10%);
       filter: contrast(120%) brightness(120%);
@@ -92,6 +82,24 @@
       height: 15px;
       font-size: 10px;
       overflow: hidden;
+    }
+
+    &.town-addon-empty {
+      background-color: transparent;
+      &:hover > div,
+      &:hover > span,
+      &:hover {
+        outline: none;
+        cursor: initial;
+      }
+
+      & > div {
+        height: 36px;
+        width: 36px;
+        margin: 2px;
+        border: 1px dotted @myhordes-cell-header-background-color;
+        background: repeating-linear-gradient( -45deg, #7e4a31 4px, #693e29 8px );
+      }
     }
 
     &.town-addon-upgrade > div {
