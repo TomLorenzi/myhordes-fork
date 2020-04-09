@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
+use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenStatus;
@@ -225,17 +226,16 @@ class ActionHandler
 
     /**
      * @param Citizen $citizen
-     * @param Item $item
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
      */
-    public function getAvailableCampingActions(Citizen $citizen, Item &$item, ?array &$available, ?array &$crossed ) {
+    public function getAvailableCampingActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
 
       $available = $crossed = [];
-      if ($item->getBroken()) return;
+      $campingActions = $this->entity_manager->getRepository(CampingActionPrototype::class)->findAll();
 
-      foreach ($item->getPrototype()->getActions() as $action) {
-        $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
+      foreach ($campingActions as $action) {
+        $mode = $this->evaluate( $citizen, null, null, $action->getAction(), $tx );
         if ($mode >= self::ActionValidityAllow) $available[] = $action;
         else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
       }

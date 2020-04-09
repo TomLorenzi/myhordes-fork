@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\CampingActionPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
@@ -151,23 +152,10 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected function getCampingActions(): array {
       $ret = [];
 
-      $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest()];
+      $this->action_handler->getAvailableCampingActions( $this->getActiveCitizen(), $available, $crossed );
 
-      $items = [];
-      foreach ($this->getActiveCitizen()->getInventory()->getItems() as $item) {
-        if ($item->getPrototype()->getName() == "basic_suit_dirt_#00") {
-          $items[] = $item;
-        }
-      }
-
-      foreach ($items as $item) if (!$item->getBroken()) {
-
-        $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed );
-        if (empty($available) && empty($crossed)) continue;
-
-        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'action' => $a, 'targets' => $a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null, 'crossed' => false ];
-        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'action' => $c, 'targets' => null, 'crossed' => true ];
-      }
+      foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => null, 'action' => $a, 'targets' => null, 'crossed' => false ];
+      foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => null, 'action' => $c, 'targets' => null, 'crossed' => true ];
 
       return $ret;
     }
