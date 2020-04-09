@@ -1,0 +1,15 @@
+{% if scout is not defined %}
+    {% set scout = false %}
+{% endif %}
+
+{% if list|length > 0  %}
+    <ul class="actions">
+        {% for entry in list %}
+            <li class="action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-provoking-id="{{ entry.item.id }}"{% else %}x-target-definition="{{ entry.id }}--{{ entry.item.id }}"{% endif %}>
+                <img src="{{ asset('build/images/item/item_' ~ entry.item.prototype.icon ~ '.gif') }}" alt="{{ entry.item.prototype.label|trans({},'items') }}">
+                <span>{{ '%action%'|trans({'%action%': entry.action.label|trans({},'items')|e('html')},'items')|raw }}</span>
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endif %}

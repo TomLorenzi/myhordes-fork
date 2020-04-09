@@ -225,6 +225,25 @@ class ActionHandler
 
     /**
      * @param Citizen $citizen
+     * @param Item $item
+     * @param ItemAction[] $available
+     * @param ItemAction[] $crossed
+     */
+    public function getAvailableCampingActions(Citizen $citizen, Item &$item, ?array &$available, ?array &$crossed ) {
+
+      $available = $crossed = [];
+      if ($item->getBroken()) return;
+
+      foreach ($item->getPrototype()->getActions() as $action) {
+        $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
+        if ($mode >= self::ActionValidityAllow) $available[] = $action;
+        else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+      }
+
+    }
+
+    /**
+     * @param Citizen $citizen
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
      */
