@@ -147,7 +147,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Manufaktur","temporary" => 0,"img" => "small_factory","vp" => 0,"ap" => 40,"bp" => 0,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 5,"table_#00" => 1,]],
             ["name" => "Kreischende Sägen","temporary" => 0,"img" => "small_saw","vp" => 45,"ap" => 65,"bp" => 0,"rsc" => ["meca_parts_#00" => 3,"metal_#00" => 5,"rustine_#00" => 3,"metal_beam_#00" => 2,]],
             ["name" => "Baustellenbuch","temporary" => 0,"img" => "item_rp_book2","vp" => 0,"ap" => 15,"bp" => 0,"rsc" => ["table_#00" => 1,], "children" => [
-                ["name" => "Bauhaus","maxLevel" => 5,"temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 75,"bp" => 0,"rsc" => ["drug_#00" => 1,"vodka_de_#00" => 1,"wood_beam_#00" => 10,],
+                ["name" => "Bauhaus","maxLevel" => 3,"temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 75,"bp" => 0,"rsc" => ["drug_#00" => 1,"vodka_de_#00" => 1,"wood_beam_#00" => 10,],
                 "upgradeTexts" => [
                     'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.',
                     'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.',
