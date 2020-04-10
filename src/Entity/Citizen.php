@@ -140,6 +140,11 @@ class Citizen
      */
     private $campingCounter = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $campingTimestamp = 0;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -523,5 +528,19 @@ class Citizen
       $this->campingCounter = $campingCounter;
 
       return $this;
+    }
+
+
+
+    public function getCampingTimestamp(): int
+    {
+        return $this->campingTimestamp;
+    }
+
+    public function setCampingTimestamp(int $campingTimestamp): self
+    {
+        $this->campingCounter = $campingTimestamp;
+
+        return $this;
     }
 }
