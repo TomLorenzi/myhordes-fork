@@ -135,6 +135,11 @@ class Citizen
      */
     private $heroicActions;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $campingCounter = 0;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -506,5 +511,17 @@ class Citizen
         }
 
         return $this;
+    }
+
+    public function getCampingCounter(): int
+    {
+      return $this->campingCounter;
+    }
+
+    public function setCampingCounter(int $campingCounter): self
+    {
+      $this->campingCounter = $campingCounter;
+
+      return $this;
     }
 }

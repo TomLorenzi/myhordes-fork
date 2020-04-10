@@ -298,16 +298,23 @@ class Town
     return $this->chaos;
   }
 
-  public function setChaos(bool $chaos): self
-  {
-    $this->chaos = $chaos;
 
-    return $this;
+  public function getForum(): ?Forum
+  {
+    return $this->forum;
   }
 
-  public function getDevastated(): ?bool
+  public function setForum(?Forum $forum): self
   {
-    return $this->devastated;
+    $this->forum = $forum;
+
+    // set (or unset) the owning side of the relation if necessary
+    $newTown = null === $forum ? null : $this;
+    if ($forum->getTown() !== $newTown) {
+      $forum->setTown($newTown);
+    }
+
+    return $this;
   }
 
   public function setDevastated(bool $devastated): self
@@ -339,7 +346,7 @@ class Town
   {
     if ($this->buildings->contains($building)) {
       $this->buildings->removeElement($building);
-      // set the owning side to null (unless already changed)
+            // set the owning side to null (unless already changed)
       if ($building->getTown() === $this) {
         $building->setTown(null);
       }
@@ -370,7 +377,7 @@ class Town
   {
     if ($this->zombieEstimations->contains($zombieEstimation)) {
       $this->zombieEstimations->removeElement($zombieEstimation);
-      // set the owning side to null (unless already changed)
+            // set the owning side to null (unless already changed)
       if ($zombieEstimation->getTown() === $this) {
         $zombieEstimation->setTown(null);
       }
@@ -379,21 +386,4 @@ class Town
     return $this;
   }
 
-  public function getForum(): ?Forum
-  {
-    return $this->forum;
-  }
-
-  public function setForum(?Forum $forum): self
-  {
-    $this->forum = $forum;
-
-    // set (or unset) the owning side of the relation if necessary
-    $newTown = null === $forum ? null : $this;
-    if ($forum->getTown() !== $newTown) {
-      $forum->setTown($newTown);
-    }
-
-    return $this;
-  }
 }

@@ -6,6 +6,10 @@
 {# @var zone \App\Entity\Zone #}
 {% block content %}
     {% set hour = "now"|date("G") %}
+    <div>
+        CITIZEN status: {{ citizen_status }}<br>
+        CITIZEN hidden: {% if citizen_hidden %}YES{% else %}NO{% endif %}<br>
+    </div>
     <div class="row">
         <div class="cell rw-12 zone-beyond time-{{ hour }} {% if hour < 7 or hour > 18 %}night-{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% elseif zone.prototype and zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
     </div>
@@ -45,16 +49,13 @@
     {% if zone.x != 0 or zone.y != 0 %}
         <div class="row">
             <div class="cell rw-12 zone-camp">
-                <input type="checkbox" name="zone-camp" id="zone-camp" /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>
+                <input type="checkbox" name="zone-camp" id="zone-camp"{% if citizen_hidden %} checked="checked"{% endif %} /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>
                 <div class="zone-camp-info">
                     <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
                     <p>{% trans from 'game' %}Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.{% endtrans %}</p>
                     <p>{% trans from 'game' %}Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.{% endtrans %}</p>
-                    <ul>
-                        <li>{% trans from 'game' %}Sich verstecken und die Nacht hier schlafen!{% endtrans %}</li>
-                        <li>{% trans from 'game' %}Schlafplatz verbessern (schwacher permanenter Bonus, 1AP){% endtrans %}</li>
-                        <li>{% trans from 'game' %}"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP){% endtrans %}</li>
-                    </ul>
+                    {% embed "ajax/game/camping.html.twig" with {'list': camping, 'hidden': citizen_hidden} %}
+                    {% endembed %}
                 </div>
             </div>
         </div>
@@ -121,46 +122,48 @@
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
 
             {% if zone.x != 0 or zone.y != 0 %}
-                {% if not digging %}
-                    {% if dig_timeout > 0 %}
+                {% if not citizen_hidden %}
+                    {% if not digging %}
+                        {% if dig_timeout > 0 %}
+                            <div class="note">
+                                <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                                {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                <b x-countdown="{{ dig_timeout }}" x-on-expire="reload">...</b>
+                            </div>
+                        {% endif %}
+                        <button id="dig_button" {% if zone_blocked or dig_timeout > 0 %}disabled{% endif %}>
+                            <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
+                            {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
+                    {% else %}
                         <div class="note">
-                            <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
-                            {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
-                            <b x-countdown="{{ dig_timeout }}" x-on-expire="reload">...</b>
+                            <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
+                            {% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}
+                            <span x-countdown="{{ dig_timeout }}" x-on-expire="reload">...</span>
                         </div>
                     {% endif %}
-                    <button id="dig_button" {% if zone_blocked or dig_timeout > 0 %}disabled{% endif %}>
-                        <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
-                        {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
-                {% else %}
-                    <div class="note">
-                        <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
-                        {% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}
-                        <span x-countdown="{{ dig_timeout }}" x-on-expire="reload">...</span>
-                    </div>
-                {% endif %}
-                {% if zone.prototype %}
-                    <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
-                        {% if (zone_blocked and active_scout_mode) %}
-                            <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
-                        {% endif %}
-                        <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
-                        {% set ruin_label = zone.prototype.label|trans({},'game') %}
-                        {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
-                        {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
-                    </button>
-                    {% if zone.buryCount > 0 %}
-                        <button id="uncover_ruin_button">
+                    {% if zone.prototype %}
+                        <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
                             {% if (zone_blocked and active_scout_mode) %}
                                 <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
                             {% endif %}
-                            <img class="icon left" alt="" src="{{ asset('build/images/uncover.gif') }}" />
-                            {{ 'Zone freiräumen'|trans({},'game') }} (<div class="ap">1</div>)
+                            <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
+                            {% set ruin_label = zone.prototype.label|trans({},'game') %}
+                            {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
+                            {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
                         </button>
+                        {% if zone.buryCount > 0 %}
+                            <button id="uncover_ruin_button">
+                                {% if (zone_blocked and active_scout_mode) %}
+                                    <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
+                                {% endif %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/uncover.gif') }}" />
+                                {{ 'Zone freiräumen'|trans({},'game') }} (<div class="ap">1</div>)
+                            </button>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode)} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                 {% endembed %}
 
             {% else %}
@@ -350,6 +353,11 @@
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
+        handleCampingActions(
+          document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
+          '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\CampingActionPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
@@ -147,6 +148,17 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
 
         return $ret;
+    }
+
+    protected function getCampingActions(): array {
+      $ret = [];
+
+      $this->action_handler->getAvailableCampingActions( $this->getActiveCitizen(), $available, $crossed );
+
+      foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => null, 'action' => $a, 'targets' => null, 'crossed' => false ];
+      foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => null, 'action' => $c, 'targets' => null, 'crossed' => true ];
+
+      return $ret;
     }
 
     protected function getItemActions(): array {
@@ -452,6 +464,48 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         else return AjaxResponse::error( $error );
 
         return AjaxResponse::success();
+    }
+
+    public function generic_camping_action_api(JSONRequestParser $parser): Response {
+      $action_id = (int)$parser->get('action', -1);
+
+      /** @var Item|ItemPrototype|null $target */
+      $target = null;
+      /** @var CampingActionPrototype|null $heroic */
+      $camping = ($action_id < 0) ? null : $this->entity_manager->getRepository(CampingActionPrototype::class)->find( $action_id );
+
+      if ( !$camping ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+      $citizen = $this->getActiveCitizen();
+
+      $zone = $citizen->getZone();
+      if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+      // TODO check for camping status
+      #if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+      $item = null;
+      if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+
+        $camping_action = $camping->getAction();
+        #$citizen->removeHeroicAction( $heroic );
+
+        $this->entity_manager->persist($citizen);
+        foreach ($remove as $remove_entry)
+          $this->entity_manager->remove($remove_entry);
+        try {
+          $this->entity_manager->flush();
+        } catch (Exception $e) {
+          return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+        }
+
+        if ($msg) $this->addFlash( 'notice', $msg );
+      } elseif ($error === ActionHandler::ErrorActionForbidden) {
+        if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+        return AjaxResponse::error($error, ['message' => $msg]);
+      }
+      else return AjaxResponse::error( $error );
+
+      return AjaxResponse::success();
     }
 
     public function generic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null): Response {

@@ -135,6 +135,11 @@ class Zone
      */
     private $scoutEstimationOffset;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $improvementLevel = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -480,5 +485,17 @@ class Zone
         $this->scoutEstimationOffset = $scoutEstimationOffset;
 
         return $this;
+    }
+
+    public function getImprovementLevel(): ?int
+    {
+      return $this->improvementLevel;
+    }
+
+    public function setImprovementLevel(int $improvementLevel): self
+    {
+      $this->improvementLevel = $improvementLevel;
+
+      return $this;
     }
 }

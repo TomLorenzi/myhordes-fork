@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
@@ -138,6 +139,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'scout_sense' => $scout_sense,
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
+            'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
             'km' => round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) )),
             'lock_trash' => $trashlock && $trashlock->getTaken() >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
@@ -189,6 +191,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
         $dig_timeout = $this->get_dig_timeout( $this->getActiveCitizen(), $dig_active );
 
+        $citizen_hidden = $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ));
+        $stati = "| ";
+        foreach ($this->getActiveCitizen()->getStatus() as $st) {
+          $stati .= $st->getName() . ' | ';
+        }
+
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
 
@@ -203,6 +211,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ),
             'can_attack' => !$citizen_tired,
+            'citizen_status' => $stati,
+            'citizen_hidden' => $citizen_hidden,
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
             'digging' => $dig_timeout >= 0 && $dig_active,
@@ -521,6 +531,18 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         };
 
         return $this->generic_heroic_action_api( $parser, $uncover_fun);
+    }
+
+    /**
+     * @Route("api/beyond/desert/camping", name="beyond_desert_camping_controller")
+     * @param JSONRequestParser $parser
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+      $this->deferZoneUpdate();
+
+      return $this->generic_camping_action_api( $parser);
     }
 
     /**
