@@ -542,9 +542,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'must_have_control' ], 'result' => [ 'consume_item', [ 'zone' => ['improve' =>  18] ] ], 'message' => 'Du hast das hiesige Versteck erheblich verbessert.' ],
 
-            'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ [ 'zone' => ['improve' =>  10] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
+            'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  10] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
             'campsite_hide' => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide' ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
-            'campsite_tomb' => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_tomb' ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
+            'campsite_tomb' => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb' ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
             'campsite_unhide' => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide' ], 'message' => 'Du hast Dein Versteck verlassen.' ],
             'campsite_untomb' => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb' ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
 

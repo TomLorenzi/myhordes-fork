@@ -138,7 +138,7 @@ class Zone
     /**
      * @ORM\Column(type="integer")
      */
-    private $hideoutLevel = 0;
+    private $improvementLevel = 0;
 
     public function __construct()
     {
@@ -485,5 +485,17 @@ class Zone
         $this->scoutEstimationOffset = $scoutEstimationOffset;
 
         return $this;
+    }
+
+    public function getImprovementLevel(): ?int
+    {
+      return $this->improvementLevel;
+    }
+
+    public function setImprovementLevel(int $improvementLevel): self
+    {
+      $this->improvementLevel = $improvementLevel;
+
+      return $this;
     }
 }
