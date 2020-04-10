@@ -255,6 +255,9 @@ class TownAddonsController extends TownController
         if ($recipe === null || $recipe->getType() !== Recipe::WorkshopType)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+
         // Execute recipe and persist
         if (($error = $ah->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )
             return AjaxResponse::error( $error );

@@ -110,8 +110,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
         if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
 
-        $defSummary;
-
         $item_def_factor = 1;
         $has_battlement = false;
         $has_watchtower = false;
@@ -151,7 +149,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'has_watchtower' => $has_watchtower,
             'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
-            'has_estimated' => $has_estimated
+            'has_estimated' => $has_estimated,
+            'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
+            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active')
         ]) );
     }
 
@@ -606,6 +606,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $th->triggerBuildingCompletion( $town, $building );
         }
 
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+
         // Persist
         try {
             $this->entity_manager->persist($citizen);
@@ -722,6 +725,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         if (!$zone)
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
         $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
         $zone->addCitizen( $citizen );
