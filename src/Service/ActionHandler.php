@@ -547,6 +547,10 @@ class ActionHandler
 
                 if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0)
                     $base_zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime("+{$zoneEffect->getEscape()}sec") ) );
+
+              if ($zoneEffect->getImproveLevel()) {
+                $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
+              }
             }
 
             if ($well = $result->getWell()) {
