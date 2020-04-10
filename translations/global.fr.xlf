@@ -241,6 +241,10 @@
         <source>Spiel</source>
         <target>Jouer</target>
       </trans-unit>
+      <trans-unit id="LiAR2Wp" resname="Hinweis">
+        <source>Hinweis</source>
+        <target>Hinweis</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

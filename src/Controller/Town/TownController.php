@@ -151,7 +151,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'active_citizen' => $this->getActiveCitizen(),
             'has_estimated' => $has_estimated,
             'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
-            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active')
+            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active'),
+            'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
         ]) );
     }
 
