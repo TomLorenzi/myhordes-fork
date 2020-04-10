@@ -292,4 +292,144 @@ class CitizenHandler
         $days = $citizen->getSurvivedDays();
         return $days * ( $days + 1 ) / 2;
     }
+
+    public function getCampingChance(Citizen $citizen): float {
+      $camping_values = [];
+      $zone = $citizen->getZone();
+      $town = $citizen->getTown();
+
+      // Town type: Pandemonium gets malus of 14, all other types are neutral.
+      $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
+
+      // Distance in km
+      $distance_map = [
+        1 => -24,
+        2 => -19,
+        3 => -14,
+        4 => -11,
+        5 => -9,
+        6 => -9,
+        7 => -9,
+        8 => -9,
+        9 => -9,
+        10 => -9,
+        11 => -9,
+        12 => -6,
+        13 => -7,
+        14 => -7,
+        15 => -6,
+      ];
+      $zone_distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
+      if ($zone_distance >= 16) {
+        $camping_values['distance'] = -5;
+      }
+      else {
+        $camping_values['distance'] = $distance_map[$zone_distance];
+      }
+
+      // Ruin in zone.
+      $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
+
+      // Zombies in zone. Factor 1.4, for CamperPro it will 0.6.
+      $camping_values['zombies'] = 1.4 * $zone->getZombies();
+
+      // Zone improvement level.
+      $camping_values['improvement'] = $zone->getImprovementLevel() / 10; // DB values min: 0, max: 117
+
+      // Previous camping count.
+      $campings_map = [
+        'normal' => [
+          0 => 0,
+          1 => -4,
+          2 => -9,
+          3 => -13,
+          4 => -16,
+          5 => -26,
+          6 => -36,
+        ],
+        'hard' => [
+          0 => 0,
+          1 => -4,
+          2 => -6,
+          3 => -8,
+          4 => -10,
+        ],
+      ];
+      $previous_campings = $citizen->getCampingCounter();
+      if ($town->getType()->getId() == 3) {
+        $camping_values['campings'] = $campings_map['hard'][$previous_campings];
+      }
+      else {
+        $camping_values['campings'] = $campings_map['normal'][$previous_campings];
+      }
+
+      // Campers that are already hidden.
+      $campers_map = [
+        0 => 0,
+        1 => 0,
+        2 => -2,
+        3 => -5,
+        4 => -10,
+      ];
+      $previous_campers = 0; // TODO: Get campers from zone.
+      if ($previous_campers >= 5) {
+        $camping_values['campers'] = -14;
+      }
+      else {
+        $camping_values['campers'] = $campers_map[$previous_campers];
+      }
+
+      // Hautfetzen + Zeltplanen
+      $campitems = [
+        $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'smelly_meat_#00' ),
+        $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'sheet_#00' ),
+      ];
+      $camping_values['campitems'] = $this->inventory_handler->countSpecificItems($citizen->getInventory(), $campitems);
+
+      // Grab
+      $camping_values['tomb'] = 0;
+      if ($citizen->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ))) {
+        $camping_values['tomb'] = 1.9;
+      }
+
+      // Night time bonus.
+      $camping_values['night'] = 0;
+
+      // Leuchtturm
+      $camping_values['lighthouse'] = 0;
+
+      // Devastated town.
+      $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;
+
+      $total_value = array_sum($camping_values);
+
+      if ($total_value >= 0 && $citizen->getProfession()->getName() == 'survivalist') {
+        $survival_chance = 1;
+      }
+      else if ($total_value > -2 && $citizen->getProfession()->getName() == 'survivalist') {
+        $survival_chance = .95;
+      }
+      else if ($total_value > -4) {
+        $survival_chance = .9;
+      }
+      else if ($total_value > -7) {
+        $survival_chance = .75;
+      }
+      else if ($total_value > -10) {
+        $survival_chance = .6;
+      }
+      else if ($total_value > -14) {
+        $survival_chance = .45;
+      }
+      else if ($total_value > -18) {
+        $survival_chance = .3;
+      }
+      else {
+        $survival_chance = .15;
+      }
+
+      $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has a camping value of <info>{$total_value}</info> (the sum of <info>" . json_encode($camping_values, 8) . "</info>) - survival chance is <info>" . ($survival_chance * 100) . "%</info>.");
+
+      return $survival_chance;
+    }
 }
