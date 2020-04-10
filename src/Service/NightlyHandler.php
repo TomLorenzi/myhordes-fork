@@ -132,6 +132,10 @@ class NightlyHandler
 
             if ($citizen->getStatus()->contains( $status_infected )) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_infected->getLabel()}</info>." );
+                $chance = 0.5;
+                // In Pandamonium town, there is 0.75 chance you die from infection
+                if($town->getType()->getName() == 'panda')
+                    $chance = 0.75;
                 if ($this->random->chance(0.5)) $this->kill_wrap( $citizen, $cod_infect, true );
                 continue;
             }
