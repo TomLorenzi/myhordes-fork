@@ -459,6 +459,48 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         return AjaxResponse::success();
     }
 
+    public function generic_camping_action_api(JSONRequestParser $parser): Response {
+      $action_id = (int)$parser->get('action', -1);
+
+      /** @var Item|ItemPrototype|null $target */
+      $target = null;
+      /** @var CampingActionPrototype|null $heroic */
+      $camping = ($action_id < 0) ? null : $this->entity_manager->getRepository(CampingActionPrototype::class)->find( $action_id );
+
+      if ( !$camping ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+      $citizen = $this->getActiveCitizen();
+
+      $zone = $citizen->getZone();
+      if ($zone && $zone->getX() === 0 && $zone->getY() === null ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+      // TODO check for camping status
+      #if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+      $item = null;
+      if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+
+        $camping_action = $camping->getAction();
+        #$citizen->removeHeroicAction( $heroic );
+
+        $this->entity_manager->persist($citizen);
+        foreach ($remove as $remove_entry)
+          $this->entity_manager->remove($remove_entry);
+        try {
+          $this->entity_manager->flush();
+        } catch (Exception $e) {
+          return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+        }
+
+        if ($msg) $this->addFlash( 'notice', $msg );
+      } elseif ($error === ActionHandler::ErrorActionForbidden) {
+        if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+        return AjaxResponse::error($error, ['message' => $msg]);
+      }
+      else return AjaxResponse::error( $error );
+
+      return AjaxResponse::success();
+    }
+
     public function generic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null): Response {
         $item_id =   (int)$parser->get('item',   -1);
         $target_id = (int)$parser->get('target', -1);

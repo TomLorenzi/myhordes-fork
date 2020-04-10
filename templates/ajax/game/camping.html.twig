@@ -3,9 +3,9 @@
 {% endif %}
 
 {% if list|length > 0  %}
-    <ul class="actions">
+    <ul class="camping_actions">
         {% for entry in list %}
-            <li class="action" {% if entry.crossed %}disabled="disabled"{% else %}x-target-definition="{{ entry.id }}--camping"{% endif %}>
+            <li class="camping_action" {% if entry.crossed %}disabled="disabled"{% else %}x-action-id="{{ entry.action.id }}"{% endif %}>
                 <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="">
                 <span>{{ entry.action.name|trans({},'items') }}</span>
             </li>
