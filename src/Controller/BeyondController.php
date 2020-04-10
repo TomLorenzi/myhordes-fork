@@ -40,6 +40,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Asset\Package;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -82,8 +83,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param InventoryHandler $ih
      * @param CitizenHandler $ch
      * @param ActionHandler $ah
-     * @param DeathHandler $dh
      * @param TimeKeeperService $tk
+     * @param DeathHandler $dh
      * @param TranslatorInterface $translator
      * @param GameFactory $gf
      * @param RandomGenerator $rg
@@ -102,7 +103,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     protected function deferZoneUpdate() {
-        $this->zone_handler->updateZone( $this->getActiveCitizen()->getZone() );
+        $str = $this->zone_handler->updateZone( $this->getActiveCitizen()->getZone(), null, $this->getActiveCitizen() );
+        if ($str) $this->addFlash( 'notice', $str );
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
