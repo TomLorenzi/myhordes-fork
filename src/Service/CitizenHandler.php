@@ -5,6 +5,7 @@ namespace App\Service;
 
 
 use App\Entity\Building;
+use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
@@ -372,7 +373,16 @@ class CitizenHandler
             3 => -5,
             4 => -10,
         ];
-        $previous_campers = 0; // TODO: Get campers from zone.
+        $previous_campers = 0;
+        $zone_campers = $zone->getCampers();
+        foreach ($zone_campers as $camper) {
+            if ($camper !== $citizen) {
+                $previous_campers++;
+            }
+            else {
+                break;
+            }
+        }
         if ($previous_campers >= 5) {
             $camping_values['campers'] = -14;
         }
@@ -389,7 +399,7 @@ class CitizenHandler
 
         // Grab
         $camping_values['tomb'] = 0;
-        if ($citizen->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ))) {
+        if ($citizen->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ) )) {
             $camping_values['tomb'] = 1.9;
         }
 
@@ -403,6 +413,9 @@ class CitizenHandler
 
         // Leuchtturm
         $camping_values['lighthouse'] = 0;
+        if ($town->getBuildings()->contains( $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( 'small_lighthouse_#00' )) ) {
+            $camping_values['lighthouse'] = 5;
+        }
 
         // Devastated town.
         $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;
