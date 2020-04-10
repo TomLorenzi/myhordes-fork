@@ -297,6 +297,8 @@ class NightlyHandler
             'drunk' => $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hungover' ),
         ];
 
+        $aliveCitizenInTown = 0;
+
         foreach ($town->getCitizens() as $citizen) {
 
             if ($citizen->getDailyUpgradeVote()) {
@@ -306,6 +308,9 @@ class NightlyHandler
 
             $citizen->getExpeditionRoutes()->clear();
             if (!$citizen->getAlive()) continue;
+
+            if($citizen->getZone() === null)
+                $aliveCitizenInTown++;
 
             if ($citizen->getStatus()->contains($status_survive))
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>protected</info> by <info>{$status_survive->getLabel()}</info>.");
@@ -347,6 +352,21 @@ class NightlyHandler
                     $this->citizen_handler->removeStatus( $citizen, $st );
                     $this->citizen_handler->inflictStatus( $citizen, $status_morph_list[$st->getName()] );
                 }
+        }
+
+        if($town->getDay() > 3) {
+            if($town->getDevastated()){
+                $this->log->debug("Town is devastated, nothing to do.");
+            } else {
+                if ($aliveCitizenInTown > 0 && $aliveCitizenInTown <= 10 && !$town->getDevastated()) {
+                    $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, the town is not devastated, setting the town to <info>chaos</info> mode");
+                    $town->setChaos(true);
+                } else if ($aliveCitizenInTown == 0) {
+                    $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
+                    $town->setDevastated(true);
+                    $town->setChaos(true);
+                }
+            }
         }
     }
 
