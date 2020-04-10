@@ -30,36 +30,19 @@
 }
 
 .row > .cell.town-addons {
-  font-weight: bold;
-  color: @myhordes-cell-header-text-color;
-  font-variant: small-caps;
-  display: flex;
-  align-items: stretch;
+  font-weight: bold; color: @myhordes-cell-header-text-color; font-variant: small-caps; display: flex;
+  align-items: stretch; justify-content: space-evenly;
 
   & > .town-addon {
-    height: 55px;
-    width: 40px;
-    flex-basis: 40px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    font-size: small;
-    padding: 0;
-    cursor: pointer;
-    margin: 3px;
-    background-color: @myhordes-cell-header-background-color;
+    height: 55px; width: 40px; flex-basis: 40px; flex-grow: 0; overflow: hidden;
+    flex-shrink: 0; font-size: small; padding: 0; cursor: pointer;
+    margin: 3px; background-color: @myhordes-cell-header-background-color;
 
-    &:nth-child(n+7) {
-      display: none;
-    }
+    &:nth-child(n+7) { display: none; }
 
     & > div {
-      padding: 0;
-      margin: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 40px;
-      width: 40px;
+      padding: 0; margin: 0; background-repeat: no-repeat; background-position: center; background-size: cover;
+      height: 40px; width: 40px;
     }
 
     &:not(.selected):hover > div {
@@ -74,29 +57,16 @@
     }
 
     & > span {
-      display: block;
-      padding: 1px 2px;
-      text-align: center;
-      text-overflow: ellipsis;
-      line-height: 13px;
-      height: 15px;
-      font-size: 10px;
-      overflow: hidden;
+      display: block; padding: 1px 2px; text-align: center; text-overflow: ellipsis;
+      line-height: 13px; height: 15px; font-size: 10px; overflow: hidden;
     }
 
     &.town-addon-empty {
       background-color: transparent;
-      &:hover > div,
-      &:hover > span,
-      &:hover {
-        outline: none;
-        cursor: initial;
-      }
+      &:hover > div, &:hover > span, &:hover { outline: none; cursor: initial; }
 
       & > div {
-        height: 36px;
-        width: 36px;
-        margin: 2px;
+        height: 36px; width: 36px; margin: 2px;
         border: 1px dotted @myhordes-cell-header-background-color;
         background: repeating-linear-gradient( -45deg, #7e4a31 4px, #693e29 8px );
       }

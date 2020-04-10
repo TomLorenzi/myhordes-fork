@@ -58,17 +58,10 @@
     }
   }
   .row > .cell.town-addons {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     & > .town-addon {
-      flex-basis: 15%;
-      width: 15%;
-      height: auto;
-
-      & > div {
-        height: 0;
-        width: 100%;
-        padding-bottom: 100%;
-      }
+      flex-basis: 13%; width: 13%; height: auto; flex-shrink: 1;
+      & > div { height: 0; width: 100%; padding-bottom: 100%; }
     }
   }
   .row > .cell.town-addons > .town-addon.town-addon-empty > div {
