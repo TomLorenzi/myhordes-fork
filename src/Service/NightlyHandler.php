@@ -35,7 +35,7 @@ class NightlyHandler
     private $item_factory;
     private $logTemplates;
 
-    public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
+  public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                                 RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, ItemFactory $if, LogTemplateHandler $lh)
     {
         $this->entity_manager = $em;
@@ -110,7 +110,7 @@ class NightlyHandler
       $zone = $citizen->getZone();
 
       // Town type: Pandemonium gets malus of 14, all other types are neutral.
-      $camping_values['town'] = $town->getType() == 3 ? -14 : 0;
+      $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
 
       // Distance in km
       $distance_map = [
@@ -167,7 +167,7 @@ class NightlyHandler
         ],
       ];
       $previous_campings = $citizen->getCampingCounter();
-      if ($town->getType() == 3) {
+      if ($town->getType()->getId() == 3) {
         $camping_values['campings'] = $campings_map['hard'][$previous_campings];
       }
       else {
@@ -210,9 +210,44 @@ class NightlyHandler
       $camping_values['lighthouse'] = 0;
 
       // Devastated town.
-      $camping_values['chaos'] = 0; // TODO: Once this is implemented.
+      $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;
 
       $total_value = array_sum($camping_values);
+
+      if ($total_value >= 0 && $citizen->getProfession()->getName() == 'survivalist') {
+        $survival_chance = 1;
+      }
+      else if ($total_value > -2 && $citizen->getProfession()->getName() == 'survivalist') {
+        $survival_chance = .95;
+      }
+      else if ($total_value > -4) {
+        $survival_chance = .9;
+      }
+      else if ($total_value > -7) {
+        $survival_chance = .75;
+      }
+      else if ($total_value > -10) {
+        $survival_chance = .6;
+      }
+      else if ($total_value > -14) {
+        $survival_chance = .45;
+      }
+      else if ($total_value > -18) {
+        $survival_chance = .3;
+      }
+      else {
+        $survival_chance = .15;
+      }
+
+      $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has a camping value of <info>{$total_value}</info> (the sum of <info>" . json_encode($camping_values, 8) . "</info>) - survival chance is <info>" . ($survival_chance * 100) . "%</info>.");
+
+      if (!$this->random->chance($survival_chance)) {
+        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
+        $this->kill_wrap($citizen, $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Vanished));
+      }
+      else {
+        $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
+      }
     }
 
     private function stage1_status(Town &$town) {
@@ -406,7 +441,7 @@ class NightlyHandler
         $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
         $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_hide','tg_tomb'];
         $status_morph_list = [
             'drunk' => $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hungover' ),
         ];
@@ -525,6 +560,11 @@ class NightlyHandler
                     $zone->setRuinDigs( min( $zone->getRuinDigs() + $rdigs, 10 ) );
                     $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>." );
                 }
+            }
+
+            if ($zone->getImprovementLevel() > 0) {
+              $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 30), 0));
+              $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Improvement Level has been reduced to <info>{$zone->getImprovementLevel()}</info>." );
             }
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
