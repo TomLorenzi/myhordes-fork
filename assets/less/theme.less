@@ -273,6 +273,27 @@ ul.actions, ul.heroic_actions {
   }
 }
 
+ul.camping_actions {
+  padding: 5px 2px;
+  &>li {
+    list-style: none; padding: 2px 2px 2px 10px; font-size: 12px; position: relative;
+    &:not(.open) {
+      cursor: pointer;
+      &:hover { text-decoration: underline; }
+    }
+    &>img:first-child { position: absolute; left: 4px; top: 3px; }
+    &>span {
+      vertical-align: top; display: block; padding-left: 16px;
+      &>img {
+        vertical-align: sub;
+        &.unavailable { filter: sepia(100%) opacity(40%) }
+      }
+    }
+    &[disabled]>span { display: none; }
+    &+li { border-top: 1px solid fade(@myhordes-smalltext,20%) }
+  }
+}
+
 div.well {
   width: 100%; padding-top: 118.699187%; background: url("../img/well_bg.gif") no-repeat center/cover;
   position: relative;

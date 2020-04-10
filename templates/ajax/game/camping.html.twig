@@ -7,7 +7,7 @@
         {% for entry in list %}
             <li class="camping_action" {% if entry.crossed %}disabled="disabled"{% else %}x-action-id="{{ entry.action.id }}"{% endif %}>
                 <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="">
-                <span>{{ entry.action.label|trans({},'items') }}</span>
+                <span>{{ entry.action.action.label|trans({},'items') }}</span>
             </li>
         {% endfor %}
 
