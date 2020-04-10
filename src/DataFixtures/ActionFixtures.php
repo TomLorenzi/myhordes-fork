@@ -1566,7 +1566,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result->setName( $id )
                 ->setUncoverZones( $data['scout'] ?? false )
                 ->setUncoverRuin( $data['uncover'] ?? false )
-                ->setEscape( $data['escape'] ?? null );
+                ->setEscape( $data['escape'] ?? null )
+                ->setImproveLevel( $data['improve'] ?? null );
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
