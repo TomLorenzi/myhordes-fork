@@ -16,10 +16,12 @@
         <div class="dashboard">
             <div class="row">
                 <div class="padded cell rw-4 rw-lg-6 center">
-                    {{ def.sum }} <i class="fa fa-shield-alt"></i>
+                    <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
+                    <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/small_def.gif') }}" alt="" /></span>
                 </div>
-                <div class="padded cell rw-4 rw-lg-6 center">
-                    {{ deco }} <i class="fa fa-couch"></i>
+                <div class="padded cell rw-4 rw-lg-6 center deco-estimation">
+                    <em>{{ 'Dekoration'|trans({}, 'game') }}</em><br />
+                    <span class="counter">{{ deco }} <img src="{{ asset('build/images/small_deco.gif') }}" alt="" /></span>
                 </div>
                 <div class="padded cell rw-4 rw-lg-12 left medium">
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
