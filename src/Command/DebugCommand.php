@@ -6,10 +6,13 @@ namespace App\Command;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\ItemPrototype;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -35,8 +38,10 @@ class DebugCommand extends Command
     private $citizen_handler;
     private $randomizer;
     private $trans;
+    private $inventory_handler;
+    private $item_factory;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, Translator $translator)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih, ItemFactory $if)
     {
         $this->kernel = $kernel;
 
@@ -45,6 +50,8 @@ class DebugCommand extends Command
         $this->randomizer = $rg;
         $this->citizen_handler = $ch;
         $this->trans = $translator;
+        $this->inventory_handler = $ih;
+        $this->item_factory = $if;
 
         parent::__construct();
     }
@@ -56,7 +63,8 @@ class DebugCommand extends Command
             ->setHelp('Debug options.')
 
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
-            ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.');
+            ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.')
+            ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -112,6 +120,23 @@ class DebugCommand extends Command
                     $output->writeln("<comment>{$user_name}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
                     break;
                 }
+        }
+
+        if ($tid = $input->getOption('fill-bank')) {
+            $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
+            if (!$town) {
+                $output->writeln('<error>Town not found!</error>');
+                return 2;
+            }
+
+            $bank = $town->getBank();
+            foreach ($this->entity_manager->getRepository(ItemPrototype::class)->findAll() as $repo)
+                $this->inventory_handler->forceMoveItem( $bank, ($this->item_factory->createItem( $repo ))->setCount(500) );
+
+            $this->entity_manager->persist( $bank );
+            $this->entity_manager->flush();
+            $output->writeln("OK.");
+
         }
 
         return 1;

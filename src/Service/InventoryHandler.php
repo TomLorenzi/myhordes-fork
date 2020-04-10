@@ -430,7 +430,7 @@ class InventoryHandler
 
         // This is a bank inventory
         if ($to->getTown() && $possible_stack = $this->findStackPrototype( $to, $item )) {
-            $possible_stack->setCount( $possible_stack->getCount() + 1 );
+            $possible_stack->setCount( $possible_stack->getCount() + $item->getCount() );
             $this->entity_manager->persist($possible_stack);
             $this->entity_manager->remove( $item );
             $item = $possible_stack;

@@ -91,7 +91,7 @@
       </trans-unit>
       <trans-unit id="0uk_Ijd" resname="%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.">
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% a produit : %list2%. Cela a consommé : %list1%.</target>
+        <target>%citizen% a produit %list2% a partir de %list1%.</target>
       </trans-unit>
       <trans-unit id="wxkGehN" resname="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
@@ -357,9 +357,9 @@
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
         <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
       </trans-unit>
-      <trans-unit id="sdTkF5i" resname="Morgiger Angriff">
-        <source>Morgiger Angriff</source>
-        <target>Morgiger Angriff</target>
+      <trans-unit id="I9U6Iz0" resname="Morgiger Angriff :">
+        <source>Morgiger Angriff :</source>
+        <target>Attaque du lendemain :</target>
       </trans-unit>
       <trans-unit id="ZI5NoYl" resname="Tag %day%">
         <source>Tag %day%</source>
@@ -698,7 +698,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="UNwR9SS" resname="Zufälliger Gegenstand">
         <source>Zufälliger Gegenstand</source>
-        <target>Zufälliger Gegenstand</target>
+        <target>Objet aléatoire</target>
       </trans-unit>
       <trans-unit id="MkWoNw1" resname="Herst.">
         <source>Herst.</source>
@@ -872,7 +872,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="UKXXzW6" resname="Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.">
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
-        <target>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</target>
+        <target>La zone est épuisée. Vous ne trouverez plus d'objet de valeur ici.</target>
       </trans-unit>
       <trans-unit id="M8h1dhU" resname="Stadt betreten">
         <source>Stadt betreten</source>
@@ -908,7 +908,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="s5pZm5S" resname="Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!">
         <source>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</source>
-        <target>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</target>
+        <target>Si vous ramassez ou laissez tomber un objet, vous perdez votre camouflage !</target>
       </trans-unit>
       <trans-unit id="AcukbqL" resname="Zonenregister">
         <source>Zonenregister</source>
@@ -920,7 +920,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="nq1XXly" resname="Stadtregister">
         <source>Stadtregister</source>
-        <target>Stadtregister</target>
+        <target>Registre de la ville</target>
       </trans-unit>
       <trans-unit id="eR2SPb." resname="Das Stadtregister steht nicht zur Verfügung.">
         <source>Das Stadtregister steht nicht zur Verfügung.</source>
@@ -1084,47 +1084,47 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="3dkb1Z2" resname="Trunkenheit">
         <source>Trunkenheit</source>
-        <target>Trunkenheit</target>
+        <target>Ivre</target>
       </trans-unit>
       <trans-unit id="EPpwyta" resname="Kater">
         <source>Kater</source>
-        <target>Kater</target>
+        <target>Gueule de bois</target>
       </trans-unit>
       <trans-unit id="E6kbVNC" resname="Verwundung - Kopf">
         <source>Verwundung - Kopf</source>
-        <target>Verwundung - Kopf</target>
+        <target>Blessure - Tête</target>
       </trans-unit>
       <trans-unit id="yI0ueHI" resname="Verwundung - Hände">
         <source>Verwundung - Hände</source>
-        <target>Verwundung - Hände</target>
+        <target>Blessure - Main</target>
       </trans-unit>
       <trans-unit id="lfaLaVU" resname="Verwundung - Arme">
         <source>Verwundung - Arme</source>
-        <target>Verwundung - Arme</target>
+        <target>Blessure - Bras</target>
       </trans-unit>
       <trans-unit id="KRP.Csa" resname="Verwundung - Bein">
         <source>Verwundung - Bein</source>
-        <target>Verwundung - Bein</target>
+        <target>Blessure - Jambe</target>
       </trans-unit>
       <trans-unit id="15_YwON" resname="Verwundung - Auge">
         <source>Verwundung - Auge</source>
-        <target>Verwundung - Auge</target>
+        <target>Blessure - Œil</target>
       </trans-unit>
       <trans-unit id="iU.tgTh" resname="Verwundung - Fuß">
         <source>Verwundung - Fuß</source>
-        <target>Verwundung - Fuß</target>
+        <target>Blessure - Pied</target>
       </trans-unit>
       <trans-unit id="72h0.SN" resname="Ghul">
         <source>Ghul</source>
-        <target>Ghul</target>
+        <target>Goule</target>
       </trans-unit>
       <trans-unit id="AdfvkQI" resname="Bandagiert">
         <source>Bandagiert</source>
-        <target>Bandagiert</target>
+        <target>Bandage</target>
       </trans-unit>
       <trans-unit id="UUnigxa" resname="Abgelegenes Haus">
         <source>Abgelegenes Haus</source>
-        <target>Abgelegenes Haus</target>
+        <target>Maison d'un citoyen</target>
       </trans-unit>
       <trans-unit id="BuoM8x8" resname="Albi Supermarkt">
         <source>Albi Supermarkt</source>
@@ -1132,11 +1132,11 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="z79LmBi" resname="Alte Höhle">
         <source>Alte Höhle</source>
-        <target>Alte Höhle</target>
+        <target>Caverne</target>
       </trans-unit>
       <trans-unit id="7N1b8YP" resname="Alte Hydraulikpumpe">
         <source>Alte Hydraulikpumpe</source>
-        <target>Alte Hydraulikpumpe</target>
+        <target>Vieille Pompe Hydraulique</target>
       </trans-unit>
       <trans-unit id="S85DdXs" resname="Alter Fahrradverleih">
         <source>Alter Fahrradverleih</source>
@@ -1144,7 +1144,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="swauljp" resname="Alter Rangierbahnhof">
         <source>Alter Rangierbahnhof</source>
-        <target>Alter Rangierbahnhof</target>
+        <target>Gare de triage désertée</target>
       </trans-unit>
       <trans-unit id="gjzBe3w" resname="Altes Feldkrankenhaus">
         <source>Altes Feldkrankenhaus</source>
@@ -1152,27 +1152,27 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="yKnc_Mp" resname="Altes Flugfeld">
         <source>Altes Flugfeld</source>
-        <target>Altes Flugfeld</target>
+        <target>Ancien aérodrome</target>
       </trans-unit>
       <trans-unit id="Kt0e8zP" resname="Altes Polizeipräsidium">
         <source>Altes Polizeipräsidium</source>
-        <target>Altes Polizeipräsidium</target>
+        <target>Ancien commissariat</target>
       </trans-unit>
       <trans-unit id="GRuqR5L" resname="Atombunker">
         <source>Atombunker</source>
-        <target>Atombunker</target>
+        <target>Abri anti-atomique</target>
       </trans-unit>
       <trans-unit id="pSDkjjr" resname="Atomic Cafe">
         <source>Atomic Cafe</source>
-        <target>Atomic Cafe</target>
+        <target>Atomic' Café</target>
       </trans-unit>
       <trans-unit id="yMlxN96" resname="Autobahnraststätte">
         <source>Autobahnraststätte</source>
-        <target>Autobahnraststätte</target>
+        <target>Relais autoroutier</target>
       </trans-unit>
       <trans-unit id="wuZIxTk" resname="Autowracks">
         <source>Autowracks</source>
-        <target>Autowracks</target>
+        <target>Carcasses de voitures</target>
       </trans-unit>
       <trans-unit id="lVmO2OQ" resname="Bar der verlorenen Hoffnungen">
         <source>Bar der verlorenen Hoffnungen</source>
@@ -1192,7 +1192,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="JNOFU3C" resname="Dukes Villa">
         <source>Dukes Villa</source>
-        <target>Dukes Villa</target>
+        <target>Villa de Duke</target>
       </trans-unit>
       <trans-unit id=".ebOOu8" resname="Dunkler Hain">
         <source>Dunkler Hain</source>
@@ -1212,7 +1212,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="XbKWmCS" resname="E-KEA">
         <source>E-KEA</source>
-        <target>E-KEA</target>
+        <target>Meubles Kiela</target>
       </trans-unit>
       <trans-unit id="04ljFsj" resname="Familiengrab">
         <source>Familiengrab</source>
@@ -1232,7 +1232,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id=".BpYDum" resname="Geplünderte Mall">
         <source>Geplünderte Mall</source>
-        <target>Geplünderte Mall</target>
+        <target>Supermarché pillé</target>
       </trans-unit>
       <trans-unit id=".fpd4co" resname="Höhle">
         <source>Höhle</source>
@@ -1244,7 +1244,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="ruzMP1g" resname="Jahrmarktstand">
         <source>Jahrmarktstand</source>
-        <target>Jahrmarktstand</target>
+        <target>Stand de fête foraine</target>
       </trans-unit>
       <trans-unit id="xBqXQ3h" resname="Kleines Haus">
         <source>Kleines Haus</source>
@@ -1268,7 +1268,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="yAH2rE7" resname="Leeres Parkhaus">
         <source>Leeres Parkhaus</source>
-        <target>Leeres Parkhaus</target>
+        <target>Parking désaffecté</target>
       </trans-unit>
       <trans-unit id="PLyihQR" resname="Liegengebliebener Kampfpanzer">
         <source>Liegengebliebener Kampfpanzer</source>
@@ -1284,7 +1284,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="zNUF7cP" resname="Postfiliale">
         <source>Postfiliale</source>
-        <target>Postfiliale</target>
+        <target>Bureau de poste</target>
       </trans-unit>
       <trans-unit id="Xf.22AP" resname="Räuberhöhle">
         <source>Räuberhöhle</source>
@@ -1300,7 +1300,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="mgQ86_P" resname="Tante Emma Laden">
         <source>Tante Emma Laden</source>
-        <target>Tante Emma Laden</target>
+        <target>Mini-market</target>
       </trans-unit>
       <trans-unit id="19QLQFs" resname="Truck 'Rathaus auf Rädern'">
         <source>Truck 'Rathaus auf Rädern'</source>
@@ -1324,7 +1324,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="kP_vzTg" resname="Verlassene Baustelle">
         <source>Verlassene Baustelle</source>
-        <target>Verlassene Baustelle</target>
+        <target>Chantier à l'abandon</target>
       </trans-unit>
       <trans-unit id="gy.Tm7F" resname="Verlassener Brunnen">
         <source>Verlassener Brunnen</source>
@@ -1332,7 +1332,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="c9WjvSB" resname="Verlassene Silos">
         <source>Verlassene Silos</source>
-        <target>Verlassene Silos</target>
+        <target>Silos à l'abandon</target>
       </trans-unit>
       <trans-unit id="dSZWbRo" resname="Versperrte Straße">
         <source>Versperrte Straße</source>
@@ -1376,7 +1376,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6zpuvqo" resname="%citizen% hat diesen Gegenstand mitgenommen: %item%">
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
-        <target>%citizen% hat diesen Gegenstand mitgenommen: %item%</target>
+        <target>%citizen% a ramassé %item% qui traînait là...</target>
       </trans-unit>
       <trans-unit id="Msm_smP" resname="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
         <source>%citizen% hat mehr Wasser genommen, als erlaubt ist...</source>
@@ -1416,7 +1416,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="VImW6PC" resname="%citizen% hat seinen letzten Atemzug getan: %cod%!">
         <source>%citizen% hat seinen letzten Atemzug getan: %cod%!</source>
-        <target>%citizen% hat seinen letzten Atemzug getan: %cod%!</target>
+        <target>%citizen% nous a quitté : %cod%!</target>
       </trans-unit>
       <trans-unit id="gaihf5j" resname="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
         <source>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</source>
@@ -1670,49 +1670,49 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</source>
         <target>Quelqu'un a retiré sa plainte contre %citizen%.</target>
       </trans-unit>
-      <trans-unit id="U_9lkcG" resname="leere Truhe">
-        <source>leere Truhe</source>
+      <trans-unit id="U_9lkcG" resname="Leere Truhe">
+        <source>Leere Truhe</source>
         <target>Coffre vide</target>
       </trans-unit>
       <trans-unit id="a8zlw81" resname="Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.">
         <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
-        <target>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</target>
+        <target> Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
       </trans-unit>
       <trans-unit id="Fak6Ovg" resname="Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...">
         <source>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</source>
-        <target>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</target>
+        <target>Déciderez-vous de vous avancer ou de rester derrière les enceintes fortifiées ? Certains pensent qu'il faut être fou, d'autres qu'il faut être malin. Peut-être faut-il être un peu des deux...</target>
       </trans-unit>
       <trans-unit id="v3pLWJA" resname="Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...">
         <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
-        <target>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</target>
+        <target>Les nuits sont glaciales dans le désert... Une brume de poussière épaisse enveloppe tout et vous entendez des grincements lugubres tout autour de vous. Parfois, vous apercevez une forme indistincte qui se déplace dans les ombres. Pourvu que ce soit votre imagination...</target>
       </trans-unit>
       <trans-unit id="is0j5bp" resname="Die Zone untersuchen">
         <source>Die Zone untersuchen</source>
-        <target>Die Zone untersuchen</target>
+        <target>Inspecter le secteur</target>
       </trans-unit>
       <trans-unit id="Utl2PJa" resname="Du schaust dir die Gegend etwas genauer an...">
         <source>Du schaust dir die Gegend etwas genauer an...</source>
-        <target>Du schaust dir die Gegend etwas genauer an...</target>
+        <target> Vous inspectez les environs...</target>
       </trans-unit>
       <trans-unit id="BsmmJg2" resname="Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.">
         <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
-        <target>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</target>
+        <target>Dormir dans un endroit pareil revient à se suicider, purement et simplement. A vous de voir.</target>
       </trans-unit>
       <trans-unit id="u.HzZ0w" resname="Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.">
         <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</target>
+        <target>Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite.</target>
       </trans-unit>
       <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>Sich verstecken und die Nacht hier schlafen!</target>
+        <target>Se cacher pour passer la nuit ici !</target>
       </trans-unit>
       <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+        <target>Améliorer un peu le campement (bonus permanent faible, 1PA)</target>
       </trans-unit>
       <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+        <target> Creuser une "tombe" (bonus temporaire moyen, 1PA)</target>
       </trans-unit>
       <trans-unit id="cePRD7K" resname="In der Stadt wohnen @citizens Bürger.">
         <source>In der Stadt wohnen @citizens Bürger.</source>
@@ -1720,7 +1720,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="vv.mZRz" resname="Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.">
         <source>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</source>
-        <target> Nous ne disposons pas de la technologie suffisante pour évaluer l'attaque du lendemain.</target>
+        <target>Nous ne disposons pas de la technologie suffisante pour évaluer l'attaque du lendemain.</target>
       </trans-unit>
       <trans-unit id="cHKuQLy" resname="Den morgigen Angriff berechnen">
         <source>Den morgigen Angriff berechnen</source>
@@ -1732,7 +1732,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="0.KJY95" resname="Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.">
         <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Nos défenses suffisent à couvrir toute l'attaque de ce soir.</target>
       </trans-unit>
       <trans-unit id="0lltLsX" resname="Unsere Verteidigung :">
         <source>Unsere Verteidigung :</source>
@@ -1810,10 +1810,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
         <target>Il n'est pas possible d'évaluer avec précision notre situation face à l'attaque de ce soir.</target>
       </trans-unit>
-      <trans-unit id="Bij.q6J" resname="Lesen Sie das Mitteilungsblatt">
-        <source>Lesen Sie das Mitteilungsblatt</source>
-        <target>Lire la gazette</target>
-      </trans-unit>
       <trans-unit id="3MPDTZN" resname="Unsere Verteidigungen">
         <source>Unsere Verteidigungen</source>
         <target>Nos défenses en détail</target>
@@ -1836,7 +1832,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="fTFJ5hh" resname="Nachtwächter">
         <source>Nachtwächter</source>
-        <target>Veuilleur</target>
+        <target>Veilleur</target>
       </trans-unit>
       <trans-unit id="RPns7ug" resname="Wächt">
         <source>Wächt</source>
@@ -1957,6 +1953,274 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="GlL3R9k" resname="Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.">
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
         <target>Salutations de Shaïtan du passé, qui est assis devant son PC le 08/04/2020 et traduit ce texte.</target>
+      </trans-unit>
+      <trans-unit id="GWsFaiN" resname="Katapult">
+        <source>Katapult</source>
+        <target>Catapulte</target>
+      </trans-unit>
+      <trans-unit id="Lm_z2Dh" resname="Deine Tarnung ist aufgeflogen!">
+        <source>Deine Tarnung ist aufgeflogen!</source>
+        <target>Votre camouflage a été repéré !</target>
+      </trans-unit>
+      <trans-unit id="K6Bt5zV" resname="Müllhalde">
+        <source>Müllhalde</source>
+        <target>Déchetterie</target>
+      </trans-unit>
+      <trans-unit id="B.iCi_d" resname="Sie sind allein in dieser Gegend...">
+        <source>Sie sind allein in dieser Gegend...</source>
+        <target>Vous êtes seul(e) dans cette zone...</target>
+      </trans-unit>
+      <trans-unit id="7Xw94D3" resname="Du kannst nur einen Behälter auf einmal tragen.">
+        <source>Du kannst nur einen Behälter auf einmal tragen.</source>
+        <target>Vous ne pouvez porter qu'un conteneur à la fois.</target>
+      </trans-unit>
+      <trans-unit id="wjS3J8H" resname="Hier wohnte ein Bürger, der beschloss, sich außerhalb der Stadt niederzulassen, weil er dachte, er würde länger unbeeinflusst von den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, überleben. Die Hälfte ihrer Leiche ist immer noch im Wohnzimmer.">
+        <source>Hier wohnte ein Bürger, der beschloss, sich außerhalb der Stadt niederzulassen, weil er dachte, er würde länger unbeeinflusst von den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, überleben. Die Hälfte ihrer Leiche ist immer noch im Wohnzimmer.</source>
+        <target>Ici vivait un Citoyen qui avait décidé de s'installer hors de la ville, pensant survivre plus longtemps, loin des querelles et des trahisons. La moitié de son corps est toujours dans le salon.</target>
+      </trans-unit>
+      <trans-unit id="9mURbki" resname="Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum wuchsen, verschwand dann... spezialisiert darauf, Dinge so billig wie möglich zu machen, sollten Sie hier alles finden können, was Sie brauchen. Ob Sie nun potless sind oder einfach nur dichter als zwei Anstriche, kaufen Sie bei Albis ein!">
+        <source>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum wuchsen, verschwand dann... spezialisiert darauf, Dinge so billig wie möglich zu machen, sollten Sie hier alles finden können, was Sie brauchen. Ob Sie nun potless sind oder einfach nur dichter als zwei Anstriche, kaufen Sie bei Albis ein!</source>
+        <target>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum wuchsen, verschwand dann... spezialisiert darauf, Dinge so billig wie möglich zu machen, sollten Sie hier alles finden können, was Sie brauchen. Ob Sie nun potless sind oder einfach nur dichter als zwei Anstriche, kaufen Sie bei Albis ein!</target>
+      </trans-unit>
+      <trans-unit id="if10dn9" resname="Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...">
+        <source>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</source>
+        <target>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</target>
+      </trans-unit>
+      <trans-unit id="bnTVKZv" resname="Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.">
+        <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
+        <target>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</target>
+      </trans-unit>
+      <trans-unit id="7y4PXTQ" resname="Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.">
+        <source>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</source>
+        <target>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</target>
+      </trans-unit>
+      <trans-unit id="2.pUWsx" resname="Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.">
+        <source>Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</source>
+        <target>Cette plaque tournante centrale du réseau ferroviaire du pays dispatchait et aiguillait les marchandises venues de tous les horizons, sans interruption, 24h/24. Aujourd'hui, le 'vaste réseau' en question mesure environ 150 mètres de long, si on compte les vestiges de rails, un peu plus loin.</target>
+      </trans-unit>
+      <trans-unit id="KNKSRpW" resname="Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?">
+        <source>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</source>
+        <target>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</target>
+      </trans-unit>
+      <trans-unit id="Of9gthO" resname="Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.">
+        <source>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</source>
+        <target>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</target>
+      </trans-unit>
+      <trans-unit id="GY66Lzm" resname="Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.">
+        <source>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</source>
+        <target>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</target>
+      </trans-unit>
+      <trans-unit id="ETLKMEi" resname="Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.">
+        <source>Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.</source>
+        <target>Le numéro est à moitié effacé, mais il s'agissait vraisemblablement de l'abri 14. Si on en juge par les corps décrépis à l'intérieur, le système de fermeture du sas n'a pas dû fonctionner comme prévu. Ca arrive.</target>
+      </trans-unit>
+      <trans-unit id="Jv.wD7x" resname="Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!">
+        <source>Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!</source>
+        <target>Le rendez-vous branché du désert : venez goûter notre Nuka-Cola, spécialité de la maison, aux vrais extraits d'hormones animales.</target>
+      </trans-unit>
+      <trans-unit id="gINGGfh" resname="Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.">
+        <source>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</source>
+        <target>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</target>
+      </trans-unit>
+      <trans-unit id="Q4yDNyf" resname="Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.">
+        <source>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</source>
+        <target>Un modèle plutôt commun de break familial encastré dans un modèle tout aussi commun de fourgonnette… Ce petit accident semble avoir provoqué un carambolage de grande envergure si on en juge par l'amas de carcasses calcinées tout autour.</target>
+      </trans-unit>
+      <trans-unit id="6pUg5Hf" resname="Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.">
+        <source>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</source>
+        <target>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</target>
+      </trans-unit>
+      <trans-unit id="YM4htdV" resname="Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'">
+        <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
+        <target>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</target>
+      </trans-unit>
+      <trans-unit id="bhwk0Sz" resname="Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät ">
+        <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
+        <target>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </target>
+      </trans-unit>
+      <trans-unit id="UezITiX" resname="Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. ">
+        <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
+        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
+      </trans-unit>
+      <trans-unit id="Y107l78" resname="Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !">
+        <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
+        <target>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</target>
+      </trans-unit>
+      <trans-unit id="q5V8SgZ" resname="Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.">
+        <source>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</source>
+        <target>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</target>
+      </trans-unit>
+      <trans-unit id="U.L0F7x" resname="Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'">
+        <source>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</source>
+        <target>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</target>
+      </trans-unit>
+      <trans-unit id="aR2iiDZ" resname="Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.">
+        <source>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</source>
+        <target>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</target>
+      </trans-unit>
+      <trans-unit id=".cft5Zt" resname="Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...">
+        <source>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</source>
+        <target>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</target>
+      </trans-unit>
+      <trans-unit id="7alcjvi" resname="E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...">
+        <source>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</source>
+        <target>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</target>
+      </trans-unit>
+      <trans-unit id="tcRgABK" resname="Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...">
+        <source>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</source>
+        <target>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</target>
+      </trans-unit>
+      <trans-unit id="jfKgTEc" resname="Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...">
+        <source>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</source>
+        <target>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</target>
+      </trans-unit>
+      <trans-unit id="TkIE5Fb" resname="Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...">
+        <source>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</source>
+        <target>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</target>
+      </trans-unit>
+      <trans-unit id="DOlr_bI" resname="Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.">
+        <source>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</source>
+        <target>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</target>
+      </trans-unit>
+      <trans-unit id="pzQEC77" resname="Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.">
+        <source>Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.</source>
+        <target>Ce gigantesque amas de brique et de métal était probablement autrefois un grand centre commercial grouillant d'activité et illuminé de mille feux. Aujourd'hui il n'y grouille que de la vermine et autres immondices rampants… Nul doute toutefois qu'il recèle aussi bon nombre de richesses.</target>
+      </trans-unit>
+      <trans-unit id="VsNvfPD" resname="Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...">
+        <source>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</source>
+        <target>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</target>
+      </trans-unit>
+      <trans-unit id="igWQAKU" resname="Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...">
+        <source>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</source>
+        <target>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</target>
+      </trans-unit>
+      <trans-unit id="K.rB207" resname="Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.">
+        <source>Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</source>
+        <target>Un endroit comme celui-ci est une aubaine de nos jours… Nul doute que vous trouverez ici de quoi vous équiper décemment en jouets en plastique et autres gadgets utiles.</target>
+      </trans-unit>
+      <trans-unit id="Y0GOqx4" resname="Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...">
+        <source>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</source>
+        <target>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</target>
+      </trans-unit>
+      <trans-unit id="jCOLohr" resname="Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.">
+        <source>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</source>
+        <target>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</target>
+      </trans-unit>
+      <trans-unit id="I8_.QXa" resname="Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...">
+        <source>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</source>
+        <target>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</target>
+      </trans-unit>
+      <trans-unit id="O2YPsmI" resname="Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...">
+        <source>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</source>
+        <target>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</target>
+      </trans-unit>
+      <trans-unit id="zMoz8Nc" resname="Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.">
+        <source>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</source>
+        <target>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</target>
+      </trans-unit>
+      <trans-unit id="8nwRIpb" resname="Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...">
+        <source>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</source>
+        <target>Un parking souterrain presque entièrement enseveli. Idéal pour mourir dans le noir, sans que personne ne vous entende...</target>
+      </trans-unit>
+      <trans-unit id="x6pd97C" resname="Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...">
+        <source>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</source>
+        <target>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</target>
+      </trans-unit>
+      <trans-unit id="42b1Trj" resname="Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.">
+        <source>Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</source>
+        <target>Vous vous demandez quel genre de personne pouvait bien venir passer sa nuit dans un trou aussi paumé que ce motel miteux. Sans doute le genre : représentant pour une obscure société de livraison fuyant un passé qui le rattrapera tôt ou tard. « Faudra que je pense à vérifier la chambre 215, au cas où », pensez-vous, sans trop savoir pourquoi.</target>
+      </trans-unit>
+      <trans-unit id="sYaNvt8" resname="Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !">
+        <source>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</source>
+        <target>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</target>
+      </trans-unit>
+      <trans-unit id=".bMEBv6" resname="Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...">
+        <source>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</source>
+        <target>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</target>
+      </trans-unit>
+      <trans-unit id="91Rj1wr" resname="Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...">
+        <source>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</source>
+        <target>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</target>
+      </trans-unit>
+      <trans-unit id="alVUMDw" resname="Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.">
+        <source>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</source>
+        <target>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</target>
+      </trans-unit>
+      <trans-unit id="odvB3Fd" resname="What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.">
+        <source>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</source>
+        <target>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</target>
+      </trans-unit>
+      <trans-unit id="Uin8bw9" resname="In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.">
+        <source>In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</source>
+        <target>Ce petit magasin proposait toutes sortes de produits de consommation courants : nourriture, boissons, produits d'entretien… Ouvert 24h/24 et 7j/7 si on en croit ce qui est imprimé sur la vitrine. Le trou béant dans la façade lui donne raison.</target>
+      </trans-unit>
+      <trans-unit id="ViudDKu" resname="Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.">
+        <source>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</source>
+        <target>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</target>
+      </trans-unit>
+      <trans-unit id="9TPFQ6o" resname="Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...">
+        <source>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</source>
+        <target>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</target>
+      </trans-unit>
+      <trans-unit id="k6o0Mpp" resname="Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.">
+        <source>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</source>
+        <target>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</target>
+      </trans-unit>
+      <trans-unit id="Ct60IzG" resname="In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.">
+        <source>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</source>
+        <target>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</target>
+      </trans-unit>
+      <trans-unit id="uy1WNX." resname="Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.">
+        <source>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</source>
+        <target>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</target>
+      </trans-unit>
+      <trans-unit id="Mk_nOE9" resname="Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.">
+        <source>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</source>
+        <target>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</target>
+      </trans-unit>
+      <trans-unit id="bVAo.cx" resname="Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...">
+        <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
+        <target>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</target>
+      </trans-unit>
+      <trans-unit id="nIZoj0r" resname="Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...">
+        <source>Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</source>
+        <target>Cet endroit devait servir de stockage pour le grain, mais avec le temps, les cuves ont fini par se remplir d'eau de pluie (c'était il y a bien longtemps...). Il doit il y avoir de quoi s'approvisionner par ici..</target>
+      </trans-unit>
+      <trans-unit id="icD0mRG" resname="Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...">
+        <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
+        <target>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</target>
+      </trans-unit>
+      <trans-unit id="yFJW.aK" resname="Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.">
+        <source>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</source>
+        <target>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</target>
+      </trans-unit>
+      <trans-unit id="XXTLDoG" resname="Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...">
+        <source>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</source>
+        <target>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</target>
+      </trans-unit>
+      <trans-unit id="DYD9pRM" resname="Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...">
+        <source>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</source>
+        <target>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</target>
+      </trans-unit>
+      <trans-unit id="qSSpkKa" resname="Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'">
+        <source>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</source>
+        <target>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</target>
+      </trans-unit>
+      <trans-unit id="SXiUP6e" resname="Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.">
+        <source>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</source>
+        <target>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</target>
+      </trans-unit>
+      <trans-unit id="rcbYTzS" resname="Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...">
+        <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+      </trans-unit>
+      <trans-unit id="GrndoXV" resname="Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?">
+        <source>Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?</source>
+        <target>Le désert s'étend à perte de vue... Combien d'hommes se sont perdus dans ces immensités ? Qui sait si vous ne serez pas le prochain ?</target>
+      </trans-unit>
+      <trans-unit id="Bij.q6J" resname="Lesen Sie das Mitteilungsblatt">
+        <source>Lesen Sie das Mitteilungsblatt</source>
+        <target>Lire la gazette</target>
       </trans-unit>
     </body>
   </file>

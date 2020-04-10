@@ -8,7 +8,7 @@
     {% if count is defined and count > 1 %}<span>{{ count }}</span>{% endif %}
     {% if no_tooltip is not defined or not no_tooltip %}
         <div class="tooltip">
-            <h1>{{ item.prototype.label|trans({},'items') }}</h1>
+            <h1>{{ item.prototype.label|trans({},'items') }} <span class="broken">{% if item.broken %}({{ 'Kaputt'|trans({},'items') }})</span>{% endif %}</h1>
             {{ item.prototype.description|trans({},'items') }}
             {% if item.essential %}<div class="item-tag item-tag-essential">{{ 'Berufsgegenstand'|trans({},'items') }}</div>{% endif %}
             {% if item.prototype.heavy %}<div class="item-tag item-tag-heavy">{{ 'Schwerer Gegenstand'|trans({},'items') }}</div>{% endif %}

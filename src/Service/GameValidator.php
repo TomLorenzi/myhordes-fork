@@ -30,8 +30,7 @@ class GameValidator
     public function validateTownPopulation( int $pop, string $type ): bool {
         if ($pop <= 0) return false;
         switch ($type) {
-            case 'small': return $pop <= 20;
-            case 'remote':case 'panda': return $pop <= 40;
+            case 'small': case 'remote':case 'panda': return $pop <= 40;
             case 'custom': return $pop <= 120;
             default: return false;
         }

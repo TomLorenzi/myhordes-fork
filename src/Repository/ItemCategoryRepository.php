@@ -33,6 +33,14 @@ class ItemCategoryRepository extends ServiceEntityRepository
         }
     }
 
+    public function findRootCategories()
+    {
+        return $this->createQueryBuilder('i')
+            ->Where('i.parent is null')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return ItemCategory[] Returns an array of ItemCategory objects
     //  */

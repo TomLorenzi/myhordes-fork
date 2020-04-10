@@ -145,6 +145,33 @@ footer {
   background: @color; border: 1px solid @myhordes-input-border;
 }
 
+div.town-header,
+div.town-header-hardcore {
+  &:before {
+    position: absolute;
+    left: -10px;
+    right: -13px;
+    top: -10px;
+    height: 150px;
+    content: " ";
+  }
+  position: relative; margin-bottom: 160px;
+  &>b { position: absolute; left: 260px; top: 15px; width: 308px; color: #572b23; text-align: center; font-size: 19pt; }
+  &>span { position: absolute; left: 260px; top: 107px; width: 308px; color: white; text-align: center; font-size: 13pt; font-weight: bold }
+}
+
+div.town-header {
+  &:before {
+    background: url("../img/sign_header.jpg") center/cover no-repeat;
+  }
+}
+
+div.town-header-hardcore {
+  &:before {
+    background: url("../img/sign_header.jpg") center/cover no-repeat;
+  }
+}
+
 div.note {
   .box(); padding: 5px; font-size: 12px; margin: 5px 0;
   &.note-warning {
@@ -353,10 +380,23 @@ div.game-menu-area {
         position: absolute; background: url("../img/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0;
         &>li { display: block; position: absolute; }
-        &>li:nth-child(1) { font-size: 10px; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; }
-        &>li:nth-child(2) { font-size: 10px; color: #704018; font-weight: bold; text-align: right; height: 12px; top: 25px; left: 0; right: 85px; }
+        &>li:nth-child(1) { font-size: 10px; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; font-variant: small-caps }
+        &>li:nth-child(2) {
+          font-size: 10px;
+          color: #704018;
+          font-weight: bold;
+          text-align: right;
+          height: 12px;
+          top: 25px;
+          left: 0;
+          right: 85px;
+        }
         &>li:nth-child(3) { font-size: 10px; text-align: center; top: 32px; left: 215px; right: 25px; }
         &>li:nth-child(4) { color: #5e0000; font-size: 10px; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
+        .hardcore {
+          color: lighten(#7C2727, 10%);
+          font-variant: small-caps;
+        }
       }
 
       &.status, &.rucksack, &.ap, &.bp, &.civil {
@@ -417,65 +457,6 @@ span.icon {
   &>img { margin-right: 3px; }
   background: rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.15); padding: 0 5px; border-radius: 6px;
   font-variant: small-caps; color: white; font-size: 12px;
-}
-
-.dashboard {
-  padding: 5px; background: @myhordes-cell-header-background-color; margin: 10px 0;
-  border: 1px solid darken(@myhordes-cell-header-background-color, 5%); color: @myhordes-smalltext;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  font-size: 12px;
-  > div div:not(:last-child) {
-    border-right:1px dashed #fff;
-  }
-
-  em {
-    color: @myhordes-cell-header-text-color;
-  }
-
-  .counter {
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-}
-
-.words-of-heroes {
-  min-height: 200px;
-  background: grey;
-  padding: 5px;
-  margin-top: 10px;
-}
-
-.overview-list, .overview-checklist {
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 14px;
-  background-color: #996739;
-  strong {
-    color: white;
-  }
-
-  .separator {
-    margin-top: 7px;
-    padding-top: 5px;
-    border-top: 1px solid #f0d79e;
-  }
-}
-
-.overview-list {
-  list-style: url("../img/small_dot.gif");
-  .warning {
-    color: #f86;
-  }
-}
-
-.defense-detail {
-  em {
-    font-size: 12px;
-    color: @myhordes-smalltext;
-  }
 }
 
 ul.summary {
@@ -560,4 +541,10 @@ div.item-tag {
   &.item-tag-essential:after { background: url("../img/item/cat_job.gif") center/contain no-repeat }
   &.item-tag-weapon:after { background: url("../img/item/cat_weapon.gif") center/contain no-repeat }
   &.item-tag-heavy:after { background: url("../img/item/cat_heavy.gif") center/contain no-repeat }
+}
+
+div.badge {
+  background: #7d5032; border: 1px solid #dfc793; padding: 10px; margin: 20px 0;
+  & strong { font-size: 1.2em; font-weight: bold; color: white; }
+  & span { color: @myhordes-smalltext; }
 }

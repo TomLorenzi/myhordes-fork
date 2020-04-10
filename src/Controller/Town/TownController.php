@@ -14,6 +14,7 @@ use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\TownLogEntry;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Translation\T;
 use App\Response\AjaxResponse;
@@ -69,6 +70,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($b->getPrototype()->getName() === 'small_round_path_#00')
                 $addons['battlement'] = [T::__('Wächt', 'game'), 'town_dashboard'];
 
+            if ($b->getPrototype()->getName() === 'small_trash_#00')
+                $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump'];
+
+            if ($b->getPrototype()->getName() === 'item_courroie_#00')
+                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard'];
+            
+
             $data["builtbuildings"][] = $b;
 
         }
@@ -97,25 +105,36 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $alive++;
         }
 
+
         $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
         if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
         if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
 
-        $defSummary;
-
         $item_def_factor = 1;
         $has_battlement = false;
+        $has_watchtower = false;
+        $has_levelable_building = false;
         foreach ($town->getBuildings() as $building) {
-            if ($building->getComplete() && $building->getPrototype()->getName() === 'item_meca_parts_#00')
+            if (!$building->getComplete())
+                continue;
+
+            if ($building->getPrototype()->getName() === 'item_meca_parts_#00')
                 $item_def_factor += (1+$building->getLevel()) * 0.5;
 
-            //TODO: fetch the Battlement's name
-            if($building->getComplete() && $building->getPrototype()->getName() === 'TOBEDEFINED#00')
+            if($building->getPrototype()->getName() === 'small_round_path_#00')
                 $has_battlement = true;
+
+            if($building->getPrototype()->getName() === 'item_tagger_#00')
+                $has_watchtower = true;
+
+            if ($building->getPrototype()->getMaxLevel() > 0)
+                $has_levelable_building = true;
         }
 
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ));
 
+        $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+        $has_estimated = $est0 && $est0->getCitizens()->contains($this->getActiveCitizen());
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
@@ -126,7 +145,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'def_summary' => $defSummary,
             'item_def_count' => $item_def_count,
             'item_def_factor' => $item_def_factor,
-            'has_battlement' => $has_battlement
+            'has_battlement' => $has_battlement,
+            'has_watchtower' => $has_watchtower,
+            'has_levelable_building' => $has_levelable_building,
+            'active_citizen' => $this->getActiveCitizen(),
+            'has_estimated' => $has_estimated,
+            'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
+            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active')
         ]) );
     }
 
@@ -482,15 +507,34 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     public function citizens(EntityManagerInterface $em): Response
     {
         $hidden = [];
-        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c)
+
+        $prof_count = [];
+        $death_count = 0;
+
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
             $hidden[$c->getId()] = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($c->getHome(),
                 $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
             ));
+
+            if (!$c->getAlive()) $death_count++;
+            else {
+
+                if (!isset($prof_count[ $c->getProfession()->getId() ])) {
+                    $prof_count[ $c->getProfession()->getId() ] = [
+                        1,
+                        $c->getProfession()
+                    ];
+                } else $prof_count[ $c->getProfession()->getId() ][0]++;
+
+            }
+        }
 
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $this->getActiveCitizen()->getTown()->getCitizens(),
             'me' => $this->getActiveCitizen(),
             'hidden' => $hidden,
+            'prof_count' => $prof_count,
+            'death_count' => $death_count,
         ]) );
     }
 
@@ -580,6 +624,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
         }
+
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
         // Persist
         try {
@@ -697,6 +744,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         if (!$zone)
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
         $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
         $zone->addCitizen( $citizen );
@@ -821,5 +871,30 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic()
         ], $this->get_map_blob())) );
+    }
+
+    /**
+     * @Route("api/town/dashboard/wordofheroes", name="town_dashboard_save_woh")
+     * @param JSONRequestParser $parser
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, TownHandler $th): Response {
+        // Get town
+        $town = $this->getActiveCitizen()->getTown();
+
+        $new_words_of_heroes = $parser->get('content');
+
+        $town->setWordsOfHeroes($new_words_of_heroes);
+
+        // Persist
+        try {
+            $this->entity_manager->persist($town);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 }
