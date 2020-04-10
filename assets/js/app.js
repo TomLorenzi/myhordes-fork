@@ -3,6 +3,7 @@ require('../less/theme.less');
 require('../less/grid.less');
 require('../less/mixins.less');
 require('../less/mobile.less');
+require('../less/intl.less');
 
 // Packages - FontAwesome
 require('@fortawesome/fontawesome-free/less/fontawesome.less');
