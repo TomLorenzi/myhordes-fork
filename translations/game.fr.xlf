@@ -1670,8 +1670,8 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</source>
         <target>Quelqu'un a retiré sa plainte contre %citizen%.</target>
       </trans-unit>
-      <trans-unit id="U_9lkcG" resname="leere Truhe">
-        <source>leere Truhe</source>
+      <trans-unit id="U_9lkcG" resname="Leere Truhe">
+        <source>Leere Truhe</source>
         <target>Coffre vide</target>
       </trans-unit>
       <trans-unit id="a8zlw81" resname="Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.">

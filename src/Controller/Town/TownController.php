@@ -507,15 +507,34 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     public function citizens(EntityManagerInterface $em): Response
     {
         $hidden = [];
-        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c)
+
+        $prof_count = [];
+        $death_count = 0;
+
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
             $hidden[$c->getId()] = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($c->getHome(),
                 $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
             ));
+
+            if (!$c->getAlive()) $death_count++;
+            else {
+
+                if (!isset($prof_count[ $c->getProfession()->getId() ])) {
+                    $prof_count[ $c->getProfession()->getId() ] = [
+                        1,
+                        $c->getProfession()
+                    ];
+                } else $prof_count[ $c->getProfession()->getId() ][0]++;
+
+            }
+        }
 
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $this->getActiveCitizen()->getTown()->getCitizens(),
             'me' => $this->getActiveCitizen(),
             'hidden' => $hidden,
+            'prof_count' => $prof_count,
+            'death_count' => $death_count,
         ]) );
     }
 
