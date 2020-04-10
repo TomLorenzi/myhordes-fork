@@ -241,23 +241,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Fleischkäfig","temporary" => 0,"img" => "small_fleshcage","vp" => 0,"ap" => 40,"bp" => 0,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 8,"chair_basic_#00" => 1,"wood_beam_#00" => 1,]],
             ["name" => "Bürgergericht","temporary" => 0,"img" => "small_court","vp" => 0,"ap" => 12,"bp" => 2,"rsc" => ["wood2_#00" => 6,"metal_beam_#00" => 15,"table_#00" => 1,]],
             ["name" => "Befestigungen","temporary" => 0,"img" => "small_city_up","vp" => 0,"ap" => 50,"bp" => 3,"rsc" => ["concrete_wall_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 10,]],
-            // TODO: UI
             ["name" => "Müllhalde","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 70,"bp" => 0,"rsc" => ["concrete_wall_#00" => 5,"wood_beam_#00" => 15,"metal_beam_#00" => 15,], "children" => [
-                // TODO: UI
                 ["name" => "Holzabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 5,"metal_#00" => 5,]],
-                // TODO: UI
                 ["name" => "Metallabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["wood2_#00" => 5,"metal_#00" => 5,]],
-                // TODO: UI
                 ["name" => "Tierabfälle","temporary" => 0,"img" => "small_howlingbait","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["wood_beam_#00" => 10,]],
-                // TODO: UI
                 ["name" => "Müll für Alle","temporary" => 0,"img" => "small_trashclean","vp" => 0,"ap" => 30,"bp" => 3,"rsc" => ["meca_parts_#00" => 2,"concrete_wall_#00" => 1,"wood_beam_#00" => 10,"metal_beam_#00" => 10,"trestle_#00" => 2,]],
-                // TODO: UI
                 ["name" => "Waffenabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 20,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"metal_#00" => 8,]],
-                // TODO: UI
                 ["name" => "Biomüll","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 20,"bp" => 2,"rsc" => ["wood2_#00" => 15,]],
-                // TODO: UI
                 ["name" => "Rüstungsabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 40,"bp" => 2,"rsc" => ["metal_beam_#00" => 3,"metal_#00" => 5,]],
-                // TODO: UI
                 ["name" => "Verbesserte Müllhalde","temporary" => 0,"img" => "small_trash","vp" => 75,"ap" => 120,"bp" => 4,"rsc" => ["water_#00" => 20,"wood_beam_#00" => 15,"metal_beam_#00" => 15,]],
             ]],
             // TODO: Camping

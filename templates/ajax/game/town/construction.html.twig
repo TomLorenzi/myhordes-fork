@@ -101,7 +101,7 @@
         const send_build_request = function(id) {
             let ap = null, valid = false;
             do {
-                ap = window.prompt("{% trans from 'game' %}Wie viele Aktionspunkte möchtest du in den Bau investieren?{% endtrans %}", "1");
+                ap = window.prompt("{{ 'Wie viele Aktionspunkte möchtest du in den Bau investieren?'|trans({},'game')|e('js') }}", "1");
                 if (ap === null) valid = true;
                 else {
                     ap = parseInt(ap);
