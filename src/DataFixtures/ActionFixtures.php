@@ -115,10 +115,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
 
-            'must_not_be_hidden' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hide' ] ], 'text' => 'Das kannst du gerade nicht tun ...'],
-            'must_not_be_tombed' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ], 'text' => 'Das kannst du gerade nicht tun ...'],
-            'must_be_hidden' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ], 'text' => 'Das kannst du gerade nicht tun ...'],
-            'must_be_tombed' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ], 'text' => 'Das kannst du gerade nicht tun ...'],
+            'must_not_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hide' ] ] ],
+            'must_not_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ] ],
+            'must_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ] ],
+            'must_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ] ],
         ],
 
         'requirements' => [
