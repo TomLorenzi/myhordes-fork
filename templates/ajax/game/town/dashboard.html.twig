@@ -63,7 +63,7 @@
                     <textarea>{{ town.wordsOfHeroes }}</textarea>
                 </div>
                 <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
-                <div class="cancel hidden"><a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
+                <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
                 {% else %}
                 <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
                 {% endif %}
@@ -127,6 +127,20 @@
             document.getElementById("words-of-heroes-editor").classList.add('hidden');
             document.getElementById("edit-wordsofheroes").parentNode.classList.remove('hidden');
             document.getElementById("canceledit-wordsofheroes").parentNode.classList.add('hidden');
+        });
+
+        $.html.addEventListenerAll("#saveedit-wordsofheroes", "click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            var content = document.getElementById("words-of-heroes-editor").childNodes[1].value;
+            $.ajax.easySend( '{{ path('town_dashboard_save_woh') }}', {content: content},
+                function () {
+                    $.ajax.load(null, '{{ path('town_dashboard') }}', true);
+            } );
+            /*document.getElementById("words-of-heroes-content").classList.remove('hidden');
+            document.getElementById("words-of-heroes-editor").classList.add('hidden');
+            document.getElementById("edit-wordsofheroes").parentNode.classList.remove('hidden');
+            document.getElementById("canceledit-wordsofheroes").parentNode.classList.add('hidden');*/
         });
     </script>
 {% endblock %}
