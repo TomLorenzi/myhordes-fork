@@ -75,16 +75,18 @@
             </div>
             <div class="cell-small ro-5 rw-8 ro-sm-0 rw-sm-24 center">
                 <strong>Programming</strong>
-                Benjamin "<i>Brainbox</i>" Behrendt
+                {% for dev in devs %}
+                    <div>{{ dev|raw }}</div>
+                {% endfor %}
                 <strong>Thanks to</strong>
-                <i>MisterD</i>, <i>Mondi</i>, <i>CountCount</i>
+                <i>MisterD</i>, <i>Mondi</i>
             </div>
         </div>
     {% endblock %}
 </footer>
 <script>
     (function() {
-        document.getElementById('header-reload-area').addEventListener('click', function() { location.href="/"; })
+        document.getElementById('header-reload-area').addEventListener('click', function() { window.location.href = $.ajax.getBaseURL(); })
         window.c = {
             'errors': {
                 'default': '{% trans from 'global' %}Allgemeiner Fehler.{% endtrans %}',
