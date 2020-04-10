@@ -78,6 +78,16 @@ class Town
     private $door = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $chaos = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $devastated = false;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Building", mappedBy="town", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $buildings;
@@ -281,6 +291,30 @@ class Town
         $this->door = $door;
 
         return $this;
+    }
+
+    public function getChaos(): ?bool
+    {
+      return $this->chaos;
+    }
+
+    public function setChaos(bool $chaos): self
+    {
+      $this->chaos = $chaos;
+
+      return $this;
+    }
+
+    public function getDevastated(): ?bool
+    {
+      return $this->devastated;
+    }
+
+    public function setDevastated(bool $devastated): self
+    {
+      $this->devastated = $devastated;
+
+      return $this;
     }
 
     /**
