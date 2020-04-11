@@ -39,14 +39,16 @@ class TownHandler
         $this->citizen_handler = $ch;
     }
 
-    private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ) {
+    private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
 
         // Add building
-        $town->addBuilding( (new Building())->setPrototype( $prototype ) );
+        $town->addBuilding( $b = (new Building())->setPrototype( $prototype ) );
 
         // Add all children that do not require blueprints
-        foreach ( $prototype->getChildren() as $child )
-            if ($child->getBlueprint() == 0) $this->internalAddBuilding( $town, $child );
+        if ($b)
+            foreach ( $prototype->getChildren() as $child )
+                if ($child->getBlueprint() == 0) $this->internalAddBuilding( $town, $child );
+        return $b;
     }
 
     public function triggerAlways( Town $town, bool $flush = false ) {
@@ -143,21 +145,20 @@ class TownHandler
         }
     }
 
-    public function addBuilding( Town &$town, BuildingPrototype $prototype ): bool {
+    public function addBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
 
         // Do not add a building that already exist
         $parent_available = empty($prototype->getParent());
         foreach ($town->getBuildings() as $b) {
             if ($b->getPrototype()->getId() === $prototype->getId())
-                return false;
+                return $b;
             $parent_available = $parent_available || ($b->getPrototype()->getId() === $prototype->getParent()->getId());
         }
 
         // Do not add building if parent does not exist; skip for buildings without parent
-        if (!$parent_available) return false;
+        if (!$parent_available) return null;
 
-        $this->internalAddBuilding( $town, $prototype );
-        return true;
+        return $this->internalAddBuilding( $town, $prototype );
     }
 
     public function getBuilding(Town &$town, $prototype, $finished = true): ?Building {

@@ -50,7 +50,7 @@
     </div>
 
     <div class="row">
-        <div class="padded cell rw-6 rw-md-12">
+        <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-md-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>
             <ul class="overview-checklist">
                 <li{% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
@@ -62,19 +62,21 @@
             </ul>
         </div>
         <div class="padded cell rw-6 rw-md-12">
-            <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
-            <div class="words-of-heroes {{ town.language }}">
-                <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
-                {% if active_citizen.profession.heroic %}
-                <div class="content hidden" id="words-of-heroes-editor">
-                    <textarea>{{ town.wordsOfHeroes }}</textarea>
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
+                <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
+                <div class="words-of-heroes {{ town.language }}">
+                    <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
+                    {% if active_citizen.profession.heroic %}
+                    <div class="content hidden" id="words-of-heroes-editor">
+                        <textarea>{{ town.wordsOfHeroes }}</textarea>
+                    </div>
+                    <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
+                    <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
+                    {% else %}
+                    <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
+                    {% endif %}
                 </div>
-                <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
-                <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
-                {% else %}
-                <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
-                {% endif %}
-            </div>
+            {% endif %}
         </div>
     </div>
 

@@ -26,13 +26,4 @@ class GameValidator
     public function validateTownType( string $type ): bool {
         return in_array($type, $this->getValidTownTypes());
     }
-
-    public function validateTownPopulation( int $pop, string $type ): bool {
-        if ($pop <= 0) return false;
-        switch ($type) {
-            case 'small': case 'remote':case 'panda': return $pop <= 40;
-            case 'custom': return $pop <= 120;
-            default: return false;
-        }
-    }
 }

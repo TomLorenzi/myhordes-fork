@@ -44,36 +44,6 @@ class TownClass
      */
     private $towns;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $wellMin;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $wellMax;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $mapMin;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $mapMax;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $ruinsMin;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $ruinsMax;
-
     public function __construct()
     {
         $this->towns = new ArrayCollection();
@@ -135,78 +105,6 @@ class TownClass
                 $town->setType(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getWellMin(): ?int
-    {
-        return $this->wellMin;
-    }
-
-    public function setWellMin(int $wellMin): self
-    {
-        $this->wellMin = $wellMin;
-
-        return $this;
-    }
-
-    public function getWellMax(): ?int
-    {
-        return $this->wellMax;
-    }
-
-    public function setWellMax(int $wellMax): self
-    {
-        $this->wellMax = $wellMax;
-
-        return $this;
-    }
-
-    public function getMapMin(): ?int
-    {
-        return $this->mapMin;
-    }
-
-    public function setMapMin(int $mapMin): self
-    {
-        $this->mapMin = $mapMin;
-
-        return $this;
-    }
-
-    public function getMapMax(): ?int
-    {
-        return $this->mapMax;
-    }
-
-    public function setMapMax(int $mapMax): self
-    {
-        $this->mapMax = $mapMax;
-
-        return $this;
-    }
-
-    public function getRuinsMin(): ?int
-    {
-        return $this->ruinsMin;
-    }
-
-    public function setRuinsMin(int $ruinsMin): self
-    {
-        $this->ruinsMin = $ruinsMin;
-
-        return $this;
-    }
-
-    public function getRuinsMax(): ?int
-    {
-        return $this->ruinsMax;
-    }
-
-    public function setRuinsMax(int $ruinsMax): self
-    {
-        $this->ruinsMax = $ruinsMax;
 
         return $this;
     }

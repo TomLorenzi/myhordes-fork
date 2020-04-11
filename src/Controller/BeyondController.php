@@ -23,6 +23,7 @@ use App\Repository\DigRuinMarkerRepository;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
@@ -36,6 +37,7 @@ use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
@@ -97,9 +99,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh)
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $translator, $lh, $tk, $rg);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $translator, $lh, $tk, $rg, $conf);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -200,7 +202,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
-        if (!$is_on_zero) {
+        if (!$is_on_zero && $this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) {
             // Camping Information
             $camping_zone_texts = [
                 1 => T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game'),
