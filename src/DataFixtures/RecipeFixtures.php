@@ -263,7 +263,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Alles oder nichts","temporary" => 0,"img" => "small_lastchance","vp" => 55,"ap" => 150,"bp" => 3,"rsc" => ["meca_parts_#00" => 4,"wood_beam_#00" => 15,"metal_beam_#00" => 15,]],
             ["name" => "Riesiger KVF","temporary" => 0,"img" => "small_pmvbig","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 30,]],
             ["name" => "Riesenrad","temporary" => 0,"img" => "small_wheel","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["water_#00" => 20,"meca_parts_#00" => 5,"concrete_wall_#00" => 3,"metal_beam_#00" => 5,]],
-            ["name" => "Feuerwerk","temporary" => 0,"img" => "small_fireworks","vp" => 0,"ap" => 90,"bp" => 0,"rsc" => ["firework_powder_#00" => 1,"firework_tube_#00" => 1,"firework_box_#00" => 2]],
+            ["name" => "Feuerwerk","temporary" => 0,"img" => "small_fireworks","vp" => 150,"ap" => 90,"bp" => 0,"rsc" => ["firework_powder_#00" => 1,"firework_tube_#00" => 1,"firework_box_#00" => 2]],
             ["name" => "Krähenstatue","temporary" => 0,"img" => "small_crow","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["hmeat_#00" => 3,"wood_beam_#00" => 35,]],
             // TODO: Special Action
             ["name" => "Kino","temporary" => 0,"img" => "small_cinema","vp" => 0,"ap" => 100,"bp" => 4,"rsc" => ["electro_#00" => 3,"wood_beam_#00" => 15,"metal_beam_#00" => 5,"machine_1_#00" => 1,"machine_2_#00" => 1,]],
