@@ -251,7 +251,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 ["name" => "Rüstungsabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 40,"bp" => 2,"rsc" => ["metal_beam_#00" => 3,"metal_#00" => 5,]],
                 ["name" => "Verbesserte Müllhalde","temporary" => 0,"img" => "small_trash","vp" => 75,"ap" => 120,"bp" => 4,"rsc" => ["water_#00" => 20,"wood_beam_#00" => 15,"metal_beam_#00" => 15,]],
             ]],
-            // TODO: Camping
             ["name" => "Leuchtturm","temporary" => 0,"img" => "small_lighthouse","vp" => 0,"ap" => 30,"bp" => 3,"rsc" => ["electro_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,]],
             ["name" => "Altar","temporary" => 0,"img" => "small_redemption","vp" => 0,"ap" => 24,"bp" => 2,"rsc" => ["pet_pig_#00" => 1,"wood_beam_#00" => 3,"metal_beam_#00" => 2,]],
             ["name" => "Riesige Sandburg","temporary" => 0,"img" => "small_castle","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["water_#00" => 30,"wood_beam_#00" => 15,"metal_beam_#00" => 10,]],
