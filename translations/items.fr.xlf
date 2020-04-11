@@ -2937,6 +2937,10 @@
         <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
         <target>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</target>
       </trans-unit>
+      <trans-unit id="TWuwK4M" resname="Angriff und Verteidigung">
+        <source>Angriff und Verteidigung</source>
+        <target>Angriff und Verteidigung</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

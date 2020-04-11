@@ -2222,6 +2222,14 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Lesen Sie das Mitteilungsblatt</source>
         <target>Lire la gazette</target>
       </trans-unit>
+      <trans-unit id="nLW7mkF" resname="Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...">
+        <source>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</source>
+        <target>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</target>
+      </trans-unit>
+      <trans-unit id="GtXqaDO" resname="Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.">
+        <source>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</source>
+        <target>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</target>
+      </trans-unit>
       <trans-unit id="T04hD_3" resname="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
         <source>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</source>
         <target>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</target>
@@ -2233,10 +2241,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="1GkRZwk" resname="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
         <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</target>
-      </trans-unit>
-      <trans-unit id="6Ds9C1i" resname="Du kannst keine Aktionen ausführen, während du dich versteckst.">
-        <source>Du kannst keine Aktionen ausführen, während du dich versteckst.</source>
-        <target>Du kannst keine Aktionen ausführen, während du dich versteckst.</target>
       </trans-unit>
       <trans-unit id="UzZ7xlJ" resname="Nachricht">
         <source>Nachricht</source>
@@ -2281,6 +2285,62 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="RNyztpO" resname="Wie viele Gegenstände möchtest du auf den Müll werfen?">
         <source>Wie viele Gegenstände möchtest du auf den Müll werfen?</source>
         <target>Wie viele Gegenstände möchtest du auf den Müll werfen?</target>
+      </trans-unit>
+      <trans-unit id="6Ds9C1i" resname="Du kannst keine Aktionen ausführen, während du dich versteckst.">
+        <source>Du kannst keine Aktionen ausführen, während du dich versteckst.</source>
+        <target>Du kannst keine Aktionen ausführen, während du dich versteckst.</target>
+      </trans-unit>
+      <trans-unit id="e19N5sC" resname="Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...">
+        <source>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</source>
+        <target>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</target>
+      </trans-unit>
+      <trans-unit id="fftPup_" resname="Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.">
+        <source>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</source>
+        <target>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</target>
+      </trans-unit>
+      <trans-unit id="YFhoAPq" resname="Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.">
+        <source>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</source>
+        <target>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</target>
+      </trans-unit>
+      <trans-unit id="i9FQpcu" resname="An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...">
+        <source>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</source>
+        <target>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</target>
+      </trans-unit>
+      <trans-unit id="YrPIELu" resname="In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.">
+        <source>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</source>
+        <target>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</target>
+      </trans-unit>
+      <trans-unit id="Be5ZaAS" resname="Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.">
+        <source>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</source>
+        <target>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</target>
+      </trans-unit>
+      <trans-unit id="UFJR0VM" resname="Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?">
+        <source>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</target>
+      </trans-unit>
+      <trans-unit id="7OnKd2K" resname="Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.">
+        <source>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</target>
+      </trans-unit>
+      <trans-unit id="rlIeIKM" resname="Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...">
+        <source>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</target>
+      </trans-unit>
+      <trans-unit id="o1L6EkI" resname="Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.">
+        <source>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</target>
+      </trans-unit>
+      <trans-unit id="v2oSIjv" resname="Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!">
+        <source>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</target>
+      </trans-unit>
+      <trans-unit id="kqluhpf" resname="Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.">
+        <source>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</target>
+      </trans-unit>
+      <trans-unit id="1JwyDRE" resname="Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.">
+        <source>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</source>
+        <target>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</target>
       </trans-unit>
     </body>
   </file>

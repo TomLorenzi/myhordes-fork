@@ -2785,6 +2785,158 @@
         <source>Waffe</source>
         <target>Waffe</target>
       </trans-unit>
+      <trans-unit id="MqglA5l" resname="Super-Flaum-Pulver">
+        <source>Super-Flaum-Pulver</source>
+        <target>Super-Flaum-Pulver</target>
+      </trans-unit>
+      <trans-unit id="JoKXock" resname="Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.">
+        <source>Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.</source>
+        <target>Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.</target>
+      </trans-unit>
+      <trans-unit id="B3woSiS" resname="Flush-Abschussrohr">
+        <source>Flush-Abschussrohr</source>
+        <target>Flush-Abschussrohr</target>
+      </trans-unit>
+      <trans-unit id="jo37Kom" resname="Mehrere lange Plastikschläuche ohne großes Interesse.">
+        <source>Mehrere lange Plastikschläuche ohne großes Interesse.</source>
+        <target>Mehrere lange Plastikschläuche ohne großes Interesse.</target>
+      </trans-unit>
+      <trans-unit id="r_RaIim" resname="Feuerwerkskiste">
+        <source>Feuerwerkskiste</source>
+        <target>Feuerwerkskiste</target>
+      </trans-unit>
+      <trans-unit id="CKlG8jA" resname="Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.">
+        <source>Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.</source>
+        <target>Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.</target>
+      </trans-unit>
+      <trans-unit id="57AU2d." resname="Kürbis ausgestorben">
+        <source>Kürbis ausgestorben</source>
+        <target>Kürbis ausgestorben</target>
+      </trans-unit>
+      <trans-unit id="hgy9Tb5" resname="Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?">
+        <source>Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?</source>
+        <target>Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?</target>
+      </trans-unit>
+      <trans-unit id="qjyJg4a" resname="Beleuchteter Kürbis">
+        <source>Beleuchteter Kürbis</source>
+        <target>Beleuchteter Kürbis</target>
+      </trans-unit>
+      <trans-unit id="TQRmRVD" resname="Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... ">
+        <source>Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... </source>
+        <target>Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... </target>
+      </trans-unit>
+      <trans-unit id="JwoL.oE" resname="Krähengirlande">
+        <source>Krähengirlande</source>
+        <target>Krähengirlande</target>
+      </trans-unit>
+      <trans-unit id="3y4ye_D" resname="Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.">
+        <source>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</source>
+        <target>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</target>
+      </trans-unit>
+      <trans-unit id="9VFJt3E" resname="&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;">
+        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
+        <target><![CDATA[<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>]]></target>
+      </trans-unit>
+      <trans-unit id="V2fAVB5" resname="Aufbauen">
+        <source>Aufbauen</source>
+        <target>Aufbauen</target>
+      </trans-unit>
+      <trans-unit id="BNi5WCM" resname="Du hast das hiesige Versteck erheblich verbessert.">
+        <source>Du hast das hiesige Versteck erheblich verbessert.</source>
+        <target>Du hast das hiesige Versteck erheblich verbessert.</target>
+      </trans-unit>
+      <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
+        <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
+        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="D632ww5" resname="Du hast das hiesige Versteck verbessert.">
+        <source>Du hast das hiesige Versteck verbessert.</source>
+        <target>Du hast das hiesige Versteck verbessert.</target>
+      </trans-unit>
+      <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
+        <source>Sich verstecken und die Nacht hier schlafen!</source>
+        <target>Sich verstecken und die Nacht hier schlafen!</target>
+      </trans-unit>
+      <trans-unit id="VsRU9Va" resname="Du hast Dich notdürftig versteckt.">
+        <source>Du hast Dich notdürftig versteckt.</source>
+        <target>Du hast Dich notdürftig versteckt.</target>
+      </trans-unit>
+      <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
+        <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
+        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="P15D.zw" resname="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
+        <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
+        <target>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</target>
+      </trans-unit>
+      <trans-unit id="nv.FYHK" resname="Versteck verlassen">
+        <source>Versteck verlassen</source>
+        <target>Versteck verlassen</target>
+      </trans-unit>
+      <trans-unit id="DLyYjGK" resname="Du hast Dein Versteck verlassen.">
+        <source>Du hast Dein Versteck verlassen.</source>
+        <target>Du hast Dein Versteck verlassen.</target>
+      </trans-unit>
+      <trans-unit id="vD_lf43" resname="Grab verlassen">
+        <source>Grab verlassen</source>
+        <target>Grab verlassen</target>
+      </trans-unit>
+      <trans-unit id="fz7VoYN" resname="Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!">
+        <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
+        <target>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</target>
+      </trans-unit>
+      <trans-unit id="A7SKfkS" resname="Wandeln">
+        <source>Wandeln</source>
+        <target>Wandeln</target>
+      </trans-unit>
+      <trans-unit id="9fNbzu." resname="Zerlegen">
+        <source>Zerlegen</source>
+        <target>Zerlegen</target>
+      </trans-unit>
+      <trans-unit id="1PXqODy" resname="Baustoffe">
+        <source>Baustoffe</source>
+        <target>Baustoffe</target>
+      </trans-unit>
+      <trans-unit id="eEycb65" resname="Grundnahrungsmittel">
+        <source>Grundnahrungsmittel</source>
+        <target>Grundnahrungsmittel</target>
+      </trans-unit>
+      <trans-unit id="8beKQr4" resname="Apotheke und Labor">
+        <source>Apotheke und Labor</source>
+        <target>Apotheke und Labor</target>
+      </trans-unit>
+      <trans-unit id="bj.MFsK" resname="Expedition">
+        <source>Expedition</source>
+        <target>Expedition</target>
+      </trans-unit>
+      <trans-unit id="TWuwK4M" resname="Angriff und Verteidigung">
+        <source>Angriff und Verteidigung</source>
+        <target>Angriff und Verteidigung</target>
+      </trans-unit>
+      <trans-unit id="nz1fjZT" resname="Sonstiges">
+        <source>Sonstiges</source>
+        <target>Sonstiges</target>
+      </trans-unit>
+      <trans-unit id="nzgEuGm" resname="Einrichtungen">
+        <source>Einrichtungen</source>
+        <target>Einrichtungen</target>
+      </trans-unit>
+      <trans-unit id="77.Cp5H" resname="Verteidigung">
+        <source>Verteidigung</source>
+        <target>Verteidigung</target>
+      </trans-unit>
+      <trans-unit id="PO0OQ3j" resname="Waffenarsenal">
+        <source>Waffenarsenal</source>
+        <target>Waffenarsenal</target>
+      </trans-unit>
+      <trans-unit id="u1z.6sr" resname="Taschen und Behälter">
+        <source>Taschen und Behälter</source>
+        <target>Taschen und Behälter</target>
+      </trans-unit>
+      <trans-unit id="XfbyTTX" resname="Kaputt">
+        <source>Kaputt</source>
+        <target>Kaputt</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
