@@ -136,7 +136,7 @@ class Zone
     private $scoutEstimationOffset;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private $improvementLevel = 0;
 
@@ -503,12 +503,12 @@ class Zone
         return $this;
     }
 
-    public function getImprovementLevel(): ?int
+    public function getImprovementLevel(): ?float
     {
       return $this->improvementLevel;
     }
 
-    public function setImprovementLevel(int $improvementLevel): self
+    public function setImprovementLevel(float $improvementLevel): self
     {
       $this->improvementLevel = $improvementLevel;
 

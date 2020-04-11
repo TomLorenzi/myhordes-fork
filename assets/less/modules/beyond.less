@@ -67,9 +67,18 @@ div.zone-camp {
       }
     }
     &:checked + label + .zone-camp-info {
-      max-height: 200px;
+      max-height: 500px;
       opacity: 1;
+
+      pre {
+        .box();
+      }
     }
+  }
+
+  & .emphasis {
+    font-weight: bold;
+    color: white;
   }
 }
 div.zone-blocked-warning {

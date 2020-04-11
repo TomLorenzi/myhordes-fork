@@ -296,6 +296,37 @@ class CitizenHandler
     }
 
     public function getCampingChance(Citizen $citizen): float {
+        $total_value = array_sum($this->getCampingValues($citizen));
+
+        if ($total_value >= 0 && $citizen->getProfession()->getName() == 'survivalist') {
+            $survival_chance = 1;
+        }
+        else if ($total_value > -2 && $citizen->getProfession()->getName() == 'survivalist') {
+            $survival_chance = .95;
+        }
+        else if ($total_value > -4) {
+            $survival_chance = .9;
+        }
+        else if ($total_value > -7) {
+            $survival_chance = .75;
+        }
+        else if ($total_value > -10) {
+            $survival_chance = .6;
+        }
+        else if ($total_value > -14) {
+            $survival_chance = .45;
+        }
+        else if ($total_value > -18) {
+            $survival_chance = .3;
+        }
+        else {
+            $survival_chance = .15;
+        }
+
+        return $survival_chance;
+    }
+
+    public function getCampingValues(Citizen $citizen): array {
         $camping_values = [];
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
@@ -332,11 +363,11 @@ class CitizenHandler
         // Ruin in zone.
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
-        // Zombies in zone. Factor 1.4, for CamperPro it will 0.6.
-        $camping_values['zombies'] = 1.4 * $zone->getZombies();
+        // Zombies in zone. Factor -1.4, for CamperPro it will -0.6.
+        $camping_values['zombies'] = -1.4 * $zone->getZombies();
 
         // Zone improvement level.
-        $camping_values['improvement'] = $zone->getImprovementLevel() / 10; // DB values min: 0, max: 117
+        $camping_values['improvement'] = $zone->getImprovementLevel();
 
         // Previous camping count.
         $campings_map = [
@@ -420,33 +451,6 @@ class CitizenHandler
         // Devastated town.
         $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;
 
-        $total_value = array_sum($camping_values);
-
-        if ($total_value >= 0 && $citizen->getProfession()->getName() == 'survivalist') {
-            $survival_chance = 1;
-        }
-        else if ($total_value > -2 && $citizen->getProfession()->getName() == 'survivalist') {
-            $survival_chance = .95;
-        }
-        else if ($total_value > -4) {
-            $survival_chance = .9;
-        }
-        else if ($total_value > -7) {
-            $survival_chance = .75;
-        }
-        else if ($total_value > -10) {
-            $survival_chance = .6;
-        }
-        else if ($total_value > -14) {
-            $survival_chance = .45;
-        }
-        else if ($total_value > -18) {
-            $survival_chance = .3;
-        }
-        else {
-            $survival_chance = .15;
-        }
-
-        return $survival_chance;
+        return $camping_values;
     }
 }
