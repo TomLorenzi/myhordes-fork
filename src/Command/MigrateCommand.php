@@ -57,6 +57,8 @@ class MigrateCommand extends Command
             ->setDescription('Performs migrations to update content after a version update.')
             ->setHelp('Migrations.')
 
+            ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
+
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
         ;
@@ -64,6 +66,53 @@ class MigrateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        if ($input->getOption('update-db')) {
+
+            $made_migration = true;
+            $db_is_current  = true;
+
+            $command = $this->getApplication()->find('doctrine:migrations:diff');
+            try {
+                $args = new ArrayInput([
+                    '--allow-empty-diff' => true,
+                ]);
+                $args->setInteractive(false);
+                $command->run($args, $output);
+            } catch (Exception $e) {
+                $output->writeln("Unable to create a migration: <error>{$e->getMessage()}</error>");
+                $made_migration = false;
+            }
+
+            if ($made_migration) {
+                $command = $this->getApplication()->find('doctrine:migrations:migrate');
+                try {
+                    $args = new ArrayInput([
+                        '--all-or-nothing' => true,
+                        '--allow-no-migration' => true,
+                    ]);
+                    $args->setInteractive(false);
+                    $command->run($args, $output);
+                } catch (Exception $e) {
+                    $output->writeln("Unable to migrate: <error>{$e->getMessage()}</error>");
+                    $db_is_current = false;
+                }
+            }
+
+            if ($db_is_current) {
+                $command = $this->getApplication()->find('doctrine:fixtures:load');
+                try {
+                    $command->run(new ArrayInput([
+                        '--append' => true,
+                    ]), $output);
+                } catch (Exception $e) {
+                    $output->writeln("Unable to insert fixtures: <error>{$e->getMessage()}</error>");
+                    return 1;
+                }
+            }
+
+            return 0;
+        }
+
         if ($input->getOption('assign-heroic-actions-all')) {
             $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
             foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
