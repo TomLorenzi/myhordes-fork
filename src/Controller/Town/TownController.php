@@ -136,6 +136,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = $est0 && $est0->getCitizens()->contains($this->getActiveCitizen());
 
+        $display_home_upgrade = false;
+        foreach ($citizens as $citizen) {
+            if($citizen->getHome()->getPrototype()->getLevel() > $this->getActiveCitizen()->getHome()->getPrototype()->getLevel()){
+                $display_home_upgrade = true;
+                break;
+            }
+        }
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
@@ -152,6 +160,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'has_estimated' => $has_estimated,
             'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
             'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active'),
+            'display_home_upgrade' => $display_home_upgrade,
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
         ]) );
     }
