@@ -812,10 +812,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function door(TownHandler $th): Response
     {
-        $door_locked = $this->door_is_locked($th);
+	$door_locked = $this->door_is_locked($th);
+	$can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'town'  =>  $this->getActiveCitizen()->getTown(),
-            'door_locked' => $door_locked,
+	    'door_locked' => $door_locked,
+	    'can_go_out' => $can_go_out,
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ], $this->get_map_blob())) );
