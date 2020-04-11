@@ -100,10 +100,11 @@ class NightlyHandler
 
                     if (!$this->random->chance($survival_chance)) {
                         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
-                        $this->kill_wrap($citizen, $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Vanished));
+                        $this->kill_wrap($citizen, $cod);
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
+                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has a camping  survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
                     }
                 }
                 else {

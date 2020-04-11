@@ -245,6 +245,22 @@ class Zone
         return $this;
     }
 
+    public function getCampers() {
+        $citizens = $this->getCitizens();
+        // No citizens = no campers.
+        if (!count($citizens)) {
+            return [];
+        }
+        $campers = [];
+        foreach ($citizens as $citizen) {
+            if ($citizen->getCampingTimestamp() > 0) {
+                $campers[$citizen->getCampingTimestamp()] = $citizen;
+            }
+        }
+        ksort($campers);
+        return $campers;
+    }
+
     public function getInitialZombies(): ?int
     {
         return $this->initialZombies;

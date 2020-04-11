@@ -727,7 +727,22 @@ class ActionHandler
                         }
                         $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
                         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+
+                        break;
                     }
+                    // Set campingTimer
+                    case 10: {
+                        $date = new DateTime();
+                        $citizen->setCampingTimestamp($date->getTimestamp());
+
+                        break;
+                    }
+                    // Reset campingTimer
+                    case 11: {
+                        $citizen->setCampingTimestamp(0);
+
+                    break;
+                }
 
 
                 }
