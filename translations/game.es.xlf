@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target state="needs-translation">%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</target>
+        <target>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</target>
       </segment>
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target state="needs-translation">Mist, dein Einbruch bei %victim% ist aufgeflogen...</target>
+        <target>Mist, dein Einbruch bei %victim% ist aufgeflogen...</target>
       </segment>
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
