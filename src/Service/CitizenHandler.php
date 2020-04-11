@@ -447,8 +447,6 @@ class CitizenHandler
             $survival_chance = .15;
         }
 
-        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has a camping value of <info>{$total_value}</info> (the sum of <info>" . json_encode($camping_values, 8) . "</info>) - survival chance is <info>" . ($survival_chance * 100) . "%</info>.");
-
         return $survival_chance;
     }
 }

@@ -539,7 +539,7 @@ class Citizen
 
     public function setCampingTimestamp(int $campingTimestamp): self
     {
-        $this->campingCounter = $campingTimestamp;
+        $this->campingTimestamp = $campingTimestamp;
 
         return $this;
     }
