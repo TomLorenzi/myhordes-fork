@@ -23,6 +23,7 @@ use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -58,6 +59,7 @@ class MigrateCommand extends Command
             ->setHelp('Migrations.')
 
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
+            ->addOption('update-trans', 't', InputOption::VALUE_NONE, 'Updates all translation files.')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
@@ -110,6 +112,32 @@ class MigrateCommand extends Command
                 }
             }
 
+            return 0;
+        }
+
+        if ($input->getOption('update-trans')) {
+            $command = $this->getApplication()->find('translation:update');
+
+            foreach (['de','en','fr','es'] as $lang) {
+
+                $output->writeln("Now working on translations for <info>{$lang}</info>...");
+                $input = new ArrayInput([
+                    'locale' => $lang,
+                    '--force' => true,
+                    '--sort' => 'asc',
+                    '--output-format' => 'xlf2',
+                    '--prefix' => '',
+                ]);
+                $input->setInteractive(false);
+                try {
+                    $command->run($input, new NullOutput());
+                } catch (Exception $e) {
+                    $output->writeln("Error: <error>{$e->getMessage()}</error>");
+                    return 1;
+                }
+            }
+
+            $output->writeln('Done!');
             return 0;
         }
 

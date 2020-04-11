@@ -1,74 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="de" target-language="de" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="Ytua8lq" resname="Die gewählte Stadt ist bereits voll.">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="ghost.de">
+    <unit id="Ytua8lq" name="Die gewählte Stadt ist bereits voll.">
+      <notes>
+        <note category="german">Die gewählte Stadt ist bereits voll.</note>
+      </notes>
+      <segment>
         <source>Die gewählte Stadt ist bereits voll.</source>
         <target>Die gewählte Stadt ist bereits voll.</target>
-      </trans-unit>
-      <trans-unit id="9O4x._6" resname="Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.">
+      </segment>
+    </unit>
+    <unit id="9O4x._6" name="Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.">
+      <notes>
+        <note category="german">Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</note>
+      </notes>
+      <segment>
         <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
         <target>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</target>
-      </trans-unit>
-      <trans-unit id="KGUlxGY" resname="Du bist dieser Stadt bereits beigetreten.">
+      </segment>
+    </unit>
+    <unit id="KGUlxGY" name="Du bist dieser Stadt bereits beigetreten.">
+      <notes>
+        <note category="german">Du bist dieser Stadt bereits beigetreten.</note>
+      </notes>
+      <segment>
         <source>Du bist dieser Stadt bereits beigetreten.</source>
         <target>Du bist dieser Stadt bereits beigetreten.</target>
-      </trans-unit>
-      <trans-unit id="xkZqSVc" resname="Wähle eine Stadt">
+      </segment>
+    </unit>
+    <unit id="xkZqSVc" name="Wähle eine Stadt">
+      <notes>
+        <note category="german">Wähle eine Stadt</note>
+      </notes>
+      <segment>
         <source>Wähle eine Stadt</source>
         <target>Wähle eine Stadt</target>
-      </trans-unit>
-      <trans-unit id="Bfb7kn4" resname="Stadtname">
+      </segment>
+    </unit>
+    <unit id="Bfb7kn4" name="Stadtname">
+      <notes>
+        <note category="german">Stadtname</note>
+      </notes>
+      <segment>
         <source>Stadtname</source>
         <target>Stadtname</target>
-      </trans-unit>
-      <trans-unit id="Vlb5Lbe" resname="Aktionen">
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+      </notes>
+      <segment>
         <source>Aktionen</source>
         <target>Aktionen</target>
-      </trans-unit>
-      <trans-unit id="rgtSNg9" resname="Aktuell gibt es keine Stadt diesen Typs.">
+      </segment>
+    </unit>
+    <unit id="rgtSNg9" name="Aktuell gibt es keine Stadt diesen Typs.">
+      <notes>
+        <note category="german">Aktuell gibt es keine Stadt diesen Typs.</note>
+      </notes>
+      <segment>
         <source>Aktuell gibt es keine Stadt diesen Typs.</source>
         <target>Aktuell gibt es keine Stadt diesen Typs.</target>
-      </trans-unit>
-      <trans-unit id="Enh.KhP" resname="Nächtlicher Angriff">
+      </segment>
+    </unit>
+    <unit id="Enh.KhP" name="Nächtlicher Angriff">
+      <notes>
+        <note category="german">Nächtlicher Angriff</note>
+      </notes>
+      <segment>
         <source>Nächtlicher Angriff</source>
         <target>Nächtlicher Angriff</target>
-      </trans-unit>
-      <trans-unit id="xOWTZkZ" resname="Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.">
+      </segment>
+    </unit>
+    <unit id="xOWTZkZ" name="50b1aa2">
+      <notes>
+        <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
+      </notes>
+      <segment>
         <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
         <target>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</target>
-      </trans-unit>
-      <trans-unit id="e6r4m6r" resname="Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.">
+      </segment>
+    </unit>
+    <unit id="e6r4m6r" name="1a8b866">
+      <notes>
+        <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
+      </notes>
+      <segment>
         <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
         <target>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</target>
-      </trans-unit>
-      <trans-unit id="gqk_gdE" resname="Beitreten">
+      </segment>
+    </unit>
+    <unit id="gqk_gdE" name="Beitreten">
+      <notes>
+        <note category="german">Beitreten</note>
+      </notes>
+      <segment>
         <source>Beitreten</source>
         <target>Beitreten</target>
-      </trans-unit>
-      <trans-unit id="1Wm5ylA" resname="Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.">
+      </segment>
+    </unit>
+    <unit id="1Wm5ylA" name="0593e73">
+      <notes>
+        <note category="german">Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
+      </notes>
+      <segment>
         <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
         <target>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</target>
-      </trans-unit>
-      <trans-unit id="5jsjI47" resname="Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.">
+      </segment>
+    </unit>
+    <unit id="5jsjI47" name="977e42c">
+      <notes>
+        <note category="german">Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</note>
+      </notes>
+      <segment>
         <source>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</source>
         <target>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</target>
-      </trans-unit>
-      <trans-unit id="0C3XaFv" resname="Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?">
+      </segment>
+    </unit>
+    <unit id="0C3XaFv" name="321754f">
+      <notes>
+        <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
+      </notes>
+      <segment>
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
         <target>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</target>
-      </trans-unit>
-      <trans-unit id="FbY7TeM" resname="Bestätigen">
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
         <source>Bestätigen</source>
         <target>Bestätigen</target>
-      </trans-unit>
-      <trans-unit id="Ap6glg5" resname="Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten">
+      </segment>
+    </unit>
+    <unit id="Ap6glg5" name="262981c">
+      <notes>
+        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</note>
+      </notes>
+      <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
         <target>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</target>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
   </file>
 </xliff>
