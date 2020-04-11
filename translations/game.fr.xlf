@@ -1262,7 +1262,7 @@
       </notes>
       <segment>
         <source>Tot</source>
-        <target>Tot</target>
+        <target>Mort</target>
       </segment>
     </unit>
     <unit id="UJdq1Y9" name="Haus">
@@ -5026,7 +5026,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nachricht</source>
-        <target>Nachricht</target>
+	<target>Annonce</target>
       </segment>
     </unit>
     <unit id="UHGC2Ea" name="Draußen?">
@@ -5035,7 +5035,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Draußen?</source>
-        <target>Draußen?</target>
+        <target>Dehors ?</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -5044,7 +5044,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Oui</target>
       </segment>
     </unit>
     <unit id="0vW.4CA" name="Ein Vorhang blockiert die Sicht ...">
