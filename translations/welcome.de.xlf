@@ -1,50 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="de" target-language="de" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="7VfCrWl" resname="Foren">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="welcome.de">
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="german">Foren</note>
+      </notes>
+      <segment>
         <source>Foren</source>
         <target>Foren</target>
-      </trans-unit>
-      <trans-unit id="a66OWC." resname="Willkommen bei MyHordes">
+      </segment>
+    </unit>
+    <unit id="a66OWC." name="Willkommen bei MyHordes">
+      <notes>
+        <note category="german">Willkommen bei MyHordes</note>
+      </notes>
+      <segment>
         <source>Willkommen bei MyHordes</source>
         <target>Willkommen bei MyHordes</target>
-      </trans-unit>
-      <trans-unit id="Sq5rAhc" resname="MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels&#10;                    &quot;Die Verdammten&quot; von %motiontwin%.">
+      </segment>
+    </unit>
+    <unit id="Sq5rAhc" name="99de2c1">
+      <notes>
+        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
+                    "Die Verdammten" von %motiontwin%.</note>
+      </notes>
+      <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</source>
         <target>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</target>
-      </trans-unit>
-      <trans-unit id="yIFGZLw" resname="Ziel des Projektes ist es, einer Version von &quot;Die Verdammten&quot; zu erschaffen, die nicht nur nach der&#10;                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen&#10;                    Inhalten versorgt werden kann.">
+      </segment>
+    </unit>
+    <unit id="yIFGZLw" name="2fac8f1">
+      <notes>
+        <note category="german">Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
+                    Inhalten versorgt werden kann.</note>
+      </notes>
+      <segment>
         <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
         <target>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</target>
-      </trans-unit>
-      <trans-unit id="mbIzlHW" resname="Zum Spiel">
+      </segment>
+    </unit>
+    <unit id="mbIzlHW" name="Zum Spiel">
+      <notes>
+        <note category="german">Zum Spiel</note>
+      </notes>
+      <segment>
         <source>Zum Spiel</source>
         <target>Zum Spiel</target>
-      </trans-unit>
-      <trans-unit id="M_25pDW" resname="Account validieren">
+      </segment>
+    </unit>
+    <unit id="M_25pDW" name="Account validieren">
+      <notes>
+        <note category="german">Account validieren</note>
+      </notes>
+      <segment>
         <source>Account validieren</source>
         <target>Account validieren</target>
-      </trans-unit>
-      <trans-unit id="vMG7P9w" resname="Zum Login">
+      </segment>
+    </unit>
+    <unit id="vMG7P9w" name="Zum Login">
+      <notes>
+        <note category="german">Zum Login</note>
+      </notes>
+      <segment>
         <source>Zum Login</source>
         <target>Zum Login</target>
-      </trans-unit>
-      <trans-unit id="RVQn34R" resname="Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus &quot;Die Verdammten&quot; und sind&#10;                    damit Eigentum von %motiontwin%.">
+      </segment>
+    </unit>
+    <unit id="RVQn34R" name="dfabf06">
+      <notes>
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+                    damit Eigentum von %motiontwin%.</note>
+      </notes>
+      <segment>
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
                     damit Eigentum von %motiontwin%.</source>
         <target>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
                     damit Eigentum von %motiontwin%.</target>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -69,9 +69,7 @@ Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({
 php composer.phar update
 
 # Update database
-bin/console doctrine:migrations:diff
-bin/console doctrine:migrations:migrate -n
-bin/console doctrine:fixtures:load --append
+bin/console app:migrate -u
 
 # Update yarn
 yarn install

@@ -90,10 +90,14 @@ class NightlyHandler
     private function stage1_vanish(Town &$town) {
         $this->log->info('<info>Vanishing citizens</info> ...');
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Vanished);
+
+        $camp_1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' );
+        $camp_2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' );
+
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone()) {
 
-                $citizen_hidden = $citizen->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $citizen->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ));
+                $citizen_hidden = $citizen->getStatus()->contains( $camp_1 ) || $citizen->getStatus()->contains( $camp_2 );
                 if ($citizen_hidden) {
                     // This poor soul wants to camp outside.
                     $survival_chance = $this->citizen_handler->getCampingChance($citizen);

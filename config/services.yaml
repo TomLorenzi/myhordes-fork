@@ -51,3 +51,7 @@ services:
     App\Translation\ExpandedPhpExtractor:
         tags:
             - { name: translation.extractor, alias: ExpandedPhpExtractor }
+
+    App\Translation\ExpandedDumper:
+        tags:
+            - { name: translation.dumper, alias: xlf2 }
