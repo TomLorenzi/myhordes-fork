@@ -191,7 +191,7 @@
         <div class="padded cell rw-6 rw-md-12">
             {% if zone.x != 0 or zone.y != 0 %}
             <h5>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
-            {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
+            {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}
@@ -206,8 +206,10 @@
                     </div>
                 {% endif %}
 
-                <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
-                {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items} %}
+                {% if not citizen_hidden %}
+                    <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
+                {% endif %}
+                {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden} %}
                     {% block class %}desert{% endblock %}
                     {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
                 {% endembed %}
