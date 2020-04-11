@@ -1,8 +1,10 @@
 {% extends "ajax/game/game.html.twig" %}
+{# Replaced by overview button
 {% block menu_text %}
     {{ parent() }}
     <li class="town-dash" x-ajax-href="{{ url('town_dashboard') }}">{% trans from 'game' %}Stadt{% endtrans %}</li>
 {% endblock %}
+#}
 {% block ajax %}
     {{ parent() }}
     {# @var home \App\Entity\CitizenHome #}

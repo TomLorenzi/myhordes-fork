@@ -233,6 +233,14 @@
         <source>Tage</source>
         <target>Jours</target>
       </trans-unit>
+      <trans-unit id="hORe5zQ" resname="Bearbeiten">
+        <source>Bearbeiten</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="aE.gAX6" resname="Spiel">
+        <source>Spiel</source>
+        <target>Jouer</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

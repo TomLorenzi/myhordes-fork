@@ -10,12 +10,35 @@
         <div class="cell rw-12 zone-beyond time-{{ hour }} {% if hour < 7 or hour > 18 %}night-{% endif %}{% if zone.x == 0 and zone.y == 0 %}city{% elseif zone.prototype and zone.prototype.id > 0 %}oldruins{% else %}outerworld{% endif %}{% if zone.x == 0 and zone.y == 0 and zone.town.door == 1 %}-open{% endif %}"></div>
     </div>
     <div class="row">
-        <div class="cell rw-12 ambiant small">
+        <div class="cell rw-12 {% if not zone.prototype %}ambiant {% endif %}small">
             {% if zone.x == 0 and zone.y == 0 %}
                 <p>{% trans from 'game' %}Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.{% endtrans %}</p>
                 <p>{% trans from 'game' %}Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...{% endtrans %}</p>
             {% else %}
-                <p>{% trans from 'game' %}Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...{% endtrans %}</p>
+                {% if zone.prototype %}
+                    <div class="ruin-info">
+                        {% if zone.buryCount > 0 %}
+                            <b>{{ 'Verschüttete Ruine'|trans({},'game') }}</b>
+                            {% if scout %}<b>(<i>{{ zone.prototype.label|trans({}, 'game') }}</i>)</b>{% endif %}
+                            <br />
+                            {{ 'Es muss noch aufgeräumt werden'|trans({},'game') }}:
+                            <div class="ruin-bury-count">{% for p in 1..zone.buryCount %}<div></div>{% endfor %}</div>
+                        {% else %}
+                            <img src="{{ asset('build/images/small_help.gif') }}" /> <span class="ruin-name">{{ 'Ruine'|trans({},'game') }} : <b>{{ zone.prototype.label|trans({}, 'game') }}</b></span><br />
+                            <span class="ruin-desc">{{ zone.prototype.description|trans({}, 'game') }}</span>
+                        {% endif %}
+
+                    </div>
+                {% else %}
+                    <p class="beyond-rp">
+                        <img alt="" src="{{ asset('build/images/small_rp.gif') }}" />
+                        {% if hour >= 7 and hour <= 18 %}
+                            {% trans from 'game' %}Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?{% endtrans %}
+                        {% else %}
+                            {% trans from 'game' %}Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...{% endtrans %}
+                        {% endif %}
+                    </p>
+                {% endif %}
             {% endif %}
         </div>
     </div>
@@ -85,23 +108,6 @@
     <div class="row">
         <div class="padded cell rw-6 rw-md-12">
             <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
-
-            {% if zone.prototype %}
-                <div class="note">
-                    {% if zone.buryCount > 0 %}
-                        <b>{{ 'Verschüttete Ruine'|trans({},'game') }}</b>
-                        {% if scout %}<b>(<i>{{ zone.prototype.label|trans({}, 'game') }}</i>)</b>{% endif %}
-                        <br />
-                        {{ 'Es muss noch aufgeräumt werden'|trans({},'game') }}:
-                        <div class="ruin-bury-count">{% for p in 1..zone.buryCount %}<div></div>{% endfor %}</div>
-                    {% else %}
-                        {{ 'Ruine'|trans({},'game') }}:
-                        <b>{{ zone.prototype.label|trans({}, 'game') }}</b>
-                    {% endif %}
-
-                </div>
-
-            {% endif %}
 
             {% if zone.digs <= 0 %}
                 <div class="note">
@@ -183,11 +189,13 @@
         </div>
 
         <div class="padded cell rw-6 rw-md-12">
+            {% if zone.x != 0 or zone.y != 0 %}
             <h5>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}
+            {% endif %}
 
             {% if allow_floor_access %}
                 {% if (zone_blocked and active_scout_mode) %}
@@ -205,6 +213,16 @@
                 {% endembed %}
             {% endif %}
         </div>
+    </div>
+
+    <div class="other_citizens">
+    {% if other_citizens|length == 1 %}
+        <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
+    {% else %}
+        {% for citizen in other_citizens %}
+            {{ citizen.user.username }}<br />
+        {% endfor %}
+    {% endif %}
     </div>
 
     {% if zone.x != 0 or zone.y != 0 %}

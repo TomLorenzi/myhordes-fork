@@ -70,7 +70,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'desc'      => $this->getActiveCitizen()->getTown()->getName(),
             'day'       => $this->getActiveCitizen()->getTown()->getDay(),
             'timestamp' => new DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true)
+            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+            'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
@@ -200,15 +201,21 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function renderInventoryAsBank( Inventory $inventory ) {
         $qb = $this->entity_manager->createQueryBuilder();
-        $data = $qb
+        $query = $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory)
             ->groupBy('i.prototype', 'i.broken')
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->orderBy('cr.ordering','ASC')->addOrderBy('c.ordering', 'ASC')->addOrderBy('p.id', 'ASC')->addOrderBy('i.id', 'ASC')
-            ->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+            ->orderBy('c.ordering','ASC')
+            ->addOrderBy('cr.ordering','ASC')
+            ->addOrderBy('c.ordering', 'ASC')
+            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('i.id', 'ASC')
+            ->getQuery();
+
+        $data = $query->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         $final = [];
         foreach ($data as $entry) {
@@ -415,7 +422,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $citizen = $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getX() === 0 && $zone->getY() === null ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$this->extract_target_object( $target_id, $heroic->getAction()->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
@@ -463,7 +470,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $citizen = $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getX() === 0 && $zone->getY() === null ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
         if (!$citizen->getInventory()->getItems()->contains( $item ) && !$secondary_inv->getItems()->contains( $item )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );

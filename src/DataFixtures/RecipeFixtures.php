@@ -129,7 +129,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.',
                 'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.',
             ], "children" => [
-            ["name" => "Verteidigungsanlage","maxLevel" => 5,"temporary" => 0,"img" => "item_meca_parts","vp" => 0,"ap" => 50,"bp" => 3,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 7,"metal_beam_#00" => 8,],
+            ["name" => "Verteidigungsanlage","maxLevel" => 5,"temporary" => 0,"img" => "item_meca_parts","vp" => 0,"ap" => 50,"bp" => 0,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 7,"metal_beam_#00" => 8,],
                 "upgradeTexts" => [
                     'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.',
                     'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.',
@@ -147,7 +147,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Manufaktur","temporary" => 0,"img" => "small_factory","vp" => 0,"ap" => 40,"bp" => 0,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 5,"table_#00" => 1,]],
             ["name" => "Kreischende Sägen","temporary" => 0,"img" => "small_saw","vp" => 45,"ap" => 65,"bp" => 0,"rsc" => ["meca_parts_#00" => 3,"metal_#00" => 5,"rustine_#00" => 3,"metal_beam_#00" => 2,]],
             ["name" => "Baustellenbuch","temporary" => 0,"img" => "item_rp_book2","vp" => 0,"ap" => 15,"bp" => 0,"rsc" => ["table_#00" => 1,], "children" => [
-                ["name" => "Bauhaus","maxLevel" => 5,"temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 75,"bp" => 0,"rsc" => ["drug_#00" => 1,"vodka_de_#00" => 1,"wood_beam_#00" => 10,],
+                ["name" => "Bauhaus","maxLevel" => 3,"temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 75,"bp" => 0,"rsc" => ["drug_#00" => 1,"vodka_de_#00" => 1,"wood_beam_#00" => 10,],
                 "upgradeTexts" => [
                     'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.',
                     'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.',
@@ -241,23 +241,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Fleischkäfig","temporary" => 0,"img" => "small_fleshcage","vp" => 0,"ap" => 40,"bp" => 0,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 8,"chair_basic_#00" => 1,"wood_beam_#00" => 1,]],
             ["name" => "Bürgergericht","temporary" => 0,"img" => "small_court","vp" => 0,"ap" => 12,"bp" => 2,"rsc" => ["wood2_#00" => 6,"metal_beam_#00" => 15,"table_#00" => 1,]],
             ["name" => "Befestigungen","temporary" => 0,"img" => "small_city_up","vp" => 0,"ap" => 50,"bp" => 3,"rsc" => ["concrete_wall_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 10,]],
-            // TODO: UI
             ["name" => "Müllhalde","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 70,"bp" => 0,"rsc" => ["concrete_wall_#00" => 5,"wood_beam_#00" => 15,"metal_beam_#00" => 15,], "children" => [
-                // TODO: UI
                 ["name" => "Holzabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 5,"metal_#00" => 5,]],
-                // TODO: UI
                 ["name" => "Metallabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["wood2_#00" => 5,"metal_#00" => 5,]],
-                // TODO: UI
                 ["name" => "Tierabfälle","temporary" => 0,"img" => "small_howlingbait","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["wood_beam_#00" => 10,]],
-                // TODO: UI
                 ["name" => "Müll für Alle","temporary" => 0,"img" => "small_trashclean","vp" => 0,"ap" => 30,"bp" => 3,"rsc" => ["meca_parts_#00" => 2,"concrete_wall_#00" => 1,"wood_beam_#00" => 10,"metal_beam_#00" => 10,"trestle_#00" => 2,]],
-                // TODO: UI
                 ["name" => "Waffenabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 20,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"metal_#00" => 8,]],
-                // TODO: UI
                 ["name" => "Biomüll","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 20,"bp" => 2,"rsc" => ["wood2_#00" => 15,]],
-                // TODO: UI
                 ["name" => "Rüstungsabfall","temporary" => 0,"img" => "small_trash","vp" => 0,"ap" => 40,"bp" => 2,"rsc" => ["metal_beam_#00" => 3,"metal_#00" => 5,]],
-                // TODO: UI
                 ["name" => "Verbesserte Müllhalde","temporary" => 0,"img" => "small_trash","vp" => 75,"ap" => 120,"bp" => 4,"rsc" => ["water_#00" => 20,"wood_beam_#00" => 15,"metal_beam_#00" => 15,]],
             ]],
             // TODO: Camping
@@ -273,7 +264,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Alles oder nichts","temporary" => 0,"img" => "small_lastchance","vp" => 55,"ap" => 150,"bp" => 3,"rsc" => ["meca_parts_#00" => 4,"wood_beam_#00" => 15,"metal_beam_#00" => 15,]],
             ["name" => "Riesiger KVF","temporary" => 0,"img" => "small_pmvbig","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 30,]],
             ["name" => "Riesenrad","temporary" => 0,"img" => "small_wheel","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["water_#00" => 20,"meca_parts_#00" => 5,"concrete_wall_#00" => 3,"metal_beam_#00" => 5,]],
-            ["name" => "Feuerwerk","temporary" => 0,"img" => "small_fireworks","vp" => 0,"ap" => 50,"bp" => 4,"rsc" => ["meca_parts_#00" => 1,"explo_#00" => 4,"deto_#00" => 2,"wood_beam_#00" => 3,"metal_beam_#00" => 3,]],
+            ["name" => "Feuerwerk","temporary" => 0,"img" => "small_fireworks","vp" => 0,"ap" => 90,"bp" => 0,"rsc" => ["firework_powder_#00" => 1,"firework_tube_#00" => 1,"firework_box_#00" => 2]],
             ["name" => "Krähenstatue","temporary" => 0,"img" => "small_crow","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["hmeat_#00" => 3,"wood_beam_#00" => 35,]],
             // TODO: Special Action
             ["name" => "Kino","temporary" => 0,"img" => "small_cinema","vp" => 0,"ap" => 100,"bp" => 4,"rsc" => ["electro_#00" => 3,"wood_beam_#00" => 15,"metal_beam_#00" => 5,"machine_1_#00" => 1,"machine_2_#00" => 1,]],
@@ -291,7 +282,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         ]],
         
         // TODO: Action in house
-        ["name" => "Hammam","temporary" => 0,"img" => "small_spa4souls","vp" => 28,"ap" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"metal_beam_#00" => 2,], "orderby" => 7],
+        ["name" => "Hammam","temporary" => 0,"img" => "small_spa4souls","vp" => 28,"ap" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"plate_#00" => 2,], "orderby" => 7],
     ];
 
     protected static $recipe_data = [

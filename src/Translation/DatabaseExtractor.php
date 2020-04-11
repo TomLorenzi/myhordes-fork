@@ -13,6 +13,8 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\ItemCategory;
+use App\Entity\Recipe;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use Doctrine\ORM\EntityManagerInterface;
@@ -62,6 +64,17 @@ class DatabaseExtractor implements ExtractorInterface
                     $this->insert($c, $requirement->getFailureText(), 'items');
             }
         }
+
+        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
+            /** @var $recipe Recipe */
+            if ($recipe->getAction())
+                $this->insert( $c, $recipe->getAction(), 'items' );
+
+        foreach ($this->em->getRepository(ItemCategory::class)->findRootCategories() as $itemCategory)
+            /** @var $itemCategory ItemCategory */
+            if ($itemCategory->getLabel())
+                $this->insert( $c, $itemCategory->getLabel(), 'items' );
+
         //</editor-fold>
 
         //<editor-fold desc="Building Domain">
@@ -107,10 +120,14 @@ class DatabaseExtractor implements ExtractorInterface
             if ($profession->getLabel())
                 $this->insert( $c, $profession->getLabel(), 'game' );
 
-        foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone)
+        foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone) {
             /** @var $zone ZonePrototype */
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
+
+            if ($zone->getDescription())
+                $this->insert( $c, $zone->getDescription(), 'game' );
+        }
 
         foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
             /** @var $town TownClass */

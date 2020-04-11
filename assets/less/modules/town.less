@@ -30,53 +30,26 @@
 }
 
 .row > .cell.town-addons {
-  font-weight: bold;
-  color: @myhordes-cell-header-text-color;
-  font-variant: small-caps;
-  display: flex;
-  align-items: stretch;
+  font-weight: bold; color: @myhordes-cell-header-text-color; font-variant: small-caps; display: flex;
+  align-items: stretch; justify-content: space-evenly;
 
   & > .town-addon {
-    height: 55px;
-    width: 40px;
-    flex-basis: 40px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    font-size: small;
-    padding: 0;
-    cursor: pointer;
-    margin: 3px;
-    background-color: @myhordes-cell-header-background-color;
+    height: 55px; width: 40px; flex-basis: 40px; flex-grow: 0; overflow: hidden;
+    flex-shrink: 0; font-size: small; padding: 0; cursor: pointer;
+    margin: 3px; background-color: @myhordes-cell-header-background-color;
 
-    &:nth-child(n+7) {
-      display: none;
-    }
-
-    &.town-addon-empty {
-      background-color: transparent;
-
-      & > div {
-        height: 36px;
-        width: 36px;
-        margin: 2px;
-        border: 1px dotted @myhordes-cell-header-background-color;
-      }
-    }
+    &:nth-child(n+7) { display: none; }
 
     & > div {
-      padding: 0;
-      margin: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 40px;
-      width: 40px;
+      padding: 0; margin: 0; background-repeat: no-repeat; background-position: center; background-size: cover;
+      height: 40px; width: 40px;
     }
 
-    &:not(.selected):hover > div {
-      outline: 1px solid @myhordes-input-border;
+    &:not(.selected):not(.town-addon-empty):hover > div {
+      filter: brightness(120%);
       cursor: pointer;
     }
+
     &.selected {
       background: lighten(@myhordes-cell-header-background-color, 10%);
       filter: contrast(120%) brightness(120%);
@@ -84,14 +57,19 @@
     }
 
     & > span {
-      display: block;
-      padding: 1px 2px;
-      text-align: center;
-      text-overflow: ellipsis;
-      line-height: 13px;
-      height: 15px;
-      font-size: 10px;
-      overflow: hidden;
+      display: block; padding: 1px 2px; text-align: center; text-overflow: ellipsis;
+      line-height: 13px; height: 15px; font-size: 10px; overflow: hidden;
+    }
+
+    &.town-addon-empty {
+      background-color: transparent;
+      &:hover > div, &:hover > span, &:hover { outline: none; cursor: initial; }
+
+      & > div {
+        height: 36px; width: 36px; margin: 2px;
+        border: 1px dotted @myhordes-cell-header-background-color;
+        background: repeating-linear-gradient( -45deg, #7e4a31 4px, #693e29 8px );
+      }
     }
 
     &.town-addon-upgrade > div {
@@ -105,6 +83,12 @@
     }
     &.town-addon-battlement > div {
       background-image: url("../../img/smenu_watch.gif");
+    }
+    &.town-addon-dump > div {
+      background-image: url("../../img/smenu_decharge.gif");
+    }
+    &.town-addon-catapult > div {
+      background-image: url("../../img/smenu_catapult.gif");
     }
   }
 }
@@ -175,5 +159,125 @@
   &>p {
     margin-top: 0;
     font-size: 12px;
+  }
+}
+
+.buildings {
+  button {
+    min-height: 20px;
+  }
+}
+
+.dashboard {
+  padding: 5px; background: @myhordes-cell-header-background-color; margin: 10px 0;
+  border: 1px solid darken(@myhordes-cell-header-background-color, 5%); color: @myhordes-smalltext;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  font-size: 12px;
+  .attack-estimation, .deco-estimation {
+    border-left:1px dashed #fff;
+    border-right:1px dashed #fff;
+  }
+
+  em {
+    color: @myhordes-cell-header-text-color;
+  }
+
+  .counter {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+}
+
+.words-of-heroes {
+  min-height: 260px;
+  padding: 5px;
+  margin-top: 10px;
+  background-repeat: no-repeat;
+  background-image: url('../../img/cityBoard.png');
+
+  .content {
+    padding: 40px 10px 0 5px;
+    height: 230px;
+    max-height: 230px;
+    overflow: auto;
+    color: #E4E3E8;
+    font-size: 11.5pt;
+    line-height: 11pt;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+    textarea, textarea:focus {
+      width: 100%;
+      overflow: hidden;
+      background: #3b3249;
+      border: 1px dashed #696486;
+      color: #E4E3E8;
+      font-size: 11.5pt;
+      line-height: 11pt;
+      font-style: italic;
+      font-weight: bold;
+      font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+      outline: none;
+      padding: 0;
+    }
+  }
+  .edit, .cancel {
+    max-width: 240px;
+    text-align: right;
+    font-size: 12px;
+    color: #ddab76;
+    .disabled {
+      text-decoration: line-through;
+      font-weight: normal;
+      color: grey;
+    }
+  }
+}
+
+.overview-list, .overview-checklist {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  background-color: #996739;
+  strong {
+    color: white;
+  }
+
+  .separator {
+    margin-top: 7px;
+    padding-top: 5px;
+    border-top: 1px solid #f0d79e;
+  }
+}
+
+.overview-checklist {
+  list-style: none;
+  padding-left: 10px;
+  li {
+    padding-left: 20px;
+    background: url("../../img/tickOff.gif") 5px 5px no-repeat;
+  }
+  li.checked {
+    background: url("../../img/tickOn.gif") 5px 5px no-repeat;
+    text-decoration: line-through;
+    font-style: italic;
+    color: #b37c4a;
+  }
+}
+
+.overview-list {
+  list-style: url("../../img/small_dot.gif");
+  padding-left: 20px;
+  .warning {
+    color: #f86;
+  }
+}
+
+.defense-detail {
+  em {
+    font-size: 12px;
+    color: @myhordes-smalltext;
   }
 }

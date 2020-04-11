@@ -24,6 +24,9 @@ use App\Entity\ZonePrototype;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\Packages;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ZoneHandler
 {
@@ -33,11 +36,13 @@ class ZoneHandler
     private $random_generator;
     private $inventory_handler;
     private $citizen_handler;
+    private $trans;
     private $log;
+    private $asset;
 
     public function __construct(
-        EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh,
-        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch)
+        EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
+        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, Packages $a)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -45,13 +50,18 @@ class ZoneHandler
         $this->random_generator = $rg;
         $this->inventory_handler = $ih;
         $this->citizen_handler = $ch;
+        $this->trans = $t;
         $this->log = $lh;
+        $this->asset = $a;
     }
 
-    public function updateZone( Zone $zone, ?DateTime $up_to = null ) {
+    public function updateZone( Zone $zone, ?DateTime $up_to = null, ?Citizen $active = null ): ?string {
 
         $now = new DateTime();
         if ($up_to === null || $up_to > $now) $up_to = $now;
+
+        $chances_by_player = 0;
+        $found_by_player = [];
 
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
@@ -69,7 +79,7 @@ class ZoneHandler
                 $this->entity_manager->persist($timer);
             }
             $this->entity_manager->flush();
-            return;
+            return null;
         }
 
         $sort_func = function(DigTimer $a, DigTimer $b): int {
@@ -95,6 +105,11 @@ class ZoneHandler
                     $item_prototype = $this->random_generator->chance($factor * ($zone->getDigs() > 0 ? 0.40 : 0.25))
                         ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
                         : null;
+
+                    if ($active && $timer->getCitizen()->getId() === $active->getId()) {
+                        $chances_by_player++;
+                        if ($item_prototype) $found_by_player[] = $item_prototype;
+                    }
 
                     $this->entity_manager->persist( $this->log->outsideDig( $timer->getCitizen(), $item_prototype, $timer->getTimestamp() ) );
                     if ($item_prototype) {
@@ -125,6 +140,16 @@ class ZoneHandler
         if ($zone_update) $this->entity_manager->persist($zone);
         foreach ($dig_timers as $timer) $this->entity_manager->persist( $timer );
         $this->entity_manager->flush();
+
+        if ($chances_by_player > 0) {
+
+            if (empty($found_by_player)) return $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' );
+            elseif (count($found_by_player) === 1) return $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $found_by_player[0]->getIcon() . '.gif' )}'> {$this->trans->trans($found_by_player[0]->getLabel(), [], 'items')}</span>"
+            ], 'game' );
+            else return $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.', [], 'game' );
+
+        } else return null;
     }
 
     const RespawnModeNone = 0;

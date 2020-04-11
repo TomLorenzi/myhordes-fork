@@ -46,7 +46,12 @@ class LogTemplateHandler
     private function iconize($obj, bool $small = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj[0], $small) . ' x ' . $obj[1];
 
-        if ($obj instanceof Item)        return $this->iconize( $obj->getPrototype(), $small );
+        if ($obj instanceof Item) {
+            $str = $this->iconize( $obj->getPrototype(), $small );
+            if($obj->getBroken())
+                $str .= " (" . $this->trans->trans("Kaputt", [], 'items') . ")";
+            return $str;
+        }
         if ($obj instanceof Building)    return $this->iconize( $obj->getPrototype(), $small );
         if ($obj instanceof CitizenHome) return $this->iconize( $obj->getPrototype(), $small );
 

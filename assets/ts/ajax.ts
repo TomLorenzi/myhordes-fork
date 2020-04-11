@@ -20,6 +20,10 @@ export default class Ajax {
         this.defaultNode = null;
     }
 
+    getBaseURL(): string {
+        return this.base;
+    }
+
     setDefaultNode( target: HTMLElement ) {
         this.defaultNode = target;
     }

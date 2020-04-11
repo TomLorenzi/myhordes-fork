@@ -63,7 +63,7 @@
                     <div class="padded cell rw-1 center">
                         <img src="{{ asset('build/images/small_move.gif') }}" alt="->" />
                     </div>
-                    <div class="padded cell rw-6 left">
+                    <div class="padded cell rw-5 left">
                         {% if recipe.result.entries|length > 1 %}
                             <span class="small hide-desktop hide-lg">?</span>
                             <span class="small hide-md hide-sm">{% trans from 'game' %}Zufälliger Gegenstand{% endtrans %}</span>
@@ -80,7 +80,7 @@
                             <span class="small">{{ result[recipe.id] }}</span>
                         {% endif %}
                     </div>
-                    <div class="padded cell rw-2">
+                    <div class="padded cell rw-3">
                         <button {% if banished%}disabled{% endif %} x-recipe-id="{{ recipe.id }}"><img src="{% if recipe.action == "Zerlegen" %}{{ asset('build/images/item/item_classicKey.gif') }}{% elseif recipe.action == "Öffnen" %}{{ asset('build/images/item/item_can_opener.gif') }}{% else %}{{ asset('build/images/small_refine.gif') }}{% endif %}" alt="" /><span class="hide-lg hide-md hide-sm">{{ recipe.action|trans({},'items') }}</span></button>
                     </div>
                 </div>

@@ -34,8 +34,18 @@ class WebController extends AbstractController
             $is_debug_version = false;
             $version = null;
         }
+
+        $devs = [
+            'Benjamin "<i>Brainbox</i>" Behrendt',
+            'Ludovic "<i>Ludofloria</i>" Le Brech',
+            'Paul "<i>CountCount</i>" Bruhn',
+            'Adrien "<i>Adri</i>" Boitelle',
+        ];
+        shuffle($devs);
+
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
+            'devs' => $devs,
             'ajax_landing' => $ajax_landing
         ] );
     }

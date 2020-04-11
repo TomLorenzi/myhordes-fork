@@ -255,6 +255,9 @@ class TownAddonsController extends TownController
         if ($recipe === null || $recipe->getType() !== Recipe::WorkshopType)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+
         // Execute recipe and persist
         if (($error = $ah->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )
             return AjaxResponse::error( $error );
@@ -264,6 +267,135 @@ class TownAddonsController extends TownController
             foreach ($remove as $e) $this->entity_manager->remove( $e );
             $this->entity_manager->flush();
             if ($message) $this->addFlash( 'notice', $message );
+            return AjaxResponse::success();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+    }
+
+    protected function get_dump_def_for( ItemPrototype $proto, TownHandler $th ): int {
+
+        $town = $this->getActiveCitizen()->getTown();
+        $improved = $th->getBuilding($town, 'small_trash_#06', true) !== null;
+
+        // Weapons
+        if ($proto->hasProperty('weapon') || in_array( $proto->getName(), [
+            'machine_gun_#00', 'gun_#00', 'chair_basic_#00', 'machine1_#00', 'machine2_#00', 'machine3_#00', 'pc_#00'
+            ] ) )
+            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#03', true) ? 5 : 0 );
+
+        // Defense
+        if ($proto->hasProperty('defence') && $proto->getName() !== 'tekel_#00' && $proto->getName() !== 'pet_dog_#00' && $proto->getName() !== 'concrete_wall_#00')
+            return ($improved ? 5 : 4) + ( $th->getBuilding($town, 'small_trash_#05', true) ? 2 : 0 );
+
+        // Food
+        if ($proto->hasProperty('food'))
+            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#04', true) ? 3 : 0 );
+
+        // Wood
+        if ($proto->getName() === 'wood_bad_#00' || $proto->getName() === 'wood2_#00')
+            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#01', true) ? 1 : 0 );
+
+        // Metal
+        if ($proto->getName() === 'metal_bad_#00' || $proto->getName() === 'metal_#00')
+            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#02', true) ? 1 : 0 );
+
+        // Animals
+        if ($proto->hasProperty('pet'))
+            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_howlingbait_#00', true) ? 6 : 0 );
+
+        return 0;
+    }
+
+    /**
+     * @Route("jx/town/dump", name="town_dump")
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function addon_dump(TownHandler $th): Response
+    {
+        $town = $this->getActiveCitizen()->getTown();
+
+        if (!($dump = $th->getBuilding($town, 'small_trash_#00', true)))
+            return $this->redirect($this->generateUrl('town_dashboard'));
+
+
+        $cache = [];
+        foreach ($town->getBank()->getItems() as $item) {
+            if (!isset($cache[$item->getPrototype()->getId()]))
+                $cache[$item->getPrototype()->getId()] = [
+                    $item->getPrototype(),
+                    $item->getCount(),
+                    $this->get_dump_def_for( $item->getPrototype(), $th )
+                ];
+            else $cache[$item->getPrototype()->getId()][1] += $item->getCount();
+        }
+
+        $cache = array_filter( $cache, function(array $a) { return $a[1] > 0 && $a[2] > 0; } );
+        usort( $cache, function(array $a, array $b) {
+            return ($a[2] === $b[2]) ? ( $a[0]->getId() < $b[0]->getId() ? -1 : 1 ) : ($a[2] < $b[2] ? 1 : -1);
+        } );
+
+        return $this->render( 'ajax/game/town/dump.html.twig', $this->addDefaultTwigArgs('dump', [
+            'free_dumps' => $th->getBuilding( $town, 'small_trashclean_#00', true ) !== null,
+            'items' => $cache,
+            'dump_def' => $dump->getTempDefenseBonus(),
+            'total_def' => $th->calculate_town_def( $town ),
+        ]) );
+    }
+
+    /**
+     * @Route("api/town/dump/do", name="town_dump_do_controller")
+     * @param JSONRequestParser $parser
+     * @param CitizenHandler $ch
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function dump_do_api(JSONRequestParser $parser, CitizenHandler $ch, TownHandler $th): Response {
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        // Check if citizen is banished or dump is not build
+        if ($citizen->getBanished() || !($dump = $th->getBuilding($town, 'small_trash_#00', true)))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        // Get prototype ID
+        if (!$parser->has_all(['id','ap'], true))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $id = (int)$parser->get('id');
+        $ap = (int)$parser->get('ap');
+
+        /** @var ItemPrototype $prototype */
+        // Get the item prototype and make sure it is dump-able
+        $prototype = $this->entity_manager->getRepository(ItemPrototype::class)->find( $id );
+        if ($prototype === null || !($dump_def = $this->get_dump_def_for( $prototype, $th ))  )
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        // Check if dumping is free
+        $free_dumps = $th->getBuilding( $town, 'small_trashclean_#00', true ) !== null;
+
+        // Check if citizen has enough AP
+        if (!$free_dumps && $citizen->getAp() <= $ap)
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        // Check if items are available
+        $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest($prototype->getName(),$ap)] );
+        if (!$items) return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
+
+        // Remove items
+        $this->inventory_handler->forceRemoveItem( $items[0], $ap );
+
+        // Reduce AP
+        if (!$free_dumps) $citizen->setAp( $citizen->getAp() - $ap );
+
+        // Increase def
+        $dump->setTempDefenseBonus( $dump->getTempDefenseBonus() + $ap * $dump_def );
+
+        // Persist
+        try {
+            $this->entity_manager->persist( $dump );
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
             return AjaxResponse::success();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );

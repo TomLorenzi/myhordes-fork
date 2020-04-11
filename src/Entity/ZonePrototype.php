@@ -23,6 +23,11 @@ class ZonePrototype implements RandomEntry
     private $label;
 
     /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $description;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $campingLevel;
@@ -66,6 +71,18 @@ class ZonePrototype implements RandomEntry
     public function setLabel(string $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

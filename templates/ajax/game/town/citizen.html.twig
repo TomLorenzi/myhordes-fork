@@ -1,11 +1,11 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
 
-    <div class="row-table citizens-list">
-        <div class="row">
-            <div class="padded cell small rw-12 rw-md-12">
-                {{ "In der Stadt wohnen @citizens Bürger."|trans({ '@citizens': citizens|length },'game') }}
-            </div>
+    <div class="row-table">
+        <div class="row header">
+            <div class="padded cell rw-4 center rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
+            <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
+            <div class="padded cell rw-4 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
         {% for citizen in citizens %}
             {# @var \App\Entity\Citizen citizen  #}
@@ -17,7 +17,7 @@
                         <img alt="{{ 'Leiche nicht beseitigt!'|trans({},'game') }}" src="{{ asset('build/images/small_warning.gif') }}" />
                     {% endif %}
                 </div>
-                <div class="padded cell rw-3 rw-md-5 small">
+                <div class="padded cell rw-3 rw-md-6 small">
                     <span>
                         {% if citizen.alive %}
                             {% if citizen.banished %}
@@ -35,20 +35,10 @@
                         <b>{{ citizen.user.username }}</b>
                     </span>
                 </div>
-                <div class="padded cell rw-3 small hide-md hide-sm">
+                <div class="padded cell rw-4 small hide-md hide-sm">
                     {{ citizen.home.description }}
                 </div>
-                <div class="padded cell rw-3 rw-md-5 small">
-                    {% if not hidden[citizen.id] %}
-                        {% for item in citizen.home.chest.items %}
-                            {# @var \App\Entity\Item item #}
-                            <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
-                        {% endfor %}
-                    {% else %}
-                        <em>{{ 'leere Truhe'|trans({},'game') }}</em>
-                    {% endif %}
-                </div>
-                <div class="padded cell rw-2 small hide-md hide-sm right ">
+                <div class="padded cell rw-4 small right ">
                     {% if citizen.alive %}
                         {% if not citizen.zone %}
                             {{ "In der Stadt"|trans({},'game') }}
@@ -58,14 +48,51 @@
                             [{{ citizen.zone.x }}|{{ citizen.zone.y }}]
                         {% endif %}
                     {% else %}
-                        {{ citizen.causeOfDeath.label }}
+                        <span class="hide-md hide-sm">{{ citizen.causeOfDeath.label|trans({}, "game") }}</span>
+                        <span class="hide-desktop hide-lg">{{ 'Tot'|trans({}, "game") }}</span>
                     {% endif %}
                 </div>
                 <div class="padded cell rw-12 small hide-desktop hide-lg">
                     {{ citizen.home.description }}
                 </div>
+                <div class="tooltip">
+                    {% if not hidden[citizen.id] %}
+                        {% if citizen.home.chest.items|length == 0 %}
+                            <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                        {% else %}
+                            <em>{{ 'Truhe'|trans({},'game') }}</em><br />
+                        {% endif %}
+                        {% for item in citizen.home.chest.items %}
+                            {# @var \App\Entity\Item item #}
+                            <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                        {% endfor %}
+                    {% else %}
+                        <em>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</em>
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="padded cell small center rw-12 rw-md-12">
+            {{ "In der Stadt wohnen @citizens Bürger."|trans({ '@citizens': citizens|length },'game') }}
+        </div>
+    </div>
+
+    <div class="row">
+        {% for elem in prof_count %}
+            <div class="padded cell small center rw-4">
+                <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
+                {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
+            </div>
+        {% endfor %}
+        {% if death_count > 0 %}
+            <div class="padded cell small center rw-4">
+                <img alt="{{ 'Tot'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                {{ 'Tot'|trans({},'game') }} x {{ death_count }}
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}
