@@ -188,8 +188,8 @@ class TownHomeController extends TownController
         // Make sure the citizen is not tired
         if ($ch->isTired( $citizen ) || $citizen->getAp() < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        // Make sure the citizen has not upgraded their home today
-        if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade'))
+        // Make sure the citizen has not upgraded their home today, only if we're not in chaos
+        if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade') && !$town->getChaos())
             return AjaxResponse::error( self::ErrorAlreadyUpgraded );
 
         // Make sure building requirements for the upgrade are fulfilled

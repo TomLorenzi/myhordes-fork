@@ -83,6 +83,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $data['addons'] = $addons;
         $data['home'] = $this->getActiveCitizen()->getHome();
+        $data['chaos'] = $town->getChaos();
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -381,10 +382,19 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $town = $this->getActiveCitizen()->getTown();
         $pump = $th->getBuilding( $town, 'small_water_#00', true );
 
+        $allow_take = 1;
+        if($pump) {
+            if($town->getChaos()) {
+                $allow_take = 3;
+            } else if  (!$this->getActiveCitizen()->getBanished()) {
+                $allow_take = 2;
+            }
+        }
+
         return $this->render( 'ajax/game/town/well.html.twig', $this->addDefaultTwigArgs('well', [
             'rations_left' => $this->getActiveCitizen()->getTown()->getWell(),
             'first_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() === 0,
-            'allow_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() < (($pump && !$this->getActiveCitizen()->getBanished()) ? 2 : 1),
+            'allow_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() < $allow_take,
             'pump' => $pump,
 
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeWell, 10 )->getContent(),
