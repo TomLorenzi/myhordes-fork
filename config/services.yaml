@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+imports:
+    - { resource: 'app/*.yml' }
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -55,3 +58,7 @@ services:
     App\Translation\ExpandedDumper:
         tags:
             - { name: translation.dumper, alias: xlf2 }
+
+    App\Service\ConfMaster:
+        arguments:
+            $rules: '%rules%'

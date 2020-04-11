@@ -16,6 +16,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Structures\TownConf;
 use App\Translation\T;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -896,10 +897,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     /**
      * @Route("api/town/dashboard/wordofheroes", name="town_dashboard_save_woh")
      * @param JSONRequestParser $parser
-     * @param TownHandler $th
      * @return Response
      */
-    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, TownHandler $th): Response {
+    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser): Response {
+        if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_WORDS_OF_HEROS, false) || !$this->getActiveCitizen()->getProfession()->getHeroic())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
         // Get town
         $town = $this->getActiveCitizen()->getTown();
 

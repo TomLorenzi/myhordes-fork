@@ -20,6 +20,7 @@ use App\Interfaces\RandomGroup;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
@@ -28,6 +29,7 @@ use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Structures\BankItem;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -47,10 +49,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $log;
     protected $time_keeper;
     protected $random_generator;
+    protected $conf;
+
+    private $town_conf;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd)
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -61,6 +66,11 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->log = $lt;
         $this->time_keeper = $tk;
         $this->random_generator = $rd;
+        $this->conf = $conf;
+    }
+
+    protected function getTownConf() {
+        return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
@@ -74,6 +84,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
+        $data['conf'] = $this->getTownConf();
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
         $data['banished'] = $this->getActiveCitizen()->getBanished();
@@ -152,6 +163,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function getCampingActions(): array {
       $ret = [];
+      if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) return $ret;
 
       $this->action_handler->getAvailableCampingActions( $this->getActiveCitizen(), $available, $crossed );
 
@@ -467,6 +479,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     }
 
     public function generic_camping_action_api(JSONRequestParser $parser): Response {
+      if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false))
+          return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
       $action_id = (int)$parser->get('action', -1);
 
       /** @var Item|ItemPrototype|null $target */

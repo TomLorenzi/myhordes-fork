@@ -4,6 +4,7 @@
 namespace App\Command;
 
 use App\Entity\TownClass;
+use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\GameValidator;
 use App\Service\Locksmith;
@@ -12,6 +13,7 @@ use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
@@ -22,12 +24,14 @@ class TownCreateCommand extends Command
     private $entityManager;
     private $gameFactory;
     private $gameValidator;
+    private $conf;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $f, GameValidator $v)
+    public function __construct(EntityManagerInterface $em, GameFactory $f, GameValidator $v, ConfMaster $conf)
     {
         $this->entityManager = $em;
         $this->gameFactory = $f;
         $this->gameValidator = $v;
+        $this->conf = $conf;
         parent::__construct();
     }
 
@@ -40,11 +44,15 @@ class TownCreateCommand extends Command
             ->addArgument('townClass', InputArgument::REQUIRED, 'Town type [' . implode(', ', $this->gameValidator->getValidTownTypes()) . ']')
             ->addArgument('citizens', InputArgument::REQUIRED, 'Number of citizens [1 - 40]')
             ->addArgument('lang', InputArgument::REQUIRED, 'Town language')
-            ->addArgument('name', InputArgument::OPTIONAL, 'Town name');
+            ->addArgument('name', InputArgument::OPTIONAL, 'Town name')
+
+            ->addOption('simulate', null, InputOption::VALUE_NONE, 'Only simulates town creation.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $simulate = $input->getOption('simulate');
+
         $output->writeln(['Town Creator','============','']);
 
         $town_type     = $input->getArgument('townClass');
@@ -60,17 +68,29 @@ class TownCreateCommand extends Command
             return -1;
         }
 
-        $output->write('Persisting ... ');
-        try {
-            $this->entityManager->persist( $town );
-            $this->entityManager->flush();
-        } catch (Exception $e) {
-            $output->writeln('<error>Failed!</error>');
-            $output->writeln('<error>' . $e->getMessage() . '</error>');
-            return -3;
+        if (!$simulate) {
+            $output->write('Persisting ... ');
+            try {
+                $this->entityManager->persist( $town );
+                $this->entityManager->flush();
+            } catch (Exception $e) {
+                $output->writeln('<error>Failed!</error>');
+                $output->writeln('<error>' . $e->getMessage() . '</error>');
+                return -3;
+            }
+            $output->writeln('<info>OK!</info>');
+            $output->writeln("<comment>Empty town '" . $town->getName() . "' was created successfully!</comment>");
         }
-        $output->writeln('<info>OK!</info>');
-        $output->writeln("<comment>Empty town '" . $town->getName() . "' was created successfully!</comment>");
+
+        $table = new Table($output);
+        $table->setHeaders(['Property','Value']);
+
+        foreach ($this->conf->getTownConfiguration( $town )->raw() as $name => $value) {
+            if (is_bool($value)) $value = $value ? 'true' : 'false';
+            elseif (is_array($value)) $value = empty($value) ? '[]' : implode("\n", $value);
+            $table->addRow([$name, "<info>{$value}</info>"]);
+        }
+        $table->render();
 
         $table = new Table($output);
         $table->setHeaders(['Class','Property','ID']);

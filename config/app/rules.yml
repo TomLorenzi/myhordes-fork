@@ -1,0 +1,40 @@
+parameters:
+  rules:
+    default:
+      allow_local_conf: false
+
+      well:       { min: 90, max: 180 }
+      map:        { min: 25, max:  27 }
+      population: { min: 40, max:  40 }
+      ruins: 20
+
+      initial_buildings:  []
+      unlocked_buildings: []
+
+      distribute_items: ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00']
+
+      features:
+        camping: true
+        words_of_heros: true
+
+    small:
+      map:  { min: 12, max:  14 }
+      ruins: 10
+
+      initial_buildings:  ['small_refine_#00','small_door_closed_#00','item_tagger_#00']
+      unlocked_buildings: ['small_gather_#02']
+
+      distribute_items:
+        replace: ['bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00']
+
+      features:
+        camping: false
+        words_of_heros: false
+
+    remote:
+
+    panda:
+      well: { min: 60, max: 90 }
+
+    custom:
+      allow_local_conf: true

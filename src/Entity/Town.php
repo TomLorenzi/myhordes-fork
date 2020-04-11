@@ -102,6 +102,11 @@ class Town
      */
     private $forum;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $conf = [];
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -394,6 +399,18 @@ class Town
                 $zombieEstimation->setTown(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getConf(): ?array
+    {
+        return $this->conf;
+    }
+
+    public function setConf(?array $conf): self
+    {
+        $this->conf = $conf;
 
         return $this;
     }

@@ -14,10 +14,10 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 class TownFixtures extends Fixture
 {
     public static $town_class_data = [
-        ['name'=>'small'  ,'label'=>'Kleine Stadt',       'well' => [90,180], 'map' => [12,14], 'ruins' => [10,10] ],
-        ['name'=>'remote' ,'label'=>'Entfernte Regionen', 'well' => [90,180], 'map' => [25,27], 'ruins' => [20,20] ],
-        ['name'=>'panda'  ,'label'=>'Pandämonium',        'well' => [60, 90], 'map' => [25,27], 'ruins' => [20,20] ],
-        ['name'=>'custom' ,'label'=>'Private Stadt',      'well' => [90,180], 'map' => [25,27], 'ruins' => [20,20] ],
+        ['name'=>'small'  ,'label'=>'Kleine Stadt',     ],
+        ['name'=>'remote' ,'label'=>'Entfernte Regionen'],
+        ['name'=>'panda'  ,'label'=>'Pandämonium',      ],
+        ['name'=>'custom' ,'label'=>'Private Stadt',    ],
     ];
 
     private $entityManager;
@@ -44,12 +44,6 @@ class TownFixtures extends Fixture
             $entity
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
-                ->setMapMin( $entry['map'][0] )
-                ->setMapMax( $entry['map'][1] )
-                ->setWellMin( $entry['well'][0] )
-                ->setWellMax( $entry['well'][1] )
-                ->setRuinsMin( $entry['ruins'][0] )
-                ->setRuinsMax( $entry['ruins'][1] )
             ;
 
             $manager->persist( $entity );
