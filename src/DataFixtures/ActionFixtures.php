@@ -34,6 +34,7 @@ use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Entity\RequireStatus;
 use App\Entity\RequireZombiePresence;
+use App\Entity\RequireZone;
 use App\Entity\Result;
 use App\Repository\RequireLocationRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -114,6 +115,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_not_have_filter'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#01', 'complete' => false ] ] ],
 
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
+
+            'zone_is_improvable' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zone' => [ 'max_level' => 10 ] ], 'text' => 'Du betrachtest das Versteck und bist dir sicher, dass es nichts mehr zu verbessern gibt.' ],
 
             'must_not_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hide' ] ] ],
             'must_not_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ] ],
@@ -540,9 +543,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
 
-            'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'must_have_control' ], 'result' => [ 'consume_item', [ 'zone' => ['improve' =>  18] ] ], 'message' => 'Du hast das hiesige Versteck erheblich verbessert.' ],
+            'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'must_have_control', 'zone_is_improvable' ], 'result' => [ 'consume_item', [ 'zone' => ['improve' =>  18] ] ], 'message' => 'Du hast das hiesige Versteck erheblich verbessert.' ],
 
-            'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  10] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
+            'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed', 'zone_is_improvable' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  10] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
             'campsite_hide' => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
             'campsite_tomb' => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb', ['custom' => [10]] ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
             'campsite_unhide' => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
@@ -870,6 +873,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'building':
                         $requirement->setBuilding( $this->process_building_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
+                    case 'zone':
+                        $requirement->setZone( $this->process_zone_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
+                        break;
                     default:
                         throw new Exception('No handler for requirement type ' . $sub_id);
                 }
@@ -1069,6 +1075,35 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if ($data['min_level']) $requirement->setMinLevel( $data['min_level'] );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return RequireZone
+     * @throws Exception
+     */
+    private function process_zone_requirement(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): RequireZone
+    {
+        if (!isset($cache[$id])) {
+            $requirement = $manager->getRepository(RequireZone::class)->findOneByName( $id );
+            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $requirement = new RequireZone();
+                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $requirement->setName( $id );
+            if ($data['max_level']) $requirement->setMaxLevel( $data['max_level'] );
+            $manager->persist( $cache[$id] = $requirement );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }
