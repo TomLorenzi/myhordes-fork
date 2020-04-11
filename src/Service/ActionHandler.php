@@ -97,6 +97,10 @@ class ActionHandler
                 if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = min( $current_state, $this_state );
             }
 
+            if ($zone = $meta_requirement->getZone()) {
+                if ($zone->getMaxLevel() !== null && ($citizen->getZone()->getImprovementLevel() / 10) >= $zone->getMaxLevel()) $current_state = min( $current_state, $this_state );
+            }
+
             if ($ap = $meta_requirement->getAp()) {
                 $max = $ap->getRelativeMax() ? ($this->citizen_handler->getMaxAP( $citizen ) + $ap->getMax()) : $ap->getMax();
                 if ($citizen->getAp() < $ap->getMin() || $citizen->getAp() > $max) $current_state = min( $current_state, $this_state );

@@ -77,6 +77,11 @@ class Requirement
      */
     private $home;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\RequireZone")
+     */
+    private $zone;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -198,6 +203,18 @@ class Requirement
     public function setHome(?RequireHome $home): self
     {
         $this->home = $home;
+
+        return $this;
+    }
+
+    public function getZone(): ?RequireZone
+    {
+        return $this->zone;
+    }
+
+    public function setZone(?RequireZone $zone): self
+    {
+        $this->zone = $zone;
 
         return $this;
     }
