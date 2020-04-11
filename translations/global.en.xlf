@@ -197,6 +197,54 @@
         <source>Spanisch</source>
         <target>Spanisch</target>
       </trans-unit>
+      <trans-unit id="hORe5zQ" resname="Bearbeiten">
+        <source>Bearbeiten</source>
+        <target>Bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="LiAR2Wp" resname="Hinweis">
+        <source>Hinweis</source>
+        <target>Hinweis</target>
+      </trans-unit>
+      <trans-unit id="aE.gAX6" resname="Spiel">
+        <source>Spiel</source>
+        <target>Spiel</target>
+      </trans-unit>
+      <trans-unit id="wMIPplV" resname="Statistiken">
+        <source>Statistiken</source>
+        <target>Statistiken</target>
+      </trans-unit>
+      <trans-unit id="9jh.PAO" resname="%points% Punkte">
+        <source>%points% Punkte</source>
+        <target>%points% Punkte</target>
+      </trans-unit>
+      <trans-unit id="LM1P67a" resname="Dieser Spieler hat bisher noch keine Preise gewonnen...">
+        <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
+        <target>Dieser Spieler hat bisher noch keine Preise gewonnen...</target>
+      </trans-unit>
+      <trans-unit id="ZyZ8Dxn" resname="Seelenpunktzahl">
+        <source>Seelenpunktzahl</source>
+        <target>Seelenpunktzahl</target>
+      </trans-unit>
+      <trans-unit id="rxbTazw" resname="Aktuelles Leben">
+        <source>Aktuelles Leben</source>
+        <target>Aktuelles Leben</target>
+      </trans-unit>
+      <trans-unit id="fmZlI_I" resname="Saison">
+        <source>Saison</source>
+        <target>Saison</target>
+      </trans-unit>
+      <trans-unit id="Z3DDGf9" resname="Tage">
+        <source>Tage</source>
+        <target>Tage</target>
+      </trans-unit>
+      <trans-unit id="hn7LsRJ" resname="Punkte">
+        <source>Punkte</source>
+        <target>Punkte</target>
+      </trans-unit>
+      <trans-unit id="IzQFaI2" resname="Es wurde keine Stadt gefunden...">
+        <source>Es wurde keine Stadt gefunden...</source>
+        <target>Es wurde keine Stadt gefunden...</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

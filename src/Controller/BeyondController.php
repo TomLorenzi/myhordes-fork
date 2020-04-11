@@ -36,6 +36,7 @@ use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use App\Structures\ItemRequest;
+use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
@@ -204,14 +205,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         // Camping Information
         $camping_zone_texts = [
-            1 => "Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.",
-            2 => "",
-            3 => "Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...",
-            4 => "Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.",
-            5 => "Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.",
-            6 => "An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...",
-            7 => "In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.",
-            8 => "Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.",
+            1 => T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game'),
+            2 => "", // T::__('text','domain')
+            3 => T::__("Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...", 'game'),
+            4 => T::__("Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.", 'game'),
+            5 => T::__("Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.", 'game'),
+            6 => T::__("An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...", 'game'),
+            7 => T::__("In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.", 'game'),
+            8 => T::__("Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.", 'game'),
         ];
         $zone_camping_base = $zone->getPrototype()->getCampingLevel() + ($zone->getImprovementLevel() / 10);
         if ($zone_camping_base <= 0) { $camping_zone = $camping_zone_texts[1]; }
@@ -224,23 +225,23 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         else { $camping_zone = $camping_zone_texts[8]; }
 
         $camping_zombie_texts = [
-            0 => '',
-            1 => "Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...",
-            2 => "Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.",
+            0 => '', // T::__('text','domain')
+            1 => T::__("Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...", 'game'),
+            2 => T::__("Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.", 'game'),
         ];
         if ($zone->getZombies() >= 11) { $camping_zombies = $camping_zombie_texts[2]; }
         else if ($zone->getZombies() >= 5) { $camping_zombies = $camping_zombie_texts[1]; }
         else { $camping_zombies = $camping_zombie_texts[0]; }
 
         $camping_chance_texts = [
-            0 => "Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.",
-            1 => "Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?",
-            2 => "Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.",
-            3 => "Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...",
-            4 => "Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.",
-            5 => "Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!",
-            6 => "Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.",
-            7 => "Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.",
+            0 => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
+            1 => T::__("Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?", 'game'),
+            2 => T::__("Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.", 'game'),
+            3 => T::__("Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...", 'game'),
+            4 => T::__("Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.", 'game'),
+            5 => T::__("Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!", 'game'),
+            6 => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
+            7 => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
         ];
         $survival_chance = $this->citizen_handler->getCampingChance( $this->getActiveCitizen() );
         if ($survival_chance <= .15) { $camping_chance = $camping_chance_texts[0]; }

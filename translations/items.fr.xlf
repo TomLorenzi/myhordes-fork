@@ -2889,6 +2889,58 @@
         <source>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</source>
         <target>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</target>
       </trans-unit>
+      <trans-unit id="V2fAVB5" resname="Aufbauen">
+        <source>Aufbauen</source>
+        <target>Aufbauen</target>
+      </trans-unit>
+      <trans-unit id="BNi5WCM" resname="Du hast das hiesige Versteck erheblich verbessert.">
+        <source>Du hast das hiesige Versteck erheblich verbessert.</source>
+        <target>Du hast das hiesige Versteck erheblich verbessert.</target>
+      </trans-unit>
+      <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
+        <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
+        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="D632ww5" resname="Du hast das hiesige Versteck verbessert.">
+        <source>Du hast das hiesige Versteck verbessert.</source>
+        <target>Du hast das hiesige Versteck verbessert.</target>
+      </trans-unit>
+      <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
+        <source>Sich verstecken und die Nacht hier schlafen!</source>
+        <target>Sich verstecken und die Nacht hier schlafen!</target>
+      </trans-unit>
+      <trans-unit id="VsRU9Va" resname="Du hast Dich notdürftig versteckt.">
+        <source>Du hast Dich notdürftig versteckt.</source>
+        <target>Du hast Dich notdürftig versteckt.</target>
+      </trans-unit>
+      <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
+        <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
+        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+      </trans-unit>
+      <trans-unit id="P15D.zw" resname="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
+        <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
+        <target>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</target>
+      </trans-unit>
+      <trans-unit id="nv.FYHK" resname="Versteck verlassen">
+        <source>Versteck verlassen</source>
+        <target>Versteck verlassen</target>
+      </trans-unit>
+      <trans-unit id="DLyYjGK" resname="Du hast Dein Versteck verlassen.">
+        <source>Du hast Dein Versteck verlassen.</source>
+        <target>Du hast Dein Versteck verlassen.</target>
+      </trans-unit>
+      <trans-unit id="vD_lf43" resname="Grab verlassen">
+        <source>Grab verlassen</source>
+        <target>Grab verlassen</target>
+      </trans-unit>
+      <trans-unit id="fz7VoYN" resname="Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!">
+        <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
+        <target>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</target>
+      </trans-unit>
+      <trans-unit id="TWuwK4M" resname="Angriff und Verteidigung">
+        <source>Angriff und Verteidigung</source>
+        <target>Angriff und Verteidigung</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
