@@ -872,4 +872,29 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic()
         ], $this->get_map_blob())) );
     }
+
+    /**
+     * @Route("api/town/dashboard/wordofheroes", name="town_dashboard_save_woh")
+     * @param JSONRequestParser $parser
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, TownHandler $th): Response {
+        // Get town
+        $town = $this->getActiveCitizen()->getTown();
+
+        $new_words_of_heroes = $parser->get('content');
+
+        $town->setWordsOfHeroes($new_words_of_heroes);
+
+        // Persist
+        try {
+            $this->entity_manager->persist($town);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
 }

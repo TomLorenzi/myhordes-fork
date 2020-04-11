@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
@@ -35,6 +36,7 @@ use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use App\Structures\ItemRequest;
+use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
@@ -138,6 +140,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'scout_sense' => $scout_sense,
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
+            'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
             'km' => round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) )),
             'lock_trash' => $trashlock && $trashlock->getTaken() >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
@@ -189,10 +192,67 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
         $dig_timeout = $this->get_dig_timeout( $this->getActiveCitizen(), $dig_active );
 
+        $citizen_hidden = $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ));
+        $stati = "| ";
+        foreach ($this->getActiveCitizen()->getStatus() as $st) {
+          $stati .= $st->getName() . ' | ';
+        }
+
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
 
         $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
+
+        // Camping Information
+        $camping_zone_texts = [
+            1 => T::__("Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.", 'game'),
+            2 => "", // T::__('text','domain')
+            3 => T::__("Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...", 'game'),
+            4 => T::__("Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.", 'game'),
+            5 => T::__("Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.", 'game'),
+            6 => T::__("An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...", 'game'),
+            7 => T::__("In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.", 'game'),
+            8 => T::__("Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.", 'game'),
+        ];
+        $zone_camping_base = $zone->getPrototype()->getCampingLevel() + ($zone->getImprovementLevel() / 10);
+        if ($zone_camping_base <= 0) { $camping_zone = $camping_zone_texts[1]; }
+        else if ($zone_camping_base <= 2) { $camping_zone = $camping_zone_texts[2]; }
+        else if ($zone_camping_base <= 4) { $camping_zone = $camping_zone_texts[3]; }
+        else if ($zone_camping_base <= 6) { $camping_zone = $camping_zone_texts[4]; }
+        else if ($zone_camping_base <= 8) { $camping_zone = $camping_zone_texts[5]; }
+        else if ($zone_camping_base <= 10) { $camping_zone = $camping_zone_texts[6]; }
+        else if ($zone_camping_base <= 12) { $camping_zone = $camping_zone_texts[7]; }
+        else { $camping_zone = $camping_zone_texts[8]; }
+
+        $camping_zombie_texts = [
+            0 => '', // T::__('text','domain')
+            1 => T::__("Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...", 'game'),
+            2 => T::__("Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.", 'game'),
+        ];
+        if ($zone->getZombies() >= 11) { $camping_zombies = $camping_zombie_texts[2]; }
+        else if ($zone->getZombies() >= 5) { $camping_zombies = $camping_zombie_texts[1]; }
+        else { $camping_zombies = $camping_zombie_texts[0]; }
+
+        $camping_chance_texts = [
+            0 => T::__("Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.", 'game'),
+            1 => T::__("Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?", 'game'),
+            2 => T::__("Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.", 'game'),
+            3 => T::__("Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...", 'game'),
+            4 => T::__("Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.", 'game'),
+            5 => T::__("Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!", 'game'),
+            6 => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
+            7 => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
+        ];
+        $survival_chance = $this->citizen_handler->getCampingChance( $this->getActiveCitizen() );
+        if ($survival_chance <= .15) { $camping_chance = $camping_chance_texts[0]; }
+        else if ($survival_chance <= .3) { $camping_chance = $camping_chance_texts[1]; }
+        else if ($survival_chance <= .45) { $camping_chance = $camping_chance_texts[2]; }
+        else if ($survival_chance <= .6) { $camping_chance = $camping_chance_texts[3]; }
+        else if ($survival_chance <= .75) { $camping_chance = $camping_chance_texts[4]; }
+        else if ($survival_chance <= .9) { $camping_chance = $camping_chance_texts[5]; }
+        else if ($survival_chance <= .95) { $camping_chance = $camping_chance_texts[6]; }
+        else if ($survival_chance > .95) { $camping_chance = $camping_chance_texts[7]; }
+        else { $camping_chance = ""; }
 
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
@@ -203,6 +263,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ),
             'can_attack' => !$citizen_tired,
+            'citizen_status' => $stati,
+            'citizen_hidden' => $citizen_hidden,
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
             'digging' => $dig_timeout >= 0 && $dig_active,
@@ -212,7 +274,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
             'log' => $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'day' => $this->getActiveCitizen()->getTown()->getDay(),
+            'camping_zone' => $camping_zone,
+            'camping_zombies' => $camping_zombies,
+            'camping_chance' => $camping_chance,
         ]) );
     }
 
@@ -521,6 +586,18 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         };
 
         return $this->generic_heroic_action_api( $parser, $uncover_fun);
+    }
+
+    /**
+     * @Route("api/beyond/desert/camping", name="beyond_desert_camping_controller")
+     * @param JSONRequestParser $parser
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+      $this->deferZoneUpdate();
+
+      return $this->generic_camping_action_api( $parser);
     }
 
     /**

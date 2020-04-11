@@ -135,6 +135,11 @@ class Zone
      */
     private $scoutEstimationOffset;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $improvementLevel = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -238,6 +243,22 @@ class Zone
         }
 
         return $this;
+    }
+
+    public function getCampers() {
+        $citizens = $this->getCitizens();
+        // No citizens = no campers.
+        if (!count($citizens)) {
+            return [];
+        }
+        $campers = [];
+        foreach ($citizens as $citizen) {
+            if ($citizen->getCampingTimestamp() > 0) {
+                $campers[$citizen->getCampingTimestamp()] = $citizen;
+            }
+        }
+        ksort($campers);
+        return $campers;
     }
 
     public function getInitialZombies(): ?int
@@ -480,5 +501,17 @@ class Zone
         $this->scoutEstimationOffset = $scoutEstimationOffset;
 
         return $this;
+    }
+
+    public function getImprovementLevel(): ?int
+    {
+      return $this->improvementLevel;
+    }
+
+    public function setImprovementLevel(int $improvementLevel): self
+    {
+      $this->improvementLevel = $improvementLevel;
+
+      return $this;
     }
 }

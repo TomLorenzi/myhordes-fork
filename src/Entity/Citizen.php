@@ -135,6 +135,16 @@ class Citizen
      */
     private $heroicActions;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $campingCounter = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $campingTimestamp = 0;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -504,6 +514,32 @@ class Citizen
         if ($this->heroicActions->contains($heroicAction)) {
             $this->heroicActions->removeElement($heroicAction);
         }
+
+        return $this;
+    }
+
+    public function getCampingCounter(): int
+    {
+      return $this->campingCounter;
+    }
+
+    public function setCampingCounter(int $campingCounter): self
+    {
+      $this->campingCounter = $campingCounter;
+
+      return $this;
+    }
+
+
+
+    public function getCampingTimestamp(): int
+    {
+        return $this->campingTimestamp;
+    }
+
+    public function setCampingTimestamp(int $campingTimestamp): self
+    {
+        $this->campingTimestamp = $campingTimestamp;
 
         return $this;
     }

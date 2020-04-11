@@ -42,10 +42,16 @@
                     {% if citizen.alive %}
                         {% if not citizen.zone %}
                             {{ "In der Stadt"|trans({},'game') }}
-                        {% elseif (citizen.zone.x == 0) and (citizen.zone.y == 0) %}
-                            {{ "Am Stadttor"|trans({},'game') }}
                         {% else %}
-                            [{{ citizen.zone.x }}|{{ citizen.zone.y }}]
+                            {% if town.chaos %}
+                                {{ "Ja"|trans({},'game') }}
+                            {% else %}
+                                {% if (citizen.zone.x == 0) and (citizen.zone.y == 0) %}
+                                    {{ "Am Stadttor"|trans({},'game') }}
+                                {% else %}
+                                    [{{ citizen.zone.x }}|{{ citizen.zone.y }}]
+                                {% endif %}
+                            {% endif %}
                         {% endif %}
                     {% else %}
                         <span class="hide-md hide-sm">{{ citizen.causeOfDeath.label|trans({}, "game") }}</span>

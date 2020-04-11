@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
+use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenStatus;
@@ -220,6 +221,24 @@ class ActionHandler
             if ($mode >= self::ActionValidityAllow) $available[] = $action;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
         }
+
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param ItemAction[] $available
+     * @param ItemAction[] $crossed
+     */
+    public function getAvailableCampingActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
+
+      $available = $crossed = [];
+      $campingActions = $this->entity_manager->getRepository(CampingActionPrototype::class)->findAll();
+
+      foreach ($campingActions as $action) {
+        $mode = $this->evaluate( $citizen, null, null, $action->getAction(), $tx );
+        if ($mode >= self::ActionValidityAllow) $available[] = $action;
+        else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+      }
 
     }
 
@@ -528,6 +547,10 @@ class ActionHandler
 
                 if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0)
                     $base_zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime("+{$zoneEffect->getEscape()}sec") ) );
+
+              if ($zoneEffect->getImproveLevel()) {
+                $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
+              }
             }
 
             if ($well = $result->getWell()) {
@@ -704,7 +727,22 @@ class ActionHandler
                         }
                         $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
                         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+
+                        break;
                     }
+                    // Set campingTimer
+                    case 10: {
+                        $date = new DateTime();
+                        $citizen->setCampingTimestamp($date->getTimestamp());
+
+                        break;
+                    }
+                    // Reset campingTimer
+                    case 11: {
+                        $citizen->setCampingTimestamp(0);
+
+                    break;
+                }
 
 
                 }

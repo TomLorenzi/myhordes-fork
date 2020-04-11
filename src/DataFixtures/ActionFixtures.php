@@ -16,6 +16,7 @@ use App\Entity\AffectWell;
 use App\Entity\AffectZombies;
 use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
+use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenStatus;
 use App\Entity\HeroicActionPrototype;
@@ -113,6 +114,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_not_have_filter'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#01', 'complete' => false ] ] ],
 
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
+
+            'must_not_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hide' ] ] ],
+            'must_not_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ] ],
+            'must_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ] ],
+            'must_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ] ],
         ],
 
         'requirements' => [
@@ -202,6 +208,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_immune' => [ 'status' => [ 'from' => null, 'to' => 'hsurvive' ] ],
 
             'hero_hunter' => [ 'item' => [ 'consume' => false, 'morph' => 'vest_on_#00' ] ],
+
+            'camp_hide' => [ 'status' => [ 'from' => null, 'to' => 'tg_hide' ] ],
+            'camp_tomb' => [ 'status' => [ 'from' => null, 'to' => 'tg_tomb' ] ],
+            'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
+            'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
         ],
 
         'results' => [
@@ -529,10 +540,22 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
 
+            'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'must_have_control' ], 'result' => [ 'consume_item', [ 'zone' => ['improve' =>  18] ] ], 'message' => 'Du hast das hiesige Versteck erheblich verbessert.' ],
+
+            'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  10] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
+            'campsite_hide' => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
+            'campsite_tomb' => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_have_control', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb', ['custom' => [10]] ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
+            'campsite_unhide' => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
+            'campsite_untomb' => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
+
         ],
 
         'heroics' => [
             'hero_generic_return', 'hero_generic_find', 'hero_generic_punch', 'hero_generic_ap', 'hero_generic_immune', 'hero_generic_rescue'
+        ],
+
+        'camping' => [
+            'campsite_improve', 'campsite_hide', 'campsite_tomb', 'campsite_unhide', 'campsite_untomb'
         ],
 
         'items' => [
@@ -752,7 +775,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'cigs_#00'          => ['light_cig'],
 
-            'basic_suit_dirt_#00' => [ 'clean_clothes' ],
+            'basic_suit_dirt_#00' => [ 'clean_clothes'], // 'campsite_improve', 'campsite_hide', 'campsite_tomb', 'campsite_unhide', 'campsite_untomb' ],
 
             'tamed_pet_#00'      => [ 'hero_tamer_1', 'hero_tamer_3' ],
             'tamed_pet_drug_#00' => [ 'hero_tamer_2' ],
@@ -760,6 +783,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'surv_book_#00' => [ 'hero_surv_1', 'hero_surv_2' ],
 
             'vest_off_#00' => [ 'hero_hunter_1', 'hero_hunter_2' ],
+
+            'door_#00' => [ 'improve' ],
+            'plate_#00' => [ 'improve' ],
+            'trestle_#00' => [ 'improve' ],
+            'bed_#00' => [ 'improve' ],
+            'wood_plate_#00' => [ 'improve' ],
+            'out_def_#00' => [ 'improve' ],
         ]
 
     ];
@@ -1384,7 +1414,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 else $group = (new ItemGroup())->setName( $g_name );
 
                 foreach ($data as $entry) {
-                    list($p,$c) = is_array($entry) ? $entry : [$entry,1];
+                    [$p,$c] = is_array($entry) ? $entry : [$entry,1];
                     $prototype = $manager->getRepository(ItemPrototype::class)->findOneByName( $p );
                     if (!$prototype) throw new Exception('Item prototype not found: ' . $p);
                     $group->addEntry( (new ItemGroupEntry())->setChance($c)->setPrototype( $prototype ) );
@@ -1421,7 +1451,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>consume/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            list($name,$count) = count($data) > 1 ? $data : [$data[0],1];
+            [$name,$count] = count($data) > 1 ? $data : [$data[0],1];
             $prototype = $manager->getRepository(ItemPrototype::class)->findOneByName( $name );
             if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
             $result->setPrototype( $prototype )->setCount( $count );
@@ -1536,7 +1566,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result->setName( $id )
                 ->setUncoverZones( $data['scout'] ?? false )
                 ->setUncoverRuin( $data['uncover'] ?? false )
-                ->setEscape( $data['escape'] ?? null );
+                ->setEscape( $data['escape'] ?? null )
+                ->setImproveLevel( $data['improve'] ?? null );
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
@@ -1688,6 +1719,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneByName( $action );
             if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action );
+
+            $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+
+            $manager->persist( $action_proto );
+        }
+
+        foreach (static::$item_actions['camping'] as $action) {
+
+            $action_proto = $manager->getRepository(CampingActionPrototype::class)->findOneByName( $action );
+            if (!$action_proto) $action_proto = (new CampingActionPrototype)->setName( $action );
 
             $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 

@@ -65,6 +65,10 @@
         <source>Bestätigen</source>
         <target>Bestätigen</target>
       </trans-unit>
+      <trans-unit id="Ap6glg5" resname="Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten">
+        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
+        <target>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

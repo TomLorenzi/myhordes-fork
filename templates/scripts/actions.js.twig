@@ -1,6 +1,7 @@
 let heroics = document.querySelectorAll('.heroic_actions');
 let heroics_hide = document.querySelectorAll('[x-heroic-toggle="0"]');
 let heroics_show = document.querySelectorAll('[x-heroic-toggle="1"]');
+let camping = document.querySelectorAll('.camping_actions');
 
 if (heroics_show.length > 0) for (let i = 0; i < heroics.length; i++) heroics[i].style.display = 'none';
 for (let i = 0; i < heroics_hide.length; i++) heroics_hide[i].addEventListener('click', function() {
@@ -31,6 +32,23 @@ const handleHeroicActions = function( actions, api_path, return_path ) {
                 } );
         });
     }
+}
+
+const handleCampingActions = function( actions, api_path, return_path ) {
+  for (let i = 0; i < actions.length; i++) {
+    actions[i].addEventListener('click', function() {
+      const action_id = this.getAttribute('x-action-id');
+      let obj = { action: action_id };
+      $.ajax.easySend( api_path, obj,
+                       function () {
+                         $.ajax.load(null, return_path, true);
+                       }, {
+                         '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
+                           return data.message ? data.message : '{% trans from 'game' %}Das kannst du zur Zeit nicht tun.{% endtrans %}'
+                         }
+                       } );
+    });
+  }
 }
 
 const handleActions = function( actions, api_path, return_path ) {
