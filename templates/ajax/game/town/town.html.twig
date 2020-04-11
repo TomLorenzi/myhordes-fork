@@ -9,8 +9,10 @@
     {{ parent() }}
     {# @var home \App\Entity\CitizenHome #}
     <div class="row">
-
         <div class="padded-small cell rw-4 rw-sm-12">
+            {% if chaos%}
+            C LE KAO LOL
+            {% endif %}
             <div class="row town-menu">
                 <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                     <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>

@@ -83,6 +83,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $data['addons'] = $addons;
         $data['home'] = $this->getActiveCitizen()->getHome();
+        $data['chaos'] = $town->getChaos();
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -136,6 +137,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = $est0 && $est0->getCitizens()->contains($this->getActiveCitizen());
 
+        $display_home_upgrade = false;
+        foreach ($citizens as $citizen) {
+            if($citizen->getHome()->getPrototype()->getLevel() > $this->getActiveCitizen()->getHome()->getPrototype()->getLevel()){
+                $display_home_upgrade = true;
+                break;
+            }
+        }
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
@@ -151,7 +160,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'active_citizen' => $this->getActiveCitizen(),
             'has_estimated' => $has_estimated,
             'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
-            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active')
+            'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active'),
+            'display_home_upgrade' => $display_home_upgrade,
+            'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
         ]) );
     }
 
@@ -371,10 +382,19 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $town = $this->getActiveCitizen()->getTown();
         $pump = $th->getBuilding( $town, 'small_water_#00', true );
 
+        $allow_take = 1;
+        if($pump) {
+            if($town->getChaos()) {
+                $allow_take = 3;
+            } else if  (!$this->getActiveCitizen()->getBanished()) {
+                $allow_take = 2;
+            }
+        }
+
         return $this->render( 'ajax/game/town/well.html.twig', $this->addDefaultTwigArgs('well', [
             'rations_left' => $this->getActiveCitizen()->getTown()->getWell(),
             'first_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() === 0,
-            'allow_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() < (($pump && !$this->getActiveCitizen()->getBanished()) ? 2 : 1),
+            'allow_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() < $allow_take,
             'pump' => $pump,
 
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeWell, 10 )->getContent(),
