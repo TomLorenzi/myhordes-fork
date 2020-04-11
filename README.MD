@@ -25,6 +25,9 @@ bin/console app:create-town remote 40 de
 # Add debug users (password = password)
 bin/console app:debug --add-debug-users
 
+# Fill town with citizens
+bin/console app:debug --fill-town <town.id>
+
 # Schedule an attack
 bin/console app:schedule --add "tomorrow"
 
