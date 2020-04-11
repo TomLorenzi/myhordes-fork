@@ -732,6 +732,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!($action = $parser->get('action')) || !in_array($action, ['open','close']))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if ($action === 'close' && $town->getDevastated())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($action === 'open'  && $town->getDoor())
             return AjaxResponse::error( self::ErrorDoorAlreadyOpen );
         if ($action === 'open'  && $this->door_is_locked($th))
