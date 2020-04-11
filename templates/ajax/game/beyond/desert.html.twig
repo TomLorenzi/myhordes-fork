@@ -52,8 +52,9 @@
                 <input type="checkbox" name="zone-camp" id="zone-camp"{% if citizen_hidden %} checked="checked"{% endif %} /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>
                 <div class="zone-camp-info">
                     <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
-                    <p>{% trans from 'game' %}Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.{% endtrans %}</p>
-                    <p>{% trans from 'game' %}Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.{% endtrans %}</p>
+                    <p>{{ camping_zone }}</p>
+                    <p>{{ camping_zombies }}</p>
+                    <p>{{ camping_chance }}</p>
                     {% embed "ajax/game/camping.html.twig" with {'list': camping, 'hidden': citizen_hidden} %}
                     {% endembed %}
                 </div>

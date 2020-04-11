@@ -202,6 +202,57 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $require_ap = ($is_on_zero && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
+        // Camping Information
+        $camping_zone_texts = [
+            1 => "Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.",
+            2 => "",
+            3 => "Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...",
+            4 => "Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.",
+            5 => "Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.",
+            6 => "An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...",
+            7 => "In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.",
+            8 => "Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.",
+        ];
+        $zone_camping_base = $zone->getPrototype()->getCampingLevel() + ($zone->getImprovementLevel() / 10);
+        if ($zone_camping_base <= 0) { $camping_zone = $camping_zone_texts[1]; }
+        else if ($zone_camping_base <= 2) { $camping_zone = $camping_zone_texts[2]; }
+        else if ($zone_camping_base <= 4) { $camping_zone = $camping_zone_texts[3]; }
+        else if ($zone_camping_base <= 6) { $camping_zone = $camping_zone_texts[4]; }
+        else if ($zone_camping_base <= 8) { $camping_zone = $camping_zone_texts[5]; }
+        else if ($zone_camping_base <= 10) { $camping_zone = $camping_zone_texts[6]; }
+        else if ($zone_camping_base <= 12) { $camping_zone = $camping_zone_texts[7]; }
+        else { $camping_zone = $camping_zone_texts[8]; }
+
+        $camping_zombie_texts = [
+            0 => '',
+            1 => "Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...",
+            2 => "Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.",
+        ];
+        if ($zone->getZombies() >= 11) { $camping_zombies = $camping_zombie_texts[2]; }
+        else if ($zone->getZombies() >= 5) { $camping_zombies = $camping_zombie_texts[1]; }
+        else { $camping_zombies = $camping_zombie_texts[0]; }
+
+        $camping_chance_texts = [
+            0 => "Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.",
+            1 => "Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?",
+            2 => "Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.",
+            3 => "Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...",
+            4 => "Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.",
+            5 => "Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!",
+            6 => "Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.",
+            7 => "Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.",
+        ];
+        $survival_chance = $this->citizen_handler->getCampingChance( $this->getActiveCitizen() );
+        if ($survival_chance <= .15) { $camping_chance = $camping_chance_texts[0]; }
+        else if ($survival_chance <= .3) { $camping_chance = $camping_chance_texts[1]; }
+        else if ($survival_chance <= .45) { $camping_chance = $camping_chance_texts[2]; }
+        else if ($survival_chance <= .6) { $camping_chance = $camping_chance_texts[3]; }
+        else if ($survival_chance <= .75) { $camping_chance = $camping_chance_texts[4]; }
+        else if ($survival_chance <= .9) { $camping_chance = $camping_chance_texts[5]; }
+        else if ($survival_chance <= .95) { $camping_chance = $camping_chance_texts[6]; }
+        else if ($survival_chance > .95) { $camping_chance = $camping_chance_texts[7]; }
+        else { $camping_chance = ""; }
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
@@ -222,7 +273,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
             'log' => $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'day' => $this->getActiveCitizen()->getTown()->getDay(),
+            'camping_zone' => $camping_zone,
+            'camping_zombies' => $camping_zombies,
+            'camping_chance' => $camping_chance,
         ]) );
     }
 
