@@ -145,6 +145,11 @@ class Citizen
      */
     private $campingTimestamp = 0;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $campingChance = 0;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -530,8 +535,6 @@ class Citizen
       return $this;
     }
 
-
-
     public function getCampingTimestamp(): int
     {
         return $this->campingTimestamp;
@@ -540,6 +543,18 @@ class Citizen
     public function setCampingTimestamp(int $campingTimestamp): self
     {
         $this->campingTimestamp = $campingTimestamp;
+
+        return $this;
+    }
+
+    public function getCampingChance(): float
+    {
+        return $this->campingChance;
+    }
+
+    public function setCampingChance(float $campingChance): self
+    {
+        $this->campingChance = $campingChance;
 
         return $this;
     }

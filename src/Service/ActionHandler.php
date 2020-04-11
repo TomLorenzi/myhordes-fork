@@ -98,7 +98,7 @@ class ActionHandler
             }
 
             if ($zone = $meta_requirement->getZone()) {
-                if ($zone->getMaxLevel() !== null && ($citizen->getZone()->getImprovementLevel() / 10) >= $zone->getMaxLevel()) $current_state = min( $current_state, $this_state );
+                if ($zone->getMaxLevel() !== null && ($citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = min( $current_state, $this_state );
             }
 
             if ($ap = $meta_requirement->getAp()) {
@@ -737,13 +737,15 @@ class ActionHandler
                     // Set campingTimer
                     case 10: {
                         $date = new DateTime();
-                        $citizen->setCampingTimestamp($date->getTimestamp());
+                        $citizen->setCampingTimestamp( $date->getTimestamp() );
+                        $citizen->setCampingChance( $this->citizen_handler->getCampingChance($citizen) );
 
                         break;
                     }
                     // Reset campingTimer
                     case 11: {
                         $citizen->setCampingTimestamp(0);
+                        $citizen->setCampingChance(0);
 
                     break;
                 }

@@ -100,15 +100,15 @@ class NightlyHandler
                 $citizen_hidden = $citizen->getStatus()->contains( $camp_1 ) || $citizen->getStatus()->contains( $camp_2 );
                 if ($citizen_hidden) {
                     // This poor soul wants to camp outside.
-                    $survival_chance = $this->citizen_handler->getCampingChance($citizen);
+                    $survival_chance = $citizen->getCampingChance();
 
                     if (!$this->random->chance($survival_chance)) {
-                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
+                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
                         $this->kill_wrap($citizen, $cod);
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
-                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has a camping survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
+                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> survived camping at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> with a survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
                     }
                 }
                 else {
@@ -351,6 +351,7 @@ class NightlyHandler
             if ($citizen->getZone()) {
                 $citizen->addStatus( $status_camping );
                 $citizen->setCampingTimestamp(0);
+                $citizen->setCampingChance(0);
             }
             else $citizen->removeStatus( $status_camping );
 

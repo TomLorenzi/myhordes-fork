@@ -214,7 +214,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 7 => T::__("In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.", 'game'),
                 8 => T::__("Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.", 'game'),
             ];
-            $zone_camping_base = ($zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0) + ($zone->getImprovementLevel() / 10);
+            $zone_camping_base = ($zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0) + ($zone->getImprovementLevel() );
             if ($zone_camping_base <= 0) {
                 $camping_zone = $camping_zone_texts[1];
             } else if ($zone_camping_base <= 2) {
@@ -256,7 +256,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 6 => T::__("Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.", 'game'),
                 7 => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
             ];
-            $survival_chance = $this->citizen_handler->getCampingChance($this->getActiveCitizen());
+            $survival_chance = $this->getActiveCitizen()->getCampingChance() > 0
+                ? $this->getActiveCitizen()->getCampingChance()
+                : $this->citizen_handler->getCampingChance($this->getActiveCitizen());
             if ($survival_chance <= .15) {
                 $camping_chance = $camping_chance_texts[0];
             } else if ($survival_chance <= .3) {
@@ -276,6 +278,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             } else {
                 $camping_chance = "";
             }
+
+            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? "Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?" : "";
+
+            // Uncomment next line to show camping values in game interface.
+            #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
         }
 
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
@@ -300,6 +307,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',
             'camping_chance' => $camping_chance ?? '',
+            'camping_improvable' => $camping_improvable ?? '',
+            'camping_debug' => $camping_debug ?? '',
         ]) );
     }
 
