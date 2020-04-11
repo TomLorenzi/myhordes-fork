@@ -348,7 +348,10 @@ class NightlyHandler
             }
 
             $this->log->debug("Setting appropriate camping status for citizen <info>{$citizen->getUser()->getUsername()}</info> (who is <info>" . ($citizen->getZone() ? 'outside' : 'inside') . "</info> the town)...");
-            if ($citizen->getZone()) $citizen->addStatus( $status_camping );
+            if ($citizen->getZone()) {
+                $citizen->addStatus( $status_camping );
+                $citizen->setCampingTimestamp(0);
+            }
             else $citizen->removeStatus( $status_camping );
 
             $this->log->debug("Removing volatile counters for citizen <info>{$citizen->getUser()->getUsername()}</info>...");
