@@ -42,7 +42,7 @@
             {% endif %}
         </div>
     </div>
-    {% if zone.x != 0 or zone.y != 0 %}
+    {% if (zone.x != 0 or zone.y != 0) and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CAMPING'),false) %}
         <div class="row">
             <div class="cell rw-12 zone-camp">
                 <input type="checkbox" name="zone-camp" id="zone-camp"{% if citizen_hidden %} checked="checked"{% endif %} /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>

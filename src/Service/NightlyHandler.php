@@ -108,7 +108,7 @@ class NightlyHandler
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
-                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has a camping  survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
+                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has a camping survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
                     }
                 }
                 else {
