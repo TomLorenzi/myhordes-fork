@@ -315,13 +315,18 @@ class InventoryHandler
     const ErrorStealBlocked    = ErrorHelper::BaseInventoryErrors + 6;
     const ErrorBankBlocked     = ErrorHelper::BaseInventoryErrors + 7;
     const ErrorExpandBlocked   = ErrorHelper::BaseInventoryErrors + 8;
+    const ErrorTransferBlocked   = ErrorHelper::BaseInventoryErrors + 9;
+
 
     const ModalityNone    = 0;
     const ModalityTamer   = 1;
     const ModalityImpound = 2;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone ): int {
-
+        // Block Transfer if citizen is hiding
+        if ($actor->getZone() && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
+            return self::ErrorTransferBlocked;
+        }
 
         // Check if the source is valid
         if ($item->getInventory() && ( !$from || $from->getId() !== $item->getInventory()->getId() ) )

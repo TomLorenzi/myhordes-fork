@@ -73,6 +73,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorDoorClosed           = ErrorHelper::BaseBeyondErrors + 7;
     const ErrorChatMessageInvalid   = ErrorHelper::BaseBeyondErrors + 8;
     const ErrorTrashLimitHit        = ErrorHelper::BaseBeyondErrors + 9;
+    const ErrorNoMovementWhileHiding= ErrorHelper::BaseBeyondErrors + 10;
 
     protected $game_factory;
     protected $zone_handler;
@@ -114,6 +115,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
+        $citizen_hidden = $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ));
 
         $scout_level = null;
         $scout_sense = false;
@@ -134,7 +136,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'zone_zombies' => max(0,$zone->getZombies()),
             'zone_cp' => $cp,
             'zone'  =>  $zone,
-            'allow_movement' => (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired,
+            'allow_movement' => (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden,
             'active_scout_mode' => $scout_movement,
             'scout_level' => $scout_level,
             'scout_sense' => $scout_sense,
@@ -144,6 +146,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'recipes' => $this->getItemCombinations(false),
             'km' => round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) )),
             'lock_trash' => $trashlock && $trashlock->getTaken() >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
+            'citizen_hidden' => $citizen_hidden,
         ], $data, $this->get_map_blob()) );
     }
 
@@ -191,8 +194,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
         $dig_timeout = $this->get_dig_timeout( $this->getActiveCitizen(), $dig_active );
-
-        $citizen_hidden = $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $this->getActiveCitizen()->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ));
 
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
@@ -269,7 +270,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'other_citizens' => $zone->getCitizens(),
             'log' => $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
-            'citizen_hidden' => $citizen_hidden,
             'camping_zone' => $camping_zone,
             'camping_zombies' => $camping_zombies,
             'camping_chance' => $camping_chance,
@@ -461,6 +461,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
+
+        if ( $citizen->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $citizen->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )) ) {
+            return AjaxResponse::error( self::ErrorNoMovementWhileHiding );
+        }
 
         $px = $parser->get('x', PHP_INT_MAX);
         $py = $parser->get('y', PHP_INT_MAX);

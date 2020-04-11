@@ -833,7 +833,7 @@
       </trans-unit>
       <trans-unit id="5GwqUxA" resname="Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:">
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</target>
+        <target>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiben:</target>
       </trans-unit>
       <trans-unit id="1lHHd11" resname="Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...">
         <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
@@ -1603,7 +1603,7 @@
       </trans-unit>
       <trans-unit id="mwAKBpm" resname="Meine objekte">
         <source>Meine objekte</source>
-        <target>Meine objekte</target>
+        <target>Meine Objekte</target>
       </trans-unit>
       <trans-unit id="f1TzhOn" resname="Gammler">
         <source>Gammler</source>
