@@ -68,6 +68,8 @@ class TownInspectorCommand extends Command
             ->addOption('map-ds', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the discovery state')
             ->addOption('map-zs', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the zombie state')
 
+            ->addOption('set-chaos', null, InputOption::VALUE_NONE, 'Enables chaos mode.')
+            ->addOption('set-devastation', null, InputOption::VALUE_NONE, 'Enables chaos mode and devastation')
             ->addOption('advance-day', null, InputOption::VALUE_NONE, 'Starts the nightly attack.')
             ->addOption('dry', null, InputOption::VALUE_NONE, 'When used together with --advance-day, changes in the DB will not persist.')
 
@@ -210,6 +212,19 @@ class TownInspectorCommand extends Command
             }
             $changes = true;
             $this->entityManager->persist( $town );
+        }
+
+        if ($input->getOption('set-chaos')) {
+            $town->setChaos(true);
+            $this->entityManager->persist( $town );
+            $changes = true;
+        }
+
+        if ($input->getOption('set-devastation')) {
+            $town->setChaos(true);
+            $town->setDevastated(true);
+            $this->entityManager->persist( $town );
+            $changes = true;
         }
 
         if ($input->getOption('advance-day')) {

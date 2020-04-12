@@ -391,8 +391,12 @@ class NightlyHandler
                 } else if ($aliveCitizenInTown == 0) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
                     $town->setDevastated(true);
-		    $town->setChaos(true);
-		    $town->setDoor(true);
+		            $town->setChaos(true);
+		            $town->setDoor(true);
+		            foreach ($town->getCitizens() as $target_citizen)
+		                $target_citizen->setBanished(false);
+		            foreach ($town->getBuildings() as $target_building)
+		                if (!$target_building->getComplete()) $target_building->setAp(0);
                 }
             }
         }
