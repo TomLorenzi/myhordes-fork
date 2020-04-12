@@ -84,6 +84,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
+        $data['citizen'] = $this->getActiveCitizen();
         $data['conf'] = $this->getTownConf();
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
