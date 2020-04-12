@@ -336,6 +336,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen = $this->getActiveCitizen();
         if (!$citizen->getBanished() || $citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+	
+	if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
+		return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $trashlock = $citizen->getTrashCounter();
         if (!$trashlock)
@@ -368,6 +371,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
+            $this->citizen_handler->setAP($citizen, true, -1);
             return AjaxResponse::success();
         } else return AjaxResponse::error($error);
     }
