@@ -239,9 +239,9 @@ class NightlyHandler
 
         $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
-	$def  = $this->town_handler->calculate_town_def( $town );
-	if($town->getDevastated())
-	    $def = 0;
+	    $def  = $this->town_handler->calculate_town_def( $town );
+	    if($town->getDevastated())
+	        $def = 0;
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
@@ -462,7 +462,7 @@ class NightlyHandler
             }
 
             if ($zone->getImprovementLevel() > 0) {
-              $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 30), 0));
+              $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 3), 0));
               $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Improvement Level has been reduced to <info>{$zone->getImprovementLevel()}</info>." );
             }
         }

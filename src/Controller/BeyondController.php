@@ -617,10 +617,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function heroic_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $this->deferZoneUpdate();
+        $zone = $this->getActiveCitizen()->getZone();
 
-        $uncover_fun = function(ItemAction &$a) {
+        $uncover_fun = function(ItemAction &$a) use ($zone) {
 
-            if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
+            if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $zone ) && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         };
 
