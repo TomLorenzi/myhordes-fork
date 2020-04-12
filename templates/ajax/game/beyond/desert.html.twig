@@ -177,7 +177,7 @@
 
             {% else %}
 
-                {% if banished %}
+                {% if banished or town_devastated %}
                     <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)</button>
                 {% endif %}
 
