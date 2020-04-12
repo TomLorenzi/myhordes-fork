@@ -131,7 +131,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
         ) > 0;
 
-        $trashlock = $this->getActiveCitizen()->getBanished() ? $this->getActiveCitizen()->getTrashCounter() : null;
+        $trashlock = ($this->getActiveCitizen()->getBanished() || $this->getActiveCitizen()->getTown()->getDevastated()) ? $this->getActiveCitizen()->getTrashCounter() : null;
 
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
@@ -334,7 +334,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function trash_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory): Response {
 
         $citizen = $this->getActiveCitizen();
-        if (!$citizen->getBanished() || $citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY())
+        if (!$citizen->getBanished() || $citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0 || !$town->getDevastated())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 	
 	if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))

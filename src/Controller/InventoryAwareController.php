@@ -88,6 +88,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
         $data['banished'] = $this->getActiveCitizen()->getBanished();
+        $data['town_devastated'] = $this->getActiveCitizen()->getTown()->getDevastated();
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();

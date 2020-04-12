@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (3 Ladungen)</source>
-        <target>Pistolet à eau (3 Charges)</target>
+        <target>Aqua-Splash (3 Charges)</target>
       </segment>
     </unit>
     <unit id="SslDPfH" name="Aqua-Splash (2 Ladungen)">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (2 Ladungen)</source>
-        <target>Pistolet à eau (2 Charges)</target>
+        <target>Aqua-Splash (2 Charges)</target>
       </segment>
     </unit>
     <unit id="UESHvBl" name="Aqua-Splash (1 Ladung)">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (1 Ladung)</source>
-        <target>Pistolet à eau (1 Charge)</target>
+        <target>Aqua-Splash (1 Charge)</target>
       </segment>
     </unit>
     <unit id="jJPD2VA" name="Handmixer (ohne Strom)">
@@ -2302,7 +2302,7 @@
       </notes>
       <segment>
         <source>Architektenkoffer</source>
-        <target>Architektenkoffer</target>
+        <target>Coffre d'architecte</target>
       </segment>
     </unit>
     <unit id="GxxfHXQ" name="Versiegelter Architektenkoffer">
@@ -2311,7 +2311,7 @@
       </notes>
       <segment>
         <source>Versiegelter Architektenkoffer</source>
-        <target>Versiegelter Architektenkoffer</target>
+        <target>Coffre d'architecte scellé</target>
       </segment>
     </unit>
     <unit id="olL3rus" name="Ei">
@@ -2320,7 +2320,7 @@
       </notes>
       <segment>
         <source>Ei</source>
-        <target>Ei</target>
+        <target>Œuf</target>
       </segment>
     </unit>
     <unit id="xV3PQxn" name="Apfel">

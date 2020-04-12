@@ -21,7 +21,7 @@
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
             {% if not banished %}
                 {% if town.door %}
-                    <button id="door_closer"><img alt="" src="{{ asset('build/images/small_action.gif') }}" />{% trans from 'game' %}Tor schließen{% endtrans %} (<div class="ap">1</div>)</button>
+                    <button id="door_closer" {% if town.devastated %}disabled{% endif %}><img alt="" src="{{ asset('build/images/small_action.gif') }}" />{% trans from 'game' %}Tor schließen{% endtrans %} (<div class="ap">1</div>)</button>
                 {% else %}
                     <button id="door_opener" {% if door_locked %}disabled{% endif %}><img alt="" src="{{ asset('build/images/small_action.gif') }}" />{% trans from 'game' %}Tor öffnen{% endtrans %} (<div class="ap">1</div>)</button>
                 {% endif %}

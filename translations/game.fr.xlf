@@ -1968,7 +1968,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>In die Stadt zurückkehren</source>
-        <target>In die Stadt zurückkehren</target>
+        <target>Se téléporter en ville</target>
       </segment>
     </unit>
     <unit id="Dc6dT95" name="a2885f4">
@@ -4999,7 +4999,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</source>
-        <target>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</target>
+        <target>Après des recherches épuisantes, vous n'avez rien trouvé d'autre que la vacuité de ces moments perdus...</target>
       </segment>
     </unit>
     <unit id="vR5IoMk" name="Nach einigen Anstrengungen hast du folgendes gefunden: %item%!">
@@ -5008,7 +5008,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</target>
+        <target>Après de longues recherches, vous finissez par trouver %item% par terre...</target>
       </segment>
     </unit>
     <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">

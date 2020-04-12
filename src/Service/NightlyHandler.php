@@ -239,7 +239,9 @@ class NightlyHandler
 
         $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
-        $def  = $this->town_handler->calculate_town_def( $town );
+	$def  = $this->town_handler->calculate_town_def( $town );
+	if($town->getDevastated())
+	    $def = 0;
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
@@ -389,7 +391,8 @@ class NightlyHandler
                 } else if ($aliveCitizenInTown == 0) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
                     $town->setDevastated(true);
-                    $town->setChaos(true);
+		    $town->setChaos(true);
+		    $town->setDoor(true);
                 }
             }
         }
