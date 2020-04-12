@@ -496,6 +496,11 @@ class Zone
         return $this->scoutEstimationOffset;
     }
 
+    public function getPersonalScoutEstimation(Citizen $c): ?int
+    {
+        return ($this->getZombies() === 0) ? 0 : max(0, $this->getZombies() + (($c->getId() + $this->scoutEstimationOffset) % 5) - 2);
+    }
+
     public function setScoutEstimationOffset(int $scoutEstimationOffset): self
     {
         $this->scoutEstimationOffset = $scoutEstimationOffset;
