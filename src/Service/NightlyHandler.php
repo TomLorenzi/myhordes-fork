@@ -239,9 +239,9 @@ class NightlyHandler
 
         $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
-	$def  = $this->town_handler->calculate_town_def( $town );
-	if($town->getDevastated())
-	    $def = 0;
+	    $def  = $this->town_handler->calculate_town_def( $town );
+	    if($town->getDevastated())
+	        $def = 0;
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
