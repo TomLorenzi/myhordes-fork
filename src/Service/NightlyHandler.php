@@ -462,7 +462,7 @@ class NightlyHandler
             }
 
             if ($zone->getImprovementLevel() > 0) {
-              $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 30), 0));
+              $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 3), 0));
               $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Improvement Level has been reduced to <info>{$zone->getImprovementLevel()}</info>." );
             }
         }
