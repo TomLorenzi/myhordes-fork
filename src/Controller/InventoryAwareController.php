@@ -387,6 +387,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
         return [
             'zones' =>  $zones,
+            'town_devast' => $this->getActiveCitizen()->getTown()->getDevastated(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ),
             'pos_x'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getX() : 0,
             'pos_y'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getY() : 0,
