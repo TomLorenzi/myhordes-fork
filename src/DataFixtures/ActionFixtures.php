@@ -20,6 +20,7 @@ use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenStatus;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HomeActionPrototype;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
@@ -70,6 +71,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_yet_guitar' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_guitar' ] ]],
             'not_yet_sbook'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_sbook' ] ]],
             'not_yet_hero'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hero' ] ]],
+            'not_yet_home_cleaned' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_clean' ] ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -551,6 +553,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'campsite_unhide' => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
             'campsite_untomb' => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
 
+            'home_clean' => [ 'label' => 'Haus aufräumen und putzen', 'meta' => [ 'must_be_inside', 'not_yet_home_cleaned' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_clean' ] ] ], 'message' => 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn\'s ne Bruchbude ist, es ist DEIN Zuhause...' ]
         ],
 
         'heroics' => [
@@ -559,6 +562,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'camping' => [
             'campsite_improve', 'campsite_hide', 'campsite_tomb', 'campsite_unhide', 'campsite_untomb'
+        ],
+
+        'home' => [
+            ['home_clean', 'sort']
         ],
 
         'items' => [
@@ -1766,6 +1773,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if (!$action_proto) $action_proto = (new CampingActionPrototype)->setName( $action );
 
             $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+
+            $manager->persist( $action_proto );
+        }
+
+        foreach (static::$item_actions['home'] as $action_group) {
+
+            $action_proto = $manager->getRepository(HomeActionPrototype::class)->findOneByName( $action_group[0] );
+            if (!$action_proto) $action_proto = (new HomeActionPrototype)->setName( $action_group[0] )->setIcon( $action_group[1] );
+
+            $action_proto->setAction( $this->generate_action( $manager, $out, $action_group[0], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
             $manager->persist( $action_proto );
         }

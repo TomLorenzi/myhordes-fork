@@ -11,6 +11,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenStatus;
 use App\Entity\EscapeTimer;
+use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -243,6 +244,24 @@ class ActionHandler
         if ($mode >= self::ActionValidityAllow) $available[] = $action;
         else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
       }
+
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param ItemAction[] $available
+     * @param ItemAction[] $crossed
+     */
+    public function getAvailableHomeActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
+
+        $available = $crossed = [];
+        $home_actions = $this->entity_manager->getRepository(HomeActionPrototype::class)->findAll();
+
+        foreach ($home_actions as $action) {
+            $mode = $this->evaluate( $citizen, null, null, $action->getAction(), $tx );
+            if ($mode >= self::ActionValidityAllow) $available[] = $action;
+            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+        }
 
     }
 
