@@ -2000,7 +2000,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="f1TzhOn" resname="Gammler">
         <source>Gammler</source>
-        <target>Gammler</target>
+        <target>Indécis</target>
         <note>Gammler</note>
       </trans-unit>
       <trans-unit id="sBbkqrg" resname="Buddler">
@@ -2925,6 +2925,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="ZvXc1po" resname="Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.">
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
         <target>Au terme de la bataille, le bâtiment %buildingName% est tombé en poussière.</target>
+      </trans-unit>
+      <trans-unit id="S103XG1" resname="@citizens Bürger">
+        <source>@citizens Bürger</source>
+        <target>@citizens Citoyens</target>
       </trans-unit>
     </body>
   </file>

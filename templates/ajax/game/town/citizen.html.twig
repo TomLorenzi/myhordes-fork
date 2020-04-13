@@ -1,7 +1,7 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
 
-    <div class="row-table">
+    <div class="row-table citizens-list">
         <div class="row header">
             <div class="padded cell rw-4 center rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
             <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
@@ -81,12 +81,10 @@
     </div>
 
     <div class="row">
-        <div class="padded cell small center rw-12 rw-md-12">
-            {{ "In der Stadt wohnen @citizens Bürger."|trans({ '@citizens': citizens|length },'game') }}
-        </div>
+        
     </div>
 
-    <div class="row">
+    <div class="row prof-list">
         {% for elem in prof_count %}
             <div class="padded cell small center rw-4">
                 <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
@@ -99,6 +97,9 @@
                 {{ 'Tot'|trans({},'game') }} x {{ death_count }}
             </div>
         {% endif %}
+        <div class="padded cell small center ro-4 rw-4 rw-md-4">
+            <img alt="" src="{{ asset('build/images/small_human.gif') }}" /> {{ "@citizens Bürger"|trans({ '@citizens': citizens|length }, 'game') }} {% if death_count > 0 %}({{ death_count }} {{ 'Tot'|trans({},'game') }}){% endif %}
+        </div>
     </div>
 
 {% endblock %}

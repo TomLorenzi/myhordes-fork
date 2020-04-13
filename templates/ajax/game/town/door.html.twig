@@ -67,8 +67,6 @@
         handleDoor( document.getElementById('door_closer'), 'close' );
 
         document.getElementById('door_exit').addEventListener('click', function() {
-            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
-                return;
             $.ajax.easySend( '{{ path('town_door_exit_controller') }}', {},
                 function () {
                     $.ajax.load(null, '{{ path('game_landing') }}', true);
