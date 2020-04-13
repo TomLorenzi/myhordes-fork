@@ -41,9 +41,9 @@
                 {% if building.prototype.temp %}
                     <span>
                     <img alt="(!)" src="{{ asset('build/images/small_warning.gif') }}" />
-                        <div class="tooltip">
-                            <h1>Construction temporaire !</h1>
-                            Cette construction est <strong>à usage unique</strong>. Elle sera détruite ce soir, <strong>après</strong> l'attaque de la Horde.<br><em>Vous pourrez de nouveau la bâtir demain si vous le souhaitez.</em>
+                        <div class="tooltip temp-building">
+                            <h1>{{ 'Temporäre Konstruktion!'|trans({}, 'buildings') }}</h1>
+                            {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings') }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
                     </div>
                     </span>
                 {% endif %}

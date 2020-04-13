@@ -1070,6 +1070,18 @@
         <target>Hammam</target>
         <note>Hammam</note>
       </trans-unit>
+      <trans-unit id="KdxqtKO" resname="Temporäre Konstruktion!">
+        <source>Temporäre Konstruktion!</source>
+        <target>Construction temporaire !</target>
+      </trans-unit>
+      <trans-unit id="hwqD281" resname="Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.">
+        <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
+        <target>Cette construction est à usage unique. Elle sera détruite ce soir, après l'attaque de la Horde.</target>
+      </trans-unit>
+      <trans-unit id="ssWP4ro" resname="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
+        <source>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</source>
+        <target>Vous pourrez de nouveau la bâtir demain si vous le souhaitez.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
