@@ -69,6 +69,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $soulPoints;
 
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $externalId = '';
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -256,6 +261,18 @@ class User implements UserInterface, EquatableInterface
     public function addSoulPoints(int $soulPoints): self
     {
         $this->soulPoints += $soulPoints;
+
+        return $this;
+    }
+
+    public function getExternalId(): ?string
+    {
+        return $this->externalId;
+    }
+
+    public function setExternalId(string $externalId): self
+    {
+        $this->name = $externalId;
 
         return $this;
     }

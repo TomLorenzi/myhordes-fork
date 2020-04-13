@@ -53,4 +53,35 @@ class SoulController extends AbstractController
     {
         return $this->render( 'ajax/soul/settings.html.twig' );
     }
+
+    /**
+     * @Route("api/soul/settings/generateid", name="soul_settings_generateid")
+     * @return Response
+     */
+    public function soul_settings_generateid(): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+        if (!$user)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        #$user->setExternalId('abc789xyz');
+        $user->setExternalId(md5($user->getEmail() . mt_rand()));
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/deleteid", name="soul_settings_deleteid")
+     * @return Response
+     */
+    public function soul_settings_deleteid(): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+        if (!$user)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        $user->setExternalId('');
+
+        return AjaxResponse::success();
+    }
 }

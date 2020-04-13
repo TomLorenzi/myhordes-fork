@@ -14,17 +14,42 @@
                     E-Mail
                 </div>
                 <div class="cell padded rw-8 rw-sm-12">
-                    {{ app.user.email }}
+                    <input disabled value="{{ app.user.email }}" />
                 </div>
             </div>
             <div class="row">
                 <div class="cell padded rw-4 rw-sm-12">
                     External App ID
                 </div>
-                <div class="cell padded rw-8 rw-sm-12">
-                    
+                <div class="cell padded rw-4 rw-sm-12">
+                    <input disabled value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
+                </div>
+                <div class="cell padded rw-4 rw-sm-12">
+                    <button id="generate-external-id">{{ 'Generate new ID'|trans({}, 'global') }}</button>
+                    <button id="delete-external-id">{{ 'Delete ID to disable'|trans({}, 'global') }}</button>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll("#generate-external-id", "click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            $.ajax.easySend( '{{ path('soul_settings_generateid') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } );
+        });
+        $.html.addEventListenerAll("#delete-external-id", "click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            $.ajax.easySend( '{{ path('soul_settings_deleteid') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } );
+        });
+    </script>
 {% endblock %}
