@@ -89,7 +89,7 @@
             <ul class="overview-list">
                 <li>{{ 'Stadttyp:'|trans({}, 'game') }} <strong>{{ town.type.label|trans({}, 'game') }}</strong></li>
                 <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
-                <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong></li>
+                <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong>{% if town.well < 15 %} <span class="warning">(<img src="{{ asset('build/images/small_warning.gif') }}" alt="" /> {{ 'Gefahr'|trans({}, 'game') }})</span>{% endif %}</li>
                 <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens }}</strong></li>
                 <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{{ zeds_today[1] }} - {{ zeds_today[2] }}</strong></li>
             </ul>

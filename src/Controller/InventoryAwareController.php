@@ -563,6 +563,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
           return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
         }
 
+        //TODO: Add chat log
+
         if ($msg) $this->addFlash( 'notice', $msg );
       } elseif ($error === ActionHandler::ErrorActionForbidden) {
         if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
@@ -590,7 +592,6 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
         $zone = $citizen->getZone();
         if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
         $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
         if (!$citizen->getInventory()->getItems()->contains( $item ) && !$secondary_inv->getItems()->contains( $item )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$this->extract_target_object( $target_id, $action->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
@@ -613,7 +614,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             if ($msg) $this->addFlash( 'notice', $msg );
         } elseif ($error === ActionHandler::ErrorActionForbidden) {
-            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'items');
             return AjaxResponse::error($error, ['message' => $msg]);
         }
         else return AjaxResponse::error( $error );

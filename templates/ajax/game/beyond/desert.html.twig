@@ -1,7 +1,6 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
 {% block menu_text %}
     {{ parent() }}
-    <li class="beyond-dash" x-ajax-href="{{ url('beyond_dashboard') }}">{% trans from 'game' %}Zone{% endtrans %}</li>
 {% endblock %}
 {# @var zone \App\Entity\Zone #}
 {% block content %}
@@ -49,13 +48,13 @@
                 <div class="zone-camp-info">
                     <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
                     {% if camping_zone != "" %}
-                        <p>{{ camping_zone }}</p>
+                        <p>{{ camping_zone|trans({}, 'game') }}</p>
                     {% endif %}
                     {% if camping_zombies != "" %}
-                        <p>{{ camping_zombies }}</p>
+                        <p>{{ camping_zombies|trans({}, 'game') }}</p>
                     {% endif %}
                     {% if camping_chance != "" %}
-                        <p class="emphasis">{{ camping_chance }}</p>
+                        <p class="emphasis">{{ camping_chance|trans({}, 'game') }}</p>
                     {% endif %}
                     {% if camping_improvable != "" %}
                         <p>{{ camping_improvable }}</p>

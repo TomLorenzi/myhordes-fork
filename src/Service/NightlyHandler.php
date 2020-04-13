@@ -247,7 +247,7 @@ class NightlyHandler
         $zombies = $est ? $est->getZombies() : 0;
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
-        $this->log->debug("The down has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!");
+        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!");
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
@@ -626,7 +626,11 @@ class NightlyHandler
             $this->log->debug("Daily items: Placing " . implode(', ', $tx) . " in the bank.");
 
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
-            if ($b->getPrototype()->getTemp()) $b->setComplete(false)->setAp(0);
+            if ($b->getPrototype()->getTemp()){
+                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
+                $b->setComplete(false)->setAp(0);
+            }
             $b->setTempDefenseBonus(0);
         }
     }

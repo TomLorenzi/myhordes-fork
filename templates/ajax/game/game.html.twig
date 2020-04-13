@@ -37,7 +37,7 @@
     {% if ap is defined and max_ap is defined %}
         <div class="ulcont">
             <ul class="ap">
-                <li><img src="{{ asset("build/images/ap_small.gif") }}" alt="" /> {{ ap }}<em>/{{ max_ap }}</em></li>
+                <li>{{ ap }}<em>/{{ max_ap }}</em></li>
             </ul>
             <div class="tooltip">
                 <b>{{ 'Aktionspunkte'|trans({},'game') }}</b><br />

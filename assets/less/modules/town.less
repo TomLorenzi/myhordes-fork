@@ -151,8 +151,16 @@
 }
 
 .citizens-list {
-  &>.row:hover {
+  .row:not(.header):hover {
     outline: 1px solid #EFDBAB;
+  }
+}
+
+.prof-list {
+  margin-top: 10px;
+  div {
+    font-size: 12px;
+    background-color: #5c2b20;
   }
 }
 
@@ -188,12 +196,6 @@
     font-weight: bold;
     font-size: 18px;
   }
-
-  .warning {
-    color: #f86;
-    font-weight: bold;
-  }
-
 }
 
 .words-of-heroes {
