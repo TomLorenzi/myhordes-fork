@@ -1780,7 +1780,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="PFgh04I" resname="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) est parti vers le %direction%.</target>
+        <target>%citizen% (%profession%) est parti vers %direction%.</target>
         <note>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</note>
       </trans-unit>
       <trans-unit id="07sRf7u" resname="%citizen% (%profession%) ist aus dem %direction% angekommen.">

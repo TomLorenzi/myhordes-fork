@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Citizen;
 use App\Entity\User;
+use App\Entity\Picto;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -27,13 +28,28 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class SoulController extends AbstractController
 {
 
+	protected $entity_manager;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->entity_manager = $em;
+    }
+
+
     /**
      * @Route("jx/soul/me", name="soul_me")
      * @return Response
      */
     public function soul_me(): Response
     {
-        return $this->render( 'ajax/soul/me.html.twig' );
+    	// Get all the picto & count points
+    	$pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
+    	$points = 0;
+
+        return $this->render( 'ajax/soul/me.html.twig', [
+        	'pictos' => $pictos,
+        	'points' => $points
+        ]);
     }
 
     /**
