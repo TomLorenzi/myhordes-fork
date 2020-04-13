@@ -26,25 +26,27 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ExternalController extends AbstractController
 {
     /**
-     * @Route("jx/api/json", name="api_json")
+     * @Route("api/x/json", name="api_x_json")
      * @return Response
      */
     public function api_json(): Response
     {
-        if ($this->isGranted( 'ROLE_REGISTERED' ))
-            return $this->redirect($this->generateUrl('initial_landing'));
-        return $this->render( 'ajax/public/login.html.twig' );
+        $test_array = [
+            'citizen' => $this->getUser()->getUsername(),
+        ];
+        return $this->json( $test_array );
     }
 
     /**
-     * @Route("jx/api/xml", name="api_xml")
+     * @Route("api/x/xml", name="api_x_xml")
      * @return Response
      */
     public function api_xml(): Response
     {
-        if ($this->isGranted( 'ROLE_REGISTERED' ))
-            return $this->redirect($this->generateUrl('initial_landing'));
-        return $this->render( 'ajax/public/login.html.twig' );
+        $test_array = [
+            'citizen' => $this->getUser()->getUsername(),
+        ];
+        return $this->json( $test_array );
     }
 
 
