@@ -29,8 +29,17 @@ class SoulController extends AbstractController
      * @Route("jx/soul/me", name="soul_me")
      * @return Response
      */
-    public function my_soul(): Response
+    public function soul_me(): Response
     {
         return $this->render( 'ajax/soul/me.html.twig' );
+    }
+
+    /**
+     * @Route("jx/soul/settings", name="soul_settings")
+     * @return Response
+     */
+    public function soul_settings(): Response
+    {
+        return $this->render( 'ajax/soul/settings.html.twig' );
     }
 }

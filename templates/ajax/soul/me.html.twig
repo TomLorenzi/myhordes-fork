@@ -8,15 +8,7 @@
 {% block ajax %}
     <div class="row soul">
         <div class="cell padded header rw-8">
-            <h4>{% trans from 'soul' %}Deine Seele{% endtrans %}</h4>
-
-            <div class="row">
-                {# TODO: Distinguish heroïc soul and non-heroïc souls #}
-                <div class="cell padded rw-2"><img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="Héros" /> {{ app.user.username }}</div>
-                <div class="cell padded rw-8 center">{{ app.user.email }}</div>
-                <div class="cell padded rw-2 right"><a target="_self" href="{{ path('auto_logout') }}">{{ 'Ausloggen'|trans({},'global') }}</a></div>
-            </div>
-
+            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
             <div class="row">
                 <div class="cell padded rw-5 rw-sm-12 distinctions">
                     <div class="distinctions-head center">
