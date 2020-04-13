@@ -48,9 +48,11 @@
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
+                {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
+                {% endembed %}
 
                 <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                 {% endembed %}
             </div>
 
@@ -316,6 +318,11 @@
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
             '{{ path('town_house_heroic_controller') }}', '{{ path('town_house') }}'
+        );
+
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            '{{ path('town_house_special_action_controller') }}', '{{ path('town_house') }}'
         );
 
         handleActions(

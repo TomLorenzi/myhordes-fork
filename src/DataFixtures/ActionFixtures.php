@@ -18,8 +18,10 @@ use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HomeActionPrototype;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
@@ -62,14 +64,30 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drink_tl1'   => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'thirst1' ] ]],
             'drink_tl2'   => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'thirst2' ] ]],
 
+            'profession_basic'       => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'basic' ] ]],
+            'profession_collec'      => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'collec' ] ]],
+            'profession_guardian'    => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'guardian' ] ]],
+            'profession_hunter'      => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'hunter' ] ]],
+            'profession_tamer'       => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'tamer' ] ]],
+            'profession_tech'        => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'tech' ] ]],
+            'profession_shaman'      => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'shaman' ] ]],
+            'profession_survivalist' => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'survivalist' ] ]],
+
             'no_bonus_ap'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => 0,  'relative' => true ] ]],
             'no_full_ap'     => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ]],
+            'min_6_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 6, 'max' => 999999, 'relative' => true ] ], 'message' => 'Hierfür brauchst du mindestens 6 AP.'],
+            'min_5_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 5, 'max' => 999999, 'relative' => true ] ], 'message' => 'Hierfür brauchst du mindestens 5 AP.'],
             'min_1_ap'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ]],
             'not_yet_dice'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_dice' ]  ]],
             'not_yet_card'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_cards' ] ]],
             'not_yet_guitar' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_guitar' ] ]],
             'not_yet_sbook'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_sbook' ] ]],
             'not_yet_hero'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hero' ] ]],
+            'not_yet_home_cleaned'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_clean'  ] ]],
+            'not_yet_home_showered' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_shower' ] ]],
+            'not_yet_home_heal_1'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_heal_1' ] ]],
+            'not_yet_home_heal_2'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_heal_2' ] ]],
+            'not_yet_home_defbuff'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_defbuff' ] ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -81,6 +99,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'is_wounded'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'tg_meta_wound' ] ]],
             'is_not_wounded'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_meta_wound' ] ]],
             'is_not_bandaged' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'healed' ] ]],
+
+            'is_wounded_h'       => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'tg_meta_wound' ] ]],
+            'is_not_wounded_h'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_meta_wound' ] ]],
+            'is_infected_h'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'infection' ] ]],
+            'is_not_infected_h'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'infection' ] ]],
 
             'not_drunk'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'drunk' ] ]],
             'not_hungover' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hungover' ] ]],
@@ -113,6 +136,14 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_not_have_purifier' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#00', 'complete' => false ] ] ],
             'must_have_filter'       => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#01', 'complete' => true  ] ] ],
             'must_not_have_filter'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#01', 'complete' => false ] ] ],
+
+            'must_have_shower'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_shower_#00', 'complete' => true  ] ] ],
+            'must_have_slaughter'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_meat_#00', 'complete' => true  ] ] ],
+            'must_have_hospital'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_infirmary_#00', 'complete' => true  ] ] ],
+            'must_have_guardtower' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_watchmen_#00', 'complete' => true  ] ] ],
+            'must_have_crowsnest'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_watchmen_#01', 'complete' => true  ] ] ],
+            'must_have_valve'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_valve_#00', 'complete' => true  ] ] ],
+            'must_have_cinema'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cinema_#00', 'complete' => true  ] ] ],
 
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
 
@@ -169,6 +200,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'disinfect'    => [ 'status' => 'remove_infection' ],
 
             'minus_1ap'    => [ 'ap' => 'minus_1' ],
+            'minus_5ap'    => [ 'ap' => 'minus_5' ],
+            'minus_6ap'    => [ 'ap' => 'minus_6' ],
             'plus_4ap'     => [ 'ap' => 'plus_4' ],
             'just_ap6'     => [ 'ap' => 'to_max_plus_0' ],
             'just_ap7'     => [ 'ap' => 'to_max_plus_1' ],
@@ -226,6 +259,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'to_max_plus_3' => [ 'max' => true,  'num' => 3 ],
                 'plus_4'        => [ 'max' => false, 'num' => 4 ],
                 'minus_1'       => [ 'max' => false, 'num' => -1 ],
+                'minus_5'       => [ 'max' => false, 'num' => -5 ],
+                'minus_6'       => [ 'max' => false, 'num' => -6 ],
             ],
             'status' => [
                 'replace_dehydration' => [ 'from' => 'thirst2', 'to' => 'thirst1' ],
@@ -256,6 +291,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'empty_battery' => [ 'pile_broken_#00' ],
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
                 'asafe' => [ 'bplan_e_#00' ],
+
+                'meat_4xs' => [ [ 'meat_#00',  4 ] ],
+                'meat_4x'  => [ [ 'undef_#00', 4 ] ],
+                'meat_2xs' => [ [ 'meat_#00',  2 ] ],
+                'meat_2x'  => [ [ 'undef_#00', 2 ] ],
+                'meat_bmb' => [ [ 'flesh_#00', 2 ] ],
             ],
 
             'consume' => [],
@@ -319,7 +360,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'alcohol'    => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap', 'not_drunk', 'not_hungover' ], 'result' => [ 'just_ap6', 'drunk', 'consume_item' ] ],
             'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_drunk', 'not_hungover' ], 'result' => [ 'just_ap6', 'drunk', 'unterrorize', 'consume_item' ] ],
 
-            'coffee' => [ 'label' => 'Trinken', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap' ], 'result' => [ 'plus_4ap', 'drunk', 'consume_item' ] ],
+            'coffee' => [ 'label' => 'Trinken', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap' ], 'result' => [ 'plus_4ap', 'consume_item' ] ],
 
             'special_dice'   => [ 'label' => 'Werfen',       'cover' => true, 'meta' => [ 'not_yet_dice', 'no_bonus_ap' ],      'result' => [ 'casino_dice'   ], 'message' => '{casino}' ],
             'special_card'   => [ 'label' => 'Karte ziehen', 'cover' => true, 'meta' => [ 'not_yet_card', 'no_bonus_ap' ],      'result' => [ 'casino_card'   ], 'message' => '{casino}' ],
@@ -452,7 +493,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_chair basic'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_85'] ] ],
             'throw_b_torch'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['item' => ['morph' => 'torch_off_#00', 'consume' => false]], 'kill_1_zombie' ] ],
             'throw_b_chain'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_50'] ] ],
-            'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_33'] ] ],
+            'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => [[['do_nothing'], 50], [[ [ 'item' => [ 'consume' => false, 'morph' => 'staff2_#00']] ], 50]]], ['group' => 'g_kill_1z_33'] ] ],
             'throw_b_knife'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_machine_2'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_small_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_33'] ] ],
@@ -551,6 +592,21 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'campsite_unhide' => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
             'campsite_untomb' => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
 
+            'home_clean'     => [ 'label' => 'Haus aufräumen und putzen', 'meta' => [ 'must_be_inside', 'not_yet_home_cleaned' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_clean' ] ] ], 'message' => 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn\'s ne Bruchbude ist, es ist DEIN Zuhause...' ],
+            'home_shower'    => [ 'label' => 'Duschen', 'meta' => [ 'must_be_inside', 'must_have_shower', 'not_yet_home_showered' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_shower' ] ] ], 'message' => 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.' ],
+            'home_heal_1'    => [ 'label' => 'Heilen (5AP)', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_1', 'is_wounded_h', 'is_not_infected_h' ], 'result' => ['minus_5ap', 'heal_wound', [ 'status' => [ 'from' => null, 'to' => 'tg_home_heal_1' ] ] ], 'message' => '' ],
+            'home_heal_2'    => [ 'label' => 'Heilen (6AP)', 'meta' => [ 'min_6_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_2', 'is_not_wounded_h', 'is_infected_h' ], 'result' => ['minus_6ap', 'disinfect',  [ 'status' => [ 'from' => null, 'to' => 'tg_home_heal_2' ] ] ], 'message' => '' ],
+            'home_heal_3'    => [ 'label' => 'Heilen (5AP)', 'meta' => [ 'min_5_ap', 'must_be_inside', 'must_have_hospital', 'not_yet_home_heal_2', 'is_wounded_h', 'is_infected_h' ],     'result' => ['minus_5ap', 'disinfect',  [ 'status' => [ 'from' => null, 'to' => 'tg_home_heal_2' ] ] ], 'message' => '' ],
+            'home_defbuff'   => [ 'label' => 'Verteidigung organisieren (1 AP)', 'meta' => [ 'profession_guardian', 'min_1_ap', 'must_be_inside', 'must_have_guardtower', 'not_yet_home_defbuff' ], 'result' => ['minus_1ap', [ 'custom' => [13], 'status' => [ 'from' => null, 'to' => 'tg_home_defbuff' ] ] ], 'message' => 'Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.' ],
+            'home_crows'     => [ 'label' => 'Nach Ruinen Ausschau halten', 'meta' => [ 'profession_hunter', 'must_be_inside', 'must_have_crowsnest', 'not_yet_home_defbuff' ], 'result' => [[ 'custom' => [12], 'status' => [ 'from' => null, 'to' => 'tg_home_defbuff' ] ] ], 'message' => '<t-zone>Du hast eine neue Ruine auf {zone} entdeckt!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>' ],
+            'home_fillwater' => [ 'label' => 'Wasserwaffen füllen', 'meta' => [ 'must_be_inside', 'must_have_valve' ], 'result' => [[ 'custom' => [14]]] ],
+            'home_cinema'    => [ 'label' => 'Ins Kino gehen', 'meta' => [ 'must_be_inside', 'must_have_cinema', 'must_be_terrorized' ], 'result' => [ 'unterrorize'] ],
+
+            'slaughter_4xs' => [ 'label' => 'Zerlegen', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4xs' ] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
+            'slaughter_2xs' => [ 'label' => 'Zerlegen', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_2xs' ] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
+            'slaughter_4x'  => [ 'label' => 'Zerlegen', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4x'  ] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
+            'slaughter_2x'  => [ 'label' => 'Zerlegen', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_2x'  ] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
+            'slaughter_bmb' => [ 'label' => 'Zerlegen', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_bmb' ] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
         ],
 
         'heroics' => [
@@ -559,6 +615,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'camping' => [
             'campsite_improve', 'campsite_hide', 'campsite_tomb', 'campsite_unhide', 'campsite_untomb'
+        ],
+
+        'home' => [
+            ['home_clean', 'sort'], ['home_shower', 'shower'], ['home_heal_1', 'heal_wound'], ['home_heal_2', 'heal_infection'], ['home_heal_3', 'heal_infection'], ['home_defbuff', 'watchmen'], ['home_crows', 'watchmen'], ['home_fillwater', 'water'], ['home_cinema', 'cinema']
         ],
 
         'items' => [
@@ -684,13 +744,14 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'watergun_2_#00'     => [ 'fire_splash2' ],
             'watergun_1_#00'     => [ 'fire_splash1' ],
 
-            'pet_chick_#00' => [ 'throw_animal'     ],
-            'pet_rat_#00'   => [ 'throw_animal'     ],
-            'pet_pig_#00'   => [ 'throw_animal'     ],
-            'pet_snake_#00' => [ 'throw_animal'     ],
-            'pet_cat_#00'   => [ 'throw_animal_cat' ],
-            'tekel_#00'     => [ 'throw_animal_dog' ],
-            'pet_dog_#00'   => [ 'throw_animal_dog' ],
+            'pet_chick_#00' => [ 'slaughter_2x' , 'throw_animal'     ],
+            'pet_rat_#00'   => [ 'slaughter_2x' , 'throw_animal'     ],
+            'pet_pig_#00'   => [ 'slaughter_4x' , 'throw_animal'     ],
+            'pet_snake_#00' => [ 'slaughter_4xs', 'throw_animal'     ],
+            'pet_cat_#00'   => [ 'slaughter_2xs', 'throw_animal_cat' ],
+            'tekel_#00'     => [ 'slaughter_2xs', 'throw_animal_dog' ],
+            'pet_dog_#00'   => [ 'slaughter_2xs', 'throw_animal_dog' ],
+            'angryc_#00'    => [ 'slaughter_bmb' ],
 
             'machine_1_#00'     => ['throw_b_machine_1'    ],
             'bone_#00'          => ['throw_b_bone'         ],
@@ -935,11 +996,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $requirement = new RequireStatus();
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
-            $status = $manager->getRepository(CitizenStatus::class)->findOneByName( $data['status'] );
-            if (!$status)
-                throw new Exception('Status condition not found: ' . $data['status']);
+            $status = isset($data['status']) ? $manager->getRepository(CitizenStatus::class)->findOneByName( $data['status'] ) : null;
+            $prof = isset($data['profession']) ? $manager->getRepository(CitizenProfession::class)->findOneByName( $data['profession'] ) : null;
+            if (isset($data['status']) && !$status) throw new Exception('Status condition not found: ' . $data['status']);
+            if (isset($data['profession']) && !$prof) throw new Exception('Profession not found: ' . $data['profession']);
 
-            $requirement->setName( $id )->setEnabled( $data['enabled'] )->setStatus( $status );
+            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setProfession( $prof ?? null );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
         
@@ -1670,7 +1732,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t<comment>Create</comment> action <info>$action</info> ('<info>{$data['label']}</info>')", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $new_action->setName( $action )->setLabel( $data['label'] )->clearRequirements();
+            $new_action->setName( $action )->setLabel( $data['label'] )->clearRequirements()->clearResults();
             if (!empty($data['message'])) $new_action->setMessage( $data['message'] );
             else $new_action->setMessage(null);
 
@@ -1766,6 +1828,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if (!$action_proto) $action_proto = (new CampingActionPrototype)->setName( $action );
 
             $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+
+            $manager->persist( $action_proto );
+        }
+
+        foreach (static::$item_actions['home'] as $action_group) {
+
+            $action_proto = $manager->getRepository(HomeActionPrototype::class)->findOneByName( $action_group[0] );
+            if (!$action_proto) $action_proto = (new HomeActionPrototype)->setName( $action_group[0] )->setIcon( $action_group[1] );
+
+            $action_proto->setAction( $this->generate_action( $manager, $out, $action_group[0], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
             $manager->persist( $action_proto );
         }

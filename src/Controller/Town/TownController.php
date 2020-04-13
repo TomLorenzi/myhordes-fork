@@ -85,6 +85,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data['addons'] = $addons;
         $data['home'] = $this->getActiveCitizen()->getHome();
         $data['chaos'] = $town->getChaos();
+        $data['town'] = $town;
         return parent::addDefaultTwigArgs( $section, $data );
     }
 

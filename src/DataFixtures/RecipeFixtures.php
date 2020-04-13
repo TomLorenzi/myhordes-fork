@@ -95,7 +95,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 ["name" => "Kärcher","temporary" => 0,"img" => "small_waterspray","vp" => 50,"ap" => 50,"bp" => 0,"rsc" => ["water_#00" => 10,"meca_parts_#00" => 1,"wood2_#00" => 10,"metal_beam_#00" => 7,]],
                 ["name" => "Kreischender Rotor","temporary" => 0,"img" => "small_grinder","vp" => 50,"ap" => 55,"bp" => 1,"rsc" => ["plate_#00" => 2,"tube_#00" => 2,"wood_beam_#00" => 4,"metal_beam_#00" => 10,]],
                 ["name" => "Sprinkleranlage","temporary" => 0,"img" => "small_sprinkler","vp" => 150,"ap" => 85,"bp" => 3,"rsc" => ["water_#00" => 20,"tube_#00" => 1,"wood_beam_#00" => 7,"metal_beam_#00" => 15,]],
-                // TODO: Special Action
                 ["name" => "Dusche","temporary" => 0,"img" => "small_shower","vp" => 0,"ap" => 25,"bp" => 2,"rsc" => ["water_#00" => 5,"wood2_#00" => 4,"metal_#00" => 1,"tube_#00" => 1,]],
             ]],
             ["name" => "Wasserturm","maxLevel" => 5,"temporary" => 0,"img" => "item_tube","vp" => 70,"ap" => 60,"bp" => 3,"rsc" => ["water_#00" => 40,"tube_#00" => 7,"metal_beam_#00" => 10,],
@@ -115,7 +114,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Apfelbaum","temporary" => 0,"img" => "small_appletree","vp" => 0,"ap" => 30,"bp" => 3,"rsc" => ["water_#00" => 10,"hmeat_#00" => 2,"pharma_#00" => 3,"metal_beam_#00" => 1,]],
         ]],
 
-        // TODO: Convert animals
         ["name" => "Metzgerei","temporary" => 0,"img" => "item_meat","vp" => 0,"ap" => 40,"bp" => 0,"rsc" => ["wood2_#00" => 9,"metal_#00" => 4,], "orderby" => 2, "children" => [
             ["name" => "Kremato-Cue","temporary" => 0,"img" => "item_hmeat","vp" => 0,"ap" => 45,"bp" => 2,"rsc" => ["wood_beam_#00" => 8,"metal_beam_#00" => 1,]],
         ]],
@@ -170,7 +168,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Kantine","temporary" => 0,"img" => "small_cafet","vp" => 0,"ap" => 20,"bp" => 1,"rsc" => ["pharma_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,"table_#00" => 1,]],
             ["name" => "Bollwerk","temporary" => 0,"img" => "small_strategy","vp" => 0,"ap" => 60,"bp" => 3,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 15,"metal_beam_#00" => 15,]],
             ["name" => "Baumarkt","temporary" => 0,"img" => "small_strategy","vp" => 0,"ap" => 30,"bp" => 4,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 10,"metal_beam_#00" => 10,]],
-            // TODO: Special Action
             ["name" => "Krankenstation","temporary" => 0,"img" => "small_infirmary","vp" => 0,"ap" => 40,"bp" => 3,"rsc" => ["pharma_#00" => 6,"disinfect_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 5,]],
             // TODO: Home upgrade
             ["name" => "Labor","temporary" => 0,"img" => "item_acid","vp" => 0,"ap" => 30,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"pharma_#00" => 5,"wood_beam_#00" => 3,"metal_beam_#00" => 10,]],
@@ -216,7 +213,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Katapult","temporary" => 0,"img" => "item_courroie","vp" => 0,"ap" => 40,"bp" => 1,"rsc" => ["wood2_#00" => 2,"metal_#00" => 1,"wood_beam_#00" => 1,"metal_beam_#00" => 1,], "children" => [
                 ["name" => "Verbesserter Katapult","temporary" => 0,"img" => "item_courroie","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["courroie_#00" => 1,"wood2_#00" => 2,"metal_#00" => 2,"electro_#00" => 2,]],
             ]],
-            // TODO: Special Action
             ["name" => "Wächter-Turm","temporary" => 0,"img" => "small_watchmen","vp" => 15,"ap" => 24,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"plate_#00" => 1,"wood_beam_#00" => 10,"metal_beam_#00" => 2,], "children" => [
                 // TODO: NW effect
                 ["name" => "Kleine Waffenschmiede","temporary" => 0,"img" => "small_armor","vp" => 0,"ap" => 50,"bp" => 2,"rsc" => ["meca_parts_#00" => 3,"wood2_#00" => 10,"metal_#00" => 15,"plate_#00" => 2,"concrete_wall_#00" => 3,"metal_beam_#00" => 5,]],
@@ -227,14 +223,12 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 // TODO: NW effect
                 ["name" => "Kleiner Tribok","temporary" => 0,"img" => "small_catapult3","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["wood_beam_#00" => 2,"metal_beam_#00" => 4,"meca_parts_#00" => 2,"plate_#00" => 2,"tube_#00" => 1,]],
             ]],
-            // TODO: Special Action
             ["name" => "Krähennest","temporary" => 0,"img" => "small_watchmen","vp" => 10,"ap" => 36,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,]],
         ]],
 
         ["name" => "Fundament","temporary" => 0,"img" => "small_building","vp" => 0,"ap" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 10,"metal_#00" => 8,], "orderby" => 5, "children" => [
             ["name" => "Bohrturm","temporary" => 0,"img" => "small_derrick","vp" => 0,"ap" => 70,"bp" => 3,"rsc" => ["wood_beam_#00" => 10,"metal_beam_#00" => 15,]],
             ["name" => "Falsche Stadt","temporary" => 0,"img" => "small_falsecity","vp" => 400,"ap" => 400,"bp" => 3,"rsc" => ["meca_parts_#00" => 15,"wood2_#00" => 20,"metal_#00" => 20,"wood_beam_#00" => 20,"metal_beam_#00" => 20,]],
-            // TODO: Special Action
             ["name" => "Wasserhahn","temporary" => 0,"img" => "small_valve","vp" => 0,"ap" => 130,"bp" => 3,"rsc" => ["engine_#00" => 1,"meca_parts_#00" => 4,"metal_#00" => 10,"wood_beam_#00" => 6,"metal_beam_#00" => 3,]],
             ["name" => "Großer Umbau","temporary" => 0,"img" => "small_moving","vp" => 300,"ap" => 300,"bp" => 3,"rsc" => ["wood2_#00" => 20,"metal_#00" => 20,"concrete_wall_#00" => 5,"wood_beam_#00" => 20,"metal_beam_#00" => 20,]],
             ["name" => "Vogelscheuche","temporary" => 0,"img" => "small_scarecrow","vp" => 25,"ap" => 35,"bp" => 0,"rsc" => ["wood2_#00" => 10,"rustine_#00" => 2,]],
@@ -265,7 +259,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Riesenrad","temporary" => 0,"img" => "small_wheel","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["water_#00" => 20,"meca_parts_#00" => 5,"concrete_wall_#00" => 3,"metal_beam_#00" => 5,]],
             ["name" => "Feuerwerk","temporary" => 0,"img" => "small_fireworks","vp" => 150,"ap" => 90,"bp" => 0,"rsc" => ["firework_powder_#00" => 1,"firework_tube_#00" => 1,"firework_box_#00" => 2]],
             ["name" => "Krähenstatue","temporary" => 0,"img" => "small_crow","vp" => 0,"ap" => 300,"bp" => 4,"rsc" => ["hmeat_#00" => 3,"wood_beam_#00" => 35,]],
-            // TODO: Special Action
             ["name" => "Kino","temporary" => 0,"img" => "small_cinema","vp" => 0,"ap" => 100,"bp" => 4,"rsc" => ["electro_#00" => 3,"wood_beam_#00" => 15,"metal_beam_#00" => 5,"machine_1_#00" => 1,"machine_2_#00" => 1,]],
             ["name" => "Luftschlag","temporary" => 1,"img" => "small_rocket","vp" => 0,"ap" => 50,"bp" => 3,"rsc" => ["water_#00" => 10,"meca_parts_#00" => 1,"metal_#00" => 5,"explo_#00" => 1,"deto_#00" => 2,]],
             ["name" => "Heißluftballon","temporary" => 1,"img" => "small_balloon","vp" => 0,"ap" => 100,"bp" => 4,"rsc" => ["meca_parts_#00" => 6,"sheet_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 5,]],
@@ -305,7 +298,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         'com001' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_machine_#00',     'provoking' => 'coffee_machine_part_#00','in' => ['coffee_machine_part_#00', 'cyanure_#00', 'electro_#00', 'meca_parts_#00', 'rustine_#00', 'metal_#00', 'tube_#00' ] ],
         'com002' => ['type' => Recipe::ManualAnywhere, 'out' => 'music_#00',              'provoking' => 'music_part_#00',         'in' => ['music_part_#00', 'pile_#00', 'electro_#00'] ],
-        'com003' => ['type' => Recipe::ManualAnywhere, 'out' => 'guitar_#00',             'provoking' => ['wire_#00','oilcan_#00'],'in' => ['wire_#00', 'oilcan_#00', 'staff_#01'] ],
+        'com003' => ['type' => Recipe::ManualAnywhere, 'out' => 'guitar_#00',             'provoking' => ['wire_#00','oilcan_#00'],'in' => ['wire_#00', 'oilcan_#00', 'staff2_#00'] ],
         'com004' => ['type' => Recipe::ManualAnywhere, 'out' => 'car_door_#00',           'provoking' => 'car_door_part_#00',      'in' => ['car_door_part_#00', 'meca_parts_#00', 'rustine_#00', 'metal_#00'] ],
         'com005' => ['type' => Recipe::ManualAnywhere, 'out' => 'torch_#00',              'provoking' => 'lights_#00',             'in' => ['lights_#00', 'wood_bad_#00'] ],
         'com006' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_plate_#00',         'provoking' => 'wood_plate_part_#00',    'in' => ['wood_plate_part_#00', 'wood2_#00'] ],
