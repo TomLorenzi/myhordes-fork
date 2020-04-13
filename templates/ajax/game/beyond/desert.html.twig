@@ -187,7 +187,7 @@
                     {% if zone.x == 0 and zone.y == 0 %}
                         {% trans from 'game' %}Stadt betreten{% endtrans %}
                     {% else %}
-                        {% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
+                        <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
                     {% endif %}
                     {% if enter_costs_ap %}
                         (<div class="ap">1</div>)

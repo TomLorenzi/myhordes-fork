@@ -3659,6 +3659,58 @@
         <source>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</source>
         <target>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</target>
       </trans-unit>
+      <trans-unit id="24l83Eh" resname="Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!">
+        <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
+        <target>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</target>
+      </trans-unit>
+      <trans-unit id="OeuOyF4" resname="Haus aufräumen und putzen">
+        <source>Haus aufräumen und putzen</source>
+        <target>Ranger la maison</target>
+      </trans-unit>
+      <trans-unit id="tOABtGm" resname="Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...">
+        <source>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</source>
+        <target>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</target>
+      </trans-unit>
+      <trans-unit id="k1XRUwI" resname="Duschen">
+        <source>Duschen</source>
+        <target>Se doucher</target>
+      </trans-unit>
+      <trans-unit id="DEHdLNl" resname="Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.">
+        <source>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</source>
+        <target>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</target>
+      </trans-unit>
+      <trans-unit id="ZM5U_5i" resname="Heilen (5AP)">
+        <source>Heilen (5AP)</source>
+        <target>Heilen (5AP)</target>
+      </trans-unit>
+      <trans-unit id="8.uDazR" resname="Heilen (6AP)">
+        <source>Heilen (6AP)</source>
+        <target>Heilen (6AP)</target>
+      </trans-unit>
+      <trans-unit id="H0NWl9b" resname="Verteidigung organisieren (1 AP)">
+        <source>Verteidigung organisieren (1 AP)</source>
+        <target>Verteidigung organisieren (1 AP)</target>
+      </trans-unit>
+      <trans-unit id="vte2QYO" resname="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
+        <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
+        <target>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</target>
+      </trans-unit>
+      <trans-unit id="V1W3ATr" resname="Nach Ruinen Ausschau halten">
+        <source>Nach Ruinen Ausschau halten</source>
+        <target>Nach Ruinen Ausschau halten</target>
+      </trans-unit>
+      <trans-unit id="zncq9xv" resname="&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;">
+        <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
+        <target><![CDATA[<t-zone>Du hast eine neue Ruine auf {zone} entdeckt!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
+      </trans-unit>
+      <trans-unit id="zI0j8nd" resname="Wasserwaffen füllen">
+        <source>Wasserwaffen füllen</source>
+        <target>Remplir les armes à eau</target>
+      </trans-unit>
+      <trans-unit id="5yZkmMK" resname="Ins Kino gehen">
+        <source>Ins Kino gehen</source>
+        <target>Aller au cinéma</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

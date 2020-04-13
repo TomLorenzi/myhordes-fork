@@ -1090,7 +1090,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="WrJhBrF" resname="In die Stadt zurückkehren">
         <source>In die Stadt zurückkehren</source>
-        <target>Se téléporter en ville</target>
+        <target>Rapatriement en ville</target>
         <note>In die Stadt zurückkehren</note>
       </trans-unit>
       <trans-unit id="Dc6dT95" resname="Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:">
@@ -2815,7 +2815,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="j88Eyne" resname="Gesamt: %def%">
         <source>Gesamt: %def%</source>
-        <target>Gesamt: %def%</target>
+        <target>Défense : %def%</target>
         <note>Gesamt: %def%</note>
       </trans-unit>
       <trans-unit id="cuLzNYJ" resname="Gegenstand">
@@ -2825,7 +2825,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="9WgEJfS" resname="Installieren">
         <source>Installieren</source>
-        <target>Installieren</target>
+        <target>Jeter</target>
         <note>Installieren</note>
       </trans-unit>
       <trans-unit id="RNyztpO" resname="Wie viele Gegenstände möchtest du auf den Müll werfen?">
