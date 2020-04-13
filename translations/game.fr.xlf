@@ -1145,7 +1145,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="eR2SPb." resname="Das Stadtregister steht nicht zur Verfügung.">
         <source>Das Stadtregister steht nicht zur Verfügung.</source>
-        <target>Das Stadtregister steht nicht zur Verfügung.</target>
+        <target>Le Grand Registre de la Ville (où toutes les actions des joueurs sont consignées) est inaccessible lorsque vous êtes dans l'Outre-Monde...</target>
         <note>Das Stadtregister steht nicht zur Verfügung.</note>
       </trans-unit>
       <trans-unit id="V3rm2Ma" resname="Herzlichen Glückwunsch, du bist TOT!">
@@ -1775,7 +1775,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="o9wb9sd" resname="%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.">
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% est entré dans la ville depuis %direction%.</target>
+        <target>%citizen% est arrivé dans la ville depuis %direction%.</target>
         <note>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</note>
       </trans-unit>
       <trans-unit id="PFgh04I" resname="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">

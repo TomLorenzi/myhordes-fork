@@ -1,7 +1,6 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
 {% block menu_text %}
     {{ parent() }}
-    <li class="beyond-dash" x-ajax-href="{{ url('beyond_dashboard') }}">{% trans from 'game' %}Zone{% endtrans %}</li>
 {% endblock %}
 {# @var zone \App\Entity\Zone #}
 {% block content %}

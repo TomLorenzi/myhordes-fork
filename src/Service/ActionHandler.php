@@ -778,7 +778,6 @@ class ActionHandler
         }
 
         if ($action->getMessage() && !$kill_by_poison) {
-
             $message = $this->translator->trans( $action->getMessage(), [
                 '{ap}'        => $execute_info_cache['ap'],
                 '{minus_ap}'  => -$execute_info_cache['ap'],

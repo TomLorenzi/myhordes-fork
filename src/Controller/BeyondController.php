@@ -257,8 +257,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 7 => T::__("Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.", 'game'),
             ];
             $survival_chance = $this->getActiveCitizen()->getCampingChance() > 0
-                ? $this->getActiveCitizen()->getCampingChance()
-                : $this->citizen_handler->getCampingChance($this->getActiveCitizen());
+            ? $this->getActiveCitizen()->getCampingChance()
+            : $this->citizen_handler->getCampingChance($this->getActiveCitizen());
             if ($survival_chance <= .15) {
                 $camping_chance = $camping_chance_texts[0];
             } else if ($survival_chance <= .3) {
@@ -334,11 +334,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function trash_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory): Response {
 
         $citizen = $this->getActiveCitizen();
-        if (!$citizen->getBanished() || $citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0 || !$town->getDevastated())
+        $town = $citizen->getTown();
+        if (!$town->getDevastated() && (!$citizen->getBanished() || $citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-	
-	if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
-		return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $trashlock = $citizen->getTrashCounter();
         if (!$trashlock)
@@ -356,11 +357,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
 
         $item = $this->item_factory->createItem($proto);
+        $this->citizen_handler->setAP($citizen, true, -1);
 
         if (($error = $handler->transferItem(
-                $citizen,
-                $item,$inv_source, $inv_target
-            )) === InventoryHandler::ErrorNone) {
+            $citizen,
+            $item,$inv_source, $inv_target
+        )) === InventoryHandler::ErrorNone) {
 
             $trashlock->setTaken( $trashlock->getTaken()+1 );
             try {
@@ -371,7 +373,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
-            $this->citizen_handler->setAP($citizen, true, -1);
             return AjaxResponse::success();
         } else return AjaxResponse::error($error);
     }
@@ -511,8 +512,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $cp_ok = $this->zone_handler->check_cp( $zone );
         $scout_movement = $this->inventory_handler->countSpecificItems(
-                $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
-            ) > 0;
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+        ) > 0;
 
         if (abs($px - $zone->getX()) + abs($py - $zone->getY()) !== 1) return AjaxResponse::error( self::ErrorNotReachableFromHere );
         if (!$cp_ok && $this->get_escape_timeout( $citizen ) < 0 && !$scout_movement) return AjaxResponse::error( self::ErrorZoneBlocked );
@@ -539,9 +540,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $zone->removeCitizen( $citizen );
         $new_zone
-            ->addCitizen( $citizen )
-            ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
-            ->setZombieStatus( max(Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
+        ->addCitizen( $citizen )
+        ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
+        ->setZombieStatus( max(Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
 
         if ($citizen->getProfession()->getName() === 'hunter' && !$this->entity_manager->getRepository(ScoutVisit::class)->findByCitizenAndZone($citizen,$new_zone)) {
             $new_zone->addScoutVisit( (new ScoutVisit())->setScout( $citizen ) );
@@ -606,7 +607,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         };
 
-        return $this->generic_action_api( $parser, $uncover_fun);
+        return $this->generic_action_api($parser, $uncover_fun);
     }
 
     /**
@@ -638,7 +639,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
       $this->deferZoneUpdate();
 
       return $this->generic_camping_action_api( $parser);
-    }
+  }
 
     /**
      * @Route("api/beyond/desert/recipe", name="beyond_desert_recipe_controller")
@@ -684,29 +685,29 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems(
-                $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
-            ) > 0)
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+        ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-        if ($this->citizen_handler->isWounded( $citizen ))
-            return AjaxResponse::error( self::ErrorAlreadyWounded );
+            if ($this->citizen_handler->isWounded( $citizen ))
+                return AjaxResponse::error( self::ErrorAlreadyWounded );
 
-        $this->citizen_handler->inflictWound( $citizen );
+            $this->citizen_handler->inflictWound( $citizen );
 
-        try {
-            $escape = (new EscapeTimer())
+            try {
+                $escape = (new EscapeTimer())
                 ->setZone( $citizen->getZone() )
                 ->setCitizen( $citizen )
                 ->setTime( new DateTime('+1min') );
-            $this->entity_manager->persist( $citizen );
-            $this->entity_manager->persist( $escape );
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-        }
+                $this->entity_manager->persist( $citizen );
+                $this->entity_manager->persist( $escape );
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+            }
 
-        return AjaxResponse::success();
-    }
+            return AjaxResponse::success();
+        }
 
     /**
      * @Route("api/beyond/desert/attack", name="beyond_desert_attack_controller")
@@ -723,29 +724,29 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems(
-                $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
-            ) > 0)
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+        ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-        if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
-            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+            if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
+                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $this->citizen_handler->setAP( $citizen, true, -1 );
-        if ($generator->chance( 0.1 )) {
-            $zone->setZombies( $zone->getZombies() - 1 );
-            $this->entity_manager->persist( $this->log->zombieKill( $citizen, null, 1 ) );
+            $this->citizen_handler->setAP( $citizen, true, -1 );
+            if ($generator->chance( 0.1 )) {
+                $zone->setZombies( $zone->getZombies() - 1 );
+                $this->entity_manager->persist( $this->log->zombieKill( $citizen, null, 1 ) );
+            }
+
+            try {
+                $this->entity_manager->persist( $citizen );
+                $this->entity_manager->persist( $zone );
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+            }
+
+            return AjaxResponse::success();
         }
-
-        try {
-            $this->entity_manager->persist( $citizen );
-            $this->entity_manager->persist( $zone );
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-        }
-
-        return AjaxResponse::success();
-    }
 
     /**
      * @Route("api/beyond/desert/dig", name="beyond_desert_dig_controller")
@@ -799,8 +800,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( self::ErrorNotDiggable );
 
         $scout = $this->inventory_handler->countSpecificItems(
-                $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
-            ) > 0;
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+        ) > 0;
 
         //if (!$this->zone_handler->check_cp( $zone ) && !$scout)
         //    return AjaxResponse::error( self::ErrorZoneBlocked );

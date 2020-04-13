@@ -1132,7 +1132,7 @@
       </trans-unit>
       <trans-unit id="05SJi6V" resname="Aasbeeren">
         <source>Aasbeeren</source>
-        <target>Des carottes</target>
+        <target>Charognardes</target>
         <note>Aasbeeren</note>
       </trans-unit>
       <trans-unit id="Ts1kvBr" resname="Schleimige Kugel">
@@ -1742,7 +1742,7 @@
       </trans-unit>
       <trans-unit id="0yUwJX." resname="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
         <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>Vous avez ouvert {items_spawn} et avez obtenu {item} !</target>
+        <target>Vous avez ouvert {item} et avez obtenu {items_spawn} !</target>
         <note>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
       </trans-unit>
       <trans-unit id="v4TehoJ" resname="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
@@ -1787,7 +1787,7 @@
       </trans-unit>
       <trans-unit id="3Kj2SRD" resname="Lesen">
         <source>Lesen</source>
-        <target>Lesen</target>
+        <target>Lire</target>
         <note>Lesen</note>
       </trans-unit>
       <trans-unit id="g7lA4hJ" resname="Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;">
