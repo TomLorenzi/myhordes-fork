@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</target>
+        <target>The Great Pit gives an additional 23 defence points.</target>
       </segment>
     </unit>
     <unit id="mkCln4o" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</target>
+        <target>The Great Pit gives an additional 44 defence points.</target>
       </segment>
     </unit>
     <unit id="7ohJiNu" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</target>
+        <target>The Great Pit gives an additional 76 defence points.</target>
       </segment>
     </unit>
     <unit id="wvQCfMZ" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</target>
+        <target>The Great Pit gives an additional 109 defence points.</target>
       </segment>
     </unit>
     <unit id="HL3IJ3X" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</target>
+        <target>The Great Pit gives an additional 160 defence points.</target>
       </segment>
     </unit>
     <unit id="wlt3nkJ" name="Rasierklingenmauer">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</target>
+        <target>The Evolutive Wall gives an additional 85 defence points.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="jlp8Fv_" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</target>
+        <target>The Evolutive Wall gives an additional 120 defence points.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="is67H0y" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</target>
+        <target>The Evolutive Wall gives an additional 170 defence points.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="V.Pp1rj" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</target>
+        <target>The Evolutive Wall gives an additional 235 defence points.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="HaXbtuP" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</target>
+        <target>The Evolutive Wall gives an additional 315 defence points.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="lgS6PS2" name="Verstärkende Balken">
@@ -475,7 +475,7 @@
       </notes>
       <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</target>
+        <target>The Water Turrets is multiply by 1.8 (126 defense points), but cost 2 water rations per night.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="L6.6ahS" name="3d8658d">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</target>
+        <target>The Water Turrets is multiply by 2.6 (182 defense points), but cost 4 water rations per night.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="P7EINL." name="6f7c0d3">
@@ -493,7 +493,7 @@
       </notes>
       <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</target>
+        <target>The Water Turrets is multiply by 3.4 (238 defense points), but cost 6 water rations per night.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="Y_jBf_Y" name="c9e1750">
@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</target>
+        <target>The Water Turrets is multiply by 4.2 (294 defense points), but cost 9 water rations per night.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="94xxibL" name="a56e37e">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</target>
+        <target>The Water Turrets is multiply by 5 (350 defense points), but cost 12 water rations per night.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="aD._KEu" name="Wasserfänger">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</target>
+        <target>Add 5 water rations to the well (one time only).</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</target>
+        <target>Add 20 water rations to the well (one time only).</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="IAeAAwG" name="Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</target>
+        <target>Add 30 water rations to the well (one time only).</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="cLG_5i1" name="Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</target>
+        <target>Add 40 water rations to the well (one time only).</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="Mjl71we" name="Kremato-Cue">
@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</target>
+        <target>Each defence object in the bank gives 1 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</target>
+        <target>Each defence object in the bank gives 1.5 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</target>
+        <target>Each defence object in the bank gives 2 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</target>
+        <target>Each defence object in the bank gives 2.5 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</target>
+        <target>Each defence object in the bank gives 3 defence points to the town.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
@@ -781,7 +781,7 @@
       </notes>
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
+        <target>The Town will receive 4 common blueprints after the attack (maybe a surprise too?)</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="GIcE44t" name="bfa9448">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
+        <target>The Town will receive 2 common blueprints, 2 uncommon blueprints and 2 rare blueprints after the attack (maybe a surprise too?)</target>
       </segment>
     </unit>
     <unit id="4TGJ0Dx" name="ec0b7ad">
@@ -799,7 +799,7 @@
       </notes>
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
+        <target>The Town will receive 2 uncommon blueprints and 2 rare blueprints after the attack (maybe a surprise too?)</target>
       </segment>
     </unit>
     <unit id="erBRQsV" name="Baustellenbuch">
@@ -808,7 +808,7 @@
       </notes>
       <segment>
         <source>Baustellenbuch</source>
-        <target>Architect's Study</target>
+        <target>Architect’s Study</target>
       </segment>
     </unit>
     <unit id="Cou_v9E" name="Galgen">
@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>Baumarkt</source>
-        <target>Builder's Merchant</target>
+        <target>Builder’s Merchant</target>
       </segment>
     </unit>
     <unit id="YpxBmf9" name="Krankenstation">
@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</target>
+        <target>The cost (AP) of all construction projects is reduced by 5%.</target>
       </segment>
     </unit>
     <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</target>
+        <target>The cost (AP) of all construction projects is reduced by 10%.</target>
       </segment>
     </unit>
     <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</target>
+        <target>The cost (AP) of all construction projects is reduced by 15%.</target>
       </segment>
     </unit>
     <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</target>
+        <target>The cost (AP) of all construction projects is reduced by 20%.</target>
       </segment>
     </unit>
     <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</target>
+        <target>The cost (AP) of all construction projects is reduced by 25%.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">
@@ -1015,7 +1015,7 @@
       </notes>
       <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</target>
+        <target>There is a 37% chance of desert zone regeneration.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="wn7xMlO" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.">
@@ -1024,7 +1024,7 @@
       </notes>
       <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</target>
+        <target>There is a 49% chance of desert zone regeneration.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="hOAn2zi" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.">
@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</target>
+        <target>There is a 61% chance of desert zone regeneration.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="4qtyyT_" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.">
@@ -1042,7 +1042,7 @@
       </notes>
       <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</target>
+        <target>There is a 73% chance of desert zone regeneration.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="EII..O4" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</target>
+        <target>There is a 85% chance of desert zone regeneration.</target>
       </segment>
     </unit>
     <unit id="iJl3i40" name="Verteidigungspfähle">
@@ -1249,7 +1249,7 @@
       </notes>
       <segment>
         <source>Krähennest</source>
-        <target>Crows' Nest</target>
+        <target>Crows’ Nest</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
@@ -1267,7 +1267,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</target>
+        <target>Zombies within 3 zones are detected.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="NZeNsxy" name="72834b1">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</target>
+        <target>Zombies within 6 zones are detected.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="wGZu2sa" name="e1df3f0">
@@ -1285,7 +1285,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</target>
+        <target>Zombies within 10 zones are detected.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="h1r5RdI" name="8125fb1">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</target>
+        <target>Zombies within 10 zones are detected + Allows citizens within 1 km of the town to return without using any APs.</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="N0sOdNf" name="27f10d9">
@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</target>
+        <target>Zombies within 10 zones are detected + Allows citizens within 2 km of the town to return without using any APs.</target>
       </segment>
     </unit>
     <unit id="2B9BF5F" name="Bohrturm">
@@ -1366,7 +1366,7 @@
       </notes>
       <segment>
         <source>Bürgergericht</source>
-        <target>People's Court</target>
+        <target>People’s Court</target>
       </segment>
     </unit>
     <unit id="ksEwaBK" name="Befestigungen">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Tunnelratte</source>
-        <target>Tunnelratte</target>
+        <target>Foreuse améliorée</target><!-- (FIXME FR) -->
       </segment>
     </unit>
     <unit id="45eKiS1" name="Fundament">
@@ -1663,7 +1663,7 @@
       </notes>
       <segment>
         <source>Feldbett</source>
-        <target>Feldbett</target>
+        <target>Camp Bed</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="6VkIdiO" name="Zelt">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Zelt</source>
-        <target>Zelt</target>
+        <target>Tent</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="ERgjYMQ" name="Baracke">
@@ -1681,7 +1681,7 @@
       </notes>
       <segment>
         <source>Baracke</source>
-        <target>Baracke</target>
+        <target>Hovel</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="0TTwMvT" name="Hütte">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Hütte</source>
-        <target>Hütte</target>
+        <target>Shack</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="UJdq1Y9" name="Haus">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Haus</source>
-        <target>Haus</target>
+        <target>House</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id=".xY6IFq" name="Umzäuntes Haus">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Umzäuntes Haus</source>
-        <target>Umzäuntes Haus</target>
+        <target>Safehouse</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="Puc93rh" name="Befestigte Unterkunft">
@@ -1717,7 +1717,7 @@
       </notes>
       <segment>
         <source>Befestigte Unterkunft</source>
-        <target>Befestigte Unterkunft</target>
+        <target>Stronghold</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="TLVi.09" name="Bunker">
@@ -1726,7 +1726,7 @@
       </notes>
       <segment>
         <source>Bunker</source>
-        <target>Bunker</target>
+        <target>Nuclear Bunker</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="EQFRE1h" name="Schloss">
@@ -1735,7 +1735,7 @@
       </notes>
       <segment>
         <source>Schloss</source>
-        <target>Schloss</target>
+        <target>Palace</target><!-- (FIXME d2nwiki) -->
       </segment>
     </unit>
     <unit id="eUUzMiR" name="Großer Vorhang">
@@ -1744,7 +1744,7 @@
       </notes>
       <segment>
         <source>Großer Vorhang</source>
-        <target>Großer Vorhang</target>
+        <target>Large Curtain</target><!-- (FIXME FR / d2nwiki) -->
       </segment>
     </unit>
     <unit id="3Gfr9md" name="4440c27">
@@ -1753,7 +1753,7 @@
       </notes>
       <segment>
         <source>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</source>
-        <target>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</target>
+        <target>Prevents players from peeking on your house directly from the Citizens list.</target><!-- (FIXME FR / d2nwiki) -->
       </segment>
     </unit>
     <unit id="7Bfx_db" name="Hobbylabor">
@@ -1762,7 +1762,7 @@
       </notes>
       <segment>
         <source>Hobbylabor</source>
-        <target>Hobbylabor</target>
+        <target>Home Laboratory</target><!-- (FIXME FR / d2nwiki) -->
       </segment>
     </unit>
     <unit id="P0f3sQx" name="f0abf03">
@@ -1771,7 +1771,7 @@
       </notes>
       <segment>
         <source>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</source>
-        <target>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</target>
+        <target>Un minuscule trou qui sent fort le camphre et la mort, creusé au milieu de votre 'salon'. Mais vous pouvez y mener vos expériences pharmaceutiques tranquillement (Each level increase by 25% chance to produce a greater drug)…</target><!-- (FIXME FR / d2nwiki) -->
       </segment>
     </unit>
     <unit id="qeyHLmY" name="Küche">
@@ -1780,7 +1780,7 @@
       </notes>
       <segment>
         <source>Küche</source>
-        <target>Küche</target>
+        <target>Kitchen</target>
       </segment>
     </unit>
     <unit id="BL3_hNZ" name="f8d2ad1">
@@ -1789,7 +1789,7 @@
       </notes>
       <segment>
         <source>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</source>
-        <target>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</target>
+        <target>La cuisine est un coin aménagé de manière très sommaire pour y préparer des rations de meilleure qualité (chaque niveau augmente de 33% les chances d'obtenir un bon plat).</target><!-- (FIXME FR / d2nwiki) -->
       </segment>
     </unit>
     <unit id="N8dpSCq" name="Primitives Alarmsystem">
@@ -1798,7 +1798,7 @@
       </notes>
       <segment>
         <source>Primitives Alarmsystem</source>
-        <target>Primitives Alarmsystem</target>
+        <target>Rudimentary Alarm</target>
       </segment>
     </unit>
     <unit id="x6GQTRQ" name="df8648b">
@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</source>
-        <target>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</target>
+        <target>C'est un système un peu simpliste de ferrailles fixées par un fil, mais ça marchera bien pour rameuter tout le monde si quelqu'un entre chez vous...</target>
       </segment>
     </unit>
     <unit id="Dy4Ru5R" name="Ruheecke">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Ruheecke</source>
-        <target>Ruheecke</target>
+        <target>Siesta Time</target>
       </segment>
     </unit>
     <unit id="RR.D4lZ" name="eefcc52">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</source>
-        <target>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</target>
+        <target>Il s'agit juste d'un trou dans le sol couvert par quelques cartons. Mais c'est bien utile pour se faire une petite sieste quand l'envie s'en fait sentir (chaque niveau augmente de 33% les chances de bien dormir).</target>
       </segment>
     </unit>
     <unit id="ASpYRZf" name="Türschloss">
@@ -1834,7 +1834,7 @@
       </notes>
       <segment>
         <source>Türschloss</source>
-        <target>Türschloss</target>
+        <target>Lock</target>
       </segment>
     </unit>
     <unit id="cv5fZ5I" name="Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.">
@@ -1843,7 +1843,7 @@
       </notes>
       <segment>
         <source>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</source>
-        <target>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</target>
+        <target>Ce système rudimentaire mais efficace empêchera quiconque de vous voler un objet.</target>
       </segment>
     </unit>
     <unit id="_XJvPlM" name="61daef0">
@@ -1852,7 +1852,7 @@
       </notes>
       <segment>
         <source>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</source>
-        <target>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</target>
+        <target>Quand les murs ne suffisent plus, une vraie clôture n'est jamais un luxe. Une défense de bonne qualité.</target>
       </segment>
     </unit>
     <unit id="_ZwT1d7" name="Stauraum">
@@ -1861,7 +1861,7 @@
       </notes>
       <segment>
         <source>Stauraum</source>
-        <target>Stauraum</target>
+        <target>More Storage</target>
       </segment>
     </unit>
     <unit id="ukY3L6h" name="Deine persönliche Truhe vergrößert sich. ">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Deine persönliche Truhe vergrößert sich. </source>
-        <target>Deine persönliche Truhe vergrößert sich. </target>
+        <target>Adds one additional storage compartment each time the upgrade is performed. </target><!-- (FIXME FR/d2nwiki) -->
       </segment>
     </unit>
     <unit id="9vHiNcG" name="Verstärkungen">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>Verstärkungen</source>
-        <target>Verstärkungen</target>
+        <target>Reinforcements</target>
       </segment>
     </unit>
     <unit id="_a49kpt" name="1bac838">
@@ -1888,7 +1888,7 @@
       </notes>
       <segment>
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
-        <target>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</target>
+        <target>Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie... un peu (chaque niveau ajoute 1 pt de défense)..</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -1897,7 +1897,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Verteidigung</target>
+        <target>Defense</target>
       </segment>
     </unit>
     <unit id="6lSJGc4" name="Brustwehr">
@@ -1906,7 +1906,16 @@
       </notes>
       <segment>
         <source>Brustwehr</source>
-        <target>Brustwehr</target>
+        <target>Chemin de ronde</target>
+      </segment>
+    </unit>
+    <unit id="A5G3UvL" name="Hämame">
+      <notes>
+        <note category="german">Hämame</note>
+      </notes>
+      <segment>
+        <source>Hämame</source>
+        <target>Hammam</target>
       </segment>
     </unit>
     <unit id="Pnjrt1t" name="Hammam">

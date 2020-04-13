@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</target>
+        <target>L'alarme de %victim% a réveillé la moitié de la ville et vous a effrayé !</target>
       </segment>
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target>Mist, dein Einbruch bei %victim% ist aufgeflogen...</target>
+        <target>Votre visite chez %victim% n'est pas passée inaperçue...</target>
       </segment>
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</source>
-        <target>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</target>
+        <target>Parfait, personne ne vous a vu vous infiltrer chez %victim%.</target>
       </segment>
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Deine Route wurde gespeichert.</source>
-        <target>Deine Route wurde gespeichert.</target>
+        <target>Votre expédition a été sauvegardée.</target>
       </segment>
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>Du hast deine Beschreibung geändert.</target>
+        <target>Vous avez changé votre annonce.</target>
       </segment>
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</target>
+        <target>%citizen% a versé %item% dans le puits et a ajouté %num% ration(s) d'eau.</target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</source>
-        <target>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</target>
+        <target>%citizen% a travaillé sur le projet %plan% et a dépensé %ap%.</target>
       </segment>
     </unit>
     <unit id="XyE6HNd" name="4d6306a">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</source>
-        <target>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</target>
+        <target>La construction du chantier %building% a donné à la ville : %list%</target>
       </segment>
     </unit>
     <unit id="RScnWL2" name="ec97dc9">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</source>
-        <target>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</target>
+        <target>La construction du chantier %building% a apporté %num% rations d'eau !</target>
       </segment>
     </unit>
     <unit id="IrDOx2H" name="%citizen% hat das Stadttor %action%.">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadttor %action%.</source>
-        <target>%citizen% hat das Stadttor %action%.</target>
+        <target>%citizen% a %action% les portes de la ville.</target>
       </segment>
     </unit>
     <unit id="7F6V04y" name="geöffnet">
@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>geöffnet</source>
-        <target>geöffnet</target>
+        <target>ouvert</target>
       </segment>
     </unit>
     <unit id="2nMdNJ8" name="geschlossen">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>geschlossen</source>
-        <target>geschlossen</target>
+        <target>fermé</target>
       </segment>
     </unit>
     <unit id="_B_xHpE" name="Das Stadttor wurde automatisch %action%.">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>Das Stadttor wurde automatisch %action%.</target>
+        <target>La porte a été %action% automatiquement.</target>
       </segment>
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% hat die Stadt %action%.</target>
+        <target>%citizen% est %action% de la ville.</target>
       </segment>
     </unit>
     <unit id="RvCIvJN" name="betreten">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>betreten</source>
-        <target>betreten</target>
+        <target>entré</target>
       </segment>
     </unit>
     <unit id="N0kS6xp" name="verlassen">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>verlassen</source>
-        <target>verlassen</target>
+        <target>sorti</target>
       </segment>
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</source>
-        <target>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</target>
+        <target>Un nouveau citoyen est arrivé en ville : %citizen%.</target>
       </segment>
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine neue Berufung als %profession% gefunden.</source>
-        <target>%citizen% hat seine neue Berufung als %profession% gefunden.</target>
+        <target>%citizen% a choisi le métier %profession%.</target>
       </segment>
     </unit>
     <unit id="nK4zXOH" name="%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+        <target>%zombies% ont tenté en vain d'entrer dans la maison de %citizen%.</target>
       </segment>
     </unit>
     <unit id="fPimUWN" name="%num% Zombies">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</source>
-        <target>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</target>
+        <target>%citizen% a amélioré sa maison en %home%...</target>
       </segment>
     </unit>
     <unit id="0uk_Ijd" name="8121de7">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+        <target>%citizen% a produit %list2% a partir de %list1%.</target>
       </segment>
     </unit>
     <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</target>
+        <target>%zombie% a ressucité et a dévoré %victim% !</target>
       </segment>
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
@@ -214,7 +214,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</target>
+        <target>%zombie% a ressucité et le bâtiment %building% a été détruit !</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</target>
+        <target>%zombie% a ressucité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
       </segment>
     </unit>
     <unit id="ByzkImj" name="8895c43">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% de zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>%num% Zombies attackieren die Stadtbewohner!</source>
-        <target>%num% Zombies attackieren die Stadtbewohner!</target>
+        <target>%num% zombies ont attaqués les citoyens !</target>
       </segment>
     </unit>
     <unit id="eJyeGor" name="82478bf">
@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</source>
-        <target>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</target>
+        <target>L'utilisation de %building% pour défendre la ville nous a couté %num% ration(s) d'eau.</target>
       </segment>
     </unit>
     <unit id="F2roj_A" name="3e28238">
@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
-        <target>Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
+        <target>En améliorant le chantier %building%, %num% rations d'eau ont été ajoutées au puits.</target>
       </segment>
     </unit>
     <unit id="Bv9VF1c" name="71ec870">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</source>
-        <target>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</target>
+        <target>En améliorant le chantier %building% la ville a reçu : %items%</target>
       </segment>
     </unit>
     <unit id="icmQw3h" name="07277f1">
@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</source>
-        <target>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</target>
+        <target>Quelle chance ! Un plan est apparu dans la banque après l'attaque. Vous avez reçu : %item%</target>
       </segment>
     </unit>
     <unit id="v7qhwcN" name="Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</target>
+        <target>Le chantier %building% a produit : %items%</target>
       </segment>
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</target>
+        <target>La dernière plainte a été celle de trop. %citizen% a été bannis de la ville !</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -304,7 +304,7 @@
       </notes>
       <segment>
         <source>Du kannst die Stadt von hier aus nicht betreten.</source>
-        <target>Du kannst die Stadt von hier aus nicht betreten.</target>
+        <target>Vous ne pouvez pas rentrer en ville.</target>
       </segment>
     </unit>
     <unit id="4rHd9Vd" name="Du kannst diese Zone von hier aus nicht betreten.">
@@ -313,7 +313,7 @@
       </notes>
       <segment>
         <source>Du kannst diese Zone von hier aus nicht betreten.</source>
-        <target>Du kannst diese Zone von hier aus nicht betreten.</target>
+        <target>Vous ne pouvez pas entrer dans cette zone d'ici.</target>
       </segment>
     </unit>
     <unit id="E3IPzEv" name="Zombies blockieren deine Zone!">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Zombies blockieren deine Zone!</source>
-        <target>Zombies blockieren deine Zone!</target>
+        <target>Les zombie sont en surnombre !</target>
       </segment>
     </unit>
     <unit id="eDXR6Le" name="a506be7">
@@ -331,7 +331,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</source>
-        <target>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</target>
+        <target>Ces actions ne peuvent être effectuées que lorsque la zone est sous contrôle.</target>
       </segment>
     </unit>
     <unit id="scZCiSc" name="Du kannst nicht angreifen wenn du bereits verwundet bist.">
@@ -340,7 +340,7 @@
       </notes>
       <segment>
         <source>Du kannst nicht angreifen wenn du bereits verwundet bist.</source>
-        <target>Du kannst nicht angreifen wenn du bereits verwundet bist.</target>
+        <target>Vous ne pouvez pas attaquer si vous êtes blessé.</target>
       </segment>
     </unit>
     <unit id="Lil.cvr" name="Du kannst auf dieser Zone nicht graben.">
@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
-        <target>Du kannst auf dieser Zone nicht graben.</target>
+        <target>Vous ne pouvez pas creuser dans cette zone.</target>
       </segment>
     </unit>
     <unit id="MPn9B5E" name="Das Stadttor ist geschlossen!">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist geschlossen!</source>
-        <target>Das Stadttor ist geschlossen!</target>
+        <target>La porte de la ville est fermée!</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</source>
-        <target>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</target>
+        <target>Votre message doit contenir entre 2 et 256 caractères.</target>
       </segment>
     </unit>
     <unit id="7CYUPCo" name="Heute wirst du nichts mehr im Müll finden.">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Heute wirst du nichts mehr im Müll finden.</source>
-        <target>Heute wirst du nichts mehr im Müll finden.</target>
+        <target>Vous ne trouvez rien dans les poubelles aujourd'hui.</target>
       </segment>
     </unit>
     <unit id="4cWeVEO" name="Du hast bereits einen Beruf gewählt.">
@@ -385,7 +385,7 @@
       </notes>
       <segment>
         <source>Du hast bereits einen Beruf gewählt.</source>
-        <target>Du hast bereits einen Beruf gewählt.</target>
+        <target>Vous avez déjà choisi une profession.</target>
       </segment>
     </unit>
     <unit id="3fRIOKg" name="Ungültige Auswahl.">
@@ -394,7 +394,7 @@
       </notes>
       <segment>
         <source>Ungültige Auswahl.</source>
-        <target>Ungültige Auswahl.</target>
+        <target>Sélection non valable.</target>
       </segment>
     </unit>
     <unit id="iSpeYjc" name="Der Brunnen ist leer!">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Der Brunnen ist leer!</source>
-        <target>Der Brunnen ist leer!</target>
+        <target>Le puits est vide!</target>
       </segment>
     </unit>
     <unit id="t9s1UYK" name="Du kannst heute keine weiteren Rationen entnehmen.">
@@ -412,7 +412,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keine weiteren Rationen entnehmen.</source>
-        <target>Du kannst heute keine weiteren Rationen entnehmen.</target>
+        <target>Vous ne pouvez plus prendre de ration aujourd'hui.</target>
       </segment>
     </unit>
     <unit id="GNSPYmK" name="Hierfür brauchst du klares Wasser (keine Kanister)!">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Hierfür brauchst du klares Wasser (keine Kanister)!</target>
+        <target>Vous avez besoin d'une ration d'eau pour faire ceci !</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
@@ -430,7 +430,7 @@
       </notes>
       <segment>
         <source>Das Tor ist bereits geschlossen.</source>
-        <target>Das Tor ist bereits geschlossen.</target>
+        <target>La porte est déjà fermée.</target>
       </segment>
     </unit>
     <unit id="JsP4vsH" name="Das Tor ist bereits offen.">
@@ -439,7 +439,7 @@
       </notes>
       <segment>
         <source>Das Tor ist bereits offen.</source>
-        <target>Das Tor ist bereits offen.</target>
+        <target>La porte est déjà ouverte.</target>
       </segment>
     </unit>
     <unit id="GjXgBou" name="Für dieses Gebäude fehlen Baumaterialien.">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Für dieses Gebäude fehlen Baumaterialien.</source>
-        <target>Für dieses Gebäude fehlen Baumaterialien.</target>
+        <target>Il manque des ressources pour ce chantier.</target>
       </segment>
     </unit>
     <unit id="P242oK2" name="Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</source>
-        <target>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</target>
+        <target>Vous avez déjà amélioré votre maison aujourd'hui.</target>
       </segment>
     </unit>
     <unit id="s1D0Mug" name="Dieser Gegenstand ist außerhalb deiner Reichweite.">
@@ -466,7 +466,7 @@
       </notes>
       <segment>
         <source>Dieser Gegenstand ist außerhalb deiner Reichweite.</source>
-        <target>Dieser Gegenstand ist außerhalb deiner Reichweite.</target>
+        <target>Ce point est hors de votre portée.</target>
       </segment>
     </unit>
     <unit id="WFi0NxJ" name="Du hast keinen Platz mehr für diesen Gegenstand!">
@@ -475,7 +475,7 @@
       </notes>
       <segment>
         <source>Du hast keinen Platz mehr für diesen Gegenstand!</source>
-        <target>Du hast keinen Platz mehr für diesen Gegenstand!</target>
+        <target>Vous n'avez plus de place pour cet objet!</target>
       </segment>
     </unit>
     <unit id="4lQ8bY." name="Du kannst keinen weiteren schweren Gegenstand tragen!">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Du kannst keinen weiteren schweren Gegenstand tragen!</target>
+        <target>Vous ne pouvez pas porter plus d'un encombrant !</target>
       </segment>
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.</source>
-        <target>Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.</target>
+        <target>Malheureusement, vous n'avez actuellement accès à aucun forum. Veuillez réessayer ultérieurement.</target>
       </segment>
     </unit>
     <unit id="QI_O4UJ" name="Verschüttete Ruine">
@@ -565,7 +565,7 @@
       </notes>
       <segment>
         <source>Verschüttete Ruine</source>
-        <target>Verschüttete Ruine</target>
+        <target>Bâtiment non déterré</target>
       </segment>
     </unit>
     <unit id="qKBuSla" name="Zone">
@@ -583,7 +583,7 @@
       </notes>
       <segment>
         <source>Entfernung</source>
-        <target>Entfernung</target>
+        <target>Distance</target>
       </segment>
     </unit>
     <unit id="VasxdH5" name="Routen">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Routen</source>
-        <target>Routen</target>
+        <target>Expédition</target>
       </segment>
     </unit>
     <unit id="wkJT.qQ" name="Stadttor">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Stadttor</source>
-        <target>Stadttor</target>
+        <target>Grande Porte</target>
       </segment>
     </unit>
     <unit id="NqjEmUx" name="Karte">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>Karte</source>
-        <target>Karte</target>
+        <target>Carte</target>
       </segment>
     </unit>
     <unit id="VgeAGfB" name="Bitte wähle einen Gegenstand:">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Bitte wähle einen Gegenstand:</source>
-        <target>Bitte wähle einen Gegenstand:</target>
+        <target>Choisissez un objet :</target>
       </segment>
     </unit>
     <unit id="m.LKoYd" name="Du verfügst über keine geeigneten Gegenstände">
@@ -637,7 +637,7 @@
       </notes>
       <segment>
         <source>Herstellen</source>
-        <target>Herstellen</target>
+        <target>Assembler </target>
       </segment>
     </unit>
     <unit id="IzfDfwc" name="aus">
@@ -646,7 +646,7 @@
       </notes>
       <segment>
         <source>aus</source>
-        <target>aus</target>
+        <target>Nécessite </target>
       </segment>
     </unit>
     <unit id="SQxs_a5" name="Kombinieren">
@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Kombinieren</source>
-        <target>Kombinieren</target>
+        <target>Combiner</target>
       </segment>
     </unit>
     <unit id="dizwCRc" name="8d60119">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
-        <target>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</target>
+        <target>Vous pouvez sortir de la ville et explorer l'Outre-Monde depuis ici. N'oubliez pas de garder la Grande Porte fermée lors de l'attaque à minuit !</target>
       </segment>
     </unit>
     <unit id="UgTjBPn" name="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Meine Aktionen</source>
-        <target>Meine Aktionen</target>
+        <target>Mes Actions</target>
       </segment>
     </unit>
     <unit id="Ja76Y2N" name="Tor schließen">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Tor schließen</source>
-        <target>Tor schließen</target>
+        <target>Fermer les portes</target>
       </segment>
     </unit>
     <unit id="0UyjBX6" name="Tor öffnen">
@@ -700,7 +700,7 @@
       </notes>
       <segment>
         <source>Tor öffnen</source>
-        <target>Tor öffnen</target>
+        <target>Ouvrir les portes</target>
       </segment>
     </unit>
     <unit id="uhQorE4" name="Route planen...">
@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Route planen...</source>
-        <target>Route planen...</target>
+        <target>Préparer une expédition</target>
       </segment>
     </unit>
     <unit id="wKVgmMx" name="Stadt verlassen">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Stadt verlassen</source>
-        <target>Stadt verlassen</target>
+        <target>Sortir dans l'Outre-Monde...</target>
       </segment>
     </unit>
     <unit id="VHo.w1Y" name="Stadttor-Register">
@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Stadttor-Register</source>
-        <target>Stadttor-Register</target>
+        <target>Porte de la ville</target>
       </segment>
     </unit>
     <unit id="oCYA07E" name="f495286">
@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</target>
+        <target>La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici.</target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -745,7 +745,7 @@
       </notes>
       <segment>
         <source>Heutige Abschätzung</source>
-        <target>Heutige Abschätzung</target>
+        <target>Si nos estimations tombent juste, nous devrions être attaqués par environ :</target>
       </segment>
     </unit>
     <unit id="8N0dl_g" name="Zombies">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Qualität der Abschätzung</source>
-        <target>Qualität der Abschätzung</target>
+        <target>Qualité de l'estimation :</target>
       </segment>
     </unit>
     <unit id="GHVvmus" name="Abschätzung verbessern">
@@ -772,7 +772,7 @@
       </notes>
       <segment>
         <source>Abschätzung verbessern</source>
-        <target>Abschätzung verbessern</target>
+        <target>Scruter les environs</target>
       </segment>
     </unit>
     <unit id="PudnUuv" name="Morgige Abschätzung">
@@ -781,7 +781,7 @@
       </notes>
       <segment>
         <source>Morgige Abschätzung</source>
-        <target>Morgige Abschätzung</target>
+        <target>Attaque du lendemain</target>
       </segment>
     </unit>
     <unit id="Y5SuVaF" name="a9255e7">
@@ -793,13 +793,22 @@
         <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
       </segment>
     </unit>
+    <unit id="I9U6Iz0" name="Morgiger Angriff :">
+      <notes>
+        <note category="german">Morgiger Angriff :</note>
+      </notes>
+      <segment>
+        <source>Morgiger Angriff :</source>
+        <target>Attaque du lendemain :</target>
+      </segment>
+    </unit>
     <unit id="sdTkF5i" name="Morgiger Angriff">
       <notes>
         <note category="german">Morgiger Angriff</note>
       </notes>
       <segment>
         <source>Morgiger Angriff</source>
-        <target>Morgiger Angriff</target>
+        <target>Attaque du lendemain</target>
       </segment>
     </unit>
     <unit id="ZI5NoYl" name="Tag %day%">
@@ -808,7 +817,7 @@
       </notes>
       <segment>
         <source>Tag %day%</source>
-        <target>Tag %day%</target>
+        <target>Day %day%</target>
       </segment>
     </unit>
     <unit id="HMtmyP_" name="Rucksack">
@@ -826,7 +835,7 @@
       </notes>
       <segment>
         <source>Truhe</source>
-        <target>Truhe</target>
+        <target>Coffre</target>
       </segment>
     </unit>
     <unit id="X3ACy1e" name="Truhe und Aktionen">
@@ -835,7 +844,7 @@
       </notes>
       <segment>
         <source>Truhe und Aktionen</source>
-        <target>Truhe und Aktionen</target>
+        <target>Coffre et Actions</target>
       </segment>
     </unit>
     <unit id="jsTL6lr" name="Mein(e) %type%">
@@ -844,7 +853,7 @@
       </notes>
       <segment>
         <source>Mein(e) %type%</source>
-        <target>Mein(e) %type%</target>
+        <target>Improvements %type%</target>
       </segment>
     </unit>
     <unit id="lQhjNcE" name="Bauarbeiten">
@@ -853,7 +862,7 @@
       </notes>
       <segment>
         <source>Bauarbeiten</source>
-        <target>Bauarbeiten</target>
+        <target>Travaux</target>
       </segment>
     </unit>
     <unit id="PA2qVgw" name="Dein Beschreibungstext">
@@ -871,7 +880,7 @@
       </notes>
       <segment>
         <source>Speichern</source>
-        <target>Speichern</target>
+        <target>Inscrire mon annonce</target>
       </segment>
     </unit>
     <unit id="vwfykUF" name="Du hast %num% anonyme Anzeige(n).">
@@ -880,7 +889,7 @@
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n).</source>
-        <target>Du hast %num% anonyme Anzeige(n).</target>
+        <target>Vous avez reçu %num% plaintes anonymes.</target>
       </segment>
     </unit>
     <unit id="0drragL" name="4a5cb7a">
@@ -898,7 +907,7 @@
       </notes>
       <segment>
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</target>
+        <target>La colonne de gauche présente les actions permises par vos objets. Celle de droite montre le contenu de votre sac à dos et de votre coffre de maison.</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -907,7 +916,7 @@
       </notes>
       <segment>
         <source>Meine Spezialaktionen</source>
-        <target>Meine Spezialaktionen</target>
+        <target>Mes actions spéciales</target>
       </segment>
     </unit>
     <unit id="zSx1h9s" name="Rucksack ausleeren">
@@ -916,7 +925,7 @@
       </notes>
       <segment>
         <source>Rucksack ausleeren</source>
-        <target>Rucksack ausleeren</target>
+        <target>Vider mon sac à dos dans le coffre</target>
       </segment>
     </unit>
     <unit id="bd_whxO" name="Mein Register">
@@ -925,7 +934,7 @@
       </notes>
       <segment>
         <source>Mein Register</source>
-        <target>Mein Register</target>
+        <target>My Register</target>
       </segment>
     </unit>
     <unit id="HbM7uO9" name="Verteidigung und Dekoration">
@@ -934,7 +943,7 @@
       </notes>
       <segment>
         <source>Verteidigung und Dekoration</source>
-        <target>Verteidigung und Dekoration</target>
+        <target>Defense and Decoration</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -943,7 +952,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Verteidigung</target>
+        <target>Defense</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -952,7 +961,7 @@
       </notes>
       <segment>
         <source>durch Haus</source>
-        <target>durch Haus</target>
+        <target>Habitations</target>
       </segment>
     </unit>
     <unit id="bhU20pv" name="durch Beruf">
@@ -961,7 +970,7 @@
       </notes>
       <segment>
         <source>durch Beruf</source>
-        <target>durch Beruf</target>
+        <target>Heros Bonus</target>
       </segment>
     </unit>
     <unit id="d5El4_h" name="durch Ausbauten">
@@ -970,7 +979,7 @@
       </notes>
       <segment>
         <source>durch Ausbauten</source>
-        <target>durch Ausbauten</target>
+        <target>Travaux</target>
       </segment>
     </unit>
     <unit id="0Rphz24" name="durch Gegenstände">
@@ -979,7 +988,7 @@
       </notes>
       <segment>
         <source>durch Gegenstände</source>
-        <target>durch Gegenstände</target>
+        <target>Objects</target>
       </segment>
     </unit>
     <unit id=".k1cQGO" name="Dekoration">
@@ -988,7 +997,7 @@
       </notes>
       <segment>
         <source>Dekoration</source>
-        <target>Dekoration</target>
+        <target>Decoration</target>
       </segment>
     </unit>
     <unit id="aai5fCx" name="Gegenstände">
@@ -997,7 +1006,7 @@
       </notes>
       <segment>
         <source>Gegenstände</source>
-        <target>Gegenstände</target>
+        <target>Objects</target>
       </segment>
     </unit>
     <unit id="UfaHlFI" name="Ausbauten">
@@ -1006,7 +1015,7 @@
       </notes>
       <segment>
         <source>Ausbauten</source>
-        <target>Ausbauten</target>
+        <target>Travaux</target>
       </segment>
     </unit>
     <unit id="32LY7bW" name="3f5fb3f">
@@ -1017,8 +1026,7 @@
       <segment>
         <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</source>
-        <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</target>
+        <target>Seul les héros peuvent effectuer des améliorations. En tant qu'habitant, vous ne bénéficiez pas des avantages de celles-ci.</target>
       </segment>
     </unit>
     <unit id="XhECS_Z" name="Stufe %level%">
@@ -1036,7 +1044,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Mein Haus ausbauen</target>
+        <target>Upgrading your home</target>
       </segment>
     </unit>
     <unit id="J53z_38" name="10e9370">
@@ -1045,7 +1053,7 @@
       </notes>
       <segment>
         <source>Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.</source>
-        <target>Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.</target>
+        <target>Upgrading your home means you will be better defended during the midnight attack!</target>
       </segment>
     </unit>
     <unit id="9.thJKR" name="235f5fc">
@@ -1054,7 +1062,7 @@
       </notes>
       <segment>
         <source>Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.</source>
-        <target>Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.</target>
+        <target>After the first upgrade, you will also be able to carry out special projects...</target>
       </segment>
     </unit>
     <unit id="LpICvqt" name="Bauen">
@@ -1063,7 +1071,7 @@
       </notes>
       <segment>
         <source>Bauen</source>
-        <target>Bauen</target>
+        <target>Build</target>
       </segment>
     </unit>
     <unit id="0uS2PQd" name="44a6b27">
@@ -1072,7 +1080,7 @@
       </notes>
       <segment>
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
-        <target>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</target>
+        <target>Pour améliorer votre maison, la ville a besoin du chantier suivant :</target>
       </segment>
     </unit>
     <unit id="N6UlT0G" name="Für diesen Ausbau benötigst du folgende Gegenstände:">
@@ -1081,7 +1089,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau benötigst du folgende Gegenstände:</source>
-        <target>Für diesen Ausbau benötigst du folgende Gegenstände:</target>
+        <target>Cette amélioration nécessite les ressources suivantes :</target>
       </segment>
     </unit>
     <unit id="1XZ6TGN" name="Für diesen Ausbau werden keine Gegenstände benötigt.">
@@ -1090,7 +1098,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau werden keine Gegenstände benötigt.</source>
-        <target>Für diesen Ausbau werden keine Gegenstände benötigt.</target>
+        <target>Cette amélioration ne nécessite aucun objet.</target>
       </segment>
     </unit>
     <unit id="x7duHnG" name="f68beef">
@@ -1099,7 +1107,7 @@
       </notes>
       <segment>
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
-        <target>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</target>
+        <target>Vous pouvez effectuer les travaux de construction suivants sur votre maison. Chaque amélioration vous apporte des avantages particuliers.</target>
       </segment>
     </unit>
     <unit id="r5DiSCv" name="Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.">
@@ -1117,7 +1125,7 @@
       </notes>
       <segment>
         <source>Erfordert</source>
-        <target>Erfordert</target>
+        <target>Nécessite</target>
       </segment>
     </unit>
     <unit id="MzBikVy" name="Einbauen">
@@ -1126,7 +1134,7 @@
       </notes>
       <segment>
         <source>Einbauen</source>
-        <target>Einbauen</target>
+        <target>Install</target>
       </segment>
     </unit>
     <unit id="lxPyIGw" name="Upgrade auf St. %level%">
@@ -1135,7 +1143,7 @@
       </notes>
       <segment>
         <source>Upgrade auf St. %level%</source>
-        <target>Upgrade auf St. %level%</target>
+        <target>Upgrade to level. %level%</target>
       </segment>
     </unit>
     <unit id="W2jpIKn" name="Kein weiterer Ausbau möglich">
@@ -1144,7 +1152,7 @@
       </notes>
       <segment>
         <source>Kein weiterer Ausbau möglich</source>
-        <target>Kein weiterer Ausbau möglich</target>
+        <target>No more improvement possible</target>
       </segment>
     </unit>
     <unit id="u1m7Ptc" name="Leiche nicht beseitigt!">
@@ -1153,7 +1161,7 @@
       </notes>
       <segment>
         <source>Leiche nicht beseitigt!</source>
-        <target>Leiche nicht beseitigt!</target>
+        <target>Corps non retiré !</target>
       </segment>
     </unit>
     <unit id="u_yrL5q" name="Tot!">
@@ -1162,7 +1170,7 @@
       </notes>
       <segment>
         <source>Tot!</source>
-        <target>Tot!</target>
+        <target>Mort!</target>
       </segment>
     </unit>
     <unit id="fV5wxwj" name="In der Stadt">
@@ -1189,7 +1197,7 @@
       </notes>
       <segment>
         <source>Neue einfache Route</source>
-        <target>Neue einfache Route</target>
+        <target>Nouvelle expédition simple</target>
       </segment>
     </unit>
     <unit id="v88wslY" name="Neue komplexe Route">
@@ -1198,7 +1206,7 @@
       </notes>
       <segment>
         <source>Neue komplexe Route</source>
-        <target>Neue komplexe Route</target>
+        <target>Nouvelle expédition complexe</target>
       </segment>
     </unit>
     <unit id="fn_qM4v" name="Name der Route">
@@ -1207,7 +1215,7 @@
       </notes>
       <segment>
         <source>Name der Route</source>
-        <target>Name der Route</target>
+        <target>Route Name</target>
       </segment>
     </unit>
     <unit id="QL.qpuP" name="d231db0">
@@ -1218,8 +1226,7 @@
       <segment>
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</target>
+        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexent commencent et terminent où vous voulez.</target>
       </segment>
     </unit>
     <unit id="dLIxjrY" name="Nur Helden können komplexe Routen planen.">
@@ -1228,7 +1235,7 @@
       </notes>
       <segment>
         <source>Nur Helden können komplexe Routen planen.</source>
-        <target>Nur Helden können komplexe Routen planen.</target>
+        <target>Seuls les héros peuvent créer des expéditions complexes.</target>
       </segment>
     </unit>
     <unit id="qjGq_3f" name="Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).">
@@ -1246,7 +1253,7 @@
       </notes>
       <segment>
         <source>Dein Rucksack</source>
-        <target>Dein Rucksack</target>
+        <target>Your Rucksack</target>
       </segment>
     </unit>
     <unit id="ZHTFO77" name="%citizen%s Truhe">
@@ -1264,7 +1271,7 @@
       </notes>
       <segment>
         <source>Tot</source>
-        <target>Tot</target>
+        <target>Dead</target>
       </segment>
     </unit>
     <unit id="UJdq1Y9" name="Haus">
@@ -1273,7 +1280,7 @@
       </notes>
       <segment>
         <source>Haus</source>
-        <target>Haus</target>
+        <target>Habitation</target>
       </segment>
     </unit>
     <unit id="7F000hR" name="Todesursache">
@@ -1282,7 +1289,7 @@
       </notes>
       <segment>
         <source>Todesursache</source>
-        <target>Todesursache</target>
+        <target>Cause du décès</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -1291,7 +1298,7 @@
       </notes>
       <segment>
         <source>Letzte Worte</source>
-        <target>Letzte Worte</target>
+        <target>Last words :</target>
       </segment>
     </unit>
     <unit id="tTFjSe8" name="Gemeinschaft">
@@ -1300,7 +1307,7 @@
       </notes>
       <segment>
         <source>Gemeinschaft</source>
-        <target>Gemeinschaft</target>
+        <target>Espionnage et ragots de voisinage</target>
       </segment>
     </unit>
     <unit id="qvB2Xk." name="%citizen% hat bereits %num% Anzeige(n).">
@@ -1309,7 +1316,7 @@
       </notes>
       <segment>
         <source>%citizen% hat bereits %num% Anzeige(n).</source>
-        <target>%citizen% hat bereits %num% Anzeige(n).</target>
+        <target>%citizen% a reçu %num% plainte(s).</target>
       </segment>
     </unit>
     <unit id="S8vqbzA" name="Verbannung">
@@ -1318,7 +1325,7 @@
       </notes>
       <segment>
         <source>Verbannung</source>
-        <target>Verbannung</target>
+        <target>un bannissement</target>
       </segment>
     </unit>
     <unit id="utVVlIc" name="Todesstrafe">
@@ -1327,7 +1334,7 @@
       </notes>
       <segment>
         <source>Todesstrafe</source>
-        <target>Todesstrafe</target>
+        <target>la peine de mort</target>
       </segment>
     </unit>
     <unit id="VfVtXGi" name="Eine davon stammt von dir. Du hast %punishment% gefordert.">
@@ -1336,7 +1343,7 @@
       </notes>
       <segment>
         <source>Eine davon stammt von dir. Du hast %punishment% gefordert.</source>
-        <target>Eine davon stammt von dir. Du hast %punishment% gefordert.</target>
+        <target>L'une d'entre elle est la vôtre. Vous avez demandé %punishment%.</target>
       </segment>
     </unit>
     <unit id="MAnMgpF" name="Anzeige erstatten">
@@ -1345,7 +1352,7 @@
       </notes>
       <segment>
         <source>Anzeige erstatten</source>
-        <target>Anzeige erstatten</target>
+        <target>Register a complaint</target>
       </segment>
     </unit>
     <unit id="hWJotD4" name="Anzeige zurückziehen">
@@ -1354,7 +1361,7 @@
       </notes>
       <segment>
         <source>Anzeige zurückziehen</source>
-        <target>Anzeige zurückziehen</target>
+        <target>Withdraw my complaint</target>
       </segment>
     </unit>
     <unit id="NiNilxh" name="Anzeige: Todesstrafe fordern">
@@ -1363,7 +1370,7 @@
       </notes>
       <segment>
         <source>Anzeige: Todesstrafe fordern</source>
-        <target>Anzeige: Todesstrafe fordern</target>
+        <target>Plainte : Exiger la peine de mort</target>
       </segment>
     </unit>
     <unit id="WwHdsjz" name="Anzeige: Verbannung fordern">
@@ -1372,7 +1379,7 @@
       </notes>
       <segment>
         <source>Anzeige: Verbannung fordern</source>
-        <target>Anzeige: Verbannung fordern</target>
+        <target>Plainte : Demander un bannissement</target>
       </segment>
     </unit>
     <unit id="ZU0JC0f" name="%citizen%s Register">
@@ -1408,7 +1415,8 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</target>
+        <target>Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'évolution du jour.
+Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</target>
       </segment>
     </unit>
     <unit id="PhutSSq" name="667676b">
@@ -1417,7 +1425,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</target>
+        <target>Vous avez été banni et ne pouvez plus voter pour les projets.</target>
       </segment>
     </unit>
     <unit id="_LKq1VW" name="Du hast bereits für folgendes Projekt abgestimmt:">
@@ -1426,7 +1434,7 @@
       </notes>
       <segment>
         <source>Du hast bereits für folgendes Projekt abgestimmt:</source>
-        <target>Du hast bereits für folgendes Projekt abgestimmt:</target>
+        <target>Vous avez voté pour le projet :</target>
       </segment>
     </unit>
     <unit id="HDgwb1i" name="Aktuelles Level:">
@@ -1435,7 +1443,7 @@
       </notes>
       <segment>
         <source>Aktuelles Level:</source>
-        <target>Aktuelles Level:</target>
+        <target>Actuellement :</target>
       </segment>
     </unit>
     <unit id="tSHIOru" name="Nächstes Level:">
@@ -1444,7 +1452,7 @@
       </notes>
       <segment>
         <source>Nächstes Level:</source>
-        <target>Nächstes Level:</target>
+        <target>Prochain niveau :</target>
       </segment>
     </unit>
     <unit id="vihCVqO" name="Max. Level">
@@ -1471,7 +1479,7 @@
       </notes>
       <segment>
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Vote</target>
       </segment>
     </unit>
     <unit id="_fJ2tva" name="Stimmen:">
@@ -1480,7 +1488,7 @@
       </notes>
       <segment>
         <source>Stimmen:</source>
-        <target>Stimmen:</target>
+        <target>Vote(s) :</target>
       </segment>
     </unit>
     <unit id="qOmfTuV" name="87bbdc8">
@@ -1489,7 +1497,7 @@
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
-        <target>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</target>
+        <target>L'atelier permet la fabrication de matériaux de constructions avancés, nécessaires pour certains chantiers en ville. Les objets à transformer sont à placer directement dans la Banque de la ville. Chaque transformation coûte 3PA de base (certains objets peuvent réduire ce coût).</target>
       </segment>
     </unit>
     <unit id="pOcBXgj" name="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
@@ -1498,7 +1506,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</target>
+        <target>Vous avez été banni et ne pouvez plus travailler à l'Atelier.</target>
       </segment>
     </unit>
     <unit id="x01nfA5" name="ea122a1">
@@ -1507,7 +1515,7 @@
       </notes>
       <segment>
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</target>
+        <target>Chaque transformation coûte %ap%</target>
       </segment>
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
@@ -1525,7 +1533,7 @@
       </notes>
       <segment>
         <source>Die Stadt verfügt über eine Manufaktur.</source>
-        <target>Die Stadt verfügt über eine Manufaktur.</target>
+        <target>La ville possède une manufacture.</target>
       </segment>
     </unit>
     <unit id="uLqulMX" name="Vorrat">
@@ -1534,7 +1542,7 @@
       </notes>
       <segment>
         <source>Vorrat</source>
-        <target>Vorrat</target>
+        <target>Stock</target>
       </segment>
     </unit>
     <unit id="hQll2q4" name="Umwandlung">
@@ -1543,7 +1551,7 @@
       </notes>
       <segment>
         <source>Umwandlung</source>
-        <target>Umwandlung</target>
+        <target>Objet obtenu</target>
       </segment>
     </unit>
     <unit id="cXTeIrr" name="Anzahl">
@@ -1552,7 +1560,7 @@
       </notes>
       <segment>
         <source>Anzahl</source>
-        <target>Anzahl</target>
+        <target>Stock</target>
       </segment>
     </unit>
     <unit id="UNwR9SS" name="Zufälliger Gegenstand">
@@ -1561,7 +1569,7 @@
       </notes>
       <segment>
         <source>Zufälliger Gegenstand</source>
-        <target>Zufälliger Gegenstand</target>
+        <target>Objet aléatoire</target>
       </segment>
     </unit>
     <unit id="MkWoNw1" name="Herst.">
@@ -1570,7 +1578,7 @@
       </notes>
       <segment>
         <source>Herst.</source>
-        <target>Herst.</target>
+        <target>Transformer</target>
       </segment>
     </unit>
     <unit id="5WqPLsh" name="Werkstatt-Register">
@@ -1579,7 +1587,7 @@
       </notes>
       <segment>
         <source>Werkstatt-Register</source>
-        <target>Werkstatt-Register</target>
+        <target>Workshop</target>
       </segment>
     </unit>
     <unit id="hbYU0EF" name="095757a">
@@ -1588,7 +1596,7 @@
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</target>
+        <target>Voici l'intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des dons des citoyens. Ils serviront notamment à construire des bâtiments communautaires ou défendre la ville lors des attaques quotidiennes de la Horde.</target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
@@ -1597,7 +1605,7 @@
       </notes>
       <segment>
         <source>Bankregister</source>
-        <target>Bankregister</target>
+        <target>Bank</target>
       </segment>
     </unit>
     <unit id="TygUMhY" name="c03baa1">
@@ -1606,7 +1614,7 @@
       </notes>
       <segment>
         <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</target>
+        <target>Cette section permet de participer à la construction de nouveaux bâtiments. Commencez par récupérer des ressources dans le désert (bois, métal...), puis apportez des Points d'Action (PA) au bâtiment qui vous intéresse le plus.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -1636,7 +1644,7 @@
       </notes>
       <segment>
         <source>Baustellenregister</source>
-        <target>Baustellenregister</target>
+        <target>Constructions</target>
       </segment>
     </unit>
     <unit id="0m1lFXV" name="Wie viele Aktionspunkte möchtest du in den Bau investieren?">
@@ -1654,7 +1662,7 @@
       </notes>
       <segment>
         <source>%rations% Rationen Wasser übrig</source>
-        <target>%rations% Rationen Wasser übrig</target>
+        <target>%rations% rations d'eau restantes</target>
       </segment>
     </unit>
     <unit id="qv0A9J5" name="e390795">
@@ -1672,7 +1680,7 @@
       </notes>
       <segment>
         <source>Die Stadt verfügt über eine %pumpname%.</source>
-        <target>Die Stadt verfügt über eine %pumpname%.</target>
+        <target>La ville dispose d'une Pompe pour le Puits.</target>
       </segment>
     </unit>
     <unit id="syHx5ID" name="Deine Ration Wasser erhalten">
@@ -1681,7 +1689,7 @@
       </notes>
       <segment>
         <source>Deine Ration Wasser erhalten</source>
-        <target>Deine Ration Wasser erhalten</target>
+        <target>Obtain your water ration!</target>
       </segment>
     </unit>
     <unit id="unhSN_Y" name="Eine weitere Ration erhalten">
@@ -1690,7 +1698,7 @@
       </notes>
       <segment>
         <source>Eine weitere Ration erhalten</source>
-        <target>Eine weitere Ration erhalten</target>
+        <target>Extra ration!</target>
       </segment>
     </unit>
     <unit id="eEQntCE" name="Wasser hinzufügen">
@@ -1699,7 +1707,7 @@
       </notes>
       <segment>
         <source>Wasser hinzufügen</source>
-        <target>Wasser hinzufügen</target>
+        <target>Add water</target>
       </segment>
     </unit>
     <unit id="BMwsxtX" name="49de9c9">
@@ -1708,7 +1716,7 @@
       </notes>
       <segment>
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</target>
+        <target>L'eau est indispensable pour récupérer ses Points d'action une fois par jour (en buvant) et pour servir de munitions contre les zombies (l'eau pure détruit les morts-vivants).</target>
       </segment>
     </unit>
     <unit id="96udPgY" name="Brunnenregister">
@@ -1717,7 +1725,7 @@
       </notes>
       <segment>
         <source>Brunnenregister</source>
-        <target>Brunnenregister</target>
+        <target>The Well</target>
       </segment>
     </unit>
     <unit id="Inm9E03" name="Stadt">
@@ -1726,7 +1734,7 @@
       </notes>
       <segment>
         <source>Stadt</source>
-        <target>Stadt</target>
+        <target>Town</target>
       </segment>
     </unit>
     <unit id="uq5UdLr" name="Mein Haus">
@@ -1735,7 +1743,7 @@
       </notes>
       <segment>
         <source>Mein Haus</source>
-        <target>Mein Haus</target>
+        <target>My Home</target>
       </segment>
     </unit>
     <unit id="lQNhv.P" name="Brunnen">
@@ -1744,7 +1752,7 @@
       </notes>
       <segment>
         <source>Brunnen</source>
-        <target>Brunnen</target>
+        <target>Well</target>
       </segment>
     </unit>
     <unit id="Z2xHG8j" name="Bank">
@@ -1762,7 +1770,7 @@
       </notes>
       <segment>
         <source>Bürger</source>
-        <target>Bürger</target>
+        <target>Citizens</target>
       </segment>
     </unit>
     <unit id="OlFB1V6" name="Konstruktionen">
@@ -1771,7 +1779,7 @@
       </notes>
       <segment>
         <source>Konstruktionen</source>
-        <target>Konstruktionen</target>
+        <target>Construction Sites</target>
       </segment>
     </unit>
     <unit id="SVMpOGM" name="Kaum erforschte Zone">
@@ -1816,7 +1824,7 @@
       </notes>
       <segment>
         <source>Punkt(e)</source>
-        <target>Punkt(e)</target>
+        <target>Points</target>
       </segment>
     </unit>
     <unit id="MwvCTQm" name="Stadt in %km% Entfernung">
@@ -1825,7 +1833,7 @@
       </notes>
       <segment>
         <source>Stadt in %km% Entfernung</source>
-        <target>Stadt in %km% Entfernung</target>
+        <target>Ville à %km%</target>
       </segment>
     </unit>
     <unit id="AW6aLpM" name="Am Boden">
@@ -1834,7 +1842,7 @@
       </notes>
       <segment>
         <source>Am Boden</source>
-        <target>Am Boden</target>
+        <target>Par terre</target>
       </segment>
     </unit>
     <unit id="uBY6LwO" name="Temporäre Zonenkontrolle">
@@ -1843,7 +1851,7 @@
       </notes>
       <segment>
         <source>Temporäre Zonenkontrolle</source>
-        <target>Temporäre Zonenkontrolle</target>
+        <target>Contrôle temporaire</target>
       </segment>
     </unit>
     <unit id="V566.Sb" name="%z% Zombies kontrollieren diese Zone!">
@@ -1852,7 +1860,7 @@
       </notes>
       <segment>
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% Zombies kontrollieren diese Zone!</target>
+        <target>%z% zombies contrôlent cette zone !</target>
       </segment>
     </unit>
     <unit id="5GwqUxA" name="d4294d0">
@@ -1861,7 +1869,7 @@
       </notes>
       <segment>
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</target>
+        <target>C'est votre chance ! Saisissez là et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
       </segment>
     </unit>
     <unit id="1lHHd11" name="c57da02">
@@ -1870,7 +1878,7 @@
       </notes>
       <segment>
         <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</target>
+        <target>Votre Tenue de camouflage vous permet de vous déplacer sans être vu(e).</target>
       </segment>
     </unit>
     <unit id="DJhmFr9" name="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
@@ -1879,7 +1887,7 @@
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</target>
+        <target>toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
       </segment>
     </unit>
     <unit id="Zkh813p" name="c9643dc">
@@ -1888,7 +1896,7 @@
       </notes>
       <segment>
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</source>
-        <target>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</target>
+        <target>Vous avez été surpris et maintenant vous êtes entouré de zombies ! Si vous ne faites rien, vous allez mourir ici ce soir...</target>
       </segment>
     </unit>
     <unit id="EV7eyTa" name="Hilfe rufen!">
@@ -1897,7 +1905,7 @@
       </notes>
       <segment>
         <source>Hilfe rufen!</source>
-        <target>Hilfe rufen!</target>
+        <target>Demander de l'aide !</target>
       </segment>
     </unit>
     <unit id="9IuEojL" name="Die Flucht wagen!">
@@ -1906,7 +1914,7 @@
       </notes>
       <segment>
         <source>Die Flucht wagen!</source>
-        <target>Die Flucht wagen!</target>
+        <target>Prendre la fuite !</target>
       </segment>
     </unit>
     <unit id="vTDaFPO" name="Gegen einen Zombie kämpfen!">
@@ -1915,7 +1923,7 @@
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>Gegen einen Zombie kämpfen!</target>
+        <target>Attaquer un zombie !</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
@@ -1924,7 +1932,7 @@
       </notes>
       <segment>
         <source>Diese Zone</source>
-        <target>Diese Zone</target>
+        <target>Zone</target>
       </segment>
     </unit>
     <unit id="X_hg9YY" name="Es muss noch aufgeräumt werden">
@@ -1933,7 +1941,7 @@
       </notes>
       <segment>
         <source>Es muss noch aufgeräumt werden</source>
-        <target>Es muss noch aufgeräumt werden</target>
+        <target>Reste à déblayer</target>
       </segment>
     </unit>
     <unit id="tJrpqeH" name="Ruine">
@@ -1951,7 +1959,7 @@
       </notes>
       <segment>
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
-        <target>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</target>
+        <target>La zone est épuisée. Vous ne trouverez plus d'objet de valeur ici.</target>
       </segment>
     </unit>
     <unit id="M8h1dhU" name="Stadt betreten">
@@ -1960,7 +1968,7 @@
       </notes>
       <segment>
         <source>Stadt betreten</source>
-        <target>Stadt betreten</target>
+        <target>Entrer en ville</target>
       </segment>
     </unit>
     <unit id="WrJhBrF" name="In die Stadt zurückkehren">
@@ -1969,7 +1977,7 @@
       </notes>
       <segment>
         <source>In die Stadt zurückkehren</source>
-        <target>In die Stadt zurückkehren</target>
+        <target>Se téléporter en ville</target>
       </segment>
     </unit>
     <unit id="Dc6dT95" name="a2885f4">
@@ -1978,7 +1986,7 @@
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+        <target>Vous avez déjà creusé dans cette zone. La prochaine fouille est possible dans :</target>
       </segment>
     </unit>
     <unit id="IUt.xlO" name="In dieser Zone graben">
@@ -1987,7 +1995,7 @@
       </notes>
       <segment>
         <source>In dieser Zone graben</source>
-        <target>In dieser Zone graben</target>
+        <target>Fouiller les environs</target>
       </segment>
     </unit>
     <unit id="K5c71RM" name="Nächste automatische Ausgrabung:">
@@ -1996,7 +2004,7 @@
       </notes>
       <segment>
         <source>Nächste automatische Ausgrabung:</source>
-        <target>Nächste automatische Ausgrabung:</target>
+        <target>Prochaine fouille auto :</target>
       </segment>
     </unit>
     <unit id="GwPmPsr" name="%ruin% durchsuchen">
@@ -2005,7 +2013,7 @@
       </notes>
       <segment>
         <source>%ruin% durchsuchen</source>
-        <target>%ruin% durchsuchen</target>
+        <target>Fouiller %ruin%</target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -2014,7 +2022,7 @@
       </notes>
       <segment>
         <source>Zone freiräumen</source>
-        <target>Zone freiräumen</target>
+        <target>Déblayer la zone</target>
       </segment>
     </unit>
     <unit id="ftAsu0Q" name="Müll durchwühlen">
@@ -2023,7 +2031,7 @@
       </notes>
       <segment>
         <source>Müll durchwühlen</source>
-        <target>Müll durchwühlen</target>
+        <target>Fouiller les poubelles</target>
       </segment>
     </unit>
     <unit id="s5pZm5S" name="Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!">
@@ -2032,7 +2040,7 @@
       </notes>
       <segment>
         <source>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</source>
-        <target>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</target>
+        <target>Si vous ramassez ou laissez tomber un objet, vous perdez votre camouflage !</target>
       </segment>
     </unit>
     <unit id="AcukbqL" name="Zonenregister">
@@ -2041,7 +2049,7 @@
       </notes>
       <segment>
         <source>Zonenregister</source>
-        <target>Zonenregister</target>
+        <target>Discussions</target>
       </segment>
     </unit>
     <unit id="T478uEB" name="Zonenchat">
@@ -2059,7 +2067,7 @@
       </notes>
       <segment>
         <source>Stadtregister</source>
-        <target>Stadtregister</target>
+        <target>Town register</target>
       </segment>
     </unit>
     <unit id="eR2SPb." name="Das Stadtregister steht nicht zur Verfügung.">
@@ -2077,7 +2085,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist TOT!</source>
-        <target>Herzlichen Glückwunsch, du bist TOT!</target>
+        <target>Bravo, vous êtes mort !</target>
       </segment>
     </unit>
     <unit id="AEDztPF" name="Du hast %sp% Seelenpunkte gewonnen!">
@@ -2086,7 +2094,7 @@
       </notes>
       <segment>
         <source>Du hast %sp% Seelenpunkte gewonnen!</source>
-        <target>Du hast %sp% Seelenpunkte gewonnen!</target>
+        <target>Vous avez gagné %sp% points d'âme !</target>
       </segment>
     </unit>
     <unit id="wD7XaTz" name="Du hast folgende Auszeichnungen verliehen bekommen:">
@@ -2095,7 +2103,7 @@
       </notes>
       <segment>
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Du hast folgende Auszeichnungen verliehen bekommen:</target>
+        <target>Vous avez gagné les distinctions suivantes :</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -2104,7 +2112,7 @@
       </notes>
       <segment>
         <source>Begrüße den Tod wie es sich gehört...</source>
-        <target>Begrüße den Tod wie es sich gehört...</target>
+        <target>Accueillez la mort comme il se doit...</target>
       </segment>
     </unit>
     <unit id="uFR9Aa." name="Der Tod in &quot;MyHordes&quot; ist nicht weiter schlimm!">
@@ -2113,7 +2121,7 @@
       </notes>
       <segment>
         <source>Der Tod in "MyHordes" ist nicht weiter schlimm!</source>
-        <target>Der Tod in "MyHordes" ist nicht weiter schlimm!</target>
+        <target>La mort dans "MyHordes" n'est pas grave !</target>
       </segment>
     </unit>
     <unit id="mkPbtI8" name="ff55b29">
@@ -2122,7 +2130,7 @@
       </notes>
       <segment>
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</target>
+        <target>Vous pouvez renaître dans une nouvelle ville aussi souvent que vous le souhaitez. Soyez inventif, essayez différentes options et trouvez votre propre style de jeu !</target>
       </segment>
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
@@ -2131,7 +2139,7 @@
       </notes>
       <segment>
         <source>Wiedergeboren werden</source>
-        <target>Wiedergeboren werden</target>
+        <target>Valider la mort</target>
       </segment>
     </unit>
     <unit id=".1viyI2" name="Zeitung">
@@ -2140,7 +2148,7 @@
       </notes>
       <segment>
         <source>Zeitung</source>
-        <target>Zeitung</target>
+        <target>Gazette</target>
       </segment>
     </unit>
     <unit id="r6ej4.8" name="Aktionspunkte">
@@ -2149,7 +2157,7 @@
       </notes>
       <segment>
         <source>Aktionspunkte</source>
-        <target>Aktionspunkte</target>
+        <target>Action Points</target>
       </segment>
     </unit>
     <unit id="dWg5UEc" name="0e07264">
@@ -2200,7 +2208,7 @@
       </notes>
       <segment>
         <source>Verbannt</source>
-        <target>Verbannt</target>
+        <target>Shunned</target>
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">
@@ -2211,8 +2219,7 @@
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</target>
+        <target>Les citoyens ont décidé de vous exclure de la communauté. Certains actions net sont désormais plus disponibles pour vous.</target>
       </segment>
     </unit>
     <unit id="Qc.QL70" name="a2b0db7">
@@ -2223,8 +2230,7 @@
       <segment>
         <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.</source>
-        <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</target>
+        <target>Selon la profession que vous choisissez, vous aurez différentes actions et manières de jouer disponibles lors de cette ville.</target>
       </segment>
     </unit>
     <unit id="kw2Iw8G" name="0a39755">
@@ -2235,8 +2241,8 @@
       <segment>
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
+        <target>En tant que %hero%, un jour héros vous sera déduit chaque jour.
+                Si vous êtes toujours en ville et n'en avez plus, vous continuerez la partie en tant qu'habitant.</target>
       </segment>
     </unit>
     <unit id="hc1h_MP" name="Held">
@@ -2245,7 +2251,7 @@
       </notes>
       <segment>
         <source>Held</source>
-        <target>Held</target>
+        <target>Hero</target>
       </segment>
     </unit>
     <unit id="nbN6CQm" name="f843777">
@@ -2256,8 +2262,8 @@
       <segment>
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</target>
+        <target>En tant qu'%citizen%, vous n'utiliserez pas de jours héros.
+                Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -2266,7 +2272,7 @@
       </notes>
       <segment>
         <source>Einwohner</source>
-        <target>Einwohner</target>
+        <target>Citizen</target>
       </segment>
     </unit>
     <unit id="ssGV66L" name="Wähle einen Beruf">
@@ -2275,7 +2281,7 @@
       </notes>
       <segment>
         <source>Wähle einen Beruf</source>
-        <target>Wähle einen Beruf</target>
+        <target>Choose your profession</target>
       </segment>
     </unit>
     <unit id="CreTS5x" name="Alle Einträge anzeigen">
@@ -2284,7 +2290,7 @@
       </notes>
       <segment>
         <source>Alle Einträge anzeigen</source>
-        <target>Alle Einträge anzeigen</target>
+        <target>Afficher toutes les entrées</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -2293,7 +2299,7 @@
       </notes>
       <segment>
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Day</target>
       </segment>
     </unit>
     <unit id="UTfIdgy" name="Clean">
@@ -2338,7 +2344,7 @@
       </notes>
       <segment>
         <source>Immunisiert</source>
-        <target>Immunisiert</target>
+        <target>Immunised</target>
       </segment>
     </unit>
     <unit id="dIXELzM" name="Den Tod besiegen">
@@ -2383,7 +2389,7 @@
       </notes>
       <segment>
         <source>Dehydriert</source>
-        <target>Dehydriert</target>
+        <target>Dehydrated</target>
       </segment>
     </unit>
     <unit id="4cxMzfa" name="Rauschzustand">
@@ -2410,7 +2416,7 @@
       </notes>
       <segment>
         <source>Infektion</source>
-        <target>Infektion</target>
+        <target>General Infection</target>
       </segment>
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
@@ -2419,7 +2425,7 @@
       </notes>
       <segment>
         <source>Trunkenheit</source>
-        <target>Trunkenheit</target>
+        <target>Drunk</target>
       </segment>
     </unit>
     <unit id="EPpwyta" name="Kater">
@@ -2428,7 +2434,7 @@
       </notes>
       <segment>
         <source>Kater</source>
-        <target>Kater</target>
+        <target>Hangover</target>
       </segment>
     </unit>
     <unit id="E6kbVNC" name="Verwundung - Kopf">
@@ -2437,7 +2443,7 @@
       </notes>
       <segment>
         <source>Verwundung - Kopf</source>
-        <target>Verwundung - Kopf</target>
+        <target>Blessure - Head</target>
       </segment>
     </unit>
     <unit id="yI0ueHI" name="Verwundung - Hände">
@@ -2446,7 +2452,7 @@
       </notes>
       <segment>
         <source>Verwundung - Hände</source>
-        <target>Verwundung - Hände</target>
+        <target>Blessure - Hand</target>
       </segment>
     </unit>
     <unit id="lfaLaVU" name="Verwundung - Arme">
@@ -2455,7 +2461,7 @@
       </notes>
       <segment>
         <source>Verwundung - Arme</source>
-        <target>Verwundung - Arme</target>
+        <target>Blessure - Arm</target>
       </segment>
     </unit>
     <unit id="KRP.Csa" name="Verwundung - Bein">
@@ -2464,7 +2470,7 @@
       </notes>
       <segment>
         <source>Verwundung - Bein</source>
-        <target>Verwundung - Bein</target>
+        <target>Blessure - Leg</target>
       </segment>
     </unit>
     <unit id="15_YwON" name="Verwundung - Auge">
@@ -2473,7 +2479,7 @@
       </notes>
       <segment>
         <source>Verwundung - Auge</source>
-        <target>Verwundung - Auge</target>
+        <target>Blessure - Eye</target>
       </segment>
     </unit>
     <unit id="iU.tgTh" name="Verwundung - Fuß">
@@ -2482,7 +2488,7 @@
       </notes>
       <segment>
         <source>Verwundung - Fuß</source>
-        <target>Verwundung - Fuß</target>
+        <target>Blessure - Foot</target>
       </segment>
     </unit>
     <unit id="72h0.SN" name="Ghul">
@@ -2491,7 +2497,7 @@
       </notes>
       <segment>
         <source>Ghul</source>
-        <target>Ghul</target>
+        <target>Ghoul</target>
       </segment>
     </unit>
     <unit id="AdfvkQI" name="Bandagiert">
@@ -2500,7 +2506,7 @@
       </notes>
       <segment>
         <source>Bandagiert</source>
-        <target>Bandagiert</target>
+        <target>Bandage</target>
       </segment>
     </unit>
     <unit id="UUnigxa" name="Abgelegenes Haus">
@@ -2509,7 +2515,7 @@
       </notes>
       <segment>
         <source>Abgelegenes Haus</source>
-        <target>Abgelegenes Haus</target>
+        <target>Maison d'un citoyen</target>
       </segment>
     </unit>
     <unit id="BuoM8x8" name="Albi Supermarkt">
@@ -2527,7 +2533,7 @@
       </notes>
       <segment>
         <source>Alte Höhle</source>
-        <target>Alte Höhle</target>
+        <target>Caverne</target>
       </segment>
     </unit>
     <unit id="7N1b8YP" name="Alte Hydraulikpumpe">
@@ -2536,7 +2542,7 @@
       </notes>
       <segment>
         <source>Alte Hydraulikpumpe</source>
-        <target>Alte Hydraulikpumpe</target>
+        <target>Vieille Pompe Hydraulique</target>
       </segment>
     </unit>
     <unit id="S85DdXs" name="Alter Fahrradverleih">
@@ -2554,7 +2560,7 @@
       </notes>
       <segment>
         <source>Alter Rangierbahnhof</source>
-        <target>Alter Rangierbahnhof</target>
+        <target>Gare de triage désertée</target>
       </segment>
     </unit>
     <unit id="gjzBe3w" name="Altes Feldkrankenhaus">
@@ -2572,7 +2578,7 @@
       </notes>
       <segment>
         <source>Altes Flugfeld</source>
-        <target>Altes Flugfeld</target>
+        <target>Old Aerodrome</target>
       </segment>
     </unit>
     <unit id="Kt0e8zP" name="Altes Polizeipräsidium">
@@ -2581,7 +2587,7 @@
       </notes>
       <segment>
         <source>Altes Polizeipräsidium</source>
-        <target>Altes Polizeipräsidium</target>
+        <target>Ancien commissariat</target>
       </segment>
     </unit>
     <unit id="GRuqR5L" name="Atombunker">
@@ -2590,7 +2596,7 @@
       </notes>
       <segment>
         <source>Atombunker</source>
-        <target>Atombunker</target>
+        <target>Nuclear Bunker</target>
       </segment>
     </unit>
     <unit id="pSDkjjr" name="Atomic Cafe">
@@ -2599,7 +2605,7 @@
       </notes>
       <segment>
         <source>Atomic Cafe</source>
-        <target>Atomic Cafe</target>
+        <target>Mac's Atomic Cafe</target>
       </segment>
     </unit>
     <unit id="yMlxN96" name="Autobahnraststätte">
@@ -2608,7 +2614,7 @@
       </notes>
       <segment>
         <source>Autobahnraststätte</source>
-        <target>Autobahnraststätte</target>
+        <target>Blocked Road</target>
       </segment>
     </unit>
     <unit id="wuZIxTk" name="Autowracks">
@@ -2617,7 +2623,7 @@
       </notes>
       <segment>
         <source>Autowracks</source>
-        <target>Autowracks</target>
+        <target>Disused Car Park</target>
       </segment>
     </unit>
     <unit id="lVmO2OQ" name="Bar der verlorenen Hoffnungen">
@@ -2662,7 +2668,7 @@
       </notes>
       <segment>
         <source>Dukes Villa</source>
-        <target>Dukes Villa</target>
+        <target>Duke's Villa</target>
       </segment>
     </unit>
     <unit id=".ebOOu8" name="Dunkler Hain">
@@ -2707,7 +2713,7 @@
       </notes>
       <segment>
         <source>E-KEA</source>
-        <target>E-KEA</target>
+        <target>PI-KEYA Furniture</target>
       </segment>
     </unit>
     <unit id="04ljFsj" name="Familiengrab">
@@ -2716,7 +2722,7 @@
       </notes>
       <segment>
         <source>Familiengrab</source>
-        <target>Familiengrab</target>
+        <target>Family Tomb</target>
       </segment>
     </unit>
     <unit id="Obfx4xd" name="Fast Food Restaurant">
@@ -2734,7 +2740,7 @@
       </notes>
       <segment>
         <source>Flugzeugwrack</source>
-        <target>Flugzeugwrack</target>
+        <target>Plane Crash Site</target>
       </segment>
     </unit>
     <unit id="jeS33HC" name="Gartenhaus">
@@ -2752,7 +2758,7 @@
       </notes>
       <segment>
         <source>Geplünderte Mall</source>
-        <target>Geplünderte Mall</target>
+        <target>Looted Supermarket</target>
       </segment>
     </unit>
     <unit id=".fpd4co" name="Höhle">
@@ -2770,7 +2776,7 @@
       </notes>
       <segment>
         <source>Indianerfriedhof</source>
-        <target>Indianerfriedhof</target>
+        <target>Indian Burial Ground</target>
       </segment>
     </unit>
     <unit id="ruzMP1g" name="Jahrmarktstand">
@@ -2779,7 +2785,7 @@
       </notes>
       <segment>
         <source>Jahrmarktstand</source>
-        <target>Jahrmarktstand</target>
+        <target>Stand de fête foraine</target>
       </segment>
     </unit>
     <unit id="xBqXQ3h" name="Kleines Haus">
@@ -2833,7 +2839,7 @@
       </notes>
       <segment>
         <source>Leeres Parkhaus</source>
-        <target>Leeres Parkhaus</target>
+        <target>Parking désaffecté</target><!-- Abandoned Park / Disused Car Park ? FIXME -->
       </segment>
     </unit>
     <unit id="PLyihQR" name="Liegengebliebener Kampfpanzer">
@@ -2851,7 +2857,7 @@
       </notes>
       <segment>
         <source>Motel 'Dusk'</source>
-        <target>Motel 'Dusk'</target>
+        <target>Motel 666 Dusk</target>
       </segment>
     </unit>
     <unit id="aXgXOJr" name="Militärischer Wachposten">
@@ -2869,7 +2875,7 @@
       </notes>
       <segment>
         <source>Postfiliale</source>
-        <target>Postfiliale</target>
+        <target>Post Office</target>
       </segment>
     </unit>
     <unit id="Xf.22AP" name="Räuberhöhle">
@@ -2878,7 +2884,7 @@
       </notes>
       <segment>
         <source>Räuberhöhle</source>
-        <target>Räuberhöhle</target>
+        <target>Caverne de voleurs</target>
       </segment>
     </unit>
     <unit id="BoMLh_D" name="Schützengraben">
@@ -2905,7 +2911,7 @@
       </notes>
       <segment>
         <source>Tante Emma Laden</source>
-        <target>Tante Emma Laden</target>
+        <target>Mini-market</target>
       </segment>
     </unit>
     <unit id="19QLQFs" name="Truck 'Rathaus auf Rädern'">
@@ -2959,7 +2965,7 @@
       </notes>
       <segment>
         <source>Verlassene Baustelle</source>
-        <target>Verlassene Baustelle</target>
+        <target>Abandoned Construction Site</target>
       </segment>
     </unit>
     <unit id="gy.Tm7F" name="Verlassener Brunnen">
@@ -2977,7 +2983,7 @@
       </notes>
       <segment>
         <source>Verlassene Silos</source>
-        <target>Verlassene Silos</target>
+        <target>Disused Silos</target>
       </segment>
     </unit>
     <unit id="dSZWbRo" name="Versperrte Straße">
@@ -3049,7 +3055,7 @@
       </notes>
       <segment>
         <source>%citizen% hat der Stadt folgendes gespendet: %item%</source>
-        <target>%citizen% hat der Stadt folgendes gespendet: %item%</target>
+        <target>%citizen% a donné %item% à la ville.</target>
       </segment>
     </unit>
     <unit id="d8vpz_8" name="%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%">
@@ -3058,7 +3064,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</target>
+        <target>%citizen% a pris %item% dans le coffre de la Banque !</target>
       </segment>
     </unit>
     <unit id="R43wWvR" name="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
@@ -3067,7 +3073,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
-        <target>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</target>
+        <target>%citizen% a déposé : %item%.</target>
       </segment>
     </unit>
     <unit id="6zpuvqo" name="%citizen% hat diesen Gegenstand mitgenommen: %item%">
@@ -3076,7 +3082,7 @@
       </notes>
       <segment>
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
-        <target>%citizen% hat diesen Gegenstand mitgenommen: %item%</target>
+        <target>%citizen% a ramassé %item% qui traînait là...</target>
       </segment>
     </unit>
     <unit id="Msm_smP" name="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
@@ -3085,7 +3091,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mehr Wasser genommen, als erlaubt ist...</source>
-        <target>%citizen% hat mehr Wasser genommen, als erlaubt ist...</target>
+        <target>%citizen% has decided it was ok for them to take more water from the well than had previously been anticipated...</target>
       </segment>
     </unit>
     <unit id="EMJ_Kff" name="%citizen% hat eine Ration Wasser genommen.">
@@ -3094,7 +3100,7 @@
       </notes>
       <segment>
         <source>%citizen% hat eine Ration Wasser genommen.</source>
-        <target>%citizen% hat eine Ration Wasser genommen.</target>
+        <target>%citizen% has taken a ration of water.</target>
       </segment>
     </unit>
     <unit id="mdts1Bm" name="195b155">
@@ -3103,7 +3109,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</target>
+        <target>A new building has been constructed: %plan%. This construction used: %list%</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
@@ -3112,7 +3118,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%.</source>
-        <target>Es wurde ein neues Gebäude gebaut: %plan%.</target>
+        <target>A new building has been constructed: %plan%.</target>
       </segment>
     </unit>
     <unit id="WsxqQWs" name="%citizen% wurde von %zombies% zerfleischt!">
@@ -3121,7 +3127,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %zombies% zerfleischt!</source>
-        <target>%citizen% wurde von %zombies% zerfleischt!</target>
+        <target>%citizen% was devoured by %zombies% zombie(s)!</target>
       </segment>
     </unit>
     <unit id="26dC9N0" name="5206011">
@@ -3166,7 +3172,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seinen letzten Atemzug getan: %cod%!</source>
-        <target>%citizen% hat seinen letzten Atemzug getan: %cod%!</target>
+        <target>%citizen% nous a quitté : %cod%!</target>
       </segment>
     </unit>
     <unit id="gaihf5j" name="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
@@ -3175,7 +3181,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</source>
-        <target>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</target>
+        <target>%citizen% a quitté la ville vers %direction%.</target>
       </segment>
     </unit>
     <unit id="o9wb9sd" name="%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.">
@@ -3184,7 +3190,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</target>
+        <target>%citizen% est entré dans la ville depuis %direction%.</target>
       </segment>
     </unit>
     <unit id="PFgh04I" name="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
@@ -3193,7 +3199,7 @@
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</target>
+        <target>%citizen% (%profession%) est parti vers le %direction%.</target>
       </segment>
     </unit>
     <unit id="07sRf7u" name="%citizen% (%profession%) ist aus dem %direction% angekommen.">
@@ -3202,7 +3208,7 @@
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist aus dem %direction% angekommen.</source>
-        <target>%citizen% (%profession%) ist aus dem %direction% angekommen.</target>
+        <target>%citizen% (%profession%) est arrivé depuis %direction%.</target>
       </segment>
     </unit>
     <unit id="pCkOgOT" name="%citizen% hat ein(e,n) %item% ausgegraben!">
@@ -3211,7 +3217,7 @@
       </notes>
       <segment>
         <source>%citizen% hat ein(e,n) %item% ausgegraben!</source>
-        <target>%citizen% hat ein(e,n) %item% ausgegraben!</target>
+        <target>%citizen% a trouvé %item%.</target>
       </segment>
     </unit>
     <unit id="nHE1X2F" name="%citizen% hat hier durch Graben nichts gefunden...">
@@ -3220,7 +3226,7 @@
       </notes>
       <segment>
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
-        <target>%citizen% hat hier durch Graben nichts gefunden...</target>
+        <target>Après des recherches épuisantes, %citizen% n'a rien trouvé d'autre que la vacuité de ces moments perdus...</target>
       </segment>
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
@@ -3229,7 +3235,7 @@
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% hat etwas Schutt entfernt.</target>
+        <target>%citizen% a déplayé quelques débris.</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
@@ -3238,7 +3244,7 @@
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</target>
+        <target>%citizen% a déterré le bâtiment, révélant %type%. Hourra !</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
@@ -3283,7 +3289,7 @@
       </notes>
       <segment>
         <source>... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!</source>
-        <target>... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!</target>
+        <target>... qui sont grandes ouvertes ! %num% zombies sont entrés dans la ville !</target>
       </segment>
     </unit>
     <unit id="4ETWhR_" name="%num% Zombies sind durch unsere Verteidigung gebrochen!">
@@ -3301,7 +3307,7 @@
       </notes>
       <segment>
         <source>Nicht ein Zombie hat die Stadt betreten!</source>
-        <target>Nicht ein Zombie hat die Stadt betreten!</target>
+        <target>Aucun Zombie n'a pu rentrer en ville !</target>
       </segment>
     </unit>
     <unit id="qdFcLMD" name="%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.">
@@ -3310,7 +3316,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</source>
-        <target>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</target>
+        <target>%citizen% s'est débarrasé du corps de %disposed%.</target>
       </segment>
     </unit>
     <unit id="33.BZ8y" name="3f16555">
@@ -3319,7 +3325,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.</target>
+        <target>%citizen% s'est débarrassé du corps de %disposed% en l'arrosant d'eau.</target>
       </segment>
     </unit>
     <unit id="SS1lJ6A" name="f02d89f">
@@ -3382,7 +3388,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</source>
-        <target>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</target>
+        <target>%citizen% a tué %kills% zombie(s) avec %item%.</target>
       </segment>
     </unit>
     <unit id="41pWf5b" name="%citizen% hat %kills% Zombies getötet.">
@@ -3391,7 +3397,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %kills% Zombies getötet.</source>
-        <target>%citizen% hat %kills% Zombies getötet.</target>
+        <target>%citizen% a tué %kills% zombies.</target>
       </segment>
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
@@ -3400,7 +3406,7 @@
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
-        <target>Leiche aus der Stadt ziehen</target>
+        <target>Sortir le cadavre</target>
       </segment>
     </unit>
     <unit id="hXIZAOO" name="Leiche mit Wasser übergießen">
@@ -3409,7 +3415,7 @@
       </notes>
       <segment>
         <source>Leiche mit Wasser übergießen</source>
-        <target>Leiche mit Wasser übergießen</target>
+        <target>Arroser le cadavre</target>
       </segment>
     </unit>
     <unit id="4hCJabi" name="Leiche grillen">
@@ -3418,7 +3424,25 @@
       </notes>
       <segment>
         <source>Leiche grillen</source>
-        <target>Leiche grillen</target>
+        <target>Faire griller au Crémato-Cue</target>
+      </segment>
+    </unit>
+    <unit id="yFVdfG6" name="Rucksack in der Bank ausleeren">
+      <notes>
+        <note category="german">Rucksack in der Bank ausleeren</note>
+      </notes>
+      <segment>
+        <source>Rucksack in der Bank ausleeren</source>
+        <target>Vider son sac dans la banque</target>
+      </segment>
+    </unit>
+    <unit id="mwAKBpm" name="Meine objekte">
+      <notes>
+        <note category="german">Meine Objekte</note>
+      </notes>
+      <segment>
+        <source>Meine objekte</source>
+        <target>Mes objets</target>
       </segment>
     </unit>
     <unit id="MJMhV5L" name="Kleine Stadt">
@@ -3472,7 +3496,7 @@
       </notes>
       <segment>
         <source>Nordosten</source>
-        <target>Nordosten</target>
+        <target>Nord-East</target>
       </segment>
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
@@ -3481,7 +3505,7 @@
       </notes>
       <segment>
         <source>Nordwesten</source>
-        <target>Nordwesten</target>
+        <target>North-West</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3490,7 +3514,7 @@
       </notes>
       <segment>
         <source>Norden</source>
-        <target>Norden</target>
+        <target>North</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3499,7 +3523,7 @@
       </notes>
       <segment>
         <source>Südosten</source>
-        <target>Südosten</target>
+        <target>South-East</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3508,7 +3532,7 @@
       </notes>
       <segment>
         <source>Südwesten</source>
-        <target>Südwesten</target>
+        <target>South-West</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3517,7 +3541,7 @@
       </notes>
       <segment>
         <source>Süden</source>
-        <target>Süden</target>
+        <target>South</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3526,7 +3550,7 @@
       </notes>
       <segment>
         <source>Osten</source>
-        <target>Osten</target>
+        <target>East</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3535,7 +3559,7 @@
       </notes>
       <segment>
         <source>Westen</source>
-        <target>Westen</target>
+        <target>West</target>
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -3598,7 +3622,7 @@
       </notes>
       <segment>
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>Scavenger</target>
       </segment>
     </unit>
     <unit id="aMWLa_K" name="Wächter">
@@ -3607,7 +3631,7 @@
       </notes>
       <segment>
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>Guardian</target>
       </segment>
     </unit>
     <unit id="N55mPtD" name="Aufklärer">
@@ -3616,7 +3640,7 @@
       </notes>
       <segment>
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>Scout</target>
       </segment>
     </unit>
     <unit id="l9gYoq8" name="Dompteur">
@@ -3625,7 +3649,7 @@
       </notes>
       <segment>
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>Tamer</target>
       </segment>
     </unit>
     <unit id="CcGFUIM" name="Techniker">
@@ -3634,7 +3658,7 @@
       </notes>
       <segment>
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>Technician</target>
       </segment>
     </unit>
     <unit id="gMJ9FD2" name="Schamane">
@@ -3643,7 +3667,7 @@
       </notes>
       <segment>
         <source>Schamane</source>
-        <target>Schamane</target>
+        <target>Shaman</target>
       </segment>
     </unit>
     <unit id="jYiPQYC" name="Einsiedler">
@@ -3652,7 +3676,7 @@
       </notes>
       <segment>
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>Survivalist</target>
       </segment>
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
@@ -3670,7 +3694,7 @@
       </notes>
       <segment>
         <source>Wachturm</source>
-        <target>Wachturm</target>
+        <target>Watchtower</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -3679,7 +3703,7 @@
       </notes>
       <segment>
         <source>Werkstatt</source>
-        <target>Werkstatt</target>
+        <target>Workshop</target>
       </segment>
     </unit>
     <unit id="Wf9i_SY" name="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
@@ -3733,7 +3757,7 @@
       </notes>
       <segment>
         <source>Leere Truhe</source>
-        <target>Leere Truhe</target>
+        <target>Empty Chest</target>
       </segment>
     </unit>
     <unit id="476j_uq" name="Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:">
@@ -3769,7 +3793,7 @@
       </notes>
       <segment>
         <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
-        <target>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</target>
+        <target> Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
       </segment>
     </unit>
     <unit id="Fak6Ovg" name="b6452db">
@@ -3778,7 +3802,7 @@
       </notes>
       <segment>
         <source>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</source>
-        <target>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</target>
+        <target>Déciderez-vous de vous avancer ou de rester derrière les enceintes fortifiées ? Certains pensent qu'il faut être fou, d'autres qu'il faut être malin. Peut-être faut-il être un peu des deux...</target>
       </segment>
     </unit>
     <unit id="v3pLWJA" name="b728cc6">
@@ -3787,7 +3811,7 @@
       </notes>
       <segment>
         <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
-        <target>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</target>
+        <target>Les nuits sont glaciales dans le désert... Une brume de poussière épaisse enveloppe tout et vous entendez des grincements lugubres tout autour de vous. Parfois, vous apercevez une forme indistincte qui se déplace dans les ombres. Pourvu que ce soit votre imagination...</target>
       </segment>
     </unit>
     <unit id="is0j5bp" name="Die Zone untersuchen">
@@ -3796,7 +3820,7 @@
       </notes>
       <segment>
         <source>Die Zone untersuchen</source>
-        <target>Die Zone untersuchen</target>
+        <target>Inspect the zone</target>
       </segment>
     </unit>
     <unit id="Utl2PJa" name="Du schaust dir die Gegend etwas genauer an...">
@@ -3805,7 +3829,7 @@
       </notes>
       <segment>
         <source>Du schaust dir die Gegend etwas genauer an...</source>
-        <target>Du schaust dir die Gegend etwas genauer an...</target>
+        <target>Inspect the area...</target>
       </segment>
     </unit>
     <unit id="BsmmJg2" name="6089085">
@@ -3814,7 +3838,7 @@
       </notes>
       <segment>
         <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
-        <target>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</target>
+        <target>Dormir dans un endroit pareil revient à se suicider, purement et simplement. A vous de voir.</target>
       </segment>
     </unit>
     <unit id="u.HzZ0w" name="bdd1b72">
@@ -3823,7 +3847,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</target>
+        <target>Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite.</target>
       </segment>
     </unit>
     <unit id="I4OeVwm" name="Sich verstecken und die Nacht hier schlafen!">
@@ -3832,7 +3856,7 @@
       </notes>
       <segment>
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>Sich verstecken und die Nacht hier schlafen!</target>
+        <target>Se cacher pour passer la nuit ici !</target>
       </segment>
     </unit>
     <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
@@ -3841,7 +3865,7 @@
       </notes>
       <segment>
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+        <target>Améliorer un peu le campement (bonus permanent faible, 1PA)</target>
       </segment>
     </unit>
     <unit id="XqeL5yu" name="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
@@ -3850,7 +3874,7 @@
       </notes>
       <segment>
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+        <target> Creuser une "tombe" (bonus temporaire moyen, 1PA)</target>
       </segment>
     </unit>
     <unit id="VGRstc7" name="Rucksack auf dem Boden ausleeren">
