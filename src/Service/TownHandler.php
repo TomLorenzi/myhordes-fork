@@ -54,7 +54,7 @@ class TownHandler
     public function triggerAlways( Town $town, bool $flush = false ) {
         $changed = false;
 
-        if ( $town->getDoor() && (($s = $this->timeKeeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
+        if ( $town->getDoor() && !$town->getDevastated() && (($s = $this->timeKeeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
 
             $close_ts = null;
             if ($this->getBuilding( $town, 'small_door_closed_#02', true )) {
@@ -161,7 +161,7 @@ class TownHandler
         return $this->internalAddBuilding( $town, $prototype );
     }
 
-    public function getBuilding(Town &$town, $prototype, $finished = true): ?Building {
+    public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
         if (is_string($prototype))
             $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
 

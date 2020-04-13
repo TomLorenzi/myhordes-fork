@@ -30,15 +30,18 @@
             <div class="padded cell rw-4  rw-md-12 center">
                 {% if zeds_today[0] %}
                     {% if def < zeds_today[1] %}
-                         Our defences won’t stand up to tonight’s attack!
-                        {% if has_battlement %}
-                        <div x-ajax-href="{{ path('town_dashboard') }}">You can help by joining the watchmen tonight!</div>
-                        {% endif %}
+                         <span class="warning">Our defences won’t stand up to tonight’s attack!
+                            {% if has_battlement %}
+                            <div x-ajax-href="{{ path('town_dashboard') }}">You can help by joining the watchmen tonight!</div>
+                            {% endif %}
+                        </span>
                     {% elseif def > zeds_today[1] and def < zeds_today[2] %}
-                        Moyen de def
-                        {% if has_battlement %}
-                        <div x-ajax-href="{{ path('town_dashboard') }}">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
-                        {% endif %}
+                        <span class="warning">
+                            Moyen de def
+                            {% if has_battlement %}
+                            <div x-ajax-href="{{ path('town_dashboard') }}">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
+                            {% endif %}
+                        </span>
                     {% else %}
                         {{ 'Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.'|trans({}, 'game')}}
                     {% endif %}
@@ -56,7 +59,7 @@
                 <li{% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
                 <li{% if active_citizen.wellCounter.taken > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
                 {% if has_watchtower %}<li{% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }}</li>{% endif %}
-                {% if has_levelable_building %}<li{% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }}</li>{% endif %}
+                {% if not town.devastated and has_levelable_building %}<li{% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }}</li>{% endif %}
 				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %}>{{ 'Mein Haus ausbauen'|trans({}, 'game') }}.</li>{% endif %}
                 <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
             </ul>
@@ -86,7 +89,7 @@
             <ul class="overview-list">
                 <li>{{ 'Stadttyp:'|trans({}, 'game') }} <strong>{{ town.type.label|trans({}, 'game') }}</strong></li>
                 <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
-                <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong></li>
+                <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong>{% if town.well < 15 %} <span class="warning">(<img src="{{ asset('build/images/small_warning.gif') }}" alt="" /> {{ 'Gefahr'|trans({}, 'game') }})</span>{% endif %}</li>
                 <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens }}</strong></li>
                 <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{{ zeds_today[1] }} - {{ zeds_today[2] }}</strong></li>
             </ul>

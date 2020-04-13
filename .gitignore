@@ -32,3 +32,4 @@ webpack.config.local.js
 .vscode/
 symfony.lock
 composer.lock
+.idea/

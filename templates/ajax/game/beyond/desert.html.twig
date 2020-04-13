@@ -1,7 +1,6 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
 {% block menu_text %}
     {{ parent() }}
-    <li class="beyond-dash" x-ajax-href="{{ url('beyond_dashboard') }}">{% trans from 'game' %}Zone{% endtrans %}</li>
 {% endblock %}
 {# @var zone \App\Entity\Zone #}
 {% block content %}
@@ -49,13 +48,13 @@
                 <div class="zone-camp-info">
                     <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
                     {% if camping_zone != "" %}
-                        <p>{{ camping_zone }}</p>
+                        <p>{{ camping_zone|trans({}, 'game') }}</p>
                     {% endif %}
                     {% if camping_zombies != "" %}
-                        <p>{{ camping_zombies }}</p>
+                        <p>{{ camping_zombies|trans({}, 'game') }}</p>
                     {% endif %}
                     {% if camping_chance != "" %}
-                        <p class="emphasis">{{ camping_chance }}</p>
+                        <p class="emphasis">{{ camping_chance|trans({}, 'game') }}</p>
                     {% endif %}
                     {% if camping_improvable != "" %}
                         <p>{{ camping_improvable }}</p>
@@ -172,13 +171,13 @@
                     {% endif %}
                 {% endif %}
 
-                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                 {% endembed %}
 
             {% else %}
 
-                {% if banished %}
-                    <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }}</button>
+                {% if banished or town_devastated %}
+                    <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)</button>
                 {% endif %}
 
             {% endif %}
@@ -188,7 +187,7 @@
                     {% if zone.x == 0 and zone.y == 0 %}
                         {% trans from 'game' %}Stadt betreten{% endtrans %}
                     {% else %}
-                        {% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
+                        <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
                     {% endif %}
                     {% if enter_costs_ap %}
                         (<div class="ap">1</div>)

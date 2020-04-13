@@ -18,7 +18,7 @@ parameters:
         words_of_heros: true
 
     small:
-      map:  { min: 12, max:  14 }
+      map:  { min: 12, max: 14 }
       ruins: 10
 
       initial_buildings:  ['small_refine_#00','small_door_closed_#00','item_tagger_#00']

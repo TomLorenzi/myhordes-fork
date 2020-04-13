@@ -85,6 +85,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data['addons'] = $addons;
         $data['home'] = $this->getActiveCitizen()->getHome();
         $data['chaos'] = $town->getChaos();
+        $data['town'] = $town;
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -193,7 +194,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $town = $this->getActiveCitizen()->getTown();
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
-            'citizen' => $c,
+            'owner' => $c,
             'home' => $home,
             'actions' => $this->getItemActions(),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
@@ -428,7 +429,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $town = $citizen->getTown();
             $wellLock = $citizen->getWellCounter();
 
-            $limit = ($th->getBuilding( $town, 'small_water_#00', true ) && !$this->getActiveCitizen()->getBanished()) ? 2 : 1;
+            $limit = 1;
+            if($th->getBuilding($town, 'small_water_#00', true)) {
+                if($town->getChaos()) {
+                    $limit = 3;
+                } else if  (!$this->getActiveCitizen()->getBanished()) {
+                    $limit = 2;
+                }
+            }
 
             if ($direction == 'up') {
 
@@ -725,6 +733,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!($action = $parser->get('action')) || !in_array($action, ['open','close']))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if ($action === 'close' && $town->getDevastated())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($action === 'open'  && $town->getDoor())
             return AjaxResponse::error( self::ErrorDoorAlreadyOpen );
         if ($action === 'open'  && $this->door_is_locked($th))
@@ -803,10 +813,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function door(TownHandler $th): Response
     {
-        $door_locked = $this->door_is_locked($th);
+	$door_locked = $this->door_is_locked($th);
+	$can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'town'  =>  $this->getActiveCitizen()->getTown(),
-            'door_locked' => $door_locked,
+	    'door_locked' => $door_locked,
+	    'can_go_out' => $can_go_out,
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ], $this->get_map_blob())) );

@@ -1,5 +1,9 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-home time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+    </div>
 
     {# @var home \App\Entity\CitizenHome #}
     {# @var chest \App\Entity\Inventory #}
@@ -48,9 +52,11 @@
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
+                {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
+                {% endembed %}
 
                 <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                {% embed "ajax/game/actions.html.twig" with {'heroics': heroics, 'list': actions, 'recipes': recipes} %}
+                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                 {% endembed %}
             </div>
 
@@ -205,11 +211,11 @@
                         {% elseif next_level.resources %}
                             {% trans from 'game' %}
                                 Für diesen Ausbau benötigst du folgende Gegenstände:
-                            {% endtrans %}
+                            {% endtrans %}<br />
                             {% for res in next_level.resources.entries %}
                                 <span class="entity">
                                     <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif' ) }}">
-                                    {% if res.chance > 1 %}x {{ res.chance }}{% endif %}
+                                    x {{ res.chance }}
                                 </span>
                             {% endfor %}
                         {% else %}
@@ -316,6 +322,11 @@
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
             '{{ path('town_house_heroic_controller') }}', '{{ path('town_house') }}'
+        );
+
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            '{{ path('town_house_special_action_controller') }}', '{{ path('town_house') }}'
         );
 
         handleActions(

@@ -1,12 +1,16 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+    </div>
 
-    {# @var \App\Entity\Citizen citizen #}
+    {# @var \App\Entity\Citizen owner #}
     {# @var \App\Structures\HomeDefenseSummary def #}
     <h5>
-        <b>{{ citizen.user.username }}</b>
-        ({% if citizen.alive %}
-            <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
+        <b>{{ owner.user.username }}</b>
+        ({% if owner.alive %}
+            <img alt="{{ owner.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ owner.profession.icon ~ '.gif') }}" />
         {% else %}
             <img alt="{{ 'Tot'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
         {% endif %})
@@ -15,9 +19,9 @@
     <div class="lightbox">
         <div class="row">
             <div class="cell rw-3"><span class="highlight">{{ 'Haus'|trans({},'game') }}:</span></div>
-            <div class="cell rw-9"><img alt="" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}"> {{ citizen.home.prototype.label|trans({},'buildings') }}</div>
+            <div class="cell rw-9"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }}</div>
         </div>
-        {% if citizen.alive %}
+        {% if owner.alive %}
             <div class="row">
                 <div class="cell rw-3"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }}:</span></div>
                 <div class="cell rw-9"><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.sum }}</div>
@@ -29,7 +33,7 @@
         {% else %}
             <div class="row">
                 <div class="cell rw-3"><span class="highlight">{{ 'Todesursache'|trans({},'game') }}:</span></div>
-                <div class="cell rw-9">{{ citizen.causeOfDeath.label|trans({},'game') }}</div>
+                <div class="cell rw-9">{{ owner.causeOfDeath.label|trans({},'game') }}</div>
             </div>
             <div class="row">
                 <div class="cell rw-3"><span class="highlight">{{ 'Letzte Worte'|trans({},'game') }}:</span></div>
@@ -42,11 +46,11 @@
         <div class="padded cell rw-6">
             <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
             <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
-            {% if citizen.alive %}
+            {% if owner.alive %}
                 {# @var complaint \App\Entity\Complaint|null #}
                 {% if complaints > 0 %}
                     <div class="note">
-                        {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': citizen.user.username, '%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
+                        {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.username, '%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
                         {% set names = ['', 'Verbannung'|trans({},'game'), 'Todesstrafe'|trans({},'game') ] %}
                         {% if complaint is not null and complaint.severity > 0 %}
                             {{ 'Eine davon stammt von dir. Du hast %punishment% gefordert.'|trans({'%punishment%': '<b>' ~ names[complaint.severity] ~ '</b>'}, 'game')|raw }}<br />
@@ -58,7 +62,7 @@
                 {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
                 {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
             {% endif %}
-            {% if citizen.home.holdsBody %}
+            {% if owner.home.holdsBody %}
                 <button x-disposal-id="1">{{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">1</div>)</button>
                 <button x-disposal-id="2"><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Leiche mit Wasser übergießen'|trans({},'game') }}</button>
                 {% if has_cremato %}
@@ -67,7 +71,7 @@
             {% endif %}
         </div>
         <div class="padded cell rw-6 citizen-chest">
-            <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': citizen.user.username}, 'game') }}</h5>
+            <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>
             <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
             {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items} %}
                 {% block class %}chest{% endblock %}
@@ -77,9 +81,9 @@
     </div>
 
     <div class="row">
-        <h5>{{ '%citizen%s Register'|trans({'%citizen%': citizen.user.username},'game') }}</h5>
+        <h5>{{ '%citizen%s Register'|trans({'%citizen%': owner.user.username},'game') }}</h5>
         <div class="cell rw-12">
-            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_visit_log_controller', {'id': citizen.id}) } %}
+            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_visit_log_controller', {'id': owner.id}) } %}
             {% endembed %}
         </div>
     </div>
@@ -99,36 +103,36 @@
 
         handleItems(
             document.querySelectorAll('.rucksack>.item:not(.locked)[x-item-id]'),
-            '{{ path('town_visit_item_controller', {id: citizen.id}) }}',
-            'down', '{{ path('town_visit', {id: citizen.id}) }}',
+            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
+            'down', '{{ path('town_visit', {id: owner.id}) }}',
             '{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?'|trans({},'game') }}'
         );
 
         handleItems(
             document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
-            '{{ path('town_visit_item_controller', {id: citizen.id}) }}',
-            'up', '{{ path('town_visit', {id: citizen.id}) }}',
+            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
+            'up', '{{ path('town_visit', {id: owner.id}) }}',
             '{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?'|trans({},'game') }}'
         );
 
-        {% if citizen.alive %}
+        {% if owner.alive %}
         const complainButtons = document.querySelectorAll('[x-complaint-severity]');
         for (let i = 0; i < complainButtons.length; i++)
             complainButtons[i].addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: citizen.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity'))},
+                $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity'))},
                     function () {
-                        $.ajax.load(null, '{{ path('town_visit', {id: citizen.id}) }}', true);
+                        $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                     } );
             })
         {% endif %}
 
-        {% if citizen.home.holdsBody %}
+        {% if owner.home.holdsBody %}
             const disposalButtons = document.querySelectorAll('[x-disposal-id]');
             for (let i = 0; i < disposalButtons.length; i++)
                 disposalButtons[i].addEventListener('click', function() {
-                    $.ajax.easySend( '{{ path('town_visit_dispose_controller', {id: citizen.id}) }}', {action: parseInt(disposalButtons[i].getAttribute('x-disposal-id'))},
+                    $.ajax.easySend( '{{ path('town_visit_dispose_controller', {id: owner.id}) }}', {action: parseInt(disposalButtons[i].getAttribute('x-disposal-id'))},
                         function () {
-                            $.ajax.load(null, '{{ path('town_visit', {id: citizen.id}) }}', true);
+                            $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                         } );
                 })
         {% endif %}

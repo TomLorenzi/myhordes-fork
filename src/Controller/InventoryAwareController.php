@@ -8,6 +8,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
@@ -84,10 +85,12 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
+        $data['citizen'] = $this->getActiveCitizen();
         $data['conf'] = $this->getTownConf();
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
         $data['banished'] = $this->getActiveCitizen()->getBanished();
+        $data['town_devastated'] = $this->getActiveCitizen()->getTown()->getDevastated();
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();
@@ -171,6 +174,18 @@ class InventoryAwareController extends AbstractController implements GameInterfa
       foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => null, 'action' => $c, 'targets' => null, 'crossed' => true ];
 
       return $ret;
+    }
+
+    protected function getHomeActions(): array {
+        $ret = [];
+
+        $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getHome()->getChest()];
+        $this->action_handler->getAvailableHomeActions( $this->getActiveCitizen(), $available, $crossed );
+
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'item' => null, 'action' => $a->getAction(), 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
+        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $c->getIcon(), 'item' => null, 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+
+        return $ret;
     }
 
     protected function getItemActions(): array {
@@ -385,6 +400,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
         return [
             'zones' =>  $zones,
+            'town_devast' => $this->getActiveCitizen()->getTown()->getDevastated(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ),
             'pos_x'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getX() : 0,
             'pos_y'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getY() : 0,
@@ -478,6 +494,44 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         return AjaxResponse::success();
     }
 
+    public function generic_home_action_api(JSONRequestParser $parser): Response {
+        $target_id = (int)$parser->get('target', -1);
+        $action_id = (int)$parser->get('action', -1);
+
+        /** @var Item|ItemPrototype|null $target */
+        $target = null;
+        /** @var HomeActionPrototype|null $home_action */
+        $home_action = ($action_id < 0) ? null : $this->entity_manager->getRepository(HomeActionPrototype::class)->find( $action_id );
+
+        if ( !$home_action ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $citizen = $this->getActiveCitizen();
+
+        if ($citizen->getZone()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$this->extract_target_object( $target_id, $home_action->getAction()->getTarget(), [ $citizen->getInventory(), $citizen->getHome()->getChest() ], $target ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $item = null;
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $home_action->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+            $this->entity_manager->persist($citizen);
+            foreach ($remove as $remove_entry)
+                $this->entity_manager->remove($remove_entry);
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+            }
+
+            if ($msg) $this->addFlash( 'notice', $msg );
+        } elseif ($error === ActionHandler::ErrorActionForbidden) {
+            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+            return AjaxResponse::error($error, ['message' => $msg]);
+        }
+        else return AjaxResponse::error( $error );
+
+        return AjaxResponse::success();
+    }
+
     public function generic_camping_action_api(JSONRequestParser $parser): Response {
       if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false))
           return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -496,13 +550,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
       if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
       // TODO check for camping status
-      #if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
       $item = null;
       if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
-
-        $camping_action = $camping->getAction();
-        #$citizen->removeHeroicAction( $heroic );
 
         $this->entity_manager->persist($citizen);
         foreach ($remove as $remove_entry)
@@ -512,6 +562,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         } catch (Exception $e) {
           return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
         }
+
+        //TODO: Add chat log
 
         if ($msg) $this->addFlash( 'notice', $msg );
       } elseif ($error === ActionHandler::ErrorActionForbidden) {
@@ -540,7 +592,6 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
         $zone = $citizen->getZone();
         if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
         $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
         if (!$citizen->getInventory()->getItems()->contains( $item ) && !$secondary_inv->getItems()->contains( $item )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$this->extract_target_object( $target_id, $action->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
@@ -563,7 +614,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             if ($msg) $this->addFlash( 'notice', $msg );
         } elseif ($error === ActionHandler::ErrorActionForbidden) {
-            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'items');
             return AjaxResponse::error($error, ['message' => $msg]);
         }
         else return AjaxResponse::error( $error );

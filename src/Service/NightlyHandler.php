@@ -239,13 +239,15 @@ class NightlyHandler
 
         $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
-        $def  = $this->town_handler->calculate_town_def( $town );
+	    $def  = $this->town_handler->calculate_town_def( $town );
+	    if($town->getDevastated())
+	        $def = 0;
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
-        $this->log->debug("The down has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!");
+        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!");
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
@@ -313,7 +315,7 @@ class NightlyHandler
         $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
         $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_hide','tg_tomb'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff'];
         $status_morph_list = [
             'drunk' => $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hungover' ),
         ];
@@ -389,7 +391,12 @@ class NightlyHandler
                 } else if ($aliveCitizenInTown == 0) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
                     $town->setDevastated(true);
-                    $town->setChaos(true);
+		            $town->setChaos(true);
+		            $town->setDoor(true);
+		            foreach ($town->getCitizens() as $target_citizen)
+		                $target_citizen->setBanished(false);
+		            foreach ($town->getBuildings() as $target_building)
+		                if (!$target_building->getComplete()) $target_building->setAp(0);
                 }
             }
         }
@@ -619,7 +626,11 @@ class NightlyHandler
             $this->log->debug("Daily items: Placing " . implode(', ', $tx) . " in the bank.");
 
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
-            if ($b->getPrototype()->getTemp()) $b->setComplete(false)->setAp(0);
+            if ($b->getPrototype()->getTemp()){
+                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
+                $b->setComplete(false)->setAp(0);
+            }
             $b->setTempDefenseBonus(0);
         }
     }
