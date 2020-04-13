@@ -628,7 +628,7 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
-    public function nightlyAttackDestroyBuilding( Town $town, string $buildingName ): TownLogEntry {
+    public function nightlyAttackDestroyBuilding( Town $town, Building $building ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )
             ->setClass( TownLogEntry::ClassCritical )

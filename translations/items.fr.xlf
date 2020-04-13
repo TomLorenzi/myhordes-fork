@@ -1252,27 +1252,27 @@
       </trans-unit>
       <trans-unit id="uhLatmB" resname="Sandball">
         <source>Sandball</source>
-        <target>Sandball</target>
+        <target>Boule de sable</target>
         <note>Sandball</note>
       </trans-unit>
       <trans-unit id="2IKHbpa" resname="Normaler Bauplan (gewöhnlich)">
         <source>Normaler Bauplan (gewöhnlich)</source>
-        <target>Normaler Bauplan (gewöhnlich)</target>
+        <target>Plan de chantier (commun)</target>
         <note>Normaler Bauplan (gewöhnlich)</note>
       </trans-unit>
       <trans-unit id="fJiq7t3" resname="Normaler Bauplan (ungewöhnlich)">
         <source>Normaler Bauplan (ungewöhnlich)</source>
-        <target>Normaler Bauplan (ungewöhnlich)</target>
+        <target>Plan de chantier (inhabituel)</target>
         <note>Normaler Bauplan (ungewöhnlich)</note>
       </trans-unit>
       <trans-unit id="GYPyEK." resname="Normaler Bauplan (selten)">
         <source>Normaler Bauplan (selten)</source>
-        <target>Normaler Bauplan (selten)</target>
+        <target>Plan de chantier (rare)</target>
         <note>Normaler Bauplan (selten)</note>
       </trans-unit>
       <trans-unit id="VZP1E4c" resname="Normaler Bauplan (sehr selten!)">
         <source>Normaler Bauplan (sehr selten!)</source>
-        <target>Normaler Bauplan (sehr selten!)</target>
+        <target>Plan de chantier (très rare)</target>
         <note>Normaler Bauplan (sehr selten!)</note>
       </trans-unit>
       <trans-unit id="jQi8Ua2" resname="Architektenkoffer">

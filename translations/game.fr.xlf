@@ -985,22 +985,22 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="SVMpOGM" resname="Kaum erforschte Zone">
         <source>Kaum erforschte Zone</source>
-        <target>Kaum erforschte Zone</target>
+        <target>Secteur peu exploré</target>
         <note>Kaum erforschte Zone</note>
       </trans-unit>
       <trans-unit id="_HUy8Fq" resname="Die Zone wurde teilweise erforscht">
         <source>Die Zone wurde teilweise erforscht</source>
-        <target>Die Zone wurde teilweise erforscht</target>
+        <target>Secteur partiellement repéré</target>
         <note>Die Zone wurde teilweise erforscht</note>
       </trans-unit>
       <trans-unit id="iyIDK7q" resname="Die Zone wurde erforscht">
         <source>Die Zone wurde erforscht</source>
-        <target>Die Zone wurde erforscht</target>
+        <target>Secteur connu</target>
         <note>Die Zone wurde erforscht</note>
       </trans-unit>
       <trans-unit id="ZOevyFz" resname="Die Zone wurde voll und ganz erforscht und kartographiert">
         <source>Die Zone wurde voll und ganz erforscht und kartographiert</source>
-        <target>Die Zone wurde voll und ganz erforscht und kartographiert</target>
+        <target>Secteur totalement balisé</target>
         <note>Die Zone wurde voll und ganz erforscht und kartographiert</note>
       </trans-unit>
       <trans-unit id="VG34_F_" resname="Punkt(e)">
