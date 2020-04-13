@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Citizen;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ErrorHelper;
@@ -25,6 +26,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class SoulController extends AbstractController
 {
+
     /**
      * @Route("jx/soul/me", name="soul_me")
      * @return Response

@@ -150,6 +150,11 @@ class Citizen
      */
     private $campingChance = 0;
 
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $externalId;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -555,6 +560,18 @@ class Citizen
     public function setCampingChance(float $campingChance): self
     {
         $this->campingChance = $campingChance;
+
+        return $this;
+    }
+
+    public function getExternalId(): ?string
+    {
+        return $this->externalId;
+    }
+
+    public function setExternalId(string $externalId): self
+    {
+        $this->name = $externalId;
 
         return $this;
     }
