@@ -24,13 +24,13 @@ class RequireStatus
     private $id;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $enabled;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\CitizenStatus")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $status;
 
@@ -38,6 +38,11 @@ class RequireStatus
      * @ORM\Column(type="string", length=64)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenProfession")
+     */
+    private $profession;
 
     public function getId(): ?int
     {
@@ -49,7 +54,7 @@ class RequireStatus
         return $this->enabled;
     }
 
-    public function setEnabled(bool $enabled): self
+    public function setEnabled(?bool $enabled): self
     {
         $this->enabled = $enabled;
 
@@ -76,6 +81,18 @@ class RequireStatus
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getProfession(): ?CitizenProfession
+    {
+        return $this->profession;
+    }
+
+    public function setProfession(?CitizenProfession $profession): self
+    {
+        $this->profession = $profession;
 
         return $this;
     }

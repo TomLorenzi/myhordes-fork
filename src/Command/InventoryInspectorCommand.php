@@ -110,8 +110,10 @@ class InventoryInspectorCommand extends Command
 
             $output->writeln( "Spawning <info>{$input->getOption('number')}</info> instances of '<info>{$spawn->getLabel()}</info>'.\n" );
 
-            for ($i = 0; $i < $input->getOption('number'); $i++)
-                $this->inventoryHandler->forceMoveItem( $inventory, $this->itemFactory->createItem( $spawn->getName(), (bool)$input->getOption('set-broken'), (bool)$input->getOption('set-poison') ) );
+            for ($i = 0; $i < $input->getOption('number'); $i++) {
+                $this->inventoryHandler->forceMoveItem($inventory, $this->itemFactory->createItem($spawn->getName(), (bool)$input->getOption('set-broken'), (bool)$input->getOption('set-poison')));
+                $this->entityManager->flush();
+            }
 
             $updated = true;
         }
