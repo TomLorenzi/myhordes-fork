@@ -55,33 +55,36 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("api/soul/settings/generateid", name="soul_settings_generateid")
+     * @Route("api/soul/settings/generateid", name="api_soul_settings_generateid")
      * @return Response
      */
-    public function soul_settings_generateid(): Response {
+    public function soul_settings_generateid(EntityManagerInterface $entityManager): Response {
         /** @var User $user */
         $user = $this->getUser();
         if (!$user)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
-        #$user->setExternalId('abc789xyz');
         $user->setExternalId(md5($user->getEmail() . mt_rand()));
+        $entityManager->persist( $user );
+        $entityManager->flush();
 
-        return AjaxResponse::success();
+        return new AjaxResponse( ['success' => true] );
     }
 
     /**
-     * @Route("api/soul/settings/deleteid", name="soul_settings_deleteid")
+     * @Route("api/soul/settings/deleteid", name="api_soul_settings_deleteid")
      * @return Response
      */
-    public function soul_settings_deleteid(): Response {
+    public function soul_settings_deleteid(EntityManagerInterface $entityManager): Response {
         /** @var User $user */
         $user = $this->getUser();
         if (!$user)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         $user->setExternalId('');
+        $entityManager->persist( $user );
+        $entityManager->flush();
 
-        return AjaxResponse::success();
+        return new AjaxResponse( ['success' => true] );
     }
 }
