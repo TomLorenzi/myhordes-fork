@@ -1,5 +1,49 @@
 @import (once) "../theme";
 
+div.town-banner {
+  background: black; border: 1px solid #b18a63; height: 80px; background-size: cover;
+
+  &.town-banner-home {
+    background: url("../../img/home.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_home.jpg") center/cover no-repeat; }
+  }
+
+  &.town-banner-well {
+    background: url("../../img/well.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_well.jpg") center/cover no-repeat; }
+  }
+
+  &.town-banner-bank {
+    background: url("../../img/bank.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_bank.jpg") center/cover no-repeat; }
+  }
+
+  &.town-banner-houses {
+    background: url("../../img/houses.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_houses.jpg") center/cover no-repeat; }
+  }
+
+  &.town-banner-visit {
+    background: url("../../img/visit.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_visit.jpg") center/cover no-repeat; }
+  }
+
+  &.town-banner-construction {
+    background: url("../../img/construction.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_construction.jpg") center/cover no-repeat; }
+  }
+
+  &.town-banner-door-open {
+    background: url("../../img/city_open.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_city_open.jpg") center/cover no-repeat; }
+  }
+
+  &.town-banner-door-closed {
+    background: url("../../img/city.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_city.jpg") center/cover no-repeat; }
+  }
+}
+
 .town-menu {
   font-weight: bold;
   color: @myhordes-cell-header-text-color;
@@ -20,13 +64,18 @@
       &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%);color: @myhordes-input-border; };
     }
   }
-  &>.town-menu-house>div:first-child { background: url("../../img/menu_home.gif") center/cover no-repeat }
-  &>.town-menu-well>div:first-child { background: url("../../img/menu_well.gif") center/cover no-repeat }
-  &>.town-menu-bank>div:first-child { background: url("../../img/menu_bank.gif") center/cover no-repeat }
-  &>.town-menu-citizens>div:first-child { background: url("../../img/menu_houses.gif") center/cover no-repeat }
-  &>.town-menu-construct>div:first-child { background: url("../../img/menu_construction.gif") center/cover no-repeat }
-  &>.town-menu-door>div:first-child { background: url("../../img/menu_door.gif") center/cover no-repeat }
-
+  &:not(.night)>.town-menu-house>div:first-child { background: url("../../img/menu_home.gif") center/cover no-repeat }
+  &:not(.night)>.town-menu-well>div:first-child { background: url("../../img/menu_well.gif") center/cover no-repeat }
+  &:not(.night)>.town-menu-bank>div:first-child { background: url("../../img/menu_bank.gif") center/cover no-repeat }
+  &:not(.night)>.town-menu-citizens>div:first-child { background: url("../../img/menu_houses.gif") center/cover no-repeat }
+  &:not(.night)>.town-menu-construct>div:first-child { background: url("../../img/menu_construction.gif") center/cover no-repeat }
+  &:not(.night)>.town-menu-door>div:first-child { background: url("../../img/menu_door.gif") center/cover no-repeat }
+  &.night>.town-menu-house>div:first-child { background: url("../../img/menu_home_night.gif") center/cover no-repeat }
+  &.night>.town-menu-well>div:first-child { background: url("../../img/menu_well_night.gif") center/cover no-repeat }
+  &.night>.town-menu-bank>div:first-child { background: url("../../img/menu_bank_night.gif") center/cover no-repeat }
+  &.night>.town-menu-citizens>div:first-child { background: url("../../img/menu_houses_night.gif") center/cover no-repeat }
+  &.night>.town-menu-construct>div:first-child { background: url("../../img/menu_construction_night.gif") center/cover no-repeat }
+  &.night>.town-menu-door>div:first-child { background: url("../../img/menu_door_night.gif") center/cover no-repeat }
 }
 .header-menu-chaos { background: url('../../img/chaos.gif') center/100% no-repeat; width: 100%; height: 60px; }
 
