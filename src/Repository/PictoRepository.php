@@ -3,13 +3,14 @@
 namespace App\Repository;
 
 use App\Entity\Picto;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**
  * @method Picto|null find($id, $lockMode = null, $lockVersion = null)
- * @method Picto|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Picto|null findByUser(user $criteria, array $orderBy = null)
  * @method Picto[]    findAll()
  * @method Picto[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
@@ -20,14 +21,45 @@ class PictoRepository extends ServiceEntityRepository
         parent::__construct($registry, Picto::class);
     }
 
-    public function findOneByName(string $value): ?Picto
+    public function findByUser(User $value)
     {
         try {
             return $this->createQueryBuilder('i')
-                ->andWhere('i.name = :val')
+                ->andWhere('i.user = :val')
+                ->setParameter('val', $user)
+                ->getQuery()
+                ->getResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function findPendingByUser(User $value)
+    {
+        try {
+            return $this->createQueryBuilder('i')
+                ->andWhere('i.user = :val')
+                ->andWhere('i.persisted = false')
                 ->setParameter('val', $value)
                 ->getQuery()
-                ->getOneOrNullResult();
+                ->getResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function findNotPendingByUser(User $value)
+    {
+        try {
+            return $this->createQueryBuilder('i')
+                ->andWhere('i.user = :val')
+                ->andWhere('i.persisted = true')
+                ->orderBy('pp.rare', 'DESC')
+                ->addOrderBy('i.count', 'DESC')
+                ->setParameter('val', $value)
+                ->leftJoin('i.prototype', 'pp')
+                ->getQuery()
+                ->getResult();
         } catch (NonUniqueResultException $e) {
             return null;
         }

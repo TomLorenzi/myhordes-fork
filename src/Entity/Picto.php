@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PictoRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="town_unique",columns={"prototype_id","town_id"})
+ *     @UniqueConstraint(name="town_unique",columns={"prototype_id","town_id", "user_id"})
  * })
  */
 class Picto
@@ -36,7 +36,7 @@ class Picto
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Town")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $town;
 
@@ -103,7 +103,7 @@ class Picto
         return $this->user;
     }
 
-    public function setUser(Town $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 

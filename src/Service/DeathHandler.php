@@ -13,6 +13,8 @@ use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
@@ -83,6 +85,55 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
+
+        // Add pictos
+        if ($citizen->getSurvivedDays()) {
+            // Job picto
+            $job = $citizen->getProfession();
+            if($job->getHeroic()){
+                $nameOfPicto = "";
+                switch($job->getName()){
+                    case "collec":
+                        $nameOfPicto = "r_jcolle_#00";
+                        break;
+                    case "guardian":
+                        $nameOfPicto = "r_jguard_#00";
+                        break;
+                    case "hunter":
+                        $nameOfPicto = "r_jrangr_#00";
+                        break;
+                    case "tamer":
+                        $nameOfPicto = "r_jtamer_#00";
+                        break;
+                    case "tech":
+                        $nameOfPicto = "r_jtech_#00";
+                        break;
+                    case "survivalist":
+                        $nameOfPicto = "r_jermit_#00";
+                        break;
+                }
+
+                if($nameOfPicto != "") {
+                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($nameOfPicto);
+                    $picto = new Picto();
+                    $picto->setPrototype($pictoPrototype)
+                        ->setPersisted(false)
+                        ->setTown($citizen->getTown())
+                        ->setUser($citizen->getUser())
+                        ->setCount($citizen->getSurvivedDays());
+
+                    $this->entity_manager->persist($picto);
+                }
+            }
+        }
+
+        // Set all picto of town as persisted
+        // TODO: Check the rule of day 5 (Day 8 if Small town and >= 100 soul points)
+        $pendingPictosOfUser = $this->entity_manager->getRepository(PictoPrototype::class)->findPendingByUser($user);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            $pendingPicto->setPersisted(true);
+            $this->entity_manager->persist($pendingPicto);
+        }
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 

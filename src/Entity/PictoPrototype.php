@@ -45,6 +45,11 @@ class PictoPrototype
      */
     private $icon;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $rare;
+
     public function __construct() {
     }
 
@@ -97,6 +102,18 @@ class PictoPrototype
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getRare(): ?bool
+    {
+        return $this->rare;
+    }
+
+    public function setRare(bool $rare): self
+    {
+        $this->rare = $rare;
 
         return $this;
     }

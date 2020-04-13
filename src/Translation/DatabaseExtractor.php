@@ -14,6 +14,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemCategory;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
@@ -133,6 +134,15 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $town TownClass */
             if ($town->getLabel())
                 $this->insert( $c, $town->getLabel(), 'game' );
+
+        foreach ($this->em->getRepository(PictoPrototype::class)->findAll() as $pictoPrototype) {
+            /** @var $pictoPrototype PictoPrototype */
+            if ($pictoPrototype->getLabel())
+                $this->insert( $c, $pictoPrototype->getLabel(), 'game' );
+
+            if ($pictoPrototype->getDescription())
+                $this->insert( $c, $pictoPrototype->getDescription(), 'game' );
+        }
         //</editor-fold>
     }
 
