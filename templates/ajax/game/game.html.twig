@@ -53,9 +53,7 @@
     {% if bp is defined and max_bp is defined and max_bp > 0 %}
         <div class="ulcont">
             <ul class="bp">
-                <li>{{ bp }}</li>
-                <li>/</li>
-                <li>{{ max_bp }}</li>
+                <li>{{ bp }}<em>/{{ max_bp }}</em></li>
             </ul>
             <div class="tooltip">
                 <b>{{ 'Baupunkte'|trans({},'game') }}</b><br />
