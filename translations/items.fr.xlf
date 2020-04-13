@@ -432,7 +432,7 @@
       </trans-unit>
       <trans-unit id="Cu3BBfx" resname="Werkzeugkiste">
         <source>Werkzeugkiste</source>
-        <target>Outils en vrac</target>
+        <target>Caisse de matériel</target>
         <note>Werkzeugkiste</note>
       </trans-unit>
       <trans-unit id="lRZoAQB" resname="Nachttischlampe (an)">
@@ -1397,7 +1397,7 @@
       </trans-unit>
       <trans-unit id="ddjrtHa" resname="Starke Seele">
         <source>Starke Seele</source>
-        <target>Starke Seele</target>
+        <target>Âme torturée</target>
         <note>Starke Seele</note>
       </trans-unit>
       <trans-unit id="qERZioI" resname="Schwache Seele">

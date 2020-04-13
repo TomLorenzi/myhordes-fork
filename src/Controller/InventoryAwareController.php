@@ -516,6 +516,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
           return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
         }
 
+        //TODO: Add chat log
+
         if ($msg) $this->addFlash( 'notice', $msg );
       } elseif ($error === ActionHandler::ErrorActionForbidden) {
         if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');

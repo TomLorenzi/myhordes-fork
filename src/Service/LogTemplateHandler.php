@@ -628,6 +628,18 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
+    public function nightlyAttackDestroyBuilding( Town $town, string $buildingName ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeNightly )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setText( $this->trans->trans('Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.', [
+                '%buildingName%' => $this->wrap( $this->iconize( $building ) ),
+            ], 'game' ) );
+    }
+
     public function citizenComplaint( Complaint $complaint ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeHome )

@@ -271,9 +271,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $camping_chance = $camping_chance_texts[4];
             } else if ($survival_chance <= .9) {
                 $camping_chance = $camping_chance_texts[5];
-            } else if ($survival_chance <= .95) {
+            } else if ($survival_chance <= .99) {
                 $camping_chance = $camping_chance_texts[6];
-            } else if ($survival_chance > .95) {
+            } else if ($survival_chance == 1) {
                 $camping_chance = $camping_chance_texts[7];
             } else {
                 $camping_chance = "";

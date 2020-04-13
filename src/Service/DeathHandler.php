@@ -82,7 +82,7 @@ class DeathHandler
         }
 
         $citizen->setCauseOfDeath($cod);
-        $citizen->setAlive( false );
+        $citizen->setAlive(false);
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 

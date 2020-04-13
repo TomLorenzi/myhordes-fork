@@ -2785,12 +2785,12 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="nLW7mkF" resname="Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...">
         <source>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</source>
-        <target>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</target>
+        <target>La présence de quelques zombies dans les environs est notamment particulièrement inquiétante...</target>
         <note>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</note>
       </trans-unit>
       <trans-unit id="GtXqaDO" resname="Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.">
         <source>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</source>
-        <target>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</target>
+        <target>Le grand nombre de zombies qui rôde un peu partout ne va rien arranger aux choses : se planquer promet d'être difficile.</target>
         <note>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</note>
       </trans-unit>
       <trans-unit id="T04hD_3" resname="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -2895,42 +2895,42 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="Be5ZaAS" resname="Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.">
         <source>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</source>
-        <target>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</target>
+        <target>Ça semble être l'endroit idéal pour passer la nuit, les possibilités de cachettes ne manquent pas.</target>
         <note>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</note>
       </trans-unit>
       <trans-unit id="UFJR0VM" resname="Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?">
         <source>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</target>
+        <target>Vous estimez que vos chances de survie ici sont très faibles. Peut-être que vous aimez jouer à pile ou face ?</target>
         <note>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</note>
       </trans-unit>
       <trans-unit id="7OnKd2K" resname="Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.">
         <source>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</target>
+        <target>Vous estimez que vos chances de survie ici sont faibles. Difficile à dire.</target>
         <note>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</note>
       </trans-unit>
       <trans-unit id="rlIeIKM" resname="Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...">
         <source>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</target>
+        <target>Vous estimez que vos chances de survie ici sont limitées, bien que ça puisse se tenter. Mais un accident est vite arrivé...</target>
         <note>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</note>
       </trans-unit>
       <trans-unit id="o1L6EkI" resname="Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.">
         <source>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</target>
+        <target>Vous estimez que vos chances de survie ici sont à peu près satisfaisantes, pour peu qu'aucun imprévu ne vous tombe dessus.</target>
         <note>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</note>
       </trans-unit>
       <trans-unit id="v2oSIjv" resname="Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!">
         <source>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</target>
+        <target>Vous estimez que vos chances de survie ici sont correctes : il ne vous reste plus qu'à croiser les doigts !</target>
         <note>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</note>
       </trans-unit>
       <trans-unit id="kqluhpf" resname="Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.">
         <source>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</target>
+        <target>Vous estimez que vos chances de survie ici sont élevées : vous devriez pouvoir passer la nuit ici.</target>
         <note>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</note>
       </trans-unit>
       <trans-unit id="1JwyDRE" resname="Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.">
         <source>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</target>
+        <target>Vous estimez que vos chances de survie ici sont optimales : Personne ne vous verrait même en vous pointant du doigt.</target>
         <note>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</note>
       </trans-unit>
       <trans-unit id="rSInXr8" resname="Du kannst dich nicht fortbewegen während du versteckt bist.">
@@ -2951,6 +2951,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="xyPBCmM" resname="Gefahr">
         <source>Gefahr</source>
         <target>Danger</target>
+      </trans-unit>
+      <trans-unit id="ZvXc1po" resname="Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.">
+        <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
+        <target>Au terme de la bataille, le bâtiment %buildingName% est tombé en poussière.</target>
       </trans-unit>
     </body>
   </file>
