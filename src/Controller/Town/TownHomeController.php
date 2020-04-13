@@ -97,6 +97,7 @@ class TownHomeController extends TownController
             'home' => $home,
             'tab' => $tab,
             'heroics' => $this->getHeroicActions(),
+            'special_actions' => $this->getHomeActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(true),
             'chest' => $home->getChest(),
@@ -140,11 +141,19 @@ class TownHomeController extends TownController
     /**
      * @Route("api/town/house/action", name="town_house_action_controller")
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
-    public function action_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function action_house_api(JSONRequestParser $parser): Response {
         return $this->generic_action_api( $parser );
+    }
+
+    /**
+     * @Route("api/town/house/special_action", name="town_house_special_action_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function special_action_house_api(JSONRequestParser $parser): Response {
+        return $this->generic_home_action_api( $parser );
     }
 
     /**

@@ -355,7 +355,7 @@ class ItemFixtures extends Fixture
         ['label'=>'Verfluchte HiFi','icon'=>'hifiev','category'=>'furniture','deco'=>0,'heavy'=>true],                                      // -- ---
         ['label'=>'Phil Collins CD','icon'=>'cdphil','category'=>'furniture','deco'=>1,'heavy'=>false],                                     // -- ---
         ['label'=>'Ohrstöpsel','icon'=>'bquies','category'=>'rsc','deco'=>0,'heavy'=>false],                                                // -- ---
-        ['label'=>'Kaputter Stock','icon'=>'staff','category'=>'rsc','deco'=>0,'heavy'=>false],                                             // -- ---
+        ['label'=>'Kaputter Stock','icon'=>'staff2','category'=>'rsc','deco'=>0,'heavy'=>false],                                             // -- ---
         ['label'=>'Britney Spears CD','icon'=>'cdbrit','category'=>'furniture','deco'=>3,'heavy'=>false],                                   // -- ---
         ['label'=>'Best of The King CD','icon'=>'cdelvi','category'=>'furniture','deco'=>7,'heavy'=>false],                                 // -- ---
         ['label'=>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>0,'heavy'=>true],                                     // -- ---
@@ -694,7 +694,7 @@ class ItemFixtures extends Fixture
         'hifiev_#00' => 'Wenn kombiniert mit einer CD, diese HiFi Anlage hat das Potential zu einer Massenvernichtungswaffe zu werden.', // Verfluchte HiFi
         'cdphil_#00' => 'Nichts ist besser, als mit ein wenig 80er Jahre Retro-Musik den Abend zu beleben! Dreh den Regler hoch und mach das Fenster auf!', // Phil Collins CD
         'bquies_#00' => 'Hast du genug von dem Gequassel vor deiner Tür, den Streitereien nach zu viel Korn-Bräu oder Bürgern, die verzweifelt um ihr Leben schreien? Diese Ohrstöpsel sind genau das Richtige für dich!', // Ohrstöpsel
-        'staff_#01' => 'Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...', // Kaputter Stock
+        'staff2_#00' => 'Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...', // Kaputter Stock
         'cdbrit_#00' => 'Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....', // Britney Spears CD
         'cdelvi_#00' => 'Bereit deine Hüften zu ein wenig Rock \'n\' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.', // Best of The King CD
         'dfhifi_#00' => 'Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!', // Rock n Roll HiFi

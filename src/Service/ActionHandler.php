@@ -11,6 +11,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenStatus;
 use App\Entity\EscapeTimer;
+use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -89,8 +90,13 @@ class ActionHandler
             }
 
             if ($status = $meta_requirement->getStatusRequirement()) {
-                $status_is_active = $citizen->getStatus()->contains( $status->getStatus() );
-                if ($status_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
+                if ($status->getStatus() !== null && $status->getEnabled() !== null) {
+                    $status_is_active = $citizen->getStatus()->contains( $status->getStatus() );
+                    if ($status_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
+                }
+
+                if ($status->getProfession() !== null && $citizen->getProfession()->getId() !== $status->getProfession()->getId())
+                    $current_state = min( $current_state, $this_state );
             }
 
             if ($home = $meta_requirement->getHome()) {
@@ -251,6 +257,24 @@ class ActionHandler
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
      */
+    public function getAvailableHomeActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
+
+        $available = $crossed = [];
+        $home_actions = $this->entity_manager->getRepository(HomeActionPrototype::class)->findAll();
+
+        foreach ($home_actions as $action) {
+            $mode = $this->evaluate( $citizen, null, null, $action->getAction(), $tx );
+            if ($mode >= self::ActionValidityAllow) $available[] = $action;
+            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+        }
+
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param ItemAction[] $available
+     * @param ItemAction[] $crossed
+     */
     public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
         $available = $crossed = [];
 
@@ -375,6 +399,7 @@ class ActionHandler
             'bp_spawn' => [],
             'rp_text' => '',
             'casino' => '',
+            'zone' => null,
             'well' => 0,
         ];
 
@@ -743,14 +768,54 @@ class ActionHandler
                         break;
                     }
                     // Reset campingTimer
-                    case 11: {
+                    case 11:
+                    {
                         $citizen->setCampingTimestamp(0);
                         $citizen->setCampingChance(0);
+                        break;
+                    }
 
-                    break;
-                }
+                    // Discover a random ruin
+                    case 12:
+                    {
+                        $list = [];
+                        foreach ($citizen->getTown()->getZones() as $zone)
+                            if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone && $zone->getPrototype())
+                                $list[] = $zone;
 
+                        $selected = $this->random_generator->pick($list);
+                        if ($selected) {
+                            $execute_info_cache['zone'] = $selected;
+                            $tags[] = 'zone';
+                            $selected->setDiscoveryStatus( Zone::DiscoveryStateCurrent );
+                        }
+                        break;
 
+                    }
+
+                    // Increase town temp defense for the watchtower by ten
+                    case 13: {
+                        $cn = $this->town_handler->getBuilding( $citizen->getTown(), 'small_watchmen_#00', true );
+                        if ($cn) $cn->setTempDefenseBonus( $cn->getTempDefenseBonus() + 10 );
+                        break;
+                    }
+
+                    // Fill water weapons
+                    case 14: {
+
+                        $trans = [
+                            'watergun_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'watergun_3_#00' ),
+                            'watergun_opt_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'watergun_opt_5_#00' ),
+                            'grenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'grenade_#00' ),
+                            'bgrenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'bgrenade_#00' ),
+                            'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'kalach_#00' ),
+                        ];
+
+                        foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
+                        foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
+
+                        break;
+                    }
                 }
 
                 if ($ap) {
@@ -794,6 +859,7 @@ class ActionHandler
                 '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
                 '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
                 '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
+                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
                 '{casino}'        => $execute_info_cache['casino'],
             ], 'items' );
 
@@ -841,7 +907,7 @@ class ActionHandler
         if ( ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ) )
             return ErrorHelper::ErrorNoAP;
 
-        $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
+        $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest() ]);
         $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
 
         $items = $this->inventory_handler->fetchSpecificItems( $source_inv, $recipe->getSource() );
