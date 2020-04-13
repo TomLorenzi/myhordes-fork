@@ -35,7 +35,13 @@
                 {% endif %}
                 <span>{{ building.prototype.label|trans({},'buildings') }}</span>
                 {% if building.prototype.temp %}
+                    <span>
                     <img alt="(!)" src="{{ asset('build/images/small_warning.gif') }}" />
+                        <div class="tooltip">
+                            <h1>Construction temporaire !</h1>
+                            Cette construction est <strong>à usage unique</strong>. Elle sera détruite ce soir, <strong>après</strong> l'attaque de la Horde.<br><em>Vous pourrez de nouveau la bâtir demain si vous le souhaitez.</em>
+                    </div>
+                    </span>
                 {% endif %}
                 {% if building.prototype.defense > 0 %}
                     <div class="float-right defense">{{ building.prototype.defense }}</div>
