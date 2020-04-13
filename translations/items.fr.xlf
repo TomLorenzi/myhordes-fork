@@ -45,11 +45,6 @@
         <target>Vous tirez une carte... et vous trouvez les règles du jeu. Cela vous fait sourire et vous gagnez 1 PA.</target>
         <note>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
       </trans-unit>
-      <trans-unit id="Awf25tt" resname="Du ziehst eine Karte... es ist {article} {color} {value}.">
-        <source>Du ziehst eine Karte... es ist {article} {color} {value}.</source>
-        <target>Vous tirez une carte... c'est {article} {color} {value}.</target>
-        <note>Du ziehst eine Karte... es ist {article} {color} {value}.</note>
-      </trans-unit>
       <trans-unit id="kPlE9C6" resname="Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.">
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
         <target>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</target>
@@ -1795,11 +1790,6 @@
         <target>Lesen</target>
         <note>Lesen</note>
       </trans-unit>
-      <trans-unit id="BLOrx8O" resname="&lt;t-bp_ok&gt;Du ließt den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;">
-        <source>&lt;t-bp_ok&gt;Du ließt den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>Du ließt den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>]]></target>
-        <note>&lt;t-bp_ok&gt;Du ließt den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
-      </trans-unit>
       <trans-unit id="g7lA4hJ" resname="Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;">
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
         <target><![CDATA[Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>]]></target>
@@ -3525,11 +3515,6 @@
         <target><![CDATA[<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>]]></target>
         <note>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </trans-unit>
-      <trans-unit id="_Rr9DQQ" resname="Behälter und Dosen">
-        <source>Behälter und Dosen</source>
-        <target>Behälter und Dosen</target>
-        <note>Behälter und Dosen</note>
-      </trans-unit>
       <trans-unit id="77.Cp5H" resname="Verteidigung">
         <source>Verteidigung</source>
         <target>Défense</target>
@@ -3622,7 +3607,7 @@
       </trans-unit>
       <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+        <target>Améliorer un peu le campement (bonus permanent faible, 1PA)</target>
         <note>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</note>
       </trans-unit>
       <trans-unit id="D632ww5" resname="Du hast das hiesige Versteck verbessert.">
@@ -3632,7 +3617,7 @@
       </trans-unit>
       <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>Sich verstecken und die Nacht hier schlafen!</target>
+        <target>Se cacher pour passer la nuit ici !</target>
         <note>Sich verstecken und die Nacht hier schlafen!</note>
       </trans-unit>
       <trans-unit id="VsRU9Va" resname="Du hast Dich notdürftig versteckt.">
@@ -3642,7 +3627,7 @@
       </trans-unit>
       <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+        <target>Creuser une "tombe" (bonus temporaire moyen, 1PA)</target>
         <note>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</note>
       </trans-unit>
       <trans-unit id="P15D.zw" resname="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
@@ -3652,7 +3637,7 @@
       </trans-unit>
       <trans-unit id="nv.FYHK" resname="Versteck verlassen">
         <source>Versteck verlassen</source>
-        <target>Versteck verlassen</target>
+        <target>Quitter votre planque</target>
         <note>Versteck verlassen</note>
       </trans-unit>
       <trans-unit id="DLyYjGK" resname="Du hast Dein Versteck verlassen.">
@@ -3662,18 +3647,13 @@
       </trans-unit>
       <trans-unit id="vD_lf43" resname="Grab verlassen">
         <source>Grab verlassen</source>
-        <target>Grab verlassen</target>
+        <target>Quitter votre planque</target>
         <note>Grab verlassen</note>
       </trans-unit>
       <trans-unit id="fz7VoYN" resname="Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!">
         <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
         <target>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</target>
         <note>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</note>
-      </trans-unit>
-      <trans-unit id="TWuwK4M" resname="Angriff und Verteidigung">
-        <source>Angriff und Verteidigung</source>
-        <target>Angriff und Verteidigung</target>
-        <note>Angriff und Verteidigung</note>
       </trans-unit>
       <trans-unit id="5OR30sk" resname="Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.">
         <source>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</source>

@@ -75,11 +75,6 @@
         <target>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</target>
         <note>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
       </trans-unit>
-      <trans-unit id="FbY7TeM" resname="Bestätigen">
-        <source>Bestätigen</source>
-        <target>Confirmer</target>
-        <note>Bestätigen</note>
-      </trans-unit>
       <trans-unit id="Ap6glg5" resname="Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten">
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
         <target>Rejoindre le monde terrifiant de Hordes en tant que citoyen de %town_name%</target>

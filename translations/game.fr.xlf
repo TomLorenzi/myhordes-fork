@@ -694,11 +694,6 @@
         <target>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</target>
         <note>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</note>
       </trans-unit>
-      <trans-unit id="Qsm1_.k" resname="Dein Rucksack">
-        <source>Dein Rucksack</source>
-        <target>Votre sac</target>
-        <note>Dein Rucksack</note>
-      </trans-unit>
       <trans-unit id="ZHTFO77" resname="%citizen%s Truhe">
         <source>%citizen%s Truhe</source>
         <target>Coffre de %citizen%</target>
@@ -874,11 +869,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Zufälliger Gegenstand</source>
         <target>Objet aléatoire</target>
         <note>Zufälliger Gegenstand</note>
-      </trans-unit>
-      <trans-unit id="MkWoNw1" resname="Herst.">
-        <source>Herst.</source>
-        <target>Transformer</target>
-        <note>Herst.</note>
       </trans-unit>
       <trans-unit id="5WqPLsh" resname="Werkstatt-Register">
         <source>Werkstatt-Register</source>
@@ -2133,21 +2123,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite.</target>
         <note>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</note>
       </trans-unit>
-      <trans-unit id="I4OeVwm" resname="Sich verstecken und die Nacht hier schlafen!">
-        <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>Se cacher pour passer la nuit ici !</target>
-        <note>Sich verstecken und die Nacht hier schlafen!</note>
-      </trans-unit>
-      <trans-unit id="8f3LUQZ" resname="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
-        <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Améliorer un peu le campement (bonus permanent faible, 1PA)</target>
-        <note>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</note>
-      </trans-unit>
-      <trans-unit id="XqeL5yu" resname="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
-        <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target> Creuser une "tombe" (bonus temporaire moyen, 1PA)</target>
-        <note>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</note>
-      </trans-unit>
       <trans-unit id="cePRD7K" resname="In der Stadt wohnen @citizens Bürger.">
         <source>In der Stadt wohnen @citizens Bürger.</source>
         <target>il y a @citizens citoyen(s) en ville.</target>
@@ -2182,11 +2157,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <source>Geschätzter Angriff :</source>
         <target>Attaque estimée :</target>
         <note>Geschätzter Angriff :</note>
-      </trans-unit>
-      <trans-unit id="vaASCIq" resname="Wir brauchen mehr Menschen, die in den Wachturm gehen.">
-        <source>Wir brauchen mehr Menschen, die in den Wachturm gehen.</source>
-        <target>Wir brauchen mehr Menschen, die in den Wachturm gehen.</target>
-        <note>Wir brauchen mehr Menschen, die in den Wachturm gehen.</note>
       </trans-unit>
       <trans-unit id="aVClbc0" resname="Meine täglichen Aufgaben">
         <source>Meine täglichen Aufgaben</source>
@@ -2865,7 +2835,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="6Ds9C1i" resname="Du kannst keine Aktionen ausführen, während du dich versteckst.">
         <source>Du kannst keine Aktionen ausführen, während du dich versteckst.</source>
-        <target>Du kannst keine Aktionen ausführen, während du dich versteckst.</target>
+        <target>Vous ne pouvez faire aucune action en étant enterré.</target>
         <note>Du kannst keine Aktionen ausführen, während du dich versteckst.</note>
       </trans-unit>
       <trans-unit id="e19N5sC" resname="Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...">

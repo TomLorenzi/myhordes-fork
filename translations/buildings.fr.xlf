@@ -1065,11 +1065,6 @@
         <target>Chemin de ronde</target>
         <note>Brustwehr</note>
       </trans-unit>
-      <trans-unit id="A5G3UvL" resname="Hämame">
-        <source>Hämame</source>
-        <target>Hamame</target>
-        <note>Hämame</note>
-      </trans-unit>
       <trans-unit id="Pnjrt1t" resname="Hammam">
         <source>Hammam</source>
         <target>Hammam</target>
