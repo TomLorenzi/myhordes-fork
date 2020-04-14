@@ -1121,15 +1121,16 @@
         <target>Travaux</target>
       </segment>
     </unit>
-    <unit id="32LY7bW" name="3f5fb3f">
+    <unit id="v5ztcQj" name="9df33bb">
       <notes>
         <note>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</note>
-        <note category="german">Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine Ausbauten funktionslos.</note>
+          Ausbauten funktionslos.</note>
+        <note category="german">Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
+            Ausbauten funktionslos.</note>
       </notes>
       <segment>
         <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</source>
+            Ausbauten funktionslos.</source>
         <target>Seul les héros peuvent effectuer des améliorations. En tant qu'habitant, vous ne bénéficiez pas des avantages de celles-ci.</target>
       </segment>
     </unit>
@@ -1343,15 +1344,16 @@
         <target>Nom de l'expédition</target>
       </segment>
     </unit>
-    <unit id="QL.qpuP" name="d231db0">
+    <unit id="Xfcjipo" name="767b6c4">
       <notes>
         <note>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</note>
-        <note category="german">Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</note>
+              in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</note>
+        <note category="german">Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
+                in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</note>
       </notes>
       <segment>
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
+                in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
         <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexent commencent et terminent où vous voulez.</target>
       </segment>
     </unit>
@@ -1553,7 +1555,7 @@
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
         <target>Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'évolution du jour.
-Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</target>
+                  Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</target>
       </segment>
     </unit>
     <unit id="PhutSSq" name="667676b">
@@ -1766,17 +1768,18 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Cette section permet de participer à la construction de nouveaux bâtiments. Commencez par récupérer des ressources dans le désert (bois, métal...), puis apportez des Points d'Action (PA) au bâtiment qui vous intéresse le plus.</target>
       </segment>
     </unit>
-    <unit id="yrqg0t2" name="62c5444">
+    <unit id="dUenX0C" name="c731560">
       <notes>
         <note>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</note>
-        <note category="german">Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</note>
+        <note category="german">Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
+                      arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</note>
       </notes>
       <segment>
         <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
+                      arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
         <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+                        arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
       </segment>
     </unit>
     <unit id="ryRHkfD" name="Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.">
@@ -2286,13 +2289,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist TOT!</source>
-<<<<<<< HEAD
         <target>Félicitations, vous êtes mort !</target>
-        <note>Herzlichen Glückwunsch, du bist TOT!</note>
-      </trans-unit>
-      <trans-unit id="AEDztPF" resname="Du hast %sp% Seelenpunkte gewonnen!">
-=======
-        <target>Bravo, vous êtes mort !</target>
       </segment>
     </unit>
     <unit id="AEDztPF" name="Du hast %sp% Seelenpunkte gewonnen!">
@@ -2301,7 +2298,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <note category="german">Du hast %sp% Seelenpunkte gewonnen!</note>
       </notes>
       <segment>
->>>>>>> b1c7377d486c4d870d8c1aa488fd324caa21dba2
         <source>Du hast %sp% Seelenpunkte gewonnen!</source>
         <target>Vous avez gagné %sp% points d'âme !</target>
       </segment>
@@ -2376,23 +2372,26 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Points d'action</target>
       </segment>
     </unit>
-    <unit id="dWg5UEc" name="0e07264">
+    <unit id="5MeFkca" name="c328ebf">
       <notes>
         <note>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</note>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
+                          benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                          kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                          auffüllen.</note>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</note>
       </notes>
       <segment>
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</source>
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</source>
         <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</target>
+                              benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                              kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                              auffüllen.</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2405,20 +2404,22 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Baupunkte</target>
       </segment>
     </unit>
-    <unit id="cycrpjD" name="fba1e38">
+    <unit id="lm6ClbX" name="0bb1c95">
       <notes>
         <note>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
-        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
+                                zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                                werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
+        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                                  zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                                  werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
       </notes>
       <segment>
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
+                                  zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                                  werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
         <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+                                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -2431,41 +2432,44 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Banni</target>
       </segment>
     </unit>
-    <unit id="IV3fj_Y" name="f4e28e2">
+    <unit id="lLxJBVD" name="4d0e2f8">
       <notes>
         <note>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</note>
-        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</note>
+                                      Verfügung.</note>
+        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                                        Verfügung.</note>
       </notes>
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</source>
+                                        Verfügung.</source>
         <target>Les citoyens ont décidé de vous exclure de la communauté. Certains actions net sont désormais plus disponibles pour vous.</target>
       </segment>
     </unit>
-    <unit id="Qc.QL70" name="a2b0db7">
+    <unit id="4CHbxJb" name="1139c76">
       <notes>
         <note>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</note>
-        <note category="german">Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</note>
+                                          dieser Stadt zur Verfügung.</note>
+        <note category="german">Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
+                                            dieser Stadt zur Verfügung.</note>
       </notes>
       <segment>
         <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</source>
+                                            dieser Stadt zur Verfügung.</source>
         <target>Selon la profession que vous choisissez, vous aurez différentes actions et manières de jouer disponibles lors de cette ville.</target>
       </segment>
     </unit>
-    <unit id="kw2Iw8G" name="0a39755">
+    <unit id="4yp8YAK" name="9d914d6">
       <notes>
         <note>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
-        <note category="german">Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
+                                              Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
+        <note category="german">Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
+                                                Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
       </notes>
       <segment>
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
+                                                Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
         <target>En tant que %hero%, un jour héros vous sera déduit chaque jour.
-                Si vous êtes toujours en ville et n'en avez plus, vous continuerez la partie en tant qu'habitant.</target>
+                                                  Si vous êtes toujours en ville et n'en avez plus, vous continuerez la partie en tant qu'habitant.</target>
       </segment>
     </unit>
     <unit id="hc1h_MP" name="Held">
@@ -2478,17 +2482,18 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Héros</target>
       </segment>
     </unit>
-    <unit id="nbN6CQm" name="f843777">
+    <unit id=".ujM8Rd" name="d0ea511">
       <notes>
         <note>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
-        <note category="german">Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
+                                                    verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
+        <note category="german">Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
+                                                      verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
       </notes>
       <segment>
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
+                                                      verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
         <target>En tant qu'%citizen%, vous n'utiliserez pas de jours héros.
-                Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
+                                                        Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -3948,13 +3953,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Bitte wähle einen Bürger:</source>
-<<<<<<< HEAD
         <target>Ramener un citoyen :</target>
-        <note>Bitte wähle einen Bürger:</note>
-      </trans-unit>
-      <trans-unit id="MgtBTg_" resname="Es ist kein Bürger in der Nähe...">
-=======
-        <target>Bitte wähle einen Bürger:</target>
       </segment>
     </unit>
     <unit id="MgtBTg_" name="Es ist kein Bürger in der Nähe...">
@@ -3963,7 +3962,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <note category="german">Es ist kein Bürger in der Nähe...</note>
       </notes>
       <segment>
->>>>>>> b1c7377d486c4d870d8c1aa488fd324caa21dba2
         <source>Es ist kein Bürger in der Nähe...</source>
         <target>Il n'y a personne à sauver...</target>
       </segment>
@@ -4858,7 +4856,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Vous ne pouvez porter qu'un conteneur à la fois.</target>
       </segment>
     </unit>
-    <unit id="wjS3J8H" name="7d8aec5">
+    <unit id="Pq_GOUr" name="3ed21ba">
       <notes>
         <note>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
         <note category="german">Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
@@ -4868,7 +4866,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Ici vivait un Citoyen qui avait décidé de s'installer hors de la ville, pensant survivre plus longtemps, loin des querelles et des trahisons. La moitié de son corps est toujours dans le salon.</target>
       </segment>
     </unit>
-    <unit id="9mURbki" name="4046465">
+    <unit id="I0Djxyu" name="0f62850">
       <notes>
         <note>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
         <note category="german">Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
@@ -7167,6 +7165,119 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Total de créatures mort-vivantes que vous avez renvoyées sous terre par n'importe quel moyen.</target>
       </segment>
     </unit>
-    </body>
+    <unit id="bULZzW5" name="97ff2c6">
+      <notes>
+        <note category="german">Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</note>
+      </notes>
+      <segment>
+        <source>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
+        <target>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</target>
+      </segment>
+    </unit>
+    <unit id="dWg5UEc" name="0e07264">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                    auffüllen.</source>
+        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                    auffüllen.</target>
+      </segment>
+    </unit>
+    <unit id="cycrpjD" name="fba1e38">
+      <notes>
+        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
+      </notes>
+      <segment>
+        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
+        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+      </segment>
+    </unit>
+    <unit id="IV3fj_Y" name="f4e28e2">
+      <notes>
+        <note category="german">Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                        Verfügung.</source>
+        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
+                        Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="Qc.QL70" name="a2b0db7">
+      <notes>
+        <note category="german">Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
+                dieser Stadt zur Verfügung.</source>
+        <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
+                dieser Stadt zur Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="kw2Iw8G" name="0a39755">
+      <notes>
+        <note category="german">Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der Stadt aus, musst du als einfacher Einwohner weiterspielen.</note>
+      </notes>
+      <segment>
+        <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
+                Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
+        <target>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
+                Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
+      </segment>
+    </unit>
+    <unit id="nbN6CQm" name="f843777">
+      <notes>
+        <note category="german">Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</note>
+      </notes>
+      <segment>
+        <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
+                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
+        <target>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
+                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</target>
+      </segment>
+    </unit>
+    <unit id="yrqg0t2" name="62c5444">
+      <notes>
+        <note category="german">Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
+                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
+        <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
+                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+      </segment>
+    </unit>
+    <unit id="QL.qpuP" name="d231db0">
+      <notes>
+        <note category="german">Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</note>
+      </notes>
+      <segment>
+        <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
+                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
+        <target>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
+                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</target>
+      </segment>
+    </unit>
+    <unit id="32LY7bW" name="3f5fb3f">
+      <notes>
+        <note category="german">Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine Ausbauten funktionslos.</note>
+      </notes>
+      <segment>
+        <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
+                        Ausbauten funktionslos.</source>
+        <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
+                        Ausbauten funktionslos.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -4534,7 +4534,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</target>
       </segment>
     </unit>
-    <unit id="wjS3J8H" name="7d8aec5">
+    <unit id="Pq_GOUr" name="3ed21ba">
       <notes>
         <note>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
         <note category="german">Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
@@ -4544,7 +4544,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</target>
       </segment>
     </unit>
-    <unit id="9mURbki" name="4046465">
+    <unit id="I0Djxyu" name="0f62850">
       <notes>
         <note>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
         <note category="german">Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
@@ -5819,6 +5819,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>@citizens Bürger</source>
         <target>@citizens Bürger</target>
+      </segment>
+    </unit>
+    <unit id="bULZzW5" name="97ff2c6">
+      <notes>
+        <note category="german">Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</note>
+      </notes>
+      <segment>
+        <source>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
+        <target>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</target>
       </segment>
     </unit>
   </file>
