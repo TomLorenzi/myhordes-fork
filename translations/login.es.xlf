@@ -1,178 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="de" target-language="es" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="KHtB91o" resname="Dein Name muss mindestens {{ limit }} Zeichen umfassen.">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="es">
+  <file id="login.es">
+    <unit id="KHtB91o" name="Dein Name muss mindestens {{ limit }} Zeichen umfassen.">
+      <notes>
+        <note>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Dein Name muss mindestens {{ limit }} Zeichen umfassen.</note>
+      </notes>
+      <segment>
         <source>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</source>
         <target>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</target>
-        <note>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</note>
-      </trans-unit>
-      <trans-unit id="ouF_pon" resname="Dein Name kann höchstens {{ limit }} Zeichen umfassen.">
+      </segment>
+    </unit>
+    <unit id="ouF_pon" name="Dein Name kann höchstens {{ limit }} Zeichen umfassen.">
+      <notes>
+        <note>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Dein Name kann höchstens {{ limit }} Zeichen umfassen.</note>
+      </notes>
+      <segment>
         <source>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</source>
         <target>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</target>
-        <note>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</note>
-      </trans-unit>
-      <trans-unit id="WvW8_JI" resname="Die eingegebene E-Mail Adresse ist nicht gültig.">
+      </segment>
+    </unit>
+    <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
+      <notes>
+        <note>Die eingegebene E-Mail Adresse ist nicht gültig.</note>
+        <note category="german">Die eingegebene E-Mail Adresse ist nicht gültig.</note>
+      </notes>
+      <segment>
         <source>Die eingegebene E-Mail Adresse ist nicht gültig.</source>
         <target>Die eingegebene E-Mail Adresse ist nicht gültig.</target>
-        <note>Die eingegebene E-Mail Adresse ist nicht gültig.</note>
-      </trans-unit>
-      <trans-unit id="6UV8ek7" resname="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
+      </segment>
+    </unit>
+    <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
+      <notes>
+        <note>Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
+        <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
+      </notes>
+      <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
         <target>Die eingegebenen E-Mail Adressen stimmen nicht überein.</target>
-        <note>Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
-      </trans-unit>
-      <trans-unit id="AHjj6mV" resname="Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.">
+      </segment>
+    </unit>
+    <unit id="AHjj6mV" name="Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.">
+      <notes>
+        <note>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</note>
+      </notes>
+      <segment>
         <source>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</source>
         <target>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</target>
-        <note>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</note>
-      </trans-unit>
-      <trans-unit id="OK9eVbg" resname="Die eingegebenen Passwörter stimmen nicht überein.">
+      </segment>
+    </unit>
+    <unit id="OK9eVbg" name="Die eingegebenen Passwörter stimmen nicht überein.">
+      <notes>
+        <note>Die eingegebenen Passwörter stimmen nicht überein.</note>
+        <note category="german">Die eingegebenen Passwörter stimmen nicht überein.</note>
+      </notes>
+      <segment>
         <source>Die eingegebenen Passwörter stimmen nicht überein.</source>
         <target>Die eingegebenen Passwörter stimmen nicht überein.</target>
-        <note>Die eingegebenen Passwörter stimmen nicht überein.</note>
-      </trans-unit>
-      <trans-unit id="a9.cyds" resname="Der Validierungscode muss {{ limit }} Zeichen umfassen.">
+      </segment>
+    </unit>
+    <unit id="a9.cyds" name="Der Validierungscode muss {{ limit }} Zeichen umfassen.">
+      <notes>
+        <note>Der Validierungscode muss {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Der Validierungscode muss {{ limit }} Zeichen umfassen.</note>
+      </notes>
+      <segment>
         <source>Der Validierungscode muss {{ limit }} Zeichen umfassen.</source>
         <target>Der Validierungscode muss {{ limit }} Zeichen umfassen.</target>
-        <note>Der Validierungscode muss {{ limit }} Zeichen umfassen.</note>
-      </trans-unit>
-      <trans-unit id="0f1ZNLd" resname="Der angegebene Validierungscode ist nicht gültig.">
+      </segment>
+    </unit>
+    <unit id="0f1ZNLd" name="Der angegebene Validierungscode ist nicht gültig.">
+      <notes>
+        <note>Der angegebene Validierungscode ist nicht gültig.</note>
+        <note category="german">Der angegebene Validierungscode ist nicht gültig.</note>
+      </notes>
+      <segment>
         <source>Der angegebene Validierungscode ist nicht gültig.</source>
         <target>Der angegebene Validierungscode ist nicht gültig.</target>
-        <note>Der angegebene Validierungscode ist nicht gültig.</note>
-      </trans-unit>
-      <trans-unit id="ePGiZSF" resname="Der angegebene Name existiert bereits im Spiel.">
+      </segment>
+    </unit>
+    <unit id="ePGiZSF" name="Der angegebene Name existiert bereits im Spiel.">
+      <notes>
+        <note>Der angegebene Name existiert bereits im Spiel.</note>
+        <note category="german">Der angegebene Name existiert bereits im Spiel.</note>
+      </notes>
+      <segment>
         <source>Der angegebene Name existiert bereits im Spiel.</source>
         <target>Der angegebene Name existiert bereits im Spiel.</target>
-        <note>Der angegebene Name existiert bereits im Spiel.</note>
-      </trans-unit>
-      <trans-unit id="kVhhGdk" resname="Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.">
+      </segment>
+    </unit>
+    <unit id="kVhhGdk" name="Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.">
+      <notes>
+        <note>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</note>
+        <note category="german">Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</note>
+      </notes>
+      <segment>
         <source>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</source>
         <target>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</target>
-        <note>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</note>
-      </trans-unit>
-      <trans-unit id="Qu4FAIf" resname="E-Mail Adresse validieren">
+      </segment>
+    </unit>
+    <unit id="Qu4FAIf" name="E-Mail Adresse validieren">
+      <notes>
+        <note>E-Mail Adresse validieren</note>
+        <note category="german">E-Mail Adresse validieren</note>
+      </notes>
+      <segment>
         <source>E-Mail Adresse validieren</source>
         <target>E-Mail Adresse validieren</target>
-        <note>E-Mail Adresse validieren</note>
-      </trans-unit>
-      <trans-unit id="TM0i7i7" resname="Hallo %name%!">
+      </segment>
+    </unit>
+    <unit id="TM0i7i7" name="Hallo %name%!">
+      <notes>
+        <note>Hallo %name%!</note>
+        <note category="german">Hallo %name%!</note>
+      </notes>
+      <segment>
         <source>Hallo %name%!</source>
         <target>Hallo %name%!</target>
-        <note>Hallo %name%!</note>
-      </trans-unit>
-      <trans-unit id="UA_FeeT" resname="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
+      </segment>
+    </unit>
+    <unit id="UA_FeeT" name="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
+      <notes>
+        <note>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</note>
+        <note category="german">Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</note>
+      </notes>
+      <segment>
         <source>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</source>
         <target>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</target>
-        <note>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</note>
-      </trans-unit>
-      <trans-unit id="JeRbwqT" resname="Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.">
+      </segment>
+    </unit>
+    <unit id="JeRbwqT" name="Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.">
+      <notes>
+        <note>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
+        <note category="german">Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
+      </notes>
+      <segment>
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
         <target>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</target>
-        <note>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
-      </trans-unit>
-      <trans-unit id="ANnpnHZ" resname="Validierungscode">
+      </segment>
+    </unit>
+    <unit id="ANnpnHZ" name="Validierungscode">
+      <notes>
+        <note>Validierungscode</note>
+        <note category="german">Validierungscode</note>
+      </notes>
+      <segment>
         <source>Validierungscode</source>
         <target>Validierungscode</target>
-        <note>Validierungscode</note>
-      </trans-unit>
-      <trans-unit id="ocoTV1m" resname="Prüfen">
+      </segment>
+    </unit>
+    <unit id="ocoTV1m" name="Prüfen">
+      <notes>
+        <note>Prüfen</note>
+        <note category="german">Prüfen</note>
+      </notes>
+      <segment>
         <source>Prüfen</source>
         <target>Prüfen</target>
-        <note>Prüfen</note>
-      </trans-unit>
-      <trans-unit id="tkZocIU" resname="Ausloggen">
+      </segment>
+    </unit>
+    <unit id="tkZocIU" name="Ausloggen">
+      <notes>
+        <note>Ausloggen</note>
+        <note category="german">Ausloggen</note>
+      </notes>
+      <segment>
         <source>Ausloggen</source>
         <target>Ausloggen</target>
-        <note>Ausloggen</note>
-      </trans-unit>
-      <trans-unit id="VBEBU.F" resname="Du hast noch keinen Account?">
+      </segment>
+    </unit>
+    <unit id="VBEBU.F" name="Du hast noch keinen Account?">
+      <notes>
+        <note>Du hast noch keinen Account?</note>
+        <note category="german">Du hast noch keinen Account?</note>
+      </notes>
+      <segment>
         <source>Du hast noch keinen Account?</source>
         <target>Du hast noch keinen Account?</target>
-        <note>Du hast noch keinen Account?</note>
-      </trans-unit>
-      <trans-unit id="pMJydfA" resname="Registrieren!">
+      </segment>
+    </unit>
+    <unit id="pMJydfA" name="Registrieren!">
+      <notes>
+        <note>Registrieren!</note>
+        <note category="german">Registrieren!</note>
+      </notes>
+      <segment>
         <source>Registrieren!</source>
         <target>Registrieren!</target>
-        <note>Registrieren!</note>
-      </trans-unit>
-      <trans-unit id="0wO.38C" resname="Du hast deine E-Mail Adresse schon validiert?">
+      </segment>
+    </unit>
+    <unit id="0wO.38C" name="Du hast deine E-Mail Adresse schon validiert?">
+      <notes>
+        <note>Du hast deine E-Mail Adresse schon validiert?</note>
+        <note category="german">Du hast deine E-Mail Adresse schon validiert?</note>
+      </notes>
+      <segment>
         <source>Du hast deine E-Mail Adresse schon validiert?</source>
         <target>Du hast deine E-Mail Adresse schon validiert?</target>
-        <note>Du hast deine E-Mail Adresse schon validiert?</note>
-      </trans-unit>
-      <trans-unit id="cLGN4MZ" resname="Einloggen!">
+      </segment>
+    </unit>
+    <unit id="cLGN4MZ" name="Einloggen!">
+      <notes>
+        <note>Einloggen!</note>
+        <note category="german">Einloggen!</note>
+      </notes>
+      <segment>
         <source>Einloggen!</source>
         <target>Einloggen!</target>
-        <note>Einloggen!</note>
-      </trans-unit>
-      <trans-unit id="m8bXbyH" resname="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
+      </segment>
+    </unit>
+    <unit id="m8bXbyH" name="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
+      <notes>
+        <note>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
+        <note category="german">Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
+      </notes>
+      <segment>
         <source>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
         <target>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</target>
-        <note>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
-      </trans-unit>
-      <trans-unit id="Bw.Ze07" resname="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
+      </segment>
+    </unit>
+    <unit id="Bw.Ze07" name="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
+      <notes>
+        <note>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
+        <note category="german">Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
+      </notes>
+      <segment>
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
         <target>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</target>
-        <note>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
-      </trans-unit>
-      <trans-unit id="O63JhDQ" resname="Registrieren">
+      </segment>
+    </unit>
+    <unit id="O63JhDQ" name="Registrieren">
+      <notes>
+        <note>Registrieren</note>
+        <note category="german">Registrieren</note>
+      </notes>
+      <segment>
         <source>Registrieren</source>
         <target>Registrieren</target>
-        <note>Registrieren</note>
-      </trans-unit>
-      <trans-unit id="VR0KmfL" resname="Spielername">
+      </segment>
+    </unit>
+    <unit id="VR0KmfL" name="Spielername">
+      <notes>
+        <note>Spielername</note>
+        <note category="german">Spielername</note>
+      </notes>
+      <segment>
         <source>Spielername</source>
         <target>Spielername</target>
-        <note>Spielername</note>
-      </trans-unit>
-      <trans-unit id="Up_TjZv" resname="E-Mail Adresse">
+      </segment>
+    </unit>
+    <unit id="Up_TjZv" name="E-Mail Adresse">
+      <notes>
+        <note>E-Mail Adresse</note>
+        <note category="german">E-Mail Adresse</note>
+      </notes>
+      <segment>
         <source>E-Mail Adresse</source>
         <target>E-Mail Adresse</target>
-        <note>E-Mail Adresse</note>
-      </trans-unit>
-      <trans-unit id="QNpwRBL" resname="wiederholen">
+      </segment>
+    </unit>
+    <unit id="QNpwRBL" name="wiederholen">
+      <notes>
+        <note>wiederholen</note>
+        <note category="german">wiederholen</note>
+      </notes>
+      <segment>
         <source>wiederholen</source>
         <target>wiederholen</target>
-        <note>wiederholen</note>
-      </trans-unit>
-      <trans-unit id="o2wQFXD" resname="Passwort">
+      </segment>
+    </unit>
+    <unit id="o2wQFXD" name="Passwort">
+      <notes>
+        <note>Passwort</note>
+        <note category="german">Passwort</note>
+      </notes>
+      <segment>
         <source>Passwort</source>
         <target>Passwort</target>
-        <note>Passwort</note>
-      </trans-unit>
-      <trans-unit id="MI8TC0R" resname="Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen&#10;                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.">
+      </segment>
+    </unit>
+    <unit id="MI8TC0R" name="34a3970">
+      <notes>
+        <note>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
+        <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
+      </notes>
+      <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
         <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
-        <note>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
-                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
-      </trans-unit>
-      <trans-unit id="._jFtS_" resname="Du hast schon einen Account?">
+      </segment>
+    </unit>
+    <unit id="._jFtS_" name="Du hast schon einen Account?">
+      <notes>
+        <note>Du hast schon einen Account?</note>
+        <note category="german">Du hast schon einen Account?</note>
+      </notes>
+      <segment>
         <source>Du hast schon einen Account?</source>
         <target>Du hast schon einen Account?</target>
-        <note>Du hast schon einen Account?</note>
-      </trans-unit>
-      <trans-unit id="kTHLCAW" resname="Einloggen">
+      </segment>
+    </unit>
+    <unit id="kTHLCAW" name="Einloggen">
+      <notes>
+        <note>Einloggen</note>
+        <note category="german">Einloggen</note>
+      </notes>
+      <segment>
         <source>Einloggen</source>
         <target>Einloggen</target>
-        <note>Einloggen</note>
-      </trans-unit>
-      <trans-unit id="k.cRHPZ" resname="Bitte gib deinen Spielernamen und dein Passwort ein.">
+      </segment>
+    </unit>
+    <unit id="k.cRHPZ" name="Bitte gib deinen Spielernamen und dein Passwort ein.">
+      <notes>
+        <note>Bitte gib deinen Spielernamen und dein Passwort ein.</note>
+        <note category="german">Bitte gib deinen Spielernamen und dein Passwort ein.</note>
+      </notes>
+      <segment>
         <source>Bitte gib deinen Spielernamen und dein Passwort ein.</source>
         <target>Bitte gib deinen Spielernamen und dein Passwort ein.</target>
-        <note>Bitte gib deinen Spielernamen und dein Passwort ein.</note>
-      </trans-unit>
-      <trans-unit id="ku3di7g" resname="Login fehlgeschlagen. Bitte prüfe deine Eingaben.">
+      </segment>
+    </unit>
+    <unit id="ku3di7g" name="Login fehlgeschlagen. Bitte prüfe deine Eingaben.">
+      <notes>
+        <note>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
+        <note category="german">Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
+      </notes>
+      <segment>
         <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
         <target>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</target>
-        <note>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
   </file>
 </xliff>

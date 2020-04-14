@@ -1,61 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="de" target-language="en" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="7VfCrWl" resname="Foren">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="en">
+  <file id="welcome.en">
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note>Foren</note>
+        <note category="german">Foren</note>
+      </notes>
+      <segment>
         <source>Foren</source>
         <target>Forums</target>
-        <note>Foren</note>
-      </trans-unit>
-      <trans-unit id="a66OWC." resname="Willkommen bei MyHordes">
+      </segment>
+    </unit>
+    <unit id="a66OWC." name="Willkommen bei MyHordes">
+      <notes>
+        <note>Willkommen bei MyHordes</note>
+        <note category="german">Willkommen bei MyHordes</note>
+      </notes>
+      <segment>
         <source>Willkommen bei MyHordes</source>
         <target>Welcome to MyHordes</target>
-        <note>Willkommen bei MyHordes</note>
-      </trans-unit>
-      <trans-unit id="Sq5rAhc" resname="MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels&#10;                    &quot;Die Verdammten&quot; von %motiontwin%.">
+      </segment>
+    </unit>
+    <unit id="Sq5rAhc" name="99de2c1">
+      <notes>
+        <note>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
+                    "Die Verdammten" von %motiontwin%.</note>
+        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
+                    "Die Verdammten" von %motiontwin%.</note>
+      </notes>
+      <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</source>
         <target>MyHordes is an open implementation of the browser game "Die2Nite"
           by %motiontwin% and developed by the community.</target>
-        <note>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</note>
-      </trans-unit>
-      <trans-unit id="yIFGZLw" resname="Ziel des Projektes ist es, einer Version von &quot;Die Verdammten&quot; zu erschaffen, die nicht nur nach der&#10;                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen&#10;                    Inhalten versorgt werden kann.">
+      </segment>
+    </unit>
+    <unit id="yIFGZLw" name="2fac8f1">
+      <notes>
+        <note>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
+                    Inhalten versorgt werden kann.</note>
+        <note category="german">Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
+                    Inhalten versorgt werden kann.</note>
+      </notes>
+      <segment>
         <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
         <target>The aim of this project is to create a version of "Die2Nite", that will
           not only work after the removal of Flash support in common browsers,
           but will also be developed beyond the original and receive new content.</target>
-        <note>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
-                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                    Inhalten versorgt werden kann.</note>
-      </trans-unit>
-      <trans-unit id="mbIzlHW" resname="Zum Spiel">
+      </segment>
+    </unit>
+    <unit id="mbIzlHW" name="Zum Spiel">
+      <notes>
+        <note>Zum Spiel</note>
+        <note category="german">Zum Spiel</note>
+      </notes>
+      <segment>
         <source>Zum Spiel</source>
         <target>Game</target>
-        <note>Zum Spiel</note>
-      </trans-unit>
-      <trans-unit id="M_25pDW" resname="Account validieren">
+      </segment>
+    </unit>
+    <unit id="M_25pDW" name="Account validieren">
+      <notes>
+        <note>Account validieren</note>
+        <note category="german">Account validieren</note>
+      </notes>
+      <segment>
         <source>Account validieren</source>
         <target>Validate account</target>
-        <note>Account validieren</note>
-      </trans-unit>
-      <trans-unit id="vMG7P9w" resname="Zum Login">
+      </segment>
+    </unit>
+    <unit id="vMG7P9w" name="Zum Login">
+      <notes>
+        <note>Zum Login</note>
+        <note category="german">Zum Login</note>
+      </notes>
+      <segment>
         <source>Zum Login</source>
         <target>Login</target>
-        <note>Zum Login</note>
-      </trans-unit>
-      <trans-unit id="RVQn34R" resname="Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus &quot;Die Verdammten&quot; und sind&#10;                    damit Eigentum von %motiontwin%.">
+      </segment>
+    </unit>
+    <unit id="RVQn34R" name="dfabf06">
+      <notes>
+        <note>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+                    damit Eigentum von %motiontwin%.</note>
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+                    damit Eigentum von %motiontwin%.</note>
+      </notes>
+      <segment>
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
                     damit Eigentum von %motiontwin%.</source>
         <target>All graphical assets are taken from Die2Nite if not stated otherwise and therefore are property of %motiontwin%.</target>
-        <note>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
-                    damit Eigentum von %motiontwin%.</note>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
   </file>
 </xliff>
