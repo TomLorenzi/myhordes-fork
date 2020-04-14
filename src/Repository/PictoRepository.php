@@ -53,12 +53,14 @@ class PictoRepository extends ServiceEntityRepository
     {
         try {
             return $this->createQueryBuilder('i')
+                ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description')
                 ->andWhere('i.user = :val')
                 ->andWhere('i.persisted = 2')
                 ->orderBy('pp.rare', 'DESC')
-                ->addOrderBy('i.count', 'DESC')
+                ->addOrderBy('c', 'DESC')
                 ->setParameter('val', $user)
                 ->leftJoin('i.prototype', 'pp')
+                ->groupBy("i.prototype")
                 ->getQuery()
                 ->getResult();
         } catch (NonUniqueResultException $e) {

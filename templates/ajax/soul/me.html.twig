@@ -34,15 +34,15 @@
                         {% else %}
                         <div class"list">
                             {% for picto in pictos %}
-                                <div class="picto{% if picto.prototype.rare %} rare{% endif %}">
-                                    <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" /><br />
+                                <div class="picto{% if picto.rare %} rare{% endif %}">
+                                    <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
                                     <div class="counter">
-                                    {% for number in picto.count|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
+                                    {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
                                     </div>
                                     <div class="tooltip">
-                                    <h1>{{ picto.prototype.label|trans({}, 'game') }}</h1>
-                                    {{ picto.prototype.description|trans({}, 'game')}}</em>
-                                </div>
+                                    <h1>{{ picto.label|trans({}, 'game') }}</h1>
+                                    {{ picto.description|trans({}, 'game')}}</em>
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>

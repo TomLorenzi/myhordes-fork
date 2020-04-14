@@ -132,7 +132,7 @@ class DeathHandler
                 }
             }
         }
-        
+
         $pictoDeath = null;
         $pictoDeath2 = null;
         switch ($cod->getRef()) {
@@ -143,23 +143,18 @@ class DeathHandler
                 $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_doutsd_#00");
                 break;
             case CauseOfDeath::Dehydration:
-                // Death from dehydration
-                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dwater#00");
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dwater_#00");
                 break;
             case CauseOfDeath::Addiction:
-                // Death from drugs addiction
                 $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ddrug_#00");
                 break;
             case CauseOfDeath::Infection:
-                // Death from infection
                 $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dinfec_#00");
                 break;
             case CauseOfDeath::Hanging:
-                // Death hanged
                 $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
                 break;
             case CauseOfDeath::Radiations:
-                // Death with reactor explosion
                 $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
                 $pictoDeath2 = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dinfec_#00");
                 break;
@@ -171,7 +166,7 @@ class DeathHandler
                 ->setPersisted(2)
                 ->setTown($citizen->getTown())
                 ->setUser($citizen->getUser())
-                ->setCount($citizen->getSurvivedDays());
+                ->setCount(1);
 
             $this->entity_manager->persist($picto);
         }
@@ -182,7 +177,7 @@ class DeathHandler
                 ->setPersisted(2)
                 ->setTown($citizen->getTown())
                 ->setUser($citizen->getUser())
-                ->setCount($citizen->getSurvivedDays());
+                ->setCount(1);
 
             $this->entity_manager->persist($picto);
         }
