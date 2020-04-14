@@ -16,6 +16,8 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
@@ -407,7 +409,6 @@ class ActionHandler
 
         $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest) {
             if ($status = $result->getStatus()) {
-
                 if ($status->getInitial() && $status->getResult()) {
                     if ($citizen->getStatus()->contains( $status->getInitial() )) {
                         $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
@@ -426,6 +427,21 @@ class ActionHandler
                     if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus( $citizen, $status->getResult() )) {
                         $tags[] = 'stat-up';
                         $tags[] = "stat-up-{$status->getResult()->getName()}";
+                        if($status->getResult()->getName() == "drunk") {
+                            // We drank alcohol, we need the associated picto
+                            $pictoAlcohol = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_alcool_#00");
+                            if($pictoAlcohol !== null) {
+                                $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoAlcohol);
+                                if($picto === null) $picto = new Picto();
+                                $picto->setPrototype($pictoAlcohol)
+                                    ->setPersisted(0)
+                                    ->setTown($citizen->getTown())
+                                    ->setUser($citizen->getUser())
+                                    ->setCount($picto->getCount()+1);
+
+                                $this->entity_manager->persist($picto);
+                            }
+                        }
                     }
                 }
 
