@@ -448,7 +448,7 @@ class PictoFixtures extends Fixture
         ],
         [
             'label' => 'Getötete Zombies',
-            'description' => 'Total de créatures mort-vivantes que vous avez renvoyées sous terre par n\'importe quel moyen.',
+            'description' => 'Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.',
             'icon' => 'small_zombie',
             'rare' => false
         ],
@@ -477,25 +477,11 @@ class PictoFixtures extends Fixture
             'rare' => true
         ],
         [
-            'label' => 'Ehemaliger Beta-Tester',
-            'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist.',
-            'icon' => 'r_beta',
+            'label' => 'Schamane',
+            'description' => 'Tagelang wurde an den Seelen der Toten herumgepfuscht.',
+            'icon' => 'r_chaman',
             'rare' => true
         ],
-        [
-            'label' => 'Ehemaliger Beta-Tester',
-            'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist.',
-            'icon' => 'r_beta',
-            'rare' => true
-        ],
-        [
-            'label' => 'Ehemaliger Beta-Tester',
-            'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist.',
-            'icon' => 'r_beta',
-            'rare' => true
-        ],
-
-
     ];
 
     private $entityManager;

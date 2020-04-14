@@ -2795,7 +2795,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="0vW.4CA" resname="Ein Vorhang blockiert die Sicht ...">
         <source>Ein Vorhang blockiert die Sicht ...</source>
-        <target>Ein Vorhang blockiert die Sicht ...</target>
+        <target>Un rideau bloque la vue ...</target>
         <note>Ein Vorhang blockiert die Sicht ...</note>
       </trans-unit>
       <trans-unit id="p7WJjEO" resname="Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.">
@@ -2929,6 +2929,598 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="S103XG1" resname="@citizens Bürger">
         <source>@citizens Bürger</source>
         <target>@citizens Citoyens</target>
+      </trans-unit>
+      <trans-unit id="NyGp8KR" resname="Anzahl der Tage, die du als Aufklärer gespielt hast.">
+        <source>Anzahl der Tage, die du als Aufklärer gespielt hast.</source>
+        <target>Jours passés dans les ombres en tant qu'Éclaireur.</target>
+      </trans-unit>
+      <trans-unit id="9itIyey" resname="Anzahl der Tage, die du als Wächter gespielt hast.">
+        <source>Anzahl der Tage, die du als Wächter gespielt hast.</source>
+        <target>Jours passés avec votre bouclier en tant que Gardien.</target>
+      </trans-unit>
+      <trans-unit id="Qw5Rx06" resname="Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.">
+        <source>Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</source>
+        <target>Jours passés à torturer des bichons maltais.</target>
+      </trans-unit>
+      <trans-unit id="XzMbfeG" resname="Anzahl der Tage, die du als Einsiedler gespielt hast.">
+        <source>Anzahl der Tage, die du als Einsiedler gespielt hast.</source>
+        <target>Jours passés à manger n'importe quoi en tant qu'Ermite.</target>
+      </trans-unit>
+      <trans-unit id="7nFBaX5" resname="Anzahl der Tage, die du als Techniker gespielt hast.">
+        <source>Anzahl der Tage, die du als Techniker gespielt hast.</source>
+        <target>Jours passés à jouer avec des outils pointus.</target>
+      </trans-unit>
+      <trans-unit id="tSnoLfe" resname="Anzahl der Tage, die du als Buddler gespielt hast.">
+        <source>Anzahl der Tage, die du als Buddler gespielt hast.</source>
+        <target>Jours passés à gratter le sol en tant que Fouineur.</target>
+      </trans-unit>
+      <trans-unit id="cbZMBy4" resname="Heldentaten">
+        <source>Heldentaten</source>
+        <target>Actions héroïques</target>
+      </trans-unit>
+      <trans-unit id="1H1xdaJ" resname="Anzahl deiner wirklich außergewöhnlichen Heldentaten.">
+        <source>Anzahl deiner wirklich außergewöhnlichen Heldentaten.</source>
+        <target>Nombre de choses vraiment hors du commun que vous avez faites.</target>
+      </trans-unit>
+      <trans-unit id="1lND7a9" resname="Alkohol">
+        <source>Alkohol</source>
+        <target>Alcools</target>
+      </trans-unit>
+      <trans-unit id="5DxEd.t" resname="Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.">
+        <source>Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</source>
+        <target>Litres de substances alcoolisées artisanales que vous avez avalés.</target>
+      </trans-unit>
+      <trans-unit id="cqHpjId" resname="Hausverbesserung">
+        <source>Hausverbesserung</source>
+        <target>Améliorations de maison</target>
+      </trans-unit>
+      <trans-unit id="vvkmQ1Z" resname="Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.">
+        <source>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</source>
+        <target>Nombre d'améliorations générales apportées à votre maison.</target>
+      </trans-unit>
+      <trans-unit id="NXPKDs5" resname="Handwerk">
+        <source>Handwerk</source>
+        <target>Artisanat</target>
+      </trans-unit>
+      <trans-unit id="X2_RNih" resname="Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.">
+        <source>Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</source>
+        <target>Nombre de petits objets bricolés ou démolis à l'atelier.</target>
+      </trans-unit>
+      <trans-unit id="qxxe5aj" resname="Leichenwäscher">
+        <source>Leichenwäscher</source>
+        <target>Arroseur</target>
+      </trans-unit>
+      <trans-unit id="8S1_bLd" resname="Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.">
+        <source>Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</source>
+        <target>Cérémonies d'arrosage pratiquées sur des cadavres de citoyens.</target>
+      </trans-unit>
+      <trans-unit id="7Wc6Ben" resname="Autarker Verbannter">
+        <source>Autarker Verbannter</source>
+        <target>Banni émancipé</target>
+      </trans-unit>
+      <trans-unit id="2DaxIuu" resname="Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.">
+        <source>Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</source>
+        <target>Nombre d'objets de fortune confectionnés à partir de débris trouvés dans les poubelles de la ville. Il faut être banni(e) pour recevoir cette distinction.</target>
+      </trans-unit>
+      <trans-unit id="KqvNLEL" resname="Verbannungen">
+        <source>Verbannungen</source>
+        <target>Bannissements</target>
+      </trans-unit>
+      <trans-unit id="wgg_HJR" resname="Anzahl der Stadtverbannungen.">
+        <source>Anzahl der Stadtverbannungen.</source>
+        <target>Nombre d'exclusions définitives de la communauté.</target>
+      </trans-unit>
+      <trans-unit id="nVFqlRD" resname="Schwere Verletzungen">
+        <source>Schwere Verletzungen</source>
+        <target>Blessures</target>
+      </trans-unit>
+      <trans-unit id="TBkqTrT" resname="Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.">
+        <source>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</source>
+        <target>Nombre de mutilations ou démembrements qui ne vous ont pas coûté la vie.</target>
+      </trans-unit>
+      <trans-unit id="sfHZK3y" resname="Hausmannskost">
+        <source>Hausmannskost</source>
+        <target>Bons p'tits plats</target>
+      </trans-unit>
+      <trans-unit id="5amCsNE" resname="Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.">
+        <source>Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</source>
+        <target>Délicieux mets que vous avez concoctés avec des ingrédients douteux.</target>
+      </trans-unit>
+      <trans-unit id="lFadGAX" resname="Metzger">
+        <source>Metzger</source>
+        <target>Boucherie</target>
+      </trans-unit>
+      <trans-unit id="j99sKU7" resname="Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).">
+        <source>Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</source>
+        <target>Nombre d'animaux que vous avez exterminés (à la main, au mixer, au sani-broyeur...).</target>
+      </trans-unit>
+      <trans-unit id="c4t38mo" resname="Camper im Jenseits">
+        <source>Camper im Jenseits</source>
+        <target>Campeur de l'au-delà</target>
+      </trans-unit>
+      <trans-unit id="AJmB7Pi" resname="Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!">
+        <source>Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</source>
+        <target>Nombre de nuits survécues tandis que la ville était dévastée !</target>
+      </trans-unit>
+      <trans-unit id="wV.yQpJ" resname="Mutiger Camper">
+        <source>Mutiger Camper</source>
+        <target>Campeur téméraire</target>
+      </trans-unit>
+      <trans-unit id="qZ87cXc" resname="Anzahl der Nächte, die du draußen geschlafen und überlebt hast.">
+        <source>Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</source>
+        <target>Nombre de nuits passées dehors et auxquelles vous avez survécu.</target>
+      </trans-unit>
+      <trans-unit id="g8yfOwR" resname="Kannibalismus">
+        <source>Kannibalismus</source>
+        <target>Cannibalisme</target>
+      </trans-unit>
+      <trans-unit id="DkOM_ae" resname="Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...">
+        <source>Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</source>
+        <target>Nombre de repas à base de viande humaine...</target>
+      </trans-unit>
+      <trans-unit id="fl_VRZF" resname="Wasserkanonen">
+        <source>Wasserkanonen</source>
+        <target>Canons à eau</target>
+      </trans-unit>
+      <trans-unit id="zu27xBQ" resname="Anzahl an großen Wasserwaffen, die du gebaut hast.">
+        <source>Anzahl an großen Wasserwaffen, die du gebaut hast.</source>
+        <target>Nombre de gros jouets à base d'eau que vous avez fabriqués.</target>
+      </trans-unit>
+      <trans-unit id="g01ynP2" resname="Glückspilz">
+        <source>Glückspilz</source>
+        <target>Chanceux</target>
+      </trans-unit>
+      <trans-unit id="2sqMJTk" resname="Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.">
+        <source>Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</source>
+        <target>Nombre de gros coffres en métal que vous avez dégotés dans l'Outre-Monde.</target>
+      </trans-unit>
+      <trans-unit id="4e.Kq3q" resname="Baustellen">
+        <source>Baustellen</source>
+        <target>Chantiers</target>
+      </trans-unit>
+      <trans-unit id="Ad9kZzy" resname="Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.">
+        <source>Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</source>
+        <target>Points d'action et/ou de chantier investis dans l'avancement d'un chantier en ville.</target>
+      </trans-unit>
+      <trans-unit id="WH7we5M" resname="Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.">
+        <source>Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</source>
+        <target>Capacité à rester Clair(e) (aucune drogue consommée) au cours de toute une vie.</target>
+      </trans-unit>
+      <trans-unit id="iUTpVp." resname="Kernsammler">
+        <source>Kernsammler</source>
+        <target>Collecteur d'âmes</target>
+      </trans-unit>
+      <trans-unit id="lul.uPB" resname="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
+        <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
+        <target>Nombres d'âmes de citoyens décédés collectées dans l'outre-monde</target>
+      </trans-unit>
+      <trans-unit id="FRTO7P3" resname="Kämpfe um Leben und Tod">
+        <source>Kämpfe um Leben und Tod</source>
+        <target>Combats désespérés</target>
+      </trans-unit>
+      <trans-unit id="HViHyOD" resname="Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!">
+        <source>Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</source>
+        <target>Zombies éliminés de vos propres mains, sans arme ni capacité spéciale. Wahou.</target>
+      </trans-unit>
+      <trans-unit id="X.bgGgs" resname="Wunderwerke">
+        <source>Wunderwerke</source>
+        <target>Construction de Merveilles</target>
+      </trans-unit>
+      <trans-unit id="3tQwiq5" resname="Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.">
+        <source>Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</source>
+        <target>Nombre de Merveilles que vous avez réussi à construire.</target>
+      </trans-unit>
+      <trans-unit id="18LG1hY" resname="Grillmeister">
+        <source>Grillmeister</source>
+        <target>Cuisine exotique</target>
+      </trans-unit>
+      <trans-unit id="8KNXbhW" resname="Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.">
+        <source>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</source>
+        <target>Anciens amis que vous avez cuisinés au Cremato-cue.</target>
+      </trans-unit>
+      <trans-unit id="1CYXYFJ" resname="Ausgrabungsarbeiten">
+        <source>Ausgrabungsarbeiten</source>
+        <target>Déblaiement</target>
+      </trans-unit>
+      <trans-unit id="X_yPmV2" resname="Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.">
+        <source>Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</source>
+        <target>Points d'action investis dans le déblaiement d'un bâtiment dans l'Outre-Monde.</target>
+      </trans-unit>
+      <trans-unit id="YpOmX81" resname="Hauseinrichtung">
+        <source>Hauseinrichtung</source>
+        <target>Décoration</target>
+      </trans-unit>
+      <trans-unit id="Enu9Feh" resname="Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.">
+        <source>Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</source>
+        <target>Nombre de points de décoration que vous avez pris la peine d'ajouter à votre habitat.</target>
+      </trans-unit>
+      <trans-unit id="sAt788p" resname="Letzte Verteidigungslinie">
+        <source>Letzte Verteidigungslinie</source>
+        <target>Dernière ligne</target>
+      </trans-unit>
+      <trans-unit id="5vRd54n" resname="Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...">
+        <source>Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</source>
+        <target>Vous faites partie des derniers à avoir vu les Hordes déferler sur la ville...</target>
+      </trans-unit>
+      <trans-unit id=".flbaw." resname="Drogen">
+        <source>Drogen</source>
+        <target>Drogues</target>
+      </trans-unit>
+      <trans-unit id="vrHQtYb" resname="Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.">
+        <source>Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</source>
+        <target>Nombre de petits cachets rigolos que vous avez avalés (ou placés ailleurs...).</target>
+      </trans-unit>
+      <trans-unit id="eO92oF_" resname="Drogenerfahrungen">
+        <source>Drogenerfahrungen</source>
+        <target>Expérimentations</target>
+      </trans-unit>
+      <trans-unit id="f0JFraG" resname="Anzahl der gefährlichen Drogen, die du genommen hast.">
+        <source>Anzahl der gefährlichen Drogen, die du genommen hast.</source>
+        <target>Drogues aux effets dangereux que vous avez avalées.</target>
+      </trans-unit>
+      <trans-unit id="Ncfbww0" resname="Überlebende der Hölle!">
+        <source>Überlebende der Hölle!</source>
+        <target>Survivant de l'enfer !</target>
+      </trans-unit>
+      <trans-unit id="BanibAx" resname="Sie sind ein wahrer Überlebenskünstler der Hölle.">
+        <source>Sie sind ein wahrer Überlebenskünstler der Hölle.</source>
+        <target>Vous êtes un vrai survivant de l'enfer.</target>
+      </trans-unit>
+      <trans-unit id="2yZmTqb" resname="Letzter Toter">
+        <source>Letzter Toter</source>
+        <target>Mort Ultime</target>
+      </trans-unit>
+      <trans-unit id="mjHDbiJ" resname="Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.">
+        <source>Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</source>
+        <target>Vous êtes le ou la dernière à mourir ! Très peu de citoyens ont réalisé cet exploit !</target>
+      </trans-unit>
+      <trans-unit id="sSPf54f" resname="Gebäude erkunden">
+        <source>Gebäude erkunden</source>
+        <target>Exploration de ruine</target>
+      </trans-unit>
+      <trans-unit id="jIah41g" resname="Anzahl der verlassenen Gebäude, die du untersucht hast.">
+        <source>Anzahl der verlassenen Gebäude, die du untersucht hast.</source>
+        <target>Nombre de fois où vous avez osé pénétrer dans une ruine abandonnée.</target>
+      </trans-unit>
+      <trans-unit id="CLMy7pI" resname="Komplexe Expeditionen">
+        <source>Komplexe Expeditionen</source>
+        <target>Explorations avancées</target>
+      </trans-unit>
+      <trans-unit id="U.4cHE6" resname="Anzahl der entfernten Gebäude, die von dir erkundet wurden.">
+        <source>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</source>
+        <target>Nombre de bâtiments dans des zones éloignées que vous avez explorés.</target>
+      </trans-unit>
+      <trans-unit id="IzudVAk" resname="Expertenexpeditionen">
+        <source>Expertenexpeditionen</source>
+        <target>Explorations très lointaines</target>
+      </trans-unit>
+      <trans-unit id="nukR2X5" resname="Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.">
+        <source>Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</source>
+        <target>Nombre de bâtiments dans des zones éloignées que vous avez explorés.</target>
+      </trans-unit>
+      <trans-unit id="7Gh92iA" resname="Großzügigkeit">
+        <source>Großzügigkeit</source>
+        <target>Générosité</target>
+      </trans-unit>
+      <trans-unit id="LSlayka" resname="Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.">
+        <source>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</source>
+        <target>Nombre de jours de mode héros que vous avez offert à un autre citoyen dans le besoin.</target>
+      </trans-unit>
+      <trans-unit id="yMz03.8" resname="Spiritueller Führer">
+        <source>Spiritueller Führer</source>
+        <target>Guide Spirituel</target>
+      </trans-unit>
+      <trans-unit id="G37KPb9" resname="Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.">
+        <source>Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</source>
+        <target>Jours passés en tant que guide pour les noobs en Région non éloignée.</target>
+      </trans-unit>
+      <trans-unit id="dj5AV6G" resname="Laborant">
+        <source>Laborant</source>
+        <target>Laborantin</target>
+      </trans-unit>
+      <trans-unit id="CC3N8jQ" resname="Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.">
+        <source>Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</source>
+        <target>Cachets de Twinoïd produits dans votre Laboratoire personnel.</target>
+      </trans-unit>
+      <trans-unit id="cue6a8_" resname="Diebstähle">
+        <source>Diebstähle</source>
+        <target>Larcins</target>
+      </trans-unit>
+      <trans-unit id="3MT_LNg" resname="Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.">
+        <source>Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</source>
+        <target>Nombre d'objets volés chez vos voisins (en vie).</target>
+      </trans-unit>
+      <trans-unit id="gibtxxf" resname="Schusseligkeiten">
+        <source>Schusseligkeiten</source>
+        <target>Maladresses</target>
+      </trans-unit>
+      <trans-unit id="ZEsIgrQ" resname="Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.">
+        <source>Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</source>
+        <target>Nombre d'objets que vous avez cassés au cours de vos expériences maladroites.</target>
+      </trans-unit>
+      <trans-unit id="10t0DvM" resname="Masochismus">
+        <source>Masochismus</source>
+        <target>Masochisme</target>
+      </trans-unit>
+      <trans-unit id="yBA7otl" resname="Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.">
+        <source>Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</source>
+        <target>Moments de bonheur dans la souffrance la plus totale.</target>
+      </trans-unit>
+      <trans-unit id="dI2.ozd" resname="Event-Auszeichnungen">
+        <source>Event-Auszeichnungen</source>
+        <target>Médailles communautaires</target>
+      </trans-unit>
+      <trans-unit id="nwDzN3Q" resname="Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.">
+        <source>Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</source>
+        <target>Récompenses obtenues dans le cadre d'animations communautaires.</target>
+      </trans-unit>
+      <trans-unit id="uAqDBtW" resname="Wunderwerk: Sandschloss">
+        <source>Wunderwerk: Sandschloss</source>
+        <target>Merveille : Château de sable</target>
+      </trans-unit>
+      <trans-unit id="jq1R02j" resname="Das hast du nicht wirklich gebaut?">
+        <source>Das hast du nicht wirklich gebaut?</source>
+        <target>Vous avez vraiment construit ça ?</target>
+      </trans-unit>
+      <trans-unit id="On3ImiP" resname="Wunderwerk: Riesiger KVF">
+        <source>Wunderwerk: Riesiger KVF</source>
+        <target>Merveille : PMV géant</target>
+      </trans-unit>
+      <trans-unit id="M4.ycbK" resname="Huldigt den Riesigen KVF!">
+        <source>Huldigt den Riesigen KVF!</source>
+        <target>Gloire au PMV géant !</target>
+      </trans-unit>
+      <trans-unit id="vRqc5Uq" resname="Wunderwerk: Rad des Schreckens">
+        <source>Wunderwerk: Rad des Schreckens</source>
+        <target>Merveille : Roue de Grostas</target>
+      </trans-unit>
+      <trans-unit id="GVSWGjN" resname="Sieh nur, man kann von da oben die Zombies sehen!">
+        <source>Sieh nur, man kann von da oben die Zombies sehen!</source>
+        <target>Regardez, on voit les zombies de là haut !</target>
+      </trans-unit>
+      <trans-unit id="7wxk0fW" resname="Wunderwerk: Statue des Raben">
+        <source>Wunderwerk: Statue des Raben</source>
+        <target>Merveille : Statue du Corbeau</target>
+      </trans-unit>
+      <trans-unit id="dQkqyKh" resname="Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]">
+        <source>Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</source>
+        <target>Le Corbeau est bon, le Corbeau est bienfaisant. [édité par Corbilla Fortuna]</target>
+      </trans-unit>
+      <trans-unit id="H9ZffoW" resname="Nachrichten">
+        <source>Nachrichten</source>
+        <target>Messages</target>
+      </trans-unit>
+      <trans-unit id="Gp8QV9S" resname="Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.">
+        <source>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</source>
+        <target>Quantité de messages utiles (ou pas) que vous avez laissés sur le forum de ville.</target>
+      </trans-unit>
+      <trans-unit id="WgUNYZY" resname="In deinem Bett gestorben">
+        <source>In deinem Bett gestorben</source>
+        <target>Morts dans votre lit</target>
+      </trans-unit>
+      <trans-unit id="XgMSDj1" resname="Großmutter, was hast du für große Zähne... Grrrooooaaar!">
+        <source>Großmutter, was hast du für große Zähne... Grrrooooaaar!</source>
+        <target>Mère grand, comme vous avez de grandes dents... GROAR !</target>
+      </trans-unit>
+      <trans-unit id="GmWG0wd" resname="Dehydrationstode">
+        <source>Dehydrationstode</source>
+        <target>Morts par Déshydratation</target>
+      </trans-unit>
+      <trans-unit id="FmgO.iY" resname="Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !">
+        <source>Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</source>
+        <target>Nombre de morts par déshydratation terminale. Oui oui, l'eau, c'est important.</target>
+      </trans-unit>
+      <trans-unit id="bhRI8Sg" resname="Tödliche Infektionen">
+        <source>Tödliche Infektionen</source>
+        <target>Morts par Infection</target>
+      </trans-unit>
+      <trans-unit id="WsBlA83" resname="Anzahl der Infektionen, die dich das Leben gekostet haben.">
+        <source>Anzahl der Infektionen, die dich das Leben gekostet haben.</source>
+        <target>Nombre d'extinctions des suites d'une infection virulente.</target>
+      </trans-unit>
+      <trans-unit id="7JtgzHv" resname="Tod durch Radioaktivität">
+        <source>Tod durch Radioaktivität</source>
+        <target>Morts par l'atome</target>
+      </trans-unit>
+      <trans-unit id="CupoGNI" resname="Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.">
+        <source>Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.</source>
+        <target>Nombre d'existences vaporisées par la toute puissance de l'atome.</target>
+      </trans-unit>
+      <trans-unit id="Ph5uruX" resname="Tod durch Entzug">
+        <source>Tod durch Entzug</source>
+        <target>Morts par Manque</target>
+      </trans-unit>
+      <trans-unit id="TCaWV7i" resname="Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...">
+        <source>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</source>
+        <target>Nuits que vous n'avez pas passées, par manque de drogue.</target>
+      </trans-unit>
+      <trans-unit id="7CtY5hA" resname="Letzter Toter in einer Pandämoniumstadt">
+        <source>Letzter Toter in einer Pandämoniumstadt</source>
+        <target>Mort Ultime du Pandémonium !</target>
+      </trans-unit>
+      <trans-unit id="G_vOQBw" resname="Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!">
+        <source>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</source>
+        <target>Vous êtes le ou la dernière à mourir au cours d'une ville du Pandémonium !</target>
+      </trans-unit>
+      <trans-unit id="c02o7DF" resname="Mystic">
+        <source>Mystic</source>
+        <target>Mysticisme</target>
+      </trans-unit>
+      <trans-unit id="edsJJvH" resname="Wie viele Seelen hat Ihre Stadt befreien können.">
+        <source>Wie viele Seelen hat Ihre Stadt befreien können.</source>
+        <target>Nombre d'âmes que votre ville a pu libérer.</target>
+      </trans-unit>
+      <trans-unit id="faOzY5m" resname="Wüstenausflüge">
+        <source>Wüstenausflüge</source>
+        <target>Nuits dans le désert</target>
+      </trans-unit>
+      <trans-unit id="DAHe8Qg" resname="Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.">
+        <source>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</source>
+        <target>Petites promenades dehors dont vous n'êtes jamais revenu(e).</target>
+      </trans-unit>
+      <trans-unit id="jD.DiPe" resname="Geöffnete Tür">
+        <source>Geöffnete Tür</source>
+        <target>Ouverture de porte</target>
+      </trans-unit>
+      <trans-unit id="rtoHwdw" resname="Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.">
+        <source>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</source>
+        <target>Nombre de portes dévérouillées par vos soins dans les ruines.</target>
+      </trans-unit>
+      <trans-unit id="vzg1Vou" resname="Hängend">
+        <source>Hängend</source>
+        <target>Pendaisons</target>
+      </trans-unit>
+      <trans-unit id="XILVSQ3" resname="Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.">
+        <source>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</source>
+        <target>Nombre de villes au cours desquelles on ne pouvait plus vous supporter.</target>
+      </trans-unit>
+      <trans-unit id="4iul8w7" resname="Häuserplünderungen">
+        <source>Häuserplünderungen</source>
+        <target>Pillages de maison</target>
+      </trans-unit>
+      <trans-unit id="OLsJBll" resname="Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.">
+        <source>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</source>
+        <target>Objets arrachés au corps encore chaud de vos anciens amis.</target>
+      </trans-unit>
+      <trans-unit id="qGiYEyp" resname="Absurde Projekte">
+        <source>Absurde Projekte</source>
+        <target>Projets insensés</target>
+      </trans-unit>
+      <trans-unit id="2MnOx8i" resname="Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.">
+        <source>Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</source>
+        <target>Nombre de projets insensés achevés de votre vivant.</target>
+      </trans-unit>
+      <trans-unit id="6bjYKi6" resname="Reparaturen">
+        <source>Reparaturen</source>
+        <target>Réparations</target>
+      </trans-unit>
+      <trans-unit id="M68ujLN" resname="Anzahl kaputter Gegenstände, die du wieder repariert hast.">
+        <source>Anzahl kaputter Gegenstände, die du wieder repariert hast.</source>
+        <target>Objets cassés que vous avez remis en état de marche.</target>
+      </trans-unit>
+      <trans-unit id="J.XSCYh" resname="Gebäudereparaturen">
+        <source>Gebäudereparaturen</source>
+        <target>Réparations de chantiers</target>
+      </trans-unit>
+      <trans-unit id="eVadw_d" resname="Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.">
+        <source>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</source>
+        <target>Points d'action investis dans les réparations sans fin des chantiers.</target>
+      </trans-unit>
+      <trans-unit id="tRxlExf" resname="Textsammler">
+        <source>Textsammler</source>
+        <target>Rôliste</target>
+      </trans-unit>
+      <trans-unit id="MnSJgts" resname="Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.">
+        <source>Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</source>
+        <target>Documents et autres découvertes 'roleplay'.</target>
+      </trans-unit>
+      <trans-unit id="rcSA5Xd" resname="Leichenentsorger">
+        <source>Leichenentsorger</source>
+        <target>Sorteur</target>
+      </trans-unit>
+      <trans-unit id="rFyYect" resname="Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.">
+        <source>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</source>
+        <target>Nombre d'amis morts que vous avez tirés hors de la ville.</target>
+      </trans-unit>
+      <trans-unit id="tsZVejd" resname="Batteriewerferfabrikant">
+        <source>Batteriewerferfabrikant</source>
+        <target>Super lance-piles</target>
+      </trans-unit>
+      <trans-unit id="tpreu_F" resname="Anzahl der Batteriewerfer, die du gebaut hast.">
+        <source>Anzahl der Batteriewerfer, die du gebaut hast.</source>
+        <target>Nombre de puissants lance-piles que vous avez fabriqués.</target>
+      </trans-unit>
+      <trans-unit id="J105.gK" resname="Hausarbeiten">
+        <source>Hausarbeiten</source>
+        <target>Travaux chez soi</target>
+      </trans-unit>
+      <trans-unit id="ZWwqduJ" resname="Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.">
+        <source>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</source>
+        <target>Nombre de petits travaux effectués dans votre maison.</target>
+      </trans-unit>
+      <trans-unit id="r6xncsj" resname="Kettensägen">
+        <source>Kettensägen</source>
+        <target>Tronçonneuses</target>
+      </trans-unit>
+      <trans-unit id="KXf9wDg" resname="Anzahl an Kettensägen, die du gebaut hast.">
+        <source>Anzahl an Kettensägen, die du gebaut hast.</source>
+        <target>Nombre de tronçonneuses que vous avez assemblées.</target>
+      </trans-unit>
+      <trans-unit id="kdHo25R" resname="Stadtwächter">
+        <source>Stadtwächter</source>
+        <target>Veilleur</target>
+      </trans-unit>
+      <trans-unit id="fEL0FCq" resname="Anzahl der Nächte, die du als Stadtwächter überlebt hast.">
+        <source>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</source>
+        <target>Nombre de nuits survécues en tant que Veilleur.</target>
+      </trans-unit>
+      <trans-unit id="I2LHLA6" resname="Gerankte Stadt">
+        <source>Gerankte Stadt</source>
+        <target>Ville classée</target>
+      </trans-unit>
+      <trans-unit id="bjLGLtR" resname="Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.">
+        <source>Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</source>
+        <target>Nombre de villes présentes dans le classement top 15 d'une saison précédente.</target>
+      </trans-unit>
+      <trans-unit id="vkTwfZ7" resname="Legendäre Stadt">
+        <source>Legendäre Stadt</source>
+        <target>Ville légendaire !</target>
+      </trans-unit>
+      <trans-unit id="k1epE3V" resname="Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.">
+        <source>Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</source>
+        <target>Nombre de villes arrivées en première place du classement d'une saison précédente.</target>
+      </trans-unit>
+      <trans-unit id="P87Mfm4" resname="Teilnehmende Stadt">
+        <source>Teilnehmende Stadt</source>
+        <target>Ville participante</target>
+      </trans-unit>
+      <trans-unit id="xKwHsnM" resname="Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.">
+        <source>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</source>
+        <target>Nombre de villes présentes dans le classement top 35 d'une saison précédente.</target>
+      </trans-unit>
+      <trans-unit id="Y90upo5" resname="Getötete Zombies">
+        <source>Getötete Zombies</source>
+        <target>Zombies éliminés</target>
+      </trans-unit>
+      <trans-unit id="VEVB_Sc" resname="Ehemaliger Beta-Tester">
+        <source>Ehemaliger Beta-Tester</source>
+        <target>Ancien bêta-testeur</target>
+      </trans-unit>
+      <trans-unit id="jt.ezbv" resname="Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.">
+        <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
+        <target>Distinction rarissime réservée aux tout premiers citoyens de 'MyHordes'.</target>
+      </trans-unit>
+      <trans-unit id="eAodZt." resname="Sandbälle! Yeah!">
+        <source>Sandbälle! Yeah!</source>
+        <target>Boules de sable !</target>
+      </trans-unit>
+      <trans-unit id="KhJ3UGm" resname="Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...">
+        <source>Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</source>
+        <target>Nombre de boules de sable envoyées au visage d'autres joueurs.</target>
+      </trans-unit>
+      <trans-unit id="ZfFBo_5" resname="Kreuzigung">
+        <source>Kreuzigung</source>
+        <target>Crucifixion</target>
+      </trans-unit>
+      <trans-unit id="weKTlex" resname="Freuen Sie sich, Sie hätten nicht laufen müssen.">
+        <source>Freuen Sie sich, Sie hätten nicht laufen müssen.</source>
+        <target>Réjouissez vous, vous n'aurez pas eu à marcher.</target>
+      </trans-unit>
+      <trans-unit id="CWUGXbC" resname="Den Weihnachtsmann gibt es nicht">
+        <source>Den Weihnachtsmann gibt es nicht</source>
+        <target>Le Père Noël est une ordure</target>
+      </trans-unit>
+      <trans-unit id="8JoH6DL" resname="Anzahl der Geschenke, die du deinen Freunden geklaut hast.">
+        <source>Anzahl der Geschenke, die du deinen Freunden geklaut hast.</source>
+        <target>Nombre de cadeaux volés à vos amis.</target>
+      </trans-unit>
+      <trans-unit id="Gf1_yUr" resname="Tagelang wurde an den Seelen der Toten herumgepfuscht.">
+        <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
+        <target>Jours passés à trafiquer l'âme des morts.</target>
+      </trans-unit>
+      <trans-unit id="2VXomcj" resname="Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.">
+        <source>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</source>
+        <target>Total de créatures mort-vivantes que vous avez renvoyées sous terre par n'importe quel moyen.</target>
       </trans-unit>
     </body>
   </file>
