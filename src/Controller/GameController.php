@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Response\AjaxResponse;
@@ -111,9 +112,12 @@ class GameController extends AbstractController implements GameInterfaceControll
         if ($this->getActiveCitizen()->getAlive())
             return $this->redirect($this->generateUrl('game_landing'));
 
+        $pictosWonDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($this->getUser(), $this->getActiveCitizen()->getTown());
+
         return $this->render( 'ajax/game/death.html.twig', [
             'citizen' => $this->getActiveCitizen(),
-            'sp' => $ch->getSoulpoints( $this->getActiveCitizen() )
+            'sp' => $ch->getSoulpoints($this->getActiveCitizen()),
+            'pictos' => $pictosWonDuringTown
         ] );
     }
 

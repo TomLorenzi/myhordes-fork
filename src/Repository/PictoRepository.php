@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Picto;
+use App\Entity\Town;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -34,13 +35,13 @@ class PictoRepository extends ServiceEntityRepository
         }
     }
 
-    public function findPendingByUser(User $value)
+    public function findPendingByUser(User $user)
     {
         try {
             return $this->createQueryBuilder('i')
                 ->andWhere('i.user = :val')
                 ->andWhere('i.persisted < 2')
-                ->setParameter('val', $value)
+                ->setParameter('val', $user)
                 ->getQuery()
                 ->getResult();
         } catch (NonUniqueResultException $e) {
@@ -48,7 +49,7 @@ class PictoRepository extends ServiceEntityRepository
         }
     }
 
-    public function findNotPendingByUser(User $value)
+    public function findNotPendingByUser(User $user)
     {
         try {
             return $this->createQueryBuilder('i')
@@ -56,8 +57,23 @@ class PictoRepository extends ServiceEntityRepository
                 ->andWhere('i.persisted = 2')
                 ->orderBy('pp.rare', 'DESC')
                 ->addOrderBy('i.count', 'DESC')
-                ->setParameter('val', $value)
+                ->setParameter('val', $user)
                 ->leftJoin('i.prototype', 'pp')
+                ->getQuery()
+                ->getResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function findPictoByUserAndTown(User $user, Town $town)
+    {
+        try {
+            return $this->createQueryBuilder('i')
+                ->andWhere('i.user = :val')
+                ->andWhere('i.town =  :town')
+                ->setParameter('val', $user)
+                ->setParameter('town', $town)
                 ->getQuery()
                 ->getResult();
         } catch (NonUniqueResultException $e) {

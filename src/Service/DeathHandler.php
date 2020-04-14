@@ -132,10 +132,64 @@ class DeathHandler
                 }
             }
         }
+        
+        $pictoDeath = null;
+        $pictoDeath2 = null;
+        switch ($cod->getRef()) {
+            case CauseOfDeath::NightlyAttack:
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dcity_#00");
+                break;
+            case CauseOfDeath::Vanished:
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_doutsd_#00");
+                break;
+            case CauseOfDeath::Dehydration:
+                // Death from dehydration
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dwater#00");
+                break;
+            case CauseOfDeath::Addiction:
+                // Death from drugs addiction
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ddrug_#00");
+                break;
+            case CauseOfDeath::Infection:
+                // Death from infection
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dinfec_#00");
+                break;
+            case CauseOfDeath::Hanging:
+                // Death hanged
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
+                break;
+            case CauseOfDeath::Radiations:
+                // Death with reactor explosion
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
+                $pictoDeath2 = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dinfec_#00");
+                break;
+        }
+
+        if($pictoDeath !== null) {
+            $picto = new Picto();
+            $picto->setPrototype($pictoDeath)
+                ->setPersisted(2)
+                ->setTown($citizen->getTown())
+                ->setUser($citizen->getUser())
+                ->setCount($citizen->getSurvivedDays());
+
+            $this->entity_manager->persist($picto);
+        }
+
+        if($pictoDeath2 !== null) {
+            $picto = new Picto();
+            $picto->setPrototype($pictoDeath2)
+                ->setPersisted(2)
+                ->setTown($citizen->getTown())
+                ->setUser($citizen->getUser())
+                ->setCount($citizen->getSurvivedDays());
+
+            $this->entity_manager->persist($picto);
+        }
 
         // Set all picto of town as persisted
         // TODO: Check the rule of day 5 (Day 8 if Small town and >= 100 soul points)
-        $pendingPictosOfUser = $this->entity_manager->getRepository(PictoPrototype::class)->findPendingByUser($user);
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($citizen->getUser());
         foreach ($pendingPictosOfUser as $pendingPicto) {
             if(($citizen->getUser()->getSoulPoints() >= 100 && $citizen->getTown()->getType()->getName() == "small" && $citizen->getSurvivedDays() < 8 && $pendingPicto->getPersisted() == 0) || ($citizen->getSurvivedDays() < 5 && $pendingPicto->getPersisted() == 0)) {
                 $this->entity_manager->remove($pendingPicto);

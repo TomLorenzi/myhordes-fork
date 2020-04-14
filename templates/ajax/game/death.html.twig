@@ -22,6 +22,11 @@
                 <div class="cell rw-6 rw-sm-12">
                     <div class="death_list">
                         <b>{{ 'Du hast folgende Auszeichnungen verliehen bekommen:'|trans({},'game')  }}</b>
+                        <ul>
+                        {% for picto in pictos %}
+                            <li><img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" /> {{picto.prototype.label|trans({}, 'game')}} x{{picto.count}}</li>
+                        {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
