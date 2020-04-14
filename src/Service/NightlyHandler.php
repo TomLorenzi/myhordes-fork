@@ -504,7 +504,6 @@ class NightlyHandler
             foreach ($items as &$item)
                 $item->setPrototype( $target );
         }
-
     }
 
     private function stage3_buildings(Town &$town) {
@@ -629,6 +628,16 @@ class NightlyHandler
         }
     }
 
+    private function stage3_pictos(Town &$town){
+        // Marking pictos as obtained not-today
+        $citizens = $town->getCitizens();
+        foreach ($citizens as $citizn) {
+            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($citizen->getUser());
+            $pendingPicto->setPersisted(1);
+            $this->entity_manager->persist($pendingPicto);
+        }
+    }
+
     public function advance_day(Town &$town): bool {
         $this->skip_reanimation = [];
 
@@ -655,6 +664,7 @@ class NightlyHandler
         $this->stage3_status($town);
         $this->stage3_zones($town);
         $this->stage3_items($town);
+        $this->stage3_pictos($town);
 
         $c = count($this->cleanup);
         $this->log->info("It is now <comment>Day {$town->getDay()}</comment> in <info>{$town->getName()}</info>.");
