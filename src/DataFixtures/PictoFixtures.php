@@ -101,7 +101,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Glückspilz',
             'description' => 'Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.',
-            'icon' => 'item_chest_xl',
+            'icon' => 'r_chstxl',
             'rare' => true
         ],
         [

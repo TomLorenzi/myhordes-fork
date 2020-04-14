@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PictoRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="town_unique",columns={"prototype_id","town_id", "user_id"})
+ *     @UniqueConstraint(name="picto_unique",columns={"prototype_id","town_id", "user_id", "persisted"})
  * })
  */
 class Picto

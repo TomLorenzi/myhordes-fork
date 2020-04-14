@@ -24,9 +24,27 @@
                         <b>{{ 'Du hast folgende Auszeichnungen verliehen bekommen:'|trans({},'game')  }}</b>
                         <ul>
                         {% for picto in pictos %}
-                            <li><img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" /> {{picto.prototype.label|trans({}, 'game')}} x{{picto.count}}</li>
+                            <li {% if picto.prototype.rare %}class="rare"{% endif %}>
+                                <div>
+                                    <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
+                                </div>
+                                {{picto.prototype.label|trans({}, 'game')}} x{{picto.count}}
+                            </li>
                         {% endfor %}
                         </ul>
+                        {% if denied_pictos|length > 0 %}
+                            <b>{{ 'Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:'|trans({'%day%' : 5 - citizen.survivedDays},'game')  }}</b>
+                            <ul>
+                            {% for picto in denied_pictos %}
+                                <li {% if picto.prototype.rare %}class="rare"{% endif %}>
+                                    <div>
+                                        <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
+                                    </div>
+                                    {{picto.prototype.label|trans({}, 'game')}} x{{picto.count}}
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div>

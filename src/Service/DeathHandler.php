@@ -183,14 +183,34 @@ class DeathHandler
         }
 
         // Set all picto of town as persisted
-        // TODO: Check the rule of day 5 (Day 8 if Small town and >= 100 soul points)
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($citizen->getUser());
+        $pictoRepository = $this->entity_manager->getRepository(Picto::class);
+
+        $pendingPictosOfUser = $pictoRepository->findPendingByUser($citizen->getUser());
         foreach ($pendingPictosOfUser as $pendingPicto) {
-            if(($citizen->getUser()->getSoulPoints() >= 100 && $citizen->getTown()->getType()->getName() == "small" && $citizen->getSurvivedDays() < 8 && $pendingPicto->getPersisted() == 0) || ($citizen->getSurvivedDays() < 5 && $pendingPicto->getPersisted() == 0)) {
-                $this->entity_manager->remove($pendingPicto);
-            } else {
+            // The picto has been validated for the previous day
+            // We validate it
+            if ($pendingPicto->getPersisted() == 1) {
                 $pendingPicto->setPersisted(2);
                 $this->entity_manager->persist($pendingPicto);
+            } else {
+                // We check the day 5 / 8 rule to persist the picto or not
+                // The picto **IS NOT DELETED HERE**. Instead, it is deleted upon death confirmation
+                // To show "You could have earn those if you survived XXX more days"
+                if ($citizen->getSurvivedDays() >= 5 || ($citizen->getUser()->getSoulPoints() >= 100 && $citizen->getTown()->getType()->getName() == "small" && $citizen->getSurvivedDays() >= 8)){
+                    // We check if this picto has already been earned previously (such as Heroic Action, 1 per day)
+                    $previousPicto = $pictoRepository->findByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
+                    if($pendingPreviousPicto === null) {
+                        // We do not have it, we set it as earned
+                        $pendingPicto->setPersisted(2);
+                        $this->entity_manager->persist($pendingPicto);
+                    } else {
+                        // We have it, we add the count to the previously earned
+                        // And remove the picto from today
+                        $previousPicto->setCount($previousPicto->getCount() + $pendingPicto->getCount());
+                        $this->entity_manager->persist($previousPicto);
+                        $this->entity_manager->remove($pendingPicto);
+                    }
+                }
             }
         }
 

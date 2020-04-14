@@ -1150,7 +1150,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="V3rm2Ma" resname="Herzlichen Glückwunsch, du bist TOT!">
         <source>Herzlichen Glückwunsch, du bist TOT!</source>
-        <target>Bravo, vous êtes mort !</target>
+        <target>Félicitations, vous êtes mort !</target>
         <note>Herzlichen Glückwunsch, du bist TOT!</note>
       </trans-unit>
       <trans-unit id="AEDztPF" resname="Du hast %sp% Seelenpunkte gewonnen!">
@@ -1990,7 +1990,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </trans-unit>
       <trans-unit id="rDzEZM3" resname="Bitte wähle einen Bürger:">
         <source>Bitte wähle einen Bürger:</source>
-        <target>Bitte wähle einen Bürger:</target>
+        <target>Ramener un citoyen :</target>
         <note>Bitte wähle einen Bürger:</note>
       </trans-unit>
       <trans-unit id="MgtBTg_" resname="Es ist kein Bürger in der Nähe...">
@@ -3521,6 +3521,10 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <trans-unit id="2VXomcj" resname="Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.">
         <source>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</source>
         <target>Total de créatures mort-vivantes que vous avez renvoyées sous terre par n'importe quel moyen.</target>
+      </trans-unit>
+      <trans-unit id="bULZzW5" resname="Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:">
+        <source>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
+        <target>Si vous aviez survécu encore %day% jour(s), vous auriez pu gagner :</target>
       </trans-unit>
     </body>
   </file>

@@ -502,8 +502,24 @@ div.death_list {
     list-style-type: none;
     padding-left: 0;
     font-size: 12px;
-    font-variant: small-caps;
+    font-weight: bold;
     color: lighten(@myhordes-smalltext,10%);
+    &>li {
+      line-height: 32px;
+      &>div {
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        &>img {
+          margin-top: -3px;
+        }
+      }
+      &.rare div {
+        background: url("../img/pictos/rewardBg_rare.gif") no-repeat;
+      }
+    }
   }
 }
 

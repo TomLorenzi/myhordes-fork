@@ -112,12 +112,23 @@ class GameController extends AbstractController implements GameInterfaceControll
         if ($this->getActiveCitizen()->getAlive())
             return $this->redirect($this->generateUrl('game_landing'));
 
-        $pictosWonDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($this->getUser(), $this->getActiveCitizen()->getTown());
+        $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($this->getUser(), $this->getActiveCitizen()->getTown());
+        $pictosWonDuringTown = array();
+        $pictosNotWonDuringTown = array();
+
+        foreach ($pictosDuringTown as $picto) {
+            if($picto->getPersisted() > 0) {
+                $pictosWonDuringTown[] = $picto;
+            } else {
+                $pictosNotWonDuringTown[] = $picto;
+            }
+        }
 
         return $this->render( 'ajax/game/death.html.twig', [
             'citizen' => $this->getActiveCitizen(),
             'sp' => $ch->getSoulpoints($this->getActiveCitizen()),
-            'pictos' => $pictosWonDuringTown
+            'pictos' => $pictosWonDuringTown,
+            'denied_pictos' => $pictosNotWonDuringTown
         ] );
     }
 
@@ -173,6 +184,15 @@ class GameController extends AbstractController implements GameInterfaceControll
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $active->setActive(false);
+
+        // Apply day 5/8 rule
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            if(($user->getSoulPoints() >= 100 && $active->getTown()->getType()->getName() == "small" && $active->getSurvivedDays() < 8) || ($active->getSurvivedDays() < 5)) {
+                $this->entity_manager->remove($pendingPicto);
+            }
+        }
+
         $this->entity_manager->persist( $active );
         $this->entity_manager->flush();
 
