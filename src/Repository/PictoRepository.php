@@ -39,7 +39,7 @@ class PictoRepository extends ServiceEntityRepository
         try {
             return $this->createQueryBuilder('i')
                 ->andWhere('i.user = :val')
-                ->andWhere('i.persisted = false')
+                ->andWhere('i.persisted < 2')
                 ->setParameter('val', $value)
                 ->getQuery()
                 ->getResult();
@@ -53,7 +53,7 @@ class PictoRepository extends ServiceEntityRepository
         try {
             return $this->createQueryBuilder('i')
                 ->andWhere('i.user = :val')
-                ->andWhere('i.persisted = true')
+                ->andWhere('i.persisted = 2')
                 ->orderBy('pp.rare', 'DESC')
                 ->addOrderBy('i.count', 'DESC')
                 ->setParameter('val', $value)

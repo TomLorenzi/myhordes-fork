@@ -137,8 +137,12 @@ class DeathHandler
         // TODO: Check the rule of day 5 (Day 8 if Small town and >= 100 soul points)
         $pendingPictosOfUser = $this->entity_manager->getRepository(PictoPrototype::class)->findPendingByUser($user);
         foreach ($pendingPictosOfUser as $pendingPicto) {
-            $pendingPicto->setPersisted(true);
-            $this->entity_manager->persist($pendingPicto);
+            if(($citizen->getUser()->getSoulPoints() >= 100 && $citizen->getTown()->getType()->getName() == "small" && $citizen->getSurvivedDays() < 8 && $pendingPicto->getPersisted() == 0) || ($citizen->getSurvivedDays() < 5 && $pendingPicto->getPersisted() == 0)) {
+                $this->entity_manager->remove($pendingPicto);
+            } else {
+                $pendingPicto->setPersisted(2);
+                $this->entity_manager->persist($pendingPicto);
+            }
         }
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );

@@ -1487,7 +1487,7 @@
       </trans-unit>
       <trans-unit id="cAR.8i4" resname="Selbstgebaute Gitarre">
         <source>Selbstgebaute Gitarre</source>
-        <target>Selbstgebaute Gitarre</target>
+        <target>Guitare artisanale</target>
         <note>Selbstgebaute Gitarre</note>
       </trans-unit>
       <trans-unit id="lIXVQdW" resname="LSD">
@@ -3665,11 +3665,11 @@
       </trans-unit>
       <trans-unit id="OeuOyF4" resname="Haus aufräumen und putzen">
         <source>Haus aufräumen und putzen</source>
-        <target>Ranger la maison</target>
+        <target>Ranger mon habitat</target>
       </trans-unit>
       <trans-unit id="tOABtGm" resname="Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...">
         <source>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</source>
-        <target>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</target>
+        <target>Vous ramassez les débris qui traînent, rangez le peu que vous possédez et tachez de donner un air un peu moins glauque à ce qui vous sert d'habitation...</target>
       </trans-unit>
       <trans-unit id="k1XRUwI" resname="Duschen">
         <source>Duschen</source>
