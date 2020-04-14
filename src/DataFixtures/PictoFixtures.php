@@ -337,7 +337,165 @@ class PictoFixtures extends Fixture
             'description' => 'Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!',
             'icon' => 'r_suhard',
             'rare' => true
-        ],        
+        ],
+        [
+            'label' => 'Mystic',
+            'description' => 'Wie viele Seelen hat Ihre Stadt befreien können.',
+            'icon' => 'r_mystic',
+            'rare' => false
+        ],
+        [
+            'label' => 'Wüstenausflüge',
+            'description' => 'Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.',
+            'icon' => 'r_doutsd',
+            'rare' => false
+        ],
+        [
+            'label' => 'Geöffnete Tür',
+            'description' => 'Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.',
+            'icon' => 'r_door',
+            'rare' => true
+        ],
+        [
+            'label' => 'Hängend',
+            'description' => 'Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.',
+            'icon' => 'r_dhang',
+            'rare' => false
+        ],
+        [
+            'label' => 'Häuserplünderungen',
+            'description' => 'Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.',
+            'icon' => 'r_plundr',
+            'rare' => false
+        ],
+        [
+            'label' => 'Absurde Projekte',
+            'description' => 'Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.',
+            'icon' => 'r_wondrs',
+            'rare' => true
+        ],
+        [
+            'label' => 'Reparaturen',
+            'description' => 'Anzahl kaputter Gegenstände, die du wieder repariert hast.',
+            'icon' => 'r_repair',
+            'rare' => false
+        ],
+        [
+            'label' => 'Gebäudereparaturen',
+            'description' => 'Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.',
+            'icon' => 'r_brep',
+            'rare' => false
+        ],
+        [
+            'label' => 'Textsammler',
+            'description' => 'Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.',
+            'icon' => 'r_rp',
+            'rare' => true
+        ],
+        [
+            'label' => 'Leichenentsorger',
+            'description' => 'Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.',
+            'icon' => 'r_cgarb',
+            'rare' => false
+        ],
+        [
+            'label' => 'Batteriewerferfabrikant',
+            'description' => 'Anzahl der Batteriewerfer, die du gebaut hast.',
+            'icon' => 'item_pilegun_up_empty',
+            'rare' => true
+        ],
+        [
+            'label' => 'Überlebende der Hölle!',
+            'description' => 'Sie sind ein wahrer Überlebenskünstler der Hölle.',
+            'icon' => 'r_pande',
+            'rare' => true
+        ],
+        [
+            'label' => 'Hausarbeiten',
+            'description' => 'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.',
+            'icon' => 'r_hbuild',
+            'rare' => false
+        ],
+        [
+            'label' => 'Kettensägen',
+            'description' => 'Anzahl an Kettensägen, die du gebaut hast.',
+            'icon' => 'r_tronco',
+            'rare' => true
+        ],
+        [
+            'label' => 'Stadtwächter',
+            'description' => 'Anzahl der Nächte, die du als Stadtwächter überlebt hast.',
+            'icon' => 'r_guard',
+            'rare' => false
+        ],
+        [
+            'label' => 'Gerankte Stadt',
+            'description' => 'Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.',
+            'icon' => 'r_winbas',
+            'rare' => true
+        ],
+        [
+            'label' => 'Legendäre Stadt',
+            'description' => 'Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.',
+            'icon' => 'r_wintop',
+            'rare' => true
+        ],
+        [
+            'label' => 'Teilnehmende Stadt',
+            'description' => 'Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.',
+            'icon' => 'r_winthi',
+            'rare' => true
+        ],
+        [
+            'label' => 'Getötete Zombies',
+            'description' => 'Total de créatures mort-vivantes que vous avez renvoyées sous terre par n\'importe quel moyen.',
+            'icon' => 'small_zombie',
+            'rare' => false
+        ],
+        [
+            'label' => 'Ehemaliger Beta-Tester',
+            'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist.',
+            'icon' => 'r_beta',
+            'rare' => true
+        ],
+        [
+            'label' => 'Sandbälle! Yeah!',
+            'description' => 'Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...',
+            'icon' => 'r_sandb',
+            'rare' => true
+        ],
+        [
+            'label' => 'Kreuzigung',
+            'description' => 'Freuen Sie sich, Sie hätten nicht laufen müssen.',
+            'icon' => 'r_paques',
+            'rare' => true
+        ],
+        [
+            'label' => 'Den Weihnachtsmann gibt es nicht',
+            'description' => 'Anzahl der Geschenke, die du deinen Freunden geklaut hast.',
+            'icon' => 'r_santac',
+            'rare' => true
+        ],
+        [
+            'label' => 'Ehemaliger Beta-Tester',
+            'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist.',
+            'icon' => 'r_beta',
+            'rare' => true
+        ],
+        [
+            'label' => 'Ehemaliger Beta-Tester',
+            'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist.',
+            'icon' => 'r_beta',
+            'rare' => true
+        ],
+        [
+            'label' => 'Ehemaliger Beta-Tester',
+            'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist.',
+            'icon' => 'r_beta',
+            'rare' => true
+        ],
+
+
     ];
 
     private $entityManager;
