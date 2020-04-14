@@ -29,6 +29,10 @@
                                     <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
                                 </div>
                                 {{picto.prototype.label|trans({}, 'game')}} x{{picto.count}}
+                                <div class="tooltip">
+                                    <h1>{{ picto.prototype.label|trans({}, 'game') }}</h1>
+                                    {{ picto.prototype.description|trans({}, 'game')}}</em>
+                                </div>
                             </li>
                         {% endfor %}
                         </ul>
@@ -41,6 +45,10 @@
                                         <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
                                     </div>
                                     {{picto.prototype.label|trans({}, 'game')}} x{{picto.count}}
+                                    <div class="tooltip">
+                                        <h1>{{ picto.prototype.label|trans({}, 'game') }}</h1>
+                                        {{ picto.prototype.description|trans({}, 'game')}}</em>
+                                    </div>
                                 </li>
                             {% endfor %}
                             </ul>

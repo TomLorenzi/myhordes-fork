@@ -195,11 +195,11 @@ class DeathHandler
             } else {
                 // We check the day 5 / 8 rule to persist the picto or not
                 // The picto **IS NOT DELETED HERE**. Instead, it is deleted upon death confirmation
-                // To show "You could have earn those if you survived XXX more days"
+                // To show "You could have earn those if you survived X more days"
                 if ($citizen->getSurvivedDays() >= 5 || ($citizen->getUser()->getSoulPoints() >= 100 && $citizen->getTown()->getType()->getName() == "small" && $citizen->getSurvivedDays() >= 8)){
                     // We check if this picto has already been earned previously (such as Heroic Action, 1 per day)
-                    $previousPicto = $pictoRepository->findByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
-                    if($pendingPreviousPicto === null) {
+                    $previousPicto = $pictoRepository->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
+                    if($previousPicto === null) {
                         // We do not have it, we set it as earned
                         $pendingPicto->setPersisted(2);
                         $this->entity_manager->persist($pendingPicto);

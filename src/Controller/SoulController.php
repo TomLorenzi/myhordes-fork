@@ -263,7 +263,7 @@ class SoulController extends AbstractController
 
         return $this->render( 'ajax/soul/me.html.twig', [
             'pictos' => $pictos,
-            'points' => $points
+            'points' => round($points, 0)
         ]);
     }
 }

@@ -1,2 +1,1 @@
-# Messages to add
- [00:02] [X] Au terme de la bataille, le bâtiment Cantine à bois est tombé en poussière. 
+# Create a AffectPicto class, that gives a picto when performing an action
