@@ -30,9 +30,13 @@ class Picto
     private $prototype;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="smallint")
+     * Has a value between 0 and 2
+     * 0 = Picto got today
+     * 1 = Picto got yerderday or before
+     * 2 = Picto saved (citizen has died)
      */
-    private $persisted = false;
+    private $persisted = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Town")
@@ -74,12 +78,12 @@ class Picto
         return $this;
     }
 
-    public function getPersisted(): ?bool
+    public function getPersisted(): ?int
     {
         return $this->persisted;
     }
 
-    public function setPersisted(bool $persisted): self
+    public function setPersisted(int $persisted): self
     {
         $this->persisted = $persisted;
 

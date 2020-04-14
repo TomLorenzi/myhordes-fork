@@ -86,6 +86,12 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
+        // Give soul point
+        $days = $citizen->getSurvivedDays();
+        $nbSoulPoints = $days * ( $days + 1 ) / 2;
+
+        $citizen->getUser()->addSoulPoints($nbSoulPoints);
+
         // Add pictos
         if ($citizen->getSurvivedDays()) {
             // Job picto
@@ -117,7 +123,7 @@ class DeathHandler
                     $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($nameOfPicto);
                     $picto = new Picto();
                     $picto->setPrototype($pictoPrototype)
-                        ->setPersisted(false)
+                        ->setPersisted(2)
                         ->setTown($citizen->getTown())
                         ->setUser($citizen->getUser())
                         ->setCount($citizen->getSurvivedDays());
