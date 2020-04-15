@@ -59,7 +59,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Schwere Verletzungen',
             'description' => 'Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.',
-            'icon' => 'status_wound',
+            'icon' => 'r_wound',
             'rare' => false
         ],
         [

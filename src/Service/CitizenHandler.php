@@ -14,6 +14,7 @@ use App\Entity\Complaint;
 use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
 use App\Structures\ItemRequest;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,6 +26,7 @@ class CitizenHandler
     private $item_factory;
     private $random_generator;
     private $inventory_handler;
+    private $picto_handler;
     /**
      * @var DeathHandler
      */
@@ -32,12 +34,13 @@ class CitizenHandler
     private $log;
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh)
+        EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih, PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
         $this->random_generator = $g;
         $this->inventory_handler = $ih;
+        $this->picto_handler = $ph;
         $this->item_factory = $if;
         $this->log = $lh;
     }
@@ -168,6 +171,11 @@ class CitizenHandler
             if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
 
+            if (!$kill) {
+                $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName('r_ban_#00');
+                $this->picto_handler->give_picto($ac, $pictoPrototype);
+            }
+
             /** @var Item[] $items */
             $items = [];
             $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( 'impoundable' );
@@ -193,7 +201,11 @@ class CitizenHandler
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
             }
-            elseif ($gallows) $this->death_handler->kill( $citizen, CauseOfDeath::Hanging, $rem );
+            elseif ($gallows) {
+                $this->death_handler->kill( $citizen, CauseOfDeath::Hanging, $rem );
+                $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
+                $this->picto_handler->give_picto($ac, $pictoPrototype);
+            }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
         }

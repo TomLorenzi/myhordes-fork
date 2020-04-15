@@ -23,20 +23,20 @@
         </div>
         {% if owner.alive %}
             <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }}:</span></div>
+                <div class="cell rw-3"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
                 <div class="cell rw-9"><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.sum }}</div>
             </div>
             <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Dekoration'|trans({},'game') }}:</span></div>
+                <div class="cell rw-3"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
                 <div class="cell rw-9"><img alt="" src="{{ asset('build/images/deco.gif') }}"> {{ deco }}</div>
             </div>
         {% else %}
             <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Todesursache'|trans({},'game') }}:</span></div>
+                <div class="cell rw-3"><span class="highlight">{{ 'Todesursache'|trans({},'game') }} :</span></div>
                 <div class="cell rw-9">{{ owner.causeOfDeath.label|trans({},'game') }}</div>
             </div>
             <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Letzte Worte'|trans({},'game') }}:</span></div>
+                <div class="cell rw-3"><span class="highlight">{{ 'Letzte Worte'|trans({},'game') }} :</span></div>
                 <div class="cell rw-9"></div>
             </div>
         {% endif %}
@@ -45,7 +45,6 @@
     <div class="row">
         <div class="padded cell rw-6">
             <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
-            <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
             {% if owner.alive %}
                 {# @var complaint \App\Entity\Complaint|null #}
                 {% if complaints > 0 %}
@@ -69,6 +68,7 @@
                     <button x-disposal-id="3"><img alt="" src="{{ asset('build/images/item/item_hmeat.gif') }}" />{{ 'Leiche grillen'|trans({},'game') }}</button>
                 {% endif %}
             {% endif %}
+            <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
         </div>
         <div class="padded cell rw-6 citizen-chest">
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>

@@ -12,6 +12,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\ScoutVisit;
 use App\Entity\TownClass;
@@ -330,6 +331,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @param ItemFactory $factory
+     * @param PictoHandler $picto_handler
      * @return Response
      */
     public function trash_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory): Response {
@@ -369,6 +371,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                 '%item%' => "<span> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
             ], 'game' ));
+
             try {
                 $this->entity_manager->persist($item);
                 $this->entity_manager->persist($citizen);
