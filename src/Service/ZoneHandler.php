@@ -256,4 +256,47 @@ class ZoneHandler
         elseif ( $cp_ok_before && !$this->check_cp( $zone ) )
             $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
     }
+
+    public function getZoneAttributes(Zone $zone, ?Citizen $citizen = null) {
+        $attributes = ['zone'];
+        if ($zone->getX() == 0 && $zone->getY() == 0) {
+            $attributes[] = 'town';
+        }
+        if ($zone->getX() == 0 && $zone->getY() == 0 && $zone->getTown()->getDevastated()) {
+            $attributes[] = 'devast';
+        }
+        if ($citizen && $zone === $citizen->getZone()) {
+            $attributes[] = 'active';
+        }
+        if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) {
+            $attributes[] = 'unknown';
+        }
+        else {
+            if ($zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
+                $attributes[] = 'past';
+            }
+            if ($zone->getPrototype()) {
+                $attributes[] = 'ruin';
+                if ($zone->getBuryCount() > 0) {
+                    $attributes[] = 'buried';
+                }
+            }
+        }
+        if ($zone->getZombieStatus() === Zone::ZombieStateEstimate) {
+            if ($zone->getZombies() == 0) {
+                $attributes[] = 'danger-0';
+            }
+            else if ($zone->getZombies() <= 2) {
+                $attributes[] = 'danger-1';
+            }
+            else if ($zone->getZombies() <= 5) {
+                $attributes[] = 'danger-2';
+            }
+            else {
+                $attributes[] = 'danger-3';
+            }
+        }
+
+        return $attributes;
+    }
 }

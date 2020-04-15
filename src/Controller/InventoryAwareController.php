@@ -29,6 +29,7 @@ use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
+use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Structures\TownConf;
 use DateTime;
@@ -51,12 +52,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $time_keeper;
     protected $random_generator;
     protected $conf;
+    protected $zone_handler;
 
     private $town_conf;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf)
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -68,6 +70,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->time_keeper = $tk;
         $this->random_generator = $rd;
         $this->conf = $conf;
+        $this->zone_handler = $zh;
     }
 
     protected function getTownConf() {
@@ -386,6 +389,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     public function get_map_blob(): array {
         $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
+        $zones_attributes = [];
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -396,10 +400,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if (!isset($zones[$x])) $zones[$x] = [];
             $zones[$x][$y] = $zone;
 
+            if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
+            $zones_attributes[$x][$y] = $this->zone_handler->getZoneAttributes($zone, $this->getActiveCitizen());
         }
 
         return [
             'zones' =>  $zones,
+            'zones_attributes' =>  $zones_attributes,
             'town_devast' => $this->getActiveCitizen()->getTown()->getDevastated(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ),
             'pos_x'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getX() : 0,

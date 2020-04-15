@@ -101,7 +101,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
         TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $translator, $lh, $tk, $rg, $conf);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $translator, $lh, $tk, $rg, $conf, $zh);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;

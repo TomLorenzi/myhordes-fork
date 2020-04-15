@@ -17,33 +17,8 @@
             {% for y in map_y1..map_y0 %}
                 {% for x in map_x0..map_x1 %}
                     {% if zones[x] and zones[x][y] %}
-
-                        {% set zone_attribs = [] %}
-                        {% if x == 0 and y == 0 %}                {% set zone_attribs = zone_attribs|merge(['town']) %}  {% endif %}
-                        {% if x == 0 and y == 0 and town_devast %}{% set zone_attribs = zone_attribs|merge(['devast']) %}  {% endif %}
-                        {% if x == pos_x and y == pos_y %}{% set zone_attribs = zone_attribs|merge(['active']) %}{% endif %}
-                        {% if zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                            {% set zone_attribs = zone_attribs|merge(['unknown']) %}
-                        {% else %}
-                            {% if zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                                {% set zone_attribs = zone_attribs|merge(['past']) %}
-                            {% endif %}
-
-                            {% if zones[x][y].prototype %}
-                                {% set zone_attribs = zone_attribs|merge(['ruin']) %}
-                                {% if zones[x][y].buryCount > 0 %}{% set zone_attribs = zone_attribs|merge(['buried']) %}{% endif %}
-                            {% endif %}
-
-                            {% if zones[x][y].zombieStatus >= constant('App\\Entity\\Zone::ZombieStateEstimate') %}
-                                {% if zones[x][y].zombies == 0 %}    {% set zone_attribs = zone_attribs|merge(['danger-0']) %}
-                                {% elseif zones[x][y].zombies <= 2 %}{% set zone_attribs = zone_attribs|merge(['danger-1']) %}
-                                {% elseif zones[x][y].zombies <= 5 %}{% set zone_attribs = zone_attribs|merge(['danger-2']) %}
-                                {% else %}                           {% set zone_attribs = zone_attribs|merge(['danger-3']) %}
-                                {% endif %}
-                            {% endif %}
-
-                        {% endif %}
-                        <div class="zone {{ zone_attribs|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
+                        {% set classes = zones_attributes[x][y] %}
+                        <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
                                 <div class="icon"></div>
                                 <div class="overlay"></div>
                                 {% if zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
