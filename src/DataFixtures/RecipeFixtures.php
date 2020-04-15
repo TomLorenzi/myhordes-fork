@@ -308,10 +308,10 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com009' => ['type' => Recipe::ManualAnywhere, 'out' => 'food_noodles_hot_#00',   'provoking' => 'food_noodles_#00',       'in' => ['food_noodles_#00', 'spices_#00', 'water_#00'] ],
         'com010' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_#00',             'provoking' => 'coffee_machine_#00',     'in' => ['pile_#00', 'pharma_#00', 'wood_bad_#00'] ],
 
-        'com011' => ['type' => Recipe::ManualAnywhere, 'out' => 'watergun_opt_empty_#00', 'provoking' => 'watergun_opt_part_#00',  'in' => ['watergun_opt_part_#00', 'tube_#00', 'deto_#00', 'grenade_empty_#00', 'rustine_#00' ] ],
-        'com012' => ['type' => Recipe::ManualAnywhere, 'out' => 'pilegun_up_empty_#00',  'provoking' => 'pilegun_upkit_#00',      'in' => ['pilegun_upkit_#00', 'pilegun_empty_#00', 'meca_parts_#00', 'electro_#00', 'rustine_#00' ] ],
+        'com011' => ['type' => Recipe::ManualAnywhere, 'out' => 'watergun_opt_empty_#00', 'provoking' => 'watergun_opt_part_#00',  'in' => ['watergun_opt_part_#00', 'tube_#00', 'deto_#00', 'grenade_empty_#00', 'rustine_#00' ], "picto"=> "r_watgun_#00"],
+        'com012' => ['type' => Recipe::ManualAnywhere, 'out' => 'pilegun_up_empty_#00',  'provoking' => 'pilegun_upkit_#00',      'in' => ['pilegun_upkit_#00', 'pilegun_empty_#00', 'meca_parts_#00', 'electro_#00', 'rustine_#00' ], 'picto' => 'r_batgun_#00' ],
         'com013' => ['type' => Recipe::ManualAnywhere, 'out' => 'mixergun_empty_#00',     'provoking' => 'mixergun_part_#00',      'in' => ['mixergun_part_#00', 'meca_parts_#00', 'electro_#00', 'rustine_#00' ] ],
-        'com014' => ['type' => Recipe::ManualAnywhere, 'out' => 'jerrygun_#00',           'provoking' => 'jerrygun_part_#00',      'in' => ['jerrygun_part_#00', 'jerrycan_#00', 'rustine_#00' ] ],
+        'com014' => ['type' => Recipe::ManualAnywhere, 'out' => 'jerrygun_#00',           'provoking' => 'jerrygun_part_#00',      'in' => ['jerrygun_part_#00', 'jerrycan_#00', 'rustine_#00' ], "picto"=> "r_watgun_#00" ],
         'com015' => ['type' => Recipe::ManualAnywhere, 'out' => 'chainsaw_empty_#00',     'provoking' => 'chainsaw_part_#00',      'in' => ['chainsaw_part_#00', 'engine_#00', 'meca_parts_#00', 'courroie_#00', 'rustine_#00' ] ],
         'com016' => ['type' => Recipe::ManualAnywhere, 'out' => 'bgrenade_empty_#00',     'provoking' => ['explo_#00','deto_#00'], 'in' => ['explo_#00', 'grenade_empty_#00', 'deto_#00', 'rustine_#00' ] ],
         'com017' => ['type' => Recipe::ManualAnywhere, 'out' => 'lawn_#00',               'provoking' => 'lawn_part_#00',          'in' => ['lawn_part_#00', 'meca_parts_#00', 'metal_#00', 'rustine_#00' ] ],

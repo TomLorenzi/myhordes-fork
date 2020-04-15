@@ -5830,5 +5830,32 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</target>
       </segment>
     </unit>
+    <unit id="5NecEOg" name="28b7953">
+      <notes>
+        <note category="german">Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</note>
+      </notes>
+      <segment>
+        <source>Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</source>
+        <target>Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</target>
+      </segment>
+    </unit>
+    <unit id="eZQzCp7" name="d80a050">
+      <notes>
+        <note category="german">Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</note>
+      </notes>
+      <segment>
+        <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
+        <target>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</target>
+      </segment>
+    </unit>
+    <unit id="rJRa84E" name="4a1e54c">
+      <notes>
+        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</note>
+      </notes>
+      <segment>
+        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</source>
+        <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -27,6 +27,7 @@ use App\Service\ConfMaster;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
+use App\Service\PictoHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
@@ -48,6 +49,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $inventory_handler;
     protected $citizen_handler;
     protected $action_handler;
+    protected $picto_handler;
     protected $translator;
     protected $log;
     protected $time_keeper;
@@ -57,7 +59,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     private $town_conf;
 
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh,
+        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf)
     {
         $this->entity_manager = $em;
@@ -65,6 +67,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->citizen_handler = $ch;
         $this->citizen_handler->upgrade( $dh );
         $this->action_handler = $ah;
+        $this->picto_handler = $ph;
         $this->translator = $translator;
         $this->log = $lt;
         $this->time_keeper = $tk;

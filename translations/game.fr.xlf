@@ -3683,7 +3683,7 @@
       </notes>
       <segment>
         <source>%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.</source>
-        <target>%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.</target>
+        <target>%citizen% a fait griller un délicieux repas à partir du cadavre de %disposed%. La ville a reçu %items%.</target>
       </segment>
     </unit>
     <unit id="d3G_QIz" name="%citizen% hat die Leiche von %disposed% vernichtet.">
@@ -7277,6 +7277,33 @@
                         Ausbauten funktionslos.</source>
         <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</target>
+      </segment>
+    </unit>
+    <unit id="5NecEOg" name="28b7953">
+      <notes>
+        <note category="german">Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</note>
+      </notes>
+      <segment>
+        <source>Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</source>
+        <target>Vous avez balancé le corps de %disposed% hors de la ville. Une bonne chose de faite !</target>
+      </segment>
+    </unit>
+    <unit id="eZQzCp7" name="d80a050">
+      <notes>
+        <note category="german">Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</note>
+      </notes>
+      <segment>
+        <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
+        <target>Le corps s'est liquédié en une répugnante flaque nauséabonde. Vos chaussures en ont pris un coup, c'est certain...</target>
+      </segment>
+    </unit>
+    <unit id="rJRa84E" name="4a1e54c">
+      <notes>
+        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</note>
+      </notes>
+      <segment>
+        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</source>
+        <target>Vous avez amené le corps de %disposed% au Crémato-Cue. Vous en tirez 4 rations... mais à quel prix ?</target>
       </segment>
     </unit>
   </file>
