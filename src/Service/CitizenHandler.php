@@ -87,6 +87,9 @@ class CitizenHandler
         $citizen->addStatus($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_meta_wound'));
         if ($ap_above_6 >= 0)
             $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
+
+        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_wound_#00');
+        $this->picto_handler->give_picto($citizen, $pictoPrototype);
     }
 
     public function healWound( Citizen &$citizen ) {

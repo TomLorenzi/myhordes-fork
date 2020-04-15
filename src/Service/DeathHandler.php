@@ -30,17 +30,19 @@ class DeathHandler
     private $status_factory;
     private $item_factory;
     private $inventory_handler;
+    private $citizen_handler;
     private $zone_handler;
     private $log;
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lt)
+        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
         $this->inventory_handler = $ih;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
+        $this->citizen_handler = $ch;
         $this->log = $lt;
     }
 
@@ -130,6 +132,19 @@ class DeathHandler
 
                     $this->entity_manager->persist($picto);
                 }
+            }
+
+            // Clean picto
+            if($citizen->getSurvivedDays() >= 3 && $this->citizen_handler->hasStatusEffect($citizen, "clean", true)) {
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_nodrug_#00");
+                $picto = new Picto();
+                $picto->setPrototype($pictoPrototype)
+                    ->setPersisted(2)
+                    ->setTown($citizen->getTown())
+                    ->setUser($citizen->getUser())
+                    ->setCount(round(pow($citizen->getSurvivedDays(), 1.5), 0);
+
+                $this->entity_manager->persist($picto);
             }
         }
 

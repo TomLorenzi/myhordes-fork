@@ -113,7 +113,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Clean',
             'description' => 'Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.',
-            'icon' => 'status_clean',
+            'icon' => 'r_nodrug',
             'rare' => false
         ],
         [
