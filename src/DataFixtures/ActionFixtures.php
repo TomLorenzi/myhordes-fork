@@ -9,6 +9,7 @@ use App\Entity\AffectHome;
 use App\Entity\AffectItemConsume;
 use App\Entity\AffectItemSpawn;
 use App\Entity\AffectOriginalItem;
+use App\Entity\AffectPicto;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
 use App\Entity\AffectStatus;
@@ -28,6 +29,7 @@ use App\Entity\ItemGroupEntry;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\PictoPrototype;
 use App\Entity\RequireAP;
 use App\Entity\RequireBuilding;
 use App\Entity\RequireHome;
@@ -189,10 +191,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'eat_ap6'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0' ],
             'eat_ap7'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_1' ],
 
-            'drunk' => [ 'status' => 'add_drunk' ],
+            'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
 
-            'drug_any'   => [ 'status' => 'add_is_drugged' ],
-            'drug_addict'  => [ 'status' => 'add_addicted' ],
+            'drug_any'   => [ 'status' => 'add_is_drugged', 'picto' => ['r_drug_#00'] ],
+            'drug_addict'  => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'] ],
             'terrorize'    => [ 'status' => 'add_terror' ],
             'unterrorize'  => [ 'status' => 'remove_terror' ],
 
@@ -1294,6 +1296,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'rp':
                         $result->setRolePlayerText( $sub_data[0] );
                         break;
+                    case 'picto':
+                        $result->setPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
+                        break;
                     case 'custom':
                         $result->setCustom( $sub_data[0] );
                         break;
@@ -1712,6 +1717,33 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>group/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return AffectPicto
+     */
+    private function process_picto_effect(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): AffectPicto
+    {
+        if (!isset($cache[$id])) {
+            $result = $manager->getRepository(AffectPicto::class)->findOneByName( $id );
+            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $result = new AffectPicto();
+                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $result->setName( $id )->setPrototype(  $manager->getRepository(PictoPrototype::class)->findOneByName($data[0]));
+            $manager->persist( $cache[$id] = $result );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

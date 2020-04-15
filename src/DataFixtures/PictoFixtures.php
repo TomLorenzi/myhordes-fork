@@ -35,7 +35,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Handwerk',
             'description' => 'Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.',
-            'icon' => 'small_refine',
+            'icon' => 'r_refine',
             'rare' => false
         ],
         [
@@ -401,7 +401,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Batteriewerferfabrikant',
             'description' => 'Anzahl der Batteriewerfer, die du gebaut hast.',
-            'icon' => 'item_pilegun_up_empty',
+            'icon' => 'r_batgun',
             'rare' => true
         ],
         [

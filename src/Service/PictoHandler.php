@@ -1,0 +1,36 @@
+<?php
+
+
+namespace App\Service;
+
+
+use App\Entity\Citizen;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
+use App\Structures\ItemRequest;
+use Doctrine\ORM\AbstractQuery;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\Join;
+
+class PictoHandler
+{
+    private $entity_manager;
+
+    public function __construct(
+        EntityManagerInterface $em)
+    {
+        $this->entity_manager = $em;
+    }
+
+    public function give_picto(Citizen &$citizen, PictoPrototype $pictoPrototype){
+        $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
+        if($picto === null) $picto = new Picto();
+        $picto->setPrototype($pictoPrototype)
+            ->setPersisted(0)
+            ->setTown($citizen->getTown())
+            ->setUser($citizen->getUser())
+            ->setCount($picto->getCount()+1);
+
+        $this->entity_manager->persist($picto);
+    }
+}

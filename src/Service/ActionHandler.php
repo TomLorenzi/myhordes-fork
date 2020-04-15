@@ -16,8 +16,6 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
@@ -43,6 +41,7 @@ class ActionHandler
     private $game_factory;
     private $town_handler;
     private $zone_handler;
+    private $picto_handler;
     private $assets;
     private $log;
 
@@ -50,7 +49,7 @@ class ActionHandler
     public function __construct(
         EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
         RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, LogTemplateHandler $lt)
+        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -64,6 +63,7 @@ class ActionHandler
         $this->town_handler = $th;
         $this->death_handler = $dh;
         $this->zone_handler = $zh;
+        $this->picto_handler = $ph;
         $this->log = $lt;
     }
 
@@ -427,21 +427,6 @@ class ActionHandler
                     if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus( $citizen, $status->getResult() )) {
                         $tags[] = 'stat-up';
                         $tags[] = "stat-up-{$status->getResult()->getName()}";
-                        if($status->getResult()->getName() == "drunk") {
-                            // We drank alcohol, we need the associated picto
-                            $pictoAlcohol = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_alcool_#00");
-                            if($pictoAlcohol !== null) {
-                                $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoAlcohol);
-                                if($picto === null) $picto = new Picto();
-                                $picto->setPrototype($pictoAlcohol)
-                                    ->setPersisted(0)
-                                    ->setTown($citizen->getTown())
-                                    ->setUser($citizen->getUser())
-                                    ->setCount($picto->getCount()+1);
-
-                                $this->entity_manager->persist($picto);
-                            }
-                        }
                     }
                 }
 
@@ -618,6 +603,10 @@ class ActionHandler
                     $execute_info_cache['rp_text'] = $text->getTitle();
                     $citizen->getUser()->getFoundTexts()->add( $text );
                 }
+            }
+
+            if($picto = $result->getPicto()){
+                $this->picto_handler->give_picto($citizen, $picto->getPrototype());
             }
 
             if ($result->getCustom())
@@ -943,6 +932,10 @@ class ActionHandler
         if ($recipe->getType() === Recipe::WorkshopType)
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, $items, [$new_item] ) );
 
+        if($recipe->getPictoPrototype()) {
+            $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
+        }
+
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
               switch($recipe->getAction()) {
@@ -957,6 +950,7 @@ class ActionHandler
                 default:
                   $base = 'Du hast %item_list% in der Werkstatt zu %item% umgewandelt.';
               }
+
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
                 $base = 'Du hast %item_list% zu %item% umgewandelt.';

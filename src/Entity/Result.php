@@ -105,6 +105,11 @@ class Result
      */
     private $zone;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\AffectPicto")
+     */
+    private $picto;
+
     public function __construct()
     {
     }
@@ -302,6 +307,18 @@ class Result
     public function setZone(?AffectZone $zone): self
     {
         $this->zone = $zone;
+
+        return $this;
+    }
+
+    public function getPicto(): ?AffectPicto
+    {
+        return $this->picto;
+    }
+
+    public function setPicto(?AffectPicto $picto): self
+    {
+        $this->picto = $picto;
 
         return $this;
     }

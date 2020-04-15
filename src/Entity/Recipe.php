@@ -64,6 +64,12 @@ class Recipe
      */
     private $result;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\PictoPrototype")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $pictoPrototype;
+
     public function __construct()
     {
         $this->provoking = new ArrayCollection();
@@ -156,6 +162,18 @@ class Recipe
     public function setResult(?ItemGroup $result): self
     {
         $this->result = $result;
+
+        return $this;
+    }
+
+    public function getPictoPrototype(): ?PictoPrototype
+    {
+        return $this->pictoPrototype;
+    }
+
+    public function setPictoPrototype(?PictoPrototype $pictoPrototype): self
+    {
+        $this->pictoPrototype = $pictoPrototype;
 
         return $this;
     }
