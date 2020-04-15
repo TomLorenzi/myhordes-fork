@@ -2,12 +2,28 @@
 
 namespace App\Controller;
 
+use App\Entity\Citizen;
+use App\Entity\Town;
 use App\Entity\User;
+use App\Entity\Zone;
 use App\Exception\DynamicAjaxResetException;
+use App\Service\ActionHandler;
+use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
+use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
+use App\Service\GameFactory;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
+use App\Service\LogTemplateHandler;
+use App\Service\RandomGenerator;
+use App\Service\TimeKeeperService;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
+use App\Service\ZoneHandler;
+use DateTime;
+use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,35 +35,192 @@ use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @Route("/",condition="request.isXmlHttpRequest()")
- */
-class ExternalController extends AbstractController
+class ExternalController extends InventoryAwareController
 {
+    protected $game_factory;
+    protected $zone_handler;
+    protected $item_factory;
+    protected $death_handler;
+
     /**
-     * @Route("api/x/json", name="api_x_json")
+     * BeyondController constructor.
+     * @param EntityManagerInterface $em
+     * @param InventoryHandler $ih
+     * @param CitizenHandler $ch
+     * @param ActionHandler $ah
+     * @param TimeKeeperService $tk
+     * @param DeathHandler $dh
+     * @param TranslatorInterface $translator
+     * @param GameFactory $gf
+     * @param RandomGenerator $rg
+     * @param ItemFactory $if
+     * @param ZoneHandler $zh
+     * @param LogTemplateHandler $lh
+     */
+    public function __construct(
+        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf)
+    {
+        parent::__construct($em, $ih, $ch, $ah, $dh, $translator, $lh, $tk, $rg, $conf, $zh);
+        $this->game_factory = $gf;
+        $this->item_factory = $if;
+        $this->zone_handler = $zh;
+    }
+
+    /**
+     * @var Request
+     */
+    private $request;
+
+    /**
+     * @Route("/api/x/json", name="api_x_json")
      * @return Response
      */
-    public function api_json(): Response
+    public function api_json(Request $request): Response
     {
+        $this->request = $request;
+        $data = $this->generateData();
+        $test_array = [
+            'citizen' => $this->getUser()->getUsername(),
+        ];
+        return $this->json( $data );
+    }
+
+    /**
+     * @Route("/api/x/xml", name="api_x_xml")
+     * @return Response
+     */
+    public function api_xml(Request $request): Response
+    {
+        $this->request = $request;
         $test_array = [
             'citizen' => $this->getUser()->getUsername(),
         ];
         return $this->json( $test_array );
     }
 
-    /**
-     * @Route("api/x/xml", name="api_x_xml")
-     * @return Response
-     */
-    public function api_xml(): Response
+    private function generateData(): array
     {
-        $test_array = [
-            'citizen' => $this->getUser()->getUsername(),
+        try {
+            $now = new DateTime('now', new DateTimeZone('America/New_York'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+        /** @var User $user */
+        $user = $this->getUser();
+        /** @var Citizen $citizen */
+        $citizen = $user->getActiveCitizen();
+        /** @var Town $town */
+        $town = $citizen->getTown();
+        /** @var Zone $citizen_zone */
+        $citizen_zone = $citizen->getZone();
+        $data = [
+            'hordes' => [
+                'headers' => [
+                    'attributes' => [
+                        'link' => $this->request->getRequestUri(),
+                        'iconurl' => '',
+                        'avatarurl' => '',
+                        'secure' => 0,
+                        'author' => 'MyHordes',
+                        'language' => $town->getLanguage(),
+                        'version' => '0.1',
+                        'generator' => 'symfony',
+                    ],
+                    'game' => [
+                        'attributes' => [
+                            'days' => $town->getDay(),
+                            'quarantine' => $town->getDevastated(),
+                            'datetime' => $now->format('Y-m-d H:i:s'),
+                            'id' => $town->getId(),
+                        ],
+                    ],
+                ],
+                'data' => [
+                    'attributes' => [
+                        'cache-date' => $now->format('Y-m-d H:i:s'),
+                        'cache-fast' => 0,
+                    ],
+                    'city' => [
+                        'attributes' => [
+                            'city' => $town->getName(),
+                            'door' => $town->getDoor(),
+                            'hard' => $town->getType()->getId() == 3 ? 1 : 0,
+                            'water' => $town->getWell(),
+                            'chaos' => $town->getChaos(),
+                            'devast' => $town->getDevastated(),
+                            'x' => 0, //TODO get Town Offset
+                            'y' => 0,
+                        ],
+                        'list' => [
+                            'name' => 'building',
+                            'items' => [],
+                        ],
+                        'defense' => [
+                            'attributes' => [],
+                        ],
+                    ],
+                    'bank' => [
+                        'list' => [
+                            'name' => 'item',
+                            'items' => [],
+                        ],
+                    ],
+                    'expeditions' => [],
+                    'citizens' => [
+                        'list' => [
+                            'name' => 'citizen',
+                            'items' => [],
+                        ],
+                    ],
+                    'cadavers' => [
+                        'list' => [
+                            'name' => 'cadaver',
+                            'items' => [],
+                        ],
+                    ],
+                    'map' => [
+                        'list' => [
+                            'name' => 'zone',
+                            'items' => [],
+                        ],
+                    ],
+                    'upgrades' => [
+                        'attributes' => [
+                            'total' => 0,
+                        ],
+                    ],
+                    'estimations' => [
+                        'list' => [
+                            'name' => 'e',
+                            'items' => [],
+                        ],
+                    ],
+                ],
+            ],
         ];
-        return $this->json( $test_array );
-    }
+        foreach ( $town->getZones() as $zone ) {
+            /** @var Zone $zone */
+            $attributes = $this->zone_handler->getZoneAttributes($zone);
+            $zone_data = [
+                'attributes' => [
+                    'x' => $zone->getX(),
+                    'y' => $zone->getY(),
+                    'nvt' => $zone->getDiscoveryStatus(),
+                ],
+            ];
+            if (array_key_exists('danger', $attributes)) {
+                $zone_data['attributes']['danger'] = $attributes['danger'];
+            }
+            if (array_key_exists('building', $attributes)) {
+                $zone_data['building'] = [ 'attributes' => $attributes['building'] ];
+            }
+            $data['hordes']['data']['map']['list'][] = $zone_data;
+        }
 
+        return $data ?? [];
+    }
 
 }

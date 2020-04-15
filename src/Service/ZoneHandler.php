@@ -21,6 +21,7 @@ use App\Entity\User;
 use App\Entity\WellCounter;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -257,7 +258,7 @@ class ZoneHandler
             $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
     }
 
-    public function getZoneAttributes(Zone $zone, ?Citizen $citizen = null) {
+    public function getZoneClasses(Zone $zone, ?Citizen $citizen = null) {
         $attributes = ['zone'];
         if ($zone->getX() == 0 && $zone->getY() == 0) {
             $attributes[] = 'town';
@@ -294,6 +295,47 @@ class ZoneHandler
             }
             else {
                 $attributes[] = 'danger-3';
+            }
+        }
+
+        return $attributes;
+    }
+
+    public function getZoneAttributes(Zone $zone, ?Citizen $citizen = null) {
+        $attributes = ['zone'];
+        $attributes['town'] = ($zone->getX() == 0 && $zone->getY() == 0) ? 1 : 0;
+        $attributes['devast'] = ($zone->getX() == 0 && $zone->getY() == 0 && $zone->getTown()->getDevastated()) ? 1 : 0;
+        $attributes['active'] = $citizen && $zone === $citizen->getZone() ? 1 : 0;
+        $attributes['discovery'] = $zone->getDiscoveryStatus();
+        if ($zone->getDiscoveryStatus() && $zone->getPrototype()) {
+            if ($zone->getBuryCount() > 0) {
+                $attributes['building'] = [
+                    'name' => T::__("Ein nicht freigeschaufeltes Gebäude."),
+                    'type' => -1,
+                    'dig' => $zone->getBuryCount(),
+                ];
+            }
+            else {
+                $attributes['building'] = [
+                    'name' => T::__($zone->getPrototype()->getLabel()),
+                    'type' => $zone->getPrototype()->getId(),
+                    'dig' => 0,
+                ];
+            }
+        }
+
+        if ($zone->getDiscoveryStatus() && $zone->getZombieStatus() === Zone::ZombieStateEstimate) {
+            if ($zone->getZombies() == 0) {
+                $attributes['danger'] = '0';
+            }
+            else if ($zone->getZombies() <= 2) {
+                $attributes['danger'] = '1';
+            }
+            else if ($zone->getZombies() <= 5) {
+                $attributes['danger'] = '2';
+            }
+            else {
+                $attributes['danger'] = '3';
             }
         }
 

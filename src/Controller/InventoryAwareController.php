@@ -389,7 +389,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     public function get_map_blob(): array {
         $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
-        $zones_attributes = [];
+        $zones_classes = [];
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -401,12 +401,12 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $zones[$x][$y] = $zone;
 
             if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
-            $zones_attributes[$x][$y] = $this->zone_handler->getZoneAttributes($zone, $this->getActiveCitizen());
+            $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses($zone, $this->getActiveCitizen());
         }
 
         return [
             'zones' =>  $zones,
-            'zones_attributes' =>  $zones_attributes,
+            'zones_classes' =>  $zones_classes,
             'town_devast' => $this->getActiveCitizen()->getTown()->getDevastated(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ),
             'pos_x'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getX() : 0,

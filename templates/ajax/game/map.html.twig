@@ -17,7 +17,7 @@
             {% for y in map_y1..map_y0 %}
                 {% for x in map_x0..map_x1 %}
                     {% if zones[x] and zones[x][y] %}
-                        {% set classes = zones_attributes[x][y] %}
+                        {% set classes = zones_classes[x][y] %}
                         <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
                                 <div class="icon"></div>
                                 <div class="overlay"></div>
