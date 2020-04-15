@@ -16,6 +16,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
@@ -932,17 +933,12 @@ class ActionHandler
         if ($recipe->getType() === Recipe::WorkshopType)
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, $items, [$new_item] ) );
 
-        if($recipe->getPictoPrototype()) {
-            $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
-        }
-
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
               switch($recipe->getAction()) {
                 case "Öffnen":
                   $base = 'Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.';
                   break;
-
                 case "Zerlegen":
                   $base = 'Du hast %item_list% in der Werkstatt zu %item% zerlegt.';
                   break;
@@ -950,10 +946,14 @@ class ActionHandler
                 default:
                   $base = 'Du hast %item_list% in der Werkstatt zu %item% umgewandelt.';
               }
-
+              $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_refine_#00");
+              $this->picto_handler->give_picto($citizen, $pictoPrototype);
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
                 $base = 'Du hast %item_list% zu %item% umgewandelt.';
+                if ($recipe->getPictoPrototype()) {
+                    $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
+                }
                 break;
         }
 

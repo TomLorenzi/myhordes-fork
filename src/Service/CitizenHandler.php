@@ -158,12 +158,16 @@ class CitizenHandler
 
         $action = false; $kill = false;
         if (!$citizen->getBanished()) {
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $citizen, Complaint::SeverityBanish ) >= 8)
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish) >= 8)
                 $action = true;
         }
 
         if ($gallows || $cage) {
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $citizen, Complaint::SeverityKill ) >= 8)
+            $complaintNeeded = 8;
+            // If the citizen is already shunned, we need 6 more complains to hang him
+            if($citizen->getBanished())
+                $complaintNeeded = 6;
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
                 $action = $kill = true;
         }
 
@@ -172,8 +176,8 @@ class CitizenHandler
             $citizen->setBanished( true );
 
             if (!$kill) {
-                $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName('r_ban_#00');
-                $this->picto_handler->give_picto($ac, $pictoPrototype);
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ban_#00');
+                $this->picto_handler->give_picto($citizen, $pictoPrototype);
             }
 
             /** @var Item[] $items */
@@ -191,6 +195,12 @@ class CitizenHandler
                 $source = $item->getInventory();
                 if ($this->inventory_handler->transferItem( $citizen, $item, $source, $bank, InventoryHandler::ModalityImpound ) === InventoryHandler::ErrorNone)
                     $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $item, true ) );
+            }
+
+            // As he is shunned, we remove all the complaints
+            $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
+            foreach ($complaints as $complaint) {
+                $this->entity_manager->remove($complaint);
             }
         }
 

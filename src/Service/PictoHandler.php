@@ -22,14 +22,14 @@ class PictoHandler
         $this->entity_manager = $em;
     }
 
-    public function give_picto(Citizen &$citizen, PictoPrototype $pictoPrototype){
+    public function give_picto(Citizen &$citizen, PictoPrototype $pictoPrototype, $count = 1){
         $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
         if($picto === null) $picto = new Picto();
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(0)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
-            ->setCount($picto->getCount()+1);
+            ->setCount($picto->getCount()+$count);
 
         $this->entity_manager->persist($picto);
     }

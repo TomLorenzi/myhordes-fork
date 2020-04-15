@@ -670,6 +670,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
+        // Give picto to the citizen
+        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+        $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
+
         // Persist
         try {
             $this->entity_manager->persist($citizen);
