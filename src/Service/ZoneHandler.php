@@ -310,14 +310,14 @@ class ZoneHandler
         if ($zone->getDiscoveryStatus() && $zone->getPrototype()) {
             if ($zone->getBuryCount() > 0) {
                 $attributes['building'] = [
-                    'name' => T::__("Ein nicht freigeschaufeltes Gebäude."),
+                    'name' => T::__("Ein nicht freigeschaufeltes Gebäude.", "game"),
                     'type' => -1,
                     'dig' => $zone->getBuryCount(),
                 ];
             }
             else {
                 $attributes['building'] = [
-                    'name' => T::__($zone->getPrototype()->getLabel()),
+                    'name' => T::__($zone->getPrototype()->getLabel(), "game"),
                     'type' => $zone->getPrototype()->getId(),
                     'dig' => 0,
                 ];

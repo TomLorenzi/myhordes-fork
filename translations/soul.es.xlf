@@ -11,5 +11,86 @@
         <target>Deine Seele</target>
       </segment>
     </unit>
+    <unit id="wvl2WtX" name="E-Mail-Adresse">
+      <notes>
+        <note category="german">E-Mail-Adresse</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse</source>
+        <target>E-Mail-Adresse</target>
+      </segment>
+    </unit>
+    <unit id="1fRghxK" name="Externe ID für Apps">
+      <notes>
+        <note category="german">Externe ID für Apps</note>
+      </notes>
+      <segment>
+        <source>Externe ID für Apps</source>
+        <target>Externe ID für Apps</target>
+      </segment>
+    </unit>
+    <unit id="44idCpa" name="Neue ID generieren">
+      <notes>
+        <note category="german">Neue ID generieren</note>
+      </notes>
+      <segment>
+        <source>Neue ID generieren</source>
+        <target>Neue ID generieren</target>
+      </segment>
+    </unit>
+    <unit id="E1Sq9FV" name="ID löschen">
+      <notes>
+        <note category="german">ID löschen</note>
+      </notes>
+      <segment>
+        <source>ID löschen</source>
+        <target>ID löschen</target>
+      </segment>
+    </unit>
+    <unit id="Jh3UFwC" name="df31751">
+      <notes>
+        <note category="german">Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
+      </notes>
+      <segment>
+        <source>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</source>
+        <target>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</target>
+      </segment>
+    </unit>
+    <unit id="2.gcbi0" name="Seele">
+      <notes>
+        <note category="german">Seele</note>
+      </notes>
+      <segment>
+        <source>Seele</source>
+        <target>Seele</target>
+      </segment>
+    </unit>
+    <unit id="aXUvIxO" name="News">
+      <notes>
+        <note category="german">News</note>
+      </notes>
+      <segment>
+        <source>News</source>
+        <target>News</target>
+      </segment>
+    </unit>
+    <unit id="9XUKXXI" name="Einstellungen">
+      <notes>
+        <note category="german">Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Einstellungen</source>
+        <target>Einstellungen</target>
+      </segment>
+    </unit>
+    <unit id="0FJ_Sz1" name="Logout">
+      <notes>
+        <note category="german">Logout</note>
+      </notes>
+      <segment>
+        <source>Logout</source>
+        <target>Logout</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
