@@ -42,7 +42,7 @@ class TownHandler
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
 
         // Add building
-        $town->addBuilding( $b = (new Building())->setPrototype( $prototype ) );
+        $town->addBuilding( $b = (new Building())->setPrototype( $prototype )->setPosition($prototype->getOrderBy()) );
 
         // Add all children that do not require blueprints
         if ($b)

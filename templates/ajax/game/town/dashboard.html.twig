@@ -57,7 +57,7 @@
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>
             <ul class="overview-checklist">
                 <li{% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
-                <li{% if active_citizen.wellCounter.taken > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
+                <li{% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
                 {% if has_watchtower %}<li{% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }}</li>{% endif %}
                 {% if not town.devastated and has_levelable_building %}<li{% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }}</li>{% endif %}
 				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %}>{{ 'Mein Haus ausbauen'|trans({}, 'game') }}.</li>{% endif %}

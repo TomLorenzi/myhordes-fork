@@ -1,17 +1,17 @@
 <div class="row tabs">
     <div class="cell rw-4">
         <h4 class="soul-name">
-            <img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="Héros" /> {{ app.user.username }}
+            <img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ app.user.username }}
         </h4>
     </div>
     <div class="cell rw-2 tab">
-        <div class="tab-link" x-ajax-href="http://localhost/jx/soul/me">{% trans from 'soul' %}Seele{% endtrans %}</div>
+        <div class="tab-link" x-ajax-href="{{ path('soul_me') }}">{% trans from 'soul' %}Seele{% endtrans %}</div>
     </div>
     <div class="cell rw-2 tab">
-        <div class="tab-link" x-ajax-href="http://localhost/jx/soul/news">{% trans from 'soul' %}News{% endtrans %}</div>
+        <div class="tab-link" x-ajax-href="{{ path('soul_news') }}">{% trans from 'soul' %}News{% endtrans %}</div>
     </div>
     <div class="cell rw-2 tab">
-        <div class="tab-link" x-ajax-href="http://localhost/jx/soul/settings">{% trans from 'soul' %}Einstellungen{% endtrans %}</div>
+        <div class="tab-link" x-ajax-href="{{ path('soul_settings') }}">{% trans from 'soul' %}Einstellungen{% endtrans %}</div>
     </div>
     <div class="cell rw-2 tab">
         <a class="tab-link" target="_self" href="/logout">{% trans from 'soul' %}Logout{% endtrans %}</a>

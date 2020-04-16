@@ -2133,6 +2133,7 @@
     </unit>
     <unit id="KdxqtKO" name="Temporäre Konstruktion!">
       <notes>
+        <note>Temporäre Konstruktion!</note>
         <note category="german">Temporäre Konstruktion!</note>
       </notes>
       <segment>
@@ -2142,6 +2143,7 @@
     </unit>
     <unit id="hwqD281" name="cc4eb65">
       <notes>
+        <note>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</note>
         <note category="german">Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</note>
       </notes>
       <segment>
@@ -2151,11 +2153,21 @@
     </unit>
     <unit id="ssWP4ro" name="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
       <notes>
+        <note>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</note>
         <note category="german">Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</note>
       </notes>
       <segment>
         <source>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</source>
         <target>Vous pourrez de nouveau la bâtir demain si vous le souhaitez.</target>
+      </segment>
+    </unit>
+    <unit id="ucYQb6D" name="Verbessert die Stadtverteidigung erheblich.">
+      <notes>
+        <note category="german">Verbessert die Stadtverteidigung erheblich.</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Stadtverteidigung erheblich.</source>
+        <target>Verbessert die Stadtverteidigung erheblich.</target>
       </segment>
     </unit>
   </file>
