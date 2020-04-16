@@ -16,6 +16,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
@@ -41,6 +42,7 @@ class ActionHandler
     private $game_factory;
     private $town_handler;
     private $zone_handler;
+    private $picto_handler;
     private $assets;
     private $log;
 
@@ -48,7 +50,7 @@ class ActionHandler
     public function __construct(
         EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
         RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, LogTemplateHandler $lt)
+        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -62,6 +64,7 @@ class ActionHandler
         $this->town_handler = $th;
         $this->death_handler = $dh;
         $this->zone_handler = $zh;
+        $this->picto_handler = $ph;
         $this->log = $lt;
     }
 
@@ -407,7 +410,6 @@ class ActionHandler
 
         $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest) {
             if ($status = $result->getStatus()) {
-
                 if ($status->getInitial() && $status->getResult()) {
                     if ($citizen->getStatus()->contains( $status->getInitial() )) {
                         $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
@@ -602,6 +604,10 @@ class ActionHandler
                     $execute_info_cache['rp_text'] = $text->getTitle();
                     $citizen->getUser()->getFoundTexts()->add( $text );
                 }
+            }
+
+            if($picto = $result->getPicto()){
+                $this->picto_handler->give_picto($citizen, $picto->getPrototype());
             }
 
             if ($result->getCustom())
@@ -933,7 +939,6 @@ class ActionHandler
                 case "Öffnen":
                   $base = 'Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.';
                   break;
-
                 case "Zerlegen":
                   $base = 'Du hast %item_list% in der Werkstatt zu %item% zerlegt.';
                   break;
@@ -941,9 +946,14 @@ class ActionHandler
                 default:
                   $base = 'Du hast %item_list% in der Werkstatt zu %item% umgewandelt.';
               }
+              $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_refine_#00");
+              $this->picto_handler->give_picto($citizen, $pictoPrototype);
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
                 $base = 'Du hast %item_list% zu %item% umgewandelt.';
+                if ($recipe->getPictoPrototype()) {
+                    $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
+                }
                 break;
         }
 

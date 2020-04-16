@@ -15,6 +15,8 @@ use App\Entity\ItemAction;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownLogEntry;
 use App\Interfaces\RandomGroup;
@@ -25,6 +27,7 @@ use App\Service\ConfMaster;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
+use App\Service\PictoHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
@@ -47,6 +50,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $inventory_handler;
     protected $citizen_handler;
     protected $action_handler;
+    protected $picto_handler;
     protected $translator;
     protected $log;
     protected $time_keeper;
@@ -57,7 +61,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     private $town_conf;
 
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh,
+        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh)
     {
         $this->entity_manager = $em;
@@ -65,6 +69,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->citizen_handler = $ch;
         $this->citizen_handler->upgrade( $dh );
         $this->action_handler = $ah;
+        $this->picto_handler = $ph;
         $this->translator = $translator;
         $this->log = $lt;
         $this->time_keeper = $tk;
@@ -93,7 +98,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
         $data['banished'] = $this->getActiveCitizen()->getBanished();
-        $data['town_devastated'] = $this->getActiveCitizen()->getTown()->getDevastated();
+        $data['town_chaos'] = $this->getActiveCitizen()->getTown()->getChaos();
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();
@@ -480,7 +485,22 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             $heroic_action = $heroic->getAction();
             if ($trigger_after) $trigger_after($heroic_action);
-            $citizen->removeHeroicAction( $heroic );
+            $citizen->removeHeroicAction($heroic);
+
+            // Add the picto Heroic Action
+            $pictoHA = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
+            if($pictoHA !== null) {
+                $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoHA);
+                if($picto === null) $picto = new Picto();
+                $picto->setPrototype($pictoHA)
+                    ->setPersisted(0)
+                    ->setTown($citizen->getTown())
+                    ->setUser($citizen->getUser())
+                    ->setCount($picto->getCount()+1);
+
+                $this->entity_manager->persist($picto);
+            }
+
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)

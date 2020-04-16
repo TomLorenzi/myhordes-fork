@@ -21,7 +21,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'electro_box_#00','count' => 25),
             array('item' => 'chair_basic_#00','count' => 18),
             array('item' => 'lock_#00','count' => 8),
-        ], 'desc' => 'Hier wohnte ein Bürger, der beschloss, sich außerhalb der Stadt niederzulassen, weil er dachte, er würde länger unbeeinflusst von den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, überleben. Die Hälfte ihrer Leiche ist immer noch im Wohnzimmer.'],
+        ], 'desc' => 'Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.'],
         ["label" => "Albi Supermarkt",'icon' => 'albi',"camping" => 7,"min_dist" => 6, "max_dist" => 13, "chance" => 686, "drops" => [
             array('item' => 'drug_hero_#00','count' => 91),
             array('item' => 'meat_#00','count' => 91),
@@ -32,7 +32,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'food_bag_#00','count' => 23),
             array('item' => 'powder_#00','count' => 22),
             array('item' => 'lights_#00','count' => 14),
-        ], 'desc' => 'Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum wuchsen, verschwand dann... spezialisiert darauf, Dinge so billig wie möglich zu machen, sollten Sie hier alles finden können, was Sie brauchen. Ob Sie nun potless sind oder einfach nur dichter als zwei Anstriche, kaufen Sie bei Albis ein!'],
+        ], 'desc' => 'Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!'],
         ["label" => "Alte Höhle",'icon' => 'cave',"camping" => 7,"min_dist" => 16, "max_dist" => 27, "chance" => 184, "drops" => [
             array('item' => 'money_#00','count' => 106),
             array('item' => 'machine_1_#00','count' => 26),

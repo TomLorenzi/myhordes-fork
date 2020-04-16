@@ -498,6 +498,35 @@ div.death_footer {
 div.death_list {
   padding-left: 6px;
   &>b { color: @myhordes-smalltext }
+  &>ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: lighten(@myhordes-smalltext,10%);
+    &>li {
+      line-height: 32px;
+      &>div:not(.tooltip) {
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        &>img {
+          margin-top: -3px;
+        }
+      }
+      &.rare div {
+        background: url("../img/pictos/rewardBg_rare.gif") no-repeat;
+      }
+    }
+    &>li:hover {
+      div {
+        background-color: #5c2b20;
+        outline: 1px solid #f0d79e;
+      }
+    }
+  }
 }
 
 div.tooltip {

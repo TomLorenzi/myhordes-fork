@@ -20,7 +20,11 @@
 {% block ajax %}
     <div class="row">
         <div class="cell padded rw-4 hide-md hide-sm">
-            <img style="width: 100%" alt="" src="{{ asset('build/images/professions/select/welcome1.jpg') }}">
+            {% set img = 'welcome1.jpg' %}
+            {% if app.request.locale != 'de' %}
+                {% set img='welcome1_' ~ app.request.locale ~ '.jpg' %}
+            {% endif %}
+            <img style="width: 100%" alt="" src="{{ asset('build/images/professions/select/' ~ img) }}">
             {{ block('jobhelp') }}
         </div>
         <div class="cell padded header rw-8 rw-md-12">

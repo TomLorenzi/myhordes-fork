@@ -671,7 +671,7 @@ class LogTemplateHandler
     }
 
     public function citizenDisposal( Citizen $actor, Citizen $disposed, int $action, ?array $items = [] ): TownLogEntry {
-        $items = array_map( function(Item $e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
+        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
 
         $str = '';
         switch ($action) {

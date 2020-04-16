@@ -12,6 +12,7 @@ use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
 use App\Entity\ItemPrototype;
+use App\Entity\Picto;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -76,12 +77,6 @@ class NightlyHandler
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
-        $days = $citizen->getSurvivedDays();
-        $nbSoulPoints = $days * ( $days + 1 ) / 2;
-
-        $citizen->getUser()->addSoulPoints($nbSoulPoints);
-
-        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> earns <info>{$nbSoulPoints}</info> soul points.");
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
@@ -315,7 +310,7 @@ class NightlyHandler
         $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
         $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff'];
         $status_morph_list = [
             'drunk' => $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hungover' ),
         ];
@@ -510,7 +505,6 @@ class NightlyHandler
             foreach ($items as &$item)
                 $item->setPrototype( $target );
         }
-
     }
 
     private function stage3_buildings(Town &$town) {
@@ -635,6 +629,37 @@ class NightlyHandler
         }
     }
 
+    private function stage3_pictos(Town &$town){
+        $this->log->info('<info>Processing Pictos functions</info> ...');
+        // Marking pictos as obtained not-today
+        $citizens = $town->getCitizens();
+        foreach ($citizens as $citizen) {
+            // If the citizen is not alive anymore, the calculation is not to be done here
+            if(!$citizen->getAlive())
+                continue;
+            // Fetching picto obtained today
+            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
+            foreach ($pendingPictosOfUser as $pendingPicto) {
+                $this->log->info("Citizen <info>{$citizen->getUser()->getUsername()}</info> has earned picto <info>{$pendingPicto->getPrototype()->getLabel()}</info>. It has persistance <info>{$pendingPicto->getPersisted()}</info>");
+                // We check if this picto has already been earned previously (such as Heroic Action, 1 per day)
+                $pendingPreviousPicto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
+                if($pendingPreviousPicto === null) {
+                    $this->log->info("Setting persisted to 1");
+                    // We do not have it, we set it as earned
+                    $pendingPicto->setPersisted(1);
+                    $this->entity_manager->persist($pendingPicto);
+                } else {
+                    // We have it, we add the count to the previously earned
+                    // And remove the picto from today
+                    $this->log->info("Merging with previously earned picto");
+                    $pendingPreviousPicto->setCount($pendingPreviousPicto->getCount() + $pendingPicto->getCount());
+                    $this->entity_manager->persist($pendingPreviousPicto);
+                    $this->entity_manager->remove($pendingPicto);
+                }
+            }
+        }
+    }
+
     public function advance_day(Town &$town): bool {
         $this->skip_reanimation = [];
 
@@ -661,6 +686,7 @@ class NightlyHandler
         $this->stage3_status($town);
         $this->stage3_zones($town);
         $this->stage3_items($town);
+        $this->stage3_pictos($town);
 
         $c = count($this->cleanup);
         $this->log->info("It is now <comment>Day {$town->getDay()}</comment> in <info>{$town->getName()}</info>.");

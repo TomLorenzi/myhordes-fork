@@ -63,7 +63,7 @@ module.exports = {
 ```
 
 ## If you have found an untranslatable string
-Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console translation:update --force --sort=asc fr --prefix=""` cmdlet to update FR location (available languages : fr, en, de, es)
+Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console app:migrate -t` cmdlet to update FR location (available languages : fr, en, de, es)
 
 ## Update
 

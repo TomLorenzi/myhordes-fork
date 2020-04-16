@@ -12,6 +12,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\ScoutVisit;
 use App\Entity\TownClass;
@@ -28,6 +29,7 @@ use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
+use App\Service\PictoHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
@@ -98,10 +100,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param LogTemplateHandler $lh
      */
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
+        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $translator, $lh, $tk, $rg, $conf, $zh);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -329,13 +331,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @param ItemFactory $factory
+     * @param PictoHandler $picto_handler
      * @return Response
      */
     public function trash_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory): Response {
 
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
-        if (!$town->getDevastated() && (!$citizen->getBanished() || $citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))
+        if (!$town->getChaos() && (!$citizen->getBanished() || $citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
@@ -357,7 +360,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
 
         $item = $this->item_factory->createItem($proto);
-        $this->citizen_handler->setAP($citizen, true, -1);
 
         if (($error = $handler->transferItem(
             $citizen,
@@ -365,6 +367,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         )) === InventoryHandler::ErrorNone) {
 
             $trashlock->setTaken( $trashlock->getTaken()+1 );
+            $this->citizen_handler->setAP($citizen, true, -1);
+            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                '%item%' => "<span> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
+            ], 'game' ));
+
             try {
                 $this->entity_manager->persist($item);
                 $this->entity_manager->persist($citizen);

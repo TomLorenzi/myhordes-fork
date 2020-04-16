@@ -13,6 +13,8 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
@@ -223,6 +225,20 @@ class TownHomeController extends TownController
         foreach ($items as $item) {
             $r = $next->getResources()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
+        }
+
+        // Give picto
+        $pictoHouseImprovment = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_homeup_#00");
+        if($pictoHouseImprovment !== null) {
+            $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoHouseImprovment);
+            if($picto === null) $picto = new Picto();
+            $picto->setPrototype($pictoHouseImprovment)
+                ->setPersisted(0)
+                ->setTown($citizen->getTown())
+                ->setUser($citizen->getUser())
+                ->setCount($picto->getCount()+1);
+
+            $this->entity_manager->persist($picto);
         }
 
         // Create log & persist

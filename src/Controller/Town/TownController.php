@@ -13,6 +13,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -46,8 +47,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     const ErrorDoorAlreadyOpen   = ErrorHelper::BaseTownErrors + 5;
     const ErrorNotEnoughRes      = ErrorHelper::BaseTownErrors + 6;
     const ErrorAlreadyUpgraded   = ErrorHelper::BaseTownErrors + 7;
-
-
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $data = $data ?? [];
@@ -255,24 +254,30 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         $spawn_items = [];
-
+        $pictoName = "";
+        $message = "";
         switch ($action) {
-
             case 1:
                 if ($ac->getAp() <= 0 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
                 $this->citizen_handler->setAP($ac, true, -1);
+                $pictoName = "r_cgarb_#00";
+                $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
                 break;
             case 2:
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
                 $this->inventory_handler->forceRemoveItem( $items[0] );
+                $pictoName = "r_cwater_#00";
+                $message = $this->translator->trans('Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...', [], 'game');
                 break;
             case 3:
                 $town = $ac->getTown();
                 if (!$th->getBuilding($town, 'item_hmeat_#00', true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-                $spawn_items[] = [ $em->getRepository( ItemPrototype::class )->findOneByName( 'hmeat_#00' ), 2 ];
+                $spawn_items[] = [ $em->getRepository( ItemPrototype::class )->findOneByName( 'hmeat_#00' ), 4 ];
+                $pictoName = "r_cooked_#00";
+                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
                 break;
         }
 
@@ -281,6 +286,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $if->createItem( $item_spec[0] )  );
         $em->persist( $this->log->citizenDisposal( $ac, $c, $action, $spawn_items ) );
         $c->getHome()->setHoldsBody( false );
+
+        if ($message){
+            $this->addFlash('notice', $message);
+        }
+
+        // Give picto according to action
+        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName($pictoName);
+        $this->picto_handler->give_picto($ac, $pictoPrototype);
 
         try {
             $em->persist($ac);
@@ -656,6 +669,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+
+        // Give picto to the citizen
+        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+        $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
 
         // Persist
         try {
