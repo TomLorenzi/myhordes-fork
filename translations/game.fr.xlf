@@ -7306,5 +7306,14 @@
         <target>Vous avez amené le corps de %disposed% au Crémato-Cue. Vous en tirez 4 rations... mais à quel prix ?</target>
       </segment>
     </unit>
+    <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
+      <notes>
+        <note category="german">Ein nicht freigeschaufeltes Gebäude.</note>
+      </notes>
+      <segment>
+        <source>Ein nicht freigeschaufeltes Gebäude.</source>
+        <target>Ein nicht freigeschaufeltes Gebäude.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
