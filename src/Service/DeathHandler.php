@@ -142,7 +142,7 @@ class DeathHandler
                     ->setPersisted(2)
                     ->setTown($citizen->getTown())
                     ->setUser($citizen->getUser())
-                    ->setCount(round(pow($citizen->getSurvivedDays(), 1.5), 0);
+                    ->setCount(round(pow($citizen->getSurvivedDays(), 1.5), 0));
 
                 $this->entity_manager->persist($picto);
             }
