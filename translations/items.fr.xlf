@@ -1857,7 +1857,7 @@
       </notes>
       <segment>
         <source>Radius Mark II (entladen)</source>
-        <target>Radius Mark II (déchargé)</target>
+        <target>Balise Radius Mark II (déchargé)</target>
       </segment>
     </unit>
     <unit id="BY3bv3L" name="Radius Mark II">
@@ -1868,7 +1868,7 @@
       </notes>
       <segment>
         <source>Radius Mark II</source>
-        <target>Radius Mark II</target>
+        <target>Balise Radius Mark II</target>
       </segment>
     </unit>
     <unit id="HEOYOjQ" name="Reparatur Fix">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>Reparatur Fix</source>
-        <target>Clé à molette</target>
+        <target>Brico'Facile</target>
       </segment>
     </unit>
     <unit id="1homVRE" name="Unvollständiger Motor">

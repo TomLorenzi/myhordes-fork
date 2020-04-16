@@ -35,6 +35,7 @@ class ExternalApp
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $owner = null;
 
