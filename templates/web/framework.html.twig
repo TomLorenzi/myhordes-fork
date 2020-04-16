@@ -36,6 +36,16 @@
 <div id="wrapper">
     <div id="header">
         <div id="header-reload-area"></div>
+        <div id="apps">
+            <div id="apps-popup">
+                {% for ex in apps %}
+                    {# @var ex \App\Entity\ExternalApp #}
+                    <div class="app-external">
+                        {{ ex.name }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
         {% block header %}{% endblock %}
     </div>
 

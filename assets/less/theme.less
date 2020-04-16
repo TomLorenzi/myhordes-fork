@@ -105,6 +105,37 @@ div.debug_info {
     &>#header-reload-area { position: absolute; left: 0; top: 0; height: 135px; width: 375px; cursor: pointer; }
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
+
+    & #apps {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 40px;
+      height: 25px;
+      background-color: brown;
+      border: 2px solid black;
+      z-index: 100;
+
+      & #apps-popup {
+        display: none;
+      }
+
+      &:hover #apps-popup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 300px;
+        display:block;
+        background-color: #2b1910;
+        border: 2px solid white;
+        padding: 3em;
+
+        & .app-external {
+
+        }
+      }
+    }
   }
 
   &>#content {

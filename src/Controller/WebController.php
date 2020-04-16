@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\ExternalApp;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManager;
@@ -15,11 +18,13 @@ class WebController extends AbstractController
 {
     private $version_manager;
     private $kernel;
+    private $entityManager;
 
-    public function __construct(VersionManager $v, KernelInterface $k)
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e)
     {
         $this->version_manager = $v;
         $this->kernel = $k;
+        $this->entityManager = $e;
     }
 
     private function render_web_framework(string $ajax_landing) {
@@ -43,9 +48,12 @@ class WebController extends AbstractController
         ];
         shuffle($devs);
 
+        $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
+
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
+            'apps' => $apps,
             'ajax_landing' => $ajax_landing
         ] );
     }
