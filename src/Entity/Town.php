@@ -89,6 +89,7 @@ class Town
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Building", mappedBy="town", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $buildings;
 
