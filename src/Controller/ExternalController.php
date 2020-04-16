@@ -116,6 +116,8 @@ class ExternalController extends InventoryAwareController
         $town = $citizen->getTown();
         /** @var Zone $citizen_zone */
         $citizen_zone = $citizen->getZone();
+
+        // Base data.
         $data = [
             'hordes' => [
                 'headers' => [
@@ -201,6 +203,8 @@ class ExternalController extends InventoryAwareController
                 ],
             ],
         ];
+
+        // Add zones.
         foreach ( $town->getZones() as $zone ) {
             /** @var Zone $zone */
             $attributes = $this->zone_handler->getZoneAttributes($zone);
@@ -217,7 +221,71 @@ class ExternalController extends InventoryAwareController
             if (array_key_exists('building', $attributes)) {
                 $zone_data['building'] = [ 'attributes' => $attributes['building'] ];
             }
-            $data['hordes']['data']['map']['list'][] = $zone_data;
+            $data['hordes']['data']['map']['list']['items'][] = $zone_data;
+        }
+
+        // Add buildings.
+        foreach ( $town->getBuildings() as $building ) {
+            if ($building->getComplete()) {
+                $building_data = [
+                    'attributes' => [
+                        'name' => $building->getPrototype()->getLabel(),
+                        'temporary' => $building->getPrototype()->getTemp(),
+                        'id' => $building->getPrototype()->getId(),
+                        'img' => $building->getPrototype()->getIcon(),
+                    ],
+                ];
+                $data['hordes']['data']['city']['list']['items'][] = $building_data;
+            }
+        }
+
+        // Add bank items.
+        $inventory = $town->getBank();
+        foreach ( $inventory->getItems() as $item ) {
+            $item_data = [
+                'attributes' => [
+                    'name' => $item->getPrototype()->getLabel(),
+                    'count' => $item->getCount(),
+                    'id' => $item->getPrototype()->getId(),
+                    'img' => $item->getPrototype()->getIcon(),
+                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
+                    'broken' => $item->getBroken(),
+                ],
+            ];
+            $data['hordes']['data']['bank']['list']['items'][] = $item_data;
+        }
+
+        // Add citizens.
+        foreach ( $town->getCitizens() as $citizen ) {
+            if ($citizen->getAlive()) {
+                $citizen_data = [
+                    'attributes' => [
+                        'dead' => 0,
+                        'hero' => $citizen->getProfession()->getHeroic(),
+                        'name' => $citizen->getUser()->getUsername(),
+                        'avatar' => '',
+                        'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() : 0,
+                        'y' => !is_null($citizen->getZone()) ? $citizen->getZone()->getY() : 0,
+                        'id' => $citizen->getId(),
+                        'ban' => $citizen->getBanished(),
+                        'job' => $citizen->getProfession()->getName(),
+                        'out' => !is_null($citizen->getZone()),
+                        'baseDef' => 0,
+                    ],
+                ];
+                $data['hordes']['data']['citizens']['list']['items'][] = $citizen_data;
+            }
+            else {
+                $citizen_data = [
+                    'attributes' => [
+                        'name' => $citizen->getUser()->getUsername(),
+                        'id' => $citizen->getId(),
+                        'dtype' => $citizen->getCauseOfDeath()->getId(),
+                        'day' => $citizen->getSurvivedDays(),
+                    ],
+                ];
+                $data['hordes']['data']['cadavers']['list']['items'][] = $citizen_data;
+            }
         }
 
         return $data ?? [];

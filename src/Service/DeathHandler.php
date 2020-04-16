@@ -129,11 +129,11 @@ class DeathHandler
 
         // Set all picto of town as persisted
         // TODO: Check the rule of day 5 (Day 8 if Small town and >= 100 soul points)
-        $pendingPictosOfUser = $this->entity_manager->getRepository(PictoPrototype::class)->findPendingByUser($user);
+        /*$pendingPictosOfUser = $this->entity_manager->getRepository(PictoPrototype::class)->findPendingByUser($citizen->getUser());
         foreach ($pendingPictosOfUser as $pendingPicto) {
             $pendingPicto->setPersisted(true);
             $this->entity_manager->persist($pendingPicto);
-        }
+        }*/
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 
