@@ -13,7 +13,7 @@
         </div>
         {% for citizen in citizens %}
             {# @var \App\Entity\Citizen citizen  #}
-            <div class="row pointer" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
+            <div class="row pointer{% if citizen == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
                 <div class="padded cell rw-1 rw-md-2">
                     {% if citizen.alive %}
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
