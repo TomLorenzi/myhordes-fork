@@ -3,9 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ExternalAppRepository")
+ * @UniqueEntity("name")
+ * @Table(uniqueConstraints={
+ *     @UniqueConstraint(name="name_unique",columns={"name"})
+ * })
  */
 class ExternalApp
 {
@@ -28,9 +35,8 @@ class ExternalApp
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
      */
-    private $owner;
+    private $owner = null;
 
     /**
      * @ORM\Column(type="string")
@@ -82,12 +88,12 @@ class ExternalApp
         return $this;
     }
 
-    public function getOwner(): User
+    public function getOwner(): ?User
     {
         return $this->owner;
     }
 
-    public function setOwner(User $owner): self
+    public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
 
