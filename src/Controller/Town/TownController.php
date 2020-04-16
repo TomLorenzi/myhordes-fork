@@ -4,6 +4,7 @@ namespace App\Controller\Town;
 
 use App\Controller\InventoryAwareController;
 use App\Controller\TownInterfaceController;
+use App\Entity\ActionCounter;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
@@ -408,8 +409,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/well.html.twig', $this->addDefaultTwigArgs('well', [
             'rations_left' => $this->getActiveCitizen()->getTown()->getWell(),
-            'first_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() === 0,
-            'allow_take' => $this->getActiveCitizen()->getWellCounter()->getTaken() < $allow_take,
+            'first_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) === 0,
+            'allow_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) < $allow_take,
             'pump' => $pump,
 
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeWell, 10 )->getContent(),
@@ -440,7 +441,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $citizen = $this->getActiveCitizen();
 
             $town = $citizen->getTown();
-            $wellLock = $citizen->getWellCounter();
 
             $limit = 1;
             if($th->getBuilding($town, 'small_water_#00', true)) {
@@ -452,9 +452,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
 
             if ($direction == 'up') {
-
                 if ($town->getWell() <= 0) return AjaxResponse::error(self::ErrorWellEmpty);
-                if ($wellLock->getTaken() >= $limit) return AjaxResponse::error(self::ErrorWellLimitHit);
+
+                $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeWell);
+
+                if ($counter->getCount() >= $limit) return AjaxResponse::error(self::ErrorWellLimitHit);
 
                 $inv_target = $citizen->getInventory();
                 $inv_source = null;
@@ -464,13 +466,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     $citizen,
                     $item,$inv_source, $inv_target
                 )) === InventoryHandler::ErrorNone) {
-                    $this->entity_manager->persist( $this->log->wellLog( $citizen, $wellLock->getTaken() >= 1 ) );
-                    $wellLock->setTaken( $wellLock->getTaken()+1 );
+                    $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
+                    $counter->increment();
                     $town->setWell( $town->getWell()-1 );
                     try {
                         $this->entity_manager->persist($item);
                         $this->entity_manager->persist($town);
-                        $this->entity_manager->persist($wellLock);
+                        $this->entity_manager->persist($citizen);
+                        $this->entity_manager->persist($counter);
                         $this->entity_manager->flush();
                     } catch (Exception $e) {
                         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);

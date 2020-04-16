@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
@@ -133,7 +134,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
         ) > 0;
 
-        $trashlock = ($this->getActiveCitizen()->getBanished() || $this->getActiveCitizen()->getTown()->getDevastated()) ? $this->getActiveCitizen()->getTrashCounter() : null;
+        $trash_count = ($this->getActiveCitizen()->getBanished() || $this->getActiveCitizen()->getTown()->getDevastated()) ? $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeTrash) : 0;
 
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
@@ -149,7 +150,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
             'km' => round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) )),
-            'lock_trash' => $trashlock && $trashlock->getTaken() >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
+            'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
             'citizen_hidden' => $citizen_hidden,
         ], $data, $this->get_map_blob()) );
     }
@@ -344,12 +345,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $trashlock = $citizen->getTrashCounter();
-        if (!$trashlock)
-            $trashlock = (new TrashCounter())->setCitizen($citizen);
+        $trashlock = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeTrash);
 
         $limit = $citizen->getProfession()->getName() === 'collec' ? 4 : 3;
-        if ($trashlock->getTaken() >= $limit) return AjaxResponse::error(self::ErrorTrashLimitHit);
+        if ($trashlock->getCount() >= $limit) return AjaxResponse::error(self::ErrorTrashLimitHit);
 
         $inv_target = $citizen->getInventory();
         $inv_source = null;
@@ -366,7 +365,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $item,$inv_source, $inv_target
         )) === InventoryHandler::ErrorNone) {
 
-            $trashlock->setTaken( $trashlock->getTaken()+1 );
+            $trashlock->increment();
             $this->citizen_handler->setAP($citizen, true, -1);
             $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                 '%item%' => "<span> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"

@@ -4,6 +4,7 @@
 namespace App\Command;
 
 
+use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\Inventory;
@@ -175,15 +176,15 @@ class TownInspectorCommand extends Command
 
         if ($input->getOption('reset-well-lock')) {
 
-            /** @var WellCounter[] $wells */
-            $wells = array_map( function (Citizen $c): WellCounter {
-                return $c->getWellCounter();
+            /** @var ActionCounter[] $wells */
+            $wells = array_map( function (Citizen $c): ActionCounter {
+                return $c->getSpecificActionCounter(ActionCounter::ActionTypeWell);
             }, $citizen ? [$citizen] : $town->getCitizens()->getValues() );
 
             $num = 0;
             foreach ($wells as $well) {
-                if ($well->getTaken() == 0) continue;
-                $well->setTaken(0);
+                if ($well->getCount() == 0) continue;
+                $well->setCount(0);
                 $this->entityManager->persist($well);
                 $num++;
             }

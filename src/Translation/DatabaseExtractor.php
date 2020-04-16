@@ -83,6 +83,8 @@ class DatabaseExtractor implements ExtractorInterface
         foreach ($this->em->getRepository(BuildingPrototype::class)->findAll() as $building) {
             /** @var BuildingPrototype $building */
             $this->insert( $c, $building->getLabel(), 'buildings' );
+            if($building->getDescription())
+                $this->insert( $c, $building->getDescription(), 'buildings' );
             if ($building->getUpgradeTexts())
                 foreach ($building->getUpgradeTexts() as $text)
                     $this->insert( $c, $text, 'buildings' );

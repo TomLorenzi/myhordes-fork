@@ -7442,5 +7442,23 @@
         <target>Angriff und Verteidigung</target>
       </segment>
     </unit>
+    <unit id="sHQDGQ4" name="Ausschneiden">
+      <notes>
+        <note category="german">Ausschneiden</note>
+      </notes>
+      <segment>
+        <source>Ausschneiden</source>
+        <target>Ausschneiden</target>
+      </segment>
+    </unit>
+    <unit id="fZlwOf2" name="Ausweiden">
+      <notes>
+        <note category="german">Ausweiden</note>
+      </notes>
+      <segment>
+        <source>Ausweiden</source>
+        <target>Ausweiden</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

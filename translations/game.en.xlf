@@ -5857,5 +5857,14 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</target>
       </segment>
     </unit>
+    <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
+      <notes>
+        <note category="german">Ein nicht freigeschaufeltes Gebäude.</note>
+      </notes>
+      <segment>
+        <source>Ein nicht freigeschaufeltes Gebäude.</source>
+        <target>Ein nicht freigeschaufeltes Gebäude.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

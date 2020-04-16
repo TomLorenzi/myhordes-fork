@@ -2158,5 +2158,14 @@
         <target>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</target>
       </segment>
     </unit>
+    <unit id="ucYQb6D" name="Verbessert die Stadtverteidigung erheblich.">
+      <notes>
+        <note category="german">Verbessert die Stadtverteidigung erheblich.</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Stadtverteidigung erheblich.</source>
+        <target>Verbessert die Stadtverteidigung erheblich.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

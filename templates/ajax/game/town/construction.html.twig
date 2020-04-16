@@ -50,6 +50,11 @@
                 {% if building.prototype.defense > 0 %}
                     <div class="float-right defense">{{ building.prototype.defense }}</div>
                 {% endif %}
+                {% if building.prototype.description %}
+                <div class="tooltip">
+                    {{ building.prototype.description|trans({}, 'buildings') }}
+                </div>
+                {% endif %}
             </div>
             <div class="padded cell rw-6 rw-lg-10 rw-sm-12 no-ws">
                 {% set res_ok = true %}
@@ -73,6 +78,9 @@
                         <div class="build-req">
                             <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
                             <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
+                            <div class="tooltip">
+                                {{ itemgroup.prototype.label|trans({}, 'items') }}
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}
