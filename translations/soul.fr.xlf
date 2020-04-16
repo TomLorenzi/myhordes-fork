@@ -19,7 +19,7 @@
       </notes>
       <segment>
         <source>E-Mail-Adresse</source>
-        <target>E-Mail-Adresse</target>
+        <target>Adresse email</target>
       </segment>
     </unit>
     <unit id="1fRghxK" name="Externe ID für Apps">
@@ -29,7 +29,7 @@
       </notes>
       <segment>
         <source>Externe ID für Apps</source>
-        <target>Externe ID für Apps</target>
+        <target>ID externe pour les apps</target>
       </segment>
     </unit>
     <unit id="44idCpa" name="Neue ID generieren">
@@ -39,7 +39,7 @@
       </notes>
       <segment>
         <source>Neue ID generieren</source>
-        <target>Neue ID generieren</target>
+        <target>Générer un nouvel ID</target>
       </segment>
     </unit>
     <unit id="E1Sq9FV" name="ID löschen">
@@ -49,7 +49,7 @@
       </notes>
       <segment>
         <source>ID löschen</source>
-        <target>ID löschen</target>
+        <target>Supprimer l'ID</target>
       </segment>
     </unit>
     <unit id="Jh3UFwC" name="df31751">
@@ -59,7 +59,7 @@
       </notes>
       <segment>
         <source>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</source>
-        <target>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</target>
+        <target>En supprimant l'ID, vous empêchez les applications externes d'accéder à vos données.</target>
       </segment>
     </unit>
     <unit id="2.gcbi0" name="Seele">
@@ -69,7 +69,7 @@
       </notes>
       <segment>
         <source>Seele</source>
-        <target>Seele</target>
+        <target>Âme</target>
       </segment>
     </unit>
     <unit id="aXUvIxO" name="News">
@@ -89,7 +89,7 @@
       </notes>
       <segment>
         <source>Einstellungen</source>
-        <target>Einstellungen</target>
+        <target>Paramètres</target>
       </segment>
     </unit>
     <unit id="0FJ_Sz1" name="Logout">
@@ -99,7 +99,7 @@
       </notes>
       <segment>
         <source>Logout</source>
-        <target>Logout</target>
+        <target>Déconnexion</target>
       </segment>
     </unit>
   </file>

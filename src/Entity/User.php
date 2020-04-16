@@ -280,6 +280,8 @@ class User implements UserInterface, EquatableInterface
     public function setExternalId(string $externalId): self
     {
         $this->externalId = $externalId;
+
+        return $this;
     }
 
     /**
