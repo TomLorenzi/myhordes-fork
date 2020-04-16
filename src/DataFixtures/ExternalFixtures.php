@@ -55,7 +55,7 @@ class ExternalFixtures extends Fixture
                 ->setAppUrl($entry['app_url'])
                 ->setAppIcon($entry['app_icon'])
                 ->setContactEmail($entry['contact_email'])
-                ->setOwner($entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['owner']))
+                //->setOwner($entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['owner']) ?? null)
                 ->setSecret($entry['key'] ?? substr(sha1(mt_rand() . $entry['app_url'] . time()), 0, 16))
             ;
 
@@ -72,7 +72,7 @@ class ExternalFixtures extends Fixture
         $output->writeln('<info>Installing fixtures: Pictos content database</info>');
         $output->writeln("");
 
-        $this->insert_pictos($manager, $output);
+        $this->insert_apps($manager, $output);
         $output->writeln("");
     }
 }
