@@ -27,6 +27,53 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      */
     public function welcome(EntityManagerInterface $em): Response
     {
+
+
+        return $this->render( 'ajax/ghost/intro.html.twig', [
+            'townClasses' => $em->getRepository(TownClass::class)->findAll(),
+            'userCanJoin' => $this->getUserTownClassAccess(),
+        ] );
+    }
+
+    /**
+     * @Route("api/ghost/join", name="api_join")
+     * @param JSONRequestParser $parser
+     * @param GameFactory $factory
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em) {
+        if (!$parser->has('town')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $town_id = (int)$parser->get('town', -1);
+        if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Town $town */
+        $town = $em->getRepository(Town::class)->find( $town_id );
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $allowedTownClasses = $this->getUserTownClassAccess();
+        if (!$allowedTownClasses[$town->getType()->getName()]) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $citizen = $factory->createCitizen($town, $user, $error);
+        if (!$citizen) return AjaxResponse::error($error);
+
+        try {
+            $em->persist($town);
+            $em->persist($citizen);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    public function getUserTownClassAccess(): array {
         /** @var User $user */
         $user = $this->getUser();
         $available_town_classes = [
@@ -48,41 +95,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $available_town_classes['custom'] = true;
         }
 
-        return $this->render( 'ajax/ghost/intro.html.twig', [
-            'townClasses' => $em->getRepository(TownClass::class)->findAll(),
-            'userCanJoin' => $available_town_classes,
-        ] );
-    }
-
-    /**
-     * @Route("api/ghost/join", name="api_join")
-     * @param JSONRequestParser $parser
-     * @param GameFactory $factory
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em) {
-        if (!$parser->has('town')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $town_id = (int)$parser->get('town', -1);
-        if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $town = $em->getRepository(Town::class)->find( $town_id );
-        $user = $this->getUser();
-
-        if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $citizen = $factory->createCitizen($town, $user, $error);
-        if (!$citizen) return AjaxResponse::error($error);
-
-        try {
-            $em->persist($town);
-            $em->persist($citizen);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
+        return $available_town_classes;
     }
 
 }
