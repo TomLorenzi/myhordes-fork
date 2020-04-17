@@ -367,14 +367,16 @@ class InventoryHandler
                 return self::ErrorStealLimitHit;
 
             $victim = $type_from === self::TransferTypeSteal ? $from->getHome()->getCitizen() : $to->getHome()->getCitizen();
-            if ($victim->getAlive() && !$victim->getZone()) return self::ErrorStealBlocked;
-            if ($victim->getHome()->getPrototype()->getTheftProtection()) return self::ErrorStealBlocked;
-            if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
-                $victim->getHome(),
-                $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
-                return self::ErrorStealBlocked;
-            if ($this->countSpecificItems( $victim->getHome()->getChest(), 'lock', true ) > 0)
-                return self::ErrorStealBlocked;
+            if ($victim->getAlive()) {
+                if (!$victim->getZone()) return self::ErrorStealBlocked;
+                if ($victim->getHome()->getPrototype()->getTheftProtection()) return self::ErrorStealBlocked;
+                if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+                    $victim->getHome(),
+                    $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
+                    return self::ErrorStealBlocked;
+                if ($this->countSpecificItems( $victim->getHome()->getChest(), 'lock', true ) > 0)
+                    return self::ErrorStealBlocked;
+            }
         }
 
         if ($type_from === self::TransferTypeRucksack && $type_to === self::TransferTypeTamer && $modality !== self::ModalityTamer && $modality !== self::ModalityImpound)

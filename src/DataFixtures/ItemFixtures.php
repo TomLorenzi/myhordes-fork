@@ -788,7 +788,7 @@ class ItemFixtures extends Fixture
         'watergun_3_#00'     => [ 'impoundable', 'root_weapon' ],
         'watergun_2_#00'     => [ 'impoundable', 'root_weapon' ],
         'watergun_1_#00'     => [ 'impoundable', 'root_weapon' ],
-        'knife_#00'          => [ 'impoundable', 'root_weapon' ],
+        'knife_#00'          => [ 'impoundable', 'root_weapon', 'box_opener' ],
         'lawn_#00'           => [ 'impoundable', 'root_weapon' ],
         'torch_off_#00'      => [ 'impoundable', 'root_weapon' ],
         'iphone_#00'         => [ 'impoundable', 'root_weapon' ],
