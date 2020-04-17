@@ -30,8 +30,92 @@
                     {% endif %}
                 </div>
             </div>
+            <style>
+            span.critical {
+    text-transform: uppercase;
+    color: #f86;
+    font-weight: bold;
+}
 
-            <p>
+.row.example {
+    width: 45%!important;
+    float: left;
+    margin-right: 3%;
+    text-align:left!important;
+    border:1px solid #444;
+    margin-bottom:2em;
+    padding: 10px;
+    height: 300px;
+    overflow: hidden;
+    background-color: #5c2b20;
+    outline: 1px solid black;
+    border: 1px solid #f0d79e;
+}
+
+</style>
+
+            <div class="row example" style="font-family:Montserrat;">
+                <div class="cell rw-12">
+                    <p>This is a simple text demonstrating the font "Montserrat" from <strong>Google fonts</strong>. How do you like the style of this paragraph. Is it easy to read or not?</p>
+                    <ul>
+                    <li>Normal text with some <strong>bold</strong> and <em>italic</em> words.</li>
+                    <li><span class="critical">This could be a warning!</span></li>
+                    <li class="small">Smaller text is shown here.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row example" style="font-family:Nunito;">
+                <div class="cell rw-12">
+                    <p>This is a simple text demonstrating the font "Nunito" from <strong>Google fonts</strong>. How do you like the style of this paragraph. Is it easy to read or not?</p>
+                    <ul>
+                    <li>Normal text with some <strong>bold</strong> and <em>italic</em> words.</li>
+                    <li><span class="critical">This could be a warning!</span></li>
+                    <li class="small">Smaller text is shown here.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row example" style="font-family:Oswald;">
+                <div class="cell rw-12">
+                    <p>This is a simple text demonstrating the font "Oswald" from <strong>Google fonts</strong>. How do you like the style of this paragraph. Is it easy to read or not?</p>
+                    <ul>
+                    <li>Normal text with some <strong>bold</strong> and <em>italic</em> words.</li>
+                    <li><span class="critical">This could be a warning!</span></li>
+                    <li class="small">Smaller text is shown here.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row example" style="font-family:'Century Gothic', Arial, 'Trebuchet MS', Verdana, 'Open Sans',sans-serif;">
+                <div class="cell rw-12">
+                    <p>This is a simple text demonstrating the font "Century Gothic" from <strong>Hordes</strong>. How do you like the style of this paragraph. Is it easy to read or not?</p>
+                    <ul>
+                    <li>Normal text with some <strong>bold</strong> and <em>italic</em> words.</li>
+                    <li><span class="critical">This could be a warning!</span></li>
+                    <li class="small">Smaller text is shown here.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row example" style="font-family:'Josefin Sans';">
+                <div class="cell rw-12">
+                    <p>This is a simple text demonstrating the font "Josefin Sans" from <strong>Google fonts</strong>. How do you like the style of this paragraph. Is it easy to read or not?</p>
+                    <ul>
+                    <li>Normal text with some <strong>bold</strong> and <em>italic</em> words.</li>
+                    <li><span class="critical">This could be a warning!</span></li>
+                    <li class="small">Smaller text is shown here.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row example" style="font-family:Questrial;">
+                <div class="cell rw-12">
+                    <p>This is a simple text demonstrating the font "Questrial" from <strong>Google fonts</strong>. How do you like the style of this paragraph. Is it easy to read or not?</p>
+                    <ul>
+                    <li>Normal text with some <strong>bold</strong> and <em>italic</em> words.</li>
+                    <li><span class="critical">This could be a warning!</span></li>
+                    <li class="small">Smaller text is shown here.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="clear: both;">
                 {% trans with {'%motiontwin%':'<b>MotionTwin</b>'} from 'welcome' %}
                     Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
                     damit Eigentum von %motiontwin%.

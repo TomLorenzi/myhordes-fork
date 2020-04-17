@@ -87,24 +87,38 @@ class ExternalController extends InventoryAwareController
         if (!$app) {
             $error = true;
         }
+        /** @var User $user */
+        $user = $this->getUser();
+        $key = $user->getExternalId();
 
         return $this->render( 'ajax/public/disclaimer.html.twig', [
             'ex' => $app,
+            'key' => $key,
             'error' => $error ?? false,
         ] );
     }
 
     /**
-     * @Route("/api/x/json", name="api_x_json")
+     * @Route("/api/x/json", name="api_x_json", methods={"POST"})
      * @return Response
      */
     public function api_json(Request $request): Response
     {
         $this->request = $request;
-        $data = $this->generateData();
-        $test_array = [
-            'citizen' => $this->getUser()->getUsername(),
-        ];
+        $user_key = $request->request->get('userkey');
+        $app_key = $request->request->get('appkey');
+
+        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
+
+        if (!$app) {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
+        }
+        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
+
+        if (!$user) {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed by user.']);
+        }
+        $data = $this->generateData($user);
         return $this->json( $data );
     }
 
@@ -121,15 +135,14 @@ class ExternalController extends InventoryAwareController
         return $this->json( $test_array );
     }
 
-    private function generateData(): array
+    private function generateData(User $user): array
     {
         try {
             $now = new DateTime('now', new DateTimeZone('America/New_York'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
-        /** @var User $user */
-        $user = $this->getUser();
+
         /** @var Citizen $citizen */
         $citizen = $user->getActiveCitizen();
         /** @var Town $town */
