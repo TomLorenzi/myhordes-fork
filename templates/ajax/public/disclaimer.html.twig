@@ -1,0 +1,8 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {{ parent() }}
+    DISCLAIMER
+    {% if not error %}
+        {{ ex.name }}
+    {% endif %}
+{% endblock %}

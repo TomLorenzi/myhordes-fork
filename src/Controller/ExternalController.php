@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citizen;
+use App\Entity\ExternalApp;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -43,6 +44,7 @@ class ExternalController extends InventoryAwareController
     protected $zone_handler;
     protected $item_factory;
     protected $death_handler;
+    protected $entity_manager;
 
     /**
      * BeyondController constructor.
@@ -67,12 +69,29 @@ class ExternalController extends InventoryAwareController
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
+        $this->entity_manager = $em;
     }
 
     /**
      * @var Request
      */
     private $request;
+
+    /**
+     * @Route("/jx/disclaimer/{id}", name="disclaimer")
+     * @return Response
+     */
+    public function disclaimer(Request $request, int $id): Response {
+        $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
+        if (!$app) {
+            $error = true;
+        }
+
+        return $this->render( 'ajax/public/disclaimer.html.twig', $this->addDefaultTwigArgs(null, [
+            'ex' => $app,
+            'error' => $error ?? false,
+        ]) );
+    }
 
     /**
      * @Route("/api/x/json", name="api_x_json")

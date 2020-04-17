@@ -44,8 +44,8 @@
                     <ul>
                     {% for ex in apps %}
                         {# @var ex \App\Entity\ExternalApp #}
-                        <li class="app-external" data-id="{{ ex.id }}">
-                            <a href="#"><img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span></a>
+                        <li class="app-external" x-ajax-href="{{ path('disclaimer', { 'id': ex.id }) }}">
+                            <img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span>
                         </li>
                     {% endfor %}
                     </ul>
