@@ -3124,7 +3124,7 @@
       </notes>
       <segment>
         <source>Altes Feldkrankenhaus</source>
-        <target>Altes Feldkrankenhaus</target>
+        <target>Vieil hôpital de campagne</target>
       </segment>
     </unit>
     <unit id="yKnc_Mp" name="Altes Flugfeld">
@@ -3707,7 +3707,7 @@
       </notes>
       <segment>
         <source>ZomBIER Bar</source>
-        <target>ZomBIER Bar</target>
+        <target>Bar miteux</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
@@ -5423,7 +5423,7 @@
       </notes>
       <segment>
         <source>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</source>
-        <target>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</target>
+        <target>Les restes qui jonchent les allées de cet hôpital improvisé devaient être des patients. Difficile de savoir combien ils avaient pu être à mourir ici, le soir de l'attaque… Peut-être qu'en comptant le nombre de bras et en divisant par deux ?</target>
       </segment>
     </unit>
     <unit id="Of9gthO" name="bac30b9">
@@ -6006,7 +6006,7 @@
       </notes>
       <segment>
         <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Ca ne ressemble plus vraiment à un bar, mais la présence d'une enseigne à demi enfouie dans le sable et d'un comptoir ne laisse pas trop planer le doute. La plupart des bouteilles sont cassées, mais on doit pouvoir y trouver des choses utiles...</target>
       </segment>
     </unit>
     <unit id="GrndoXV" name="859c709">

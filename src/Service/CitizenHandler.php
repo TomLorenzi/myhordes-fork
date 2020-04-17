@@ -157,7 +157,7 @@ class CitizenHandler
 
     public function updateBanishment( Citizen &$citizen, ?Building $gallows, ?Building $cage ): bool {
 
-        if (!$citizen->getAlive() || $citizen->getTown()->getDevastated()) return false;
+        if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
         if (!$citizen->getBanished()) {

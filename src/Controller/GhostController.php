@@ -51,14 +51,14 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $citizen = $factory->createCitizen($town, $user, $error);
         if (!$citizen) return AjaxResponse::error($error);
 
-        try {
+//        try {
             $em->persist($town);
             $em->persist($citizen);
             $em->flush();
-        } catch (Exception $e) {
+/*        } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
-
+*/
         return AjaxResponse::success();
     }
 

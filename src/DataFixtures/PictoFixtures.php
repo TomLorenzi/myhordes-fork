@@ -186,7 +186,7 @@ class PictoFixtures extends Fixture
             'label' => 'Expertenexpeditionen',
             'description' => 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.',
             'icon' => 'r_explo2',
-            'rare' => false
+            'rare' => true
         ],
         [
             'label' => 'Großzügigkeit',
