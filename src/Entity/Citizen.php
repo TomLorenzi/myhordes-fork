@@ -145,6 +145,11 @@ class Citizen
      */
     private $actionCounters;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $lastActionTimestamp = 0;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -569,5 +574,17 @@ class Citizen
         $a = (new ActionCounter())->setType($type);
         $this->addActionCounter($a);
         return $a;
+    }
+
+    public function getLastActionTimestamp(): int
+    {
+        return $this->lastActionTimestamp;
+    }
+
+    public function setLastActionTimestamp(int $lastActionTimestamp): self
+    {
+        $this->lastActionTimestamp = $lastActionTimestamp;
+
+        return $this;
     }
 }

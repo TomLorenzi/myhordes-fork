@@ -8095,5 +8095,158 @@
         <target>Le Père Noël a été aperçu volant %item% à %victim% !</target>
       </segment>
     </unit>
+    <unit id="q2ChVJX" name="Gereinigte Seelen">
+      <notes>
+        <note category="german">Gereinigte Seelen</note>
+      </notes>
+      <segment>
+        <source>Gereinigte Seelen</source>
+        <target>Gereinigte Seelen</target>
+      </segment>
+    </unit>
+    <unit id="uBjALnI" name="Mein Rucksack">
+      <notes>
+        <note category="german">Mein Rucksack</note>
+      </notes>
+      <segment>
+        <source>Mein Rucksack</source>
+        <target>Mon sac à dos</target>
+      </segment>
+    </unit>
+    <unit id="q221mSN" name="am">
+      <notes>
+        <note category="german">am</note>
+      </notes>
+      <segment>
+        <source>am</source>
+        <target>le</target>
+      </segment>
+    </unit>
+    <unit id="xHllIMc" name="Stunde(n)">
+      <notes>
+        <note category="german">Stunde(n)</note>
+      </notes>
+      <segment>
+        <source>Stunde(n)</source>
+        <target>heure(s)</target>
+      </segment>
+    </unit>
+    <unit id="zV6ExPR" name="Minute(n)">
+      <notes>
+        <note category="german">Minute(n)</note>
+      </notes>
+      <segment>
+        <source>Minute(n)</source>
+        <target>minute(s)</target>
+      </segment>
+    </unit>
+    <unit id="pJqC6wz" name="Sekunde(n)">
+      <notes>
+        <note category="german">Sekunde(n)</note>
+      </notes>
+      <segment>
+        <source>Sekunde(n)</source>
+        <target>Seconde(s)</target>
+      </segment>
+    </unit>
+    <unit id="n3JcKxK" name="Der Bürger wurde zuletzt %time% gesehen.">
+      <notes>
+        <note category="german">Der Bürger wurde zuletzt %time% gesehen.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger wurde zuletzt %time% gesehen.</source>
+        <target>Ce citoyen a été aperçu pour la dernière fois %time%.</target>
+      </segment>
+    </unit>
+    <unit id="Iks0KLK" name="vor %time%">
+      <notes>
+        <note category="german">vor %time%</note>
+      </notes>
+      <segment>
+        <source>vor %time%</source>
+        <target>il y a %time%</target>
+      </segment>
+    </unit>
+    <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
+      <notes>
+        <note category="german">Dieser Bürger wurde noch nie gesehen...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde noch nie gesehen...</source>
+        <target>Ce citoyen n'a jamais été vu...</target>
+      </segment>
+    </unit>
+    <unit id="y2ljklH" name="Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.">
+      <notes>
+        <note category="german">Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.</source>
+        <target>Ce citoyen a pris %ration% ration(s) au puits aujourd'hui</target>
+      </segment>
+    </unit>
+    <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
+      <notes>
+        <note category="german">Dieser Bürger ist ernsthaft verletzt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist ernsthaft verletzt.</source>
+        <target>Ce citoyen a été gravement blessé.</target>
+      </segment>
+    </unit>
+    <unit id="w5JoDMX" name="29edb8e">
+      <notes>
+        <note category="german">Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
+        <target>Ce citoyen cracherait du sang depuis un petit moment déjà… Certains parlent d'une infection.</target>
+      </segment>
+    </unit>
+    <unit id="0LaQbDJ" name="a261410">
+      <notes>
+        <note category="german">Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</source>
+        <target>Ce citoyen aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?</target>
+      </segment>
+    </unit>
+    <unit id="IhkIaY6" name="f56437c">
+      <notes>
+        <note category="german">Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
+        <target>Ce citoyen serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment...</target>
+      </segment>
+    </unit>
+    <unit id="QHYoGw6" name="fab7d5c">
+      <notes>
+        <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
+        <target>Ce citoyen n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête...</target>
+      </segment>
+    </unit>
+    <unit id="Kx1swjd" name="beeba51">
+      <notes>
+        <note category="german">Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
+        <target>Ce citoyen ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j'vous l'dis !</target>
+      </segment>
+    </unit>
+    <unit id="dvSfZK0" name="96d45cc">
+      <notes>
+        <note category="german">Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
+        <target>Ce citoyen serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

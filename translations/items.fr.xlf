@@ -8189,5 +8189,23 @@
         <target>Purifier</target>
       </segment>
     </unit>
+    <unit id="fJtXB6T" name="Du hast die Seele gereinigt und sie friedlich gemacht.">
+      <notes>
+        <note category="german">Du hast die Seele gereinigt und sie friedlich gemacht.</note>
+      </notes>
+      <segment>
+        <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
+        <target>Du hast die Seele gereinigt und sie friedlich gemacht.</target>
+      </segment>
+    </unit>
+    <unit id="GhoMZLz" name="Gegenstände suchen">
+      <notes>
+        <note category="german">Gegenstände suchen</note>
+      </notes>
+      <segment>
+        <source>Gegenstände suchen</source>
+        <target>Rechercher un objet</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -69,6 +69,21 @@
                 {% endif %}
             {% endif %}
             <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
+            <ul class='gossips'>
+                {% if owner.lastActionTimestamp == 0 %}
+                <li>{{'Dieser Bürger wurde noch nie gesehen...'|trans({}, 'game')}}</li>
+                {% else %}
+                <li>{{'Der Bürger wurde zuletzt %time% gesehen.'|trans({'%time%': lastActionText}, 'game')}}</li>
+                {% endif %}
+                {% if owner.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %}<li>{{"Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen."|trans({'%ration%': owner.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell'))}, 'game')}}</li>{% endif %}
+                {% if is_injured %}<li>{{'Dieser Bürger ist ernsthaft verletzt.'|trans({}, 'game')}}</li>{% endif %}
+                {% if is_infected %}<li>{{'Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.'|trans({}, 'game')}}</li>{% endif %}
+                {% if is_thirsty %}<li>{{'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?'|trans({}, 'game')}}</li>{% endif %}
+                {% if is_addicted %}<li>{{'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...'|trans({}, 'game')}}</li>{% endif %}
+                {% if is_terrorised %}<li>{{'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...'|trans({}, 'game')}}</li>{% endif %}
+                {% if not has_job %}<li>{{'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!'|trans({}, 'game')}}</li>{% endif %}
+                {% if is_admin %}<li>{{'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?'|trans({}, 'game')}}</li>{% endif %}
+            </ul>
         </div>
         <div class="padded cell rw-6 citizen-chest">
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>
@@ -80,7 +95,7 @@
             {% if (citizen.alive) %}
                 {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                     {% block class %}rucksack{% endblock %}
-                    {% block title %}{% trans from 'game' %}Dein Rucksack{% endtrans %}{% endblock %}
+                    {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
                 {% endembed %}
             {% endif %}
         </div>

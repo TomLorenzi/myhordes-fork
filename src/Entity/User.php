@@ -79,6 +79,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $externalId = '';
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdmin;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -311,6 +316,18 @@ class User implements UserInterface, EquatableInterface
                 $picto->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
 
         return $this;
     }

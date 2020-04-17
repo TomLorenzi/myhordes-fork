@@ -185,12 +185,11 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $active->setActive(false);
 
-        // Apply day 5/8 rule
+        // Delete not validated picto from DB
+        // Here, every validated picto should have persisted to 2
         $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
         foreach ($pendingPictosOfUser as $pendingPicto) {
-            if(($user->getSoulPoints() >= 100 && $active->getTown()->getType()->getName() == "small" && $active->getSurvivedDays() < 8) || ($active->getSurvivedDays() < 5)) {
-                $this->entity_manager->remove($pendingPicto);
-            }
+            $this->entity_manager->remove($pendingPicto);
         }
 
         $this->entity_manager->persist( $active );
