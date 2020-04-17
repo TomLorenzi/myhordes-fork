@@ -554,10 +554,8 @@ class ActionHandler
             }
 
             if ($home_set = $result->getHome()) {
-
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
-
             }
 
             if (($zoneEffect = $result->getZone()) && $base_zone = $citizen->getZone()) {

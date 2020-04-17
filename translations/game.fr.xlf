@@ -3410,7 +3410,7 @@
       </notes>
       <segment>
         <source>Kleinwasserkraftwerk</source>
-        <target>Kleinwasserkraftwerk</target>
+        <target>Centrale hydraulique</target>
       </segment>
     </unit>
     <unit id="Dm49uOY" name="Kosmetiklabor">
@@ -3443,7 +3443,7 @@
       </notes>
       <segment>
         <source>Lagerhalle</source>
-        <target>Lagerhalle</target>
+        <target>Hangars de stockage</target>
       </segment>
     </unit>
     <unit id="yAH2rE7" name="Leeres Parkhaus">
@@ -3520,7 +3520,7 @@
       </notes>
       <segment>
         <source>Schützengraben</source>
-        <target>Schützengraben</target>
+        <target>Tranchée aménagée</target>
       </segment>
     </unit>
     <unit id="3XX2wLZ" name="Stadtbücherei">
@@ -3586,7 +3586,7 @@
       </notes>
       <segment>
         <source>Verfallenes Bürogebäude</source>
-        <target>Verfallenes Bürogebäude</target>
+        <target>Immeuble délabré</target>
       </segment>
     </unit>
     <unit id="mAr1mWV" name="Verfallene Villa">
@@ -5599,7 +5599,7 @@
       </notes>
       <segment>
         <source>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</source>
-        <target>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</target>
+        <target>La chaîne de magasins Kiela était autrefois spécialisée dans la fabrication et la vente de meubles bons marchés. On dit que la piètre qualité de leurs produits serait l'une des raisons qui a poussé le monde à sa perte...</target>
       </segment>
     </unit>
     <unit id="tcRgABK" name="8fcd3b6">
@@ -5698,7 +5698,7 @@
       </notes>
       <segment>
         <source>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</source>
-        <target>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</target>
+        <target>Une vieille bicoque laissée à l'abandon depuis des années. Presque entièrement ensevelie sous le sable. Parfois, vous pouvez entendre des grattements inquiétants venant de ce qui doit être la cave...</target>
       </segment>
     </unit>
     <unit id="jCOLohr" name="3013905">
@@ -5709,7 +5709,7 @@
       </notes>
       <segment>
         <source>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</source>
-        <target>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</target>
+        <target>Cette centrale capte les eaux des nappes phréatiques environnantes et les transvase dans de gigantesques réservoirs en béton. Le système de filtrage semble en panne, mais on doit pouvoir récupérer l'eau contaminée stockée ici.</target>
       </segment>
     </unit>
     <unit id="I8_.QXa" name="785a946">
@@ -5742,7 +5742,7 @@
       </notes>
       <segment>
         <source>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</source>
-        <target>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</target>
+        <target>Le dépôt d'un grand magasin qui a certainement déposé son bilan il y a bien longtemps. Enfin, c'est ce que laisse supposer la présence d'une trentaine de corps pendus dans le hangar numéro 2. Vous supposez qu'il s'agit du conseil d'administration ; reste à savoir s'il s'agit d'un suicide collectif (le fait qu'ils aient les mains attachées vous laisse perplexe).</target>
       </segment>
     </unit>
     <unit id="8nwRIpb" name="7bad5bb">
@@ -5819,7 +5819,7 @@
       </notes>
       <segment>
         <source>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</source>
-        <target>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</target>
+        <target>Les nombreux cratères et autres taches de sang séché laissent à penser qu'une bataille de grande envergure s'est déroulée ici. La plupart des tranchées se sont effondrées, mais il reste quelques trous à fouiller.</target>
       </segment>
     </unit>
     <unit id="odvB3Fd" name="6178a4f">
@@ -5885,7 +5885,7 @@
       </notes>
       <segment>
         <source>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</source>
-        <target>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</target>
+        <target>Un bel immeuble de bureau où il devait faire bon venir travailler au petit matin, entouré de ses collègues anonymes pour accomplir on ne sait trop quel but global et avec pour seule préoccupation : sa propre survie. Vous vous dites que les choses n'ont peut-être finalement pas tant changé que ça...</target>
       </segment>
     </unit>
     <unit id="uy1WNX." name="70d717e">
@@ -6083,7 +6083,7 @@
       </notes>
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
-        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</target>
+        <target>Vous creusez depuis in certain temps et avez trouvé plusieurs objets.</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
@@ -6226,7 +6226,7 @@
       </notes>
       <segment>
         <source>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</source>
-        <target>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</target>
+        <target>Rien de notable par ici pour se mettre à l'abri. Vous vous sentez un peu à découvert...</target>
       </segment>
     </unit>
     <unit id="fftPup_" name="e5ccfe7">
@@ -6237,7 +6237,7 @@
       </notes>
       <segment>
         <source>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</source>
-        <target>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</target>
+        <target>Cette zone semble n'offrir que quelques rares protections « naturelles » pour y passer la nuit. Il va falloir faire avec les moyens du bord.</target>
       </segment>
     </unit>
     <unit id="YFhoAPq" name="d9a9e80">
@@ -6248,7 +6248,7 @@
       </notes>
       <segment>
         <source>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</source>
-        <target>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</target>
+        <target>En cherchant un peu, on doit bien pouvoir se cacher quelque part.</target>
       </segment>
     </unit>
     <unit id="i9FQpcu" name="4c4bb46">
@@ -6259,7 +6259,7 @@
       </notes>
       <segment>
         <source>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</source>
-        <target>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</target>
+        <target> L'endroit offre des cachettes correctes pour qui voudrait y passer la nuit...</target>
       </segment>
     </unit>
     <unit id="YrPIELu" name="In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.">
@@ -6270,7 +6270,7 @@
       </notes>
       <segment>
         <source>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</source>
-        <target>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</target>
+        <target> Ce secteur offre de bonnes planques en cas de besoin.</target>
       </segment>
     </unit>
     <unit id="Be5ZaAS" name="c1ea3a3">

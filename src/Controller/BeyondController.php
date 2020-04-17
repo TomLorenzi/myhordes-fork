@@ -48,6 +48,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -84,6 +85,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     protected $zone_handler;
     protected $item_factory;
     protected $death_handler;
+    protected $asset;
 
     /**
      * BeyondController constructor.
@@ -102,12 +104,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf)
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a)
     {
         parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
+        $this->asset = $a;
     }
 
     protected function deferZoneUpdate() {
@@ -849,7 +852,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
                     $this->picto_handler->give_picto($citizen, $picto);
                 }
+                $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                    '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
+                ], 'game' ));
+            } else {
+                $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
+        } else {
+            $this->addFlash( 'notice', $this->translator->trans( 'Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...', [], 'game' ));
         }
 
         try {
