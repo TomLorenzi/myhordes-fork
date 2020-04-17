@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
@@ -26,8 +27,11 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      */
     public function welcome(EntityManagerInterface $em): Response
     {
+
+
         return $this->render( 'ajax/ghost/intro.html.twig', [
-            'townClasses' => $em->getRepository(TownClass::class)->findAll()
+            'townClasses' => $em->getRepository(TownClass::class)->findAll(),
+            'userCanJoin' => $this->getUserTownClassAccess(),
         ] );
     }
 
@@ -43,23 +47,55 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $town_id = (int)$parser->get('town', -1);
         if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        /** @var Town $town */
         $town = $em->getRepository(Town::class)->find( $town_id );
+        /** @var User $user */
         $user = $this->getUser();
 
         if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $allowedTownClasses = $this->getUserTownClassAccess();
+        if (!$allowedTownClasses[$town->getType()->getName()]) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
         $citizen = $factory->createCitizen($town, $user, $error);
         if (!$citizen) return AjaxResponse::error($error);
 
-//        try {
+        try {
             $em->persist($town);
             $em->persist($citizen);
             $em->flush();
-/*        } catch (Exception $e) {
+        } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
-*/
+
         return AjaxResponse::success();
+    }
+
+    public function getUserTownClassAccess(): array {
+        /** @var User $user */
+        $user = $this->getUser();
+        $available_town_classes = [
+            'small' => false,
+            'remote' => false,
+            'panda' => false,
+            'custom' => false,
+        ];
+        if ($user->getSoulPoints() < 100 || $user->getSoulPoints() >= 500) {
+            $available_town_classes['small'] = true;
+        }
+        if ($user->getSoulPoints() >= 100) {
+            $available_town_classes['remote'] = true;
+        }
+        if ($user->getSoulPoints() >= 500) {
+            $available_town_classes['panda'] = true;
+        }
+        if ($user->getSoulPoints() >= 1000) {
+            $available_town_classes['custom'] = true;
+        }
+
+        return $available_town_classes;
     }
 
 }
