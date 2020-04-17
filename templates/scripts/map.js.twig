@@ -117,7 +117,7 @@ const activate_route = function(map, color, id) {
                 if ((z = map.querySelector('.zone-plane-controls>.action-move-' + target[i]))) z.classList.add('on-route');
             }
 
-        else if (maybe.length > 0)
+        else if (!hit && maybe.length > 0)
             for (let i = 0; i < maybe.length; i++) {
                 if ((z = map.querySelector('.zone-plane-controls>.action-move-' + maybe[i]))) z.classList.add('on-route');
 
