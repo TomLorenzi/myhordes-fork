@@ -7904,16 +7904,6 @@
         <target>Total de créatures mort-vivantes que vous avez renvoyées sous terre par n'importe quel moyen.</target>
       </segment>
     </unit>
-    <unit id="bULZzW5" name="97ff2c6">
-      <notes>
-        <note>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</note>
-        <note category="german">Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</note>
-      </notes>
-      <segment>
-        <source>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
-        <target>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</target>
-      </segment>
-    </unit>
     <unit id="dWg5UEc" name="0e07264">
       <notes>
         <note>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
@@ -8246,6 +8236,15 @@
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
         <target>Ce citoyen serait quelqu'un de haut-placé… Un fondateur peut-être ?</target>
+      </segment>
+    </unit>
+    <unit id="jeBATzG" name="94edcd7">
+      <notes>
+        <note category="german">Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</source>
+        <target>Si vous aviez tenu une nuit de plus, vous auriez également pu gagner les distinctions suivantes :</target>
       </segment>
     </unit>
   </file>

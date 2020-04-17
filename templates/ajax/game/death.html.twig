@@ -37,7 +37,7 @@
                         {% endfor %}
                         </ul>
                         {% if denied_pictos|length > 0 %}
-                            <b>{{ 'Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:'|trans({'%day%' : 5 - citizen.survivedDays},'game')  }}</b>
+                            <b>{{ 'Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:'|trans({},'game')  }}</b>
                             <ul>
                             {% for picto in denied_pictos %}
                                 <li {% if picto.prototype.rare %}class="rare"{% endif %}>
