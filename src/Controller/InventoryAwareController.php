@@ -18,6 +18,7 @@ use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownLogEntry;
+use App\Entity\User;
 use App\Interfaces\RandomGroup;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -56,6 +57,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $random_generator;
     protected $conf;
     protected $zone_handler;
+
+    protected $cache_active_citizen = null;
 
     private $town_conf;
 
@@ -107,7 +110,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     }
 
     protected function getActiveCitizen(): Citizen {
-        return $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($this->getUser());
+        /** @var User $user */
+        $user = $this->getUser();
+        return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
@@ -264,11 +269,19 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $data = $query->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         $final = [];
+        $cache = [];
+
         foreach ($data as $entry) {
             $label = $entry['l2'] ?? $entry['l1'] ?? 'Sonstiges';
             if (!isset($final[$label])) $final[$label] = [];
-            $final[$label][] = new BankItem( $this->entity_manager->getRepository(Item::class)->find( $entry['id'] ), $entry['n'] );
+            $final[$label][] = [ $entry['id'], $entry['n'] ];
+            $cache[] = $entry['id'];
         }
+
+        $item_list = $this->entity_manager->getRepository(Item::class)->findAllByIds($cache);
+        foreach ( $final as $label => &$entries )
+            $entries = array_map(function( array $entry ) use (&$item_list): BankItem { return new BankItem( $item_list[$entry[0]], $entry[1] ); }, $entries);
+
         return $final;
     }
 

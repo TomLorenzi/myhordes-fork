@@ -19,6 +19,25 @@ class ItemRepository extends ServiceEntityRepository
         parent::__construct($registry, Item::class);
     }
 
+    /**
+     * @param array $ids
+     * @return Item[]
+     */
+    public function findAllByIds(array $ids)
+    {
+        try {
+            return $this->createQueryBuilder('i')
+                ->andWhere('i.id IN (:val)')->setParameter('val', $ids)
+                ->indexBy('i', 'i.id')
+                ->getQuery()
+                ->getResult()
+                ;
+        } catch (\Exception $e) {
+            return [];
+        }
+
+    }
+
     // /**
     //  * @return Item[] Returns an array of Item objects
     //  */

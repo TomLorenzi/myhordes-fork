@@ -23,13 +23,13 @@ class ItemGroupEntry implements RandomEntry
     private $chance;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ItemPrototype")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ItemPrototype", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $prototype;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ItemGroup", inversedBy="entries")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ItemGroup", inversedBy="entries", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $itemGroup;
