@@ -77,6 +77,12 @@
                 {% block class %}chest{% endblock %}
                 {% block title %}{% endblock %}
             {% endembed %}
+            {% if (citizen.alive) %}
+                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
+                    {% block class %}rucksack{% endblock %}
+                    {% block title %}{% trans from 'game' %}Dein Rucksack{% endtrans %}{% endblock %}
+                {% endembed %}
+            {% endif %}
         </div>
     </div>
 
