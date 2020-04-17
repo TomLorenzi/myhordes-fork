@@ -661,5 +661,68 @@
         <target>Hinweis</target>
       </segment>
     </unit>
+    <unit id="l.2Tpic" name="ca64199">
+      <notes>
+        <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</note>
+      </notes>
+      <segment>
+        <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</source>
+        <target>Attention ! Le lien que vous avez sélectionné renvoie sur un site non-officiel (c'est à dire créé par des joueurs).</target>
+      </segment>
+    </unit>
+    <unit id="eg7vZTp" name="b187301">
+      <notes>
+        <note category="german">Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</note>
+      </notes>
+      <segment>
+        <source>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</source>
+        <target>Vous ne devez jamais leur donner votre mot de passe MyHordes !</target>
+      </segment>
+    </unit>
+    <unit id="RVk3Tvz" name="Auch dann nicht, wenn du dazu aufgefordert wirst!">
+      <notes>
+        <note category="german">Auch dann nicht, wenn du dazu aufgefordert wirst!</note>
+      </notes>
+      <segment>
+        <source>Auch dann nicht, wenn du dazu aufgefordert wirst!</source>
+        <target>même si le site vous y invite !</target>
+      </segment>
+    </unit>
+    <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.">
+      <notes>
+        <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</note>
+      </notes>
+      <segment>
+        <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</source>
+        <target>En cas de problème ou de questions concernant ce site, merci de contacter %contact%.</target>
+      </segment>
+    </unit>
+    <unit id="EGfY674" name="Weiter zu">
+      <notes>
+        <note category="german">Weiter zu</note>
+      </notes>
+      <segment>
+        <source>Weiter zu</source>
+        <target>Continuer vers</target>
+      </segment>
+    </unit>
+    <unit id="SddpDzy" name="Verzeichnis">
+      <notes>
+        <note category="german">Verzeichnis</note>
+      </notes>
+      <segment>
+        <source>Verzeichnis</source>
+        <target>Annuaire</target>
+      </segment>
+    </unit>
+    <unit id=".Fw_MgQ" name="35799f5">
+      <notes>
+        <note category="german">Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</source>
+        <target> Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

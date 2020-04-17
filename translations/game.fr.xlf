@@ -3432,7 +3432,7 @@
       </notes>
       <segment>
         <source>Krankenwagen</source>
-        <target>Krankenwagen</target>
+        <target>Ambulance</target>
       </segment>
     </unit>
     <unit id="VGlWZjs" name="Lagerhalle">
@@ -5544,7 +5544,7 @@
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</target>
+        <target>La maison d'un certain « Duke » si on en croit la plaque d'entrée calcinée, ancien « Héros Pour Toujours »... Plus qu'une villa, l'endroit semble être une vaste forteresse aménagée.</target>
       </segment>
     </unit>
     <unit id="q5V8SgZ" name="15a1891">
@@ -5731,7 +5731,7 @@
       </notes>
       <segment>
         <source>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</source>
-        <target>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</target>
+        <target>Une ambulance arrêtée au milieu de la route. Elle ne comporte plus de roue, ni de moteur... Aucune trace de lutte, ni d'accident. Pourtant vous ne trouvez aucun corps non plus...</target>
       </segment>
     </unit>
     <unit id="zMoz8Nc" name="fef4c41">
@@ -8066,6 +8066,15 @@
       <segment>
         <source>Ein nicht freigeschaufeltes Gebäude.</source>
         <target>Bâtiment non déterré.</target>
+      </segment>
+    </unit>
+    <unit id="H3ZzhL." name="f8d99bd">
+      <notes>
+        <note category="german">Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</note>
+      </notes>
+      <segment>
+        <source>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</source>
+        <target>En parcourant furtivement cette ruine vous constatez qu'il n'y a plus rien à récupérer. Dommage...</target>
       </segment>
     </unit>
   </file>
