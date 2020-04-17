@@ -410,6 +410,9 @@ class ActionHandler
 
         $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest) {
             if ($status = $result->getStatus()) {
+                if ($status->getResetThirstCounter())
+                    $citizen->setWalkingDistance(0);
+
                 if ($status->getInitial() && $status->getResult()) {
                     if ($citizen->getStatus()->contains( $status->getInitial() )) {
                         $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );

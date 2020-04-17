@@ -121,9 +121,6 @@ class CitizenHandler
         if (in_array($status->getName(), ['drugged','addict']))
             $this->removeStatus($citizen, 'clean');
 
-        // ToDO Counter must be reset when drinking without getting the hasdrunk status
-        if ( $status->getName() === 'hasdrunk' ) $citizen->setWalkingDistance( 0 );
-
         $citizen->addStatus( $status );
         return true;
     }
