@@ -3267,7 +3267,7 @@
       </notes>
       <segment>
         <source>Eingestürzte Mine</source>
-        <target>Eingestürzte Mine</target>
+        <target>Mine effondrée</target>
       </segment>
     </unit>
     <unit id="qV.QEqb" name="Eingestürzter Steinbruch">
@@ -3619,7 +3619,7 @@
       </notes>
       <segment>
         <source>Verlassener Brunnen</source>
-        <target>Verlassener Brunnen</target>
+        <target>Puits abandonné</target>
       </segment>
     </unit>
     <unit id="c9WjvSB" name="Verlassene Silos">
@@ -5566,7 +5566,7 @@
       </notes>
       <segment>
         <source>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</source>
-        <target>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</target>
+        <target>Une ancienne mine qui n'a pas résisté aux outrages du temps. Dieu sait quel genre de lubie pouvait pousser les gens de l'époque à creuser si profond pour trouver quelque chose d'utile. Surtout quand il suffit d'à peine gratter le sol pour dégoter un délicieux cafard à manger. « Tiens, j'ai faim », pensez-vous.</target>
       </segment>
     </unit>
     <unit id="aR2iiDZ" name="ca3fe4e">
@@ -5918,7 +5918,7 @@
       </notes>
       <segment>
         <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
-        <target>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</target>
+        <target>En voilà, une sacré aubaine ! Un puits encore en état de marche, complètement perdu au milieu de nulle part. Et personne avec son Registre à la main pour vous dire « fais pas ci, fais pas ça, prends pas trop d'eau, gnagnagna... ». Allez, une petite rasade, ça sera notre petit secret.</target>
       </segment>
     </unit>
     <unit id="nIZoj0r" name="1e1578a">

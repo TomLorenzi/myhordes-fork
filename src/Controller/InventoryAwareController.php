@@ -15,7 +15,6 @@ use App\Entity\ItemAction;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownLogEntry;
@@ -488,19 +487,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $citizen->removeHeroicAction($heroic);
 
             // Add the picto Heroic Action
-            $pictoHA = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
-            if($pictoHA !== null) {
-                $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoHA);
-                if($picto === null) $picto = new Picto();
-                $picto->setPrototype($pictoHA)
-                    ->setPersisted(0)
-                    ->setTown($citizen->getTown())
-                    ->setUser($citizen->getUser())
-                    ->setCount($picto->getCount()+1);
-
-                $this->entity_manager->persist($picto);
-            }
-
+            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
+            $this->picto_handler->give_picto($citizen, $picto);
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)

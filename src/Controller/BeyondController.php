@@ -627,7 +627,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $zone = $this->getActiveCitizen()->getZone();
 
         $uncover_fun = function(ItemAction &$a) use ($zone) {
-
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $zone ) && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         };
@@ -740,7 +739,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->citizen_handler->setAP( $citizen, true, -1 );
             if ($generator->chance( 0.1 )) {
                 $zone->setZombies( $zone->getZombies() - 1 );
-                $this->entity_manager->persist( $this->log->zombieKill( $citizen, null, 1 ) );
+                $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
+                // Add the picto Heroic Action
+	            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wrestl_#00");
+	            $this->picto_handler->give_picto($citizen, $picto);
             }
 
             try {
@@ -835,6 +837,18 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $this->entity_manager->persist( $citizen->getInventory() );
                     $this->entity_manager->persist( $zone->getFloor() );
                 }
+
+                $distance = round(sqrt(pow($zone->getX(),2) + pow($zone->getY(),2)));
+                $pictoName = "";
+                if($distance >= 6 && $distance <= 17) {
+                    $pictoName = "r_explor_#00";
+                } else if($distance >= 18) {
+                    $pictoName = "r_explo2_#00";
+                }
+                if($pictoName != ""){
+                    $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
+                    $this->picto_handler->give_picto($citizen, $picto);
+                }
             }
         }
 
@@ -871,6 +885,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $this->citizen_handler->setAP($citizen, true, -1);
         $zone->setBuryCount( $zone->getBuryCount() - 1 );
         $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
+
+        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_digger_#00");
+        $this->picto_handler->give_picto($citizen, $picto);
 
         try {
             $this->entity_manager->persist($zone);

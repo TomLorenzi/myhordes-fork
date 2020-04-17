@@ -395,13 +395,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bandage' => [ 'label' => 'Verbinden', 'meta' => [ 'is_wounded', 'is_not_bandaged' ], 'result' => [ 'heal_wound', 'consume_item', 'add_bandage' ] ],
             'emt'     => [ 'label' => 'Einsetzen', 'cover' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]] ] ],
 
-            'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'consume_item', ['group' => [
+            'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
                 [ ['drug_any', 'just_ap6'], 5 ],
                 [ ['drug_any', 'terrorize'], 2 ],
                 [ ['drug_any', 'drug_addict', 'just_ap7'], 2 ],
                 [ ['do_nothing'], 1 ],
             ]] ] ] ,
-            'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'consume_item', ['group' => [
+            'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
                 [ ['drug_addict', 'just_ap6'], 5 ],
                 [ ['drug_addict', 'terrorize'], 2 ],
                 [ ['drug_addict', 'just_ap7'], 2 ],

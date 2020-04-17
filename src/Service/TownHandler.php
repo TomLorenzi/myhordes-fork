@@ -141,6 +141,16 @@ class TownHandler
                         $this->entity_manager->persist($citizen);
                     }
                 break;
+            case "small_castle_#00":
+            case "small_pmvbig_#00":
+            case "small_wheel_#00":
+            case "small_crow_#00":
+                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                foreach ($town->getCitizens() as $citizen)
+                    if ($citizen->getAlive()) {
+                        $this->picto_handler->give_picto($citizen, $picto);
+                    }
+                break;
             default: break;
         }
     }
