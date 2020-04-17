@@ -79,6 +79,7 @@ export default class Ajax {
         let style_source = result_document.querySelectorAll('html>head>style');
         let script_source = result_document.querySelectorAll('script');
         let flash_source = result_document.querySelectorAll('x-message');
+        console.log(content_source);
 
         // Get the ajax intention; assume "native" if no intention is given
         let ajax_intention = result_document.querySelector('html').getAttribute('x-ajax-intention');
@@ -95,6 +96,7 @@ export default class Ajax {
             target.appendChild( style_source[i] );
         for (let i = 0; i < content_source.length; i++) {
             let buttons = content_source[i].querySelectorAll('*[x-ajax-href]');
+            console.log(buttons);
             for (let b = 0; b < buttons.length; b++)
                 buttons[b].addEventListener('click', function(e) {
                     e.preventDefault();

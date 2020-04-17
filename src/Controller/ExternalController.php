@@ -18,6 +18,7 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\UserFactory;
@@ -62,10 +63,10 @@ class ExternalController extends InventoryAwareController
      * @param LogTemplateHandler $lh
      */
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf)
+        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ZoneHandler $zh)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $translator, $lh, $tk, $rg, $conf, $zh);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -78,7 +79,7 @@ class ExternalController extends InventoryAwareController
     private $request;
 
     /**
-     * @Route("/jx/disclaimer/{id}", name="disclaimer")
+     * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
      * @return Response
      */
     public function disclaimer(Request $request, int $id): Response {
@@ -87,10 +88,10 @@ class ExternalController extends InventoryAwareController
             $error = true;
         }
 
-        return $this->render( 'ajax/public/disclaimer.html.twig', $this->addDefaultTwigArgs(null, [
+        return $this->render( 'ajax/public/disclaimer.html.twig', [
             'ex' => $app,
             'error' => $error ?? false,
-        ]) );
+        ] );
     }
 
     /**

@@ -1,8 +1,30 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
-    {{ parent() }}
-    DISCLAIMER
-    {% if not error %}
-        {{ ex.name }}
-    {% endif %}
+    <div class="row external-app">
+        <div class="cell padded header rw-6 ro-2 rw-lg-12 ro-lg-0">
+            <h4 class="title"><img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span></h4>
+            <p>
+                {% trans from 'global' %}
+                    Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).
+                {% endtrans %}
+            </p>
+            <ul>
+                <li>
+                    <span class="critical">{% trans from 'global' %}
+                        Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!
+                    {% endtrans %}</span> ({% trans from 'global' %}Auch dann nicht, wenn du dazu aufgefordert wirst!{% endtrans %})
+                </li>
+                <li>
+                    {% trans with { '%contact%': '<a href="mailto:' ~ ex.contact ~ '">' ~ ex.contact ~ '</a>' } from 'global' %}
+                        Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.
+                    {% endtrans %}
+                </li>
+            </ul>
+
+            <form action="{{ ex.url }}" method="post" target="_self">
+                <input type="hidden" name="key" value="763811ab36e735fe3e5871ee6ed71e277255f">
+                <button type="submit" class="button">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

@@ -9,7 +9,9 @@
 @import (once) "modules/ghost";
 @import (once) "modules/soul";
 
-@myhordes-font: "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
+@import (css) url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@myhordes-font: "Josefin Sans", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
 @myhordes-background: url(../img/bg_colored.jpg) top center no-repeat, #100C0B;
 
@@ -212,6 +214,43 @@ div.debug_info {
       &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
 
       background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;
+    }
+
+    &>.row.external-app>.cell {
+      margin-top: 40px;
+      color: #f0d79e;
+      border: 1px solid #773939;
+      outline: 3px solid #5c2b20;
+      background: none;
+      background-color: #5c2b20;
+
+      & span.critical {
+        text-transform: uppercase;
+        color: #f86;
+        font-weight: bold;
+      }
+
+      & h4.title {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+        color: #afacc1;
+        background-color: #3b3249;
+        font-variant: small-caps;
+        box-shadow: none;
+
+        img {
+          vertical-align: -15%;
+          margin-right: 1em;
+        }
+      }
+
+      & button {
+        font-variant: small-caps;
+        font-weight: normal;
+      }
     }
   }
 
