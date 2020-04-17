@@ -51,18 +51,22 @@
 
 @myhordes-help-color: #524053;
 
+html {
+  font-size: 62.5%; /* font-size 1em = 10px on default browser settings */
+}
+
 body {
-  font-family: @myhordes-font; background: @myhordes-background; margin: 0;
+  font-family: @myhordes-font; font-size: 1.6rem; background: @myhordes-background; margin: 0;
 }
 
 div.debug_info {
   margin: 2px 10px; padding: 3px; background: #750000; border: 1px solid #ff0000; outline: 1px solid black;
-  box-shadow: 0 0 3px black; color: white; font-size: 11px;
+  box-shadow: 0 0 3px black; color: white; font-size: 1.1rem;
   &>div:first-child {
     display: inline-block;
     &>b { font-variant: small-caps; }
   }
-  &>div:last-child { font-size: 9px; float: right; display: inline-block }
+  &>div:last-child { font-size: .9rem; float: right; display: inline-block }
   & a { color: white !important; }
   &:after { content: " "; clear: both; display: block; }
 }
@@ -127,7 +131,7 @@ div.debug_info {
         margin: 0;
         padding: 0;
         height: auto;
-        font-size: 8pt;
+        font-size: 1.2rem;
         text-transform: none;
         font-variant: small-caps;
         background: none;
@@ -166,7 +170,7 @@ div.debug_info {
 
         & p {
           color: white;
-          font-size: 10pt;
+          font-size: 1.3rem;
         }
 
         & ul {
@@ -180,7 +184,7 @@ div.debug_info {
           & li.app-external {
             margin: 0 0 .5em;
             padding: 0;
-            font-size: 10pt;
+            font-size: 1.3rem;
             color: #ddab76;
             cursor: pointer;
 
@@ -272,9 +276,9 @@ img {
 
 footer {
   color: #fae3ce;
-  position: relative; margin: 24px auto; padding: 0; width: @myhordes-content-width; overflow: visible; font-size: 11px;
+  position: relative; margin: 24px auto; padding: 0; width: @myhordes-content-width; overflow: visible; font-size: 1.1rem;
 
-  strong { display: block; margin: 5px 0; text-align: center; font-size: 12px; font-variant: small-caps }
+  strong { display: block; margin: 5px 0; text-align: center; font-size: 1.2rem; font-variant: small-caps }
 }
 
 .box(@color: @myhordes-cell-header-background-color) {
@@ -292,8 +296,8 @@ div.town-header-hardcore {
     content: " ";
   }
   position: relative; margin-bottom: 160px;
-  &>b { position: absolute; left: 260px; top: 15px; width: 308px; color: #572b23; text-align: center; font-size: 19pt; }
-  &>span { position: absolute; left: 260px; top: 107px; width: 308px; color: white; text-align: center; font-size: 13pt; font-weight: bold }
+  &>b { position: absolute; left: 260px; top: 15px; width: 308px; color: #572b23; text-align: center; font-size: 2.4rem; }
+  &>span { position: absolute; left: 260px; top: 107px; width: 308px; color: white; text-align: center; font-size: 1.8rem; font-weight: bold }
 }
 
 div.town-header {
@@ -309,7 +313,7 @@ div.town-header-hardcore {
 }
 
 div.note {
-  .box(); padding: 5px; font-size: 12px; margin: 5px 0;
+  .box(); padding: 5px; font-size: 1.2rem; margin: 5px 0;
   &.note-warning {
     .box( #820000 ); color: white; position: relative; padding: 5px 5px 5px 26px;
     &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/small_warning.gif') no-repeat; }
@@ -317,13 +321,13 @@ div.note {
 }
 
 div.small-note {
-  padding: 5px; font-size: 10px; margin: 5px 0; color: @myhordes-smalltext; text-align: justify;
-  &:first-letter { font-size: 12px; font-weight: bold; }
+  padding: 5px; font-size: 1rem; margin: 5px 0; color: @myhordes-smalltext; text-align: justify;
+  &:first-letter { font-size: 1.2rem; font-weight: bold; }
 }
 
 div.help {
   &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/small_help.gif') no-repeat; }
-  .box(@myhordes-help-color); padding: 5px 5px 5px 26px; font-size: 12px; margin: 5px 0; text-align: justify; position: relative;
+  .box(@myhordes-help-color); padding: 5px 5px 5px 26px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
   &>p:first-child { margin-top: 0 }
   &>p:last-child { margin-bottom: 0 }
 }
@@ -333,7 +337,7 @@ div.help {
 
 div.lightbox {
   background: #966437; border: 1px solid @myhordes-smalltext; margin: 10px 0; padding: 5px;
-  span.highlight { color: @myhordes-span-color; &:first-letter { font-size: 14px; font-weight: bold; } }
+  span.highlight { color: @myhordes-span-color; &:first-letter { font-size: 1.4rem; font-weight: bold; } }
 }
 
 button {
@@ -347,7 +351,7 @@ button {
   &:not(.inline) { display: block; width: 100%; }
 
   &.small {
-    background: @myhordes-button-static-background; font-size: 10px; padding: 2px 6px; display: inline-block; min-height: 0;
+    background: @myhordes-button-static-background; font-size: 1rem; padding: 2px 6px; display: inline-block; min-height: 0;
   }
 
   &:not(.small) {
@@ -372,10 +376,10 @@ input[type='text'],input[type='password'],input[type='email'],textarea {
 a { color: @myhordes-smalltext; font-weight: bold; }
 
 ul.inventory {
-  border: 1px solid @myhordes-input-border; padding: 6px; font-size: small; font-variant: small-caps;
+  border: 1px solid @myhordes-input-border; padding: 6px; font-size: 1.1rem; font-variant: small-caps;
   &>li {
     &:not(.category) { display: inline-block; border: 1px solid @myhordes-input-border;}
-    &.category { font-size: 10px; font-weight: bold; border-bottom: 1px solid @myhordes-input-border; }
+    &.category { font-size: 1rem; font-weight: bold; border-bottom: 1px solid @myhordes-input-border; }
     list-style: none;  margin: 2px;
     vertical-align: text-bottom;
     &.title:first-child {
@@ -391,7 +395,7 @@ ul.inventory {
     &.free, &.item:not(.counted) { width: 18px; }
     &.item.counted{
       font-size: 0;
-      &>span { font-size: 9px; position: relative; }
+      &>span { font-size: .9rem; position: relative; }
     }
   }
   &.rucksack { background: url("../img/inv_bag.gif") no-repeat top left;}
@@ -403,7 +407,7 @@ ul.inventory {
 ul.actions, ul.special_actions, ul.heroic_actions {
   padding: 5px 2px; .box();
   &>li {
-    list-style: none; padding: 2px 2px 2px 10px; font-size: 12px; font-variant: small-caps;
+    list-style: none; padding: 2px 2px 2px 10px; font-size: 1.2rem; font-variant: small-caps;
     color: @myhordes-smalltext; position: relative;
     &:not(.open) {
       cursor: pointer;
@@ -416,7 +420,7 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       &>ul {
         margin: 0; padding: 0; font-size: 0;
         &>li {
-          &>div { font-size: 12px; }
+          &>div { font-size: 1.2rem; }
           list-style: none; padding: 2px; margin: 2px; display: inline-block; cursor: pointer; border: 1px solid transparent;
           &:hover { background: saturate( @myhordes-smalltext, 30% ); border-color: darken(@myhordes-smalltext, 20%) }
         }
@@ -439,7 +443,7 @@ ul.actions, ul.special_actions, ul.heroic_actions {
 ul.camping_actions {
   padding: 5px 2px;
   &>li {
-    list-style: none; padding: 2px 2px 2px 10px; font-size: 12px; position: relative;
+    list-style: none; padding: 2px 2px 2px 10px; font-size: 1.2rem; position: relative;
     &:not(.open) {
       cursor: pointer;
       &:hover { text-decoration: underline; }
@@ -470,7 +474,7 @@ div.well {
     background: url('../img/well_mask.gif') no-repeat center/cover;
   }
   &>.overlay {
-    position: absolute; top: 50%; width: 100%; text-align: center; font-weight: bold; font-size: small;
+    position: absolute; top: 50%; width: 100%; text-align: center; font-weight: bold; font-size: 1.1rem;
     padding: 0 8px;
   }
 }
@@ -487,7 +491,7 @@ div.game-menu-area {
       padding: 10px; margin: 0;
       &>li {
         &.burger-button { display: none; }
-        padding: 5px; font-size: 16px; font-weight: bold; font-variant: small-caps; list-style: none;
+        padding: 5px; font-size: 1.6rem; font-weight: bold; font-variant: small-caps; list-style: none;
         cursor: pointer;
         &:hover { background: lighten(@myhordes-panel-bg, 10%) }
       }
@@ -516,9 +520,9 @@ div.game-menu-area {
         position: absolute; background: url("../img/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0;
         &>li { display: block; position: absolute; }
-        &>li:nth-child(1) { font-size: 10px; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; font-variant: small-caps }
+        &>li:nth-child(1) { font-size: 1rem; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; font-variant: small-caps }
         &>li:nth-child(2) {
-          font-size: 10px;
+          font-size: 1rem;
           color: #704018;
           font-weight: bold;
           text-align: right;
@@ -527,8 +531,8 @@ div.game-menu-area {
           left: 0;
           right: 85px;
         }
-        &>li:nth-child(3) { font-size: 10px; text-align: center; top: 32px; left: 215px; right: 25px; }
-        &>li:nth-child(4) { color: #5e0000; font-size: 10px; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
+        &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 215px; right: 25px; }
+        &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
         .hardcore {
           color: lighten(#7C2727, 10%);
           font-variant: small-caps;
@@ -538,9 +542,9 @@ div.game-menu-area {
       &.status, &.rucksack, &.ap, &.bp, &.civil {
         position: relative; padding: 2px 8px; background: rgba(0,0,0,0.5); font-weight: bold;
         color: @myhordes-smalltext; box-shadow: inset 0 0 4px rgba(0,0,0,0.9); border-radius: 4px;
-        border: 1px solid rgba(0,0,0,0.3); height: 28px; float: right; font-size: 2px;
+        border: 1px solid rgba(0,0,0,0.3); height: 28px; float: right; font-size: .2rem;
         &:before {
-          display: block; position: absolute; top: -1px; left: 5px; right: 0; font-size: 7px; content: "Status";
+          display: block; position: absolute; top: -1px; left: 5px; right: 0; font-size: .7rem; content: "Status";
           font-variant: small-caps;
         }
         &:not(.ap):not(.bp) {
@@ -555,7 +559,7 @@ div.game-menu-area {
 
         &.rucksack:before { content: "Rucksack"}
         &.ap,&.bp {
-          font-size: medium;
+          font-size: 1.6rem;
           &>li { margin-top: 3px; }
         }
         &.ap:before { content: ""};
@@ -583,7 +587,7 @@ ul.tabs {
   background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
   overflow: hidden;
   > li {
-    border: 1px solid @myhordes-smalltext; margin: 0 2px; padding: 3px 6px; display: inline-block; font-size: 12px;
+    border: 1px solid @myhordes-smalltext; margin: 0 2px; padding: 3px 6px; display: inline-block; font-size: 1.2rem;
     font-variant: small-caps; cursor: pointer; position: relative; top: 1px; background: @myhordes-cell-header-background-color;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
     &.selected { cursor: default; background: @myhordes-smalltext; top: 3px;}
@@ -593,7 +597,7 @@ ul.tabs {
 span.icon {
   &>img { margin-right: 3px; }
   background: rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.15); padding: 0 5px; border-radius: 6px;
-  font-variant: small-caps; color: white; font-size: 12px;
+  font-variant: small-caps; color: white; font-size: 1.2rem;
 }
 
 ul.summary {
@@ -611,11 +615,11 @@ div.death_header {
   background: url("../img/deathHeader.gif") no-repeat center bottom/contain;
   min-height: 55px; margin-top: 24px; text-align: center;
   &>div:first-child {
-    color: @myhordes-smalltext; font-variant: small-caps; font-size: 12pt; margin-bottom: 6px;
+    color: @myhordes-smalltext; font-variant: small-caps; font-size: 1.6rem; margin-bottom: 6px;
     &::first-letter { color: lighten(@myhordes-smalltext,10%); }
   }
   &>div:last-child {
-    color: lighten(@myhordes-smalltext,10%); font-variant: small-caps; font-size: 14pt; font-weight: bold;
+    color: lighten(@myhordes-smalltext,10%); font-variant: small-caps; font-size: 1.8rem; font-weight: bold;
     &::first-letter { color: lighten(@myhordes-smalltext,20%); }
   }
 }
@@ -628,7 +632,7 @@ div.death_list {
   &>ul {
     list-style-type: none;
     padding-left: 0;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: lighten(@myhordes-smalltext,10%);
     &>li {
@@ -657,12 +661,12 @@ div.death_list {
 }
 
 div.tooltip {
-  display: none; pointer-events: none; font-size: 10px; width: 200px; padding: 4px;
+  display: none; pointer-events: none; font-size: 1rem; width: 200px; padding: 4px;
   position: fixed; z-index: 2000; color: black; margin: 20px; box-shadow: 0 0 5px black;
   background: @myhordes-smalltext; border: 2px solid darken(@myhordes-smalltext, 20%); text-align: justify;
   outline: 1px solid darken(@myhordes-smalltext, 50%); font-weight: normal; font-variant: normal;
   &>h1:first-child {
-    font-size: 12px; font-weight: bold; margin: 4px; padding: 0; text-align: center;
+    font-size: 1.2rem; font-weight: bold; margin: 4px; padding: 0; text-align: center;
     border-bottom: 1px solid darken(@myhordes-smalltext, 20%); font-variant: small-caps;
   }
 }
@@ -673,7 +677,7 @@ ul.citizen-list li {
 
 span.language {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 1.2rem;
   line-height: 20px;
   width: 20px;
   background-color: saddlebrown;
@@ -695,11 +699,11 @@ strong {
   color: #afacc1;
   text-transform: uppercase;
   text-align: center;
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 div.item-tag {
-  font-size: 11px; text-align: center; padding: 2px; background: #022142; border: 1px solid #011d37;
+  font-size: 1.1rem; text-align: center; padding: 2px; background: #022142; border: 1px solid #011d37;
   position: relative; color: @myhordes-smalltext; height: 18px; margin-top: 3px;
   &:after {position: absolute; display: block; content: " "; height: 16px; width: 16px; top: 0; left: 1px; }
   &.item-tag-deco:after { background: url("../img/item/cat_deco.gif") center/contain no-repeat }
