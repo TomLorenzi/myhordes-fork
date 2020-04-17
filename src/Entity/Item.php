@@ -27,7 +27,7 @@ class Item
     private $poison;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ItemPrototype")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ItemPrototype", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $prototype;

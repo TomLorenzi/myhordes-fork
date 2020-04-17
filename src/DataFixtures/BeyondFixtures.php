@@ -449,7 +449,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'cutcut_#00','count' => 1),
             array('item' => 'saw_tool_part_#00','count' => 1),
         ], 'desc' => 'Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...'],
-        ["label" => "Lagerhalle",'icon' => 'wareouse2',"camping" => 7,"min_dist" => 15, "max_dist" => 26, "chance" => 219, "drops" => [
+        ["label" => "Lagerhalle",'icon' => 'warehouse',"camping" => 7,"min_dist" => 15, "max_dist" => 26, "chance" => 219, "drops" => [
             array('item' => 'rsc_pack_1_#00','count' => 86),
             array('item' => 'chest_food_#00','count' => 84),
             array('item' => 'chest_tools_#00','count' => 67),

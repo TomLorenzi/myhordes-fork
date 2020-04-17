@@ -3,29 +3,22 @@
 
 namespace App\Service;
 
-
-use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
-use App\Entity\DigTimer;
 use App\Entity\Forum;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
-use App\Entity\ItemGroup;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
-use App\Entity\WellCounter;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Structures\TownConf;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 
 class GameFactory
 {

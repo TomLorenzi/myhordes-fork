@@ -93,7 +93,13 @@
                                     {% set current_surrounding = zones[pos_x + plane_x][pos_y + plane_y] %}
 
                                     {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
-                                        <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ current_surrounding.prototype.icon ~ '.gif') }})"></div>
+                                        {% set ruin_icon = "" %}
+                                        {% if current_surrounding.buryCount > 0 %}
+                                            {% set ruin_icon = "burried" %}
+                                        {% else %}
+                                            {% set ruin_icon = current_surrounding.prototype.icon %}
+                                        {% endif %}
+                                        <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ ruin_icon ~ '.gif') }})"></div>
                                     {% elseif (pos_x + plane_x) == 0 and (pos_y + plane_y) == 0 %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/town.gif') }})"></div>
                                     {% endif %}

@@ -4,24 +4,17 @@ namespace App\Controller;
 
 use App\Entity\ActionCounter;
 use App\Entity\Citizen;
-use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
-use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\ScoutVisit;
-use App\Entity\TownClass;
-use App\Entity\TrashCounter;
-use App\Entity\User;
-use App\Entity\UserPendingValidation;
 use App\Entity\Zone;
-use App\Repository\DigRuinMarkerRepository;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -33,7 +26,6 @@ use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
-use App\Service\Locksmith;
 use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
@@ -43,24 +35,11 @@ use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Component\Asset\Package;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Lock\LockFactory;
-use Symfony\Component\Lock\Store\MemcachedStore;
-use Symfony\Component\Lock\Store\SemaphoreStore;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -84,6 +63,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     protected $zone_handler;
     protected $item_factory;
     protected $death_handler;
+    protected $asset;
 
     /**
      * BeyondController constructor.
@@ -102,12 +82,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf)
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a)
     {
         parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
+        $this->asset = $a;
     }
 
     protected function deferZoneUpdate() {
@@ -627,7 +608,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $zone = $this->getActiveCitizen()->getZone();
 
         $uncover_fun = function(ItemAction &$a) use ($zone) {
-
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $zone ) && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
         };
@@ -740,7 +720,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->citizen_handler->setAP( $citizen, true, -1 );
             if ($generator->chance( 0.1 )) {
                 $zone->setZombies( $zone->getZombies() - 1 );
-                $this->entity_manager->persist( $this->log->zombieKill( $citizen, null, 1 ) );
+                $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
+                // Add the picto Heroic Action
+	            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wrestl_#00");
+	            $this->picto_handler->give_picto($citizen, $picto);
             }
 
             try {
@@ -835,7 +818,26 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $this->entity_manager->persist( $citizen->getInventory() );
                     $this->entity_manager->persist( $zone->getFloor() );
                 }
+
+                $distance = round(sqrt(pow($zone->getX(),2) + pow($zone->getY(),2)));
+                $pictoName = "";
+                if($distance >= 6 && $distance <= 17) {
+                    $pictoName = "r_explor_#00";
+                } else if($distance >= 18) {
+                    $pictoName = "r_explo2_#00";
+                }
+                if($pictoName != ""){
+                    $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
+                    $this->picto_handler->give_picto($citizen, $picto);
+                }
+                $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                    '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
+                ], 'game' ));
+            } else {
+                $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
+        } else {
+            $this->addFlash( 'notice', $this->translator->trans( 'Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...', [], 'game' ));
         }
 
         try {
@@ -871,6 +873,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $this->citizen_handler->setAP($citizen, true, -1);
         $zone->setBuryCount( $zone->getBuryCount() - 1 );
         $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
+
+        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_digger_#00");
+        $this->picto_handler->give_picto($citizen, $picto);
 
         try {
             $this->entity_manager->persist($zone);

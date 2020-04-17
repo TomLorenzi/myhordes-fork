@@ -3124,7 +3124,7 @@
       </notes>
       <segment>
         <source>Altes Feldkrankenhaus</source>
-        <target>Altes Feldkrankenhaus</target>
+        <target>Vieil hôpital de campagne</target>
       </segment>
     </unit>
     <unit id="yKnc_Mp" name="Altes Flugfeld">
@@ -3267,7 +3267,7 @@
       </notes>
       <segment>
         <source>Eingestürzte Mine</source>
-        <target>Eingestürzte Mine</target>
+        <target>Mine effondrée</target>
       </segment>
     </unit>
     <unit id="qV.QEqb" name="Eingestürzter Steinbruch">
@@ -3410,7 +3410,7 @@
       </notes>
       <segment>
         <source>Kleinwasserkraftwerk</source>
-        <target>Kleinwasserkraftwerk</target>
+        <target>Centrale hydraulique</target>
       </segment>
     </unit>
     <unit id="Dm49uOY" name="Kosmetiklabor">
@@ -3432,7 +3432,7 @@
       </notes>
       <segment>
         <source>Krankenwagen</source>
-        <target>Krankenwagen</target>
+        <target>Ambulance</target>
       </segment>
     </unit>
     <unit id="VGlWZjs" name="Lagerhalle">
@@ -3443,7 +3443,7 @@
       </notes>
       <segment>
         <source>Lagerhalle</source>
-        <target>Lagerhalle</target>
+        <target>Hangars de stockage</target>
       </segment>
     </unit>
     <unit id="yAH2rE7" name="Leeres Parkhaus">
@@ -3520,7 +3520,7 @@
       </notes>
       <segment>
         <source>Schützengraben</source>
-        <target>Schützengraben</target>
+        <target>Tranchée aménagée</target>
       </segment>
     </unit>
     <unit id="3XX2wLZ" name="Stadtbücherei">
@@ -3586,7 +3586,7 @@
       </notes>
       <segment>
         <source>Verfallenes Bürogebäude</source>
-        <target>Verfallenes Bürogebäude</target>
+        <target>Immeuble délabré</target>
       </segment>
     </unit>
     <unit id="mAr1mWV" name="Verfallene Villa">
@@ -3619,7 +3619,7 @@
       </notes>
       <segment>
         <source>Verlassener Brunnen</source>
-        <target>Verlassener Brunnen</target>
+        <target>Puits abandonné</target>
       </segment>
     </unit>
     <unit id="c9WjvSB" name="Verlassene Silos">
@@ -3707,7 +3707,7 @@
       </notes>
       <segment>
         <source>ZomBIER Bar</source>
-        <target>ZomBIER Bar</target>
+        <target>Bar miteux</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
@@ -4081,7 +4081,7 @@
       </notes>
       <segment>
         <source>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</source>
-        <target>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</target>
+        <target>ARRÊTEZ LE VOLEUR ! %actor% a été aperçu(e) volant %item% à %victim% !</target>
       </segment>
     </unit>
     <unit id="4N3qfX_" name="3dc5d36">
@@ -4092,7 +4092,7 @@
       </notes>
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</source>
-        <target>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</target>
+        <target>DAMNED ! Quelqu'un a volé %item% à %victim% !</target>
       </segment>
     </unit>
     <unit id="xFPnTgQ" name="%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -5423,7 +5423,7 @@
       </notes>
       <segment>
         <source>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</source>
-        <target>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</target>
+        <target>Les restes qui jonchent les allées de cet hôpital improvisé devaient être des patients. Difficile de savoir combien ils avaient pu être à mourir ici, le soir de l'attaque… Peut-être qu'en comptant le nombre de bras et en divisant par deux ?</target>
       </segment>
     </unit>
     <unit id="Of9gthO" name="bac30b9">
@@ -5544,7 +5544,7 @@
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</target>
+        <target>La maison d'un certain « Duke » si on en croit la plaque d'entrée calcinée, ancien « Héros Pour Toujours »... Plus qu'une villa, l'endroit semble être une vaste forteresse aménagée.</target>
       </segment>
     </unit>
     <unit id="q5V8SgZ" name="15a1891">
@@ -5566,7 +5566,7 @@
       </notes>
       <segment>
         <source>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</source>
-        <target>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</target>
+        <target>Une ancienne mine qui n'a pas résisté aux outrages du temps. Dieu sait quel genre de lubie pouvait pousser les gens de l'époque à creuser si profond pour trouver quelque chose d'utile. Surtout quand il suffit d'à peine gratter le sol pour dégoter un délicieux cafard à manger. « Tiens, j'ai faim », pensez-vous.</target>
       </segment>
     </unit>
     <unit id="aR2iiDZ" name="ca3fe4e">
@@ -5599,7 +5599,7 @@
       </notes>
       <segment>
         <source>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</source>
-        <target>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</target>
+        <target>La chaîne de magasins Kiela était autrefois spécialisée dans la fabrication et la vente de meubles bons marchés. On dit que la piètre qualité de leurs produits serait l'une des raisons qui a poussé le monde à sa perte...</target>
       </segment>
     </unit>
     <unit id="tcRgABK" name="8fcd3b6">
@@ -5698,7 +5698,7 @@
       </notes>
       <segment>
         <source>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</source>
-        <target>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</target>
+        <target>Une vieille bicoque laissée à l'abandon depuis des années. Presque entièrement ensevelie sous le sable. Parfois, vous pouvez entendre des grattements inquiétants venant de ce qui doit être la cave...</target>
       </segment>
     </unit>
     <unit id="jCOLohr" name="3013905">
@@ -5709,7 +5709,7 @@
       </notes>
       <segment>
         <source>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</source>
-        <target>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</target>
+        <target>Cette centrale capte les eaux des nappes phréatiques environnantes et les transvase dans de gigantesques réservoirs en béton. Le système de filtrage semble en panne, mais on doit pouvoir récupérer l'eau contaminée stockée ici.</target>
       </segment>
     </unit>
     <unit id="I8_.QXa" name="785a946">
@@ -5731,7 +5731,7 @@
       </notes>
       <segment>
         <source>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</source>
-        <target>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</target>
+        <target>Une ambulance arrêtée au milieu de la route. Elle ne comporte plus de roue, ni de moteur... Aucune trace de lutte, ni d'accident. Pourtant vous ne trouvez aucun corps non plus...</target>
       </segment>
     </unit>
     <unit id="zMoz8Nc" name="fef4c41">
@@ -5742,7 +5742,7 @@
       </notes>
       <segment>
         <source>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</source>
-        <target>Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.</target>
+        <target>Le dépôt d'un grand magasin qui a certainement déposé son bilan il y a bien longtemps. Enfin, c'est ce que laisse supposer la présence d'une trentaine de corps pendus dans le hangar numéro 2. Vous supposez qu'il s'agit du conseil d'administration ; reste à savoir s'il s'agit d'un suicide collectif (le fait qu'ils aient les mains attachées vous laisse perplexe).</target>
       </segment>
     </unit>
     <unit id="8nwRIpb" name="7bad5bb">
@@ -5819,7 +5819,7 @@
       </notes>
       <segment>
         <source>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</source>
-        <target>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</target>
+        <target>Les nombreux cratères et autres taches de sang séché laissent à penser qu'une bataille de grande envergure s'est déroulée ici. La plupart des tranchées se sont effondrées, mais il reste quelques trous à fouiller.</target>
       </segment>
     </unit>
     <unit id="odvB3Fd" name="6178a4f">
@@ -5885,7 +5885,7 @@
       </notes>
       <segment>
         <source>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</source>
-        <target>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</target>
+        <target>Un bel immeuble de bureau où il devait faire bon venir travailler au petit matin, entouré de ses collègues anonymes pour accomplir on ne sait trop quel but global et avec pour seule préoccupation : sa propre survie. Vous vous dites que les choses n'ont peut-être finalement pas tant changé que ça...</target>
       </segment>
     </unit>
     <unit id="uy1WNX." name="70d717e">
@@ -5918,7 +5918,7 @@
       </notes>
       <segment>
         <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
-        <target>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</target>
+        <target>En voilà, une sacré aubaine ! Un puits encore en état de marche, complètement perdu au milieu de nulle part. Et personne avec son Registre à la main pour vous dire « fais pas ci, fais pas ça, prends pas trop d'eau, gnagnagna... ». Allez, une petite rasade, ça sera notre petit secret.</target>
       </segment>
     </unit>
     <unit id="nIZoj0r" name="1e1578a">
@@ -6006,7 +6006,7 @@
       </notes>
       <segment>
         <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Ca ne ressemble plus vraiment à un bar, mais la présence d'une enseigne à demi enfouie dans le sable et d'un comptoir ne laisse pas trop planer le doute. La plupart des bouteilles sont cassées, mais on doit pouvoir y trouver des choses utiles...</target>
       </segment>
     </unit>
     <unit id="GrndoXV" name="859c709">
@@ -6083,7 +6083,7 @@
       </notes>
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
-        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</target>
+        <target>Vous creusez depuis in certain temps et avez trouvé plusieurs objets.</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
@@ -6226,7 +6226,7 @@
       </notes>
       <segment>
         <source>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</source>
-        <target>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</target>
+        <target>Rien de notable par ici pour se mettre à l'abri. Vous vous sentez un peu à découvert...</target>
       </segment>
     </unit>
     <unit id="fftPup_" name="e5ccfe7">
@@ -6237,7 +6237,7 @@
       </notes>
       <segment>
         <source>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</source>
-        <target>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</target>
+        <target>Cette zone semble n'offrir que quelques rares protections « naturelles » pour y passer la nuit. Il va falloir faire avec les moyens du bord.</target>
       </segment>
     </unit>
     <unit id="YFhoAPq" name="d9a9e80">
@@ -6248,7 +6248,7 @@
       </notes>
       <segment>
         <source>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</source>
-        <target>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</target>
+        <target>En cherchant un peu, on doit bien pouvoir se cacher quelque part.</target>
       </segment>
     </unit>
     <unit id="i9FQpcu" name="4c4bb46">
@@ -6259,7 +6259,7 @@
       </notes>
       <segment>
         <source>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</source>
-        <target>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</target>
+        <target> L'endroit offre des cachettes correctes pour qui voudrait y passer la nuit...</target>
       </segment>
     </unit>
     <unit id="YrPIELu" name="In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.">
@@ -6270,7 +6270,7 @@
       </notes>
       <segment>
         <source>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</source>
-        <target>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</target>
+        <target> Ce secteur offre de bonnes planques en cas de besoin.</target>
       </segment>
     </unit>
     <unit id="Be5ZaAS" name="c1ea3a3">
@@ -8066,6 +8066,33 @@
       <segment>
         <source>Ein nicht freigeschaufeltes Gebäude.</source>
         <target>Bâtiment non déterré.</target>
+      </segment>
+    </unit>
+    <unit id="H3ZzhL." name="f8d99bd">
+      <notes>
+        <note category="german">Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</note>
+      </notes>
+      <segment>
+        <source>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</source>
+        <target>En parcourant furtivement cette ruine vous constatez qu'il n'y a plus rien à récupérer. Dommage...</target>
+      </segment>
+    </unit>
+    <unit id="X.DT38w" name="9c938c9">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</source>
+        <target>Grâce à votre costume, vous avez pu voler %item% à %victim% sans être vu(e).</target>
+      </segment>
+    </unit>
+    <unit id="GyH7AP7" name="0b0fadd">
+      <notes>
+        <note category="german">Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</note>
+      </notes>
+      <segment>
+        <source>Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</source>
+        <target>Le Père Noël a été aperçu volant %item% à %victim% !</target>
       </segment>
     </unit>
   </file>

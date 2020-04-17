@@ -20,6 +20,14 @@
 				cursor: pointer;
 				text-decoration: none;
 			}
+
+			&.selected, &:hover {
+				.tab-link {
+					background-color: lighten(#7e4d2a, 20%);
+					color: white;
+					font-weight: bold;
+				}
+			}
 		}
 	}
 	.distinctions {
@@ -120,7 +128,7 @@
 		}
 
 		.distinctions-foot {
-			background: url("../../img/soul/rewardsBg_footer.gif") bottom/cover no-repeat;
+			background: url("../../img/soul/rewardsBg_footer.gif") bottom/100% no-repeat;
 			height: 44px;
 			margin-top: -22px;
 		}

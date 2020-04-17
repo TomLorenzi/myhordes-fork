@@ -15,10 +15,6 @@ use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
-use App\Entity\Town;
-use App\Entity\TownClass;
-use App\Entity\User;
-use App\Entity\WellCounter;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -363,18 +359,20 @@ class InventoryHandler
         }
 
         if ($type_from === self::TransferTypeSteal || $type_to === self::TransferTypeSteal) {
-            if (!$actor->getTown()->getDevastated() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_steal' ) ))
+            if (!$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_steal' ) ))
                 return self::ErrorStealLimitHit;
 
             $victim = $type_from === self::TransferTypeSteal ? $from->getHome()->getCitizen() : $to->getHome()->getCitizen();
-            if ($victim->getAlive() && !$victim->getZone()) return self::ErrorStealBlocked;
-            if ($victim->getHome()->getPrototype()->getTheftProtection()) return self::ErrorStealBlocked;
-            if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
-                $victim->getHome(),
-                $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
-                return self::ErrorStealBlocked;
-            if ($this->countSpecificItems( $victim->getHome()->getChest(), 'lock', true ) > 0)
-                return self::ErrorStealBlocked;
+            if ($victim->getAlive()) {
+                if (!$victim->getZone()) return self::ErrorStealBlocked;
+                if ($victim->getHome()->getPrototype()->getTheftProtection()) return self::ErrorStealBlocked;
+                if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+                    $victim->getHome(),
+                    $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
+                    return self::ErrorStealBlocked;
+                if ($this->countSpecificItems( $victim->getHome()->getChest(), 'lock', true ) > 0)
+                    return self::ErrorStealBlocked;
+            }
         }
 
         if ($type_from === self::TransferTypeRucksack && $type_to === self::TransferTypeTamer && $modality !== self::ModalityTamer && $modality !== self::ModalityImpound)

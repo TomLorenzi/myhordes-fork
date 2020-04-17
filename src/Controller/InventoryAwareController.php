@@ -15,10 +15,10 @@ use App\Entity\ItemAction;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownLogEntry;
+use App\Entity\User;
 use App\Interfaces\RandomGroup;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -57,6 +57,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $random_generator;
     protected $conf;
     protected $zone_handler;
+
+    protected $cache_active_citizen = null;
 
     private $town_conf;
 
@@ -108,7 +110,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     }
 
     protected function getActiveCitizen(): Citizen {
-        return $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($this->getUser());
+        /** @var User $user */
+        $user = $this->getUser();
+        return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
@@ -266,11 +270,19 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $data = $query->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         $final = [];
+        $cache = [];
+
         foreach ($data as $entry) {
             $label = $entry['l2'] ?? $entry['l1'] ?? 'Sonstiges';
             if (!isset($final[$label])) $final[$label] = [];
-            $final[$label][] = new BankItem( $this->entity_manager->getRepository(Item::class)->find( $entry['id'] ), $entry['n'] );
+            $final[$label][] = [ $entry['id'], $entry['n'] ];
+            $cache[] = $entry['id'];
         }
+
+        $item_list = $this->entity_manager->getRepository(Item::class)->findAllByIds($cache);
+        foreach ( $final as $label => &$entries )
+            $entries = array_map(function( array $entry ) use (&$item_list): BankItem { return new BankItem( $item_list[$entry[0]], $entry[1] ); }, $entries);
+
         return $final;
     }
 
@@ -326,10 +338,28 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                     if ($floor_up !== null) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
                     if ($steal_up !== null) {
 
-                        $this->citizen_handler->inflictStatus( $citizen, 'tg_steal' );
+                        $this->citizen_handler->inflictStatus($citizen, 'tg_steal');
                         $victim_home = $steal_up ? $inv_source->getHome() : $inv_target->getHome();
 
-                        if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+                        // Give picto steal
+                        $pictoName = "r_theft_#00";
+                        $santaClothes = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("christmas_suit_full_#00");
+                        $isSanta = false;
+
+                        if($this->inventory_handler->countSpecificItems($citizen->getInventory(), $santaClothes) > 0){
+                            $pictoName = "r_santac_#00";
+                            $isSanta = true;
+                        }
+                        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
+                        $this->picto_handler->give_picto($citizen, $picto);
+
+
+                        if($isSanta){
+                            $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up, true ) );
+                            $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
+                                '%victim%' => $victim_home->getCitizen()->getUser()->getUsername(),
+                                '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );
+                        } elseif ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                             $victim_home,
                             $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ))
                         {
@@ -489,19 +519,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $citizen->removeHeroicAction($heroic);
 
             // Add the picto Heroic Action
-            $pictoHA = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
-            if($pictoHA !== null) {
-                $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoHA);
-                if($picto === null) $picto = new Picto();
-                $picto->setPrototype($pictoHA)
-                    ->setPersisted(0)
-                    ->setTown($citizen->getTown())
-                    ->setUser($citizen->getUser())
-                    ->setCount($picto->getCount()+1);
-
-                $this->entity_manager->persist($picto);
-            }
-
+            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
+            $this->picto_handler->give_picto($citizen, $picto);
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)

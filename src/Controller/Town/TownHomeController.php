@@ -330,6 +330,10 @@ class TownHomeController extends TownController
         // Deduct AP
         $ch->setAP($citizen, true, -$costs->getAp());
 
+        // Give picto
+        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName("r_hbuild_#00");
+        $this->picto_handler->give_picto($citizen, $pictoPrototype);
+
         // Consume items
         foreach ($items as $item) {
             $r = $costs->getResources()->findEntry( $item->getPrototype()->getName() );

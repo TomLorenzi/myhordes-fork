@@ -20,7 +20,7 @@ class Inventory
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Item", mappedBy="inventory", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Item", mappedBy="inventory", cascade={"persist", "remove"}, fetch="EAGER")
      * @OrderBy({"essential" = "DESC","prototype" = "ASC"})
      */
     private $items;

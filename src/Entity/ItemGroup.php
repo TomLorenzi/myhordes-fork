@@ -25,7 +25,7 @@ class ItemGroup implements RandomGroup
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ItemGroupEntry", mappedBy="itemGroup", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\ItemGroupEntry", mappedBy="itemGroup", orphanRemoval=true, cascade={"persist"}, fetch="EAGER")
      */
     private $entries;
 

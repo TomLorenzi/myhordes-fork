@@ -125,7 +125,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Kämpfe um Leben und Tod',
             'description' => 'Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!',
-            'icon' => 'small_wrestle',
+            'icon' => 'r_wrestl',
             'rare' => false
         ],
         [
@@ -143,13 +143,13 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Ausgrabungsarbeiten',
             'description' => 'Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.',
-            'icon' => 'small_dig',
+            'icon' => 'r_digger',
             'rare' => false
         ],
         [
             'label' => 'Hauseinrichtung',
             'description' => 'Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.',
-            'icon' => 'item_lamp_on',
+            'icon' => 'r_deco',
             'rare' => false
         ],
         [
@@ -186,7 +186,7 @@ class PictoFixtures extends Fixture
             'label' => 'Expertenexpeditionen',
             'description' => 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.',
             'icon' => 'r_explo2',
-            'rare' => false
+            'rare' => true
         ],
         [
             'label' => 'Großzügigkeit',
@@ -215,7 +215,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Schusseligkeiten',
             'description' => 'Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.',
-            'icon' => 'small_broken',
+            'icon' => 'r_broken',
             'rare' => false
         ],
         [
@@ -449,7 +449,7 @@ class PictoFixtures extends Fixture
         [
             'label' => 'Getötete Zombies',
             'description' => 'Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.',
-            'icon' => 'small_zombie',
+            'icon' => 'r_killz',
             'rare' => false
         ],
         [

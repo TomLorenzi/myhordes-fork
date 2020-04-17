@@ -121,9 +121,6 @@ class CitizenHandler
         if (in_array($status->getName(), ['drugged','addict']))
             $this->removeStatus($citizen, 'clean');
 
-        // ToDO Counter must be reset when drinking without getting the hasdrunk status
-        if ( $status->getName() === 'hasdrunk' ) $citizen->setWalkingDistance( 0 );
-
         $citizen->addStatus( $status );
         return true;
     }
@@ -157,7 +154,7 @@ class CitizenHandler
 
     public function updateBanishment( Citizen &$citizen, ?Building $gallows, ?Building $cage ): bool {
 
-        if (!$citizen->getAlive() || $citizen->getTown()->getDevastated()) return false;
+        if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
         if (!$citizen->getBanished()) {

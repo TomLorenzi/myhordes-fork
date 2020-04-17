@@ -71,7 +71,7 @@ class Zone
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone")
+     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="EAGER")
      */
     private $citizens;
 

@@ -13,6 +13,7 @@ use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -33,11 +34,12 @@ class NightlyHandler
     private $town_handler;
     private $zone_handler;
     private $inventory_handler;
+    private $picto_handler;
     private $item_factory;
     private $logTemplates;
 
   public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
-                                RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, ItemFactory $if, LogTemplateHandler $lh)
+                                RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -47,6 +49,7 @@ class NightlyHandler
         $this->random = $rg;
         $this->town_handler = $th;
         $this->zone_handler = $zh;
+        $this->picto_handler = $ph;
         $this->item_factory = $if;
         $this->log = $log;
         $this->logTemplates = $lh;
@@ -630,6 +633,10 @@ class NightlyHandler
     }
 
     private function stage3_pictos(Town &$town){
+
+        $status_camping           = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
+        $picto_camping            = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_camp_#00' );
+        $picto_camping_devastated = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_cmplst_#00' );
         $this->log->info('<info>Processing Pictos functions</info> ...');
         // Marking pictos as obtained not-today
         $citizens = $town->getCitizens();
@@ -637,6 +644,7 @@ class NightlyHandler
             // If the citizen is not alive anymore, the calculation is not to be done here
             if(!$citizen->getAlive())
                 continue;
+
             // Fetching picto obtained today
             $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
             foreach ($pendingPictosOfUser as $pendingPicto) {
@@ -655,6 +663,15 @@ class NightlyHandler
                     $pendingPreviousPicto->setCount($pendingPreviousPicto->getCount() + $pendingPicto->getCount());
                     $this->entity_manager->persist($pendingPreviousPicto);
                     $this->entity_manager->remove($pendingPicto);
+                }
+            }
+
+            // Giving picto camper if he camped
+            if ($citizen->getStatus()->contains($status_camping)) {
+                if ($town->getDevastated() && $town->getDay() >= 10){
+                    $this->picto_handler->give_picto($citizen, $picto_camping_devastated);
+                } else {
+                    $this->picto_handler->give_picto($citizen, $picto_camping);
                 }
             }
         }

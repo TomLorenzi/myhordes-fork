@@ -34,6 +34,14 @@ class SoulController extends AbstractController
         $this->entity_manager = $em;
     }
 
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
+        $data = $data ?? [];
+
+        $data["soul_tab"] = $section;
+
+        return $data;
+    }
+
     /**
      * @Route("jx/soul/me", name="soul_me")
      * @return Response
@@ -262,10 +270,10 @@ class SoulController extends AbstractController
             }
         }
 
-        return $this->render( 'ajax/soul/me.html.twig', [
+        return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
             'points' => round($points, 0)
-        ]);
+        ]));
     }
 
     /**
@@ -274,7 +282,7 @@ class SoulController extends AbstractController
      */
     public function soul_news(): Response
     {
-        return $this->render( 'ajax/soul/news.html.twig' );
+        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", null) );
     }
 
     /**
@@ -283,7 +291,7 @@ class SoulController extends AbstractController
      */
     public function soul_settings(): Response
     {
-        return $this->render( 'ajax/soul/settings.html.twig' );
+        return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
     }
 
     /**
