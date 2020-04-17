@@ -36,20 +36,22 @@
 <div id="wrapper">
     <div id="header">
         <div id="header-reload-area"></div>
-        <div id="apps">
-            <h1><img src="{{ asset('build/images/small_archive.gif') }}" alt="{{ 'Verzeichnis'|trans({},'global') }}"><span>{{ 'Verzeichnis'|trans({},'global') }}</span></h1>
-            <div id="apps-list">
-                <p>{{ 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:'|trans({}, 'global') }}</p>
-                <ul>
-                {% for ex in apps %}
-                    {# @var ex \App\Entity\ExternalApp #}
-                    <li class="app-external" data-id="{{ ex.id }}">
-                        <a href="#"><img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span></a>
-                    </li>
-                {% endfor %}
-                </ul>
+        {% if is_granted('ROLE_USER') %}
+            <div id="apps">
+                <h1><img src="{{ asset('build/images/small_archive.gif') }}" alt="{{ 'Verzeichnis'|trans({},'global') }}"><span>{{ 'Verzeichnis'|trans({},'global') }}</span></h1>
+                <div id="apps-list">
+                    <p>{{ 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:'|trans({}, 'global') }}</p>
+                    <ul>
+                    {% for ex in apps %}
+                        {# @var ex \App\Entity\ExternalApp #}
+                        <li class="app-external" data-id="{{ ex.id }}">
+                            <a href="#"><img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span></a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </div>
+        {% endif %}
         {% block header %}{% endblock %}
     </div>
 
