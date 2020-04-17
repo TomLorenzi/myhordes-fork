@@ -108,6 +108,11 @@ class Town
      */
     private $conf = [];
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $soulDefense = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -412,6 +417,18 @@ class Town
     public function setConf(?array $conf): self
     {
         $this->conf = $conf;
+
+        return $this;
+    }
+
+    public function getSoulDefense(): ?int
+    {
+        return $this->soulDefense;
+    }
+
+    public function setSoulDefense(int $soulDefense): self
+    {
+        $this->soulDefense = $soulDefense;
 
         return $this;
     }

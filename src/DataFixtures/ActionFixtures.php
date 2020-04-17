@@ -13,6 +13,7 @@ use App\Entity\AffectPicto;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
 use App\Entity\AffectStatus;
+use App\Entity\AffectTown;
 use App\Entity\AffectWell;
 use App\Entity\AffectZombies;
 use App\Entity\AffectZone;
@@ -146,6 +147,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_have_crowsnest'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_watchmen_#01', 'complete' => true  ] ] ],
             'must_have_valve'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_valve_#00', 'complete' => true  ] ] ],
             'must_have_cinema'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cinema_#00', 'complete' => true  ] ] ],
+            'must_have_hammam'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_spa4souls_#00', 'complete' => true  ] ]],
 
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
 
@@ -612,6 +614,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4x'  ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
             'slaughter_2x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_2x'  ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
             'slaughter_bmb' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_bmb' ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
+            'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', [ 'town' => ['def' => 5]], ['picto' => ['r_collec_#00']]], 'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."]
         ],
 
         'heroics' => [
@@ -859,6 +862,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bed_#00' => [ 'improve' ],
             'wood_plate_#00' => [ 'improve' ],
             'out_def_#00' => [ 'improve' ],
+
+            'soul_blue_#00' => ["purify_soul"],
+            'soul_red_#00' => ["purify_soul"],
+            'soul_blue_#01' => ['purify_soul']
         ]
 
     ];
@@ -1301,6 +1308,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'picto':
                         $result->setPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
+                        break;
+                    case 'town':
+                        $result->setTown( $this->process_town_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
                     case 'custom':
                         $result->setCustom( $sub_data[0] );
@@ -1748,6 +1758,33 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result->setName( $id )->setPrototype(  $manager->getRepository(PictoPrototype::class)->findOneByName($data[0]));
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return AffectTown
+     */
+    private function process_town_effect(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): AffectTown
+    {
+        if (!isset($cache[$id])) {
+            $result = $manager->getRepository(AffectTown::class)->findOneByName( $id );
+            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>town/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $result = new AffectTown();
+                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $result->setName( $id )->setAdditionalDefense( $data['def'] ?? 0 );
+            $manager->persist( $cache[$id] = $result );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

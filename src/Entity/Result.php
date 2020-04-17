@@ -110,6 +110,11 @@ class Result
      */
     private $picto;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\AffectTown")
+     */
+    private $town;
+
     public function __construct()
     {
     }
@@ -326,6 +331,18 @@ class Result
     public function setPicto(?AffectPicto $picto): self
     {
         $this->picto = $picto;
+
+        return $this;
+    }
+
+    public function getTown(): ?AffectTown
+    {
+        return $this->town;
+    }
+
+    public function setTown(?AffectTown $town): self
+    {
+        $this->town = $town;
 
         return $this;
     }

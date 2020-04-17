@@ -281,6 +281,8 @@ class TownHandler
 
         if ($summary->item_defense > 500)
             $summary->item_defense = 500;
+
+        $summary->soul_defense = $town->getSoulDefense();
         
         return $summary->sum();
     }

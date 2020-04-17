@@ -113,6 +113,9 @@
                 {% if has_battlement and def_summary.nightwatch_defense > 0 %}
                 <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
                 {% endif %}
+                {% if def_summary.soul_defense > 0 %}
+                <li>{{'Gereinigte Seelen'|trans({}, 'game')}} : + {{def_summary.soul_defense}} <img src="{{ asset('build/images/small_def.gif') }}" /></li>
+                {% endif %}
                 <li class="separator">TOTAL: {{def}} </li>
             </ul>
 

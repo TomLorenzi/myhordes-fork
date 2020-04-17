@@ -613,6 +613,17 @@ class ActionHandler
                 $this->picto_handler->give_picto($citizen, $picto->getPrototype());
             }
 
+            if($townEffect = $result->getTown()){
+                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_mystic_#00');
+                $citizens = $citizen->getTown()->getCitizens();
+                foreach ($citizens as $townCitizen) {
+                    if(!$townCitizen->getAlive())
+                        continue;
+                    $this->picto_handler->give_picto($townCitizen, $picto);
+                }
+                $citizen->getTown()->setSoulDefense($citizen->getTown()->getSoulDefense() + $townEffect->getAdditionalDefense());
+            }
+
             if ($result->getCustom())
             {
                 $ap     = false;

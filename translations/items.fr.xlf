@@ -8180,5 +8180,14 @@
         <target>Découper</target>
       </segment>
     </unit>
+    <unit id="poR1ekb" name="Läutern">
+      <notes>
+        <note category="german">Läutern</note>
+      </notes>
+      <segment>
+        <source>Läutern</source>
+        <target>Purifier</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
