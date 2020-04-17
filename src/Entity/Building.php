@@ -24,7 +24,7 @@ class Building
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\BuildingPrototype")
+     * @ORM\ManyToOne(targetEntity="App\Entity\BuildingPrototype", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $prototype;
