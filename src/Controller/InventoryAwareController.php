@@ -324,10 +324,28 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                     if ($floor_up !== null) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
                     if ($steal_up !== null) {
 
-                        $this->citizen_handler->inflictStatus( $citizen, 'tg_steal' );
+                        $this->citizen_handler->inflictStatus($citizen, 'tg_steal');
                         $victim_home = $steal_up ? $inv_source->getHome() : $inv_target->getHome();
 
-                        if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+                        // Give picto steal
+                        $pictoName = "r_theft_#00";
+                        $santaClothes = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("christmas_suit_full_#00");
+                        $isSanta = false;
+
+                        if($this->inventory_handler->countSpecificItems($citizen->getInventory(), $santaClothes) > 0){
+                            $pictoName = "r_santac_#00";
+                            $isSanta = true;
+                        }
+                        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
+                        $this->picto_handler->give_picto($citizen, $picto);
+
+
+                        if($isSanta){
+                            $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up, true ) );
+                            $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
+                                '%victim%' => $victim_home->getCitizen()->getUser()->getUsername(),
+                                '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );
+                        } elseif ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                             $victim_home,
                             $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ))
                         {

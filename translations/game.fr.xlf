@@ -4081,7 +4081,7 @@
       </notes>
       <segment>
         <source>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</source>
-        <target>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</target>
+        <target>ARRÊTEZ LE VOLEUR ! %actor% a été aperçu(e) volant %item% à %victim% !</target>
       </segment>
     </unit>
     <unit id="4N3qfX_" name="3dc5d36">
@@ -4092,7 +4092,7 @@
       </notes>
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</source>
-        <target>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</target>
+        <target>DAMNED ! Quelqu'un a volé %item% à %victim% !</target>
       </segment>
     </unit>
     <unit id="xFPnTgQ" name="%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -8075,6 +8075,24 @@
       <segment>
         <source>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</source>
         <target>En parcourant furtivement cette ruine vous constatez qu'il n'y a plus rien à récupérer. Dommage...</target>
+      </segment>
+    </unit>
+    <unit id="X.DT38w" name="9c938c9">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</source>
+        <target>Grâce à votre costume, vous avez pu voler %item% à %victim% sans être vu(e).</target>
+      </segment>
+    </unit>
+    <unit id="GyH7AP7" name="0b0fadd">
+      <notes>
+        <note category="german">Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</note>
+      </notes>
+      <segment>
+        <source>Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</source>
+        <target>Le Père Noël a été aperçu volant %item% à %victim% !</target>
       </segment>
     </unit>
   </file>
