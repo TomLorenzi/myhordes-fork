@@ -38,6 +38,11 @@ class AffectStatus
      */
     private $result;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $resetThirstCounter;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +80,18 @@ class AffectStatus
     public function setResult(?CitizenStatus $result): self
     {
         $this->result = $result;
+
+        return $this;
+    }
+
+    public function getResetThirstCounter(): ?bool
+    {
+        return $this->resetThirstCounter;
+    }
+
+    public function setResetThirstCounter(?bool $resetThirstCounter): self
+    {
+        $this->resetThirstCounter = $resetThirstCounter;
 
         return $this;
     }

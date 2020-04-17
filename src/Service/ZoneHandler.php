@@ -3,30 +3,18 @@
 
 namespace App\Service;
 
-
-use App\Entity\Building;
-use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
-use App\Entity\CitizenHome;
-use App\Entity\CitizenHomePrototype;
-use App\Entity\CitizenProfession;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
-use App\Entity\Inventory;
 use App\Entity\ItemGroup;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
-use App\Entity\TownClass;
 use App\Entity\TownLogEntry;
-use App\Entity\User;
-use App\Entity\WellCounter;
 use App\Entity\Zone;
-use App\Entity\ZonePrototype;
 use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Component\Asset\Package;
 use Symfony\Component\Asset\Packages;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -132,7 +120,7 @@ class ZoneHandler
                         }
                     }
 
-                    $zone->setDigs( max(0, $zone->getDigs() - 1) );
+                    $zone->setDigs( max($item_prototype ? 0 : 1, $zone->getDigs() - 1) );
                     $zone_update = true;
 
                     try {

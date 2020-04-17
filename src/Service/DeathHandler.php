@@ -6,23 +6,11 @@ namespace App\Service;
 
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
-use App\Entity\CitizenHome;
-use App\Entity\CitizenProfession;
-use App\Entity\CitizenStatus;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
-use App\Entity\Inventory;
-use App\Entity\Item;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
-use App\Entity\Town;
-use App\Entity\TownClass;
-use App\Entity\User;
-use App\Entity\WellCounter;
-use App\Structures\ItemRequest;
-use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query\Expr\Join;
 
 class DeathHandler
 {
