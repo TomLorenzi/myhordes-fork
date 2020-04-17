@@ -110,29 +110,86 @@ div.debug_info {
       position: absolute;
       top: 10px;
       left: 10px;
-      width: 40px;
-      height: 25px;
-      background-color: brown;
-      border: 2px solid black;
+      padding-left: 5px;
+      padding-right: 5px;
+      background-color: #5c2b20;
+      outline: 1px solid black;
+      border: 1px solid #f0d79e;
       z-index: 100;
 
-      & #apps-popup {
+      &:hover {
+        width: 430px;
+      }
+
+      & h1 {
+        margin: 0;
+        padding: 0;
+        height: auto;
+        font-size: 8pt;
+        text-transform: none;
+        font-variant: small-caps;
+        background: none;
+        cursor: help;
+        color: #f0d79e;
+        text-align: left;
+        line-height: 17px;
+        font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+        letter-spacing: 1px;
+
+        img {
+          vertical-align: -9%;
+        }
+      }
+
+      & h1 span,
+      & #apps-list {
         display: none;
       }
 
-      &:hover #apps-popup {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 300px;
-        height: 300px;
-        display:block;
-        background-color: #2b1910;
-        border: 2px solid white;
-        padding: 3em;
+      &:hover h1 {
+        border-bottom: 1px solid #b37c4a;
+        margin-bottom: 5px;
 
-        & .app-external {
+        img {
+          margin-right: 1em;
+        }
 
+        span {
+          display: inline;
+        }
+      }
+
+      &:hover #apps-list {
+        display: block;
+
+        & p {
+          color: white;
+          font-size: 10pt;
+        }
+
+        & ul {
+          margin: 0;
+          padding: 0;
+          float: left;
+          position: relative;
+          margin-bottom: 8px;
+          list-style: none;
+
+          & li.app-external {
+            margin: 0 0 .5em;
+            padding: 0;
+            font-size: 10pt;
+
+            & a {
+              img {
+                vertical-align: middle;
+                margin-right: 1em;
+              }
+              span {
+                font-weight: normal;
+              }
+            }
+          }
         }
       }
     }

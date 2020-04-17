@@ -15,13 +15,31 @@ class ExternalFixtures extends Fixture
 {
     public static $apps = [
         [
+            'name' => 'BigBroth\'Hordes',
+            'active' => 1,
+            'url' => 'http://bbh.fred26.fr',
+            'icon' => 'bbh',
+            'contact' => 'bbh@fred26.fr',
+            'owner' => 'fred26',
+            'key' => '',
+        ],
+        [
             'name' => 'Fata Morgana',
             'active' => 1,
-            'app_url' => 'http://fm.broon.eu',
-            'app_icon' => '',
-            'contact_email' => 'countcount.cc@gmail.com',
+            'url' => 'http://fm.broon.eu',
+            'icon' => 'fm',
+            'contact' => 'countcount.cc@gmail.com',
             'owner' => 'CountCount',
             'key' => 'b395dad5c26be2c9',
+        ],
+        [
+            'name' => 'From Dusk Till Dawn',
+            'active' => 1,
+            'url' => 'http://d2n.duskdawn.net/',
+            'icon' => 'fdtd',
+            'contact' => 'berzerg.d2n@gmail.com',
+            'owner' => 'BerZerg',
+            'key' => '',
         ],
     ];
 
@@ -52,11 +70,11 @@ class ExternalFixtures extends Fixture
             $entity
                 ->setName($entry['name'])
                 ->setActive($entry['active'])
-                ->setAppUrl($entry['app_url'])
-                ->setAppIcon($entry['app_icon'])
-                ->setContactEmail($entry['contact_email'])
+                ->setUrl($entry['url'])
+                ->setIcon($entry['icon'])
+                ->setContact($entry['contact'])
                 //->setOwner($entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['owner']) ?? null)
-                ->setSecret($entry['key'] ?? substr(sha1(mt_rand() . $entry['app_url'] . time()), 0, 16))
+                ->setSecret($entry['key'] ?? substr(sha1(mt_rand() . $entry['url'] . time()), 0, 16))
             ;
 
             $manager->persist($entity);

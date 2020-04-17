@@ -46,17 +46,17 @@ class ExternalApp
     /**
      * @ORM\Column(type="string")
      */
-    private $app_url;
+    private $url;
 
     /**
      * @ORM\Column(type="string")
      */
-    private $app_icon;
+    private $icon;
 
     /**
      * @ORM\Column(type="string")
      */
-    private $contact_email;
+    private $contact;
 
 
     public function getId(): ?int
@@ -112,38 +112,38 @@ class ExternalApp
         return $this;
     }
 
-    public function getAppUrl(): string
+    public function getUrl(): string
     {
-        return $this->app_url;
+        return $this->url;
     }
 
-    public function setAppUrl(string $app_url): self
+    public function setUrl(string $url): self
     {
-        $this->app_url = $app_url;
+        $this->url = $url;
 
         return $this;
     }
 
-    public function getAppIcon(): string
+    public function getIcon(): string
     {
-        return $this->app_icon;
+        return $this->icon;
     }
 
-    public function setAppIcon(string $app_icon): self
+    public function setIcon(string $icon): self
     {
-        $this->app_icon = $app_icon;
+        $this->icon = $icon;
 
         return $this;
     }
 
-    public function getContactEmail(): string
+    public function getContact(): string
     {
-        return $this->contact_email;
+        return $this->contact;
     }
 
-    public function setContactEmail(string $contact_email): self
+    public function setContact(string $contact): self
     {
-        $this->contact_email = $contact_email;
+        $this->contact = $contact;
 
         return $this;
     }
