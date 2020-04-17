@@ -6,26 +6,13 @@ namespace App\Service;
 
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
-use App\Entity\Citizen;
-use App\Entity\CitizenHome;
-use App\Entity\CitizenProfession;
-use App\Entity\Inventory;
-use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Result;
-use App\Entity\Town;
-use App\Entity\TownClass;
-use App\Entity\User;
-use App\Entity\WellCounter;
 use App\Entity\ZonePrototype;
 use App\Interfaces\RandomEntry;
 use App\Interfaces\RandomGroup;
-use App\Structures\ItemRequest;
-use Doctrine\ORM\AbstractQuery;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Query\Expr\Join;
 
 class RandomGenerator
 {
