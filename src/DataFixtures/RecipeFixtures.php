@@ -353,7 +353,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         // Generate unique ID
         $entry_unique_id = $data['img'] . '_#' . str_pad($cache[$data['img']],2,'0',STR_PAD_LEFT);
 
-        $object = $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry_unique_id );
+        $object = $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry_unique_id, false );
         if ($object) {
             if (!empty($object->getResources())) $manager->remove($object->getResources());
         } else $object = (new BuildingPrototype())->setName( $entry_unique_id );

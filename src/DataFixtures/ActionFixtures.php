@@ -1203,7 +1203,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>building/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $prototype = $manager->getRepository(BuildingPrototype::class)->findOneByName( $data['prototype'] );
+            $prototype = $manager->getRepository(BuildingPrototype::class)->findOneByName( $data['prototype'], false );
             if (!$prototype)
                 throw new Exception('Building prototype not found: ' . $data['item']);
 
@@ -1448,7 +1448,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $result->setType( -1 );
                 foreach ($data as $proto) {
 
-                    $bpp = $manager->getRepository(BuildingPrototype::class)->findOneByName( $proto );
+                    $bpp = $manager->getRepository(BuildingPrototype::class)->findOneByName( $proto, false );
                     if (!$bpp) throw new Exception("Building Prototype not found: {$proto}");
 
                     $result->addList( $bpp );

@@ -254,7 +254,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setAllowSubUpgrades( $entry['upgrades'] )->setDefense( $entry['def'] )->setLabel( $entry['label'] )
                 ->setTheftProtection( $entry['theft'] );
 
-            $building = empty($entry['building']) ? null : $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry['building'] );
+            $building = empty($entry['building']) ? null : $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry['building'], false );
             if (!empty($building) && !$building) throw new Exception("Unable to locate building prototype '{$entry['building']}'");
             $entity->setRequiredBuilding( $building );
 
