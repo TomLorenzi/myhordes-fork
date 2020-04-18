@@ -222,13 +222,13 @@ class DeathHandler
                 // to validate the picto (set them as persisted)
                 if($citizen->getTown()->getType()->getName() == "small" && $citizen->getUser()->getSoulPoints() >= 100) {
                     $this->log->debug("This is a small town, and <info>{$citizen->getUser()->getUsername()}</info> has more that 100 soul points, we use the day 8 rule");
-                    if($citizen->getSurvivedDays()->getDay() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
+                    if($citizen->getSurvivedDays() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
                         $persistPicto = true;
-                    } else if  ($town->getDay() > 8) {
+                    } else if  ($citizen->getSurvivedDays() > 8) {
                         $persistPicto = true;
                     }
-                } else {
-                    $this->log->debug("We persist the pictos earned the previous days");
+                } else if($citizen->getSurvivedDays() >= 5) {
+                    $this->log->debug("<info>{$citizen->getUser()->getUsername()}</info> has lived for 5 days or more, let's persist the pictos earned everyday");
                     $persistPicto = true;
                 }
 
