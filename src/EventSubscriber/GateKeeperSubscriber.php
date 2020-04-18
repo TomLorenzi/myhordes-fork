@@ -110,7 +110,8 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
             $citizen->setLastActionTimestamp(time());
 
-            $this->em->flush($citizen);
+            $this->em->persist($citizen);
+            $this->em->flush();
         }
     }
 

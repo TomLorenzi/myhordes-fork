@@ -7,7 +7,7 @@
                     <ul class="text-menu">
                         <li class="burger-button"><i class="fa fa-bars"></i></li>
                         {% if is_granted('ROLE_USER') %}
-                            <li class="forum" x-ajax-href="{{ url('forum_list') }}">{{ 'Forum'|trans({},'global') }}</li>
+                            <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">{{ 'Forum'|trans({},'global') }}</li>
                         {% endif %}
                         {% block menu_text %}
                             {% if app.user and app.user.activeCitizen %}
