@@ -164,9 +164,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Kleiner Friedhof","temporary" => 0,"img" => "small_cemetery","vp" => 60,"ap" => 36,"bp" => 1,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 10,], "orderby" => 10, "children" => [
                 ["name" => "Sarg-Katapult","temporary" => 0,"img" => "small_coffin","vp" => 60,"ap" => 100,"bp" => 4,"rsc" => ["courroie_#00" => 1,"meca_parts_#00" => 5,"wood2_#00" => 5,"metal_#00" => 15,], "orderby" => 0],
             ]],
-            // TODO: Home upgrade
             ["name" => "Kantine","temporary" => 0,"img" => "small_cafet","vp" => 0,"ap" => 20,"bp" => 1,"rsc" => ["pharma_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,"table_#00" => 1,], "orderby" => 11],
-            // TODO: Home upgrade
             ["name" => "Labor","temporary" => 0,"img" => "item_acid","vp" => 0,"ap" => 30,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"pharma_#00" => 5,"wood_beam_#00" => 3,"metal_beam_#00" => 10,], "orderby" => 12],
             ["name" => "Hühnerstall","temporary" => 0,"img" => "small_chicken","vp" => 0,"ap" => 25,"bp" => 3,"rsc" => ["pet_chick_#00" => 2,"wood2_#00" => 5,"wood_beam_#00" => 5,"fence_#00" => 2,], "orderby" => 13],
             ["name" => "Krankenstation","temporary" => 0,"img" => "small_infirmary","vp" => 0,"ap" => 40,"bp" => 3,"rsc" => ["pharma_#00" => 6,"disinfect_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 14],
@@ -353,7 +351,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         // Generate unique ID
         $entry_unique_id = $data['img'] . '_#' . str_pad($cache[$data['img']],2,'0',STR_PAD_LEFT);
 
-        $object = $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry_unique_id );
+        $object = $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry_unique_id, false );
         if ($object) {
             if (!empty($object->getResources())) $manager->remove($object->getResources());
         } else $object = (new BuildingPrototype())->setName( $entry_unique_id );

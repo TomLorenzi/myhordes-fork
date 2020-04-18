@@ -108,7 +108,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $alive++;
         }
 
-
         $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
         if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
         if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
@@ -150,7 +149,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
-            'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max ],
+            'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max, round($z_q*100) ],
             'zeds_tomorrow' => [ $has_zombie_est_tomorrow, $z_tomorrow_min, $z_tomorrow_max ],
             'living_citizens' => $alive,
             'def_summary' => $defSummary,

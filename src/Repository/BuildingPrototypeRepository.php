@@ -16,6 +16,8 @@ use Doctrine\ORM\NonUniqueResultException;
  */
 class BuildingPrototypeRepository extends ServiceEntityRepository
 {
+    private $name_cache = [];
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, BuildingPrototype::class);
@@ -35,14 +37,16 @@ class BuildingPrototypeRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findOneByName(string $value): ?BuildingPrototype
+    public function findOneByName(string $value, bool $cache = true): ?BuildingPrototype
     {
+        $local_cache = [];
+        if ($cache) $local_cache = &$this->name_cache;
         try {
-            return $this->createQueryBuilder('i')
+            return $local_cache[$value] ?? ($local_cache[$value] = $this->createQueryBuilder('i')
                 ->andWhere('i.name = :val')
                 ->setParameter('val', $value)
                 ->getQuery()
-                ->getOneOrNullResult();
+                ->getOneOrNullResult() ) ;
         } catch (NonUniqueResultException $e) {
             return null;
         }
