@@ -107,7 +107,7 @@ class ActionHandler
             }
 
             if ($zone = $meta_requirement->getZone()) {
-                if ($zone->getMaxLevel() !== null && ($citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = min( $current_state, $this_state );
+                if ($zone->getMaxLevel() !== null && $citizen->getZone() && ( $citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = min( $current_state, $this_state );
             }
 
             if ($ap = $meta_requirement->getAp()) {
@@ -410,9 +410,6 @@ class ActionHandler
 
         $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest) {
             if ($status = $result->getStatus()) {
-                if ($status->getResetThirstCounter())
-                    $citizen->setWalkingDistance(0);
-
                 if ($status->getInitial() && $status->getResult()) {
                     if ($citizen->getStatus()->contains( $status->getInitial() )) {
                         $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
@@ -549,16 +546,16 @@ class ActionHandler
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item, $kills ) );
-                        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_killz_#00");
-                        $this->picto_handler->give_picto($citizen, $pictoPrototype, $kills);
                     }
                 }
 
             }
 
             if ($home_set = $result->getHome()) {
+
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
+
             }
 
             if (($zoneEffect = $result->getZone()) && $base_zone = $citizen->getZone()) {
@@ -611,17 +608,6 @@ class ActionHandler
 
             if($picto = $result->getPicto()){
                 $this->picto_handler->give_picto($citizen, $picto->getPrototype());
-            }
-
-            if($townEffect = $result->getTown()){
-                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_mystic_#00');
-                $citizens = $citizen->getTown()->getCitizens();
-                foreach ($citizens as $townCitizen) {
-                    if(!$townCitizen->getAlive())
-                        continue;
-                    $this->picto_handler->give_picto($townCitizen, $picto);
-                }
-                $citizen->getTown()->setSoulDefense($citizen->getTown()->getSoulDefense() + $townEffect->getAdditionalDefense());
             }
 
             if ($result->getCustom())
