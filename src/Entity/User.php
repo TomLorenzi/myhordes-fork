@@ -82,7 +82,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isAdmin;
+    private $isAdmin = 0;
 
     public function __construct()
     {
