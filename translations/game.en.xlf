@@ -5866,5 +5866,1526 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Ein nicht freigeschaufeltes Gebäude.</target>
       </segment>
     </unit>
+    <unit id="7JtgzHv" name="Tod durch Radioaktivität">
+      <notes>
+        <note category="german">Tod durch Radioaktivität</note>
+      </notes>
+      <segment>
+        <source>Tod durch Radioaktivität</source>
+        <target>Tod durch Radioaktivität</target>
+      </segment>
+    </unit>
+    <unit id="CupoGNI" name="771be3f">
+      <notes>
+        <note category="german">Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.</note>
+      </notes>
+      <segment>
+        <source>Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.</source>
+        <target>Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.</target>
+      </segment>
+    </unit>
+    <unit id="cbZMBy4" name="Heldentaten">
+      <notes>
+        <note category="german">Heldentaten</note>
+      </notes>
+      <segment>
+        <source>Heldentaten</source>
+        <target>Heldentaten</target>
+      </segment>
+    </unit>
+    <unit id="1H1xdaJ" name="Anzahl deiner wirklich außergewöhnlichen Heldentaten.">
+      <notes>
+        <note category="german">Anzahl deiner wirklich außergewöhnlichen Heldentaten.</note>
+      </notes>
+      <segment>
+        <source>Anzahl deiner wirklich außergewöhnlichen Heldentaten.</source>
+        <target>Anzahl deiner wirklich außergewöhnlichen Heldentaten.</target>
+      </segment>
+    </unit>
+    <unit id="1lND7a9" name="Alkohol">
+      <notes>
+        <note category="german">Alkohol</note>
+      </notes>
+      <segment>
+        <source>Alkohol</source>
+        <target>Alkohol</target>
+      </segment>
+    </unit>
+    <unit id="5DxEd.t" name="Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.">
+      <notes>
+        <note category="german">Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</source>
+        <target>Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</target>
+      </segment>
+    </unit>
+    <unit id="cqHpjId" name="Hausverbesserung">
+      <notes>
+        <note category="german">Hausverbesserung</note>
+      </notes>
+      <segment>
+        <source>Hausverbesserung</source>
+        <target>Hausverbesserung</target>
+      </segment>
+    </unit>
+    <unit id="vvkmQ1Z" name="d4af217">
+      <notes>
+        <note category="german">Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</source>
+        <target>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</target>
+      </segment>
+    </unit>
+    <unit id="NXPKDs5" name="Handwerk">
+      <notes>
+        <note category="german">Handwerk</note>
+      </notes>
+      <segment>
+        <source>Handwerk</source>
+        <target>Handwerk</target>
+      </segment>
+    </unit>
+    <unit id="X2_RNih" name="b2a8e10">
+      <notes>
+        <note category="german">Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</source>
+        <target>Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</target>
+      </segment>
+    </unit>
+    <unit id="qxxe5aj" name="Leichenwäscher">
+      <notes>
+        <note category="german">Leichenwäscher</note>
+      </notes>
+      <segment>
+        <source>Leichenwäscher</source>
+        <target>Leichenwäscher</target>
+      </segment>
+    </unit>
+    <unit id="8S1_bLd" name="346ada5">
+      <notes>
+        <note category="german">Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</source>
+        <target>Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</target>
+      </segment>
+    </unit>
+    <unit id="7Wc6Ben" name="Autarker Verbannter">
+      <notes>
+        <note category="german">Autarker Verbannter</note>
+      </notes>
+      <segment>
+        <source>Autarker Verbannter</source>
+        <target>Autarker Verbannter</target>
+      </segment>
+    </unit>
+    <unit id="2DaxIuu" name="2014a2c">
+      <notes>
+        <note category="german">Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</source>
+        <target>Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="KqvNLEL" name="Verbannungen">
+      <notes>
+        <note category="german">Verbannungen</note>
+      </notes>
+      <segment>
+        <source>Verbannungen</source>
+        <target>Verbannungen</target>
+      </segment>
+    </unit>
+    <unit id="wgg_HJR" name="Anzahl der Stadtverbannungen.">
+      <notes>
+        <note category="german">Anzahl der Stadtverbannungen.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Stadtverbannungen.</source>
+        <target>Anzahl der Stadtverbannungen.</target>
+      </segment>
+    </unit>
+    <unit id="nVFqlRD" name="Schwere Verletzungen">
+      <notes>
+        <note category="german">Schwere Verletzungen</note>
+      </notes>
+      <segment>
+        <source>Schwere Verletzungen</source>
+        <target>Schwere Verletzungen</target>
+      </segment>
+    </unit>
+    <unit id="TBkqTrT" name="c7383c9">
+      <notes>
+        <note category="german">Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</source>
+        <target>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</target>
+      </segment>
+    </unit>
+    <unit id="sfHZK3y" name="Hausmannskost">
+      <notes>
+        <note category="german">Hausmannskost</note>
+      </notes>
+      <segment>
+        <source>Hausmannskost</source>
+        <target>Hausmannskost</target>
+      </segment>
+    </unit>
+    <unit id="5amCsNE" name="Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.">
+      <notes>
+        <note category="german">Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</source>
+        <target>Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</target>
+      </segment>
+    </unit>
+    <unit id="lFadGAX" name="Metzger">
+      <notes>
+        <note category="german">Metzger</note>
+      </notes>
+      <segment>
+        <source>Metzger</source>
+        <target>Metzger</target>
+      </segment>
+    </unit>
+    <unit id="j99sKU7" name="528c615">
+      <notes>
+        <note category="german">Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</source>
+        <target>Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</target>
+      </segment>
+    </unit>
+    <unit id="c4t38mo" name="Camper im Jenseits">
+      <notes>
+        <note category="german">Camper im Jenseits</note>
+      </notes>
+      <segment>
+        <source>Camper im Jenseits</source>
+        <target>Camper im Jenseits</target>
+      </segment>
+    </unit>
+    <unit id="AJmB7Pi" name="4f2413f">
+      <notes>
+        <note category="german">Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</source>
+        <target>Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</target>
+      </segment>
+    </unit>
+    <unit id="wV.yQpJ" name="Mutiger Camper">
+      <notes>
+        <note category="german">Mutiger Camper</note>
+      </notes>
+      <segment>
+        <source>Mutiger Camper</source>
+        <target>Mutiger Camper</target>
+      </segment>
+    </unit>
+    <unit id="qZ87cXc" name="Anzahl der Nächte, die du draußen geschlafen und überlebt hast.">
+      <notes>
+        <note category="german">Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</source>
+        <target>Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</target>
+      </segment>
+    </unit>
+    <unit id="g8yfOwR" name="Kannibalismus">
+      <notes>
+        <note category="german">Kannibalismus</note>
+      </notes>
+      <segment>
+        <source>Kannibalismus</source>
+        <target>Kannibalismus</target>
+      </segment>
+    </unit>
+    <unit id="DkOM_ae" name="Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...">
+      <notes>
+        <note category="german">Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</note>
+      </notes>
+      <segment>
+        <source>Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</source>
+        <target>Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</target>
+      </segment>
+    </unit>
+    <unit id="fl_VRZF" name="Wasserkanonen">
+      <notes>
+        <note category="german">Wasserkanonen</note>
+      </notes>
+      <segment>
+        <source>Wasserkanonen</source>
+        <target>Wasserkanonen</target>
+      </segment>
+    </unit>
+    <unit id="zu27xBQ" name="Anzahl an großen Wasserwaffen, die du gebaut hast.">
+      <notes>
+        <note category="german">Anzahl an großen Wasserwaffen, die du gebaut hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl an großen Wasserwaffen, die du gebaut hast.</source>
+        <target>Anzahl an großen Wasserwaffen, die du gebaut hast.</target>
+      </segment>
+    </unit>
+    <unit id="g01ynP2" name="Glückspilz">
+      <notes>
+        <note category="german">Glückspilz</note>
+      </notes>
+      <segment>
+        <source>Glückspilz</source>
+        <target>Glückspilz</target>
+      </segment>
+    </unit>
+    <unit id="2sqMJTk" name="Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.">
+      <notes>
+        <note category="german">Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</source>
+        <target>Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</target>
+      </segment>
+    </unit>
+    <unit id="4e.Kq3q" name="Baustellen">
+      <notes>
+        <note category="german">Baustellen</note>
+      </notes>
+      <segment>
+        <source>Baustellen</source>
+        <target>Baustellen</target>
+      </segment>
+    </unit>
+    <unit id="Ad9kZzy" name="735b153">
+      <notes>
+        <note category="german">Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</source>
+        <target>Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</target>
+      </segment>
+    </unit>
+    <unit id="WH7we5M" name="79b5be7">
+      <notes>
+        <note category="german">Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</source>
+        <target>Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</target>
+      </segment>
+    </unit>
+    <unit id="iUTpVp." name="Kernsammler">
+      <notes>
+        <note category="german">Kernsammler</note>
+      </notes>
+      <segment>
+        <source>Kernsammler</source>
+        <target>Kernsammler</target>
+      </segment>
+    </unit>
+    <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
+      <notes>
+        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+      </notes>
+      <segment>
+        <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
+        <target>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</target>
+      </segment>
+    </unit>
+    <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">
+      <notes>
+        <note category="german">Kämpfe um Leben und Tod</note>
+      </notes>
+      <segment>
+        <source>Kämpfe um Leben und Tod</source>
+        <target>Kämpfe um Leben und Tod</target>
+      </segment>
+    </unit>
+    <unit id="HViHyOD" name="Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!">
+      <notes>
+        <note category="german">Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</source>
+        <target>Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</target>
+      </segment>
+    </unit>
+    <unit id="X.bgGgs" name="Wunderwerke">
+      <notes>
+        <note category="german">Wunderwerke</note>
+      </notes>
+      <segment>
+        <source>Wunderwerke</source>
+        <target>Wunderwerke</target>
+      </segment>
+    </unit>
+    <unit id="3tQwiq5" name="Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.">
+      <notes>
+        <note category="german">Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</source>
+        <target>Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</target>
+      </segment>
+    </unit>
+    <unit id="18LG1hY" name="Grillmeister">
+      <notes>
+        <note category="german">Grillmeister</note>
+      </notes>
+      <segment>
+        <source>Grillmeister</source>
+        <target>Grillmeister</target>
+      </segment>
+    </unit>
+    <unit id="8KNXbhW" name="Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.">
+      <notes>
+        <note category="german">Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</source>
+        <target>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</target>
+      </segment>
+    </unit>
+    <unit id="1CYXYFJ" name="Ausgrabungsarbeiten">
+      <notes>
+        <note category="german">Ausgrabungsarbeiten</note>
+      </notes>
+      <segment>
+        <source>Ausgrabungsarbeiten</source>
+        <target>Ausgrabungsarbeiten</target>
+      </segment>
+    </unit>
+    <unit id="X_yPmV2" name="cf5d4c4">
+      <notes>
+        <note category="german">Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</source>
+        <target>Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</target>
+      </segment>
+    </unit>
+    <unit id="YpOmX81" name="Hauseinrichtung">
+      <notes>
+        <note category="german">Hauseinrichtung</note>
+      </notes>
+      <segment>
+        <source>Hauseinrichtung</source>
+        <target>Hauseinrichtung</target>
+      </segment>
+    </unit>
+    <unit id="Enu9Feh" name="4b674e5">
+      <notes>
+        <note category="german">Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</source>
+        <target>Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</target>
+      </segment>
+    </unit>
+    <unit id="sAt788p" name="Letzte Verteidigungslinie">
+      <notes>
+        <note category="german">Letzte Verteidigungslinie</note>
+      </notes>
+      <segment>
+        <source>Letzte Verteidigungslinie</source>
+        <target>Letzte Verteidigungslinie</target>
+      </segment>
+    </unit>
+    <unit id="5vRd54n" name="ade071b">
+      <notes>
+        <note category="german">Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</note>
+      </notes>
+      <segment>
+        <source>Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</source>
+        <target>Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</target>
+      </segment>
+    </unit>
+    <unit id=".flbaw." name="Drogen">
+      <notes>
+        <note category="german">Drogen</note>
+      </notes>
+      <segment>
+        <source>Drogen</source>
+        <target>Drogen</target>
+      </segment>
+    </unit>
+    <unit id="vrHQtYb" name="a6f1dcd">
+      <notes>
+        <note category="german">Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</source>
+        <target>Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</target>
+      </segment>
+    </unit>
+    <unit id="eO92oF_" name="Drogenerfahrungen">
+      <notes>
+        <note category="german">Drogenerfahrungen</note>
+      </notes>
+      <segment>
+        <source>Drogenerfahrungen</source>
+        <target>Drogenerfahrungen</target>
+      </segment>
+    </unit>
+    <unit id="f0JFraG" name="Anzahl der gefährlichen Drogen, die du genommen hast.">
+      <notes>
+        <note category="german">Anzahl der gefährlichen Drogen, die du genommen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der gefährlichen Drogen, die du genommen hast.</source>
+        <target>Anzahl der gefährlichen Drogen, die du genommen hast.</target>
+      </segment>
+    </unit>
+    <unit id="sSPf54f" name="Gebäude erkunden">
+      <notes>
+        <note category="german">Gebäude erkunden</note>
+      </notes>
+      <segment>
+        <source>Gebäude erkunden</source>
+        <target>Gebäude erkunden</target>
+      </segment>
+    </unit>
+    <unit id="jIah41g" name="Anzahl der verlassenen Gebäude, die du untersucht hast.">
+      <notes>
+        <note category="german">Anzahl der verlassenen Gebäude, die du untersucht hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der verlassenen Gebäude, die du untersucht hast.</source>
+        <target>Anzahl der verlassenen Gebäude, die du untersucht hast.</target>
+      </segment>
+    </unit>
+    <unit id="CLMy7pI" name="Komplexe Expeditionen">
+      <notes>
+        <note category="german">Komplexe Expeditionen</note>
+      </notes>
+      <segment>
+        <source>Komplexe Expeditionen</source>
+        <target>Komplexe Expeditionen</target>
+      </segment>
+    </unit>
+    <unit id="U.4cHE6" name="Anzahl der entfernten Gebäude, die von dir erkundet wurden.">
+      <notes>
+        <note category="german">Anzahl der entfernten Gebäude, die von dir erkundet wurden.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</source>
+        <target>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</target>
+      </segment>
+    </unit>
+    <unit id="IzudVAk" name="Expertenexpeditionen">
+      <notes>
+        <note category="german">Expertenexpeditionen</note>
+      </notes>
+      <segment>
+        <source>Expertenexpeditionen</source>
+        <target>Expertenexpeditionen</target>
+      </segment>
+    </unit>
+    <unit id="nukR2X5" name="Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.">
+      <notes>
+        <note category="german">Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</note>
+      </notes>
+      <segment>
+        <source>Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</source>
+        <target>Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</target>
+      </segment>
+    </unit>
+    <unit id="7Gh92iA" name="Großzügigkeit">
+      <notes>
+        <note category="german">Großzügigkeit</note>
+      </notes>
+      <segment>
+        <source>Großzügigkeit</source>
+        <target>Großzügigkeit</target>
+      </segment>
+    </unit>
+    <unit id="LSlayka" name="Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.">
+      <notes>
+        <note category="german">Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</source>
+        <target>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</target>
+      </segment>
+    </unit>
+    <unit id="yMz03.8" name="Spiritueller Führer">
+      <notes>
+        <note category="german">Spiritueller Führer</note>
+      </notes>
+      <segment>
+        <source>Spiritueller Führer</source>
+        <target>Spiritueller Führer</target>
+      </segment>
+    </unit>
+    <unit id="G37KPb9" name="5a11e64">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</source>
+        <target>Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</target>
+      </segment>
+    </unit>
+    <unit id="dj5AV6G" name="Laborant">
+      <notes>
+        <note category="german">Laborant</note>
+      </notes>
+      <segment>
+        <source>Laborant</source>
+        <target>Laborant</target>
+      </segment>
+    </unit>
+    <unit id="CC3N8jQ" name="Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.">
+      <notes>
+        <note category="german">Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</source>
+        <target>Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</target>
+      </segment>
+    </unit>
+    <unit id="cue6a8_" name="Diebstähle">
+      <notes>
+        <note category="german">Diebstähle</note>
+      </notes>
+      <segment>
+        <source>Diebstähle</source>
+        <target>Diebstähle</target>
+      </segment>
+    </unit>
+    <unit id="3MT_LNg" name="Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.">
+      <notes>
+        <note category="german">Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</source>
+        <target>Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</target>
+      </segment>
+    </unit>
+    <unit id="gibtxxf" name="Schusseligkeiten">
+      <notes>
+        <note category="german">Schusseligkeiten</note>
+      </notes>
+      <segment>
+        <source>Schusseligkeiten</source>
+        <target>Schusseligkeiten</target>
+      </segment>
+    </unit>
+    <unit id="ZEsIgrQ" name="d3696dd">
+      <notes>
+        <note category="german">Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</source>
+        <target>Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</target>
+      </segment>
+    </unit>
+    <unit id="10t0DvM" name="Masochismus">
+      <notes>
+        <note category="german">Masochismus</note>
+      </notes>
+      <segment>
+        <source>Masochismus</source>
+        <target>Masochismus</target>
+      </segment>
+    </unit>
+    <unit id="yBA7otl" name="Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.">
+      <notes>
+        <note category="german">Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</source>
+        <target>Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</target>
+      </segment>
+    </unit>
+    <unit id="dI2.ozd" name="Event-Auszeichnungen">
+      <notes>
+        <note category="german">Event-Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Event-Auszeichnungen</source>
+        <target>Event-Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="nwDzN3Q" name="Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.">
+      <notes>
+        <note category="german">Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</source>
+        <target>Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</target>
+      </segment>
+    </unit>
+    <unit id="uAqDBtW" name="Wunderwerk: Sandschloss">
+      <notes>
+        <note category="german">Wunderwerk: Sandschloss</note>
+      </notes>
+      <segment>
+        <source>Wunderwerk: Sandschloss</source>
+        <target>Wunderwerk: Sandschloss</target>
+      </segment>
+    </unit>
+    <unit id="jq1R02j" name="Das hast du nicht wirklich gebaut?">
+      <notes>
+        <note category="german">Das hast du nicht wirklich gebaut?</note>
+      </notes>
+      <segment>
+        <source>Das hast du nicht wirklich gebaut?</source>
+        <target>Das hast du nicht wirklich gebaut?</target>
+      </segment>
+    </unit>
+    <unit id="On3ImiP" name="Wunderwerk: Riesiger KVF">
+      <notes>
+        <note category="german">Wunderwerk: Riesiger KVF</note>
+      </notes>
+      <segment>
+        <source>Wunderwerk: Riesiger KVF</source>
+        <target>Wunderwerk: Riesiger KVF</target>
+      </segment>
+    </unit>
+    <unit id="M4.ycbK" name="Huldigt den Riesigen KVF!">
+      <notes>
+        <note category="german">Huldigt den Riesigen KVF!</note>
+      </notes>
+      <segment>
+        <source>Huldigt den Riesigen KVF!</source>
+        <target>Huldigt den Riesigen KVF!</target>
+      </segment>
+    </unit>
+    <unit id="vRqc5Uq" name="Wunderwerk: Rad des Schreckens">
+      <notes>
+        <note category="german">Wunderwerk: Rad des Schreckens</note>
+      </notes>
+      <segment>
+        <source>Wunderwerk: Rad des Schreckens</source>
+        <target>Wunderwerk: Rad des Schreckens</target>
+      </segment>
+    </unit>
+    <unit id="GVSWGjN" name="Sieh nur, man kann von da oben die Zombies sehen!">
+      <notes>
+        <note category="german">Sieh nur, man kann von da oben die Zombies sehen!</note>
+      </notes>
+      <segment>
+        <source>Sieh nur, man kann von da oben die Zombies sehen!</source>
+        <target>Sieh nur, man kann von da oben die Zombies sehen!</target>
+      </segment>
+    </unit>
+    <unit id="7wxk0fW" name="Wunderwerk: Statue des Raben">
+      <notes>
+        <note category="german">Wunderwerk: Statue des Raben</note>
+      </notes>
+      <segment>
+        <source>Wunderwerk: Statue des Raben</source>
+        <target>Wunderwerk: Statue des Raben</target>
+      </segment>
+    </unit>
+    <unit id="dQkqyKh" name="Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]">
+      <notes>
+        <note category="german">Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</note>
+      </notes>
+      <segment>
+        <source>Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</source>
+        <target>Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</target>
+      </segment>
+    </unit>
+    <unit id="H9ZffoW" name="Nachrichten">
+      <notes>
+        <note category="german">Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Nachrichten</source>
+        <target>Nachrichten</target>
+      </segment>
+    </unit>
+    <unit id="Gp8QV9S" name="11324ce">
+      <notes>
+        <note category="german">Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</source>
+        <target>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</target>
+      </segment>
+    </unit>
+    <unit id="Qw5Rx06" name="Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</source>
+        <target>Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</target>
+      </segment>
+    </unit>
+    <unit id="NyGp8KR" name="Anzahl der Tage, die du als Aufklärer gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Aufklärer gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Aufklärer gespielt hast.</source>
+        <target>Anzahl der Tage, die du als Aufklärer gespielt hast.</target>
+      </segment>
+    </unit>
+    <unit id="XzMbfeG" name="Anzahl der Tage, die du als Einsiedler gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Einsiedler gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Einsiedler gespielt hast.</source>
+        <target>Anzahl der Tage, die du als Einsiedler gespielt hast.</target>
+      </segment>
+    </unit>
+    <unit id="tSnoLfe" name="Anzahl der Tage, die du als Buddler gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Buddler gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Buddler gespielt hast.</source>
+        <target>Anzahl der Tage, die du als Buddler gespielt hast.</target>
+      </segment>
+    </unit>
+    <unit id="9itIyey" name="Anzahl der Tage, die du als Wächter gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Wächter gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Wächter gespielt hast.</source>
+        <target>Anzahl der Tage, die du als Wächter gespielt hast.</target>
+      </segment>
+    </unit>
+    <unit id="7nFBaX5" name="Anzahl der Tage, die du als Techniker gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Techniker gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Techniker gespielt hast.</source>
+        <target>Anzahl der Tage, die du als Techniker gespielt hast.</target>
+      </segment>
+    </unit>
+    <unit id="WgUNYZY" name="In deinem Bett gestorben">
+      <notes>
+        <note category="german">In deinem Bett gestorben</note>
+      </notes>
+      <segment>
+        <source>In deinem Bett gestorben</source>
+        <target>In deinem Bett gestorben</target>
+      </segment>
+    </unit>
+    <unit id="XgMSDj1" name="Großmutter, was hast du für große Zähne... Grrrooooaaar!">
+      <notes>
+        <note category="german">Großmutter, was hast du für große Zähne... Grrrooooaaar!</note>
+      </notes>
+      <segment>
+        <source>Großmutter, was hast du für große Zähne... Grrrooooaaar!</source>
+        <target>Großmutter, was hast du für große Zähne... Grrrooooaaar!</target>
+      </segment>
+    </unit>
+    <unit id="GmWG0wd" name="Dehydrationstode">
+      <notes>
+        <note category="german">Dehydrationstode</note>
+      </notes>
+      <segment>
+        <source>Dehydrationstode</source>
+        <target>Dehydrationstode</target>
+      </segment>
+    </unit>
+    <unit id="FmgO.iY" name="82057de">
+      <notes>
+        <note category="german">Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</note>
+      </notes>
+      <segment>
+        <source>Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</source>
+        <target>Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</target>
+      </segment>
+    </unit>
+    <unit id="bhRI8Sg" name="Tödliche Infektionen">
+      <notes>
+        <note category="german">Tödliche Infektionen</note>
+      </notes>
+      <segment>
+        <source>Tödliche Infektionen</source>
+        <target>Tödliche Infektionen</target>
+      </segment>
+    </unit>
+    <unit id="WsBlA83" name="Anzahl der Infektionen, die dich das Leben gekostet haben.">
+      <notes>
+        <note category="german">Anzahl der Infektionen, die dich das Leben gekostet haben.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Infektionen, die dich das Leben gekostet haben.</source>
+        <target>Anzahl der Infektionen, die dich das Leben gekostet haben.</target>
+      </segment>
+    </unit>
+    <unit id="Ph5uruX" name="Tod durch Entzug">
+      <notes>
+        <note category="german">Tod durch Entzug</note>
+      </notes>
+      <segment>
+        <source>Tod durch Entzug</source>
+        <target>Tod durch Entzug</target>
+      </segment>
+    </unit>
+    <unit id="TCaWV7i" name="d76eefd">
+      <notes>
+        <note category="german">Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</note>
+      </notes>
+      <segment>
+        <source>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</source>
+        <target>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</target>
+      </segment>
+    </unit>
+    <unit id="2yZmTqb" name="Letzter Toter">
+      <notes>
+        <note category="german">Letzter Toter</note>
+      </notes>
+      <segment>
+        <source>Letzter Toter</source>
+        <target>Letzter Toter</target>
+      </segment>
+    </unit>
+    <unit id="mjHDbiJ" name="ae94e5e">
+      <notes>
+        <note category="german">Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</note>
+      </notes>
+      <segment>
+        <source>Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</source>
+        <target>Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</target>
+      </segment>
+    </unit>
+    <unit id="7CtY5hA" name="Letzter Toter in einer Pandämoniumstadt">
+      <notes>
+        <note category="german">Letzter Toter in einer Pandämoniumstadt</note>
+      </notes>
+      <segment>
+        <source>Letzter Toter in einer Pandämoniumstadt</source>
+        <target>Letzter Toter in einer Pandämoniumstadt</target>
+      </segment>
+    </unit>
+    <unit id="G_vOQBw" name="Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!">
+      <notes>
+        <note category="german">Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</note>
+      </notes>
+      <segment>
+        <source>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</source>
+        <target>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</target>
+      </segment>
+    </unit>
+    <unit id="c02o7DF" name="Mystic">
+      <notes>
+        <note category="german">Mystic</note>
+      </notes>
+      <segment>
+        <source>Mystic</source>
+        <target>Mystic</target>
+      </segment>
+    </unit>
+    <unit id="edsJJvH" name="Wie viele Seelen hat Ihre Stadt befreien können.">
+      <notes>
+        <note category="german">Wie viele Seelen hat Ihre Stadt befreien können.</note>
+      </notes>
+      <segment>
+        <source>Wie viele Seelen hat Ihre Stadt befreien können.</source>
+        <target>Wie viele Seelen hat Ihre Stadt befreien können.</target>
+      </segment>
+    </unit>
+    <unit id="faOzY5m" name="Wüstenausflüge">
+      <notes>
+        <note category="german">Wüstenausflüge</note>
+      </notes>
+      <segment>
+        <source>Wüstenausflüge</source>
+        <target>Wüstenausflüge</target>
+      </segment>
+    </unit>
+    <unit id="DAHe8Qg" name="a229cab">
+      <notes>
+        <note category="german">Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</note>
+      </notes>
+      <segment>
+        <source>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</source>
+        <target>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</target>
+      </segment>
+    </unit>
+    <unit id="jD.DiPe" name="Geöffnete Tür">
+      <notes>
+        <note category="german">Geöffnete Tür</note>
+      </notes>
+      <segment>
+        <source>Geöffnete Tür</source>
+        <target>Geöffnete Tür</target>
+      </segment>
+    </unit>
+    <unit id="rtoHwdw" name="c693297">
+      <notes>
+        <note category="german">Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</source>
+        <target>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</target>
+      </segment>
+    </unit>
+    <unit id="vzg1Vou" name="Hängend">
+      <notes>
+        <note category="german">Hängend</note>
+      </notes>
+      <segment>
+        <source>Hängend</source>
+        <target>Hängend</target>
+      </segment>
+    </unit>
+    <unit id="XILVSQ3" name="Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.">
+      <notes>
+        <note category="german">Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</source>
+        <target>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</target>
+      </segment>
+    </unit>
+    <unit id="4iul8w7" name="Häuserplünderungen">
+      <notes>
+        <note category="german">Häuserplünderungen</note>
+      </notes>
+      <segment>
+        <source>Häuserplünderungen</source>
+        <target>Häuserplünderungen</target>
+      </segment>
+    </unit>
+    <unit id="OLsJBll" name="fb9ae4d">
+      <notes>
+        <note category="german">Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</source>
+        <target>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</target>
+      </segment>
+    </unit>
+    <unit id="qGiYEyp" name="Absurde Projekte">
+      <notes>
+        <note category="german">Absurde Projekte</note>
+      </notes>
+      <segment>
+        <source>Absurde Projekte</source>
+        <target>Absurde Projekte</target>
+      </segment>
+    </unit>
+    <unit id="2MnOx8i" name="Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.">
+      <notes>
+        <note category="german">Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</source>
+        <target>Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</target>
+      </segment>
+    </unit>
+    <unit id="6bjYKi6" name="Reparaturen">
+      <notes>
+        <note category="german">Reparaturen</note>
+      </notes>
+      <segment>
+        <source>Reparaturen</source>
+        <target>Reparaturen</target>
+      </segment>
+    </unit>
+    <unit id="M68ujLN" name="Anzahl kaputter Gegenstände, die du wieder repariert hast.">
+      <notes>
+        <note category="german">Anzahl kaputter Gegenstände, die du wieder repariert hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl kaputter Gegenstände, die du wieder repariert hast.</source>
+        <target>Anzahl kaputter Gegenstände, die du wieder repariert hast.</target>
+      </segment>
+    </unit>
+    <unit id="J.XSCYh" name="Gebäudereparaturen">
+      <notes>
+        <note category="german">Gebäudereparaturen</note>
+      </notes>
+      <segment>
+        <source>Gebäudereparaturen</source>
+        <target>Gebäudereparaturen</target>
+      </segment>
+    </unit>
+    <unit id="eVadw_d" name="Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.">
+      <notes>
+        <note category="german">Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</source>
+        <target>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</target>
+      </segment>
+    </unit>
+    <unit id="tRxlExf" name="Textsammler">
+      <notes>
+        <note category="german">Textsammler</note>
+      </notes>
+      <segment>
+        <source>Textsammler</source>
+        <target>Textsammler</target>
+      </segment>
+    </unit>
+    <unit id="MnSJgts" name="Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.">
+      <notes>
+        <note category="german">Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</source>
+        <target>Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</target>
+      </segment>
+    </unit>
+    <unit id="rcSA5Xd" name="Leichenentsorger">
+      <notes>
+        <note category="german">Leichenentsorger</note>
+      </notes>
+      <segment>
+        <source>Leichenentsorger</source>
+        <target>Leichenentsorger</target>
+      </segment>
+    </unit>
+    <unit id="rFyYect" name="Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.">
+      <notes>
+        <note category="german">Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</source>
+        <target>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</target>
+      </segment>
+    </unit>
+    <unit id="tsZVejd" name="Batteriewerferfabrikant">
+      <notes>
+        <note category="german">Batteriewerferfabrikant</note>
+      </notes>
+      <segment>
+        <source>Batteriewerferfabrikant</source>
+        <target>Batteriewerferfabrikant</target>
+      </segment>
+    </unit>
+    <unit id="tpreu_F" name="Anzahl der Batteriewerfer, die du gebaut hast.">
+      <notes>
+        <note category="german">Anzahl der Batteriewerfer, die du gebaut hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Batteriewerfer, die du gebaut hast.</source>
+        <target>Anzahl der Batteriewerfer, die du gebaut hast.</target>
+      </segment>
+    </unit>
+    <unit id="Ncfbww0" name="Überlebende der Hölle!">
+      <notes>
+        <note category="german">Überlebende der Hölle!</note>
+      </notes>
+      <segment>
+        <source>Überlebende der Hölle!</source>
+        <target>Überlebende der Hölle!</target>
+      </segment>
+    </unit>
+    <unit id="BanibAx" name="Sie sind ein wahrer Überlebenskünstler der Hölle.">
+      <notes>
+        <note category="german">Sie sind ein wahrer Überlebenskünstler der Hölle.</note>
+      </notes>
+      <segment>
+        <source>Sie sind ein wahrer Überlebenskünstler der Hölle.</source>
+        <target>Sie sind ein wahrer Überlebenskünstler der Hölle.</target>
+      </segment>
+    </unit>
+    <unit id="J105.gK" name="Hausarbeiten">
+      <notes>
+        <note category="german">Hausarbeiten</note>
+      </notes>
+      <segment>
+        <source>Hausarbeiten</source>
+        <target>Hausarbeiten</target>
+      </segment>
+    </unit>
+    <unit id="ZWwqduJ" name="Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.">
+      <notes>
+        <note category="german">Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</source>
+        <target>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</target>
+      </segment>
+    </unit>
+    <unit id="r6xncsj" name="Kettensägen">
+      <notes>
+        <note category="german">Kettensägen</note>
+      </notes>
+      <segment>
+        <source>Kettensägen</source>
+        <target>Kettensägen</target>
+      </segment>
+    </unit>
+    <unit id="KXf9wDg" name="Anzahl an Kettensägen, die du gebaut hast.">
+      <notes>
+        <note category="german">Anzahl an Kettensägen, die du gebaut hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl an Kettensägen, die du gebaut hast.</source>
+        <target>Anzahl an Kettensägen, die du gebaut hast.</target>
+      </segment>
+    </unit>
+    <unit id="kdHo25R" name="Stadtwächter">
+      <notes>
+        <note category="german">Stadtwächter</note>
+      </notes>
+      <segment>
+        <source>Stadtwächter</source>
+        <target>Stadtwächter</target>
+      </segment>
+    </unit>
+    <unit id="fEL0FCq" name="Anzahl der Nächte, die du als Stadtwächter überlebt hast.">
+      <notes>
+        <note category="german">Anzahl der Nächte, die du als Stadtwächter überlebt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</source>
+        <target>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</target>
+      </segment>
+    </unit>
+    <unit id="I2LHLA6" name="Gerankte Stadt">
+      <notes>
+        <note category="german">Gerankte Stadt</note>
+      </notes>
+      <segment>
+        <source>Gerankte Stadt</source>
+        <target>Gerankte Stadt</target>
+      </segment>
+    </unit>
+    <unit id="bjLGLtR" name="8e6bd99">
+      <notes>
+        <note category="german">Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</source>
+        <target>Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</target>
+      </segment>
+    </unit>
+    <unit id="vkTwfZ7" name="Legendäre Stadt">
+      <notes>
+        <note category="german">Legendäre Stadt</note>
+      </notes>
+      <segment>
+        <source>Legendäre Stadt</source>
+        <target>Legendäre Stadt</target>
+      </segment>
+    </unit>
+    <unit id="k1epE3V" name="e2cb47f">
+      <notes>
+        <note category="german">Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</source>
+        <target>Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</target>
+      </segment>
+    </unit>
+    <unit id="P87Mfm4" name="Teilnehmende Stadt">
+      <notes>
+        <note category="german">Teilnehmende Stadt</note>
+      </notes>
+      <segment>
+        <source>Teilnehmende Stadt</source>
+        <target>Teilnehmende Stadt</target>
+      </segment>
+    </unit>
+    <unit id="xKwHsnM" name="b6bc05c">
+      <notes>
+        <note category="german">Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</source>
+        <target>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</target>
+      </segment>
+    </unit>
+    <unit id="Y90upo5" name="Getötete Zombies">
+      <notes>
+        <note category="german">Getötete Zombies</note>
+      </notes>
+      <segment>
+        <source>Getötete Zombies</source>
+        <target>Getötete Zombies</target>
+      </segment>
+    </unit>
+    <unit id="2VXomcj" name="0cd9e5b">
+      <notes>
+        <note category="german">Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</note>
+      </notes>
+      <segment>
+        <source>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</source>
+        <target>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</target>
+      </segment>
+    </unit>
+    <unit id="VEVB_Sc" name="Ehemaliger Beta-Tester">
+      <notes>
+        <note category="german">Ehemaliger Beta-Tester</note>
+      </notes>
+      <segment>
+        <source>Ehemaliger Beta-Tester</source>
+        <target>Ehemaliger Beta-Tester</target>
+      </segment>
+    </unit>
+    <unit id="jt.ezbv" name="7d0bc2b">
+      <notes>
+        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
+        <target>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</target>
+      </segment>
+    </unit>
+    <unit id="eAodZt." name="Sandbälle! Yeah!">
+      <notes>
+        <note category="german">Sandbälle! Yeah!</note>
+      </notes>
+      <segment>
+        <source>Sandbälle! Yeah!</source>
+        <target>Sandbälle! Yeah!</target>
+      </segment>
+    </unit>
+    <unit id="KhJ3UGm" name="8dca30b">
+      <notes>
+        <note category="german">Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</source>
+        <target>Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</target>
+      </segment>
+    </unit>
+    <unit id="ZfFBo_5" name="Kreuzigung">
+      <notes>
+        <note category="german">Kreuzigung</note>
+      </notes>
+      <segment>
+        <source>Kreuzigung</source>
+        <target>Kreuzigung</target>
+      </segment>
+    </unit>
+    <unit id="weKTlex" name="Freuen Sie sich, Sie hätten nicht laufen müssen.">
+      <notes>
+        <note category="german">Freuen Sie sich, Sie hätten nicht laufen müssen.</note>
+      </notes>
+      <segment>
+        <source>Freuen Sie sich, Sie hätten nicht laufen müssen.</source>
+        <target>Freuen Sie sich, Sie hätten nicht laufen müssen.</target>
+      </segment>
+    </unit>
+    <unit id="CWUGXbC" name="Den Weihnachtsmann gibt es nicht">
+      <notes>
+        <note category="german">Den Weihnachtsmann gibt es nicht</note>
+      </notes>
+      <segment>
+        <source>Den Weihnachtsmann gibt es nicht</source>
+        <target>Den Weihnachtsmann gibt es nicht</target>
+      </segment>
+    </unit>
+    <unit id="8JoH6DL" name="Anzahl der Geschenke, die du deinen Freunden geklaut hast.">
+      <notes>
+        <note category="german">Anzahl der Geschenke, die du deinen Freunden geklaut hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Geschenke, die du deinen Freunden geklaut hast.</source>
+        <target>Anzahl der Geschenke, die du deinen Freunden geklaut hast.</target>
+      </segment>
+    </unit>
+    <unit id="Gf1_yUr" name="Tagelang wurde an den Seelen der Toten herumgepfuscht.">
+      <notes>
+        <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
+      </notes>
+      <segment>
+        <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
+        <target>Tagelang wurde an den Seelen der Toten herumgepfuscht.</target>
+      </segment>
+    </unit>
+    <unit id="H3ZzhL." name="f8d99bd">
+      <notes>
+        <note category="german">Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</note>
+      </notes>
+      <segment>
+        <source>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</source>
+        <target>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</target>
+      </segment>
+    </unit>
+    <unit id="X.DT38w" name="9c938c9">
+      <notes>
+        <note category="german">Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</note>
+      </notes>
+      <segment>
+        <source>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</source>
+        <target>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</target>
+      </segment>
+    </unit>
+    <unit id="xHllIMc" name="Stunde(n)">
+      <notes>
+        <note category="german">Stunde(n)</note>
+      </notes>
+      <segment>
+        <source>Stunde(n)</source>
+        <target>Stunde(n)</target>
+      </segment>
+    </unit>
+    <unit id="zV6ExPR" name="Minute(n)">
+      <notes>
+        <note category="german">Minute(n)</note>
+      </notes>
+      <segment>
+        <source>Minute(n)</source>
+        <target>Minute(n)</target>
+      </segment>
+    </unit>
+    <unit id="pJqC6wz" name="Sekunde(n)">
+      <notes>
+        <note category="german">Sekunde(n)</note>
+      </notes>
+      <segment>
+        <source>Sekunde(n)</source>
+        <target>Sekunde(n)</target>
+      </segment>
+    </unit>
+    <unit id="q221mSN" name="am">
+      <notes>
+        <note category="german">am</note>
+      </notes>
+      <segment>
+        <source>am</source>
+        <target>am</target>
+      </segment>
+    </unit>
+    <unit id="Iks0KLK" name="vor %time%">
+      <notes>
+        <note category="german">vor %time%</note>
+      </notes>
+      <segment>
+        <source>vor %time%</source>
+        <target>vor %time%</target>
+      </segment>
+    </unit>
+    <unit id="GyH7AP7" name="0b0fadd">
+      <notes>
+        <note category="german">Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</note>
+      </notes>
+      <segment>
+        <source>Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</source>
+        <target>Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</target>
+      </segment>
+    </unit>
+    <unit id="jeBATzG" name="94edcd7">
+      <notes>
+        <note category="german">Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</source>
+        <target>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</target>
+      </segment>
+    </unit>
+    <unit id="uBjALnI" name="Mein Rucksack">
+      <notes>
+        <note category="german">Mein Rucksack</note>
+      </notes>
+      <segment>
+        <source>Mein Rucksack</source>
+        <target>Mein Rucksack</target>
+      </segment>
+    </unit>
+    <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
+      <notes>
+        <note category="german">Dieser Bürger wurde noch nie gesehen...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wurde noch nie gesehen...</source>
+        <target>Dieser Bürger wurde noch nie gesehen...</target>
+      </segment>
+    </unit>
+    <unit id="n3JcKxK" name="Der Bürger wurde zuletzt %time% gesehen.">
+      <notes>
+        <note category="german">Der Bürger wurde zuletzt %time% gesehen.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger wurde zuletzt %time% gesehen.</source>
+        <target>Der Bürger wurde zuletzt %time% gesehen.</target>
+      </segment>
+    </unit>
+    <unit id="y2ljklH" name="Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.">
+      <notes>
+        <note category="german">Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.</source>
+        <target>Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.</target>
+      </segment>
+    </unit>
+    <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
+      <notes>
+        <note category="german">Dieser Bürger ist ernsthaft verletzt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist ernsthaft verletzt.</source>
+        <target>Dieser Bürger ist ernsthaft verletzt.</target>
+      </segment>
+    </unit>
+    <unit id="w5JoDMX" name="29edb8e">
+      <notes>
+        <note category="german">Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
+        <target>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</target>
+      </segment>
+    </unit>
+    <unit id="0LaQbDJ" name="a261410">
+      <notes>
+        <note category="german">Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</source>
+        <target>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</target>
+      </segment>
+    </unit>
+    <unit id="IhkIaY6" name="f56437c">
+      <notes>
+        <note category="german">Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
+        <target>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</target>
+      </segment>
+    </unit>
+    <unit id="QHYoGw6" name="fab7d5c">
+      <notes>
+        <note category="german">Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
+        <target>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</target>
+      </segment>
+    </unit>
+    <unit id="Kx1swjd" name="beeba51">
+      <notes>
+        <note category="german">Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
+        <target>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</target>
+      </segment>
+    </unit>
+    <unit id="dvSfZK0" name="96d45cc">
+      <notes>
+        <note category="german">Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
+        <target>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</target>
+      </segment>
+    </unit>
+    <unit id="q2ChVJX" name="Gereinigte Seelen">
+      <notes>
+        <note category="german">Gereinigte Seelen</note>
+      </notes>
+      <segment>
+        <source>Gereinigte Seelen</source>
+        <target>Gereinigte Seelen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

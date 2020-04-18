@@ -210,7 +210,7 @@ class ActionHandler
             }
 
 
-            if ($current_state < $last_state) $message = $meta_requirement->getFailureText();
+            if ($current_state < $last_state) $message = $this->translator->trans($meta_requirement->getFailureText(), [], 'items');
 
         }
 
