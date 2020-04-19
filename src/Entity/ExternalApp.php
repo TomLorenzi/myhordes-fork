@@ -29,7 +29,7 @@ class ExternalApp
     private $active = 1;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=190)
      */
     private $name;
 
@@ -40,22 +40,22 @@ class ExternalApp
     private $owner = null;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=190)
      */
     private $secret;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=190)
      */
     private $url;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=190)
      */
     private $icon;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=190)
      */
     private $contact;
 
