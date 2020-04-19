@@ -214,7 +214,7 @@ class DeathHandler
                 $pictoAlwaysPersisted = array_merge($pictoAlwaysPersisted, array('r_guide_#00', 'r_guard_#00'));
             }
 
-            if ($pendingPicto->getPersisted() == 1 || in_array($pendingPicto->getName(), $pictoAlwaysPersisted)) {
+            if ($pendingPicto->getPersisted() == 1 || in_array($pendingPicto->getPrototype()->getName(), $pictoAlwaysPersisted)) {
                 $pendingPicto->setPersisted(2);
                 $this->entity_manager->persist($pendingPicto);
             } else {
