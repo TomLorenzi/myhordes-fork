@@ -735,6 +735,8 @@ class ActionHandler
 
                         if (!$can_fail || $this->random_generator->chance(0.85)) {
 
+                            if ($drink) $citizen->setWalkingDistance(0);
+
                             if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'dehydrated')) {
                                 $this->citizen_handler->removeStatus($citizen, 'thirst2');
                                 $this->citizen_handler->inflictStatus($citizen, 'thirst1');
