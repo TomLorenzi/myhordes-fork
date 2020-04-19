@@ -281,7 +281,7 @@ class ZoneHandler
                 }
             }
         }
-        if ($zone->getZombieStatus() === Zone::ZombieStateEstimate) {
+        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
             if ($zone->getZombies() == 0) {
                 $attributes[] = 'danger-0';
             }
