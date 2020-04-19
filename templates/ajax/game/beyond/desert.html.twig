@@ -132,7 +132,12 @@
             {% if zone.x != 0 or zone.y != 0 %}
                 {% if not citizen_hidden %}
                     {% if not digging %}
-                        {% if dig_timeout > 0 %}
+                        {% if zone_blocked %}
+                            <div class="note">
+                                <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                                {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
+                            </div>
+                        {% elseif dig_timeout > 0 %}
                             <div class="note">
                                 <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                 {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
