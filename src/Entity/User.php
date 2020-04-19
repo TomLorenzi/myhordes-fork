@@ -84,6 +84,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $isAdmin = 0;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $lastActionTime;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -328,6 +333,18 @@ class User implements UserInterface, EquatableInterface
     public function setIsAdmin(bool $isAdmin): self
     {
         $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    public function getLastActionTime(): ?\DateTimeInterface
+    {
+        return $this->lastActionTime;
+    }
+
+    public function setLastActionTime(?\DateTimeInterface $lastActionTime): self
+    {
+        $this->lastActionTime = $lastActionTime;
 
         return $this;
     }

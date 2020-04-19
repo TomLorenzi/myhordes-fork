@@ -19,7 +19,9 @@ use App\Exception\DynamicAjaxResetException;
 use App\Service\Locksmith;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Proxies\__CG__\App\Entity\CitizenProfession;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
@@ -62,6 +64,13 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
         /** @var User $user */
         $user = $this->security->getUser();
+
+        if ($user)
+            try {
+                $user->setLastActionTime(new DateTime('now'));
+                $this->em->persist($user);
+                $this->em->flush();
+            } catch (Exception $e) {}
 
         if ($user && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown()->getLanguage() &&$event->getRequest()->getLocale() !== $user->getActiveCitizen()->getTown()->getLanguage()) {
             $event->getRequest()->getSession()->set('_town_lang', $user->getActiveCitizen()->getTown()->getLanguage());
@@ -107,11 +116,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 if (!$citizen->getZone())
                     throw new DynamicAjaxResetException($event->getRequest());
             }
-
-            $citizen->setLastActionTimestamp(time());
-
-            $this->em->persist($citizen);
-            $this->em->flush();
         }
     }
 

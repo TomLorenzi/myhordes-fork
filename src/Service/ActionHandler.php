@@ -798,6 +798,11 @@ class ActionHandler
                         foreach ($dig_timers as $timer) {
                             $timer->setPassive(true);
                         }
+                        if ($citizen->getEscortSettings()) {
+                            $remove[] = $citizen->getEscortSettings();
+                            $citizen->setEscortSettings(null);
+                        }
+
 
                         break;
                     }
