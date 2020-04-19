@@ -67,7 +67,11 @@ class DeathHandler
         }
         else {
             $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );
-            $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+            if ($zone->getX() === 0 && $zone->getY() === 0)
+                $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$citizen->getTown()->getBank()]);
+            else
+                $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+
             $citizen->setZone(null);
             $zone->removeCitizen( $citizen );
             $this->zone_handler->handleCitizenCountUpdate( $zone, $ok );
