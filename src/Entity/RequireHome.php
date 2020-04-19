@@ -33,6 +33,16 @@ class RequireHome
      */
     private $minLevel;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $maxLevel;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenHomeUpgradePrototype")
+     */
+    private $upgrade;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,6 +68,30 @@ class RequireHome
     public function setMinLevel(?int $minLevel): self
     {
         $this->minLevel = $minLevel;
+
+        return $this;
+    }
+
+    public function getMaxLevel(): ?int
+    {
+        return $this->maxLevel;
+    }
+
+    public function setMaxLevel(?int $maxLevel): self
+    {
+        $this->maxLevel = $maxLevel;
+
+        return $this;
+    }
+
+    public function getUpgrade(): ?CitizenHomeUpgradePrototype
+    {
+        return $this->upgrade;
+    }
+
+    public function setUpgrade(?CitizenHomeUpgradePrototype $upgrade): self
+    {
+        $this->upgrade = $upgrade;
 
         return $this;
     }

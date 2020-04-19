@@ -71,6 +71,15 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_home_upgrade'],
         ['name' => 'tg_never'],
         ['name' => 'tg_hero'],
+        ['name' => 'tg_chk_forum'],
+        ['name' => 'tg_chk_active'],
+        ['name' => 'tg_hide'],
+        ['name' => 'tg_tomb'],
+        ['name' => 'tg_home_clean'],
+        ['name' => 'tg_home_shower'],
+        ['name' => 'tg_home_heal_1'],
+        ['name' => 'tg_home_heal_2'],
+        ['name' => 'tg_home_defbuff'],
     ];
 
     public static $causes_of_death = [
@@ -89,6 +98,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [ 'ref' => CauseOfDeath::FleshCage    , 'label' => 'Im Fleischkäfig geendet', 'icon' => 'caged', 'desc' => 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.' ],
         [ 'ref' => CauseOfDeath::Strangulation, 'label' => 'Strangulation', 'icon' => 'strangulation', 'desc' => 'Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.' ],
         [ 'ref' => CauseOfDeath::Headshot     , 'label' => 'Kopfschuss', 'icon' => 'headshot', 'desc' => 'Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?' ],
+        [ 'ref' => CauseOfDeath::Radiations     , 'label' => 'Tod durch Radioaktivität', 'icon' => 'infection', 'desc' => 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.' ],
     ];
 
     public static $home_levels = [
@@ -244,7 +254,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setAllowSubUpgrades( $entry['upgrades'] )->setDefense( $entry['def'] )->setLabel( $entry['label'] )
                 ->setTheftProtection( $entry['theft'] );
 
-            $building = empty($entry['building']) ? null : $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry['building'] );
+            $building = empty($entry['building']) ? null : $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry['building'], false );
             if (!empty($building) && !$building) throw new Exception("Unable to locate building prototype '{$entry['building']}'");
             $entity->setRequiredBuilding( $building );
 

@@ -13,13 +13,13 @@
 
 .forum-control {
   &>b:first-child { display: block; background: #321914; padding: 4px; }
-  font-size: 11px;
+  font-size: 1.1rem;
   background: #3c2018; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
 }
 
 .forum-note {
   &>b:first-child { display: block; background: #804d2f; padding: 4px; }
-  font-size: 11px; background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
+  font-size: 1.1rem; background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
   border: 1px solid #704328;
 }
 
@@ -37,7 +37,16 @@
   }
   &>.forum-post-content {
     padding: 25px; max-height: 750px; overflow: auto;
-    // background-color: #4a261e;
+    background-color: #4a261e;
+    b {
+      color: #afb3cf;
+    }
+    i {
+      color: #f0d79e;
+    }
+    strike {
+      color: #cc3300;
+    }
   }
 }
 
@@ -63,11 +72,21 @@
 .forum-button-bar { margin: 5px 0; padding: 0 5px; }
 
 .forum-button {
-  display: inline-block; padding: 2px 5px; font-size: 10px; background: @myhordes-forum-button-color;
+  display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-button-color;
   border: 1px solid @myhordes-forum-button-border;
   color: white; cursor: pointer;
   &:hover { background: @myhordes-forum-button-border; }
+
+  &[x-text-control-node] {
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
 }
+
 
 .forum-thread {
   padding: 5px; cursor: pointer; position: relative;

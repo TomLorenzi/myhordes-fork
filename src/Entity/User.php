@@ -68,11 +68,27 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="integer")
      */
     private $soulPoints;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user")
+     */
+    private $pictos;
+
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $externalId = '';
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdmin = 0;
 
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
         $this->foundTexts = new ArrayCollection();
+        $this->pictos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -256,6 +272,62 @@ class User implements UserInterface, EquatableInterface
     public function addSoulPoints(int $soulPoints): self
     {
         $this->soulPoints += $soulPoints;
+
+        return $this;
+    }
+
+
+    public function getExternalId(): ?string
+    {
+        return $this->externalId;
+    }
+
+    public function setExternalId(string $externalId): self
+    {
+        $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Pictos[]
+     */
+    public function getPictos(): Collection
+    {
+        return $this->pictos;
+    }
+
+    public function addPicto(Picto $picto): self
+    {
+        if (!$this->pictos->contains($picto)) {
+            $this->pictos[] = $picto;
+            $picto->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicto(Picto $picto): self
+    {
+        if ($this->pictos->contains($picto)) {
+            $this->pictos->removeElement($picto);
+            // set the owning side to null (unless already changed)
+            if ($picto->getUser() === $this) {
+                $picto->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
 
         return $this;
     }

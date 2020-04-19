@@ -25,6 +25,9 @@ bin/console app:create-town remote 40 de
 # Add debug users (password = password)
 bin/console app:debug --add-debug-users
 
+# Fill town with citizens
+bin/console app:debug --fill-town <town.id>
+
 # Schedule an attack
 bin/console app:schedule --add "tomorrow"
 
@@ -60,7 +63,7 @@ module.exports = {
 ```
 
 ## If you have found an untranslatable string
-Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console translation:update --force --sort=asc fr --prefix=""` cmdlet to update FR location (available languages : fr, en, de, es)
+Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console app:migrate -t fr` cmdlet to update FR location (available languages : fr, en, de, es)
 
 ## Update
 
@@ -69,9 +72,7 @@ Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({
 php composer.phar update
 
 # Update database
-bin/console doctrine:migrations:diff
-bin/console doctrine:migrations:migrate -n
-bin/console doctrine:fixtures:load --append
+bin/console app:migrate -u
 
 # Update yarn
 yarn install

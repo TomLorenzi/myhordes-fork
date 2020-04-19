@@ -13,6 +13,8 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
+use App\Entity\ItemCategory;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
@@ -63,6 +65,17 @@ class DatabaseExtractor implements ExtractorInterface
                     $this->insert($c, $requirement->getFailureText(), 'items');
             }
         }
+
+        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
+            /** @var $recipe Recipe */
+            if ($recipe->getAction())
+                $this->insert( $c, $recipe->getAction(), 'items' );
+
+        foreach ($this->em->getRepository(ItemCategory::class)->findRootCategories() as $itemCategory)
+            /** @var $itemCategory ItemCategory */
+            if ($itemCategory->getLabel())
+                $this->insert( $c, $itemCategory->getLabel(), 'items' );
+
         //</editor-fold>
 
         //<editor-fold desc="Building Domain">
@@ -70,6 +83,8 @@ class DatabaseExtractor implements ExtractorInterface
         foreach ($this->em->getRepository(BuildingPrototype::class)->findAll() as $building) {
             /** @var BuildingPrototype $building */
             $this->insert( $c, $building->getLabel(), 'buildings' );
+            if($building->getDescription())
+                $this->insert( $c, $building->getDescription(), 'buildings' );
             if ($building->getUpgradeTexts())
                 foreach ($building->getUpgradeTexts() as $text)
                     $this->insert( $c, $text, 'buildings' );
@@ -122,10 +137,14 @@ class DatabaseExtractor implements ExtractorInterface
             if ($town->getLabel())
                 $this->insert( $c, $town->getLabel(), 'game' );
 
-        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
-            /** @var $recipe Recipe */
-            if ($recipe->getAction())
-                $this->insert( $c, $recipe->getAction(), 'items' );
+        foreach ($this->em->getRepository(PictoPrototype::class)->findAll() as $pictoPrototype) {
+            /** @var $pictoPrototype PictoPrototype */
+            if ($pictoPrototype->getLabel())
+                $this->insert( $c, $pictoPrototype->getLabel(), 'game' );
+
+            if ($pictoPrototype->getDescription())
+                $this->insert( $c, $pictoPrototype->getDescription(), 'game' );
+        }
         //</editor-fold>
     }
 

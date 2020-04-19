@@ -1,5 +1,9 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-construction time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+    </div>
 
     <div class="help">
         {% trans from 'game' %}
@@ -35,10 +39,21 @@
                 {% endif %}
                 <span>{{ building.prototype.label|trans({},'buildings') }}</span>
                 {% if building.prototype.temp %}
-                    <img alt="(!)" src="{{ asset('build/images/small_warning.gif') }}" />
+                    <span>
+                        <img alt="(!)" src="{{ asset('build/images/small_warning.gif') }}" />
+                        <div class="tooltip temp-building">
+                            <h1>{{ 'Temporäre Konstruktion!'|trans({}, 'buildings') }}</h1>
+                            {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings') }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
+                        </div>
+                    </span>
                 {% endif %}
                 {% if building.prototype.defense > 0 %}
                     <div class="float-right defense">{{ building.prototype.defense }}</div>
+                {% endif %}
+                {% if building.prototype.description %}
+                <div class="tooltip">
+                    {{ building.prototype.description|trans({}, 'buildings') }}
+                </div>
                 {% endif %}
             </div>
             <div class="padded cell rw-6 rw-lg-10 rw-sm-12 no-ws">
@@ -63,6 +78,9 @@
                         <div class="build-req">
                             <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
                             <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
+                            <div class="tooltip">
+                                {{ itemgroup.prototype.label|trans({}, 'items') }}
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}
@@ -101,7 +119,7 @@
         const send_build_request = function(id) {
             let ap = null, valid = false;
             do {
-                ap = window.prompt("{% trans from 'game' %}Wie viele Aktionspunkte möchtest du in den Bau investieren?{% endtrans %}", "1");
+                ap = window.prompt("{{ 'Wie viele Aktionspunkte möchtest du in den Bau investieren?'|trans({},'game')|e('js') }}", "1");
                 if (ap === null) valid = true;
                 else {
                     ap = parseInt(ap);

@@ -1,7 +1,38 @@
 .soul {
+	.tabs {
+		font-size: 1.2rem;
+		color: #ddab76;
+		border-bottom: 1px solid #ddab76;
+		background-color: #5c2b20;
+
+		h4.soul-name {
+			margin: 2px 4px;
+		}
+		.tab {
+			.tab-link {
+				display: block;
+				text-align: center;
+				margin: 4px 2px 0;
+				padding: 2px 4px;
+				border: 1px solid #ddab76;
+				border-bottom: none;
+				background-color: #7e4d2a;
+				cursor: pointer;
+				text-decoration: none;
+			}
+
+			&.selected, &:hover {
+				.tab-link {
+					background-color: lighten(#7e4d2a, 20%);
+					color: white;
+					font-weight: bold;
+				}
+			}
+		}
+	}
 	.distinctions {
 		max-width: 240px;
-		background: url("../../img/soul/rewardsBg_header.gif") top/cover no-repeat;
+		background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
 		padding-bottom: 0px !important;
 
 		.distinctions-head {
@@ -9,7 +40,7 @@
 			color: #f0d79e;
 			font-variant: small-caps;
 			font-weight: bold;
-			font-size: 20px;
+			font-size: 2rem;
 		}
 
 		.distinctions-list {
@@ -17,7 +48,7 @@
 			min-height: 100px;
 			.overall {
 				color: #FF8866;
-				font-size: 24px;
+				font-size: 2.4rem;
 				margin-top: 5px;
 			}
 
@@ -25,14 +56,79 @@
 				border: 1px dashed #823D2D;
 				color: #FF8866;
 				padding: 10px;
-				font-size: 12px;
+				font-size: 1.2rem;
 				font-style: italic;
 				margin-top: 10px;
+			}
+
+			.picto {
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				font-size: 1rem;
+				padding-top: 3px;
+			}
+
+			.rare {
+				background: url("../../img/pictos/rewardBg_rare.gif") no-repeat;
+			}
+
+			.counter {
+				margin-top: -10px;
+
+				.count {
+					background: url("../../img/fontBitmap.png") no-repeat;
+					line-height: 0;
+					font-size: 0;
+					width: 5px;
+					height: 8px;
+					display: inline-block;
+				}
+
+				.count[title="0"]{
+					background-position: 0px 0px;
+				}
+
+				.count[title="1"]{
+					background-position: -5px 0px;
+				}
+
+				.count[title="2"]{
+					background-position: -9px 0px;
+				}
+
+				.count[title="3"]{
+					background-position: -14px 0px;
+				}
+
+				.count[title="4"]{
+					background-position: -19px 0px;
+				}
+
+				.count[title="5"]{
+					background-position: -24px 0px;
+				}
+
+				.count[title="6"]{
+					background-position: -29px 0px;
+				}
+
+				.count[title="7"]{
+					background-position: -34px 0px;
+				}
+
+				.count[title="8"]{
+					background-position: -39px 0px;
+				}
+
+				.count[title="9"]{
+					background-position: -44px 0px;
+				}
 			}
 		}
 
 		.distinctions-foot {
-			background: url("../../img/soul/rewardsBg_footer.gif") bottom/cover no-repeat;
+			background: url("../../img/soul/rewardsBg_footer.gif") bottom/100% no-repeat;
 			height: 44px;
 			margin-top: -22px;
 		}
@@ -49,7 +145,7 @@
 		font-weight: bold;
 		background-color: #5c2b20;
 		border: 1px solid #ddab76;
-		font-size: 12px;
+		font-size: 1.2rem;
 		strong {
 			color: #f0d79e;
 		}
@@ -59,7 +155,7 @@
 		color: #ddab76;
 		font-variant: small-caps;
 		strong {
-			font-size: 14px;
+			font-size: 1.4rem;
 		}
 	}
 
@@ -68,7 +164,7 @@
 		em {
 			color: #ddab76;
 			font-style: normal;
-			font-size: 10px;
+			font-size: 1rem;
 		}
 		strong {
 			color: #f0d79e;
@@ -78,7 +174,7 @@
 
 	.town-history {
 		.header {
-			font-size: 10px;
+			font-size: 1rem;
 			font-variant: small-caps;
 			font-weight: bold;
 			color: #f1ddc8;
@@ -91,7 +187,7 @@
 			border-bottom: 1px solid #ddab76;
 
 			.town-name {
-				font-size: 12px;
+				font-size: 1.2rem;
 			}
 
 			.town-days {
@@ -103,14 +199,25 @@
 			}
 
 			.empty {
-				font-size: 12px;
+				font-size: 1.2rem;
 				margin-top: 5px;
 				padding: 5px;
 				font-variant: small-caps;
 				color: #f86;
 				font-weight: bold;
 			}
+
+			.hardcore {
+				background-color:#773939;
+				.town-name,
+				.town-days {
+					color: #f86;
+				}
+			}
 		}
 	}
 
+	input {
+		width: 100%;
+	}
 }

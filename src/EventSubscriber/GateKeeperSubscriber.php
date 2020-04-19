@@ -5,6 +5,7 @@ namespace App\EventSubscriber;
 
 
 use App\Controller\BeyondInterfaceController;
+use App\Controller\ExternalController;
 use App\Controller\GameAliveInterfaceController;
 use App\Controller\GameInterfaceController;
 use App\Controller\GameProfessionInterfaceController;
@@ -73,7 +74,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 throw new DynamicAjaxResetException($event->getRequest());
         }
 
-        if ($controller instanceof GameInterfaceController) {
+        if ($controller instanceof GameInterfaceController && !($controller instanceof ExternalController)) {
             // This is a game controller; it is not available to players outside of a game
             if (!$user || !$citizen = $user->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
@@ -106,6 +107,11 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 if (!$citizen->getZone())
                     throw new DynamicAjaxResetException($event->getRequest());
             }
+
+            $citizen->setLastActionTimestamp(time());
+
+            $this->em->persist($citizen);
+            $this->em->flush();
         }
     }
 

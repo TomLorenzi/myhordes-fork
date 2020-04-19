@@ -1,15 +1,20 @@
 {% extends "ajax/game/game.html.twig" %}
+{# Replaced by overview button
 {% block menu_text %}
     {{ parent() }}
     <li class="town-dash" x-ajax-href="{{ url('town_dashboard') }}">{% trans from 'game' %}Stadt{% endtrans %}</li>
 {% endblock %}
+#}
 {% block ajax %}
     {{ parent() }}
     {# @var home \App\Entity\CitizenHome #}
     <div class="row">
-
         <div class="padded-small cell rw-4 rw-sm-12">
-            <div class="row town-menu">
+            {% if chaos%}
+	    <div class="header-menu-chaos"></div>
+            {% endif %}
+            {% set hour = "now"|date("G") %}
+            <div class="row town-menu {% if hour < 7 or hour > 18 %}night{% endif %}">
                 <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                     <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
                 </div>

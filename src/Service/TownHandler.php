@@ -28,6 +28,8 @@ class TownHandler
     private $timeKeeper;
     private $citizen_handler;
 
+    private $building_cache = null;
+
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch)
     {
@@ -39,20 +41,22 @@ class TownHandler
         $this->citizen_handler = $ch;
     }
 
-    private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ) {
+    private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
 
         // Add building
-        $town->addBuilding( (new Building())->setPrototype( $prototype ) );
+        $town->addBuilding( $b = (new Building())->setPrototype( $prototype )->setPosition($prototype->getOrderBy()) );
 
         // Add all children that do not require blueprints
-        foreach ( $prototype->getChildren() as $child )
-            if ($child->getBlueprint() == 0) $this->internalAddBuilding( $town, $child );
+        if ($b)
+            foreach ( $prototype->getChildren() as $child )
+                if ($child->getBlueprint() == 0) $this->internalAddBuilding( $town, $child );
+        return $b;
     }
 
     public function triggerAlways( Town $town, bool $flush = false ) {
         $changed = false;
 
-        if ( $town->getDoor() && (($s = $this->timeKeeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
+        if ( $town->getDoor() && !$town->getDevastated() && (($s = $this->timeKeeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
 
             $close_ts = null;
             if ($this->getBuilding( $town, 'small_door_closed_#02', true )) {
@@ -139,28 +143,39 @@ class TownHandler
                         $this->entity_manager->persist($citizen);
                     }
                 break;
+            case "small_castle_#00":
+            case "small_pmvbig_#00":
+            case "small_wheel_#00":
+            case "small_crow_#00":
+                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                foreach ($town->getCitizens() as $citizen)
+                    if ($citizen->getAlive()) {
+                        $this->picto_handler->give_picto($citizen, $picto);
+                    }
+                break;
             default: break;
         }
     }
 
-    public function addBuilding( Town &$town, BuildingPrototype $prototype ): bool {
+    public function addBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
 
         // Do not add a building that already exist
         $parent_available = empty($prototype->getParent());
         foreach ($town->getBuildings() as $b) {
             if ($b->getPrototype()->getId() === $prototype->getId())
-                return false;
+                return $b;
             $parent_available = $parent_available || ($b->getPrototype()->getId() === $prototype->getParent()->getId());
         }
 
         // Do not add building if parent does not exist; skip for buildings without parent
-        if (!$parent_available) return false;
+        if (!$parent_available) return null;
 
-        $this->internalAddBuilding( $town, $prototype );
-        return true;
+        return $this->internalAddBuilding( $town, $prototype );
     }
 
-    public function getBuilding(Town &$town, $prototype, $finished = true): ?Building {
+    public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
+        //if (isset($this->building_cache[]))
+
         if (is_string($prototype))
             $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
 
@@ -270,6 +285,8 @@ class TownHandler
 
         if ($summary->item_defense > 500)
             $summary->item_defense = 500;
+
+        $summary->soul_defense = $town->getSoulDefense();
         
         return $summary->sum();
     }

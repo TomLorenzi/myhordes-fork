@@ -43,7 +43,7 @@ class Recipe
     private $type;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=32, nullable=true)
      */
     private $action;
 
@@ -63,6 +63,12 @@ class Recipe
      * @ORM\JoinColumn(nullable=false)
      */
     private $result;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\PictoPrototype")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $pictoPrototype;
 
     public function __construct()
     {
@@ -156,6 +162,18 @@ class Recipe
     public function setResult(?ItemGroup $result): self
     {
         $this->result = $result;
+
+        return $this;
+    }
+
+    public function getPictoPrototype(): ?PictoPrototype
+    {
+        return $this->pictoPrototype;
+    }
+
+    public function setPictoPrototype(?PictoPrototype $pictoPrototype): self
+    {
+        $this->pictoPrototype = $pictoPrototype;
 
         return $this;
     }

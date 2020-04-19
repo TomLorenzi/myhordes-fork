@@ -1,0 +1,82 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{ parent() }}
+    {% if app.user and not app.user.activeCitizen %}
+        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+    {% endif %}
+{% endblock %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-8">
+            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
+            <div class="row">
+                <div class="cell padded rw-12 rw-sm-12">
+                    <!-- TODO: Find better way to include news -->
+                    <h4>Changelog v0.2.0-alpha.14</h4>
+                    <div><b>Neue Funktionen</b></div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <b>Die meisten Spezialaktionen</b> (z.B. Haus aufräumen, Wasserwaffen auffüllen, Verteidigung organisieren) sind nun implementiert</li>
+                                <li>
+                                    <b>Metzgerei</b> ist nun implementiert</li>
+                                <li>Weitere Übersetzungen<br>
+                                </li>
+                            </ul>
+                            <div><b>Fehlerkorrekturen</b></div>
+                            <div>
+                                <ul>
+                                    <li>Kaffee erzeugt nicht länger den Betrunken-Status</li>
+                                    <li>Beim Zerstören eines Großen Stocks wird nun korrekterweise ein Kaputter Stock erzeugt</li>
+                                    <li>Fehler behoben, der Stehlen / Plündern verhinderte</li>
+                                    <li>Fehler behoben, durch den es in der Hausansicht anderer Bürger zu Darstellungsfehlern kam</li>
+                                    <li>Das Baupunkte-Icon wird nun wieder korrekt angezeigt</li>
+                                </ul>
+                                <div><b>Sonstiges</b></div>
+                                <div><ul>
+                                        <li>Anpassungen an Darstellung und Seitenlayout</li>
+                                        <li>Weitere Übersetzungen für Französisch und Englisch <i>(danke an <br>fdamned26)</i>
+                                        </li>
+                                    </ul></div>
+                            </div>
+                        </div>
+                    <h4>Changelog v0.2.0-alpha.13</h4>
+                    <div>Dieses Update ist etwas umfangreicher als es der kleine Versionssprung vermuten lässt. Bevor es mit dem Changelog losgeht, möchte ich gerne allen danken, die sich an der Entwicklung von MyHordes beteiligt haben: <i><b>CountCount, Adri und Ludofloria</b></i>
+                        </div>
+                        <div>
+                            <b>Neue Funktionen</b><br>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><b>Camping</b></li>
+                                <li><b>Chaos und Zerstörte Stadt</b></li>
+                                <li><b>Müllhalde</b></li>
+                                <li>Anzeige der Bürgerzahl und Berufe in der Bürgerübersicht</li>
+                                <li>Heldentafel</li>
+                                <li>Item-Beschreibungen</li>
+                                <li><b>Stadtübersichts-Seite</b></li>
+                                <li><b>Kleine Städte</b></li>
+                            </ul>
+                            <div><b>Fehlerkorrekturen</b></div>
+                            <div>
+                                <ul>
+                                    <li>Rückkehr des Helden funktioniert nun korrekt</li>
+                                    <li>Das Zombie-Radar des Aufklärers zeigt nun korrekte Werte an</li>
+                                    <li>Einige Waffen konnten fehlerhafterweise bei Erschöpfung nicht verwendet werden</li>
+                                    <li>Zahlreiche kleine Korrekturen</li>
+                                </ul>
+                                <div><b>Sonstiges</b></div>
+                                <div><ul>
+                                        <li>Alle beteiligten Entwickler sind jetzt unter "Programming" aufgeführt.</li>
+                                        <li>Zahlreiche Verbesserungen an der Benutzeroberfläche und den Übersetzungen</li>
+                                        <li>Spracheinstellung von Städten wird für die Benutzeroberfläche übernommen</li>
+                                        <li>Lokalisierte Grafiken<br>
+                                        </li>
+                                    </ul></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

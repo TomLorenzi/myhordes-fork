@@ -1,5 +1,9 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-bank time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+    </div>
 
     <div class="help">
         {% trans from 'game' %}
@@ -56,5 +60,26 @@
             '{{ path('town_bank_item_controller') }}',
             'up', '{{ path('town_bank') }}'
         );
+
+        const bankHandler = function() {
+            var input, filter, ul, li, img, i, txt;
+            input = document.getElementById('banksearch');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("bank-inventory");
+            li = ul.getElementsByTagName('li');
+
+            for (i = 0; i < li.length; i++) {
+                if (!li[i].classList.contains('category')) {
+                    img = li[i].getElementsByTagName("img");
+                    txt = img[0].alt;
+                    if (txt.toUpperCase().indexOf(filter) > -1) {
+                        li[i].classList.remove('blur');
+                    } else {
+                        li[i].classList.add('blur');
+                    }
+                }
+            }
+        };
+        document.getElementById('banksearch').addEventListener('keyup', bankHandler);
     </script>
 {% endblock %}

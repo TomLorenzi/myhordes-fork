@@ -1,4 +1,7 @@
-<ul class="inventory {% block class %}{% endblock %}">
+{% if bankmode is defined and bankmode %}
+    <input type="text" name="banksearch" id="banksearch" placeholder="{{ 'Gegenstände suchen'|trans({},'items') }}"/>
+{% endif %}
+<ul {% if bankmode is defined and bankmode %}id="bank-inventory"{% endif %} class="inventory {% block class %}{% endblock %}">
     {% if bankmode is not defined or not bankmode %}
         <li class="title">{% block title %}{% endblock %}</li>
         {% for item in items %}

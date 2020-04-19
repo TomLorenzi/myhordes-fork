@@ -1,854 +1,2171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="de" target-language="en" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="dFL__mK" resname="Wassergraben">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="en">
+  <file id="buildings.en">
+    <unit id="dFL__mK" name="Wassergraben">
+      <notes>
+        <note>Wassergraben</note>
+        <note category="german">Wassergraben</note>
+      </notes>
+      <segment>
         <source>Wassergraben</source>
         <target>Great Moat</target>
-      </trans-unit>
-      <trans-unit id="pmF7FgU" resname="Großer Graben">
+      </segment>
+    </unit>
+    <unit id="pmF7FgU" name="Großer Graben">
+      <notes>
+        <note>Großer Graben</note>
+        <note category="german">Großer Graben</note>
+      </notes>
+      <segment>
         <source>Großer Graben</source>
         <target>Great Pit</target>
-      </trans-unit>
-      <trans-unit id="39k_QT1" resname="Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.">
+      </segment>
+    </unit>
+    <unit id="39k_QT1" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.">
+      <notes>
+        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</note>
+        <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</target>
-      </trans-unit>
-      <trans-unit id="mkCln4o" resname="Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.">
+        <target>The Great Pit gives an additional 23 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="mkCln4o" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.">
+      <notes>
+        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</note>
+        <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</target>
-      </trans-unit>
-      <trans-unit id="7ohJiNu" resname="Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.">
+        <target>The Great Pit gives an additional 44 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="7ohJiNu" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.">
+      <notes>
+        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</note>
+        <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</target>
-      </trans-unit>
-      <trans-unit id="wvQCfMZ" resname="Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.">
+        <target>The Great Pit gives an additional 76 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="wvQCfMZ" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.">
+      <notes>
+        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</note>
+        <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</target>
-      </trans-unit>
-      <trans-unit id="HL3IJ3X" resname="Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.">
+        <target>The Great Pit gives an additional 109 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="HL3IJ3X" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.">
+      <notes>
+        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</note>
+        <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</target>
-      </trans-unit>
-      <trans-unit id="wlt3nkJ" resname="Rasierklingenmauer">
+        <target>The Great Pit gives an additional 160 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="wlt3nkJ" name="Rasierklingenmauer">
+      <notes>
+        <note>Rasierklingenmauer</note>
+        <note category="german">Rasierklingenmauer</note>
+      </notes>
+      <segment>
         <source>Rasierklingenmauer</source>
         <target>Grater</target>
-      </trans-unit>
-      <trans-unit id="nDqxP50" resname="Pfahlgraben">
+      </segment>
+    </unit>
+    <unit id="nDqxP50" name="Pfahlgraben">
+      <notes>
+        <note>Pfahlgraben</note>
+        <note category="german">Pfahlgraben</note>
+      </notes>
+      <segment>
         <source>Pfahlgraben</source>
         <target>Spiked Pit</target>
-      </trans-unit>
-      <trans-unit id="CrQIj8M" resname="Köder">
+      </segment>
+    </unit>
+    <unit id="CrQIj8M" name="Köder">
+      <notes>
+        <note>Köder</note>
+        <note category="german">Köder</note>
+      </notes>
+      <segment>
         <source>Köder</source>
         <target>Bait</target>
-      </trans-unit>
-      <trans-unit id="I6Ou0iS" resname="Stacheldraht">
+      </segment>
+    </unit>
+    <unit id="I6Ou0iS" name="Stacheldraht">
+      <notes>
+        <note>Stacheldraht</note>
+        <note category="german">Stacheldraht</note>
+      </notes>
+      <segment>
         <source>Stacheldraht</source>
         <target>Barbed Wire</target>
-      </trans-unit>
-      <trans-unit id="N_IRvC9" resname="Weiterentwickelte Stadtmauer">
+      </segment>
+    </unit>
+    <unit id="N_IRvC9" name="Weiterentwickelte Stadtmauer">
+      <notes>
+        <note>Weiterentwickelte Stadtmauer</note>
+        <note category="german">Weiterentwickelte Stadtmauer</note>
+      </notes>
+      <segment>
         <source>Weiterentwickelte Stadtmauer</source>
         <target>Wall Upgrade v2</target>
-      </trans-unit>
-      <trans-unit id="HbQ4h88" resname="Groooße Mauer">
+      </segment>
+    </unit>
+    <unit id="HbQ4h88" name="Groooße Mauer">
+      <notes>
+        <note>Groooße Mauer</note>
+        <note category="german">Groooße Mauer</note>
+      </notes>
+      <segment>
         <source>Groooße Mauer</source>
         <target>Überwall</target>
-      </trans-unit>
-      <trans-unit id="rrm6H8d" resname="Zackenmauer">
+      </segment>
+    </unit>
+    <unit id="rrm6H8d" name="Zackenmauer">
+      <notes>
+        <note>Zackenmauer</note>
+        <note category="german">Zackenmauer</note>
+      </notes>
+      <segment>
         <source>Zackenmauer</source>
         <target>Spiked Wall</target>
-      </trans-unit>
-      <trans-unit id="2g3app1" resname="Dritte Schicht">
+      </segment>
+    </unit>
+    <unit id="2g3app1" name="Dritte Schicht">
+      <notes>
+        <note>Dritte Schicht</note>
+        <note category="german">Dritte Schicht</note>
+      </notes>
+      <segment>
         <source>Dritte Schicht</source>
         <target>Third Wall</target>
-      </trans-unit>
-      <trans-unit id="9lvn8i4" resname="Zweite Schicht">
+      </segment>
+    </unit>
+    <unit id="9lvn8i4" name="Zweite Schicht">
+      <notes>
+        <note>Zweite Schicht</note>
+        <note category="german">Zweite Schicht</note>
+      </notes>
+      <segment>
         <source>Zweite Schicht</source>
         <target>Inner Wall</target>
-      </trans-unit>
-      <trans-unit id="Y45k2Pv" resname="Betonschicht">
+      </segment>
+    </unit>
+    <unit id="Y45k2Pv" name="Betonschicht">
+      <notes>
+        <note>Betonschicht</note>
+        <note category="german">Betonschicht</note>
+      </notes>
+      <segment>
         <source>Betonschicht</source>
         <target>Concrete Reinforcement</target>
-      </trans-unit>
-      <trans-unit id="jULo0MF" resname="Entwicklungsfähige Stadtmauer">
+      </segment>
+    </unit>
+    <unit id="jULo0MF" name="Entwicklungsfähige Stadtmauer">
+      <notes>
+        <note>Entwicklungsfähige Stadtmauer</note>
+        <note category="german">Entwicklungsfähige Stadtmauer</note>
+      </notes>
+      <segment>
         <source>Entwicklungsfähige Stadtmauer</source>
         <target>Evolutive Wall</target>
-      </trans-unit>
-      <trans-unit id="i.v_PDf" resname="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.">
+      </segment>
+    </unit>
+    <unit id="i.v_PDf" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.">
+      <notes>
+        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</note>
+        <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</target>
-      </trans-unit>
-      <trans-unit id="jlp8Fv_" resname="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.">
+        <target>The Evolutive Wall gives an additional 85 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="jlp8Fv_" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.">
+      <notes>
+        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</note>
+        <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</target>
-      </trans-unit>
-      <trans-unit id="is67H0y" resname="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.">
+        <target>The Evolutive Wall gives an additional 120 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="is67H0y" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.">
+      <notes>
+        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</note>
+        <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</target>
-      </trans-unit>
-      <trans-unit id="V.Pp1rj" resname="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.">
+        <target>The Evolutive Wall gives an additional 170 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="V.Pp1rj" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.">
+      <notes>
+        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</note>
+        <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</target>
-      </trans-unit>
-      <trans-unit id="HaXbtuP" resname="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.">
+        <target>The Evolutive Wall gives an additional 235 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="HaXbtuP" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.">
+      <notes>
+        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</note>
+        <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</target>
-      </trans-unit>
-      <trans-unit id="lgS6PS2" resname="Verstärkende Balken">
+        <target>The Evolutive Wall gives an additional 315 defence points.</target>
+      </segment>
+    </unit>
+    <unit id="lgS6PS2" name="Verstärkende Balken">
+      <notes>
+        <note>Verstärkende Balken</note>
+        <note category="german">Verstärkende Balken</note>
+      </notes>
+      <segment>
         <source>Verstärkende Balken</source>
         <target>Metal Patches</target>
-      </trans-unit>
-      <trans-unit id="GP9xakw" resname="Zombiereibe">
+      </segment>
+    </unit>
+    <unit id="GP9xakw" name="Zombiereibe">
+      <notes>
+        <note>Zombiereibe</note>
+        <note category="german">Zombiereibe</note>
+      </notes>
+      <segment>
         <source>Zombiereibe</source>
         <target>Zombie Grater</target>
-      </trans-unit>
-      <trans-unit id="FMhDGIY" resname="Fallgruben">
+      </segment>
+    </unit>
+    <unit id="FMhDGIY" name="Fallgruben">
+      <notes>
+        <note>Fallgruben</note>
+        <note category="german">Fallgruben</note>
+      </notes>
+      <segment>
         <source>Fallgruben</source>
         <target>Old-school traps</target>
-      </trans-unit>
-      <trans-unit id="rCdMakD" resname="Zaun">
+      </segment>
+    </unit>
+    <unit id="rCdMakD" name="Zaun">
+      <notes>
+        <note>Zaun</note>
+        <note category="german">Zaun</note>
+      </notes>
+      <segment>
         <source>Zaun</source>
         <target>Wooden Fencing</target>
-      </trans-unit>
-      <trans-unit id="1VFjm8C" resname="Holzzaun">
+      </segment>
+    </unit>
+    <unit id="1VFjm8C" name="Holzzaun">
+      <notes>
+        <note>Holzzaun</note>
+        <note category="german">Holzzaun</note>
+      </notes>
+      <segment>
         <source>Holzzaun</source>
         <target>Small Fence</target>
-      </trans-unit>
-      <trans-unit id="sUMdYSq" resname="Sperrholz">
+      </segment>
+    </unit>
+    <unit id="sUMdYSq" name="Sperrholz">
+      <notes>
+        <note>Sperrholz</note>
+        <note category="german">Sperrholz</note>
+      </notes>
+      <segment>
         <source>Sperrholz</source>
         <target>Plywood</target>
-      </trans-unit>
-      <trans-unit id="XQiF0XP" resname="Rüstungsplatten 3.0">
+      </segment>
+    </unit>
+    <unit id="XQiF0XP" name="Rüstungsplatten 3.0">
+      <notes>
+        <note>Rüstungsplatten 3.0</note>
+        <note category="german">Rüstungsplatten 3.0</note>
+      </notes>
+      <segment>
         <source>Rüstungsplatten 3.0</source>
         <target>Armour Plating v3</target>
-      </trans-unit>
-      <trans-unit id="00gaKK_" resname="Extramauer">
+      </segment>
+    </unit>
+    <unit id="00gaKK_" name="Extramauer">
+      <notes>
+        <note>Extramauer</note>
+        <note category="german">Extramauer</note>
+      </notes>
+      <segment>
         <source>Extramauer</source>
         <target>Extrawall</target>
-      </trans-unit>
-      <trans-unit id="zlG5ILw" resname="Rüstungsplatten">
+      </segment>
+    </unit>
+    <unit id="zlG5ILw" name="Rüstungsplatten">
+      <notes>
+        <note>Rüstungsplatten</note>
+        <note category="german">Rüstungsplatten</note>
+      </notes>
+      <segment>
         <source>Rüstungsplatten</source>
         <target>Armour Plating</target>
-      </trans-unit>
-      <trans-unit id="95xxaU2" resname="Rüstungsplatten 2.0">
+      </segment>
+    </unit>
+    <unit id="95xxaU2" name="Rüstungsplatten 2.0">
+      <notes>
+        <note>Rüstungsplatten 2.0</note>
+        <note category="german">Rüstungsplatten 2.0</note>
+      </notes>
+      <segment>
         <source>Rüstungsplatten 2.0</source>
         <target>Armour Plating v2</target>
-      </trans-unit>
-      <trans-unit id="XbhNL1e" resname="Einseifer">
+      </segment>
+    </unit>
+    <unit id="XbhNL1e" name="Einseifer">
+      <notes>
+        <note>Einseifer</note>
+        <note category="german">Einseifer</note>
+      </notes>
+      <segment>
         <source>Einseifer</source>
         <target>Slip 'n' Slide</target>
-      </trans-unit>
-      <trans-unit id="3q79VCE" resname="Spraykanone">
+      </segment>
+    </unit>
+    <unit id="3q79VCE" name="Spraykanone">
+      <notes>
+        <note>Spraykanone</note>
+        <note category="german">Spraykanone</note>
+      </notes>
+      <segment>
         <source>Spraykanone</source>
         <target>Gas Gun</target>
-      </trans-unit>
-      <trans-unit id="2NZcCax" resname="Säurespray">
+      </segment>
+    </unit>
+    <unit id="2NZcCax" name="Säurespray">
+      <notes>
+        <note>Säurespray</note>
+        <note category="german">Säurespray</note>
+      </notes>
+      <segment>
         <source>Säurespray</source>
         <target>Acid Spray</target>
-      </trans-unit>
-      <trans-unit id="i0za.Ug" resname="Zerstäuber">
+      </segment>
+    </unit>
+    <unit id="i0za.Ug" name="Zerstäuber">
+      <notes>
+        <note>Zerstäuber</note>
+        <note category="german">Zerstäuber</note>
+      </notes>
+      <segment>
         <source>Zerstäuber</source>
         <target>Vaporiser</target>
-      </trans-unit>
-      <trans-unit id="uQSIZwY" resname="Verstärkte Stadtmauer">
+      </segment>
+    </unit>
+    <unit id="uQSIZwY" name="Verstärkte Stadtmauer">
+      <notes>
+        <note>Verstärkte Stadtmauer</note>
+        <note category="german">Verstärkte Stadtmauer</note>
+      </notes>
+      <segment>
         <source>Verstärkte Stadtmauer</source>
         <target>Wall Upgrade v1</target>
-      </trans-unit>
-      <trans-unit id="2gSRbEU" resname="Minen">
+      </segment>
+    </unit>
+    <unit id="2gSRbEU" name="Minen">
+      <notes>
+        <note>Minen</note>
+        <note category="german">Minen</note>
+      </notes>
+      <segment>
         <source>Minen</source>
         <target>Mines</target>
-      </trans-unit>
-      <trans-unit id="rCKz3m3" resname="Wasserfilter">
+      </segment>
+    </unit>
+    <unit id="rCKz3m3" name="Wasserfilter">
+      <notes>
+        <note>Wasserfilter</note>
+        <note category="german">Wasserfilter</note>
+      </notes>
+      <segment>
         <source>Wasserfilter</source>
         <target>Water Filter</target>
-      </trans-unit>
-      <trans-unit id="14diVFD" resname="Wasserreiniger">
+      </segment>
+    </unit>
+    <unit id="14diVFD" name="Wasserreiniger">
+      <notes>
+        <note>Wasserreiniger</note>
+        <note category="german">Wasserreiniger</note>
+      </notes>
+      <segment>
         <source>Wasserreiniger</source>
         <target>Water Purifier</target>
-      </trans-unit>
-      <trans-unit id="MHnbW88" resname="Dünger">
+      </segment>
+    </unit>
+    <unit id="MHnbW88" name="Dünger">
+      <notes>
+        <note>Dünger</note>
+        <note category="german">Dünger</note>
+      </notes>
+      <segment>
         <source>Dünger</source>
         <target>Fertilizer</target>
-      </trans-unit>
-      <trans-unit id="kP2Srb9" resname="Granatapfel">
+      </segment>
+    </unit>
+    <unit id="kP2Srb9" name="Granatapfel">
+      <notes>
+        <note>Granatapfel</note>
+        <note category="german">Granatapfel</note>
+      </notes>
+      <segment>
         <source>Granatapfel</source>
         <target>Grapeboom</target>
-      </trans-unit>
-      <trans-unit id="ruRpI7F" resname="Gemüsebeet">
+      </segment>
+    </unit>
+    <unit id="ruRpI7F" name="Gemüsebeet">
+      <notes>
+        <note>Gemüsebeet</note>
+        <note category="german">Gemüsebeet</note>
+      </notes>
+      <segment>
         <source>Gemüsebeet</source>
         <target>Vegetable Plot</target>
-      </trans-unit>
-      <trans-unit id="aMK4lTK" resname="Projekt Eden">
+      </segment>
+    </unit>
+    <unit id="aMK4lTK" name="Projekt Eden">
+      <notes>
+        <note>Projekt Eden</note>
+        <note category="german">Projekt Eden</note>
+      </notes>
+      <segment>
         <source>Projekt Eden</source>
         <target>Eden Project</target>
-      </trans-unit>
-      <trans-unit id="g7vkdOB" resname="Brunnenbohrer">
+      </segment>
+    </unit>
+    <unit id="g7vkdOB" name="Brunnenbohrer">
+      <notes>
+        <note>Brunnenbohrer</note>
+        <note category="german">Brunnenbohrer</note>
+      </notes>
+      <segment>
         <source>Brunnenbohrer</source>
         <target>Drilling Rig</target>
-      </trans-unit>
-      <trans-unit id="18uh4Vj" resname="Kärcher">
+      </segment>
+    </unit>
+    <unit id="18uh4Vj" name="Kärcher">
+      <notes>
+        <note>Kärcher</note>
+        <note category="german">Kärcher</note>
+      </notes>
+      <segment>
         <source>Kärcher</source>
         <target>Boiling Fog</target>
-      </trans-unit>
-      <trans-unit id="CfQ_Bib" resname="Kreischender Rotor">
+      </segment>
+    </unit>
+    <unit id="CfQ_Bib" name="Kreischender Rotor">
+      <notes>
+        <note>Kreischender Rotor</note>
+        <note category="german">Kreischender Rotor</note>
+      </notes>
+      <segment>
         <source>Kreischender Rotor</source>
         <target>Saniflow Macerator</target>
-      </trans-unit>
-      <trans-unit id="OcCCWxy" resname="Sprinkleranlage">
+      </segment>
+    </unit>
+    <unit id="OcCCWxy" name="Sprinkleranlage">
+      <notes>
+        <note>Sprinkleranlage</note>
+        <note category="german">Sprinkleranlage</note>
+      </notes>
+      <segment>
         <source>Sprinkleranlage</source>
         <target>Automatic Sprinkler</target>
-      </trans-unit>
-      <trans-unit id="MULCyIk" resname="Dusche">
+      </segment>
+    </unit>
+    <unit id="MULCyIk" name="Dusche">
+      <notes>
+        <note>Dusche</note>
+        <note category="german">Dusche</note>
+      </notes>
+      <segment>
         <source>Dusche</source>
         <target>Shower</target>
-      </trans-unit>
-      <trans-unit id="7j0r7B9" resname="Wasserleitungsnetz">
+      </segment>
+    </unit>
+    <unit id="7j0r7B9" name="Wasserleitungsnetz">
+      <notes>
+        <note>Wasserleitungsnetz</note>
+        <note category="german">Wasserleitungsnetz</note>
+      </notes>
+      <segment>
         <source>Wasserleitungsnetz</source>
         <target>Hydraulic Network</target>
-      </trans-unit>
-      <trans-unit id="Rhgjmll" resname="Wasserturm">
+      </segment>
+    </unit>
+    <unit id="Rhgjmll" name="Wasserturm">
+      <notes>
+        <note>Wasserturm</note>
+        <note category="german">Wasserturm</note>
+      </notes>
+      <segment>
         <source>Wasserturm</source>
         <target>Water Turrets</target>
-      </trans-unit>
-      <trans-unit id="_TjOaCj" resname="Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.">
+      </segment>
+    </unit>
+    <unit id="_TjOaCj" name="37ac031">
+      <notes>
+        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</note>
+        <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</note>
+      </notes>
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</target>
-      </trans-unit>
-      <trans-unit id="L6.6ahS" resname="Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.">
+        <target>The Water Turrets is multiply by 1.8 (126 defense points), but cost 2 water rations per night.</target>
+      </segment>
+    </unit>
+    <unit id="L6.6ahS" name="3d8658d">
+      <notes>
+        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</note>
+        <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</note>
+      </notes>
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</target>
-      </trans-unit>
-      <trans-unit id="P7EINL." resname="Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.">
+        <target>The Water Turrets is multiply by 2.6 (182 defense points), but cost 4 water rations per night.</target>
+      </segment>
+    </unit>
+    <unit id="P7EINL." name="6f7c0d3">
+      <notes>
+        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</note>
+        <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</note>
+      </notes>
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</target>
-      </trans-unit>
-      <trans-unit id="Y_jBf_Y" resname="Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.">
+        <target>The Water Turrets is multiply by 3.4 (238 defense points), but cost 6 water rations per night.</target>
+      </segment>
+    </unit>
+    <unit id="Y_jBf_Y" name="c9e1750">
+      <notes>
+        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</note>
+        <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</note>
+      </notes>
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</target>
-      </trans-unit>
-      <trans-unit id="94xxibL" resname="Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.">
+        <target>The Water Turrets is multiply by 4.2 (294 defense points), but cost 9 water rations per night.</target>
+      </segment>
+    </unit>
+    <unit id="94xxibL" name="a56e37e">
+      <notes>
+        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</note>
+        <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</note>
+      </notes>
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</source>
-        <target>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</target>
-      </trans-unit>
-      <trans-unit id="aD._KEu" resname="Wasserfänger">
+        <target>The Water Turrets is multiply by 5 (350 defense points), but cost 12 water rations per night.</target>
+      </segment>
+    </unit>
+    <unit id="aD._KEu" name="Wasserfänger">
+      <notes>
+        <note>Wasserfänger</note>
+        <note category="german">Wasserfänger</note>
+      </notes>
+      <segment>
         <source>Wasserfänger</source>
         <target>Water Catcher</target>
-      </trans-unit>
-      <trans-unit id="ABN1XUN" resname="Wasserkanone">
+      </segment>
+    </unit>
+    <unit id="ABN1XUN" name="Wasserkanone">
+      <notes>
+        <note>Wasserkanone</note>
+        <note category="german">Wasserkanone</note>
+      </notes>
+      <segment>
         <source>Wasserkanone</source>
         <target>Mist Spray</target>
-      </trans-unit>
-      <trans-unit id="gCJBWWD" resname="Schleuse">
+      </segment>
+    </unit>
+    <unit id="gCJBWWD" name="Schleuse">
+      <notes>
+        <note>Schleuse</note>
+        <note category="german">Schleuse</note>
+      </notes>
+      <segment>
         <source>Schleuse</source>
         <target>Sluice</target>
-      </trans-unit>
-      <trans-unit id="qo4gzuN" resname="Wasserfall">
+      </segment>
+    </unit>
+    <unit id="qo4gzuN" name="Wasserfall">
+      <notes>
+        <note>Wasserfall</note>
+        <note category="german">Wasserfall</note>
+      </notes>
+      <segment>
         <source>Wasserfall</source>
         <target>Decon Shower</target>
-      </trans-unit>
-      <trans-unit id="bZnWnKs" resname="Wünschelrakete">
+      </segment>
+    </unit>
+    <unit id="bZnWnKs" name="Wünschelrakete">
+      <notes>
+        <note>Wünschelrakete</note>
+        <note category="german">Wünschelrakete</note>
+      </notes>
+      <segment>
         <source>Wünschelrakete</source>
         <target>Divining Rocket</target>
-      </trans-unit>
-      <trans-unit id="kBVya6M" resname="Wünschelrute">
+      </segment>
+    </unit>
+    <unit id="kBVya6M" name="Wünschelrute">
+      <notes>
+        <note>Wünschelrute</note>
+        <note category="german">Wünschelrute</note>
+      </notes>
+      <segment>
         <source>Wünschelrute</source>
         <target>Divining Rods</target>
-      </trans-unit>
-      <trans-unit id="FL6iCcw" resname="Apfelbaum">
+      </segment>
+    </unit>
+    <unit id="FL6iCcw" name="Apfelbaum">
+      <notes>
+        <note>Apfelbaum</note>
+        <note category="german">Apfelbaum</note>
+      </notes>
+      <segment>
         <source>Apfelbaum</source>
         <target>Apple Tree</target>
-      </trans-unit>
-      <trans-unit id="sfG6Jkq" resname="Pumpe">
+      </segment>
+    </unit>
+    <unit id="sfG6Jkq" name="Pumpe">
+      <notes>
+        <note>Pumpe</note>
+        <note category="german">Pumpe</note>
+      </notes>
+      <segment>
         <source>Pumpe</source>
         <target>Pump</target>
-      </trans-unit>
-      <trans-unit id="soE_FyU" resname="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
+      </segment>
+    </unit>
+    <unit id="soE_FyU" name="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
+      <notes>
+        <note>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
+        <note category="german">Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
+      </notes>
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</target>
-      </trans-unit>
-      <trans-unit id="1gviUPR" resname="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
+        <target>Add 5 water rations to the well (one time only).</target>
+      </segment>
+    </unit>
+    <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
+      <notes>
+        <note>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
+        <note category="german">Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
+      </notes>
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</target>
-      </trans-unit>
-      <trans-unit id="IAeAAwG" resname="Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt">
+        <target>Add 20 water rations to the well (one time only).</target>
+      </segment>
+    </unit>
+    <unit id="IAeAAwG" name="Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt">
+      <notes>
+        <note>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</note>
+        <note category="german">Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</note>
+      </notes>
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</target>
-      </trans-unit>
-      <trans-unit id="cLG_5i1" resname="Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt">
+        <target>Add 30 water rations to the well (one time only).</target>
+      </segment>
+    </unit>
+    <unit id="cLG_5i1" name="Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt">
+      <notes>
+        <note>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</note>
+        <note category="german">Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</note>
+      </notes>
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</target>
-      </trans-unit>
-      <trans-unit id="Mjl71we" resname="Kremato-Cue">
+        <target>Add 40 water rations to the well (one time only).</target>
+      </segment>
+    </unit>
+    <unit id="Mjl71we" name="Kremato-Cue">
+      <notes>
+        <note>Kremato-Cue</note>
+        <note category="german">Kremato-Cue</note>
+      </notes>
+      <segment>
         <source>Kremato-Cue</source>
         <target>Cremato-Cue</target>
-      </trans-unit>
-      <trans-unit id="j.YCYvG" resname="Metzgerei">
+      </segment>
+    </unit>
+    <unit id="j.YCYvG" name="Metzgerei">
+      <notes>
+        <note>Metzgerei</note>
+        <note category="german">Metzgerei</note>
+      </notes>
+      <segment>
         <source>Metzgerei</source>
         <target>Butcher</target>
-      </trans-unit>
-      <trans-unit id="aejltM1" resname="Verteidigungsanlage">
+      </segment>
+    </unit>
+    <unit id="aejltM1" name="Verteidigungsanlage">
+      <notes>
+        <note>Verteidigungsanlage</note>
+        <note category="german">Verteidigungsanlage</note>
+      </notes>
+      <segment>
         <source>Verteidigungsanlage</source>
         <target>Defensive Focus</target>
-      </trans-unit>
-      <trans-unit id="u73yQTm" resname="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.">
+      </segment>
+    </unit>
+    <unit id="u73yQTm" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.">
+      <notes>
+        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</note>
+        <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</target>
-      </trans-unit>
-      <trans-unit id="GLo_FzK" resname="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
+        <target>Each defence object in the bank gives 1 defence points to the town.</target>
+      </segment>
+    </unit>
+    <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
+      <notes>
+        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</note>
+        <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</target>
-      </trans-unit>
-      <trans-unit id="l3tFIbP" resname="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
+        <target>Each defence object in the bank gives 1.5 defence points to the town.</target>
+      </segment>
+    </unit>
+    <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
+      <notes>
+        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</note>
+        <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</target>
-      </trans-unit>
-      <trans-unit id="FXvZuCC" resname="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
+        <target>Each defence object in the bank gives 2 defence points to the town.</target>
+      </segment>
+    </unit>
+    <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
+      <notes>
+        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</note>
+        <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</target>
-      </trans-unit>
-      <trans-unit id="fPl.xwk" resname="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
+        <target>Each defence object in the bank gives 2.5 defence points to the town.</target>
+      </segment>
+    </unit>
+    <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
+      <notes>
+        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</note>
+        <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</note>
+      </notes>
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</target>
-      </trans-unit>
-      <trans-unit id="Vln90x5" resname="Steinkanone">
+        <target>Each defence object in the bank gives 3 defence points to the town.</target>
+      </segment>
+    </unit>
+    <unit id="Vln90x5" name="Steinkanone">
+      <notes>
+        <note>Steinkanone</note>
+        <note category="german">Steinkanone</note>
+      </notes>
+      <segment>
         <source>Steinkanone</source>
         <target>Rock Cannon</target>
-      </trans-unit>
-      <trans-unit id="u_k83kB" resname="Selbstgebaute Railgun">
+      </segment>
+    </unit>
+    <unit id="u_k83kB" name="Selbstgebaute Railgun">
+      <notes>
+        <note>Selbstgebaute Railgun</note>
+        <note category="german">Selbstgebaute Railgun</note>
+      </notes>
+      <segment>
         <source>Selbstgebaute Railgun</source>
         <target>Railgun</target>
-      </trans-unit>
-      <trans-unit id="Vj3WnMj" resname="Blechplattenwerfer">
+      </segment>
+    </unit>
+    <unit id="Vj3WnMj" name="Blechplattenwerfer">
+      <notes>
+        <note>Blechplattenwerfer</note>
+        <note category="german">Blechplattenwerfer</note>
+      </notes>
+      <segment>
         <source>Blechplattenwerfer</source>
         <target>Plate Gun</target>
-      </trans-unit>
-      <trans-unit id="CAZwcmO" resname="Brutale Kanone">
+      </segment>
+    </unit>
+    <unit id="CAZwcmO" name="Brutale Kanone">
+      <notes>
+        <note>Brutale Kanone</note>
+        <note category="german">Brutale Kanone</note>
+      </notes>
+      <segment>
         <source>Brutale Kanone</source>
         <target>Brutal Cannon</target>
-      </trans-unit>
-      <trans-unit id="ZyMPQfA" resname="Kanonenhügel">
+      </segment>
+    </unit>
+    <unit id="ZyMPQfA" name="Kanonenhügel">
+      <notes>
+        <note>Kanonenhügel</note>
+        <note category="german">Kanonenhügel</note>
+      </notes>
+      <segment>
         <source>Kanonenhügel</source>
         <target>Cannone Mounds</target>
-      </trans-unit>
-      <trans-unit id="fXSFcSL" resname="Holzbalkendrehkreuz">
+      </segment>
+    </unit>
+    <unit id="fXSFcSL" name="Holzbalkendrehkreuz">
+      <notes>
+        <note>Holzbalkendrehkreuz</note>
+        <note category="german">Holzbalkendrehkreuz</note>
+      </notes>
+      <segment>
         <source>Holzbalkendrehkreuz</source>
         <target>War Mill</target>
-      </trans-unit>
-      <trans-unit id="G2Xnwsv" resname="Manufaktur">
+      </segment>
+    </unit>
+    <unit id="G2Xnwsv" name="Manufaktur">
+      <notes>
+        <note>Manufaktur</note>
+        <note category="german">Manufaktur</note>
+      </notes>
+      <segment>
         <source>Manufaktur</source>
         <target>Factory</target>
-      </trans-unit>
-      <trans-unit id="885G31O" resname="Kreischende Sägen">
+      </segment>
+    </unit>
+    <unit id="885G31O" name="Kreischende Sägen">
+      <notes>
+        <note>Kreischende Sägen</note>
+        <note category="german">Kreischende Sägen</note>
+      </notes>
+      <segment>
         <source>Kreischende Sägen</source>
         <target>Screaming Saws</target>
-      </trans-unit>
-      <trans-unit id="EicSNbc" resname="Bauhaus">
+      </segment>
+    </unit>
+    <unit id="EicSNbc" name="Bauhaus">
+      <notes>
+        <note>Bauhaus</note>
+        <note category="german">Bauhaus</note>
+      </notes>
+      <segment>
         <source>Bauhaus</source>
         <target>Building Registry</target>
-      </trans-unit>
-      <trans-unit id="apLtnCI" resname="Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.">
+      </segment>
+    </unit>
+    <unit id="apLtnCI" name="be80c53">
+      <notes>
+        <note>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
+        <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
+      </notes>
+      <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
-      </trans-unit>
-      <trans-unit id="GIcE44t" resname="Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.">
+        <target>The Town will receive 4 common blueprints after the attack (maybe a surprise too?)</target>
+      </segment>
+    </unit>
+    <unit id="GIcE44t" name="bfa9448">
+      <notes>
+        <note>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
+        <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
+      </notes>
+      <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
-      </trans-unit>
-      <trans-unit id="4TGJ0Dx" resname="Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.">
+        <target>The Town will receive 2 common blueprints, 2 uncommon blueprints and 2 rare blueprints after the attack (maybe a surprise too?)</target>
+      </segment>
+    </unit>
+    <unit id="4TGJ0Dx" name="ec0b7ad">
+      <notes>
+        <note>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
+        <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
+      </notes>
+      <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
-      </trans-unit>
-      <trans-unit id="erBRQsV" resname="Baustellenbuch">
+        <target>The Town will receive 2 uncommon blueprints and 2 rare blueprints after the attack (maybe a surprise too?)</target>
+      </segment>
+    </unit>
+    <unit id="erBRQsV" name="Baustellenbuch">
+      <notes>
+        <note>Baustellenbuch</note>
+        <note category="german">Baustellenbuch</note>
+      </notes>
+      <segment>
         <source>Baustellenbuch</source>
-        <target>Architect's Study</target>
-      </trans-unit>
-      <trans-unit id="Cou_v9E" resname="Galgen">
+        <target>Architect’s Study</target>
+      </segment>
+    </unit>
+    <unit id="Cou_v9E" name="Galgen">
+      <notes>
+        <note>Galgen</note>
+        <note category="german">Galgen</note>
+      </notes>
+      <segment>
         <source>Galgen</source>
         <target>Gallows</target>
-      </trans-unit>
-      <trans-unit id="3ZbLUsz" resname="Kleines Cafe">
+      </segment>
+    </unit>
+    <unit id="3ZbLUsz" name="Kleines Cafe">
+      <notes>
+        <note>Kleines Cafe</note>
+        <note category="german">Kleines Cafe</note>
+      </notes>
+      <segment>
         <source>Kleines Cafe</source>
         <target>Small Café</target>
-      </trans-unit>
-      <trans-unit id="fIiQQtV" resname="Sarg-Katapult">
+      </segment>
+    </unit>
+    <unit id="fIiQQtV" name="Sarg-Katapult">
+      <notes>
+        <note>Sarg-Katapult</note>
+        <note category="german">Sarg-Katapult</note>
+      </notes>
+      <segment>
         <source>Sarg-Katapult</source>
         <target>Coffin Catapult</target>
-      </trans-unit>
-      <trans-unit id="Ddy6W0H" resname="Kleiner Friedhof">
+      </segment>
+    </unit>
+    <unit id="Ddy6W0H" name="Kleiner Friedhof">
+      <notes>
+        <note>Kleiner Friedhof</note>
+        <note category="german">Kleiner Friedhof</note>
+      </notes>
+      <segment>
         <source>Kleiner Friedhof</source>
         <target>Small Cemetary</target>
-      </trans-unit>
-      <trans-unit id="FN3dAwg" resname="Hühnerstall">
+      </segment>
+    </unit>
+    <unit id="FN3dAwg" name="Hühnerstall">
+      <notes>
+        <note>Hühnerstall</note>
+        <note category="german">Hühnerstall</note>
+      </notes>
+      <segment>
         <source>Hühnerstall</source>
         <target>Henhouse</target>
-      </trans-unit>
-      <trans-unit id="rvXKPYg" resname="Schlachthof">
+      </segment>
+    </unit>
+    <unit id="rvXKPYg" name="Schlachthof">
+      <notes>
+        <note>Schlachthof</note>
+        <note category="german">Schlachthof</note>
+      </notes>
+      <segment>
         <source>Schlachthof</source>
         <target>Abbatoir</target>
-      </trans-unit>
-      <trans-unit id="Fs4XN5W" resname="Pentagon">
+      </segment>
+    </unit>
+    <unit id="Fs4XN5W" name="Pentagon">
+      <notes>
+        <note>Pentagon</note>
+        <note category="german">Pentagon</note>
+      </notes>
+      <segment>
         <source>Pentagon</source>
         <target>Defensive Thinktank</target>
-      </trans-unit>
-      <trans-unit id="NBHNMKt" resname="Kantine">
+      </segment>
+    </unit>
+    <unit id="NBHNMKt" name="Kantine">
+      <notes>
+        <note>Kantine</note>
+        <note category="german">Kantine</note>
+      </notes>
+      <segment>
         <source>Kantine</source>
         <target>Central Cafeteria</target>
-      </trans-unit>
-      <trans-unit id="jaLVdqp" resname="Bollwerk">
+      </segment>
+    </unit>
+    <unit id="jaLVdqp" name="Bollwerk">
+      <notes>
+        <note>Bollwerk</note>
+        <note category="german">Bollwerk</note>
+      </notes>
+      <segment>
         <source>Bollwerk</source>
         <target>Community Involvement</target>
-      </trans-unit>
-      <trans-unit id="zkW4TlC" resname="Baumarkt">
+      </segment>
+    </unit>
+    <unit id="zkW4TlC" name="Baumarkt">
+      <notes>
+        <note>Baumarkt</note>
+        <note category="german">Baumarkt</note>
+      </notes>
+      <segment>
         <source>Baumarkt</source>
-        <target>Builder's Merchant</target>
-      </trans-unit>
-      <trans-unit id="YpxBmf9" resname="Krankenstation">
+        <target>Builder’s Merchant</target>
+      </segment>
+    </unit>
+    <unit id="YpxBmf9" name="Krankenstation">
+      <notes>
+        <note>Krankenstation</note>
+        <note category="german">Krankenstation</note>
+      </notes>
+      <segment>
         <source>Krankenstation</source>
         <target>Infirmary</target>
-      </trans-unit>
-      <trans-unit id="e2uWnIv" resname="Labor">
+      </segment>
+    </unit>
+    <unit id="e2uWnIv" name="Labor">
+      <notes>
+        <note>Labor</note>
+        <note category="german">Labor</note>
+      </notes>
+      <segment>
         <source>Labor</source>
         <target>Central Laboratory</target>
-      </trans-unit>
-      <trans-unit id="gd8sEx3" resname="Werkstatt">
+      </segment>
+    </unit>
+    <unit id="gd8sEx3" name="Werkstatt">
+      <notes>
+        <note>Werkstatt</note>
+        <note category="german">Werkstatt</note>
+      </notes>
+      <segment>
         <source>Werkstatt</source>
         <target>Workshop</target>
-      </trans-unit>
-      <trans-unit id="FXAUu02" resname="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
+      </segment>
+    </unit>
+    <unit id="FXAUu02" name="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
+      <notes>
+        <note>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
+      </notes>
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</target>
-      </trans-unit>
-      <trans-unit id="RpqPbZr" resname="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
+        <target>The cost (AP) of all construction projects is reduced by 5%.</target>
+      </segment>
+    </unit>
+    <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
+      <notes>
+        <note>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
+      </notes>
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</target>
-      </trans-unit>
-      <trans-unit id="xQHKrzW" resname="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
+        <target>The cost (AP) of all construction projects is reduced by 10%.</target>
+      </segment>
+    </unit>
+    <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
+      <notes>
+        <note>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
+      </notes>
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</target>
-      </trans-unit>
-      <trans-unit id="SAknSq2" resname="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
+        <target>The cost (AP) of all construction projects is reduced by 15%.</target>
+      </segment>
+    </unit>
+    <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
+      <notes>
+        <note>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
+      </notes>
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</target>
-      </trans-unit>
-      <trans-unit id="1dzbsZW" resname="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
+        <target>The cost (AP) of all construction projects is reduced by 20%.</target>
+      </segment>
+    </unit>
+    <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
+      <notes>
+        <note>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
+      </notes>
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</target>
-      </trans-unit>
-      <trans-unit id="cdTPlT5" resname="Scanner">
+        <target>The cost (AP) of all construction projects is reduced by 25%.</target>
+      </segment>
+    </unit>
+    <unit id="cdTPlT5" name="Scanner">
+      <notes>
+        <note>Scanner</note>
+        <note category="german">Scanner</note>
+      </notes>
+      <segment>
         <source>Scanner</source>
         <target>Scanner</target>
-      </trans-unit>
-      <trans-unit id="fxriL78" resname="Verbesserte Karte">
+      </segment>
+    </unit>
+    <unit id="fxriL78" name="Verbesserte Karte">
+      <notes>
+        <note>Verbesserte Karte</note>
+        <note category="german">Verbesserte Karte</note>
+      </notes>
+      <segment>
         <source>Verbesserte Karte</source>
         <target>Upgraded Map</target>
-      </trans-unit>
-      <trans-unit id="wBOW_40" resname="Rechenmaschine">
+      </segment>
+    </unit>
+    <unit id="wBOW_40" name="Rechenmaschine">
+      <notes>
+        <note>Rechenmaschine</note>
+        <note category="german">Rechenmaschine</note>
+      </notes>
+      <segment>
         <source>Rechenmaschine</source>
         <target>Predictor</target>
-      </trans-unit>
-      <trans-unit id="kOf03MZ" resname="Forschungsturm">
+      </segment>
+    </unit>
+    <unit id="kOf03MZ" name="Forschungsturm">
+      <notes>
+        <note>Forschungsturm</note>
+        <note category="german">Forschungsturm</note>
+      </notes>
+      <segment>
         <source>Forschungsturm</source>
         <target>Searchtower</target>
-      </trans-unit>
-      <trans-unit id="3BWnOol" resname="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.">
+      </segment>
+    </unit>
+    <unit id="3BWnOol" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.">
+      <notes>
+        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</note>
+        <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</note>
+      </notes>
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</target>
-      </trans-unit>
-      <trans-unit id="wn7xMlO" resname="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.">
+        <target>There is a 37% chance of desert zone regeneration.</target>
+      </segment>
+    </unit>
+    <unit id="wn7xMlO" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.">
+      <notes>
+        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</note>
+        <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</note>
+      </notes>
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</target>
-      </trans-unit>
-      <trans-unit id="hOAn2zi" resname="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.">
+        <target>There is a 49% chance of desert zone regeneration.</target>
+      </segment>
+    </unit>
+    <unit id="hOAn2zi" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.">
+      <notes>
+        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</note>
+        <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</note>
+      </notes>
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</target>
-      </trans-unit>
-      <trans-unit id="4qtyyT_" resname="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.">
+        <target>There is a 61% chance of desert zone regeneration.</target>
+      </segment>
+    </unit>
+    <unit id="4qtyyT_" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.">
+      <notes>
+        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</note>
+        <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</note>
+      </notes>
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</target>
-      </trans-unit>
-      <trans-unit id="EII..O4" resname="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.">
+        <target>There is a 73% chance of desert zone regeneration.</target>
+      </segment>
+    </unit>
+    <unit id="EII..O4" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.">
+      <notes>
+        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</note>
+        <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</note>
+      </notes>
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</target>
-      </trans-unit>
-      <trans-unit id="iJl3i40" resname="Verteidigungspfähle">
+        <target>There is a 85% chance of desert zone regeneration.</target>
+      </segment>
+    </unit>
+    <unit id="iJl3i40" name="Verteidigungspfähle">
+      <notes>
+        <note>Verteidigungspfähle</note>
+        <note category="german">Verteidigungspfähle</note>
+      </notes>
+      <segment>
         <source>Verteidigungspfähle</source>
         <target>Spikes</target>
-      </trans-unit>
-      <trans-unit id="ZwtYGJS" resname="Notfallabstützung">
+      </segment>
+    </unit>
+    <unit id="ZwtYGJS" name="Notfallabstützung">
+      <notes>
+        <note>Notfallabstützung</note>
+        <note category="german">Notfallabstützung</note>
+      </notes>
+      <segment>
         <source>Notfallabstützung</source>
         <target>Wood Plating</target>
-      </trans-unit>
-      <trans-unit id="CZ3TwGn" resname="Guerilla">
+      </segment>
+    </unit>
+    <unit id="CZ3TwGn" name="Guerilla">
+      <notes>
+        <note>Guerilla</note>
+        <note category="german">Guerilla</note>
+      </notes>
+      <segment>
         <source>Guerilla</source>
         <target>Guerilla Traps</target>
-      </trans-unit>
-      <trans-unit id="2oexLnE" resname="Trümmerberg">
+      </segment>
+    </unit>
+    <unit id="2oexLnE" name="Trümmerberg">
+      <notes>
+        <note>Trümmerberg</note>
+        <note category="german">Trümmerberg</note>
+      </notes>
+      <segment>
         <source>Trümmerberg</source>
         <target>Mount Killaman-Jaro</target>
-      </trans-unit>
-      <trans-unit id="fhLdJ84" resname="Abfallberg">
+      </segment>
+    </unit>
+    <unit id="fhLdJ84" name="Abfallberg">
+      <notes>
+        <note>Abfallberg</note>
+        <note category="german">Abfallberg</note>
+      </notes>
+      <segment>
         <source>Abfallberg</source>
         <target>Rubbish Heap</target>
-      </trans-unit>
-      <trans-unit id="Rj.C34H" resname="Wolfsfalle">
+      </segment>
+    </unit>
+    <unit id="Rj.C34H" name="Wolfsfalle">
+      <notes>
+        <note>Wolfsfalle</note>
+        <note category="german">Wolfsfalle</note>
+      </notes>
+      <segment>
         <source>Wolfsfalle</source>
         <target>Pits</target>
-      </trans-unit>
-      <trans-unit id="mdZatxx" resname="Sprengfalle">
+      </segment>
+    </unit>
+    <unit id="mdZatxx" name="Sprengfalle">
+      <notes>
+        <note>Sprengfalle</note>
+        <note category="german">Sprengfalle</note>
+      </notes>
+      <segment>
         <source>Sprengfalle</source>
         <target>Bomb Factory</target>
-      </trans-unit>
-      <trans-unit id="Bomnue9" resname="Nackte Panik">
+      </segment>
+    </unit>
+    <unit id="Bomnue9" name="Nackte Panik">
+      <notes>
+        <note>Nackte Panik</note>
+        <note category="german">Nackte Panik</note>
+      </notes>
+      <segment>
         <source>Nackte Panik</source>
         <target>Abject Panic</target>
-      </trans-unit>
-      <trans-unit id="0lzRs8w" resname="Dollhouse">
+      </segment>
+    </unit>
+    <unit id="0lzRs8w" name="Dollhouse">
+      <notes>
+        <note>Dollhouse</note>
+        <note category="german">Dollhouse</note>
+      </notes>
+      <segment>
         <source>Dollhouse</source>
         <target>Frat House</target>
-      </trans-unit>
-      <trans-unit id="thcdfWu" resname="Heiliger Regen">
+      </segment>
+    </unit>
+    <unit id="thcdfWu" name="Heiliger Regen">
+      <notes>
+        <note>Heiliger Regen</note>
+        <note category="german">Heiliger Regen</note>
+      </notes>
+      <segment>
         <source>Heiliger Regen</source>
         <target>Holy Raincloud</target>
-      </trans-unit>
-      <trans-unit id="kDKItz." resname="Voodoo-Puppe">
+      </segment>
+    </unit>
+    <unit id="kDKItz." name="Voodoo-Puppe">
+      <notes>
+        <note>Voodoo-Puppe</note>
+        <note category="german">Voodoo-Puppe</note>
+      </notes>
+      <segment>
         <source>Voodoo-Puppe</source>
         <target>XXL Voodoo Doll</target>
-      </trans-unit>
-      <trans-unit id="Pb0lyLQ" resname="Spirituelles Wunder">
+      </segment>
+    </unit>
+    <unit id="Pb0lyLQ" name="Spirituelles Wunder">
+      <notes>
+        <note>Spirituelles Wunder</note>
+        <note category="german">Spirituelles Wunder</note>
+      </notes>
+      <segment>
         <source>Spirituelles Wunder</source>
         <target>Spirit Mirage</target>
-      </trans-unit>
-      <trans-unit id="5CaCw2S" resname="Bokors Guillotine">
+      </segment>
+    </unit>
+    <unit id="5CaCw2S" name="Bokors Guillotine">
+      <notes>
+        <note>Bokors Guillotine</note>
+        <note category="german">Bokors Guillotine</note>
+      </notes>
+      <segment>
         <source>Bokors Guillotine</source>
         <target>Sword of Bokor</target>
-      </trans-unit>
-      <trans-unit id="vSThV6l" resname="Notfallkonstruktion">
+      </segment>
+    </unit>
+    <unit id="vSThV6l" name="Notfallkonstruktion">
+      <notes>
+        <note>Notfallkonstruktion</note>
+        <note category="german">Notfallkonstruktion</note>
+      </notes>
+      <segment>
         <source>Notfallkonstruktion</source>
         <target>Emergency Supplies</target>
-      </trans-unit>
-      <trans-unit id="aPBadh7" resname="Verbesserter Katapult">
+      </segment>
+    </unit>
+    <unit id="aPBadh7" name="Verbesserter Katapult">
+      <notes>
+        <note>Verbesserter Katapult</note>
+        <note category="german">Verbesserter Katapult</note>
+      </notes>
+      <segment>
         <source>Verbesserter Katapult</source>
         <target>Upgraded Catapult</target>
-      </trans-unit>
-      <trans-unit id="GWsFaiN" resname="Katapult">
+      </segment>
+    </unit>
+    <unit id="GWsFaiN" name="Katapult">
+      <notes>
+        <note>Katapult</note>
+        <note category="german">Katapult</note>
+      </notes>
+      <segment>
         <source>Katapult</source>
         <target>Catapult</target>
-      </trans-unit>
-      <trans-unit id="d_fImyz" resname="Kleine Waffenschmiede">
+      </segment>
+    </unit>
+    <unit id="d_fImyz" name="Kleine Waffenschmiede">
+      <notes>
+        <note>Kleine Waffenschmiede</note>
+        <note category="german">Kleine Waffenschmiede</note>
+      </notes>
+      <segment>
         <source>Kleine Waffenschmiede</source>
         <target>Miniature Armory</target>
-      </trans-unit>
-      <trans-unit id="IILr3kv" resname="Schwedische Schreinerei">
+      </segment>
+    </unit>
+    <unit id="IILr3kv" name="Schwedische Schreinerei">
+      <notes>
+        <note>Schwedische Schreinerei</note>
+        <note category="german">Schwedische Schreinerei</note>
+      </notes>
+      <segment>
         <source>Schwedische Schreinerei</source>
         <target>Swedish Workshop</target>
-      </trans-unit>
-      <trans-unit id="Vw74UDb" resname="Schießstand">
+      </segment>
+    </unit>
+    <unit id="Vw74UDb" name="Schießstand">
+      <notes>
+        <note>Schießstand</note>
+        <note category="german">Schießstand</note>
+      </notes>
+      <segment>
         <source>Schießstand</source>
         <target>Shooting Gallery</target>
-      </trans-unit>
-      <trans-unit id="sgVOApH" resname="Kleiner Tribok">
+      </segment>
+    </unit>
+    <unit id="sgVOApH" name="Kleiner Tribok">
+      <notes>
+        <note>Kleiner Tribok</note>
+        <note category="german">Kleiner Tribok</note>
+      </notes>
+      <segment>
         <source>Kleiner Tribok</source>
         <target>Small Trebuchet</target>
-      </trans-unit>
-      <trans-unit id="rDDj6vk" resname="Wächter-Turm">
+      </segment>
+    </unit>
+    <unit id="rDDj6vk" name="Wächter-Turm">
+      <notes>
+        <note>Wächter-Turm</note>
+        <note category="german">Wächter-Turm</note>
+      </notes>
+      <segment>
         <source>Wächter-Turm</source>
         <target>Guard Tower</target>
-      </trans-unit>
-      <trans-unit id="NIEy.oJ" resname="Krähennest">
+      </segment>
+    </unit>
+    <unit id="NIEy.oJ" name="Krähennest">
+      <notes>
+        <note>Krähennest</note>
+        <note category="german">Krähennest</note>
+      </notes>
+      <segment>
         <source>Krähennest</source>
-        <target>Crows' Nest</target>
-      </trans-unit>
-      <trans-unit id="IbZvvYE" resname="Wachturm">
+        <target>Crows’ Nest</target>
+      </segment>
+    </unit>
+    <unit id="IbZvvYE" name="Wachturm">
+      <notes>
+        <note>Wachturm</note>
+        <note category="german">Wachturm</note>
+      </notes>
+      <segment>
         <source>Wachturm</source>
         <target>Watchtower</target>
-      </trans-unit>
-      <trans-unit id="Sy.Q4GU" resname="Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.">
+      </segment>
+    </unit>
+    <unit id="Sy.Q4GU" name="1bbcaa3">
+      <notes>
+        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</note>
+        <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</note>
+      </notes>
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</target>
-      </trans-unit>
-      <trans-unit id="NZeNsxy" resname="Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.">
+        <target>Zombies within 3 zones are detected.</target>
+      </segment>
+    </unit>
+    <unit id="NZeNsxy" name="72834b1">
+      <notes>
+        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</note>
+        <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</note>
+      </notes>
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</target>
-      </trans-unit>
-      <trans-unit id="wGZu2sa" resname="Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.">
+        <target>Zombies within 6 zones are detected.</target>
+      </segment>
+    </unit>
+    <unit id="wGZu2sa" name="e1df3f0">
+      <notes>
+        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</note>
+        <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</note>
+      </notes>
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</target>
-      </trans-unit>
-      <trans-unit id="h1r5RdI" resname="Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.">
+        <target>Zombies within 10 zones are detected.</target>
+      </segment>
+    </unit>
+    <unit id="h1r5RdI" name="8125fb1">
+      <notes>
+        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
+        <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
+      </notes>
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</target>
-      </trans-unit>
-      <trans-unit id="N0sOdNf" resname="Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.">
+        <target>Zombies within 10 zones are detected + Allows citizens within 1 km of the town to return without using any APs.</target>
+      </segment>
+    </unit>
+    <unit id="N0sOdNf" name="27f10d9">
+      <notes>
+        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
+        <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
+      </notes>
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</target>
-      </trans-unit>
-      <trans-unit id="2B9BF5F" resname="Bohrturm">
+        <target>Zombies within 10 zones are detected + Allows citizens within 2 km of the town to return without using any APs.</target>
+      </segment>
+    </unit>
+    <unit id="2B9BF5F" name="Bohrturm">
+      <notes>
+        <note>Bohrturm</note>
+        <note category="german">Bohrturm</note>
+      </notes>
+      <segment>
         <source>Bohrturm</source>
         <target>Mechanical Pump</target>
-      </trans-unit>
-      <trans-unit id="ukqZW.g" resname="Falsche Stadt">
+      </segment>
+    </unit>
+    <unit id="ukqZW.g" name="Falsche Stadt">
+      <notes>
+        <note>Falsche Stadt</note>
+        <note category="german">Falsche Stadt</note>
+      </notes>
+      <segment>
         <source>Falsche Stadt</source>
         <target>False Town</target>
-      </trans-unit>
-      <trans-unit id="0dmkB9a" resname="Wasserhahn">
+      </segment>
+    </unit>
+    <unit id="0dmkB9a" name="Wasserhahn">
+      <notes>
+        <note>Wasserhahn</note>
+        <note category="german">Wasserhahn</note>
+      </notes>
+      <segment>
         <source>Wasserhahn</source>
         <target>Faucet</target>
-      </trans-unit>
-      <trans-unit id="BlCgW4T" resname="Großer Umbau">
+      </segment>
+    </unit>
+    <unit id="BlCgW4T" name="Großer Umbau">
+      <notes>
+        <note>Großer Umbau</note>
+        <note category="german">Großer Umbau</note>
+      </notes>
+      <segment>
         <source>Großer Umbau</source>
         <target>The Big Rebuild</target>
-      </trans-unit>
-      <trans-unit id="zaMjBQ." resname="Vogelscheuche">
+      </segment>
+    </unit>
+    <unit id="zaMjBQ." name="Vogelscheuche">
+      <notes>
+        <note>Vogelscheuche</note>
+        <note category="german">Vogelscheuche</note>
+      </notes>
+      <segment>
         <source>Vogelscheuche</source>
         <target>Scarecrows</target>
-      </trans-unit>
-      <trans-unit id="WP.9MMH" resname="Fleischkäfig">
+      </segment>
+    </unit>
+    <unit id="WP.9MMH" name="Fleischkäfig">
+      <notes>
+        <note>Fleischkäfig</note>
+        <note category="german">Fleischkäfig</note>
+      </notes>
+      <segment>
         <source>Fleischkäfig</source>
         <target>Meat Locker</target>
-      </trans-unit>
-      <trans-unit id="lFBoBtv" resname="Bürgergericht">
+      </segment>
+    </unit>
+    <unit id="lFBoBtv" name="Bürgergericht">
+      <notes>
+        <note>Bürgergericht</note>
+        <note category="german">Bürgergericht</note>
+      </notes>
+      <segment>
         <source>Bürgergericht</source>
-        <target>People's Court</target>
-      </trans-unit>
-      <trans-unit id="ksEwaBK" resname="Befestigungen">
+        <target>People’s Court</target>
+      </segment>
+    </unit>
+    <unit id="ksEwaBK" name="Befestigungen">
+      <notes>
+        <note>Befestigungen</note>
+        <note category="german">Befestigungen</note>
+      </notes>
+      <segment>
         <source>Befestigungen</source>
         <target>Fortifications</target>
-      </trans-unit>
-      <trans-unit id="k0lGB7h" resname="Holzabfall">
+      </segment>
+    </unit>
+    <unit id="k0lGB7h" name="Holzabfall">
+      <notes>
+        <note>Holzabfall</note>
+        <note category="german">Holzabfall</note>
+      </notes>
+      <segment>
         <source>Holzabfall</source>
         <target>Wood Dump</target>
-      </trans-unit>
-      <trans-unit id="EdJMx7W" resname="Metallabfall">
+      </segment>
+    </unit>
+    <unit id="EdJMx7W" name="Metallabfall">
+      <notes>
+        <note>Metallabfall</note>
+        <note category="german">Metallabfall</note>
+      </notes>
+      <segment>
         <source>Metallabfall</source>
         <target>Metal Dump</target>
-      </trans-unit>
-      <trans-unit id="_vBaevU" resname="Tierabfälle">
+      </segment>
+    </unit>
+    <unit id="_vBaevU" name="Tierabfälle">
+      <notes>
+        <note>Tierabfälle</note>
+        <note category="german">Tierabfälle</note>
+      </notes>
+      <segment>
         <source>Tierabfälle</source>
         <target>Animal Dump</target>
-      </trans-unit>
-      <trans-unit id="dBs_6pB" resname="Müll für Alle">
+      </segment>
+    </unit>
+    <unit id="dBs_6pB" name="Müll für Alle">
+      <notes>
+        <note>Müll für Alle</note>
+        <note category="german">Müll für Alle</note>
+      </notes>
+      <segment>
         <source>Müll für Alle</source>
         <target>Free Dump</target>
-      </trans-unit>
-      <trans-unit id="NNvtYXk" resname="Waffenabfall">
+      </segment>
+    </unit>
+    <unit id="NNvtYXk" name="Waffenabfall">
+      <notes>
+        <note>Waffenabfall</note>
+        <note category="german">Waffenabfall</note>
+      </notes>
+      <segment>
         <source>Waffenabfall</source>
         <target>Weapons Dump</target>
-      </trans-unit>
-      <trans-unit id="SrT9K6G" resname="Biomüll">
+      </segment>
+    </unit>
+    <unit id="SrT9K6G" name="Biomüll">
+      <notes>
+        <note>Biomüll</note>
+        <note category="german">Biomüll</note>
+      </notes>
+      <segment>
         <source>Biomüll</source>
         <target>Food Dump</target>
-      </trans-unit>
-      <trans-unit id="KRW3IVw" resname="Rüstungsabfall">
+      </segment>
+    </unit>
+    <unit id="KRW3IVw" name="Rüstungsabfall">
+      <notes>
+        <note>Rüstungsabfall</note>
+        <note category="german">Rüstungsabfall</note>
+      </notes>
+      <segment>
         <source>Rüstungsabfall</source>
         <target>Defence Dump</target>
-      </trans-unit>
-      <trans-unit id="9.Bs0jf" resname="Verbesserte Müllhalde">
+      </segment>
+    </unit>
+    <unit id="9.Bs0jf" name="Verbesserte Müllhalde">
+      <notes>
+        <note>Verbesserte Müllhalde</note>
+        <note category="german">Verbesserte Müllhalde</note>
+      </notes>
+      <segment>
         <source>Verbesserte Müllhalde</source>
         <target>Dump Upgrade</target>
-      </trans-unit>
-      <trans-unit id="K6Bt5zV" resname="Müllhalde">
+      </segment>
+    </unit>
+    <unit id="K6Bt5zV" name="Müllhalde">
+      <notes>
+        <note>Müllhalde</note>
+        <note category="german">Müllhalde</note>
+      </notes>
+      <segment>
         <source>Müllhalde</source>
         <target>Garbage Dump</target>
-      </trans-unit>
-      <trans-unit id="QNQV_hH" resname="Leuchtturm">
+      </segment>
+    </unit>
+    <unit id="QNQV_hH" name="Leuchtturm">
+      <notes>
+        <note>Leuchtturm</note>
+        <note category="german">Leuchtturm</note>
+      </notes>
+      <segment>
         <source>Leuchtturm</source>
         <target>Lighthouse</target>
-      </trans-unit>
-      <trans-unit id="MwGqzqF" resname="Altar">
+      </segment>
+    </unit>
+    <unit id="MwGqzqF" name="Altar">
+      <notes>
+        <note>Altar</note>
+        <note category="german">Altar</note>
+      </notes>
+      <segment>
         <source>Altar</source>
         <target>Altar</target>
-      </trans-unit>
-      <trans-unit id="Uqbfdqj" resname="Riesige Sandburg">
+      </segment>
+    </unit>
+    <unit id="Uqbfdqj" name="Riesige Sandburg">
+      <notes>
+        <note>Riesige Sandburg</note>
+        <note category="german">Riesige Sandburg</note>
+      </notes>
+      <segment>
         <source>Riesige Sandburg</source>
         <target>Giant Sandcastle</target>
-      </trans-unit>
-      <trans-unit id="Pp2_CqH" resname="Leuchtfeuer">
+      </segment>
+    </unit>
+    <unit id="Pp2_CqH" name="Leuchtfeuer">
+      <notes>
+        <note>Leuchtfeuer</note>
+        <note category="german">Leuchtfeuer</note>
+      </notes>
+      <segment>
         <source>Leuchtfeuer</source>
         <target>Bonfire</target>
-      </trans-unit>
-      <trans-unit id="9zmUkLt" resname="Ministerium für Sklaverei">
+      </segment>
+    </unit>
+    <unit id="9zmUkLt" name="Ministerium für Sklaverei">
+      <notes>
+        <note>Ministerium für Sklaverei</note>
+        <note category="german">Ministerium für Sklaverei</note>
+      </notes>
+      <segment>
         <source>Ministerium für Sklaverei</source>
         <target>Ministry of Slavery</target>
-      </trans-unit>
-      <trans-unit id="J1OKCl2" resname="Reaktor">
+      </segment>
+    </unit>
+    <unit id="J1OKCl2" name="Reaktor">
+      <notes>
+        <note>Reaktor</note>
+        <note category="german">Reaktor</note>
+      </notes>
+      <segment>
         <source>Reaktor</source>
         <target>Reactor</target>
-      </trans-unit>
-      <trans-unit id="3zCLWcZ" resname="Labyrinth">
+      </segment>
+    </unit>
+    <unit id="3zCLWcZ" name="Labyrinth">
+      <notes>
+        <note>Labyrinth</note>
+        <note category="german">Labyrinth</note>
+      </notes>
+      <segment>
         <source>Labyrinth</source>
         <target>Labyrinth</target>
-      </trans-unit>
-      <trans-unit id="EUDSTNQ" resname="Alles oder nichts">
+      </segment>
+    </unit>
+    <unit id="EUDSTNQ" name="Alles oder nichts">
+      <notes>
+        <note>Alles oder nichts</note>
+        <note category="german">Alles oder nichts</note>
+      </notes>
+      <segment>
         <source>Alles oder nichts</source>
         <target>All or Nothing</target>
-      </trans-unit>
-      <trans-unit id="PXNOlXe" resname="Riesiger KVF">
+      </segment>
+    </unit>
+    <unit id="PXNOlXe" name="Riesiger KVF">
+      <notes>
+        <note>Riesiger KVF</note>
+        <note category="german">Riesiger KVF</note>
+      </notes>
+      <segment>
         <source>Riesiger KVF</source>
         <target>Giant BRD</target>
-      </trans-unit>
-      <trans-unit id="GKI2tai" resname="Riesenrad">
+      </segment>
+    </unit>
+    <unit id="GKI2tai" name="Riesenrad">
+      <notes>
+        <note>Riesenrad</note>
+        <note category="german">Riesenrad</note>
+      </notes>
+      <segment>
         <source>Riesenrad</source>
         <target>Wonder Wheel</target>
-      </trans-unit>
-      <trans-unit id="oemK25y" resname="Feuerwerk">
+      </segment>
+    </unit>
+    <unit id="oemK25y" name="Feuerwerk">
+      <notes>
+        <note>Feuerwerk</note>
+        <note category="german">Feuerwerk</note>
+      </notes>
+      <segment>
         <source>Feuerwerk</source>
         <target>Firework Foray</target>
-      </trans-unit>
-      <trans-unit id="0iB.kKU" resname="Krähenstatue">
+      </segment>
+    </unit>
+    <unit id="0iB.kKU" name="Krähenstatue">
+      <notes>
+        <note>Krähenstatue</note>
+        <note category="german">Krähenstatue</note>
+      </notes>
+      <segment>
         <source>Krähenstatue</source>
         <target>Crow Statue</target>
-      </trans-unit>
-      <trans-unit id="bhbqmFu" resname="Kino">
+      </segment>
+    </unit>
+    <unit id="bhbqmFu" name="Kino">
+      <notes>
+        <note>Kino</note>
+        <note category="german">Kino</note>
+      </notes>
+      <segment>
         <source>Kino</source>
         <target>Cinema</target>
-      </trans-unit>
-      <trans-unit id="gEG0Yxp" resname="Luftschlag">
+      </segment>
+    </unit>
+    <unit id="gEG0Yxp" name="Luftschlag">
+      <notes>
+        <note>Luftschlag</note>
+        <note category="german">Luftschlag</note>
+      </notes>
+      <segment>
         <source>Luftschlag</source>
         <target>Air Strike</target>
-      </trans-unit>
-      <trans-unit id="20Mg3eL" resname="Heißluftballon">
+      </segment>
+    </unit>
+    <unit id="20Mg3eL" name="Heißluftballon">
+      <notes>
+        <note>Heißluftballon</note>
+        <note category="german">Heißluftballon</note>
+      </notes>
+      <segment>
         <source>Heißluftballon</source>
         <target>Hot Air Balloon</target>
-      </trans-unit>
-      <trans-unit id="sEt2j5e" resname="Tunnelratte">
+      </segment>
+    </unit>
+    <unit id="sEt2j5e" name="Tunnelratte">
+      <notes>
+        <note>Tunnelratte</note>
+        <note category="german">Tunnelratte</note>
+      </notes>
+      <segment>
         <source>Tunnelratte</source>
-        <target>Tunnelratte</target>
-      </trans-unit>
-      <trans-unit id="45eKiS1" resname="Fundament">
+        <target>Foreuse améliorée</target>
+      </segment>
+    </unit>
+    <unit id="45eKiS1" name="Fundament">
+      <notes>
+        <note>Fundament</note>
+        <note category="german">Fundament</note>
+      </notes>
+      <segment>
         <source>Fundament</source>
         <target>Foundations</target>
-      </trans-unit>
-      <trans-unit id="oqi.Bcz" resname="Torpanzerung">
+      </segment>
+    </unit>
+    <unit id="oqi.Bcz" name="Torpanzerung">
+      <notes>
+        <note>Torpanzerung</note>
+        <note category="german">Torpanzerung</note>
+      </notes>
+      <segment>
         <source>Torpanzerung</source>
         <target>Reinforced Gates</target>
-      </trans-unit>
-      <trans-unit id="TsPH66_" resname="Automatiktür">
+      </segment>
+    </unit>
+    <unit id="TsPH66_" name="Automatiktür">
+      <notes>
+        <note>Automatiktür</note>
+        <note category="german">Automatiktür</note>
+      </notes>
+      <segment>
         <source>Automatiktür</source>
         <target>Last-Minute Lock</target>
-      </trans-unit>
-      <trans-unit id="ZyEH3qK" resname="Kolbenschließmechanismus">
+      </segment>
+    </unit>
+    <unit id="ZyEH3qK" name="Kolbenschließmechanismus">
+      <notes>
+        <note>Kolbenschließmechanismus</note>
+        <note category="german">Kolbenschließmechanismus</note>
+      </notes>
+      <segment>
         <source>Kolbenschließmechanismus</source>
         <target>Automatic Piston Lock</target>
-      </trans-unit>
-      <trans-unit id="aNUYPPj" resname="Ventilationssystem">
+      </segment>
+    </unit>
+    <unit id="aNUYPPj" name="Ventilationssystem">
+      <notes>
+        <note>Ventilationssystem</note>
+        <note category="german">Ventilationssystem</note>
+      </notes>
+      <segment>
         <source>Ventilationssystem</source>
         <target>Ventilation System</target>
-      </trans-unit>
-      <trans-unit id="tl._DOx" resname="Portal">
+      </segment>
+    </unit>
+    <unit id="tl._DOx" name="Portal">
+      <notes>
+        <note>Portal</note>
+        <note category="german">Portal</note>
+      </notes>
+      <segment>
         <source>Portal</source>
         <target>Portal Lock</target>
-      </trans-unit>
-      <trans-unit id="7I8s6VU" resname="Feldbett">
+      </segment>
+    </unit>
+    <unit id="7I8s6VU" name="Feldbett">
+      <notes>
+        <note>Feldbett</note>
+        <note category="german">Feldbett</note>
+      </notes>
+      <segment>
         <source>Feldbett</source>
-        <target>Feldbett</target>
-      </trans-unit>
-      <trans-unit id="6VkIdiO" resname="Zelt">
+        <target>Camp Bed</target>
+      </segment>
+    </unit>
+    <unit id="6VkIdiO" name="Zelt">
+      <notes>
+        <note>Zelt</note>
+        <note category="german">Zelt</note>
+      </notes>
+      <segment>
         <source>Zelt</source>
-        <target>Zelt</target>
-      </trans-unit>
-      <trans-unit id="ERgjYMQ" resname="Baracke">
+        <target>Tent</target>
+      </segment>
+    </unit>
+    <unit id="ERgjYMQ" name="Baracke">
+      <notes>
+        <note>Baracke</note>
+        <note category="german">Baracke</note>
+      </notes>
+      <segment>
         <source>Baracke</source>
-        <target>Baracke</target>
-      </trans-unit>
-      <trans-unit id="0TTwMvT" resname="Hütte">
+        <target>Hovel</target>
+      </segment>
+    </unit>
+    <unit id="0TTwMvT" name="Hütte">
+      <notes>
+        <note>Hütte</note>
+        <note category="german">Hütte</note>
+      </notes>
+      <segment>
         <source>Hütte</source>
-        <target>Hütte</target>
-      </trans-unit>
-      <trans-unit id="UJdq1Y9" resname="Haus">
+        <target>Shack</target>
+      </segment>
+    </unit>
+    <unit id="UJdq1Y9" name="Haus">
+      <notes>
+        <note>Haus</note>
+        <note category="german">Haus</note>
+      </notes>
+      <segment>
         <source>Haus</source>
-        <target>Haus</target>
-      </trans-unit>
-      <trans-unit id=".xY6IFq" resname="Umzäuntes Haus">
+        <target>House</target>
+      </segment>
+    </unit>
+    <unit id=".xY6IFq" name="Umzäuntes Haus">
+      <notes>
+        <note>Umzäuntes Haus</note>
+        <note category="german">Umzäuntes Haus</note>
+      </notes>
+      <segment>
         <source>Umzäuntes Haus</source>
-        <target>Umzäuntes Haus</target>
-      </trans-unit>
-      <trans-unit id="Puc93rh" resname="Befestigte Unterkunft">
+        <target>Safehouse</target>
+      </segment>
+    </unit>
+    <unit id="Puc93rh" name="Befestigte Unterkunft">
+      <notes>
+        <note>Befestigte Unterkunft</note>
+        <note category="german">Befestigte Unterkunft</note>
+      </notes>
+      <segment>
         <source>Befestigte Unterkunft</source>
-        <target>Befestigte Unterkunft</target>
-      </trans-unit>
-      <trans-unit id="TLVi.09" resname="Bunker">
+        <target>Stronghold</target>
+      </segment>
+    </unit>
+    <unit id="TLVi.09" name="Bunker">
+      <notes>
+        <note>Bunker</note>
+        <note category="german">Bunker</note>
+      </notes>
+      <segment>
         <source>Bunker</source>
-        <target>Bunker</target>
-      </trans-unit>
-      <trans-unit id="EQFRE1h" resname="Schloss">
+        <target>Nuclear Bunker</target>
+      </segment>
+    </unit>
+    <unit id="EQFRE1h" name="Schloss">
+      <notes>
+        <note>Schloss</note>
+        <note category="german">Schloss</note>
+      </notes>
+      <segment>
         <source>Schloss</source>
-        <target>Schloss</target>
-      </trans-unit>
-      <trans-unit id="eUUzMiR" resname="Großer Vorhang">
+        <target>Palace</target>
+      </segment>
+    </unit>
+    <unit id="eUUzMiR" name="Großer Vorhang">
+      <notes>
+        <note>Großer Vorhang</note>
+        <note category="german">Großer Vorhang</note>
+      </notes>
+      <segment>
         <source>Großer Vorhang</source>
-        <target>Großer Vorhang</target>
-      </trans-unit>
-      <trans-unit id="3Gfr9md" resname="Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.">
+        <target>Large Curtain</target>
+      </segment>
+    </unit>
+    <unit id="3Gfr9md" name="4440c27">
+      <notes>
+        <note>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</note>
+        <note category="german">Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</note>
+      </notes>
+      <segment>
         <source>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</source>
-        <target>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</target>
-      </trans-unit>
-      <trans-unit id="7Bfx_db" resname="Hobbylabor">
+        <target>Prevents players from peeking on your house directly from the Citizens list.</target>
+      </segment>
+    </unit>
+    <unit id="7Bfx_db" name="Hobbylabor">
+      <notes>
+        <note>Hobbylabor</note>
+        <note category="german">Hobbylabor</note>
+      </notes>
+      <segment>
         <source>Hobbylabor</source>
-        <target>Hobbylabor</target>
-      </trans-unit>
-      <trans-unit id="P0f3sQx" resname="Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.">
+        <target>Home Laboratory</target>
+      </segment>
+    </unit>
+    <unit id="P0f3sQx" name="f0abf03">
+      <notes>
+        <note>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</note>
+        <note category="german">Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</note>
+      </notes>
+      <segment>
         <source>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</source>
-        <target>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</target>
-      </trans-unit>
-      <trans-unit id="qeyHLmY" resname="Küche">
+        <target>Un minuscule trou qui sent fort le camphre et la mort, creusé au milieu de votre 'salon'. Mais vous pouvez y mener vos expériences pharmaceutiques tranquillement (Each level increase by 25% chance to produce a greater drug)…</target>
+      </segment>
+    </unit>
+    <unit id="qeyHLmY" name="Küche">
+      <notes>
+        <note>Küche</note>
+        <note category="german">Küche</note>
+      </notes>
+      <segment>
         <source>Küche</source>
-        <target>Küche</target>
-      </trans-unit>
-      <trans-unit id="BL3_hNZ" resname="In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.">
+        <target>Kitchen</target>
+      </segment>
+    </unit>
+    <unit id="BL3_hNZ" name="f8d2ad1">
+      <notes>
+        <note>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</note>
+        <note category="german">In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</note>
+      </notes>
+      <segment>
         <source>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</source>
-        <target>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</target>
-      </trans-unit>
-      <trans-unit id="N8dpSCq" resname="Primitives Alarmsystem">
+        <target>La cuisine est un coin aménagé de manière très sommaire pour y préparer des rations de meilleure qualité (chaque niveau augmente de 33% les chances d'obtenir un bon plat).</target>
+      </segment>
+    </unit>
+    <unit id="N8dpSCq" name="Primitives Alarmsystem">
+      <notes>
+        <note>Primitives Alarmsystem</note>
+        <note category="german">Primitives Alarmsystem</note>
+      </notes>
+      <segment>
         <source>Primitives Alarmsystem</source>
-        <target>Primitives Alarmsystem</target>
-      </trans-unit>
-      <trans-unit id="x6GQTRQ" resname="Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...">
+        <target>Rudimentary Alarm</target>
+      </segment>
+    </unit>
+    <unit id="x6GQTRQ" name="df8648b">
+      <notes>
+        <note>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</note>
+        <note category="german">Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</note>
+      </notes>
+      <segment>
         <source>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</source>
-        <target>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</target>
-      </trans-unit>
-      <trans-unit id="Dy4Ru5R" resname="Ruheecke">
+        <target>C'est un système un peu simpliste de ferrailles fixées par un fil, mais ça marchera bien pour rameuter tout le monde si quelqu'un entre chez vous...</target>
+      </segment>
+    </unit>
+    <unit id="Dy4Ru5R" name="Ruheecke">
+      <notes>
+        <note>Ruheecke</note>
+        <note category="german">Ruheecke</note>
+      </notes>
+      <segment>
         <source>Ruheecke</source>
-        <target>Ruheecke</target>
-      </trans-unit>
-      <trans-unit id="RR.D4lZ" resname="Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.">
+        <target>Siesta Time</target>
+      </segment>
+    </unit>
+    <unit id="RR.D4lZ" name="eefcc52">
+      <notes>
+        <note>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</note>
+        <note category="german">Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</note>
+      </notes>
+      <segment>
         <source>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</source>
-        <target>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</target>
-      </trans-unit>
-      <trans-unit id="ASpYRZf" resname="Türschloss">
+        <target>Il s'agit juste d'un trou dans le sol couvert par quelques cartons. Mais c'est bien utile pour se faire une petite sieste quand l'envie s'en fait sentir (chaque niveau augmente de 33% les chances de bien dormir).</target>
+      </segment>
+    </unit>
+    <unit id="ASpYRZf" name="Türschloss">
+      <notes>
+        <note>Türschloss</note>
+        <note category="german">Türschloss</note>
+      </notes>
+      <segment>
         <source>Türschloss</source>
-        <target>Türschloss</target>
-      </trans-unit>
-      <trans-unit id="cv5fZ5I" resname="Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.">
+        <target>Lock</target>
+      </segment>
+    </unit>
+    <unit id="cv5fZ5I" name="Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.">
+      <notes>
+        <note>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</note>
+        <note category="german">Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</note>
+      </notes>
+      <segment>
         <source>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</source>
-        <target>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</target>
-      </trans-unit>
-      <trans-unit id="_XJvPlM" resname="Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.">
+        <target>Ce système rudimentaire mais efficace empêchera quiconque de vous voler un objet.</target>
+      </segment>
+    </unit>
+    <unit id="_XJvPlM" name="61daef0">
+      <notes>
+        <note>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</note>
+        <note category="german">Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</note>
+      </notes>
+      <segment>
         <source>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</source>
-        <target>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</target>
-      </trans-unit>
-      <trans-unit id="_ZwT1d7" resname="Stauraum">
+        <target>Quand les murs ne suffisent plus, une vraie clôture n'est jamais un luxe. Une défense de bonne qualité.</target>
+      </segment>
+    </unit>
+    <unit id="_ZwT1d7" name="Stauraum">
+      <notes>
+        <note>Stauraum</note>
+        <note category="german">Stauraum</note>
+      </notes>
+      <segment>
         <source>Stauraum</source>
-        <target>Stauraum</target>
-      </trans-unit>
-      <trans-unit id="ukY3L6h" resname="Deine persönliche Truhe vergrößert sich. ">
+        <target>More Storage</target>
+      </segment>
+    </unit>
+    <unit id="ukY3L6h" name="Deine persönliche Truhe vergrößert sich. ">
+      <notes>
+        <note>Deine persönliche Truhe vergrößert sich. </note>
+        <note category="german">Deine persönliche Truhe vergrößert sich. </note>
+      </notes>
+      <segment>
         <source>Deine persönliche Truhe vergrößert sich. </source>
-        <target>Deine persönliche Truhe vergrößert sich. </target>
-      </trans-unit>
-      <trans-unit id="9vHiNcG" resname="Verstärkungen">
+        <target>Adds one additional storage compartment each time the upgrade is performed. </target>
+      </segment>
+    </unit>
+    <unit id="9vHiNcG" name="Verstärkungen">
+      <notes>
+        <note>Verstärkungen</note>
+        <note category="german">Verstärkungen</note>
+      </notes>
+      <segment>
         <source>Verstärkungen</source>
-        <target>Verstärkungen</target>
-      </trans-unit>
-      <trans-unit id="_a49kpt" resname="Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.">
+        <target>Reinforcements</target>
+      </segment>
+    </unit>
+    <unit id="_a49kpt" name="1bac838">
+      <notes>
+        <note>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</note>
+        <note category="german">Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</note>
+      </notes>
+      <segment>
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
-        <target>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</target>
-      </trans-unit>
-      <trans-unit id="77.Cp5H" resname="Verteidigung">
+        <target>Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie... un peu (chaque niveau ajoute 1 pt de défense)..</target>
+      </segment>
+    </unit>
+    <unit id="77.Cp5H" name="Verteidigung">
+      <notes>
+        <note>Verteidigung</note>
+        <note category="german">Verteidigung</note>
+      </notes>
+      <segment>
         <source>Verteidigung</source>
-        <target>Verteidigung</target>
-      </trans-unit>
-    </body>
+        <target>Defense</target>
+      </segment>
+    </unit>
+    <unit id="6lSJGc4" name="Brustwehr">
+      <notes>
+        <note>Brustwehr</note>
+        <note category="german">Brustwehr</note>
+      </notes>
+      <segment>
+        <source>Brustwehr</source>
+        <target>Chemin de ronde</target>
+      </segment>
+    </unit>
+    <unit id="Pnjrt1t" name="Hammam">
+      <notes>
+        <note>Hammam</note>
+        <note category="german">Hammam</note>
+      </notes>
+      <segment>
+        <source>Hammam</source>
+        <target>Hammam</target>
+      </segment>
+    </unit>
+    <unit id="KdxqtKO" name="Temporäre Konstruktion!">
+      <notes>
+        <note category="german">Temporäre Konstruktion!</note>
+      </notes>
+      <segment>
+        <source>Temporäre Konstruktion!</source>
+        <target>Temporäre Konstruktion!</target>
+      </segment>
+    </unit>
+    <unit id="hwqD281" name="cc4eb65">
+      <notes>
+        <note category="german">Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</note>
+      </notes>
+      <segment>
+        <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
+        <target>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</target>
+      </segment>
+    </unit>
+    <unit id="ssWP4ro" name="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
+      <notes>
+        <note category="german">Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</note>
+      </notes>
+      <segment>
+        <source>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</source>
+        <target>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</target>
+      </segment>
+    </unit>
+    <unit id="ucYQb6D" name="Verbessert die Stadtverteidigung erheblich.">
+      <notes>
+        <note category="german">Verbessert die Stadtverteidigung erheblich.</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Stadtverteidigung erheblich.</source>
+        <target>Verbessert die Stadtverteidigung erheblich.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

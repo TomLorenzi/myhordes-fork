@@ -43,6 +43,11 @@ class AffectZone
      */
     private $escape;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $improveLevel;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -94,5 +99,17 @@ class AffectZone
         $this->escape = $escape;
 
         return $this;
+    }
+
+    public function getImproveLevel(): ?int
+    {
+      return $this->improveLevel;
+    }
+
+    public function setImproveLevel(?int $improveLevel): self
+    {
+      $this->improveLevel = $improveLevel;
+
+      return $this;
     }
 }

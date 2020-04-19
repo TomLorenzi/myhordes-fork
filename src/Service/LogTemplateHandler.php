@@ -628,6 +628,18 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
+    public function nightlyAttackDestroyBuilding( Town $town, Building $building ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeNightly )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setText( $this->trans->trans('Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.', [
+                '%buildingName%' => $this->wrap( $this->iconize( $building ) ),
+            ], 'game' ) );
+    }
+
     public function citizenComplaint( Complaint $complaint ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeHome )
@@ -659,7 +671,7 @@ class LogTemplateHandler
     }
 
     public function citizenDisposal( Citizen $actor, Citizen $disposed, int $action, ?array $items = [] ): TownLogEntry {
-        $items = array_map( function(Item $e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
+        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
 
         $str = '';
         switch ($action) {
@@ -693,12 +705,17 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
-    public function townSteal( Citizen $victim, ?Citizen $actor, Item $item, bool $up ): TownLogEntry {
+    public function townSteal( Citizen $victim, ?Citizen $actor, Item $item, bool $up, bool $santa = false): TownLogEntry {
 
-        if ($up)
-            $str = $actor
-                ? T::__('HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!', 'game')
-                : T::__('VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...', 'game');
+        if ($up){
+            if($santa){
+                $str = T::__("Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat", 'game');
+            } else {
+                $str = $actor
+                    ? T::__('HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!', 'game')
+                    : T::__('VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...', 'game');
+                }
+        }
         else
             $str = $actor
                 ? T::__('%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...', 'game')

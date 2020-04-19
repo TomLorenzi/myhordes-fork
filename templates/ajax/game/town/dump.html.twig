@@ -1,0 +1,96 @@
+{% extends "ajax/game/town/town.html.twig" %}
+{% block content %}
+
+    <div class="help">
+        {% trans from 'game' %}
+            Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.
+        {% endtrans %}
+        {% if not free_dumps %}
+            <br />
+            <b>{{ 'Hinweis'|trans({},'global') }}</b>: {{ 'Jeder so zerstörte Gegenstand kostet dich %ap%.'|trans({'%ap%': '<div class=ap>1</div>'},'game')|raw }}
+        {% endif %}
+    </div>
+
+    {% if banished %}
+        <div class="note note-warning">
+            {% trans from 'game' %}
+                Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.
+            {% endtrans %}
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="cell rw-4 ro-4 rw-lg-6 ro-lg-3 rw-md-8 ro-md-2 rw-sm-10 ro-sm-1">
+            <div class="badge">
+                <div class="center"><div class="defense"><strong>+ {{ dump_def }}</strong></div></div>
+                <div class="center"><div class="defense"><span>{{ 'Gesamt: %def%'|trans({'%def%': total_def},'game') }}</span></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-table">
+        <div class="row header">
+            <div class="padded cell rw-5">
+                <span class="hide-md hide-sm">{{ 'Gegenstand'|trans({},'game') }}</span>
+            </div>
+            <div class="padded cell rw-2 center">
+                <span class="hide-md hide-sm">{{ 'Vorrat'|trans({},'game') }}</span>
+            </div>
+            <div class="padded cell rw-2 center">
+                <span class="hide-lg hide-md hide-sm">{{ 'Verteidigung'|trans({},'game') }}</span>
+            </div>
+        </div>
+        {% for item in items %}
+            {% set proto = item[0] %}
+            {# @var proto \App\Entity\\App\Entity\ItemPrototype #}
+            <div class="row">
+                <div class="padded cell rw-5 rw-md-2 rw-sm-1">
+                    <span class="icon hide-md hide-sm">
+                        <img src="{{ asset('build/images/item/item_' ~ proto.icon ~ '.gif') }}" alt="{{ proto.label|trans({},'items') }}" />
+                        {{ proto.label|trans({},'items') }}
+                    </span>
+                    <img class="hide-lg hide-desktop" src="{{ asset('build/images/item/item_' ~ proto.icon ~ '.gif') }}" alt="{{ proto.label|trans({},'items') }}" />
+                </div>
+                <div class="padded cell rw-2 center">
+                    <span class="small">{{ item[1] }}</span>
+                </div>
+                <div class="padded cell rw-2 rw-md-3 center">
+                    {% if item[2] > 1 %}
+                        <div class="defense"><b>+{{ item[2] }}</b></div>
+                    {% else %}
+                        <div class="defense">+{{ item[2] }}</div>
+                    {% endif %}
+                </div>
+                <div class="padded cell rw-3 rw-md-5 rw-sm-6 right">
+                    {% if not banished %}
+                        <button x-item-id="{{ proto.id }}">{{ 'Installieren'|trans({},'game') }}</button>
+                    {% endif %}
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll( '[x-item-id]', 'click', function (e,elem) {
+            let ap = null, valid = false;
+            do {
+                ap = window.prompt("{{ 'Wie viele Gegenstände möchtest du auf den Müll werfen?'|trans({},'game')|e('js') }}", "1");
+                if (ap === null) valid = true;
+                else {
+                    ap = parseInt(ap);
+                    valid = !isNaN(ap) && ap >= 0;
+                }
+            } while (!valid);
+
+            if (!ap) return;
+
+            $.ajax.easySend( '{{ path('town_dump_do_controller') }}', {id: parseInt(elem.getAttribute('x-item-id')), ap: ap},
+                function () {
+                    $.ajax.load(null, '{{ path('town_dump') }}', true);
+                } );
+        } )
+    </script>
+{% endblock %}

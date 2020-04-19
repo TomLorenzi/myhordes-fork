@@ -1,202 +1,686 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="de" target-language="en" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="een_etf" resname="Allgemeiner Fehler.">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="en">
+  <file id="global.en">
+    <unit id="een_etf" name="Allgemeiner Fehler.">
+      <notes>
+        <note>Allgemeiner Fehler.</note>
+        <note category="german">Allgemeiner Fehler.</note>
+      </notes>
+      <segment>
         <source>Allgemeiner Fehler.</source>
         <target>Common error.</target>
-      </trans-unit>
-      <trans-unit id="YoYmlHE" resname="Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.">
+      </segment>
+    </unit>
+    <unit id="YoYmlHE" name="2f62c2a">
+      <notes>
+        <note>Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</note>
+        <note category="german">Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</note>
+      </notes>
+      <segment>
         <source>Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</source>
         <target>The selected forum doesn't exist or you are lacking the permission to view it.</target>
-      </trans-unit>
-      <trans-unit id="cLv91_L" resname="Dein Text muss mindestens 10 Zeichen lang sein.">
+      </segment>
+    </unit>
+    <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
+      <notes>
+        <note>Dein Text muss mindestens 10 Zeichen lang sein.</note>
+        <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
+      </notes>
+      <segment>
         <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
         <target>Your text has to be a t least 10 characters long.</target>
-      </trans-unit>
-      <trans-unit id="1rA34oT" resname="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
+      </segment>
+    </unit>
+    <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
+      <notes>
+        <note>Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</note>
+        <note category="german">Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</note>
+      </notes>
+      <segment>
         <source>Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</source>
         <target>The title must contain between 3 and 64 characters.</target>
-      </trans-unit>
-      <trans-unit id="3r067AY" resname="Kommunikationsfehler.">
+      </segment>
+    </unit>
+    <unit id="3r067AY" name="Kommunikationsfehler.">
+      <notes>
+        <note>Kommunikationsfehler.</note>
+        <note category="german">Kommunikationsfehler.</note>
+      </notes>
+      <segment>
         <source>Kommunikationsfehler.</source>
         <target>Communication error.</target>
-      </trans-unit>
-      <trans-unit id="Q4DVSd6" resname="Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.">
+      </segment>
+    </unit>
+    <unit id="Q4DVSd6" name="9763ee3">
+      <notes>
+        <note>Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.</note>
+        <note category="german">Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.</note>
+      </notes>
+      <segment>
         <source>Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.</source>
         <target>This action can not be performed because it is either incomplete or contains errors.</target>
-      </trans-unit>
-      <trans-unit id="XEsiQcR" resname="Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.">
+      </segment>
+    </unit>
+    <unit id="XEsiQcR" name="e5973d6">
+      <notes>
+        <note>Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</note>
+        <note category="german">Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</note>
+      </notes>
+      <segment>
         <source>Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</source>
         <target>While executing the action a database error occurred. Please try again later.</target>
-      </trans-unit>
-      <trans-unit id="F4Wu0dW" resname="Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.">
+      </segment>
+    </unit>
+    <unit id="F4Wu0dW" name="023a941">
+      <notes>
+        <note>Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</note>
+        <note category="german">Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</note>
+      </notes>
+      <segment>
         <source>Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</source>
         <target>While executing the action an internal error occurred. Please try again later.</target>
-      </trans-unit>
-      <trans-unit id="6MqeHWt" resname="Für diese Aktion hast du nicht genug AP.">
+      </segment>
+    </unit>
+    <unit id="6MqeHWt" name="Für diese Aktion hast du nicht genug AP.">
+      <notes>
+        <note>Für diese Aktion hast du nicht genug AP.</note>
+        <note category="german">Für diese Aktion hast du nicht genug AP.</note>
+      </notes>
+      <segment>
         <source>Für diese Aktion hast du nicht genug AP.</source>
         <target>You do not have sufficient AP for this action.</target>
-      </trans-unit>
-      <trans-unit id="doUPd7A" resname="Diese Aktion steht dir aktuell nicht zur Verfügung.">
+      </segment>
+    </unit>
+    <unit id="doUPd7A" name="Diese Aktion steht dir aktuell nicht zur Verfügung.">
+      <notes>
+        <note>Diese Aktion steht dir aktuell nicht zur Verfügung.</note>
+        <note category="german">Diese Aktion steht dir aktuell nicht zur Verfügung.</note>
+      </notes>
+      <segment>
         <source>Diese Aktion steht dir aktuell nicht zur Verfügung.</source>
         <target>This action is currently not available to you.</target>
-      </trans-unit>
-      <trans-unit id="KlavWsd" resname="Hierfür fehlen dir notwendige Gegenstände.">
+      </segment>
+    </unit>
+    <unit id="KlavWsd" name="Hierfür fehlen dir notwendige Gegenstände.">
+      <notes>
+        <note>Hierfür fehlen dir notwendige Gegenstände.</note>
+        <note category="german">Hierfür fehlen dir notwendige Gegenstände.</note>
+      </notes>
+      <segment>
         <source>Hierfür fehlen dir notwendige Gegenstände.</source>
         <target>You are lacking required items for this.</target>
-      </trans-unit>
-      <trans-unit id="OAMaKv3" resname="Diese Aktion steht nur Helden zur Verfügung.">
+      </segment>
+    </unit>
+    <unit id="OAMaKv3" name="Diese Aktion steht nur Helden zur Verfügung.">
+      <notes>
+        <note>Diese Aktion steht nur Helden zur Verfügung.</note>
+        <note category="german">Diese Aktion steht nur Helden zur Verfügung.</note>
+      </notes>
+      <segment>
         <source>Diese Aktion steht nur Helden zur Verfügung.</source>
         <target>This action is only available to heroes.</target>
-      </trans-unit>
-      <trans-unit id="OA0ZiO0" resname="Neuer Thread">
+      </segment>
+    </unit>
+    <unit id="OA0ZiO0" name="Neuer Thread">
+      <notes>
+        <note>Neuer Thread</note>
+        <note category="german">Neuer Thread</note>
+      </notes>
+      <segment>
         <source>Neuer Thread</source>
         <target>New Thread</target>
-      </trans-unit>
-      <trans-unit id="2Jf.Bop" resname="Neuer Post">
+      </segment>
+    </unit>
+    <unit id="2Jf.Bop" name="Neuer Post">
+      <notes>
+        <note>Neuer Post</note>
+        <note category="german">Neuer Post</note>
+      </notes>
+      <segment>
         <source>Neuer Post</source>
         <target>New Post</target>
-      </trans-unit>
-      <trans-unit id="q8r8gtq" resname="Titel">
+      </segment>
+    </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <notes>
+        <note>Titel</note>
+        <note category="german">Titel</note>
+      </notes>
+      <segment>
         <source>Titel</source>
         <target>Title</target>
-      </trans-unit>
-      <trans-unit id="P6NlaF8" resname="Deine Nachricht">
+      </segment>
+    </unit>
+    <unit id="P6NlaF8" name="Deine Nachricht">
+      <notes>
+        <note>Deine Nachricht</note>
+        <note category="german">Deine Nachricht</note>
+      </notes>
+      <segment>
         <source>Deine Nachricht</source>
         <target>Your Message</target>
-      </trans-unit>
-      <trans-unit id="IuHFUTo" resname="Absenden">
+      </segment>
+    </unit>
+    <unit id="IuHFUTo" name="Absenden">
+      <notes>
+        <note>Absenden</note>
+        <note category="german">Absenden</note>
+      </notes>
+      <segment>
         <source>Absenden</source>
         <target>Send</target>
-      </trans-unit>
-      <trans-unit id="VIYRzlj" resname="Zurück">
+      </segment>
+    </unit>
+    <unit id="VIYRzlj" name="Zurück">
+      <notes>
+        <note>Zurück</note>
+        <note category="german">Zurück</note>
+      </notes>
+      <segment>
         <source>Zurück</source>
         <target>Back</target>
-      </trans-unit>
-      <trans-unit id="6Pt1B9Z" resname="Neues Thema">
+      </segment>
+    </unit>
+    <unit id="6Pt1B9Z" name="Neues Thema">
+      <notes>
+        <note>Neues Thema</note>
+        <note category="german">Neues Thema</note>
+      </notes>
+      <segment>
         <source>Neues Thema</source>
         <target>New Topic</target>
-      </trans-unit>
-      <trans-unit id="bej0jm2" resname="Themen">
+      </segment>
+    </unit>
+    <unit id="bej0jm2" name="Themen">
+      <notes>
+        <note>Themen</note>
+        <note category="german">Themen</note>
+      </notes>
+      <segment>
         <source>Themen</source>
         <target>Topics</target>
-      </trans-unit>
-      <trans-unit id="Zyb_RyS" resname="Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!">
+      </segment>
+    </unit>
+    <unit id="Zyb_RyS" name="Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!">
+      <notes>
+        <note>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
+        <note category="german">Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
+      </notes>
+      <segment>
         <source>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</source>
         <target>Nobody wrote anything yet. Be the first!</target>
-      </trans-unit>
-      <trans-unit id="Oxu558J" resname="Der Rabe">
+      </segment>
+    </unit>
+    <unit id="Oxu558J" name="Der Rabe">
+      <notes>
+        <note>Der Rabe</note>
+        <note category="german">Der Rabe</note>
+      </notes>
+      <segment>
         <source>Der Rabe</source>
         <target>The Crow</target>
-      </trans-unit>
-      <trans-unit id="81dFh4o" resname="Seite %page%/%pages%">
+      </segment>
+    </unit>
+    <unit id="81dFh4o" name="Seite %page%/%pages%">
+      <notes>
+        <note>Seite %page%/%pages%</note>
+        <note category="german">Seite %page%/%pages%</note>
+      </notes>
+      <segment>
         <source>Seite %page%/%pages%</source>
         <target>page %page%/%pages%</target>
-      </trans-unit>
-      <trans-unit id="xtsvLHK" resname="Bitte halte dich an die Regeln:">
+      </segment>
+    </unit>
+    <unit id="xtsvLHK" name="Bitte halte dich an die Regeln:">
+      <notes>
+        <note>Bitte halte dich an die Regeln:</note>
+        <note category="german">Bitte halte dich an die Regeln:</note>
+      </notes>
+      <segment>
         <source>Bitte halte dich an die Regeln:</source>
         <target>The rules in brief:</target>
-      </trans-unit>
-      <trans-unit id="5z8rcLL" resname="Achte auf deine Rechtschreibung">
+      </segment>
+    </unit>
+    <unit id="5z8rcLL" name="Achte auf deine Rechtschreibung">
+      <notes>
+        <note>Achte auf deine Rechtschreibung</note>
+        <note category="german">Achte auf deine Rechtschreibung</note>
+      </notes>
+      <segment>
         <source>Achte auf deine Rechtschreibung</source>
         <target>check your spelling; sms-language and text-speak are not permitted</target>
-      </trans-unit>
-      <trans-unit id="htYR3Qp" resname="Bleibe höflich und freundlich">
+      </segment>
+    </unit>
+    <unit id="htYR3Qp" name="Bleibe höflich und freundlich">
+      <notes>
+        <note>Bleibe höflich und freundlich</note>
+        <note category="german">Bleibe höflich und freundlich</note>
+      </notes>
+      <segment>
         <source>Bleibe höflich und freundlich</source>
         <target>remain considerate and polite,</target>
-      </trans-unit>
-      <trans-unit id="fS360q." resname="Werbung ist verboten (Links etc.)">
+      </segment>
+    </unit>
+    <unit id="fS360q." name="Werbung ist verboten (Links etc.)">
+      <notes>
+        <note>Werbung ist verboten (Links etc.)</note>
+        <note category="german">Werbung ist verboten (Links etc.)</note>
+      </notes>
+      <segment>
         <source>Werbung ist verboten (Links etc.)</source>
         <target>advertising (links etc.) is forbidden,</target>
-      </trans-unit>
-      <trans-unit id="58t6egl" resname="Heute um">
+      </segment>
+    </unit>
+    <unit id="58t6egl" name="Heute um">
+      <notes>
+        <note>Heute um</note>
+        <note category="german">Heute um</note>
+      </notes>
+      <segment>
         <source>Heute um</source>
         <target>Today at</target>
-      </trans-unit>
-      <trans-unit id="K9r8v8p" resname="Gestern um">
+      </segment>
+    </unit>
+    <unit id="K9r8v8p" name="Gestern um">
+      <notes>
+        <note>Gestern um</note>
+        <note category="german">Gestern um</note>
+      </notes>
+      <segment>
         <source>Gestern um</source>
         <target>Yeasterday at</target>
-      </trans-unit>
-      <trans-unit id="Et.Ao0w" resname="Antworten">
+      </segment>
+    </unit>
+    <unit id="Et.Ao0w" name="Antworten">
+      <notes>
+        <note>Antworten</note>
+        <note category="german">Antworten</note>
+      </notes>
+      <segment>
         <source>Antworten</source>
         <target>Reply</target>
-      </trans-unit>
-      <trans-unit id="uAj26XB" resname="Schließen">
+      </segment>
+    </unit>
+    <unit id="uAj26XB" name="Schließen">
+      <notes>
+        <note>Schließen</note>
+        <note category="german">Schließen</note>
+      </notes>
+      <segment>
         <source>Schließen</source>
         <target>Close</target>
-      </trans-unit>
-      <trans-unit id="SOVZNkR" resname="Bestätigen?">
+      </segment>
+    </unit>
+    <unit id="SOVZNkR" name="Bestätigen?">
+      <notes>
+        <note>Bestätigen?</note>
+        <note category="german">Bestätigen?</note>
+      </notes>
+      <segment>
         <source>Bestätigen?</source>
         <target>Confirm?</target>
-      </trans-unit>
-      <trans-unit id="3XvS9ox" resname="Rückgängig">
+      </segment>
+    </unit>
+    <unit id="3XvS9ox" name="Rückgängig">
+      <notes>
+        <note>Rückgängig</note>
+        <note category="german">Rückgängig</note>
+      </notes>
+      <segment>
         <source>Rückgängig</source>
         <target>Undo</target>
-      </trans-unit>
-      <trans-unit id="9.8ReK8" resname="Abbrechen">
+      </segment>
+    </unit>
+    <unit id="9.8ReK8" name="Abbrechen">
+      <notes>
+        <note>Abbrechen</note>
+        <note category="german">Abbrechen</note>
+      </notes>
+      <segment>
         <source>Abbrechen</source>
         <target>Cancel</target>
-      </trans-unit>
-      <trans-unit id="9rL.OfV" resname="Speichern">
+      </segment>
+    </unit>
+    <unit id="9rL.OfV" name="Speichern">
+      <notes>
+        <note>Speichern</note>
+        <note category="german">Speichern</note>
+      </notes>
+      <segment>
         <source>Speichern</source>
         <target>Save</target>
-      </trans-unit>
-      <trans-unit id="R4MmGpY" resname="Achtung">
+      </segment>
+    </unit>
+    <unit id="R4MmGpY" name="Achtung">
+      <notes>
+        <note>Achtung</note>
+        <note category="german">Achtung</note>
+      </notes>
+      <segment>
         <source>Achtung</source>
         <target>Attention</target>
-      </trans-unit>
-      <trans-unit id="fDDOLlJ" resname="Bist du sicher?">
+      </segment>
+    </unit>
+    <unit id="fDDOLlJ" name="Bist du sicher?">
+      <notes>
+        <note>Bist du sicher?</note>
+        <note category="german">Bist du sicher?</note>
+      </notes>
+      <segment>
         <source>Bist du sicher?</source>
         <target>Are you sure?</target>
-      </trans-unit>
-      <trans-unit id="lO_TcU3" resname="Auswahl bestätigen">
+      </segment>
+    </unit>
+    <unit id="lO_TcU3" name="Auswahl bestätigen">
+      <notes>
+        <note>Auswahl bestätigen</note>
+        <note category="german">Auswahl bestätigen</note>
+      </notes>
+      <segment>
         <source>Auswahl bestätigen</source>
         <target>Confirm selection</target>
-      </trans-unit>
-      <trans-unit id="Tae9Qqu" resname="Forum">
+      </segment>
+    </unit>
+    <unit id="Tae9Qqu" name="Forum">
+      <notes>
+        <note>Forum</note>
+        <note category="german">Forum</note>
+      </notes>
+      <segment>
         <source>Forum</source>
         <target>Forum</target>
-      </trans-unit>
-      <trans-unit id="BNcLxkK" resname="Deine Seele">
+      </segment>
+    </unit>
+    <unit id="BNcLxkK" name="Deine Seele">
+      <notes>
+        <note>Deine Seele</note>
+        <note category="german">Deine Seele</note>
+      </notes>
+      <segment>
         <source>Deine Seele</source>
         <target>Your soul</target>
-      </trans-unit>
-      <trans-unit id="lUcvZQo" resname="Hilfe">
+      </segment>
+    </unit>
+    <unit id="lUcvZQo" name="Hilfe">
+      <notes>
+        <note>Hilfe</note>
+        <note category="german">Hilfe</note>
+      </notes>
+      <segment>
         <source>Hilfe</source>
         <target>Help</target>
-      </trans-unit>
-      <trans-unit id="mbIzlHW" resname="Zum Spiel">
+      </segment>
+    </unit>
+    <unit id="mbIzlHW" name="Zum Spiel">
+      <notes>
+        <note>Zum Spiel</note>
+        <note category="german">Zum Spiel</note>
+      </notes>
+      <segment>
         <source>Zum Spiel</source>
         <target>Game</target>
-      </trans-unit>
-      <trans-unit id="tkZocIU" resname="Ausloggen">
+      </segment>
+    </unit>
+    <unit id="tkZocIU" name="Ausloggen">
+      <notes>
+        <note>Ausloggen</note>
+        <note category="german">Ausloggen</note>
+      </notes>
+      <segment>
         <source>Ausloggen</source>
         <target>Log out</target>
-      </trans-unit>
-      <trans-unit id="YeLCoLU" resname="Seite neu laden">
+      </segment>
+    </unit>
+    <unit id="YeLCoLU" name="Seite neu laden">
+      <notes>
+        <note>Seite neu laden</note>
+        <note category="german">Seite neu laden</note>
+      </notes>
+      <segment>
         <source>Seite neu laden</source>
         <target>Reload page</target>
-      </trans-unit>
-      <trans-unit id="gBz_D6E" resname="Deutsch">
+      </segment>
+    </unit>
+    <unit id="gBz_D6E" name="Deutsch">
+      <notes>
+        <note>Deutsch</note>
+        <note category="german">Deutsch</note>
+      </notes>
+      <segment>
         <source>Deutsch</source>
         <target>Deutsch</target>
-      </trans-unit>
-      <trans-unit id="mD6lfyI" resname="Englisch">
+      </segment>
+    </unit>
+    <unit id="mD6lfyI" name="Englisch">
+      <notes>
+        <note>Englisch</note>
+        <note category="german">Englisch</note>
+      </notes>
+      <segment>
         <source>Englisch</source>
         <target>Englisch</target>
-      </trans-unit>
-      <trans-unit id="vp_4VdN" resname="Französisch">
+      </segment>
+    </unit>
+    <unit id="vp_4VdN" name="Französisch">
+      <notes>
+        <note>Französisch</note>
+        <note category="german">Französisch</note>
+      </notes>
+      <segment>
         <source>Französisch</source>
         <target>Französisch</target>
-      </trans-unit>
-      <trans-unit id="bjgV6Xr" resname="Spanisch">
+      </segment>
+    </unit>
+    <unit id="bjgV6Xr" name="Spanisch">
+      <notes>
+        <note>Spanisch</note>
+        <note category="german">Spanisch</note>
+      </notes>
+      <segment>
         <source>Spanisch</source>
         <target>Spanisch</target>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
+    <unit id="hORe5zQ" name="Bearbeiten">
+      <notes>
+        <note>Bearbeiten</note>
+        <note category="german">Bearbeiten</note>
+      </notes>
+      <segment>
+        <source>Bearbeiten</source>
+        <target>Bearbeiten</target>
+      </segment>
+    </unit>
+    <unit id="LiAR2Wp" name="Hinweis">
+      <notes>
+        <note>Hinweis</note>
+        <note category="german">Hinweis</note>
+      </notes>
+      <segment>
+        <source>Hinweis</source>
+        <target>Hinweis</target>
+      </segment>
+    </unit>
+    <unit id="aE.gAX6" name="Spiel">
+      <notes>
+        <note>Spiel</note>
+        <note category="german">Spiel</note>
+      </notes>
+      <segment>
+        <source>Spiel</source>
+        <target>Spiel</target>
+      </segment>
+    </unit>
+    <unit id="wMIPplV" name="Statistiken">
+      <notes>
+        <note>Statistiken</note>
+        <note category="german">Statistiken</note>
+      </notes>
+      <segment>
+        <source>Statistiken</source>
+        <target>Statistiken</target>
+      </segment>
+    </unit>
+    <unit id="9jh.PAO" name="%points% Punkte">
+      <notes>
+        <note>%points% Punkte</note>
+        <note category="german">%points% Punkte</note>
+      </notes>
+      <segment>
+        <source>%points% Punkte</source>
+        <target>%points% Punkte</target>
+      </segment>
+    </unit>
+    <unit id="LM1P67a" name="Dieser Spieler hat bisher noch keine Preise gewonnen...">
+      <notes>
+        <note>Dieser Spieler hat bisher noch keine Preise gewonnen...</note>
+        <note category="german">Dieser Spieler hat bisher noch keine Preise gewonnen...</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
+        <target>Dieser Spieler hat bisher noch keine Preise gewonnen...</target>
+      </segment>
+    </unit>
+    <unit id="ZyZ8Dxn" name="Seelenpunktzahl">
+      <notes>
+        <note>Seelenpunktzahl</note>
+        <note category="german">Seelenpunktzahl</note>
+      </notes>
+      <segment>
+        <source>Seelenpunktzahl</source>
+        <target>Seelenpunktzahl</target>
+      </segment>
+    </unit>
+    <unit id="rxbTazw" name="Aktuelles Leben">
+      <notes>
+        <note>Aktuelles Leben</note>
+        <note category="german">Aktuelles Leben</note>
+      </notes>
+      <segment>
+        <source>Aktuelles Leben</source>
+        <target>Aktuelles Leben</target>
+      </segment>
+    </unit>
+    <unit id="fmZlI_I" name="Saison">
+      <notes>
+        <note>Saison</note>
+        <note category="german">Saison</note>
+      </notes>
+      <segment>
+        <source>Saison</source>
+        <target>Saison</target>
+      </segment>
+    </unit>
+    <unit id="Z3DDGf9" name="Tage">
+      <notes>
+        <note>Tage</note>
+        <note category="german">Tage</note>
+      </notes>
+      <segment>
+        <source>Tage</source>
+        <target>Tage</target>
+      </segment>
+    </unit>
+    <unit id="hn7LsRJ" name="Punkte">
+      <notes>
+        <note>Punkte</note>
+        <note category="german">Punkte</note>
+      </notes>
+      <segment>
+        <source>Punkte</source>
+        <target>Punkte</target>
+      </segment>
+    </unit>
+    <unit id="IzQFaI2" name="Es wurde keine Stadt gefunden...">
+      <notes>
+        <note>Es wurde keine Stadt gefunden...</note>
+        <note category="german">Es wurde keine Stadt gefunden...</note>
+      </notes>
+      <segment>
+        <source>Es wurde keine Stadt gefunden...</source>
+        <target>Es wurde keine Stadt gefunden...</target>
+      </segment>
+    </unit>
+    <unit id="l.2Tpic" name="ca64199">
+      <notes>
+        <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</note>
+      </notes>
+      <segment>
+        <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</source>
+        <target>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</target>
+      </segment>
+    </unit>
+    <unit id="eg7vZTp" name="b187301">
+      <notes>
+        <note category="german">Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</note>
+      </notes>
+      <segment>
+        <source>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</source>
+        <target>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</target>
+      </segment>
+    </unit>
+    <unit id="RVk3Tvz" name="Auch dann nicht, wenn du dazu aufgefordert wirst!">
+      <notes>
+        <note category="german">Auch dann nicht, wenn du dazu aufgefordert wirst!</note>
+      </notes>
+      <segment>
+        <source>Auch dann nicht, wenn du dazu aufgefordert wirst!</source>
+        <target>Auch dann nicht, wenn du dazu aufgefordert wirst!</target>
+      </segment>
+    </unit>
+    <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.">
+      <notes>
+        <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</note>
+      </notes>
+      <segment>
+        <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</source>
+        <target>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</target>
+      </segment>
+    </unit>
+    <unit id="EGfY674" name="Weiter zu">
+      <notes>
+        <note category="german">Weiter zu</note>
+      </notes>
+      <segment>
+        <source>Weiter zu</source>
+        <target>Weiter zu</target>
+      </segment>
+    </unit>
+    <unit id="WoxxQuM" name="Du hast keine Externe ID.">
+      <notes>
+        <note category="german">Du hast keine Externe ID.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Externe ID.</source>
+        <target>Du hast keine Externe ID.</target>
+      </segment>
+    </unit>
+    <unit id="Y1oTzsk" name="ee8b5a5">
+      <notes>
+        <note category="german">Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</note>
+      </notes>
+      <segment>
+        <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
+        <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+      </segment>
+    </unit>
+    <unit id="SddpDzy" name="Verzeichnis">
+      <notes>
+        <note category="german">Verzeichnis</note>
+      </notes>
+      <segment>
+        <source>Verzeichnis</source>
+        <target>Verzeichnis</target>
+      </segment>
+    </unit>
+    <unit id=".Fw_MgQ" name="35799f5">
+      <notes>
+        <note category="german">Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</source>
+        <target>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

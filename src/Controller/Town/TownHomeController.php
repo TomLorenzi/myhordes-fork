@@ -13,6 +13,8 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
@@ -97,6 +99,7 @@ class TownHomeController extends TownController
             'home' => $home,
             'tab' => $tab,
             'heroics' => $this->getHeroicActions(),
+            'special_actions' => $this->getHomeActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(true),
             'chest' => $home->getChest(),
@@ -140,11 +143,19 @@ class TownHomeController extends TownController
     /**
      * @Route("api/town/house/action", name="town_house_action_controller")
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
-    public function action_house_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function action_house_api(JSONRequestParser $parser): Response {
         return $this->generic_action_api( $parser );
+    }
+
+    /**
+     * @Route("api/town/house/special_action", name="town_house_special_action_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function special_action_house_api(JSONRequestParser $parser): Response {
+        return $this->generic_home_action_api( $parser );
     }
 
     /**
@@ -188,8 +199,8 @@ class TownHomeController extends TownController
         // Make sure the citizen is not tired
         if ($ch->isTired( $citizen ) || $citizen->getAp() < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        // Make sure the citizen has not upgraded their home today
-        if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade'))
+        // Make sure the citizen has not upgraded their home today, only if we're not in chaos
+        if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade') && !$town->getChaos())
             return AjaxResponse::error( self::ErrorAlreadyUpgraded );
 
         // Make sure building requirements for the upgrade are fulfilled
@@ -214,6 +225,20 @@ class TownHomeController extends TownController
         foreach ($items as $item) {
             $r = $next->getResources()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
+        }
+
+        // Give picto
+        $pictoHouseImprovment = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_homeup_#00");
+        if($pictoHouseImprovment !== null) {
+            $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoHouseImprovment);
+            if($picto === null) $picto = new Picto();
+            $picto->setPrototype($pictoHouseImprovment)
+                ->setPersisted(0)
+                ->setTown($citizen->getTown())
+                ->setUser($citizen->getUser())
+                ->setCount($picto->getCount()+1);
+
+            $this->entity_manager->persist($picto);
         }
 
         // Create log & persist
@@ -304,6 +329,10 @@ class TownHomeController extends TownController
 
         // Deduct AP
         $ch->setAP($citizen, true, -$costs->getAp());
+
+        // Give picto
+        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName("r_hbuild_#00");
+        $this->picto_handler->give_picto($citizen, $pictoPrototype);
 
         // Consume items
         foreach ($items as $item) {

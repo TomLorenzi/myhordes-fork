@@ -9,6 +9,7 @@ use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
+use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
@@ -39,14 +40,23 @@ class ForumController extends AbstractController
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
 
-    private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
-
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
-        if (count($forums) !== 1) return $this->redirect($this->generateUrl('forum_list'));
 
         /** @var User $user */
         $user = $this->getUser();
+
+        /** @var Forum[] $forums */
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1) return $this->redirect($this->generateUrl('forum_list'));
+
+        // Set the activity status
+        if ($forums[0]->getTown() && $user->getActiveCitizen()) {
+            $c = $user->getActiveCitizen();
+            if ($c) $ch->inflictStatus($c, 'tg_chk_forum');
+            $em->persist( $c );
+            $em->flush();
+        }
 
         $pages = floor(max(0,$em->getRepository(Thread::class)->countByForum($forums[0])-1) / $num_per_page) + 1;
         if ($parser->has('page'))
@@ -94,11 +104,13 @@ class ForumController extends AbstractController
      * @Route("jx/forum/{id<\d+>}", name="forum_view")
      * @param int $id
      * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @param CitizenHandler $ch
      * @return Response
      */
-    public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p): Response
+    public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
-        return $this->default_forum_renderer($id,-1,$em, $p);
+        return $this->default_forum_renderer($id,-1,$em, $p, $ch);
     }
 
     /**
@@ -106,11 +118,13 @@ class ForumController extends AbstractController
      * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @param CitizenHandler $ch
      * @return Response
      */
-    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p): Response
+    public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
-        return $this->default_forum_renderer($fid,$tid,$em,$p);
+        return $this->default_forum_renderer($fid,$tid,$em,$p,$ch);
     }
 
     /**

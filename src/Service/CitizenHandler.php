@@ -5,6 +5,7 @@ namespace App\Service;
 
 
 use App\Entity\Building;
+use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
@@ -13,7 +14,9 @@ use App\Entity\Complaint;
 use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
 use App\Structures\ItemRequest;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 
 class CitizenHandler
@@ -23,6 +26,7 @@ class CitizenHandler
     private $item_factory;
     private $random_generator;
     private $inventory_handler;
+    private $picto_handler;
     /**
      * @var DeathHandler
      */
@@ -30,12 +34,13 @@ class CitizenHandler
     private $log;
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh)
+        EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih, PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
         $this->random_generator = $g;
         $this->inventory_handler = $ih;
+        $this->picto_handler = $ph;
         $this->item_factory = $if;
         $this->log = $lh;
     }
@@ -82,6 +87,9 @@ class CitizenHandler
         $citizen->addStatus($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_meta_wound'));
         if ($ap_above_6 >= 0)
             $citizen->setAp( $this->getMaxAP( $citizen ) + $ap_above_6 );
+
+        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_wound_#00');
+        $this->picto_handler->give_picto($citizen, $pictoPrototype);
     }
 
     public function healWound( Citizen &$citizen ) {
@@ -106,15 +114,12 @@ class CitizenHandler
 
         // Prevent terror when holding a zen booklet
         if ($status->getName() === 'terror' && $this->inventory_handler->countSpecificItems(
-            $citizen->getInventory(),
-            $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('lilboo_#00') )
+                $citizen->getInventory(),
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('lilboo_#00') )
         ) return $this->hasStatusEffect( $citizen, 'terror' );
 
         if (in_array($status->getName(), ['drugged','addict']))
             $this->removeStatus($citizen, 'clean');
-
-        // ToDO Counter must be reset when drinking without getting the hasdrunk status
-        if ( $status->getName() === 'hasdrunk' ) $citizen->setWalkingDistance( 0 );
 
         $citizen->addStatus( $status );
         return true;
@@ -149,22 +154,31 @@ class CitizenHandler
 
     public function updateBanishment( Citizen &$citizen, ?Building $gallows, ?Building $cage ): bool {
 
-        if (!$citizen->getAlive()) return false;
+        if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
         if (!$citizen->getBanished()) {
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $citizen, Complaint::SeverityBanish ) >= 8)
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish) >= 8)
                 $action = true;
         }
 
         if ($gallows || $cage) {
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $citizen, Complaint::SeverityKill ) >= 8)
+            $complaintNeeded = 8;
+            // If the citizen is already shunned, we need 6 more complains to hang him
+            if($citizen->getBanished())
+                $complaintNeeded = 6;
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
                 $action = $kill = true;
         }
 
         if ($action) {
             if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
+
+            if (!$kill) {
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ban_#00');
+                $this->picto_handler->give_picto($citizen, $pictoPrototype);
+            }
 
             /** @var Item[] $items */
             $items = [];
@@ -182,6 +196,12 @@ class CitizenHandler
                 if ($this->inventory_handler->transferItem( $citizen, $item, $source, $bank, InventoryHandler::ModalityImpound ) === InventoryHandler::ErrorNone)
                     $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $item, true ) );
             }
+
+            // As he is shunned, we remove all the complaints
+            $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
+            foreach ($complaints as $complaint) {
+                $this->entity_manager->remove($complaint);
+            }
         }
 
         if ($kill) {
@@ -191,7 +211,11 @@ class CitizenHandler
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
             }
-            elseif ($gallows) $this->death_handler->kill( $citizen, CauseOfDeath::Hanging, $rem );
+            elseif ($gallows) {
+                $this->death_handler->kill( $citizen, CauseOfDeath::Hanging, $rem );
+                $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
+                $this->picto_handler->give_picto($ac, $pictoPrototype);
+            }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
         }
@@ -291,5 +315,164 @@ class CitizenHandler
     public function getSoulpoints(Citizen $citizen): int {
         $days = $citizen->getSurvivedDays();
         return $days * ( $days + 1 ) / 2;
+    }
+
+    public function getCampingChance(Citizen $citizen): float {
+        $total_value = array_sum($this->getCampingValues($citizen));
+
+        if ($total_value >= 0 && $citizen->getProfession()->getName() == 'survivalist') {
+            $survival_chance = 1;
+        }
+        else if ($total_value > -2 && $citizen->getProfession()->getName() == 'survivalist') {
+            $survival_chance = .95;
+        }
+        else if ($total_value > -4) {
+            $survival_chance = .9;
+        }
+        else if ($total_value > -7) {
+            $survival_chance = .75;
+        }
+        else if ($total_value > -10) {
+            $survival_chance = .6;
+        }
+        else if ($total_value > -14) {
+            $survival_chance = .45;
+        }
+        else if ($total_value > -18) {
+            $survival_chance = .3;
+        }
+        else {
+            $survival_chance = .15;
+        }
+
+        return $survival_chance;
+    }
+
+    public function getCampingValues(Citizen $citizen): array {
+        $camping_values = [];
+        $zone = $citizen->getZone();
+        $town = $citizen->getTown();
+
+        // Town type: Pandemonium gets malus of 14, all other types are neutral.
+        $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
+
+        // Distance in km
+        $distance_map = [
+            1 => -24,
+            2 => -19,
+            3 => -14,
+            4 => -11,
+            5 => -9,
+            6 => -9,
+            7 => -9,
+            8 => -9,
+            9 => -9,
+            10 => -9,
+            11 => -9,
+            12 => -6,
+            13 => -7,
+            14 => -7,
+            15 => -6,
+        ];
+        $zone_distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
+        if ($zone_distance >= 16) {
+            $camping_values['distance'] = -5;
+        }
+        else {
+            $camping_values['distance'] = $distance_map[$zone_distance];
+        }
+
+        // Ruin in zone.
+        $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
+
+        // Zombies in zone. Factor -1.4, for CamperPro it will -0.6.
+        $camping_values['zombies'] = -1.4 * $zone->getZombies();
+
+        // Zone improvement level.
+        $camping_values['improvement'] = $zone->getImprovementLevel();
+
+        // Previous camping count.
+        $campings_map = [
+            'normal' => [
+                0 => 0,
+                1 => -4,
+                2 => -9,
+                3 => -13,
+                4 => -16,
+                5 => -26,
+                6 => -36,
+            ],
+            'hard' => [
+                0 => 0,
+                1 => -4,
+                2 => -6,
+                3 => -8,
+                4 => -10,
+            ],
+        ];
+        $previous_campings = $citizen->getCampingCounter();
+        if ($town->getType()->getId() == 3) {
+            $camping_values['campings'] = $campings_map['hard'][$previous_campings];
+        }
+        else {
+            $camping_values['campings'] = $campings_map['normal'][$previous_campings];
+        }
+
+        // Campers that are already hidden.
+        $campers_map = [
+            0 => 0,
+            1 => 0,
+            2 => -2,
+            3 => -5,
+            4 => -10,
+        ];
+        $previous_campers = 0;
+        $zone_campers = $zone->getCampers();
+        foreach ($zone_campers as $camper) {
+            if ($camper !== $citizen) {
+                $previous_campers++;
+            }
+            else {
+                break;
+            }
+        }
+        if ($previous_campers >= 5) {
+            $camping_values['campers'] = -14;
+        }
+        else {
+            $camping_values['campers'] = $campers_map[$previous_campers];
+        }
+
+        // Hautfetzen + Zeltplanen
+        $campitems = [
+            $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'smelly_meat_#00' ),
+            $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'sheet_#00' ),
+        ];
+        $camping_values['campitems'] = $this->inventory_handler->countSpecificItems($citizen->getInventory(), $campitems);
+
+        // Grab
+        $camping_values['tomb'] = 0;
+        if ($citizen->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ) )) {
+            $camping_values['tomb'] = 1.9;
+        }
+
+        // Night time bonus.
+        $camping_values['night'] = 0;
+        $camping_datetime = new DateTime();
+        $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
+        if ($camping_datetime->format('G') >= 19) {
+            $camping_values['night'] = 2;
+        }
+
+        // Leuchtturm
+        $camping_values['lighthouse'] = 0;
+        if ($town->getBuildings()->contains( $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( 'small_lighthouse_#00' )) ) {
+            $camping_values['lighthouse'] = 5;
+        }
+
+        // Devastated town.
+        $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;
+
+        return $camping_values;
     }
 }

@@ -78,7 +78,18 @@ class Town
     private $door = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $chaos = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $devastated = false;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Building", mappedBy="town", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $buildings;
 
@@ -91,6 +102,16 @@ class Town
      * @ORM\OneToOne(targetEntity="App\Entity\Forum", mappedBy="town", cascade={"persist", "remove"})
      */
     private $forum;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $conf = [];
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $soulDefense = 0;
 
     public function __construct()
     {
@@ -119,26 +140,26 @@ class Town
 
     public function getLanguage(): ?string
     {
-      return $this->language;
+        return $this->language;
     }
 
     public function setLanguage(string $language): self
     {
-      $this->language = $language;
+        $this->language = $language;
 
-      return $this;
+        return $this;
     }
 
     public function getWordsOfHeroes(): ?string
     {
-      return $this->wordsOfHeroes;
+        return $this->wordsOfHeroes;
     }
 
     public function setWordsOfHeroes(string $wordsOfHeroes): self
     {
-      $this->wordsOfHeroes = $wordsOfHeroes;
+        $this->wordsOfHeroes = $wordsOfHeroes;
 
-      return $this;
+        return $this;
     }
 
     public function getPopulation(): ?int
@@ -283,6 +304,49 @@ class Town
         return $this;
     }
 
+    public function getChaos(): ?bool
+    {
+        return $this->chaos;
+    }
+
+    public function setChaos(bool $chaos): self
+    {
+        $this->chaos = $chaos;
+
+        return $this;
+    }
+
+
+    public function getForum(): ?Forum
+    {
+        return $this->forum;
+    }
+
+    public function setForum(?Forum $forum): self
+    {
+        $this->forum = $forum;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newTown = null === $forum ? null : $this;
+        if ($forum->getTown() !== $newTown) {
+            $forum->setTown($newTown);
+        }
+
+        return $this;
+    }
+
+    public function getDevastated(): ?bool
+    {
+        return $this->devastated;
+    }
+
+    public function setDevastated(bool $devastated): self
+    {
+        $this->devastated = $devastated;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Building[]
      */
@@ -345,21 +409,28 @@ class Town
         return $this;
     }
 
-    public function getForum(): ?Forum
+    public function getConf(): ?array
     {
-        return $this->forum;
+        return $this->conf;
     }
 
-    public function setForum(?Forum $forum): self
+    public function setConf(?array $conf): self
     {
-        $this->forum = $forum;
-
-        // set (or unset) the owning side of the relation if necessary
-        $newTown = null === $forum ? null : $this;
-        if ($forum->getTown() !== $newTown) {
-            $forum->setTown($newTown);
-        }
+        $this->conf = $conf;
 
         return $this;
     }
+
+    public function getSoulDefense(): ?int
+    {
+        return $this->soulDefense;
+    }
+
+    public function setSoulDefense(int $soulDefense): self
+    {
+        $this->soulDefense = $soulDefense;
+
+        return $this;
+    }
+
 }

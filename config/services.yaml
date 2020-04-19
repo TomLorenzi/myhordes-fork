@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+imports:
+    - { resource: 'app/*.yml' }
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -37,6 +40,10 @@ services:
         arguments:
             $translator: '@translator.default'
 
+    App\EventSubscriber\DebugSubscriber:
+        tags: []
+        autoconfigure: false
+
     # TimeKeeperService should not keep the attack going for 20 minutes after
     # it has finished processing in dev mode, so we need to pass the environment
     App\Service\TimeKeeperService:
@@ -51,3 +58,12 @@ services:
     App\Translation\ExpandedPhpExtractor:
         tags:
             - { name: translation.extractor, alias: ExpandedPhpExtractor }
+
+    App\Translation\ExpandedDumper:
+        tags:
+            - { name: translation.dumper, alias: xlf2 }
+
+    App\Service\ConfMaster:
+        arguments:
+            $global: '%myhordes%'
+            $rules: '%rules%'

@@ -24,7 +24,7 @@ class Building
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\BuildingPrototype")
+     * @ORM\ManyToOne(targetEntity="App\Entity\BuildingPrototype", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $prototype;
@@ -64,6 +64,11 @@ class Building
      * @ORM\Column(type="integer")
      */
     private $tempDefenseBonus = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position = 0;
 
     public function __construct()
     {
@@ -186,6 +191,18 @@ class Building
     public function setTempDefenseBonus(int $tempDefenseBonus): self
     {
         $this->tempDefenseBonus = $tempDefenseBonus;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

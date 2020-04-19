@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Response\AjaxResponse;
@@ -71,8 +72,7 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
-            'show_town_link' => $in_town,
-
+            'show_town_link'  => $in_town,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ] );
@@ -112,9 +112,23 @@ class GameController extends AbstractController implements GameInterfaceControll
         if ($this->getActiveCitizen()->getAlive())
             return $this->redirect($this->generateUrl('game_landing'));
 
+        $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($this->getUser(), $this->getActiveCitizen()->getTown());
+        $pictosWonDuringTown = array();
+        $pictosNotWonDuringTown = array();
+
+        foreach ($pictosDuringTown as $picto) {
+            if($picto->getPersisted() > 0) {
+                $pictosWonDuringTown[] = $picto;
+            } else {
+                $pictosNotWonDuringTown[] = $picto;
+            }
+        }
+
         return $this->render( 'ajax/game/death.html.twig', [
             'citizen' => $this->getActiveCitizen(),
-            'sp' => $ch->getSoulpoints( $this->getActiveCitizen() )
+            'sp' => $ch->getSoulpoints($this->getActiveCitizen()),
+            'pictos' => $pictosWonDuringTown,
+            'denied_pictos' => $pictosNotWonDuringTown
         ] );
     }
 
@@ -170,6 +184,14 @@ class GameController extends AbstractController implements GameInterfaceControll
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $active->setActive(false);
+
+        // Delete not validated picto from DB
+        // Here, every validated picto should have persisted to 2
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            $this->entity_manager->remove($pendingPicto);
+        }
+
         $this->entity_manager->persist( $active );
         $this->entity_manager->flush();
 

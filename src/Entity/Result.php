@@ -105,6 +105,16 @@ class Result
      */
     private $zone;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\AffectPicto")
+     */
+    private $picto;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\AffectTown")
+     */
+    private $town;
+
     public function __construct()
     {
     }
@@ -123,6 +133,13 @@ class Result
     {
         $this->name = $name;
 
+        return $this;
+    }
+
+    public function clear(): self {
+        $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
+        $this->blueprint = $this->rolePlayerText = $this->custom = $this->well = $this->home = $this->death =
+        $this->target = $this->zone = $this->picto = null;
         return $this;
     }
 
@@ -302,6 +319,30 @@ class Result
     public function setZone(?AffectZone $zone): self
     {
         $this->zone = $zone;
+
+        return $this;
+    }
+
+    public function getPicto(): ?AffectPicto
+    {
+        return $this->picto;
+    }
+
+    public function setPicto(?AffectPicto $picto): self
+    {
+        $this->picto = $picto;
+
+        return $this;
+    }
+
+    public function getTown(): ?AffectTown
+    {
+        return $this->town;
+    }
+
+    public function setTown(?AffectTown $town): self
+    {
+        $this->town = $town;
 
         return $this;
     }

@@ -31,6 +31,7 @@ class CauseOfDeath
     const FleshCage = 13;
     const Strangulation = 14;
     const Headshot = 15;
+    const Radiations = 16;
 
     /**
      * @ORM\Id()

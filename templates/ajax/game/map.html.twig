@@ -17,38 +17,14 @@
             {% for y in map_y1..map_y0 %}
                 {% for x in map_x0..map_x1 %}
                     {% if zones[x] and zones[x][y] %}
-
-                        {% set zone_attribs = [] %}
-                        {% if x == 0 and y == 0 %}        {% set zone_attribs = zone_attribs|merge(['town']) %}  {% endif %}
-                        {% if x == pos_x and y == pos_y %}{% set zone_attribs = zone_attribs|merge(['active']) %}{% endif %}
-                        {% if zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                            {% set zone_attribs = zone_attribs|merge(['unknown']) %}
-                        {% else %}
-                            {% if zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                                {% set zone_attribs = zone_attribs|merge(['past']) %}
-                            {% endif %}
-
-                            {% if zones[x][y].prototype %}
-                                {% set zone_attribs = zone_attribs|merge(['ruin']) %}
-                                {% if zones[x][y].buryCount > 0 %}{% set zone_attribs = zone_attribs|merge(['buried']) %}{% endif %}
-                            {% endif %}
-
-                            {% if zones[x][y].zombieStatus >= constant('App\\Entity\\Zone::ZombieStateEstimate') %}
-                                {% if zones[x][y].zombies == 0 %}    {% set zone_attribs = zone_attribs|merge(['danger-0']) %}
-                                {% elseif zones[x][y].zombies <= 2 %}{% set zone_attribs = zone_attribs|merge(['danger-1']) %}
-                                {% elseif zones[x][y].zombies <= 5 %}{% set zone_attribs = zone_attribs|merge(['danger-2']) %}
-                                {% else %}                           {% set zone_attribs = zone_attribs|merge(['danger-3']) %}
-                                {% endif %}
-                            {% endif %}
-
-                        {% endif %}
-                        <div class="zone {{ zone_attribs|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
+                        {% set classes = zones_classes[x][y] %}
+                        <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
                                 <div class="icon"></div>
                                 <div class="overlay"></div>
                                 {% if zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
                                     <div class="count">{% if zones[x][y].zombies > 0 %}{{ zones[x][y].zombies }}{% endif %}</div>
                                 {% endif %}
-                                {% if zones[x][y].citizens|length != 0 %}
+                                {% if in_town and zones[x][y].citizens|length != 0 %}
                                     <div class="citizen_marker"></div>
                                 {% endif %}
                                 {% if x != pos_x or y != pos_y %}
@@ -73,7 +49,7 @@
                                             <div class="cell rw-6 left">{{ 'Entfernung'|trans({},'game') }}</div>
                                             <div class="cell rw-6 right"><div class="ap">{{ (x - pos_x)|abs + (y - pos_y)|abs }}</div></div>
                                         </div>
-                                        {% if zones[x][y].citizens|length != 0 %}
+                                        {% if in_town and zones[x][y].citizens|length != 0 %}
                                             {% for resident in zones[x][y].citizens %}
                                                 <div class="row">
                                                     <div class="cell ro-6 rw-6 right">{{ resident.user.username }}</div>
@@ -117,7 +93,13 @@
                                     {% set current_surrounding = zones[pos_x + plane_x][pos_y + plane_y] %}
 
                                     {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
-                                        <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ current_surrounding.prototype.icon ~ '.gif') }})"></div>
+                                        {% set ruin_icon = "" %}
+                                        {% if current_surrounding.buryCount > 0 %}
+                                            {% set ruin_icon = "burried" %}
+                                        {% else %}
+                                            {% set ruin_icon = current_surrounding.prototype.icon %}
+                                        {% endif %}
+                                        <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ ruin_icon ~ '.gif') }})"></div>
                                     {% elseif (pos_x + plane_x) == 0 and (pos_y + plane_y) == 0 %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/town.gif') }})"></div>
                                     {% endif %}
@@ -164,25 +146,25 @@
                 {% if move %}
                     {% if scout_sense  %}
                         {% if zone.x < map_x1 %}<div class="scout-sense scout-sense-east">
-                            {% set sense = max(0,zones[zone.x+1][zone.y].zombies + zones[zone.x+1][zone.y].scoutEstimationOffset) %}
+                            {% set sense = zones[zone.x+1][zone.y].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 14 39" xmlns="http://www.w3.org/2000/svg">
                                 <text x="7" y="24.5" text-anchor="middle" style="font: bold 10px sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>
                         </div>{% endif %}
                         {% if zone.x > map_x0 %}<div class="scout-sense scout-sense-west">
-                            {% set sense = max(0,zones[zone.x-1][zone.y].zombies + zones[zone.x-1][zone.y].scoutEstimationOffset) %}
+                            {% set sense = zones[zone.x-1][zone.y].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 14 39" xmlns="http://www.w3.org/2000/svg">
                                 <text x="7" y="24.5" text-anchor="middle"  style="font: bold 10px sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>
                         </div>{% endif %}
                         {% if zone.y > map_y0 %}<div class="scout-sense scout-sense-south">
-                            {% set sense = max(0,zones[zone.x][zone.y-1].zombies + zones[zone.x][zone.y-1].scoutEstimationOffset) %}
+                            {% set sense = zones[zone.x][zone.y-1].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 39 14" xmlns="http://www.w3.org/2000/svg">
                                 <text x="19.5" y="12" text-anchor="middle"  style="font: bold 10px sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>
                         </div>{% endif %}
                         {% if zone.y < map_y1 %}<div class="scout-sense scout-sense-north">
-                            {% set sense = max(0,zones[zone.x][zone.y+1].zombies + zones[zone.x][zone.y+1].scoutEstimationOffset) %}
+                            {% set sense = zones[zone.x][zone.y+1].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 39 14" xmlns="http://www.w3.org/2000/svg">
                                 <text x="19.5" y="12" text-anchor="middle"  style="font: bold 10px sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>

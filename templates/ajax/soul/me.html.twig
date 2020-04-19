@@ -1,29 +1,44 @@
 {% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{ parent() }}
+    {% if app.user and not app.user.activeCitizen %}
+        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+    {% endif %}
+{% endblock %}
 {% block ajax %}
     <div class="row soul">
         <div class="cell padded header rw-8">
-            <h4>{% trans from 'soul' %}Deine Seele{% endtrans %}</h4>
-
+            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
             <div class="row">
-                {# TODO: Distinguish heroïc soul and non-heroïc souls #}
-                <div class="cell padded rw-2"><img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="Héros" /> {{ app.user.username }}</div>
-                <div class="cell padded rw-8 center">{{ app.user.email }}</div>
-                <div class="cell padded rw-2 right"><a target="_self" href="{{ path('auto_logout') }}">{{ 'Ausloggen'|trans({},'global') }}</a></div>
-            </div>
-
-            <div class="row">
-                <div class="cell padded rw-5 rw-sm-12 distinctions">
+                <div class="cell rw-5 rw-sm-12 distinctions">
                     <div class="distinctions-head center">
                         {{ 'Statistiken'|trans({}, 'global') }}
                     </div>
                     <div class="distinctions-list center">
                         <div class="overall">
-                            {{ '%points% Punkte'|trans({'%points%':0}, 'global') }}
+                            {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
                         </div>
                         <div class="top"></div>
+                        {% if pictos|length == 0 %}
                         <div class="list empty">
                             {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
                         </div>
+                        {% else %}
+                        <div class"list">
+                            {% for picto in pictos %}
+                                <div class="picto{% if picto.rare %} rare{% endif %}">
+                                    <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
+                                    <div class="counter">
+                                    {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
+                                    </div>
+                                    <div class="tooltip">
+                                    <h1>{{ picto.label|trans({}, 'game') }}</h1>
+                                    {{ picto.description|trans({}, 'game')}}</em>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="distinctions-foot">
                         &nbsp;
@@ -59,8 +74,8 @@
                             </div>
                         </div>
                         <div class="town-container">
-                        {% for incarnations in app.user.citizens|filter(incarnations => not incarnations.alive) %}
-                            <div class="row">
+                        {% for incarnations in app.user.citizens|filter(incarnations => not incarnations.alive)|sort((a,b) => a.survivedDays < b.survivedDays) %}
+                            <div class="row{% if incarnations.town.type.name == 'panda' %} hardcore{% endif %}">
                             {% if not incarnations.alive %}
                                 {% set days = incarnations.survivedDays %}
                                 {% set nbSoulPoints = days * ( days + 1 ) / 2 %}
@@ -68,7 +83,7 @@
                                         0
                                     </div>
                                     <div class="cell padded rw-6 center town-name">
-                                        {{ incarnations.town.name }}
+                                        {% if incarnations.town.type.name == 'panda' %}<img src="{{ asset('build/images/soul/r_cannib.gif') }}" alt="" /> {% endif %}{{ incarnations.town.name }}
                                     </div>
                                     <div class="cell padded rw-2 center town-days bold">
                                         {{ incarnations.survivedDays }}

@@ -6,7 +6,7 @@
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
-            <li>{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}</li>
+            <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}</li>
             <li>{{ clock.timestamp.format('G:i') }}</li>
             <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"></li>
         </ul>
@@ -37,7 +37,7 @@
     {% if ap is defined and max_ap is defined %}
         <div class="ulcont">
             <ul class="ap">
-                <li><img src="{{ asset("build/images/ap_small.gif") }}" alt="" /> {{ ap }}<em>/{{ max_ap }}</em></li>
+                <li>{{ ap }}<em>/{{ max_ap }}</em></li>
             </ul>
             <div class="tooltip">
                 <b>{{ 'Aktionspunkte'|trans({},'game') }}</b><br />
@@ -53,9 +53,7 @@
     {% if bp is defined and max_bp is defined and max_bp > 0 %}
         <div class="ulcont">
             <ul class="bp">
-                <li>{{ bp }}</li>
-                <li>/</li>
-                <li>{{ max_bp }}</li>
+                <li>{{ bp }}<em>/{{ max_bp }}</em></li>
             </ul>
             <div class="tooltip">
                 <b>{{ 'Baupunkte'|trans({},'game') }}</b><br />

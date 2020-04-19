@@ -3,28 +3,22 @@
 
 namespace App\Service;
 
-
-use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
-use App\Entity\DigTimer;
 use App\Entity\Forum;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
-use App\Entity\ItemGroup;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
-use App\Entity\WellCounter;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
-use DateTime;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 
 class GameFactory
 {
@@ -39,6 +33,7 @@ class GameFactory
     private $zone_handler;
     private $town_handler;
     private $log;
+    private $conf;
 
     const ErrorNone = 0;
     const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
@@ -46,9 +41,7 @@ class GameFactory
     const ErrorUserAlreadyInTown   = ErrorHelper::BaseTownSelectionErrors + 3;
     const ErrorNoDefaultProfession = ErrorHelper::BaseTownSelectionErrors + 4;
 
-
-
-    public function __construct(
+    public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh)
     {
@@ -63,6 +56,7 @@ class GameFactory
         $this->zone_handler = $zh;
         $this->town_handler = $th;
         $this->log = $lh;
+        $this->conf = $conf;
     }
 
     private static $town_name_snippets = [
@@ -128,16 +122,8 @@ class GameFactory
         }, static::$town_name_snippets[$language][array_rand( static::$town_name_snippets[$language] )]));
     }
 
-    private function getDefaultWell(TownClass $town_type): int {
-        return mt_rand( $town_type->getWellMin(), $town_type->getWellMax() );
-    }
-
-    private function getDefaultRuinCount(TownClass $town_type): int {
-        return mt_rand( $town_type->getRuinsMin(), $town_type->getRuinsMax() );
-    }
-
-    private function getDefaultZoneResolution( TownClass $town_type, ?int &$offset_x, ?int &$offset_y ): int {
-        $resolution = mt_rand( $town_type->getMapMin(), $town_type->getMapMax() );
+    private function getDefaultZoneResolution( TownConf $conf, ?int &$offset_x, ?int &$offset_y ): int {
+        $resolution = mt_rand( $conf->get(TownConf::CONF_MAP_MIN, 0), $conf->get(TownConf::CONF_MAP_MAX, 0) );
         $safe_border = ceil($resolution/4.0);
         $offset_x = $safe_border + mt_rand(0, $resolution - 2*$safe_border);
         $offset_y = $safe_border + mt_rand(0, $resolution - 2*$safe_border);
@@ -145,25 +131,44 @@ class GameFactory
     }
 
     public function createTown( ?string $name, ?string $language, int $population, string $type ): ?Town {
-        if (!$this->validator->validateTownType($type) || !$this->validator->validateTownPopulation( $population, $type ))
+        if (!$this->validator->validateTownType($type))
             return null;
 
         $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneByName( $type );
+
+        // Initial: Create town
         $town = new Town();
         $town
-            ->setType( $townClass )
+            ->setType( $townClass );
+
+        $conf = $this->conf->getTownConfiguration($town);
+
+        if ($population <= 0 || $population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
+            return null;
+
+        $town
             ->setPopulation( $population )
             ->setName( $name ?: $this->createTownName($language) )
             ->setLanguage( $language )
             ->setBank( new Inventory() )
-            ->setWell( $this->getDefaultWell($townClass) );
+            ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes($town, 0) as $prototype)
             $this->town_handler->addBuilding( $town, $prototype );
 
+        foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
+            $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype ) );
+
+        foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
+            /** @var BuildingPrototype $proto */
+            $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype );
+            $b = $this->town_handler->addBuilding( $town, $proto );
+            $b->setAp( $proto->getAp() )->setComplete( true );
+        }
+
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
 
-        $map_resolution = $this->getDefaultZoneResolution( $townClass, $ox, $oy );
+        $map_resolution = $this->getDefaultZoneResolution( $conf, $ox, $oy );
         for ($x = 0; $x < $map_resolution; $x++)
             for ($y = 0; $y < $map_resolution; $y++) {
                 $zone = new Zone();
@@ -179,7 +184,8 @@ class GameFactory
                 $town->addZone( $zone );
             }
 
-        $spawn_ruins = $this->getDefaultRuinCount( $townClass );
+        $spawn_ruins = $conf->get(TownConf::CONF_NUM_RUINS, 0);
+
         /** @var Zone[] $zone_list */
         $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) {return $z->getX() !== 0 || $z->getY() !== 0;});
         shuffle($zone_list);
@@ -214,10 +220,7 @@ class GameFactory
             }
         }
 
-        $item_spawns = [
-            'bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00',
-            'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00'
-        ];
+        $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
         shuffle($zone_list);
         for ($i = 0; $i < min(count($item_spawns),count($zone_list)); $i++)
             $this->inventory_handler->forceMoveItem( $zone_list[$i]->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
@@ -266,8 +269,7 @@ class GameFactory
             ->setTown( $town )
             ->setInventory( new Inventory() )
             ->setHome( $home )
-            ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneByRef( CauseOfDeath::Unknown ) )
-            ->setWellCounter( new WellCounter() );
+            ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneByRef( CauseOfDeath::Unknown ) );
         (new Inventory())->setCitizen( $citizen );
         $this->citizen_handler->inflictStatus( $citizen, 'clean' );
 

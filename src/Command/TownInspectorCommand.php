@@ -4,12 +4,10 @@
 namespace App\Command;
 
 
+use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
-use App\Entity\Inventory;
 use App\Entity\Town;
-use App\Entity\TownClass;
-use App\Entity\WellCounter;
 use App\Entity\Zone;
 use App\Service\GameFactory;
 use App\Service\NightlyHandler;
@@ -55,6 +53,10 @@ class TownInspectorCommand extends Command
             ->addArgument('TownID', InputArgument::REQUIRED, 'The town ID')
 
             ->addOption('show-zones', null, InputOption::VALUE_NONE, 'Lists zone information.')
+            ->addOption('zone-limit-x', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'Limits zone output to a given X coordinate. Use twice to specify range.', null)
+            ->addOption('zone-limit-y', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'Limits zone output to a given Y coordinate. Use twice to specify range.', null)
+
+
             ->addOption('reset-well-lock', null, InputOption::VALUE_NONE, 'Resets the well lock.')
             ->addOption('zombies', null, InputOption::VALUE_REQUIRED, 'Controls the zombie spawn; set to "reset" to clear all zombies, "daily" to perform a single daily spread or "global" to force a global respawn.')
             ->addOption('zombie-estimates', null, InputOption::VALUE_REQUIRED, 'Calculates the zombie estimations for the next days.')
@@ -64,6 +66,8 @@ class TownInspectorCommand extends Command
             ->addOption('map-ds', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the discovery state')
             ->addOption('map-zs', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the zombie state')
 
+            ->addOption('set-chaos', null, InputOption::VALUE_NONE, 'Enables chaos mode.')
+            ->addOption('set-devastation', null, InputOption::VALUE_NONE, 'Enables chaos mode and devastation')
             ->addOption('advance-day', null, InputOption::VALUE_NONE, 'Starts the nightly attack.')
             ->addOption('dry', null, InputOption::VALUE_NONE, 'When used together with --advance-day, changes in the DB will not persist.')
 
@@ -73,7 +77,7 @@ class TownInspectorCommand extends Command
             ;
     }
 
-    protected function info(Town $town, OutputInterface $output, bool $zones) {
+    protected function info(Town $town, OutputInterface $output, bool $zones, ?array $x_range = null, ?array $y_range = null) {
         $this->trans->setLocale($town->getLanguage() ?? 'de');
         $output->writeln('<comment>Common town data</comment>');
         $table = new Table( $output );
@@ -123,13 +127,17 @@ class TownInspectorCommand extends Command
         if ($zones) {
             $output->writeln('<comment>Zone list</comment>');
             $table = new Table( $output );
-            $table->setHeaders( ['ID', 'X', 'Y', 'Zombies', 'Citizens','InvIDs'] );
+            $table->setHeaders( ['ID', 'X', 'Y', 'Zombies', 'Scout Offset', 'Citizens','InvIDs'] );
             foreach ($town->getZones() as $zone) {
+                if (!empty($x_range) && ($zone->getX() < $x_range[0] || $zone->getX() > $x_range[1]) ) continue;
+                if (!empty($y_range) && ($zone->getY() < $y_range[0] || $zone->getY() > $y_range[1]) ) continue;
+
                 $table->addRow([
                     $zone->getId(),
                     $zone->getX(),
                     $zone->getY(),
                     $zone->getZombies(),
+                    $zone->getScoutEstimationOffset(),
                     implode("\n", array_map(function(Citizen $c): string { return $c->getUser()->getUsername(); }, $zone->getCitizens()->getValues())),
                     $zone->getFloor()->getId()
                 ]);
@@ -165,15 +173,15 @@ class TownInspectorCommand extends Command
 
         if ($input->getOption('reset-well-lock')) {
 
-            /** @var WellCounter[] $wells */
-            $wells = array_map( function (Citizen $c): WellCounter {
-                return $c->getWellCounter();
+            /** @var ActionCounter[] $wells */
+            $wells = array_map( function (Citizen $c): ActionCounter {
+                return $c->getSpecificActionCounter(ActionCounter::ActionTypeWell);
             }, $citizen ? [$citizen] : $town->getCitizens()->getValues() );
 
             $num = 0;
             foreach ($wells as $well) {
-                if ($well->getTaken() == 0) continue;
-                $well->setTaken(0);
+                if ($well->getCount() == 0) continue;
+                $well->setCount(0);
                 $this->entityManager->persist($well);
                 $num++;
             }
@@ -202,6 +210,19 @@ class TownInspectorCommand extends Command
             }
             $changes = true;
             $this->entityManager->persist( $town );
+        }
+
+        if ($input->getOption('set-chaos')) {
+            $town->setChaos(true);
+            $this->entityManager->persist( $town );
+            $changes = true;
+        }
+
+        if ($input->getOption('set-devastation')) {
+            $town->setChaos(true);
+            $town->setDevastated(true);
+            $this->entityManager->persist( $town );
+            $changes = true;
         }
 
         if ($input->getOption('advance-day')) {
@@ -247,6 +268,12 @@ class TownInspectorCommand extends Command
             $output->writeln("<info>OK!</info>");
         }
 
-        return ($input->getOption('no-info')) ? 0 : $this->info($town, $output, $input->getOption('show-zones'));
+        $rg_x = $input->getOption('show-zones') ? $input->getOption('zone-limit-x') : null;
+        $rg_y = $input->getOption('show-zones') ? $input->getOption('zone-limit-y') : null;
+
+        if ($rg_x !== null && count($rg_x) === 1) $rg_x[1] = $rg_x[0];
+        if ($rg_y !== null && count($rg_y) === 1) $rg_y[1] = $rg_y[0];
+
+        return ($input->getOption('no-info')) ? 0 : $this->info($town, $output, $input->getOption('show-zones'), $rg_x, $rg_y);
     }
 }

@@ -22,6 +22,37 @@
                 <div class="cell rw-6 rw-sm-12">
                     <div class="death_list">
                         <b>{{ 'Du hast folgende Auszeichnungen verliehen bekommen:'|trans({},'game')  }}</b>
+                        <ul>
+                        {% for picto in pictos %}
+                            <li {% if picto.prototype.rare %}class="rare"{% endif %}>
+                                <div>
+                                    <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
+                                </div>
+                                {{picto.prototype.label|trans({}, 'game')}} <span class="count">+ {{picto.count}}</span>
+                                <div class="tooltip">
+                                    <h1>{{ picto.prototype.label|trans({}, 'game') }}</h1>
+                                    {{ picto.prototype.description|trans({}, 'game')}}</em>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                        {% if denied_pictos|length > 0 %}
+                            <b>{{ 'Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:'|trans({},'game')  }}</b>
+                            <ul>
+                            {% for picto in denied_pictos %}
+                                <li {% if picto.prototype.rare %}class="rare"{% endif %}>
+                                    <div>
+                                        <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
+                                    </div>
+                                    {{picto.prototype.label|trans({}, 'game')}} <span class="count">+ {{picto.count}}</span>
+                                    <div class="tooltip">
+                                        <h1>{{ picto.prototype.label|trans({}, 'game') }}</h1>
+                                        {{ picto.prototype.description|trans({}, 'game')}}</em>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div>

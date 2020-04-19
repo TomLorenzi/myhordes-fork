@@ -69,11 +69,6 @@ class Citizen
     private $home;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\WellCounter", mappedBy="citizen", cascade={"persist", "remove"})
-     */
-    private $wellCounter;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Zone", inversedBy="citizens")
      */
     private $zone;
@@ -126,14 +121,34 @@ class Citizen
     private $complaints;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\TrashCounter", inversedBy="citizen", cascade={"persist", "remove"})
-     */
-    private $trashCounter;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\HeroicActionPrototype")
      */
     private $heroicActions;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $campingCounter = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $campingTimestamp = 0;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $campingChance = 0;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ActionCounter", mappedBy="citizen", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $actionCounters;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $lastActionTimestamp = 0;
 
     public function __construct()
     {
@@ -142,6 +157,7 @@ class Citizen
         $this->expeditionRoutes = new ArrayCollection();
         $this->complaints = new ArrayCollection();
         $this->heroicActions = new ArrayCollection();
+        $this->actionCounters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -267,23 +283,6 @@ class Citizen
     public function setHome(CitizenHome $home): self
     {
         $this->home = $home;
-
-        return $this;
-    }
-
-    public function getWellCounter(): ?WellCounter
-    {
-        return $this->wellCounter;
-    }
-
-    public function setWellCounter(WellCounter $wellCounter): self
-    {
-        $this->wellCounter = $wellCounter;
-
-        // set the owning side of the relation if necessary
-        if ($wellCounter->getCitizen() !== $this) {
-            $wellCounter->setCitizen($this);
-        }
 
         return $this;
     }
@@ -470,18 +469,6 @@ class Citizen
         return $this;
     }
 
-    public function getTrashCounter(): ?TrashCounter
-    {
-        return $this->trashCounter;
-    }
-
-    public function setTrashCounter(?TrashCounter $trashCounter): self
-    {
-        $this->trashCounter = $trashCounter;
-
-        return $this;
-    }
-
     /**
      * @return Collection|HeroicActionPrototype[]
      */
@@ -504,6 +491,99 @@ class Citizen
         if ($this->heroicActions->contains($heroicAction)) {
             $this->heroicActions->removeElement($heroicAction);
         }
+
+        return $this;
+    }
+
+    public function getCampingCounter(): int
+    {
+      return $this->campingCounter;
+    }
+
+    public function setCampingCounter(int $campingCounter): self
+    {
+      $this->campingCounter = $campingCounter;
+
+      return $this;
+    }
+
+    public function getCampingTimestamp(): int
+    {
+        return $this->campingTimestamp;
+    }
+
+    public function setCampingTimestamp(int $campingTimestamp): self
+    {
+        $this->campingTimestamp = $campingTimestamp;
+
+        return $this;
+    }
+
+    public function getCampingChance(): float
+    {
+        return $this->campingChance;
+    }
+
+    public function setCampingChance(float $campingChance): self
+    {
+        $this->campingChance = $campingChance;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ActionCounter[]
+     */
+    public function getActionCounters(): Collection
+    {
+        return $this->actionCounters;
+    }
+
+    public function addActionCounter(ActionCounter $actionCounter): self
+    {
+        if (!$this->actionCounters->contains($actionCounter)) {
+            $this->actionCounters[] = $actionCounter;
+            $actionCounter->setCitizen($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActionCounter(ActionCounter $actionCounter): self
+    {
+        if ($this->actionCounters->contains($actionCounter)) {
+            $this->actionCounters->removeElement($actionCounter);
+            // set the owning side to null (unless already changed)
+            if ($actionCounter->getCitizen() === $this) {
+                $actionCounter->setCitizen(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSpecificActionCounterValue( int $type ): int {
+        foreach ($this->getActionCounters() as $c)
+            if ($c->getType() === $type) return $c->getCount();
+        return 0;
+    }
+
+    public function getSpecificActionCounter( int $type ): ActionCounter {
+        foreach ($this->getActionCounters() as $c)
+            if ($c->getType() === $type) return $c;
+        $a = (new ActionCounter())->setType($type);
+        $this->addActionCounter($a);
+        return $a;
+    }
+
+    public function getLastActionTimestamp(): int
+    {
+        return $this->lastActionTimestamp;
+    }
+
+    public function setLastActionTimestamp(int $lastActionTimestamp): self
+    {
+        $this->lastActionTimestamp = $lastActionTimestamp;
 
         return $this;
     }

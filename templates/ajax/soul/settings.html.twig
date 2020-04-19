@@ -1,0 +1,54 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{ parent() }}
+    {% if app.user and not app.user.activeCitizen %}
+        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+    {% endif %}
+{% endblock %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-8">
+            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
+            <div class="row">
+                <div class="cell padded rw-4 rw-sm-12">
+                    {% trans from 'soul' %}E-Mail-Adresse{% endtrans %}
+                </div>
+                <div class="cell padded rw-8 rw-sm-12">
+                    <input disabled value="{{ app.user.email }}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-4 rw-sm-12">
+                    {% trans from 'soul' %}Externe ID für Apps{% endtrans %}
+                </div>
+                <div class="cell padded rw-4 rw-sm-12">
+                    <input disabled value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
+                </div>
+                <div class="cell padded rw-4 rw-sm-12">
+                    <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>
+                    <button id="delete-external-id">{{ 'ID löschen'|trans({}, 'soul') }}</button>
+                    <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        document.getElementById('generate-external-id').addEventListener('click', function(e) {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('api_soul_settings_generateid') }}', [],
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+        document.getElementById('delete-external-id').addEventListener('click', function(e) {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('api_soul_settings_deleteid') }}', [],
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+    </script>
+{% endblock %}

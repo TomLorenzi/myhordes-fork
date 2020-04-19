@@ -3,27 +3,20 @@
 
 namespace App\Service;
 
-
-use App\Entity\Building;
-use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
-use App\Entity\CitizenHome;
-use App\Entity\CitizenHomePrototype;
-use App\Entity\CitizenProfession;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
-use App\Entity\Inventory;
 use App\Entity\ItemGroup;
+use App\Entity\PictoPrototype;
 use App\Entity\Town;
-use App\Entity\TownClass;
 use App\Entity\TownLogEntry;
-use App\Entity\User;
-use App\Entity\WellCounter;
 use App\Entity\Zone;
-use App\Entity\ZonePrototype;
+use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Asset\Packages;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ZoneHandler
 {
@@ -33,11 +26,14 @@ class ZoneHandler
     private $random_generator;
     private $inventory_handler;
     private $citizen_handler;
+    private $picto_handler;
+    private $trans;
     private $log;
+    private $asset;
 
     public function __construct(
-        EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh,
-        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch)
+        EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
+        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -45,13 +41,19 @@ class ZoneHandler
         $this->random_generator = $rg;
         $this->inventory_handler = $ih;
         $this->citizen_handler = $ch;
+        $this->picto_handler = $ph;
+        $this->trans = $t;
         $this->log = $lh;
+        $this->asset = $a;
     }
 
-    public function updateZone( Zone $zone, ?DateTime $up_to = null ) {
+    public function updateZone( Zone $zone, ?DateTime $up_to = null, ?Citizen $active = null ): ?string {
 
         $now = new DateTime();
         if ($up_to === null || $up_to > $now) $up_to = $now;
+
+        $chances_by_player = 0;
+        $found_by_player = [];
 
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
@@ -69,7 +71,7 @@ class ZoneHandler
                 $this->entity_manager->persist($timer);
             }
             $this->entity_manager->flush();
-            return;
+            return null;
         }
 
         $sort_func = function(DigTimer $a, DigTimer $b): int {
@@ -96,6 +98,18 @@ class ZoneHandler
                         ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
                         : null;
 
+                    if ($active && $timer->getCitizen()->getId() === $active->getId()) {
+                        $chances_by_player++;
+                        if ($item_prototype){
+                            $found_by_player[] = $item_prototype;
+                            // If we get a Chest XL
+                            if ($item_prototype->getName() == 'chest_xl_#00') {
+                                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_chstxl_#00");
+                                $this->picto_handler->give_picto($citizen, $pictoPrototype);
+                            }
+                        }
+                    }
+
                     $this->entity_manager->persist( $this->log->outsideDig( $timer->getCitizen(), $item_prototype, $timer->getTimestamp() ) );
                     if ($item_prototype) {
                         $item = $this->item_factory->createItem($item_prototype);
@@ -106,7 +120,7 @@ class ZoneHandler
                         }
                     }
 
-                    $zone->setDigs( max(0, $zone->getDigs() - 1) );
+                    $zone->setDigs( max($item_prototype ? 0 : 1, $zone->getDigs() - 1) );
                     $zone_update = true;
 
                     try {
@@ -125,6 +139,16 @@ class ZoneHandler
         if ($zone_update) $this->entity_manager->persist($zone);
         foreach ($dig_timers as $timer) $this->entity_manager->persist( $timer );
         $this->entity_manager->flush();
+
+        if ($chances_by_player > 0) {
+
+            if (empty($found_by_player)) return $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' );
+            elseif (count($found_by_player) === 1) return $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $found_by_player[0]->getIcon() . '.gif' )}'> {$this->trans->trans($found_by_player[0]->getLabel(), [], 'items')}</span>"
+            ], 'game' );
+            else return $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.', [], 'game' );
+
+        } else return null;
     }
 
     const RespawnModeNone = 0;
@@ -228,7 +252,98 @@ class ZoneHandler
                     $this->entity_manager->remove( $entry );
         }
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
-        elseif ( $cp_ok_before && !$this->check_cp( $zone ) )
+        elseif ( $cp_ok_before && !$this->check_cp( $zone ) ) {
             $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
+            // Disable all dig timers
+            foreach ($zone->getDigTimers() as $dig_timer) {
+                $dig_timer->setPassive(true);
+                $this->entity_manager->persist( $dig_timer );
+            }
+        }
+
+    }
+
+    public function getZoneClasses(Zone $zone, ?Citizen $citizen = null) {
+        $attributes = ['zone'];
+        if ($zone->getX() == 0 && $zone->getY() == 0) {
+            $attributes[] = 'town';
+        }
+        if ($zone->getX() == 0 && $zone->getY() == 0 && $zone->getTown()->getDevastated()) {
+            $attributes[] = 'devast';
+        }
+        if ($citizen && $zone === $citizen->getZone()) {
+            $attributes[] = 'active';
+        }
+        if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) {
+            $attributes[] = 'unknown';
+        }
+        else {
+            if ($zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
+                $attributes[] = 'past';
+            }
+            if ($zone->getPrototype()) {
+                $attributes[] = 'ruin';
+                if ($zone->getBuryCount() > 0) {
+                    $attributes[] = 'buried';
+                }
+            }
+        }
+        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
+            if ($zone->getZombies() == 0) {
+                $attributes[] = 'danger-0';
+            }
+            else if ($zone->getZombies() <= 2) {
+                $attributes[] = 'danger-1';
+            }
+            else if ($zone->getZombies() <= 5) {
+                $attributes[] = 'danger-2';
+            }
+            else {
+                $attributes[] = 'danger-3';
+            }
+        }
+
+        return $attributes;
+    }
+
+    public function getZoneAttributes(Zone $zone, ?Citizen $citizen = null) {
+        $attributes = ['zone'];
+        $attributes['town'] = ($zone->getX() == 0 && $zone->getY() == 0) ? 1 : 0;
+        $attributes['devast'] = ($zone->getX() == 0 && $zone->getY() == 0 && $zone->getTown()->getDevastated()) ? 1 : 0;
+        $attributes['active'] = $citizen && $zone === $citizen->getZone() ? 1 : 0;
+        $attributes['discovery'] = $zone->getDiscoveryStatus();
+        if ($zone->getDiscoveryStatus() && $zone->getPrototype()) {
+            if ($zone->getBuryCount() > 0) {
+                $attributes['building'] = [
+                    'name' => T::__("Ein nicht freigeschaufeltes Gebäude.", "game"),
+                    'type' => -1,
+                    'dig' => $zone->getBuryCount(),
+                ];
+            }
+            else {
+                $attributes['building'] = [
+                    'name' => T::__($zone->getPrototype()->getLabel(), "game"),
+                    'type' => $zone->getPrototype()->getId(),
+                    'dig' => 0,
+                ];
+            }
+        }
+
+        if ($zone->getDiscoveryStatus() && $zone->getZombieStatus() === Zone::ZombieStateEstimate) {
+            if ($zone->getZombies() == 0) {
+                $attributes['danger'] = '0';
+            }
+            else if ($zone->getZombies() <= 2) {
+                $attributes['danger'] = '1';
+            }
+            else if ($zone->getZombies() <= 5) {
+                $attributes['danger'] = '2';
+            }
+            else {
+                $attributes['danger'] = '3';
+            }
+        }
+
+        return $attributes;
     }
 }

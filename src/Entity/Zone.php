@@ -71,7 +71,7 @@ class Zone
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone")
+     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="EAGER")
      */
     private $citizens;
 
@@ -134,6 +134,11 @@ class Zone
      * @ORM\Column(type="integer")
      */
     private $scoutEstimationOffset;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $improvementLevel = 0;
 
     public function __construct()
     {
@@ -238,6 +243,22 @@ class Zone
         }
 
         return $this;
+    }
+
+    public function getCampers() {
+        $citizens = $this->getCitizens();
+        // No citizens = no campers.
+        if (!count($citizens)) {
+            return [];
+        }
+        $campers = [];
+        foreach ($citizens as $citizen) {
+            if ($citizen->getCampingTimestamp() > 0) {
+                $campers[$citizen->getCampingTimestamp()] = $citizen;
+            }
+        }
+        ksort($campers);
+        return $campers;
     }
 
     public function getInitialZombies(): ?int
@@ -475,10 +496,27 @@ class Zone
         return $this->scoutEstimationOffset;
     }
 
+    public function getPersonalScoutEstimation(Citizen $c): ?int
+    {
+        return ($this->getZombies() === 0) ? 0 : max(0, $this->getZombies() + (($c->getId() + $this->scoutEstimationOffset) % 5) - 2);
+    }
+
     public function setScoutEstimationOffset(int $scoutEstimationOffset): self
     {
         $this->scoutEstimationOffset = $scoutEstimationOffset;
 
         return $this;
+    }
+
+    public function getImprovementLevel(): ?float
+    {
+      return $this->improvementLevel;
+    }
+
+    public function setImprovementLevel(float $improvementLevel): self
+    {
+      $this->improvementLevel = $improvementLevel;
+
+      return $this;
     }
 }

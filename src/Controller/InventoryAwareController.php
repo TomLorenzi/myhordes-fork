@@ -2,31 +2,39 @@
 
 namespace App\Controller;
 
+use App\Entity\CampingActionPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownLogEntry;
+use App\Entity\User;
 use App\Interfaces\RandomGroup;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
+use App\Service\PictoHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
+use App\Service\ZoneHandler;
 use App\Structures\BankItem;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,24 +50,38 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $inventory_handler;
     protected $citizen_handler;
     protected $action_handler;
+    protected $picto_handler;
     protected $translator;
     protected $log;
     protected $time_keeper;
     protected $random_generator;
+    protected $conf;
+    protected $zone_handler;
+
+    protected $cache_active_citizen = null;
+
+    private $town_conf;
 
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd)
+        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
         $this->citizen_handler = $ch;
         $this->citizen_handler->upgrade( $dh );
         $this->action_handler = $ah;
+        $this->picto_handler = $ph;
         $this->translator = $translator;
         $this->log = $lt;
         $this->time_keeper = $tk;
         $this->random_generator = $rd;
+        $this->conf = $conf;
+        $this->zone_handler = $zh;
+    }
+
+    protected function getTownConf() {
+        return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
@@ -70,11 +92,15 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'desc'      => $this->getActiveCitizen()->getTown()->getName(),
             'day'       => $this->getActiveCitizen()->getTown()->getDay(),
             'timestamp' => new DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true)
+            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+            'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
+        $data['citizen'] = $this->getActiveCitizen();
+        $data['conf'] = $this->getTownConf();
         $data['ap'] = $this->getActiveCitizen()->getAp();
         $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
         $data['banished'] = $this->getActiveCitizen()->getBanished();
+        $data['town_chaos'] = $this->getActiveCitizen()->getTown()->getChaos();
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();
@@ -84,7 +110,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     }
 
     protected function getActiveCitizen(): Citizen {
-        return $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($this->getUser());
+        /** @var User $user */
+        $user = $this->getUser();
+        return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
@@ -148,6 +176,30 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         return $ret;
     }
 
+    protected function getCampingActions(): array {
+      $ret = [];
+      if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) return $ret;
+
+      $this->action_handler->getAvailableCampingActions( $this->getActiveCitizen(), $available, $crossed );
+
+      foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => null, 'action' => $a, 'targets' => null, 'crossed' => false ];
+      foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => null, 'action' => $c, 'targets' => null, 'crossed' => true ];
+
+      return $ret;
+    }
+
+    protected function getHomeActions(): array {
+        $ret = [];
+
+        $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getHome()->getChest()];
+        $this->action_handler->getAvailableHomeActions( $this->getActiveCitizen(), $available, $crossed );
+
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'item' => null, 'action' => $a->getAction(), 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
+        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $c->getIcon(), 'item' => null, 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+
+        return $ret;
+    }
+
     protected function getItemActions(): array {
         $ret = [];
 
@@ -200,22 +252,37 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function renderInventoryAsBank( Inventory $inventory ) {
         $qb = $this->entity_manager->createQueryBuilder();
-        $data = $qb
+        $query = $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory)
             ->groupBy('i.prototype', 'i.broken')
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->orderBy('cr.ordering','ASC')->addOrderBy('c.ordering', 'ASC')->addOrderBy('p.id', 'ASC')->addOrderBy('i.id', 'ASC')
-            ->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+            ->orderBy('i.count', 'DESC')
+            ->addOrderBy('c.ordering','ASC')
+            ->addOrderBy('cr.ordering','ASC')
+            ->addOrderBy('c.ordering', 'ASC')
+            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('i.id', 'ASC')
+            ->getQuery();
+
+        $data = $query->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         $final = [];
+        $cache = [];
+
         foreach ($data as $entry) {
             $label = $entry['l2'] ?? $entry['l1'] ?? 'Sonstiges';
             if (!isset($final[$label])) $final[$label] = [];
-            $final[$label][] = new BankItem( $this->entity_manager->getRepository(Item::class)->find( $entry['id'] ), $entry['n'] );
+            $final[$label][] = [ $entry['id'], $entry['n'] ];
+            $cache[] = $entry['id'];
         }
+
+        $item_list = $this->entity_manager->getRepository(Item::class)->findAllByIds($cache);
+        foreach ( $final as $label => &$entries )
+            $entries = array_map(function( array $entry ) use (&$item_list): BankItem { return new BankItem( $item_list[$entry[0]], $entry[1] ); }, $entries);
+
         return $final;
     }
 
@@ -271,10 +338,28 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                     if ($floor_up !== null) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
                     if ($steal_up !== null) {
 
-                        $this->citizen_handler->inflictStatus( $citizen, 'tg_steal' );
+                        $this->citizen_handler->inflictStatus($citizen, 'tg_steal');
                         $victim_home = $steal_up ? $inv_source->getHome() : $inv_target->getHome();
 
-                        if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+                        // Give picto steal
+                        $pictoName = "r_theft_#00";
+                        $santaClothes = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("christmas_suit_full_#00");
+                        $isSanta = false;
+
+                        if($this->inventory_handler->countSpecificItems($citizen->getInventory(), $santaClothes) > 0){
+                            $pictoName = "r_santac_#00";
+                            $isSanta = true;
+                        }
+                        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
+                        $this->picto_handler->give_picto($citizen, $picto);
+
+
+                        if($isSanta){
+                            $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up, true ) );
+                            $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
+                                '%victim%' => $victim_home->getCitizen()->getUser()->getUsername(),
+                                '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );
+                        } elseif ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                             $victim_home,
                             $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ))
                         {
@@ -340,6 +425,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     public function get_map_blob(): array {
         $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
+        $zones_classes = [];
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -350,10 +436,14 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if (!isset($zones[$x])) $zones[$x] = [];
             $zones[$x][$y] = $zone;
 
+            if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
+            $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses($zone, $this->getActiveCitizen());
         }
 
         return [
             'zones' =>  $zones,
+            'zones_classes' =>  $zones_classes,
+            'town_devast' => $this->getActiveCitizen()->getTown()->getDevastated(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ),
             'pos_x'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getX() : 0,
             'pos_y'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getY() : 0,
@@ -415,7 +505,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $citizen = $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getX() === 0 && $zone->getY() === null ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$this->extract_target_object( $target_id, $heroic->getAction()->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
@@ -426,7 +516,11 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             $heroic_action = $heroic->getAction();
             if ($trigger_after) $trigger_after($heroic_action);
-            $citizen->removeHeroicAction( $heroic );
+            $citizen->removeHeroicAction($heroic);
+
+            // Add the picto Heroic Action
+            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
+            $this->picto_handler->give_picto($citizen, $picto);
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)
@@ -447,6 +541,87 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         return AjaxResponse::success();
     }
 
+    public function generic_home_action_api(JSONRequestParser $parser): Response {
+        $target_id = (int)$parser->get('target', -1);
+        $action_id = (int)$parser->get('action', -1);
+
+        /** @var Item|ItemPrototype|null $target */
+        $target = null;
+        /** @var HomeActionPrototype|null $home_action */
+        $home_action = ($action_id < 0) ? null : $this->entity_manager->getRepository(HomeActionPrototype::class)->find( $action_id );
+
+        if ( !$home_action ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $citizen = $this->getActiveCitizen();
+
+        if ($citizen->getZone()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$this->extract_target_object( $target_id, $home_action->getAction()->getTarget(), [ $citizen->getInventory(), $citizen->getHome()->getChest() ], $target ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $item = null;
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $home_action->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+            $this->entity_manager->persist($citizen);
+            foreach ($remove as $remove_entry)
+                $this->entity_manager->remove($remove_entry);
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+            }
+
+            if ($msg) $this->addFlash( 'notice', $msg );
+        } elseif ($error === ActionHandler::ErrorActionForbidden) {
+            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+            return AjaxResponse::error($error, ['message' => $msg]);
+        }
+        else return AjaxResponse::error( $error );
+
+        return AjaxResponse::success();
+    }
+
+    public function generic_camping_action_api(JSONRequestParser $parser): Response {
+      if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false))
+          return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+      $action_id = (int)$parser->get('action', -1);
+
+      /** @var Item|ItemPrototype|null $target */
+      $target = null;
+      /** @var CampingActionPrototype|null $heroic */
+      $camping = ($action_id < 0) ? null : $this->entity_manager->getRepository(CampingActionPrototype::class)->find( $action_id );
+
+      if ( !$camping ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+      $citizen = $this->getActiveCitizen();
+
+      $zone = $citizen->getZone();
+      if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+      // TODO check for camping status
+
+      $item = null;
+      if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+
+        $this->entity_manager->persist($citizen);
+        foreach ($remove as $remove_entry)
+          $this->entity_manager->remove($remove_entry);
+        try {
+          $this->entity_manager->flush();
+        } catch (Exception $e) {
+          return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+        }
+
+        //TODO: Add chat log
+
+        if ($msg) $this->addFlash( 'notice', $msg );
+      } elseif ($error === ActionHandler::ErrorActionForbidden) {
+        if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+        return AjaxResponse::error($error, ['message' => $msg]);
+      }
+      else return AjaxResponse::error( $error );
+
+      return AjaxResponse::success();
+    }
+
     public function generic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null): Response {
         $item_id =   (int)$parser->get('item',   -1);
         $target_id = (int)$parser->get('target', -1);
@@ -463,8 +638,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $citizen = $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getX() === 0 && $zone->getY() === null ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
+        if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
         if (!$citizen->getInventory()->getItems()->contains( $item ) && !$secondary_inv->getItems()->contains( $item )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$this->extract_target_object( $target_id, $action->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
@@ -487,7 +661,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             if ($msg) $this->addFlash( 'notice', $msg );
         } elseif ($error === ActionHandler::ErrorActionForbidden) {
-            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'items');
             return AjaxResponse::error($error, ['message' => $msg]);
         }
         else return AjaxResponse::error( $error );
