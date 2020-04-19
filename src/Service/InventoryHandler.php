@@ -312,6 +312,8 @@ class InventoryHandler
     const ErrorBankBlocked     = ErrorHelper::BaseInventoryErrors + 7;
     const ErrorExpandBlocked   = ErrorHelper::BaseInventoryErrors + 8;
     const ErrorTransferBlocked   = ErrorHelper::BaseInventoryErrors + 9;
+    const ErrorUnstealableItem   = ErrorHelper::BaseInventoryErrors + 10;
+
 
 
     const ModalityNone    = 0;
@@ -372,6 +374,8 @@ class InventoryHandler
                     return self::ErrorStealBlocked;
                 if ($this->countSpecificItems( $victim->getHome()->getChest(), 'lock', true ) > 0)
                     return self::ErrorStealBlocked;
+                if ($item->getPrototype() === $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("trapma_#00"))
+                    return self::ErrorUnstealableItem;
             }
         }
 

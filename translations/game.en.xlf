@@ -7387,5 +7387,32 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Gereinigte Seelen</target>
       </segment>
     </unit>
+    <unit id="JATCrdR" name="0e9540e">
+      <notes>
+        <note category="german">"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</note>
+      </notes>
+      <segment>
+        <source>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
+        <target>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
+      </segment>
+    </unit>
+    <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
+      <notes>
+        <note category="german">Während Zombies die Zone kontrollieren, kannst du nicht graben.</note>
+      </notes>
+      <segment>
+        <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
+        <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
+      </segment>
+    </unit>
+    <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
+      <notes>
+        <note category="german">Du kannst diesen Gegenstand nicht stehlen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Gegenstand nicht stehlen.</source>
+        <target>You cannot steal this item.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
