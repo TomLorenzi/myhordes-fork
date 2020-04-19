@@ -6,9 +6,12 @@ use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
 use App\Response\AjaxResponse;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
+use App\Structures\Conf;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,13 +28,13 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function welcome(EntityManagerInterface $em): Response
+    public function welcome(EntityManagerInterface $em, ConfMaster $conf): Response
     {
 
 
         return $this->render( 'ajax/ghost/intro.html.twig', [
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
-            'userCanJoin' => $this->getUserTownClassAccess(),
+            'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
         ] );
     }
 
@@ -40,9 +43,10 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      * @param JSONRequestParser $parser
      * @param GameFactory $factory
      * @param EntityManagerInterface $em
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em) {
+    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf) {
         if (!$parser->has('town')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $town_id = (int)$parser->get('town', -1);
         if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -54,7 +58,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $allowedTownClasses = $this->getUserTownClassAccess();
+        $allowedTownClasses = $this->getUserTownClassAccess($conf->getGlobalConf());
         if (!$allowedTownClasses[$town->getType()->getName()]) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
@@ -73,29 +77,17 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         return AjaxResponse::success();
     }
 
-    public function getUserTownClassAccess(): array {
+    public function getUserTownClassAccess(MyHordesConf $conf): array {
         /** @var User $user */
         $user = $this->getUser();
-        $available_town_classes = [
-            'small' => false,
-            'remote' => false,
-            'panda' => false,
-            'custom' => false,
+        return [
+            'small' =>
+                ($user->getSoulPoints() < $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )
+                || $user->getSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )),
+            'remote' => ($user->getSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )),
+            'panda' => ($user->getSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )),
+            'custom' => ($user->getSoulPoints() >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 )),
         ];
-        if ($user->getSoulPoints() < 100 || $user->getSoulPoints() >= 500) {
-            $available_town_classes['small'] = true;
-        }
-        if ($user->getSoulPoints() >= 100) {
-            $available_town_classes['remote'] = true;
-        }
-        if ($user->getSoulPoints() >= 500) {
-            $available_town_classes['panda'] = true;
-        }
-        if ($user->getSoulPoints() >= 1000) {
-            $available_town_classes['custom'] = true;
-        }
-
-        return $available_town_classes;
     }
 
 }

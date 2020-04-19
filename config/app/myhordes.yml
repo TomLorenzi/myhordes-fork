@@ -1,0 +1,8 @@
+parameters:
+  myhordes:
+    soulpoints:
+      limits:
+        remote: 0 # 100
+        panda: 0 # 500
+        return_small: 0 # 500
+        custom: 0 # 1000

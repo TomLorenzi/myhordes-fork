@@ -65,4 +65,5 @@ services:
 
     App\Service\ConfMaster:
         arguments:
+            $global: '%myhordes%'
             $rules: '%rules%'

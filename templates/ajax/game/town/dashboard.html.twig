@@ -14,7 +14,7 @@
             <div class="padded cell rw-4 rw-md-6 center attack-estimation">
                 <em>{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</em><br />
                 <span class="counter">
-                {% if zeds_today[0] %}
+                {% if (town.type.name == 'small' or zeds_today[3] > 33) and zeds_today[0] %}
                     {{ zeds_today[1] }} - {{ zeds_today[2] }} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
                 {% else %}
                     {{ 'Unbekannt'|trans({}, 'game')}} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />

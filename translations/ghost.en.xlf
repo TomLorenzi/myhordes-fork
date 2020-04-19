@@ -151,5 +151,14 @@
         <target>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</target>
       </segment>
     </unit>
+    <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
+      <notes>
+        <note category="german">Deine Seele genügt den Anforderungen für diesen Stadttypen.</note>
+      </notes>
+      <segment>
+        <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
+        <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

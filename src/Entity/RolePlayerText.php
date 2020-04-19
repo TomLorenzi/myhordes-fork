@@ -43,6 +43,11 @@ class RolePlayerText
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string", length=8)
+     */
+    private $language;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +97,18 @@ class RolePlayerText
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+    
+    public function getLanguage(): ?string
+    {
+        return $this->language;
+    }
+
+    public function setLanguage(string $language): self
+    {
+        $this->language = $language;
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ActionCounter;
 use App\Entity\AffectAP;
 use App\Entity\AffectBlueprint;
 use App\Entity\AffectDeath;
@@ -20,6 +21,7 @@ use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
 use App\Entity\HeroicActionPrototype;
@@ -33,6 +35,7 @@ use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
 use App\Entity\RequireAP;
 use App\Entity\RequireBuilding;
+use App\Entity\RequireCounter;
 use App\Entity\RequireHome;
 use App\Entity\RequireItem;
 use App\Entity\RequireLocation;
@@ -117,6 +120,19 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'have_canister'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'jerrycan_#00', 'prop' => null ] ], 'text' => 'Hierfür brauchst du einen Kanister.' ],
             'have_battery'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'pile_#00',  'prop' => null ] ],    'text' => 'Hierfür brauchst du eine Batterie.' ],
             'have_matches'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'lights_#00', 'prop' => null ] ],   'text' => 'Hierfür brauchst du Streichhölzer...' ],
+            'have_2_pharma'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'pharma_#00', 'prop' => null, 'count' => 2 ] ],   'text' => 'Hierfür brauchst du 2x Pharmazeutische Substanz...' ],
+
+            'lab_counter_below_1' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeLab, 'max' => 0 ] ] ],
+            'lab_counter_below_4' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeLab, 'max' => 3 ] ] ],
+            'lab_counter_below_6' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeLab, 'max' => 5 ] ] ],
+            'lab_counter_below_9' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeLab, 'max' => 8 ] ] ],
+
+            'kitchen_counter_below_1' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 0 ] ] ],
+            'kitchen_counter_below_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 1 ] ] ],
+            'kitchen_counter_below_3' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 2 ] ] ],
+            'kitchen_counter_below_4' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 3 ] ] ],
+            'kitchen_counter_below_5' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 4 ] ] ],
+            'kitchen_counter_below_6' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 5 ] ] ],
 
             'must_be_terrorized'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
             'must_not_be_terrorized' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
@@ -149,7 +165,22 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_have_cinema'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cinema_#00', 'complete' => true  ] ] ],
             'must_have_hammam'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_spa4souls_#00', 'complete' => true  ] ]],
 
+            'must_have_lab'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => true  ] ]],
+            'must_not_have_lab'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => false  ] ]],
+            'must_have_canteen'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => true  ] ]],
+            'must_not_have_canteen' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => false  ] ]],
+
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
+
+            'must_have_home_lab_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'lab' ] ]],
+            'must_have_home_lab_v2' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 2, 'max_level' => 2, 'upgrade' => 'lab' ] ]],
+            'must_have_home_lab_v3' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 3, 'max_level' => 3, 'upgrade' => 'lab' ] ]],
+            'must_have_home_lab_v4' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 4, 'max_level' => 4, 'upgrade' => 'lab' ] ]],
+
+            'must_have_home_kitchen_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'kitchen' ] ]],
+            'must_have_home_kitchen_v2' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 2, 'max_level' => 2, 'upgrade' => 'kitchen' ] ]],
+            'must_have_home_kitchen_v3' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 3, 'max_level' => 3, 'upgrade' => 'kitchen' ] ]],
+            'must_have_home_kitchen_v4' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 4, 'max_level' => 4, 'upgrade' => 'kitchen' ] ]],
 
             'zone_is_improvable' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zone' => [ 'max_level' => 10 ] ], 'text' => 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.' ],
 
@@ -183,6 +214,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'consume_drug'    => [ 'consume' => [ 'drug_#00'  ] ],
 
             'spawn_target'    => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => null ] ],
+            'consume_target'  => [ 'target' => [ 'consume' => true, 'morph' => null, 'break' => null, 'poison' => null ] ],
             'repair_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => false, 'poison' => null ] ],
             'poison_target'   => [ 'target' => [ 'consume' => false, 'morph' => null, 'break' => null, 'poison' => true  ] ],
 
@@ -254,6 +286,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'camp_tomb' => [ 'status' => [ 'from' => null, 'to' => 'tg_tomb' ] ],
             'camp_unhide' => [ 'status' => [ 'from' => 'tg_hide', 'to' => null ] ],
             'camp_untomb' => [ 'status' => [ 'from' => 'tg_tomb', 'to' => null ] ],
+
+            'home_lab_success' => [ 'spawn' => 'lab_success_drugs', 'picto' => ['r_drgmkr_#00'] ],
+            'home_lab_failure' => [ 'spawn' => 'lab_fail_drugs' ],
+
+            'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food', 'picto' => ['r_cookr_#00'] ],
+            'home_kitchen_failure' => [ 'spawn' => 'kitchen_fail_food' ],
         ],
 
         'results' => [
@@ -287,6 +325,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'inflict_wound' => [ 'from' => null, 'to' => 'tg_meta_wound' ],
                 'heal_wound'    => [ 'from' => 'tg_meta_wound', 'to' => null ],
                 'add_bandage'   => [ 'from' => null, 'to' => 'healed' ],
+
+                'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
+                'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
             ],
             'item' => [],
 
@@ -298,6 +339,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
                 'asafe' => [ 'bplan_e_#00' ],
 
+                'lab_fail_drugs'    => [ 'drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'disinfect_#00' ],
+                'lab_success_drugs' => [ 'drug_hero_#00' ],
+
+                'kitchen_fail_food'    => [ 'dish_#00' ],
+                'kitchen_success_food' => [ 'dish_tasty_#00' ],
+
                 'meat_4xs' => [ [ 'meat_#00',  4 ] ],
                 'meat_4x'  => [ [ 'undef_#00', 4 ] ],
                 'meat_2xs' => [ [ 'meat_#00',  2 ] ],
@@ -305,7 +352,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'meat_bmb' => [ [ 'flesh_#00', 2 ] ],
             ],
 
-            'consume' => [],
+            'consume' => [
+                '2_pharma' => [ 'pharma_#00', 2 ]
+            ],
 
             'bp' => [],
 
@@ -537,7 +586,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bp_hospital_3' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_lastchance_#00','small_appletree_#00', 'item_digger_#00', 'small_chicken_#00', 'small_infirmary_#00', 'small_sprinkler_#00', 'item_meca_parts_#00', 'item_jerrycan_#01', 'item_shield_#00'] ] ], 'message' => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>' ],
             'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_fireworks_#00','small_balloon_#00', 'small_crow_#00', 'small_pmvbig_#00', 'small_coffin_#00'] ] ],                                                                                               'message' => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>' ],
 
-            'read_rp' => [ 'label' => 'Lesen', 'cover' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
+            'read_rp' => [ 'label' => 'Lesen', 'cover' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp', ['picto' => ['r_rp_#00']] ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
 
             'vibrator' => [ 'label' => 'Verwenden', 'meta' => [ 'must_be_inside', 'must_be_terrorized' ], 'result' => [ 'unterrorize', ['item' => ['morph' => 'vibr_empty_#00', 'consume' => false]] ], 'message' => 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.' ],
 
@@ -609,6 +658,24 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'home_fillwater' => [ 'label' => 'Wasserwaffen füllen', 'meta' => [ 'must_be_inside', 'must_have_valve' ], 'result' => [[ 'custom' => [14]]] ],
             'home_cinema'    => [ 'label' => 'Ins Kino gehen', 'meta' => [ 'must_be_inside', 'must_have_cinema', 'must_be_terrorized' ], 'result' => [ 'unterrorize'] ],
 
+            'home_lab_1a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_lab_2a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_lab_3a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_1' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_lab_4a' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_not_have_lab', 'have_2_pharma', 'lab_counter_below_4' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma' ], 'home_lab_success' ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_lab_1b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v1', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 25], [ 'home_lab_failure', 75 ] ]],  ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_lab_2b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v2', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 50], [ 'home_lab_failure', 50 ] ]],  ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_lab_3b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v3', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_6' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma', 'group' => [ ['home_lab_success', 75], [ 'home_lab_failure', 25 ] ]],  ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_lab_4b' => [ 'label' => 'Droge herstellen', 'meta' => [ 'must_be_inside', 'must_have_home_lab_v4', 'must_have_lab',     'have_2_pharma', 'lab_counter_below_9' ], 'result' => [ [ 'status' => 'increase_lab_counter', 'consume' => '2_pharma' ], 'home_lab_success' ], 'message' => 'In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.' ],
+
+            'home_kitchen_1a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v1', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 33], [ 'home_kitchen_failure', 66 ] ]],  ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_kitchen_2a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v2', 'must_not_have_canteen', 'kitchen_counter_below_1' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 66], [ 'home_kitchen_failure', 33 ] ]],  ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_kitchen_3a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_not_have_canteen', 'kitchen_counter_below_2' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_kitchen_4a' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_not_have_canteen', 'kitchen_counter_below_3' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_kitchen_1b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v1', 'must_have_canteen',     'kitchen_counter_below_4' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 33], [ 'home_kitchen_failure', 66 ] ]],  ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_kitchen_2b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v2', 'must_have_canteen',     'kitchen_counter_below_4' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter', 'group' => [ ['home_kitchen_success', 66], [ 'home_kitchen_failure', 33 ] ]],  ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_kitchen_3b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v3', 'must_have_canteen',     'kitchen_counter_below_5' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+            'home_kitchen_4b' => [ 'label' => 'Kochen', 'target' => ['property' => 'can_cook'], 'meta' => [ 'must_be_inside', 'must_have_home_kitchen_v4', 'must_have_canteen',     'kitchen_counter_below_6' ], 'result' => [ 'consume_target', [ 'status' => 'increase_kitchen_counter' ], 'home_kitchen_success' ], 'message' => 'In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.' ],
+
             'slaughter_4xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4xs' ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
             'slaughter_2xs' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_2xs' ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
             'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4x'  ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
@@ -626,7 +693,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         ],
 
         'home' => [
-            ['home_clean', 'sort'], ['home_shower', 'shower'], ['home_heal_1', 'heal_wound'], ['home_heal_2', 'heal_infection'], ['home_heal_3', 'heal_infection'], ['home_defbuff', 'watchmen'], ['home_crows', 'watchmen'], ['home_fillwater', 'water'], ['home_cinema', 'cinema']
+            ['home_clean', 'sort'], ['home_shower', 'shower'], ['home_heal_1', 'heal_wound'], ['home_heal_2', 'heal_infection'], ['home_heal_3', 'heal_infection'], ['home_defbuff', 'watchmen'], ['home_crows', 'watchmen'], ['home_fillwater', 'water'], ['home_cinema', 'cinema'],
+
+            ['home_lab_1a', 'home_lab'], ['home_lab_2a', 'home_lab'], ['home_lab_3a', 'home_lab'], ['home_lab_4a', 'home_lab'],
+            ['home_lab_1b', 'lab'], ['home_lab_2b', 'lab'], ['home_lab_3b', 'lab'], ['home_lab_4b', 'lab'],
+            ['home_kitchen_1a', 'kitchen'], ['home_kitchen_2a', 'kitchen'], ['home_kitchen_3a', 'kitchen'], ['home_kitchen_4a', 'kitchen'],
+            ['home_kitchen_1b', 'canteen'], ['home_kitchen_2b', 'canteen'], ['home_kitchen_3b', 'canteen'], ['home_kitchen_4b', 'canteen'],
         ],
 
         'items' => [
@@ -943,6 +1015,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'home':
                         $requirement->setHome( $this->process_home_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
+                    case 'counter':
+                        $requirement->setCounter( $this->process_counter_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
+                        break;
                     case 'building':
                         $requirement->setBuilding( $this->process_building_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
@@ -1051,7 +1126,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if (!$prototype && !$property)
                 throw new Exception('Item condition must have a prototype or property attached. not found: ' . $data['status']);
 
-            $requirement->setName( $id )->setPrototype( $prototype )->setProperty( $property );
+            $requirement->setName( $id )->setPrototype( $prototype )->setProperty( $property )->setCount( $data['count'] ?? 1 );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
@@ -1145,10 +1220,52 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $requirement->setName( $id );
-            if ($data['min_level']) $requirement->setMinLevel( $data['min_level'] );
+            $requirement
+                ->setName( $id )
+                ->setMinLevel( $data['min_level'] ?? null )
+                ->setMaxLevel( $data['max_level'] ?? null );
+
+            if (isset($data['upgrade'])) {
+                $proto = $manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName($data['upgrade']);
+                if (!$proto) throw new Exception('Home upgrade prototype not found: ' . $data['upgrade']);
+                $requirement->setUpgrade( $proto );
+            }
+
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return RequireCounter
+     * @throws Exception
+     */
+    private function process_counter_requirement(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): RequireCounter
+    {
+        if (!isset($cache[$id])) {
+            $requirement = $manager->getRepository(RequireCounter::class)->findOneByName( $id );
+            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>counter/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $requirement = new RequireCounter();
+                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>counter/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $requirement
+                ->setName( $id )
+                ->setType( $data['type'] )
+                ->setMin( $data['min'] ?? null )
+                ->setMax( $data['max'] ?? null );
+
+            $manager->persist( $cache[$id] = $requirement );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>counter/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }
@@ -1203,7 +1320,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>building/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $prototype = $manager->getRepository(BuildingPrototype::class)->findOneByName( $data['prototype'] );
+            $prototype = $manager->getRepository(BuildingPrototype::class)->findOneByName( $data['prototype'], false );
             if (!$prototype)
                 throw new Exception('Building prototype not found: ' . $data['item']);
 
@@ -1350,9 +1467,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if (!$status_from && !empty($data['from'])) throw new Exception('Status effect not found: ' . $data['from']);
             $status_to = empty($data['to']) ? null : $manager->getRepository(CitizenStatus::class)->findOneByName( $data['to'] );
             if (!$status_to && !empty($data['to'])) throw new Exception('Status effect not found: ' . $data['to']);
-            $result->setResetThirstCounter( $data['reset_thirst'] ?? null );
 
-            if (!$status_from && !$status_to && !$result->getResetThirstCounter()) throw new Exception('Status effects must have at least one attached status.');
+            $result
+                ->setResetThirstCounter( $data['reset_thirst'] ?? null )
+                ->setCounter( $data['counter'] ?? null );
+
+            if (!$status_from && !$status_to && !$result->getResetThirstCounter() && $result->getCounter() === null)
+                throw new Exception('Status effects must have at least one attached status.');
 
             $result->setName( $id )->setInitial( $status_from )->setResult( $status_to );
             $manager->persist( $cache[$id] = $result );
@@ -1448,7 +1569,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $result->setType( -1 );
                 foreach ($data as $proto) {
 
-                    $bpp = $manager->getRepository(BuildingPrototype::class)->findOneByName( $proto );
+                    $bpp = $manager->getRepository(BuildingPrototype::class)->findOneByName( $proto, false );
                     if (!$bpp) throw new Exception("Building Prototype not found: {$proto}");
 
                     $result->addList( $bpp );

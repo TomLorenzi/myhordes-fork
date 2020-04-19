@@ -8,13 +8,13 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\RequireHomeRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\RequireCounterRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="name_unique",columns={"name"})
  * })
  */
-class RequireHome
+class RequireCounter
 {
     /**
      * @ORM\Id()
@@ -29,19 +29,19 @@ class RequireHome
     private $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
-    private $minLevel;
+    private $type;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $maxLevel;
+    private $min;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenHomeUpgradePrototype")
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $upgrade;
+    private $max;
 
     public function getId(): ?int
     {
@@ -60,38 +60,38 @@ class RequireHome
         return $this;
     }
 
-    public function getMinLevel(): ?int
+    public function getType(): ?int
     {
-        return $this->minLevel;
+        return $this->type;
     }
 
-    public function setMinLevel(?int $minLevel): self
+    public function setType(int $type): self
     {
-        $this->minLevel = $minLevel;
+        $this->type = $type;
 
         return $this;
     }
 
-    public function getMaxLevel(): ?int
+    public function getMin(): ?int
     {
-        return $this->maxLevel;
+        return $this->min;
     }
 
-    public function setMaxLevel(?int $maxLevel): self
+    public function setMin(?int $min): self
     {
-        $this->maxLevel = $maxLevel;
+        $this->min = $min;
 
         return $this;
     }
 
-    public function getUpgrade(): ?CitizenHomeUpgradePrototype
+    public function getMax(): ?int
     {
-        return $this->upgrade;
+        return $this->max;
     }
 
-    public function setUpgrade(?CitizenHomeUpgradePrototype $upgrade): self
+    public function setMax(?int $max): self
     {
-        $this->upgrade = $upgrade;
+        $this->max = $max;
 
         return $this;
     }

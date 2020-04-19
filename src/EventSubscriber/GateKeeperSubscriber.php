@@ -107,6 +107,11 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 if (!$citizen->getZone())
                     throw new DynamicAjaxResetException($event->getRequest());
             }
+
+            $citizen->setLastActionTimestamp(time());
+
+            $this->em->persist($citizen);
+            $this->em->flush();
         }
     }
 

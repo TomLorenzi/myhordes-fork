@@ -10,12 +10,18 @@
     <h5>{{ 'Wachturm'|trans({},'buildings') }}</h5>
     <div class="block watchtower">
         <div class="row">
+            {% if town.type.name == 'small' or  z0[4] > 33%}
             <div class="padded cell rw-12 left">
                 {{ 'Heutige Abschätzung'|trans({},'game') }}
             </div>
             <div class="cell rw-12 center">
                 <b>{{ z0[2] }} - {{ z0[3] }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/small_zombie.gif') }}" />
             </div>
+            {% else %}
+                <div class="padded cell rw-12 center">
+                    {{ 'Unbekannt'|trans({}, 'game')}}
+                </div>
+            {% endif %}
         </div>
         <div class="row">
             <div class="padded cell rw-12 center small">

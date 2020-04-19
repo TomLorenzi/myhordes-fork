@@ -108,7 +108,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $alive++;
         }
 
-
         $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
         if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
         if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
@@ -150,7 +149,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
-            'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max ],
+            'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max, round($z_q*100) ],
             'zeds_tomorrow' => [ $has_zombie_est_tomorrow, $z_tomorrow_min, $z_tomorrow_max ],
             'living_citizens' => $alive,
             'def_summary' => $defSummary,
@@ -193,6 +192,41 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $deco += $item->getPrototype()->getDeco();
 
         $town = $this->getActiveCitizen()->getTown();
+        $lastActionTimestamp = $c->getLastActionTimestamp();
+
+        // Getting delta time between now and the last action
+        $time = time() - $lastActionTimestamp; 
+
+        $time = abs($time); 
+
+        if ($time > 10800) {
+            // If it was more than 3 hours, let's get the full date/time format
+            $lastActionText =$this->translator->trans('am', [], 'game') . ' '. date('d/m/Y, H:i', $lastActionTimestamp);
+        } else {
+            // Tableau des unités et de leurs valeurs en secondes
+            $times = array( 3600     =>  T::__('Stunde(n)', 'game'),
+                            60       =>  T::__('Minute(n)', 'game'),
+                            1        =>  T::__('Sekunde(n)', 'game'));  
+
+            foreach ($times as $seconds => $unit) {
+                $delta = round($time / $seconds); 
+
+                if ($delta >= 1) {
+                    $unit = $this->translator->trans($unit, [], 'game');
+                    $lastActionText = $this->translator->trans('vor %time%', ['%time%' => "$delta $unit"], 'game');
+                    break;
+                }
+            }
+        }
+
+        $is_injured    = $this->citizen_handler->isWounded($c);
+        $is_infected   = $this->citizen_handler->hasStatusEffect($c, 'infection');
+        $is_thirsty    = $this->citizen_handler->hasStatusEffect($c, "thirst2");
+        $is_addicted   = $this->citizen_handler->hasStatusEffect($c, 'addict');
+        $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
+        $has_job       = $c->getProfession()->getName() != 'none';
+        $is_admin      = $c->getUser()->getIsAdmin();
+
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'home' => $home,
@@ -202,10 +236,17 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'chest' => $home->getChest(),
             'chest_size' => $this->inventory_handler->getSize($home->getChest()),
             'has_cremato' => $th->getBuilding($town, 'item_hmeat_#00', true) !== null,
-
+            'lastActionText' => $lastActionText,
             'def' => $summary,
             'deco' => $deco,
-
+            'time' => $time,
+            'is_injured' => $is_injured,
+            'is_infected' => $is_infected,
+            'is_thirsty' => $is_thirsty,
+            'is_addicted' => $is_addicted,
+            'is_terrorised' => $is_terrorised,
+            'has_job' => $has_job,
+            'is_admin' => $is_admin,
             'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
             'day' => $c->getTown()->getDay()
         ]) );

@@ -8189,5 +8189,68 @@
         <target>Purifier</target>
       </segment>
     </unit>
+    <unit id="fJtXB6T" name="Du hast die Seele gereinigt und sie friedlich gemacht.">
+      <notes>
+        <note category="german">Du hast die Seele gereinigt und sie friedlich gemacht.</note>
+      </notes>
+      <segment>
+        <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
+        <target>Du hast die Seele gereinigt und sie friedlich gemacht.</target>
+      </segment>
+    </unit>
+    <unit id="GhoMZLz" name="Gegenstände suchen">
+      <notes>
+        <note category="german">Gegenstände suchen</note>
+      </notes>
+      <segment>
+        <source>Gegenstände suchen</source>
+        <target>Rechercher un objet</target>
+      </segment>
+    </unit>
+    <unit id="YTSbJ8." name="Droge herstellen">
+      <notes>
+        <note category="german">Droge herstellen</note>
+      </notes>
+      <segment>
+        <source>Droge herstellen</source>
+        <target>Produire une drogue</target>
+      </segment>
+    </unit>
+    <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
+      <notes>
+        <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
+        <target>Vous combinez {items_consume} et produisez {items_spawn}.</target>
+      </segment>
+    </unit>
+    <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
+      <notes>
+        <note category="german">Hierfür brauchst du 2x Pharmazeutische Substanz...</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
+        <target>Vous avez besoin de 2x Produits Pharmaceutiques...</target>
+      </segment>
+    </unit>
+    <unit id="z79RBPW" name="Kochen">
+      <notes>
+        <note category="german">Kochen</note>
+      </notes>
+      <segment>
+        <source>Kochen</source>
+        <target>Cuisiner</target>
+      </segment>
+    </unit>
+    <unit id="h20eY91" name="In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.">
+      <notes>
+        <note category="german">In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
+        <target>Vous avez cuisiné {items_consume} et avez obtenu {items_spawn}.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

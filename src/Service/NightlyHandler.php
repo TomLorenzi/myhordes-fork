@@ -292,7 +292,11 @@ class NightlyHandler
             else $force = $attacking > 0 ? mt_rand(1, max(1,min($max,$attacking-$left)) ) : 0;
             $def = $this->town_handler->calculate_home_def($home);
             $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> is attacked by <info>{$force}</info> zombies and protected by <info>{$def}</info> home defense!");
-            if ($force > $def) $this->kill_wrap($target, $cod, false, $force);
+            if ($force > $def){
+                $this->kill_wrap($target, $cod, false, $force);
+                // he dies from the attack, he validate the new day
+                $target->setSurvivedDays($town->getDays());
+            }
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $target, $force, $def));
                 if (!$has_kino && $this->random->chance( 0.75 * ($force/max(1,$def)) )) {
@@ -649,6 +653,25 @@ class NightlyHandler
             $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
             foreach ($pendingPictosOfUser as $pendingPicto) {
                 $this->log->info("Citizen <info>{$citizen->getUser()->getUsername()}</info> has earned picto <info>{$pendingPicto->getPrototype()->getLabel()}</info>. It has persistance <info>{$pendingPicto->getPersisted()}</info>");
+
+                $persistPicto = false;
+                // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
+                // to validate the picto (set them as persisted)
+                if($town->getType()->getName() == "small" && $citizen->getUser()->getSoulPoints() >= 100) {
+                    $this->log->debug("This is a small town, and <info>{$citizen->getUser()->getUsername()}</info> has more that 100 soul points, we use the day 8 rule");
+                    if($town->getDay() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
+                        $persistPicto = true;
+                    } else if  ($town->getDay() > 8) {
+                        $persistPicto = true;
+                    }
+                } else {
+                    $this->log->debug("We persist the pictos earned the previous days");
+                    $persistPicto = true;
+                }
+
+                if(!$persistPicto)
+                    continue;
+
                 // We check if this picto has already been earned previously (such as Heroic Action, 1 per day)
                 $pendingPreviousPicto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
                 if($pendingPreviousPicto === null) {

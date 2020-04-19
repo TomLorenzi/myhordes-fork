@@ -9,6 +9,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenStatus;
 use App\Entity\EscapeTimer;
 use App\Entity\HomeActionPrototype;
@@ -103,7 +104,16 @@ class ActionHandler
             }
 
             if ($home = $meta_requirement->getHome()) {
-                if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = min( $current_state, $this_state );
+                if ($home->getUpgrade() === null) {
+                    if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = min( $current_state, $this_state );
+                    if ($home->getMaxLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() > $home->getMaxLevel()) $current_state = min( $current_state, $this_state );
+                } else {
+                    /** @var CitizenHomeUpgrade|null $target_home_upgrade */
+                    $target_home_upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(), $home->getUpgrade());
+                    $target_home_upgrade_level = $target_home_upgrade ? $target_home_upgrade->getLevel() : 0;
+                    if ($home->getMinLevel() !== null && $target_home_upgrade_level < $home->getMinLevel()) $current_state = min( $current_state, $this_state );
+                    if ($home->getMaxLevel() !== null && $target_home_upgrade_level > $home->getMaxLevel()) $current_state = min( $current_state, $this_state );
+                }
             }
 
             if ($zone = $meta_requirement->getZone()) {
@@ -115,6 +125,12 @@ class ActionHandler
                 if ($citizen->getAp() < $ap->getMin() || $citizen->getAp() > $max) $current_state = min( $current_state, $this_state );
             }
 
+            if ($counter = $meta_requirement->getCounter()) {
+                $counter_value = $citizen->getSpecificActionCounterValue( $counter->getType() );
+                if ($counter->getMin() !== null && $counter_value < $counter->getMin()) $current_state = min( $current_state, $this_state );
+                if ($counter->getMax() !== null && $counter_value > $counter->getMax()) $current_state = min( $current_state, $this_state );
+            }
+
             if ($item_condition = $meta_requirement->getItem()) {
                 $item_str = ($is_prop = (bool)$item_condition->getProperty())
                     ? $item_condition->getProperty()->getName()
@@ -123,7 +139,7 @@ class ActionHandler
                 $source = $citizen->getZone() ? [$citizen->getInventory(), $citizen->getZone()->getFloor()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
 
                 if (empty($this->inventory_handler->fetchSpecificItems( $source,
-                    [new ItemRequest($item_str, 1, false, null, $is_prop)]
+                    [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, null, $is_prop)]
                 ))) $current_state = min( $current_state, $this_state );
             }
 
@@ -194,7 +210,7 @@ class ActionHandler
             }
 
 
-            if ($current_state < $last_state) $message = $meta_requirement->getFailureText();
+            if ($current_state < $last_state) $message = $this->translator->trans($meta_requirement->getFailureText(), [], 'items');
 
         }
 
@@ -410,6 +426,12 @@ class ActionHandler
 
         $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest) {
             if ($status = $result->getStatus()) {
+                if ($status->getResetThirstCounter())
+                    $citizen->setWalkingDistance(0);
+
+                if ($status->getCounter() !== null)
+                    $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
+
                 if ($status->getInitial() && $status->getResult()) {
                     if ($citizen->getStatus()->contains( $status->getInitial() )) {
                         $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
@@ -712,6 +734,8 @@ class ActionHandler
                         $can_fail = $citizen->getTown()->getDay() > 4;
 
                         if (!$can_fail || $this->random_generator->chance(0.85)) {
+
+                            if ($drink) $citizen->setWalkingDistance(0);
 
                             if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'dehydrated')) {
                                 $this->citizen_handler->removeStatus($citizen, 'thirst2');

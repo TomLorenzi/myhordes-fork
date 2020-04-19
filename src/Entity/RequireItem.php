@@ -31,6 +31,11 @@ class RequireItem
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $count;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class RequireItem
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCount(): ?int
+    {
+        return $this->count;
+    }
+
+    public function setCount(?int $count): self
+    {
+        $this->count = $count;
 
         return $this;
     }

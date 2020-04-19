@@ -7310,5 +7310,203 @@
         <target>__Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</target>
       </segment>
     </unit>
+    <unit id="fZlwOf2" name="Ausweiden">
+      <notes>
+        <note category="german">Ausweiden</note>
+      </notes>
+      <segment>
+        <source>Ausweiden</source>
+        <target>Ausweiden</target>
+      </segment>
+    </unit>
+    <unit id="24l83Eh" name="7fe00d0">
+      <notes>
+        <note category="german">Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</note>
+      </notes>
+      <segment>
+        <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
+        <target>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</target>
+      </segment>
+    </unit>
+    <unit id="OeuOyF4" name="Haus aufräumen und putzen">
+      <notes>
+        <note category="german">Haus aufräumen und putzen</note>
+      </notes>
+      <segment>
+        <source>Haus aufräumen und putzen</source>
+        <target>Haus aufräumen und putzen</target>
+      </segment>
+    </unit>
+    <unit id="tOABtGm" name="0f9daa1">
+      <notes>
+        <note category="german">Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</note>
+      </notes>
+      <segment>
+        <source>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</source>
+        <target>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</target>
+      </segment>
+    </unit>
+    <unit id="k1XRUwI" name="Duschen">
+      <notes>
+        <note category="german">Duschen</note>
+      </notes>
+      <segment>
+        <source>Duschen</source>
+        <target>Duschen</target>
+      </segment>
+    </unit>
+    <unit id="DEHdLNl" name="a36d6fe">
+      <notes>
+        <note category="german">Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</note>
+      </notes>
+      <segment>
+        <source>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</source>
+        <target>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</target>
+      </segment>
+    </unit>
+    <unit id="ZM5U_5i" name="Heilen (5AP)">
+      <notes>
+        <note category="german">Heilen (5AP)</note>
+      </notes>
+      <segment>
+        <source>Heilen (5AP)</source>
+        <target>Heilen (5AP)</target>
+      </segment>
+    </unit>
+    <unit id="8.uDazR" name="Heilen (6AP)">
+      <notes>
+        <note category="german">Heilen (6AP)</note>
+      </notes>
+      <segment>
+        <source>Heilen (6AP)</source>
+        <target>Heilen (6AP)</target>
+      </segment>
+    </unit>
+    <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
+      <notes>
+        <note category="german">Verteidigung organisieren (1 AP)</note>
+      </notes>
+      <segment>
+        <source>Verteidigung organisieren (1 AP)</source>
+        <target>Verteidigung organisieren (1 AP)</target>
+      </segment>
+    </unit>
+    <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
+      <notes>
+        <note category="german">Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</note>
+      </notes>
+      <segment>
+        <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
+        <target>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</target>
+      </segment>
+    </unit>
+    <unit id="V1W3ATr" name="Nach Ruinen Ausschau halten">
+      <notes>
+        <note category="german">Nach Ruinen Ausschau halten</note>
+      </notes>
+      <segment>
+        <source>Nach Ruinen Ausschau halten</source>
+        <target>Nach Ruinen Ausschau halten</target>
+      </segment>
+    </unit>
+    <unit id="zncq9xv" name="5a70d21">
+      <notes>
+        <note category="german">&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
+        <target><![CDATA[<t-zone>Du hast eine neue Ruine auf {zone} entdeckt!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
+      </segment>
+    </unit>
+    <unit id="zI0j8nd" name="Wasserwaffen füllen">
+      <notes>
+        <note category="german">Wasserwaffen füllen</note>
+      </notes>
+      <segment>
+        <source>Wasserwaffen füllen</source>
+        <target>Wasserwaffen füllen</target>
+      </segment>
+    </unit>
+    <unit id="5yZkmMK" name="Ins Kino gehen">
+      <notes>
+        <note category="german">Ins Kino gehen</note>
+      </notes>
+      <segment>
+        <source>Ins Kino gehen</source>
+        <target>Ins Kino gehen</target>
+      </segment>
+    </unit>
+    <unit id="poR1ekb" name="Läutern">
+      <notes>
+        <note category="german">Läutern</note>
+      </notes>
+      <segment>
+        <source>Läutern</source>
+        <target>Läutern</target>
+      </segment>
+    </unit>
+    <unit id="fJtXB6T" name="Du hast die Seele gereinigt und sie friedlich gemacht.">
+      <notes>
+        <note category="german">Du hast die Seele gereinigt und sie friedlich gemacht.</note>
+      </notes>
+      <segment>
+        <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
+        <target>Du hast die Seele gereinigt und sie friedlich gemacht.</target>
+      </segment>
+    </unit>
+    <unit id="YTSbJ8." name="Droge herstellen">
+      <notes>
+        <note category="german">Droge herstellen</note>
+      </notes>
+      <segment>
+        <source>Droge herstellen</source>
+        <target>Droge herstellen</target>
+      </segment>
+    </unit>
+    <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
+      <notes>
+        <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
+        <target>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</target>
+      </segment>
+    </unit>
+    <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
+      <notes>
+        <note category="german">Hierfür brauchst du 2x Pharmazeutische Substanz...</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
+        <target>Hierfür brauchst du 2x Pharmazeutische Substanz...</target>
+      </segment>
+    </unit>
+    <unit id="z79RBPW" name="Kochen">
+      <notes>
+        <note category="german">Kochen</note>
+      </notes>
+      <segment>
+        <source>Kochen</source>
+        <target>Kochen</target>
+      </segment>
+    </unit>
+    <unit id="h20eY91" name="In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.">
+      <notes>
+        <note category="german">In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
+        <target>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</target>
+      </segment>
+    </unit>
+    <unit id="GhoMZLz" name="Gegenstände suchen">
+      <notes>
+        <note category="german">Gegenstände suchen</note>
+      </notes>
+      <segment>
+        <source>Gegenstände suchen</source>
+        <target>Gegenstände suchen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -252,8 +252,15 @@ class ZoneHandler
                     $this->entity_manager->remove( $entry );
         }
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
-        elseif ( $cp_ok_before && !$this->check_cp( $zone ) )
+        elseif ( $cp_ok_before && !$this->check_cp( $zone ) ) {
             $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
+            // Disable all dig timers
+            foreach ($zone->getDigTimers() as $dig_timer) {
+                $dig_timer->setPassive(true);
+                $this->entity_manager->persist( $dig_timer );
+            }
+        }
+
     }
 
     public function getZoneClasses(Zone $zone, ?Citizen $citizen = null) {
@@ -281,7 +288,7 @@ class ZoneHandler
                 }
             }
         }
-        if ($zone->getZombieStatus() === Zone::ZombieStateEstimate) {
+        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
             if ($zone->getZombies() == 0) {
                 $attributes[] = 'danger-0';
             }
