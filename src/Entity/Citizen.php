@@ -57,7 +57,7 @@ class Citizen
     private $roles;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote")
+     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)
      */
     private $votes;
@@ -161,6 +161,11 @@ class Citizen
      * @ORM\Column(type="integer")
      */
     private $lastActionTimestamp = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $pm;
 
     public function __construct()
     {
@@ -650,6 +655,18 @@ class Citizen
     public function setLastActionTimestamp(int $lastActionTimestamp): self
     {
         $this->lastActionTimestamp = $lastActionTimestamp;
+
+        return $this;
+    }
+
+    public function getPm(): ?int
+    {
+        return $this->pm;
+    }
+
+    public function setPm(int $pm): self
+    {
+        $this->pm = $pm;
 
         return $this;
     }

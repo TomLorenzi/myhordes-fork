@@ -72,8 +72,34 @@
             </div>
         </div>
     {% endif %}
-    {% if banished is defined and banished %}
+    {% if pm is defined and max_pm is defined %}
+        <div class="ulcont">
+            <ul class="pm">
+                <li>{{ pm }}<em>/{{ max_pm }}</em></li>
+            </ul>
+            <div class="tooltip">
+                <b>{{ 'Aktionspunkte'|trans({},'game') }}</b><br />
+                {% trans from 'game' %}
+                    Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                    auffüllen.
+                {% endtrans %}
+            </div>
+        </div>
+    {% endif %}
+    {% if (banished is defined and banished) or roles|length > 0 %}
         <ul class="civil">
+            {% for role in roles %}
+                {# @var stat \App\Entity\CitizenRole #}
+                <li class="status">
+                    <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
+                    <div class="tooltip temp-building">
+                    {{ 'Du bist der %rolename% dieser Stadt.'|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
+                    </div>
+                </li>
+            {% endfor %}
+            {% if banished %}
             <li class="status"><img src="{{ asset('build/images/banished.gif') }}" alt="{{ 'Verbannt'|trans({},'game') }}">
                 <div class="tooltip">
                     <b>{{ 'Verbannt'|trans({},'game') }}</b><br />
@@ -83,6 +109,7 @@
                     {% endtrans %}
                 </div>
             </li>
+            {% endif %}
         </ul>
     {% endif %}
 {% endblock %}

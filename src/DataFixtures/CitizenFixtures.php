@@ -145,8 +145,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $role_data = [
-        ['icon' => 'shaman', 'name'=>'shaman' ,'label'=>'Schamane',                'items' => ['shaman_#00'] ],
-        ['icon' => 'book',   'name'=>'guide',  'label'=>'Reiseleiter in der Außenwelt', 'items' => ['guide_#00'] ],
+        ['icon' => 'shaman', 'name'=>'shaman' ,'label' => 'Schamane',                     'icon' => 'shaman', 'status' => 'shaman' ],
+        ['icon' => 'book',   'name'=>'guide',  'label' => 'Reiseleiter in der Außenwelt', 'icon' => 'guide', 'status' => 'guide' ],
     ];
 
     private $entityManager;
@@ -408,21 +408,13 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             /** @var CitizenRole $entity */
             $entity = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $entry['name'] );
             if ($entity === null) $entity = new CitizenRole();
-            else {
-                $entity->getRoleItems()->clear();
-            }
 
             // Set property
             $entity
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
-                ->setIcon( $entry['icon'] );
-
-            foreach ( $entry['items'] as $p_item ) {
-                $i = $manager->getRepository(ItemPrototype::class)->findOneByName( $p_item );
-                if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
-                $entity->addRoleItem($i);
-            }
+                ->setIcon( $entry['icon'] )
+                ->setStatus( $entry['status'] );
 
             $manager->persist( $entity );
 

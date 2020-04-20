@@ -136,7 +136,7 @@ class ExternalController extends InventoryAwareController
         $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
 
         if (!$app) {
-           # return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
+           return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
         }
         $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
 
@@ -505,21 +505,23 @@ class ExternalController extends InventoryAwareController
         // Add zones.
         foreach ( $town->getZones() as $zone ) {
             /** @var Zone $zone */
-            $attributes = $this->zone_handler->getZoneAttributes($zone);
-            $zone_data = [
-                'attributes' => [
-                    'x' => $zone->getX() - $x_min,
-                    'y' => $y_max - $zone->getY(),
-                    'nvt' => $zone->getDiscoveryStatus(),
-                ],
-            ];
-            if (array_key_exists('danger', $attributes)) {
-                $zone_data['attributes']['danger'] = $attributes['danger'];
+            if ($zone->getDiscoveryStatus() != 0) {
+                $attributes = $this->zone_handler->getZoneAttributes($zone);
+                $zone_data = [
+                    'attributes' => [
+                        'x' => $zone->getX() - $x_min,
+                        'y' => $y_max - $zone->getY(),
+                        'nvt' => $zone->getDiscoveryStatus() == 1 ? 1 : 0,
+                    ],
+                ];
+                if (array_key_exists('danger', $attributes)) {
+                    $zone_data['attributes']['danger'] = $attributes['danger'];
+                }
+                if (array_key_exists('building', $attributes)) {
+                    $zone_data['building'] = ['attributes' => $attributes['building']];
+                }
+                $data['hordes']['data']['map']['list']['items'][] = $zone_data;
             }
-            if (array_key_exists('building', $attributes)) {
-                $zone_data['building'] = [ 'attributes' => $attributes['building'] ];
-            }
-            $data['hordes']['data']['map']['list']['items'][] = $zone_data;
         }
 
         // Add buildings.
@@ -546,7 +548,7 @@ class ExternalController extends InventoryAwareController
                     'count' => $item->getCount(),
                     'id' => $item->getPrototype()->getId(),
                     'img' => $item->getPrototype()->getIcon(),
-                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
+                    'cat' => $item->getPrototype()->getCategory()->getParent() ? $item->getPrototype()->getCategory()->getParent()->getName() : $item->getPrototype()->getCategory()->getName(),
                     'broken' => $item->getBroken(),
                 ],
             ];

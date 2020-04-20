@@ -11,6 +11,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -27,11 +28,12 @@ class TownHandler
     private $log;
     private $timeKeeper;
     private $citizen_handler;
+    private $picto_handler;
 
     private $building_cache = null;
 
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch)
+        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -39,6 +41,7 @@ class TownHandler
         $this->log = $lh;
         $this->timeKeeper = $tk;
         $this->citizen_handler = $ch;
+        $this->picto_handler = $ph;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {

@@ -125,6 +125,11 @@ class ActionHandler
                 if ($citizen->getAp() < $ap->getMin() || $citizen->getAp() > $max) $current_state = min( $current_state, $this_state );
             }
 
+            if ($pm = $meta_requirement->getPm()) {
+                $max = $pm->getRelativeMax() ? ($this->citizen_handler->getMaxPM( $citizen ) + $pm->getMax()) : $pm->getMax();
+                if ($citizen->getPm() < $pm->getMin() || $citizen->getPm() > $max) $current_state = min( $current_state, $this_state );
+            }
+
             if ($counter = $meta_requirement->getCounter()) {
                 $counter_value = $citizen->getSpecificActionCounterValue( $counter->getType() );
                 if ($counter->getMin() !== null && $counter_value < $counter->getMin()) $current_state = min( $current_state, $this_state );
@@ -408,6 +413,7 @@ class ActionHandler
 
         $execute_info_cache = [
             'ap' => 0,
+            'pm' => 0,
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
@@ -463,6 +469,16 @@ class ActionHandler
                 } else $this->citizen_handler->setAP( $citizen, true, $ap->getAp(), $ap->getAp() < 0 ? null :$ap->getBonus() );
 
                 $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
+            }
+
+            if ($pm = $result->getPm()) {
+                $old_pm = $citizen->getPm();
+                if ($pm->getMax()) {
+                    $to = $this->citizen_handler->getMaxPM($citizen) + $pm->getPm();
+                    $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ), null );
+                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null :$pm->getBonus() );
+
+                $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
             }
 
             if ($death = $result->getDeath()) {

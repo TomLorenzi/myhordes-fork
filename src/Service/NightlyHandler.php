@@ -1,13 +1,12 @@
 <?php
-
-
 namespace App\Service;
-
 
 use App\Entity\Building;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\CitizenVote;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
@@ -363,6 +362,7 @@ class NightlyHandler
             $citizen->setWalkingDistance(0);
             $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
+            $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ),0);
             $citizen->getActionCounters()->clear();
             $citizen->getDigTimers()->clear();
             foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
@@ -701,7 +701,76 @@ class NightlyHandler
     }
 
     private function stage3_roles(Town &$town){
-        //TODO: code the function
+        $citizens = $town->getCitizens();
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+        $votes = array();
+
+        foreach ($roles as $role) {
+            if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null)
+                continue;
+            // Getting vote per role per citizen
+            $votes[$role->getId()] = array();
+            foreach ($citizens as $citizen) {
+                if($citizen->getAlive()) {
+                    $votes[$role->getId()][$citizen->getId()] = $this->entity_manager->getRepository(CitizenVote::class)->countCitizenVotesFor($citizen, $role);
+                }
+            }
+
+            foreach ($citizens as $citizen) {
+                // Removing citizen with 0 votes
+                if($votes[$role->getId()][$citizen->getId()] == 0) {
+                    unset($votes[$role->getId()][$citizen->getId()]);
+                }
+            }
+
+            if(empty($votes[$role->getId()])) {
+                foreach ($citizens as $citizen) {
+                    if($citizen->getAlive()) {
+                        $votes[$role->getId()][$citizen->getId()] = 0;
+                    }
+                }
+            }
+
+            foreach ($citizens as $citizen) {
+                if(!$citizen->getAlive()) continue;
+
+                $voted = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role) !== null);
+                if(!$voted) {
+                    // He has not voted, let's give his vote to someone who has votes
+                    $vote_for_id = $this->random->pick(array_keys($votes[$role->getId()]), 1);
+                    $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($vote_for_id);
+
+                    if(isset($votes[$role->getId()][$vote_for_id]))
+                        $votes[$role->getId()][$vote_for_id]++;
+                    else
+                        $votes[$role->getId()][$vote_for_id] = 1;
+                }
+            }
+
+            // Let's get the winner
+            $citizenWinnerId = 0;
+            $citizenWinnerCount = 0;
+
+            foreach ($votes[$role->getId()] as $idCitizen => $count) {
+                if($citizenWinnerCount <= $count) {
+                    $citizenWinnerCount = $count;
+                    $citizenWinnerId = $idCitizen;
+                }
+            }
+
+            // We give him the related status
+            $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
+            $winningCitizen->addRole($role);
+            $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
+
+            $this->entity_manager->persist($winningCitizen);
+
+            // we remove the votes
+            $votes = $this->entity_manager->getRepository(CitizenVote::class)->findByRole($role);
+            foreach ($votes as $vote) {
+                $this->entity_manager->remove($vote);
+            }
+        }
     }
 
     public function advance_day(Town &$town): bool {

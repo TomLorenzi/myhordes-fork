@@ -115,6 +115,11 @@ class Result
      */
     private $town;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\AffectPM")
+     */
+    private $pm;
+
     public function __construct()
     {
     }
@@ -343,6 +348,18 @@ class Result
     public function setTown(?AffectTown $town): self
     {
         $this->town = $town;
+
+        return $this;
+    }
+
+    public function getPm(): ?AffectPM
+    {
+        return $this->pm;
+    }
+
+    public function setPm(?AffectPM $pm): self
+    {
+        $this->pm = $pm;
 
         return $this;
     }
