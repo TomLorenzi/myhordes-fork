@@ -180,7 +180,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             foreach ($roles as $role) {
                 foreach ($town->getCitizens() as $citizen) {
-                    if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) === null) {
+                    if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null) {
                         $votes_needed[$role->getName()] = false;
                         break;
                     }
