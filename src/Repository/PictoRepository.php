@@ -169,6 +169,18 @@ class PictoRepository extends ServiceEntityRepository
         }
     }
 
+    public function countPicto(PictoPrototype $prototype){
+        try {
+            return (int)$this->createQueryBuilder('p')->select('sum(p.count)')
+                ->andWhere('p.prototype = :prototype')->setParameter('prototype', $prototype)
+                ->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+            
+
     // /**
     //  * @return Picto[] Returns an array of Picto objects
     //  */
