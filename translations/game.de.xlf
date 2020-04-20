@@ -7423,50 +7423,5 @@
         <target>Du kannst diesen Gegenstand nicht stehlen.</target>
       </segment>
     </unit>
-    <unit id="eLqiBhl" name="%username% wurde standrechtlich erschossen.">
-      <notes>
-        <note category="german">%username% wurde standrechtlich erschossen.</note>
-      </notes>
-      <segment>
-        <source>%username% wurde standrechtlich erschossen.</source>
-        <target>%username% wurde standrechtlich erschossen.</target>
-      </segment>
-    </unit>
-    <unit id="tkJcWLe" name="%username% gehört keiner Stadt an.">
-      <notes>
-        <note category="german">%username% gehört keiner Stadt an.</note>
-      </notes>
-      <segment>
-        <source>%username% gehört keiner Stadt an.</source>
-        <target>%username% gehört keiner Stadt an.</target>
-      </segment>
-    </unit>
-    <unit id="a8CDdVQ" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!">
-      <notes>
-        <note category="german">%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</note>
-      </notes>
-      <segment>
-        <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
-        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
-      </segment>
-    </unit>
-    <unit id="NjgYbEj" name="cae5333">
-      <notes>
-        <note category="german">Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</note>
-      </notes>
-      <segment>
-        <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
-        <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
-      </segment>
-    </unit>
-    <unit id="pEq8Vut" name="Headshot">
-      <notes>
-        <note category="german">Headshot</note>
-      </notes>
-      <segment>
-        <source>Headshot</source>
-        <target>Kopfschuss</target>
-      </segment>
-    </unit>
   </file>
 </xliff>

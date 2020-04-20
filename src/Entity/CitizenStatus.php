@@ -35,6 +35,7 @@ class CitizenStatus
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * 
      */
     private $description;
 
