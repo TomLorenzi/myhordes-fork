@@ -11,7 +11,7 @@
         {% for name,role in votesNeeded %}
             {% if role %}
             <li class="cell rw-3 tab">
-                <div class="tab-link" x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}">{{ role.label|trans({}, 'game') }}</div>
+                <div class="tab-link" x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}"><img src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}</div>
             </li>
             {% endif %}
         {% endfor %}

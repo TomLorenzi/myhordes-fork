@@ -26,7 +26,7 @@ class CitizenVoteRepository extends ServiceEntityRepository
 
     public function countCitizenVotesFor(Citizen $votedCitizen, CitizenRole $role): int {
         try {
-            return (int)$this->createQueryBuilder('c')->select('sum(c.count)')
+            return (int)$this->createQueryBuilder('c')->select('count(c)')
                 ->andWhere('c.votedCitizen = :votedCitizen')->setParameter('votedCitizen', $votedCitizen)
                 ->andWhere('c.role = :role')->setParameter('role', $role)
                 ->getQuery()->getSingleScalarResult();

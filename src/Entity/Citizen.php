@@ -57,7 +57,7 @@ class Citizen
     private $roles;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote")
+     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)
      */
     private $votes;

@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
+use App\Entity\Town;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -29,6 +31,22 @@ class CitizenRepository extends ServiceEntityRepository
                 ->andWhere('c.active = :active')
                 ->setParameter('user', $user)
                 ->setParameter('active', true)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function findOneByRoleAndTown(CitizenRole $role, Town $town): ?Citizen
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->innerJoin('c.roles', 'r')
+                ->andWhere('c.town = :town')
+                ->andWhere('r = :role')
+                ->setParameter('town', $town)
+                ->setParameter('role', $role)
                 ->getQuery()
                 ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {
