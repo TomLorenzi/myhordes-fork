@@ -11,6 +11,7 @@ use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\CitizenRole;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
@@ -146,6 +147,24 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $display_vote_shaman = false;
+        $display_vote_guide = false;
+        $has_voted_shaman = false;
+        $has_voted_guide = false;
+        if(!$town->isOpen() && !$town->getChaos()) {
+            $shamanRole = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("shaman");
+            $guideRole = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
+            $hasShaman = $hasGuide = false;
+            foreach ($town->getCitizens() as $citizen) {
+                if($citizen->getRoles()->contains($shamanRole))
+                    $hasShaman = true;
+                if($citizen->getRoles()->contains($guideRole))
+                    $hasGuide = true;
+            }
+            $display_vote_shaman = !$hasShaman;
+            $display_vote_guide = !$hasGuide;
+        }
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
@@ -157,6 +176,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'item_def_factor' => $item_def_factor,
             'has_battlement' => $has_battlement,
             'has_watchtower' => $has_watchtower,
+            'display_vote_shaman' => $display_vote_shaman,
+            'display_vote_guide' => $display_vote_guide,
+            'has_voted_shaman' => $has_voted_shaman,
+            'has_voted_guide' => $has_voted_guide,
             'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
             'has_estimated' => $has_estimated,

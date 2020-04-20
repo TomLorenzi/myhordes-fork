@@ -2,20 +2,25 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CitizenStatusRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CitizenRoleRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="name_unique",columns={"name"})
  * })
  */
-class CitizenStatus
+class CitizenRole
 {
+    const DEFAULT = 'none';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -34,19 +39,19 @@ class CitizenStatus
     private $label;
 
     /**
-     * @ORM\Column(type="string", length=190)
-     */
-    private $description;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $hidden = false;
-
-    /**
      * @ORM\Column(type="string", length=32)
      */
     private $icon;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\ItemPrototype")
+     */
+    private $roleItems;
+
+    public function __construct()
+    {
+        $this->roleItems = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -77,30 +82,6 @@ class CitizenStatus
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getHidden(): ?bool
-    {
-        return $this->hidden;
-    }
-
-    public function setHidden(bool $hidden): self
-    {
-        $this->hidden = $hidden;
-
-        return $this;
-    }
-
     public function getIcon(): ?string
     {
         return $this->icon;
@@ -109,6 +90,32 @@ class CitizenStatus
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ItemPrototype[]
+     */
+    public function getRoleItems(): Collection
+    {
+        return $this->roleItems;
+    }
+
+    public function addRoleItem(ItemPrototype $roleItem): self
+    {
+        if (!$this->roleItems->contains($roleItem)) {
+            $this->roleItems[] = $roleItem;
+        }
+
+        return $this;
+    }
+
+    public function removeRoleItem(ItemPrototype $roleItem): self
+    {
+        if ($this->roleItems->contains($roleItem)) {
+            $this->roleItems->removeElement($roleItem);
+        }
 
         return $this;
     }

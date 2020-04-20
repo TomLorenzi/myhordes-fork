@@ -22,7 +22,7 @@ yarn encore dev
 # Create a new town (available languages de, en, fr)
 bin/console app:create-town remote 40 de
 
-# Add debug users (password = password)
+# Add debug users (password = username)
 bin/console app:debug --add-debug-users
 
 # Fill town with citizens

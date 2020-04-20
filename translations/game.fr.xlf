@@ -8247,5 +8247,50 @@
         <target>Si vous aviez tenu une nuit de plus, vous auriez également pu gagner les distinctions suivantes :</target>
       </segment>
     </unit>
+    <unit id="guL7vzj" name="Du hast noch keine Drogen genommen.">
+      <notes>
+        <note category="german">Du hast noch keine Drogen genommen.</note>
+      </notes>
+      <segment>
+        <source>Du hast noch keine Drogen genommen.</source>
+        <target>Vous n'avez jamais consommé de drogue.</target>
+      </segment>
+    </unit>
+    <unit id="9hu_P2F" name="f13ed10">
+      <notes>
+        <note category="german">Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+      </notes>
+      <segment>
+        <source>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
+        <target>Vous avez mangé aujourd'hui. Une nouvelle ration de nourriture ne vous permettra pas de récupérer plus de PA pour cette journée.</target>
+      </segment>
+    </unit>
+    <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
+      <notes>
+        <note category="german">Während Zombies die Zone kontrollieren, kannst du nicht graben.</note>
+      </notes>
+      <segment>
+        <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
+        <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
+      </segment>
+    </unit>
+    <unit id="icBLYmA" name="Voter pour le chaman">
+      <notes>
+        <note category="german">Voter pour le chaman</note>
+      </notes>
+      <segment>
+        <source>Voter pour le chaman</source>
+        <target>Voter pour le chaman</target>
+      </segment>
+    </unit>
+    <unit id="iNzBH_f" name="Voter pour le guide">
+      <notes>
+        <note category="german">Voter pour le guide</note>
+      </notes>
+      <segment>
+        <source>Voter pour le guide</source>
+        <target>Voter pour le guide</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

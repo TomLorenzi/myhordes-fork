@@ -8,6 +8,7 @@ use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
@@ -36,9 +37,9 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $citizen_status = [
-        ['name' => 'clean', 'label' => 'Clean'],
+        ['name' => 'clean', 'label' => 'Clean', 'description' => 'Du hast noch keine Drogen genommen.'],
         ['name' => 'hasdrunk', 'label' => 'Getrunken'],
-        ['name' => 'haseaten', 'label' => 'Satt'],
+        ['name' => 'haseaten', 'label' => 'Satt', 'description' => 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.'],
         ['name' => 'camper', 'label' => 'Umsichtiger Camper'],
         ['name' => 'immune', 'label' => 'Immunisiert'],
         ['name' => 'hsurvive', 'label' => 'Den Tod besiegen'],
@@ -143,6 +144,11 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ] ],
     ];
 
+    public static $role_data = [
+        ['icon' => 'shaman', 'name'=>'shaman' ,'label'=>'Schamane',                'items' => ['shaman_#00'] ],
+        ['icon' => 'book',   'name'=>'guide',  'label'=>'Reiseleiter in der Außenwelt', 'items' => ['guide_#00'] ],
+    ];
+
     private $entityManager;
 
     public function __construct(EntityManagerInterface $em)
@@ -220,6 +226,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $entity->setLabel( isset($entry['label']) ? $entry['label'] : $entry['name'] );
             $entity->setIcon( isset($entry['icon']) ? $entry['icon'] : $entry['name'] );
             $entity->setHidden( !isset($entry['label']) );
+            if(isset($entry['description']))
+                $entity->setDescription($entry['description']);
 
             $manager->persist( $entity );
 
@@ -382,6 +390,50 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         $progress->finish();
     }
 
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @throws Exception
+     */
+    protected function insert_roles(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>Citizen roles: ' . count(static::$role_data) . ' fixture entries available.</comment>' );
+
+        // Set up console
+        $progress = new ProgressBar( $out->section() );
+        $progress->start( count(static::$role_data) );
+
+        // Iterate over all entries
+        foreach (static::$role_data as $entry) {
+            // Get existing entry, or create new one
+            /** @var CitizenRole $entity */
+            $entity = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $entry['name'] );
+            if ($entity === null) $entity = new CitizenRole();
+            else {
+                $entity->getRoleItems()->clear();
+            }
+
+            // Set property
+            $entity
+                ->setName( $entry['name'] )
+                ->setLabel( $entry['label'] )
+                ->setIcon( $entry['icon'] );
+
+            foreach ( $entry['items'] as $p_item ) {
+                $i = $manager->getRepository(ItemPrototype::class)->findOneByName( $p_item );
+                if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
+                $entity->addRoleItem($i);
+            }
+
+            $manager->persist( $entity );
+
+            // Set table entry
+            $progress->advance();
+        }
+
+        $manager->flush();
+        $progress->finish();
+    }
+
 
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
@@ -398,6 +450,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $this->insert_home_prototypes($manager, $output);
             $output->writeln("");
             $this->insert_home_upgrades($manager, $output);
+            $output->writeln("");
+            $this->insert_roles($manager, $output);
             $output->writeln("");
 
             $this->insert_cod($manager, $output);

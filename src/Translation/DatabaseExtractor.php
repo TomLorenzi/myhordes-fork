@@ -104,10 +104,14 @@ class DatabaseExtractor implements ExtractorInterface
         //</editor-fold>
 
         //<editor-fold desc="Game Domain">
-        foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status)
+        foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status) {
             /** @var $status CitizenStatus */
             if (!$status->getHidden() && $status->getLabel())
                 $this->insert( $c, $status->getLabel(), 'game' );
+
+            if (!$status->getHidden() && $status->getDescription())
+                $this->insert( $c, $status->getDescription(), 'game' );
+        }
 
         foreach ($this->em->getRepository(CauseOfDeath::class)->findAll() as $causeOfDeath){
             /** @var $status CitizenStatus */
