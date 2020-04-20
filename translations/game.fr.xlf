@@ -8463,22 +8463,13 @@
         <target>Voter pour le %rolename%</target>
       </segment>
     </unit>
-    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
+    <unit id="1_CH2K0" name="Du bist der %rolename% dieser Stadt.">
       <notes>
-        <note category="german">Du bist der Schamane dieser Stadt.</note>
+        <note category="german">Du bist der %rolename% dieser Stadt.</note>
       </notes>
       <segment>
-        <source>Du bist der Schamane dieser Stadt.</source>
-        <target>Vous êtes le chaman de la ville.</target>
-      </segment>
-    </unit>
-    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
-      <notes>
-        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
-      </notes>
-      <segment>
-        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
-        <target>Vous êtes le guide de l'Outre-Monde de cette ville.</target>
+        <source>Du bist der %rolename% dieser Stadt.</source>
+        <target>Vous êtes le %rolename% de cette ville.</target>
       </segment>
     </unit>
   </file>
