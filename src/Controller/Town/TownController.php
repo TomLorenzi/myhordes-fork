@@ -25,6 +25,7 @@ use App\Translation\T;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
+use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -213,6 +214,19 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     }
 
     /**
+     * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function visitHeadshot(int $id, EntityManagerInterface $em, TownHandler $th, AdminActionHandler $admh): Response
+    {
+        $admh->headshot($id);
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("jx/town/visit/{id}", name="town_visit", requirements={"id"="\d+"})
      * @param int $id
      * @param EntityManagerInterface $em
@@ -223,7 +237,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     {
         if ($id === $this->getActiveCitizen()->getId())
             return $this->redirect($this->generateUrl('town_house'));
-
+        /** @var User $user */
+        $user = $this->getActiveCitizen()->getUser();
         /** @var Citizen $c */
         $c = $em->getRepository(Citizen::class)->find( $id );
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
@@ -274,6 +289,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
+            'user' => $user,
             'home' => $home,
             'actions' => $this->getItemActions(),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
