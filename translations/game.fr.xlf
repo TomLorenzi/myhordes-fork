@@ -8265,6 +8265,15 @@
         <target>Vous avez mangé aujourd'hui. Une nouvelle ration de nourriture ne vous permettra pas de récupérer plus de PA pour cette journée.</target>
       </segment>
     </unit>
+    <unit id="JATCrdR" name="0e9540e">
+      <notes>
+        <note category="german">"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</note>
+      </notes>
+      <segment>
+        <source>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
+        <target>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
+      </segment>
+    </unit>
     <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
       <notes>
         <note category="german">Während Zombies die Zone kontrollieren, kannst du nicht graben.</note>
@@ -8274,22 +8283,13 @@
         <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
       </segment>
     </unit>
-    <unit id="icBLYmA" name="Voter pour le chaman">
+    <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
       <notes>
-        <note category="german">Voter pour le chaman</note>
+        <note category="german">Du kannst diesen Gegenstand nicht stehlen.</note>
       </notes>
       <segment>
-        <source>Voter pour le chaman</source>
-        <target>Voter pour le chaman</target>
-      </segment>
-    </unit>
-    <unit id="iNzBH_f" name="Voter pour le guide">
-      <notes>
-        <note category="german">Voter pour le guide</note>
-      </notes>
-      <segment>
-        <source>Voter pour le guide</source>
-        <target>Voter pour le guide</target>
+        <source>Du kannst diesen Gegenstand nicht stehlen.</source>
+        <target>Du kannst diesen Gegenstand nicht stehlen.</target>
       </segment>
     </unit>
   </file>
