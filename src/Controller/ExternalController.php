@@ -28,6 +28,7 @@ use DateTime;
 use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use SimpleXMLElement;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -123,16 +124,31 @@ class ExternalController extends InventoryAwareController
     }
 
     /**
-     * @Route("/api/x/xml", name="api_x_xml")
+     * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response
      */
     public function api_xml(Request $request): Response
     {
         $this->request = $request;
-        $test_array = [
-            'citizen' => $this->getUser()->getUsername(),
-        ];
-        return $this->json( $test_array );
+        $user_key = $request->request->get('userkey') ?? $request->query->get('userkey');
+        $app_key = $request->request->get('appkey') ?? $request->query->get('appkey');
+
+        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
+
+        if (!$app) {
+           # return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
+        }
+        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
+
+        if (!$user) {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed by user.']);
+        }
+        $data = $this->generateLegacyData($user);
+        $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        #$response = new Response(print_r($data, 1));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+
     }
 
     private function generateData(User $user): array
@@ -149,6 +165,15 @@ class ExternalController extends InventoryAwareController
         $town = $citizen->getTown();
         /** @var Zone $citizen_zone */
         $citizen_zone = $citizen->getZone();
+
+        $x_min = $x_max = $y_min = $y_max = 0;
+        foreach ( $town->getZones() as $zone ) {
+            /** @var Zone $zone */
+            $x_min = min($zone->getX(), $x_min);
+            $x_max = max($zone->getX(), $x_max);
+            $y_min = min($zone->getY(), $y_min);
+            $y_max = max($zone->getY(), $y_max);
+        }
 
         // Base data.
         $data = [
@@ -186,7 +211,7 @@ class ExternalController extends InventoryAwareController
                             'water' => $town->getWell(),
                             'chaos' => $town->getChaos(),
                             'devast' => $town->getDevastated(),
-                            'x' => 0, //TODO get Town Offset
+                            'x' => 0,
                             'y' => 0,
                         ],
                         'list' => [
@@ -217,6 +242,8 @@ class ExternalController extends InventoryAwareController
                         ],
                     ],
                     'map' => [
+                        'attributes' => [
+                        ],
                         'list' => [
                             'name' => 'zone',
                             'items' => [],
@@ -245,6 +272,244 @@ class ExternalController extends InventoryAwareController
                 'attributes' => [
                     'x' => $zone->getX(),
                     'y' => $zone->getY(),
+                    'nvt' => $zone->getDiscoveryStatus(),
+                ],
+            ];
+            if (array_key_exists('danger', $attributes)) {
+                $zone_data['attributes']['danger'] = $attributes['danger'];
+            }
+            if (array_key_exists('building', $attributes)) {
+                $zone_data['building'] = [ 'attributes' => $attributes['building'] ];
+            }
+            $data['hordes']['data']['map']['list']['items'][] = $zone_data;
+        }
+        $data['hordes']['data']['map']['attributes']['hei'] = abs($y_min) + abs($y_max) + 1;
+        $data['hordes']['data']['map']['attributes']['wid'] = abs($x_min) + abs($x_max) + 1;
+        $data['hordes']['data']['map']['attributes']['offsety'] = abs($y_min);
+        $data['hordes']['data']['map']['attributes']['offsetx'] = abs($x_min);
+
+        // Add buildings.
+        foreach ( $town->getBuildings() as $building ) {
+            if ($building->getComplete()) {
+                $building_data = [
+                    'attributes' => [
+                        'name' => $building->getPrototype()->getLabel(),
+                        'temporary' => $building->getPrototype()->getTemp(),
+                        'id' => $building->getPrototype()->getId(),
+                        'img' => $building->getPrototype()->getIcon(),
+                    ],
+                ];
+                $data['hordes']['data']['city']['list']['items'][] = $building_data;
+            }
+        }
+
+        // Add bank items.
+        $inventory = $town->getBank();
+        foreach ( $inventory->getItems() as $item ) {
+            $item_data = [
+                'attributes' => [
+                    'name' => $item->getPrototype()->getLabel(),
+                    'count' => $item->getCount(),
+                    'id' => $item->getPrototype()->getId(),
+                    'img' => $item->getPrototype()->getIcon(),
+                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
+                    'broken' => $item->getBroken(),
+                ],
+            ];
+            $data['hordes']['data']['bank']['list']['items'][] = $item_data;
+        }
+
+        // Add citizens.
+        foreach ( $town->getCitizens() as $citizen ) {
+            if ($citizen->getAlive()) {
+                $citizen_data = [
+                    'attributes' => [
+                        'dead' => 0,
+                        'hero' => $citizen->getProfession()->getHeroic(),
+                        'name' => $citizen->getUser()->getUsername(),
+                        'avatar' => '',
+                        'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() : 0,
+                        'y' => !is_null($citizen->getZone()) ? $citizen->getZone()->getY() : 0,
+                        'id' => $citizen->getId(),
+                        'ban' => $citizen->getBanished(),
+                        'job' => $citizen->getProfession()->getName(),
+                        'out' => !is_null($citizen->getZone()),
+                        'baseDef' => 0,
+                    ],
+                ];
+                $data['hordes']['data']['citizens']['list']['items'][] = $citizen_data;
+                if ($citizen == $user->getActiveCitizen()) {
+                    $data['hordes']['headers']['owner'] = [
+                        'citizen' => $citizen_data,
+                    ];
+                    if ($citizen->getZone()) {
+                        $myzone = $citizen->getZone();
+                        $data['hordes']['headers']['owner']['myZone'] = [
+                            'attributes' => [
+                                'dried' => $myzone->getDigs() > 0 ? 0 : 1,
+                                'z' => $myzone->getZombies(),
+                            ],
+                            'list' => [
+                                'name' => 'item',
+                                'items' => [],
+                            ],
+                        ];
+                        $inventory = $myzone->getFloor();
+                        foreach ( $inventory->getItems() as $item ) {
+                            $item_data = [
+                                'attributes' => [
+                                    'name' => $item->getPrototype()->getLabel(),
+                                    'count' => $item->getCount(),
+                                    'id' => $item->getPrototype()->getId(),
+                                    'img' => $item->getPrototype()->getIcon(),
+                                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
+                                    'broken' => $item->getBroken(),
+                                ],
+                            ];
+                            $data['hordes']['headers']['owner']['myZone']['list']['items'][] = $item_data;
+                        }
+                    }
+                }
+            }
+            else {
+                $citizen_data = [
+                    'attributes' => [
+                        'name' => $citizen->getUser()->getUsername(),
+                        'id' => $citizen->getId(),
+                        'dtype' => $citizen->getCauseOfDeath()->getId(),
+                        'day' => $citizen->getSurvivedDays(),
+                    ],
+                ];
+                $data['hordes']['data']['cadavers']['list']['items'][] = $citizen_data;
+            }
+        }
+
+        return $data ?? [];
+    }
+
+    private function generateLegacyData(User $user): array
+    {
+        try {
+            $now = new DateTime('now', new DateTimeZone('America/New_York'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        /** @var Citizen $citizen */
+        $citizen = $user->getActiveCitizen();
+        /** @var Town $town */
+        $town = $citizen->getTown();
+        /** @var Zone $citizen_zone */
+        $citizen_zone = $citizen->getZone();
+
+        $x_min = $x_max = $y_min = $y_max = 0;
+        foreach ( $town->getZones() as $zone ) {
+            /** @var Zone $zone */
+            $x_min = min($zone->getX(), $x_min);
+            $x_max = max($zone->getX(), $x_max);
+            $y_min = min($zone->getY(), $y_min);
+            $y_max = max($zone->getY(), $y_max);
+        }
+
+        // Base data.
+        $data = [
+            'hordes' => [
+                'headers' => [
+                    'attributes' => [
+                        'link' => $this->request->getRequestUri(),
+                        'iconurl' => '',
+                        'avatarurl' => '',
+                        'secure' => 0,
+                        'author' => 'MyHordes',
+                        'language' => $town->getLanguage(),
+                        'version' => '0.1',
+                        'generator' => 'symfony',
+                    ],
+                    'game' => [
+                        'attributes' => [
+                            'days' => $town->getDay(),
+                            'quarantine' => $town->getDevastated(),
+                            'datetime' => $now->format('Y-m-d H:i:s'),
+                            'id' => $town->getId(),
+                        ],
+                    ],
+                ],
+                'data' => [
+                    'attributes' => [
+                        'cache-date' => $now->format('Y-m-d H:i:s'),
+                        'cache-fast' => 0,
+                    ],
+                    'city' => [
+                        'attributes' => [
+                            'city' => $town->getName(),
+                            'door' => $town->getDoor(),
+                            'hard' => $town->getType()->getId() == 3 ? 1 : 0,
+                            'water' => $town->getWell(),
+                            'chaos' => $town->getChaos(),
+                            'devast' => $town->getDevastated(),
+                            'x' => 0 - $x_min,
+                            'y' => $y_max,
+                        ],
+                        'list' => [
+                            'name' => 'building',
+                            'items' => [],
+                        ],
+                        'defense' => [
+                            'attributes' => [],
+                        ],
+                    ],
+                    'bank' => [
+                        'list' => [
+                            'name' => 'item',
+                            'items' => [],
+                        ],
+                    ],
+                    'expeditions' => [],
+                    'citizens' => [
+                        'list' => [
+                            'name' => 'citizen',
+                            'items' => [],
+                        ],
+                    ],
+                    'cadavers' => [
+                        'list' => [
+                            'name' => 'cadaver',
+                            'items' => [],
+                        ],
+                    ],
+                    'map' => [
+                        'attributes' => [
+                            'hei' => abs($y_min) + abs($y_max) + 1,
+                            'wid' => abs($x_min) + abs($x_max) + 1,
+                        ],
+                        'list' => [
+                            'name' => 'zone',
+                            'items' => [],
+                        ],
+                    ],
+                    'upgrades' => [
+                        'attributes' => [
+                            'total' => 0,
+                        ],
+                    ],
+                    'estimations' => [
+                        'list' => [
+                            'name' => 'e',
+                            'items' => [],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+
+        // Add zones.
+        foreach ( $town->getZones() as $zone ) {
+            /** @var Zone $zone */
+            $attributes = $this->zone_handler->getZoneAttributes($zone);
+            $zone_data = [
+                'attributes' => [
+                    'x' => $zone->getX() - $x_min,
+                    'y' => $y_max - $zone->getY(),
                     'nvt' => $zone->getDiscoveryStatus(),
                 ],
             ];
@@ -297,8 +562,8 @@ class ExternalController extends InventoryAwareController
                         'hero' => $citizen->getProfession()->getHeroic(),
                         'name' => $citizen->getUser()->getUsername(),
                         'avatar' => '',
-                        'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() : 0,
-                        'y' => !is_null($citizen->getZone()) ? $citizen->getZone()->getY() : 0,
+                        'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() - $x_min : -$x_min,
+                        'y' => !is_null($citizen->getZone()) ? $y_max - $citizen->getZone()->getY() : $y_max,
                         'id' => $citizen->getId(),
                         'ban' => $citizen->getBanished(),
                         'job' => $citizen->getProfession()->getName(),
@@ -307,6 +572,38 @@ class ExternalController extends InventoryAwareController
                     ],
                 ];
                 $data['hordes']['data']['citizens']['list']['items'][] = $citizen_data;
+                if ($citizen == $user->getActiveCitizen()) {
+                    $data['hordes']['headers']['owner'] = [
+                        'citizen' => $citizen_data,
+                    ];
+                    if ($citizen->getZone()) {
+                        $myzone = $citizen->getZone();
+                        $data['hordes']['headers']['owner']['myZone'] = [
+                            'attributes' => [
+                                'dried' => $myzone->getDigs() > 0 ? 0 : 1,
+                                'z' => $myzone->getZombies(),
+                            ],
+                            'list' => [
+                                'name' => 'item',
+                                'items' => [],
+                            ],
+                        ];
+                        $inventory = $myzone->getFloor();
+                        foreach ( $inventory->getItems() as $item ) {
+                            $item_data = [
+                                'attributes' => [
+                                    'name' => $item->getPrototype()->getLabel(),
+                                    'count' => $item->getCount(),
+                                    'id' => $item->getPrototype()->getId(),
+                                    'img' => $item->getPrototype()->getIcon(),
+                                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
+                                    'broken' => $item->getBroken(),
+                                ],
+                            ];
+                            $data['hordes']['headers']['owner']['myZone']['list']['items'][] = $item_data;
+                        }
+                    }
+                }
             }
             else {
                 $citizen_data = [
@@ -324,4 +621,42 @@ class ExternalController extends InventoryAwareController
         return $data ?? [];
     }
 
+    private function arrayToXml($array, $rootElement = null, $xml = null, $node = null): string {
+        $_xml = $xml;
+        // If there is no Root Element then insert root
+        if ($_xml === null) {
+            $_xml = new SimpleXMLElement($rootElement !== null ? $rootElement : '<root/>');
+        }
+
+        // Visit all key value pair
+        foreach ($array as $k => $v) {
+            if (is_array($v)) {
+                $name = $node ?? $k;
+                $child = $_xml->addChild($name);
+                if (array_key_exists('attributes', $v)) {
+                    foreach ($v['attributes'] as $a => $b) {
+                        $child->addAttribute($a, $b);
+                    }
+                    unset($v['attributes']);
+                }
+                if (array_key_exists('list', $v)) {
+                    $this->arrayToXml($v['list']['items'], $name, $child, $v['list']['name']);
+                    unset($v['list']);
+                }
+            }
+
+            // If there is nested array then
+            if (is_array($v)) {
+                // Call function for nested array
+                if (!empty($v)) {
+                    $this->arrayToXml($v, $name, $child);
+                }
+            }
+            else {
+                // Simply add child element.
+                $_xml->addChild($k, $v);
+            }
+        }
+        return $_xml->asXML();
+    }
 }
