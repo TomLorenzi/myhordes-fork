@@ -8292,5 +8292,176 @@
         <target>Du kannst diesen Gegenstand nicht stehlen.</target>
       </segment>
     </unit>
+    <unit id="Tzmt5qh" name="d848698">
+      <notes>
+        <note category="german">Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+      </notes>
+      <segment>
+        <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
+        <target>Vous avez bu une fois aujourd'hui. Vous ne pourrez donc pas récupérer vos PA à nouveau avec de l'eau pour la journée.</target>
+      </segment>
+    </unit>
+    <unit id="Bjszt3B" name="9f21fbd">
+      <notes>
+        <note category="german">Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</note>
+      </notes>
+      <segment>
+        <source>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</source>
+        <target>Vous avez soif... Cela arrive chaque matin si vous n'avez pas bu la veille, ou si vous marchez longtemps dans le désert...</target>
+      </segment>
+    </unit>
+    <unit id="NjgYbEj" name="cae5333">
+      <notes>
+        <note category="german">Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</note>
+      </notes>
+      <segment>
+        <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
+        <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
+      </segment>
+    </unit>
+    <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
+      <notes>
+        <note category="german">Reiseleiter in der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Reiseleiter in der Außenwelt</source>
+        <target>Guide de l'outre-monde</target>
+      </segment>
+    </unit>
+    <unit id="GbpuPWq" name="d8005f5">
+      <notes>
+        <note category="german">Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</note>
+      </notes>
+      <segment>
+        <source>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</source>
+        <target>Vous avez passé la nuit dernière dehors, dans le froid de l'Outre-Monde. Vous avez pu observer les vents et les mouvements des hordes. Fort(e) de vos observations, vous bénéficiez d'un bonus à toutes les fouilles pour la journée en cours.</target>
+      </segment>
+    </unit>
+    <unit id="yuD1sSM" name="45bb090">
+      <notes>
+        <note category="german">Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.</note>
+      </notes>
+      <segment>
+        <source>Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.</source>
+        <target>Un médicament récemment consommé vous protège contre toute infection ou transformation en Goule.</target>
+      </segment>
+    </unit>
+    <unit id="51LLLLE" name="Du hast deine Heldenfähigkeit &quot;Den Tod besiegen&quot; verwendet!">
+      <notes>
+        <note category="german">Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</note>
+      </notes>
+      <segment>
+        <source>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</source>
+        <target>Utiliser l'action héroïque Vaincre la mort vous empêche de mourir d'infection, de déshydratation et quand votre barre de voracité dépasse la limite (goule).</target>
+      </segment>
+    </unit>
+    <unit id="y0fyg0y" name="fc54baa">
+      <notes>
+        <note category="german">Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</note>
+      </notes>
+      <segment>
+        <source>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</source>
+        <target>     Vous êtes épuisé(e)… Reposez-vous ou nourrissez-vous pour récupérer !</target>
+      </segment>
+    </unit>
+    <unit id="PoxvW0_" name="62457fd">
+      <notes>
+        <note category="german">Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</note>
+      </notes>
+      <segment>
+        <source>Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</source>
+        <target>Un évènement atroce vous est arrivé et vous êtes terrorisé(e)! Vous ne pouvez plus décider de rester sur une zone où la Horde domine. Et si vous êtes bloqué(e), vous ne pourrez PLUS vous enfuir !</target>
+      </segment>
+    </unit>
+    <unit id="E5louWx" name="5a4098f">
+      <notes>
+        <note category="german">Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</note>
+      </notes>
+      <segment>
+        <source>Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</source>
+        <target>Votre manque d'eau est devenu critique ! Buvez rapidement ou vous risquez de mourir !</target>
+      </segment>
+    </unit>
+    <unit id="Y2xlrZs" name="3043837">
+      <notes>
+        <note category="german">Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</note>
+      </notes>
+      <segment>
+        <source>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</source>
+        <target>     Vous avez consommé une drogue aujourd'hui. Si vous en consommez une autre, vous risquez une dépendance grave à vie.</target>
+      </segment>
+    </unit>
+    <unit id="UL1uoY5" name="dd7f91a">
+      <notes>
+        <note category="german">Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</note>
+      </notes>
+      <segment>
+        <source>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</source>
+        <target>Vous avez besoin de votre dose de drogue chaque jour! Si vous vous réveillez un matin sans avoir consommé de drogue la veille, vous mourrez !</target>
+      </segment>
+    </unit>
+    <unit id="ztykDm4" name="1d4bff7">
+      <notes>
+        <note category="german">Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</note>
+      </notes>
+      <segment>
+        <source>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</source>
+        <target>Une maladie horrible vous ronge de l'intérieur... La peste peut-être ? Le moyen le plus efficace pour combattre la Maladie, c'est de prendre des drogues adaptées... Si vous ne faites rien, vous avez une chance sur deux de mourir au prochain réveil.</target>
+      </segment>
+    </unit>
+    <unit id="J1MlEZA" name="4c8ec9e">
+      <notes>
+        <note category="german">Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</source>
+        <target>Vous êtes sous l'effet d'un alcool fort… Vous ne pouvez plus consommer d'autres alcools pour le moment.</target>
+      </segment>
+    </unit>
+    <unit id="n2cxTOK" name="63e4f16">
+      <notes>
+        <note category="german">Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</source>
+        <target>Vous avez mal au crâne… Impossible d'avaler une goutte d'alcool jusqu'à demain.</target>
+      </segment>
+    </unit>
+    <unit id="IYIMtxo" name="81a014d">
+      <notes>
+        <note category="german">Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous avez été gravement blessé(e) ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
+      <notes>
+        <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
+      </notes>
+      <segment>
+        <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
+        <target>Enfin, vous pouvez embrasser votre belle-mère !</target>
+      </segment>
+    </unit>
+    <unit id="PMbiois" name="46dc649">
+      <notes>
+        <note category="german">Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</note>
+      </notes>
+      <segment>
+        <source>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</source>
+        <target>     Vous avez été soigné(e) d'une blessure récemment. Vous ne pouvez pas être soigné(e) à nouveau pour la journée.</target>
+      </segment>
+    </unit>
+    <unit id="tCm7v0d" name="Den %rolename% wählen">
+      <notes>
+        <note category="german">Den %rolename% wählen</note>
+      </notes>
+      <segment>
+        <source>Den %rolename% wählen</source>
+        <target>Voter pour le %rolename%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

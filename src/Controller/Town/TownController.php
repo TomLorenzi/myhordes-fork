@@ -12,6 +12,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
+use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
@@ -87,6 +88,24 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data['home'] = $this->getActiveCitizen()->getHome();
         $data['chaos'] = $town->getChaos();
         $data['town'] = $town;
+
+        if($section == "citizens") {
+            $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+            $votesNeeded = array();
+            foreach ($roles as $role) {
+                $votesNeeded[$role->getName()] = $role;
+            }
+
+            if(!$town->isOpen() && !$town->getChaos()) {
+                foreach ($roles as $role) {
+                    foreach ($town->getCitizens() as $citizen) {
+                        if($citizen->getRoles()->contains($role))
+                            $votesNeeded[$role->getName()] = false;
+                    }
+                }
+            }
+            $data['votesNeeded'] = $votesNeeded;
+        }
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -147,24 +166,24 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
-        $display_vote_shaman = false;
-        $display_vote_guide = false;
-        $has_voted_shaman = false;
-        $has_voted_guide = false;
-        if(!$town->isOpen() && !$town->getChaos()) {
-            $shamanRole = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("shaman");
-            $guideRole = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
-            $hasShaman = $hasGuide = false;
-            foreach ($town->getCitizens() as $citizen) {
-                if($citizen->getRoles()->contains($shamanRole))
-                    $hasShaman = true;
-                if($citizen->getRoles()->contains($guideRole))
-                    $hasGuide = true;
-            }
-            $display_vote_shaman = !$hasShaman;
-            $display_vote_guide = !$hasGuide;
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+        $votes_needed = array();
+        $has_voted = array();
+        foreach ($roles as $role) {
+            $votes_needed[$role->getName()] = $role;
+            $has_voted[$role->getName()] = false;
         }
 
+        if(!$town->isOpen() && !$town->getChaos()) {
+            foreach ($roles as $role) {
+                foreach ($town->getCitizens() as $citizen) {
+                    if($citizen->getRoles()->contains($role)) {
+                        $votes_needed[$role->getName()] = false;
+                    }
+                }
+                $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
+            }
+        }
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
@@ -176,10 +195,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'item_def_factor' => $item_def_factor,
             'has_battlement' => $has_battlement,
             'has_watchtower' => $has_watchtower,
-            'display_vote_shaman' => $display_vote_shaman,
-            'display_vote_guide' => $display_vote_guide,
-            'has_voted_shaman' => $has_voted_shaman,
-            'has_voted_guide' => $has_voted_guide,
+            'votes_needed' => $votes_needed,
+            'has_voted' => $has_voted,
             'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
             'has_estimated' => $has_estimated,
@@ -645,6 +662,76 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'prof_count' => $prof_count,
             'death_count' => $death_count,
         ]) );
+    }
+
+    /**
+     * @Route("jx/town/citizens/vote/{roleId}", name="town_citizen_vote", requirements={"id"="\d+"})
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function citizens_vote(int $roleId, EntityManagerInterface $em): Response
+    {
+        $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneById($roleId);
+
+        if($role === null) {
+            return $this->redirect($this->generateUrl('town_citizens'));
+        }
+
+        $vote = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role);
+
+        return $this->render( 'ajax/game/town/citizen_vote.html.twig', $this->addDefaultTwigArgs('citizens', [
+            'citizens' => $this->getActiveCitizen()->getTown()->getCitizens(),
+            'me' => $this->getActiveCitizen(),
+            'selectedRole' => $role,
+            'vote' => $vote
+        ]) );
+    }
+
+    /**
+     * @Route("api/town/citizens/send_vote", name="town_citizens_send_vote")
+     * @param JSONRequestParser $parser
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function citizens_send_vote_api(JSONRequestParser $parser, TownHandler $th): Response {
+        // Get citizen & town
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        // Check if the request is complete
+        if (!$parser->has_all(['voted_citizen_id','role_id'], true))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+
+        $voted_citizen_id = (int)$parser->get('voted_citizen_id');
+        $role_id = (int)$parser->get('role_id');
+
+        // Check if both citizen & role exists, and if voted citizen is in our town and alive
+        // and, of course, if you voted for yourself
+        $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneById($role_id);
+        $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($voted_citizen_id);
+        if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen == $voted_citizen) {
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        // Add our vote !
+        $citizenVote = new CitizenVote();
+        $citizenVote->setAutor($citizen)
+            ->setVotedCitizen($voted_citizen)
+            ->setRole($role);
+
+        $citizen->addVote($citizenVote);
+
+        // Persist
+        try {
+            $this->entity_manager->persist($citizenVote);
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 
     /**

@@ -27,7 +27,7 @@
                     </span>
                 {% endif %}
             </div>
-            <div class="padded cell rw-4  rw-md-12 center">
+            <div class="padded cell rw-4 rw-md-12 center">
                 {% if zeds_today[0] %}
                     {% if def < zeds_today[1] %}
                          <span class="warning">Our defences won’t stand up to tonight’s attack!
@@ -56,12 +56,17 @@
         <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-md-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>
             <ul class="overview-checklist">
-                <li{% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
-                <li{% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
-                {% if display_vote_shaman %}<li{% if has_voted_shaman %} class="checked"{% endif %}>{{ 'Voter pour le chaman'|trans({}, 'game') }}.</li>{% endif %}
-                {% if display_vote_guide %}<li{% if has_voted_guide %} class="checked"{% endif %}>{{ 'Voter pour le guide'|trans({}, 'game') }}.</li>{% endif %}
-                {% if has_watchtower %}<li{% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }}</li>{% endif %}
-                {% if not town.devastated and has_levelable_building %}<li{% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }}</li>{% endif %}
+                <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
+                <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
+                {% for name,role in votes_needed %}
+                    {% if role %}
+                    <li x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}" {% if has_voted[role.name] %}class="checked"{% endif %}>
+                        {{ 'Den %rolename% wählen'|trans({'%rolename%': role.label|trans({}, 'game')}, 'game') }}
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                {% if has_watchtower %}<li x-ajax-href="{{ path('town_watchtower') }}" {% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }}</li>{% endif %}
+                {% if not town.devastated and has_levelable_building %}<li x-ajax-href="{{ path('town_upgrades') }}" {% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }}</li>{% endif %}
 				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %}>{{ 'Mein Haus ausbauen'|trans({}, 'game') }}.</li>{% endif %}
                 <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
             </ul>

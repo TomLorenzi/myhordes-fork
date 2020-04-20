@@ -24,7 +24,7 @@ class CitizenVoteRepository extends ServiceEntityRepository
         parent::__construct($registry, CitizenVote::class);
     }
 
-    public function countCitizenVotesFor( Citizen $votedCitizen, CitizenRole $role): int {
+    public function countCitizenVotesFor(Citizen $votedCitizen, CitizenRole $role): int {
         try {
             return (int)$this->createQueryBuilder('c')->select('sum(c.count)')
                 ->andWhere('c.votedCitizen = :votedCitizen')->setParameter('votedCitizen', $votedCitizen)
@@ -55,10 +55,24 @@ class CitizenVoteRepository extends ServiceEntityRepository
                 ->andWhere('c.autor = :autor')->setParameter('autor', $autor)
                 ->andWhere('c.votedCitizen = :votedCitizen')->setParameter('votedCitizen', $votedCitizen)
                 ->getQuery()
-                ->getOneOrNullResult();
+                ->getResult();
         } catch (Exception $e) {
             return null;
         }
+    }
+
+    /**
+     * @param Citizen $votedCitizen
+     * @return CitizenVote[] Returns an array of CitizenVote objects
+     */
+    public function findOneByCitizenAndRole(Citizen $citizen, CitizenRole $role)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.autor = :citizen')->setParameter('citizen', $citizen)
+            ->andWhere('c.role = :role')->setParameter('role', $role)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
     }
 
     // /**

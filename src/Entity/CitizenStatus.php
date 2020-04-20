@@ -34,7 +34,7 @@ class CitizenStatus
     private $label;
 
     /**
-     * @ORM\Column(type="string", length=190)
+     * @ORM\Column(type="text")
      */
     private $description;
 

@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CitizenVoteRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="assoc_unique",columns={"autor_id","voted_citizen_id"})
+ *     @UniqueConstraint(name="assoc_unique",columns={"autor_id","voted_citizen_id", "role_id"})
  * })
  */
 class CitizenVote
@@ -35,7 +35,7 @@ class CitizenVote
     private $votedCitizen;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity="App\Entity\CitizenRole")
      */
     private $role;
 
@@ -61,19 +61,19 @@ class CitizenVote
         return $this->votedCitizen;
     }
 
-    public function setCulprit(?Citizen $votedCitizen): self
+    public function setVotedCitizen(?Citizen $votedCitizen): self
     {
         $this->votedCitizen = $votedCitizen;
 
         return $this;
     }
 
-    public function getRole(): ?Role
+    public function getRole(): ?CitizenRole
     {
         return $this->role;
     }
 
-    public function setRole(Role $role): self
+    public function setRole(CitizenRole $role): self
     {
         $this->role = $role;
 

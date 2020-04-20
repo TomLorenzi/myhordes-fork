@@ -10,6 +10,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -126,6 +127,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $profession CitizenProfession */
             if ($profession->getLabel())
                 $this->insert( $c, $profession->getLabel(), 'game' );
+
+        foreach ($this->em->getRepository(CitizenRole::class)->findAll() as $role)
+            /** @var $role CitizenRole */
+            if ($role->getLabel())
+                $this->insert( $c, $role->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone) {
             /** @var $zone ZonePrototype */

@@ -1,0 +1,78 @@
+{% extends "ajax/game/town/town.html.twig" %}
+{% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+    </div>
+
+    <ul class="row tabs">
+        <li class="cell rw-2 tab">
+            <div class="tab-link" x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
+        </li>
+        {% for name,role in votesNeeded %}
+            {% if role %}
+            <li class="cell rw-3 tab {% if selectedRole.id == role.id %}selected{% endif %}">
+                <div class="tab-link" x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}">{{ role.label|trans({}, 'game') }}</div>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <div class="row-table citizens-list">
+        <div class="row header">
+            <div class="padded cell rw-4 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
+            <div class="padded cell rw-8 right">{{ 'Aktionen'|trans({},'ghost') }}</div>
+        </div>
+        {% for citizen in citizens %}
+            {# @var \App\Entity\Citizen citizen  #}
+            {% if citizen.alive %}
+            <div class="row {% if citizen == me%} me{% endif %}">
+                <div class="padded cell rw-1 rw-md-2">
+                        <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
+                </div>
+                <div class="padded cell rw-3 rw-md-6 small">
+                    <span>
+                        {% if citizen.banished %}
+                            <img alt="" src="{{ asset('build/images/banished.gif') }}" />
+                        {% elseif citizen.profession.heroic %}
+                            <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
+                        {% else %}
+                            <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                        {% endif %}
+                        <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
+                        <b>{{ citizen.user.username }}</b>
+                    </span>
+                </div>
+                <div class="padded cell rw-2 ro-6 small right ">
+                    {% if citizen != me %}
+                        {% if vote == null %}
+                            <button class="vote" x-citizen-id='{{citizen.id}}'>{{'Abstimmen'|trans({}, 'game')}}</button>
+                        {% elseif vote != null and vote.votedCitizen.id == citizen.id %}
+                            <img src="{{ asset('build/images/small_action.gif') }}" alt="" />
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        const send_build_request = function(citizen_id) {
+            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                return;
+
+            $.ajax.easySend( '{{ path('town_citizens_send_vote') }}', {voted_citizen_id: citizen_id, role_id: {{selectedRole.id}}},
+                function () {
+                    $.ajax.load(null, '{{ path('town_citizen_vote', {roleId: selectedRole.id}) }}', true);
+            } );
+        };
+
+        let buttons = document.querySelectorAll('[x-citizen-id]');
+        for (let i = 0; i < buttons.length; i++)
+            buttons[i].addEventListener('click', function() { send_build_request( this.getAttribute('x-citizen-id') ); })
+    </script>
+{% endblock %}
