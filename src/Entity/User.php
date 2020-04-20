@@ -160,8 +160,11 @@ class User implements UserInterface, EquatableInterface
     public function getRoles()
     {
         $roles = [];
+        if ($this->isAdmin) $roles[] = 'ROLE_ADMIN';
+        if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
+        
         return $roles;
     }
 
