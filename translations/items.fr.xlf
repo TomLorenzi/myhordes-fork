@@ -7472,13 +7472,11 @@
     </unit>
     <unit id="liDUE4L" name="811ca45">
       <notes>
-        <note>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</note>
-        <note>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</note>
         <note category="german">Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</note>
       </notes>
       <segment>
         <source>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</source>
-        <target>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</target>
+        <target>Votre uniforme de citoyen, inchangé depuis des années. Également le dernier vêtement que vous porterez pour le restant de vos jours. Néanmoins, cette tenue est fonctionnelle et relativement confortable donc il n'y a pas trop à se plaindre non plus...</target>
       </segment>
     </unit>
     <unit id="rNdy2IV" name="bdd58ca">
@@ -7494,13 +7492,11 @@
     </unit>
     <unit id="PnRAHcb" name="3c6105a">
       <notes>
-        <note>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</note>
-        <note>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</note>
         <note category="german">Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</note>
       </notes>
       <segment>
         <source>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</source>
-        <target>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</target>
+        <target>Cette tenue vous permet d'avancer dans le désert au milieu des zombies sans contrainte. Prudence toutefois, vous avez une chance d'être repéré(e) si vous traversez un secteur largement contrôlé par les morts-vivants.</target>
       </segment>
     </unit>
     <unit id="IU3Z1xk" name="c85cf59">
@@ -8250,6 +8246,21 @@
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
         <target>Vous avez cuisiné {items_consume} et avez obtenu {items_spawn}.</target>
+      </segment>
+    </unit>
+    <unit id="R2RcDum" name="Kompass">
+      <notes>
+        <note category="german">Kompass</note>
+      </notes>
+      <segment>
+        <source>Kompass</source>
+        <target>Kompass</target>
+      </segment>
+    </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
       </segment>
     </unit>
   </file>

@@ -10,6 +10,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -104,10 +105,14 @@ class DatabaseExtractor implements ExtractorInterface
         //</editor-fold>
 
         //<editor-fold desc="Game Domain">
-        foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status)
+        foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status) {
             /** @var $status CitizenStatus */
             if (!$status->getHidden() && $status->getLabel())
                 $this->insert( $c, $status->getLabel(), 'game' );
+
+            if (!$status->getHidden() && $status->getDescription())
+                $this->insert( $c, $status->getDescription(), 'game' );
+        }
 
         foreach ($this->em->getRepository(CauseOfDeath::class)->findAll() as $causeOfDeath){
             /** @var $status CitizenStatus */
@@ -122,6 +127,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $profession CitizenProfession */
             if ($profession->getLabel())
                 $this->insert( $c, $profession->getLabel(), 'game' );
+
+        foreach ($this->em->getRepository(CitizenRole::class)->findAll() as $role)
+            /** @var $role CitizenRole */
+            if ($role->getLabel())
+                $this->insert( $c, $role->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone) {
             /** @var $zone ZonePrototype */

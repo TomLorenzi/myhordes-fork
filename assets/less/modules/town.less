@@ -319,12 +319,22 @@ div.town-banner {
   li {
     padding-left: 20px;
     background: url("../../img/tickOff.gif") 5px 5px no-repeat;
+    &:hover {
+      text-decoration: underline;
+      color: @myhordes-smalltext;
+      cursor: pointer;
+    }
   }
   li.checked {
     background: url("../../img/tickOn.gif") 5px 5px no-repeat;
     text-decoration: line-through;
     font-style: italic;
     color: #b37c4a;
+    &:hover {
+      text-decoration: underline line-through;
+      color: @myhordes-smalltext;
+      cursor: pointer;
+    }
   }
 }
 
