@@ -225,14 +225,12 @@ class DeathHandler
                 // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
                 // to validate the picto (set them as persisted)
                 if($citizen->getTown()->getType()->getName() == "small" && $citizen->getUser()->getSoulPoints() >= 100) {
-                    $this->log->debug("This is a small town, and <info>{$citizen->getUser()->getUsername()}</info> has more that 100 soul points, we use the day 8 rule");
                     if($citizen->getSurvivedDays() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
                         $persistPicto = true;
                     } else if  ($citizen->getSurvivedDays() > 8) {
                         $persistPicto = true;
                     }
                 } else if($citizen->getSurvivedDays() >= 5) {
-                    $this->log->debug("<info>{$citizen->getUser()->getUsername()}</info> has lived for 5 days or more, let's persist the pictos earned everyday");
                     $persistPicto = true;
                 }
 

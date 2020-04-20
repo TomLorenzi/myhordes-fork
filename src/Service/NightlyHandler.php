@@ -295,7 +295,7 @@ class NightlyHandler
             if ($force > $def){
                 $this->kill_wrap($target, $cod, false, $force);
                 // he dies from the attack, he validate the new day
-                $target->setSurvivedDays($town->getDays());
+                $target->setSurvivedDays($town->getDay());
             }
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $target, $force, $def));
