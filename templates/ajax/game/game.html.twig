@@ -26,6 +26,17 @@
     {% endif %}
     {% if status is defined %}
         <ul class="status">
+            {% for role in roles %}
+                {# @var stat \App\Entity\CitizenRole #}
+                <li class="status">
+                    <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
+                    {# {% if role.description %}
+                    <div class="tooltip temp-building">
+                    {{ role.description|trans({}, 'game')}}
+                    </div>
+                    {% endif %} #}
+                </li>
+            {% endfor %}
             {% for stat in status %}
                 {# @var stat \App\Entity\CitizenStatus #}
                 {% if not stat.hidden %}

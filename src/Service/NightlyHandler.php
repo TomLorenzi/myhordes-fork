@@ -1,8 +1,5 @@
 <?php
-
-
 namespace App\Service;
-
 
 use App\Entity\Building;
 use App\Entity\CauseOfDeath;
@@ -733,7 +730,7 @@ class NightlyHandler
 
             foreach ($citizens as $citizen) {
                 if(!$citizen->getAlive()) continue;
-                
+
                 $voted = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role) !== null);
                 if(!$voted) {
                     // He has not voted, let's give his vote to someone who has votes
@@ -760,7 +757,9 @@ class NightlyHandler
 
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
-            $this->citizen_handler->inflictStatus($winningCitizen, $role->getStatus());
+            $winningCitizen->addRole($role);
+
+            $this->entity_manager->persist($winningCitizen);
 
             // we remove the votes
             $votes = $this->entity_manager->getRepository(CitizenVote::class)->findByRole($role);
