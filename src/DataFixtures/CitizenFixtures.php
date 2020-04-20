@@ -8,6 +8,7 @@ use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
@@ -36,29 +37,29 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $citizen_status = [
-        ['name' => 'clean', 'label' => 'Clean'],
-        ['name' => 'hasdrunk', 'label' => 'Getrunken'],
-        ['name' => 'haseaten', 'label' => 'Satt'],
-        ['name' => 'camper', 'label' => 'Umsichtiger Camper'],
-        ['name' => 'immune', 'label' => 'Immunisiert'],
-        ['name' => 'hsurvive', 'label' => 'Den Tod besiegen'],
-        ['name' => 'tired', 'label' => 'Erschöpfung'],
-        ['name' => 'terror', 'label' => 'Angststarre'],
-        ['name' => 'thirst1', 'label' => 'Durst'],
-        ['name' => 'thirst2', 'label' => 'Dehydriert'],
-        ['name' => 'drugged', 'label' => 'Rauschzustand'],
-        ['name' => 'addict', 'label' => 'Drogenabhängig'],
-        ['name' => 'infection', 'label' => 'Infektion'],
-        ['name' => 'drunk', 'label' => 'Trunkenheit'],
-        ['name' => 'hungover', 'label' => 'Kater'],
-        ['name' => 'wound1', 'label' => 'Verwundung - Kopf'],
-        ['name' => 'wound2', 'label' => 'Verwundung - Hände'],
-        ['name' => 'wound3', 'label' => 'Verwundung - Arme'],
-        ['name' => 'wound4', 'label' => 'Verwundung - Bein'],
-        ['name' => 'wound5', 'label' => 'Verwundung - Auge'],
-        ['name' => 'wound6', 'label' => 'Verwundung - Fuß'],
-        ['name' => 'ghul', 'label' => 'Ghul'],
-        ['name' => 'healed', 'label' => 'Bandagiert'],
+        ['name' => 'clean', 'label' => 'Clean', 'description' => 'Du hast noch keine Drogen genommen.'],
+        ['name' => 'hasdrunk', 'label' => 'Getrunken', 'description' => 'Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.'],
+        ['name' => 'haseaten', 'label' => 'Satt', 'description' => 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.'],
+        ['name' => 'camper', 'label' => 'Umsichtiger Camper', 'description' => 'Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.'],
+        ['name' => 'immune', 'label' => 'Immunisiert', 'description' => 'Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.'],
+        ['name' => 'hsurvive', 'label' => 'Den Tod besiegen', 'description' => 'Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!'],
+        ['name' => 'tired', 'label' => 'Erschöpfung', 'description' => 'Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!'],
+        ['name' => 'terror', 'label' => 'Angststarre', 'description' => 'Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.'],
+        ['name' => 'thirst1', 'label' => 'Durst', 'description' => 'Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...'],
+        ['name' => 'thirst2', 'label' => 'Dehydriert', 'description' => 'Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!'],
+        ['name' => 'drugged', 'label' => 'Rauschzustand', 'description' => 'Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!'],
+        ['name' => 'addict', 'label' => 'Drogenabhängig', 'description' => 'Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!'],
+        ['name' => 'infection', 'label' => 'Infektion', 'description' => 'Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.'],
+        ['name' => 'drunk', 'label' => 'Trunkenheit', 'description' => 'Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.'],
+        ['name' => 'hungover', 'label' => 'Kater', 'description' => 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.'],
+        ['name' => 'wound1', 'label' => 'Verwundung - Kopf', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound2', 'label' => 'Verwundung - Hände', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound3', 'label' => 'Verwundung - Arme', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound4', 'label' => 'Verwundung - Bein', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound5', 'label' => 'Verwundung - Auge', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'ghul', 'label' => 'Ghul', 'description' => 'Endlich kannst du deine Schwiegermutter loswerden!'],
+        ['name' => 'healed', 'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
 
         ['name' => 'tg_dice' ],
         ['name' => 'tg_cards'],
@@ -143,6 +144,11 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ] ],
     ];
 
+    public static $role_data = [
+        ['icon' => 'shaman', 'name'=>'shaman' ,'label'=>'Schamane',                'items' => ['shaman_#00'] ],
+        ['icon' => 'book',   'name'=>'guide',  'label'=>'Reiseleiter in der Außenwelt', 'items' => ['guide_#00'] ],
+    ];
+
     private $entityManager;
 
     public function __construct(EntityManagerInterface $em)
@@ -220,6 +226,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $entity->setLabel( isset($entry['label']) ? $entry['label'] : $entry['name'] );
             $entity->setIcon( isset($entry['icon']) ? $entry['icon'] : $entry['name'] );
             $entity->setHidden( !isset($entry['label']) );
+            if(isset($entry['description']))
+                $entity->setDescription($entry['description']);
 
             $manager->persist( $entity );
 
@@ -382,6 +390,50 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         $progress->finish();
     }
 
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @throws Exception
+     */
+    protected function insert_roles(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>Citizen roles: ' . count(static::$role_data) . ' fixture entries available.</comment>' );
+
+        // Set up console
+        $progress = new ProgressBar( $out->section() );
+        $progress->start( count(static::$role_data) );
+
+        // Iterate over all entries
+        foreach (static::$role_data as $entry) {
+            // Get existing entry, or create new one
+            /** @var CitizenRole $entity */
+            $entity = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $entry['name'] );
+            if ($entity === null) $entity = new CitizenRole();
+            else {
+                $entity->getRoleItems()->clear();
+            }
+
+            // Set property
+            $entity
+                ->setName( $entry['name'] )
+                ->setLabel( $entry['label'] )
+                ->setIcon( $entry['icon'] );
+
+            foreach ( $entry['items'] as $p_item ) {
+                $i = $manager->getRepository(ItemPrototype::class)->findOneByName( $p_item );
+                if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
+                $entity->addRoleItem($i);
+            }
+
+            $manager->persist( $entity );
+
+            // Set table entry
+            $progress->advance();
+        }
+
+        $manager->flush();
+        $progress->finish();
+    }
+
 
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
@@ -398,6 +450,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $this->insert_home_prototypes($manager, $output);
             $output->writeln("");
             $this->insert_home_upgrades($manager, $output);
+            $output->writeln("");
+            $this->insert_roles($manager, $output);
             $output->writeln("");
 
             $this->insert_cod($manager, $output);

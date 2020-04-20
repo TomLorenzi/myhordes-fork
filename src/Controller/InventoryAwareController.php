@@ -358,7 +358,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
                         $this->picto_handler->give_picto($citizen, $picto);
 
-                        if($hasExplodingDoormat){
+                        if($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()){
                             $this->citizen_handler->inflictWound( $citizen );
                             $this->addFlash( 'notice', $this->translator->trans('"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', 
                             ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );

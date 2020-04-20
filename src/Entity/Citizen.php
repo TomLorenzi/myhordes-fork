@@ -51,6 +51,18 @@ class Citizen
     private $profession;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenRole")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $roles;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $votes;
+
+    /**
      * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="citizen", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
@@ -163,6 +175,8 @@ class Citizen
         $this->complaints = new ArrayCollection();
         $this->heroicActions = new ArrayCollection();
         $this->actionCounters = new ArrayCollection();
+        $this->roles = new ArrayCollection();
+        $this->votes = new ArrayCollection();
         $this->leadingEscorts = new ArrayCollection();
     }
 
@@ -253,6 +267,58 @@ class Citizen
     public function setProfession(?CitizenProfession $profession): self
     {
         $this->profession = $profession;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CitizenRole[]
+     */
+    public function getRoles(): Collection
+    {
+        return $this->roles;
+    }
+
+    public function addRole(CitizenRole $role): self
+    {
+        if (!$this->roles->contains($role)) {
+            $this->roles[] = $role;
+        }
+
+        return $this;
+    }
+
+    public function removeRole(CitizenRole $role): self
+    {
+        if ($this->roles->contains($role)) {
+            $this->roles->removeElement($role);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CitizenVote[]
+     */
+    public function getVotes(): Collection
+    {
+        return $this->votes;
+    }
+
+    public function addVote(CitizenVote $vote): self
+    {
+        if (!$this->votes->contains($vote)) {
+            $this->votes[] = $vote;
+        }
+
+        return $this;
+    }
+
+    public function removeVote(CitizenVote $vote): self
+    {
+        if ($this->votes->contains($vote)) {
+            $this->votes->removeElement($vote);
+        }
 
         return $this;
     }

@@ -4,10 +4,22 @@
     <div class="row">
         <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
     </div>
+    <ul class="row tabs">
+        <li class="cell rw-2 tab selected">
+            <div class="tab-link" x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
+        </li>
+        {% for name,role in votesNeeded %}
+            {% if role %}
+            <li class="cell rw-3 tab">
+                <div class="tab-link" x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}">{{ role.label|trans({}, 'game') }}</div>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 
     <div class="row-table citizens-list">
         <div class="row header">
-            <div class="padded cell rw-4 center rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
+            <div class="padded cell rw-4 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
             <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
             <div class="padded cell rw-4 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
