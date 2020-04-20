@@ -345,15 +345,24 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         $pictoName = "r_theft_#00";
                         $santaClothes = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("christmas_suit_full_#00");
                         $isSanta = false;
+                        $explodingDoormat = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("trapma_#00");
+                        $hasExplodingDoormat = false;
 
                         if($this->inventory_handler->countSpecificItems($citizen->getInventory(), $santaClothes) > 0){
                             $pictoName = "r_santac_#00";
                             $isSanta = true;
                         }
+                        if($this->inventory_handler->countSpecificItems($victim_home->getChest(), $explodingDoormat) > 0){
+                            $hasExplodingDoormat = true;
+                        }
                         $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
                         $this->picto_handler->give_picto($citizen, $picto);
 
-
+                        if($hasExplodingDoormat){
+                            $this->citizen_handler->inflictWound( $citizen );
+                            $this->addFlash( 'notice', $this->translator->trans('"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', 
+                            ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
+                        }
                         if($isSanta){
                             $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up, true ) );
                             $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
