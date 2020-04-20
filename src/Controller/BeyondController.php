@@ -427,6 +427,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $cp_ok = $this->zone_handler->check_cp( $zone );
         $citizen->setZone( null );
         $zone->removeCitizen( $citizen );
+
+        // Disable the escort
+        if ($citizen->getEscortSettings()) {
+            $remove[] = $citizen->getEscortSettings();
+            $citizen->setEscortSettings(null);
+        }
+
         $this->entity_manager->persist( $this->log->doorPass( $citizen, true ) );
         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
@@ -469,23 +476,45 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$town->getDoor())
             return AjaxResponse::error( self::ErrorDoorClosed );
 
-        if ($zone->getX() === 0 && $zone->getY() === 0 && $th->getBuilding($town, 'small_labyrinth_#00',  true)) {
-            if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
-                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-            $this->citizen_handler->setAP($citizen, true, -1);
-        }
+        $movers = [];
+        foreach ($citizen->getValidLeadingEscorts() as $escort)
+            $movers[] = $escort->getCitizen();
+
+        $movers[] = $citizen;
+        $others_are_here = $zone->getCitizens()->count() > count($movers);
+
+        $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && $th->getBuilding($town, 'small_labyrinth_#00',  true));
+
+        foreach ($movers as $mover)
+            // Check if the labyrinth is built and the user enters from 0/0
+            if ($labyrinth && $mover->getAp() <= 0 || $this->citizen_handler->isTired( $mover ))
+                return AjaxResponse::error( $mover->getId() === $citizen->getId() ? ErrorHelper::ErrorNoAP : ErrorHelper::ErrorEscortFailure );
 
         $cp_ok = $this->zone_handler->check_cp( $zone );
-        $citizen->setZone( null );
-        $zone->removeCitizen( $citizen );
-        $others_are_here = $zone->getCitizens()->count() > 0;
 
-        if ( $distance > 0 ) {
-            $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
-            if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $citizen, $zone, $zero_zone, true ) );
-            $this->entity_manager->persist( $this->log->outsideMove( $citizen, $zero_zone, $zone, false ) );
+        foreach ($movers as $mover) {
+            // If labyrinth is active, deduct 1AP
+            if ($labyrinth) $this->citizen_handler->setAP($mover, true, -1);
+
+            // Disable the escort
+            if ($mover->getEscortSettings()) {
+                $remove[] = $mover->getEscortSettings();
+                $mover->setEscortSettings(null);
+            }
+
+            // Remove zone from citizen
+            $mover->setZone( null );
+            $zone->removeCitizen( $mover );
+
+            // Produce log entries
+            if ( $distance > 0 ) {
+                $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
+                if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $zero_zone, true ) );
+                $this->entity_manager->persist( $this->log->outsideMove( $mover, $zero_zone, $zone, false ) );
+            }
+            $this->entity_manager->persist( $this->log->doorPass( $mover, true ) );
+            $this->entity_manager->persist($mover);
         }
-        $this->entity_manager->persist( $this->log->doorPass( $citizen, true ) );
 
         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
@@ -522,64 +551,94 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $py = $parser->get('y', PHP_INT_MAX);
 
         $cp_ok = $this->zone_handler->check_cp( $zone );
-        $scout_movement = $this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
-        ) > 0;
-
         if (abs($px - $zone->getX()) + abs($py - $zone->getY()) !== 1) return AjaxResponse::error( self::ErrorNotReachableFromHere );
-        if (!$cp_ok && $this->get_escape_timeout( $citizen ) < 0 && !$scout_movement) return AjaxResponse::error( self::ErrorZoneBlocked );
 
         /** @var Zone $new_zone */
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
-        if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
-            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        $movers = [];
+        foreach ($citizen->getValidLeadingEscorts() as $escort)
+            $movers[] = $escort->getCitizen();
 
-        // Moving disables the dig timer
-        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($citizen)) {
-            $dig_timer->setPassive(true);
-            $this->entity_manager->persist( $dig_timer );
+        $movers[] = $citizen;
+        $scouts = [];
+
+        $others_are_here = $zone->getCitizens()->count() > count($movers);
+
+        foreach ($movers as $mover) {
+
+            // Check if citizen moves as a scout
+            $scouts[$mover->getId()] = $this->inventory_handler->countSpecificItems(
+                    $mover->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+                ) > 0;
+
+            // Check if citizen can move (zone not blocked and enough AP)
+            if (!$cp_ok && $this->get_escape_timeout( $mover ) < 0 && !$scouts[$mover->getId()]) return AjaxResponse::error( self::ErrorZoneBlocked );
+            if ($mover->getAp() < 1 || $this->citizen_handler->isTired( $mover ))
+                return AjaxResponse::error( $citizen->getId() === $mover->getId() ? ErrorHelper::ErrorNoAP : ErrorHelper::ErrorEscortFailure );
+
         }
 
-        // Moving invalidates any escape timer the user may have had
-        foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByCitizen($citizen) as $et)
-            $this->entity_manager->remove( $et );
+        foreach ($movers as $mover) {
 
-        $clothes = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(),[new ItemRequest('basic_suit_#00')]);
-        if (!empty($clothes)) $clothes[0]->setPrototype( $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'basic_suit_dirt_#00' ) );
-
-        $zone->removeCitizen( $citizen );
-        $new_zone
-        ->addCitizen( $citizen )
-        ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
-        ->setZombieStatus( max(Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
-
-        if ($citizen->getProfession()->getName() === 'hunter' && !$this->entity_manager->getRepository(ScoutVisit::class)->findByCitizenAndZone($citizen,$new_zone)) {
-            $new_zone->addScoutVisit( (new ScoutVisit())->setScout( $citizen ) );
-            if ($scout_movement && !$this->zone_handler->check_cp( $new_zone )) {
-
-                $new_zed_count = $new_zone->getZombies();
-                $new_zone_lv = $new_zone->getScoutLevel();
-                $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
-
-                if ($this->random_generator->chance( $factor ) && $this->uncoverHunter($citizen))
-                    $this->addFlash( 'notice', 'Deine Tarnung ist aufgeflogen!' );
+            // Moving disables the dig timer
+            if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($mover)) {
+                $dig_timer->setPassive(true);
+                $this->entity_manager->persist( $dig_timer );
             }
+
+            // Moving invalidates any escape timer the user may have had
+            foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByCitizen($mover) as $et)
+                $this->entity_manager->remove( $et );
+
+            // Single movers get their escort mode disabled
+            if (count($movers) === 1 && $mover->getEscortSettings()) {
+                $remove[] = $mover->getEscortSettings();
+                $mover->setEscortSettings(null);
+            }
+
+            // Get them clothes dirty!
+            $clothes = $this->inventory_handler->fetchSpecificItems($mover->getInventory(),[new ItemRequest('basic_suit_#00')]);
+            if (!empty($clothes)) $clothes[0]->setPrototype( $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'basic_suit_dirt_#00' ) );
+
+            // Actually move to the new zone
+            $zone->removeCitizen( $mover );
+            $new_zone->addCitizen( $mover );
+
+            // Scout check
+            if ($mover->getProfession()->getName() === 'hunter' && !$this->entity_manager->getRepository(ScoutVisit::class)->findByCitizenAndZone($mover,$new_zone)) {
+                $new_zone->addScoutVisit( (new ScoutVisit())->setScout( $mover ) );
+                if ($scouts[$mover->getId()] && !$this->zone_handler->check_cp( $new_zone )) {
+
+                    $new_zed_count = $new_zone->getZombies();
+                    $new_zone_lv = $new_zone->getScoutLevel();
+                    $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
+
+                    if ($this->random_generator->chance( $factor ) && $this->uncoverHunter($mover))
+                        if ($mover->getId() === $citizen->getId())
+                            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!', [], 'game' ));
+                        else $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                }
+            }
+
+            // Set AP and increase walking distance counter
+            $this->citizen_handler->setAP($mover, true, -1);
+            $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
+            if ($mover->getWalkingDistance() > 10) {
+                $this->citizen_handler->increaseThirstLevel( $mover );
+                $mover->setWalkingDistance( 0 );
+            }
+
+            if ($others_are_here || ($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
+            $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
+
+            $this->entity_manager->persist($mover);
         }
 
-
-        $this->citizen_handler->setAP($citizen, true, -1);
-        $citizen->setWalkingDistance( $citizen->getWalkingDistance() + 1 );
-        if ($citizen->getWalkingDistance() > 10) {
-            $this->citizen_handler->increaseThirstLevel( $citizen );
-            $citizen->setWalkingDistance( 0 );
-        }
-
-        $others_are_here = $zone->getCitizens()->count() > 0;
-
-        if ($others_are_here || ($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $citizen, $zone, $new_zone, true  ) );
-        $this->entity_manager->persist( $this->log->outsideMove( $citizen, $new_zone, $zone, false ) );
+        $new_zone
+            ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
+            ->setZombieStatus( max(Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
 
         try {
             $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
@@ -650,11 +709,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
-      $this->deferZoneUpdate();
+        $this->deferZoneUpdate();
 
         if (!$this->activeCitizenIsNotEscorted()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-      return $this->generic_camping_action_api( $parser);
+        return $this->generic_camping_action_api( $parser);
   }
 
     /**

@@ -256,7 +256,7 @@
                                 <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
                                 <b>{{ other_citizen.user.username }}</b>
                             </div>
-                            <div class="padded cell rw-4">
+                            <div class="padded cell rw-3">
                                 <ul class="status">
                                     {% if other_citizen.digging %}
                                         <li class="status"><img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}"></li>
@@ -270,7 +270,10 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-                            <div class="padded cell rw-4 right">
+                            <div class="padded cell rw-2">
+                                <div class="ap small">{{ other_citizen.ap }}</div>
+                            </div>
+                            <div class="padded cell rw-3 right">
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
                             </div>
                         </div>

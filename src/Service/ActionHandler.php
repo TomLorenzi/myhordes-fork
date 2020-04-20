@@ -779,6 +779,12 @@ class ActionHandler
                         if (!$zone) break;
                         $others_are_here = $zone->getCitizens()->count() > 0;
 
+                        // Disable the escort
+                        if ($jumper->getEscortSettings()) {
+                            $remove[] = $jumper->getEscortSettings();
+                            $jumper->setEscortSettings(null);
+                        }
+
                         if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
