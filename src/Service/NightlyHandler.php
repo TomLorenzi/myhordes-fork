@@ -295,7 +295,7 @@ class NightlyHandler
             if ($force > $def){
                 $this->kill_wrap($target, $cod, false, $force);
                 // he dies from the attack, he validate the new day
-                $target->setSurvivedDays($town->getDays());
+                $target->setSurvivedDays($town->getDay());
             }
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $target, $force, $def));
@@ -700,6 +700,10 @@ class NightlyHandler
         }
     }
 
+    private function stage3_roles(Town &$town){
+        //TODO: code the function
+    }
+
     public function advance_day(Town &$town): bool {
         $this->skip_reanimation = [];
 
@@ -724,6 +728,7 @@ class NightlyHandler
         $this->log->info('Entering <comment>Phase 3</comment> - Dawn of a New Day');
         $this->stage3_buildings($town);
         $this->stage3_status($town);
+        $this->stage3_roles($town);
         $this->stage3_zones($town);
         $this->stage3_items($town);
         $this->stage3_pictos($town);

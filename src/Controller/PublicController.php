@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Citizen;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ErrorHelper;
@@ -25,6 +28,29 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class PublicController extends AbstractController
 {
+    protected $entity_manager;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->entity_manager = $em;
+    }
+
+    protected function addDefaultTwigArgs( ?array $data = null ): array {
+        $data = $data ?? [];
+
+        $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findByAlive(0));
+        $pictoKillZombies = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_killz_#00');
+        $zombiesKilled = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoKillZombies);
+        $pictoCanibal = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_cannib_#00');
+        $canibalismCount = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoCanibal);
+
+        $data['deadCitizenCount'] = $deadCitizenCount;
+        $data['zombiesKilled'] = $zombiesKilled;
+        $data['canibalismCount'] = $canibalismCount;
+
+        return $data;
+    }
+
     /**
      * @Route("jx/public/login", name="public_login")
      * @return Response
@@ -33,7 +59,7 @@ class PublicController extends AbstractController
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
-        return $this->render( 'ajax/public/login.html.twig' );
+        return $this->render( 'ajax/public/login.html.twig', $this->addDefaultTwigArgs() );
     }
 
     /**
@@ -44,7 +70,7 @@ class PublicController extends AbstractController
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
-        return $this->render( 'ajax/public/register.html.twig' );
+        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs() );
     }
 
     /**
@@ -207,7 +233,9 @@ class PublicController extends AbstractController
      */
     public function welcome(): Response
     {
-        return $this->render( 'ajax/public/intro.html.twig' );
+        
+
+        return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs());
     }
 
 }
