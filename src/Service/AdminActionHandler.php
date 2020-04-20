@@ -30,23 +30,21 @@ class AdminActionHandler
 
     protected function hasRights(int $sourceUser)
     {
-        if ($this->entity_manager->getRepository(User::class)->find($sourceUser)->getIsAdmin()){
+        $userRoles = $this->entity_manager->getRepository(User::class)->find($sourceUser)->getRoles();
+        if (in_array("ROLE_ADMIN", $userRoles))
             return true;
-        }
         return false;
     }
 
     public function headshot(int $sourceUser, int $targetUserId): string
     {
-        if(!$this->hasRights($sourceUser)){
-            return $this->translator->trans('Dazu hast Du nicht das Recht.', [], 'game');
-        }
+        if(!$this->hasRights($sourceUser))
+            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');        
         $user = $this->entity_manager->getRepository(User::class)->find($targetUserId);
         /**
         * @var Citizen
         */
         $citizen = $user->getAliveCitizen();
-        file_put_contents("../var/log/death_log.log", $citizen, FILE_APPEND);
         if (isset($citizen)) {
             $rem = [];
             $this->death_handler->kill( $citizen, CauseOfDeath::Headshot, $rem );

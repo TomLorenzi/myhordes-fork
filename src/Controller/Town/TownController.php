@@ -420,23 +420,31 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        $autor = $this->getActiveCitizen();
-        $town = $autor->getTown();
+        $author = $this->getActiveCitizen();
+        $town = $author->getTown();
 
-        /** @var Citizen $c */
+        /** @var Citizen $culprit */
         $culprit = $em->getRepository(Citizen::class)->find( $id );
         if (!$culprit || $culprit->getTown()->getId() !== $town->getId() || !$culprit->getAlive() )
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($autor, $culprit);
+        // Check permission: dummy accounts may not complain against non-dummy accounts (dummy is any account which email ends on @localhost)
+        $authorRoles = $author->getUser()->getRoles();
+        $culpritRoles = $culprit->getUser()->getRoles();
+        if (!in_array("ROLE_DUMMY", $culpritRoles)){
+            if (in_array("ROLE_DUMMY", $authorRoles))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
+        }
+
+        $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
         if (!$existing_complaint) {
             $existing_complaint = (new Complaint())
-                ->setAutor( $autor )
+                ->setAutor( $author )
                 ->setCulprit( $culprit )
                 ->setSeverity( $severity )
-                ->setCount( ($autor->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
+                ->setCount( ($author->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
             $culprit->addComplaint( $existing_complaint );
         } else $existing_complaint->setSeverity( $severity );
 
