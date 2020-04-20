@@ -362,6 +362,7 @@ class NightlyHandler
             $citizen->setWalkingDistance(0);
             $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
+            $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ),0);
             $citizen->getActionCounters()->clear();
             $citizen->getDigTimers()->clear();
             foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
@@ -705,6 +706,8 @@ class NightlyHandler
         $votes = array();
 
         foreach ($roles as $role) {
+            if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null)
+                continue;
             // Getting vote per role per citizen
             $votes[$role->getId()] = array();
             foreach ($citizens as $citizen) {
@@ -758,6 +761,7 @@ class NightlyHandler
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
             $winningCitizen->addRole($role);
+            $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
 
             $this->entity_manager->persist($winningCitizen);
 

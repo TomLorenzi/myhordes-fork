@@ -87,6 +87,11 @@ class Requirement
      */
     private $counter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\RequirePM")
+     */
+    private $pm;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -238,6 +243,18 @@ class Requirement
     public function setCounter(?RequireCounter $counter): self
     {
         $this->counter = $counter;
+
+        return $this;
+    }
+
+    public function getPm(): ?RequirePM
+    {
+        return $this->pm;
+    }
+
+    public function setPm(?RequirePM $pm): self
+    {
+        $this->pm = $pm;
 
         return $this;
     }
