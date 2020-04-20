@@ -143,6 +143,17 @@ class TownHandler
                         $this->entity_manager->persist($citizen);
                     }
                 break;
+            case "small_lastchance_#00":
+                $destroyedItems = 0;
+                $bank = $town->getBank();               
+                foreach ($bank->getItems() as $bankItem) {
+                    $count = $bankItem->getcount();
+                    $this->inventory_handler->forceRemoveItem($bankItem, $count);
+                    $destroyedItems+= $count;
+                }
+                $this->getBuilding($town, "small_lastchance_#00")->setTempDefenseBonus($destroyedItems);
+                $this->entity_manager->persist( $this->log->constructionsBuildingCompleteAllOrNothing($town, $destroyedItems ) );
+                break;
             case "small_castle_#00":
             case "small_pmvbig_#00":
             case "small_wheel_#00":

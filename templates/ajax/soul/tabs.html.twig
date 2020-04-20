@@ -14,6 +14,6 @@
         <div class="tab-link" x-ajax-href="{{ path('soul_settings') }}">{% trans from 'soul' %}Einstellungen{% endtrans %}</div>
     </div>
     <div class="cell rw-2 tab">
-        <a class="tab-link" target="_self" href="/logout">{% trans from 'soul' %}Logout{% endtrans %}</a>
+        <a class="tab-link" target="_self" href="{{ path('auto_logout') }}">{% trans from 'soul' %}Logout{% endtrans %}</a>
     </div>
 </div>

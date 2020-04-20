@@ -444,6 +444,18 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
+    public function constructionsBuildingCompleteAllOrNothing( town $town, $tempDef ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeNightly )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setText( $this->trans->trans('Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.', [
+                '%def%' => $this->wrap($tempDef),
+            ], 'game' ) );
+    }
+
     public function nightlyInternalAttackKill( Citizen $zombie, Citizen $victim ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeNightly )

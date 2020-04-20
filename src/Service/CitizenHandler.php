@@ -9,6 +9,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\Complaint;
 use App\Entity\Item;
@@ -310,6 +311,40 @@ class CitizenHandler
         if ($profession->getName() !== 'none')
             $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
 
+    }
+
+    public function applyRole(Citizen &$citizen, CitizenRole &$role): void {
+        $item_type_cache = [];
+
+        if ($citizen->getRoles()->contains($role)) return;
+
+        if ($citizen->getRoles()) {
+            foreach ($citizen->getRoles as $role) {
+                foreach ($role->getRoleItems() as $pi)
+                    if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [-1,$pi];
+            }
+        }
+
+        foreach ($role->getRoleItems() as $pi)
+            if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [1,$pi];
+            else $item_type_cache[$pi->getId()] = [0,$pi];
+
+        $inventory = $citizen->getInventory(); $null = null;
+        foreach ($item_type_cache as &$entry) {
+            list($action,$proto) = $entry;
+
+            if ($action < 0) foreach ($this->inventory_handler->fetchSpecificItems( $inventory, [new ItemRequest($proto->getName(),1,null,null)] ) as $item)
+                $this->inventory_handler->transferItem($citizen,$item,$inventory,$null);
+            if ($action > 0) {
+                $item = $this->item_factory->createItem( $proto );
+                $item->setEssential(true);
+                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+            }
+        }
+
+        $citizen->addRole($role);
+
+        $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
     }
 
     public function getSoulpoints(Citizen $citizen): int {
