@@ -39,7 +39,7 @@ class ExternalFixtures extends Fixture
             'icon' => 'fdtd',
             'contact' => 'berzerg.d2n@gmail.com',
             'owner' => 'BerZerg',
-            'key' => '',
+            'key' => 'a153246385a7111',
         ],
     ];
 
