@@ -8,10 +8,9 @@ use App\Entity\CauseOfDeath;
 use App\Entity\User;
 use App\Service\DeathHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class AdminActionHandler extends AbstractController
+class AdminActionHandler
 {
     private $entity_manager;
     /**
@@ -29,20 +28,20 @@ class AdminActionHandler extends AbstractController
         $this->log = $lt;
     }
 
-    protected function hasRights( )
+    protected function hasRights(int $sourceUser)
     {
-        if ($this->getUser()->getIsAdmin()){
+        if ($this->entity_manager->getRepository(User::class)->find($sourceUser)->getIsAdmin()){
             return true;
         }
         return false;
     }
 
-    public function headshot(int $userId)
+    public function headshot(int $sourceUser, int $targetUserId): string
     {
-        if(!$this->hasRights()){
-            return;
+        if(!$this->hasRights($sourceUser)){
+            return $this->translator->trans('Dazu hast Du nicht das Recht.', [], 'game');
         }
-        $user = $this->entity_manager->getRepository(User::class)->find($userId);
+        $user = $this->entity_manager->getRepository(User::class)->find($targetUserId);
         /**
         * @var Citizen
         */
@@ -58,6 +57,6 @@ class AdminActionHandler extends AbstractController
         else {
             $message = $this->translator->trans('%username% gehört keiner Stadt an.', ['%username%' => '<span>' . $user->getUsername() . '</span>'], 'game');
         }
-        $this->addFlash('notice', $message);
+        return $message;
     }
 }

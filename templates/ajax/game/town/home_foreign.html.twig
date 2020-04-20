@@ -113,9 +113,11 @@
 
     <div class="row">
         <div class="cell rw-14">
-            {% if user.isAdmin %}
-                    <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>      
-            {% endif %}       
+            {% if owner.alive %}
+                {% if user.isAdmin %}
+                        <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>      
+                {% endif %}       
+            {% endif %} 
         </div>
     </div>
 

@@ -211,13 +211,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     /**
      * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
      * @param int $id
-     * @param EntityManagerInterface $em
-     * @param TownHandler $th
      * @return Response
      */
-    public function visitHeadshot(int $id, EntityManagerInterface $em, TownHandler $th, AdminActionHandler $admh): Response
+    public function visitHeadshot(int $id, AdminActionHandler $admh): Response
     {
-        $admh->headshot($id);
+        $sourceUserId = $this->getUser()->getId();
+        $message = $admh->headshot($sourceUserId, $id);
+        $this->addFlash('notice', $message);
         return AjaxResponse::success();
     }
 
