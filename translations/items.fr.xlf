@@ -2737,7 +2737,7 @@
       </notes>
       <segment>
         <source>Rauchgranate 'Tannenduft'</source>
-        <target>Rauchgranate 'Tannenduft'</target>
+        <target>Fumigène « Senteur Sapin »</target>
       </segment>
     </unit>
     <unit id="uhLatmB" name="Sandball">
@@ -2836,7 +2836,7 @@
       </notes>
       <segment>
         <source>Apfel</source>
-        <target>Apfel</target>
+        <target>Pomme</target>
       </segment>
     </unit>
     <unit id="HAetVwQ" name="Explosive Pampelmuse">
@@ -2847,7 +2847,7 @@
       </notes>
       <segment>
         <source>Explosive Pampelmuse</source>
-        <target>Explosive Pampelmuse</target>
+        <target>Pamplemousse explosif</target>
       </segment>
     </unit>
     <unit id="mxzzIXh" name="Abgenutzte Kuriertasche">
@@ -2869,7 +2869,7 @@
       </notes>
       <segment>
         <source>Magnet-Schlüssel</source>
-        <target>Magnet-Schlüssel</target>
+        <target>Clé magnétique</target>
       </segment>
     </unit>
     <unit id="_DFJUZ7" name="Schlagschlüssel">
@@ -2902,7 +2902,7 @@
       </notes>
       <segment>
         <source>Abdruck vom Magnet-Schlüssel</source>
-        <target>Abdruck vom Magnet-Schlüssel</target>
+        <target>Empreinte de clé magnétique</target>
       </segment>
     </unit>
     <unit id="zKuoJUv" name="Abdruck vom Schlagschlüssel">
@@ -2924,7 +2924,7 @@
       </notes>
       <segment>
         <source>Abdruck vom Dosenöffner</source>
-        <target>Abdruck vom Dosenöffner</target>
+        <target>Empreinte de décapsuleur</target>
       </segment>
     </unit>
     <unit id="UH8KN45" name="Ghul-Serum">
@@ -2935,7 +2935,7 @@
       </notes>
       <segment>
         <source>Ghul-Serum</source>
-        <target>Ghul-Serum</target>
+        <target>Sérum pour Goule</target>
       </segment>
     </unit>
     <unit id="BeyHLoR" name="Hotel-Bauplan (ungewöhnlich)">
