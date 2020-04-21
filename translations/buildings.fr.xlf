@@ -2626,7 +2626,7 @@
       </notes>
       <segment>
         <source>Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.</source>
-        <target>Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.</target>
+        <target>Marre de vous prendre des lambeaux de peau à la figure, les bras déchiquetés de vos voisins sur vos chaussures, il devient intéressant de quitter la terre ferme et de s'élever avec la création de de chemin de ronde autours de la ville. Ainsi, vous pourrez veiller et défendre la ville tout en étant plus proche des cieux.</target>
       </segment>
     </unit>
     <unit id="HgzUKh3" name="bdfe1b4">
@@ -2635,7 +2635,7 @@
       </notes>
       <segment>
         <source>Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!</source>
-        <target>Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!</target>
+        <target>Un système ingénieux pour optimiser l'usage de plaque de défenses (tôle ou autre). Chaque objet de défense dans la Banque rapporte plus de points de défense !</target>
       </segment>
     </unit>
     <unit id="kvBWijm" name="d6552a7">
@@ -2644,7 +2644,7 @@
       </notes>
       <segment>
         <source>Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!</source>
-        <target>Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!</target>
+        <target>Une tourelle automatisée qui projette des rochers à grande vitesse en direction de la porte. Il s'active à minuit et tire sans discontinuer pendant plusieurs minutes (si vous comptiez dormir dans le silence, c'est loupé) !</target>
       </segment>
     </unit>
     <unit id="8xCv6SG" name="3fd7b5e">
@@ -2653,7 +2653,7 @@
       </notes>
       <segment>
         <source>Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</source>
-        <target>Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</target>
+        <target>Un mécanisme puissant à air-comprimé qui projète des boules de clous tordus et autres ferrailles rouillées. Parfait pour faire des trous gros comme le poing dans n'importe quoi (qui).</target>
       </segment>
     </unit>
     <unit id="8CKEc8B" name="e894210">
@@ -2662,7 +2662,7 @@
       </notes>
       <segment>
         <source>Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...</source>
-        <target>Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...</target>
+        <target>Projetez de lourdes plaques de tôle en ligne droite dans le champ de bataille. Une boucherie qu'on espère ne jamais revoir, mais c'est efficace.</target>
       </segment>
     </unit>
     <unit id="BEkfLyg" name="65a6915">
@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.</source>
-        <target>Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.</target>
+        <target>Une machine à tuer, mais qu'il faudra ré-amorcer chaque jour.</target>
       </segment>
     </unit>
     <unit id="g_53a10" name="805f6a4">
@@ -2680,7 +2680,7 @@
       </notes>
       <segment>
         <source>Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.</source>
-        <target>Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.</target>
+        <target>Plusieurs monticules de terre renforcés par des poutres en bois. Le pré-requis indispensable pour construire de puissantes tourelles de défense…</target>
       </segment>
     </unit>
     <unit id="MSbz210" name="f0a8ba0">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.</source>
-        <target>Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.</target>
+        <target>De grandes poutres en bois fixées sur un axe. Et ça tourne. Très vite.</target>
       </segment>
     </unit>
     <unit id="ITFNg6R" name="9d3a4f1">
@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.</source>
-        <target>Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.</target>
+        <target>Cette version améliorée de l'atelier permet de réduire de 1PA le coût de toutes les transformations effectuées dans l'atelier.</target>
       </segment>
     </unit>
     <unit id="VM.FttJ" name="974345b">
@@ -2707,7 +2707,7 @@
       </notes>
       <segment>
         <source>Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...</source>
-        <target>Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...</target>
+        <target>Des scies circulaires bricolées à même le sol et activées par un savant système d'élastiques. Le bruit strident produit par la rotation des scies fait étrangement penser à un cri humain…</target>
       </segment>
     </unit>
     <unit id="ivXmhsk" name="c7ab447">
@@ -2716,7 +2716,7 @@
       </notes>
       <segment>
         <source>Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.</source>
-        <target>Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.</target>
+        <target>Quand les citoyens les plus intelligents se retrouvent le soir, au coin du feu, ils inventent de grandes choses. Enfin, ça, c'est à condition de leur avoir installé un Architectoire. Ce bâtiment permet à la ville de recevoir un plan de bâtiment (commun) chaque jour, en banque.</target>
       </segment>
     </unit>
     <unit id="mAwbfLv" name="8ff718a">
@@ -2725,7 +2725,7 @@
       </notes>
       <segment>
         <source>Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.</source>
-        <target>Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.</target>
+        <target>Avec un peu d'organisation et une bonne table, on peut tenir à jour un registre un peu plus précis de tout ce qui se passe dans nos chantiers.</target>
       </segment>
     </unit>
     <unit id="DQ5y6Uy" name="de39fa3">
@@ -2734,7 +2734,7 @@
       </notes>
       <segment>
         <source>An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...</source>
-        <target>An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...</target>
+        <target>Une belle potence pour pendre les citoyens indésirables plutôt que de se contenter de les bannir de la communauté… Attention : étant donné la piètre qualité de cette structure, elle ne peut être utilisée qu'UNE fois pour UNE pendaison : il faudra la reconstruire pour l'utiliser à nouveau.</target>
       </segment>
     </unit>
     <unit id="5O7d2v1" name="665c5df">
@@ -2743,7 +2743,7 @@
       </notes>
       <segment>
         <source>Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.</source>
-        <target>Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.</target>
+        <target>Un abattoir installé juste devant la grande porte d'entrée et dont l'accès est tourné vers l'extérieur. Le problème, c'est de choisir le type qui va y attirer les zombies tous les soirs en agitant ses bras.</target>
       </segment>
     </unit>
     <unit id="ap6lTFg" name="0bc8f05">
@@ -2752,7 +2752,7 @@
       </notes>
       <segment>
         <source>Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).</source>
-        <target>Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).</target>
+        <target>Une vaste re-structuration de nos défenses pour en tirer le meilleur parti (les défenses totales de la ville sont augmentées de +10%).</target>
       </segment>
     </unit>
     <unit id="QOHJyKq" name="18da24e">
@@ -2761,7 +2761,7 @@
       </notes>
       <segment>
         <source>Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.</source>
-        <target>Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.</target>
+        <target>Quand l'heure du repas est encore loin… Rien de tel qu'une bonne planche en bois dans du pain rassis.</target>
       </segment>
     </unit>
     <unit id="m6h2kn9" name="e266b9a">
@@ -2770,7 +2770,7 @@
       </notes>
       <segment>
         <source>Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.</source>
-        <target>Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.</target>
+        <target>Entre deux morts, celui qui bouge à plus de chance de vous bouffer, trompez l'ennemi en éjectant vos morts dans la masse de zombies ! Chaque mort rapporte +20 points de défense au lieu de +10.</target>
       </segment>
     </unit>
     <unit id="fawd4Ys" name="0c6b6bc">
@@ -2779,7 +2779,7 @@
       </notes>
       <segment>
         <source>Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.</source>
-        <target>Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.</target>
+        <target>Apportez vos morts ! Pour une fois, ils vont se rendre utile, profitez de leur existence pour renforcer sommairement vos défenses. Chaque citoyen mort rapporte +10 points de défense à la ville. Note : le lieu et la raison de la mort du citoyen n'ont aucune importance.</target>
       </segment>
     </unit>
     <unit id="wUlb_LB" name="8deafa9">
@@ -2788,7 +2788,7 @@
       </notes>
       <segment>
         <source>Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.</source>
-        <target>Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.</target>
+        <target>La cantine permet d'améliorer le rendement des “cuisines personnelles” construites par les héros de votre ville.</target>
       </segment>
     </unit>
     <unit id="sUOSkcW" name="ca5d119">
@@ -2797,7 +2797,7 @@
       </notes>
       <segment>
         <source>Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.</source>
-        <target>Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.</target>
+        <target>Le laboratoire permet d'améliorer le rendement des “laboratoires personnels” construits par les héros de votre ville.</target>
       </segment>
     </unit>
     <unit id="M2PrKkr" name="e80708a">
@@ -2806,7 +2806,7 @@
       </notes>
       <segment>
         <source>Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.</source>
-        <target>Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.</target>
+        <target>Si vous avez depuis longtemps oublié quel goût pouvait bien avoir une petite omelette aux champignons sautés, aux herbes et aux lardons, ce chantier ne vous sera d'aucune aide. Enfin, tout au plus, vous redécouvrirez le goût des oeufs. Pour les champignons, il faudra s'adresser au zombies dehors.</target>
       </segment>
     </unit>
     <unit id="HpECVh5" name="64be1a9">
@@ -2815,7 +2815,7 @@
       </notes>
       <segment>
         <source>Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.</source>
-        <target>Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.</target>
+        <target>En cas de petit bobo ou de gros traumatisme irréparrable, l'infirmerie vous accueillera les bras ouverts. Enfin, à condition que vous soyez capable de vous recoudre tout seul car le personnel médical n'est pas fourni avec le chantier.</target>
       </segment>
     </unit>
     <unit id="9uClNg4" name="ef99b28">
@@ -2824,7 +2824,7 @@
       </notes>
       <segment>
         <source>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</source>
-        <target>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</target>
+        <target>Ce chantier de grande ampleur fourni toutes les bases nécessaires pour la construction de maisons individuelles plus avancées.</target>
       </segment>
     </unit>
     <unit id="rEndNN5" name="098dd57">
@@ -2833,7 +2833,7 @@
       </notes>
       <segment>
         <source>Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.</source>
-        <target>Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.</target>
+        <target>Cet ambitieux projet d'urbanisme a pour objectif de renforcer nos défenses en exploitant au mieux les maisons des citoyens. Avec ce chantier, 80% des défenses personnelles comptent pour la ville, au lieu des 40% habituels.</target>
       </segment>
     </unit>
   </file>
