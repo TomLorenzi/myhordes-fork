@@ -61,6 +61,7 @@ class TownInspectorCommand extends Command
             ->addOption('zombies', null, InputOption::VALUE_REQUIRED, 'Controls the zombie spawn; set to "reset" to clear all zombies, "daily" to perform a single daily spread or "global" to force a global respawn.')
             ->addOption('zombie-estimates', null, InputOption::VALUE_REQUIRED, 'Calculates the zombie estimations for the next days.')
             ->addOption('unlock-buildings', null, InputOption::VALUE_NONE, 'Unlocks all buildings.')
+            ->addOption('build-buildings', null, InputOption::VALUE_NONE, 'Builds all unlocked buildings.')
 
             ->addOption('unveil-map', null, InputOption::VALUE_NONE, 'Uncovers the map')
             ->addOption('map-ds', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the discovery state')
@@ -197,6 +198,26 @@ class TownInspectorCommand extends Command
                 $output->writeln("Added <comment>" . count($possible) . "</comment> buildings.");
             } while ($found);
             $this->entityManager->persist( $town );
+        }
+
+        if ($input->getOption('build-buildings')) {
+            $built = 0;
+            do {
+                $buildings = $town->getBuildings();
+                $changed = false;
+                foreach ($buildings as $building) {
+                    if(!$building->getComplete()) {
+                        $building->setAP($building->getPrototype()->getAP());
+                        $building->setComplete(true);
+                        $this->townHandler->triggerBuildingCompletion($town, $building);
+                        $changed = true;
+                        $changes = true;
+                        $built++;
+                        $this->entityManager->persist( $building ); 
+                    }
+                }
+            } while ($changed);
+            $output->writeln("Built <comment>$built</comment> buildings.");
         }
 
         if ($input->getOption('unveil-map')) {
