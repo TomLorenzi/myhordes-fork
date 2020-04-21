@@ -8273,5 +8273,23 @@
         <target>Faire une potion chamanique</target>
       </segment>
     </unit>
+    <unit id="txP7Qji" name="Vodka Marinostov">
+      <notes>
+        <note category="german">Vodka Marinostov</note>
+      </notes>
+      <segment>
+        <source>Vodka Marinostov</source>
+        <target>Vodka Marinostov</target>
+      </segment>
+    </unit>
+    <unit id="Xty7y8z" name="686a25e">
+      <notes>
+        <note category="german">Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</note>
+      </notes>
+      <segment>
+        <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
+        <target>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

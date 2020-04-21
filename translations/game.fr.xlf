@@ -8467,5 +8467,23 @@
         <target>Vous êtes le %rolename% de cette ville.</target>
       </segment>
     </unit>
+    <unit id="xbvLcF5" name="Mystic-Punkte">
+      <notes>
+        <note category="german">Mystic-Punkte</note>
+      </notes>
+      <segment>
+        <source>Mystic-Punkte</source>
+        <target>Points de charlatanisme</target>
+      </segment>
+    </unit>
+    <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
+      <notes>
+        <note category="german">Diese Punkte sind exklusiv für den Schamanen reserviert.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
+        <target>Ces points sont exclusivement réservés au Chaman.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
