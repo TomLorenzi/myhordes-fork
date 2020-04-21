@@ -158,11 +158,8 @@ class TownHandler
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteAllOrNothing($town, $destroyedItems ) );
                 break;
             case "small_castle_#00":
-                break;
             case "small_pmvbig_#00":
-                break;
             case "small_wheel_#00":
-                break;
             case "small_crow_#00":
                 $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
                 foreach ($town->getCitizens() as $citizen)
