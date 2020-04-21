@@ -49,6 +49,11 @@
                             <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
                         {% endif %}
                         <b>{{ citizen.user.username }}</b>
+                        {% if citizen.alive %}
+                            {% for role in citizen.roles %}
+                                <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                            {% endfor %}
+                        {% endif %}
                     </span>
                 </div>
                 <div class="padded cell rw-4 small hide-md hide-sm">
