@@ -3754,13 +3754,11 @@
     </unit>
     <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
       <notes>
-        <note>Hierfür brauchst du eine Ration Wasser.</note>
-        <note>Hierfür brauchst du eine Ration Wasser.</note>
         <note category="german">Hierfür brauchst du eine Ration Wasser.</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Hierfür brauchst du eine Ration Wasser.</target>
+        <target>Vous avez besoin d'une ration d'eau.</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">

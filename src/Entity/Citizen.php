@@ -167,6 +167,11 @@ class Citizen
      */
     private $pm;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $immune = true;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -667,6 +672,18 @@ class Citizen
     public function setPm(int $pm): self
     {
         $this->pm = $pm;
+
+        return $this;
+    }
+
+    public function getImmune(): ?bool
+    {
+        return $this->immune;
+    }
+
+    public function setImmune(bool $immune): self
+    {
+        $this->immune = $immune;
 
         return $this;
     }
