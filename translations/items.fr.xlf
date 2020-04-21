@@ -4530,7 +4530,7 @@
       </notes>
       <segment>
         <source>Jetzt mach mal kein Gezeter, schließ dein Augen, mach deinen Mund ganz weit auf und runter damit! Du wirst sehen, dass es dir danach besser geht.</source>
-        <target>Jetzt mach mal kein Gezeter, schließ dein Augen, mach deinen Mund ganz weit auf und runter damit! Du wirst sehen, dass es dir danach besser geht.</target>
+        <target>Allez, on ferme les yeux, on ouvre bien grand la bouche et on avale tout. On se sent toujours mieux après.</target>
       </segment>
     </unit>
     <unit id="mCX3m7c" name="84a3529">
@@ -4871,7 +4871,7 @@
       </notes>
       <segment>
         <source>Ein paar Teile sind verrostet, andere von einem moosartigen Flaum überzogen... aber sie funktionieren noch halbwegs.</source>
-        <target>Ein paar Teile sind verrostet, andere von einem moosartigen Flaum überzogen... aber sie funktionieren noch halbwegs.</target>
+        <target>Certaines pièces sont rouillées, d'autres sont couvertes de mousse verdâtre, mais elles ont toutes au moins le mérite de continuer à remplir leur rôle. Plus ou moins.</target>
       </segment>
     </unit>
     <unit id="EAmtLwt" name="1ce80bb">
@@ -4959,7 +4959,7 @@
       </notes>
       <segment>
         <source>Es ist labbrig wie weiches Gummi und es riecht nach Fisch ... Was das wohl für ein Fleisch ist? Jedenfalls hat es bestimmt viele Vitamine und Proteine (und sonst hoffentlich nichts).</source>
-        <target>Es ist labbrig wie weiches Gummi und es riecht nach Fisch ... Was das wohl für ein Fleisch ist? Jedenfalls hat es bestimmt viele Vitamine und Proteine (und sonst hoffentlich nichts).</target>
+        <target>C'est un peu élastique et ça sent même le poisson… On se demande bien ce que ça Peut être, mais c'est surement plein de vitamines (et pas d'autres choses, espérez-vous).</target>
       </segment>
     </unit>
     <unit id="CiklaSg" name="cb1e755">
@@ -4970,7 +4970,7 @@
       </notes>
       <segment>
         <source>Du bist dir so gut wie sicher, dass man dieses weiche und glibbrige Etwas essen kann. Zumindest riecht es nicht sooo schlecht und es bewegt sich auch nicht.</source>
-        <target>Du bist dir so gut wie sicher, dass man dieses weiche und glibbrige Etwas essen kann. Zumindest riecht es nicht sooo schlecht und es bewegt sich auch nicht.</target>
+        <target>Vous êtes quasiment certain que cette chose molle et visqueuse peut se manger. En tous cas, ça ne sent pas mauvais et ça ne bouge pas.</target>
       </segment>
     </unit>
     <unit id="dizGPrf" name="18ca296">
@@ -5113,7 +5113,7 @@
       </notes>
       <segment>
         <source>Denk am besten gar nicht daran, was du soeben geschluckt hast und mach einfach weiter...</source>
-        <target>Denk am besten gar nicht daran, was du soeben geschluckt hast und mach einfach weiter...</target>
+        <target>Allez on oublie ce qu'on vient de manger et on passe à autre chose.</target>
       </segment>
     </unit>
     <unit id="E_kERHA" name="6c50743">
@@ -5443,7 +5443,7 @@
       </notes>
       <segment>
         <source>Sieht wie Gemüse aus, allerdings wunderst du dich, wie es so krumm wachsen konnte. Wichtig ist, dass du es essen kannst – oder besser nicht?</source>
-        <target>Sieht wie Gemüse aus, allerdings wunderst du dich, wie es so krumm wachsen konnte. Wichtig ist, dass du es essen kannst – oder besser nicht?</target>
+        <target>Un genre de… légume. Difficile à dire ce qui a essayé de pousser comme ça, mais le principal c'est que ça semble comestible. Ou pas.</target>
       </segment>
     </unit>
     <unit id="7xbaAeO" name="25ddba2">
@@ -5685,7 +5685,7 @@
       </notes>
       <segment>
         <source>Die Kartoffelchips sind total weich und schmecken nach trockenem Papier. Du hast aber keine Wahl: Essen ist Essen.</source>
-        <target>Die Kartoffelchips sind total weich und schmecken nach trockenem Papier. Du hast aber keine Wahl: Essen ist Essen.</target>
+        <target>Les chips de ce paquet sont molles et ont un goût de papier séché, mais on ne va pas faire le difficile… Un repas est un repas.</target>
       </segment>
     </unit>
     <unit id="jLUU39F" name="9c6839e">
@@ -5696,7 +5696,7 @@
       </notes>
       <segment>
         <source>Ein leckeres in Alupapier eingepacktes Gebäck. Als Geschmack wird "Vanille-Schoko" angegeben. Wenn du es schüttelst hört es sich an, als ob da auch eine Flüssigkeit drin wäre...</source>
-        <target>Ein leckeres in Alupapier eingepacktes Gebäck. Als Geschmack wird "Vanille-Schoko" angegeben. Wenn du es schüttelst hört es sich an, als ob da auch eine Flüssigkeit drin wäre...</target>
+        <target>Une pâtisserie sous plastique : chocolat-vanille. Si vous agitez l'emballage, vous avez l'impression que quelque chose s'est liquéfié là-dedans…</target>
       </segment>
     </unit>
     <unit id="t12ke0X" name="44eec66">
@@ -5707,7 +5707,7 @@
       </notes>
       <segment>
         <source>Eine handvoll staubtrockener Kaugummis. Normalerweise werden sie gekaut und nicht geschluckt, aber du solltest besser nicht rumnörgeln ... viel anderes gibt es nicht.</source>
-        <target>Eine handvoll staubtrockener Kaugummis. Normalerweise werden sie gekaut und nicht geschluckt, aber du solltest besser nicht rumnörgeln ... viel anderes gibt es nicht.</target>
+        <target>Une pleine poignée de chewing-gums tout séchés. En théorie, ça se mâche, mais ça ne s'avale pas. Seulement, dans cet enfer, vous n'êtes pas en position de faire le ou la difficile…</target>
       </segment>
     </unit>
     <unit id="bLDuFLr" name="5e185e0">
@@ -5718,7 +5718,7 @@
       </notes>
       <segment>
         <source>Sie sehen trocken aus. Was würdest du nicht alles geben, um diese Kekse nicht schmecken zu müssen...</source>
-        <target>Sie sehen trocken aus. Was würdest du nicht alles geben, um diese Kekse nicht schmecken zu müssen...</target>
+        <target>C'est sec et ça a un aspect rassi. Vous donneriez n'importe quoi pour faire passer le gout de ces biscuits…</target>
       </segment>
     </unit>
     <unit id="XgmsqMd" name="7028140">
@@ -5729,7 +5729,7 @@
       </notes>
       <segment>
         <source>Zwei Hähnchenflügel, die schon jemand vor dir angebissen hat, bevor er sie weggeworfen hat... Hmmm...</source>
-        <target>Zwei Hähnchenflügel, die schon jemand vor dir angebissen hat, bevor er sie weggeworfen hat... Hmmm...</target>
+        <target>Deux ailerons de poulet que quelqu'un a déja commencé à manger avant de les jeter … Hmmm …</target>
       </segment>
     </unit>
     <unit id="_JzOhOO" name="Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.">
@@ -5740,7 +5740,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.</source>
-        <target>Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.</target>
+        <target>Une poignée de biscuits fourrés à la confiture de … en fait vous l'ignorez… Peut-être un fruit. Mais ça a un gout de viande maintenant.</target>
       </segment>
     </unit>
     <unit id="8GFm4Zq" name="Ein streng riechendes Törtchen... Denk einfach an etwas Leckeres.">
@@ -5751,7 +5751,7 @@
       </notes>
       <segment>
         <source>Ein streng riechendes Törtchen... Denk einfach an etwas Leckeres.</source>
-        <target>Ein streng riechendes Törtchen... Denk einfach an etwas Leckeres.</target>
+        <target>Une tartelette qui sent vraiment fort… Pensez à quelque chose d'agréable pendant que vous l'avalerez.</target>
       </segment>
     </unit>
     <unit id="tI2e4WH" name="2610835">
@@ -5762,7 +5762,7 @@
       </notes>
       <segment>
         <source>Der Rest eines Schinkenbrötchens. Die grünlich-weiß verschimmelten Schinkenecken lassen sich kurzerhand unter dem Brot verstecken und dann nichts wie runter damit...</source>
-        <target>Der Rest eines Schinkenbrötchens. Die grünlich-weiß verschimmelten Schinkenecken lassen sich kurzerhand unter dem Brot verstecken und dann nichts wie runter damit...</target>
+        <target>Un reste de casse-croute qui n'a d'appétissant que son souvenir…</target>
       </segment>
     </unit>
     <unit id="E1prugE" name="a1f7dd0">
@@ -5773,7 +5773,7 @@
       </notes>
       <segment>
         <source>Trotz all der Jahre, die sie wahrscheinlich schon in dieser Wüste liegen, haben diese Nudeln ihr Aussehen und ihren Geschmack behalten. Erstaunlich.</source>
-        <target>Trotz all der Jahre, die sie wahrscheinlich schon in dieser Wüste liegen, haben diese Nudeln ihr Aussehen und ihren Geschmack behalten. Erstaunlich.</target>
+        <target>Malgré les années passées dans le désert, ces nouilles chinoises ont toujours le même gout et le même aspect.</target>
       </segment>
     </unit>
     <unit id="1odmCCd" name="Ein Säckchen mit starken Gewürzen ...">
@@ -5795,7 +5795,7 @@
       </notes>
       <segment>
         <source>Richtig gut gewürzte chinesische Nudeln! Das ist mal'ne Abwechslung von dem sonstigen verschimmelten Fraß.</source>
-        <target>Richtig gut gewürzte chinesische Nudeln! Das ist mal'ne Abwechslung von dem sonstigen verschimmelten Fraß.</target>
+        <target>Des nouilles copieusement assaisonnées ! Hmm, ça va vous changer de vos repas à base de chose en décomposition.</target>
       </segment>
     </unit>
     <unit id="SeReaYg" name="1174bdf">
@@ -5850,7 +5850,7 @@
       </notes>
       <segment>
         <source>Ein Knochen, an dem noch Fleisch ist... Komisch, er riecht sogar noch frisch. Vielleicht stammt er von einem Tier, das letzte Nacht getötet wurde?</source>
-        <target>Ein Knochen, an dem noch Fleisch ist... Komisch, er riecht sogar noch frisch. Vielleicht stammt er von einem Tier, das letzte Nacht getötet wurde?</target>
+        <target>Un os avec encore un peu de viande autour… Bizarre. Ça a l'air encore frais en plus. Peut-être un animal tué pendant la nuit ?</target>
       </segment>
     </unit>
     <unit id="QpCUDeH" name="fa76552">
@@ -6015,7 +6015,7 @@
       </notes>
       <segment>
         <source>Normalerweise "wächst" die Darmmelone im Grimmdarm von Kadavern, doch es sieht so aus, als ob dein Gemüsebeet dir ein paar hübsche Exemplare beschert hätte. Kann es vielleicht sein, dass dein Gemüsebeet auf einem alten Indianerfriedhof liegt?</source>
-        <target>Normalerweise "wächst" die Darmmelone im Grimmdarm von Kadavern, doch es sieht so aus, als ob dein Gemüsebeet dir ein paar hübsche Exemplare beschert hätte. Kann es vielleicht sein, dass dein Gemüsebeet auf einem alten Indianerfriedhof liegt?</target>
+        <target>Habituellement le Melon d'intestin pousse dans le ventre des cadavres, au niveau du gros colon. Il semblerait pourtant que votre potager en ait donné de très jolis… Peut être avez vous cultivé sur un vieux cimetière indien ?</target>
       </segment>
     </unit>
     <unit id="mzTSeqn" name="a9fbd63">
@@ -6235,7 +6235,7 @@
       </notes>
       <segment>
         <source>Eine nicht ganz durchgegarte wilde Mischung verschiedenster Zutaten, fein abgeschmeckt mit Wüstensand. Hhhmmm...</source>
-        <target>Eine nicht ganz durchgegarte wilde Mischung verschiedenster Zutaten, fein abgeschmeckt mit Wüstensand. Hhhmmm...</target>
+        <target>Des ingrédients combinés un peu n'importe comment, une ébauche de cuisson et un assaisonnement au sable du désert. Hmmm…</target>
       </segment>
     </unit>
     <unit id="JC9hz5c" name="a5c498c">
@@ -6246,7 +6246,7 @@
       </notes>
       <segment>
         <source>Auf den ersten Blick sieht es kaum besser aus als das, was du sonst zu dir nimmst. In Wirklichkeit schmeckt es jedoch sehr sehr gut und ist sättigend!</source>
-        <target>Auf den ersten Blick sieht es kaum besser aus als das, was du sonst zu dir nimmst. In Wirklichkeit schmeckt es jedoch sehr sehr gut und ist sättigend!</target>
+        <target>En apparence, ça n'est guère mieux qu'une ration quotidienne. Mais en réalité ça a très bon goût et ça nourrit bien.</target>
       </segment>
     </unit>
     <unit id="x0rzKA6" name="dccf31a">
@@ -6378,7 +6378,7 @@
       </notes>
       <segment>
         <source>Diese große Kiste ist in Zellophan eingeschweißt und mit bedruckten Etiketten nur so zugepflastert. Sie enthält wahrscheinlich Baumaterialien.</source>
-        <target>Diese große Kiste ist in Zellophan eingeschweißt und mit bedruckten Etiketten nur so zugepflastert. Sie enthält wahrscheinlich Baumaterialien.</target>
+        <target>Ce gros carton est couvert d'étiquettes imprimées et emballé dans du cellophane transparent. Il doit contenir des matériaux de construction..</target>
       </segment>
     </unit>
     <unit id="2BTlbmU" name="8f08f71">
@@ -6389,7 +6389,7 @@
       </notes>
       <segment>
         <source>Diese Autotür kann dir als Schutzschild dienen, wenn du eine Reihe hungriger Kadaver durchqueren musst. Die haben nämlich nur eines im Sinn: Dein köstliches Gehirn zu verschlingen.</source>
-        <target>Diese Autotür kann dir als Schutzschild dienen, wenn du eine Reihe hungriger Kadaver durchqueren musst. Die haben nämlich nur eines im Sinn: Dein köstliches Gehirn zu verschlingen.</target>
+        <target>Cette grosse portière fera parfaitement office de bouclier improvisé dans le désert, quand il s'agira de passer en force dans des hordes de cadavres avides de votre délicieux cerveau.</target>
       </segment>
     </unit>
     <unit id="jcj09a0" name="Eine Autotür, bei der ein entscheidendes Teil fehlt: Der Türgriff. Schlecht...">
@@ -6411,7 +6411,7 @@
       </notes>
       <segment>
         <source>Diese winzig kleine Dosis Gift reicht aus, um jeden deiner Mitbürger umzubringen. Wenn du es mit etwas Essen oder einer Droge vermischt, oder wenn du es in eine Trinkflasche kippst, ist dieses Gift eine tödliche Waffe.</source>
-        <target>Diese winzig kleine Dosis Gift reicht aus, um jeden deiner Mitbürger umzubringen. Wenn du es mit etwas Essen oder einer Droge vermischt, oder wenn du es in eine Trinkflasche kippst, ist dieses Gift eine tödliche Waffe.</target>
+        <target>Cette minuscule quantité de poison suffira à tuer n'importe quel concitoyen. Mélangez son contenu avec un aliment, une gourde ou une drogue et celle-ci sera contaminée, devenant ainsi une arme mortelle…</target>
       </segment>
     </unit>
     <unit id="0kqolxN" name="9b56cbe">
@@ -6444,7 +6444,7 @@
       </notes>
       <segment>
         <source>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Das ist ja besser als Weihnachten!</source>
-        <target>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Das ist ja besser als Weihnachten!</target>
+        <target>Un colis dont l'adresse est aujourd'hui illisible. Et on dirait bien qu'il y a quelque chose à l'intérieur… C'est Noël.</target>
       </segment>
     </unit>
     <unit id="NmWvVa." name="2fb0bdc">
@@ -6455,7 +6455,7 @@
       </notes>
       <segment>
         <source>Da Du hier kein richtiges Dinner mit Freunden erleben kannst, hast du dir ein paar leckere Happen beiseite gelegt und in dieser Lunch-Box aufbewahrt. Ab und zu muss man sich mal was gönnen ...</source>
-        <target>Da Du hier kein richtiges Dinner mit Freunden erleben kannst, hast du dir ein paar leckere Happen beiseite gelegt und in dieser Lunch-Box aufbewahrt. Ab und zu muss man sich mal was gönnen ...</target>
+        <target>A défaut d'un vrai repas autour d'une table, avec des couverts et des amis, vous avez cette boite-déjeuner Armaggedon que vous aviez caché il y a un bon moment sous votre lit…</target>
       </segment>
     </unit>
     <unit id="2822bF5" name="Beim Anblick dieser Bonbons kommen dir die Tränen...">
@@ -6466,7 +6466,7 @@
       </notes>
       <segment>
         <source>Beim Anblick dieser Bonbons kommen dir die Tränen...</source>
-        <target>Beim Anblick dieser Bonbons kommen dir die Tränen...</target>
+        <target>Vous avez une petite larme à l'oeil en contemplant cette poignée de délicieux bonbons…</target>
       </segment>
     </unit>
     <unit id="OxSKsAT" name="061199f">
@@ -6477,7 +6477,7 @@
       </notes>
       <segment>
         <source>Dieses alte Sperrholzstück stammt aus irgendeinem alten Gebäude. Mit ein wenig Einfallsreichtum könntest du es für eine neue Konstruktion wiederverwerten.</source>
-        <target>Dieses alte Sperrholzstück stammt aus irgendeinem alten Gebäude. Mit ein wenig Einfallsreichtum könntest du es für eine neue Konstruktion wiederverwerten.</target>
+        <target>Ce vieux morceau de contreplaqué vient d'un quelconque bâtiment, au prix de quelques efforts, il devrait pouvoir servir à aménager une planque dehors.</target>
       </segment>
     </unit>
     <unit id="yLFG9dI" name="771426e">
@@ -6488,7 +6488,7 @@
       </notes>
       <segment>
         <source>Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</source>
-        <target>Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</target>
+        <target>Elle doit bien brûler quelques heures… Ça sera toujours ça de plus pour éloigner les zombies. De plus, si vous la posez au sol dans le désert, elle permettra d'annuler la pénalité aux fouilles de nuit dans ce secteur.</target>
       </segment>
     </unit>
     <unit id="OR0xUnc" name="42ec3aa">
@@ -6499,7 +6499,7 @@
       </notes>
       <segment>
         <source>Mit diesem alten verbranntem Stück Holz kannst du wahrscheinlich nicht mehr viel anfangen...</source>
-        <target>Mit diesem alten verbranntem Stück Holz kannst du wahrscheinlich nicht mehr viel anfangen...</target>
+        <target>Un vieux bout de bois calciné qui ne vous servira sûrement plus à grand chose…</target>
       </segment>
     </unit>
     <unit id="g1ukrnK" name="64dd010">
@@ -6521,7 +6521,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll steinharter Marshmallows, die nach Rattengift riechen. Jetzt, da sie komplett geröstet sind, kannst du sie essen, und wenn du es dir genau überlegst, sind sie sogar richtig lecker...</source>
-        <target>Eine Handvoll steinharter Marshmallows, die nach Rattengift riechen. Jetzt, da sie komplett geröstet sind, kannst du sie essen, und wenn du es dir genau überlegst, sind sie sogar richtig lecker...</target>
+        <target>Quelques chamallows tout durcis et qui sentent le rat mort. Maintenant qu'ils sont complètement calcinés, on Peut dire qu'ils sont mangeables. On Peut même dire qu'ils sont appétissants, quand on y réfléchit bien…</target>
       </segment>
     </unit>
     <unit id="l74gjsr" name="4e28f16">
@@ -6532,7 +6532,7 @@
       </notes>
       <segment>
         <source>Diese alte Blechkiste war mal mit verschiedenen elektronischen Bauteilen gefüllt (CPU, Hauptplatine, Hardwareschnittstellen etc ...). Was willst du jetzt noch damit anfangen?</source>
-        <target>Diese alte Blechkiste war mal mit verschiedenen elektronischen Bauteilen gefüllt (CPU, Hauptplatine, Hardwareschnittstellen etc ...). Was willst du jetzt noch damit anfangen?</target>
+        <target>Cette vieille boîte en ferraille contenait tout un tas de composants électroniques auparavant. Elle ne semble plus avoir aucune utilité maintenant…</target>
       </segment>
     </unit>
     <unit id="efZZQJw" name="a28a13a">
@@ -6554,7 +6554,7 @@
       </notes>
       <segment>
         <source>Dieser große staubige Schinken gehört zu einer Lexikonausgabe mit dem Titel "Twinpedia". Die Seiten sind mit Anmerkungen unterschiedlicher Handschriften vollgeschrieben.Es scheint als ob mehrere Personen daran und darin gearbeitet hätten.</source>
-        <target>Dieser große staubige Schinken gehört zu einer Lexikonausgabe mit dem Titel "Twinpedia". Die Seiten sind mit Anmerkungen unterschiedlicher Handschriften vollgeschrieben.Es scheint als ob mehrere Personen daran und darin gearbeitet hätten.</target>
+        <target>Ce gros bouquin poussiéreux est un volume d'une série d'encyclopédie baptisée Twinpedia. Les pages sont couvertes d'innombrables annotations mystérieuses, comme si elle était passée entre les mains de plusieurs personnes.</target>
       </segment>
     </unit>
     <unit id="zw1LHFl" name="5db3cdc">
@@ -6565,7 +6565,7 @@
       </notes>
       <segment>
         <source>Ein typischer Wasserspender, wie man ihn in jedem Großraumbüro antreffen kann. Wie durch ein Wunder ist er dir in die Hände gefallen. So ein Ding könnte hier gut nützlich sein...</source>
-        <target>Ein typischer Wasserspender, wie man ihn in jedem Großraumbüro antreffen kann. Wie durch ein Wunder ist er dir in die Hände gefallen. So ein Ding könnte hier gut nützlich sein...</target>
+        <target>Cette bonbonne en plastique devait se trouver dans une quelconque bureau d'entreprise. Elle a échouée entre vos mains par on-ne-sait quel miracle et elle pourrait bien s'avérer très utile de nos jours…</target>
       </segment>
     </unit>
     <unit id=".lm05eM" name="f42e48c">
@@ -6576,7 +6576,7 @@
       </notes>
       <segment>
         <source>Die Wirkung dieser Tablette ist höchst zweifelhaft... Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</source>
-        <target>Die Wirkung dieser Tablette ist höchst zweifelhaft... Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</target>
+        <target>Ce petit cachet a un effet pour le moins mystérieux… Sur la boîte, il est écrit: “ne pas donner à un testeur de moins de 18 ans”. Étrange.</target>
       </segment>
     </unit>
     <unit id="fd6CFQ." name="76b5230">
@@ -6587,7 +6587,7 @@
       </notes>
       <segment>
         <source>Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</source>
-        <target>Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</target>
+        <target>Sur la boîte, il est écrit: “ne pas donner à un testeur de moins de 18 ans”. Étrange.</target>
       </segment>
     </unit>
     <unit id="hIO7e4L" name="69de9c2">
@@ -6598,7 +6598,7 @@
       </notes>
       <segment>
         <source>Aasbeeren sind Beeren, die auf verwesten Leichen wachsen. Man findet sie oft auf Zombies, aber erst recht auf Tierkadavern...Willst du sie wirklich essen?</source>
-        <target>Aasbeeren sind Beeren, die auf verwesten Leichen wachsen. Man findet sie oft auf Zombies, aber erst recht auf Tierkadavern...Willst du sie wirklich essen?</target>
+        <target>Les Charognardes sont des baies qui poussent généralement sur les corps en décomposition : il n'est pas rare d'en apercevoir sur des zombies ou sur les cadavres d'animaux divers… Vous êtes sûr(e) que ça se mange ?</target>
       </segment>
     </unit>
     <unit id="KKNslUE" name="278925c">
@@ -6609,7 +6609,7 @@
       </notes>
       <segment>
         <source>Eine glitschige Kugel aus zusammengeklebten "Aasbeeren" "Aasbeeren" wachsen hauptsächtlich auf Kadavern.</source>
-        <target>Eine glitschige Kugel aus zusammengeklebten "Aasbeeren" "Aasbeeren" wachsen hauptsächtlich auf Kadavern.</target>
+        <target>Un agrégat de “Charognardes”, une baie qui pousse essentiellement sur des cadavres…</target>
       </segment>
     </unit>
     <unit id=".XQYK8l" name="1949499">
@@ -6620,7 +6620,7 @@
       </notes>
       <segment>
         <source>Ein altes Hautstück oder irgend etwas anderes, das mal zu einem Lebewesen gehörte. Was willst du damit anstellen?</source>
-        <target>Ein altes Hautstück oder irgend etwas anderes, das mal zu einem Lebewesen gehörte. Was willst du damit anstellen?</target>
+        <target>Un vieux bout de peau, ou de quoi que ce soit d'autre qui appartenait à un être vivant. Mais qu'est-ce que vous faites avec ça ?</target>
       </segment>
     </unit>
     <unit id="CHqM1bh" name="be5f89c">
@@ -6631,7 +6631,7 @@
       </notes>
       <segment>
         <source>Das tolle an dieser unförmigen Fleischkugel ist, dass sie auf 10 Meter nach Aas stinkt. Damit kannst du die Zombies 'ne Zeit lang beschäftigen.</source>
-        <target>Das tolle an dieser unförmigen Fleischkugel ist, dass sie auf 10 Meter nach Aas stinkt. Damit kannst du die Zombies 'ne Zeit lang beschäftigen.</target>
+        <target>L'avantage de cette boule de chair difforme, c'est qu'elle sent la charogne à 10 mètres à la ronde. Pratique pour occuper les zombies quelques instant</target>
       </segment>
     </unit>
     <unit id="lJIeyAh" name="007b25c">
@@ -6642,7 +6642,7 @@
       </notes>
       <segment>
         <source>Dieses kleine Fläschen enthält eine fluoresziernde Flüssigkeit. Erstaunlich! Vielleicht kannst du ja was Nützliches brauen, wenn du die Substanz mit etwas anderem mischst?</source>
-        <target>Dieses kleine Fläschen enthält eine fluoresziernde Flüssigkeit. Erstaunlich! Vielleicht kannst du ja was Nützliches brauen, wenn du die Substanz mit etwas anderem mischst?</target>
+        <target>Ce flacon contient un liquide aux couleurs… étonnantes. Peut être qu'en le mélangeant avec autre chose, vous pourriez obtenir quelque chose d'utile ?</target>
       </segment>
     </unit>
     <unit id="l9WE9Wi" name="e942a31">
@@ -6653,7 +6653,7 @@
       </notes>
       <segment>
         <source>Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?</source>
-        <target>Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?</target>
+        <target>Ça sent vraiment très mauvais. Cette boule est un agrégat de “Baies charognardes” qui ont poussé sur un cadavre quelconque. Si vous n'avez pas peur de mourir d'une infection virulente, peut-être qu'elle pourrait vous rassasier si vous la mangiez ?</target>
       </segment>
     </unit>
     <unit id="IcBl.QP" name="d283e0f">
@@ -6664,7 +6664,7 @@
       </notes>
       <segment>
         <source>Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. </source>
-        <target>Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. </target>
+        <target>Ce bout de ferraille tordue a permis de capter de l'eau, en petite quantité. C'est peu, mais c'est mieux que rien… ? </target>
       </segment>
     </unit>
     <unit id="1YNRrmV" name="4840e4e">
@@ -6675,7 +6675,7 @@
       </notes>
       <segment>
         <source>Dieser total verformte Eisenbehälter enthält eine kleine Menge gereinigtes Wasser. Es ist nicht viel, aber besser als nichts.)</source>
-        <target>Dieser total verformte Eisenbehälter enthält eine kleine Menge gereinigtes Wasser. Es ist nicht viel, aber besser als nichts.)</target>
+        <target>Ce bout de ferraille tordue a permis de capter de l'eau, en petite quantité. C'est peu, mais c'est mieux que rien…</target>
       </segment>
     </unit>
     <unit id="DEEL_WT" name="07168c9">
@@ -6686,7 +6686,7 @@
       </notes>
       <segment>
         <source>Dieser Notizzettel gehörte einem *Verbannten*. Mal sehen, was er geschrieben hat...</source>
-        <target>Dieser Notizzettel gehörte einem *Verbannten*. Mal sehen, was er geschrieben hat...</target>
+        <target>Ce bout de papier appartenait à un *citoyen banni*… Qui sait ce qu'il a bien pû y écrire ?</target>
       </segment>
     </unit>
     <unit id="IgVl2Co" name="e50f8f0">
@@ -6774,7 +6774,7 @@
       </notes>
       <segment>
         <source>Dieses uralte Modell, war mal ein ziemlich angesagtes Handy. Eines Tages jedoch fingen die Dinger urplötzlich zu explodieren an... Da das Handy weit verbreitet war, sind Millionen Menschen bei diesen Explosionen gestorben. Ganze Städte wurden von der Landkarte ausgelöscht. Hhmmm... Das gibt bestimmt eine gute Granate ab.</source>
-        <target>Dieses uralte Modell, war mal ein ziemlich angesagtes Handy. Eines Tages jedoch fingen die Dinger urplötzlich zu explodieren an... Da das Handy weit verbreitet war, sind Millionen Menschen bei diesen Explosionen gestorben. Ganze Städte wurden von der Landkarte ausgelöscht. Hhmmm... Das gibt bestimmt eine gute Granate ab.</target>
+        <target>Cet antique appareil était un modèle de téléphone très réputé. C'était jusqu'à ce qu'il cause la mort de millions de personnes en explosant et rayant de la carte plusieurs grandes villes, à travers le monde. Ça fera sûrement une bonne grenade.</target>
       </segment>
     </unit>
     <unit id="Q_ntkEE" name="ba5a176">
@@ -6785,7 +6785,7 @@
       </notes>
       <segment>
         <source>Dieser übelriechende Hautfetzen gehörte früher mal einem deiner Mitbürger. Jetzt gehört er den Maden... Mit seinem unerträglichen Gestank kannst du deinen eigenen Körpergeruch überdecken, so dass dich die Untoten nicht mehr so gut riechen können. Benutze diesen Gegenstand, um deine Überlebenschancen beim Campen zu verbessern (Dazu musst du den Hautfetzen bei Dir tragen).</source>
-        <target>Dieser übelriechende Hautfetzen gehörte früher mal einem deiner Mitbürger. Jetzt gehört er den Maden... Mit seinem unerträglichen Gestank kannst du deinen eigenen Körpergeruch überdecken, so dass dich die Untoten nicht mehr so gut riechen können. Benutze diesen Gegenstand, um deine Überlebenschancen beim Campen zu verbessern (Dazu musst du den Hautfetzen bei Dir tragen).</target>
+        <target>Cet horrible lambeau de chair a dû être arraché à un autre citoyen, avant d'être abandonné aux vers pendant quelques temps. Son odeur atroce devrait pouvoir couvrir votre propre odeur corporelle : cet objet augmente sensiblement vos chances de survie en cas de camping (vous devez le garder sur vous pour profiter de cet avantage, bonus cumulable).</target>
       </segment>
     </unit>
     <unit id="xGW6fhp" name="5a1d12b">
