@@ -3639,7 +3639,7 @@
       </notes>
       <segment>
         <source>Kleine Schaufel</source>
-        <target>Kleine Schaufel</target>
+	<target>Petite Pelle</target>
       </segment>
     </unit>
     <unit id="6nEfpGY" name="Dreibeiniger Malteser">
@@ -4517,7 +4517,7 @@
       </notes>
       <segment>
         <source>Auf dem vergilbtem Etikettenbild erkennst du ein leckeres Bohnengericht! Allerdings brauchst du ein Werkzeug, um die Dose öffnen zu können...</source>
-        <target>Auf dem vergilbtem Etikettenbild erkennst du ein leckeres Bohnengericht! Allerdings brauchst du ein Werkzeug, um die Dose öffnen zu können...</target>
+        <target>L'image imprimée sur la boite montre un plat de haricots très appétissants ! Mais il faudrait d'abord trouver un outil pour l'ouvrir…</target>
       </segment>
     </unit>
     <unit id="dGYYIJR" name="33a5e1b">
@@ -5012,7 +5012,7 @@
       </notes>
       <segment>
         <source>Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...</source>
-        <target>Une planche de bois complètement moisie mais encore à peu près solide… Note: le bois est utilisé pour la construction de bâtiments en ville (ramenez-le dans la Section Banque).</target>
+        <target>Une planche de bois complètement moisie mais encore à peu près solide... Note: le bois est utilisé pour la construction de bâtiments en ville (ramenez-le dans la Section Banque).</target>
       </segment>
     </unit>
     <unit id="MsbPzc_" name="Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!">
@@ -5122,7 +5122,7 @@
       </notes>
       <segment>
         <source>Eine alte Plastiktüte aus dem Supermarkt. Wenn du sie mit Wasser füllst, verwandelt sie sich in eine gefürchtete Waffe...</source>
-        <target>Eine alte Plastiktüte aus dem Supermarkt. Wenn du sie mit Wasser füllst, verwandelt sie sich in eine gefürchtete Waffe...</target>
+        <target>Un vieux sac plastique de super-marché qui peut se transformer en arme redoutable si vous le remplissez d'eau...</target>
       </segment>
     </unit>
     <unit id="4O9j8jG" name="898d70f">
@@ -7485,7 +7485,7 @@
       </notes>
       <segment>
         <source>Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</source>
-        <target>Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</target>
+        <target>Votre uniforme de citoyen : abîmé, sale et couvert de taches en tous genres... Il faudra penser à le nettoyer à votre retour en ville.</target>
       </segment>
     </unit>
     <unit id="PnRAHcb" name="3c6105a">
@@ -7505,7 +7505,7 @@
       </notes>
       <segment>
         <source>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</source>
-        <target>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</target>
+        <target>L'outil bien connu des Fouineurs. La petite pelle vous permet de réduire (automatiquement) le temps de fouille dans le désert... Les chances de trouver un objet sont également sensiblement plus élevées.</target>
       </segment>
     </unit>
     <unit id="mpUAH1U" name="b687353">
