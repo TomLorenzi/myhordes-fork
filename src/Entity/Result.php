@@ -144,7 +144,7 @@ class Result
     public function clear(): self {
         $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
         $this->blueprint = $this->rolePlayerText = $this->custom = $this->well = $this->home = $this->death =
-        $this->target = $this->zone = $this->picto = null;
+        $this->target = $this->zone = $this->picto = $this->pm = null;
         return $this;
     }
 

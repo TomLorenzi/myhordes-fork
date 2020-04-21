@@ -3754,13 +3754,11 @@
     </unit>
     <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
       <notes>
-        <note>Hierfür brauchst du eine Ration Wasser.</note>
-        <note>Hierfür brauchst du eine Ration Wasser.</note>
         <note category="german">Hierfür brauchst du eine Ration Wasser.</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Hierfür brauchst du eine Ration Wasser.</target>
+        <target>Vous avez besoin d'une ration d'eau.</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -8248,19 +8246,31 @@
         <target>Vous avez cuisiné {items_consume} et avez obtenu {items_spawn}.</target>
       </segment>
     </unit>
-    <unit id="R2RcDum" name="Kompass">
+    <unit id="QwC3IQO" name="Mystischer Trank">
       <notes>
-        <note category="german">Kompass</note>
+        <note category="german">Mystischer Trank</note>
       </notes>
       <segment>
-        <source>Kompass</source>
-        <target>Kompass</target>
+        <source>Mystischer Trank</source>
+        <target>Potion chamanique</target>
       </segment>
     </unit>
-    <unit id="47DEQpj" name="">
+    <unit id="6IZOpuK" name="29848f3">
+      <notes>
+        <note category="german">Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</note>
+      </notes>
       <segment>
-        <source></source>
-        <target></target>
+        <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
+        <target>Cette ration d'eau préparée par votre chaman préféré devrait vous permettre d'être immunisé contre toute manipulation d'âme torturée... normalement. </target>
+      </segment>
+    </unit>
+    <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
+      <notes>
+        <note category="german">Herstellung eines Mystischern Trank</note>
+      </notes>
+      <segment>
+        <source>Herstellung eines Mystischern Trank</source>
+        <target>Faire une potion chamanique</target>
       </segment>
     </unit>
   </file>

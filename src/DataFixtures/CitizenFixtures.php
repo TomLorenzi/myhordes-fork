@@ -145,8 +145,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $role_data = [
-        ['icon' => 'shaman', 'name'=>'shaman' ,'label' => 'Schamane',                     'icon' => 'shaman', 'status' => 'shaman' ],
-        ['icon' => 'book',   'name'=>'guide',  'label' => 'Reiseleiter in der Außenwelt', 'icon' => 'guide', 'status' => 'guide' ],
+        ['icon' => 'shaman', 'name'=>'shaman' ,'label' => 'Schamane',                     'icon' => 'shaman'],
+        ['icon' => 'book',   'name'=>'guide',  'label' => 'Reiseleiter in der Außenwelt', 'icon' => 'guide' ],
     ];
 
     private $entityManager;
@@ -413,8 +413,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $entity
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
-                ->setIcon( $entry['icon'] )
-                ->setStatus( $entry['status'] );
+                ->setIcon( $entry['icon'] );
 
             $manager->persist( $entity );
 

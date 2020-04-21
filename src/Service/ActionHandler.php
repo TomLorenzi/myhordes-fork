@@ -93,6 +93,7 @@ class ActionHandler
                 case Requirement::HideOnFail: $this_state = self::ActionValidityHidden; break;
             }
 
+
             if ($status = $meta_requirement->getStatusRequirement()) {
                 if ($status->getStatus() !== null && $status->getEnabled() !== null) {
                     $status_is_active = $citizen->getStatus()->contains( $status->getStatus() );
@@ -101,6 +102,10 @@ class ActionHandler
 
                 if ($status->getProfession() !== null && $citizen->getProfession()->getId() !== $status->getProfession()->getId())
                     $current_state = min( $current_state, $this_state );
+
+                if ($status->getRole() !== null && !$citizen->getRoles()->contains($status->getRole())){
+                    $current_state = min( $current_state, $this_state );
+                }
             }
 
             if ($home = $meta_requirement->getHome()) {

@@ -111,7 +111,7 @@ class Requirement
 
     public function clear(): self {
         $this->statusRequirement = $this->item = $this->zombies = $this->location = $this->ap = $this->building =
-        $this->home = $this->zone = $this->counter = null;
+        $this->home = $this->zone = $this->counter = $this->pm = null;
         return $this;
     }
 

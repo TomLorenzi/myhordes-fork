@@ -108,6 +108,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Kanisterpumpe (zerlegt)','icon'=>'jerrygun_part','category'=>'aud_n','deco'=>0,'heavy'=>false],                          // -- ---
         ['label' =>'Bandage','icon'=>'bandage','category'=>'drug','deco'=>0,'heavy'=>false],                                                 // In Out
         ['label' =>'Grüne Bierflasche','icon'=>'vodka_de','category'=>'food_a','deco'=>0,'heavy'=>false],                                    // In Out
+        ['label' =>'Vodka Marinostov','icon'=>'vodka','category'=>'food_a','deco'=>0,'heavy'=>false],                                    // In Out
         ['label' =>'Kanisterpumpe (leer)','icon'=>'jerrygun_off','category'=>'aud_n','deco'=>0,'heavy'=>false],                              // In Out
         ['label' =>'Videoprojektor','icon'=>'cinema','category'=>'furniture','deco'=>0,'heavy'=>true],                                       // -- ---
         ['label' =>'Sprengstoff','icon'=>'explo','category'=>'rsc','deco'=>0,'heavy'=>false],                                                // -- ---
@@ -448,6 +449,7 @@ class ItemFixtures extends Fixture
         'jerrygun_part_#00' => 'Früher konntest du einem solchen Gegenstand gerade mal ein fades Lächeln abgewinnen. er war so sinnlos wie ein Kropf. Inzwischen hat sich diese Pumpe in eine gefürchtete Waffe verwandelt, um nicht gereinigtes Wasser auf Zombies zu versprühen (das Ansatzstück passt auf einen Kanister).', // Kanisterpumpe (zerlegt)
         'bandage_#00' => 'Sie riecht schlecht und weist ein paar Schimmelspuren auf, aber jetzt mal ganz ehrlich: In dieser Lage kannst du nicht rumnörgeln. Mit der Bandage kannst du eine Wunde verbinden.', // Bandage
         'vodka_de_#00' => 'Das Glas dieser gut erhaltenen Bierflasche ist ziemlich verfärbt. Du vermutest, dass es früher mal grün war. Ah, da, das Etikett! Roter Rand..."Welcome to the Feck\'s experience"... okay, ein Pils. Na dann lass uns doch mal das "Experiment" wagen... .(Mit einem kräftigen Schluck kippst du dir den Saft hinter die Binde und lässt kurz darauf einen Riesenrülpser los!) - "Prost Kameraden!"', // Grüne Bierflasche
+        'vodka_#00' => 'Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!', // Vodka Marinostov
         'jerrygun_off_#00' => 'Früher konntest du einem solchen Gegenstand gerade mal ein fades Lächeln abgewinnen. er war so sinnlos wie ein Kropf. Inzwischen hat sich diese Pumpe in eine gefürchtete Waffe verwandelt, um nicht gereinigtes Wasser auf Zombies zu versprühen (das Ansatzstück passt auf einen Kanister).', // Kanisterpumpe (leer)
         'cinema_#00' => 'Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...', // Videoprojektor
         'explo_#00' => 'Booom! ', // Sprengstoff

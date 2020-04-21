@@ -4,6 +4,7 @@
 namespace App\Service;
 
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\ItemGroup;
@@ -231,9 +232,18 @@ class ZoneHandler
 
     public function check_cp(Zone $zone, ?int &$cp = null): bool {
         $cp = 0;
-        foreach ($zone->getCitizens() as $c)
-            if ($c->getAlive())
+        $guide_present = false;
+        $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
+        foreach ($zone->getCitizens() as $c){
+            if ($c->getAlive()){
                 $cp += $this->citizen_handler->getCP($c);
+            }
+            if($c->getRoles()->contains($roleGuide))
+                $guide_present = true;
+        }
+        if($guide_present)
+            $cp += count($zone->getCitizens());
+        
         return $cp >= $zone->getZombies();
     }
 
