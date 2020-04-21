@@ -52,6 +52,21 @@
                 </div>
             </div>
         {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <div id="modeCommand">
+                <h1><span>{{ 'Moderation'|trans({},'global') }}</span></h1>              
+                <div id="scrollMenu">
+                    <ul>
+                    {% for adminAction in adminActions %}
+                        {# @var adminAction \App\Entity\AdminAction #}
+                        <li class="mod-actions" mod-action-id="{{ adminAction.id }}">
+                            <a target="_blank" href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
         {% block header %}{% endblock %}
     </div>
 
@@ -124,5 +139,6 @@
             }
         };
     })();
+
 </script>
 </html>
