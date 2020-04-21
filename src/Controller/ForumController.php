@@ -11,6 +11,7 @@ use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
+use App\Service\AdminActionHandler;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
@@ -381,5 +382,32 @@ class ForumController extends AbstractController
             'tid' => $tid,
             'pid' => null,
         ] );
+    }
+
+     /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/lock", name="forum_thread_lock_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function lock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->lockThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+    }
+
+     /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unlock", name="forum_thread_unlock_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function unlock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->unlockThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+
     }
 }

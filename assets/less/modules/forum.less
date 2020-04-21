@@ -10,6 +10,8 @@
 
 @myhordes-forum-button-color:  #a2321a;
 @myhordes-forum-button-border: #c33720;
+@myhordes-forum-moderator-button-color:  #a2321a;
+@myhordes-forum-moderator-button-border: #c33720;
 
 .forum-control {
   &>b:first-child { display: block; background: #321914; padding: 4px; }
@@ -87,12 +89,35 @@
   }
 }
 
+.forum-moderator-button {
+  display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-moderator-button-color;
+  border: 1px solid @myhordes-forum-moderator-button-border;
+  color: white; cursor: pointer;
+  &:hover { background: @myhordes-forum-moderator-button-border; }
+
+  &[x-text-control-node] {
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
+  img {
+    vertical-align: middle;
+    margin-right: 1em;
+  }
+}
 
 .forum-thread {
   padding: 5px; cursor: pointer; position: relative;
   &>div { float: right; font-size: 1.3em; }
   &:nth-child(2n) { background: rgba(0,0,0,0.05) }
   &.selected { background: rgba(255, 160, 57, 0.39) }
+  img {
+    vertical-align: middle;
+    margin-right: 1em;
+  }
   &.forum-thread-unread {
     padding-left: 18px;
     &:before {

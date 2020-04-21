@@ -5,6 +5,7 @@ namespace App\Service;
 
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
+use App\Entity\Thread;
 use App\Entity\User;
 use App\Service\DeathHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -56,5 +57,35 @@ class AdminActionHandler
             $message = $this->translator->trans('%username% gehört keiner Stadt an.', ['%username%' => '<span>' . $user->getUsername() . '</span>'], 'game');
         }
         return $message;
+    }
+
+    public function lockThread(int $sourceUser, int $forumId, int $threadId): bool
+    {
+        if(!$this->hasRights($sourceUser))
+            return false;
+        /**
+        * @var Thread
+        */
+        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
+        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
+        $thread->setLocked(true);
+        $this->entity_manager->persist($thread);
+        $this->entity_manager->flush();
+        return true;
+    }
+
+    public function unlockThread(int $sourceUser, int $forumId, int $threadId): bool
+    {
+        if(!$this->hasRights($sourceUser))
+            return false;
+        /**
+        * @var Thread
+        */
+        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
+        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
+        $thread->setLocked(false);
+        $this->entity_manager->persist($thread);
+        $this->entity_manager->flush();
+        return true;
     }
 }
