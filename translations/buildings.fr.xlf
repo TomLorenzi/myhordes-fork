@@ -2491,7 +2491,7 @@
       </notes>
       <segment>
         <source>Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.</source>
-        <target>Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.</target>
+        <target>Le vaporisateur est un système qui consomme une quantité négligeable d'eau pure et qui la projète en fine vapeur brûlante dans les rues de la ville. Idéale pour faire fondre vos amis putréfiés qui nous rendent visite chaque soir.</target>
       </segment>
     </unit>
     <unit id="u79TGbV" name="d0d4cb9">
@@ -2500,7 +2500,7 @@
       </notes>
       <segment>
         <source>Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!</source>
-        <target>Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!</target>
+        <target>Deux grosses plaques autour du passage de l'entrée et un puissant système de pistons : quand on les actionne, ça écrase instantanément tout ce qui se trouvait au milieu !</target>
       </segment>
     </unit>
     <unit id="RmsmLHq" name="bd568f7">
@@ -2509,7 +2509,7 @@
       </notes>
       <segment>
         <source>Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</source>
-        <target>Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</target>
+        <target>Traditionnellement utilisés dans un jardin, ils servent aussi de défense mortelle contre les Hordes… Ils tuent beaucoup de zombies, mais ils faut prévoir un stock d'eau important.</target>
       </segment>
     </unit>
     <unit id=".VmOFiy" name="09b4520">
@@ -2518,7 +2518,7 @@
       </notes>
       <segment>
         <source>Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!</source>
-        <target>Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!</target>
+        <target>Non, vraiment, cette odeur, c'est vraiment devenu insupportable : prenez une douche.</target>
       </segment>
     </unit>
     <unit id="f9B1Tpl" name="ffd7391">
@@ -2527,7 +2527,7 @@
       </notes>
       <segment>
         <source>Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</source>
-        <target>Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</target>
+        <target>Grace à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d'eau en ville ! De plus, ce système apporte un petit surplus d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="9bvD0a1" name="ddc07e6">
@@ -2536,7 +2536,7 @@
       </notes>
       <segment>
         <source>Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.</source>
-        <target>Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.</target>
+        <target>Ce dispositif de défense révolutionnaire projette de puissants jets de vapeur d'eau dans les rangs des zombies qui s'approchent de nos murailles. Avec quelques réglages supplémentaires, ça sera une défense d'une puissance exceptionnelle !</target>
       </segment>
     </unit>
     <unit id="Owl0YNC" name="d64d4fc">
@@ -2545,7 +2545,7 @@
       </notes>
       <segment>
         <source>Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.</source>
-        <target>Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.</target>
+        <target>Quand il s'agit d'eau, il n'y a pas de petit profit. Ce chantier apporte +2 rations au puits et peut être reconstruit chaque jour.</target>
       </segment>
     </unit>
     <unit id="cHuP35O" name="bec561f">
@@ -2554,7 +2554,7 @@
       </notes>
       <segment>
         <source>Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.</source>
-        <target>Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.</target>
+        <target>Une jolie petite pluie fine pour arroser les parterres de zombies qui poussent près de l'entrée.</target>
       </segment>
     </unit>
     <unit id="gdi0Inc" name="abe7a12">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?</source>
-        <target>Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?</target>
+        <target>Un pommier qui ressemble plutôt à un buisson rachitique et presque mort mais qui produit de jolies pommes bleues. Euh, attendez.. Quoi ?</target>
       </segment>
     </unit>
     <unit id="UZtDN8I" name="fdbbf18">
@@ -2572,7 +2572,7 @@
       </notes>
       <segment>
         <source>Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?</source>
-        <target>Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?</target>
+        <target>Les eaux usées de la ville peuvent encore servir : il suffit de connecter les toilettes de chaque habitant à un astucieux réseau de tuyaux-toboggans et d'ouvrir les vannes à minuit. Tout le monde a bien construit sa tente, hein?</target>
       </segment>
     </unit>
     <unit id="AADCadI" name="a05cc41">
@@ -2581,7 +2581,7 @@
       </notes>
       <segment>
         <source>Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.</source>
-        <target>Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.</target>
+        <target>Au début, c'était supposé être un système de décontamination. Mais à l'usage ça s'est révélé être une protection très efficace contre vos copains pestiférés. En ajoutant une petite touche de gel douche au Monoï, vous pourrez même parfumer les tas de cadavres obtenus.</target>
       </segment>
     </unit>
     <unit id="nNjCoj9" name="d05b3e9">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</source>
-        <target>Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</target>
+        <target>Un lance-roquettes artisanal braqué vers le sol : il fallait y penser ! Pour l'anecdote, l'inventeur de ce chantier voulait en réalité inventer le “rocket-jump”. Il a seulement redécouvert “le cratère”. Ce chantier rapporte +60 rations d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="Fec.c3L" name="a4eaee8">
@@ -2599,7 +2599,7 @@
       </notes>
       <segment>
         <source>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</source>
-        <target>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</target>
+        <target>Pour une fois que la haute technologie sert à autre chose qu'à trucider du zombie… Ce chantier rapporte +100 rations d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="r37hY9W" name="e89a6d5">
@@ -2608,7 +2608,7 @@
       </notes>
       <segment>
         <source>Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...</source>
-        <target>Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...</target>
+        <target>Bon, on sait tous ce qu'est un Crématorium ? On sait aussi à quoi sert un Barbecue ? Eh bien c'est facile de deviner le fonctionnement et l'utilité du Crémato-Cue. En tout cas, fini la famine…</target>
       </segment>
     </unit>
     <unit id="R6QjXSF" name="7badb5d">
@@ -2617,7 +2617,7 @@
       </notes>
       <segment>
         <source>In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...</source>
-        <target>In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...</target>
+        <target>Permet de transformer vos petits compagnons (chiens, chats, serpents…) en rations. Quand on pense qu'il y en a qui préféraient le boeuf…</target>
       </segment>
     </unit>
   </file>
