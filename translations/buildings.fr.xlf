@@ -2890,9 +2890,9 @@
         <target>Chaque jour, le Scrutateur permet de trouver à nouveau des objets dans certaines zones auparavant considérées comme “épuisées”. En effet, il détecte les phénomènes météorologiques anormaux qui surviennent dehors, pendant la nuit, et indique dans la gazette quelle région du désert a été affectée.</target>
       </segment>
     </unit>
-    <unit id="xAxWKet" name="f3165c3">
+    <unit id="v3.4yJS" name="cc8a7a4">
       <notes>
-        <note category="german">Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</note>
+        <note category="german">En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</note>
       </notes>
       <segment>
         <source>En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</source>
@@ -3446,6 +3446,15 @@
       <segment>
         <source>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</source>
         <target>Un lieu de relaxation hautement adapté au transfert des âmes vers le repos éternel.</target>
+      </segment>
+    </unit>
+    <unit id="xAxWKet" name="f3165c3">
+      <notes>
+        <note category="german">Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</note>
+      </notes>
+      <segment>
+        <source>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</source>
+        <target>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</target>
       </segment>
     </unit>
   </file>

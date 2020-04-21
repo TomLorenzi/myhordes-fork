@@ -4,7 +4,6 @@
     <div class="row">
         <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
             <h4>{% trans from 'welcome' %}Foren{% endtrans %}</h4>
-
             <div class="cell rw-12 padded">
                 {% if forums|length == 0 %}
                     <div class="note">
@@ -20,8 +19,6 @@
                     {% endfor %}
                 {% endif %}
             </div>
-
-
         </div>
     </div>
 {% endblock %}
