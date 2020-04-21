@@ -2167,7 +2167,7 @@
       </notes>
       <segment>
         <source>Verbessert die Stadtverteidigung erheblich.</source>
-        <target>Verbessert die Stadtverteidigung erheblich.</target>
+        <target>Augmente sensiblement les défenses de la ville.</target>
       </segment>
     </unit>
     <unit id="alG3UeZ" name="Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...">
@@ -2176,7 +2176,7 @@
       </notes>
       <segment>
         <source>Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</source>
-        <target>Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</target>
+        <target>Une amélioration du Grand Fossé, y mettre de l'eau…</target>
       </segment>
     </unit>
     <unit id="7x7Oosl" name="8639fd4">
@@ -2185,7 +2185,7 @@
       </notes>
       <segment>
         <source>Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</source>
-        <target>Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</target>
+        <target>Le Grand Fossé est une défense efficace : un grand trou entourant la ville. Pratique sur le long terme, on pourra le remplir avec un tas de choses pour le rendre encore plus efficace !</target>
       </segment>
     </unit>
     <unit id="OlGNj.x" name="e41ab16">
@@ -2194,7 +2194,7 @@
       </notes>
       <segment>
         <source>Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</source>
-        <target>Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</target>
+        <target>Une recette simple : des morceaux de ferraille rouillés qui dépassent partout sur la Muraille de la ville pour en faire une sorte de grande lime à zombies.</target>
       </segment>
     </unit>
     <unit id="nbhWg4T" name="fc48a72">
@@ -2203,7 +2203,7 @@
       </notes>
       <segment>
         <source>Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</source>
-        <target>Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</target>
+        <target>Une autre manière de remplir un fossé , avec de gros pieux en bois acérés.</target>
       </segment>
     </unit>
     <unit id="uqeZxiJ" name="533c76d">
@@ -2212,7 +2212,7 @@
       </notes>
       <segment>
         <source>Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</source>
-        <target>Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</target>
+        <target>Un bout de viande attaché aux barbelés pour retenir quelques zombies…</target>
       </segment>
     </unit>
     <unit id="VUO6ZQB" name="5f267a2">
@@ -2221,7 +2221,7 @@
       </notes>
       <segment>
         <source>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</source>
-        <target>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</target>
+        <target>C'est encore plus artisanal que du barbelé classique, puisqu'on ne dispose même pas de fil de fer…</target>
       </segment>
     </unit>
     <unit id="b82mDa7" name="0068ba5">
@@ -2230,7 +2230,7 @@
       </notes>
       <segment>
         <source>Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</source>
-        <target>Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</target>
+        <target>Tant pis pour les défenses ce soir, mais une muraille mieux construite permettra plus tard d'y ajouter de nombreuses améliorations…</target>
       </segment>
     </unit>
     <unit id="Vj7jtcM" name="Was ist besser als eine Mauer?... eine groooße Mauer.">
@@ -2239,7 +2239,7 @@
       </notes>
       <segment>
         <source>Was ist besser als eine Mauer?... eine groooße Mauer.</source>
-        <target>Was ist besser als eine Mauer?... eine groooße Mauer.</target>
+        <target>Qu'est-ce qui est mieux qu'un mur ? … Un gros mur.</target>
       </segment>
     </unit>
     <unit id="k9tIPH5" name="cc44880">
@@ -2248,7 +2248,7 @@
       </notes>
       <segment>
         <source>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</source>
-        <target>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</target>
+        <target>Un grand nombre de pieux métalliques fixés au sommet des remparts pour faire des brochettes de zombie à la tombée de la nuit…</target>
       </segment>
     </unit>
     <unit id="QlkvLUP" name="cda28d7">
@@ -2257,7 +2257,7 @@
       </notes>
       <segment>
         <source>Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</source>
-        <target>Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</target>
+        <target>Une troisième couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.</target>
       </segment>
     </unit>
     <unit id="Hsxeh9L" name="9c09495">
@@ -2266,7 +2266,7 @@
       </notes>
       <segment>
         <source>Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</source>
-        <target>Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</target>
+        <target>Une seconde couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.</target>
       </segment>
     </unit>
     <unit id="41kkH05" name="f85a024">
@@ -2275,7 +2275,7 @@
       </notes>
       <segment>
         <source>Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</source>
-        <target>Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</target>
+        <target>En dotant toute la muraille d'une ossature en fer, on peut facilement l'améliorer chaque jour et sans trop d'effort !</target>
       </segment>
     </unit>
     <unit id="v.0jNwa" name="98cd64a">
@@ -2284,7 +2284,7 @@
       </notes>
       <segment>
         <source>Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</source>
-        <target>Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</target>
+        <target>Une troisième couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.</target>
       </segment>
     </unit>
     <unit id="CVzqVBH" name="cf31e46">
@@ -2293,7 +2293,7 @@
       </notes>
       <segment>
         <source>Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</source>
-        <target>Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</target>
+        <target>Des structures métalliques pour renforcer les parties faibles de la muraille.</target>
       </segment>
     </unit>
     <unit id="AgaRcDn" name="af1210c">
@@ -2302,7 +2302,7 @@
       </notes>
       <segment>
         <source>Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</source>
-        <target>Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</target>
+        <target>Couvrez une large surface de terre avec une multitude de morceaux de métal tranchant et vous obtiendrez la plus grande râpe à fromage du monde.</target>
       </segment>
     </unit>
     <unit id="DN2044C" name="5a04f76">
@@ -2311,7 +2311,7 @@
       </notes>
       <segment>
         <source>Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</source>
-        <target>Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</target>
+        <target>Plein de trous tout autour de la ville dissimulés sous des bâches. Il ne reste alors plus qu'à attendre que quelque chose tombe dedans.</target>
       </segment>
     </unit>
     <unit id="85XW3IL" name="08554a6">
@@ -2320,7 +2320,7 @@
       </notes>
       <segment>
         <source>Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</source>
-        <target>Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</target>
+        <target>Des clôtures en bois tout autour de la ville qui devraient (en théorie du moins) ralentir suffisamment les hordes de zombies pendant l'attaque…</target>
       </segment>
     </unit>
     <unit id="w95tNyR" name="a375ce9">
@@ -2329,7 +2329,7 @@
       </notes>
       <segment>
         <source>Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</source>
-        <target>Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</target>
+        <target>Pourquoi personne n'y avait pensé avant ? Au lieu de perdre votre temps à soigner votre hygiène corporelle, utilisez votre savon pour rendre les parois de la ville glissantes. Combiné avec la rape à zombies, c'est idéal, sauf pour le “bruit”.</target>
       </segment>
     </unit>
     <unit id="5.RgfZ7" name="ace174e">
@@ -2338,7 +2338,7 @@
       </notes>
       <segment>
         <source>Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</source>
-        <target>Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</target>
+        <target>Ça ne va certainement pas améliorer le joli minois des zombies devant la ville.</target>
       </segment>
     </unit>
     <unit id="Zz9vCXZ" name="ed3b85b">
@@ -2347,7 +2347,7 @@
       </notes>
       <segment>
         <source>Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</source>
-        <target>Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</target>
+        <target>Beaucoup l'ignorent, mais les zombies ont un cerveau. Même parfois deux, s'ils sont chanceux. Ça tombe bien : le concentré projeté par ce canon a l'étonnante capacité de faire suinter la cervelle.</target>
       </segment>
     </unit>
     <unit id="etVSYqn" name="3c8d90e">
@@ -2356,7 +2356,7 @@
       </notes>
       <segment>
         <source>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</source>
-        <target>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</target>
+        <target>Un dispositif défensif sommaire mais que vous serez bien content d'avoir quand Kevo, votre ancien voisin, tentera de manger votre délicieuse cervelle ce soir.</target>
       </segment>
     </unit>
     <unit id="Wv2Tkzm" name="df68e2a">
@@ -2365,7 +2365,7 @@
       </notes>
       <segment>
         <source>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</source>
-        <target>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</target>
+        <target>Ce n'est pas spécialement évolué, mais ça fait son office : vous empêcher de mourrir trop vite.</target>
       </segment>
     </unit>
     <unit id="wwPL56w" name="Simpel aber stabil: Was will man mehr?">
@@ -2374,7 +2374,7 @@
       </notes>
       <segment>
         <source>Simpel aber stabil: Was will man mehr?</source>
-        <target>Simpel aber stabil: Was will man mehr?</target>
+        <target>Rudimentaire mais épaisse. On ne lui en demande pas plus.</target>
       </segment>
     </unit>
     <unit id="K1vyfyY" name="d56c866">
@@ -2383,7 +2383,7 @@
       </notes>
       <segment>
         <source>Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</source>
-        <target>Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</target>
+        <target>Du contre-plaqué. Vous montez ce truc parceque vous n'avez sûrement rien de mieux à faire. Vous savez que c'est inutile, mais vous le faites quand même. Allons…</target>
       </segment>
     </unit>
     <unit id="eK_yqJ_" name="e8c4516">
@@ -2392,7 +2392,7 @@
       </notes>
       <segment>
         <source>Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</source>
-        <target>Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</target>
+        <target>Ce n'est certes pas une lumière qui a eu l'idée de ce chantier, mais finalement, tout le monde s'est dit qu'un gros mur de plus, ce n'était sûrement pas une mauvaise chose.</target>
       </segment>
     </unit>
     <unit id="_CopYmu" name="d33f320">
@@ -2401,7 +2401,7 @@
       </notes>
       <segment>
         <source>Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</source>
-        <target>Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</target>
+        <target>Un petit dispositif hydraulique conçu pour projeter de la vapeur d'eau (et d'amusants produits chimiques avec).</target>
       </segment>
     </unit>
     <unit id="Jm1gYDh" name="a1c0ce7">
@@ -2410,7 +2410,7 @@
       </notes>
       <segment>
         <source>Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</source>
-        <target>Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</target>
+        <target>Assemblez de la poudre, des dispositifs détonateurs et de l'eau pure et vous obtiendrez une belle bouillie de chair putréfiée ce soir. Une défense puissante mais à usage unique.</target>
       </segment>
     </unit>
     <unit id="JUzCldV" name="Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).">
@@ -2419,7 +2419,7 @@
       </notes>
       <segment>
         <source>Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</source>
-        <target>Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</target>
+        <target>Améliore significativement l'efficacité du Purificateur (rendement élevé).</target>
       </segment>
     </unit>
     <unit id="0YWGkKC" name="Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.">
@@ -2428,7 +2428,7 @@
       </notes>
       <segment>
         <source>Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</source>
-        <target>Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</target>
+        <target>Transforme l'eau des Jerrycans trouvés dans le désert en rations d'eau potable (rendement moyen).</target>
       </segment>
     </unit>
     <unit id="9HvFFQs" name="e3bcae9">
@@ -2437,7 +2437,7 @@
       </notes>
       <segment>
         <source>Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</source>
-        <target>Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</target>
+        <target>C'est une découverte scientifique majeure : en plantant des bâtons de dynamite et les arrosant soigneusement, on peut faire pousser des grenades.</target>
       </segment>
     </unit>
     <unit id="22o71lr" name="Verbessert die Ausbeute des Gemüsebeets erheblich.">
@@ -2446,7 +2446,7 @@
       </notes>
       <segment>
         <source>Verbessert die Ausbeute des Gemüsebeets erheblich.</source>
-        <target>Verbessert die Ausbeute des Gemüsebeets erheblich.</target>
+        <target>Accroît significativement le rendement du Potager.</target>
       </segment>
     </unit>
     <unit id="KDZvWuv" name="db86465">
@@ -2455,7 +2455,7 @@
       </notes>
       <segment>
         <source>Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</source>
-        <target>Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</target>
+        <target>Le potager permet de créer des légumes pas trop moisis, des fruits qui commencent à pourrir avant de mûrir. Bref, des rations alimentaires, si on ne fait pas trop le difficile…</target>
       </segment>
     </unit>
     <unit id="p7IMr5R" name="b4dc0a9">
@@ -2464,7 +2464,7 @@
       </notes>
       <segment>
         <source>Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</source>
-        <target>Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</target>
+        <target>La solution de la dernière chance quand on n'a plus d'eau: perforer les nappes phréatiques à la dynamite pour étendre les réserves de la ville.</target>
       </segment>
     </unit>
     <unit id="gPEBQqi" name="c805ad6">
@@ -2473,7 +2473,7 @@
       </notes>
       <segment>
         <source>Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</source>
-        <target>Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</target>
+        <target>Une foreuse artisanale qui permettra de puiser l'eau un peu plus profondément dans le sol et ainsi augmenter sensiblement les réserves disponibles…</target>
       </segment>
     </unit>
     <unit id="oCXgsQA" name="91e1569">
@@ -2482,7 +2482,7 @@
       </notes>
       <segment>
         <source>Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</source>
-        <target>Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</target>
+        <target>La pompe débloque l'ensemble des constructions basées sur l'eau. Elle augmente aussi sensiblement les réserves souterraines du puits.</target>
       </segment>
     </unit>
   </file>
