@@ -36,6 +36,9 @@ class Zone
     const DirectionSouth     = 8;
     const DirectionSouthEast = 9;
 
+    const BlueprintAvailable = 1;
+    const BlueprintFound     = 0;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -139,6 +142,11 @@ class Zone
      * @ORM\Column(type="float")
      */
     private $improvementLevel = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $blueprint = NULL;
 
     public function __construct()
     {
@@ -518,5 +526,17 @@ class Zone
       $this->improvementLevel = $improvementLevel;
 
       return $this;
+    }
+
+    public function getBlueprint(): ?int
+    {
+        return $this->blueprint;
+    }
+
+    public function setBlueprint(int $blueprint): self
+    {
+        $this->blueprint = $blueprint;
+
+        return $this;
     }
 }
