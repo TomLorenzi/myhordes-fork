@@ -28,9 +28,10 @@
                 {% endif %}
             </div>
             <div class="padded cell rw-4 rw-md-12 center">
-                {% if zeds_today[0] %}
+                {% if (town.type.name == 'small' or zeds_today[3] > 33) and zeds_today[0] %}
                     {% if def < zeds_today[1] %}
-                         <span class="warning">Our defences won’t stand up to tonight’s attack!
+                         <span class="warning">
+                            {{'Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.'|trans({}, 'game')}}
                             {% if has_battlement %}
                             <div x-ajax-href="{{ path('town_dashboard') }}">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}

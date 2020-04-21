@@ -1838,13 +1838,11 @@
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
       <notes>
-        <note>Du trägst eine Säge bei dir.</note>
-        <note>Du trägst eine Säge bei dir.</note>
         <note category="german">Du trägst eine Säge bei dir.</note>
       </notes>
       <segment>
         <source>Du trägst eine Säge bei dir.</source>
-        <target>Du trägst eine Säge bei dir.</target>
+        <target>Vous avez une scie.</target>
       </segment>
     </unit>
     <unit id="bwiADmE" name="Die Stadt verfügt über eine Manufaktur.">
