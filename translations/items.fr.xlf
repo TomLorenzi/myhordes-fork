@@ -3155,7 +3155,7 @@
       </notes>
       <segment>
         <source>Santas Rentier</source>
-        <target>Santas Rentier</target>
+        <target>Renne du papa noyel</target>
       </segment>
     </unit>
     <unit id="P24lo3J" name="Osterei">
@@ -3166,7 +3166,7 @@
       </notes>
       <segment>
         <source>Osterei</source>
-        <target>Osterei</target>
+        <target>Oeuf de pâques</target>
       </segment>
     </unit>
     <unit id="AEI8mQM" name="ANZAC Badge">
@@ -3430,7 +3430,7 @@
       </notes>
       <segment>
         <source>Phil Collins CD</source>
-        <target>Phil Collins CD</target>
+        <target>CD Phil Collins</target>
       </segment>
     </unit>
     <unit id="p57UGdl" name="Ohrstöpsel">
@@ -3463,7 +3463,7 @@
       </notes>
       <segment>
         <source>Britney Spears CD</source>
-        <target>Britney Spears CD</target>
+        <target>CD Britney Spears</target>
       </segment>
     </unit>
     <unit id="rfDmpCK" name="Best of The King CD">
