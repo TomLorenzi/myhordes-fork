@@ -3085,7 +3085,7 @@
       </notes>
       <segment>
         <source>Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.</source>
-        <target>Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.</target>
+        <target>L'avancée d'une ville passe par la construction d'un atelier crasseux et rempli d'un bazar indéfinissable. C'est un pré-requis pour tous les bâtiments avancés en ville.</target>
       </segment>
     </unit>
     <unit id="7YJsQ6A" name="d31d808">
@@ -3094,7 +3094,7 @@
       </notes>
       <segment>
         <source>Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!</source>
-        <target>Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!</target>
+        <target>Ce Projet Insensé vise à re-structurer la ville entière pour en améliorer la défense. Serrez les maisons, barrez les ruelles, installez des tourelles sur tous les toits… C'est ça, le Grand Déménagement !</target>
       </segment>
     </unit>
     <unit id="nZ.t5Q9" name="7a4a1b6">
@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.</source>
-        <target>Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.</target>
+        <target>Un Projet Insensé prévu pour l'extraction d'une grande quantité d'eau dans les nappes phréatiques les plus profondes ! Ce chantier rapporte +50 rations d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="QgRLsly" name="f51527c">
@@ -3112,7 +3112,7 @@
       </notes>
       <segment>
         <source>Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...</source>
-        <target>Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...</target>
+        <target>Les zombies sont un peu simples dans leur tête, c'est bien connu. Si vous construisez une fausse seconde ville, vous déporterez toute une partie de l'attaque là-bas…</target>
       </segment>
     </unit>
     <unit id="qfBgram" name="1dc4fe7">
@@ -3121,7 +3121,7 @@
       </notes>
       <segment>
         <source>Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</source>
-        <target>Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</target>
+        <target>Grace à ce petit robinet relié au puits, vous pouvez récupérer les eaux gaspillées par le système de filtrage (donc sans prélever l'eau potable, si précieuse). Vous pourrez alors l'utiliser pour remplir GRATUITEMENT toutes vos armes à eau (ballon, pistolets…) !</target>
       </segment>
     </unit>
     <unit id="m0pInPT" name="0625538">
@@ -3130,7 +3130,7 @@
       </notes>
       <segment>
         <source>Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.</source>
-        <target>Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.</target>
+        <target>Ce champ d'épouvantails marcherait encore mieux avec les vêtements des citoyens, mais cela impliquerait de faire de votre ville un camp de nudistes.</target>
       </segment>
     </unit>
     <unit id="ALxyysT" name="Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.">
@@ -3139,7 +3139,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.</target>
+        <target>Permet la destruction de bois dans la décharge.</target>
       </segment>
     </unit>
     <unit id="SJI.xW8" name="Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.</target>
+        <target>Permet la destruction de métal dans la décharge.</target>
       </segment>
     </unit>
     <unit id="eqmm5rZ" name="Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.">
@@ -3157,7 +3157,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.</target>
+        <target>Permet la destruction d'armes dans la décharge.</target>
       </segment>
     </unit>
     <unit id="7aQUPif" name="Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.">
@@ -3166,7 +3166,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.</target>
+        <target>Permet la destruction de nourriture dans la décharge.</target>
       </segment>
     </unit>
     <unit id="wzBonsR" name="Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.">
@@ -3175,7 +3175,7 @@
       </notes>
       <segment>
         <source>Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.</source>
-        <target>Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.</target>
+        <target>Augmente le rendement des objets de défense jetés à la décharge.</target>
       </segment>
     </unit>
     <unit id="ue373IC" name="c0a9d4e">
@@ -3184,7 +3184,7 @@
       </notes>
       <segment>
         <source>Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</source>
-        <target>Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</target>
+        <target>Augmente le rendement de tous les objets jetés à la décharge de +1 point de défense temporaire.</target>
       </segment>
     </unit>
     <unit id="sHFBkoO" name="Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.">
@@ -3193,7 +3193,7 @@
       </notes>
       <segment>
         <source>Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.</source>
-        <target>Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.</target>
+        <target>Permet le massacre d'animaux innocents dans la décharge.</target>
       </segment>
     </unit>
     <unit id="MNKa85." name="38beb6b">
@@ -3202,7 +3202,7 @@
       </notes>
       <segment>
         <source>Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...</source>
-        <target>Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...</target>
+        <target>Réduit le coût d'usage de la décharge à 0 PA. Attention à ne pas construire ceci si votre ville compte encore des crapules en son sein…</target>
       </segment>
     </unit>
     <unit id="90cHzot" name="667eac4">
@@ -3211,7 +3211,7 @@
       </notes>
       <segment>
         <source>Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).</source>
-        <target>Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).</target>
+        <target>La clé de voûte de toute bonne ville : une immense décharge puante tout autour de la ville. Ce n'est certes pas très esthétique, mais cela permet de transformer des objets de tous les jours en défenses temporaires efficaces (valables une seule nuit).</target>
       </segment>
     </unit>
     <unit id="TPZ2vxC" name="ccbd910">
@@ -3220,7 +3220,7 @@
       </notes>
       <segment>
         <source>Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.</source>
-        <target>Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.</target>
+        <target>La justice populaire au sommet de sa gloire ! Lorsqu'un citoyen est banni, il est envoyé à la cage judicieusement située bien en vue, devant l'entrée de la ville. Ses hurlements et ses pleurs feront un excellent appât à minuit. Chaque banni éliminé à la cage apporte de la défense temporaire à la ville.</target>
       </segment>
     </unit>
     <unit id="9z9QPLV" name="919640a">
@@ -3229,7 +3229,7 @@
       </notes>
       <segment>
         <source>Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.</source>
-        <target>Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.</target>
+        <target>Ce beau et grand phare illuminera vos longues nuits d'hiver (à moins que ce ne soit l'été ?). Tous les citoyens voient leurs chances de survie en camping augmenter.</target>
       </segment>
     </unit>
     <unit id="IgJAS.l" name="977e57c">
@@ -3238,7 +3238,7 @@
       </notes>
       <segment>
         <source>Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.</source>
-        <target>Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.</target>
+        <target>Pour une fois qu'un chantier profite directement aux habitants, on ne va pas s'en plaindre. Toutes les maisons de citoyens reçoivent +4 en défense.</target>
       </segment>
     </unit>
     <unit id="D_tzr7L" name="0872a56">
@@ -3247,7 +3247,7 @@
       </notes>
       <segment>
         <source>Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.</source>
-        <target>Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.</target>
+        <target>Un grand feu de joie un peu à l'écart de la ville pour attirer les zombies loin de nos frêles maisons.</target>
       </segment>
     </unit>
     <unit id="yucPall" name="ce48f50">
@@ -3256,7 +3256,7 @@
       </notes>
       <segment>
         <source>Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.</source>
-        <target>Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.</target>
+        <target>Les héros ont toujours raison, c'est bien connu. D'ailleurs, pour appuyer cette réalité, les plaintes qu'ils déposent à l'encontre d'autres citoyens comptent double.</target>
       </segment>
     </unit>
     <unit id="vY2elYU" name="b4472bd">
@@ -3265,7 +3265,7 @@
       </notes>
       <segment>
         <source>Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).</source>
-        <target>Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).</target>
+        <target>Le bureau des esclavagistes permet aux bannis de travailler aux chantiers. D'ailleurs, les PA qu'ils investissent rapportent 50% de PA supplémentaires aux chantiers (arrondi à l'inférieur ; ex: pour 6 PA personnels investis, 9 PA sont ajoutés au projet et pour 5 PA seulement 7 PA sont ajoutés).</target>
       </segment>
     </unit>
     <unit id="66lLcPR" name="d3d58a4">
@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</source>
-        <target>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</target>
+        <target>Parce qu'un derrick ne peut pas forcément percer toutes les roches, la foreuse creuse plus pour boire plus. Ce chantier rapporte +150 rations d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="cYlMU3f" name="191d84d">
@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</source>
-        <target>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</target>
+        <target>On projette pour la 636ème fois Dawn of the dead, vous avez surement manqué le formidable jeu d'acteur des figurants, rien ne vaut un petit visionnage de plus. Avec un peu de chance, ça vous fera même rigoler.</target>
       </segment>
     </unit>
     <unit id="_qiinHX" name="fa9f4c1">
@@ -3292,7 +3292,7 @@
       </notes>
       <segment>
         <source>Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.</source>
-        <target>Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.</target>
+        <target>Un gros ballon tout rond qui vole dans le ciel, mais juste assez longtemps pour qu’un citoyen “volontaire” répertorie tout ce qu’il voie autour de notre ville. Ce chantier permet de révéler l’intégralité de l’Outre-monde.</target>
       </segment>
     </unit>
     <unit id="0XMhjon" name="d9d68d6">
@@ -3301,7 +3301,7 @@
       </notes>
       <segment>
         <source>Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.</source>
-        <target>Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.</target>
+        <target>Les zombies sont un peu bêtes, c'est bien connu. Alors quoi de mieux qu'un petit labyrinthe devant la porte de la ville pour les perdre pendant l'attaque ? C'est très efficace, mais chaque citoyen souhaitant rentrer en ville devra dépenser 1 PA dorénavant.</target>
       </segment>
     </unit>
     <unit id="buC0.Q1" name="d20ea22">
@@ -3310,7 +3310,7 @@
       </notes>
       <segment>
         <source>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</source>
-        <target>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</target>
+        <target>C'est le sursaut du désespoir ! Tous les objets de la banque seront détruits et apporteront +1 point de défense temporaire chacun.</target>
       </segment>
     </unit>
     <unit id="GBviw9H" name="984e5b8">
@@ -3319,7 +3319,7 @@
       </notes>
       <segment>
         <source>Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.</source>
-        <target>Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.</target>
+        <target>Quatre belles roquettes sont lancées vers les quatre points cardinaux autour de la ville (nord, sud, est et ouest), massacrant tous les zombies dans le désert sur leur passage !</target>
       </segment>
     </unit>
     <unit id="IakGX2Y" name="f02f3e0">
@@ -3328,7 +3328,7 @@
       </notes>
       <segment>
         <source>Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</source>
-        <target>Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</target>
+        <target>Rien de tel pour égayer les longues nuits dans le désert qu'un bon gros feu d'artifice. La petite variante consiste ici à orienter les tubes de lancement vers l'extérieur de la ville, dans les hordes de zombies à minuit. Peut-être aurez vous de la chance d'éclairer une partie de l'Outre-monde à défaut de cramer du zombie ?</target>
       </segment>
     </unit>
     <unit id="vw29RKg" name="6ba9043">
@@ -3337,7 +3337,7 @@
       </notes>
       <segment>
         <source>Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.</source>
-        <target>Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.</target>
+        <target>Parceque le Corbeau est bon et magnanime, cet autel à sa gloire libèrera tous les citoyens bannis de la ville.</target>
       </segment>
     </unit>
     <unit id="G1W3bpP" name="de36cba">
@@ -3346,7 +3346,7 @@
       </notes>
       <segment>
         <source>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Un immense PMV sur lequel sont gravés les noms de tous les habitants de la ville, dressé vers le ciel comme… euh. Un PMV. Personne ne sait pourquoi, mais quelqu'un a apposé la mention suivante à sa base : “Antre de la Nuit Profonde”. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
     <unit id="XkiAKmo" name="b3acd86">
@@ -3355,7 +3355,7 @@
       </notes>
       <segment>
         <source>Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Gloire au Corbeau ! Gloire à ta mansuétude et à ton aura bienfaisante ! Délivre nous du spam et pardonne nos trolls comme nous pardonnons à ceux que nous avons trollés. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
     <unit id="qVqfrKN" name="965147a">
@@ -3364,7 +3364,7 @@
       </notes>
       <segment>
         <source>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>C'est une belle et grande réalisation, ça a pompé une bonne partie de nos ressources mais vous en êtes très fiers. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
     <unit id="EP7MRzT" name="6e85048">
@@ -3373,7 +3373,7 @@
       </notes>
       <segment>
         <source>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>S'il y a bien quelque chose dont on ne manque pas ici, c'est du sable. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
     <unit id="ruMYkQK" name="f5d70ef">
@@ -3382,7 +3382,7 @@
       </notes>
       <segment>
         <source>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</source>
-        <target>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</target>
+        <target>Ce bâtiment terrifiant est issu d'un sous-marin soviétique et projette de puissants arcs électriques tout autour de la ville dans un crépitement assourdissant. Seul “bémol”, il doit être réparé quotidiennement. S'il est détruit, toute la ville et ses alentours sont instantanément pulvérisés, tuant tout le monde sur la carte (où que vous soyez). La notice précise : conception soviétique, assemblé à « вшивый ».</target>
       </segment>
     </unit>
     <unit id="ZGSZ8Y0" name="9c6c617">
@@ -3391,7 +3391,7 @@
       </notes>
       <segment>
         <source>Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).</source>
-        <target>Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).</target>
+        <target>Les fondations permettent la réalisation de « Projets Insensés » (des constructions de longue haleine mais aux effets très puissants).</target>
       </segment>
     </unit>
     <unit id="V7uUw1K" name="Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.">
@@ -3400,7 +3400,7 @@
       </notes>
       <segment>
         <source>Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.</source>
-        <target>Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.</target>
+        <target>La porte se referme automatiquement à 23h59 au lieu de 23h30.</target>
       </segment>
     </unit>
     <unit id="qcnjh2a" name="b2840d8">
@@ -3409,7 +3409,7 @@
       </notes>
       <segment>
         <source>Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.</source>
-        <target>Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.</target>
+        <target>Grâce à un puissant moteur à pistons, ce système ferme automatiquement la porte et bloque son ouverture une demi-heure avant l'attaque.</target>
       </segment>
     </unit>
     <unit id=".S8H9z4" name="4e90e01">
@@ -3418,7 +3418,7 @@
       </notes>
       <segment>
         <source>Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.</source>
-        <target>Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.</target>
+        <target>De gros renforts cloués à même la porte de la ville pour en améliorer la résistance.</target>
       </segment>
     </unit>
     <unit id="7YLzXpN" name="278ff38">
@@ -3427,7 +3427,7 @@
       </notes>
       <segment>
         <source>Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!</source>
-        <target>Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!</target>
+        <target>Ce passage secret permet aux héros de rentrer et sortir de la ville sans emprunter la porte !</target>
       </segment>
     </unit>
     <unit id="uKVPWuT" name="13115fa">
@@ -3436,7 +3436,7 @@
       </notes>
       <segment>
         <source>Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.</source>
-        <target>Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.</target>
+        <target>Un bricolage un peu rustique qui permet d'empêcher l'ouverture (rarement désirée) de la porte de 23h40 à minuit. La porte doit toutefois toujours être fermée manuellement.</target>
       </segment>
     </unit>
     <unit id="MJGPCrn" name="c5996a6">
@@ -3445,7 +3445,7 @@
       </notes>
       <segment>
         <source>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</source>
-        <target>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</target>
+        <target>Un lieu de relaxation hautement adapté au transfert des âmes vers le repos éternel.</target>
       </segment>
     </unit>
   </file>
