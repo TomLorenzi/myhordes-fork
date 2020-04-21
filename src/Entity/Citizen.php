@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -660,6 +661,15 @@ class Citizen
             if ($digTimer->getZone()->getId() === $zone->getId())
                 return !$digTimer->getPassive();
         return false;
+    }
+
+    public function getDigTimeout(): int {
+        $zone = $this->getZone();
+        if (!$zone) return -1;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone()->getId() === $zone->getId())
+                return $digTimer->getPassive() ? -1 : $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
+        return -1;
     }
 
     public function isCamping(): bool {

@@ -7,6 +7,7 @@ use App\Entity\Citizen;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\ItemGroup;
+use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -53,7 +54,9 @@ class ZoneHandler
         if ($up_to === null || $up_to > $now) $up_to = $now;
 
         $chances_by_player = 0;
+        $chances_by_escorts = 0;
         $found_by_player = [];
+        $found_by_escorts = [];
 
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
@@ -91,6 +94,8 @@ class ZoneHandler
             foreach ($dig_timers as &$timer)
                 if ($timer->getTimestamp() <= $up_to) {
 
+                    $current_citizen = $timer->getCitizen();
+
                     $factor = 1.0;
                     if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.2;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.2;
@@ -98,24 +103,31 @@ class ZoneHandler
                         ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
                         : null;
 
-                    if ($active && $timer->getCitizen()->getId() === $active->getId()) {
+                    if ($active && $current_citizen->getId() === $active->getId()) {
                         $chances_by_player++;
-                        if ($item_prototype){
+                        if ($item_prototype)
                             $found_by_player[] = $item_prototype;
-                            // If we get a Chest XL
-                            if ($item_prototype->getName() == 'chest_xl_#00') {
-                                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_chstxl_#00");
-                                $this->picto_handler->give_picto($citizen, $pictoPrototype);
-                            }
-                        }
                     }
 
-                    $this->entity_manager->persist( $this->log->outsideDig( $timer->getCitizen(), $item_prototype, $timer->getTimestamp() ) );
+                    if ($current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId()) {
+                        $chances_by_escorts++;
+                        if ($item_prototype)
+                            $found_by_escorts[] = $item_prototype;
+                    }
+
+                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) );
                     if ($item_prototype) {
+
+                        // If we get a Chest XL
+                        if ($item_prototype->getName() == 'chest_xl_#00') {
+                            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_chstxl_#00");
+                            $this->picto_handler->give_picto($current_citizen, $pictoPrototype);
+                        }
+
                         $item = $this->item_factory->createItem($item_prototype);
-                        if ($this->inventory_handler->placeItem( $timer->getCitizen(), $item, [ $timer->getCitizen()->getInventory(), $timer->getZone()->getFloor() ] )) {
+                        if ($this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $timer->getZone()->getFloor() ] )) {
                             $this->entity_manager->persist( $item );
-                            $this->entity_manager->persist( $timer->getCitizen()->getInventory() );
+                            $this->entity_manager->persist( $current_citizen->getInventory() );
                             $this->entity_manager->persist( $timer->getZone()->getFloor() );
                         }
                     }
@@ -140,15 +152,31 @@ class ZoneHandler
         foreach ($dig_timers as $timer) $this->entity_manager->persist( $timer );
         $this->entity_manager->flush();
 
+        $wrap = function(array $a) {
+            return implode(', ', array_map(function(ItemPrototype $p) {
+                return "<span><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->trans->trans($p->getLabel(), [], 'items')}</span>";
+            }, $a));
+        };
+
+        $ret_str = [];
+
         if ($chances_by_player > 0) {
-
-            if (empty($found_by_player)) return $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' );
-            elseif (count($found_by_player) === 1) return $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $found_by_player[0]->getIcon() . '.gif' )}'> {$this->trans->trans($found_by_player[0]->getLabel(), [], 'items')}</span>"
+            if (empty($found_by_player)) $ret_str[] = $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' );
+            elseif (count($found_by_player) === 1) $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                '%item%' => $wrap($found_by_player)
             ], 'game' );
-            else return $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.', [], 'game' );
+            else $ret_str[] = $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%', ['%items' => $wrap($found_by_player)], 'game' );
+        }
 
-        } else return null;
+        if ($chances_by_escorts > 0) {
+            if (empty($found_by_escorts) && $chances_by_escorts === 1) $ret_str[] = $this->trans->trans( 'Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...', [], 'game' );
+            if (empty($found_by_escorts) && $chances_by_escorts > 1)   $ret_str[] = $this->trans->trans( 'Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...', [], 'game' );
+            elseif ($chances_by_escorts === 1) $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' );
+            else $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' );
+        }
+
+        return empty($ret_str) ? null : implode('<hr />', $ret_str);
+
     }
 
     const RespawnModeNone = 0;

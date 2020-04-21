@@ -142,13 +142,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return $active_timer ? ($active_timer->getTime()->getTimestamp() - (new DateTime())->getTimestamp()) : -1;
     }
 
-    public function get_dig_timeout(Citizen $c, ?bool &$active = null): int {
-        $active_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $c );
-        if (!$active_timer) return -1;
-        $active = !$active_timer->getPassive();
-        return $active_timer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
-    }
-
     public function uncoverHunter(Citizen $c): bool {
         $prot = $this->inventory_handler->fetchSpecificItems( $c->getInventory(), [new ItemRequest('vest_on_#00')] );
         if ($prot) {
@@ -180,7 +173,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $is_on_zero = $zone->getX() == 0 && $zone->getY() == 0;
 
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
-        $dig_timeout = $this->get_dig_timeout( $this->getActiveCitizen(), $dig_active );
 
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
@@ -281,9 +273,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'can_attack' => !$citizen_tired,
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
-            'digging' => $dig_timeout >= 0 && $dig_active,
+            'digging' => $this->getActiveCitizen()->isDigging(),
             'dig_ruin' => empty($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $this->getActiveCitizen() )),
-            'dig_timeout' => $dig_timeout,
             'actions' => $this->getItemActions(),
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
@@ -833,10 +824,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
     /**
-     * @Route("api/beyond/desert/dig", name="beyond_desert_dig_controller")
+     * @Route("api/beyond/desert/dig/{ext}", name="beyond_desert_dig_controller")
+     * @param null|int|string $ext
      * @return Response
      */
-    public function desert_dig_api(): Response {
+    public function desert_dig_api($ext = null): Response {
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -849,21 +841,39 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($zone->getX() === 0 && $zone->getY() === 0)
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        try {
-            $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $citizen );
-            if (!$timer) $timer = (new DigTimer())->setZone( $zone )->setCitizen( $citizen );
-            else if ($timer->getTimestamp() > new DateTime())
-                return AjaxResponse::error( self::ErrorNotDiggable );
+        if ($ext === null)
+            $target_citizens = [$citizen];
+        elseif ($ext === 'all') {
+            $target_citizens = [];
+            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                $target_citizens[] = $escort->getCitizen();
+        } elseif (is_numeric($ext)) {
+            /** @var Citizen|null $t */
+            $t = $this->entity_manager->getRepository(Citizen::class)->find( (int)$ext );
+            if (!$t || !$t->getEscortSettings() || !$t->getEscortSettings()->getLeader() || $t->getEscortSettings()->getLeader()->getId() !== $citizen->getId())
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            $target_citizens = [$t];
+        } else $target_citizens = [];
 
-            $timer->setPassive( false )->setTimestamp( new DateTime('-1sec') );
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-        }
+        foreach ($target_citizens as $target_citizen)
+            try {
+                $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $target_citizen );
+                if (!$timer) $timer = (new DigTimer())->setZone( $zone )->setCitizen( $target_citizen );
+                else if ($timer->getTimestamp() > new DateTime()) {
+                    if (count($target_citizens) === 1)
+                        return AjaxResponse::error( self::ErrorNotDiggable );
+                    else continue;
+                }
+
+                $timer->setPassive( false )->setTimestamp( new DateTime('-1sec') );
+                $this->entity_manager->persist( $target_citizen );
+                $this->entity_manager->persist( $timer );
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+            }
 
         try {
-            $this->entity_manager->persist( $citizen );
             $this->entity_manager->persist( $zone );
-            $this->entity_manager->persist( $timer );
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );
@@ -1062,6 +1072,32 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->persist( $target_citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/desert/escort/all", name="beyond_desert_escort_drop_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function desert_escort_api_drop_all(JSONRequestParser $parser): Response {
+        $this->deferZoneUpdate();
+
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $citizen = $this->getActiveCitizen();
+
+        foreach ($citizen->getValidLeadingEscorts() as $escort) {
+            $escort->setLeader(null);
+            $this->entity_manager->persist($escort);
+        }
+
+        try {
+            $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );

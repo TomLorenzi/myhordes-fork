@@ -141,21 +141,21 @@
                                 <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                 {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
                             </div>
-                        {% elseif dig_timeout > 0 %}
+                        {% elseif citizen.digTimeout > 0 %}
                             <div class="note">
                                 <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                 {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
-                                <b x-countdown="{{ dig_timeout }}" x-on-expire="reload">...</b>
+                                <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
                             </div>
                         {% endif %}
-                        <button id="dig_button" {% if zone_blocked or dig_timeout > 0 %}disabled{% endif %}>
+                        <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 %}disabled{% endif %}>
                             <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
                             {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
                     {% else %}
                         <div class="note">
                             <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
                             {% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}
-                            <span x-countdown="{{ dig_timeout }}" x-on-expire="reload">...</span>
+                            <span x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</span>
                         </div>
                     {% endif %}
                     {% if zone.prototype %}
@@ -243,10 +243,14 @@
         {% if citizen.validLeadingEscorts|length > 0 %}
             <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
             <div class="row-table">
+                {% set not_digging = 0 %}
                 {% for other_citizen in other_citizens %}
                     {# @var other_citizen \App\Entity\Citizen #}
                     {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
-                        <div class="row beyond-escort-off">
+                        {% if not other_citizen.digging %}
+                            {% set not_digging = not_digging+1 %}
+                        {% endif %}
+                        <div class="row beyond-escort-on">
                             <div class="padded cell rw-4">
                                 {% if other_citizen.online %}
                                     <img src="{{ asset('build/images/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
@@ -259,9 +263,15 @@
                             <div class="padded cell rw-3">
                                 <ul class="status">
                                     {% if other_citizen.digging %}
-                                        <li class="status"><img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}"></li>
+                                        <li class="status">
+                                            <img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                            <div class="tooltip">
+                                                <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
+                                                <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
+
+                                            </div>
+                                        </li>
                                     {% endif %}
-                                    <li class="status"><img src="{{ asset('build/images/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}"></li>
                                     {% for stat in other_citizen.status %}
                                         {# @var stat \App\Entity\CitizenStatus #}
                                         {% if not stat.hidden %}
@@ -274,12 +284,27 @@
                                 <div class="ap small">{{ other_citizen.ap }}</div>
                             </div>
                             <div class="padded cell rw-3 right">
+                                {% if zone.x != 0 or zone.y != 0 %}
+                                    <button {% if other_citizen.digging or zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/small_gather.gif') }}"></button>
+                                {% endif %}
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
                             </div>
                         </div>
                     {% endif %}
-
                 {% endfor %}
+                {% if citizen.validLeadingEscorts|length > 1 %}
+                    <div class="row beyond-escort-on beyond-escort-on-all">
+                        <div class="padded cell rw-4">
+                            <b>{{ 'Gesamte Eskorte'|trans({},'game') }}</b>
+                        </div>
+                        <div class="padded cell rw-8 right">
+                            {% if not_digging > 1 and (zone.x != 0 or zone.y != 0) %}
+                                <button {% if zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: 'all'}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/small_gather.gif') }}"></button>
+                            {% endif %}
+                            <button x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_escort_drop_controller') }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
 
@@ -329,9 +354,9 @@
     {% if not citizen.banished and not citizen.camping %}
         <div class="row">
             <div class="cell padded rw-12">
-                {% if citizen.escortSettings is null %}
+                {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
                     <button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button>
-                {% else %}
+                {% elseif citizen.escortSettings is not null %}
                     <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/escort_off.gif') }}" />{{ 'Eskorte deaktivieren'|trans({},'game') }}</button>
                 {% endif %}
             </div>
@@ -373,6 +398,13 @@
 
         $.html.addEventListenerAll( '[x-toggle-escort][x-escort-control-endpoint]', 'click', function(e,elem) {
             $.ajax.easySend( elem.getAttribute('x-escort-control-endpoint'), {on: elem.getAttribute('x-toggle-escort') === '1'},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
+
+        $.html.addEventListenerAll( '[x-remote-action][x-escort-control-endpoint]', 'click', function(e,elem) {
+            $.ajax.easySend( elem.getAttribute('x-escort-control-endpoint'), {},
                 function () {
                     $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                 } );
