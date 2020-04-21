@@ -2842,7 +2842,7 @@
       </notes>
       <segment>
         <source>Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!</source>
-        <target>Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!</target>
+        <target>Cette amélioration notable de la Catapulte facilite son utilisation en réduisant notablement le coût en PA pour lancer un objet !</target>
       </segment>
     </unit>
     <unit id="7mkk.J7" name="dc3ca31">
@@ -2851,7 +2851,7 @@
       </notes>
       <segment>
         <source>Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</source>
-        <target>Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</target>
+        <target>La catapulte est une machine spéciale qui va vous permettre de jeter tout un tas de choses au beau milieu de l'Outre-Monde : idéale pour ravitailler des expéditions lointaines !</target>
       </segment>
     </unit>
     <unit id="L54jb5I" name="8eeff7f">
@@ -2860,7 +2860,7 @@
       </notes>
       <segment>
         <source>Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.</source>
-        <target>Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.</target>
+        <target>Ce scanner maison, s'il est bien utilisé, divise par deux la difficulté de l'estimation de l'attaque du soir (il faut 2x moins de citoyens pour obtenir une bonne estimation) ! Primordial pour s'organiser efficacement.</target>
       </segment>
     </unit>
     <unit id="qBYmaFE" name="14af458">
@@ -2869,7 +2869,7 @@
       </notes>
       <segment>
         <source>Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...</source>
-        <target>Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...</target>
+        <target>Un bricolage électronique simpliste pour améliorer la lecture de la carte de l'Outre-Monde: le nombre exact de zombies dans chaque zone devient lisible clairement. Indispensable pour ne plus se faire avoir bêtement…</target>
       </segment>
     </unit>
     <unit id="jSsbjK4" name="0efd242">
@@ -2878,7 +2878,7 @@
       </notes>
       <segment>
         <source>Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!</source>
-        <target>Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!</target>
+        <target>Le Planificateur est une calculette un peu spéciale dédiée à l'estimation et aux calculs liés à l'attaque. Elle permet notamment d'effectuer une estimation de l'attaque du LENDEMAIN !</target>
       </segment>
     </unit>
     <unit id="Z1hrRZ7" name="0221142">
@@ -2887,7 +2887,7 @@
       </notes>
       <segment>
         <source>Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</source>
-        <target>Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</target>
+        <target>Chaque jour, le Scrutateur permet de trouver à nouveau des objets dans certaines zones auparavant considérées comme “épuisées”. En effet, il détecte les phénomènes météorologiques anormaux qui surviennent dehors, pendant la nuit, et indique dans la gazette quelle région du désert a été affectée.</target>
       </segment>
     </unit>
     <unit id="xAxWKet" name="f3165c3">
@@ -2895,7 +2895,7 @@
         <note category="german">Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</note>
       </notes>
       <segment>
-        <source>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</source>
+        <source>En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</source>
         <target>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</target>
       </segment>
     </unit>
@@ -2905,7 +2905,7 @@
       </notes>
       <segment>
         <source>Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</source>
-        <target>Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</target>
+        <target>En plantant des bouts de bois acérés un peu partout autour de la ville, on obtient une défense à moindre coût, mais qui peut faire la différence, certains soirs…</target>
       </segment>
     </unit>
     <unit id="9lLB0c." name="a944414">
@@ -2914,7 +2914,7 @@
       </notes>
       <segment>
         <source>Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.</source>
-        <target>Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.</target>
+        <target>Poser une grande variété de pièges un peu partout est un bon moyen de faire du gros ménage dans les hordes de zombies qui attaqueront ce soir.</target>
       </segment>
     </unit>
     <unit id="mnCx0v1" name="870299c">
@@ -2923,7 +2923,7 @@
       </notes>
       <segment>
         <source>Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!</source>
-        <target>Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!</target>
+        <target>Une fois qu'on a un gros tas de débris, il est facile de le cribler de pics aussi rouillés que mortels !</target>
       </segment>
     </unit>
     <unit id="Cyhcjbg" name="2085295">
@@ -2932,7 +2932,7 @@
       </notes>
       <segment>
         <source>Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.</source>
-        <target>Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.</target>
+        <target>Quand rien ne va plus, on empile tout ce qu'on a sous la main et on croise les doigts pour que ça ralentisse les hordes de zombies… L'avantage, c'est qu'on peut utiliser cette base pour installer des pièges très efficaces par-dessus !</target>
       </segment>
     </unit>
     <unit id="_MX84Jw" name="Das wird den Zombies Beine machen - oder besser: ausreißen!">
@@ -2941,7 +2941,7 @@
       </notes>
       <segment>
         <source>Das wird den Zombies Beine machen - oder besser: ausreißen!</source>
-        <target>Das wird den Zombies Beine machen - oder besser: ausreißen!</target>
+        <target>Ca ne tuera pas les zombies, mais ça les stoppera dans leur avancée !</target>
       </segment>
     </unit>
     <unit id="CQJhZS8" name="Dynamit, Zombies, Blut.">
@@ -2950,7 +2950,7 @@
       </notes>
       <segment>
         <source>Dynamit, Zombies, Blut.</source>
-        <target>Dynamit, Zombies, Blut.</target>
+        <target>De la dynamite, des zombies, du sang.</target>
       </segment>
     </unit>
     <unit id="LrMuA3t" name="14e42e6">
@@ -2959,7 +2959,7 @@
       </notes>
       <segment>
         <source>Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.</source>
-        <target>Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.</target>
+        <target>Si la situation est vraiment désespérée, vous pouvez décider d'hurler et de paniquer. L'avantage, c'est que si tous les survivants s'y mettent, ça désordonnera les zombies (qui n'avaient vraiment pas besoin de ça) et apportera virtuellement quelques points de défense… Oui, c'est n'importe quoi.</target>
       </segment>
     </unit>
     <unit id="BiIqI4s" name="0f02c8f">
@@ -2968,7 +2968,7 @@
       </notes>
       <segment>
         <source>Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.</source>
-        <target>Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.</target>
+        <target>Faire la fête est le meilleur moyen d'oublier ce qu'il se passe dehors, heureusement que les zombies sont là pour éviter que ça dégénère.</target>
       </segment>
     </unit>
     <unit id="30PQngM" name="289e4b7">
@@ -2977,7 +2977,7 @@
       </notes>
       <segment>
         <source>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</source>
-        <target>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</target>
+        <target>Une agglomération de tissus moisis, de plus de deux mètres, transpercés de fils et aiguilles en tout genre. Sous la terrible emprise d'un chaman, cette poupée XXL décimera quelque zombie avant de redevenir un tas informe et inanimé</target>
       </segment>
     </unit>
     <unit id="e1g.XXY" name="9ab481c">
@@ -2986,7 +2986,7 @@
       </notes>
       <segment>
         <source>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</source>
-        <target>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</target>
+        <target>Grâce a cette guillotine maudite et a un mannequin maladroitement conçu, le chaman peut couper a distance la tête d'un meneur zombie, ceux qui le suivaient, sans trop savoir pourquoi, retourneront tranquillement vagabonder dans le désert</target>
       </segment>
     </unit>
     <unit id="K1dTRCS" name="b50a4cc">
@@ -2995,7 +2995,7 @@
       </notes>
       <segment>
         <source>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</source>
-        <target>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</target>
+        <target>Le sortilège du chaman a créé un mirage déroutant un bon nombre de zombie dans le fin fond du désert</target>
       </segment>
     </unit>
     <unit id="hEXDYA." name="c4f6d39">
@@ -3004,7 +3004,7 @@
       </notes>
       <segment>
         <source>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</source>
-        <target>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</target>
+        <target>Un feu allumé et une danse rituelle dont seul le chaman a le secret créent un petit nuage s'élevant dans les airs, une bonne douche d'eau sacrée se déversera bientôt sur les hordes de zombies</target>
       </segment>
     </unit>
     <unit id="ThoJe4k" name="0d84ba4">
@@ -3013,7 +3013,7 @@
       </notes>
       <segment>
         <source>Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!</source>
-        <target>Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!</target>
+        <target>Pour parer certains imprévus, il est parfois nécessaire de bâtir des défenses d'urgence qui ne sont pas destinées à tenir plus d'une nuit. Le programme de Dispositifs d'urgence répond à ce besoin. Attention à ne pas gaspiller de ressources inutilement en fabriquant des chantiers temporaires à tout-va !</target>
       </segment>
     </unit>
     <unit id="sZyLLG6" name="2612909">
@@ -3022,7 +3022,7 @@
       </notes>
       <segment>
         <source>Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</source>
-        <target>Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</target>
+        <target>Une tourelle de tir au ballon d'eau, peu maniable, elle aura un succès fou sur un rempart, ce sont les veilleurs qui vont être content. Elle apporte +20% de défense aux armes à eau équipées lors d'une veille.</target>
       </segment>
     </unit>
     <unit id="xm64u3P" name="bf83165">
@@ -3031,7 +3031,7 @@
       </notes>
       <segment>
         <source>Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.</source>
-        <target>Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.</target>
+        <target>Ce lance-bête vous permettra de projeter au loin vos amis les animaux afin qu'ils distraient encore d'avantage les hordes pendant l'attaque. En plus, le bruit d'un animal projeté est très rigolo, ce qui déstressera sûrement vos chers veilleurs.</target>
       </segment>
     </unit>
     <unit id="dObz6dO" name="88b9c10">
@@ -3040,7 +3040,7 @@
       </notes>
       <segment>
         <source>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</source>
-        <target>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</target>
+        <target>Cette armurerie sera un atout conséquent pour les veilleurs, en construisant ce chantier, chaque arme utilisée en veille verra son efficacité augmenter de 20% !</target>
       </segment>
     </unit>
     <unit id="gpk5Kg3" name="f9257d7">
@@ -3049,7 +3049,7 @@
       </notes>
       <segment>
         <source>Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</source>
-        <target>Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</target>
+        <target>Ce magasin permettra à toutes vos fournitures de gagner 20 % d'efficacité en plus. Ces suédois… Ce sont vraiment des experts de la bricole !</target>
       </segment>
     </unit>
     <unit id="jIl5TJc" name="8d64086">
@@ -3058,7 +3058,7 @@
       </notes>
       <segment>
         <source>Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.</source>
-        <target>Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.</target>
+        <target>L'installation d'une belle et grande tour centrale et d'un chemin de ronde : voilà qui devrait faire plaisir aux héros Gardiens. Ce chantier apporte +10 points de défense par Gardien en ville et leur permet d'apporter encore d'avantage de défenses en échange de PA.</target>
       </segment>
     </unit>
     <unit id="gh0Faud" name="27d8193">
@@ -3067,7 +3067,7 @@
       </notes>
       <segment>
         <source>Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).</source>
-        <target>Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).</target>
+        <target>En fait de tour, c'est plus une sorte de très très haut poteau au sommet duquel chaque héros Éclaireur peut grimper pour révéler un bâtiment de l'outre-monde (1x par jour et par héros).</target>
       </segment>
     </unit>
     <unit id="MERXXrk" name="1386d7f">
@@ -3076,7 +3076,7 @@
       </notes>
       <segment>
         <source>Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.</source>
-        <target>Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.</target>
+        <target>Cette tour placée près de l'entrée offre une estimation de l'attaque du soir et permet ainsi aux citoyens de mieux s'y préparer. Elle débloque également toutes les constructions liées aux situations d'urgence.</target>
       </segment>
     </unit>
   </file>
