@@ -611,6 +611,12 @@ class InventoryAwareController extends AbstractController implements GameInterfa
       $item = null;
       if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
 
+          // Disable the escort
+          if ($citizen->getEscortSettings()) {
+              $remove[] = $citizen->getEscortSettings();
+              $citizen->setEscortSettings(null);
+          }
+
         $this->entity_manager->persist($citizen);
         foreach ($remove as $remove_entry)
           $this->entity_manager->remove($remove_entry);

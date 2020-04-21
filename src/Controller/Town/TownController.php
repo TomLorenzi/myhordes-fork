@@ -237,7 +237,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $deco += $item->getPrototype()->getDeco();
 
         $town = $this->getActiveCitizen()->getTown();
-        $lastActionTimestamp = $c->getLastActionTimestamp();
+        $lastActionTimestamp = $c->getUser()->getLastActionTime()->getTimestamp();
 
         // Getting delta time between now and the last action
         $time = time() - $lastActionTimestamp; 

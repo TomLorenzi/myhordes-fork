@@ -57,6 +57,16 @@ class DeathHandler
             $remove[] = $et;
         $citizen->getStatus()->clear();
 
+        if ($citizen->getEscortSettings()) {
+            $remove[] = $citizen->getEscortSettings();
+            $citizen->setEscortSettings(null);
+        }
+
+        foreach ($citizen->getLeadingEscorts() as $leading_escort) {
+            $leading_escort->setLeader(null);
+            $this->entity_manager->persist($leading_escort);
+        }
+
         $died_outside = $citizen->getZone() !== null;
         if (!$died_outside) {
             $zone = null;

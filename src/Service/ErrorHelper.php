@@ -28,4 +28,5 @@ class ErrorHelper
     const ErrorActionNotAvailable = 52;
     const ErrorItemsMissing       = 53;
     const ErrorMustBeHero         = 54;
+    const ErrorEscortFailure      = 55;
 }
