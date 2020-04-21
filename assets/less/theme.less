@@ -548,6 +548,29 @@ div.game-menu-area {
         }
       }
 
+      &.user {
+        position: absolute;
+        right: 10px;
+        top: -30px;
+        font-size: 10px;
+        background-color: rgba(62, 36, 23, .75);
+        border-radius: 6px;
+        color: @myhordes-smalltext;
+
+        li {
+          margin: 3px 6px;
+
+          a {
+            text-decoration: none;
+            transition: color 200ms;
+
+            &:hover {
+              color: #c00;
+            }
+          }
+        }
+      }
+
       &.clock {
         position: absolute; background: url("../img/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0;
