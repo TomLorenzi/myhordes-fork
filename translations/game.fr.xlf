@@ -8483,5 +8483,50 @@
         <target>Ces points sont exclusivement réservés au Chaman.</target>
       </segment>
     </unit>
+    <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Bank.</source>
+        <target>Utilisez ce sujet pour discuter autour de la Banque de la ville...</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>Utilisez ce sujet pour discuter autour des évolutions du jour que vous souhaitez développer...</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>Utilisez ce sujet pour discuter autour de l'atelier et de la production de ressources en ville...</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>Utilisez ce sujet pour discuter autour des chantiers à construire...</target>
+      </segment>
+    </unit>
+    <unit id="EV3WmmI" name="712ee4f">
+      <notes>
+        <note category="german">Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
+        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

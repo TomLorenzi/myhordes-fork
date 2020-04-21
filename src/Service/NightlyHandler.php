@@ -774,10 +774,12 @@ class NightlyHandler
 
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
-            $winningCitizen->addRole($role);
-            $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
+            if($winningCitizen !== null){
+                $winningCitizen->addRole($role);
+                $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
 
-            $this->entity_manager->persist($winningCitizen);
+                $this->entity_manager->persist($winningCitizen);
+            }
 
             // we remove the votes
             $votes = $this->entity_manager->getRepository(CitizenVote::class)->findByRole($role);

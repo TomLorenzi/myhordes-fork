@@ -54,6 +54,11 @@ class Thread
      */
     private $lastPost;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $pinned = false;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -163,6 +168,18 @@ class Thread
     public function setLastPost(\DateTimeInterface $lastPost): self
     {
         $this->lastPost = $lastPost;
+
+        return $this;
+    }
+
+    public function getPinned(): ?bool
+    {
+        return $this->pinned;
+    }
+
+    public function setPinned(bool $pinned): self
+    {
+        $this->pinned = $pinned;
 
         return $this;
     }

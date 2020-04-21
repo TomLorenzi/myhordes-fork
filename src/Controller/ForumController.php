@@ -74,9 +74,21 @@ class ForumController extends AbstractController
             else $thread_list[] = [$thread,false];
         }
 
+        $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forums[0], $num_per_page, ($page-1)*$num_per_page);
+
+        $pinned_thread_list = [];
+        foreach ($pinned_threads as $thread) {
+            /** @var Thread $thread */
+            /** @var ThreadReadMarker $marker */
+            $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
+            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $pinned_thread_list[] = [$thread,true];
+            else $pinned_thread_list[] = [$thread,false];
+        }
+
         return $this->render( 'ajax/forum/view.html.twig', [
             'forum' => $forums[0],
             'threads' => $thread_list,
+            'pinned_threads' => $pinned_thread_list,
             'select' => $tid,
             'pages' => $pages,
             'current_page' => $page
@@ -95,7 +107,7 @@ class ForumController extends AbstractController
         /** @var Citizen $citizen */
         $citizen = $em->getRepository(Citizen::class)->findActiveByUser( $user );
 
-        if ($citizen->getAlive() && $citizen->getTown()->getForum())
+        if ($citizen !== null && $citizen->getAlive() && $citizen->getTown()->getForum())
             return $this->redirect($this->generateUrl('forum_view', ['id' => $citizen->getTown()->getForum()->getId()]));
         else return $this->redirect( $this->generateUrl( 'forum_list' ) );
     }
