@@ -3,7 +3,6 @@
     {{ parent() }}
 {% endblock %}
 {# @var zone \App\Entity\Zone #}
-{# @var citizen \App\Entity\Citizen #}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
@@ -117,19 +116,16 @@
     {% endif %}
     <div class="row">
         <div class="padded cell rw-6 rw-md-12">
+            <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
+
             {% if zone.digs <= 0 %}
-                <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
-
-                {% if zone.digs <= 0 %}
-                    <div class="note">
-                        <img alt="" src="{{ asset('build/images/Small_broken.gif') }}" />
-                        {% trans from 'game' %}
-                            Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
-                        {% endtrans %}
-                    </div>
-                {% endif %}
+                <div class="note">
+                    <img alt="" src="{{ asset('build/images/Small_broken.gif') }}" />
+                    {% trans from 'game' %}
+                        Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
+                    {% endtrans %}
+                </div>
             {% endif %}
-
 
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
 
@@ -237,106 +233,15 @@
         </div>
     </div>
 
+    <div class="other_citizens">
     {% if other_citizens|length == 1 %}
-        <div class="small">{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</div>
+        <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
     {% else %}
-        {% if citizen.validLeadingEscorts|length > 0 %}
-            <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
-            <div class="row-table">
-                {% for other_citizen in other_citizens %}
-                    {# @var other_citizen \App\Entity\Citizen #}
-                    {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
-                        <div class="row beyond-escort-off">
-                            <div class="padded cell rw-4">
-                                {% if other_citizen.online %}
-                                    <img src="{{ asset('build/images/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
-                                {% else %}
-                                    <img src="{{ asset('build/images/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
-                                {% endif %}
-                                <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.username }}</b>
-                            </div>
-                            <div class="padded cell rw-3">
-                                <ul class="status">
-                                    {% if other_citizen.digging %}
-                                        <li class="status"><img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}"></li>
-                                    {% endif %}
-                                    <li class="status"><img src="{{ asset('build/images/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}"></li>
-                                    {% for stat in other_citizen.status %}
-                                        {# @var stat \App\Entity\CitizenStatus #}
-                                        {% if not stat.hidden %}
-                                            <li class="status"><img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'status') }}"></li>
-                                        {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            <div class="padded cell rw-2">
-                                <div class="ap small">{{ other_citizen.ap }}</div>
-                            </div>
-                            <div class="padded cell rw-3 right">
-                                <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
-                            </div>
-                        </div>
-                    {% endif %}
-
-                {% endfor %}
-            </div>
-        {% endif %}
-
-        {% if other_citizens|length - citizen.validLeadingEscorts|length > 0 %}
-            <h5>{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</h5>
-            <div class="row-table">
-                {% for other_citizen in other_citizens %}
-                    {# @var other_citizen \App\Entity\Citizen #}
-                    {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
-                        <div class="row beyond-escort-off">
-                            <div class="padded cell rw-4">
-                                {% if other_citizen.online %}
-                                    <img src="{{ asset('build/images/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
-                                {% else %}
-                                    <img src="{{ asset('build/images/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
-                                {% endif %}
-                                <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.username }}</b>
-                            </div>
-                            <div class="padded cell rw-4">
-                                <ul class="status">
-                                    {% if other_citizen.camping %}
-                                        <li class="status"><img src="{{ asset('build/images/status/status_camper.gif') }}" alt="{{ 'Camping'|trans({},'game') }}"></li>
-                                    {% endif %}
-                                    {% if other_citizen.digging %}
-                                        <li class="status"><img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}"></li>
-                                    {% endif %}
-                                    {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is not null %}
-                                        <li class="status"><img src="{{ asset('build/images/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}"></li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                            <div class="padded cell rw-4 right">
-                                {% if other_citizen != citizen %}
-                                    {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
-                                        <button {% if not citizen.profession.heroic %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/escort_in.gif') }}"></button>
-                                    {% endif %}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
+        {% for citizen in other_citizens %}
+            {{ citizen.user.username }}<br />
+        {% endfor %}
     {% endif %}
-
-    {% if not citizen.banished and not citizen.camping %}
-        <div class="row">
-            <div class="cell padded rw-12">
-                {% if citizen.escortSettings is null %}
-                    <button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button>
-                {% else %}
-                    <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/escort_off.gif') }}" />{{ 'Eskorte deaktivieren'|trans({},'game') }}</button>
-                {% endif %}
-            </div>
-        </div>
-    {% endif %}
+    </div>
 
     {% if zone.x != 0 or zone.y != 0 %}
         <div class="row">
@@ -364,131 +269,127 @@
             {% embed "scripts/log.js.twig" %}{% endembed %}
         {% endif %}
 
-        $.html.addEventListenerAll( '[x-toggle-escort]:not([x-escort-control-endpoint])', 'click', function(e,elem) {
-            $.ajax.easySend( '{{ path('beyond_desert_escort_self_controller') }}', {on: elem.getAttribute('x-toggle-escort') === '1'},
-                function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                } );
-        });
-
-        $.html.addEventListenerAll( '[x-toggle-escort][x-escort-control-endpoint]', 'click', function(e,elem) {
-            $.ajax.easySend( elem.getAttribute('x-escort-control-endpoint'), {on: elem.getAttribute('x-toggle-escort') === '1'},
-                function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                } );
-        });
-
         let sendLog = function() {
             $.ajax.easySend( '{{ path('beyond_desert_chat_controller') }}', { msg: document.getElementById('beyond_chat').value },
                 function () {
                     $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                 } );
         };
-
-        $.html.addEventListenerAll( '#chat_button', 'click', function() {
-            sendLog();
-        })
-        $.html.addEventListenerAll( '#beyond_chat', 'keypress', function(e) {
-            if (!document.getElementById('chat_button')) return;
-            if (e.key === "Enter")
+        let chat_button = document.getElementById('chat_button');
+        if (chat_button)
+            chat_button.addEventListener('click', function() {
                 sendLog();
-        });
+            });
 
-        $.html.addEventListenerAll('#dig_button', 'click', function() {
-            $.ajax.easySend( '{{ path('beyond_desert_dig_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                } );
-        });
+        let beyond_chat = document.getElementById('beyond_chat');
+        if (chat_button)
+          beyond_chat.addEventListener('keypress', function(e) {
+            if (e.key === "Enter") {
+              sendLog();
+            }
+          });
 
-        $.html.addEventListenerAll('#dig_ruin_button', 'click', function() {
-            $.ajax.easySend( '{{ path('beyond_desert_scavenge_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                } );
-        });
-
-        $.html.addEventListenerAll('#uncover_ruin_button', 'click', function() {
-            $.ajax.easySend( '{{ path('beyond_desert_uncover_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                } );
-        });
-
-        {% if zone.x == 0 and zone.y == 0 and not lock_trash %}
-            $.html.addEventListenerAll('#trash_button', 'click', function() {
-                $.ajax.easySend( '{{ path('beyond_trash_controller') }}', {},
+        let dig_button = document.getElementById('dig_button');
+        if (dig_button)
+            dig_button.addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('beyond_desert_dig_controller') }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                     } );
             });
+        let dig_r_button = document.getElementById('dig_ruin_button');
+        if (dig_r_button)
+            dig_r_button.addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('beyond_desert_scavenge_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    } );
+            });
+
+        let uncover_r_button = document.getElementById('uncover_ruin_button');
+        if (uncover_r_button)
+            uncover_r_button.addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('beyond_desert_uncover_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    } );
+            });
+
+        {% if zone.x == 0 and zone.y == 0 and not lock_trash %}
+            let trash_button = document.getElementById('trash_button');
+            if (trash_button)
+                trash_button.addEventListener('click', function() {
+                    $.ajax.easySend( '{{ path('beyond_trash_controller') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                        } );
+                });
         {% endif %}
 
         {% if zone_blocked and zone_escape < 0 and not active_scout_mode %}
-            $.html.addEventListenerAll('#escape-btn', 'click', function () {
-                if (!confirm( '{{ 'Bestätigen?'|trans({}, 'global')|e('js') }}' ))
-                    return;
-                $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                    } );
-            });
-            $.html.addEventListenerAll('#attack-btn', 'click', function () {
-                if (!confirm( '{{ 'Bestätigen?'|trans({}, 'global')|e('js') }}' ))
-                    return;
-                $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                    } );
-            });
+        document.getElementById('escape-btn').addEventListener('click', function () {
+            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                return;
+            $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
+        document.getElementById('attack-btn').addEventListener('click', function () {
+            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                return;
+            $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
         {% endif %}
 
         {% if allow_floor_access %}
-            {% embed "scripts/inventory.js.twig" %}{% endembed %}
-            handleItems(
-                document.querySelectorAll('.rucksack>.item:not(.locked)'),
-                '{{ path('beyond_desert_item_controller') }}',
-                'down', '{{ path('beyond_dashboard') }}'
-            );
+        {% embed "scripts/inventory.js.twig" %}{% endembed %}
+        handleItems(
+            document.querySelectorAll('.rucksack>.item:not(.locked)'),
+            '{{ path('beyond_desert_item_controller') }}',
+            'down', '{{ path('beyond_dashboard') }}'
+        );
 
-            handleItems(
-                document.querySelectorAll('#drop-all-button'),
-                '{{ path('beyond_desert_item_controller') }}',
-                'down-all', '{{ path('beyond_dashboard') }}'
-            );
+        handleItems(
+            document.querySelectorAll('#drop-all-button'),
+            '{{ path('beyond_desert_item_controller') }}',
+            'down-all', '{{ path('beyond_dashboard') }}'
+        );
 
-            handleItems(
-                document.querySelectorAll('.desert>.item:not(.locked)'),
-                '{{ path('beyond_desert_item_controller') }}',
-                'up', '{{ path('beyond_dashboard') }}'
-            );
+        handleItems(
+            document.querySelectorAll('.desert>.item:not(.locked)'),
+            '{{ path('beyond_desert_item_controller') }}',
+            'up', '{{ path('beyond_dashboard') }}'
+        );
 
-            handleHeroicActions(
-                document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
-                '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
-            );
+        handleHeroicActions(
+            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
 
-            handleCampingActions(
-              document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
-              '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard') }}'
-            );
+        handleCampingActions(
+          document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
+          '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
 
-            handleActions(
-                document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
-                '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
-            );
+        handleActions(
+            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
+            '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
 
-            handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
-            handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
 
-            handleRecipes(
-                document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
-                '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}'
-            );
+        handleRecipes(
+            document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
+            '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
         {% endif %}
-
         {% if allow_enter_town %}
-            $.html.addEventListenerAll('#town-enter', 'click', function() {
+            document.getElementById('town-enter').addEventListener('click', function() {
                 if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
@@ -498,7 +399,7 @@
             });
         {% endif %}
         {% if show_ventilation and allow_ventilation %}
-            $.html.addEventListenerAll('town-enter-hero', 'click', function() {
+            document.getElementById('town-enter-hero').addEventListener('click', function() {
                 if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_hero_exit_controller') }}', {},
