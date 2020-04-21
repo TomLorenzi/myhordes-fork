@@ -21,7 +21,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 {
     protected static $building_data = [
         ["name" => "Verstärkte Stadtmauer",'desc' => 'Verbessert die Stadtverteidigung erheblich.', "temporary" => 0,"img" => "small_wallimprove","vp" => 30,"ap" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 15,"metal_#00" => 5,], "orderby" => 0, "children" => [
-            ["name" => "Großer Graben","maxLevel" => 5,"temporary" => 0,"img" => "small_gather","vp" => 10,"ap" => 80,"bp" => 0,"rsc" => [], "orderby" => 0,
+            ["name" => "Großer Graben",'desc' => 'Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.', "maxLevel" => 5,"temporary" => 0,"img" => "small_gather","vp" => 10,"ap" => 80,"bp" => 0,"rsc" => [], "orderby" => 0,
                 "upgradeTexts" => [
                     'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.',
                     'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.',
@@ -29,22 +29,22 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                     'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.',
                     'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.',
                 ], "children" => [
-                ["name" => "Wassergraben","temporary" => 0,"img" => "small_waterhole","vp" => 65,"ap" => 50,"bp" => 1,"rsc" => ["water_#00" => 20,], "orderby" => 0, ],
+                ["name" => "Wassergraben",'desc' => 'Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...', "temporary" => 0,"img" => "small_waterhole","vp" => 65,"ap" => 50,"bp" => 1,"rsc" => ["water_#00" => 20,], "orderby" => 0, ],
             ]],
-            ["name" => "Rasierklingenmauer","temporary" => 0,"img" => "item_plate","vp" => 50,"ap" => 40,"bp" => 1,"rsc" => ["metal_#00" => 15,"meca_parts_#00" => 2,], "orderby" => 1],
-            ["name" => "Pfahlgraben","temporary" => 0,"img" => "small_spears","vp" => 40,"ap" => 40,"bp" => 1,"rsc" => ["wood2_#00" => 8,"wood_beam_#00" => 4,], "orderby" => 2],
-            ["name" => "Stacheldraht","temporary" => 0,"img" => "small_barbed","vp" => 10,"ap" => 20,"bp" => 0,"rsc" => ["metal_#00" => 2,], "orderby" => 3, "children" => [
-                ["name" => "Köder","temporary" => 1,"img" => "small_meatbarbed","vp" => 80,"ap" => 10,"bp" => 1,"rsc" => ["bone_meat_#00" => 3,], "orderby" => 0],
+            ["name" => "Rasierklingenmauer",'desc' => 'Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.', "temporary" => 0,"img" => "item_plate","vp" => 50,"ap" => 40,"bp" => 1,"rsc" => ["metal_#00" => 15,"meca_parts_#00" => 2,], "orderby" => 1],
+            ["name" => "Pfahlgraben",'desc' => 'Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.', "temporary" => 0,"img" => "small_spears","vp" => 40,"ap" => 40,"bp" => 1,"rsc" => ["wood2_#00" => 8,"wood_beam_#00" => 4,], "orderby" => 2],
+            ["name" => "Stacheldraht",'desc' => 'Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.', "temporary" => 0,"img" => "small_barbed","vp" => 10,"ap" => 20,"bp" => 0,"rsc" => ["metal_#00" => 2,], "orderby" => 3, "children" => [
+                ["name" => "Köder",'desc' => 'Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies \'ne Zeit lang beschäftigen', "temporary" => 1,"img" => "small_meatbarbed","vp" => 80,"ap" => 10,"bp" => 1,"rsc" => ["bone_meat_#00" => 3,], "orderby" => 0],
             ]],
-            ["name" => "Weiterentwickelte Stadtmauer","temporary" => 0,"img" => "small_wallimprove","vp" => 50,"ap" => 40,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 9,"metal_beam_#00" => 6,], "orderby" => 4],
-            ["name" => "Verstärkende Balken","temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 40,"bp" => 0,"rsc" => ["wood_beam_#00" => 1,"metal_beam_#00" => 3,], "orderby" => 5, "children" => [
-                ["name" => "Zackenmauer","temporary" => 0,"img" => "item_plate","vp" => 45,"ap" => 35,"bp" => 1,"rsc" => ["wood2_#00" => 5,"metal_#00" => 2,"concrete_wall_#00" => 1,], "orderby" => 0, "children" => [
-                    ["name" => "Groooße Mauer","temporary" => 0,"img" => "item_plate","vp" => 80,"ap" => 50,"bp" => 2,"rsc" => ["wood2_#00" => 10,"concrete_wall_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 10,], "orderby" => 0],
+            ["name" => "Weiterentwickelte Stadtmauer",'desc' => 'Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.', "temporary" => 0,"img" => "small_wallimprove","vp" => 50,"ap" => 40,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"wood_beam_#00" => 9,"metal_beam_#00" => 6,], "orderby" => 4],
+            ["name" => "Verstärkende Balken",'desc' => 'Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.', "temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 40,"bp" => 0,"rsc" => ["wood_beam_#00" => 1,"metal_beam_#00" => 3,], "orderby" => 5, "children" => [
+                ["name" => "Zackenmauer",'desc' => 'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.', "temporary" => 0,"img" => "item_plate","vp" => 45,"ap" => 35,"bp" => 1,"rsc" => ["wood2_#00" => 5,"metal_#00" => 2,"concrete_wall_#00" => 1,], "orderby" => 0, "children" => [
+                    ["name" => "Groooße Mauer", 'desc' => 'Was ist besser als eine Mauer?... eine groooße Mauer.',"temporary" => 0,"img" => "item_plate","vp" => 80,"ap" => 50,"bp" => 2,"rsc" => ["wood2_#00" => 10,"concrete_wall_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 10,], "orderby" => 0],
                 ]],
-                ["name" => "Zweite Schicht","temporary" => 0,"img" => "item_plate","vp" => 75,"ap" => 65,"bp" => 1,"rsc" => ["wood2_#00" => 35,"metal_beam_#00" => 5,], "orderby" => 1, "children" => [
-                    ["name" => "Dritte Schicht","temporary" => 0,"img" => "item_plate","vp" => 95,"ap" => 65,"bp" => 2,"rsc" => ["metal_#00" => 30,"plate_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 0],
+                ["name" => "Zweite Schicht",'desc' => 'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.', "temporary" => 0,"img" => "item_plate","vp" => 75,"ap" => 65,"bp" => 1,"rsc" => ["wood2_#00" => 35,"metal_beam_#00" => 5,], "orderby" => 1, "children" => [
+                    ["name" => "Dritte Schicht", 'desc' => 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.',"temporary" => 0,"img" => "item_plate","vp" => 95,"ap" => 65,"bp" => 2,"rsc" => ["metal_#00" => 30,"plate_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 0],
                 ]],
-                ["name" => "Entwicklungsfähige Stadtmauer","maxLevel" => 5,"temporary" => 0,"img" => "item_home_def","vp" => 55,"ap" => 65,"bp" => 3,"rsc" => ["wood2_#00" => 5,"metal_#00" => 20,"concrete_wall_#00" => 1,], "orderby" => 2,
+                ["name" => "Entwicklungsfähige Stadtmauer", 'desc' => 'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!',"maxLevel" => 5,"temporary" => 0,"img" => "item_home_def","vp" => 55,"ap" => 65,"bp" => 3,"rsc" => ["wood2_#00" => 5,"metal_#00" => 20,"concrete_wall_#00" => 1,], "orderby" => 2,
                     "upgradeTexts" => [
                         'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.',
                         'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.',
@@ -52,27 +52,27 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                         'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.',
                         'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.',
                     ]],
-                ["name" => "Betonschicht","temporary" => 0,"img" => "small_wallimprove","vp" => 50,"ap" => 60,"bp" => 1,"rsc" => ["concrete_wall_#00" => 6,"metal_beam_#00" => 2,], "orderby" => 3],
+                ["name" => "Betonschicht",'desc' => 'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.', "temporary" => 0,"img" => "small_wallimprove","vp" => 50,"ap" => 60,"bp" => 1,"rsc" => ["concrete_wall_#00" => 6,"metal_beam_#00" => 2,], "orderby" => 3],
             ]],
-            ["name" => "Zombiereibe","temporary" => 0,"img" => "small_grater","vp" => 55,"ap" => 60,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"metal_#00" => 20,"plate_#00" => 3,], "orderby" => 6],
-            ["name" => "Fallgruben","temporary" => 0,"img" => "small_gather","vp" => 35,"ap" => 50,"bp" => 0,"rsc" => ["wood2_#00" => 10,], "orderby" => 7],
-            ["name" => "Zaun","temporary" => 0,"img" => "small_fence","vp" => 30,"ap" => 50,"bp" => 0,"rsc" => ["wood_beam_#00" => 5,], "orderby" => 8],
-            ["name" => "Holzzaun","temporary" => 0,"img" => "small_fence","vp" => 45,"ap" => 50,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"wood2_#00" => 20,"wood_beam_#00" => 5,], "orderby" => 9],
-            ["name" => "Einseifer","temporary" => 0,"img" => "small_wallimprove","vp" => 60,"ap" => 40,"bp" => 1,"rsc" => ["water_#00" => 10,"pharma_#00" => 5,"concrete_wall_#00" => 1,], "orderby" => 10],
-            ["name" => "Zerstäuber","temporary" => 0,"img" => "small_waterspray","vp" => 0,"ap" => 50,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 2,], "orderby" => 11, "children" => [
-                ["name" => "Säurespray","temporary" => 1,"img" => "small_acidspray","vp" => 40,"ap" => 30,"bp" => 1,"rsc" => ["water_#00" => 2,"pharma_#00" => 3,], "orderby" => 0],
-                ["name" => "Spraykanone","temporary" => 1,"img" => "small_gazspray","vp" => 150,"ap" => 40,"bp" => 2,"rsc" => ["water_#00" => 2,"pharma_#00" => 5,"drug_#00" => 1,], "orderby" => 1],
+            ["name" => "Zombiereibe",'desc' => 'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.', "temporary" => 0,"img" => "small_grater","vp" => 55,"ap" => 60,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"metal_#00" => 20,"plate_#00" => 3,], "orderby" => 6],
+            ["name" => "Fallgruben",'desc' => 'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.', "temporary" => 0,"img" => "small_gather","vp" => 35,"ap" => 50,"bp" => 0,"rsc" => ["wood2_#00" => 10,], "orderby" => 7],
+            ["name" => "Zaun", 'desc' => 'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.',"temporary" => 0,"img" => "small_fence","vp" => 30,"ap" => 50,"bp" => 0,"rsc" => ["wood_beam_#00" => 5,], "orderby" => 8],
+            ["name" => "Holzzaun", 'desc' => 'Verbessert die Stadtverteidigung erheblich.',"temporary" => 0,"img" => "small_fence","vp" => 45,"ap" => 50,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"wood2_#00" => 20,"wood_beam_#00" => 5,], "orderby" => 9],
+            ["name" => "Einseifer", 'desc' => 'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?', "temporary" => 0,"img" => "small_wallimprove","vp" => 60,"ap" => 40,"bp" => 1,"rsc" => ["water_#00" => 10,"pharma_#00" => 5,"concrete_wall_#00" => 1,], "orderby" => 10],
+            ["name" => "Zerstäuber", 'desc' => 'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).',"temporary" => 0,"img" => "small_waterspray","vp" => 0,"ap" => 50,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 2,], "orderby" => 11, "children" => [
+                ["name" => "Säurespray",'desc' => 'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.', "temporary" => 1,"img" => "small_acidspray","vp" => 40,"ap" => 30,"bp" => 1,"rsc" => ["water_#00" => 2,"pharma_#00" => 3,], "orderby" => 0],
+                ["name" => "Spraykanone", 'desc' => 'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.', "temporary" => 1,"img" => "small_gazspray","vp" => 150,"ap" => 40,"bp" => 2,"rsc" => ["water_#00" => 2,"pharma_#00" => 5,"drug_#00" => 1,], "orderby" => 1],
             ]],
-            ["name" => "Rüstungsplatten","temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 10,], "orderby" => 12],
-            ["name" => "Rüstungsplatten 2.0","temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 30,"bp" => 0,"rsc" => ["metal_#00" => 10,], "orderby" => 13],
-            ["name" => "Rüstungsplatten 3.0","temporary" => 0,"img" => "item_plate","vp" => 40,"ap" => 40,"bp" => 0,"rsc" => ["wood2_#00" => 10,"metal_#00" => 10,], "orderby" => 14],
-            ["name" => "Sperrholz","temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 5,"metal_#00" => 5,], "orderby" => 15],
-            ["name" => "Extramauer","temporary" => 0,"img" => "item_plate","vp" => 45,"ap" => 30,"bp" => 1,"rsc" => ["wood2_#00" => 15,"metal_#00" => 15,], "orderby" => 16],
+            ["name" => "Rüstungsplatten", 'desc' => 'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..',"temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 10,], "orderby" => 12],
+            ["name" => "Rüstungsplatten 2.0", 'desc' => 'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.',"temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 30,"bp" => 0,"rsc" => ["metal_#00" => 10,], "orderby" => 13],
+            ["name" => "Rüstungsplatten 3.0", 'desc' => 'Simpel aber stabil: Was will man mehr?',"temporary" => 0,"img" => "item_plate","vp" => 40,"ap" => 40,"bp" => 0,"rsc" => ["wood2_#00" => 10,"metal_#00" => 10,], "orderby" => 14],
+            ["name" => "Sperrholz", 'desc' => 'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...',"temporary" => 0,"img" => "item_plate","vp" => 25,"ap" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 5,"metal_#00" => 5,], "orderby" => 15],
+            ["name" => "Extramauer", 'desc' => 'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.',"temporary" => 0,"img" => "item_plate","vp" => 45,"ap" => 30,"bp" => 1,"rsc" => ["wood2_#00" => 15,"metal_#00" => 15,], "orderby" => 16],
             // TODO: Night watch action
-            ["name" => "Brustwehr","temporary" => 0,"img" => "small_round_path","vp" => 0,"ap" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 6,"metal_#00" => 2,"meca_parts_#00" => 1,], "orderby" => 17],
+            ["name" => "Brustwehr", 'desc' => '',"temporary" => 0,"img" => "small_round_path","vp" => 0,"ap" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 6,"metal_#00" => 2,"meca_parts_#00" => 1,], "orderby" => 17],
         ]],
 
-        ["name" => "Pumpe","maxLevel" => 5,"temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 25,"bp" => 0,"rsc" => ["metal_#00" => 8,"tube_#00" => 1,], "orderby" => 1,
+        ["name" => "Pumpe",'desc' => 'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.', "maxLevel" => 5,"temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 25,"bp" => 0,"rsc" => ["metal_#00" => 8,"tube_#00" => 1,], "orderby" => 1,
             "upgradeTexts" => [
                 'Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt',
                 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt',
@@ -81,16 +81,16 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt',
                 'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt',
             ], "children" => [
-            ["name" => "Wasserreiniger","temporary" => 0,"img" => "item_jerrycan","vp" => 0,"ap" => 75,"bp" => 0,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 5,"metal_#00" => 6,"tube_#00" => 3,], "orderby" => 0, "children" => [
-                ["name" => "Minen","temporary" => 1,"img" => "item_bgrenade","vp" => 115,"ap" => 50,"bp" => 2,"rsc" => ["water_#00" => 10,"metal_#00" => 3,"explo_#00" => 1,"deto_#00" => 1,], "orderby" => 0],
-                ["name" => "Wasserfilter","temporary" => 0,"img" => "item_jerrycan","vp" => 0,"ap" => 60,"bp" => 3,"rsc" => ["metal_#00" => 10,"electro_#00" => 2,"fence_#00" => 1,], "orderby" => 1],
+            ["name" => "Wasserreiniger", 'desc' => 'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.',"temporary" => 0,"img" => "item_jerrycan","vp" => 0,"ap" => 75,"bp" => 0,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 5,"metal_#00" => 6,"tube_#00" => 3,], "orderby" => 0, "children" => [
+                ["name" => "Minen", 'desc' => 'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.',"temporary" => 1,"img" => "item_bgrenade","vp" => 115,"ap" => 50,"bp" => 2,"rsc" => ["water_#00" => 10,"metal_#00" => 3,"explo_#00" => 1,"deto_#00" => 1,], "orderby" => 0],
+                ["name" => "Wasserfilter", 'desc' => 'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).',"temporary" => 0,"img" => "item_jerrycan","vp" => 0,"ap" => 60,"bp" => 3,"rsc" => ["metal_#00" => 10,"electro_#00" => 2,"fence_#00" => 1,], "orderby" => 1],
             ]],
-            ["name" => "Gemüsebeet","temporary" => 0,"img" => "item_vegetable_tasty","vp" => 0,"ap" => 60,"bp" => 1,"rsc" => ["water_#00" => 10,"pharma_#00" => 1,"wood_beam_#00" => 10,], "orderby" => 1, "children" => [
-                ["name" => "Granatapfel","temporary" => 0,"img" => "item_bgrenade","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["water_#00" => 10,"wood2_#00" => 5,"explo_#00" => 5,], "orderby" => 0],
-                ["name" => "Dünger","temporary" => 0,"img" => "item_digger","vp" => 0,"ap" => 30,"bp" => 3,"rsc" => ["water_#00" => 10,"drug_#00" => 2,"metal_#00" => 5,"pharma_#00" => 8,], "orderby" => 1],
+            ["name" => "Gemüsebeet", 'desc' => 'Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.',"temporary" => 0,"img" => "item_vegetable_tasty","vp" => 0,"ap" => 60,"bp" => 1,"rsc" => ["water_#00" => 10,"pharma_#00" => 1,"wood_beam_#00" => 10,], "orderby" => 1, "children" => [
+                ["name" => "Granatapfel", 'desc' => 'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!',"temporary" => 0,"img" => "item_bgrenade","vp" => 0,"ap" => 30,"bp" => 2,"rsc" => ["water_#00" => 10,"wood2_#00" => 5,"explo_#00" => 5,], "orderby" => 0],
+                ["name" => "Dünger", 'desc' => 'Verbessert die Ausbeute des Gemüsebeets erheblich.',"temporary" => 0,"img" => "item_digger","vp" => 0,"ap" => 30,"bp" => 3,"rsc" => ["water_#00" => 10,"drug_#00" => 2,"metal_#00" => 5,"pharma_#00" => 8,], "orderby" => 1],
             ]],
-            ["name" => "Brunnenbohrer","temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 60,"bp" => 0,"rsc" => ["wood_beam_#00" => 7,"metal_beam_#00" => 2,], "orderby" => 2, "children" => [
-                ["name" => "Projekt Eden","temporary" => 0,"img" => "small_eden","vp" => 0,"ap" => 65,"bp" => 3,"rsc" => ["explo_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 8,], "orderby" => 0],
+            ["name" => "Brunnenbohrer", 'desc' => 'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.',"temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 60,"bp" => 0,"rsc" => ["wood_beam_#00" => 7,"metal_beam_#00" => 2,], "orderby" => 2, "children" => [
+                ["name" => "Projekt Eden",'desc' => 'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.', "temporary" => 0,"img" => "small_eden","vp" => 0,"ap" => 65,"bp" => 3,"rsc" => ["explo_#00" => 2,"wood_beam_#00" => 5,"metal_beam_#00" => 8,], "orderby" => 0],
             ]],
             ["name" => "Wasserleitungsnetz","temporary" => 0,"img" => "item_firework_tube","vp" => 0,"ap" => 40,"bp" => 0,"rsc" => ["meca_parts_#00" => 3,"metal_#00" => 5,"tube_#00" => 2,"metal_beam_#00" => 5,], "orderby" => 3, "children" => [
                 ["name" => "Kärcher","temporary" => 0,"img" => "small_waterspray","vp" => 50,"ap" => 50,"bp" => 0,"rsc" => ["water_#00" => 10,"meca_parts_#00" => 1,"wood2_#00" => 10,"metal_beam_#00" => 7,], "orderby" => 0],

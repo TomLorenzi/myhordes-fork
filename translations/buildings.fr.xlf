@@ -2170,5 +2170,320 @@
         <target>Verbessert die Stadtverteidigung erheblich.</target>
       </segment>
     </unit>
+    <unit id="alG3UeZ" name="Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...">
+      <notes>
+        <note category="german">Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</note>
+      </notes>
+      <segment>
+        <source>Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</source>
+        <target>Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</target>
+      </segment>
+    </unit>
+    <unit id="7x7Oosl" name="8639fd4">
+      <notes>
+        <note category="german">Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</note>
+      </notes>
+      <segment>
+        <source>Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</source>
+        <target>Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</target>
+      </segment>
+    </unit>
+    <unit id="OlGNj.x" name="e41ab16">
+      <notes>
+        <note category="german">Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</note>
+      </notes>
+      <segment>
+        <source>Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</source>
+        <target>Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</target>
+      </segment>
+    </unit>
+    <unit id="nbhWg4T" name="fc48a72">
+      <notes>
+        <note category="german">Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</note>
+      </notes>
+      <segment>
+        <source>Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</source>
+        <target>Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</target>
+      </segment>
+    </unit>
+    <unit id="uqeZxiJ" name="533c76d">
+      <notes>
+        <note category="german">Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</note>
+      </notes>
+      <segment>
+        <source>Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</source>
+        <target>Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</target>
+      </segment>
+    </unit>
+    <unit id="VUO6ZQB" name="5f267a2">
+      <notes>
+        <note category="german">Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</note>
+      </notes>
+      <segment>
+        <source>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</source>
+        <target>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</target>
+      </segment>
+    </unit>
+    <unit id="b82mDa7" name="0068ba5">
+      <notes>
+        <note category="german">Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</note>
+      </notes>
+      <segment>
+        <source>Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</source>
+        <target>Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</target>
+      </segment>
+    </unit>
+    <unit id="Vj7jtcM" name="Was ist besser als eine Mauer?... eine groooße Mauer.">
+      <notes>
+        <note category="german">Was ist besser als eine Mauer?... eine groooße Mauer.</note>
+      </notes>
+      <segment>
+        <source>Was ist besser als eine Mauer?... eine groooße Mauer.</source>
+        <target>Was ist besser als eine Mauer?... eine groooße Mauer.</target>
+      </segment>
+    </unit>
+    <unit id="k9tIPH5" name="cc44880">
+      <notes>
+        <note category="german">Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</note>
+      </notes>
+      <segment>
+        <source>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</source>
+        <target>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</target>
+      </segment>
+    </unit>
+    <unit id="QlkvLUP" name="cda28d7">
+      <notes>
+        <note category="german">Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</note>
+      </notes>
+      <segment>
+        <source>Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</source>
+        <target>Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</target>
+      </segment>
+    </unit>
+    <unit id="Hsxeh9L" name="9c09495">
+      <notes>
+        <note category="german">Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</note>
+      </notes>
+      <segment>
+        <source>Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</source>
+        <target>Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</target>
+      </segment>
+    </unit>
+    <unit id="41kkH05" name="f85a024">
+      <notes>
+        <note category="german">Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</note>
+      </notes>
+      <segment>
+        <source>Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</source>
+        <target>Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</target>
+      </segment>
+    </unit>
+    <unit id="v.0jNwa" name="98cd64a">
+      <notes>
+        <note category="german">Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</note>
+      </notes>
+      <segment>
+        <source>Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</source>
+        <target>Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</target>
+      </segment>
+    </unit>
+    <unit id="CVzqVBH" name="cf31e46">
+      <notes>
+        <note category="german">Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</note>
+      </notes>
+      <segment>
+        <source>Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</source>
+        <target>Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</target>
+      </segment>
+    </unit>
+    <unit id="AgaRcDn" name="af1210c">
+      <notes>
+        <note category="german">Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</note>
+      </notes>
+      <segment>
+        <source>Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</source>
+        <target>Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</target>
+      </segment>
+    </unit>
+    <unit id="DN2044C" name="5a04f76">
+      <notes>
+        <note category="german">Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</note>
+      </notes>
+      <segment>
+        <source>Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</source>
+        <target>Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</target>
+      </segment>
+    </unit>
+    <unit id="85XW3IL" name="08554a6">
+      <notes>
+        <note category="german">Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</source>
+        <target>Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</target>
+      </segment>
+    </unit>
+    <unit id="w95tNyR" name="a375ce9">
+      <notes>
+        <note category="german">Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</note>
+      </notes>
+      <segment>
+        <source>Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</source>
+        <target>Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</target>
+      </segment>
+    </unit>
+    <unit id="5.RgfZ7" name="ace174e">
+      <notes>
+        <note category="german">Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</note>
+      </notes>
+      <segment>
+        <source>Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</source>
+        <target>Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="Zz9vCXZ" name="ed3b85b">
+      <notes>
+        <note category="german">Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</note>
+      </notes>
+      <segment>
+        <source>Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</source>
+        <target>Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</target>
+      </segment>
+    </unit>
+    <unit id="etVSYqn" name="3c8d90e">
+      <notes>
+        <note category="german">Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</note>
+      </notes>
+      <segment>
+        <source>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</source>
+        <target>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</target>
+      </segment>
+    </unit>
+    <unit id="Wv2Tkzm" name="df68e2a">
+      <notes>
+        <note category="german">Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</note>
+      </notes>
+      <segment>
+        <source>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</source>
+        <target>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</target>
+      </segment>
+    </unit>
+    <unit id="wwPL56w" name="Simpel aber stabil: Was will man mehr?">
+      <notes>
+        <note category="german">Simpel aber stabil: Was will man mehr?</note>
+      </notes>
+      <segment>
+        <source>Simpel aber stabil: Was will man mehr?</source>
+        <target>Simpel aber stabil: Was will man mehr?</target>
+      </segment>
+    </unit>
+    <unit id="K1vyfyY" name="d56c866">
+      <notes>
+        <note category="german">Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</note>
+      </notes>
+      <segment>
+        <source>Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</source>
+        <target>Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</target>
+      </segment>
+    </unit>
+    <unit id="eK_yqJ_" name="e8c4516">
+      <notes>
+        <note category="german">Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</note>
+      </notes>
+      <segment>
+        <source>Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</source>
+        <target>Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</target>
+      </segment>
+    </unit>
+    <unit id="_CopYmu" name="d33f320">
+      <notes>
+        <note category="german">Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</note>
+      </notes>
+      <segment>
+        <source>Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</source>
+        <target>Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</target>
+      </segment>
+    </unit>
+    <unit id="Jm1gYDh" name="a1c0ce7">
+      <notes>
+        <note category="german">Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</note>
+      </notes>
+      <segment>
+        <source>Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</source>
+        <target>Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</target>
+      </segment>
+    </unit>
+    <unit id="JUzCldV" name="Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).">
+      <notes>
+        <note category="german">Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</source>
+        <target>Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</target>
+      </segment>
+    </unit>
+    <unit id="0YWGkKC" name="Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.">
+      <notes>
+        <note category="german">Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</note>
+      </notes>
+      <segment>
+        <source>Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</source>
+        <target>Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</target>
+      </segment>
+    </unit>
+    <unit id="9HvFFQs" name="e3bcae9">
+      <notes>
+        <note category="german">Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</note>
+      </notes>
+      <segment>
+        <source>Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</source>
+        <target>Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</target>
+      </segment>
+    </unit>
+    <unit id="22o71lr" name="Verbessert die Ausbeute des Gemüsebeets erheblich.">
+      <notes>
+        <note category="german">Verbessert die Ausbeute des Gemüsebeets erheblich.</note>
+      </notes>
+      <segment>
+        <source>Verbessert die Ausbeute des Gemüsebeets erheblich.</source>
+        <target>Verbessert die Ausbeute des Gemüsebeets erheblich.</target>
+      </segment>
+    </unit>
+    <unit id="KDZvWuv" name="db86465">
+      <notes>
+        <note category="german">Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</note>
+      </notes>
+      <segment>
+        <source>Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</source>
+        <target>Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</target>
+      </segment>
+    </unit>
+    <unit id="p7IMr5R" name="b4dc0a9">
+      <notes>
+        <note category="german">Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</note>
+      </notes>
+      <segment>
+        <source>Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</source>
+        <target>Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</target>
+      </segment>
+    </unit>
+    <unit id="gPEBQqi" name="c805ad6">
+      <notes>
+        <note category="german">Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</source>
+        <target>Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</target>
+      </segment>
+    </unit>
+    <unit id="oCXgsQA" name="91e1569">
+      <notes>
+        <note category="german">Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</note>
+      </notes>
+      <segment>
+        <source>Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</source>
+        <target>Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
