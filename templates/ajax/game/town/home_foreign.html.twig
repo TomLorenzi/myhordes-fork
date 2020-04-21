@@ -113,8 +113,8 @@
 
     <div class="row">
         <div class="cell rw-14">
-            {% if owner.alive %}
-                {% if user.isAdmin %}
+            {% if is_granted('ROLE_ADMIN') %}
+                {% if owner.alive %}
                         <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>      
                 {% endif %}       
             {% endif %} 
@@ -155,7 +155,7 @@
                         $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                     } );
             })
-            {% if user.isAdmin %}
+            {% if is_granted('ROLE_ADMIN') %}
                 const adminButtons = document.querySelectorAll('[x-admin-action]');
                 for (let i = 0; i < adminButtons.length; i++)
                     adminButtons[i].addEventListener('click', function() {

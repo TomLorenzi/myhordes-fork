@@ -232,8 +232,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     {
         if ($id === $this->getActiveCitizen()->getId())
             return $this->redirect($this->generateUrl('town_house'));
-        /** @var User $user */
-        $user = $this->getActiveCitizen()->getUser();
         /** @var Citizen $c */
         $c = $em->getRepository(Citizen::class)->find( $id );
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
@@ -284,7 +282,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
-            'user' => $user,
             'home' => $home,
             'actions' => $this->getItemActions(),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
