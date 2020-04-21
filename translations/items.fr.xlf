@@ -4497,7 +4497,7 @@
       </notes>
       <segment>
         <source>Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).</source>
-        <target>Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).</target>
+        <target>La gourde vous permet de vous désaltérer en dehors de la ville. L'eau permet de récupérer ses points d'action (1 fois par jour) et d'étancher la soif (pas de limitation par jour).</target>
       </segment>
     </unit>
     <unit id="cNFr.Tu" name="8d024d4">
@@ -4508,7 +4508,7 @@
       </notes>
       <segment>
         <source>Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...</source>
-        <target>Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...</target>
+        <target>La Pile sert à plein de trucs. Mais ça se décharge des fois trop vite...</target>
       </segment>
     </unit>
     <unit id="bs5aNY9" name="ef7edd6">
@@ -4530,7 +4530,7 @@
       </notes>
       <segment>
         <source>Jetzt mach mal kein Gezeter, schließ dein Augen, mach deinen Mund ganz weit auf und runter damit! Du wirst sehen, dass es dir danach besser geht.</source>
-        <target>Jetzt mach mal kein Gezeter, schließ dein Augen, mach deinen Mund ganz weit auf und runter damit! Du wirst sehen, dass es dir danach besser geht.</target>
+        <target>Allez, on ferme les yeux, on ouvre bien grand la bouche et on avale tout. On se sent toujours mieux après.</target>
       </segment>
     </unit>
     <unit id="mCX3m7c" name="84a3529">
@@ -4728,7 +4728,7 @@
       </notes>
       <segment>
         <source>Gib es ruhig zu: Die Zombies sind für dich schon immer Feuer und Flamme gewesen.</source>
-        <target>Gib es ruhig zu: Die Zombies sind für dich schon immer Feuer und Flamme gewesen.</target>
+        <target>Comme dit le dicton : on ne peut pas faire feu de tout bois. Faites le mentir...</target>
       </segment>
     </unit>
     <unit id="c6Qh6pH" name="Entspann dich... das wird nicht die letzte sein, die du brauchst.">
@@ -4882,7 +4882,7 @@
       </notes>
       <segment>
         <source>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst es auch auf einen Zombie werfen...</source>
-        <target>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst es auch auf einen Zombie werfen...</target>
+        <target>Bon, il n'y a plus qu'à trouver un boucher. Accessoirement, ça peut aussi se lancer sur un zombie...</target>
       </segment>
     </unit>
     <unit id="i.qjHR." name="d9811e5">
@@ -4959,7 +4959,7 @@
       </notes>
       <segment>
         <source>Es ist labbrig wie weiches Gummi und es riecht nach Fisch ... Was das wohl für ein Fleisch ist? Jedenfalls hat es bestimmt viele Vitamine und Proteine (und sonst hoffentlich nichts).</source>
-        <target>Es ist labbrig wie weiches Gummi und es riecht nach Fisch ... Was das wohl für ein Fleisch ist? Jedenfalls hat es bestimmt viele Vitamine und Proteine (und sonst hoffentlich nichts).</target>
+        <target>C'est un peu élastique et ça sent même le poisson... On se demande bien ce que ça Peut être, mais c'est surement plein de vitamines (et pas d'autres choses, espérez-vous).</target>
       </segment>
     </unit>
     <unit id="CiklaSg" name="cb1e755">
@@ -5003,7 +5003,7 @@
       </notes>
       <segment>
         <source>Der "Jerrycan" kann mehrere Rationen nicht-trinkbares Wasser aufnehmen. Sobald die Stadt über eine passende Filteranlage verfügt, kann dieses Wasser trinkbar gemacht werden.</source>
-        <target>Der "Jerrycan" kann mehrere Rationen nicht-trinkbares Wasser aufnehmen. Sobald die Stadt über eine passende Filteranlage verfügt, kann dieses Wasser trinkbar gemacht werden.</target>
+        <target>Le Jerrycan contient plusieurs rations d'eau non-potable (non-purifiée). Toutefois, il faut que la ville dispose du bâtiment de filtrage adapté pour en faire de l'eau potable.</target>
       </segment>
     </unit>
     <unit id="y7KBW_u" name="Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...">
@@ -5069,7 +5069,7 @@
       </notes>
       <segment>
         <source>Sie riecht schlecht und weist ein paar Schimmelspuren auf, aber jetzt mal ganz ehrlich: In dieser Lage kannst du nicht rumnörgeln. Mit der Bandage kannst du eine Wunde verbinden.</source>
-        <target>Sie riecht schlecht und weist ein paar Schimmelspuren auf, aber jetzt mal ganz ehrlich: In dieser Lage kannst du nicht rumnörgeln. Mit der Bandage kannst du eine Wunde verbinden.</target>
+        <target>Ça sent mauvais, il y a des traces de moisissure, mais franchement, vous n'êtes pas en position de faire votre difficile. Ce bandage permet de panser une blessure.</target>
       </segment>
     </unit>
     <unit id="OZqUY1M" name="cd068e9">
@@ -5212,7 +5212,7 @@
       </notes>
       <segment>
         <source>Eine Art Einkaufswagen aus Metall. Leider fehlt ihm eine Radachse. Du müsstest sie durch irgendetwas ersetzen...</source>
-        <target>Eine Art Einkaufswagen aus Metall. Leider fehlt ihm eine Radachse. Du müsstest sie durch irgendetwas ersetzen...</target>
+        <target>Un genre de gros chariot métallique, mais l'un des essieux est manquant. Il faudrait quelque chose pour le remplacer...</target>
       </segment>
     </unit>
     <unit id="k8_M.9C" name="782ae19">
@@ -5300,7 +5300,7 @@
       </notes>
       <segment>
         <source>Ein paar geheimnisvolle Substanzen und ein kleines Fläschchen. Alles ist in Plastik eingepackt. Kein Plan, wozu du das gebrauchen kannst... Vielleicht kann man einige der Substanzen mit anderen Produkten mischen?</source>
-        <target>Ein paar geheimnisvolle Substanzen und ein kleines Fläschchen. Alles ist in Plastik eingepackt. Kein Plan, wozu du das gebrauchen kannst... Vielleicht kann man einige der Substanzen mit anderen Produkten mischen?</target>
+        <target>Un petit flacon et des produits mystérieux emballés sous plastique. Aucune idée de ce à quoi ça peut bien servir… Peut être qu'en le mélangeant avec un autre produit ?</target>
       </segment>
     </unit>
     <unit id="nxsIuy0" name="b159bed">
@@ -5322,7 +5322,7 @@
       </notes>
       <segment>
         <source>Ein Cocktail, der Tote weckt und der von Chuck erfunden wurde (wenn man dem Etikett glaubt...). Man nehme einen guten Schuss Rum, etwas roten Chili, Whisky und einen marinierten Finger, der in einer Flüssigkeit schwimmt...</source>
-        <target>Ein Cocktail, der Tote weckt und der von Chuck erfunden wurde (wenn man dem Etikett glaubt...). Man nehme einen guten Schuss Rum, etwas roten Chili, Whisky und einen marinierten Finger, der in einer Flüssigkeit schwimmt...</target>
+        <target>Un cocktail inventé par un certain Joey si on en croit l'étiquette. Mélange de rhum, de piment rouge et de whiskey, avec un doigt mariné qui flotte entre deux eaux...</target>
       </segment>
     </unit>
     <unit id="1EPTr9x" name="d7666cd">
@@ -5399,7 +5399,7 @@
       </notes>
       <segment>
         <source>Ein altes Transistorradio mit Kassettenfach. Es ist ein Blues-Klasette drin. Mit dem Radio wirst du nicht viel anfangen können, da du hier sowieso nichts empfängst, aber du kannst ein bisschen Musik hören. Das übertönt das Geschrei deiner Nachbarn... Jetzt brauchst du nur noch eine Batterie.</source>
-        <target>Ein altes Transistorradio mit Kassettenfach. Es ist ein Blues-Klasette drin. Mit dem Radio wirst du nicht viel anfangen können, da du hier sowieso nichts empfängst, aber du kannst ein bisschen Musik hören. Das übertönt das Geschrei deiner Nachbarn... Jetzt brauchst du nur noch eine Batterie.</target>
+	<target>Un ancien transistor sans pile avec une cassette de blues dedans. La radio elle-même est inutile car on ne capte plus rien de nos jours.. Mais avoir un peu de musique chez soi pour couvrir les hurlements de ses voisins en train de se faire dévorer est toujours appréciable. Reste à trouver une pile.</target>
       </segment>
     </unit>
     <unit id="jqtIi9L" name="5f8f5d3">
@@ -5465,7 +5465,7 @@
       </notes>
       <segment>
         <source>Diese Eisenkiste enthält alle wichtigen Werkzeuge und Materialien um so ziemlich alles zur reparieren... außer vielleicht deinen toten Nachbarn.</source>
-        <target>Diese Eisenkiste enthält alle wichtigen Werkzeuge und Materialien um so ziemlich alles zur reparieren... außer vielleicht deinen toten Nachbarn.</target>
+        <target>Cette boîte en ferraille contient tout le nécessaire de base pour remettre en état à peu près n'importe quoi. Sauf vos voisins morts.</target>
       </segment>
     </unit>
     <unit id="AQfHRUx" name="f859eec">
@@ -5608,7 +5608,7 @@
       </notes>
       <segment>
         <source>Ein großer Zementsack von mittelmäßiger Qualität... Wenn du den Zement in Wasser auflöst trocknet er ziemlich schnell und du erhälst einen besonders festen Beton, den du für allerhand Konstruktionen verwenden kannst!</source>
-        <target>Ein großer Zementsack von mittelmäßiger Qualität... Wenn du den Zement in Wasser auflöst trocknet er ziemlich schnell und du erhälst einen besonders festen Beton, den du für allerhand Konstruktionen verwenden kannst!</target>
+        <target>Un gros sac de ciment de qualité très moyenne… Une fois dilué dans de l'eau, ça sèche rapidement pour donner du béton particulièrement résistant !</target>
       </segment>
     </unit>
     <unit id="84bvY__" name="e36ffdd">
@@ -5674,7 +5674,7 @@
       </notes>
       <segment>
         <source>Eine fettverschmierte alte Papiertüte, in der wohl irgendetwas zum Essen drin ist... Sie riecht aber schlecht.</source>
-        <target>Eine fettverschmierte alte Papiertüte, in der wohl irgendetwas zum Essen drin ist... Sie riecht aber schlecht.</target>
+        <target>Un vieux sac tout graisseux en papier qui doit bien contenir quelque chose à manger… Notez qu'il sent mauvais.</target>
       </segment>
     </unit>
     <unit id="VfdarmP" name="d059ecf">
@@ -5685,7 +5685,7 @@
       </notes>
       <segment>
         <source>Die Kartoffelchips sind total weich und schmecken nach trockenem Papier. Du hast aber keine Wahl: Essen ist Essen.</source>
-        <target>Die Kartoffelchips sind total weich und schmecken nach trockenem Papier. Du hast aber keine Wahl: Essen ist Essen.</target>
+        <target>Les chips de ce paquet sont molles et ont un goût de papier séché, mais on ne va pas faire le difficile… Un repas est un repas.</target>
       </segment>
     </unit>
     <unit id="jLUU39F" name="9c6839e">
@@ -5707,7 +5707,7 @@
       </notes>
       <segment>
         <source>Eine handvoll staubtrockener Kaugummis. Normalerweise werden sie gekaut und nicht geschluckt, aber du solltest besser nicht rumnörgeln ... viel anderes gibt es nicht.</source>
-        <target>Eine handvoll staubtrockener Kaugummis. Normalerweise werden sie gekaut und nicht geschluckt, aber du solltest besser nicht rumnörgeln ... viel anderes gibt es nicht.</target>
+        <target>Une pleine poignée de chewing-gums tout séchés. En théorie, ça se mâche, mais ça ne s'avale pas. Seulement, dans cet enfer, vous n'êtes pas en position de faire le ou la difficile...</target>
       </segment>
     </unit>
     <unit id="bLDuFLr" name="5e185e0">
@@ -5729,7 +5729,7 @@
       </notes>
       <segment>
         <source>Zwei Hähnchenflügel, die schon jemand vor dir angebissen hat, bevor er sie weggeworfen hat... Hmmm...</source>
-        <target>Zwei Hähnchenflügel, die schon jemand vor dir angebissen hat, bevor er sie weggeworfen hat... Hmmm...</target>
+        <target>Deux ailerons de poulet que quelqu'un a déja commencé à manger avant de les jeter ... Hmmm ...</target>
       </segment>
     </unit>
     <unit id="_JzOhOO" name="Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.">
@@ -5740,7 +5740,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.</source>
-        <target>Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.</target>
+        <target>Une poignée de biscuits fourrés à la confiture de ... en fait vous l'ignorez... Peut-être un fruit. Mais ça a un gout de viande maintenant.</target>
       </segment>
     </unit>
     <unit id="8GFm4Zq" name="Ein streng riechendes Törtchen... Denk einfach an etwas Leckeres.">
@@ -5751,7 +5751,7 @@
       </notes>
       <segment>
         <source>Ein streng riechendes Törtchen... Denk einfach an etwas Leckeres.</source>
-        <target>Ein streng riechendes Törtchen... Denk einfach an etwas Leckeres.</target>
+        <target>Une tartelette qui sent vraiment fort... Pensez à quelque chose d'agréable pendant que vous l'avalerez.</target>
       </segment>
     </unit>
     <unit id="tI2e4WH" name="2610835">
@@ -5762,7 +5762,7 @@
       </notes>
       <segment>
         <source>Der Rest eines Schinkenbrötchens. Die grünlich-weiß verschimmelten Schinkenecken lassen sich kurzerhand unter dem Brot verstecken und dann nichts wie runter damit...</source>
-        <target>Der Rest eines Schinkenbrötchens. Die grünlich-weiß verschimmelten Schinkenecken lassen sich kurzerhand unter dem Brot verstecken und dann nichts wie runter damit...</target>
+        <target>Un reste de casse-croute qui n'a d'appétissant que son souvenir...</target>
       </segment>
     </unit>
     <unit id="E1prugE" name="a1f7dd0">
@@ -5839,7 +5839,7 @@
       </notes>
       <segment>
         <source>Er vibriert und kitzelt dich am ganzen Körper und lässt dich für einen Augenblick all deine Sorgen vergessen (benötigt 1 Batterie).</source>
-        <target>Er vibriert und kitzelt dich am ganzen Körper und lässt dich für einen Augenblick all deine Sorgen vergessen (benötigt 1 Batterie).</target>
+        <target>Il vibre, vous titille et vous chatouille et vous fait oublier tous vos soucis pendant quelques instants (nécessite 1 pile par utilisation).</target>
       </segment>
     </unit>
     <unit id="aG.hkbx" name="b6c8244">
@@ -5938,7 +5938,7 @@
       </notes>
       <segment>
         <source>Ein uraltes Haushaltsgerät, von dem du aber nicht weißt, für welchen Zweck es bestimmt war. Vielleicht erhälst du ein paar nützliche Sachen wenn du es auseinanderbaust?</source>
-        <target>Ein uraltes Haushaltsgerät, von dem du aber nicht weißt, für welchen Zweck es bestimmt war. Vielleicht erhälst du ein paar nützliche Sachen wenn du es auseinanderbaust?</target>
+        <target>Un vieil appareil électro-ménager impossible à identifier. Peut-être qu'en le démontant vous pourriez obtenir quelque chose ?</target>
       </segment>
     </unit>
     <unit id="G5eZFkR" name="0274ede">
@@ -6114,7 +6114,7 @@
       </notes>
       <segment>
         <source>'Reparatur Fix' ist ein kleines Reparaturkit für den einmaligen Gebrauch, mit dem du fast alles richten kannst. Es enthält das übliche Grundwerkzeug, ein paar Plastikersatzteile und eine Do-it-yourself-Anleitung in sieben Sprachen.</source>
-        <target>'Reparatur Fix' ist ein kleines Reparaturkit für den einmaligen Gebrauch, mit dem du fast alles richten kannst. Es enthält das übliche Grundwerkzeug, ein paar Plastikersatzteile und eine Do-it-yourself-Anleitung in sieben Sprachen.</target>
+        <target>Un petit kit à usage unique pour réparer tout et n'importe quoi. Il contient quelques outils basiques, des pièces plastique de recharge et un guide du petit bricoleur imprimé en 7 langues.</target>
       </segment>
     </unit>
     <unit id="1QWEV2j" name="d55af05">
@@ -6235,7 +6235,7 @@
       </notes>
       <segment>
         <source>Eine nicht ganz durchgegarte wilde Mischung verschiedenster Zutaten, fein abgeschmeckt mit Wüstensand. Hhhmmm...</source>
-        <target>Eine nicht ganz durchgegarte wilde Mischung verschiedenster Zutaten, fein abgeschmeckt mit Wüstensand. Hhhmmm...</target>
+        <target>Des ingrédients combinés un peu n'importe comment, une ébauche de cuisson et un assaisonnement au sable du désert. Hmmm...</target>
       </segment>
     </unit>
     <unit id="JC9hz5c" name="a5c498c">
@@ -6576,7 +6576,7 @@
       </notes>
       <segment>
         <source>Die Wirkung dieser Tablette ist höchst zweifelhaft... Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</source>
-        <target>Die Wirkung dieser Tablette ist höchst zweifelhaft... Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</target>
+        <target>Ce petit cachet a un effet pour le moins mystérieux... Sur la boîte, il est écrit: "ne pas donner à un testeur de moins de 18 ans". Étrange.</target>
       </segment>
     </unit>
     <unit id="fd6CFQ." name="76b5230">
@@ -6609,7 +6609,7 @@
       </notes>
       <segment>
         <source>Eine glitschige Kugel aus zusammengeklebten "Aasbeeren" "Aasbeeren" wachsen hauptsächtlich auf Kadavern.</source>
-        <target>Eine glitschige Kugel aus zusammengeklebten "Aasbeeren" "Aasbeeren" wachsen hauptsächtlich auf Kadavern.</target>
+        <target>Un agrégat de "Charognardes", une baie qui pousse essentiellement sur des cadavres...</target>
       </segment>
     </unit>
     <unit id=".XQYK8l" name="1949499">

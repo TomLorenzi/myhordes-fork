@@ -7914,10 +7914,7 @@
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</target>
+        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
       </segment>
     </unit>
     <unit id="cycrpjD" name="fba1e38">
