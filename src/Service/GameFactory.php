@@ -208,7 +208,7 @@ class GameFactory
                 if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
                 else $previous[$target_ruin->getId()]++;
 
-                $zone_list[$i]->setPrototype( $target_ruin );
+                $zone_list[$i]->setPrototype( $target_ruin )->setBlueprint(Zone::BlueprintAvailable);
 
                 if ($this->random_generator->chance(0.4)) $zone_list[$i]->setBuryCount( mt_rand(6, 20) );
             } else
