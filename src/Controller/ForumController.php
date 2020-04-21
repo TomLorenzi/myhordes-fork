@@ -107,7 +107,7 @@ class ForumController extends AbstractController
         /** @var Citizen $citizen */
         $citizen = $em->getRepository(Citizen::class)->findActiveByUser( $user );
 
-        if ($citizen->getAlive() && $citizen->getTown()->getForum())
+        if ($citizen !== null && $citizen->getAlive() && $citizen->getTown()->getForum())
             return $this->redirect($this->generateUrl('forum_view', ['id' => $citizen->getTown()->getForum()->getId()]));
         else return $this->redirect( $this->generateUrl( 'forum_list' ) );
     }
