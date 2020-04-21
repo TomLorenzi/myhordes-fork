@@ -356,4 +356,12 @@ class ZoneHandler
 
         return $attributes;
     }
+
+    public function getZoneKm(Zone $zone): int {
+        return round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
+    }
+
+    public function getZoneAp(Zone $zone): int {
+        return abs($zone->getX()) + abs($zone->getY());
+    }
 }
