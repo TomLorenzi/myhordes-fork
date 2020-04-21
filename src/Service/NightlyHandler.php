@@ -730,7 +730,9 @@ class NightlyHandler
 
             foreach ($citizens as $citizen) {
                 // Removing citizen with 0 votes
-                if($votes[$role->getId()][$citizen->getId()] == 0) {
+                if(array_key_exists($role->getId(), $votes)
+                    && array_key_exists($citizen->getId(), $votes[$role->getId()])
+                    && $votes[$role->getId()][$citizen->getId()] == 0) {
                     unset($votes[$role->getId()][$citizen->getId()]);
                 }
             }
