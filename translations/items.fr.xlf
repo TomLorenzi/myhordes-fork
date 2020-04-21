@@ -4594,7 +4594,7 @@
       </notes>
       <segment>
         <source>Du magst es wenn es sauber ist und frisch nach Gras duftet? Vergiss das mal lieber ganz schnell. Wenn du ihn verwendest, wird es ganz anders riechen...</source>
-        <target>Du magst es wenn es sauber ist und frisch nach Gras duftet? Vergiss das mal lieber ganz schnell. Wenn du ihn verwendest, wird es ganz anders riechen...</target>
+        <target>Vous aimez quand c'est propre droit et que ça sent le frais ? En l'occurrence, oubliez tout ça ! Quand vous l'utiliserez ça ne sera pas le cas.</target>
       </segment>
     </unit>
     <unit id="kPJuOfz" name="23fc5bc">
@@ -4605,7 +4605,7 @@
       </notes>
       <segment>
         <source>Mit einem verstellbaren Schraubenschlüssel kannst du wahlweise an einem Gegenstand herumbasteln oder etwas zerstören (muss nicht unbedingt ein Gegenstand sein...)</source>
-        <target>Mit einem verstellbaren Schraubenschlüssel kannst du wahlweise an einem Gegenstand herumbasteln oder etwas zerstören (muss nicht unbedingt ein Gegenstand sein...)</target>
+        <target>Avec une clé à Molette, vous pouvez au choix bricoler un objet ou détruire quelque chose. Pas forcement un objet d'ailleurs…</target>
       </segment>
     </unit>
     <unit id="DN2IVby" name="ed0daff">
@@ -4616,7 +4616,7 @@
       </notes>
       <segment>
         <source>Um Schrauben festzudrehen oder zu lösen. Du kannst mit ihm etwas reparieren und zur Not auch eine Konservendose aufmachen. Wenn du ihn mit voller Wucht in einen Kopf rammst, kann er dir in Extremsituationen auch mal das Leben retten... </source>
-        <target>Um Schrauben festzudrehen oder zu lösen. Du kannst mit ihm etwas reparieren und zur Not auch eine Konservendose aufmachen. Wenn du ihn mit voller Wucht in einen Kopf rammst, kann er dir in Extremsituationen auch mal das Leben retten... </target>
+        <target>Le tournevis visse et dévisse, il vous permet de réparer des choses et à la limite, d'ouvrir des boîtes de conserve. En dernier ressort, plantez-le dans une tête: ça pourrait bien vous sauver la vie…</target>
       </segment>
     </unit>
     <unit id="dwk9h7d" name="d11d7c1">
@@ -4627,7 +4627,7 @@
       </notes>
       <segment>
         <source>Ein ziemlich großer trockener Stock, mit dem man etwas aufspießen kann. Allerdings sieht er etwas zerbrechlich aus... bete, dass er den Stoß übersteht und nicht bricht.</source>
-        <target>Ein ziemlich großer trockener Stock, mit dem man etwas aufspießen kann. Allerdings sieht er etwas zerbrechlich aus... bete, dass er den Stoß übersteht und nicht bricht.</target>
+        <target>Le Grand Bâton Sec. Il est suffisamment pointu pour empaler quelque chose, mais pas vraiment très résistant… Priez simplement pour qu'il tienne le choc.</target>
       </segment>
     </unit>
     <unit id="qsi6BQP" name="Skinner, Buck, Bowie ... , völlig egal, Hauptsache es schneidet.">
@@ -4638,7 +4638,7 @@
       </notes>
       <segment>
         <source>Skinner, Buck, Bowie ... , völlig egal, Hauptsache es schneidet.</source>
-        <target>Skinner, Buck, Bowie ... , völlig egal, Hauptsache es schneidet.</target>
+        <target>Skinner, Buck, Bowie… Dans tous les cas ça coupe.</target>
       </segment>
     </unit>
     <unit id="Utu_k5d" name="54796f8">
@@ -4660,7 +4660,7 @@
       </notes>
       <segment>
         <source>Taschenmesser [Substantiv, n]: Ein Taschenmesser ist ein Messer, dessen Klinge zum gefahrlosen Transport in den Griff eingeklappt werden kann. Wenn du schlau bist, lässt du es bei diesem Messer besser nicht drauf ankommen...</source>
-        <target>Taschenmesser [Substantiv, n]: Ein Taschenmesser ist ein Messer, dessen Klinge zum gefahrlosen Transport in den Griff eingeklappt werden kann. Wenn du schlau bist, lässt du es bei diesem Messer besser nicht drauf ankommen...</target>
+        <target>Canif [n.m.] : petit couteau de poche dont la lame se replie. Son porteur se replie aussi généralement s'il est intelligent.</target>
       </segment>
     </unit>
     <unit id="4eYiG07" name="d8f9776">
@@ -4671,7 +4671,7 @@
       </notes>
       <segment>
         <source>Das Schweizer Taschenmesser ist für viele kleinere Arbeiten nützlich. Für eine Horde lebender Untoter reicht es allerdings nicht ganz aus.</source>
-        <target>Das Schweizer Taschenmesser ist für viele kleinere Arbeiten nützlich. Für eine Horde lebender Untoter reicht es allerdings nicht ganz aus.</target>
+        <target>Le Couteau Suisse pourra sans soucis vous dépanner pour tous les petits travaux manuels, sauf peut-être découper une horde de mort-vivants.</target>
       </segment>
     </unit>
     <unit id="LDixYks" name="4c0e4a4">
@@ -4682,7 +4682,7 @@
       </notes>
       <segment>
         <source>Dieses kleine kükengelbe Messer mit ausfahrbarer Klinge passt hervorragend zu der Eingeweidenfarbe deiner untoten Freunde. Vorausgesetzt du kommst so weit.</source>
-        <target>Dieses kleine kükengelbe Messer mit ausfahrbarer Klinge passt hervorragend zu der Eingeweidenfarbe deiner untoten Freunde. Vorausgesetzt du kommst so weit.</target>
+        <target>Ce petit couteau à lame rétractable disponible en coloris mauve ou fushia s'accordera très bien avec la couleur des viscères de vos ennemis. Pour peu qu'il traverse.</target>
       </segment>
     </unit>
     <unit id="ROXG_WT" name="2454a12">
@@ -4704,7 +4704,7 @@
       </notes>
       <segment>
         <source>Wie der Name schon sagt: Bestens dafür geeignet, um eine Konservendose aufzumachen. Leider ist er etwas zu klein, um auch deine zweibeinigen Kameraden in der Wüste korrekt zu "öffnen".</source>
-        <target>Wie der Name schon sagt: Bestens dafür geeignet, um eine Konservendose aufzumachen. Leider ist er etwas zu klein, um auch deine zweibeinigen Kameraden in der Wüste korrekt zu "öffnen".</target>
+        <target>Il porte bien son nom, idéal pour les boîtes de conserve. Malheureusement, il est un peu petit pour ouvrir correctement vos camarades bipèdes dans le désert.</target>
       </segment>
     </unit>
     <unit id="E4yEEmW" name="a1553ba">
@@ -5034,7 +5034,7 @@
       </notes>
       <segment>
         <source>Gebrauchsanweisung: Auf einen Zombie werfen und beten, dass sie platzt. Anschließend warten bis es "Splatsch!!" macht.</source>
-        <target>Gebrauchsanweisung: Auf einen Zombie werfen und beten, dass sie platzt. Anschließend warten bis es "Splatsch!!" macht.</target>
+        <target>Jetez-la sur un zombie et priez pour que ça éclate. Puis attendez que ça éclate à nouveau.</target>
       </segment>
     </unit>
     <unit id="bEuvaZj" name="0caa94a">
@@ -5133,7 +5133,7 @@
       </notes>
       <segment>
         <source>Aus einer Plastiktüte, Wasser und etwas Sprengstoff bastelst du dir eine Massenvernichtungswaffe, die du nur noch in eine Zombiehorde werfen brauchst. Gibt ein nettes Massaker.</source>
-        <target>Aus einer Plastiktüte, Wasser und etwas Sprengstoff bastelst du dir eine Massenvernichtungswaffe, die du nur noch in eine Zombiehorde werfen brauchst. Gibt ein nettes Massaker.</target>
+        <target>Un sac plastique, de l'explosif et de l'eau. C'est artisanal, mais c'est surtout une arme de destruction massive d'une extrême puissance à jeter dans les hordes de zombies…</target>
       </segment>
     </unit>
     <unit id="ZP_9P7d" name="4e67b2d">
@@ -5562,7 +5562,7 @@
       </notes>
       <segment>
         <source>Ein schlichter Stuhl mit lustigem Namen aus schwedischer Herstellung. Man kann damit Leute vermöbeln, aber besser du stellst ihn dir ins Wohnzimmer...</source>
-        <target>Ein schlichter Stuhl mit lustigem Namen aus schwedischer Herstellung. Man kann damit Leute vermöbeln, aber besser du stellst ihn dir ins Wohnzimmer...</target>
+        <target>Une banale chaise de fabrication suédoise. On peut taper des gens avec, mais ca fonctionnera mieux si c'est simplement rangé en sécurité chez soi…</target>
       </segment>
     </unit>
     <unit id="1NgoafB" name="1fed0e4">
@@ -5859,7 +5859,7 @@
       </notes>
       <segment>
         <source>Ein trockener Knochen (wahrscheinlich ein Schienbein ), den jemand vor Kurzem abgenagt hat... Den kannst du bestimmt für etwas gebrauchen.</source>
-        <target>Ein trockener Knochen (wahrscheinlich ein Schienbein ), den jemand vor Kurzem abgenagt hat... Den kannst du bestimmt für etwas gebrauchen.</target>
+        <target>Un os (un tibia sans doute) tout séché que quelqu'un a rongé récemment semble-t-il… Ca doit pouvoir encore servir.</target>
       </segment>
     </unit>
     <unit id="ropW_5O" name="866fa62">
@@ -6123,7 +6123,7 @@
       </notes>
       <segment>
         <source>Diese uralte Waschmaschine ist das Relikt einer Ära, in der die Menschen noch Wert auf Sauberkeit legten. Heute kannst du nur noch darüber lachen...</source>
-        <target>Diese uralte Waschmaschine ist das Relikt einer Ära, in der die Menschen noch Wert auf Sauberkeit legten. Heute kannst du nur noch darüber lachen...</target>
+        <target>Une antique machine à laver le linge, artéfact d'une antique civilisation qui plaçait la propreté au dessus de toute autre préoccupation. Ça vous fait bien rigoler aujourd'hui…</target>
       </segment>
     </unit>
     <unit id="6vQFc.b" name="e12f9f5">
@@ -6134,7 +6134,7 @@
       </notes>
       <segment>
         <source>Legenden erzählen, dass die Mikrowellentechnologie einer der Gründe für den Untergang der menschlichen Zivilisation waren. Manche behaupten sogar, dass Mikrowellenöfen für das Auftauchen der Untoten verantwortlich seien...</source>
-        <target>Legenden erzählen, dass die Mikrowellentechnologie einer der Gründe für den Untergang der menschlichen Zivilisation waren. Manche behaupten sogar, dass Mikrowellenöfen für das Auftauchen der Untoten verantwortlich seien...</target>
+        <target>Les légendes racontent que la technologie à Micro-Ondes serait l'une des raisons du déclin de la civilisation. Certains disent même que l'existence même des morts-vivants n'y serait pas étrangère.</target>
       </segment>
     </unit>
     <unit id="TaLZmlN" name="b6ad4b1">
@@ -6145,7 +6145,7 @@
       </notes>
       <segment>
         <source>Leider enthält dieser kleine Kühlschrank keinen Alkohol mehr. Zudem funktioniert er nicht mehr. Allerdings könnte er ein gutes Wurfgeschoss abgeben.</source>
-        <target>Leider enthält dieser kleine Kühlschrank keinen Alkohol mehr. Zudem funktioniert er nicht mehr. Allerdings könnte er ein gutes Wurfgeschoss abgeben.</target>
+        <target>Une grosse machine pour garder les choses fraiches et les empêcher de pourrir trop vite. Elle ne fonctionne plus mais on doit bien pouvoir en tirer quelque chose.</target>
       </segment>
     </unit>
     <unit id="8UC4rXI" name="2faa4e1">
@@ -6222,7 +6222,7 @@
       </notes>
       <segment>
         <source>Diese alte Eisenkette ist total krumm und ist nicht mehr von großem Nutzen... Aber vielleicht kannst du jemanden damit erwürgen?</source>
-        <target>Diese alte Eisenkette ist total krumm und ist nicht mehr von großem Nutzen... Aber vielleicht kannst du jemanden damit erwürgen?</target>
+        <target>Cette vieille chaîne en fer est complètement distordue et n'a plus grande utilité… Mais on doit bien pouvoir étrangler quelqu'un avec.</target>
       </segment>
     </unit>
     <unit id="KZPKvxW" name="7af8522">
@@ -6915,7 +6915,7 @@
       </notes>
       <segment>
         <source>Sie ist sehr groß, fruchtig und macht "tick-tack".</source>
-        <target>Sie ist sehr groß, fruchtig und macht "tick-tack".</target>
+        <target>Il est très gros, juteux et il fait “tic tac”</target>
       </segment>
     </unit>
     <unit id="WY32pze" name="8686d0e">
@@ -7780,7 +7780,7 @@
       </notes>
       <segment>
         <source>Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.</source>
-        <target>Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.</target>
+        <target>Selon les époques, cette poudre a tour à tour servi de détonateur pour divers pièces d'artillerie, puis comme drogue bas de gamme pour citoyen en manque avant d'être utilisée comme ingrédient principal dans les feux d'artifice. Dans les 3 cas, beaucoup de gens n'y ont pas survécu.</target>
       </segment>
     </unit>
     <unit id="B3woSiS" name="Flush-Abschussrohr">
