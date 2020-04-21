@@ -321,6 +321,8 @@ class CitizenHandler
             $this->setBP($citizen,false, $this->getMaxBP( $citizen ),0);
         else $this->setBP($citizen, false, 0);
 
+        $this->setPM($citizen, false, 0);
+
         if ($profession->getName() !== 'none')
             $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
 

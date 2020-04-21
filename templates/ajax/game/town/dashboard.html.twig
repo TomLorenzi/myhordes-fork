@@ -32,7 +32,7 @@
                     {% if def < zeds_today[1] %}
                          <span class="warning">Our defences won’t stand up to tonight’s attack!
                             {% if has_battlement %}
-                            <div x-ajax-href="{{ path('town_dashboard') }}">You can help by joining the watchmen tonight!</div>
+                            <div x-ajax-href="{{ path('town_dashboard') }}">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}
                         </span>
                     {% elseif def > zeds_today[1] and def < zeds_today[2] %}

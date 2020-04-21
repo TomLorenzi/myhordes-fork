@@ -72,7 +72,7 @@
             </div>
         </div>
     {% endif %}
-    {% if pm is defined and max_pm is defined %}
+    {% if pm is defined and max_pm is defined and max_pm > 0 %}
         <div class="ulcont">
             <ul class="pm">
                 <li>{{ pm }}<em>/{{ max_pm }}</em></li>
@@ -88,7 +88,7 @@
             </div>
         </div>
     {% endif %}
-    {% if (banished is defined and banished) or roles|length > 0 %}
+    {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
         <ul class="civil">
             {% for role in roles %}
                 {# @var stat \App\Entity\CitizenRole #}

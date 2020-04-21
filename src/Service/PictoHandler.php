@@ -24,6 +24,7 @@ class PictoHandler
 
     public function give_picto(Citizen &$citizen, PictoPrototype $pictoPrototype, $count = 1){
         $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
+        echo "Giving picto {$pictoPrototype->getLabel()} to {$citizen->getUser()->getUsername()}\n";
         if($picto === null) $picto = new Picto();
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(0)
@@ -32,5 +33,6 @@ class PictoHandler
             ->setCount($picto->getCount()+$count);
 
         $this->entity_manager->persist($picto);
+        $this->entity_manager->flush();
     }
 }
