@@ -383,6 +383,6 @@ class ZoneHandler
         if($now >= new \DateTime("$year-12-20") && $now <= new \DateTime("$year-12-25"))
             return 'christmas_dig';
 
-        return 'christmas_dig';
+        return null;
     }
 }
