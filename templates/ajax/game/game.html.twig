@@ -88,7 +88,7 @@
             </div>
         </div>
     {% endif %}
-    {% if (banished is defined and banished) or roles|length > 0 %}
+    {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
         <ul class="civil">
             {% for role in roles %}
                 {# @var stat \App\Entity\CitizenRole #}
