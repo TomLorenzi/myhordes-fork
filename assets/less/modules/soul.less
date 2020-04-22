@@ -221,9 +221,34 @@
 		width: 100%;
 	}
 
-	.small {
-		&.rp {
-			
+	.rp-list {
+		.rp-head {
+			.rp-context {
+				margin-top: 10px;
+			}
+			h5 {
+				color: white;
+			}
+		}
+		.rp-row {
+			font-size: 1.3rem;
+			background: #5c2b20;
+			border-right: 1px solid #7e4d2a;
+			border-bottom: 1px solid #7e4d2a;
+			&:hover {
+				background: #965C36;
+			}
+				
+			.rp-text {
+				.title {
+					color: #f0d79e;
+				}
+
+				em {
+					font-size: 1.2rem;
+					color: @myhordes-smalltext;
+				}
+			}
 		}
 	}
 }

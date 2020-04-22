@@ -308,7 +308,7 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("jx/soul/rp/{id}", name="soul_rp", requirements={"id"="\d+"})
+     * @Route("jx/soul/rps/read/{id}", name="soul_rp", requirements={"id"="\d+"})
      * @return Response
      */
     public function soul_view_rp(int $id): Response

@@ -12,6 +12,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenStatus;
 use App\Entity\EscapeTimer;
+use App\Entity\FoundRolePlayerText;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
 use App\Entity\ItemAction;
@@ -639,13 +640,18 @@ class ActionHandler
 
             if ($result->getRolePlayerText()) {
                 /** @var RolePlayerText|null $text */
-                $text = $this->random_generator->pick( $this->entity_manager->getRepository(RolePlayerText::class)->findAllByLang($citizen->getTown()->getLanguage() ?? 'de') );
-                if ($text && $citizen->getUser()->getFoundTexts()->contains($text))
+                $text = $this->random_generator->pick($this->entity_manager->getRepository(RolePlayerText::class)->findAllByLang($citizen->getTown()->getLanguage() ?? 'de'));
+                $alreadyfound = $this->entity_manager->getRepository(FoundRolePlayerText::class)->findByUserAndText($citizen->getUser(), $text);
+                if ($text && $alreadyfound)
                     $tags[] = 'rp_fail';
                 else {
                     $tags[] = 'rp_ok';
                     $execute_info_cache['rp_text'] = $text->getTitle();
-                    $citizen->getUser()->getFoundTexts()->add( $text );
+                    $foundrp = new FoundRolePlayerText();
+                    $foundrp->setUser($citizen->getUser())->setText($text);
+                    $citizen->getUser()->getFoundTexts()->add($foundrp);
+
+                    $this->entity_manager->persist($foundrp);
                 }
             }
 

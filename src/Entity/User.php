@@ -60,7 +60,7 @@ class User implements UserInterface, EquatableInterface
     private $citizens;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\RolePlayerText")
+     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayerText", mappedBy="user")
      */
     private $foundTexts;
 

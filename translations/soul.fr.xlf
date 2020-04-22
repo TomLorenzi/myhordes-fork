@@ -117,7 +117,7 @@
       </notes>
       <segment>
         <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
-        <target>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</target>
+        <target>L'histoire d'un monde n'est que le reflet de multiples épopées individuelles...</target>
       </segment>
     </unit>
     <unit id="fUgR4gE" name="Gefundene Texte: %count%">
@@ -126,7 +126,25 @@
       </notes>
       <segment>
         <source>Gefundene Texte: %count%</source>
-        <target>Gefundene Texte: %count%</target>
+        <target>Textes découverts : %count%</target>
+      </segment>
+    </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <notes>
+        <note category="german">Titel</note>
+      </notes>
+      <segment>
+        <source>Titel</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="PHUagJt" name="Entdeckt">
+      <notes>
+        <note category="german">Entdeckt</note>
+      </notes>
+      <segment>
+        <source>Entdeckt</source>
+        <target>Découvert</target>
       </segment>
     </unit>
   </file>
