@@ -42,10 +42,7 @@
     {% endfor %}
 </div>
     <div class="row">
-        <div class="cell rw-12 right">
-        {% if pages == current_page and not locked %}
-            <div x-forum-action="answer" class="forum-button">{{ 'Antworten'|trans({},'global') }}</div>
-        {% endif %}
+        <div class="cell rw-6 left">
         {% if is_granted("ROLE_ADMIN")%}
             {% if not locked %}
                 <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Schließen'|trans({},'global') }}</div>
@@ -53,6 +50,11 @@
             {% if locked %}
                 <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
             {% endif %}
+        {% endif %}
+        </div>
+        <div class="cell rw-6 right">
+        {% if pages == current_page and not locked %}
+            <div x-forum-action="answer" class="forum-button">{{ 'Antworten'|trans({},'global') }}</div>
         {% endif %}
         </div>
     </div>
