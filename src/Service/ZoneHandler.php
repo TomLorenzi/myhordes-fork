@@ -403,7 +403,7 @@ class ZoneHandler
     }
 
     public function getDigGroupEventName(): ?string {
-        // Test for easter
+        /*// Test for easter
         $year = date('Y');
         $base = new \DateTime("$year-03-21");
         $days = easter_days($year);
@@ -418,7 +418,7 @@ class ZoneHandler
         // Test for christmas
         if($now >= new \DateTime("$year-12-20") && $now <= new \DateTime("$year-12-25"))
             return 'christmas_dig';
-
+*/
         return null;
     }
 }
