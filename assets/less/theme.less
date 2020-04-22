@@ -409,7 +409,9 @@ ul.inventory {
     }
   }
   &.rucksack { background: url("../img/inv_bag.gif") no-repeat top left;}
-  &.desert { background: url("../img/inv_ground.gif") repeat top left;}
+  &.rucksack-escort { background: rgba(0,0,0,0.1); border: 1px solid @myhordes-cell-header-background-color; margin: 0; }
+  &.desert, &.desert-escort { background: url("../img/inv_ground.gif") repeat top left;}
+  &.desert-escort { border: 1px solid @myhordes-cell-header-background-color; }
   &.chest { background: url("../img/inv_home.gif") repeat center;}
   &.bank { background: url("../img/inv_bank.gif") repeat center; min-height: 100px;}
 }
@@ -779,4 +781,9 @@ div.badge {
   background: #7d5032; border: 1px solid #dfc793; padding: 10px; margin: 20px 0;
   & strong { font-size: 1.2em; font-weight: bold; color: white; }
   & span { color: @myhordes-smalltext; }
+}
+
+div.tooltip-dummy {
+  height: 0; position: relative; overflow: visible; padding: 0; margin: 0;
+  &>* { position: absolute; width: 100%; top: 0; z-index: 3; box-shadow: 0 0 2px black, 0 0 10px black }
 }

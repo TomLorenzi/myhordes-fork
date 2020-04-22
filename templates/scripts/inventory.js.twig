@@ -3,8 +3,9 @@ const handleItems = function( items, api_path, direction, return_path, warning )
         items[i].addEventListener('click', function() {
             if (warning && !confirm(warning)) return;
             const item_id = this.getAttribute('x-item-id');
+            const escort_id = this.getAttribute('x-escort-id');
             $.ajax.easySend( api_path, {
-                    item: item_id, direction: direction
+                    item: item_id, escort: escort_id, direction: direction
                 },
                 function () {
                     $.ajax.load(null, return_path, true);
