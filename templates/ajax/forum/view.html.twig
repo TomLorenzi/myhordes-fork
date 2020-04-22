@@ -34,7 +34,23 @@
                                         {% endif %}
                                         <b>{% if thread.translatable %}{{ thread.title|trans({},'global') }}{% else %}{{ thread.title }}{% endif %}</b><br />                                       
                                         {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
-                                        <i>{% if last_post and last_post.owner %}{{ last_post.owner.username }}{% elseif thread.owner %}{{ thread.owner.username }}{% else %}{{ 'Der Rabe'|trans({},'global') }}{% endif %}</i>                                      
+                                        <i>
+                                            {% if last_post and last_post.owner %}
+                                                {% if last_post.owner.username == 'Der Rabe' %}
+                                                    {{ 'Der Rabe'|trans({},'global') }}
+                                                {% else %}                                   
+                                                    {{ last_post.owner.username }}
+                                                {% endif %}
+                                            {% elseif thread.owner %}
+                                                {% if thread.owner.username == 'Der Rabe' %}
+                                                    {{ 'Der Rabe'|trans({},'global') }}
+                                                {% else %}   
+                                                    {{ thread.owner.username }}
+                                                {% endif %}
+                                            {% else %}
+                                                {{ 'Der Rabe'|trans({},'global') }}
+                                            {% endif %}
+                                        </i>                                      
                                     </div>
                                 {% endfor %}
                             {% endif %}

@@ -5,10 +5,14 @@ namespace App\Service;
 
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
+use App\Entity\Forum;
+use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\User;
 use App\Service\DeathHandler;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AdminActionHandler
@@ -87,5 +91,32 @@ class AdminActionHandler
         $this->entity_manager->persist($thread);
         $this->entity_manager->flush();
         return true;
+    }
+
+    public function crowPost(int $sourceUser, Forum $forum, ?Thread $thread, string $text, ?string $title): ?Thread
+    {
+        if(!$this->hasRights($sourceUser))
+            return null;
+
+        $theCrow = $this->entity_manager->getRepository(User::class)->find(66);
+
+        if (!isset($thread)){
+            $thread = (new Thread())->setTitle( $title )->setOwner($theCrow);
+            $forum->addThread($thread);
+        }
+               
+        $post = (new Post())
+            ->setOwner( $theCrow )
+            ->setText( $text )
+            ->setDate( new DateTime('now') );
+        $thread->addPost($post)->setLastPost( $post->getDate() );
+        try {
+            $this->entity_manager->persist($thread);
+            $this->entity_manager->persist($forum);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return null;
+        }
+        return $thread;
     }
 }

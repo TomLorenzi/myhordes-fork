@@ -691,5 +691,32 @@
         <target>You have no right to do this.</target>
       </segment>
     </unit>
+    <unit id=".dh3UEc" name="als Rabe">
+      <notes>
+        <note category="german">als Rabe</note>
+      </notes>
+      <segment>
+        <source>als Rabe</source>
+        <target>as Crow</target>
+      </segment>
+    </unit>
+    <unit id="vDhaMLU" name="Öffnen">
+      <notes>
+        <note category="german">Öffnen</note>
+      </notes>
+      <segment>
+        <source>Öffnen</source>
+        <target>Unlock</target>
+      </segment>
+    </unit>
+    <unit id="Em1EFUR" name="Moderation">
+      <notes>
+        <note category="german">Moderation</note>
+      </notes>
+      <segment>
+        <source>Moderation</source>
+        <target>Moderation</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

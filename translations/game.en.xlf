@@ -7648,5 +7648,14 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Den %rolename% wählen</target>
       </segment>
     </unit>
+    <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
+      <notes>
+        <note category="german">Dazu hast Du kein Recht.</note>
+      </notes>
+      <segment>
+        <source>Dazu hast Du kein Recht.</source>
+        <target>Dazu hast Du kein Recht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

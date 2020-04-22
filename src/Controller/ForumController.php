@@ -207,7 +207,7 @@ class ForumController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em): Response {
+    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response {
         $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $id);
         if (count($forums) !== 1) return AjaxResponse::error( self::ErrorForumNotFound );
 
@@ -224,6 +224,17 @@ class ForumController extends AbstractController
         $text  = $parser->trimmed('text');
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)   return AjaxResponse::error( self::ErrorPostTitleLength );
+
+        $as_crow = $parser->get('as_crow');
+        if (isset($as_crow)){
+            if ($as_crow) {
+                $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
+                if (isset($thread))
+                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
+                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+        } 
+       
         if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
@@ -258,7 +269,7 @@ class ForumController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em): Response {
+    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -276,6 +287,14 @@ class ForumController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $text  = $parser->trimmed('text');
+        $as_crow = $parser->get('as_crow');
+        if (isset($as_crow)){
+            if ($as_crow) {
+                if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
+                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+        } 
 
         if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
