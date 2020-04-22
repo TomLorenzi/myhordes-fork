@@ -3,10 +3,10 @@
     <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
 {% endblock %}
 {% block menu_bar %}
-    <ul class="user">
+    {#<ul class="user">
         <li>{{ username }}</li>
         <li><a title="{% trans from 'soul' %}Logout{% endtrans %}" target="_self" href="{{ path('auto_logout') }}">&#10006;</a></li>
-    </ul>
+    </ul>#}
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
