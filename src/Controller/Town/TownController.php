@@ -241,6 +241,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return $this->redirect($this->generateUrl('town_dashboard'));
 
         $home = $c->getHome();
+        $user = $this->getUser();
 
         $th->calculate_home_def($home, $summary);
         $deco = 0;
