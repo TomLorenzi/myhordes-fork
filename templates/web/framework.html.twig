@@ -59,9 +59,9 @@
                     <ul>
                     {% for adminAction in adminActions %}
                         {# @var adminAction \App\Entity\AdminAction #}
-                        <li class="mod-actions" mod-action-id="{{ adminAction.id }}">
-                            <a target="_blank" href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a>
-                        </li>
+
+                        <a x-ajax-href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a>
+
                     {% endfor %}
                     </ul>
                 </div>

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 class AdminActionController extends AbstractController
 {
     /**
-     * @Route("/admin/action/{id}", name="admin_action", requirements={"id"="\d+"})
+     * @Route("jx/admin/action/{id}", name="admin_action", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
@@ -19,8 +19,10 @@ class AdminActionController extends AbstractController
     {
         switch ($id)
         {
-            case 1:
-                
+            case 1:              
+                return $this->render( 'admin_action/index.html.twig', [
+
+                ] );
                 break;
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
