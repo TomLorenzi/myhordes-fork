@@ -8528,5 +8528,32 @@
         <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
       </segment>
     </unit>
+    <unit id="FoS7MOU" name="0b6b395">
+      <notes>
+        <note category="german">Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</note>
+      </notes>
+      <segment>
+        <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
+        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+      </segment>
+    </unit>
+    <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
+      <notes>
+        <note category="german">Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</note>
+      </notes>
+      <segment>
+        <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
+        <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+      </segment>
+    </unit>
+    <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
+      <notes>
+        <note category="german">Hier wurde bereits ein Bauplan gefunden.</note>
+      </notes>
+      <segment>
+        <source>Hier wurde bereits ein Bauplan gefunden.</source>
+        <target>Hier wurde bereits ein Bauplan gefunden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

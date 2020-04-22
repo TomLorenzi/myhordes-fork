@@ -102,5 +102,14 @@
         <target>Déconnexion</target>
       </segment>
     </unit>
+    <unit id="EpWptWk" name="Schriften">
+      <notes>
+        <note category="german">Schriften</note>
+      </notes>
+      <segment>
+        <source>Schriften</source>
+        <target>Écrits</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

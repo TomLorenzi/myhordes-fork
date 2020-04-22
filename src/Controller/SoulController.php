@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\User;
 use App\Entity\Picto;
+use App\Entity\RolePlayerText;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -292,6 +293,34 @@ class SoulController extends AbstractController
     public function soul_settings(): Response
     {
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
+    }
+
+    /**
+     * @Route("jx/soul/rps", name="soul_rps")
+     * @return Response
+     */
+    public function soul_rps(): Response
+    {
+        $rps = $this->getUser()->getFoundTexts();
+        return $this->render( 'ajax/soul/rps.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
+            'rps' => $rps
+        )));
+    }
+
+    /**
+     * @Route("jx/soul/rp/{id}", name="soul_rp", requirements={"id"="\d+"})
+     * @return Response
+     */
+    public function soul_view_rp(int $id): Response
+    {
+        $rp = $this->entity_manager->getRepository(RolePlayerText::class)->findOneById($id);
+        if($rp === null || !$this->getUser()->getFoundTexts()->contains($rp)){
+            return $this->redirect($this->generateUrl('soul_rps'));
+        }
+
+        return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
+            'rp' => $rp
+        )));
     }
 
     /**

@@ -1,0 +1,23 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{ parent() }}
+    {% if app.user and not app.user.activeCitizen %}
+        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+    {% endif %}
+{% endblock %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-8">
+            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
+                <div class="row">
+                    <div class="cell padded rw-4">
+                        <button class='inline' x-ajax-href="{{path('soul_rps')}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" />Retour liste</button>
+                    </div>
+                </div>
+                <h5>{{rp.title}}</h5>
+                <div class="rp-content">
+                    {{rp.content}}
+                </div>
+        </div>
+    </div>
+{% endblock %}
