@@ -25,6 +25,21 @@ class FoundRolePlayTextRepository extends ServiceEntityRepository
     /**
       * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
       */
+    public function findByUser(User $user)
+    {
+        return $this->createQueryBuilder('f')
+            ->join("f.text", "t")
+            ->andWhere('f.user = :user')
+            ->setParameter('user', $user)
+            ->orderBy('t.title')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+      * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
+      */
     public function findByUserAndText(User $user, RolePlayText $text)
     {
         return $this->createQueryBuilder('f')

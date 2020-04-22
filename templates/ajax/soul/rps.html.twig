@@ -22,7 +22,7 @@
                     <div class="cell padded rw-4 author">{{rp.datefound|date('d/m/Y H:i')}}</div>
                 </div>
                 {% endfor %}
-                <div class="cell padded rw-12 center small">{{'Gefundene Texte: %count%'|trans({'%count%': rps.count}, "soul")}}</div>
+                <div class="cell padded rw-12 center small">{{'Gefundene Texte: %count%'|trans({'%count%': rps|length}, "soul")}}</div>
             </div>
         </div>
     </div>
