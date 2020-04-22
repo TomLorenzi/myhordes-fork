@@ -235,7 +235,10 @@
 			background: #5c2b20;
 			border-right: 1px solid #7e4d2a;
 			border-bottom: 1px solid #7e4d2a;
+			cursor: pointer;
+			text-decoration: underline;
 			&:hover {
+				color: lighten(@myhordes-smalltext, 20%);
 				background: #965C36;
 			}
 				
@@ -261,6 +264,8 @@
 			padding-right: 45px;
 			width: 585px;
 			color: black;
+			cursor: pointer;
+			
 			.hr {
 				margin-top: 70px;
 			}
@@ -292,6 +297,11 @@
 				&::first-line {
 					color: black;
 				}
+			}
+
+			.pages {
+				font-size: 1rem;
+				font-weight: bold;
 			}
 		}
 

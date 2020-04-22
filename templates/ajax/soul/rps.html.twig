@@ -17,7 +17,8 @@
             <div class="row">
                 {% for rp in rps %}
                 <div class="row rp-row" x-ajax-href="{{path('soul_rp', {id: rp.id, page: 1})}}">
-                    <div class="cell padded rw-8 rp-text"><span class="title">{{rp.text.title}}</span><br /><em>« {{rp.text.pages[0].content|striptags|slice(0,49)}}{% if rp.text.pages[0].content|striptags|length > 49 %}[...]{% endif %} »</em></div>
+                    <div class="cell padded rw-8 rp-text">
+                        <span class="title">{{rp.text.title}}</span><br /><em>« {{rp.text.pages[0].content|striptags|slice(0,49)}}{% if rp.text.pages[0].content|striptags|length > 49 %}[...]{% endif %} »</em></div>
                     <div class="cell padded rw-4 author">{{rp.datefound|date('d/m/Y H:i')}}</div>
                 </div>
                 {% endfor %}
