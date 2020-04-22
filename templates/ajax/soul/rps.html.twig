@@ -14,7 +14,7 @@
                 <div class="cell padded rw-8">Titre</div>
                 <div class="cell padded rw-4">Auteur</div>
                 {% for rp in rps %}
-                <div class="cell padded rw-8" x-ajax-href="{{path('soul_rp', {id: rp.id})}}">{{rp.title}}</div>
+                <div class="cell padded rw-8 " x-ajax-href="{{path('soul_rp', {id: rp.id})}}">{{rp.title}}</div>
                 <div class="cell padded rw-4">{{rp.author}}</div>
                 {% endfor %}
                 <div class="cell padded rw-12 center small">{{'Gefundene Texte: %count%'|trans({'%count%': rps.count}, "soul")}}</div>

@@ -4100,7 +4100,7 @@
       </notes>
       <segment>
         <source>Reparieren mit</source>
-        <target>Reparieren mit</target>
+        <target>Réparer avec</target>
       </segment>
     </unit>
     <unit id="SKEGJd1" name="8534543">
@@ -4111,7 +4111,7 @@
       </notes>
       <segment>
         <source>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</source>
-        <target>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</target>
+        <target>Vous avez utilisé {item} pour réparer {target}. Vous avez consommé {minus_ap} PA.</target>
       </segment>
     </unit>
     <unit id="B7z9gmm" name="Vergiften mit">
