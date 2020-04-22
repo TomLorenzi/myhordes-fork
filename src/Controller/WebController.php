@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
+use App\Service\AdminActionHandler;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -19,12 +21,14 @@ class WebController extends AbstractController
     private $version_manager;
     private $kernel;
     private $entityManager;
+    private $adminAction_handler;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e)
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh)
     {
         $this->version_manager = $v;
         $this->kernel = $k;
         $this->entityManager = $e;
+        $this->adminAction_handler = $admh;
     }
 
     private function render_web_framework(string $ajax_landing) {
@@ -49,11 +53,13 @@ class WebController extends AbstractController
         shuffle($devs);
 
         $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
+        $adminActions = $this->entityManager->getRepository(AdminAction::class)->findAll();
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
             'apps' => $apps,
+            'adminActions' => $adminActions,
             'ajax_landing' => $ajax_landing
         ] );
     }

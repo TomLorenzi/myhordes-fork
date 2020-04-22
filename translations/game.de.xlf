@@ -7423,5 +7423,248 @@
         <target>Du kannst diesen Gegenstand nicht stehlen.</target>
       </segment>
     </unit>
+    <unit id="eLqiBhl" name="%username% wurde standrechtlich erschossen.">
+      <notes>
+        <note category="german">%username% wurde standrechtlich erschossen.</note>
+      </notes>
+      <segment>
+        <source>%username% wurde standrechtlich erschossen.</source>
+        <target>%username% wurde standrechtlich erschossen.</target>
+      </segment>
+    </unit>
+    <unit id="tkJcWLe" name="%username% gehört keiner Stadt an.">
+      <notes>
+        <note category="german">%username% gehört keiner Stadt an.</note>
+      </notes>
+      <segment>
+        <source>%username% gehört keiner Stadt an.</source>
+        <target>%username% gehört keiner Stadt an.</target>
+      </segment>
+    </unit>
+    <unit id="a8CDdVQ" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!">
+      <notes>
+        <note category="german">%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</note>
+      </notes>
+      <segment>
+        <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
+        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
+      </segment>
+    </unit>
+    <unit id="NjgYbEj" name="cae5333">
+      <notes>
+        <note category="german">Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</note>
+      </notes>
+      <segment>
+        <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
+        <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
+      </segment>
+    </unit>
+    <unit id="pEq8Vut" name="Headshot">
+      <notes>
+        <note category="german">Kopfschuss</note>
+      </notes>
+      <segment>
+        <source>Headshot</source>
+        <target>Kopfschuss</target>
+      </segment>
+    </unit>
+    <unit id="guL7vzj" name="Du hast noch keine Drogen genommen.">
+      <notes>
+        <note category="german">Du hast noch keine Drogen genommen.</note>
+      </notes>
+      <segment>
+        <source>Du hast noch keine Drogen genommen.</source>
+        <target>Du hast noch keine Drogen genommen.</target>
+      </segment>
+    </unit>
+    <unit id="Tzmt5qh" name="d848698">
+      <notes>
+        <note category="german">Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+      </notes>
+      <segment>
+        <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
+        <target>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</target>
+      </segment>
+    </unit>
+    <unit id="9hu_P2F" name="f13ed10">
+      <notes>
+        <note category="german">Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+      </notes>
+      <segment>
+        <source>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
+        <target>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</target>
+      </segment>
+    </unit>
+    <unit id="GbpuPWq" name="d8005f5">
+      <notes>
+        <note category="german">Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</note>
+      </notes>
+      <segment>
+        <source>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</source>
+        <target>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</target>
+      </segment>
+    </unit>
+    <unit id="yuD1sSM" name="45bb090">
+      <notes>
+        <note category="german">Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.</note>
+      </notes>
+      <segment>
+        <source>Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.</source>
+        <target>Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="51LLLLE" name="Du hast deine Heldenfähigkeit &quot;Den Tod besiegen&quot; verwendet!">
+      <notes>
+        <note category="german">Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</note>
+      </notes>
+      <segment>
+        <source>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</source>
+        <target>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</target>
+      </segment>
+    </unit>
+    <unit id="y0fyg0y" name="fc54baa">
+      <notes>
+        <note category="german">Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</note>
+      </notes>
+      <segment>
+        <source>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</source>
+        <target>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</target>
+      </segment>
+    </unit>
+    <unit id="PoxvW0_" name="62457fd">
+      <notes>
+        <note category="german">Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</note>
+      </notes>
+      <segment>
+        <source>Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</source>
+        <target>Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</target>
+      </segment>
+    </unit>
+    <unit id="Bjszt3B" name="9f21fbd">
+      <notes>
+        <note category="german">Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</note>
+      </notes>
+      <segment>
+        <source>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</source>
+        <target>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</target>
+      </segment>
+    </unit>
+    <unit id="E5louWx" name="5a4098f">
+      <notes>
+        <note category="german">Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</note>
+      </notes>
+      <segment>
+        <source>Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</source>
+        <target>Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</target>
+      </segment>
+    </unit>
+    <unit id="Y2xlrZs" name="3043837">
+      <notes>
+        <note category="german">Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</note>
+      </notes>
+      <segment>
+        <source>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</source>
+        <target>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</target>
+      </segment>
+    </unit>
+    <unit id="UL1uoY5" name="dd7f91a">
+      <notes>
+        <note category="german">Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</note>
+      </notes>
+      <segment>
+        <source>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</source>
+        <target>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</target>
+      </segment>
+    </unit>
+    <unit id="ztykDm4" name="1d4bff7">
+      <notes>
+        <note category="german">Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</note>
+      </notes>
+      <segment>
+        <source>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</source>
+        <target>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</target>
+      </segment>
+    </unit>
+    <unit id="J1MlEZA" name="4c8ec9e">
+      <notes>
+        <note category="german">Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</source>
+        <target>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</target>
+      </segment>
+    </unit>
+    <unit id="n2cxTOK" name="63e4f16">
+      <notes>
+        <note category="german">Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</source>
+        <target>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</target>
+      </segment>
+    </unit>
+    <unit id="IYIMtxo" name="81a014d">
+      <notes>
+        <note category="german">Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
+      <notes>
+        <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
+      </notes>
+      <segment>
+        <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
+        <target>Endlich kannst du deine Schwiegermutter loswerden!</target>
+      </segment>
+    </unit>
+    <unit id="PMbiois" name="46dc649">
+      <notes>
+        <note category="german">Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</note>
+      </notes>
+      <segment>
+        <source>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</source>
+        <target>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</target>
+      </segment>
+    </unit>
+    <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
+      <notes>
+        <note category="german">Reiseleiter in der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Reiseleiter in der Außenwelt</source>
+        <target>Reiseleiter in der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="ti26S85" name="Dazu hast Du nicht das Recht.">
+      <notes>
+        <note category="german">Dazu hast Du nicht das Recht.</note>
+      </notes>
+      <segment>
+        <source>Dazu hast Du nicht das Recht.</source>
+        <target>Dazu hast Du nicht das Recht.</target>
+      </segment>
+    </unit>
+    <unit id="tCm7v0d" name="Den %rolename% wählen">
+      <notes>
+        <note category="german">Den %rolename% wählen</note>
+      </notes>
+      <segment>
+        <source>Den %rolename% wählen</source>
+        <target>Den %rolename% wählen</target>
+      </segment>
+    </unit>
+    <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
+      <notes>
+        <note category="german">Dazu hast Du kein Recht.</note>
+      </notes>
+      <segment>
+        <source>Dazu hast Du kein Recht.</source>
+        <target>Dazu hast Du kein Recht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

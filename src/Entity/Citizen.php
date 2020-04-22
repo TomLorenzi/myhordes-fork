@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -172,6 +173,16 @@ class Citizen
      */
     private $immune = true;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $escortSettings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CitizenEscortSettings", mappedBy="leader")
+     */
+    private $leadingEscorts;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -182,6 +193,7 @@ class Citizen
         $this->actionCounters = new ArrayCollection();
         $this->roles = new ArrayCollection();
         $this->votes = new ArrayCollection();
+        $this->leadingEscorts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -652,6 +664,48 @@ class Citizen
         return $a;
     }
 
+    public function isOnline(): bool {
+        $ts = $this->getUser()->getLastActionTime();
+        return $ts ? (time() - $ts->getTimestamp()) < 300 : false;
+    }
+
+    public function isDigging(): bool {
+        $zone = $this->getZone();
+        if (!$zone) return false;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone()->getId() === $zone->getId())
+                return !$digTimer->getPassive();
+        return false;
+    }
+
+    public function getDigTimeout(): int {
+        $zone = $this->getZone();
+        if (!$zone) return -1;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone()->getId() === $zone->getId())
+                return $digTimer->getPassive() ? -1 : $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
+        return -1;
+    }
+
+    public function isCamping(): bool {
+        foreach ($this->getStatus() as $status)
+            if (in_array( $status->getName(), ['tg_tomb','tg_hide'] ))
+                return true;
+        return false;
+    }
+
+    public function getEscortSettings(): ?CitizenEscortSettings
+    {
+        return $this->escortSettings;
+    }
+
+    public function setEscortSettings(?CitizenEscortSettings $escortSettings): self
+    {
+        $this->escortSettings = $escortSettings;
+
+        return $this;
+    }
+
     public function getLastActionTimestamp(): int
     {
         return $this->lastActionTimestamp;
@@ -684,6 +738,46 @@ class Citizen
     public function setImmune(bool $immune): self
     {
         $this->immune = $immune;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CitizenEscortSettings[]
+     */
+    public function getLeadingEscorts(): Collection
+    {
+        return $this->leadingEscorts;
+    }
+
+    public function addLeadingEscort(CitizenEscortSettings $leadingEscort): self
+    {
+        if (!$this->leadingEscorts->contains($leadingEscort)) {
+            $this->leadingEscorts[] = $leadingEscort;
+            $leadingEscort->setLeader($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return CitizenEscortSettings[]
+     */
+    public function getValidLeadingEscorts(): array {
+        return array_filter( $this->getLeadingEscorts()->getValues(), function(CitizenEscortSettings $s) {
+            return $s->getCitizen()->getZone()->getId() === $s->getLeader()->getZone()->getId();
+        } );
+    }
+
+    public function removeLeadingEscort(CitizenEscortSettings $leadingEscort): self
+    {
+        if ($this->leadingEscorts->contains($leadingEscort)) {
+            $this->leadingEscorts->removeElement($leadingEscort);
+            // set the owning side to null (unless already changed)
+            if ($leadingEscort->getLeader() === $this) {
+                $leadingEscort->setLeader(null);
+            }
+        }
 
         return $this;
     }

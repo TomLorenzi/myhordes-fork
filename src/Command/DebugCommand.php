@@ -26,6 +26,8 @@ use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 class DebugCommand extends Command
 {
@@ -40,8 +42,9 @@ class DebugCommand extends Command
     private $trans;
     private $inventory_handler;
     private $item_factory;
+    private $encoder;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih, ItemFactory $if)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih, ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->kernel = $kernel;
 
@@ -52,6 +55,7 @@ class DebugCommand extends Command
         $this->trans = $translator;
         $this->inventory_handler = $ih;
         $this->item_factory = $if;
+        $this->encoder = $passwordEncoder;
 
         parent::__construct();
     }
@@ -61,7 +65,8 @@ class DebugCommand extends Command
         $this
             ->setDescription('Debug options.')
             ->setHelp('Debug options.')
-
+            
+            ->addOption('add-crow', null, InputOption::VALUE_NONE, 'Creates the crow account. Also creates 80 validated users in case there are less than 66 users.')
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.')
             ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.');
@@ -69,7 +74,36 @@ class DebugCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if ($input->getOption('add-debug-users')) {
+        if ($input->getOption('add-debug-users') | $input->getOption('add-crow')) {
+
+            if ($input->getOption('add-crow')) {
+                $crow = $this->entity_manager->getRepository(User::class)->find(66);
+                file_put_contents ( "./var/log/crowlog.log", $crow->getEmail(), FILE_APPEND);
+                if (!isset($crow)) {
+                    $command = $this->getApplication()->find('app:create-user');
+                    for ($i = 1; $i <= 80; $i++) {
+                        $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
+                        $nested_input = new ArrayInput([
+                            'name' => $user_name,
+                            'email' => $user_name . '@localhost',
+                            'password' => $user_name,
+                            '--validated' => true,
+                        ]);
+                        $command->run($nested_input, $output);
+                        $crow = $this->entity_manager->getRepository(User::class)->find(66);
+                    }                                       
+                }
+                
+                $crow->setName("Der Rabe");
+                $crow->setEmail("crow");
+                $crow->setPassword( $this->encoder->encodePassword($crow, '5%[9Wqc@"px.&er{thxCt)7Un^-.~K~B;E7b`,#L0"3?3Mcu:x$|8\-h.3JQ*$') );
+                file_put_contents ( "./var/log/crowlog.log", $crow->getEmail(), FILE_APPEND);
+                $this->entity_manager->persist($crow);
+                $this->entity_manager->flush();               
+                
+                return 0;
+            }
+
             $command = $this->getApplication()->find('app:create-user');
             for ($i = 1; $i <= 80; $i++) {
                 $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);

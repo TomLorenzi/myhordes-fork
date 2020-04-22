@@ -25,6 +25,7 @@ use App\Translation\T;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
+use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -90,19 +91,17 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data['town'] = $town;
 
         if($section == "citizens") {
+            $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
             $votesNeeded = array();
-            if(!$town->isOpen()){
-                $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
-                foreach ($roles as $role) {
-                    $votesNeeded[$role->getName()] = $role;
-                }
+            foreach ($roles as $role) {
+                $votesNeeded[$role->getName()] = $role;
+            }
 
-                if(!$town->isOpen() && !$town->getChaos()) {
-                    foreach ($roles as $role) {
-                        foreach ($town->getCitizens() as $citizen) {
-                            if($citizen->getRoles()->contains($role))
-                                $votesNeeded[$role->getName()] = false;
-                        }
+            if(!$town->isOpen() && !$town->getChaos()) {
+                foreach ($roles as $role) {
+                    foreach ($town->getCitizens() as $citizen) {
+                        if($citizen->getRoles()->contains($role))
+                            $votesNeeded[$role->getName()] = false;
                     }
                 }
             }
@@ -171,16 +170,15 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
         $votes_needed = array();
         $has_voted = array();
+        foreach ($roles as $role) {
+            $votes_needed[$role->getName()] = $role;
+            $has_voted[$role->getName()] = false;
+        }
+
         if(!$town->isOpen() && !$town->getChaos()) {
             foreach ($roles as $role) {
-
-                $votes_needed[$role->getName()] = $role;
-                $has_voted[$role->getName()] = false;
-            }
-
-            foreach ($roles as $role) {
                 foreach ($town->getCitizens() as $citizen) {
-                    if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null) {
+                    if($citizen->getRoles()->contains($role)) {
                         $votes_needed[$role->getName()] = false;
                         break;
                     }
@@ -210,6 +208,19 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'display_home_upgrade' => $display_home_upgrade,
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
         ]) );
+    }
+
+    /**
+     * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function visitHeadshot(int $id, AdminActionHandler $admh): Response
+    {
+        $sourceUserId = $this->getUser()->getId();
+        $message = $admh->headshot($sourceUserId, $id);
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success();
     }
 
     /**
@@ -274,6 +285,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
+            'user' => $user,
             'home' => $home,
             'actions' => $this->getItemActions(),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
@@ -409,23 +421,31 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        $autor = $this->getActiveCitizen();
-        $town = $autor->getTown();
+        $author = $this->getActiveCitizen();
+        $town = $author->getTown();
 
-        /** @var Citizen $c */
+        /** @var Citizen $culprit */
         $culprit = $em->getRepository(Citizen::class)->find( $id );
         if (!$culprit || $culprit->getTown()->getId() !== $town->getId() || !$culprit->getAlive() )
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($autor, $culprit);
+        // Check permission: dummy accounts may not complain against non-dummy accounts (dummy is any account which email ends on @localhost)
+        $authorRoles = $author->getUser()->getRoles();
+        $culpritRoles = $culprit->getUser()->getRoles();
+        if (!in_array("ROLE_DUMMY", $culpritRoles)){
+            if (in_array("ROLE_DUMMY", $authorRoles))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
+        }
+
+        $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
         if (!$existing_complaint) {
             $existing_complaint = (new Complaint())
-                ->setAutor( $autor )
+                ->setAutor( $author )
                 ->setCulprit( $culprit )
                 ->setSeverity( $severity )
-                ->setCount( ($autor->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
+                ->setCount( ($author->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
             $culprit->addComplaint( $existing_complaint );
         } else $existing_complaint->setSeverity( $severity );
 

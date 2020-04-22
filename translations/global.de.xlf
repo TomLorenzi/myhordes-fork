@@ -682,5 +682,32 @@
         <target>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</target>
       </segment>
     </unit>
+    <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
+      <notes>
+        <note category="german">Dazu hast Du kein Recht.</note>
+      </notes>
+      <segment>
+        <source>Dazu hast Du kein Recht.</source>
+        <target>Dazu hast Du kein Recht.</target>
+      </segment>
+    </unit>
+    <unit id=".dh3UEc" name="als Rabe">
+      <notes>
+        <note category="german">als Rabe</note>
+      </notes>
+      <segment>
+        <source>als Rabe</source>
+        <target>als Rabe</target>
+      </segment>
+    </unit>
+    <unit id="Em1EFUR" name="Moderation">
+      <notes>
+        <note category="german">Moderation</note>
+      </notes>
+      <segment>
+        <source>Moderation</source>
+        <target>Moderation</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

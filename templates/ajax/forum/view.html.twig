@@ -43,9 +43,28 @@
                                     {% set thread = meta_thread[0] %}
                                     <div class="cell rw-12 {% if not meta_thread[1] %}forum-thread-unread{% endif%} forum-thread" x-public-route="{{ path('forum_thread_view', {fid: forum.id, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: forum.id, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
                                         <div>{{ thread.posts|length }}</div>
-                                        <b>{% if thread.translatable %}{{ thread.title|trans({},'global') }}{% else %}{{ thread.title }}{% endif %}</b><br />
+                                        {% if thread.locked %}
+                                            <img src="{{ asset('build/images/lock.gif') }}" />
+                                        {% endif %}
+                                        <b>{% if thread.translatable %}{{ thread.title|trans({},'global') }}{% else %}{{ thread.title }}{% endif %}</b><br />                                       
                                         {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
-                                        <i>{% if last_post and last_post.owner %}{{ last_post.owner.username }}{% elseif thread.owner %}{{ thread.owner.username }}{% else %}{{ 'Der Rabe'|trans({},'global') }}{% endif %}</i>
+                                        <i>
+                                            {% if last_post and last_post.owner %}
+                                                {% if last_post.owner.username == 'Der Rabe' %}
+                                                    {{ 'Der Rabe'|trans({},'global') }}
+                                                {% else %}                                   
+                                                    {{ last_post.owner.username }}
+                                                {% endif %}
+                                            {% elseif thread.owner %}
+                                                {% if thread.owner.username == 'Der Rabe' %}
+                                                    {{ 'Der Rabe'|trans({},'global') }}
+                                                {% else %}   
+                                                    {{ thread.owner.username }}
+                                                {% endif %}
+                                            {% else %}
+                                                {{ 'Der Rabe'|trans({},'global') }}
+                                            {% endif %}
+                                        </i>                                      
                                     </div>
                                 {% endfor %}
                             {% endif %}
