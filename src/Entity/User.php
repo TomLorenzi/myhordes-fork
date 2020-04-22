@@ -60,7 +60,7 @@ class User implements UserInterface, EquatableInterface
     private $citizens;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\RolePlayerText")
+     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user")
      */
     private $foundTexts;
 
@@ -232,14 +232,14 @@ class User implements UserInterface, EquatableInterface
     }
 
     /**
-     * @return Collection|RolePlayerText[]
+     * @return Collection|RolePlayText[]
      */
     public function getFoundTexts(): Collection
     {
         return $this->foundTexts;
     }
 
-    public function addFoundText(RolePlayerText $foundText): self
+    public function addFoundText(RolePlayText $foundText): self
     {
         if (!$this->foundTexts->contains($foundText)) {
             $this->foundTexts[] = $foundText;
@@ -248,7 +248,7 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function removeFoundText(RolePlayerText $foundText): self
+    public function removeFoundText(RolePlayText $foundText): self
     {
         if ($this->foundTexts->contains($foundText)) {
             $this->foundTexts->removeElement($foundText);

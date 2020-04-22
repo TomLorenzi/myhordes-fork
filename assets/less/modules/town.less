@@ -205,10 +205,16 @@ div.town-banner {
   }
 
   .row.me {
-    background-color: #25242c !important;
+    background-color: #423f54 !important;
   }
 }
 
+.citizens-list > .row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+ 
 .prof-list {
   margin-top: 10px;
   div {
@@ -359,4 +365,54 @@ div.town-banner {
   padding-left: 20px;
   font-size: 1.3rem;
   background-color: #926739;
+}
+
+.citizen-box {
+  border-left: 1px solid #7e4d2a;
+  border-bottom: 1px solid #7e4d2a;
+}
+
+.citizen-box-name {
+  background-color: #b37c4a;
+  color: white !important;
+}
+
+.citizen-box-name-me {
+  background-color: #b37c4a;
+  color: white !important;
+  background-color: #696288;
+}
+
+.citizen-box-name > span > .citizen-name {
+  text-decoration: underline;
+}
+
+.small-citizen-defense {
+  display: inline-block;
+  margin-top: 7px;
+  max-height: 20px;
+}
+
+.small-citizen-defense > .citizen-defense {
+  font-size: 1.15rem !important;
+}
+
+.citizen-defense {
+  font-size: 1.4rem;
+}
+
+.citizen-online {
+  max-width: 6px;
+  background-color: #bbcd7c;
+  border-bottom: 1px solid #7e4d2a;
+  margin: 0px 0px 0px 0px;
+  position: relative;
+}
+
+.citizen-offline {
+  max-width: 6px;
+  background-color: #ba6767;
+  border-bottom: 1px solid #7e4d2a;
+  margin: 0px 0px 0px 0px;
+  position: relative;
 }
