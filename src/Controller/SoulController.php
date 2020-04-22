@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\User;
 use App\Entity\Picto;
-use App\Entity\RolePlayerText;
+use App\Entity\FoundRolePlayerText;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -313,7 +313,7 @@ class SoulController extends AbstractController
      */
     public function soul_view_rp(int $id): Response
     {
-        $rp = $this->entity_manager->getRepository(RolePlayerText::class)->findOneById($id);
+        $rp = $this->entity_manager->getRepository(FoundRolePlayerText::class)->findOneById($id);
         if($rp === null || !$this->getUser()->getFoundTexts()->contains($rp)){
             return $this->redirect($this->generateUrl('soul_rps'));
         }

@@ -258,9 +258,30 @@ class TextFixtures extends Fixture
         'hordes_001' => [
             'title' => 'Annonce : astrologie',
             'author' => 'Sigma',
-            'content' => 'Suite aux attaques récentes, l\'horoscope matinal de Radio Survivant ne concernera que 7 signes astrologiques au lieu des 9 habituels. De plus, Natacha sera remplacé par Roger. Adieu Natacha.',
-            'lang' => 'fr'
-        ]
+            'content' => '<div class="hr"></div>
+<h1>Annonce publique</h1>
+<p>Suite aux attaques récentes, l\'horoscope matinal de Radio Survivant ne concernera que 7 signes astrologiques au lieu des 9 habituels. De plus, Natacha sera remplacé par Roger. Adieu Natacha.</p>',
+            'lang' => 'fr',
+            'background' => 'carton'
+        ],
+        'hordes_002' => [
+            'title' => 'Annonce : catapulte',
+            'author' => 'Sigma',
+            'content' => '<div class="hr"></div>
+<h1>Annonce publique</h1>
+<p>Les ouvriers du secteur 2 ont tentés de créer une catapulte pour expulser les cadavres. Un chat errant "volontaire" a participé aux tests. Malheureusement, il a "atterrit" contre le mur d\'enceinte.</p>',
+            'lang' => 'fr',
+            'background' => 'carton'
+        ],
+        'hordes_003' => [
+            'title' => 'Annonce : Puits',
+            'author' => 'Sigma',
+            'content' => '<div class="hr"></div>
+<h1>Annonce publique</h1>
+<p>Nous rappelons aux plaisantins du Bloc E qu\'il est formellement interdit de jeter des zombies dans le puits. La fumée en résultant est trop proche du signal annonçant l\'évacuation d\'urgence.</p>',
+            'lang' => 'fr',
+            'background' => 'carton'
+        ],
     ];
 
     private $entityManager;
@@ -291,6 +312,9 @@ class TextFixtures extends Fixture
                 ->setContent( $entry['content'] )
                 ->setLanguage($entry['lang'])
             ;
+
+            if(isset($entry['background']))
+                $entity->setBackground($entry['background']);
 
             $manager->persist( $entity );
             $progress->advance();
