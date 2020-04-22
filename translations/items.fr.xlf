@@ -3347,8 +3347,6 @@
     </unit>
     <unit id="s2gWFEw" name="Unpersönliche Explodierende Fußmatte">
       <notes>
-        <note>Unpersönliche Explodierende Fußmatte</note>
-        <note>Unpersönliche Explodierende Fußmatte</note>
         <note category="german">Unpersönliche Explodierende Fußmatte</note>
       </notes>
       <segment>
@@ -3358,8 +3356,6 @@
     </unit>
     <unit id="6iTskUd" name="Chuck-Figur">
       <notes>
-        <note>Chuck-Figur</note>
-        <note>Chuck-Figur</note>
         <note category="german">Chuck-Figur</note>
       </notes>
       <segment>
@@ -3369,19 +3365,15 @@
     </unit>
     <unit id="kjSjOPD" name="Kleine Zen-Fibel">
       <notes>
-        <note>Kleine Zen-Fibel</note>
-        <note>Kleine Zen-Fibel</note>
         <note category="german">Kleine Zen-Fibel</note>
       </notes>
       <segment>
         <source>Kleine Zen-Fibel</source>
-        <target>Kleine Zen-Fibel</target>
+        <target>Livre zen miniature</target>
       </segment>
     </unit>
     <unit id="02YzXu0" name="Trockene Kräuter">
       <notes>
-        <note>Trockene Kräuter</note>
-        <note>Trockene Kräuter</note>
         <note category="german">Trockene Kräuter</note>
       </notes>
       <segment>
@@ -3578,13 +3570,11 @@
     </unit>
     <unit id="6FjysGg" name="Ein Etikett">
       <notes>
-        <note>Ein Etikett</note>
-        <note>Ein Etikett</note>
         <note category="german">Ein Etikett</note>
       </notes>
       <segment>
         <source>Ein Etikett</source>
-        <target>Ein Etikett</target>
+        <target>Une étiquette</target>
       </segment>
     </unit>
     <unit id="J4KATtV" name="Bürgerbekleidung">
