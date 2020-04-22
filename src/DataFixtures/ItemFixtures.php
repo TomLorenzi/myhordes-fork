@@ -382,7 +382,6 @@ class ItemFixtures extends Fixture
         ['label'=>'Schraubenschlüssel','icon'=>'keymol','category'=>'misc','deco'=>0,'heavy'=>false],                                       // -- ---
         ['label'=>'Schutzschild','icon'=>'shield','category'=>'misc','deco'=>0,'heavy'=>false],                                             // -- ---
         ['label'=>'Voodoo-Maske','icon'=>'shaman','category'=>'misc','deco'=>0,'heavy'=>false], 
-        ['label'=>'Kompass','icon'=>'guide','category'=>'misc','deco'=>0,'heavy'=>false], 
 
         ['label' => 'Super-Flaum-Pulver','icon' => 'firework_powder','category' => 'root_ein','deco' => 5,'heavy' => false],                       // -- ---
         ['label' => 'Flush-Abschussrohr','icon' => 'firework_tube','category' => 'root_ein','deco' => 2,'heavy' => true],                                 // In Out
