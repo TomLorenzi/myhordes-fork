@@ -19,6 +19,9 @@ bin/console doctrine:fixtures:load --append
 yarn install
 yarn encore dev
 
+# Create the crow account (plus 80 debug accounts in case there are none)
+bin/console app:debug --add-crow
+
 # Create a new town (available languages de, en, fr)
 bin/console app:create-town remote 40 de
 
