@@ -8555,5 +8555,14 @@
         <target>Hier wurde bereits ein Bauplan gefunden.</target>
       </segment>
     </unit>
+    <unit id="Ci7U3L." name="Aktualisierung">
+      <notes>
+        <note category="german">Aktualisierung</note>
+      </notes>
+      <segment>
+        <source>Aktualisierung</source>
+        <target>Actualiser</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

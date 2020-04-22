@@ -209,7 +209,7 @@
 
         <div class="padded cell rw-6 rw-md-12">
             {% if zone.x != 0 or zone.y != 0 %}
-            <h5>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                <h5><span class="float-right" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}

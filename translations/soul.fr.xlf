@@ -111,5 +111,23 @@
         <target>Écrits</target>
       </segment>
     </unit>
+    <unit id="q.Y8zXe" name="787b8ea">
+      <notes>
+        <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
+      </notes>
+      <segment>
+        <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
+        <target>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</target>
+      </segment>
+    </unit>
+    <unit id="fUgR4gE" name="Gefundene Texte: %count%">
+      <notes>
+        <note category="german">Gefundene Texte: %count%</note>
+      </notes>
+      <segment>
+        <source>Gefundene Texte: %count%</source>
+        <target>Gefundene Texte: %count%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
