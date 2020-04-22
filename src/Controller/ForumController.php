@@ -416,6 +416,7 @@ class ForumController extends AbstractController
             'fid' => $id,
             'tid' => null,
             'pid' => null,
+            'username' => $this->getUser()->getUsername(),
         ] );
     }
 

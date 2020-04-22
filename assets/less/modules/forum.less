@@ -154,6 +154,15 @@
   display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-moderator-button-color;
   border: 1px solid @myhordes-forum-moderator-button-border;
   color: white; cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  padding: 10px 30px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px 0px black;
+
   &:hover { background: @myhordes-forum-moderator-button-border; }
 
   &[x-text-control-node] {
@@ -170,7 +179,6 @@
   }
 }
 
-
 .forum-checkbox {
   display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-moderator-button-color;
   border: 1px solid @myhordes-forum-moderator-button-border;
@@ -180,6 +188,69 @@
 .forum-checkbox label {
 
   font-size: 1rem;
+}
+
+#forum-content,
+#forum-editor {
+  .forum-moderator-button,
+  .forum-button {
+    font-size: 1.4rem;
+    background-color: @myhordes-forum-moderator-button-color;
+    background: url('../../img/bg_button.gif') center / cover no-repeat;
+    border: 1px solid @myhordes-forum-moderator-button-border;
+    color: #f0d79e;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 10px 30px;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px 0 black;
+    margin-bottom: .5em;
+
+    &:hover {
+      background-color: @myhordes-forum-moderator-button-border;
+      box-shadow: 0 0 1px 0 black;
+    }
+  }
+
+  div.forum-checkbox {
+    padding: 3px 20px;
+    margin-right: 2rem;
+    vertical-align: middle;
+    margin-bottom: .5em;
+    background-color: #4a261e;
+    border-color: #f0d79e;
+    cursor: default;
+
+    input.forum-checkbox {
+      display: none;
+    }
+    span {
+      line-height: 1.4rem;
+      margin: 2px;
+    }
+    input.forum-checkbox + label {
+      display: inline-block;
+      width: 80px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1.4rem;
+      color: #ccc;
+      font-size: 1.1rem;
+      text-align: center;
+      border-radius: 2px;
+      margin: 2px;
+    }
+    input.forum-checkbox:checked + label {
+      color: #f0d79e;
+      font-size: 1.2rem;
+      background-color: rgba(0, 0, 0, .5);
+    }
+  }
 }
 
 .forum-thread {

@@ -44,25 +44,17 @@
 {% if pages == current_page and not locked %}
     <div class="row">
         <div class="cell rw-12 right">
+            {% if is_granted("ROLE_ADMIN")%}
+                {% if not locked %}
+                    <div x-forum-moderator-action="lock" class="forum-moderator-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Schließen'|trans({},'global') }}</div>
+                {% endif %}
+                {% if locked %}
+                    <div x-forum-moderator-action="unlock" class="forum-moderator-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
+                {% endif %}
+            {% endif %}
             <div x-forum-action="answer" class="forum-button">{{ 'Antworten'|trans({},'global') }}</div>
         </div>
     </div>
-{% endif %}
-{% if is_granted("ROLE_ADMIN")%}
-    {% if not locked %}
-        <div class="row">
-            <div class="cell rw-12 right">
-                <div x-forum-moderator-action="lock" class="forum-moderator-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Schließen'|trans({},'global') }}</div>
-            </div>
-        </div>
-    {% endif %}
-    {% if locked %}
-        <div class="row">
-            <div class="cell rw-12 right">
-                <div x-forum-moderator-action="unlock" class="forum-moderator-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
-            </div>
-        </div>
-    {% endif %}
 {% endif %}
 {{ block('pagenav') }}
 <script>
