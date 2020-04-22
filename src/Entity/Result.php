@@ -244,12 +244,12 @@ class Result
         return $this;
     }
 
-    public function getRolePlayerText(): ?bool
+    public function getRolePlayText(): ?bool
     {
         return $this->rolePlayerText;
     }
 
-    public function setRolePlayerText(?bool $rolePlayerText): self
+    public function setRolePlayText(?bool $rolePlayerText): self
     {
         $this->rolePlayerText = $rolePlayerText;
 
