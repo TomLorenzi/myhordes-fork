@@ -155,18 +155,42 @@ class ForumController extends AbstractController
     private const HTML_ALLOWED_NODES   = [ 'br', 'b', 'strong', 'i', 'em', 'u', 'strike', 'del', 'div', 'q', 'blockquote', 'hr', 'ul', 'ol', 'li', 'p', 'img' ];
     private const HTML_ALLOWED_ATTRIBS = [ 'class' ];
 
+    private const HTML_ALLOWED = [
+        'br' => [],
+        'b' => [],
+        'strong' => [],
+        'i' => [],
+        'em' => [],
+        'u' => [],
+        'del' => [],
+        'strike' => [],
+        'q' => [],
+        'blockquote' => [],
+        'hr' => [],
+        'ul' => [ 'class' ],
+        'ol' => [ 'class' ],
+        'li' => [],
+        'p'  => [ 'class' ],
+        'div' => [ 'class' ],
+        'img' => [ 'alt', 'src', 'title'],
+        'a' => [ 'href', 'title' ],
+        'figure' => [ 'style' ],
+    ];
+
     private function htmlValidator( DOMNode $node, int &$text_length, int $depth = 0 ): bool {
         if ($depth > 32) return false;
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
-            if (!in_array($node->nodeName, self::HTML_ALLOWED_NODES) && !($depth === 0 && $node->nodeName === 'body')) {
+            // Element not allowed.
+            if (!in_array($node->nodeName, array_keys(self::HTML_ALLOWED)) && !($depth === 0 && $node->nodeName === 'body')) {
                 $node->parentNode->removeChild( $node );
                 return true;
             }
 
+            // Attributes not allowed.
             $remove_attribs = [];
             for ($i = 0; $i < $node->attributes->length; $i++)
-                if (!in_array($node->attributes->item($i)->nodeName, self::HTML_ALLOWED_ATTRIBS))
+                if (!in_array($node->attributes->item($i)->nodeName, self::HTML_ALLOWED[$node->nodeName]))
                     $remove_attribs[] = $node->attributes->item($i)->nodeName;
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
