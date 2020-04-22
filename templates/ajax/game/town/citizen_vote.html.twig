@@ -43,7 +43,7 @@
                         <b>{{ citizen.user.username }}</b>
                     </span>
                 </div>
-                <div class="padded cell rw-2 ro-6 small right ">
+                <div class="padded cell rw-3 ro-5 small right ">
                     {% if citizen != me %}
                         {% if vote == null %}
                             <button class="vote" x-citizen-id='{{citizen.id}}'>{{'Abstimmen'|trans({}, 'game')}}</button>

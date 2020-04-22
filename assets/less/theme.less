@@ -619,6 +619,7 @@ ul.tabs {
     border: 1px solid @myhordes-smalltext; margin: 0 2px; padding: 3px 6px; display: inline-block; font-size: 1.2rem;
     font-variant: small-caps; cursor: pointer; position: relative; top: 1px; background: @myhordes-cell-header-background-color;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    &, & *{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     &.selected { cursor: default; background: @myhordes-smalltext; top: 3px; color: black;}
   }
 }

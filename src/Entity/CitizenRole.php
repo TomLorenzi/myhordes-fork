@@ -44,9 +44,9 @@ class CitizenRole
     private $icon;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\ItemPrototype")
+     * @ORM\Column(type="string", length=32)
      */
-    private $roleItems;
+    private $status;
 
     public function __construct()
     {
@@ -94,28 +94,14 @@ class CitizenRole
         return $this;
     }
 
-    /**
-     * @return Collection|ItemPrototype[]
-     */
-    public function getRoleItems(): Collection
+    public function getStatus(): ?string
     {
-        return $this->roleItems;
+        return $this->status;
     }
 
-    public function addRoleItem(ItemPrototype $roleItem): self
+    public function setStatus(string $status): self
     {
-        if (!$this->roleItems->contains($roleItem)) {
-            $this->roleItems[] = $roleItem;
-        }
-
-        return $this;
-    }
-
-    public function removeRoleItem(ItemPrototype $roleItem): self
-    {
-        if ($this->roleItems->contains($roleItem)) {
-            $this->roleItems->removeElement($roleItem);
-        }
+        $this->status = $status;
 
         return $this;
     }
