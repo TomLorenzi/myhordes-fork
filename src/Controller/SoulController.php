@@ -319,11 +319,15 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl('soul_rps'));
         }
 
-        $page = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp, $page);
+        if($page > count($rp->getText()->getPages()))
+            return $this->redirect($this->generateUrl('soul_rps'));
+
+        $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
 
         return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
-            'page' => $page,
-            'rp' => $rp
+            'page' => $pageContent,
+            'rp' => $rp,
+            'current' => $page
         )));
     }
 

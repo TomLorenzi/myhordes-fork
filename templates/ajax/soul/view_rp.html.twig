@@ -9,21 +9,37 @@
     <div class="row soul">
         <div class="cell padded header rw-9">
             {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
-                <div class="row">
-                    <div class="cell padded rw-4">
-                        <button class='inline' x-ajax-href="{{path('soul_rps')}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
-                    </div>
+            <div class="row">
+                <div class="cell padded rw-4">
+                    <button class='inline' x-ajax-href="{{path('soul_rps')}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
                 </div>
-                {{dump(page)}}
-                <div class="view-rp">
-                    <h5>{{rp.text.title}}</h5>
-                    <div class="{{rp.text.background}}">
-                        <div class="rp-content design-{{rp.text.design}}">
-                            {{page.content|raw}}
+            </div>
+            <div class="view-rp">
+                <h5>{{rp.text.title}}</h5>
+                {%if rp.text.pages|length > 1%}
+                <div class="center"><span class="small">{{'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...'|trans({}, 'soul')}}</span></div>
+                {% endif %}
+                <div class="{{rp.text.background}}">
+                    <div class="rp-content design-{{rp.text.design}}" x-ajax-href="{%if rp.text.pages|length > 1 and current < rp.text.pages|length %}{{path('soul_rp', {id: rp.id, page: current+1})}}{% else %}{{ path('soul_rps') }}{% endif %}">
+                        {{page.content|raw}}
+                        {%if rp.text.pages|length > 1%}
+                        <div class="pages center">{{'Seite %page%/%pages%'|trans({"%page%": current, "%pages%": rp.text.pages|length}, 'global')}}
+                        {% endif %}
                         </div>
                     </div>
+                    {%if rp.text.pages|length > 1 %}
+                    <div class="center">
+                        {% if current > 1 %}
+                            <button class="inline" x-ajax-href="{{path('soul_rp', {id: rp.id, page: current-1})}}"> {{'Vorherige Seite'|trans({}, 'soul')}}</button>
+                        {% endif %}
+                        {% if current < rp.text.pages|length %}
+                            <button class="inline" x-ajax-href="{{path('soul_rp', {id: rp.id, page: current+1})}}"> {{'Nächste Seite'|trans({}, 'soul')}}</button>
+                        {% endif %}
+                    </div>
+                    {% endif %}
                     <div class="right"><span class="author">{{'Redakteur:'|trans({}, 'soul')}} {{rp.text.author}}</span></div>
                 </div>
+            </div>
         </div>
     </div>
 {% endblock %}
