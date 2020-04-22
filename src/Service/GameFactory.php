@@ -240,7 +240,7 @@ class GameFactory
 
         $town->setForum((new Forum())->setTitle($town->getName()));
 
-        $ownerUser = $this->entity_manager->getRepository(User::class)->getOneById(66);
+        $ownerUser = $this->entity_manager->getRepository(User::class)->findOneById(66);
 
         $threadBank = new Thread();
         $threadBank->setTitle($this->translator->trans('Bank', [], 'game'));
