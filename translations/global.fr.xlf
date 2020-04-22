@@ -719,7 +719,7 @@
       </notes>
       <segment>
         <source>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</source>
-        <target> Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :</target>
+        <target>Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :</target>
       </segment>
     </unit>
     <unit id="WoxxQuM" name="Du hast keine Externe ID.">
@@ -728,7 +728,7 @@
       </notes>
       <segment>
         <source>Du hast keine Externe ID.</source>
-        <target>Du hast keine Externe ID.</target>
+        <target>Vous n'avez pas d'ID externe.</target>
       </segment>
     </unit>
     <unit id="Y1oTzsk" name="ee8b5a5">
@@ -746,7 +746,61 @@
       </notes>
       <segment>
         <source>Sticky</source>
-        <target>Sticky</target>
+        <target>Épinglé</target>
+      </segment>
+    </unit>
+    <unit id="DSG9UgI" name="Online">
+      <notes>
+        <note category="german">Online</note>
+      </notes>
+      <segment>
+        <source>Online</source>
+        <target>En ligne</target>
+      </segment>
+    </unit>
+    <unit id="oXlHg6q" name="Offline">
+      <notes>
+        <note category="german">Offline</note>
+      </notes>
+      <segment>
+        <source>Offline</source>
+        <target>Hors ligne</target>
+      </segment>
+    </unit>
+    <unit id=".dh3UEc" name="als Rabe">
+      <notes>
+        <note category="german">als Rabe</note>
+      </notes>
+      <segment>
+        <source>als Rabe</source>
+        <target>En tant que Corbeau</target>
+      </segment>
+    </unit>
+    <unit id="vDhaMLU" name="Öffnen">
+      <notes>
+        <note category="german">Unlock</note>
+      </notes>
+      <segment>
+        <source>Öffnen</source>
+        <target>Ouvrir</target>
+      </segment>
+    </unit>
+    <unit id="Em1EFUR" name="Moderation">
+      <notes>
+        <note category="german">Moderation</note>
+      </notes>
+      <segment>
+        <source>Moderation</source>
+        <target>Modération</target>
+      </segment>
+    </unit>
+    <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
+      <notes>
+        <note category="german">Dazu hast Du kein Recht.</note>
+      </notes>
+      <segment>
+        <source>Dazu hast Du kein Recht.</source>
+        <target>Vous n'avez pas le droit.</target>
       </segment>
     </unit>
   </file>
