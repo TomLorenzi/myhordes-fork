@@ -302,7 +302,7 @@ class SoulController extends AbstractController
      */
     public function soul_rps(): Response
     {
-        $rps = $this->getUser()->getFoundTexts();
+        $rps = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($this->getUser());
         return $this->render( 'ajax/soul/rps.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'rps' => $rps
         )));
