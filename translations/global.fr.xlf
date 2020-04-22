@@ -719,7 +719,7 @@
       </notes>
       <segment>
         <source>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</source>
-        <target> Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :</target>
+        <target>Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :</target>
       </segment>
     </unit>
     <unit id="WoxxQuM" name="Du hast keine Externe ID.">
@@ -728,7 +728,7 @@
       </notes>
       <segment>
         <source>Du hast keine Externe ID.</source>
-        <target>Du hast keine Externe ID.</target>
+        <target>Vous n'avez pas d'ID externe.</target>
       </segment>
     </unit>
     <unit id="Y1oTzsk" name="ee8b5a5">
@@ -746,7 +746,7 @@
       </notes>
       <segment>
         <source>Sticky</source>
-        <target>Sticky</target>
+        <target>Épinglé</target>
       </segment>
     </unit>
   </file>
