@@ -23,6 +23,7 @@ class ErrorHelper
     const ErrorInvalidRequest    = 1;
     const ErrorDatabaseException = 2;
     const ErrorInternalError     = 3;
+    const ErrorPermissionError   = 4;
 
     const ErrorNoAP               = 51;
     const ErrorActionNotAvailable = 52;

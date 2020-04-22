@@ -114,6 +114,79 @@ div.debug_info {
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
 
+    & #modeCommand {
+      position: absolute;
+      top: 10px;
+      margin-left: 50px;
+      font-size: 8pt;
+      line-height: 10pt;
+      width: 110px;
+      height: 14px;
+      background-color: #5c2b20;
+      outline: 1px solid black;
+      border: 1px solid #f0d79e;
+      z-index: 10;
+
+      & h1 {
+        margin: 0px;
+        padding: 0px;
+        height: 12px;
+        border: 1px solid #ddab76;
+        padding-left: 5px;
+        font-size: 7pt;
+        line-height: 8pt;
+        text-transform: uppercase;
+        letter-spacing: 0pt;
+        background: none;
+        background-color: #5c2b20;
+        color: #f0d79e;
+        cursor: pointer;
+      }
+      
+      & #scrollMenu {
+        display: none;
+      }
+
+      &:hover #scrollMenu {
+        display: block; 
+        position: relative;
+        width: 110px;
+        top:-7px;
+        background-color: #3b3249;
+
+        & ul {
+          margin: 0;
+          padding: 0;
+          float: left;
+          position: relative;
+          top:8px;
+          margin-bottom: 8px;
+          width: 110px;
+          list-style: none;
+          background-color: #3b3249;
+
+          & li.mod-actions {
+            margin: 0 0 .5em;
+            padding: 0;
+            font-size: 1.3rem;
+            color: #ddab76;
+            cursor: pointer;
+
+            img {
+              vertical-align: middle;
+              margin-right: 1em;
+            }
+            span {
+              font-weight: normal;
+            }
+          }
+
+
+        }
+      }
+      
+    }
+
     & #apps {
       position: absolute;
       top: 10px;

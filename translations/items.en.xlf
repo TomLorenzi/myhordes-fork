@@ -7508,5 +7508,20 @@
         <target>Gegenstände suchen</target>
       </segment>
     </unit>
+    <unit id="R2RcDum" name="Kompass">
+      <notes>
+        <note category="german">Kompass</note>
+      </notes>
+      <segment>
+        <source>Kompass</source>
+        <target>Kompass</target>
+      </segment>
+    </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
