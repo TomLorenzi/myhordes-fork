@@ -203,6 +203,13 @@ class User implements UserInterface, EquatableInterface
         return null;
     }
 
+    public function getAliveCitizen(): ?Citizen {
+        foreach ($this->getCitizens() as $c)
+            if ($c->getAlive())
+                return $c;
+        return null;
+    }
+
     /**
      * @return Collection|Citizen[]
      */
