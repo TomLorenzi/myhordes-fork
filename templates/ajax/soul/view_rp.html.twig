@@ -11,16 +11,18 @@
             {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
                 <div class="row">
                     <div class="cell padded rw-4">
-                        <button class='inline' x-ajax-href="{{path('soul_rps')}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" />Retour liste</button>
+                        <button class='inline' x-ajax-href="{{path('soul_rps')}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
                     </div>
                 </div>
+                {{dump(page)}}
                 <div class="view-rp">
                     <h5>{{rp.text.title}}</h5>
                     <div class="{{rp.text.background}}">
-                        <div class="rp-content">
-                            {{rp.text.content|raw}}
+                        <div class="rp-content design-{{rp.text.design}}">
+                            {{page.content|raw}}
                         </div>
                     </div>
+                    <div class="right"><span class="author">{{'Redakteur:'|trans({}, 'soul')}} {{rp.text.author}}</span></div>
                 </div>
         </div>
     </div>

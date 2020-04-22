@@ -1476,7 +1476,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
                         break;
                     case 'rp':
-                        $result->setRolePlayerText( $sub_data[0] );
+                        $result->setRolePlayText( $sub_data[0] );
                         break;
                     case 'picto':
                         $result->setPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );

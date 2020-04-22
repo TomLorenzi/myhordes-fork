@@ -258,7 +258,7 @@
 			overflow: auto;
 			padding-top: 25px;
 			padding-left: 45px;
-			padding-right: 20px;
+			padding-right: 45px;
 			width: 585px;
 			color: black;
 			.hr {
@@ -269,15 +269,52 @@
 				text-align: center;
 				color: #5c2b20;
 				margin-bottom: 10px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-size: 2.3rem;
+				small {
+					display: block;
+					font-size: 1rem;
+				}
 			}
 
-			p {
+			&.design-typed p {
 				font-family: "Inconsolata", fixed;
+			}
+			
+			&.design-written p {
+				font-family: "Comic Neue", sans-serif;
+				font-style: italic;
+				color: #5c2b20;
+				font-size: 1.75rem;
+				line-height: 2rem;
+				font-weight: bold;
+				&::first-line {
+					color: black;
+				}
 			}
 		}
 
 		.carton {
 			background: url('../../img/books/carton.gif') no-repeat;
+		}
+
+		.blood {
+			background: url('../../img/books/blood.gif') no-repeat;
+		}
+
+		.noteup {
+			background: url('../../img/books/noteup.gif') no-repeat;
+		}
+
+		.white {
+			background: url('../../img/books/white.gif') no-repeat;
+		}
+
+		.author {
+			color: #ddab76;
+			font-style: italic;
+			font-size: 1rem;
 		}
 	}
 }

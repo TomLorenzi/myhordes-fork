@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\FoundRolePlayerText;
-use App\Entity\RolePlayerText;
+use App\Entity\FoundRolePlayText;
+use App\Entity\RolePlayText;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**
- * @method FoundRolePlayerText|null find($id, $lockMode = null, $lockVersion = null)
- * @method FoundRolePlayerText|null findOneBy(array $criteria, array $orderBy = null)
- * @method FoundRolePlayerText[]    findAll()
- * @method FoundRolePlayerText[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method FoundRolePlayText|null find($id, $lockMode = null, $lockVersion = null)
+ * @method FoundRolePlayText|null findOneBy(array $criteria, array $orderBy = null)
+ * @method FoundRolePlayText[]    findAll()
+ * @method FoundRolePlayText[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FoundRolePlayerTextRepository extends ServiceEntityRepository
+class FoundRolePlayTextRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, FoundRolePlayerText::class);
+        parent::__construct($registry, FoundRolePlayText::class);
     }
 
     /**
-      * @return FoundRolePlayerText[] Returns an array of FoundRolePlayerText objects
+      * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
       */
-    public function findByUserAndText(User $user, RolePlayerText $text)
+    public function findByUserAndText(User $user, RolePlayText $text)
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.user = :user')
@@ -38,7 +38,7 @@ class FoundRolePlayerTextRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return FoundRolePlayerText[] Returns an array of FoundRolePlayerText objects
+    //  * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
     //  */
     /*
     public function findByExampleField($value)
@@ -55,7 +55,7 @@ class FoundRolePlayerTextRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?FoundRolePlayerText
+    public function findOneBySomeField($value): ?FoundRolePlayText
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.exampleField = :val')

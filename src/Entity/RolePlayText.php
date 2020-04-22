@@ -2,19 +2,21 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\RolePlayerTextRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\RolePlayTextRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="name_unique",columns={"name"})
  * })
  */
-class RolePlayerText
+class RolePlayText
 {
     /**
      * @ORM\Id()
@@ -24,19 +26,19 @@ class RolePlayerText
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=32, nullable=true)
-     */
-    private $author;
-
-    /**
      * @ORM\Column(type="string", length=128)
      */
     private $title;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=32, nullable=true)
      */
-    private $content;
+    private $author;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RolePlayTextPage", mappedBy="rolePlayText")
+     */
+    private $pages;
 
     /**
      * @ORM\Column(type="string", length=32)
@@ -49,9 +51,18 @@ class RolePlayerText
     private $language;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=32, nullable=true)
      */
     private $background;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $design;
+
+    public function __construct(){
+        $this->pages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -82,14 +93,33 @@ class RolePlayerText
         return $this;
     }
 
-    public function getContent(): ?string
+    /**
+     * @return Collection|RolePlayTextPage[]
+     */
+    public function getPages(): ?Collection
     {
-        return $this->content;
+        return $this->pages;
     }
 
-    public function setContent(string $content): self
+    public function addPage(RolePlayTextPage $page): self
     {
-        $this->content = $content;
+        if (!$this->pages->contains($page)) {
+            $this->pages[] = $page;
+            $page->setRolePlayText($this);
+        }
+
+        return $this;
+    }
+
+    public function removePage(RolePlayTextPage $page): self
+    {
+        if ($this->pages->contains($page)) {
+            $this->pages->removeElement($page);
+            // set the owning side to null (unless already changed)
+            if ($page->getUser() === $this) {
+                $page->setRolePlayText(null);
+            }
+        }
 
         return $this;
     }
@@ -126,6 +156,18 @@ class RolePlayerText
     public function setBackground(string $background): self
     {
         $this->background = $background;
+
+        return $this;
+    }
+
+    public function getDesign(): ?string
+    {
+        return $this->design;
+    }
+
+    public function setDesign(string $design): self
+    {
+        $this->design = $design;
 
         return $this;
     }

@@ -147,5 +147,14 @@
         <target>Découvert</target>
       </segment>
     </unit>
+    <unit id="MCPpLdD" name="Redakteur:">
+      <notes>
+        <note category="german">Redakteur:</note>
+      </notes>
+      <segment>
+        <source>Redakteur:</source>
+        <target>Rédacteur :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

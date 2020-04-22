@@ -8,12 +8,12 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\FoundRolePlayerTextRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\FoundRolePlayTextRepository")
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="user_text_unique",columns={"user_id", "text_id"})
  * })
  */
-class FoundRolePlayerText
+class FoundRolePlayText
 {
     /**
      * @ORM\Id()
@@ -23,12 +23,12 @@ class FoundRolePlayerText
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="foundTexts")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\RolePlayerText")
+     * @ORM\ManyToOne(targetEntity="App\Entity\RolePlayText")
      */
     private $text;
 
@@ -58,12 +58,12 @@ class FoundRolePlayerText
         return $this;
     }
 
-    public function getText(): ?RolePlayerText
+    public function getText(): ?RolePlayText
     {
         return $this->text;
     }
 
-    public function setText(RolePlayerText $text): self
+    public function setText(RolePlayText $text): self
     {
         $this->text = $text;
 
