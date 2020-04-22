@@ -749,5 +749,59 @@
         <target>Épinglé</target>
       </segment>
     </unit>
+    <unit id="DSG9UgI" name="Online">
+      <notes>
+        <note category="german">Online</note>
+      </notes>
+      <segment>
+        <source>Online</source>
+        <target>En ligne</target>
+      </segment>
+    </unit>
+    <unit id="oXlHg6q" name="Offline">
+      <notes>
+        <note category="german">Offline</note>
+      </notes>
+      <segment>
+        <source>Offline</source>
+        <target>Hors ligne</target>
+      </segment>
+    </unit>
+    <unit id=".dh3UEc" name="als Rabe">
+      <notes>
+        <note category="german">als Rabe</note>
+      </notes>
+      <segment>
+        <source>als Rabe</source>
+        <target>En tant que Corbeau</target>
+      </segment>
+    </unit>
+    <unit id="vDhaMLU" name="Öffnen">
+      <notes>
+        <note category="german">Unlock</note>
+      </notes>
+      <segment>
+        <source>Öffnen</source>
+        <target>Ouvrir</target>
+      </segment>
+    </unit>
+    <unit id="Em1EFUR" name="Moderation">
+      <notes>
+        <note category="german">Moderation</note>
+      </notes>
+      <segment>
+        <source>Moderation</source>
+        <target>Modération</target>
+      </segment>
+    </unit>
+    <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
+      <notes>
+        <note category="german">Dazu hast Du kein Recht.</note>
+      </notes>
+      <segment>
+        <source>Dazu hast Du kein Recht.</source>
+        <target>Vous n'avez pas le droit.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

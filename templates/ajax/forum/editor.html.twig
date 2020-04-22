@@ -42,13 +42,13 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
+            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
             {% if is_granted("ROLE_ADMIN") %}
             <div class="forum-checkbox">
                 <label for="crow_answer">{{ 'als Rabe'|trans({},'global') }}</label>
                 <input class="forum-checkbox" type="checkbox" id="crow_answer"></input>
             </div>
             {% endif %}
-            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
         </div>
     </div>
 

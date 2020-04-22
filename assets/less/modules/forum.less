@@ -135,10 +135,14 @@
 .forum-button-bar { margin: 5px 0; padding: 0 5px; }
 
 .forum-button {
-  display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-button-color;
+  display: inline-block; 
+  padding: 2px 5px; 
+  font-size: 1rem; 
+  background: @myhordes-forum-button-color;
   border: 1px solid @myhordes-forum-button-border;
   color: white; cursor: pointer;
   &:hover { background: @myhordes-forum-button-border; }
+  line-height: 18px;
 
   &[x-text-control-node] {
     padding: 0;
@@ -155,6 +159,7 @@
   border: 1px solid @myhordes-forum-moderator-button-border;
   color: white; cursor: pointer;
   &:hover { background: @myhordes-forum-moderator-button-border; }
+  height: 24px;
 
   &[x-text-control-node] {
     padding: 0;
