@@ -289,6 +289,21 @@
                                 {% endif %}
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
                             </div>
+
+                            {% if other_citizen.escortSettings.allowInventoryAccess %}
+                                <div class="padded cell ro-4 rw-8">
+                                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_sizes[other_citizen.id], 'items': other_citizen.inventory.items, 'escort': other_citizen.id, 'plus': allow_floor_access} %}
+                                        {% block class %}rucksack-escort{% endblock %}
+                                    {% endembed %}
+                                    {% if allow_floor_access %}
+                                        <div class="tooltip-dummy hidden _lf_{{ other_citizen.id }}">
+                                            {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'escort': other_citizen.id} %}
+                                                {% block class %}desert-escort{% endblock %}
+                                            {% endembed %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -353,13 +368,23 @@
 
     {% if not citizen.banished and not citizen.camping %}
         <div class="row">
-            <div class="cell padded rw-12">
-                {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
-                    <button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button>
-                {% elseif citizen.escortSettings is not null %}
+            {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
+                <div class="cell rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
+            {% elseif citizen.escortSettings is not null %}
+                <div class="cell padded rw-6">
+                    <div class="note">
+                        <input type="checkbox" {% if citizen.escortSettings.allowInventoryAccess %}checked{% endif%} x-toggle-escort="1" id="escort_allow_rucksack" />&nbsp;<label for="escort_allow_rucksack">{{ 'Zugriff auf meinen Rucksack zulassen'|trans({},'game') }}</label>
+                    </div>
+                </div>
+                <div class="cell padded rw-6">
+                    <div class="note">
+                        <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
+                    </div>
+                </div>
+                <div class="cell rw-12 padded">
                     <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/escort_off.gif') }}" />{{ 'Eskorte deaktivieren'|trans({},'game') }}</button>
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
         </div>
     {% endif %}
 
@@ -390,7 +415,13 @@
         {% endif %}
 
         $.html.addEventListenerAll( '[x-toggle-escort]:not([x-escort-control-endpoint])', 'click', function(e,elem) {
-            $.ajax.easySend( '{{ path('beyond_desert_escort_self_controller') }}', {on: elem.getAttribute('x-toggle-escort') === '1'},
+            const allow_rucksack = document.getElementById('escort_allow_rucksack') ? document.getElementById('escort_allow_rucksack').checked : false;
+            const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : false;
+            $.ajax.easySend( '{{ path('beyond_desert_escort_self_controller') }}', {
+                on: elem.getAttribute('x-toggle-escort') === '1',
+                cf_ruc: allow_rucksack,
+                cf_ret: force_return,
+            },
                 function () {
                     $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                 } );
@@ -477,8 +508,18 @@
 
         {% if allow_floor_access %}
             {% embed "scripts/inventory.js.twig" %}{% endembed %}
+
+            $.html.addEventListenerAll( '.rucksack-escort>.item.plus[x-escort-id]:not(.locked)', 'click', function(e,elem) {
+                const eid = elem.getAttribute('x-escort-id');
+                let invs = document.querySelectorAll('._lf_' + eid);
+                for (let i = 0; i < invs.length; i++)
+                    if (invs[i].classList.contains('hidden')) invs[i].classList.remove('hidden');
+                    else invs[i].classList.add('hidden');
+            });
+
+
             handleItems(
-                document.querySelectorAll('.rucksack>.item:not(.locked)'),
+                document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked),.rucksack-escort>.item[x-item-id]:not(.locked)'),
                 '{{ path('beyond_desert_item_controller') }}',
                 'down', '{{ path('beyond_dashboard') }}'
             );
@@ -490,7 +531,7 @@
             );
 
             handleItems(
-                document.querySelectorAll('.desert>.item:not(.locked)'),
+                document.querySelectorAll('.desert>.item[x-item-id]:not(.locked),.desert-escort>.item[x-item-id]:not(.locked)'),
                 '{{ path('beyond_desert_item_controller') }}',
                 'up', '{{ path('beyond_dashboard') }}'
             );

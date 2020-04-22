@@ -32,7 +32,9 @@ export default class HTML {
 
     selectErrorMessage( code: string, messages: object, base: object, data: object = null ) {
         if (!code) code = 'default';
-        if (messages && messages.hasOwnProperty(code)) {
+        if (code === 'message' && data.hasOwnProperty('message'))
+            this.error( data['message'] );
+        else if (messages && messages.hasOwnProperty(code)) {
             if (typeof messages[code] === 'function')
                 this.error( messages[code](data) );
             else this.error( messages[code] );

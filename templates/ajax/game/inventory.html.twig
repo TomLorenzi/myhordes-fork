@@ -1,3 +1,6 @@
+{% if escort is not defined %}
+    {% set escort = null %}
+{% endif %}
 {% if bankmode is defined and bankmode %}
     <input type="text" name="banksearch" id="banksearch" placeholder="{{ 'Gegenstände suchen'|trans({},'items') }}"/>
 {% endif %}
@@ -5,12 +8,15 @@
     {% if bankmode is not defined or not bankmode %}
         <li class="title">{% block title %}{% endblock %}</li>
         {% for item in items %}
-            {% embed "ajax/game/item.html.twig" with {'item': item} %}{% endembed %}
+            {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort} %}{% endembed %}
         {% endfor %}
         {% if items|length < size %}
             {% for i in range(0, size - items|length - 1) %}
                 <li class="free"></li>
             {% endfor %}
+        {% endif %}
+        {% if plus is defined and plus %}
+            <li class="item plus" {% if escort is not null%}x-escort-id="{{ escort }}"{% endif%} ><img alt="+" src="{{ asset('build/images/small_more.gif') }}" /></li>
         {% endif %}
     {% else %}
         {% for category,list in items %}

@@ -26,6 +26,16 @@ class CitizenEscortSettings
      */
     private $leader;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $allowInventoryAccess = false;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $forceDirectReturn = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -57,6 +67,30 @@ class CitizenEscortSettings
     public function setLeader(?Citizen $leader): self
     {
         $this->leader = $leader;
+
+        return $this;
+    }
+
+    public function getAllowInventoryAccess(): ?bool
+    {
+        return $this->allowInventoryAccess;
+    }
+
+    public function setAllowInventoryAccess(?bool $allowInventoryAccess): self
+    {
+        $this->allowInventoryAccess = $allowInventoryAccess;
+
+        return $this;
+    }
+
+    public function getForceDirectReturn(): ?bool
+    {
+        return $this->forceDirectReturn;
+    }
+
+    public function setForceDirectReturn(?bool $forceDirectReturn): self
+    {
+        $this->forceDirectReturn = $forceDirectReturn;
 
         return $this;
     }

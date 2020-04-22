@@ -165,7 +165,7 @@ class ZoneHandler
             elseif (count($found_by_player) === 1) $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                 '%item%' => $wrap($found_by_player)
             ], 'game' );
-            else $ret_str[] = $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%', ['%items' => $wrap($found_by_player)], 'game' );
+            else $ret_str[] = $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%', ['%items%' => $wrap($found_by_player)], 'game' );
         }
 
         if ($chances_by_escorts > 0) {

@@ -256,7 +256,7 @@ class InventoryHandler
             self::TransferTypeHome => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
             self::TransferTypeSteal => [ self::TransferTypeRucksack ],
             self::TransferTypeLocal => [ self::TransferTypeRucksack, self::TransferTypeEscort, self::TransferTypeConsume ],
-            self::TransferTypeEscort => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
+            self::TransferTypeEscort => [ self::TransferTypeLocal, self::TransferTypeConsume ],
             self::TransferTypeImpound => [ self::TransferTypeTamer ],
         ];
 
@@ -287,6 +287,13 @@ class InventoryHandler
         // Check if the inventory belongs directly to the citizen
         if ($inventory->getCitizen() && $inventory->getCitizen()->getId() === $citizen->getId())
             return self::TransferTypeRucksack;
+
+        // Check if the inventory belongs directly to the citizen
+        if ($inventory->getCitizen() && $inventory->getCitizen()->getId() !== $citizen->getId() &&
+            $inventory->getCitizen()->getEscortSettings() && $inventory->getCitizen()->getEscortSettings()->getLeader() &&
+            $inventory->getCitizen()->getEscortSettings()->getLeader()->getId() === $citizen->getId() &&
+            $inventory->getCitizen()->getEscortSettings()->getAllowInventoryAccess())
+            return self::TransferTypeEscort;
 
         // Check if the inventory belongs to the citizens current zone
         if ($inventory->getZone() && !$citizen_is_at_home && $inventory->getZone()->getId() === $citizen->getZone()->getId())
