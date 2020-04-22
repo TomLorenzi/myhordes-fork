@@ -26,14 +26,7 @@
         {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.username|lower <=> b.user.username|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row pointer{% if citizen == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                <div class="padded cell rw-1 rw-md-2">
-                    {% if citizen.alive %}
-                        <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
-                    {% elseif citizen.home.holdsBody %}
-                        <img alt="{{ 'Leiche nicht beseitigt!'|trans({},'game') }}" src="{{ asset('build/images/small_warning.gif') }}" />
-                    {% endif %}
-                </div>
-                <div class="padded cell rw-3 rw-md-6 small">
+                <div class="padded cell rw-3 rw-md-6 small citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}">
                     <span>
                         {% if citizen.alive %}
                             {% if citizen.banished %}
@@ -45,10 +38,13 @@
                             {% endif %}
                             <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                         {% else %}
+                            {% if citizen.home.holdsBody %}
+                                <img alt="{{ 'Leiche nicht beseitigt!'|trans({},'game') }}" src="{{ asset('build/images/small_warning.gif') }}" />
+                            {% endif %}
                             <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                             <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
                         {% endif %}
-                        <b>{{ citizen.user.username }}</b>
+                        <b class="citizen-name">{{ citizen.user.username }}</b>
                         {% if citizen.alive %}
                             {% for role in citizen.roles %}
                                 <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
@@ -56,10 +52,16 @@
                         {% endif %}
                     </span>
                 </div>
-                <div class="padded cell rw-4 small hide-md hide-sm">
+                <div class="padded cell rw-4 small hide-md hide-sm citizen-box">
                     {{ citizen.home.description }}
                 </div>
-                <div class="padded cell rw-4 small right ">
+                <div class="padded cell rw-2 rw-md-2 citizen-box">
+                    {% if citizen.alive %}
+                        <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
+                        <span class="citizen-defense">{{ citizen.home.prototype.defense + citizen.home.additionalDefense }} pts</span>
+                    {% endif %}
+                </div>
+                <div class="padded cell rw-3 small right citizen-box">
                     {% if citizen.alive %}
                         {% if not citizen.zone %}
                             {{ "In der Stadt"|trans({},'game') }}
@@ -79,7 +81,7 @@
                         <span class="hide-desktop hide-lg">{{ 'Tot'|trans({}, "game") }}</span>
                     {% endif %}
                 </div>
-                <div class="padded cell rw-12 small hide-desktop hide-lg">
+                <div class="padded cell rw-12 small hide-desktop hide-lg citizen-box">
                     {{ citizen.home.description }}
                 </div>
                 <div class="tooltip">
