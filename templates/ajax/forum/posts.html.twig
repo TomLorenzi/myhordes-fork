@@ -28,7 +28,13 @@
                         {{ post.date.format('D, d.m.Y G:i') }}
                     {% endif %}
                 </i>
-                <b>{% if post.owner %}{{ post.owner.username }}{% else %}{{ 'Der Rabe'|trans({},'global') }}{% endif %}</b>
+                <b>
+                    {% if post.owner.username == 'Der Rabe' %}
+                        {{ 'Der Rabe'|trans({},'global') }}
+                    {% else %}
+                        {{ post.owner.username }}
+                    {% endif %}
+                </b>
                 {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
             </div>
             <div class="forum-post-content">{{ post.text|raw }}</div>
@@ -42,8 +48,38 @@
         </div>
     </div>
 {% endif %}
+{% if is_granted("ROLE_ADMIN")%}
+    {% if not locked %}
+        <div class="row">
+            <div class="cell rw-12 right">
+                <div x-forum-moderator-action="lock" class="forum-moderator-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Schließen'|trans({},'global') }}</div>
+            </div>
+        </div>
+    {% endif %}
+    {% if locked %}
+        <div class="row">
+            <div class="cell rw-12 right">
+                <div x-forum-moderator-action="unlock" class="forum-moderator-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}
 {{ block('pagenav') }}
 <script>
+    {% if is_granted("ROLE_ADMIN")%}
+        {% if not locked %}
+            let lock_button = document.querySelector('[x-forum-moderator-action=lock]');
+            lock_button.addEventListener('click', function() {
+                $.ajax.no_history().load( null, '{{ url('forum_thread_lock_controller', {fid: fid, tid: tid}) }}', false )
+            })
+        {% endif %}
+        {% if locked %}
+            let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
+            unlock_button.addEventListener('click', function() {
+                $.ajax.no_history().load( null, '{{ url('forum_thread_unlock_controller', {fid: fid, tid: tid}) }}', false )
+            })
+        {% endif %}
+    {% endif %}
     let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
     for (let i = 0; i < new_post_btns.length; i++)
         new_post_btns[i].addEventListener('click', function() {

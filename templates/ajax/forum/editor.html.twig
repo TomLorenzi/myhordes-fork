@@ -42,6 +42,12 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
+            {% if is_granted("ROLE_ADMIN") %}
+            <div class="forum-checkbox">
+                <label for="crow_answer">{{ 'als Rabe'|trans({},'global') }}</label>
+                <input class="forum-checkbox" type="checkbox" id="crow_answer"></input>
+            </div>
+            {% endif %}
             <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
         </div>
     </div>
@@ -249,12 +255,18 @@
                     target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
                     target_payload = {
                         title: document.getElementById('forum-editor-title').value,
-                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML, //sun-editor-editable
+                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
+                        {% if is_granted("ROLE_ADMIN") %}
+                        as_crow: document.getElementById('crow_answer').checked,
+                        {% endif %}
                     };
                 {% else %}
                     target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
                     target_payload = {
-                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML, //sun-editor-editable
+                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
+                        {% if is_granted("ROLE_ADMIN") %}
+                        as_crow: document.getElementById('crow_answer').checked,
+                        {% endif %}
                     };
                 {% endif %}
                 $.ajax.easySend( target_url, target_payload,

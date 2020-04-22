@@ -11,6 +11,7 @@ use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
+use App\Service\AdminActionHandler;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
@@ -243,7 +244,7 @@ class ForumController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em): Response {
+    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response {
         $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $id);
         if (count($forums) !== 1) return AjaxResponse::error( self::ErrorForumNotFound );
 
@@ -260,6 +261,17 @@ class ForumController extends AbstractController
         $text  = $parser->trimmed('text');
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)   return AjaxResponse::error( self::ErrorPostTitleLength );
+
+        $as_crow = $parser->get('as_crow');
+        if (isset($as_crow)){
+            if ($as_crow) {
+                $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
+                if (isset($thread))
+                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
+                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+        }
+
         if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
@@ -294,7 +306,7 @@ class ForumController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em): Response {
+    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -312,6 +324,14 @@ class ForumController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $text  = $parser->get('text');
+        $as_crow = $parser->get('as_crow');
+        if (isset($as_crow)){
+            if ($as_crow) {
+                if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
+                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+        }
 
         if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
@@ -418,5 +438,32 @@ class ForumController extends AbstractController
             'tid' => $tid,
             'pid' => null,
         ] );
+    }
+
+     /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/lock", name="forum_thread_lock_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function lock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->lockThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+    }
+
+     /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unlock", name="forum_thread_unlock_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function unlock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->unlockThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+
     }
 }
