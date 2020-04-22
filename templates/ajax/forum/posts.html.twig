@@ -28,7 +28,7 @@
                         {{ post.date.format('D, d.m.Y G:i') }}
                     {% endif %}
                 </i>
-                <b>{{ post.owner.username }}</b>
+                <b>{% if post.owner %}{{ post.owner.username }}{% else %}{{ 'Der Rabe'|trans({},'global') }}{% endif %}</b>
                 {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
             </div>
             <div class="forum-post-content">{{ post.text|raw }}</div>

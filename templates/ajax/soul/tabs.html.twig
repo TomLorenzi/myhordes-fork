@@ -1,11 +1,14 @@
 <div class="row tabs">
-    <div class="cell rw-4">
+    <div class="cell rw-2">
         <h4 class="soul-name">
             <img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ app.user.username }}
         </h4>
     </div>
     <div class="cell rw-2 tab{% if soul_tab == "soul_me" %} selected{% endif %}">
         <div class="tab-link" x-ajax-href="{{ path('soul_me') }}">{% trans from 'soul' %}Seele{% endtrans %}</div>
+    </div>
+    <div class="cell rw-2 tab{% if soul_tab == "soul_rps" %} selected{% endif %}">
+        <div class="tab-link" x-ajax-href="{{ path('soul_rps') }}">{% trans from 'soul' %}Schriften{% endtrans %}</div>
     </div>
     <div class="cell rw-2 tab{% if soul_tab == "soul_news" %} selected{% endif %}">
         <div class="tab-link" x-ajax-href="{{ path('soul_news') }}">{% trans from 'soul' %}News{% endtrans %}</div>

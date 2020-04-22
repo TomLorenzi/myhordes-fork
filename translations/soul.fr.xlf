@@ -102,5 +102,86 @@
         <target>Déconnexion</target>
       </segment>
     </unit>
+    <unit id="EpWptWk" name="Schriften">
+      <notes>
+        <note category="german">Schriften</note>
+      </notes>
+      <segment>
+        <source>Schriften</source>
+        <target>Écrits</target>
+      </segment>
+    </unit>
+    <unit id="q.Y8zXe" name="787b8ea">
+      <notes>
+        <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
+      </notes>
+      <segment>
+        <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
+        <target>L'histoire d'un monde n'est que le reflet de multiples épopées individuelles...</target>
+      </segment>
+    </unit>
+    <unit id="fUgR4gE" name="Gefundene Texte: %count%">
+      <notes>
+        <note category="german">Gefundene Texte: %count%</note>
+      </notes>
+      <segment>
+        <source>Gefundene Texte: %count%</source>
+        <target>Textes découverts : %count%</target>
+      </segment>
+    </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <notes>
+        <note category="german">Titel</note>
+      </notes>
+      <segment>
+        <source>Titel</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="PHUagJt" name="Entdeckt">
+      <notes>
+        <note category="german">Entdeckt</note>
+      </notes>
+      <segment>
+        <source>Entdeckt</source>
+        <target>Découvert</target>
+      </segment>
+    </unit>
+    <unit id="MCPpLdD" name="Redakteur:">
+      <notes>
+        <note category="german">Redakteur:</note>
+      </notes>
+      <segment>
+        <source>Redakteur:</source>
+        <target>Rédacteur :</target>
+      </segment>
+    </unit>
+    <unit id="KJJicse" name="36b050a">
+      <notes>
+        <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
+      </notes>
+      <segment>
+        <source>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</source>
+        <target>Ce document comporte plusieurs pages. Cliquez dessus pour passer à la page suivante...</target>
+      </segment>
+    </unit>
+    <unit id="boYEw93" name="Vorherige Seite">
+      <notes>
+        <note category="german">Vorherige Seite</note>
+      </notes>
+      <segment>
+        <source>Vorherige Seite</source>
+        <target>Page précédente</target>
+      </segment>
+    </unit>
+    <unit id="hc2Xbgb" name="Nächste Seite">
+      <notes>
+        <note category="german">Nächste Seite</note>
+      </notes>
+      <segment>
+        <source>Nächste Seite</source>
+        <target>Page suivante</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

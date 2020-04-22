@@ -220,4 +220,111 @@
 	input {
 		width: 100%;
 	}
+
+	.rp-list {
+		.rp-head {
+			.rp-context {
+				margin-top: 10px;
+			}
+			h5 {
+				color: white;
+			}
+		}
+		.rp-row {
+			font-size: 1.3rem;
+			background: #5c2b20;
+			border-right: 1px solid #7e4d2a;
+			border-bottom: 1px solid #7e4d2a;
+			cursor: pointer;
+			text-decoration: underline;
+			&:hover {
+				color: lighten(@myhordes-smalltext, 20%);
+				background: #965C36;
+			}
+				
+			.rp-text {
+				.title {
+					color: #f0d79e;
+				}
+
+				em {
+					font-size: 1.2rem;
+					color: @myhordes-smalltext;
+				}
+			}
+		}
+	}
+
+	.view-rp {
+		.rp-content {
+			height: 420px;
+			overflow: auto;
+			padding-top: 25px;
+			padding-left: 45px;
+			padding-right: 45px;
+			width: 585px;
+			color: black;
+			cursor: pointer;
+			
+			.hr {
+				margin-top: 70px;
+			}
+
+			h1 {
+				text-align: center;
+				color: #5c2b20;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-size: 2.3rem;
+				small {
+					display: block;
+					font-size: 1rem;
+				}
+			}
+
+			&.design-typed p {
+				font-family: "Inconsolata", fixed;
+			}
+			
+			&.design-written p {
+				font-family: "Comic Neue", sans-serif;
+				font-style: italic;
+				color: #5c2b20;
+				font-size: 1.75rem;
+				line-height: 2rem;
+				font-weight: bold;
+				&::first-line {
+					color: black;
+				}
+			}
+
+			.pages {
+				font-size: 1rem;
+				font-weight: bold;
+			}
+		}
+
+		.carton {
+			background: url('../../img/books/carton.gif') no-repeat;
+		}
+
+		.blood {
+			background: url('../../img/books/blood.gif') no-repeat;
+		}
+
+		.noteup {
+			background: url('../../img/books/noteup.gif') no-repeat;
+		}
+
+		.white {
+			background: url('../../img/books/white.gif') no-repeat;
+		}
+
+		.author {
+			color: #ddab76;
+			font-style: italic;
+			font-size: 1rem;
+		}
+	}
 }

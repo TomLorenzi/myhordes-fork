@@ -12,6 +12,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenStatus;
 use App\Entity\EscapeTimer;
+use App\Entity\FoundRolePlayText;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
 use App\Entity\ItemAction;
@@ -22,7 +23,7 @@ use App\Entity\Recipe;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Entity\Result;
-use App\Entity\RolePlayerText;
+use App\Entity\RolePlayText;
 use App\Entity\Zone;
 use App\Structures\ItemRequest;
 use DateTime;
@@ -93,6 +94,7 @@ class ActionHandler
                 case Requirement::HideOnFail: $this_state = self::ActionValidityHidden; break;
             }
 
+
             if ($status = $meta_requirement->getStatusRequirement()) {
                 if ($status->getStatus() !== null && $status->getEnabled() !== null) {
                     $status_is_active = $citizen->getStatus()->contains( $status->getStatus() );
@@ -101,6 +103,10 @@ class ActionHandler
 
                 if ($status->getProfession() !== null && $citizen->getProfession()->getId() !== $status->getProfession()->getId())
                     $current_state = min( $current_state, $this_state );
+
+                if ($status->getRole() !== null && !$citizen->getRoles()->contains($status->getRole())){
+                    $current_state = min( $current_state, $this_state );
+                }
             }
 
             if ($home = $meta_requirement->getHome()) {
@@ -123,6 +129,11 @@ class ActionHandler
             if ($ap = $meta_requirement->getAp()) {
                 $max = $ap->getRelativeMax() ? ($this->citizen_handler->getMaxAP( $citizen ) + $ap->getMax()) : $ap->getMax();
                 if ($citizen->getAp() < $ap->getMin() || $citizen->getAp() > $max) $current_state = min( $current_state, $this_state );
+            }
+
+            if ($pm = $meta_requirement->getPm()) {
+                $max = $pm->getRelativeMax() ? ($this->citizen_handler->getMaxPM( $citizen ) + $pm->getMax()) : $pm->getMax();
+                if ($citizen->getPm() < $pm->getMin() || $citizen->getPm() > $max) $current_state = min( $current_state, $this_state );
             }
 
             if ($counter = $meta_requirement->getCounter()) {
@@ -408,6 +419,7 @@ class ActionHandler
 
         $execute_info_cache = [
             'ap' => 0,
+            'pm' => 0,
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
@@ -463,6 +475,16 @@ class ActionHandler
                 } else $this->citizen_handler->setAP( $citizen, true, $ap->getAp(), $ap->getAp() < 0 ? null :$ap->getBonus() );
 
                 $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
+            }
+
+            if ($pm = $result->getPm()) {
+                $old_pm = $citizen->getPm();
+                if ($pm->getMax()) {
+                    $to = $this->citizen_handler->getMaxPM($citizen) + $pm->getPm();
+                    $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ), null );
+                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null :$pm->getBonus() );
+
+                $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
             }
 
             if ($death = $result->getDeath()) {
@@ -616,15 +638,20 @@ class ActionHandler
                     $this->entity_manager->persist( $this->log->wellAdd( $citizen, $item, $add) );
             }
 
-            if ($result->getRolePlayerText()) {
-                /** @var RolePlayerText|null $text */
-                $text = $this->random_generator->pick( $this->entity_manager->getRepository(RolePlayerText::class)->findAll() );
-                if ($text && $citizen->getUser()->getFoundTexts()->contains($text))
+            if ($result->getRolePlayText()) {
+                /** @var RolePlayText|null $text */
+                $text = $this->random_generator->pick($this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ?? 'de'));
+                $alreadyfound = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
+                $execute_info_cache['rp_text'] = $text->getTitle();
+                if ($text && $alreadyfound)
                     $tags[] = 'rp_fail';
                 else {
                     $tags[] = 'rp_ok';
-                    $execute_info_cache['rp_text'] = $text->getTitle();
-                    $citizen->getUser()->getFoundTexts()->add( $text );
+                    $foundrp = new FoundRolePlayText();
+                    $foundrp->setUser($citizen->getUser())->setText($text);
+                    $citizen->getUser()->getFoundTexts()->add($foundrp);
+
+                    $this->entity_manager->persist($foundrp);
                 }
             }
 
@@ -779,12 +806,6 @@ class ActionHandler
                         if (!$zone) break;
                         $others_are_here = $zone->getCitizens()->count() > 0;
 
-                        // Disable the escort
-                        if ($jumper->getEscortSettings()) {
-                            $remove[] = $jumper->getEscortSettings();
-                            $jumper->setEscortSettings(null);
-                        }
-
                         if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
@@ -804,11 +825,6 @@ class ActionHandler
                         foreach ($dig_timers as $timer) {
                             $timer->setPassive(true);
                         }
-                        if ($citizen->getEscortSettings()) {
-                            $remove[] = $citizen->getEscortSettings();
-                            $citizen->setEscortSettings(null);
-                        }
-
 
                         break;
                     }

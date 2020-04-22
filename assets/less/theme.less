@@ -10,6 +10,8 @@
 @import (once) "modules/soul";
 
 @import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import (css) url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+@import (css) url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
 
 @myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
@@ -400,6 +402,11 @@ ul.inventory {
     &.blur {
       opacity: .25;
     }
+    &.focus {
+      box-shadow: 0 0 4px 2px #EFDBA8;
+      border-radius: 4px;
+
+    }
   }
   &.rucksack { background: url("../img/inv_bag.gif") no-repeat top left;}
   &.rucksack-escort { background: rgba(0,0,0,0.1); border: 1px solid @myhordes-cell-header-background-color; margin: 0; }
@@ -545,6 +552,29 @@ div.game-menu-area {
         }
       }
 
+      &.user {
+        position: absolute;
+        right: 10px;
+        top: -30px;
+        font-size: 10px;
+        background-color: rgba(62, 36, 23, .75);
+        border-radius: 6px;
+        color: @myhordes-smalltext;
+
+        li {
+          margin: 3px 6px;
+
+          a {
+            text-decoration: none;
+            transition: color 200ms;
+
+            &:hover {
+              color: #c00;
+            }
+          }
+        }
+      }
+
       &.clock {
         position: absolute; background: url("../img/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0;
@@ -568,7 +598,7 @@ div.game-menu-area {
         }
       }
 
-      &.status, &.rucksack, &.ap, &.bp, &.civil {
+      &.status, &.rucksack, &.ap, &.bp, &.pm, &.civil {
         position: relative; padding: 2px 8px; background: rgba(0,0,0,0.5); font-weight: bold;
         color: @myhordes-smalltext; box-shadow: inset 0 0 4px rgba(0,0,0,0.9); border-radius: 4px;
         border: 1px solid rgba(0,0,0,0.3); height: 28px; float: right; font-size: .2rem;
@@ -576,7 +606,7 @@ div.game-menu-area {
           display: block; position: absolute; top: -1px; left: 5px; right: 0; font-size: .7rem; content: "Status";
           font-variant: small-caps;
         }
-        &:not(.ap):not(.bp) {
+        &:not(.ap):not(.bp):not(.pm) {
           &:not(.civil) { min-width: 64px };
           &>li {
             height: 18px; width: 18px; margin-top: 6px; vertical-align: bottom;
@@ -587,12 +617,13 @@ div.game-menu-area {
         }
 
         &.rucksack:before { content: "Rucksack"}
-        &.ap,&.bp {
+        &.ap,&.bp,&.pm {
           font-size: 1.6rem;
           &>li { margin-top: 3px; }
         }
         &.ap:before { content: ""};
         &.bp:before { content: "" };
+        &.pm:before { content: "" };
         &.civil:before { content: " " };
       }
     }

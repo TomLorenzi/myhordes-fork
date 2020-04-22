@@ -44,6 +44,11 @@ class RequireStatus
      */
     private $profession;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenRole")
+     */
+    private $role;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +98,18 @@ class RequireStatus
     public function setProfession(?CitizenProfession $profession): self
     {
         $this->profession = $profession;
+
+        return $this;
+    }
+
+    public function getRole(): ?CitizenRole
+    {
+        return $this->role;
+    }
+
+    public function setRole(?CitizenRole $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }

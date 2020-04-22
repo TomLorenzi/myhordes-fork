@@ -4,6 +4,7 @@
 namespace App\Service;
 
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\ItemGroup;
@@ -85,6 +86,15 @@ class ZoneHandler
         $empty_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneByName('empty_dig');
         $base_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneByName('base_dig');
 
+        // Get event specific items
+        $event_group_name = $this->getDigGroupEventName();
+        if($event_group_name != null){
+            $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneByName($event_group_name);
+            foreach ($event_group->getEntries() as $entry) {
+                $base_group->addEntry($entry);
+            }
+        }
+
         $zone_update = false;
         $not_up_to_date = !empty($dig_timers);
         while ($not_up_to_date) {
@@ -118,7 +128,7 @@ class ZoneHandler
                     $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) );
                     if ($item_prototype) {
 
-                        // If we get a Chest XL
+                        // If we get a Chest XL, we earn a picto
                         if ($item_prototype->getName() == 'chest_xl_#00') {
                             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_chstxl_#00");
                             $this->picto_handler->give_picto($current_citizen, $pictoPrototype);
@@ -259,9 +269,18 @@ class ZoneHandler
 
     public function check_cp(Zone $zone, ?int &$cp = null): bool {
         $cp = 0;
-        foreach ($zone->getCitizens() as $c)
-            if ($c->getAlive())
+        $guide_present = false;
+        $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
+        foreach ($zone->getCitizens() as $c){
+            if ($c->getAlive()){
                 $cp += $this->citizen_handler->getCP($c);
+            }
+            if($c->getRoles()->contains($roleGuide))
+                $guide_present = true;
+        }
+        if($guide_present)
+            $cp += count($zone->getCitizens());
+
         return $cp >= $zone->getZombies();
     }
 
@@ -373,5 +392,33 @@ class ZoneHandler
         }
 
         return $attributes;
+    }
+
+    public function getZoneKm(Zone $zone): int {
+        return round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
+    }
+
+    public function getZoneAp(Zone $zone): int {
+        return abs($zone->getX()) + abs($zone->getY());
+    }
+
+    public function getDigGroupEventName(): ?string {
+        // Test for easter
+        $year = date('Y');
+        $base = new \DateTime("$year-03-21");
+        $days = easter_days($year);
+        $endEaster = new \DateTime("$year-03-21");
+        $endEaster = $endEaster->add(new \DateInterval("P{$days}D"));
+        $beginEaster = $base->add(new \DateInterval("P" . ($days-2) . "D"));
+
+        $now = new \DateTime();
+        if($now >= $beginEaster && $now <= $endEaster)
+            return 'easter_dig';
+
+        // Test for christmas
+        if($now >= new \DateTime("$year-12-20") && $now <= new \DateTime("$year-12-25"))
+            return 'christmas_dig';
+
+        return null;
     }
 }

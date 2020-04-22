@@ -16,9 +16,23 @@
                     </div>
                     <br />
                     <div class="forum-note">
+                        <b><i class="fa fa-thumbtack"></i> {{ "Sticky"|trans({}, 'global')}}</b>
+                        <div class="row">
+                            {% for meta_thread in pinned_threads %}
+                                {% set thread = meta_thread[0] %}
+                                <div class="cell rw-12 {% if not meta_thread[1] %}forum-thread-unread{% endif%} forum-thread" x-public-route="{{ path('forum_thread_view', {fid: forum.id, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: forum.id, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
+                                    <div>{{ thread.posts|length }}</div>
+                                    <b>{% if thread.translatable %}{{ thread.title|trans({},'global') }}{% else %}{{ thread.title }}{% endif %}</b><br />
+                                    {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
+                                    <i>{% if last_post and last_post.owner %}{{ last_post.owner.username }}{% elseif thread.owner %}{{ thread.owner.username }}{% else %}{{ 'Der Rabe'|trans({},'global') }}{% endif %}</i>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="forum-note">
                         <b><i class="fa fa-stream"></i> {{ 'Themen'|trans({},'global') }}</b>
                         <div class="row">
-                            {% if forum.threads|length == 0 %}
+                            {% if threads|length == 0 %}
                                 <div class="cell padded rw-12">
                                     {% trans from 'global' %}
                                         Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!

@@ -32,5 +32,6 @@ class PictoHandler
             ->setCount($picto->getCount()+$count);
 
         $this->entity_manager->persist($picto);
+        $this->entity_manager->flush();
     }
 }

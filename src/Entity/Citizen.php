@@ -58,7 +58,7 @@ class Citizen
     private $roles;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote")
+     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)
      */
     private $votes;
@@ -157,6 +157,21 @@ class Citizen
      * @ORM\OneToMany(targetEntity="App\Entity\ActionCounter", mappedBy="citizen", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $actionCounters;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $lastActionTimestamp = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $pm;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $immune = true;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
@@ -687,6 +702,42 @@ class Citizen
     public function setEscortSettings(?CitizenEscortSettings $escortSettings): self
     {
         $this->escortSettings = $escortSettings;
+
+        return $this;
+    }
+
+    public function getLastActionTimestamp(): int
+    {
+        return $this->lastActionTimestamp;
+    }
+
+    public function setLastActionTimestamp(int $lastActionTimestamp): self
+    {
+        $this->lastActionTimestamp = $lastActionTimestamp;
+
+        return $this;
+    }
+
+    public function getPm(): ?int
+    {
+        return $this->pm;
+    }
+
+    public function setPm(int $pm): self
+    {
+        $this->pm = $pm;
+
+        return $this;
+    }
+
+    public function getImmune(): ?bool
+    {
+        return $this->immune;
+    }
+
+    public function setImmune(bool $immune): self
+    {
+        $this->immune = $immune;
 
         return $this;
     }

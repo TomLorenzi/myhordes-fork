@@ -60,7 +60,7 @@ class User implements UserInterface, EquatableInterface
     private $citizens;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\RolePlayerText")
+     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user")
      */
     private $foundTexts;
 
@@ -83,11 +83,6 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="boolean")
      */
     private $isAdmin = 0;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $lastActionTime;
 
     public function __construct()
     {
@@ -237,14 +232,14 @@ class User implements UserInterface, EquatableInterface
     }
 
     /**
-     * @return Collection|RolePlayerText[]
+     * @return Collection|RolePlayText[]
      */
     public function getFoundTexts(): Collection
     {
         return $this->foundTexts;
     }
 
-    public function addFoundText(RolePlayerText $foundText): self
+    public function addFoundText(RolePlayText $foundText): self
     {
         if (!$this->foundTexts->contains($foundText)) {
             $this->foundTexts[] = $foundText;
@@ -253,7 +248,7 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function removeFoundText(RolePlayerText $foundText): self
+    public function removeFoundText(RolePlayText $foundText): self
     {
         if ($this->foundTexts->contains($foundText)) {
             $this->foundTexts->removeElement($foundText);
@@ -333,18 +328,6 @@ class User implements UserInterface, EquatableInterface
     public function setIsAdmin(bool $isAdmin): self
     {
         $this->isAdmin = $isAdmin;
-
-        return $this;
-    }
-
-    public function getLastActionTime(): ?\DateTimeInterface
-    {
-        return $this->lastActionTime;
-    }
-
-    public function setLastActionTime(?\DateTimeInterface $lastActionTime): self
-    {
-        $this->lastActionTime = $lastActionTime;
 
         return $this;
     }

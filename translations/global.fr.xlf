@@ -190,8 +190,6 @@
     </unit>
     <unit id="VIYRzlj" name="Zurück">
       <notes>
-        <note>Zurück</note>
-        <note>Zurück</note>
         <note category="german">Zurück</note>
       </notes>
       <segment>
@@ -240,7 +238,7 @@
       </notes>
       <segment>
         <source>Der Rabe</source>
-        <target>Le corbeau</target>
+        <target>Le Corbeau</target>
       </segment>
     </unit>
     <unit id="81dFh4o" name="Seite %page%/%pages%">
@@ -740,6 +738,15 @@
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
         <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+      </segment>
+    </unit>
+    <unit id="h0cXaFP" name="Sticky">
+      <notes>
+        <note category="german">Sticky</note>
+      </notes>
+      <segment>
+        <source>Sticky</source>
+        <target>Sticky</target>
       </segment>
     </unit>
   </file>

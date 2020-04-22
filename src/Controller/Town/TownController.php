@@ -90,17 +90,19 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data['town'] = $town;
 
         if($section == "citizens") {
-            $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
             $votesNeeded = array();
-            foreach ($roles as $role) {
-                $votesNeeded[$role->getName()] = $role;
-            }
-
-            if(!$town->isOpen() && !$town->getChaos()) {
+            if(!$town->isOpen()){
+                $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
                 foreach ($roles as $role) {
-                    foreach ($town->getCitizens() as $citizen) {
-                        if($citizen->getRoles()->contains($role))
-                            $votesNeeded[$role->getName()] = false;
+                    $votesNeeded[$role->getName()] = $role;
+                }
+
+                if(!$town->isOpen() && !$town->getChaos()) {
+                    foreach ($roles as $role) {
+                        foreach ($town->getCitizens() as $citizen) {
+                            if($citizen->getRoles()->contains($role))
+                                $votesNeeded[$role->getName()] = false;
+                        }
                     }
                 }
             }
@@ -169,21 +171,24 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
         $votes_needed = array();
         $has_voted = array();
-        foreach ($roles as $role) {
-            $votes_needed[$role->getName()] = $role;
-            $has_voted[$role->getName()] = false;
-        }
-
         if(!$town->isOpen() && !$town->getChaos()) {
             foreach ($roles as $role) {
+
+                $votes_needed[$role->getName()] = $role;
+                $has_voted[$role->getName()] = false;
+            }
+
+            foreach ($roles as $role) {
                 foreach ($town->getCitizens() as $citizen) {
-                    if($citizen->getRoles()->contains($role)) {
+                    if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null) {
                         $votes_needed[$role->getName()] = false;
+                        break;
                     }
                 }
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
             }
         }
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
@@ -232,7 +237,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $deco += $item->getPrototype()->getDeco();
 
         $town = $this->getActiveCitizen()->getTown();
-        $lastActionTimestamp = $c->getUser()->getLastActionTime()->getTimestamp();
+        $lastActionTimestamp = $c->getLastActionTimestamp();
 
         // Getting delta time between now and the last action
         $time = time() - $lastActionTimestamp; 
