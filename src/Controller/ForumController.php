@@ -152,21 +152,45 @@ class ForumController extends AbstractController
         ] );
     }
 
-    private const HTML_ALLOWED_NODES   = [ 'br', 'b', 'strong', 'i', 'u', 'strike', 'div', 'blockquote', 'hr', 'ul', 'ol', 'li', 'p' ];
-    private const HTML_ALLOWED_ATTRIBS = [ ];
+    private const HTML_ALLOWED_NODES   = [ 'br', 'b', 'strong', 'i', 'em', 'u', 'strike', 'del', 'div', 'q', 'blockquote', 'hr', 'ul', 'ol', 'li', 'p', 'img' ];
+    private const HTML_ALLOWED_ATTRIBS = [ 'class' ];
+
+    private const HTML_ALLOWED = [
+        'br' => [],
+        'b' => [],
+        'strong' => [],
+        'i' => [],
+        'em' => [],
+        'u' => [],
+        'del' => [],
+        'strike' => [],
+        'q' => [],
+        'blockquote' => [],
+        'hr' => [],
+        'ul' => [ 'class' ],
+        'ol' => [ 'class' ],
+        'li' => [],
+        'p'  => [ 'class' ],
+        'div' => [ 'class' ],
+        'img' => [ 'alt', 'src', 'title'],
+        'a' => [ 'href', 'title' ],
+        'figure' => [ 'style' ],
+    ];
 
     private function htmlValidator( DOMNode $node, int &$text_length, int $depth = 0 ): bool {
         if ($depth > 32) return false;
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
-            if (!in_array($node->nodeName, self::HTML_ALLOWED_NODES) && !($depth === 0 && $node->nodeName === 'body')) {
+            // Element not allowed.
+            if (!in_array($node->nodeName, array_keys(self::HTML_ALLOWED)) && !($depth === 0 && $node->nodeName === 'body')) {
                 $node->parentNode->removeChild( $node );
                 return true;
             }
 
+            // Attributes not allowed.
             $remove_attribs = [];
             for ($i = 0; $i < $node->attributes->length; $i++)
-                if (!in_array($node->attributes->item($i)->nodeName, self::HTML_ALLOWED_ATTRIBS))
+                if (!in_array($node->attributes->item($i)->nodeName, self::HTML_ALLOWED[$node->nodeName]))
                     $remove_attribs[] = $node->attributes->item($i)->nodeName;
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
@@ -186,7 +210,8 @@ class ForumController extends AbstractController
 
     private function preparePost(User $user, Forum $forum, Thread $thread, Post &$post, int &$tx_len): bool {
         $dom = new DOMDocument();
-        $dom->loadHTML( '<?xml encoding="utf-8" ?>' .nl2br($post->getText()) );
+        libxml_use_internal_errors(true);
+        $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
 
@@ -286,7 +311,7 @@ class ForumController extends AbstractController
         if (!$parser->has_all(['text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $text  = $parser->trimmed('text');
+        $text  = $parser->get('text');
 
         if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
@@ -297,7 +322,7 @@ class ForumController extends AbstractController
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($tx_len < 10) return AjaxResponse::error( self::ErrorPostTextLength );
+        //if ($tx_len < 10) return AjaxResponse::error( self::ErrorPostTextLength );
         $thread->addPost($post)->setLastPost( $post->getDate() );
 
         try {
