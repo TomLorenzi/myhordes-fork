@@ -33,6 +33,20 @@ class RolePlayerTextRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+    * @return RolePlayerText[] Returns an array of RolePlayerText objects
+    */
+    public function findAllByLang($lang)
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.language = :val')
+            ->setParameter('val', $lang)
+            ->orderBy('r.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return RolePlayerText[] Returns an array of RolePlayerText objects
     //  */

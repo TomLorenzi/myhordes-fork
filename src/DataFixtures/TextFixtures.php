@@ -255,6 +255,12 @@ class TextFixtures extends Fixture
             'content' => '',
             'lang' => 'de'
         ],
+        'hordes_001' => [
+            'title' => 'Annonce : astrologie',
+            'author' => 'Sigma',
+            'content' => 'Suite aux attaques récentes, l\'horoscope matinal de Radio Survivant ne concernera que 7 signes astrologiques au lieu des 9 habituels. De plus, Natacha sera remplacé par Roger. Adieu Natacha.',
+            'lang' => 'fr'
+        ]
     ];
 
     private $entityManager;

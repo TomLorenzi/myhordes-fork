@@ -7911,7 +7911,7 @@
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Pour de nombreuses actions, telles que l'exploration de l'Outre-Monde ou les chantiers, vous avez besoin de points d'action. Vos points d'action sont réapprovisionnés chaque nuit après l'attaque. Vous pouvez également les réapprovisionner en utilisant certains objets et une fois par jour en mangeant et en buvant.</target>
+        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
       </segment>
     </unit>
     <unit id="cycrpjD" name="fba1e38">
@@ -8481,6 +8481,87 @@
       <segment>
         <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
         <target>Ces points sont exclusivement réservés au Chaman.</target>
+      </segment>
+    </unit>
+    <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Bank.</source>
+        <target>Utilisez ce sujet pour discuter autour de la Banque de la ville...</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>Utilisez ce sujet pour discuter autour des évolutions du jour que vous souhaitez développer...</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>Utilisez ce sujet pour discuter autour de l'atelier et de la production de ressources en ville...</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>Utilisez ce sujet pour discuter autour des chantiers à construire...</target>
+      </segment>
+    </unit>
+    <unit id="EV3WmmI" name="712ee4f">
+      <notes>
+        <note category="german">Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
+        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+      </segment>
+    </unit>
+    <unit id="FoS7MOU" name="0b6b395">
+      <notes>
+        <note category="german">Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</note>
+      </notes>
+      <segment>
+        <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
+        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+      </segment>
+    </unit>
+    <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
+      <notes>
+        <note category="german">Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</note>
+      </notes>
+      <segment>
+        <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
+        <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+      </segment>
+    </unit>
+    <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
+      <notes>
+        <note category="german">Hier wurde bereits ein Bauplan gefunden.</note>
+      </notes>
+      <segment>
+        <source>Hier wurde bereits ein Bauplan gefunden.</source>
+        <target>Hier wurde bereits ein Bauplan gefunden.</target>
+      </segment>
+    </unit>
+    <unit id="Ci7U3L." name="Aktualisierung">
+      <notes>
+        <note category="german">Aktualisierung</note>
+      </notes>
+      <segment>
+        <source>Aktualisierung</source>
+        <target>Actualiser</target>
       </segment>
     </unit>
   </file>

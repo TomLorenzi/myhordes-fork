@@ -130,7 +130,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'actions' => $this->getItemActions(),
             'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
-            'km' => round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) )),
+            'km' => $this->zone_handler->getZoneKm($zone),
+            'ap' => $this->zone_handler->getZoneAp($zone),
             'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
             'citizen_hidden' => $citizen_hidden,
         ], $data, $this->get_map_blob()) );
@@ -263,7 +264,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $camping_chance = "";
             }
 
-            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? "Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?" : "";
+            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? T::__("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", 'game') : "";
+
+            $camping_blueprint = ($zone->getBlueprint() === Zone::BlueprintAvailable)
+                ? T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game')
+                : T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
 
             // Uncomment next line to show camping values in game interface.
             #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
@@ -292,6 +297,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping_zombies' => $camping_zombies ?? '',
             'camping_chance' => $camping_chance ?? '',
             'camping_improvable' => $camping_improvable ?? '',
+            'camping_blueprint' => $camping_blueprint ?? '',
             'camping_debug' => $camping_debug ?? '',
         ]) );
     }

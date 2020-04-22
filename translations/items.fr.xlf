@@ -977,7 +977,7 @@
       </notes>
       <segment>
         <source>Unverarbeitete Blechplatten</source>
-        <target>Plâques de tôle</target>
+        <target>Fragments de tôle</target>
       </segment>
     </unit>
     <unit id="ueb3oVd" name="'Wake The Dead'">
@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Ekliger Hautfetzen</source>
-        <target>Lambeau de chair</target>
+        <target>Pelures de peau</target>
       </segment>
     </unit>
     <unit id="9z__4T5" name="MagLite Kinderlampe (aus)">
@@ -3347,8 +3347,6 @@
     </unit>
     <unit id="s2gWFEw" name="Unpersönliche Explodierende Fußmatte">
       <notes>
-        <note>Unpersönliche Explodierende Fußmatte</note>
-        <note>Unpersönliche Explodierende Fußmatte</note>
         <note category="german">Unpersönliche Explodierende Fußmatte</note>
       </notes>
       <segment>
@@ -3358,8 +3356,6 @@
     </unit>
     <unit id="6iTskUd" name="Chuck-Figur">
       <notes>
-        <note>Chuck-Figur</note>
-        <note>Chuck-Figur</note>
         <note category="german">Chuck-Figur</note>
       </notes>
       <segment>
@@ -3369,19 +3365,15 @@
     </unit>
     <unit id="kjSjOPD" name="Kleine Zen-Fibel">
       <notes>
-        <note>Kleine Zen-Fibel</note>
-        <note>Kleine Zen-Fibel</note>
         <note category="german">Kleine Zen-Fibel</note>
       </notes>
       <segment>
         <source>Kleine Zen-Fibel</source>
-        <target>Kleine Zen-Fibel</target>
+        <target>Livre zen miniature</target>
       </segment>
     </unit>
     <unit id="02YzXu0" name="Trockene Kräuter">
       <notes>
-        <note>Trockene Kräuter</note>
-        <note>Trockene Kräuter</note>
         <note category="german">Trockene Kräuter</note>
       </notes>
       <segment>
@@ -3578,13 +3570,11 @@
     </unit>
     <unit id="6FjysGg" name="Ein Etikett">
       <notes>
-        <note>Ein Etikett</note>
-        <note>Ein Etikett</note>
         <note category="german">Ein Etikett</note>
       </notes>
       <segment>
         <source>Ein Etikett</source>
-        <target>Ein Etikett</target>
+        <target>Une étiquette</target>
       </segment>
     </unit>
     <unit id="J4KATtV" name="Bürgerbekleidung">
@@ -3639,7 +3629,7 @@
       </notes>
       <segment>
         <source>Kleine Schaufel</source>
-	<target>Petite Pelle</target>
+        <target>Petite Pelle</target>
       </segment>
     </unit>
     <unit id="6nEfpGY" name="Dreibeiniger Malteser">
@@ -4110,7 +4100,7 @@
       </notes>
       <segment>
         <source>Reparieren mit</source>
-        <target>Reparieren mit</target>
+        <target>Réparer avec</target>
       </segment>
     </unit>
     <unit id="SKEGJd1" name="8534543">
@@ -4121,7 +4111,7 @@
       </notes>
       <segment>
         <source>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</source>
-        <target>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</target>
+        <target>Vous avez utilisé {item} pour réparer {target}. Vous avez consommé {minus_ap} PA.</target>
       </segment>
     </unit>
     <unit id="B7z9gmm" name="Vergiften mit">
@@ -4506,7 +4496,7 @@
       </notes>
       <segment>
         <source>Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...</source>
-        <target>Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...</target>
+        <target>La Pile sert à plein de trucs. Mais ça se décharge des fois trop vite...</target>
       </segment>
     </unit>
     <unit id="bs5aNY9" name="ef7edd6">
@@ -4726,7 +4716,7 @@
       </notes>
       <segment>
         <source>Gib es ruhig zu: Die Zombies sind für dich schon immer Feuer und Flamme gewesen.</source>
-        <target>Gib es ruhig zu: Die Zombies sind für dich schon immer Feuer und Flamme gewesen.</target>
+        <target>Comme dit le dicton : on ne peut pas faire feu de tout bois. Faites le mentir...</target>
       </segment>
     </unit>
     <unit id="c6Qh6pH" name="Entspann dich... das wird nicht die letzte sein, die du brauchst.">
@@ -4748,7 +4738,7 @@
       </notes>
       <segment>
         <source>ZZzzzz... Knarr knarr... ZZzzzz... Knarr knarr...</source>
-        <target>ZZzzzz... Knarr knarr... ZZzzzz... Knarr knarr...</target>
+        <target>ZZzzzz... Couinement... ZZzzzz... Couinement...</target>
       </segment>
     </unit>
     <unit id="WM2O4I8" name="7e26db6">
@@ -4781,7 +4771,7 @@
       </notes>
       <segment>
         <source>Das ist eine hübsche Nachttischlampe. Allerdings brauchst du eine Batterie, um sie benutzen zu können...</source>
-        <target>Das ist eine hübsche Nachttischlampe. Allerdings brauchst du eine Batterie, um sie benutzen zu können...</target>
+        <target>C'est une jolie lampe de chevet, mais elle ne fonctionnera pas sans une pile neuve...</target>
       </segment>
     </unit>
     <unit id="pV90PO8" name="745d00a">
@@ -4880,7 +4870,7 @@
       </notes>
       <segment>
         <source>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst es auch auf einen Zombie werfen...</source>
-        <target>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst es auch auf einen Zombie werfen...</target>
+        <target>Bon, il n'y a plus qu'à trouver un boucher. Accessoirement, ça peut aussi se lancer sur un zombie...</target>
       </segment>
     </unit>
     <unit id="i.qjHR." name="d9811e5">
@@ -4924,7 +4914,7 @@
       </notes>
       <segment>
         <source>Ist der knuddelig! Ein wahres Prachtstück für daheim, das dich im Notfall auch gegen Zombies verteidigt. Und wenn du mal Hunger hast ...</source>
-        <target>Ist der knuddelig! Ein wahres Prachtstück für daheim, das dich im Notfall auch gegen Zombies verteidigt. Und wenn du mal Hunger hast ...</target>
+        <target>C'est mignon, ça fait joli chez soi et ça sait à peu près se battre contre un zombie. Et puis, si vous avez faim...</target>
       </segment>
     </unit>
     <unit id="WMROSlZ" name="1adbd20">
@@ -5001,7 +4991,7 @@
       </notes>
       <segment>
         <source>Der "Jerrycan" kann mehrere Rationen nicht-trinkbares Wasser aufnehmen. Sobald die Stadt über eine passende Filteranlage verfügt, kann dieses Wasser trinkbar gemacht werden.</source>
-        <target>Der "Jerrycan" kann mehrere Rationen nicht-trinkbares Wasser aufnehmen. Sobald die Stadt über eine passende Filteranlage verfügt, kann dieses Wasser trinkbar gemacht werden.</target>
+        <target>Le Jerrycan contient plusieurs rations d'eau non-potable (non-purifiée). Toutefois, il faut que la ville dispose du bâtiment de filtrage adapté pour en faire de l'eau potable.</target>
       </segment>
     </unit>
     <unit id="y7KBW_u" name="Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...">
@@ -5210,7 +5200,7 @@
       </notes>
       <segment>
         <source>Eine Art Einkaufswagen aus Metall. Leider fehlt ihm eine Radachse. Du müsstest sie durch irgendetwas ersetzen...</source>
-        <target>Eine Art Einkaufswagen aus Metall. Leider fehlt ihm eine Radachse. Du müsstest sie durch irgendetwas ersetzen...</target>
+        <target>Un genre de gros chariot métallique, mais l'un des essieux est manquant. Il faudrait quelque chose pour le remplacer...</target>
       </segment>
     </unit>
     <unit id="k8_M.9C" name="782ae19">
@@ -5397,7 +5387,7 @@
       </notes>
       <segment>
         <source>Ein altes Transistorradio mit Kassettenfach. Es ist ein Blues-Klasette drin. Mit dem Radio wirst du nicht viel anfangen können, da du hier sowieso nichts empfängst, aber du kannst ein bisschen Musik hören. Das übertönt das Geschrei deiner Nachbarn... Jetzt brauchst du nur noch eine Batterie.</source>
-        <target>Ein altes Transistorradio mit Kassettenfach. Es ist ein Blues-Klasette drin. Mit dem Radio wirst du nicht viel anfangen können, da du hier sowieso nichts empfängst, aber du kannst ein bisschen Musik hören. Das übertönt das Geschrei deiner Nachbarn... Jetzt brauchst du nur noch eine Batterie.</target>
+        <target>Un ancien transistor sans pile avec une cassette de blues dedans. La radio elle-même est inutile car on ne capte plus rien de nos jours.. Mais avoir un peu de musique chez soi pour couvrir les hurlements de ses voisins en train de se faire dévorer est toujours appréciable. Reste à trouver une pile.</target>
       </segment>
     </unit>
     <unit id="jqtIi9L" name="5f8f5d3">
@@ -5463,7 +5453,7 @@
       </notes>
       <segment>
         <source>Diese Eisenkiste enthält alle wichtigen Werkzeuge und Materialien um so ziemlich alles zur reparieren... außer vielleicht deinen toten Nachbarn.</source>
-        <target>Diese Eisenkiste enthält alle wichtigen Werkzeuge und Materialien um so ziemlich alles zur reparieren... außer vielleicht deinen toten Nachbarn.</target>
+        <target>Cette boîte en ferraille contient tout le nécessaire de base pour remettre en état à peu près n'importe quoi. Sauf vos voisins morts.</target>
       </segment>
     </unit>
     <unit id="AQfHRUx" name="f859eec">
@@ -5474,7 +5464,7 @@
       </notes>
       <segment>
         <source>Eine Wasserpistole ist gegen Zombies äußerst wirksam! Es sei denn sie ist leer.</source>
-        <target>Eine Wasserpistole ist gegen Zombies äußerst wirksam! Es sei denn sie ist leer.</target>
+        <target>Un Pistolet à eau, c'est efficace contre les zombies ! Sauf quand il est vide, comme celui-ci...</target>
       </segment>
     </unit>
     <unit id="NIIzgsI" name="3a3994c">
@@ -5496,7 +5486,7 @@
       </notes>
       <segment>
         <source>Der Batteriewerfer 1-PDTG wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.</source>
-        <target>Der Batteriewerfer 1-PDTG wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.</target>
+        <target>Imaginé avec les moyens du bord, le Lance-Pile 1-PDTG permet, par un savant recyclage, de transformer des piles en projectiles perforants.</target>
       </segment>
     </unit>
     <unit id="793gDq5" name="a7b354d">
@@ -5573,7 +5563,7 @@
       </notes>
       <segment>
         <source>Eine Faustfeuerwaffe vom Modelltyp P-22. Sie ist für ihre Treffgenauigkeit und Zuverlässigkeit berühmt. Ohne Munition kannst du damit aber überhaupt nichts anfangen...</source>
-        <target>Eine Faustfeuerwaffe vom Modelltyp P-22. Sie ist für ihre Treffgenauigkeit und Zuverlässigkeit berühmt. Ohne Munition kannst du damit aber überhaupt nichts anfangen...</target>
+        <target>Une arme de poing : le modèle P-22, très réputé pour sa fiabilité et sa grande précision. Mais ça ne sert strictement à rien sans munition...</target>
       </segment>
     </unit>
     <unit id="Wksa6yc" name="fd6374b">
@@ -5650,7 +5640,7 @@
       </notes>
       <segment>
         <source>Das auf den Sack geklebte Etikett besagt, dass das Produkt genießbar sei wenn man es in Milch auflöst. Ein leichter Zweifel befällt dich...</source>
-        <target>Das auf den Sack geklebte Etikett besagt, dass das Produkt genießbar sei wenn man es in Milch auflöst. Ein leichter Zweifel befällt dich...</target>
+        <target>L'étiquette collée sur ce sac de désherbant laisse entendre que le produit est également comestible s'il est mélangé avec du lait. Vous avez comme un doute...</target>
       </segment>
     </unit>
     <unit id="jpZGeIt" name="d80e3cd">
@@ -5672,7 +5662,7 @@
       </notes>
       <segment>
         <source>Eine fettverschmierte alte Papiertüte, in der wohl irgendetwas zum Essen drin ist... Sie riecht aber schlecht.</source>
-        <target>Eine fettverschmierte alte Papiertüte, in der wohl irgendetwas zum Essen drin ist... Sie riecht aber schlecht.</target>
+        <target>Un vieux sac tout graisseux en papier qui doit bien contenir quelque chose à manger… Notez qu'il sent mauvais.</target>
       </segment>
     </unit>
     <unit id="VfdarmP" name="d059ecf">
@@ -5727,7 +5717,7 @@
       </notes>
       <segment>
         <source>Zwei Hähnchenflügel, die schon jemand vor dir angebissen hat, bevor er sie weggeworfen hat... Hmmm...</source>
-        <target>Deux ailerons de poulet que quelqu'un a déja commencé à manger avant de les jeter … Hmmm …</target>
+        <target>Deux ailerons de poulet que quelqu'un a déja commencé à manger avant de les jeter… Hmmm …</target>
       </segment>
     </unit>
     <unit id="_JzOhOO" name="Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.">
@@ -5738,7 +5728,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Kekse, die mit ... schwer zu sagen, was es ist... gefüllt sind.</source>
-        <target>Une poignée de biscuits fourrés à la confiture de … en fait vous l'ignorez… Peut-être un fruit. Mais ça a un gout de viande maintenant.</target>
+        <target>Une poignée de biscuits fourrés à la confiture de… en fait vous l'ignorez… Peut-être un fruit. Mais ça a un gout de viande maintenant.</target>
       </segment>
     </unit>
     <unit id="8GFm4Zq" name="Ein streng riechendes Törtchen... Denk einfach an etwas Leckeres.">
@@ -5936,7 +5926,7 @@
       </notes>
       <segment>
         <source>Ein uraltes Haushaltsgerät, von dem du aber nicht weißt, für welchen Zweck es bestimmt war. Vielleicht erhälst du ein paar nützliche Sachen wenn du es auseinanderbaust?</source>
-        <target>Ein uraltes Haushaltsgerät, von dem du aber nicht weißt, für welchen Zweck es bestimmt war. Vielleicht erhälst du ein paar nützliche Sachen wenn du es auseinanderbaust?</target>
+        <target>Un vieil appareil électro-ménager impossible à identifier. Peut-être qu'en le démontant vous pourriez obtenir quelque chose ?</target>
       </segment>
     </unit>
     <unit id="G5eZFkR" name="0274ede">
@@ -5980,7 +5970,7 @@
       </notes>
       <segment>
         <source>Ein relativ solider Holzbock, den du zweifelsohne für deine persönliche Verteidigung oder für die Stadtverteidigung gebrauchen kannst.</source>
-        <target>Ein relativ solider Holzbock, den du zweifelsohne für deine persönliche Verteidigung oder für die Stadtverteidigung gebrauchen kannst.</target>
+        <target>Un tréteau relativement solide qui devrait s'avérer utile pour consolider vos défenses personnelles ou celles de la ville.</target>
       </segment>
     </unit>
     <unit id="0XsFlk." name="84b7461">
@@ -6024,7 +6014,7 @@
       </notes>
       <segment>
         <source>Dieses Feuerwerkraketenpulver könnte als Ablenkung dienen, wenn du es korrekt verwendest ...</source>
-        <target>Dieses Feuerwerkraketenpulver könnte als Ablenkung dienen, wenn du es korrekt verwendest ...</target>
+        <target>Cette poudre de feux d'artifice pourrait faire une bonne distraction, si elle était utilisée correctement...</target>
       </segment>
     </unit>
     <unit id="4aRUvN_" name="1bc8b70">
@@ -6112,7 +6102,7 @@
       </notes>
       <segment>
         <source>'Reparatur Fix' ist ein kleines Reparaturkit für den einmaligen Gebrauch, mit dem du fast alles richten kannst. Es enthält das übliche Grundwerkzeug, ein paar Plastikersatzteile und eine Do-it-yourself-Anleitung in sieben Sprachen.</source>
-        <target>'Reparatur Fix' ist ein kleines Reparaturkit für den einmaligen Gebrauch, mit dem du fast alles richten kannst. Es enthält das übliche Grundwerkzeug, ein paar Plastikersatzteile und eine Do-it-yourself-Anleitung in sieben Sprachen.</target>
+        <target>Un petit kit à usage unique pour réparer tout et n'importe quoi. Il contient quelques outils basiques, des pièces plastique de recharge et un guide du petit bricoleur imprimé en 7 langues.</target>
       </segment>
     </unit>
     <unit id="1QWEV2j" name="d55af05">
@@ -6475,7 +6465,7 @@
       </notes>
       <segment>
         <source>Dieses alte Sperrholzstück stammt aus irgendeinem alten Gebäude. Mit ein wenig Einfallsreichtum könntest du es für eine neue Konstruktion wiederverwerten.</source>
-        <target>Ce vieux morceau de contreplaqué vient d'un quelconque bâtiment, au prix de quelques efforts, il devrait pouvoir servir à aménager une planque dehors.</target>
+        <target>Ce vieux morceau de contreplaqué vient d'un quelconque bâtiment. Au prix de quelques efforts, il devrait pouvoir servir à aménager une planque dehors.</target>
       </segment>
     </unit>
     <unit id="yLFG9dI" name="771426e">
@@ -6783,7 +6773,7 @@
       </notes>
       <segment>
         <source>Dieser übelriechende Hautfetzen gehörte früher mal einem deiner Mitbürger. Jetzt gehört er den Maden... Mit seinem unerträglichen Gestank kannst du deinen eigenen Körpergeruch überdecken, so dass dich die Untoten nicht mehr so gut riechen können. Benutze diesen Gegenstand, um deine Überlebenschancen beim Campen zu verbessern (Dazu musst du den Hautfetzen bei Dir tragen).</source>
-        <target>Cet horrible lambeau de chair a dû être arraché à un autre citoyen, avant d'être abandonné aux vers pendant quelques temps. Son odeur atroce devrait pouvoir couvrir votre propre odeur corporelle : cet objet augmente sensiblement vos chances de survie en cas de camping (vous devez le garder sur vous pour profiter de cet avantage, bonus cumulable).</target>
+        <target>Cet horrible lambeau de chair a dû être arraché à un autre citoyen, avant d'être abandonné aux vers pendant quelques temps. Son odeur atroce devrait pouvoir couvrir votre propre odeur corporelle : cet objet augmente sensiblement vos chances de survie en cas de camping (vous devez le garder sur vous pour profiter de cet avantage).</target>
       </segment>
     </unit>
     <unit id="xGW6fhp" name="5a1d12b">
@@ -7135,7 +7125,7 @@
       </notes>
       <segment>
         <source>Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</source>
-        <target>Attention à ne pas s’emmêler avec, on ne voudrait pas avoir à vous couper les doigts pour vous en libérer.</target>
+        <target>Attention à ne pas s'emmeler avec, on ne voudrait pas avoir à vous couper les doigts pour vous en libérer.</target>
       </segment>
     </unit>
     <unit id="gqDdsxv" name="3e60a86">
@@ -7157,7 +7147,7 @@
       </notes>
       <segment>
         <source>Diese fast makellose Linse wartet scheinbar nur darauf, von deiner Kreativität einem höheren Zweck zugeführt zu werden.</source>
-        <target>Cette lentille en bon état n'attend qu'un peu de votre ingéniosité pour être utilisé efficacement.</target>
+        <target>Cette lentille en bon état n'attend qu'un peu de votre ingéniosité pour être utilisée efficacement.</target>
       </segment>
     </unit>
     <unit id="9wStwCD" name="5fbb21e">

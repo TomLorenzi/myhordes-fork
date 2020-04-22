@@ -105,6 +105,18 @@ class NightlyHandler
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
+                        // Grant blueprint if first camping on a ruin.
+                        if ($citizen->getZone()->getBlueprint() === Zone::BlueprintAvailable) {
+                            // Spawn BP.
+                            $bp_name = ($this->zone_handler->getZoneKm($citizen->getZone()) < 10)
+                                ? 'bplan_u_#00'
+                                : 'bplan_r_#00';
+                            $bp_item_prototype = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($bp_name);
+                            $bp_item = $this->item_factory->createItem( $bp_item_prototype );
+                            $citizen->getZone()->getFloor()->addItem($bp_item);
+                            // Set zone blueprint.
+                            $citizen->getZone()->setBlueprint(Zone::BlueprintFound);
+                        }
                         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> survived camping at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> with a survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
                     }
                 }
@@ -718,7 +730,9 @@ class NightlyHandler
 
             foreach ($citizens as $citizen) {
                 // Removing citizen with 0 votes
-                if($votes[$role->getId()][$citizen->getId()] == 0) {
+                if(array_key_exists($role->getId(), $votes)
+                    && array_key_exists($citizen->getId(), $votes[$role->getId()])
+                    && $votes[$role->getId()][$citizen->getId()] == 0) {
                     unset($votes[$role->getId()][$citizen->getId()]);
                 }
             }
@@ -760,10 +774,12 @@ class NightlyHandler
 
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
-            $winningCitizen->addRole($role);
-            $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
+            if($winningCitizen !== null){
+                $winningCitizen->addRole($role);
+                $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
 
-            $this->entity_manager->persist($winningCitizen);
+                $this->entity_manager->persist($winningCitizen);
+            }
 
             // we remove the votes
             $votes = $this->entity_manager->getRepository(CitizenVote::class)->findByRole($role);

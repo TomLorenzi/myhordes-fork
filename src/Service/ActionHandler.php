@@ -639,7 +639,7 @@ class ActionHandler
 
             if ($result->getRolePlayerText()) {
                 /** @var RolePlayerText|null $text */
-                $text = $this->random_generator->pick( $this->entity_manager->getRepository(RolePlayerText::class)->findAll() );
+                $text = $this->random_generator->pick( $this->entity_manager->getRepository(RolePlayerText::class)->findAllByLang($citizen->getTown()->getLanguage() ?? 'de') );
                 if ($text && $citizen->getUser()->getFoundTexts()->contains($text))
                     $tags[] = 'rp_fail';
                 else {

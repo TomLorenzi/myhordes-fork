@@ -48,6 +48,11 @@ class RolePlayerText
      */
     private $language;
 
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $background;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,6 +114,18 @@ class RolePlayerText
     public function setLanguage(string $language): self
     {
         $this->language = $language;
+
+        return $this;
+    }
+
+    public function getBackground(): ?string
+    {
+        return $this->background;
+    }
+
+    public function setBackground(string $background): self
+    {
+        $this->background = $background;
 
         return $this;
     }

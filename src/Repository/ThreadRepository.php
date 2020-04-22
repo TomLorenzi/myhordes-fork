@@ -36,6 +36,21 @@ class ThreadRepository extends ServiceEntityRepository
     public function findByForum(Forum $forum, $number = null, $offset = null)
     {
         $q = $this->createQueryBuilder('t')
+            ->andWhere('t.pinned = false')
+            ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+            ->orderBy('t.lastPost', 'DESC');
+        if ($number !== null) $q->setMaxResults($number);
+        if ($offset !== null) $q->setFirstResult($offset);
+        return $q
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findPinnedByForum(Forum $forum, $number = null, $offset = null)
+    {
+        $q = $this->createQueryBuilder('t')
+            ->andWhere('t.pinned = true')
             ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
             ->orderBy('t.lastPost', 'DESC');
         if ($number !== null) $q->setMaxResults($number);

@@ -1,0 +1,24 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{ parent() }}
+    {% if app.user and not app.user.activeCitizen %}
+        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+    {% endif %}
+{% endblock %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-8">
+            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
+            <div class="row rp-list">
+                <div class="cell padded rw-12 small center"><img alt="" src="{{ asset('build/images/small_rp.gif') }}" /> {{'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...'|trans({}, 'soul')}}</div>
+                <div class="cell padded rw-8">Titre</div>
+                <div class="cell padded rw-4">Auteur</div>
+                {% for rp in rps %}
+                <div class="cell padded rw-8 " x-ajax-href="{{path('soul_rp', {id: rp.id})}}">{{rp.title}}</div>
+                <div class="cell padded rw-4">{{rp.author}}</div>
+                {% endfor %}
+                <div class="cell padded rw-12 center small">{{'Gefundene Texte: %count%'|trans({'%count%': rps.count}, "soul")}}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
