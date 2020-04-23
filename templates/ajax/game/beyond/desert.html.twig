@@ -382,8 +382,8 @@
                         <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
                     </div>
                 </div>
-                <div class="cell rw-12 padded">
-                    <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/escort_off.gif') }}" />{{ 'Eskorte deaktivieren'|trans({},'game') }}</button>
+                <div class="cell rw-12 padded left">
+                    <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/escort_off.gif') }}" /><span class="left">{{ 'Eskorte deaktivieren'|trans({},'game') }}</span></button>
                 </div>
             {% endif %}
         </div>
