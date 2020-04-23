@@ -682,6 +682,15 @@ class Citizen
                 return !$digTimer->getPassive();
         return false;
     }
+    
+    public function hasDigTimer(): bool {
+        $zone = $this->getZone();
+        if (!$zone) return false;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone()->getId() === $zone->getId())
+                return true;
+        return false;
+    }
 
     public function getDigTimeout(): int {
         $zone = $this->getZone();
