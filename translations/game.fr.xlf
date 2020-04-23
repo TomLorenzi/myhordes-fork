@@ -603,7 +603,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</target>
+        <target>Cette action est bloquée pendant 15 minutes environ (protection anti-abus).</target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
