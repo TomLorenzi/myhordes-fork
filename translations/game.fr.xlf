@@ -8660,7 +8660,7 @@
       </notes>
       <segment>
         <source>Deine Eskorte</source>
-        <target>Deine Eskorte</target>
+        <target>Votre escorte</target>
       </segment>
     </unit>
     <unit id="_s1Oex0" name="Gesamte Eskorte">
@@ -8669,7 +8669,7 @@
       </notes>
       <segment>
         <source>Gesamte Eskorte</source>
-        <target>Gesamte Eskorte</target>
+        <target>Total escortes</target>
       </segment>
     </unit>
     <unit id="Jh.CarL" name="Bürger in dieser Zone">
@@ -8678,7 +8678,7 @@
       </notes>
       <segment>
         <source>Bürger in dieser Zone</source>
-        <target>Bürger in dieser Zone</target>
+        <target>Citoyens présents</target>
       </segment>
     </unit>
     <unit id="wVNJv3." name="Camping">
@@ -8696,7 +8696,7 @@
       </notes>
       <segment>
         <source>Eskorte</source>
-        <target>Eskorte</target>
+        <target>Escorte</target>
       </segment>
     </unit>
     <unit id="fWKRZJU" name="Eskorte aktivieren">
@@ -8705,7 +8705,7 @@
       </notes>
       <segment>
         <source>Eskorte aktivieren</source>
-        <target>Eskorte aktivieren</target>
+        <target>Se mettre en attente d'une escorte</target>
       </segment>
     </unit>
     <unit id="td.v3Fq" name="Zugriff auf meinen Rucksack zulassen">
@@ -8714,7 +8714,7 @@
       </notes>
       <segment>
         <source>Zugriff auf meinen Rucksack zulassen</source>
-        <target>Zugriff auf meinen Rucksack zulassen</target>
+        <target>Permettre de voir et de manipuler les objets de mon sa</target>
       </segment>
     </unit>
     <unit id="DvcImFR" name="Ich will auf direktem Weg zurück zur Stadt">
@@ -8723,7 +8723,7 @@
       </notes>
       <segment>
         <source>Ich will auf direktem Weg zurück zur Stadt</source>
-        <target>Ich will auf direktem Weg zurück zur Stadt</target>
+        <target>Interdire au chef d'escorte de m'éloigner de la ville</target>
       </segment>
     </unit>
     <unit id="dV_nb5u" name="Eskorte deaktivieren">
@@ -8732,7 +8732,7 @@
       </notes>
       <segment>
         <source>Eskorte deaktivieren</source>
-        <target>Eskorte deaktivieren</target>
+        <target>Annuler l'escorte</target>
       </segment>
     </unit>
     <unit id="pEq8Vut" name="Headshot">
