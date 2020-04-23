@@ -8744,12 +8744,12 @@
         <target>Headshot</target>
       </segment>
     </unit>
-    <unit id="1gYmdeS" name="&lt;i class=&quot;fa fa-paper-plane&quot;&gt;&lt;/i&gt;">
+    <unit id="mMrNWJL" name="Senden">
       <notes>
-        <note category="german">&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;</note>
+        <note category="german">Senden</note>
       </notes>
       <segment>
-        <source>&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;</source>
+        <source>Senden</source>
         <target>Ecrire</target>
       </segment>
     </unit>

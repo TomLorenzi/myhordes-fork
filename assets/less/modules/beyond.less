@@ -113,11 +113,20 @@ div.zone-info {
   margin-top: 5px; border: 1px solid @myhordes-smalltext; background: @myhordes-cell-header-background-color; font-size: 0;
   &>div.row {
     &>.cell>span { vertical-align: bottom; font-size: 1.2rem; }
+    &.zone-cp {
+      padding: 1px 0px 0px 1px;
+      height: 22px;
+    }
     &.zone-cp>.cell{
       &:first-child { color: #d6f523; }
       &:last-child { color: #f15b30; }
     }
-    &.zone-dist { font-size: 1rem; }
+    &.zone-dist { 
+      padding: 0px 0px 0px 0px;
+      height: 18px;
+      font-size: 1rem;
+      color: #f0d79e;
+    }
   }
 }
 
