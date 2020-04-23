@@ -8750,6 +8750,15 @@
       </notes>
       <segment>
         <source>&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;</source>
+        <target><![CDATA[<i class="fa fa-paper-plane"></i>]]></target>
+      </segment>
+    </unit>
+    <unit id="mMrNWJL" name="Sende">
+      <notes>
+        <note category="german">Sende</note>
+      </notes>
+      <segment>
+        <source>Sende</source>
         <target>Ecrire</target>
       </segment>
     </unit>
