@@ -240,12 +240,16 @@ class GameFactory
 
         $town->setForum((new Forum())->setTitle($town->getName()));
 
+        $ownerUser = $this->entity_manager->getRepository(User::class)->findOneById(66);
+
         $threadBank = new Thread();
         $threadBank->setTitle($this->translator->trans('Bank', [], 'game'));
         $threadBank->setPinned(true);
+        $threadBank->setOwner($ownerUser);
         $threadBank->setLastPost(new \DateTime());
         $postBank = new Post();
-        $postBank->setDate (new \DateTime());
+        $postBank->setDate(new \DateTime());
+        $postBank->setOwner($ownerUser);
         $postBank->setText($this->translator->trans('In diesem Thread dreht sich alles um die Bank.', [], 'game'));
         $threadBank->addPost($postBank);
 
@@ -254,9 +258,11 @@ class GameFactory
         $threadDailyVote = new Thread();
         $threadDailyVote->setTitle($this->translator->trans('Verbesserung des Tages', [], 'game'));
         $threadDailyVote->setPinned(true);
+        $threadDailyVote->setOwner($ownerUser);
         $threadDailyVote->setLastPost(new \DateTime());
         $postDailyVote = new Post();
         $postDailyVote->setDate (new \DateTime());
+        $postDailyVote->setOwner($ownerUser);
         $postDailyVote->setText($this->translator->trans('In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.', [], 'game'));
         $threadDailyVote->addPost($postDailyVote);
 
@@ -265,9 +271,11 @@ class GameFactory
         $threadWorkshop = new Thread();
         $threadWorkshop->setTitle($this->translator->trans('Werkstatt', [], 'game'));
         $threadWorkshop->setPinned(true);
+        $threadWorkshop->setOwner($ownerUser);
         $threadWorkshop->setLastPost(new \DateTime());
         $postWorkshop = new Post();
         $postWorkshop->setDate (new \DateTime());
+        $postWorkshop->setOwner($ownerUser);
         $postWorkshop->setText($this->translator->trans('In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.', [], 'game'));
         $threadWorkshop->addPost($postWorkshop);
 
@@ -276,9 +284,11 @@ class GameFactory
         $threadBuilding = new Thread();
         $threadBuilding->setTitle($this->translator->trans('Konstruktionen', [], 'game'));
         $threadBuilding->setPinned(true);
+        $threadBuilding->setOwner($ownerUser);
         $threadBuilding->setLastPost(new \DateTime());
         $postBuilding = new Post();
         $postBuilding->setDate (new \DateTime());
+        $postBuilding->setOwner($ownerUser);
         $postBuilding->setText($this->translator->trans('In diesem Thread dreht sich alles um zukünftige Bauprojekte.', [], 'game'));
         $threadBuilding->addPost($postBuilding);
 
