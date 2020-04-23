@@ -439,6 +439,7 @@
       <segment>
         <source>Das Stadttor ist geschlossen!</source>
         <target>La porte de la ville est fermée!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -614,7 +615,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keinen weiteren Gegenstand stehlen.</source>
-        <target>Du kannst heute keinen weiteren Gegenstand stehlen.</target>
+        <target>Vous avez déjà commis une effraction aujourd'hui.</target>
       </segment>
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
@@ -625,7 +626,7 @@
       </notes>
       <segment>
         <source>Du siehst keine Möglichkeit, hier einzubrechen ...</source>
-        <target>Du siehst keine Möglichkeit, hier einzubrechen ...</target>
+        <target>Cette maison est protégée (verrou ou autre...) et ne peut être cambriolée. </target>
       </segment>
     </unit>
     <unit id="zGsgAe0" name="Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.">
@@ -637,6 +638,7 @@
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
         <target>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -647,7 +649,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ist ungültig.</source>
-        <target>Diese Aktion ist ungültig.</target>
+        <target>Cette action n'est pas valide.</target>
       </segment>
     </unit>
     <unit id="RvTmYTp" name="Diese Aktion ist nicht verfügbar.">
@@ -658,7 +660,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ist nicht verfügbar.</source>
-        <target>Diese Aktion ist nicht verfügbar.</target>
+        <target>L'action n'est pas possible...</target>
       </segment>
     </unit>
     <unit id="UK6Ie5i" name="Das kannst du zur Zeit nicht tun.">
@@ -669,7 +671,7 @@
       </notes>
       <segment>
         <source>Das kannst du zur Zeit nicht tun.</source>
-        <target>Das kannst du zur Zeit nicht tun.</target>
+        <target>Vous ne pouvez pas faire ça pour le moment.</target>
       </segment>
     </unit>
     <unit id="2dPpxn7" name="960101b">
@@ -769,6 +771,7 @@
       <segment>
         <source>Du verfügst über keine geeigneten Gegenstände</source>
         <target>Du verfügst über keine geeigneten Gegenstände</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="bxRbnw9" name="Herstellen">
@@ -824,6 +827,7 @@
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
         <target>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -967,6 +971,7 @@
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
         <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -1054,7 +1059,7 @@
       </notes>
       <segment>
         <source>Dein Beschreibungstext</source>
-        <target></target>
+        <target>Votre message personnel</target>
       </segment>
     </unit>
     <unit id="9rL.OfV" name="Speichern">
@@ -1087,7 +1092,7 @@
       </notes>
       <segment>
         <source>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</source>
-        <target>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</target>
+        <target>Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville ...</target>
       </segment>
     </unit>
     <unit id="2zVOnFs" name="14e2896">
@@ -1256,7 +1261,7 @@
       </notes>
       <segment>
         <source>Stufe %level%</source>
-        <target>Stufe %level%</target>
+        <target>Niveau %level%</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
@@ -1355,7 +1360,7 @@
       </notes>
       <segment>
         <source>Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.</source>
-        <target>Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.</target>
+        <target>Vous devez être un Héros pour effectuer les améliorations suivantes.</target>
       </segment>
     </unit>
     <unit id="jvbOgSC" name="Erfordert">
@@ -1411,6 +1416,7 @@
       <segment>
         <source>Leiche nicht beseitigt!</source>
         <target>Corps non retiré !</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="u_yrL5q" name="Tot!">
@@ -1513,7 +1519,7 @@
       </notes>
       <segment>
         <source>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</source>
-        <target>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</target>
+        <target>Veuillez saisir un nom valide (entre 3 et 32 caractères).</target>
       </segment>
     </unit>
     <unit id="ZHTFO77" name="%citizen%s Truhe">
@@ -1689,7 +1695,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?</source>
-        <target>Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?</target>
+        <target>Êtes-vous sûr de vouloir pénétrer ici et déposer un objet ?</target>
       </segment>
     </unit>
     <unit id="pZ8LEh0" name="Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?">
@@ -1700,7 +1706,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?</source>
-        <target>Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?</target>
+        <target>Êtes-vous sûr de vouloir pénétrer ici et voler un objet ?</target>
       </segment>
     </unit>
     <unit id="EB14a2E" name="a4fdb98">
@@ -1958,6 +1964,7 @@
                       arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
         <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                         arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ryRHkfD" name="Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.">
@@ -1990,7 +1997,7 @@
       </notes>
       <segment>
         <source>Wie viele Aktionspunkte möchtest du in den Bau investieren?</source>
-        <target>Wie viele Aktionspunkte möchtest du in den Bau investieren?</target>
+        <target>Combien de points d'action souhaitez-vous investir dans la construction ?</target>
       </segment>
     </unit>
     <unit id="CNDL68g" name="%rations% Rationen Wasser übrig">
@@ -2013,6 +2020,7 @@
       <segment>
         <source>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</source>
         <target>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="6KUjC8g" name="Die Stadt verfügt über eine %pumpname%.">
@@ -2276,7 +2284,7 @@
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
+        <target>Toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
       </segment>
     </unit>
     <unit id="Zkh813p" name="c9643dc">
@@ -2463,7 +2471,7 @@
       </notes>
       <segment>
         <source>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</source>
-        <target>Si vous ramassez ou laissez tomber un objet, vous perdez votre camouflage !</target>
+        <target>Si vous ramassez ou laissez tomber un objet, vous perdrez votre camouflage !</target>
       </segment>
     </unit>
     <unit id="AcukbqL" name="Zonenregister">
@@ -2633,6 +2641,7 @@
                               benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                               kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                               auffüllen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2643,7 +2652,7 @@
       </notes>
       <segment>
         <source>Baupunkte</source>
-        <target>Baupunkte</target>
+        <target>Points de Chantiers</target>
       </segment>
     </unit>
     <unit id="lm6ClbX" name="0bb1c95">
@@ -2662,9 +2671,10 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                                   zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                                   werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers, 
+                                  où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours 
+                                  utilisés à la place des points d'action. Gardez à l'esprit que les points de 
+                                  chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -2814,7 +2824,7 @@
       </notes>
       <segment>
         <source>Getrunken</source>
-        <target>Getrunken</target>
+        <target>Ivre</target>
       </segment>
     </unit>
     <unit id="_akkbne" name="Satt">
@@ -2825,7 +2835,7 @@
       </notes>
       <segment>
         <source>Satt</source>
-        <target>Satt</target>
+        <target>Rassasié(e)</target>
       </segment>
     </unit>
     <unit id="LQhKsMz" name="Umsichtiger Camper">
@@ -2836,7 +2846,7 @@
       </notes>
       <segment>
         <source>Umsichtiger Camper</source>
-        <target>Umsichtiger Camper</target>
+        <target>Campeur avisé</target>
       </segment>
     </unit>
     <unit id="LoyMaAF" name="Immunisiert">
@@ -2858,7 +2868,7 @@
       </notes>
       <segment>
         <source>Den Tod besiegen</source>
-        <target>Den Tod besiegen</target>
+        <target>Vaincre la mort</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -2869,7 +2879,7 @@
       </notes>
       <segment>
         <source>Erschöpfung</source>
-        <target>Erschöpfung</target>
+        <target>Fatigué(e)</target>
       </segment>
     </unit>
     <unit id="m0NU7Ex" name="Angststarre">
@@ -2880,7 +2890,7 @@
       </notes>
       <segment>
         <source>Angststarre</source>
-        <target>Angststarre</target>
+        <target>Terrorisé(e)</target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2891,7 +2901,7 @@
       </notes>
       <segment>
         <source>Durst</source>
-        <target>Durst</target>
+        <target>Soif</target>
       </segment>
     </unit>
     <unit id="csu4Gzn" name="Dehydriert">
@@ -2902,7 +2912,7 @@
       </notes>
       <segment>
         <source>Dehydriert</source>
-        <target>Déshydratation terminale</target>
+        <target>Déshydraté(e)</target>
       </segment>
     </unit>
     <unit id="4cxMzfa" name="Rauschzustand">
@@ -2913,7 +2923,7 @@
       </notes>
       <segment>
         <source>Rauschzustand</source>
-        <target>Rauschzustand</target>
+        <target>Drogué(e)</target>
       </segment>
     </unit>
     <unit id="eIBDvhn" name="Drogenabhängig">
@@ -2924,7 +2934,7 @@
       </notes>
       <segment>
         <source>Drogenabhängig</source>
-        <target>Drogenabhängig</target>
+        <target>Dépendant(e)</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2935,7 +2945,7 @@
       </notes>
       <segment>
         <source>Infektion</source>
-        <target>Infection généralisée</target>
+        <target>Infecté(e)</target>
       </segment>
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
@@ -3045,7 +3055,7 @@
       </notes>
       <segment>
         <source>Bandagiert</source>
-        <target>Bandage</target>
+        <target>Convalescent(e)</target>
       </segment>
     </unit>
     <unit id="UUnigxa" name="Abgelegenes Haus">
@@ -3067,7 +3077,7 @@
       </notes>
       <segment>
         <source>Albi Supermarkt</source>
-        <target>Albi Supermarkt</target>
+        <target>Epicerie Fargo</target>
       </segment>
     </unit>
     <unit id="z79LmBi" name="Alte Höhle">
@@ -3078,7 +3088,7 @@
       </notes>
       <segment>
         <source>Alte Höhle</source>
-        <target>Caverne</target>
+        <target>Caverne anciennement habitée</target>
       </segment>
     </unit>
     <unit id="7N1b8YP" name="Alte Hydraulikpumpe">
@@ -3100,7 +3110,7 @@
       </notes>
       <segment>
         <source>Alter Fahrradverleih</source>
-        <target>Alter Fahrradverleih</target>
+        <target>Ancien Velib</target>
       </segment>
     </unit>
     <unit id="swauljp" name="Alter Rangierbahnhof">
@@ -3199,7 +3209,7 @@
       </notes>
       <segment>
         <source>Bar der verlorenen Hoffnungen</source>
-        <target>Bar der verlorenen Hoffnungen</target>
+        <target>Le bar des illusions perdues</target>
       </segment>
     </unit>
     <unit id="zkW4TlC" name="Baumarkt">
@@ -3210,7 +3220,7 @@
       </notes>
       <segment>
         <source>Baumarkt</source>
-        <target>Baumarkt</target>
+        <target>Bricotout</target>
       </segment>
     </unit>
     <unit id="ejtguBI" name="Baustellencontainer">
@@ -3221,7 +3231,7 @@
       </notes>
       <segment>
         <source>Baustellencontainer</source>
-        <target>Baustellencontainer</target>
+        <target>Abri de chantier</target>
       </segment>
     </unit>
     <unit id="4P7trch" name="Dönerbude Utsel-Brutzel">
@@ -3232,7 +3242,7 @@
       </notes>
       <segment>
         <source>Dönerbude Utsel-Brutzel</source>
-        <target>Dönerbude Utsel-Brutzel</target>
+        <target>Kebab "Chez Coluche"</target>
       </segment>
     </unit>
     <unit id="JNOFU3C" name="Dukes Villa">
@@ -3254,7 +3264,7 @@
       </notes>
       <segment>
         <source>Dunkler Hain</source>
-        <target>Dunkler Hain</target>
+        <target>Petit bois obscur</target>
       </segment>
     </unit>
     <unit id="tRFSLoD" name="Eingestürzte Mine">
@@ -3276,7 +3286,7 @@
       </notes>
       <segment>
         <source>Eingestürzter Steinbruch</source>
-        <target>Eingestürzter Steinbruch</target>
+        <target>Carrière effondrée</target>
       </segment>
     </unit>
     <unit id="9jdPsSc" name="Ein seltsames kreisförmiges Gerät">
@@ -3309,7 +3319,7 @@
       </notes>
       <segment>
         <source>Familiengrab</source>
-        <target>Familiengrab</target>
+        <target>Caveau familial</target>
       </segment>
     </unit>
     <unit id="Obfx4xd" name="Fast Food Restaurant">
@@ -3320,7 +3330,7 @@
       </notes>
       <segment>
         <source>Fast Food Restaurant</source>
-        <target>Fast Food Restaurant</target>
+        <target>Fast-Food</target>
       </segment>
     </unit>
     <unit id="3jRHmba" name="Flugzeugwrack">
@@ -3342,7 +3352,7 @@
       </notes>
       <segment>
         <source>Gartenhaus</source>
-        <target>Gartenhaus</target>
+        <target>Cabane de jardin</target>
       </segment>
     </unit>
     <unit id=".BpYDum" name="Geplünderte Mall">
@@ -3364,7 +3374,7 @@
       </notes>
       <segment>
         <source>Höhle</source>
-        <target>Höhle</target>
+        <target>Caverne</target>
       </segment>
     </unit>
     <unit id="9x03HdM" name="Indianerfriedhof">
@@ -3419,7 +3429,7 @@
       </notes>
       <segment>
         <source>Kosmetiklabor</source>
-        <target>Kosmetiklabor</target>
+        <target>Laboratoire cosmétique</target>
       </segment>
     </unit>
     <unit id="XZBo0Eq" name="Krankenwagen">
@@ -3463,7 +3473,7 @@
       </notes>
       <segment>
         <source>Liegengebliebener Kampfpanzer</source>
-        <target>Liegengebliebener Kampfpanzer</target>
+        <target>Char d'assaut en panne</target>
       </segment>
     </unit>
     <unit id="ECpLJti" name="Motel 'Dusk'">
@@ -3474,7 +3484,7 @@
       </notes>
       <segment>
         <source>Motel 'Dusk'</source>
-        <target>Motel 'Dusk'</target>
+        <target>Motel "Dusk"</target>
       </segment>
     </unit>
     <unit id="aXgXOJr" name="Militärischer Wachposten">
@@ -3507,7 +3517,7 @@
       </notes>
       <segment>
         <source>Räuberhöhle</source>
-        <target>Caverne de voleurs</target>
+        <target>Cache de contrebandiers</target>
       </segment>
     </unit>
     <unit id="BoMLh_D" name="Schützengraben">
@@ -3529,7 +3539,7 @@
       </notes>
       <segment>
         <source>Stadtbücherei</source>
-        <target>Stadtbücherei</target>
+        <target>Bibliothèque de quartier</target>
       </segment>
     </unit>
     <unit id="mgQ86_P" name="Tante Emma Laden">
@@ -3551,7 +3561,7 @@
       </notes>
       <segment>
         <source>Truck 'Rathaus auf Rädern'</source>
-        <target>Truck 'Rathaus auf Rädern'</target>
+        <target>Camion "Mairie-mobile"</target>
       </segment>
     </unit>
     <unit id="OHLvvVZ" name="Umgekippter Laster">
@@ -3562,7 +3572,7 @@
       </notes>
       <segment>
         <source>Umgekippter Laster</source>
-        <target>Umgekippter Laster</target>
+        <target>Camion en panne</target>
       </segment>
     </unit>
     <unit id="_TTUt_P" name="Verbrannte Grundschule">
@@ -3573,7 +3583,7 @@
       </notes>
       <segment>
         <source>Verbrannte Grundschule</source>
-        <target>Verbrannte Grundschule</target>
+        <target>Ecole maternelle brûlée</target>
       </segment>
     </unit>
     <unit id="h5BzcKH" name="Verfallenes Bürogebäude">
@@ -3595,7 +3605,7 @@
       </notes>
       <segment>
         <source>Verfallene Villa</source>
-        <target>Verfallene Villa</target>
+        <target>Villa délabrée</target>
       </segment>
     </unit>
     <unit id="kP_vzTg" name="Verlassene Baustelle">
@@ -3639,7 +3649,7 @@
       </notes>
       <segment>
         <source>Versperrte Straße</source>
-        <target>Versperrte Straße</target>
+        <target>Route barrée</target>
       </segment>
     </unit>
     <unit id="12P6EOC" name="Verwilderter Park">
@@ -3650,7 +3660,7 @@
       </notes>
       <segment>
         <source>Verwilderter Park</source>
-        <target>Verwilderter Park</target>
+        <target>Parc à l'abandon</target>
       </segment>
     </unit>
     <unit id="u17l49g" name="Waffengeschäft Guns'n'Zombies">
@@ -3661,7 +3671,7 @@
       </notes>
       <segment>
         <source>Waffengeschäft Guns'n'Zombies</source>
-        <target>Waffengeschäft Guns'n'Zombies</target>
+        <target>Armurerie Guns'n'Zombies</target>
       </segment>
     </unit>
     <unit id="TcWj320" name="Warenlager">
@@ -3672,7 +3682,7 @@
       </notes>
       <segment>
         <source>Warenlager</source>
-        <target>Warenlager</target>
+        <target>Entrepôt désaffecté</target>
       </segment>
     </unit>
     <unit id="bQ1Prey" name="Zelt eines Bürgers">
@@ -3683,7 +3693,7 @@
       </notes>
       <segment>
         <source>Zelt eines Bürgers</source>
-        <target>Zelt eines Bürgers</target>
+        <target>Tente d'un citoyen</target>
       </segment>
     </unit>
     <unit id="z04UYqm" name="Zerstörte Apotheke">
@@ -3694,7 +3704,7 @@
       </notes>
       <segment>
         <source>Zerstörte Apotheke</source>
-        <target>Zerstörte Apotheke</target>
+        <target>Pharmacie détruite</target>
       </segment>
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
@@ -3816,6 +3826,7 @@
       <segment>
         <source>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</source>
         <target>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="HNlT.7E" name="caf9c12">
@@ -3827,6 +3838,7 @@
       <segment>
         <source>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</source>
         <target>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="1DaM5oy" name="Verrat! %citizen% ist gestorben: %cod%.">
@@ -3838,6 +3850,7 @@
       <segment>
         <source>Verrat! %citizen% ist gestorben: %cod%.</source>
         <target>Verrat! %citizen% ist gestorben: %cod%.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="EWgulaj" name="98f1530">
@@ -3849,6 +3862,7 @@
       <segment>
         <source>%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.</source>
         <target>%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="VImW6PC" name="%citizen% hat seinen letzten Atemzug getan: %cod%!">
@@ -3936,7 +3950,7 @@
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% a déplayé quelques débris.</target>
+        <target>%citizen% a déblayé quelques débris.</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
@@ -3959,6 +3973,7 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
         <target>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ToXb7Kr" name="%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!">
@@ -3970,6 +3985,7 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</source>
         <target>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="vw6w67." name="%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!">
@@ -3981,6 +3997,7 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</source>
         <target>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="vlEPrgk" name="b2b2ccc">
@@ -3992,6 +4009,7 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</source>
         <target>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="GtC0MNC" name="... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!">
@@ -4014,6 +4032,7 @@
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
         <target>%num% Zombies sind durch unsere Verteidigung gebrochen!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -4069,6 +4088,7 @@
       <segment>
         <source>%citizen% hat die Leiche von %disposed% vernichtet.</source>
         <target>%citizen% hat die Leiche von %disposed% vernichtet.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="oxUEe4_" name="HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!">
@@ -4091,6 +4111,7 @@
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</source>
         <target>DAMNED ! Quelqu'un a volé %item% à %victim% !</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="xFPnTgQ" name="%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -4102,6 +4123,7 @@
       <segment>
         <source>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
         <target>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Lzd32wL" name="Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -4113,6 +4135,7 @@
       <segment>
         <source>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
         <target>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="e.cUavH" name="%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.">
@@ -4344,6 +4367,7 @@
       <segment>
         <source>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
         <target>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -4761,7 +4785,7 @@
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>participer à l'estimation de l'attaque</target>
+        <target>Participer à l'estimation de l'attaque</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
@@ -4794,7 +4818,7 @@
       </notes>
       <segment>
         <source>Heldentafel</source>
-        <target>Le mots des héros</target>
+        <target>Le mot des héros</target>
       </segment>
     </unit>
     <unit id="eeHEERB" name="Unsere Situation">
@@ -5312,6 +5336,7 @@
       <segment>
         <source>Deine Tarnung ist aufgeflogen!</source>
         <target>Votre camouflage a été repéré !</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
@@ -5366,7 +5391,7 @@
       </notes>
       <segment>
         <source>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</source>
-        <target>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</target>
+        <target>Une enseigne de la chaîne de magasins Brian Fargo. On y trouve généralement tout ce qu'il faut pour nettoyer et entretenir sa maison. Les plus démunis y trouveront de quoi manger...</target>
       </segment>
     </unit>
     <unit id="if10dn9" name="09f712e">
@@ -5377,7 +5402,7 @@
       </notes>
       <segment>
         <source>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</source>
-        <target>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</target>
+        <target>Il y a des réflexes qui ne pardonnent pas. Prenez par exemple le coup de la caverne : vous êtes poursuivi(e) et vous vous engouffrez bêtement dans une caverne pour vous mettre à l'abri. Le problème qui se pose alors : maintenant que vous êtes dans une impasse, combien de temps allez-vous pouvoir hurler en attendant que vos poursuivants vous rattrapent ? Le type au fond, à qui il manque la moitié du visage, n'a pas dû crier bien longtemps.</target>
       </segment>
     </unit>
     <unit id="bnTVKZv" name="e90b5fa">
@@ -5388,7 +5413,7 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</target>
+        <target>Une antique pompe rongée par la rouille, capable de puiser de l'eau dans le désert... Le seul problème c'est que même si vous arrivez à la faire fonctionner, cette eau sera généralement non-potable et devra être purifiée en ville avec les produits adéquats.</target>
       </segment>
     </unit>
     <unit id="7y4PXTQ" name="21761df">
@@ -5399,7 +5424,7 @@
       </notes>
       <segment>
         <source>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</source>
-        <target>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</target>
+        <target>Une ancienne gare à vélo jonchée de pièces de ferrailles, d'outils et de débris en tous genres.</target>
       </segment>
     </unit>
     <unit id="2.pUWsx" name="c669021">
@@ -5432,7 +5457,7 @@
       </notes>
       <segment>
         <source>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</source>
-        <target>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</target>
+        <target>Tout ce qui décolle de cet aérodrome pourrissant, ce sont les mouches. Peut-être qu'en fouinant dans les entrepôts, vous parviendrez à mettre la main sur un truc utile. Genre, un A360 en état de marche.</target>
       </segment>
     </unit>
     <unit id="GY66Lzm" name="3431dd8">
@@ -5443,7 +5468,7 @@
       </notes>
       <segment>
         <source>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</source>
-        <target>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</target>
+        <target>L'imposant bâtiment s'étend sur plusieurs centaines de mètres. Il est divisé en nombreuses salles mais beaucoup se sont effondrées il y a bien longtemps. Si on en croit les nombreux impacts de balles et les barricades improvisées, ce commissariat a été le théâtre d'affrontements particulièrement violents.</target>
       </segment>
     </unit>
     <unit id="ETLKMEi" name="6475f3a">
@@ -5498,7 +5523,7 @@
       </notes>
       <segment>
         <source>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</source>
-        <target>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</target>
+        <target>Ce bar étrange se trouve caché derrière une petite colline et vous auriez tout aussi bien pu passer à côté sans le remarquer. L'intérieur est décoré d'innombrables portraits et photos en noir et blanc. On y retrouve souvent un type habillé dans une sorte de pyjama rayé sur les bords, debout aux côtés de diverses personnes.</target>
       </segment>
     </unit>
     <unit id="YM4htdV" name="7442888">
@@ -5509,7 +5534,7 @@
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</target>
+        <target>Le relais des bricoleurs. Véritable petit paradis rempli de trésors inestimables pour un monde comme le nôtre... Leur slogan est tout à fait d'actualité: « Pillez-nous avant que d'autres ne s'en chargent pour vous ! »</target>
       </segment>
     </unit>
     <unit id="bhwk0Sz" name="63b8c04">
@@ -5520,7 +5545,7 @@
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
-        <target>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </target>
+        <target>Un très grand container métallique posé au milieu de nulle part. Il devait se trouver à côté d'un chantier, à une époque, mais il n'en reste rien aujourd'hui. A part cette 'cabane'.</target>
       </segment>
     </unit>
     <unit id="UezITiX" name="e184eae">
@@ -5531,7 +5556,7 @@
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
+        <target>Si vous avez un petit creux, ne vous arrêtez surtout pas ici ! Ou c'est le cuistot lui même qui viendra vous dévorer, après vous avoir découpé à la scie circulaire. </target>
       </segment>
     </unit>
     <unit id="Y107l78" name="4da0502">
@@ -5553,7 +5578,7 @@
       </notes>
       <segment>
         <source>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</source>
-        <target>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</target>
+        <target>Les restes calcinés d'une forêt. C'était probablement un endroit agréable avant... Aujourd'hui, on prie juste pour ne jamais s'y perdre la nuit.</target>
       </segment>
     </unit>
     <unit id="U.L0F7x" name="8b76b77">
@@ -5575,7 +5600,7 @@
       </notes>
       <segment>
         <source>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</source>
-        <target>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</target>
+        <target>Une zone d'extraction de minéraux qui porte les stigmates d'un terrible accident : tout un flanc semble s'être effondré sur les hommes, les machines et les bâtiments.</target>
       </segment>
     </unit>
     <unit id=".cft5Zt" name="7d986ca">
@@ -5608,7 +5633,7 @@
       </notes>
       <segment>
         <source>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</source>
-        <target>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</target>
+        <target>Un caveau familial décrépi. C'est à peine si on distingue encore l'entrée, presque entièrement dissimulée sous la végétation pourrissante. Les cadavres, quant à eux, se sont levés et sont sortis depuis bien longtemps...</target>
       </segment>
     </unit>
     <unit id="jfKgTEc" name="ea47251">
@@ -5619,7 +5644,7 @@
       </notes>
       <segment>
         <source>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</source>
-        <target>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</target>
+        <target>Une odeur atroce de cadavre faisandé émane de ce bâtiment : les réserves de viande se sont transformées en répugnants monticules de moisissure blanche qui ont commencé à "s'écouler" par les portes...</target>
       </segment>
     </unit>
     <unit id="TkIE5Fb" name="5e26a9f">
@@ -5641,7 +5666,7 @@
       </notes>
       <segment>
         <source>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</source>
-        <target>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</target>
+        <target>Au milieu d'un petit square totalement décrépi, vous trouvez un vaste abri de jardin. La porte cède facilement, révélant une vaste pièce remplie d'étagères et d'outillages en tous genres.</target>
       </segment>
     </unit>
     <unit id="pzQEC77" name="5941d98">
@@ -5663,7 +5688,7 @@
       </notes>
       <segment>
         <source>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</source>
-        <target>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</target>
+        <target>Une sorte de tumulus qui devait autrefois servir de sépulture ou d'abri... Allez-savoir. L'intérieur est plongé dans le noir le plus total, l'air y est glacial et une odeur insupportable de charogne en émane...</target>
       </segment>
     </unit>
     <unit id="igWQAKU" name="af6794c">
@@ -5674,7 +5699,7 @@
       </notes>
       <segment>
         <source>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</source>
-        <target>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</target>
+        <target>Un ancien cimetière presque entièrement recouvert de sable et de végétation pourrissante. C'est finalement un endroit plutôt rassurant en comparaison du reste du monde...</target>
       </segment>
     </unit>
     <unit id="K.rB207" name="6763cec">
@@ -5718,7 +5743,7 @@
       </notes>
       <segment>
         <source>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</source>
-        <target>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</target>
+        <target>Ce bâtiment lugubre a servi autrefois pour divers tests de produits sur des animaux. Ca sent le camphre, l'ether et la charogne. Et ce n'est que l'entrée...</target>
       </segment>
     </unit>
     <unit id="O2YPsmI" name="6fa34b1">
@@ -5762,7 +5787,7 @@
       </notes>
       <segment>
         <source>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</source>
-        <target>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</target>
+        <target>Ce char militaire est un peu une métaphore de la boîte de conserve, avec le soldat dans le rôle de la sardine et la centaine de zombies dans le rôle du citoyen affamé. C'est le citoyen qui a gagné.</target>
       </segment>
     </unit>
     <unit id="42b1Trj" name="d9255eb">
@@ -5795,7 +5820,7 @@
       </notes>
       <segment>
         <source>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</source>
-        <target>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</target>
+        <target>Un bâtiment qui semble avoir résisté aux affres du temps, vestige d'un antique service postal. Peu de chances que vous y trouviez quoi que ce soit de grand intérêt, sauf si vous aimez la lecture...</target>
       </segment>
     </unit>
     <unit id="91Rj1wr" name="18b06e6">
@@ -5806,7 +5831,7 @@
       </notes>
       <segment>
         <source>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</source>
-        <target>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</target>
+        <target>Un trou dans le sol vaguement dissimulé par quelques planches et du sable. Il débouche sur une large caverne humide remplie de débris en tous genres, résultats de pillages dans une ville voisine, probablement. Qui sait si votre ville ne s'est pas construite sur ces pillages ? Peut-être que les premiers citoyens ont participé à ces attaques...</target>
       </segment>
     </unit>
     <unit id="alVUMDw" name="8e5b877">
@@ -5828,7 +5853,7 @@
       </notes>
       <segment>
         <source>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</source>
-        <target>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</target>
+        <target>Un ensemble de plusieurs petites maisons qui constituaient autrefois une bibliothèque de quartier. Aujourd'hui, les livres sont, pour la plupart, déchirés ou brûlés, le sol est jonché de pages arrachées et les étagères sont renversées.</target>
       </segment>
     </unit>
     <unit id="Uin8bw9" name="a4e8801">
@@ -5850,7 +5875,7 @@
       </notes>
       <segment>
         <source>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</source>
-        <target>Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.</target>
+        <target>« Vos démarches citoyennes juste en bas de chez vous ». Pas de doute, les zombies ont complètement adhéré au concept si on croit les traces de griffe un peu partout à l'intérieur du camion et les restes humains soigneusement éparpillés dans les rayonnages.</target>
       </segment>
     </unit>
     <unit id="9TPFQ6o" name="8a4baaf">
@@ -5861,7 +5886,7 @@
       </notes>
       <segment>
         <source>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</source>
-        <target>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</target>
+        <target>Un camion de transport du groupe soviétique Transtwinä. La cabine du conducteur est totalement encastrée dans un arbre, mais les entailles profondes dans le siège et le sang qui tapisse toutes les parois laissent supposer que l'accident n'est pas la cause de la mort...</target>
       </segment>
     </unit>
     <unit id="k6o0Mpp" name="d69b6ca">
@@ -5872,7 +5897,7 @@
       </notes>
       <segment>
         <source>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</source>
-        <target>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</target>
+        <target>Les dessins enfantins peints sur les parois calcinées contrastent effroyablement avec les restes vaguement humains dispersés çà et là. Par moment, on croirait même entendre des rires lugubres sous les décombres.</target>
       </segment>
     </unit>
     <unit id="Ct60IzG" name="3ed88f6">
@@ -5894,7 +5919,7 @@
       </notes>
       <segment>
         <source>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</source>
-        <target>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</target>
+        <target>Quelqu'un a vécu ici, il y a très longtemps. Peut-être même que cette personne était entourée d'une famille qui l'aimait et qu'ils y ont coulé des jours heureux tous ensembles ? Aujourd'hui il n'en reste rien ; un peu de poussière et la désolation la plus totale. Et parfois même un cadavre qui marche vers vous en grinçant des dents.</target>
       </segment>
     </unit>
     <unit id="Mk_nOE9" name="e91d960">
@@ -5905,7 +5930,7 @@
       </notes>
       <segment>
         <source>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</source>
-        <target>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</target>
+        <target>Il est impossible de déterminer ce qu'ils voulaient bâtir ici. Une école, un parking, un grand magasin... Seules les structures métalliques rouillées témoignent encore du mystérieux projet qui se tramait ici.</target>
       </segment>
     </unit>
     <unit id="bVAo.cx" name="181707c">
@@ -5938,7 +5963,7 @@
       </notes>
       <segment>
         <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
-        <target>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</target>
+        <target>Ce qui s'est déroulé ici est assez incompréhensible : un énorme rocher semble s'être écrasé en plein milieu d'une route, comme tombé de nulle part...</target>
       </segment>
     </unit>
     <unit id="yFJW.aK" name="8bf8201">
@@ -5949,7 +5974,7 @@
       </notes>
       <segment>
         <source>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</source>
-        <target>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</target>
+        <target>Un lieu de recueillement et de sérénité... Pour peu que vous soyez armé(e) et prêt(e) à lutter pour votre survie. La végétation locale est sinistre et sent la mort à plein nez, des créatures indéfinissables se déplacent dans les ombres... Vous avez constamment la sensation qu'une saleté va vous bondir dessus depuis un fourré.</target>
       </segment>
     </unit>
     <unit id="XXTLDoG" name="7b41c4f">
@@ -5960,7 +5985,7 @@
       </notes>
       <segment>
         <source>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</source>
-        <target>Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...</target>
+        <target>Un filon d'armes pour qui aime bien tuer ou menacer. Les crevasses, impacts de balles et décombres en disent long sur les évènements qui sont survenus ici...</target>
       </segment>
     </unit>
     <unit id="DYD9pRM" name="6793734">
@@ -5971,7 +5996,7 @@
       </notes>
       <segment>
         <source>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</source>
-        <target>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</target>
+        <target>L'entrepôt de stockage d'un ancien supermarché dont la porte a résisté aux tentatives de pillages. Il doit sûrement contenir diverses babioles intéressantes...</target>
       </segment>
     </unit>
     <unit id="qSSpkKa" name="d12e0e7">
@@ -5982,7 +6007,7 @@
       </notes>
       <segment>
         <source>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</source>
-        <target>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</target>
+        <target>Une bonne planque, c'est certain. Le type qui a monté ce camp savait comment mettre ses fesses à l'abri des zombies : camouflage naturel, bonne visibilité alentours, plusieurs issues et même un trou pour se cacher sous terre au besoin. Le nom « Shenji » est brodé dans la toile de la tente.</target>
       </segment>
     </unit>
     <unit id="SXiUP6e" name="b293b36">
@@ -5993,7 +6018,7 @@
       </notes>
       <segment>
         <source>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</source>
-        <target>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</target>
+        <target>Une petite pharmacie de quartier... perdue au milieu du désert. Les odeurs innommables font penser à tout sauf à des médicaments.</target>
       </segment>
     </unit>
     <unit id="rcbYTzS" name="28bcbbd">
@@ -6081,7 +6106,7 @@
       </notes>
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
-        <target>Vous creusez depuis in certain temps et avez trouvé plusieurs objets.</target>
+        <target>Vous creusez depuis un certain temps et avez trouvé plusieurs objets.</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
@@ -6137,6 +6162,7 @@
       <segment>
         <source>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</source>
         <target>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="u3C29q0" name="Jeder so zerstörte Gegenstand kostet dich %ap%.">
@@ -6148,6 +6174,7 @@
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich %ap%.</source>
         <target>Jeder so zerstörte Gegenstand kostet dich %ap%.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -6159,6 +6186,7 @@
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
         <target>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -6181,6 +6209,7 @@
       <segment>
         <source>Gegenstand</source>
         <target>Gegenstand</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="9WgEJfS" name="Installieren">
@@ -6203,6 +6232,7 @@
       <segment>
         <source>Wie viele Gegenstände möchtest du auf den Müll werfen?</source>
         <target>Wie viele Gegenstände möchtest du auf den Müll werfen?</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="6Ds9C1i" name="Du kannst keine Aktionen ausführen, während du dich versteckst.">
@@ -6368,6 +6398,7 @@
       <segment>
         <source>Du kannst dich nicht fortbewegen während du versteckt bist.</source>
         <target>Du kannst dich nicht fortbewegen während du versteckt bist.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="q9a_zyp" name="Du kannst das nicht tun während du dich versteckst.">
@@ -6379,6 +6410,7 @@
       <segment>
         <source>Du kannst das nicht tun während du dich versteckst.</source>
         <target>Du kannst das nicht tun während du dich versteckst.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="jpuNBoV" name="Du kannst helfen und dich der heutigen Nachtwache anschließen!">
@@ -6390,6 +6422,7 @@
       <segment>
         <source>Du kannst helfen und dich der heutigen Nachtwache anschließen!</source>
         <target>Du kannst helfen und dich der heutigen Nachtwache anschließen!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -7925,6 +7958,7 @@
         <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+                    <!-- verifier -->
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">
@@ -7937,6 +7971,7 @@
                         Verfügung.</source>
         <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</target>
+                        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Qc.QL70" name="a2b0db7">
@@ -7949,6 +7984,7 @@
                 dieser Stadt zur Verfügung.</source>
         <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.</target>
+                <!-- verifier -->
       </segment>
     </unit>
     <unit id="kw2Iw8G" name="0a39755">
@@ -7961,6 +7997,7 @@
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
         <target>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
+                <!-- verifier -->
       </segment>
     </unit>
     <unit id="nbN6CQm" name="f843777">
@@ -7973,6 +8010,7 @@
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
         <target>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</target>
+                <!-- verifier -->
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -7985,6 +8023,7 @@
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
         <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+                    <!-- verifier -->
       </segment>
     </unit>
     <unit id="QL.qpuP" name="d231db0">
@@ -7997,6 +8036,7 @@
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
         <target>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</target>
+                    <!-- verifier -->
       </segment>
     </unit>
     <unit id="32LY7bW" name="3f5fb3f">
@@ -8009,6 +8049,7 @@
                         Ausbauten funktionslos.</source>
         <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</target>
+                        <!-- verifier -->
       </segment>
     </unit>
     <unit id="5NecEOg" name="28b7953">
@@ -8028,7 +8069,7 @@
       </notes>
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
-        <target>Le corps s'est liquédié en une répugnante flaque nauséabonde. Vos chaussures en ont pris un coup, c'est certain...</target>
+        <target>Le corps s'est liquéfié en une répugnante flaque nauséabonde. Vos chaussures en ont pris un coup, c'est certain...</target>
       </segment>
     </unit>
     <unit id="rJRa84E" name="4a1e54c">
@@ -8085,6 +8126,7 @@
       <segment>
         <source>Gereinigte Seelen</source>
         <target>Gereinigte Seelen</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -8265,6 +8307,7 @@
       <segment>
         <source>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
         <target>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
@@ -8274,6 +8317,7 @@
       <segment>
         <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
         <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -8283,6 +8327,7 @@
       <segment>
         <source>Du kannst diesen Gegenstand nicht stehlen.</source>
         <target>Du kannst diesen Gegenstand nicht stehlen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Tzmt5qh" name="d848698">
@@ -8310,6 +8355,7 @@
       <segment>
         <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
         <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
@@ -8354,7 +8400,7 @@
       </notes>
       <segment>
         <source>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</source>
-        <target>     Vous êtes épuisé(e)… Reposez-vous ou nourrissez-vous pour récupérer !</target>
+        <target>Vous êtes épuisé(e)… Reposez-vous ou nourrissez-vous pour récupérer !</target>
       </segment>
     </unit>
     <unit id="PoxvW0_" name="62457fd">
@@ -8381,7 +8427,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</source>
-        <target>     Vous avez consommé une drogue aujourd'hui. Si vous en consommez une autre, vous risquez une dépendance grave à vie.</target>
+        <target>Vous avez consommé une drogue aujourd'hui. Si vous en consommez une autre, vous risquez une dépendance grave à vie.</target>
       </segment>
     </unit>
     <unit id="UL1uoY5" name="dd7f91a">
@@ -8444,7 +8490,7 @@
       </notes>
       <segment>
         <source>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</source>
-        <target>     Vous avez été soigné(e) d'une blessure récemment. Vous ne pouvez pas être soigné(e) à nouveau pour la journée.</target>
+        <target>Vous avez été soigné(e) d'une blessure récemment. Vous ne pouvez pas être soigné(e) à nouveau pour la journée.</target>
       </segment>
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
@@ -8526,6 +8572,7 @@
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
         <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="FoS7MOU" name="0b6b395">
@@ -8535,6 +8582,7 @@
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
         <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -8544,6 +8592,7 @@
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
         <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -8553,6 +8602,7 @@
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
         <target>Hier wurde bereits ein Bauplan gefunden.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
@@ -8571,6 +8621,7 @@
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
         <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -8580,6 +8631,7 @@
       <segment>
         <source>Die Tarnung von %name% ist aufgeflogen!</source>
         <target>Die Tarnung von %name% ist aufgeflogen!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
@@ -8589,6 +8641,7 @@
       <segment>
         <source>Dazu hast Du kein Recht.</source>
         <target>Dazu hast Du kein Recht.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="eLqiBhl" name="%username% wurde standrechtlich erschossen.">
@@ -8598,6 +8651,7 @@
       <segment>
         <source>%username% wurde standrechtlich erschossen.</source>
         <target>%username% wurde standrechtlich erschossen.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="tkJcWLe" name="%username% gehört keiner Stadt an.">
@@ -8607,6 +8661,7 @@
       <segment>
         <source>%username% gehört keiner Stadt an.</source>
         <target>%username% gehört keiner Stadt an.</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="J2aR_r9" name="ed375df">
@@ -8616,6 +8671,7 @@
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
         <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
@@ -8625,6 +8681,7 @@
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
         <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -8634,6 +8691,7 @@
       <segment>
         <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
         <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
@@ -8643,6 +8701,7 @@
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
         <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
@@ -8652,6 +8711,7 @@
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
         <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -8742,6 +8802,7 @@
       <segment>
         <source>Headshot</source>
         <target>Headshot</target>
+        <!-- verifier -->
       </segment>
     </unit>
     <unit id="B5vvTiM" name="Senden">
