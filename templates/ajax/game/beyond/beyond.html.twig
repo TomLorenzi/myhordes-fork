@@ -26,12 +26,12 @@
                     </div>
                 </div>
                 {% endif %}
-                <div class="row zone-cp">
-                    <div class="padded cell rw-6 left"><img src="{{ asset('build/images/small_human.gif') }}" alt="CP" /> <span>{{ zone_cp }} {% trans from 'game' %}Punkt(e){% endtrans %}</span></div>
-                    <div class="padded cell rw-6 right"><span>{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %}</span> <img src="{{ asset('build/images/small_zombie.gif') }}" alt="ZP" /></div>
+                <div class="row zone-cp note note-light">
+                    <div class="cell rw-6 left"><img src="{{ asset('build/images/small_human.gif') }}" alt="CP" /> <span>{{ zone_cp }} {% trans from 'game' %}Punkt(e){% endtrans %}</span></div>
+                    <div class="cell rw-6 right"><span>{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %}</span> <img src="{{ asset('build/images/small_zombie.gif') }}" alt="ZP" /></div>
                 </div>
-                <div class="row zone-dist">
-                    <div class="padded cell rw-12 center">
+                <div class="row zone-dist note note-light">
+                    <div class="cell rw-12 center">
                         {{ 'Stadt in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>'},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ ap }}</div>)
                     </div>
                 </div>

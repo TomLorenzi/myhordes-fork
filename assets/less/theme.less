@@ -393,6 +393,16 @@ div.note {
     .box( #820000 ); color: white; position: relative; padding: 5px 5px 5px 26px;
     &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/small_warning.gif') no-repeat; }
   }
+  &.note-light {
+    background-color: #5c2b20;
+  }
+  &.note-lightest {
+    color: #f0d79e;
+    background-color: #996739;
+    border: none;
+    padding: 3px 3px 3px 3px;
+    margin: 0;
+  }
 }
 
 div.small-note {
@@ -713,7 +723,7 @@ div.game-menu-area {
   }
 }
 
-div.ap      { .icon_div("../img/ap_small.gif", middle, 0); }
+div.ap      { .icon_div("../img/ap_small.gif", middle, 0); color: white; }
 div.bp      { .icon_div("../img/bp_small.gif", middle, 0); }
 div.defense { .icon_div("../img/small_def.gif", baseline, 2px); }
 
