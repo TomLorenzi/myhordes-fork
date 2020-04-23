@@ -652,6 +652,8 @@ class ActionHandler
                     $citizen->getUser()->getFoundTexts()->add($foundrp);
 
                     $this->entity_manager->persist($foundrp);
+                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_rp_#00");
+                    $this->picto_handler->give_picto($citizen, $pictoPrototype);
                 }
             }
 
