@@ -3924,7 +3924,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>]]></target>
+        <target><![CDATA[Vous trouvez un écrit nommé {rp_text}. Vous commencez à le lire<t-rp_ok> ! Ce texte à été ajouté à vos archives !</t-rp_ok><t-rp_fail>... Malheureusement, vous vous rendez compte que vous connaissez déjà ce texte.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -3935,13 +3935,11 @@
       </notes>
       <segment>
         <source>Werfen</source>
-        <target>Werfen</target>
+        <target>Lancer</target>
       </segment>
     </unit>
     <unit id="UWEMZ3x" name="{casino}">
       <notes>
-        <note>{casino}</note>
-        <note>{casino}</note>
         <note category="german">{casino}</note>
       </notes>
       <segment>

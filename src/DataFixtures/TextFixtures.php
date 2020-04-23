@@ -450,7 +450,7 @@ class TextFixtures extends Fixture
 	        ],
 	        "lang" => "fr",
 	        "background" => "old",
-	        "design" => "small"
+	        "design" => "written"
 	    ],
 	    "coloc" => [
 	        "title" => "Colocation",
@@ -495,7 +495,20 @@ class TextFixtures extends Fixture
 	    "alone1" => [
 	        "title" => "Coupés du reste du monde",
 	        "author" => "Liior",
-	        "content" => [''],
+	        "content" => [
+                '<h2>Le 20 janvier, 17h:</h2>
+                <p>Cela fait maintenant 3 semaines qu\'aucune communication avec d\'autres refuges n\'est possible.. Il semble qu\'un vent venu de l\'ouest amène des odeurs, des parfums de putréfaction.. Le puits du village est notre dernière ressource d\'eau potable.. La terre est desséchée et les seuls fruits que le potager nous offre sont d\'une couleur bizarre et sentent la pourriture.</p>
+                <p>J\'ai peur. Des créatures dont je ne saurai expliquer l\'existence s\'amassent soir après soir autour de notre cité.. Ils tapent sur les murs, je pense qu\'ils nous en veulent.. Si ils reviennent.. On ne tiendra pas.</p>',
+                '<h2>Le 22 janvier, 10h15 :</h2>
+                <p>Nous avons perdu la moitié de nos compagnons d\'infortune, dans ce qui semble être une attaque. Les créatures sont venues..</p>
+                <p>Du haut du mirador, j\'ai clairement distingué une foule "humaine", ce qui ne me rassure pas.. Sont-ce des cannibales ? En tout cas, ces créatures ne sont pas armées.. Le chef du village pense qu\'elles reviendront ce soir. Et demain. Et tout les jours maintenant..</p>',
+                '<h2>Le 24 janvier, 20h30 :</h2>
+                <p>J\'ai peur, je suis seul et je ne descend plus du mirador sauf pour aller chercher des légumes au potager.. Hier soir, une créature m\'a vu..</p>
+                <p>Elle était trop occupée à dévorer le chef du village pour me prêter plus d\'attention que cela..</p>
+                <p>J\'ai peur, car j\'ai vu des cadavres avoir des spasmes..</p>
+                <div class="hr"></div>
+                <p>J\'ai la vague impression qu\'ils pourraient se réveiller.. Je ne descends plus.. Je les entends.. Ils arrivent.</p>'
+            ],
 	        "lang" => "fr",
 	        "background" => "grid",
 	        "design" => "typed"
@@ -503,7 +516,20 @@ class TextFixtures extends Fixture
 	    "dfive1" => [
 	        "title" => "Courrier d'un citoyen 1",
 	        "author" => "dragonfive",
-	        "content" => [''],
+	        "content" => [
+                '<small>Une lettre sans destinataire et sans signature. Peut-être n\'était-elle pas écrite pour être envoyée ?</small>
+                <div class="hr"></div>
+                <p>Notre passé, notre futur... Ils contrôlent notre vie. </p>
+                <p>Alors que nous somme tous condamnés à mourir et à nous réincarner éternellement pour reconnaître le même destin, alors que nous luttons pour pouvoir survivre ne serait-ce qu\'un seul jour de plus, les zombies, eux, attendent la moindre faille dans les défenses de notre ville, attendent qu\'un citoyen s\'égare la nuit, et n\'ont qu\'une idée en tête : nous dévorer. Nos tentatives de survie sont vaines, un jour où l\'autre, ils finiront par nous avoir. Et si nous ne mourons pas dévorés par nos ex-concitoyens, nous mourrons desséchés dans le désert.</p>',
+                '<div class="hr"></div>
+                <p>Notre vie est éphémère, et seules nos carcasses peuvent attester de notre présence, tant qu\'elles sont encore identifiables. Mais peut-on réellement appeler ça une vie ? Nous mangeons de la nourriture avariée, et il nous arrive même de manger les restes de nos voisins, nous ne sortons que pour trouver de quoi défendre la ville en prévision de l\'attaque du soir, nous vivons l\'horreur même, et ce pendant chacune de nos vies ! Quelle personne normale pourrait tenir un seul jour dans ces conditions ?</p>
+                <p>Très peu, je peux vous l\'assurer.</p>',
+                '<div class="hr"></div>
+                <p> Et c\'est peut-être pour ça que nous en sommes là aujourd\'hui. </p>
+                <p>Peut-être qu\'un Dieu nous surveille, là-haut, et a décidé de s\'amuser un peu, de voir combien de personnes pourraient survivre à ces hordes de monstres, dehors.</p>
+                <p>Et si un tel Dieu existe, j\'aimerais bien le rencontrer et lui prouver toute ma gratitude en lui collant mon pied au derrière.</p>
+                <p>Auteur : dragonfive</p>'
+            ],
 	        "lang" => "fr",
 	        "background" => "letter",
 	        "design" => "small"
@@ -522,7 +548,7 @@ class TextFixtures extends Fixture
 	        "content" => [''],
 	        "lang" => "fr",
 	        "background" => "noteup",
-	        "design" => "noteup"
+	        "design" => "written"
 	    ],
 	    "last1" => [
 	        "title" => "Dernier survivant",
@@ -543,19 +569,86 @@ class TextFixtures extends Fixture
 	    "notes1" => [
 	        "title" => "Des notes griffonnées",
 	        "author" => "Melie",
-	        "content" => [''],
+	        "content" => [
+                '<p>J\'arrivais avec mon maigre baluchon sur l\'épaule.</p>
+                <p>11H00 du matin. Je fais partie des 12 explorateurs désignés contre mon gré. Les portes s\'ouvrirent. Le froid du désert me frappa le visage.</p>
+                <quote>-Allez-y.</quote>
+                <p>Un des douze explorateurs m\'interpella  sèchement.</p>
+                <quote>-Melie ! Où vas-tu ?</quote>
+                <quote>-Nord, répondis-je d\'un ton acerbe.</quote>
+                <p>Armée de mon pistolet à eau chargé, je m\'avançai la première. Les autres me suivirent. Je creusai avec mes mains. Rien. Quelques autres citoyens eurent plus de chance : des planches tordues, et même de la ferraille. Nous nous avançâmes. Pas de zombie.</p>',
+                '<p>Ca ne me rassurait pas : ils nous attendaient sûrement plus loin. Cette fois, j\'ai trouvé une souche de bois pourrie. On pourra la transformer à l\'atelier !</p>
+                <p>Plusieurs heures passèrent,  la <strike>peur</strike> fatigue me gagne. Je m\'écroule par terre, ne pouvant plus avancer. 5 zombies m\'entouraient. A travers mes yeux entrouverts, j\'apercevais mes compagnons m\'abandonner lentement... Ils avaient eu la force de manger pour repartir.</p>
+                <quote>-Ne partez pas ! Non !</quote>
+                <p>Je ne parlais pas, je balbutiais. Le soir tombait.</p>',
+                '<div class="hr"></div>
+                <p>19H30. Cette fois, c\'est la fin. Je suis seule. J\'arrive à peine à sortir mon pistolet de mon sac.</p>
+                <p>Je ne peux même pas espérer fuir... Les <strike>mort-vi</strike> morts-vivants me bloquent le passage.</p>',
+                '<div class="hr"></div>
+                <p>22H00. Je n\'étais pourtant pas si loin de la ville... Je vois presque les portes derrière moi. Je crie, je hurle, mais personne ne vient.</p>
+                <p>Une dernière image du désert, des zombies, puis le noir.</p>'
+            ],
 	        "lang" => "fr",
 	        "background" => "noteup",
-	        "design" => "noteup"
+	        "design" => "written"
 	    ],
 	    "poem2" => [
 	        "title" => "Deux vies et un festin",
 	        "author" => "SeigneurAo",
-	        "content" => [''],
+	        "content" => [
+                '<p>Harmonie véritable, un bout d\'oreille qui pend</p>
+                <p>Folie du vénérable, dément se repentant</p>
+                <p>Souffle dans la vallée, une femme debout attend</p>
+                <p>Les zombies s\'approcher, doucement elle entend</p>
+                <hr>
+                <p>Pour qui sonne le glas, pour qui la mort s\'apprête ?</p>
+                <p>Vers elle j\'avance las, tire une balle dans sa tête</p>
+                <p>Je l\'aimais de tout coeur, aussi trouvé-je bête</p>
+                <p>De laisser mon âme soeur, affronter cette tempête</p>
+                <hr>
+                <p>De coeur il est question, et me voilà bientôt</p>
+                <p>À prendre possession, du sien Dieu qu\'il est beau</p>
+                <p>Un repas pour ce soir, un bon repas bien chaud</p>
+                <p>Mon âme sera-t-elle noire, aurai-je été un sot ?</p>
+                <hr>',
+                '<p>Harmonie féérique, un aventurier part</p>
+                <p>Chevauchée héroïque, il reviendra très tard</p>
+                <p>Ou peut-être même pas, si par ce jour blafard</p>
+                <p>Sa route le mènera, en un lieu très bizarre</p>
+                <hr>
+                <p>Peuplé de créatures, de cloportes et défunts</p>
+                <p>Serein il nous assure, qu\'il n\'ira pas trop loin</p>
+                <p>Les condamnés se gaussent, oublient presque leur faim</p>
+                <p>Sa confiance sonne bien fausse, la mort est son destin</p>
+                <hr>
+                <p>De fait le lendemain, nous trouvâmes ses restes</p>
+                <p>Dépouillés yeux et reins, bien pire que par la peste</p>
+                <p>Mais les rats sont là eux, car peu de différence</p>
+                <p>Pestiféré ou preux, seul compte de faire bombance </p>'
+            ],
 	        "lang" => "fr",
 	        "background" => "printer",
 	        "design" => "poem"
 	    ],
+        "dement" => [
+            "title" => "Démenti officiel",
+            "author" => "Tyekanik",
+            "content" => [
+                '>
+                <h2>Communiqué de presse</h2>
+                <p>Il est prouvé scientifiquement que les micros ondes n’altèrent en rien le corps humain. Et encore moins la matière inerte et sans vie.<br>
+                Toutes ces rumeurs ont été lancées par des marques concurrentes qui jalousent notre succès.
+                C’est une méthode de marketing déloyale et absolument immorale qui reste malgré tout très efficace et employé par certain commerciaux sans scrupules.
+                </p>
+                <p>
+                Quant aux troubles qui se sont déroulé dans l’une de nos usines, cela reste un incident isolé qui n’a rien à voir avec l’ensemble de produit.
+                Je vous assure que l’ensemble de la gamme des électroménagers rebelles est absolument sans aucuns risques d’utilisation.
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "classic"
+        ],
 	    "degen" => [
 	        "title" => "Dégénérescence",
 	        "author" => "Fabien08",
@@ -746,7 +839,7 @@ class TextFixtures extends Fixture
 	        "content" => [''],
 	        "lang" => "fr",
 	        "background" => "noteup",
-	        "design" => "noteup"
+	        "design" => "written"
 	    ],
 	    "coctl1" => [
 	        "title" => "Journal de Coctail, partie 1",
@@ -946,7 +1039,7 @@ class TextFixtures extends Fixture
 	        "content" => [''],
 	        "lang" => "fr",
 	        "background" => "noteup",
-	        "design" => "noteup"
+	        "design" => "written"
 	    ],
 	    "messagecommiss" => [
 	        "title" => "Message à la commission",

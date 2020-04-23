@@ -287,15 +287,21 @@
 				font-family: "Inconsolata", fixed;
 			}
 			
-			&.design-written p {
+			&.design-written {
 				font-family: "Comic Neue", sans-serif;
 				font-style: italic;
 				color: #5c2b20;
-				font-size: 1.75rem;
+				font-size: 1.5rem;
 				line-height: 2rem;
 				font-weight: bold;
-				&::first-line {
+				p::first-line {
 					color: black;
+				}
+				quote {
+					margin-left: 15px;
+					margin-bottom: 15px;
+					padding-left: 10px;
+					display: block;
 				}
 			}
 
@@ -319,6 +325,10 @@
 
 		.white {
 			background: url('../../img/books/white.gif') no-repeat;
+		}
+
+		.old {
+			background: url('../../img/books/old.gif') no-repeat;
 		}
 
 		.author {

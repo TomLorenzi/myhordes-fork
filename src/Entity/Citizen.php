@@ -665,8 +665,7 @@ class Citizen
     }
 
     public function isOnline(): bool {
-        $ts = $this->getUser()->getLastActionTime();
-        return $ts ? (time() - $ts->getTimestamp()) < 300 : false;
+        return $this->lastActionTimestamp ? (time() - $this->lastActionTimestamp) < 300 : false;
     }
 
     public function isDigging(): bool {
