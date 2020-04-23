@@ -333,7 +333,7 @@ class ForumController extends AbstractController
             }
         }
 
-        if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen(strip_tags($text)) < 10 || mb_strlen(strip_tags($text)) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $post = (new Post())
             ->setOwner( $user )
@@ -416,6 +416,7 @@ class ForumController extends AbstractController
             'fid' => $id,
             'tid' => null,
             'pid' => null,
+            'username' => $this->getUser()->getUsername(),
         ] );
     }
 

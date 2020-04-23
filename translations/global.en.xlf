@@ -3,7 +3,6 @@
   <file id="global.en">
     <unit id="een_etf" name="Allgemeiner Fehler.">
       <notes>
-        <note>Allgemeiner Fehler.</note>
         <note category="german">Allgemeiner Fehler.</note>
       </notes>
       <segment>
@@ -13,7 +12,6 @@
     </unit>
     <unit id="YoYmlHE" name="2f62c2a">
       <notes>
-        <note>Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</note>
         <note category="german">Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</note>
       </notes>
       <segment>
@@ -23,17 +21,15 @@
     </unit>
     <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
       <notes>
-        <note>Dein Text muss mindestens 10 Zeichen lang sein.</note>
         <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
       </notes>
       <segment>
         <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
-        <target>Your text has to be a t least 10 characters long.</target>
+        <target>Your text has to be at least 10 characters long.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
       <notes>
-        <note>Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</note>
         <note category="german">Dein Titel muss zwischen 3 und 64 Zeichen lang sein.</note>
       </notes>
       <segment>
@@ -43,7 +39,6 @@
     </unit>
     <unit id="3r067AY" name="Kommunikationsfehler.">
       <notes>
-        <note>Kommunikationsfehler.</note>
         <note category="german">Kommunikationsfehler.</note>
       </notes>
       <segment>
@@ -53,7 +48,6 @@
     </unit>
     <unit id="Q4DVSd6" name="9763ee3">
       <notes>
-        <note>Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.</note>
         <note category="german">Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.</note>
       </notes>
       <segment>
@@ -63,7 +57,6 @@
     </unit>
     <unit id="XEsiQcR" name="e5973d6">
       <notes>
-        <note>Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</note>
         <note category="german">Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</note>
       </notes>
       <segment>
@@ -73,7 +66,6 @@
     </unit>
     <unit id="F4Wu0dW" name="023a941">
       <notes>
-        <note>Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</note>
         <note category="german">Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</note>
       </notes>
       <segment>
@@ -83,7 +75,6 @@
     </unit>
     <unit id="6MqeHWt" name="Für diese Aktion hast du nicht genug AP.">
       <notes>
-        <note>Für diese Aktion hast du nicht genug AP.</note>
         <note category="german">Für diese Aktion hast du nicht genug AP.</note>
       </notes>
       <segment>
@@ -93,7 +84,6 @@
     </unit>
     <unit id="doUPd7A" name="Diese Aktion steht dir aktuell nicht zur Verfügung.">
       <notes>
-        <note>Diese Aktion steht dir aktuell nicht zur Verfügung.</note>
         <note category="german">Diese Aktion steht dir aktuell nicht zur Verfügung.</note>
       </notes>
       <segment>
@@ -103,7 +93,6 @@
     </unit>
     <unit id="KlavWsd" name="Hierfür fehlen dir notwendige Gegenstände.">
       <notes>
-        <note>Hierfür fehlen dir notwendige Gegenstände.</note>
         <note category="german">Hierfür fehlen dir notwendige Gegenstände.</note>
       </notes>
       <segment>
@@ -113,7 +102,6 @@
     </unit>
     <unit id="OAMaKv3" name="Diese Aktion steht nur Helden zur Verfügung.">
       <notes>
-        <note>Diese Aktion steht nur Helden zur Verfügung.</note>
         <note category="german">Diese Aktion steht nur Helden zur Verfügung.</note>
       </notes>
       <segment>
@@ -123,7 +111,6 @@
     </unit>
     <unit id="OA0ZiO0" name="Neuer Thread">
       <notes>
-        <note>Neuer Thread</note>
         <note category="german">Neuer Thread</note>
       </notes>
       <segment>
@@ -133,7 +120,6 @@
     </unit>
     <unit id="2Jf.Bop" name="Neuer Post">
       <notes>
-        <note>Neuer Post</note>
         <note category="german">Neuer Post</note>
       </notes>
       <segment>
@@ -143,7 +129,6 @@
     </unit>
     <unit id="q8r8gtq" name="Titel">
       <notes>
-        <note>Titel</note>
         <note category="german">Titel</note>
       </notes>
       <segment>
@@ -153,7 +138,6 @@
     </unit>
     <unit id="P6NlaF8" name="Deine Nachricht">
       <notes>
-        <note>Deine Nachricht</note>
         <note category="german">Deine Nachricht</note>
       </notes>
       <segment>
@@ -163,7 +147,6 @@
     </unit>
     <unit id="IuHFUTo" name="Absenden">
       <notes>
-        <note>Absenden</note>
         <note category="german">Absenden</note>
       </notes>
       <segment>
@@ -173,7 +156,6 @@
     </unit>
     <unit id="VIYRzlj" name="Zurück">
       <notes>
-        <note>Zurück</note>
         <note category="german">Zurück</note>
       </notes>
       <segment>
@@ -183,7 +165,6 @@
     </unit>
     <unit id="6Pt1B9Z" name="Neues Thema">
       <notes>
-        <note>Neues Thema</note>
         <note category="german">Neues Thema</note>
       </notes>
       <segment>
@@ -193,7 +174,6 @@
     </unit>
     <unit id="bej0jm2" name="Themen">
       <notes>
-        <note>Themen</note>
         <note category="german">Themen</note>
       </notes>
       <segment>
@@ -203,7 +183,6 @@
     </unit>
     <unit id="Zyb_RyS" name="Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!">
       <notes>
-        <note>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
         <note category="german">Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
       </notes>
       <segment>
@@ -213,7 +192,6 @@
     </unit>
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
-        <note>Der Rabe</note>
         <note category="german">Der Rabe</note>
       </notes>
       <segment>
@@ -223,57 +201,51 @@
     </unit>
     <unit id="81dFh4o" name="Seite %page%/%pages%">
       <notes>
-        <note>Seite %page%/%pages%</note>
         <note category="german">Seite %page%/%pages%</note>
       </notes>
       <segment>
         <source>Seite %page%/%pages%</source>
-        <target>page %page%/%pages%</target>
+        <target>Page %page%/%pages%</target>
       </segment>
     </unit>
     <unit id="xtsvLHK" name="Bitte halte dich an die Regeln:">
       <notes>
-        <note>Bitte halte dich an die Regeln:</note>
         <note category="german">Bitte halte dich an die Regeln:</note>
       </notes>
       <segment>
         <source>Bitte halte dich an die Regeln:</source>
-        <target>The rules in brief:</target>
+        <target>Please follow the rules:</target>
       </segment>
     </unit>
     <unit id="5z8rcLL" name="Achte auf deine Rechtschreibung">
       <notes>
-        <note>Achte auf deine Rechtschreibung</note>
         <note category="german">Achte auf deine Rechtschreibung</note>
       </notes>
       <segment>
         <source>Achte auf deine Rechtschreibung</source>
-        <target>check your spelling; sms-language and text-speak are not permitted</target>
+        <target>Check your spelling: sms-language and text-speak are not permitted</target>
       </segment>
     </unit>
     <unit id="htYR3Qp" name="Bleibe höflich und freundlich">
       <notes>
-        <note>Bleibe höflich und freundlich</note>
         <note category="german">Bleibe höflich und freundlich</note>
       </notes>
       <segment>
         <source>Bleibe höflich und freundlich</source>
-        <target>remain considerate and polite,</target>
+        <target>Remain considerate and polite</target>
       </segment>
     </unit>
     <unit id="fS360q." name="Werbung ist verboten (Links etc.)">
       <notes>
-        <note>Werbung ist verboten (Links etc.)</note>
         <note category="german">Werbung ist verboten (Links etc.)</note>
       </notes>
       <segment>
         <source>Werbung ist verboten (Links etc.)</source>
-        <target>advertising (links etc.) is forbidden,</target>
+        <target>Advertising (links etc.) is forbidden.</target>
       </segment>
     </unit>
     <unit id="58t6egl" name="Heute um">
       <notes>
-        <note>Heute um</note>
         <note category="german">Heute um</note>
       </notes>
       <segment>
@@ -283,7 +255,6 @@
     </unit>
     <unit id="K9r8v8p" name="Gestern um">
       <notes>
-        <note>Gestern um</note>
         <note category="german">Gestern um</note>
       </notes>
       <segment>
@@ -293,7 +264,6 @@
     </unit>
     <unit id="Et.Ao0w" name="Antworten">
       <notes>
-        <note>Antworten</note>
         <note category="german">Antworten</note>
       </notes>
       <segment>
@@ -303,7 +273,6 @@
     </unit>
     <unit id="uAj26XB" name="Schließen">
       <notes>
-        <note>Schließen</note>
         <note category="german">Schließen</note>
       </notes>
       <segment>
@@ -313,7 +282,6 @@
     </unit>
     <unit id="SOVZNkR" name="Bestätigen?">
       <notes>
-        <note>Bestätigen?</note>
         <note category="german">Bestätigen?</note>
       </notes>
       <segment>
@@ -323,7 +291,6 @@
     </unit>
     <unit id="3XvS9ox" name="Rückgängig">
       <notes>
-        <note>Rückgängig</note>
         <note category="german">Rückgängig</note>
       </notes>
       <segment>
@@ -333,7 +300,6 @@
     </unit>
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
-        <note>Abbrechen</note>
         <note category="german">Abbrechen</note>
       </notes>
       <segment>
@@ -343,7 +309,6 @@
     </unit>
     <unit id="9rL.OfV" name="Speichern">
       <notes>
-        <note>Speichern</note>
         <note category="german">Speichern</note>
       </notes>
       <segment>
@@ -353,7 +318,6 @@
     </unit>
     <unit id="R4MmGpY" name="Achtung">
       <notes>
-        <note>Achtung</note>
         <note category="german">Achtung</note>
       </notes>
       <segment>
@@ -363,7 +327,6 @@
     </unit>
     <unit id="fDDOLlJ" name="Bist du sicher?">
       <notes>
-        <note>Bist du sicher?</note>
         <note category="german">Bist du sicher?</note>
       </notes>
       <segment>
@@ -373,7 +336,6 @@
     </unit>
     <unit id="lO_TcU3" name="Auswahl bestätigen">
       <notes>
-        <note>Auswahl bestätigen</note>
         <note category="german">Auswahl bestätigen</note>
       </notes>
       <segment>
@@ -383,7 +345,6 @@
     </unit>
     <unit id="Tae9Qqu" name="Forum">
       <notes>
-        <note>Forum</note>
         <note category="german">Forum</note>
       </notes>
       <segment>
@@ -393,7 +354,6 @@
     </unit>
     <unit id="BNcLxkK" name="Deine Seele">
       <notes>
-        <note>Deine Seele</note>
         <note category="german">Deine Seele</note>
       </notes>
       <segment>
@@ -403,7 +363,6 @@
     </unit>
     <unit id="lUcvZQo" name="Hilfe">
       <notes>
-        <note>Hilfe</note>
         <note category="german">Hilfe</note>
       </notes>
       <segment>
@@ -413,7 +372,6 @@
     </unit>
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
-        <note>Zum Spiel</note>
         <note category="german">Zum Spiel</note>
       </notes>
       <segment>
@@ -423,7 +381,6 @@
     </unit>
     <unit id="tkZocIU" name="Ausloggen">
       <notes>
-        <note>Ausloggen</note>
         <note category="german">Ausloggen</note>
       </notes>
       <segment>
@@ -433,7 +390,6 @@
     </unit>
     <unit id="YeLCoLU" name="Seite neu laden">
       <notes>
-        <note>Seite neu laden</note>
         <note category="german">Seite neu laden</note>
       </notes>
       <segment>
@@ -443,7 +399,6 @@
     </unit>
     <unit id="gBz_D6E" name="Deutsch">
       <notes>
-        <note>Deutsch</note>
         <note category="german">Deutsch</note>
       </notes>
       <segment>
@@ -453,152 +408,137 @@
     </unit>
     <unit id="mD6lfyI" name="Englisch">
       <notes>
-        <note>Englisch</note>
         <note category="german">Englisch</note>
       </notes>
       <segment>
         <source>Englisch</source>
-        <target>Englisch</target>
+        <target>English</target>
       </segment>
     </unit>
     <unit id="vp_4VdN" name="Französisch">
       <notes>
-        <note>Französisch</note>
         <note category="german">Französisch</note>
       </notes>
       <segment>
         <source>Französisch</source>
-        <target>Französisch</target>
+        <target>French</target>
       </segment>
     </unit>
     <unit id="bjgV6Xr" name="Spanisch">
       <notes>
-        <note>Spanisch</note>
         <note category="german">Spanisch</note>
       </notes>
       <segment>
         <source>Spanisch</source>
-        <target>Spanisch</target>
+        <target>Spanish</target>
       </segment>
     </unit>
     <unit id="hORe5zQ" name="Bearbeiten">
       <notes>
-        <note>Bearbeiten</note>
         <note category="german">Bearbeiten</note>
       </notes>
       <segment>
         <source>Bearbeiten</source>
-        <target>Bearbeiten</target>
+        <target>Edit</target>
       </segment>
     </unit>
     <unit id="LiAR2Wp" name="Hinweis">
       <notes>
-        <note>Hinweis</note>
         <note category="german">Hinweis</note>
       </notes>
       <segment>
         <source>Hinweis</source>
-        <target>Hinweis</target>
+        <target>Note</target>
       </segment>
     </unit>
     <unit id="aE.gAX6" name="Spiel">
       <notes>
-        <note>Spiel</note>
         <note category="german">Spiel</note>
       </notes>
       <segment>
         <source>Spiel</source>
-        <target>Spiel</target>
+        <target>Game</target>
       </segment>
     </unit>
     <unit id="wMIPplV" name="Statistiken">
       <notes>
-        <note>Statistiken</note>
         <note category="german">Statistiken</note>
       </notes>
       <segment>
         <source>Statistiken</source>
-        <target>Statistiken</target>
+        <target>Statistics</target>
       </segment>
     </unit>
     <unit id="9jh.PAO" name="%points% Punkte">
       <notes>
-        <note>%points% Punkte</note>
         <note category="german">%points% Punkte</note>
       </notes>
       <segment>
         <source>%points% Punkte</source>
-        <target>%points% Punkte</target>
+        <target>%points% Points</target>
       </segment>
     </unit>
     <unit id="LM1P67a" name="Dieser Spieler hat bisher noch keine Preise gewonnen...">
       <notes>
-        <note>Dieser Spieler hat bisher noch keine Preise gewonnen...</note>
         <note category="german">Dieser Spieler hat bisher noch keine Preise gewonnen...</note>
       </notes>
       <segment>
         <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
-        <target>Dieser Spieler hat bisher noch keine Preise gewonnen...</target>
+        <target>This player didn't win any prizes yet...</target>
       </segment>
     </unit>
     <unit id="ZyZ8Dxn" name="Seelenpunktzahl">
       <notes>
-        <note>Seelenpunktzahl</note>
         <note category="german">Seelenpunktzahl</note>
       </notes>
       <segment>
         <source>Seelenpunktzahl</source>
-        <target>Seelenpunktzahl</target>
+        <target>Soul points</target>
       </segment>
     </unit>
     <unit id="rxbTazw" name="Aktuelles Leben">
       <notes>
-        <note>Aktuelles Leben</note>
         <note category="german">Aktuelles Leben</note>
       </notes>
       <segment>
         <source>Aktuelles Leben</source>
-        <target>Aktuelles Leben</target>
+        <target>Current life</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
       <notes>
-        <note>Saison</note>
         <note category="german">Saison</note>
       </notes>
       <segment>
         <source>Saison</source>
-        <target>Saison</target>
+        <target>Season</target>
       </segment>
     </unit>
     <unit id="Z3DDGf9" name="Tage">
       <notes>
-        <note>Tage</note>
         <note category="german">Tage</note>
       </notes>
       <segment>
         <source>Tage</source>
-        <target>Tage</target>
+        <target>Day</target>
       </segment>
     </unit>
     <unit id="hn7LsRJ" name="Punkte">
       <notes>
-        <note>Punkte</note>
         <note category="german">Punkte</note>
       </notes>
       <segment>
         <source>Punkte</source>
-        <target>Punkte</target>
+        <target>Points</target>
       </segment>
     </unit>
     <unit id="IzQFaI2" name="Es wurde keine Stadt gefunden...">
       <notes>
-        <note>Es wurde keine Stadt gefunden...</note>
         <note category="german">Es wurde keine Stadt gefunden...</note>
       </notes>
       <segment>
         <source>Es wurde keine Stadt gefunden...</source>
-        <target>Es wurde keine Stadt gefunden...</target>
+        <target>No city was found...</target>
       </segment>
     </unit>
     <unit id="l.2Tpic" name="ca64199">

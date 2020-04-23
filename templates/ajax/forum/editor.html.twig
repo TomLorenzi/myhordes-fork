@@ -42,13 +42,17 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
-            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
             {% if is_granted("ROLE_ADMIN") %}
             <div class="forum-checkbox">
-                <label for="crow_answer">{{ 'als Rabe'|trans({},'global') }}</label>
-                <input class="forum-checkbox" type="checkbox" id="crow_answer"></input>
+                <span>{{ 'Nachricht senden als '|trans({},'global') }}</span>
+                <input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
+                <label for="user_answer">{{ app.user.username }}</label>
+                <input class="forum-checkbox" type="radio" name="mod_answer" id="crow_answer" />
+                <label for="crow_answer">{{ 'Rabe'|trans({},'global') }}</label>
+
             </div>
             {% endif %}
+            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
         </div>
     </div>
 
