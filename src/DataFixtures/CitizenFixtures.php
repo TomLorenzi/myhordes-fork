@@ -60,8 +60,6 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'ghul', 'label' => 'Ghul', 'description' => 'Endlich kannst du deine Schwiegermutter loswerden!'],
         ['name' => 'healed', 'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
-        ['name' => 'shaman', 'label' => 'Schamane', 'description' => 'Du bist der Schamane dieser Stadt.'],
-        ['name' => 'guide', 'label' => 'Reiseleiter in der Außenwelt', 'description' => 'Du bist der Reiseleiter in der Außenwelt dieser Stadt.'],
 
         ['name' => 'tg_dice' ],
         ['name' => 'tg_cards'],
@@ -147,8 +145,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $role_data = [
-        ['icon' => 'shaman', 'name'=>'shaman' ,'label' => 'Schamane',                     'icon' => 'shaman', 'status' => 'shaman' ],
-        ['icon' => 'book',   'name'=>'guide',  'label' => 'Reiseleiter in der Außenwelt', 'icon' => 'guide', 'status' => 'guide' ],
+        ['icon' => 'shaman', 'name'=>'shaman' ,'label' => 'Schamane',                     'icon' => 'shaman'],
+        ['icon' => 'book',   'name'=>'guide',  'label' => 'Reiseleiter in der Außenwelt', 'icon' => 'guide' ],
     ];
 
     private $entityManager;
@@ -415,8 +413,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $entity
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
-                ->setIcon( $entry['icon'] )
-                ->setStatus( $entry['status'] );
+                ->setIcon( $entry['icon'] );
 
             $manager->persist( $entity );
 

@@ -180,11 +180,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 foreach ($town->getCitizens() as $citizen) {
                     if($citizen->getRoles()->contains($role)) {
                         $votes_needed[$role->getName()] = false;
+                        break;
                     }
                 }
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
             }
         }
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
@@ -232,12 +234,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     {
         if ($id === $this->getActiveCitizen()->getId())
             return $this->redirect($this->generateUrl('town_house'));
+
         /** @var Citizen $c */
         $c = $em->getRepository(Citizen::class)->find( $id );
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
             return $this->redirect($this->generateUrl('town_dashboard'));
 
         $home = $c->getHome();
+        $user = $this->getUser();
 
         $th->calculate_home_def($home, $summary);
         $deco = 0;

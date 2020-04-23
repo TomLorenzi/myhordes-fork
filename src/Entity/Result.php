@@ -115,6 +115,11 @@ class Result
      */
     private $town;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\AffectPM")
+     */
+    private $pm;
+
     public function __construct()
     {
     }
@@ -139,7 +144,7 @@ class Result
     public function clear(): self {
         $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
         $this->blueprint = $this->rolePlayerText = $this->custom = $this->well = $this->home = $this->death =
-        $this->target = $this->zone = $this->picto = null;
+        $this->target = $this->zone = $this->picto = $this->pm = null;
         return $this;
     }
 
@@ -239,12 +244,12 @@ class Result
         return $this;
     }
 
-    public function getRolePlayerText(): ?bool
+    public function getRolePlayText(): ?bool
     {
         return $this->rolePlayerText;
     }
 
-    public function setRolePlayerText(?bool $rolePlayerText): self
+    public function setRolePlayText(?bool $rolePlayerText): self
     {
         $this->rolePlayerText = $rolePlayerText;
 
@@ -343,6 +348,18 @@ class Result
     public function setTown(?AffectTown $town): self
     {
         $this->town = $town;
+
+        return $this;
+    }
+
+    public function getPm(): ?AffectPM
+    {
+        return $this->pm;
+    }
+
+    public function setPm(?AffectPM $pm): self
+    {
+        $this->pm = $pm;
 
         return $this;
     }

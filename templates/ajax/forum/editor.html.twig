@@ -17,7 +17,7 @@
             </div>
         </div>
     {% endif %}
-    <div class="row">
+    <div class="row classic-editor">
         <div class="padded cell rw-12">
             <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
             <div style="margin-bottom: 5px;">
@@ -34,21 +34,151 @@
             <div contentEditable="true" id="forum-editor-text"></div>
         </div>
     </div>
+    <div class="row modern-editor">
+        <div class="padded cell rw-12">
+            <label for="forum-suneditor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
+            <textarea id="forum-suneditor-text"></textarea>
+        </div>
+    </div>
     <div class="row">
         <div class="padded cell rw-12 right">
             {% if is_granted("ROLE_ADMIN") %}
             <div class="forum-checkbox">
-                <label for="crow_answer">{{ 'als Rabe'|trans({},'global') }}</label>
-                <input class="forum-checkbox" type="checkbox" id="crow_answer"></input>
+                <span>{{ 'Nachricht senden als '|trans({},'global') }}</span>
+                <input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
+                <label for="user_answer">{{ app.user.username }}</label>
+                <input class="forum-checkbox" type="radio" name="mod_answer" id="crow_answer" />
+                <label for="crow_answer">{{ 'Rabe'|trans({},'global') }}</label>
+
             </div>
             {% endif %}
-            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>           
+            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
         </div>
     </div>
 
 </div>
 <script>
     (function() {
+
+        // Cusotmized Hordes plugins for Suneditor
+        // ex) A command plugin to add "Range format element(util.isRangeFormatElement)" to selection
+        var spoiler_command = {
+            // @Required @Unique
+            // plugin name
+            name: 'spoiler',
+            // @Required
+            // data display
+            display: 'command',
+
+            // @Options
+            title: 'Add range tag',
+            buttonClass: '',
+            innerHTML: '<i class="fas fa-carrot"></i>',
+
+            // @Required
+            // add function - It is called only once when the plugin is first run.
+            // This function generates HTML to append and register the event.
+            // arguments - (core : core object, targetElement : clicked button element)
+            add: function (core, targetElement) {
+                const context = core.context;
+                const rangeTag = core.util.createElement('div');
+                core.util.addClass(rangeTag, '__se__format__spoiler');
+                core.util.addClass(rangeTag, 'spoiler');
+
+                // @Required
+                // Registering a namespace for caching as a plugin name in the context object
+                context.spoilerCommand = {
+                    targetButton: targetElement,
+                    tag: rangeTag
+                };
+            },
+
+            // @Overriding
+            // Plugins with active methods load immediately when the editor loads.
+            // Called each time the selection is moved.
+            active: function (element) {
+                if (!element) {
+                    this.util.removeClass(this.context.spoilerCommand.targetButton, 'active');
+                } else if (this.util.hasClass(element, '__se__format__spoiler')) {
+                    this.util.addClass(this.context.spoilerCommand.targetButton, 'active');
+                    return true;
+                }
+
+                return false;
+            },
+
+            // @Required
+            // The behavior of the "command plugin" must be defined in the "action" method.
+            action: function () {
+                const rangeTag = this.util.getRangeFormatElement(this.getSelectionNode());
+
+                if (this.util.hasClass(rangeTag, '__se__format__spoiler')) {
+                    this.detachRangeFormatElement(rangeTag, null, null, false, false);
+                } else {
+                    this.applyRangeFormatElement(this.context.spoilerCommand.tag.cloneNode(false));
+                }
+            }
+        }
+
+        var glory_command = {
+            name: 'glory',
+            display: 'command',
+            title: 'Glory',
+            buttonClass: '',
+            innerHTML: '<i class="fas fa-crown"></i>',
+
+            add: function (core, targetElement) {
+                const context = core.context;
+                const rangeTag = core.util.createElement('div');
+                core.util.addClass(rangeTag, '__se__format__glory');
+                core.util.addClass(rangeTag, 'glory');
+
+                context.gloryCommand = {
+                    targetButton: targetElement,
+                    tag: rangeTag
+                };
+            },
+
+            active: function (element) {
+                if (!element) {
+                    this.util.removeClass(this.context.gloryCommand.targetButton, 'active');
+                } else if (this.util.hasClass(element, '__se__format__spoiler')) {
+                    this.util.addClass(this.context.gloryCommand.targetButton, 'active');
+                    return true;
+                }
+
+                return false;
+            },
+
+            action: function () {
+                const rangeTag = this.util.getRangeFormatElement(this.getSelectionNode());
+
+                if (this.util.hasClass(rangeTag, '__se__format__spoiler')) {
+                    this.detachRangeFormatElement(rangeTag, null, null, false, false);
+                } else {
+                    this.applyRangeFormatElement(this.context.gloryCommand.tag.cloneNode(false));
+                }
+            }
+        }
+
+        const editor = SUNEDITOR.create((document.getElementById('forum-suneditor-text') || 'forum-suneditor-text'),{
+            // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
+            plugins : {
+                spoiler_command,
+                glory_command
+            },
+            buttonList: [
+                ['undo', 'redo'],
+                ['bold', 'underline', 'italic', 'strike'],
+                ['removeFormat'],
+                ['outdent', 'indent', 'list'],
+                ['spoiler', 'glory'],
+                ['blockquote', 'link', 'image']
+            ],
+            // Insert options
+            // Language global object (default: en)
+            //lang: window.SUNEDITOR_LANG['de']
+        });
 
         const allowed_nodes  = [ 'br', 'b', 'strong', 'i', 'u', 'strike', 'div', 'blockquote', 'hr', 'ul', 'ol', 'li', 'style' ];
         const collapse_nodes = [ 'b', 'strong', 'i', 'u', 'strike' ];
@@ -129,7 +259,7 @@
                     target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
                     target_payload = {
                         title: document.getElementById('forum-editor-title').value,
-                        text: document.getElementById('forum-editor-text').innerHTML,
+                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
                         {% if is_granted("ROLE_ADMIN") %}
                         as_crow: document.getElementById('crow_answer').checked,
                         {% endif %}
@@ -137,7 +267,7 @@
                 {% else %}
                     target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
                     target_payload = {
-                        text: document.getElementById('forum-editor-text').innerHTML,
+                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
                         {% if is_granted("ROLE_ADMIN") %}
                         as_crow: document.getElementById('crow_answer').checked,
                         {% endif %}

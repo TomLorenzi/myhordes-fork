@@ -1,13 +1,12 @@
 <?php
-
-
 namespace App\Service;
-
 
 use App\Entity\Building;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\CitizenVote;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
@@ -106,6 +105,18 @@ class NightlyHandler
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
+                        // Grant blueprint if first camping on a ruin.
+                        if ($citizen->getZone()->getBlueprint() === Zone::BlueprintAvailable) {
+                            // Spawn BP.
+                            $bp_name = ($this->zone_handler->getZoneKm($citizen->getZone()) < 10)
+                                ? 'bplan_u_#00'
+                                : 'bplan_r_#00';
+                            $bp_item_prototype = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($bp_name);
+                            $bp_item = $this->item_factory->createItem( $bp_item_prototype );
+                            $citizen->getZone()->getFloor()->addItem($bp_item);
+                            // Set zone blueprint.
+                            $citizen->getZone()->setBlueprint(Zone::BlueprintFound);
+                        }
                         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> survived camping at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> with a survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
                     }
                 }
@@ -363,6 +374,7 @@ class NightlyHandler
             $citizen->setWalkingDistance(0);
             $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
+            $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ),0);
             $citizen->getActionCounters()->clear();
             $citizen->getDigTimers()->clear();
             foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
@@ -701,7 +713,80 @@ class NightlyHandler
     }
 
     private function stage3_roles(Town &$town){
-        //TODO: code the function
+        $citizens = $town->getCitizens();
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+        $votes = array();
+
+        foreach ($roles as $role) {
+            if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null)
+                continue;
+            // Getting vote per role per citizen
+            $votes[$role->getId()] = array();
+            foreach ($citizens as $citizen) {
+                if($citizen->getAlive()) {
+                    $votes[$role->getId()][$citizen->getId()] = $this->entity_manager->getRepository(CitizenVote::class)->countCitizenVotesFor($citizen, $role);
+                }
+            }
+
+            foreach ($citizens as $citizen) {
+                // Removing citizen with 0 votes
+                if(array_key_exists($role->getId(), $votes)
+                    && array_key_exists($citizen->getId(), $votes[$role->getId()])
+                    && $votes[$role->getId()][$citizen->getId()] == 0) {
+                    unset($votes[$role->getId()][$citizen->getId()]);
+                }
+            }
+
+            if(empty($votes[$role->getId()])) {
+                foreach ($citizens as $citizen) {
+                    if($citizen->getAlive()) {
+                        $votes[$role->getId()][$citizen->getId()] = 0;
+                    }
+                }
+            }
+
+            foreach ($citizens as $citizen) {
+                if(!$citizen->getAlive()) continue;
+
+                $voted = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role) !== null);
+                if(!$voted) {
+                    // He has not voted, let's give his vote to someone who has votes
+                    $vote_for_id = $this->random->pick(array_keys($votes[$role->getId()]), 1);
+                    $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($vote_for_id);
+
+                    if(isset($votes[$role->getId()][$vote_for_id]))
+                        $votes[$role->getId()][$vote_for_id]++;
+                    else
+                        $votes[$role->getId()][$vote_for_id] = 1;
+                }
+            }
+
+            // Let's get the winner
+            $citizenWinnerId = 0;
+            $citizenWinnerCount = 0;
+
+            foreach ($votes[$role->getId()] as $idCitizen => $count) {
+                if($citizenWinnerCount <= $count) {
+                    $citizenWinnerCount = $count;
+                    $citizenWinnerId = $idCitizen;
+                }
+            }
+
+            // We give him the related status
+            $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
+            if($winningCitizen !== null){
+                $winningCitizen->addRole($role);
+                $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
+
+                $this->entity_manager->persist($winningCitizen);
+            }
+
+            // we remove the votes
+            $votes = $this->entity_manager->getRepository(CitizenVote::class)->findByRole($role);
+            foreach ($votes as $vote) {
+                $this->entity_manager->remove($vote);
+            }
+        }
     }
 
     public function advance_day(Town &$town): bool {

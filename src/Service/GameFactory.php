@@ -12,6 +12,8 @@ use App\Entity\CitizenProfession;
 use App\Entity\Forum;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
+use App\Entity\Post;
+use App\Entity\Thread;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
@@ -19,6 +21,7 @@ use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
 {
@@ -34,6 +37,7 @@ class GameFactory
     private $town_handler;
     private $log;
     private $conf;
+    private $translator;
 
     const ErrorNone = 0;
     const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
@@ -43,7 +47,8 @@ class GameFactory
 
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
-        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh)
+        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
+        TranslatorInterface $translator)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -57,6 +62,7 @@ class GameFactory
         $this->town_handler = $th;
         $this->log = $lh;
         $this->conf = $conf;
+        $this->translator = $translator;
     }
 
     private static $town_name_snippets = [
@@ -146,6 +152,8 @@ class GameFactory
         if ($population <= 0 || $population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
             return null;
 
+        $this->translator->setLocale($language ?? 'de');
+
         $town
             ->setPopulation( $population )
             ->setName( $name ?: $this->createTownName($language) )
@@ -209,6 +217,9 @@ class GameFactory
                 else $previous[$target_ruin->getId()]++;
 
                 $zone_list[$i]->setPrototype( $target_ruin );
+                if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false)) {
+                    $zone_list[$i]->setBlueprint(Zone::BlueprintAvailable);
+                }
 
                 if ($this->random_generator->chance(0.4)) $zone_list[$i]->setBuryCount( mt_rand(6, 20) );
             } else
@@ -227,7 +238,61 @@ class GameFactory
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
 
-        $town->setForum( (new Forum())->setTitle( $town->getName() ) );
+        $town->setForum((new Forum())->setTitle($town->getName()));
+
+        $ownerUser = $this->entity_manager->getRepository(User::class)->findOneById(66);
+
+        $threadBank = new Thread();
+        $threadBank->setTitle($this->translator->trans('Bank', [], 'game'));
+        $threadBank->setPinned(true);
+        $threadBank->setOwner($ownerUser);
+        $threadBank->setLastPost(new \DateTime());
+        $postBank = new Post();
+        $postBank->setDate(new \DateTime());
+        $postBank->setOwner($ownerUser);
+        $postBank->setText($this->translator->trans('In diesem Thread dreht sich alles um die Bank.', [], 'game'));
+        $threadBank->addPost($postBank);
+
+        $town->getForum()->addThread($threadBank);
+
+        $threadDailyVote = new Thread();
+        $threadDailyVote->setTitle($this->translator->trans('Verbesserung des Tages', [], 'game'));
+        $threadDailyVote->setPinned(true);
+        $threadDailyVote->setOwner($ownerUser);
+        $threadDailyVote->setLastPost(new \DateTime());
+        $postDailyVote = new Post();
+        $postDailyVote->setDate (new \DateTime());
+        $postDailyVote->setOwner($ownerUser);
+        $postDailyVote->setText($this->translator->trans('In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.', [], 'game'));
+        $threadDailyVote->addPost($postDailyVote);
+
+        $town->getForum()->addThread($threadDailyVote);
+
+        $threadWorkshop = new Thread();
+        $threadWorkshop->setTitle($this->translator->trans('Werkstatt', [], 'game'));
+        $threadWorkshop->setPinned(true);
+        $threadWorkshop->setOwner($ownerUser);
+        $threadWorkshop->setLastPost(new \DateTime());
+        $postWorkshop = new Post();
+        $postWorkshop->setDate (new \DateTime());
+        $postWorkshop->setOwner($ownerUser);
+        $postWorkshop->setText($this->translator->trans('In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.', [], 'game'));
+        $threadWorkshop->addPost($postWorkshop);
+
+        $town->getForum()->addThread($threadWorkshop);
+
+        $threadBuilding = new Thread();
+        $threadBuilding->setTitle($this->translator->trans('Konstruktionen', [], 'game'));
+        $threadBuilding->setPinned(true);
+        $threadBuilding->setOwner($ownerUser);
+        $threadBuilding->setLastPost(new \DateTime());
+        $postBuilding = new Post();
+        $postBuilding->setDate (new \DateTime());
+        $postBuilding->setOwner($ownerUser);
+        $postBuilding->setText($this->translator->trans('In diesem Thread dreht sich alles um zukünftige Bauprojekte.', [], 'game'));
+        $threadBuilding->addPost($postBuilding);
+
+        $town->getForum()->addThread($threadBuilding);
 
         return $town;
     }

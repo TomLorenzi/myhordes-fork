@@ -43,11 +43,6 @@ class CitizenRole
      */
     private $icon;
 
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
-    private $status;
-
     public function __construct()
     {
         $this->roleItems = new ArrayCollection();
@@ -90,18 +85,6 @@ class CitizenRole
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
-
-        return $this;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(string $status): self
-    {
-        $this->status = $status;
 
         return $this;
     }

@@ -35,7 +35,8 @@ class CitizenVote
     private $votedCitizen;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\CitizenRole")
+     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenRole")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $role;
 

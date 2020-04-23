@@ -3,12 +3,11 @@
   <file id="soul.es">
     <unit id="BNcLxkK" name="Deine Seele">
       <notes>
-        <note>Deine Seele</note>
         <note category="german">Deine Seele</note>
       </notes>
       <segment>
         <source>Deine Seele</source>
-        <target>Deine Seele</target>
+        <target>Tu Alma</target>
       </segment>
     </unit>
     <unit id="wvl2WtX" name="E-Mail-Adresse">

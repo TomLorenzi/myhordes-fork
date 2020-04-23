@@ -252,6 +252,19 @@ class CitizenHandler
         else $citizen->setBp( max(0, $relative ? ($citizen->getBp() + $num) : max(0,$num) ) );
     }
 
+    public function getMaxPM(Citizen $citizen) {
+        $isShaman = false;
+        foreach ($citizen->getRoles() as $role) {
+            if($role->getName() == "shaman")
+                $isShaman = true;
+        }
+        return $isShaman ? 5 : 0;
+    }
+
+    public function setPM(Citizen &$citizen, bool $relative, int $num) {
+        $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
+    }
+
     public function deductAPBP(Citizen &$citizen, int $ap) {
         if ($ap <= $citizen->getBp())
             $this->setBP( $citizen, true, -$ap );
@@ -308,43 +321,11 @@ class CitizenHandler
             $this->setBP($citizen,false, $this->getMaxBP( $citizen ),0);
         else $this->setBP($citizen, false, 0);
 
+        $this->setPM($citizen, false, 0);
+
         if ($profession->getName() !== 'none')
             $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
 
-    }
-
-    public function applyRole(Citizen &$citizen, CitizenRole &$role): void {
-        $item_type_cache = [];
-
-        if ($citizen->getRoles()->contains($role)) return;
-
-        if ($citizen->getRoles()) {
-            foreach ($citizen->getRoles as $role) {
-                foreach ($role->getRoleItems() as $pi)
-                    if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [-1,$pi];
-            }
-        }
-
-        foreach ($role->getRoleItems() as $pi)
-            if (!isset($item_type_cache[$pi->getId()])) $item_type_cache[$pi->getId()] = [1,$pi];
-            else $item_type_cache[$pi->getId()] = [0,$pi];
-
-        $inventory = $citizen->getInventory(); $null = null;
-        foreach ($item_type_cache as &$entry) {
-            list($action,$proto) = $entry;
-
-            if ($action < 0) foreach ($this->inventory_handler->fetchSpecificItems( $inventory, [new ItemRequest($proto->getName(),1,null,null)] ) as $item)
-                $this->inventory_handler->transferItem($citizen,$item,$inventory,$null);
-            if ($action > 0) {
-                $item = $this->item_factory->createItem( $proto );
-                $item->setEssential(true);
-                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
-            }
-        }
-
-        $citizen->addRole($role);
-
-        $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
     }
 
     public function getSoulpoints(Citizen $citizen): int {

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\RolePlayerText;
+use App\Entity\RolePlayText;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 
 /**
- * @method RolePlayerText|null find($id, $lockMode = null, $lockVersion = null)
- * @method RolePlayerText|null findOneBy(array $criteria, array $orderBy = null)
- * @method RolePlayerText[]    findAll()
- * @method RolePlayerText[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method RolePlayText|null find($id, $lockMode = null, $lockVersion = null)
+ * @method RolePlayText|null findOneBy(array $criteria, array $orderBy = null)
+ * @method RolePlayText[]    findAll()
+ * @method RolePlayText[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class RolePlayerTextRepository extends ServiceEntityRepository
+class RolePlayTextRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, RolePlayerText::class);
+        parent::__construct($registry, RolePlayText::class);
     }
 
-    public function findOneByName(string $value): ?RolePlayerText
+    public function findOneByName(string $value): ?RolePlayText
     {
         try {
             return $this->createQueryBuilder('i')
@@ -33,8 +33,22 @@ class RolePlayerTextRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+    * @return RolePlayText[] Returns an array of RolePlayText objects
+    */
+    public function findAllByLang($lang)
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.language = :val')
+            ->setParameter('val', $lang)
+            ->orderBy('r.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
-    //  * @return RolePlayerText[] Returns an array of RolePlayerText objects
+    //  * @return RolePlayText[] Returns an array of RolePlayText objects
     //  */
     /*
     public function findByExampleField($value)
@@ -51,7 +65,7 @@ class RolePlayerTextRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?RolePlayerText
+    public function findOneBySomeField($value): ?RolePlayText
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.exampleField = :val')

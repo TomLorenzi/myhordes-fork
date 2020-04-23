@@ -5,7 +5,7 @@
         <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
     </div>
 
-    {# @var \App\Entity\Citizen owner #}  
+    {# @var \App\Entity\Citizen owner #}
     {# @var \App\Structures\HomeDefenseSummary def #}
     <h5>
         <b>{{ owner.user.username }}</b>
@@ -115,14 +115,14 @@
         <div class="cell rw-14">
             {% if is_granted('ROLE_ADMIN') %}
                 {% if owner.alive %}
-                        <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>      
-                {% endif %}       
-            {% endif %} 
+                        <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>
+                {% endif %}
+            {% endif %}
         </div>
     </div>
 
     <div class="row">
-            <div class="cell ro-8 rw-4 ro-md-7 rw-md-5"><button x-ajax-href="{{ path('town_citizens') }}">{{ 'Schließen'|trans({},'global') }}</button></div>
+        <div class="cell ro-8 rw-4 ro-md-7 rw-md-5"><button x-ajax-href="{{ path('town_citizens') }}">{{ 'Schließen'|trans({},'global') }}</button></div>
     </div>
 
 {% endblock %}

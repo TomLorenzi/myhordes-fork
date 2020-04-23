@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\User;
 use App\Entity\Picto;
+use App\Entity\FoundRolePlayText;
+use App\Entity\RolePlayTextPage;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -292,6 +294,41 @@ class SoulController extends AbstractController
     public function soul_settings(): Response
     {
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
+    }
+
+    /**
+     * @Route("jx/soul/rps", name="soul_rps")
+     * @return Response
+     */
+    public function soul_rps(): Response
+    {
+        $rps = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($this->getUser());
+        return $this->render( 'ajax/soul/rps.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
+            'rps' => $rps
+        )));
+    }
+
+    /**
+     * @Route("jx/soul/rps/read/{id}-{page}", name="soul_rp", requirements={"id"="\d+", "page"="\d+"})
+     * @return Response
+     */
+    public function soul_view_rp(int $id, int $page): Response
+    {
+        $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->findOneById($id);
+        if($rp === null || !$this->getUser()->getFoundTexts()->contains($rp)){
+            return $this->redirect($this->generateUrl('soul_rps'));
+        }
+
+        if($page > count($rp->getText()->getPages()))
+            return $this->redirect($this->generateUrl('soul_rps'));
+
+        $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
+
+        return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
+            'page' => $pageContent,
+            'rp' => $rp,
+            'current' => $page
+        )));
     }
 
     /**

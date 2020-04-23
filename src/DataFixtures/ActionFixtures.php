@@ -11,6 +11,7 @@ use App\Entity\AffectItemConsume;
 use App\Entity\AffectItemSpawn;
 use App\Entity\AffectOriginalItem;
 use App\Entity\AffectPicto;
+use App\Entity\AffectPM;
 use App\Entity\AffectResultGroup;
 use App\Entity\AffectResultGroupEntry;
 use App\Entity\AffectStatus;
@@ -23,6 +24,7 @@ use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
@@ -40,6 +42,7 @@ use App\Entity\RequireHome;
 use App\Entity\RequireItem;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
+use App\Entity\RequirePM;
 use App\Entity\RequireStatus;
 use App\Entity\RequireZombiePresence;
 use App\Entity\RequireZone;
@@ -78,12 +81,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'profession_tech'        => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'tech' ] ]],
             'profession_shaman'      => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'shaman' ] ]],
             'profession_survivalist' => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'survivalist' ] ]],
+            'role_shaman'            => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'shaman' ] ]],
 
             'no_bonus_ap'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => 0,  'relative' => true ] ]],
             'no_full_ap'     => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ]],
             'min_6_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 6, 'max' => 999999, 'relative' => true ] ], 'message' => 'Hierfür brauchst du mindestens 6 AP.'],
             'min_5_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 5, 'max' => 999999, 'relative' => true ] ], 'message' => 'Hierfür brauchst du mindestens 5 AP.'],
             'min_1_ap'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ]],
+            'min_1_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ], 'message' => 'Hierfür brauchst du mindestens 1 PM.'],
+            'min_2_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 2, 'max' => 999999, 'relative' => true ] ], 'message' => 'Hierfür brauchst du mindestens 2 PM.'],
+            'min_3_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 3, 'max' => 999999, 'relative' => true ] ], 'message' => 'Hierfür brauchst du mindestens 3 PM.'],
             'not_yet_dice'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_dice' ]  ]],
             'not_yet_card'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_cards' ] ]],
             'not_yet_guitar' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_guitar' ] ]],
@@ -239,6 +246,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'minus_1ap'    => [ 'ap' => 'minus_1' ],
             'minus_5ap'    => [ 'ap' => 'minus_5' ],
             'minus_6ap'    => [ 'ap' => 'minus_6' ],
+            'minus_1pm'    => [ 'pm' => 'minus_1' ],
+            'minus_2pm'    => [ 'pm' => 'minus_2' ],
+            'minus_3pm'    => [ 'pm' => 'minus_3' ],
             'plus_4ap'     => [ 'ap' => 'plus_4' ],
             'just_ap6'     => [ 'ap' => 'to_max_plus_0' ],
             'just_ap7'     => [ 'ap' => 'to_max_plus_1' ],
@@ -305,6 +315,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'minus_5'       => [ 'max' => false, 'num' => -5 ],
                 'minus_6'       => [ 'max' => false, 'num' => -6 ],
             ],
+            'pm' => [
+                'to_max_plus_0' => [ 'max' => true,  'num' => 0 ],
+                'minus_1'       => [ 'max' => false, 'num' => -1 ],
+                'minus_2'       => [ 'max' => false, 'num' => -2 ],
+                'minus_3'       => [ 'max' => false, 'num' => -3 ],
+            ],
             'status' => [
                 'replace_dehydration' => [ 'from' => 'thirst2', 'to' => 'thirst1' ],
                 'add_has_drunk' => [ 'from' => null, 'to' => 'hasdrunk' ],
@@ -350,6 +366,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'meat_2xs' => [ [ 'meat_#00',  2 ] ],
                 'meat_2x'  => [ [ 'undef_#00', 2 ] ],
                 'meat_bmb' => [ [ 'flesh_#00', 2 ] ],
+                'potion'   => [ [ 'potion_#00', 1] ],
             ],
 
             'consume' => [
@@ -681,7 +698,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'slaughter_4x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_4x'  ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
             'slaughter_2x'  => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_2x'  ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
             'slaughter_bmb' => [ 'label' => 'Ausweiden', 'meta' => [ 'must_be_inside', 'must_have_slaughter' ], 'result' => [ 'consume_item', [ 'spawn' => 'meat_bmb' ], ['picto' => ['r_animal_#00']] ], 'message' => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!' ],
-            'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', [ 'town' => ['def' => 5]], ['picto' => ['r_collec_#00']]], 'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."]
+            'purify_soul' => [ 'label' => 'Läutern', 'meta' => [ 'must_be_inside', 'must_have_hammam' ], 'result' => [ 'consume_item', [ 'town' => ['def' => 5]], ['picto' => ['r_collec_#00']]], 'message' => "Du hast die Seele gereinigt und sie friedlich gemacht."],
+            'brew_shamanic_potion' => ['label' => 'Herstellung eines Mystischern Trank', 'meta' => [ 'must_be_inside', 'have_water', 'min_1_pm', 'role_shaman' ], 'result' => ['consume_water', 'minus_1pm', ['spawn' => 'potion']]]
         ],
 
         'heroics' => [
@@ -699,6 +717,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             ['home_lab_1b', 'lab'], ['home_lab_2b', 'lab'], ['home_lab_3b', 'lab'], ['home_lab_4b', 'lab'],
             ['home_kitchen_1a', 'kitchen'], ['home_kitchen_2a', 'kitchen'], ['home_kitchen_3a', 'kitchen'], ['home_kitchen_4a', 'kitchen'],
             ['home_kitchen_1b', 'canteen'], ['home_kitchen_2b', 'canteen'], ['home_kitchen_3b', 'canteen'], ['home_kitchen_4b', 'canteen'],
+            ['brew_shamanic_potion', 'shaman']
         ],
 
         'items' => [
@@ -1024,6 +1043,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'zone':
                         $requirement->setZone( $this->process_zone_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
+                    case 'pm':
+                        $requirement->setPm( $this->process_pm_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
+                        break;
                     default:
                         throw new Exception('No handler for requirement type ' . $sub_id);
                 }
@@ -1069,6 +1091,34 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
      * @param array $cache
      * @param string $id
      * @param array $data
+     * @return RequireAP
+     * @throws Exception
+     */
+    private function process_pm_requirement(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): RequirePM
+    {
+        if (!isset($cache[$id])) {
+            $requirement = $manager->getRepository(RequirePM::class)->findOneByName( $id );
+            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $requirement = new RequirePM();
+                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] )->setRelativeMax( $data['relative'] );
+            $manager->persist( $cache[$id] = $requirement );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
      * @return RequireStatus
      * @throws Exception
      */
@@ -1085,10 +1135,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             }
             $status = isset($data['status']) ? $manager->getRepository(CitizenStatus::class)->findOneByName( $data['status'] ) : null;
             $prof = isset($data['profession']) ? $manager->getRepository(CitizenProfession::class)->findOneByName( $data['profession'] ) : null;
+            $role = isset($data['role']) ? $manager->getRepository(CitizenRole::class)->findOneByName( $data['role'] ) : null;
             if (isset($data['status']) && !$status) throw new Exception('Status condition not found: ' . $data['status']);
             if (isset($data['profession']) && !$prof) throw new Exception('Profession not found: ' . $data['profession']);
+            if (isset($data['role']) && !$role) throw new Exception('Role not found: ' . $data['role']);
 
-            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setProfession( $prof ?? null );
+            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setProfession( $prof ?? null )->setRole( $role ?? null);
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
         
@@ -1390,6 +1442,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'bp':
                         $result->setBlueprint( $this->process_blueprint_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
+                    case 'pm':
+                        $result->setPm( $this->process_pm_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
+                        break;
                     case 'death':
                         $result->setDeath( $this->process_death_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
@@ -1421,7 +1476,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         $result->setResultGroup( $this->process_group_effect($manager, $out, $sub_cache[$sub_id], $cache, $sub_cache, $sub_res, $sub_data) );
                         break;
                     case 'rp':
-                        $result->setRolePlayerText( $sub_data[0] );
+                        $result->setRolePlayText( $sub_data[0] );
                         break;
                     case 'picto':
                         $result->setPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
@@ -1507,6 +1562,35 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             else $result->setBonus( isset($data['bonus']) ? $data['bonus'] : 0 );
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+        
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return AffectPM
+     */
+    private function process_pm_effect(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): AffectPM
+    {
+        if (!isset($cache[$id])) {
+            $result = $manager->getRepository(AffectPM::class)->findOneByName( $id );
+            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $result = new AffectPM();
+                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $result->setName( $id )->setMax( $data['max'] )->setPm( $data['num'] );
+            if ($data['max']) $result->setBonus( $data['num'] );
+            else $result->setBonus( isset($data['bonus']) ? $data['bonus'] : 0 );
+            $manager->persist( $cache[$id] = $result );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
         
         return $cache[$id];
     }

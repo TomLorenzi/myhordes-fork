@@ -104,8 +104,12 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();
+        $data['roles'] = $this->getActiveCitizen()->getRoles();
         $data['rucksack'] = $this->getActiveCitizen()->getInventory();
         $data['rucksack_size'] = $this->inventory_handler->getSize( $this->getActiveCitizen()->getInventory() );
+        $data['pm'] = $this->getActiveCitizen()->getPm();
+        $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
+        $data['username'] = $this->getUser()->getUsername();
         return $data;
     }
 
@@ -259,10 +263,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->orderBy('i.count', 'DESC')
             ->addOrderBy('c.ordering','ASC')
-            ->addOrderBy('cr.ordering','ASC')
-            ->addOrderBy('c.ordering', 'ASC')
+            ->addOrderBy('i.count', 'DESC')
             ->addOrderBy('p.id', 'ASC')
             ->addOrderBy('i.id', 'ASC')
             ->getQuery();

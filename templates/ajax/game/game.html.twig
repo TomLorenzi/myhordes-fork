@@ -3,6 +3,10 @@
     <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
 {% endblock %}
 {% block menu_bar %}
+    {#<ul class="user">
+        <li>{{ username }}</li>
+        <li><a title="{% trans from 'soul' %}Logout{% endtrans %}" target="_self" href="{{ path('auto_logout') }}">&#10006;</a></li>
+    </ul>#}
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
@@ -72,8 +76,31 @@
             </div>
         </div>
     {% endif %}
-    {% if banished is defined and banished %}
+    {% if pm is defined and max_pm is defined and max_pm > 0 %}
+        <div class="ulcont">
+            <ul class="pm">
+                <li>{{ pm }}<em>/{{ max_pm }}</em></li>
+            </ul>
+            <div class="tooltip">
+                <b>{{ 'Mystic-Punkte'|trans({},'game') }}</b><br />
+                {% trans from 'game' %}
+                    Diese Punkte sind exklusiv für den Schamanen reserviert.
+                {% endtrans %}
+            </div>
+        </div>
+    {% endif %}
+    {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
         <ul class="civil">
+            {% for role in roles %}
+                {# @var stat \App\Entity\CitizenRole #}
+                <li class="status">
+                    <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
+                    <div class="tooltip temp-building">
+                    {{ 'Du bist der %rolename% dieser Stadt.'|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
+                    </div>
+                </li>
+            {% endfor %}
+            {% if banished %}
             <li class="status"><img src="{{ asset('build/images/banished.gif') }}" alt="{{ 'Verbannt'|trans({},'game') }}">
                 <div class="tooltip">
                     <b>{{ 'Verbannt'|trans({},'game') }}</b><br />
@@ -83,6 +110,7 @@
                     {% endtrans %}
                 </div>
             </li>
+            {% endif %}
         </ul>
     {% endif %}
 {% endblock %}
