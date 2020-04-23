@@ -283,6 +283,12 @@
 				}
 			}
 
+			p {
+				padding: 0;
+				margin: 0 0 8px 0;
+				text-align: justify;
+			}
+
 			&.design-typed p {
 				font-family: "Inconsolata", fixed;
 			}
@@ -294,7 +300,8 @@
 				font-size: 1.5rem;
 				line-height: 2rem;
 				font-weight: bold;
-				p::first-line {
+				p:first-line,
+				p:first-letter {
 					color: black;
 				}
 				quote {
@@ -302,6 +309,21 @@
 					margin-bottom: 15px;
 					padding-left: 10px;
 					display: block;
+				}
+				em {
+					font-size: 1.25rem;
+				}
+			}
+
+			&.design-classic {
+				font-family: "Roboto Slap", serif;
+				color: #5c2b20;
+				font-size: 1.5rem;
+				h2 {
+					font-size: 2rem;
+					padding: 10px 0 0 0;
+					margin: 0;
+					text-transform: uppercase;
 				}
 			}
 
@@ -329,6 +351,10 @@
 
 		.old {
 			background: url('../../img/books/old.gif') no-repeat;
+		}
+
+		.notepad {
+			background: url('../../img/books/notepad.gif') no-repeat;
 		}
 
 		.author {

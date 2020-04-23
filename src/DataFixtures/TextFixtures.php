@@ -658,13 +658,30 @@ class TextFixtures extends Fixture
 	        "design" => "blood"
 	    ],
 	    "leavng" => [
-	        "title" => "Départ",
-	        "author" => "1984",
-	        "content" => [''],
-	        "lang" => "fr",
-	        "background" => "letter",
-	        "design" => "small"
-	    ],
+            "title" => "Départ",
+            "author" => "1984",
+            "content" => [''],
+            "lang" => "fr",
+            "background" => "letter",
+            "design" => "small"
+        ],
+        "diner" => [
+            "title" => "Dîner aux chandelles",
+            "author" => "Maeve",
+            "content" => [
+                '>
+                <p><em>"Retrouve-moi à la bibliothèque de quartier. ♥"</em></p>
+                <p>Quelle idée, pour un rendez-vous romantique ! A-t-on déjà vu moins sexy ? Autrefois, d\'austères rangées de livres rebutants… <br>
+                Maintenant, des étagères brisées, des connaissances envolées, de longues traces brunies au sol… Le lieu idéal pour les trafics louches.<br>
+                Et qui est cette inconnue qui m’y convie si discrètement ? Les quelques femmes en ville ont le visage gris, les mains sales et les cheveux cassants. <br>
+                Elles me castreraient, plutôt. Il n’y en a qu’une, discrète… que j\'imagine ici. Elle semble assez sauvage, je ne la voyais pas mettre des cœurs sur ses billets. C\'est bien trop niais.<br>
+                </p>
+                <p>Oh, et puis, un bon repas mérite bien un petit compromis...</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
+        ],
 	    "scient" => [
 	        "title" => "Emission radiophonique d'origine inconnue",
 	        "author" => "pepitou",
@@ -676,10 +693,13 @@ class TextFixtures extends Fixture
 	    "dead1" => [
 	        "title" => "Épitaphe pour Alfred",
 	        "author" => "Planeshift",
-	        "content" => [''],
+	        "content" => ['<small>[ Ce bout de carton devait sûrement servir d\'épitaphe pour une pierre tombale ]</small>
+                <h1>Alfred (1948 - ??)</h1>
+                <p>Alfred était peut-être le dernier des abrutis, mais il a toujours eu bon goût, je le maintiens. Décorant avec soin son intérieur, faisant attention à ce que chaque objet soit à sa place, afin que, si l\'on passait par hasard chez lui, on ait au moins le sentiment que ce soit confortable. Même à sa mort, hurlant à l\'aide alors que les zombies le dévoraient, il prit soin de ne pas les attaquer avec cette chaise si artistiquement exposée à côté de sa table en bois à moitié pourrie, sans parler de se défendre en utilisant le pistolet, pourtant chargé, accroché au mur. Un mystère qui restera pour nous entier, mais Alfred avait du goût, comme chacun d\'entre nous ici le sait, et préféra mourir que de mettre en désordre son intérieur.</p>
+                <p>Et effectivement, je vous le dis. Bien cuit, Alfred a vraiment un goût délicieux.</p>'],
 	        "lang" => "fr",
 	        "background" => "carton",
-	        "design" => "typed"
+	        "design" => "written"
 	    ],
 	    "errnce" => [
 	        "title" => "Errance",
