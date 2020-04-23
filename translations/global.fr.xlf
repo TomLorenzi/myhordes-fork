@@ -685,5 +685,23 @@
         <target>Vous n'avez pas le droit.</target>
       </segment>
     </unit>
+    <unit id="PzoUUMq" name="Nachricht senden als">
+      <notes>
+        <note category="german">Nachricht senden als</note>
+      </notes>
+      <segment>
+        <source>Nachricht senden als</source>
+        <target>Écrire en tant que</target>
+      </segment>
+    </unit>
+    <unit id="8WE8vgC" name="Rabe">
+      <notes>
+        <note category="german">Rabe</note>
+      </notes>
+      <segment>
+        <source>Rabe</source>
+        <target>Corbeau</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
