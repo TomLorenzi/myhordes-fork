@@ -18,6 +18,24 @@
             <button x-ajax-href="{{ path('initial_landing') }}">{{ 'Seite neu laden'|trans({},'global') }}</button>
         </div>
     </div>
+
+    <div class="row">
+        <div class="cell padded header rw-6 ro-3">
+            <p class="justify">
+                {% trans from 'ghost' %}
+                    Deine Stadt wird gerade von den Zombies angegriffen! Du hörst wie sie grunzend gegen eure Hütten schlagen. Dazwischen immer wieder Hilferufe und Schreie... Sie scheinen überall zu sein...
+
+                    Was tust du, solange der Angriff tobt? 
+                {% endtrans %}
+            </p>
+            <div class="help">
+                {% trans from 'ghost' %}
+                    Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.
+                {% endtrans %}
+            </div>
+            <button x-ajax-href="{{ path('initial_landing') }}">{{ 'Seite neu laden'|trans({},'global') }}</button>
+        </div>
+    </div>
 {% endblock %}
 {% block js %}
     <script>
