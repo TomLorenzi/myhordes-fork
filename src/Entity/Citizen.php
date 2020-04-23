@@ -183,6 +183,11 @@ class Citizen
      */
     private $leadingEscorts;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $lastWords;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -778,6 +783,18 @@ class Citizen
                 $leadingEscort->setLeader(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLastWords(): ?string
+    {
+        return $this->lastWords;
+    }
+
+    public function setLastWords(string $lastWords): self
+    {
+        $this->lastWords = $lastWords;
 
         return $this;
     }

@@ -1551,8 +1551,6 @@
     </unit>
     <unit id="7F000hR" name="Todesursache">
       <notes>
-        <note>Todesursache</note>
-        <note>Todesursache</note>
         <note category="german">Todesursache</note>
       </notes>
       <segment>
@@ -2567,8 +2565,6 @@
     </unit>
     <unit id="mkPbtI8" name="ff55b29">
       <notes>
-        <note>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</note>
-        <note>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</note>
         <note category="german">Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</note>
       </notes>
       <segment>
@@ -2578,19 +2574,15 @@
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
       <notes>
-        <note>Wiedergeboren werden</note>
-        <note>Wiedergeboren werden</note>
         <note category="german">Wiedergeboren werden</note>
       </notes>
       <segment>
         <source>Wiedergeboren werden</source>
-        <target>Valider la mort</target>
+        <target>Valider pour vous réincarner immédiatement...</target>
       </segment>
     </unit>
     <unit id=".1viyI2" name="Zeitung">
       <notes>
-        <note>Zeitung</note>
-        <note>Zeitung</note>
         <note category="german">Zeitung</note>
       </notes>
       <segment>
@@ -8741,7 +8733,7 @@
       </notes>
       <segment>
         <source>Headshot</source>
-        <target>Headshot</target>
+        <target>Balle dans la tête</target>
       </segment>
     </unit>
     <unit id="B5vvTiM" name="Senden">
@@ -8750,7 +8742,43 @@
       </notes>
       <segment>
         <source>Senden</source>
-        <target>Ecrire</target>
+        <target>Écrire</target>
+      </segment>
+    </unit>
+    <unit id="iF7FJz5" name="Deine letzten Worte:">
+      <notes>
+        <note category="german">Deine letzten Worte:</note>
+      </notes>
+      <segment>
+        <source>Deine letzten Worte:</source>
+        <target>Vos derniers mots :</target>
+      </segment>
+    </unit>
+    <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
+      <notes>
+        <note category="german">Dieser Bürger hat keine letzten Worte hinterlassen ...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
+        <target>Ce citoyen n'a pas laissé de dernier mot ...</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <notes>
+        <note category="german">Letzte Worte:</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Derniers mots :</target>
+      </segment>
+    </unit>
+    <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
+      <notes>
+        <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
+      </notes>
+      <segment>
+        <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
+        <target>...le meurtrier .. est.. EST.. AAARGHhh..</target>
       </segment>
     </unit>
   </file>

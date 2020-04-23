@@ -141,7 +141,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
             'km' => $this->zone_handler->getZoneKm($zone),
-            'ap' => $this->zone_handler->getZoneAp($zone),
+            'town_ap' => $this->zone_handler->getZoneAp($zone),
             'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
             'citizen_hidden' => $citizen_hidden,
             'rucksack_sizes' => $rucksack_sizes,

@@ -12,11 +12,11 @@
 @import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import (css) url('https://fonts.googleapis.com/css?family=Lora&display=swap');
 
 @myhordes-fixed-font: "Inconsolata", fixed;
-@myhordes-comic-font: "Comic Neue", sans-serif;
-@myhordes-classic-font: "Roboto Slap", serif;
+@myhordes-sans-serif-font: "Comic Neue", sans-serif;
+@myhordes-serif-font: "Lora", serif;
 
 @myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
@@ -76,6 +76,10 @@ div.debug_info {
   &>div:last-child { font-size: .9rem; float: right; display: inline-block }
   & a { color: white !important; }
   &:after { content: " "; clear: both; display: block; }
+}
+
+x-message {
+  display: none;
 }
 
 #notifications {
@@ -731,7 +735,6 @@ div.game-menu-area {
 div.ap      { .icon_div("../img/ap_small.gif", middle, 0); color: white; }
 div.bp      { .icon_div("../img/bp_small.gif", middle, 0); }
 div.defense { .icon_div("../img/small_def.gif", baseline, 2px); }
-div.kill    { .icon_div("../img/item/item_gun.gif", middle, 0); }
 
 ul.tabs {
   padding: 0; list-style: none; border-bottom: 2px solid @myhordes-smalltext;
@@ -813,6 +816,22 @@ div.death_list {
       }
     }
   }
+}
+
+div.rebirth {
+  background: #996739;
+  border: 1px solid #b37c4a;
+  div.rebirth_label {
+    font-size: 1.1rem;
+    background: #b37c4a;
+    font-variant: small-caps;
+    color: #f0d79e;
+    padding: 5px;
+  }
+  div.rebirth_btn {
+    margin-top: 10px;
+  }
+  margin-bottom: 10px;
 }
 
 div.tooltip {

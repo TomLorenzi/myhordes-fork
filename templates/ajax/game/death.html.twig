@@ -67,8 +67,18 @@
                         {{ 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!'|trans({},'game') }}
                     </div>
                 </div>
-                <div class="padded cell rw-12">
-                    <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>
+                <div class="rebirth padded rw-12 cell row">
+                    {% if citizen.causeOfDeath.ref != constant('App\\Entity\\CauseOfDeath::Posion')  %}
+                    <div class="cell rw-4 rebirth_label">
+                        <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
+                    </div>
+                    <div class="cell rw-8">
+                        <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" />
+                    </div>
+                    {% endif %}
+                    <div class="cell rw-12 rebirth_btn">
+                        <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,7 +88,8 @@
     <script>
         document.getElementById('rebirth_btn').addEventListener('click', function() {
             if (confirm('{{ 'Bist du sicher?'|trans({},'global') }}'))
-                $.ajax.easySend( '{{ path('api_unsubscribe') }}', {},
+                var lastWords = document.getElementById("last_words").value;
+                $.ajax.easySend( '{{ path('api_unsubscribe') }}', {lastwords: lastWords},
                     function () {
                         $.ajax.load(null, '{{ path('initial_landing') }}', true);
                     } );
