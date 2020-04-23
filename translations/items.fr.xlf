@@ -3177,7 +3177,7 @@
       </notes>
       <segment>
         <source>ANZAC Badge</source>
-        <target>ANZAC Badge</target>
+        <target>Badge de Shérif</target>
       </segment>
     </unit>
     <unit id="uLjJDam" name="Kalaschni-Splash (leer)">
@@ -4725,7 +4725,7 @@
       </notes>
       <segment>
         <source>Entspann dich... das wird nicht die letzte sein, die du brauchst.</source>
-        <target>Allez calmez-vous… Vous en verrez bien d'autres.</target>
+        <target>Allez calmez-vous... Vous en verrez bien d'autres.</target>
       </segment>
     </unit>
     <unit id="SI.cBHg" name="ZZzzzz... Knarr knarr... ZZzzzz... Knarr knarr...">
@@ -4879,7 +4879,7 @@
       </notes>
       <segment>
         <source>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst es auch auf einen Zombie werfen ...</source>
-        <target>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst es auch auf einen Zombie werfen ...</target>
+        <target>Bon, il n'y a plus qu'à trouver un boucher. Accessoirement, ça peut aussi se lancer sur un zombie...</target>
       </segment>
     </unit>
     <unit id="d6OlfYf" name="ccbac3c">
@@ -4890,7 +4890,7 @@
       </notes>
       <segment>
         <source>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst sie auch auf einen Zombie werfen...</source>
-        <target>Sehr schön! Jetzt musst du nur noch einen Metzger finden. Nebenbei bemerkt: Du kannst sie auch auf einen Zombie werfen...</target>
+        <target>Bon, il n'y a plus qu'à trouver un boucher. Accessoirement, ça peut aussi se lancer sur un zombie...</target>
       </segment>
     </unit>
     <unit id="qFdxzKb" name="fa24426">
@@ -4934,7 +4934,7 @@
       </notes>
       <segment>
         <source>Mit dieser Droge siehst Du alles rosa: Du spürst keine Müdigkeit mehr und strotzt nur so vor Kraft! Das bisschen Herzrasen und der verstärkt auftretende Speichelfluss - geschenkt! Vorschicht: Bei übermäßiger Einnahme droht eine Abhängigkeit! Diese wundersamen Pillen füllen eure Aktivitätspunkte von 0 auf 6 wieder auf! Ein Teufelszeug! Leider kann man von den Pillen abhängig werden...</source>
-        <target>Cette drogue est idéale pour vous faire voir la vie en rose : plus de Fatigue au prix de seulement quelques convulsions et d'un peu de bave aux lèvres… Gare à l'accoutumance ! </target>
+        <target>Cette drogue est idéale pour vous faire voir la vie en rose : plus de Fatigue au prix de seulement quelques convulsions et d'un peu de bave aux lèvres... Gare à l'accoutumance !</target>
       </segment>
     </unit>
     <unit id="pybydYW" name="7e8250d">
@@ -5121,7 +5121,7 @@
       </notes>
       <segment>
         <source>Aus einer Plastiktüte, Wasser und etwas Sprengstoff bastelst du dir eine Massenvernichtungswaffe, die du nur noch in eine Zombiehorde werfen brauchst. Gibt ein nettes Massaker.</source>
-        <target>Un sac plastique, de l'explosif et de l'eau. C'est artisanal, mais c'est surtout une arme de destruction massive d'une extrême puissance à jeter dans les hordes de zombies…</target>
+        <target>Un sac plastique, de l'explosif et de l'eau. C'est artisanal, mais c'est surtout une arme de destruction massive d'une extrême puissance à jeter dans les hordes de zombies...</target>
       </segment>
     </unit>
     <unit id="ZP_9P7d" name="4e67b2d">
@@ -5308,7 +5308,7 @@
       </notes>
       <segment>
         <source>Ein Cocktail, der Tote weckt und der von Chuck erfunden wurde (wenn man dem Etikett glaubt...). Man nehme einen guten Schuss Rum, etwas roten Chili, Whisky und einen marinierten Finger, der in einer Flüssigkeit schwimmt...</source>
-        <target>Un cocktail inventé par un certain Joey si on en croit l'étiquette. Mélange de rhum, de piment rouge et de whiskey, avec un doigt mariné qui flotte entre deux eaux…</target>
+        <target>Un cocktail inventé par un certain Joey si on en croit l'étiquette. Mélange de rhum, de piment rouge et de whiskey, avec un doigt mariné qui flotte entre deux eaux...</target>
       </segment>
     </unit>
     <unit id="1EPTr9x" name="d7666cd">
@@ -5583,7 +5583,7 @@
       </notes>
       <segment>
         <source>Ein kleiner, kompakter Zünder, mit dem man eine kleine Sprengladung explodieren lassen kann.</source>
-        <target>Un dispositif compact qui peut faire exploser une petite charge d'explosif…</target>
+        <target>Un dispositif compact qui peut faire exploser une petite charge d'explosif...</target>
       </segment>
     </unit>
     <unit id="nIldj3S" name="9c9c656">
@@ -5671,7 +5671,7 @@
       </notes>
       <segment>
         <source>Die Kartoffelchips sind total weich und schmecken nach trockenem Papier. Du hast aber keine Wahl: Essen ist Essen.</source>
-        <target>Les chips de ce paquet sont molles et ont un goût de papier séché, mais on ne va pas faire le difficile… Un repas est un repas.</target>
+        <target>Les chips de ce paquet sont molles et ont un goût de papier séché, mais on ne va pas faire le difficile... Un repas est un repas.</target>
       </segment>
     </unit>
     <unit id="jLUU39F" name="9c6839e">
@@ -5682,7 +5682,7 @@
       </notes>
       <segment>
         <source>Ein leckeres in Alupapier eingepacktes Gebäck. Als Geschmack wird "Vanille-Schoko" angegeben. Wenn du es schüttelst hört es sich an, als ob da auch eine Flüssigkeit drin wäre...</source>
-        <target>Une pâtisserie sous plastique : chocolat-vanille. Si vous agitez l'emballage, vous avez l'impression que quelque chose s'est liquéfié là-dedans…</target>
+        <target>Une pâtisserie sous plastique : chocolat-vanille. Si vous agitez l'emballage, vous avez l'impression que quelque chose s'est liquéfié là-dedans...</target>
       </segment>
     </unit>
     <unit id="t12ke0X" name="44eec66">
@@ -5693,7 +5693,7 @@
       </notes>
       <segment>
         <source>Eine handvoll staubtrockener Kaugummis. Normalerweise werden sie gekaut und nicht geschluckt, aber du solltest besser nicht rumnörgeln ... viel anderes gibt es nicht.</source>
-        <target>Une pleine poignée de chewing-gums tout séchés. En théorie, ça se mâche, mais ça ne s'avale pas. Seulement, dans cet enfer, vous n'êtes pas en position de faire le ou la difficile…</target>
+        <target>Une pleine poignée de chewing-gums tout séchés. En théorie, ça se mâche, mais ça ne s'avale pas. Seulement, dans cet enfer, vous n'êtes pas en position de faire le ou la difficile...</target>
       </segment>
     </unit>
     <unit id="bLDuFLr" name="5e185e0">
@@ -5748,7 +5748,7 @@
       </notes>
       <segment>
         <source>Der Rest eines Schinkenbrötchens. Die grünlich-weiß verschimmelten Schinkenecken lassen sich kurzerhand unter dem Brot verstecken und dann nichts wie runter damit...</source>
-        <target>Un reste de casse-croute qui n'a d'appétissant que son souvenir…</target>
+        <target>Un reste de casse-croute qui n'a d'appétissant que son souvenir...</target>
       </segment>
     </unit>
     <unit id="E1prugE" name="a1f7dd0">
@@ -5979,7 +5979,7 @@
       </notes>
       <segment>
         <source>Der Tisch lässt sich ganz leicht mit Gummizügen und Holzstiften zusammenbauen. In deinem Wohnzimmer wird er ein richtiger Hingucker sein. Und wenn du ihn senkrecht stellst, kann er dir eines Nachts vielleicht sogar das Leben retten.</source>
-        <target>Der Tisch lässt sich ganz leicht mit Gummizügen und Holzstiften zusammenbauen. In deinem Wohnzimmer wird er ein richtiger Hingucker sein. Und wenn du ihn senkrecht stellst, kann er dir eines Nachts vielleicht sogar das Leben retten.</target>
+	<target>Entièrement assemblée avec des élastiques et des picots de bois, cette table fera sûrement très joli dans votre "salon". Et mise à la verticale, elle pourrait bien aussi vous sauver la vie, un soir.</target>
       </segment>
     </unit>
     <unit id="6QQT9fb" name="f1e3a18">
@@ -5990,7 +5990,7 @@
       </notes>
       <segment>
         <source>Eine desinfizierende Brausetablette, mit der man Wasser reinigen kann. Eigentlich handelt es sich um ein Reinigungstab für Toiletten. Den Geschmack kannst du dir ja ausmalen... (ACHTUNG: Die Ausbeute dieses Produkts ist im Vergleich zum industriellen Reiniger wesentlich geringer.)</source>
-        <target>Eine desinfizierende Brausetablette, mit der man Wasser reinigen kann. Eigentlich handelt es sich um ein Reinigungstab für Toiletten. Den Geschmack kannst du dir ja ausmalen... (ACHTUNG: Die Ausbeute dieses Produkts ist im Vergleich zum industriellen Reiniger wesentlich geringer.)</target>
+        <target>Une capsule de produit désinfectant à mettre dans de l'eau pour la nettoyer. Avant, c'était utilisé pour récurer les toilettes. Vous imaginez aisément le goût de l'eau après... (ATTENTION: le rendement de ce produit est faible en comparaison d'un Purificateur industriel)</target>
       </segment>
     </unit>
     <unit id="yITPmXB" name="2526f0f">
@@ -6045,7 +6045,7 @@
       </notes>
       <segment>
         <source>Eine lose Ansammlung von Brettern, die früher wahrscheinlich einen Holzdeckel formten. Du könntest ihn gut für die Verteidigung gebrauchen, allerdings brauchst du etwas, um die Bretter zu fixieren.</source>
-        <target>Eine lose Ansammlung von Brettern, die früher wahrscheinlich einen Holzdeckel formten. Du könntest ihn gut für die Verteidigung gebrauchen, allerdings brauchst du etwas, um die Bretter zu fixieren.</target>
+        <target>Un vieil assemblage de planches qui était utilisé pour fermer une grosse caisse, autrefois. Ca pourrait bien servir de défense, si seulement vous trouviez de quoi le consolider.</target>
       </segment>
     </unit>
     <unit id="9hma_Vm" name="f7e1857">
@@ -6298,7 +6298,7 @@
       </notes>
       <segment>
         <source>Ein kleines, verrostetes Stück Maschendrahtzaun. </source>
-        <target>Ein kleines, verrostetes Stück Maschendrahtzaun. </target>
+        <target>Une petite partie d'une cloture grillagée, rouillée et abimée. </target>
       </segment>
     </unit>
     <unit id="pzadlIU" name="3a924cb">
@@ -6320,7 +6320,7 @@
       </notes>
       <segment>
         <source>Eine gammelige alte Zigarettenschachtel, die nach Aas riecht. Du kannst dich richtig glücklich schätzen, sowas findet man heutzutage nur noch sehr selten. Auf der Packung ist ein Warnhinweis: "Rauchen ist tödlich".</source>
-        <target>Un vieux paquet de cigarettes qui sent la charogne et la moisissure. Mais c'est tellement rare d'en trouver de nos jours… Il porte une mention en rouge ainsi qu'une demi-douzaine de têtes de morts : “Fumer tue”.</target>
+	<target>Un vieux paquet de cigarettes qui sent la charogne et la moisissure. Mais c'est tellement rare d'en trouver de nos jours... Il porte une mention en rouge ainsi qu'une demi-douzaine de têtes de morts : "Fumer tue".</target>
       </segment>
     </unit>
     <unit id="6DTv4Ck" name="7c55d77">
@@ -6551,7 +6551,7 @@
       </notes>
       <segment>
         <source>Ein typischer Wasserspender, wie man ihn in jedem Großraumbüro antreffen kann. Wie durch ein Wunder ist er dir in die Hände gefallen. So ein Ding könnte hier gut nützlich sein...</source>
-        <target>Cette bonbonne en plastique devait se trouver dans une quelconque bureau d'entreprise. Elle a échouée entre vos mains par on-ne-sait quel miracle et elle pourrait bien s'avérer très utile de nos jours…</target>
+        <target>Cette bonbonne en plastique devait se trouver dans une quelconque bureau d'entreprise. Elle a échouée entre vos mains par on-ne-sait quel miracle et elle pourrait bien s'avérer très utile de nos jours...</target>
       </segment>
     </unit>
     <unit id=".lm05eM" name="f42e48c">
@@ -6562,7 +6562,7 @@
       </notes>
       <segment>
         <source>Die Wirkung dieser Tablette ist höchst zweifelhaft... Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</source>
-        <target>Ce petit cachet a un effet pour le moins mystérieux… Sur la boîte, il est écrit: “ne pas donner à un testeur de moins de 18 ans”. Étrange.</target>
+        <target>Ce petit cachet a un effet pour le moins mystérieux... Sur la boîte, il est écrit: "ne pas donner à un testeur de moins de 18 ans". Étrange.</target>
       </segment>
     </unit>
     <unit id="fd6CFQ." name="76b5230">
@@ -6573,7 +6573,7 @@
       </notes>
       <segment>
         <source>Auf der Schachtel steht: "Für BETA-Tester unter 18 Jahren nicht geeignet". Seltsam...</source>
-        <target>Sur la boîte, il est écrit: “ne pas donner à un testeur de moins de 18 ans”. Étrange.</target>
+        <target>Sur la boîte, il est écrit: "ne pas donner à un testeur de moins de 18 ans". Étrange.</target>
       </segment>
     </unit>
     <unit id="hIO7e4L" name="69de9c2">
@@ -6595,7 +6595,7 @@
       </notes>
       <segment>
         <source>Eine glitschige Kugel aus zusammengeklebten "Aasbeeren" "Aasbeeren" wachsen hauptsächtlich auf Kadavern.</source>
-        <target>Un agrégat de “Charognardes”, une baie qui pousse essentiellement sur des cadavres…</target>
+        <target>Un agrégat de "Charognardes", une baie qui pousse essentiellement sur des cadavres...</target>
       </segment>
     </unit>
     <unit id=".XQYK8l" name="1949499">
@@ -6628,7 +6628,7 @@
       </notes>
       <segment>
         <source>Dieses kleine Fläschen enthält eine fluoresziernde Flüssigkeit. Erstaunlich! Vielleicht kannst du ja was Nützliches brauen, wenn du die Substanz mit etwas anderem mischst?</source>
-        <target>Ce flacon contient un liquide aux couleurs… étonnantes. Peut être qu'en le mélangeant avec autre chose, vous pourriez obtenir quelque chose d'utile ?</target>
+        <target>Ce flacon contient un liquide aux couleurs... étonnantes. Peut être qu'en le mélangeant avec autre chose, vous pourriez obtenir quelque chose d'utile ?</target>
       </segment>
     </unit>
     <unit id="l9WE9Wi" name="e942a31">
@@ -7101,7 +7101,7 @@
       </notes>
       <segment>
         <source>Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</source>
-        <target>Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</target>
+        <target>Vous fouillant dans le désert de l'Outre-Monde vous tombez face à une petite lumière étincelante étrangement rassurante. En regardant de plus près il se trouve que cela ressemble à une étoile de shérif. A sa vue, vous ressentez immédiatement le pouvoir d'un guérrier d'antant. L'utilisation de cet objet du passé pourrait bien vous donner plus de courage lors des veilles.</target>
       </segment>
     </unit>
     <unit id="9Yy7MEf" name="4c8196d">
@@ -7189,7 +7189,7 @@
       </notes>
       <segment>
         <source>Früher konnte man damit die Damenwelt beeindrucken... Diese Zeiten sind vorbei, doch beliebt ist die Gitarre immer noch. Sie kommt zwar nicht an eine echte Les Paul '58 heran, aber die Stadt kann ein wenig Auflockerung gebrauchen. Wer hätte denn keinen Spaß an ein bisschen Musik?</source>
-        <target>Früher konnte man damit die Damenwelt beeindrucken... Diese Zeiten sind vorbei, doch beliebt ist die Gitarre immer noch. Sie kommt zwar nicht an eine echte Les Paul '58 heran, aber die Stadt kann ein wenig Auflockerung gebrauchen. Wer hätte denn keinen Spaß an ein bisschen Musik?</target>
+        <target>Idéale pour draguer lors de nuit de feu de camp, elle reste très appréciée même depuis l'asexualisation des citoyens. Elle saura rendre joie et gaïté dans la ville.</target>
       </segment>
     </unit>
     <unit id="Eu2UbaW" name="f7a4a78">
