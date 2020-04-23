@@ -382,8 +382,8 @@
                         <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
                     </div>
                 </div>
-                <div class="cell rw-12 padded">
-                    <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/escort_off.gif') }}" />{{ 'Eskorte deaktivieren'|trans({},'game') }}</button>
+                <div class="cell rw-12 padded left">
+                    <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/escort_off.gif') }}" /><span class="left">{{ 'Eskorte deaktivieren'|trans({},'game') }}</span></button>
                 </div>
             {% endif %}
         </div>
@@ -394,9 +394,8 @@
             <h5>{{ 'Zonenregister'|trans({},'game') }}</h5>
             <div class="cell rw-12">
                 <div class="row">
-                    <div class="padded cell rw-3 hide-lg hide-md hide-sm"><label for="beyond_chat">{{ 'Zonenchat'|trans({},'game') }}</label></div>
-                    <div class="padded cell rw-8 rw-lg-10 rw-md-9 rw-sm-8"><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></div>
-                    <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4"><button id="chat_button"><i class="fa fa-paper-plane"></i></button></div>
+                    <div class="padded cell rw-10 rw-lg-10 rw-md-9 rw-sm-8"><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></div>
+                    <div class="padded cell rw-2 rw-lg-2 rw-md-3 rw-sm-4"><button id="chat_button">{{ '<i class="fa fa-paper-plane"></i>'|trans({},'game') }}</button></div>
                 </div>
 
             </div>
