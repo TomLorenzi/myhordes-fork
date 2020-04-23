@@ -8744,21 +8744,12 @@
         <target>Headshot</target>
       </segment>
     </unit>
-    <unit id="1gYmdeS" name="&lt;i class=&quot;fa fa-paper-plane&quot;&gt;&lt;/i&gt;">
+    <unit id="mMrNWJL" name="Senden">
       <notes>
-        <note category="german">&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;</note>
+        <note category="german">Senden</note>
       </notes>
       <segment>
-        <source>&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;</source>
-        <target><![CDATA[<i class="fa fa-paper-plane"></i>]]></target>
-      </segment>
-    </unit>
-    <unit id="mMrNWJL" name="Sende">
-      <notes>
-        <note category="german">Sende</note>
-      </notes>
-      <segment>
-        <source>Sende</source>
+        <source>Senden</source>
         <target>Ecrire</target>
       </segment>
     </unit>
