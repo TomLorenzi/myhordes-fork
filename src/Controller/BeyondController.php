@@ -493,10 +493,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
-        foreach ($movers as $mover)
+
+        foreach ($movers as $mover){
             // Check if the labyrinth is built and the user enters from 0/0
-            if ($labyrinth && $mover->getAp() <= 0 || $this->citizen_handler->isTired( $mover ))
+            if ($labyrinth && ($mover->getAp() <= 0 || $this->citizen_handler->isTired($mover)))
                 return AjaxResponse::error( $mover->getId() === $citizen->getId() ? ErrorHelper::ErrorNoAP : ErrorHelper::ErrorEscortFailure );
+        }
 
         $cp_ok = $this->zone_handler->check_cp( $zone );
 
