@@ -439,7 +439,6 @@
       <segment>
         <source>Das Stadttor ist geschlossen!</source>
         <target>La porte de la ville est fermée!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -638,7 +637,6 @@
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
         <target>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -771,7 +769,6 @@
       <segment>
         <source>Du verfügst über keine geeigneten Gegenstände</source>
         <target>Du verfügst über keine geeigneten Gegenstände</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="bxRbnw9" name="Herstellen">
@@ -827,7 +824,6 @@
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
         <target>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -971,7 +967,6 @@
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
         <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -1416,7 +1411,6 @@
       <segment>
         <source>Leiche nicht beseitigt!</source>
         <target>Corps non retiré !</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="u_yrL5q" name="Tot!">
@@ -1962,7 +1956,6 @@
                       arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
         <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                         arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ryRHkfD" name="Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.">
@@ -2018,7 +2011,6 @@
       <segment>
         <source>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</source>
         <target>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="6KUjC8g" name="Die Stadt verfügt über eine %pumpname%.">
@@ -2633,7 +2625,6 @@
                               benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                               kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                               auffüllen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -3818,7 +3809,6 @@
       <segment>
         <source>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</source>
         <target>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="HNlT.7E" name="caf9c12">
@@ -3830,7 +3820,6 @@
       <segment>
         <source>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</source>
         <target>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="1DaM5oy" name="Verrat! %citizen% ist gestorben: %cod%.">
@@ -3842,7 +3831,6 @@
       <segment>
         <source>Verrat! %citizen% ist gestorben: %cod%.</source>
         <target>Verrat! %citizen% ist gestorben: %cod%.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="EWgulaj" name="98f1530">
@@ -3854,7 +3842,6 @@
       <segment>
         <source>%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.</source>
         <target>%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="VImW6PC" name="%citizen% hat seinen letzten Atemzug getan: %cod%!">
@@ -3965,7 +3952,6 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
         <target>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ToXb7Kr" name="%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!">
@@ -3977,7 +3963,6 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</source>
         <target>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="vw6w67." name="%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!">
@@ -3989,7 +3974,6 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</source>
         <target>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="vlEPrgk" name="b2b2ccc">
@@ -4001,7 +3985,6 @@
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</source>
         <target>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="GtC0MNC" name="... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!">
@@ -4024,7 +4007,6 @@
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
         <target>%num% Zombies sind durch unsere Verteidigung gebrochen!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -4080,7 +4062,6 @@
       <segment>
         <source>%citizen% hat die Leiche von %disposed% vernichtet.</source>
         <target>%citizen% hat die Leiche von %disposed% vernichtet.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="oxUEe4_" name="HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!">
@@ -4103,7 +4084,6 @@
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</source>
         <target>DAMNED ! Quelqu'un a volé %item% à %victim% !</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="xFPnTgQ" name="%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -4115,7 +4095,6 @@
       <segment>
         <source>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
         <target>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Lzd32wL" name="Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -4127,7 +4106,6 @@
       <segment>
         <source>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
         <target>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="e.cUavH" name="%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.">
@@ -4359,7 +4337,6 @@
       <segment>
         <source>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
         <target>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -5328,7 +5305,6 @@
       <segment>
         <source>Deine Tarnung ist aufgeflogen!</source>
         <target>Votre camouflage a été repéré !</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
@@ -6154,7 +6130,6 @@
       <segment>
         <source>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</source>
         <target>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="u3C29q0" name="Jeder so zerstörte Gegenstand kostet dich %ap%.">
@@ -6166,7 +6141,6 @@
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich %ap%.</source>
         <target>Jeder so zerstörte Gegenstand kostet dich %ap%.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -6178,7 +6152,6 @@
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
         <target>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -6201,7 +6174,6 @@
       <segment>
         <source>Gegenstand</source>
         <target>Gegenstand</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="9WgEJfS" name="Installieren">
@@ -6224,7 +6196,6 @@
       <segment>
         <source>Wie viele Gegenstände möchtest du auf den Müll werfen?</source>
         <target>Wie viele Gegenstände möchtest du auf den Müll werfen?</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="6Ds9C1i" name="Du kannst keine Aktionen ausführen, während du dich versteckst.">
@@ -6390,7 +6361,6 @@
       <segment>
         <source>Du kannst dich nicht fortbewegen während du versteckt bist.</source>
         <target>Du kannst dich nicht fortbewegen während du versteckt bist.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="q9a_zyp" name="Du kannst das nicht tun während du dich versteckst.">
@@ -6402,7 +6372,6 @@
       <segment>
         <source>Du kannst das nicht tun während du dich versteckst.</source>
         <target>Du kannst das nicht tun während du dich versteckst.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="jpuNBoV" name="Du kannst helfen und dich der heutigen Nachtwache anschließen!">
@@ -6414,7 +6383,6 @@
       <segment>
         <source>Du kannst helfen und dich der heutigen Nachtwache anschließen!</source>
         <target>Du kannst helfen und dich der heutigen Nachtwache anschließen!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -7950,7 +7918,6 @@
         <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
-                    <!-- verifier -->
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">
@@ -7963,7 +7930,6 @@
                         Verfügung.</source>
         <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</target>
-                        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Qc.QL70" name="a2b0db7">
@@ -7976,7 +7942,6 @@
                 dieser Stadt zur Verfügung.</source>
         <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.</target>
-                <!-- verifier -->
       </segment>
     </unit>
     <unit id="kw2Iw8G" name="0a39755">
@@ -7989,7 +7954,6 @@
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
         <target>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
-                <!-- verifier -->
       </segment>
     </unit>
     <unit id="nbN6CQm" name="f843777">
@@ -8002,7 +7966,6 @@
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
         <target>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</target>
-                <!-- verifier -->
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -8015,7 +7978,6 @@
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
         <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
-                    <!-- verifier -->
       </segment>
     </unit>
     <unit id="QL.qpuP" name="d231db0">
@@ -8028,7 +7990,6 @@
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
         <target>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</target>
-                    <!-- verifier -->
       </segment>
     </unit>
     <unit id="32LY7bW" name="3f5fb3f">
@@ -8041,7 +8002,6 @@
                         Ausbauten funktionslos.</source>
         <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</target>
-                        <!-- verifier -->
       </segment>
     </unit>
     <unit id="5NecEOg" name="28b7953">
@@ -8118,7 +8078,6 @@
       <segment>
         <source>Gereinigte Seelen</source>
         <target>Gereinigte Seelen</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -8299,7 +8258,6 @@
       <segment>
         <source>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
         <target>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
@@ -8309,7 +8267,6 @@
       <segment>
         <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
         <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -8319,7 +8276,6 @@
       <segment>
         <source>Du kannst diesen Gegenstand nicht stehlen.</source>
         <target>Du kannst diesen Gegenstand nicht stehlen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Tzmt5qh" name="d848698">
@@ -8347,7 +8303,6 @@
       <segment>
         <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
         <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
@@ -8564,7 +8519,6 @@
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
         <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="FoS7MOU" name="0b6b395">
@@ -8574,7 +8528,6 @@
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
         <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -8584,7 +8537,6 @@
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
         <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -8594,7 +8546,6 @@
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
         <target>Hier wurde bereits ein Bauplan gefunden.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
@@ -8613,7 +8564,6 @@
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
         <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -8623,7 +8573,6 @@
       <segment>
         <source>Die Tarnung von %name% ist aufgeflogen!</source>
         <target>Die Tarnung von %name% ist aufgeflogen!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
@@ -8633,7 +8582,6 @@
       <segment>
         <source>Dazu hast Du kein Recht.</source>
         <target>Dazu hast Du kein Recht.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="eLqiBhl" name="%username% wurde standrechtlich erschossen.">
@@ -8643,7 +8591,6 @@
       <segment>
         <source>%username% wurde standrechtlich erschossen.</source>
         <target>%username% wurde standrechtlich erschossen.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="tkJcWLe" name="%username% gehört keiner Stadt an.">
@@ -8653,7 +8600,6 @@
       <segment>
         <source>%username% gehört keiner Stadt an.</source>
         <target>%username% gehört keiner Stadt an.</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="J2aR_r9" name="ed375df">
@@ -8663,7 +8609,6 @@
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
         <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
@@ -8673,7 +8618,6 @@
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
         <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -8683,7 +8627,6 @@
       <segment>
         <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
         <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
@@ -8693,7 +8636,6 @@
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
         <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
@@ -8703,7 +8645,6 @@
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
         <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
-        <!-- verifier -->
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -8839,6 +8780,15 @@
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
         <target>...le meurtrier .. est.. EST.. AAARGHhh..</target>
+      </segment>
+    </unit>
+    <unit id="ZLNo.4B" name="Position:">
+      <notes>
+        <note category="german">Position:</note>
+      </notes>
+      <segment>
+        <source>Position:</source>
+        <target>Position:</target>
       </segment>
     </unit>
   </file>

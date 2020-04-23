@@ -2,38 +2,29 @@
 {% block text_menu_content %}
 {% endblock %}
 {% block ajax %}
-    <div class="row">
-        <div class="cell padded header rw-6 ro-3">
-            <h4>{% trans from 'ghost' %}Nächtlicher Angriff{% endtrans %}</h4>
+    <div class="daily-attack row">
+        <div class="content">
             <p class="justify">
+                <div class="animation">
+                </div>
                 {% trans from 'ghost' %}
-                    Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.
+                    <p>
+                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
+                    </p>
+                    <p>
+                    Was tust du, solange der Angriff tobt?               
+                    </p>
                 {% endtrans %}
             </p>
-            <div class="help">
-                {% trans from 'ghost' %}
-                    Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.
-                {% endtrans %}
-            </div>
             <button x-ajax-href="{{ path('initial_landing') }}">{{ 'Seite neu laden'|trans({},'global') }}</button>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="cell padded header rw-6 ro-3">
-            <p class="justify">
-                {% trans from 'ghost' %}
-                    Deine Stadt wird gerade von den Zombies angegriffen! Du hörst wie sie grunzend gegen eure Hütten schlagen. Dazwischen immer wieder Hilferufe und Schreie... Sie scheinen überall zu sein...
-
-                    Was tust du, solange der Angriff tobt? 
-                {% endtrans %}
-            </p>
-            <div class="help">
-                {% trans from 'ghost' %}
-                    Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.
-                {% endtrans %}
-            </div>
-            <button x-ajax-href="{{ path('initial_landing') }}">{{ 'Seite neu laden'|trans({},'global') }}</button>
+        <div class="infos">
+            <h2>{{'Was hat das zu bedeuten?'|trans({}, 'ghost')}}</h2>
+            <img src="{{ asset('build/images/server.png')}}" alt="" class="art">
+            <p>{{'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!'|trans({}, 'ghost')}}</p>
+            <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
+            <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
         </div>
     </div>
 {% endblock %}
