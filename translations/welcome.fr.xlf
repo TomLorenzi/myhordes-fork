@@ -85,5 +85,41 @@
                     sont la propriété de %motiontwin%.</target>
       </segment>
     </unit>
+    <unit id="lHIUXzm" name="Bürger gestorben">
+      <notes>
+        <note category="german">Bürger gestorben</note>
+      </notes>
+      <segment>
+        <source>Bürger gestorben</source>
+        <target>Citoyens tués</target>
+      </segment>
+    </unit>
+    <unit id="5bHzvXH" name="Zombies gekillt">
+      <notes>
+        <note category="german">Zombies gekillt</note>
+      </notes>
+      <segment>
+        <source>Zombies gekillt</source>
+        <target>Zombies exterminés</target>
+      </segment>
+    </unit>
+    <unit id="YlMROjW" name="Akte von Kannibalismus">
+      <notes>
+        <note category="german">Akte von Kannibalismus</note>
+      </notes>
+      <segment>
+        <source>Akte von Kannibalismus</source>
+        <target>Actes de canibalismes</target>
+      </segment>
+    </unit>
+    <unit id="ad6M6Yb" name="Und das wird kaum besser werden...">
+      <notes>
+        <note category="german">Und das wird kaum besser werden...</note>
+      </notes>
+      <segment>
+        <source>Und das wird kaum besser werden...</source>
+        <target>et ça ne va pas en s'améliorant...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
