@@ -353,7 +353,9 @@ class TextFixtures extends Fixture
             "title" => "Alimentation saine",
             "author" => "Darkhan",
             "content" => [
-                ''
+                '>
+                <p>COALITIONS RUSTRES - Journal de bord J7</p>
+                <p>Ce matin, on a retrouvé mort dans son taudis celui qui pillait la banque de toute la bouffe. Chez lui, faute de ventilation, il flottait une épouvantable odeur de gaz. Au début, ça nous a pas vraiment aidé pour deviner les raisons de son décès … jusqu\'à ce que deux d\'entre nous, venus retirer son cadavre, tombent malades à leur tour. En fait, c\'est quand cette odeur de méthane a disparu qu\'on a compris que l\'homme était mort à cause de son alimentation exclusivement à base de fayots en conserve. </p>'
             ],
             "lang" => "fr",
             "background" => "white",
@@ -363,11 +365,9 @@ class TextFixtures extends Fixture
             "title" => "Annonce : astrologie",
             "author" => "Sigma",
             "content" => [
-                '<div class="content">
-                <div class="hr"></div>
+                '<div class="hr"></div>
                 <h1>Annonce publique</h1>
-                <p>Suite aux attaques récentes, l\'horoscope matinal de Radio Survivant ne concernera que 7 signes astrologiques au lieu des 9 habituels. De plus, Natacha sera remplacé par Roger. Adieu Natacha.</p>
-                </div>'
+                <p>Suite aux attaques récentes, l\'horoscope matinal de Radio Survivant ne concernera que 7 signes astrologiques au lieu des 9 habituels. De plus, Natacha sera remplacé par Roger. Adieu Natacha.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -377,7 +377,9 @@ class TextFixtures extends Fixture
             "title" => "Annonce : banquier",
             "author" => "Sigma",
             "content" => [
-                ''
+                '<div class="hr"></div>
+                <h1>Annonce publique</h1>
+                <p>Le gardien de la banque vous informe qu\'il n\'accepte plus les tickets de rationnement. Quelques faussaires amateurs ont crus bon de profiter de sa myopie en copiant des tickets à la main.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -399,7 +401,9 @@ class TextFixtures extends Fixture
             "title" => "Annonce : concert",
             "author" => "Sigma",
             "content" => [
-                ''
+                '<div class="hr"></div>
+                <h1>Annonce publique</h1>
+                <p>Le groupe Hord\'Zik a improvisé un concert hier soir. Les citoyens ont beaucoup appréciés, tout comme les zombies qui ont attaqués en cadence et détruit partiellement le mur sud.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -421,7 +425,9 @@ class TextFixtures extends Fixture
             "title" => "Annonce : séparatistes",
             "author" => "Sigma",
             "content" => [
-                ''
+                '<div class="hr"></div>
+                <h1>Annonce publique</h1>
+                <p>Des citoyens séparatistes avaient tentés de se barricader dans une caverne au sud de la ville. Un éclaireur a rapporté qu\'ils avaient tous perdus la tête. Au sens propre.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -431,7 +437,10 @@ class TextFixtures extends Fixture
             "title" => "Article - Meurtre sauvage",
             "author" => "anonyme",
             "content" => [
-                ''
+                '<small>(début de l\'article en page 1)</small>
+<p>[...] Le couple retrouvé mort dans leur cuisine portait en effet des blessures évoquant des "morsures" selon une source proche des autorités.</p>
+<p>Ce drame porte le nombre de cas à 9 dans notre région, soit 16 personnes retrouvées mortes dans des circonstances similaires. Si la thèse du tueur en série reste la plus probable, certains confrères n\'hésitent plus à relayer la théorie d\'une attaque de bête : les premières analyses auraient en effet révélé la présence d\'ADN humain sous une forme altérée. Ce dernier fait restant pour l\'heure à confirmer, les autorités ayant démenti ces informations.</p>
+<h1>La course aux ressources de l\'Arctique</h1>'
             ],
             "lang" => "fr",
             "background" => "news",
@@ -441,7 +450,11 @@ class TextFixtures extends Fixture
             "title" => "Article - Nouveau cas de cannibalisme",
             "author" => "anonyme",
             "content" => [
-                ''
+                '<h1>Nouveau cas de cannibalisme en Hongrie</h1>
+                <hr />
+                <p>Selon les autorités hongroises, quatre individus, trois hommes et une femme âgés de 24 à 30 ans, auraient été abattus au terme d\'une longue course-poursuite dans les rues de Kalocsa.</p>
+                <p>Le groupe, signalé à la police par un riverain, avait été aperçu une première fois la veille au soir en train de dévorer un jeune homme qu\'ils avaient roués de coups, avant de prendre la fuite. La police appelle à la plus grande vigilance face à la recrudescence des cas de démences similaires.</p>
+                <small>Lire la suite de l\'article en page 6</small>'
             ],
             "lang" => "fr",
             "background" => "news",
@@ -955,7 +968,33 @@ class TextFixtures extends Fixture
             "title" => "Gazette du Gouffre du Néant, décembre",
             "author" => "lordsolvine",
             "content" => [
-                ''
+                '<h1>Le chasseur et le Mort-vivant</h1>
+<p><strong>Bravo à notre gagnant qui se voit attribuer, en plus de sa parution dans notre journal, un lot de babioles en tout genre : ferrailles, planches de bois, vis et écrous... Merci aux autres citoyens participants.</strong></p>
+<quote>
+<p>Au loin, un corps décomposé</p>
+<p>S\'approche lentement pour vous dévorer.</p>
+<p>Marchant d\'un pas timide,</p>
+<p>Le cerveau complètement vide,</p>
+<p>Il n\'hésitera surement pas,</p>
+<p>A te choper le bras.</p>
+</quote>',
+'<quote>
+<p>Mais sur son cheval blanc,</p>
+<p>Le chasseur dans la nuit,</p>
+<p>S\'élance sur ces morts-vivants.</p>
+<p>D\'un coup de sabre et de cure-dent,</p>
+<p>Il coupe et pique tout.</p>
+<p>Et toi, tu deviens complètement fou.</p>
+</quote>',
+'<quote>
+<p>Soudain, un monstre surgit,</p>
+<p>Et toi, tu ris.</p>
+<p>Tu tentes de le tuer à l\'aide d\'une carotte,</p>
+<p>Mais tu ris, on te chatouille la glotte.</p>
+<p>Tout est fini, tout s\'arrête...</p>
+<p>Il t\'a bouffé la tête.</p>
+</quote>
+<p>Mr.PapyL (08/12/2003)</p>'
             ],
             "lang" => "fr",
             "background" => "news",
@@ -1777,7 +1816,13 @@ class TextFixtures extends Fixture
             "title" => "Prospectus Brico-Tout",
             "author" => "sanka",
             "content" => [
-                ''
+                '<p>Vous en avez assez de trouver tous vos tournevis cassés ? Marre de devoir emprunter la tondeuse du voisin car la votre est toujours en panne ?</p>
+<p>Et bien tout ceci est enfin terminé grace à votre nouveau&nbsp;:</p>
+<h1>BRICO-TOUT<small>7 place des Molineux</small></h1>
+<small>Pour l\'occasion, une journée portes ouvertes est prévue le 15 juin avec 25% de réduction sur tous les articles pour les 50 premiers clients alors surtout ne traînez pas!!! </small>
+<h1>Pillez-nous avant que d\'autres ne s\'en chargent pour vous !</h1>
+<div class="hr"></div>
+<small>Ne pas jeter sur la voie publique.</small>'
             ],
             "lang" => "fr",
             "background" => "manual",

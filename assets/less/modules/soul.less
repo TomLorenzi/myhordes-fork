@@ -335,7 +335,7 @@
             &.design-written,
             &.design-small,
             &.design-postit {
-                font-family: @myhordes-comic-font;
+                font-family: @myhordes-sans-serif-font;
                 font-style: italic;
                 color: #5c2b20;
                 font-size: 1.5rem;
@@ -373,7 +373,7 @@
             }
 
             &.design-classic {
-                font-family: @myhordes-classic-font;
+                font-family: @myhordes-serif-font;
                 color: #5c2b20;
                 font-size: 1.5rem;
                 h2 {
@@ -444,6 +444,20 @@
                 }
             }
 
+            &.design-news {
+                color: #6f7159;
+                font-family: @myhordes-serif-font;
+                h1 {
+                    color: #8c9070;
+                    font-family: @myhordes-sans-serif-font;
+                }
+                hr {
+                    color: #8c9070;
+                    border: none;
+                    border-bottom: 1px solid #adb09d;
+                }
+            }
+
             .pages {
                 font-size: 1rem;
                 font-weight: bold;
@@ -493,6 +507,15 @@
 
         .letter {
             background: url('../../img/books/letter.gif') no-repeat;
+        }
+
+        .news {
+            background: url('../../img/books/news.gif') no-repeat;
+            .rp-content {
+                margin-left: 60px;
+                padding-top: 50px;
+                width: 555px;
+            }
         }
 
         .postit {
