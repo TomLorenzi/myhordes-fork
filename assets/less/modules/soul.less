@@ -262,9 +262,13 @@
             padding-top: 25px;
             padding-left: 45px;
             padding-right: 45px;
-            width: 585px;
+            width: 575px;
             color: black;
             cursor: pointer;
+
+            sup {
+                color: black;
+            }
             
             .hr {
                 margin-top: 70px;
@@ -283,25 +287,62 @@
                 }
             }
 
+            h2 {
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                color: #5c2b20;
+                margin: 0;
+                padding: 10px 0 3px 0;
+            }
+
             p {
                 padding: 0;
                 margin: 0 0 8px 0;
                 text-align: justify;
             }
 
-            &.design-typed p {
-                font-family: "Inconsolata", fixed;
+            small {
+                display: block;
+                line-height: 1.3rem;
+                font-size: 1.1rem;
+                strong {
+                    text-decoration: underline;
+                }
+            }
+
+            &.design-typed {
+                font-family: @myhordes-fixed-font;
+                color: #3b3249;
+                h2 {
+                    border-bottom: 1px dashed #684742;
+                    &:first-letter {
+                        color: black;
+                    }
+                }
+                p {
+                    &:first-letter {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            &.design-typedsmall {
+                font-family: @myhordes-fixed-font;
+                color: #3b3249;
+                font-size: 1.5rem;
             }
             
             &.design-written,
-            &.design-small {
-                font-family: "Comic Neue", sans-serif;
+            &.design-small,
+            &.design-postit {
+                font-family: @myhordes-comic-font;
                 font-style: italic;
                 color: #5c2b20;
                 font-size: 1.5rem;
                 line-height: 2rem;
-
-                font-weight: bold;
+                &.design-written {
+                    font-weight: bold;
+                }
                 p:first-line,
                 p:first-letter {
                     color: black;
@@ -315,15 +356,24 @@
                 em {
                     font-size: 1.25rem;
                 }
-                small {
-                    display: block;
-                    line-height: 1rem;
-                    font-size: 1rem;
+                strong {
+                    color: #5c2b20;
+                }
+                big {
+                    font-size: 5rem;
+                }
+
+                .other {
+                    strong {
+                        color:#992626;
+                        font-size: 2rem;
+                        font-weight: bold;
+                    }
                 }
             }
 
             &.design-classic {
-                font-family: "Roboto Slap", serif;
+                font-family: @myhordes-classic-font;
                 color: #5c2b20;
                 font-size: 1.5rem;
                 h2 {
@@ -331,6 +381,10 @@
                     padding: 10px 0 0 0;
                     margin: 0;
                     text-transform: uppercase;
+                }
+                em {
+                    color: #684742;
+                    font-size: 1.3rem;
                 }
             }
 
@@ -355,6 +409,41 @@
                 }
             }
 
+            &.design-ad {
+                font-variant: small-caps;
+                font-weight: bold;
+                line-height: 1.5rem;
+                font-size: 1.5rem;
+                font-style: italic;
+                color: #773939;
+                h1 {
+                    color: #3b3249;
+                    &:first-letter {
+                        color: #5c2b20;
+                    }
+                }
+            }
+
+            &.design-stamp {
+                padding: 60px 110px 40px 120px;
+                h1 {
+                    color: #696486;
+                    font-size: 3rem;
+                    letter-spacing: 0rem;
+                }
+                p, strong {
+                    font-size: 1.75rem;
+                }
+                strong {
+                    color: #3b3249;
+                }
+                small {
+                    strong {
+                        font-size: inherit;
+                    }
+                }
+            }
+
             .pages {
                 font-size: 1rem;
                 font-weight: bold;
@@ -362,7 +451,7 @@
 
             strike {
                 color: #893232;
-                background: url('../../img/books/scratch.gif') repeat-x;
+                background: url('../../img/books/scratch.gif') repeat-x center;
             }
         }
 
@@ -400,6 +489,19 @@
 
         .grid {
             background: url('../../img/books/grid.gif') no-repeat;
+        }
+
+        .letter {
+            background: url('../../img/books/letter.gif') no-repeat;
+        }
+
+        .postit {
+            background: url('../../img/books/postit.gif') no-repeat;
+            .rp-content {
+                margin-left: 120px;
+                padding-top: 80px;
+                width: 360px;
+            }
         }
 
         .tinystamp {
