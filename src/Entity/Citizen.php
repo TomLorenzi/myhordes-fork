@@ -697,7 +697,7 @@ class Citizen
         if (!$zone) return -1;
         foreach ($this->getDigTimers() as $digTimer)
             if ($digTimer->getZone()->getId() === $zone->getId())
-                return $digTimer->getPassive() ? -1 : $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
+                return $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
         return -1;
     }
 
