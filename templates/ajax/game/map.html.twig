@@ -271,12 +271,10 @@ function pickRandomWord(){
     var tooltip = document.getElementById('tooltip_container');
 
     if(tooltip.innerText != "") {
-        console.log("changing tooltip content !");
         var content = document.querySelector("#tooltip_container .tooltip");
         var oldcontent = content.innerHTML;
         content.innerHTML = "<div class='row'><div class='cell rw-12'>" + word + "</div></div>";
         setTimeout(function(){
-            console.log("reverting back");
             content.innerHTML = oldcontent;
         }, 500);
     }
