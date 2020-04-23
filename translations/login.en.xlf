@@ -3,7 +3,6 @@
   <file id="login.en">
     <unit id="KHtB91o" name="Dein Name muss mindestens {{ limit }} Zeichen umfassen.">
       <notes>
-        <note>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</note>
         <note category="german">Dein Name muss mindestens {{ limit }} Zeichen umfassen.</note>
       </notes>
       <segment>
@@ -13,7 +12,6 @@
     </unit>
     <unit id="ouF_pon" name="Dein Name kann höchstens {{ limit }} Zeichen umfassen.">
       <notes>
-        <note>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</note>
         <note category="german">Dein Name kann höchstens {{ limit }} Zeichen umfassen.</note>
       </notes>
       <segment>
@@ -23,7 +21,6 @@
     </unit>
     <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
       <notes>
-        <note>Die eingegebene E-Mail Adresse ist nicht gültig.</note>
         <note category="german">Die eingegebene E-Mail Adresse ist nicht gültig.</note>
       </notes>
       <segment>
@@ -33,7 +30,6 @@
     </unit>
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
-        <note>Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
         <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
       </notes>
       <segment>
@@ -43,7 +39,6 @@
     </unit>
     <unit id="AHjj6mV" name="Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.">
       <notes>
-        <note>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</note>
         <note category="german">Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</note>
       </notes>
       <segment>
@@ -53,7 +48,6 @@
     </unit>
     <unit id="OK9eVbg" name="Die eingegebenen Passwörter stimmen nicht überein.">
       <notes>
-        <note>Die eingegebenen Passwörter stimmen nicht überein.</note>
         <note category="german">Die eingegebenen Passwörter stimmen nicht überein.</note>
       </notes>
       <segment>
@@ -63,27 +57,24 @@
     </unit>
     <unit id="a9.cyds" name="Der Validierungscode muss {{ limit }} Zeichen umfassen.">
       <notes>
-        <note>Der Validierungscode muss {{ limit }} Zeichen umfassen.</note>
         <note category="german">Der Validierungscode muss {{ limit }} Zeichen umfassen.</note>
       </notes>
       <segment>
         <source>Der Validierungscode muss {{ limit }} Zeichen umfassen.</source>
-        <target>The validation code must contain {{ limit }} characters.</target>
+        <target>The verification code must contain {{ limit }} characters.</target>
       </segment>
     </unit>
     <unit id="0f1ZNLd" name="Der angegebene Validierungscode ist nicht gültig.">
       <notes>
-        <note>Der angegebene Validierungscode ist nicht gültig.</note>
         <note category="german">Der angegebene Validierungscode ist nicht gültig.</note>
       </notes>
       <segment>
         <source>Der angegebene Validierungscode ist nicht gültig.</source>
-        <target>The entered validation code is invalid.</target>
+        <target>The entered verification code is invalid.</target>
       </segment>
     </unit>
     <unit id="ePGiZSF" name="Der angegebene Name existiert bereits im Spiel.">
       <notes>
-        <note>Der angegebene Name existiert bereits im Spiel.</note>
         <note category="german">Der angegebene Name existiert bereits im Spiel.</note>
       </notes>
       <segment>
@@ -93,7 +84,6 @@
     </unit>
     <unit id="kVhhGdk" name="Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.">
       <notes>
-        <note>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</note>
         <note category="german">Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</note>
       </notes>
       <segment>
@@ -103,7 +93,6 @@
     </unit>
     <unit id="Qu4FAIf" name="E-Mail Adresse validieren">
       <notes>
-        <note>E-Mail Adresse validieren</note>
         <note category="german">E-Mail Adresse validieren</note>
       </notes>
       <segment>
@@ -113,7 +102,6 @@
     </unit>
     <unit id="TM0i7i7" name="Hallo %name%!">
       <notes>
-        <note>Hallo %name%!</note>
         <note category="german">Hallo %name%!</note>
       </notes>
       <segment>
@@ -123,27 +111,24 @@
     </unit>
     <unit id="UA_FeeT" name="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
       <notes>
-        <note>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</note>
         <note category="german">Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</note>
       </notes>
       <segment>
         <source>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</source>
-        <target>Before you can start you need to validate your e-mail address.</target>
+        <target>Before you continue, you need to validate your e-mail address.</target>
       </segment>
     </unit>
     <unit id="JeRbwqT" name="Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.">
       <notes>
-        <note>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
         <note category="german">Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
       </notes>
       <segment>
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
-        <target>Please enter the validation code that has been sent to your e-mail address.</target>
+        <target>Please enter the validation code that was sent to your e-mail address.</target>
       </segment>
     </unit>
     <unit id="ANnpnHZ" name="Validierungscode">
       <notes>
-        <note>Validierungscode</note>
         <note category="german">Validierungscode</note>
       </notes>
       <segment>
@@ -153,7 +138,6 @@
     </unit>
     <unit id="ocoTV1m" name="Prüfen">
       <notes>
-        <note>Prüfen</note>
         <note category="german">Prüfen</note>
       </notes>
       <segment>
@@ -163,7 +147,6 @@
     </unit>
     <unit id="tkZocIU" name="Ausloggen">
       <notes>
-        <note>Ausloggen</note>
         <note category="german">Ausloggen</note>
       </notes>
       <segment>
@@ -173,7 +156,6 @@
     </unit>
     <unit id="VBEBU.F" name="Du hast noch keinen Account?">
       <notes>
-        <note>Du hast noch keinen Account?</note>
         <note category="german">Du hast noch keinen Account?</note>
       </notes>
       <segment>
@@ -183,7 +165,6 @@
     </unit>
     <unit id="pMJydfA" name="Registrieren!">
       <notes>
-        <note>Registrieren!</note>
         <note category="german">Registrieren!</note>
       </notes>
       <segment>
@@ -193,7 +174,6 @@
     </unit>
     <unit id="0wO.38C" name="Du hast deine E-Mail Adresse schon validiert?">
       <notes>
-        <note>Du hast deine E-Mail Adresse schon validiert?</note>
         <note category="german">Du hast deine E-Mail Adresse schon validiert?</note>
       </notes>
       <segment>
@@ -203,7 +183,6 @@
     </unit>
     <unit id="cLGN4MZ" name="Einloggen!">
       <notes>
-        <note>Einloggen!</note>
         <note category="german">Einloggen!</note>
       </notes>
       <segment>
@@ -213,17 +192,15 @@
     </unit>
     <unit id="m8bXbyH" name="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
       <notes>
-        <note>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
         <note category="german">Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
       </notes>
       <segment>
         <source>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
-        <target>Validation failes, please check your code.</target>
+        <target>Validation fails, please check your input.</target>
       </segment>
     </unit>
     <unit id="Bw.Ze07" name="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
       <notes>
-        <note>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
         <note category="german">Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
       </notes>
       <segment>
@@ -233,7 +210,6 @@
     </unit>
     <unit id="O63JhDQ" name="Registrieren">
       <notes>
-        <note>Registrieren</note>
         <note category="german">Registrieren</note>
       </notes>
       <segment>
@@ -243,27 +219,24 @@
     </unit>
     <unit id="VR0KmfL" name="Spielername">
       <notes>
-        <note>Spielername</note>
         <note category="german">Spielername</note>
       </notes>
       <segment>
         <source>Spielername</source>
-        <target>Account name</target>
+        <target>Username</target>
       </segment>
     </unit>
     <unit id="Up_TjZv" name="E-Mail Adresse">
       <notes>
-        <note>E-Mail Adresse</note>
         <note category="german">E-Mail Adresse</note>
       </notes>
       <segment>
         <source>E-Mail Adresse</source>
-        <target>E-mail addresse</target>
+        <target>E-mail address</target>
       </segment>
     </unit>
     <unit id="QNpwRBL" name="wiederholen">
       <notes>
-        <note>wiederholen</note>
         <note category="german">wiederholen</note>
       </notes>
       <segment>
@@ -273,7 +246,6 @@
     </unit>
     <unit id="o2wQFXD" name="Passwort">
       <notes>
-        <note>Passwort</note>
         <note category="german">Passwort</note>
       </notes>
       <segment>
@@ -283,21 +255,18 @@
     </unit>
     <unit id="MI8TC0R" name="34a3970">
       <notes>
-        <note>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
-                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
         <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
       </notes>
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
-        <target>In order to complete registration and to activate your account, you need
-                        click on the activation link that will been sent to your e-mail address.</target>
+        <target>To complete the registration and activate your account, 
+						you must click on the activation link that will be sent to your specified email address.</target>
       </segment>
     </unit>
     <unit id="._jFtS_" name="Du hast schon einen Account?">
       <notes>
-        <note>Du hast schon einen Account?</note>
         <note category="german">Du hast schon einen Account?</note>
       </notes>
       <segment>
@@ -307,7 +276,6 @@
     </unit>
     <unit id="kTHLCAW" name="Einloggen">
       <notes>
-        <note>Einloggen</note>
         <note category="german">Einloggen</note>
       </notes>
       <segment>
@@ -317,22 +285,20 @@
     </unit>
     <unit id="k.cRHPZ" name="Bitte gib deinen Spielernamen und dein Passwort ein.">
       <notes>
-        <note>Bitte gib deinen Spielernamen und dein Passwort ein.</note>
         <note category="german">Bitte gib deinen Spielernamen und dein Passwort ein.</note>
       </notes>
       <segment>
         <source>Bitte gib deinen Spielernamen und dein Passwort ein.</source>
-        <target>Please enter your account name and password.</target>
+        <target>Please enter your username and password.</target>
       </segment>
     </unit>
     <unit id="ku3di7g" name="Login fehlgeschlagen. Bitte prüfe deine Eingaben.">
       <notes>
-        <note>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
         <note category="german">Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
       </notes>
       <segment>
         <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
-        <target>Login failed. Please check your credentials.</target>
+        <target>Login failed. Please check your input.</target>
       </segment>
     </unit>
   </file>

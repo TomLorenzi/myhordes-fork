@@ -3,161 +3,146 @@
   <file id="ghost.es">
     <unit id="Ytua8lq" name="Die gewählte Stadt ist bereits voll.">
       <notes>
-        <note>Die gewählte Stadt ist bereits voll.</note>
         <note category="german">Die gewählte Stadt ist bereits voll.</note>
       </notes>
       <segment>
         <source>Die gewählte Stadt ist bereits voll.</source>
-        <target>Die gewählte Stadt ist bereits voll.</target>
+        <target>El pueblo elegido ya está lleno.</target>
       </segment>
     </unit>
     <unit id="9O4x._6" name="Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.">
       <notes>
-        <note>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</note>
         <note category="german">Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</note>
       </notes>
       <segment>
         <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
-        <target>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</target>
+        <target>No puedes unirte a más de una ciudad al mismo tiempo.</target>
       </segment>
     </unit>
     <unit id="KGUlxGY" name="Du bist dieser Stadt bereits beigetreten.">
       <notes>
-        <note>Du bist dieser Stadt bereits beigetreten.</note>
         <note category="german">Du bist dieser Stadt bereits beigetreten.</note>
       </notes>
       <segment>
         <source>Du bist dieser Stadt bereits beigetreten.</source>
-        <target>Du bist dieser Stadt bereits beigetreten.</target>
+        <target>Ya estás unido a este pueblo.</target>
       </segment>
     </unit>
     <unit id="xkZqSVc" name="Wähle eine Stadt">
       <notes>
-        <note>Wähle eine Stadt</note>
         <note category="german">Wähle eine Stadt</note>
       </notes>
       <segment>
         <source>Wähle eine Stadt</source>
-        <target>Wähle eine Stadt</target>
+        <target>Elige un pueblo</target>
       </segment>
     </unit>
     <unit id="Bfb7kn4" name="Stadtname">
       <notes>
-        <note>Stadtname</note>
         <note category="german">Stadtname</note>
       </notes>
       <segment>
         <source>Stadtname</source>
-        <target>Stadtname</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
-        <note>Aktionen</note>
         <note category="german">Aktionen</note>
       </notes>
       <segment>
         <source>Aktionen</source>
-        <target>Aktionen</target>
+        <target>Acciones</target>
       </segment>
     </unit>
     <unit id="rgtSNg9" name="Aktuell gibt es keine Stadt diesen Typs.">
       <notes>
-        <note>Aktuell gibt es keine Stadt diesen Typs.</note>
         <note category="german">Aktuell gibt es keine Stadt diesen Typs.</note>
       </notes>
       <segment>
         <source>Aktuell gibt es keine Stadt diesen Typs.</source>
-        <target>Aktuell gibt es keine Stadt diesen Typs.</target>
+        <target>No hay pueblos de este tipo por el momento.</target>
       </segment>
     </unit>
     <unit id="Enh.KhP" name="Nächtlicher Angriff">
       <notes>
-        <note>Nächtlicher Angriff</note>
         <note category="german">Nächtlicher Angriff</note>
       </notes>
       <segment>
         <source>Nächtlicher Angriff</source>
-        <target>Nächtlicher Angriff</target>
+        <target>Ataque nocturno</target>
       </segment>
     </unit>
     <unit id="xOWTZkZ" name="50b1aa2">
       <notes>
-        <note>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
         <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
       </notes>
       <segment>
         <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
-        <target>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</target>
+        <target>El servidor está siendo atacado por zombies. Por favor se paciente mientras nos defendemos de las hordas enemigas.</target>
       </segment>
     </unit>
     <unit id="e6r4m6r" name="1a8b866">
       <notes>
-        <note>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
         <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
       </notes>
       <segment>
         <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
-        <target>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</target>
+        <target>Los ataques nocturnos suceden todos los días a la medianoche y toman unos 20 minutos. MisHordas no puede ser accedido durante este tiempo.</target>
       </segment>
     </unit>
     <unit id="gqk_gdE" name="Beitreten">
       <notes>
-        <note>Beitreten</note>
         <note category="german">Beitreten</note>
       </notes>
       <segment>
         <source>Beitreten</source>
-        <target>Beitreten</target>
+        <target>Unirse</target>
       </segment>
     </unit>
     <unit id="1Wm5ylA" name="0593e73">
       <notes>
-        <note>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
         <note category="german">Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
       </notes>
       <segment>
         <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
-        <target>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</target>
+        <target>El idioma del pueblo seleccionado es %lang_town%. Tu idioma seleccionado es%lang_user%.</target>
       </segment>
     </unit>
     <unit id="5jsjI47" name="977e42c">
       <notes>
-        <note>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</note>
         <note category="german">Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</note>
       </notes>
       <segment>
         <source>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</source>
-        <target>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</target>
+        <target>Si te unes a este pueblo, el idioma de MisHordas será cambiado a %lang_town% por la duración del pueblo.</target>
       </segment>
     </unit>
     <unit id="0C3XaFv" name="321754f">
       <notes>
-        <note>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
         <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
       </notes>
       <segment>
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
-        <target>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</target>
+        <target>La comunicación es importante en MisHordas. Por favor no entres a un pueblo cuyo idioma no hablas. Deseas continuar?</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Confirmar</target>
       </segment>
     </unit>
     <unit id="Ap6glg5" name="262981c">
       <notes>
-        <note>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</note>
-        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</note>
+        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten?</note>
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
-        <target>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</target>
-      </segment>
-    </unit>
-    <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
-      <notes>
-        <note category="german">Deine Seele genügt den Anforderungen für diesen Stadttypen.</note>
-      </notes>
-      <segment>
-        <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
-        <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
+        <target>Deseas ingresar al terrible mundo de los malditos como un habitante de %town_name%?</target>
       </segment>
     </unit>
   </file>

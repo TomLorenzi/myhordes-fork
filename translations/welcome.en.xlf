@@ -3,7 +3,6 @@
   <file id="welcome.en">
     <unit id="7VfCrWl" name="Foren">
       <notes>
-        <note>Foren</note>
         <note category="german">Foren</note>
       </notes>
       <segment>
@@ -13,7 +12,6 @@
     </unit>
     <unit id="a66OWC." name="Willkommen bei MyHordes">
       <notes>
-        <note>Willkommen bei MyHordes</note>
         <note category="german">Willkommen bei MyHordes</note>
       </notes>
       <segment>
@@ -23,8 +21,6 @@
     </unit>
     <unit id="Sq5rAhc" name="99de2c1">
       <notes>
-        <note>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</note>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</note>
       </notes>
@@ -37,9 +33,6 @@
     </unit>
     <unit id="yIFGZLw" name="2fac8f1">
       <notes>
-        <note>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
-                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                    Inhalten versorgt werden kann.</note>
         <note category="german">Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</note>
@@ -55,7 +48,6 @@
     </unit>
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
-        <note>Zum Spiel</note>
         <note category="german">Zum Spiel</note>
       </notes>
       <segment>
@@ -65,7 +57,6 @@
     </unit>
     <unit id="M_25pDW" name="Account validieren">
       <notes>
-        <note>Account validieren</note>
         <note category="german">Account validieren</note>
       </notes>
       <segment>
@@ -75,7 +66,6 @@
     </unit>
     <unit id="vMG7P9w" name="Zum Login">
       <notes>
-        <note>Zum Login</note>
         <note category="german">Zum Login</note>
       </notes>
       <segment>
@@ -85,8 +75,6 @@
     </unit>
     <unit id="RVQn34R" name="dfabf06">
       <notes>
-        <note>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
-                    damit Eigentum von %motiontwin%.</note>
         <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
                     damit Eigentum von %motiontwin%.</note>
       </notes>
@@ -94,42 +82,6 @@
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
                     damit Eigentum von %motiontwin%.</source>
         <target>All graphical assets are taken from Die2Nite if not stated otherwise and therefore are property of %motiontwin%.</target>
-      </segment>
-    </unit>
-    <unit id="lHIUXzm" name="Bürger gestorben">
-      <notes>
-        <note category="german">Bürger gestorben</note>
-      </notes>
-      <segment>
-        <source>Bürger gestorben</source>
-        <target>Bürger gestorben</target>
-      </segment>
-    </unit>
-    <unit id="5bHzvXH" name="Zombies gekillt">
-      <notes>
-        <note category="german">Zombies gekillt</note>
-      </notes>
-      <segment>
-        <source>Zombies gekillt</source>
-        <target>Zombies gekillt</target>
-      </segment>
-    </unit>
-    <unit id="YlMROjW" name="Akte von Kannibalismus">
-      <notes>
-        <note category="german">Akte von Kannibalismus</note>
-      </notes>
-      <segment>
-        <source>Akte von Kannibalismus</source>
-        <target>Akte von Kannibalismus</target>
-      </segment>
-    </unit>
-    <unit id="ad6M6Yb" name="Und das wird kaum besser werden...">
-      <notes>
-        <note category="german">Und das wird kaum besser werden...</note>
-      </notes>
-      <segment>
-        <source>Und das wird kaum besser werden...</source>
-        <target>Und das wird kaum besser werden...</target>
       </segment>
     </unit>
   </file>
