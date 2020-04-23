@@ -163,3 +163,12 @@ span.link {
   cursor: pointer;
   text-decoration: underline;
 }
+
+ul.escort-action-list {
+  background: @myhordes-panel-bg; margin: 0; padding: 10px; font-size: 0;
+  &>li {
+    list-style: none; display: inline-block; padding: 3px; cursor: pointer; border: 1px solid transparent;
+    margin: 2px;
+    &:hover { border: 1px solid @myhordes-button-color; background: fade(@myhordes-button-color, 50%) }
+  }
+}

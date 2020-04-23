@@ -12,6 +12,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenStatus;
 use App\Entity\EscapeTimer;
+use App\Entity\EscortActionGroup;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
@@ -25,6 +26,7 @@ use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\RolePlayText;
 use App\Entity\Zone;
+use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -261,7 +263,33 @@ class ActionHandler
             if ($mode >= self::ActionValidityAllow) $available[] = $action;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
         }
+    }
 
+    /**
+     * @param Citizen $citizen
+     * @return EscortItemActionSet[]
+     */
+    public function getAvailableItemEscortActions(Citizen $citizen ): array {
+
+        $list = [];
+        /** @var EscortActionGroup[] $escort_actions */
+        $escort_actions = $this->entity_manager->getRepository(EscortActionGroup::class)->findAll();
+        foreach ($escort_actions as $escort_action) {
+
+            $struct = new EscortItemActionSet( $escort_action );
+
+            foreach ($citizen->getInventory()->getItems() as $item)
+                foreach ($item->getPrototype()->getActions() as $action)
+                    if ($escort_action->getActions()->contains($action)) {
+                        $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
+                        if ($mode >= self::ActionValidityAllow) $struct->addAction( $action, $item, true );
+                        else if ($mode >= self::ActionValidityCrossed) $struct->addAction( $action, $item, false );
+                    }
+
+            if ($struct->hasActions()) $list[] = $struct;
+        }
+
+        return $list;
     }
 
     /**

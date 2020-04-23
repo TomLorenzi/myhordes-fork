@@ -9,6 +9,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
+use App\Entity\EscortActionGroup;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
@@ -119,9 +120,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $trash_count = ($this->getActiveCitizen()->getBanished() || $this->getActiveCitizen()->getTown()->getDevastated()) ? $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeTrash) : 0;
 
         $rucksack_sizes = [];
+        $escort_actions = [];
         foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
-            if ($escort->getAllowInventoryAccess())
+            if ($escort->getAllowInventoryAccess()) {
                 $rucksack_sizes[ $escort->getCitizen()->getId() ] = $this->inventory_handler->getSize( $escort->getCitizen()->getInventory() );
+                $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
+            }
 
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
@@ -141,6 +145,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
             'citizen_hidden' => $citizen_hidden,
             'rucksack_sizes' => $rucksack_sizes,
+            'escort_actions' => $escort_actions,
         ], $data, $this->get_map_blob()) );
     }
 
@@ -680,7 +685,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param InventoryHandler $handler
      * @return Response
      */
-    public function action_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function action_desert_api(JSONRequestParser $parser): Response {
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -692,6 +697,44 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         };
 
         return $this->generic_action_api($parser, $uncover_fun);
+    }
+
+    /**
+     * @Route("api/beyond/desert/escort/action", name="beyond_desert_escort_action_controller")
+     * @param JSONRequestParser $parser
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function escort_action_desert_api(JSONRequestParser $parser): Response {
+        $this->deferZoneUpdate();
+
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$parser->has_all(['citizen','meta','action'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find( (int)$parser->get('citizen', -1) );
+        /** @var EscortActionGroup $esc_act */
+        $esc_act = $this->entity_manager->getRepository(EscortActionGroup::class)->find( (int)$parser->get('meta', -1) );
+        $action  = $this->entity_manager->getRepository(ItemAction::class)->find( (int)$parser->get('action', -1) );
+
+        if (!$citizen || !$esc_act || !$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$citizen->getEscortSettings() || !$citizen->getEscortSettings()->getAllowInventoryAccess() ||
+            !$citizen->getEscortSettings()->getLeader() ||
+            $citizen->getEscortSettings()->getLeader()->getId() !== $this->getActiveCitizen()->getId()
+        ) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (!$esc_act->getActions()->contains($action))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $uncover_fun = function(ItemAction &$a) use ($citizen) {
+            if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($citizen))
+                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $citizen->getUser()->getUsername()], 'game') );
+        };
+
+        return $this->generic_action_api($parser, $uncover_fun, $citizen);
     }
 
     /**

@@ -26,6 +26,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\EscortActionGroup;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
 use App\Entity\ItemAction;
@@ -441,7 +442,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'can'       => [ 'label' => 'Öffnen',  'meta' => [ 'have_can_opener' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ] ],
 
             'eat_6ap'   => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap',  'eat_ap' ], 'result' => [ 'eat_ap6', 'consume_item' ] ],
-            'eat_meat'   => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap',  'eat_ap' ], 'result' => [ 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'] ] ] ],
+            'eat_meat'  => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap',  'eat_ap' ], 'result' => [ 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'] ] ] ],
             'eat_7ap'   => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_bonus_ap', 'eat_ap' ], 'result' => [ 'eat_ap7', 'consume_item' ] ],
 
             'drug_xana1' => [ 'label' => 'Einsetzen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'unterrorize', 'consume_item' ] ],
@@ -718,6 +719,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             ['home_kitchen_1a', 'kitchen'], ['home_kitchen_2a', 'kitchen'], ['home_kitchen_3a', 'kitchen'], ['home_kitchen_4a', 'kitchen'],
             ['home_kitchen_1b', 'canteen'], ['home_kitchen_2b', 'canteen'], ['home_kitchen_3b', 'canteen'], ['home_kitchen_4b', 'canteen'],
             ['brew_shamanic_potion', 'shaman']
+        ],
+
+        'escort' => [
+            'ex_drink' => [ 'icon' => 'drink', 'label' => 'Trinken', 'actions' => [
+                'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2',
+                'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2',
+                'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2',
+                'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2'
+            ]],
+            'ex_eat'   => [ 'icon' => 'eat', 'label' => 'Essen', 'actions' => [
+                'eat_6ap', 'eat_meat', 'eat_7ap'
+            ]],
         ],
 
         'items' => [
@@ -2118,6 +2131,23 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $action_proto->setAction( $this->generate_action( $manager, $out, $action_group[0], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
             $manager->persist( $action_proto );
+        }
+
+        foreach (static::$item_actions['escort'] as $escort_key => $escort_group) {
+
+            $escort_proto = $manager->getRepository(EscortActionGroup::class)->findOneByName( $escort_key );
+            if (!$escort_proto) $escort_proto = (new EscortActionGroup);
+            $escort_proto
+                ->setName( $escort_key )
+                ->setIcon( $escort_group['icon'] )
+                ->setLabel( $escort_group['label'] )
+                ->getActions()->clear();
+
+            foreach ($escort_group['actions'] as $action_id)
+                if (isset($set_actions[$action_id]))
+                    $escort_proto->addAction( $set_actions[$action_id] );
+
+            $manager->persist( $escort_proto );
         }
         $manager->flush();
     }
