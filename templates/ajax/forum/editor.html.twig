@@ -42,7 +42,6 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
-            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
             {% if is_granted("ROLE_ADMIN") %}
             <div class="forum-checkbox">
                 <span>{{ 'Nachricht senden als '|trans({},'global') }}</span>
@@ -53,6 +52,7 @@
 
             </div>
             {% endif %}
+            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
         </div>
     </div>
 
