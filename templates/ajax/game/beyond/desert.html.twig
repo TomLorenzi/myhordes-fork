@@ -210,7 +210,7 @@
 
         <div class="padded cell rw-6 rw-md-12">
             {% if zone.x != 0 or zone.y != 0 %}
-                <h5><span class="float-right" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
@@ -285,10 +285,34 @@
                                 <div class="ap small">{{ other_citizen.ap }}</div>
                             </div>
                             <div class="padded cell rw-3 right">
+                                {% if other_citizen.escortSettings.allowInventoryAccess %}
+                                    {% for escort_action in escort_actions[other_citizen.id] %}
+                                        {# @var \App\Structures\EscortItemActionSet escort_action #}
+                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}"></button>
+                                    {% endfor %}
+                                {% endif %}
                                 {% if zone.x != 0 or zone.y != 0 %}
                                     <button {% if other_citizen.digging or zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/small_gather.gif') }}"></button>
                                 {% endif %}
+
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
+
+                                {% for escort_action in escort_actions[other_citizen.id] %}
+                                    {# @var \App\Structures\EscortItemActionSet escort_action #}
+                                    <div class="tooltip-dummy hidden _ec _ec_{{ other_citizen.id }}_{{ escort_action.group.id }}">
+                                        <ul class="escort-action-list">
+                                            {% for item in escort_action.items %}
+                                                {# @var \App\Entity\Item item #}
+                                                {% for action in escort_action.availableActions(item) %}
+                                                    <li x-provoking-id="{{ item.id }}" x-citizen="{{ other_citizen.id }}" x-action-id="{{ action.id }}" x-escort-meta-action="{{ escort_action.group.id }}"><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
+                                                {% endfor %}
+                                                {% for action in escort_action.crossedActions(item) %}
+                                                    <li disabled><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endfor %}
                             </div>
 
                             {% if other_citizen.escortSettings.allowInventoryAccess %}
@@ -297,7 +321,7 @@
                                         {% block class %}rucksack-escort{% endblock %}
                                     {% endembed %}
                                     {% if allow_floor_access %}
-                                        <div class="tooltip-dummy hidden _lf_{{ other_citizen.id }}">
+                                        <div class="tooltip-dummy hidden _lf _lf_{{ other_citizen.id }}">
                                             {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'escort': other_citizen.id} %}
                                                 {% block class %}desert-escort{% endblock %}
                                             {% endembed %}
@@ -349,7 +373,12 @@
                                         <li class="status"><img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}"></li>
                                     {% endif %}
                                     {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is not null %}
-                                        <li class="status"><img src="{{ asset('build/images/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}"></li>
+                                        <li class="status">
+                                            <img src="{{ asset('build/images/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">
+                                            <div class="tooltip">
+                                                Ce citoyen est en train de suivre {{ other_citizen.escortSettings.leader.user.username }}
+                                            </div>
+                                        </li>
                                     {% endif %}
                                 </ul>
                             </div>
@@ -370,7 +399,7 @@
     {% if not citizen.banished and not citizen.camping %}
         <div class="row">
             {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
-                <div class="cell rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
+                <div class="cell padded rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
             {% elseif citizen.escortSettings is not null %}
                 <div class="cell padded rw-12">
                     <div class="note note-lightest">
@@ -522,12 +551,26 @@
 
             $.html.addEventListenerAll( '.rucksack-escort>.item.plus[x-escort-id]:not(.locked)', 'click', function(e,elem) {
                 const eid = elem.getAttribute('x-escort-id');
-                let invs = document.querySelectorAll('._lf_' + eid);
-                for (let i = 0; i < invs.length; i++)
-                    if (invs[i].classList.contains('hidden')) invs[i].classList.remove('hidden');
-                    else invs[i].classList.add('hidden');
+
+                let inv = document.querySelector('._lf_' + eid);
+                if (inv.classList.contains('hidden')) {
+                    let tt = document.querySelectorAll('.tooltip-dummy');
+                    for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
+                    inv.classList.remove('hidden');
+                }
+                else inv.classList.add('hidden');
+
+
             });
 
+            $.html.addEventListenerAll( '[x-escort-meta-group][x-escort-meta-action][x-citizen]', 'click', function(e,elem) {
+                let pp = document.querySelector('._ec_' + elem.getAttribute('x-citizen') + '_' + elem.getAttribute('x-escort-meta-action'));
+                if (pp.classList.contains('hidden')) {
+                    let tt = document.querySelectorAll('.tooltip-dummy');
+                    for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
+                    pp.classList.remove('hidden');
+                } else pp.classList.add('hidden')
+            });
 
             handleItems(
                 document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked),.rucksack-escort>.item[x-item-id]:not(.locked)'),
@@ -560,6 +603,11 @@
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
+        handleActions(
+            document.querySelectorAll('._ec li[x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled])'),
+            '{{ path('beyond_desert_escort_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );

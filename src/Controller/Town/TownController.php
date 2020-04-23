@@ -171,7 +171,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $votes_needed = array();
         $has_voted = array();
         foreach ($roles as $role) {
-            $votes_needed[$role->getName()] = $role;
+            $votes_needed[$role->getName()] = $town->getChaos() ? null : false;
             $has_voted[$role->getName()] = false;
         }
 
@@ -696,6 +696,15 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function citizens_vote(int $roleId, EntityManagerInterface $em): Response
     {
+        // Get citizen & town
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        if($town->getChaos()){
+            // No vote possible in chaos
+            return $this->redirect($this->generateUrl('town_citizens'));
+        }
+
         $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneById($roleId);
 
         if($role === null) {
@@ -705,7 +714,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $vote = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role);
 
         return $this->render( 'ajax/game/town/citizen_vote.html.twig', $this->addDefaultTwigArgs('citizens', [
-            'citizens' => $this->getActiveCitizen()->getTown()->getCitizens(),
+            'citizens' => $town->getCitizens(),
             'me' => $this->getActiveCitizen(),
             'selectedRole' => $role,
             'vote' => $vote
@@ -733,9 +742,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Check if both citizen & role exists, and if voted citizen is in our town and alive
         // and, of course, if you voted for yourself
+        // and if town is not in chaos
         $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneById($role_id);
         $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($voted_citizen_id);
-        if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen == $voted_citizen) {
+        if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen == $voted_citizen || $town->getChaos()) {
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 

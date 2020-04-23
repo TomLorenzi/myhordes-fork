@@ -42,7 +42,7 @@
                                     {% endif %}
                                     <div class="row">
                                         <div class="cell rw-6 left">{{ 'Zone'|trans({},'game') }}</div>
-                                        <div class="cell rw-6 right">{{ x }} / {{ y }}</div>
+                                        <div class="cell rw-6 right">[{{ x }},{{ y }}]</div>
                                     </div>
                                     <div class="row">
                                         <div class="cell rw-6 left">{{ 'Entfernung'|trans({},'game') }}</div>
@@ -172,6 +172,7 @@
                     {% if zone.x > map_x0 %}<div x-direction-x="-1" x-direction-y="0"  x-target-x="{{ zone.x - 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-west"></div>{% endif %}
                     {% if zone.y > map_y0 %}<div x-direction-x="0"  x-direction-y="-1" x-target-x="{{ zone.x }}" x-target-y="{{ zone.y - 1 }}" class="action-move action-move-south"></div>{% endif %}
                     {% if zone.y < map_y1 %}<div x-direction-x="0"  x-direction-y="1"  x-target-x="{{ zone.x }}" x-target-y="{{ zone.y + 1 }}" class="action-move action-move-north"></div>{% endif %}
+                        <div class='current-location'>{{'Position:'|trans({}, 'game')}} {{ zone.x }} / {{ zone.y }}</div>
                 {% endif %}
             </div>
         {% endif %}
@@ -199,13 +200,7 @@
                 <div class="row">
                     <div class="cell rw-4">&nbsp;</div>
                     <div class="cell rw-4 center">
-                        <span class="small">
-                        {% if zone.x == 0 and zone.y == 0 %}
-                            {% trans from 'game' %}Stadttor{% endtrans %}
-                        {% else %}
-                            {{ zone.x }} / {{ zone.y }}
-                        {% endif %}
-                        </span>
+                        
                     </div>
                     <div class="cell rw-4 right">
                         <button x-control="map" class="small inline">{% trans from 'game' %}Karte{% endtrans %}</button>
@@ -215,3 +210,81 @@
         {% endif %}
     </div>
 </div>
+<script>
+var words = [
+    'Psychoses',
+    'Démence',
+    'Agonie',
+    'Boire',
+    'Dormir',
+    'Sang',
+    'Rage',
+    'Haine',
+    'Tuer',
+    'Tues-les',
+    'Meurtre',
+    'Drogues',
+    'La mort t\'attend',
+    'Tu vas mourir',
+    'Tu mourras cette nuit',
+    'Rejoins les ombres',
+    'Cauchemars',
+    'Mutilations',
+    'Aucun espoir',
+    'Ils t\'espionnent',
+    'Ils veulent ta mort',
+    'Ne leur fais pas confiance',
+    'Enfuis toi loin',
+    'Ne les écoute pas',
+    'Ils te tueront',
+    'Ton voisin veut ta mort',
+    'Ils veulent te pendre',
+    'Ils vont te tuer',
+    'Tu y passeras',
+    'Goûte leur sang',
+    'On t\'observe',
+    'Ils sont FOUS',
+    'On veut ta peau',
+    'Goûte leur chair',
+    'Manges en un',
+    'Tues en un',
+    'Fais lui payer',
+    'Venge-toi',
+    'Trahis-les',
+    'Sans pitié',
+    'Je ne suis pas fou',
+    'Je ne vois rien',
+    'Ils sont fous',
+    'A mort',
+    'Tue les tous',
+    'Ils mourront',
+    'Qu\'ils meurent',
+    'Dévore-les',
+    'Abandonne',
+    'Tout...va...bien...',
+    'Nous étions mieux sans eux',
+];
+
+function pickRandomWord(){
+    var word = words[Math.floor(Math.random() * words.length)];
+
+    var tooltip = document.getElementById('tooltip_container');
+
+    if(tooltip.innerText != "") {
+        console.log("changing tooltip content !");
+        var content = document.querySelector("#tooltip_container .tooltip");
+        var oldcontent = content.innerHTML;
+        content.innerHTML = "<div class='row'><div class='cell rw-12'>" + word + "</div></div>";
+        setTimeout(function(){
+            console.log("reverting back");
+            content.innerHTML = oldcontent;
+        }, 500);
+    }
+
+    setTimeout(pickRandomWord, Math.random() * 30000);
+}
+
+setTimeout(pickRandomWord, Math.random() * 30000);
+
+
+</script>

@@ -43,12 +43,12 @@
     <div class="row">
         <div class="padded cell rw-12 right">
             {% if is_granted("ROLE_ADMIN") %}
-            <div class="forum-checkbox">
-                <span>{{ 'Nachricht senden als '|trans({},'global') }}</span>
-                <input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
-                <label for="user_answer">{{ app.user.username }}</label>
-                <input class="forum-checkbox" type="radio" name="mod_answer" id="crow_answer" />
-                <label for="crow_answer">{{ 'Rabe'|trans({},'global') }}</label>
+            <div id="crowpost" class="forum-checkbox">
+                {# <span>{{ 'als '|trans({},'global') }}</span> #}
+                {#<input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
+                <label for="user_answer">{{ app.user.username }}</label> #}
+                <input class="forum-checkbox" type="checkbox" name="mod_answer" id="crow-checkbox" />
+                <span id="crow_answer_content">{{ app.user.username }}</span>
 
             </div>
             {% endif %}
@@ -251,6 +251,20 @@
             });
         }
 
+        // Post as crow toggle
+        {% if is_granted("ROLE_ADMIN") %}
+            function changeHandler(){
+                document.getElementById('crow-checkbox').click();
+                if(document.getElementById('crow-checkbox').checked){
+                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";                
+                }
+                else{
+                    document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                }
+            };        
+            document.getElementById('crowpost').addEventListener('click', changeHandler);       
+        {% endif %}
+
         let send_buttons = document.querySelectorAll('[x-forum-action=send]');
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
@@ -261,7 +275,7 @@
                         title: document.getElementById('forum-editor-title').value,
                         text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
                         {% if is_granted("ROLE_ADMIN") %}
-                        as_crow: document.getElementById('crow_answer').checked,
+                        as_crow: document.getElementById('crow-checkbox').checked,
                         {% endif %}
                     };
                 {% else %}
@@ -269,7 +283,7 @@
                     target_payload = {
                         text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
                         {% if is_granted("ROLE_ADMIN") %}
-                        as_crow: document.getElementById('crow_answer').checked,
+                        as_crow: document.getElementById('crow-checkbox').checked,
                         {% endif %}
                     };
                 {% endif %}

@@ -60,7 +60,7 @@
                     {% for adminAction in adminActions %}
                         {# @var adminAction \App\Entity\AdminAction #}
 
-                        <a x-ajax-href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a>
+                        <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a>
 
                     {% endfor %}
                     </ul>

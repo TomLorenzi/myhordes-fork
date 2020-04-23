@@ -19,241 +19,321 @@ class TextFixtures extends Fixture
         'dv_000' => [
             'title' => 'Arztbescheinigung',
             'author' => 'Waganga',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_001' => [
             'title' => 'Auslosung',
             'author' => 'Stravingo',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_002' => [
             'title' => 'Befehl',
             'author' => 'Nobbz',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_003' => [
             'title' => 'Befehl',
             'author' => 'Nobbz',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_004' => [
             'title' => 'Bekanntmachung: Abtrünnige',
             'author' => 'Sigma',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_005' => [
             'title' => 'Bekanntmachung: Wasser',
             'author' => 'Fyodor',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_006' => [
             'title' => 'Brief an den Weihnachtsmann',
             'author' => 'zhack',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_007' => [
             'title' => 'Brief an Emily',
             'author' => 'Ralain',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_008' => [
             'title' => 'Brief an Nancy',
             'author' => 'Zekjostov',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_009' => [
             'title' => 'Brief an Nelly',
             'author' => 'aera10',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_010' => [
             'title' => 'Brief einer Mutter',
             'author' => 'MonochromeEmpress',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_011' => [
             'title' => 'Christin',
             'author' => 'Fexon',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_012' => [
             'title' => 'Coctails Tagebuch Teil 2',
             'author' => 'coctail',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_013' => [
             'title' => 'Coctails Tagebuch Teil 3',
             'author' => 'coctail',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_014' => [
             'title' => 'Der Verrat',
             'author' => 'Liior',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_015' => [
             'title' => 'Ein Briefbündel',
             'author' => 'Ferra',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_016' => [
             'title' => 'Ein seltsamer Brief',
             'author' => null,
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_017' => [
             'title' => 'Frys Erlebnis',
             'author' => 'Sardock4r',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_018' => [
             'title' => 'Gewinnlos',
             'author' => null,
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_019' => [
             'title' => 'Ich liebe sie',
             'author' => 'Kouta',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_020' => [
             'title' => 'In Bier geschmorte Ratte',
             'author' => 'Akasha',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_021' => [
             'title' => 'Kettensäge & Kater',
             'author' => 'TuraSatana',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_022' => [
             'title' => 'Mein bester Freund KevKev',
             'author' => 'Rayalistic',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_023' => [
             'title' => 'Merkwürdiger Text',
             'author' => 'Moyen',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_024' => [
             'title' => 'Mitteilung',
             'author' => 'DBDevil',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_025' => [
             'title' => 'Morsecode (21.Juni)',
             'author' => 'zhack',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_026' => [
             'title' => 'Mysteriöse Befunde - Tote weisen menschliche Bissspuren auf',
             'author' => null,
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_027' => [
             'title' => 'Papierfetzen',
             'author' => 'gangster',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_028' => [
             'title' => 'Post-It',
             'author' => 'Sunsky',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_029' => [
             'title' => 'Rabe, schwarz',
             'author' => 'accorexel',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_030' => [
             'title' => 'Richards Tagebuch',
             'author' => 'Cronos',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_031' => [
             'title' => 'Schmerzengels Überlebensregeln',
             'author' => 'Schmerzengel',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_032' => [
             'title' => 'Sprinkleranlage im Eigenbau',
             'author' => 'Tycho',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_033' => [
             'title' => 'Seite 62 eines Buches',
             'author' => 'kozi',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_034' => [
             'title' => 'Sicherer Unterschlupf',
             'author' => 'Loadim',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_035' => [
             'title' => 'Sie nennen sie Zombies - Politisch korrekter Umgang mit Vermindert Lebenden',
             'author' => 'accorexel',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_036' => [
             'title' => 'Twinoidetikett',
             'author' => null,
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_037' => [
             'title' => 'Warnhinweis an zukünftige Wanderer',
             'author' => 'coctail',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_038' => [
             'title' => 'WG',
             'author' => null,
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         'dv_039' => [
             'title' => 'Zahlen',
             'author' => 'Nomad',
-            'content' => [''],
+            'content' => [
+                ''
+            ],
             'lang' => 'de'
         ],
         /**
@@ -262,7 +342,9 @@ class TextFixtures extends Fixture
         "oldboy" => [
             "title" => "A toi, vieux compagnon...",
             "author" => "Sekhmet",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -270,7 +352,11 @@ class TextFixtures extends Fixture
         "alime" => [
             "title" => "Alimentation saine",
             "author" => "Darkhan",
-            "content" => [''],
+            "content" => [
+                '>
+                <p>COALITIONS RUSTRES - Journal de bord J7</p>
+                <p>Ce matin, on a retrouvé mort dans son taudis celui qui pillait la banque de toute la bouffe. Chez lui, faute de ventilation, il flottait une épouvantable odeur de gaz. Au début, ça nous a pas vraiment aidé pour deviner les raisons de son décès … jusqu\'à ce que deux d\'entre nous, venus retirer son cadavre, tombent malades à leur tour. En fait, c\'est quand cette odeur de méthane a disparu qu\'on a compris que l\'homme était mort à cause de son alimentation exclusivement à base de fayots en conserve. </p>'
+            ],
             "lang" => "fr",
             "background" => "white",
             "design" => "white"
@@ -279,11 +365,9 @@ class TextFixtures extends Fixture
             "title" => "Annonce : astrologie",
             "author" => "Sigma",
             "content" => [
-                '<div class="content">
-                <div class="hr"></div>
+                '<div class="hr"></div>
                 <h1>Annonce publique</h1>
-                <p>Suite aux attaques récentes, l\'horoscope matinal de Radio Survivant ne concernera que 7 signes astrologiques au lieu des 9 habituels. De plus, Natacha sera remplacé par Roger. Adieu Natacha.</p>
-                </div>'
+                <p>Suite aux attaques récentes, l\'horoscope matinal de Radio Survivant ne concernera que 7 signes astrologiques au lieu des 9 habituels. De plus, Natacha sera remplacé par Roger. Adieu Natacha.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -292,7 +376,11 @@ class TextFixtures extends Fixture
         "citya3" => [
             "title" => "Annonce : banquier",
             "author" => "Sigma",
-            "content" => [''],
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Annonce publique</h1>
+                <p>Le gardien de la banque vous informe qu\'il n\'accepte plus les tickets de rationnement. Quelques faussaires amateurs ont crus bon de profiter de sa myopie en copiant des tickets à la main.</p>'
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -312,7 +400,11 @@ class TextFixtures extends Fixture
         "citya4" => [
             "title" => "Annonce : concert",
             "author" => "Sigma",
-            "content" => [''],
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Annonce publique</h1>
+                <p>Le groupe Hord\'Zik a improvisé un concert hier soir. Les citoyens ont beaucoup appréciés, tout comme les zombies qui ont attaqués en cadence et détruit partiellement le mur sud.</p>'
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -332,7 +424,11 @@ class TextFixtures extends Fixture
         "cityb1" => [
             "title" => "Annonce : séparatistes",
             "author" => "Sigma",
-            "content" => [''],
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Annonce publique</h1>
+                <p>Des citoyens séparatistes avaient tentés de se barricader dans une caverne au sud de la ville. Un éclaireur a rapporté qu\'ils avaient tous perdus la tête. Au sens propre.</p>'
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -340,7 +436,12 @@ class TextFixtures extends Fixture
         "news2" => [
             "title" => "Article - Meurtre sauvage",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                '<small>(début de l\'article en page 1)</small>
+<p>[...] Le couple retrouvé mort dans leur cuisine portait en effet des blessures évoquant des "morsures" selon une source proche des autorités.</p>
+<p>Ce drame porte le nombre de cas à 9 dans notre région, soit 16 personnes retrouvées mortes dans des circonstances similaires. Si la thèse du tueur en série reste la plus probable, certains confrères n\'hésitent plus à relayer la théorie d\'une attaque de bête : les premières analyses auraient en effet révélé la présence d\'ADN humain sous une forme altérée. Ce dernier fait restant pour l\'heure à confirmer, les autorités ayant démenti ces informations.</p>
+<h1>La course aux ressources de l\'Arctique</h1>'
+            ],
             "lang" => "fr",
             "background" => "news",
             "design" => "news"
@@ -348,7 +449,13 @@ class TextFixtures extends Fixture
         "news3" => [
             "title" => "Article - Nouveau cas de cannibalisme",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                '<h1>Nouveau cas de cannibalisme en Hongrie</h1>
+                <hr />
+                <p>Selon les autorités hongroises, quatre individus, trois hommes et une femme âgés de 24 à 30 ans, auraient été abattus au terme d\'une longue course-poursuite dans les rues de Kalocsa.</p>
+                <p>Le groupe, signalé à la police par un riverain, avait été aperçu une première fois la veille au soir en train de dévorer un jeune homme qu\'ils avaient roués de coups, avant de prendre la fuite. La police appelle à la plus grande vigilance face à la recrudescence des cas de démences similaires.</p>
+                <small>Lire la suite de l\'article en page 6</small>'
+            ],
             "lang" => "fr",
             "background" => "news",
             "design" => "news"
@@ -356,7 +463,9 @@ class TextFixtures extends Fixture
         "autop1" => [
             "title" => "Autopsie d'un rat (partie 1 sur 3)",
             "author" => "sanka",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -364,7 +473,9 @@ class TextFixtures extends Fixture
         "autop2" => [
             "title" => "Autopsie d'un rat (partie 2 sur 3)",
             "author" => "sanka",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -372,7 +483,9 @@ class TextFixtures extends Fixture
         "autop3" => [
             "title" => "Autopsie d'un rat (partie 3 sur 3)",
             "author" => "sanka",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -391,7 +504,9 @@ class TextFixtures extends Fixture
         "sign1" => [
             "title" => "Avis aux citoyens",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -414,7 +529,9 @@ class TextFixtures extends Fixture
         "xmasad" => [
             "title" => "Buffet de Noël",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -455,7 +572,9 @@ class TextFixtures extends Fixture
         "coloc" => [
             "title" => "Colocation",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -463,7 +582,9 @@ class TextFixtures extends Fixture
         "denonc" => [
             "title" => "Conspiration",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -471,7 +592,9 @@ class TextFixtures extends Fixture
         "contine" => [
             "title" => "Contine : SilverTub",
             "author" => "TubuBlobz",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -479,7 +602,9 @@ class TextFixtures extends Fixture
         "sngsek" => [
             "title" => "Contine des jours sans lendemain",
             "author" => "Sekhmet",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "old",
             "design" => "small"
@@ -487,7 +612,9 @@ class TextFixtures extends Fixture
         "lettre" => [
             "title" => "Correspondance",
             "author" => "Teia",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -536,7 +663,9 @@ class TextFixtures extends Fixture
         "lettr1" => [
             "title" => "Courrier d'un citoyen 2",
             "author" => "Nikka",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -544,7 +673,9 @@ class TextFixtures extends Fixture
         "water" => [
             "title" => "De l'eau pour tous",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "noteup",
             "design" => "written"
@@ -552,7 +683,9 @@ class TextFixtures extends Fixture
         "last1" => [
             "title" => "Dernier survivant",
             "author" => "Arma",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -560,7 +693,9 @@ class TextFixtures extends Fixture
         "short1" => [
             "title" => "Derniers mots",
             "author" => "Exdanrale",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -651,7 +786,9 @@ class TextFixtures extends Fixture
         "degen" => [
             "title" => "Dégénérescence",
             "author" => "Fabien08",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -659,7 +796,9 @@ class TextFixtures extends Fixture
         "leavng" => [
             "title" => "Départ",
             "author" => "1984",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -684,7 +823,9 @@ class TextFixtures extends Fixture
         "scient" => [
             "title" => "Emission radiophonique d'origine inconnue",
             "author" => "pepitou",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "white",
             "design" => "white"
@@ -693,9 +834,9 @@ class TextFixtures extends Fixture
             "title" => "Épitaphe pour Alfred",
             "author" => "Planeshift",
             "content" => ['<small>[ Ce bout de carton devait sûrement servir d\'épitaphe pour une pierre tombale ]</small>
-                <h1>Alfred (1948 - ??)</h1>
-                <p>Alfred était peut-être le dernier des abrutis, mais il a toujours eu bon goût, je le maintiens. Décorant avec soin son intérieur, faisant attention à ce que chaque objet soit à sa place, afin que, si l\'on passait par hasard chez lui, on ait au moins le sentiment que ce soit confortable. Même à sa mort, hurlant à l\'aide alors que les zombies le dévoraient, il prit soin de ne pas les attaquer avec cette chaise si artistiquement exposée à côté de sa table en bois à moitié pourrie, sans parler de se défendre en utilisant le pistolet, pourtant chargé, accroché au mur. Un mystère qui restera pour nous entier, mais Alfred avait du goût, comme chacun d\'entre nous ici le sait, et préféra mourir que de mettre en désordre son intérieur.</p>
-                <p>Et effectivement, je vous le dis. Bien cuit, Alfred a vraiment un goût délicieux.</p>'],
+            <h1>Alfred (1948 - ??)</h1>
+            <p>Alfred était peut-être le dernier des abrutis, mais il a toujours eu bon goût, je le maintiens. Décorant avec soin son intérieur, faisant attention à ce que chaque objet soit à sa place, afin que, si l\'on passait par hasard chez lui, on ait au moins le sentiment que ce soit confortable. Même à sa mort, hurlant à l\'aide alors que les zombies le dévoraient, il prit soin de ne pas les attaquer avec cette chaise si artistiquement exposée à côté de sa table en bois à moitié pourrie, sans parler de se défendre en utilisant le pistolet, pourtant chargé, accroché au mur. Un mystère qui restera pour nous entier, mais Alfred avait du goût, comme chacun d\'entre nous ici le sait, et préféra mourir que de mettre en désordre son intérieur.</p>
+            <p>Et effectivement, je vous le dis. Bien cuit, Alfred a vraiment un goût délicieux.</p>'],
             "lang" => "fr",
             "background" => "carton",
             "design" => "written"
@@ -703,7 +844,9 @@ class TextFixtures extends Fixture
         "errnce" => [
             "title" => "Errance",
             "author" => "Crow",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -711,7 +854,8 @@ class TextFixtures extends Fixture
         "ster" => [
             "title" => "Etiquette de stéroïdes pour chevaux",
             "author" => "dragonfive",
-            "content" => ['<h2>Stéroïdes pour chevaux</h2>
+            "content" => [
+                '<h2>Stéroïdes pour chevaux</h2>
                 <small>Visa et n° d\'exploitation : M0T10NTW1N - 93847</small>
                 <blockquote>Composition chimique : Cholestérol, Testostérone, divers autres produits plus ou moins dangereux dont vous ne voulez pas connaître le nom.</blockquote>
                 <small>Effets secondaires indésirables : Hypertension, arythmie, lésions du foie, tumeurs cérébrales, crise cardiaque, chute des poils et mort subite.</small>
@@ -725,7 +869,9 @@ class TextFixtures extends Fixture
         "study1" => [
             "title" => "Etude médicale 1 : morphologie comparative",
             "author" => "ChrisCool",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -733,7 +879,9 @@ class TextFixtures extends Fixture
         "study3" => [
             "title" => "Etude médicale 3 : reproduction",
             "author" => "ChrisCool",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -741,7 +889,9 @@ class TextFixtures extends Fixture
         "study4" => [
             "title" => "Etude médicale 4 : alimentation",
             "author" => "ChrisCool",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -749,7 +899,9 @@ class TextFixtures extends Fixture
         "study5" => [
             "title" => "Étude médicale 5 : décès",
             "author" => "ChrisCool",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -775,7 +927,9 @@ class TextFixtures extends Fixture
         "expalp" => [
             "title" => "Expédition alpha",
             "author" => "Shogoki",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "noteup",
             "design" => "written"
@@ -783,7 +937,9 @@ class TextFixtures extends Fixture
         "eclr1" => [
             "title" => "Explorations",
             "author" => "elyria",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "white",
             "design" => "white"
@@ -791,7 +947,9 @@ class TextFixtures extends Fixture
         "dodod" => [
             "title" => "Fais dodo",
             "author" => "NabOleon",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -799,7 +957,9 @@ class TextFixtures extends Fixture
         "crazy" => [
             "title" => "Folie",
             "author" => "Arco",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -807,7 +967,35 @@ class TextFixtures extends Fixture
         "poem1" => [
             "title" => "Gazette du Gouffre du Néant, décembre",
             "author" => "lordsolvine",
-            "content" => [''],
+            "content" => [
+                '<h1>Le chasseur et le Mort-vivant</h1>
+<p><strong>Bravo à notre gagnant qui se voit attribuer, en plus de sa parution dans notre journal, un lot de babioles en tout genre : ferrailles, planches de bois, vis et écrous... Merci aux autres citoyens participants.</strong></p>
+<quote>
+<p>Au loin, un corps décomposé</p>
+<p>S\'approche lentement pour vous dévorer.</p>
+<p>Marchant d\'un pas timide,</p>
+<p>Le cerveau complètement vide,</p>
+<p>Il n\'hésitera surement pas,</p>
+<p>A te choper le bras.</p>
+</quote>',
+'<quote>
+<p>Mais sur son cheval blanc,</p>
+<p>Le chasseur dans la nuit,</p>
+<p>S\'élance sur ces morts-vivants.</p>
+<p>D\'un coup de sabre et de cure-dent,</p>
+<p>Il coupe et pique tout.</p>
+<p>Et toi, tu deviens complètement fou.</p>
+</quote>',
+'<quote>
+<p>Soudain, un monstre surgit,</p>
+<p>Et toi, tu ris.</p>
+<p>Tu tentes de le tuer à l\'aide d\'une carotte,</p>
+<p>Mais tu ris, on te chatouille la glotte.</p>
+<p>Tout est fini, tout s\'arrête...</p>
+<p>Il t\'a bouffé la tête.</p>
+</quote>
+<p>Mr.PapyL (08/12/2003)</p>'
+            ],
             "lang" => "fr",
             "background" => "news",
             "design" => "news"
@@ -815,7 +1003,9 @@ class TextFixtures extends Fixture
         "gcm" => [
             "title" => "Gros Chat Mignon",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "old",
             "design" => "small"
@@ -823,7 +1013,9 @@ class TextFixtures extends Fixture
         "haiku1" => [
             "title" => "Haiku I",
             "author" => "stravingo",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "money",
             "design" => "written"
@@ -831,7 +1023,9 @@ class TextFixtures extends Fixture
         "infect" => [
             "title" => "Infection",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -860,7 +1054,9 @@ class TextFixtures extends Fixture
         "coward" => [
             "title" => "Je suis un trouillard",
             "author" => "Sengriff",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "stamp",
             "design" => 'written'
@@ -868,7 +1064,9 @@ class TextFixtures extends Fixture
         "alan" => [
             "title" => "Journal d’Alan Morlante",
             "author" => "lycanus",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "white",
             "design" => "written"
@@ -876,7 +1074,9 @@ class TextFixtures extends Fixture
         "slept" => [
             "title" => "Journal d'un citoyen : Doriss",
             "author" => "Arma",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -884,7 +1084,9 @@ class TextFixtures extends Fixture
         "log2" => [
             "title" => "Journal d'un citoyen inconnu 1",
             "author" => "Muahahah",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "noteup",
             "design" => "written"
@@ -892,7 +1094,9 @@ class TextFixtures extends Fixture
         "coctl1" => [
             "title" => "Journal de Coctail, partie 1",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -900,7 +1104,9 @@ class TextFixtures extends Fixture
         "coctl2" => [
             "title" => "Journal de Coctail, partie 2",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -908,7 +1114,9 @@ class TextFixtures extends Fixture
         "coctl3" => [
             "title" => "Journal de Coctail, partie 3",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -952,7 +1160,9 @@ class TextFixtures extends Fixture
         "logpin" => [
             "title" => "Journal de Pierre Ignacio Tavarez",
             "author" => "ChrisCool",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -960,7 +1170,9 @@ class TextFixtures extends Fixture
         "intime" => [
             "title" => "Journal intime",
             "author" => "Homerzombi",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "white",
             "design" => "white"
@@ -968,7 +1180,9 @@ class TextFixtures extends Fixture
         "nowatr" => [
             "title" => "Joyeux réveillon",
             "author" => "sanka",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -976,7 +1190,9 @@ class TextFixtures extends Fixture
         "thief" => [
             "title" => "Jugement",
             "author" => "stravingo",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "old",
             "design" => "small"
@@ -984,7 +1200,9 @@ class TextFixtures extends Fixture
         "cenhyd" => [
             "title" => "La centrale hydraulique",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "money",
             "design" => "written"
@@ -1004,7 +1222,9 @@ class TextFixtures extends Fixture
         "logsur" => [
             "title" => "La colline aux survivants",
             "author" => "Darkhan27",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -1012,7 +1232,9 @@ class TextFixtures extends Fixture
         "hang" => [
             "title" => "La potence",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "old",
             "design" => "small"
@@ -1020,7 +1242,9 @@ class TextFixtures extends Fixture
         "chief" => [
             "title" => "La trahison",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -1028,7 +1252,9 @@ class TextFixtures extends Fixture
         "cidcor" => [
             "title" => "Le CID de Pierre Corbeau",
             "author" => "bartock",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -1036,7 +1262,39 @@ class TextFixtures extends Fixture
         "aohero" => [
             "title" => "Le Héros",
             "author" => "SeigneurAo",
-            "content" => [''],
+            "content" => [
+                '<p>Jour 1</p>
+                <p>Ao est sorti dans l\'Outre-Monde.</p>
+                <p>Il a collecté une quantité ahurissante de ressources, les chantiers avancent bien.</p>
+                <p>Gloire à notre éclaireur !</p>',
+                '<p>Jour 2</p>
+                <p>Certaines choses ne peuvent tout simplement pas être expliquées, je pense.</p>
+                <p>Comme ce qui vient d\'arriver.</p>
+                <p>Ao est rentré d\'exploration vers un tumulus que les Veilleurs avaient repéré à plusieurs kilomètres, il a rapporté des outils et des armes, peut-être que nous survivrons plusieurs jours finalement.</p>',
+                '<p>Jour 3</p>
+                <p>Aujourd\'hui pour la 4ème fois, Ao a ramené l\'un de nos camarades qui était cerné par des zombies.</p>
+                <p>Il est sorti, l\'a porté sur ses épaules sous un soleil de plomb, au péril de sa vie, et déposé sain et sauf en ville.</p>
+                <p>Je commence à comprendre pourquoi les autres le traitent comme un héros.</p>',
+                '<p>Jour 4</p>
+                <p>Je n\'ai pas vu Ao ce matin, il a dû sortir avant même le lever du jour.</p>
+                <p>Quelle bravoure, quelle abnégation.</p>
+                <p>On commence à signaler quelques vols à la banque, les gens deviennent nerveux.</p>
+                <p>J\'ai bien des soupçons, mais pour l\'instant il faut savoir faire preuve de retenue... je n\'ai déposé que 4 plaintes anonymes.</p>
+                <p>Sûrement Ao pourra tirer tout ça au clair à son retour.</p>',
+                '<p>Jour 5</p>
+                <p>On a découvert 5 camarades le cou tranché cette nuit.</p>
+                <p>C\'est amusant, les marques ressemblent au couteau à dents qu\'Ao a trouvé dans le commissariat abandonné, l\'autre jour.</p>
+                <p>Certains ont déjà commencé à le harceler, mais moi je sais bien ce qu\'il en est. Ils sont jaloux, c\'est un complot pour le faire chuter.</p>',
+                '<p>Jour 6</p>
+                <p>Je ne m\'étais pas rendu compte que la maison d\'Ao était si bien protégée.</p>
+                <p>Il a sûrement une bonne raison pour avoir prélevé ces planches dans la banque.</p>
+                <p>Peut-être une veuve et son enfant qu\'il a tiré des griffes du désert, et qu\'il veut garder en sécurité.</p>
+                <p>Tout à l\'heure il m\'a souri, je pense que tout va bien se passer.</p>',
+                '<p>Jour 7</p>
+                <p>Ao m\'a demandé une pierre à aiguiser. Quel honneur de pouvoir contribuer à ses activités.</p>
+                <p>Un problème avec son couteau, il l\'aurait ébréché sur une pierre ou je ne sais quoi.</p>
+                <p>J\'ai toute confiance en l\'avenir maintenant. </p>'
+            ],
             "lang" => "fr",
             "background" => "postit",
             "design" => "postit"
@@ -1044,7 +1302,9 @@ class TextFixtures extends Fixture
         "mixer" => [
             "title" => "Le batteur électrique",
             "author" => "Esuna114",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1052,7 +1312,9 @@ class TextFixtures extends Fixture
         "chaos" => [
             "title" => "Le chaos",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -1060,15 +1322,34 @@ class TextFixtures extends Fixture
         "crema2" => [
             "title" => "Le crémato-cue",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
         ],
+        "roidp" => [
+            "title" => "Le roi de pique",
+            "author" => "Kirtash",
+            "content" => [
+                '<h1>C666</h1>
+                <p>Il faut que tu prennes cette carte ! Je l’ai volé pour toi.</p>
+                <p>Garde la avec toi c’est un roi de pique !</p>
+                <p>Et ce soir quand on te demandera de montrer quelle carte tu as tiré montre le roi ! Tu m’entends ? Tu DOIS montrer le roi de pique !</p>
+                <p>Ils ne prennent que les cœurs et je ne veux pas qu’ils t’arrachent le tien mon aimé.
+                Je ne veux pas que tu y ailles cette nuit ni aucune autre, il n’y a sur les murailles des veilleurs que terreurs et larmes.</p>'
+            ],
+            "lang" => "fr",
+            "background" => "letter",
+            "design" => "written"
+        ],
         "noel" => [
             "title" => "Lettre au Père Noël",
             "author" => "zhack",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -1076,7 +1357,9 @@ class TextFixtures extends Fixture
         "anarch" => [
             "title" => "Lettre d'Anarchipel",
             "author" => "Sigma",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -1084,7 +1367,9 @@ class TextFixtures extends Fixture
         "nelly" => [
             "title" => "Lettre pour Nelly",
             "author" => "aera10",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -1092,7 +1377,13 @@ class TextFixtures extends Fixture
         "lettr2" => [
             "title" => "Lettre à Émilie",
             "author" => "Ralain",
-            "content" => [''],
+            "content" => [
+                '<p>Ma chère Soeur, ma Emilie, </p>
+                <p>Comme tu me manques. Oh comme j\'aimerais te prendre dans mes bras en ce moment, si tu savais à quel point... Nous voilà séparés depuis 8 jours aujourd\'hui, je n\'ai pas oublié ma promesse et je te retrouverai. Devant Dieu et devant Lucifer je jure de te retrouver par tous les moyens. Crois en moi ma petite soeur, je parcours notre triste pays dévasté à la recherche de ce maudit Pic des Songes. Et je me rapproche, de jour en jour, toujours plus de toi... J\'espère que tu y es arrivé sain et sauf. Je suis sûr que tu es en parfaite santé. N\'est-ce pas ? Tu as toujours été futée et débrouillarde, plus que moi en tout cas... Tu étais toujours celle qui me sortait des situations compliquées. Quel frère je faisais...</p>',
+                '<p>Aujourd\'hui c\'est toujours toi qui me tire vers l\'avant, tu sais ? Si je ne te savais pas en sécurité, j\'aurais déjà abandonné. Si tu n\'étais pas là, je me serais laisser mourir dès le premier jour. Ah si tu savais les horreurs dont j\'ai été témoin : notre famille, nos amis, Claire, ce con de Thomas, Papa, Maman... Ils sont devenus... Tu sais. Tu sais...</p>
+                <p>J\'ai rejoins cette nouvelle ville hier soir et beaucoup de personnes sont dans le même cas que moi ici. On ne va pas rester longtemps dans le coin, le temps que nous rassemblions quelques provisions et nous repartirons sur nos routes respectives. Probablement demain matin si le chemin est assez dégagé. J\'ai confié un exemplaire de cette lettre à mes compagnons. Ils la remettront à la jolie fille qui sent la vanille et qui répond au doux surnom d\'Emie s\'ils devaient la trouver avant moi. Ma Emilie... J\'aimerais tant être le premier à te remettre cette lettre...</p>
+                <p>Je t\'aime. A bientôt ma petite Fleur de Vanille.</p>'
+            ],
             "lang" => "fr",
             "background" => "noteup",
             "design" => "written"
@@ -1100,7 +1391,9 @@ class TextFixtures extends Fixture
         "letann" => [
             "title" => "Lettres d'un milicien",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -1108,7 +1401,9 @@ class TextFixtures extends Fixture
         "offrex" => [
             "title" => "Maison à vendre",
             "author" => "Pyrolis",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1116,7 +1411,9 @@ class TextFixtures extends Fixture
         "mascar" => [
             "title" => "Mascarade",
             "author" => "irewiss",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "noteup",
             "design" => "written"
@@ -1124,7 +1421,9 @@ class TextFixtures extends Fixture
         "messagecommiss" => [
             "title" => "Message à la commission",
             "author" => "Gizmonster",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "old",
             "design" => "small"
@@ -1132,23 +1431,137 @@ class TextFixtures extends Fixture
         "csaatk" => [
             "title" => "Menaces du CSA",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                '<h1>AVIS À LA POPULATION</h1>
+                <p>Devant la <strike>recrue</strike> recrudes<strike>s</strike>cence des actes de tortures animales, le <strong>Comité<strike>e</strike> de Soutien des Animaux</strong> de notre ville de Frontières de l\'automne cinglant, composé de courageux citoyens <strong>responsables</strong> et <strong>anonymes</strong>, a décidé de mener une action de repression "coup de poing".</p>
+                <p>Il est demandé aux citoyens responsables de ces actes de barbarie de cesser immédiatement leurs agissements odieux, sous peine de subir notre <strong>vendetta sanglante</strong> dans les <strike>proch</strike> jours à venir.</p>
+                <h1>Assassins, vos têtes tomberont !</h1>
+                <h1><em>La paix dans vos coeurs.</em></h1>'
+            ],
             "lang" => "fr",
             "background" => "carton",
-            "design" => "typed"
+            "design" => "written"
         ],
         "warnad" => [
             "title" => "Mise en garde",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
         ],
+        "jgoule" => [
+            "title" => "Mon ami la Goule - 1ère partie",
+            "author" => "ninjaja",
+            "content" => [
+                '<h2>Mon ami la Goule, première partie</h2>
+                <p>Sur le trajet mon pied heurtât un petit carnet enfoui dans le sable et me fit trébucher.
+                Les pages étaient vierges, le temps avait effacé les textes dont subsistait quelques lettres pâles.</p>
+                <p>Deux, trois frottement de mine sur la semelle de ma vieille sandale redonna vit au stylo encore attaché à l\'ouvrage.
+                Machinalement, je mis le tout dans ma poche. J\'étais loin d\'imaginer que je m\'en servirais si tôt.</p>',
+                '<p>On nous avait indiqué une petite bourgade, la haut au nord, au milieu d\'une grande plaine désertique. Sir Trotk et moi même, accompagné de deux frangins Mido et Ven nous y rendions.</p>
+                <p>L\'optique d\'une ville sans religion nous enthousiasmait. Peut être pourrions nous participer à l’ascension de Grotas, du Corbeau, ou du PMV.
+                Mais cela aurait-il valu d\'être raconté ?</p>
+                <p>N\'en parlons plus, la ville resta athée.</p>'
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "jgoule2" => [
+            "title" => "Mon ami la Goule - 2ème partie",
+            "author" => "ninjaja",
+            "content" => [
+                '<h2>Mon ami la Goule, 2ème partie</h2>
+                <p>Premier jour :</p>
+                <p>Nous voici arrivés. Nous ne passons pas les portes ensemble par mesure de sécurité.
+                La ville est en effervescence. De nombreuses personnes paraissent déjà se connaître. Sûrement d\'autres groupes tel que nous.</p>
+                <p>Un homme semble sortir du lot et diriger les opérations.
+                Nous l’appellerons M. N.
+                "Monsieur" par respect pour son travail et son acharnement.
+                "N." par pudeur, au vu de ce que nous lui feront subir par la suite.
+                </p>',
+                ' <p>A peine arrivé, nous nous préparons à repartir vers le désert.</p>
+                <p>M. Mido a disparu. Il a appris l’existence d\'une armurerie en limite de la zone explorable.
+                Il est déjà dessus. Nous ne le révérons que rarement, cet ancien architecte d\'intérieur dépouillera la région de tous ses objets brillants.
+                Mes deux autres amis partent tranquillement explorer les environs, tandis que je me dirige vers une ruine fraîchement découverte.</p>'
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "jgoule3" => [
+            "title" => "Mon ami la Goule - 3ème partie",
+            "author" => "ninjaja",
+            "content" => [
+                ''
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "jgoule4" => [
+            "title" => "Mon ami la Goule - 4ème partie",
+            "author" => "ninjaja",
+            "content" => [
+                ''
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "jgoule5" => [
+            "title" => "Mon ami la Goule - 5ème partie",
+            "author" => "ninjaja",
+            "content" => [
+                '<h2>Mon ami la Goule, 5ème partie</h2>
+                <p>Un voyageur de passage arrive à son tour sur la ruine alors que nous discutons sans prendre la moindre précaution.
+                Vient-il visiter le site ou récupérer la scie ? A t\'il entendu nos élucubrations ?</p>',
+                '<p>Le dîner est servi !</p>
+                <p>Le sang vicié de mon amie la goule ne fait qu\'un tour et elle s\'empresse de faire un casse-croûte avec notre visiteur incongru.</p>
+                <p>Au vu des explorations de la journée nous allons être tout deux en tête de liste des suspects de ce petit déjeuner champêtre.</p>',
+                '<p>Nous regagnons tranquillement la ville en suivant les agitations via nos radios de fortune. Comme prévu nous sommes en ligne de mire. L\'un de nous deux est forcement la goule.</p>
+                <p>Autant prendre le vaccin de suite donc. Mon compagnon est redevenu normal, il a arrêté de baver même lorsqu\'il me reluque les fesses.</p>'
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "jgoule6" => [
+            "title" => "Mon ami la Goule - 6ème partie",
+            "author" => "ninjaja",
+            "content" => [
+                '<h2>Mon ami la Goule, 6ème partie</h2>
+                <p>Une agression non désirée est toujours imminente. Il faut nous disculper avant de rentrer en ville...</p>
+                <p>Nous crions au scandale.... Quelqu\'un en as après nous c\'est sûr et tente de nous faire accuser.</p>
+                <p>Le soir venu nous vidons nos gourdes et demandons à une personne de confiance de venir vérifier nos états aux portes de la ville.</p>',
+                '<p>M. N. en personne fait le déplacement. Nous en profitons pour l\'innocenter également et gagnons un nouvel ami. Nous rentrons donc lavés de tous soupçons et en héros avec la scie !</p>
+                <p>Troisième jour :</p>
+                <p>Nouvelle visite de la ruine pour récupérer encore quelques une de nos trouvailles cachées.
+                Accompagnés cette fois-ci par un inconnu, nos sac sont remplis d\'objets que la ville n\'a pas besoin de voir. Il faut bien porter l\'eau et la nourriture...</p>
+                <p>A peine arrivé sur le bâtiment, le baby-phone grésille, les frangins ont trouvé un nouveau cadavre.
+                (Ils ont également monté un lance-pile sophistiqué que je retrouverais dans mon coffre en rentrant... Ils ont un humour particulier...)</p>',
+                '<p>Nous discutons donc, discrètement de la prochaine victime. M. N. est dangereux, mais faut il se tourner vers la facilité ? Non !</p>
+                <p>Le choix se portera finalement sur l\'heureux possesseur d\'une ceinture de poche. Hé oui! Nos sacs commencent à ce faire petit, il faut bien trouver des alternatives.</p>
+                <p>La nuit tombée, à l’abri des regards, nous procédons à une séance de troc entre amis : morceaux de cadavres, armes, cadenas. Rien n\'est gratuit dans ce monde.</p>'
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "written"
+        ],
         "letwar" => [
             "title" => "Mort d'un baroudeur",
             "author" => "Planeshift",
-            "content" => [''],
+            "content" => [
+                '<p>Me voilà bien.</p>
+                <p>Trop confiant dans mes capacités, je me suis éloigné de la ville sans faire attention. Et comme de juste, je me suis retrouvé en compagnie de quelques zombies. Youpi. Heureusement, j\'ai réussi à les tuer sans problème, mais hélas pour moi, cela m\'a épuisé. Me voici donc comme un idiot, assis sur une moitié de zombie, en train d\'écrire l\'histoire de ma triste et courte vie. Je l\'ai appelé Léon Le zombie. Pas mon histoire.</p>',
+                '<p>Je reste optimiste, malgré tout. Peut-être que je mourrais sans souffrir, hein ? Et puis, je devrais apprécier ma chance : je dois être l\'un des rares êtres vivants des environs à voir ce magnifique coucher de soleil, insouciant de mon sort. N\'est-ce pas Léon ?</p>
+                <p>Vous ai-je dit que je n\'avais pas achevé Léon ? Ah, il s\'agite. J\'ai beau être assis sur son dos et utiliser sa tête poisseuse comme un repose-pieds, il lui manque peut-être un bras et </p>',
+                '<p>tout ce qui se trouve sous son bassin, il continue à s\'agiter pour me dévorer. Il est mignon, n\'est-ce pas ?</p>
+                <p>La nuit tombe, et je crois apercevoir d\'autres compagnons de jeu<strike>x</strike> approcher. Eh bien, qu\'il en soit ainsi ! Sur ce, je vous laisse, j\'ai des gens à aller tuer. Et après, peut-être que j\'aurai la chance de vous dévorer, qui sait ?</p>'
+            ],
             "lang" => "fr",
             "background" => "tinystamp",
             "design" => "small"
@@ -1156,7 +1569,9 @@ class TextFixtures extends Fixture
         "ultim1" => [
             "title" => "Mort ultime",
             "author" => "IIdrill",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -1164,15 +1579,51 @@ class TextFixtures extends Fixture
         "cave1" => [
             "title" => "Mot déchiré",
             "author" => "gangster",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
         ],
+        "cave1" => [
+            "title" => "Mort d'un baroudeur",
+            "author" => "Planeshift",
+            "content" => [
+                '<p>Me voilà bien.</p>
+                <p>Trop confiant dans mes capacités, je me suis éloigné de la ville sans faire attention. Et comme de juste, je me suis retrouvé en compagnie de quelques zombies. Youpi. Heureusement, j\'ai réussi à les tuer sans problème, mais hélas pour moi, cela m\'a épuisé. Me voici donc comme un idiot, assis sur une moitié de zombie, en train d\'écrire l\'histoire de ma triste et courte vie. Je l\'ai appelé Léon Le zombie. Pas mon histoire.</p>',
+                '<p>Je reste optimiste, malgré tout. Peut-être que je mourrais sans souffrir, hein ? Et puis, je devrais apprécier ma chance : je dois être l\'un des rares êtres vivants des environs à voir ce magnifique coucher de soleil, insouciant de mon sort. N\'est-ce pas Léon ?</p>
+                <p>Vous ai-je dit que je n\'avais pas achevé Léon ? Ah, il s\'agite. J\'ai beau être assis sur son dos et utiliser sa tête poisseuse comme un repose-pieds, il lui manque peut-être un bras et </p>',
+                '<p>tout ce qui se trouve sous son bassin, il continue à s\'agiter pour me dévorer. Il est mignon, n\'est-ce pas ?</p>
+                <p>La nuit tombe, et je crois apercevoir d\'autres compagnons de jeu<strike>x</strike> approcher. Eh bien, qu\'il en soit ainsi ! Sur ce, je vous laisse, j\'ai des gens à aller tuer. Et après, peut-être que j\'aurai la chance de vous dévorer, qui sait ?</p>'
+            ],
+            "lang" => "fr",
+            "background" => "tinystamp",
+            "design" => "writter"
+        ],
+        "code1" => [
+            "title" => "Note illisible",
+            "author" => "anonyme",
+            "content" => [
+                ' <p><strong>-1</strong></p>
+                <p>oktr qhdm m drs rtq</p>
+                <p>st cnhr pthssdq kz uhkkd zt oktr uhsd</p>
+                <p>hkr rnms sntr cdudmtr entr hbh</p>
+                <p>qdsqntud lnh z kz uhdhkkd onlod gxcqztkhptd z bhmp gdtqdr</p>
+                <p>hk x z tmd lnsn bzbgdd kz azr</p>'
+            ],
+            "lang" => "fr",
+            "background" => "letter",
+            "design" => "written"
+        ],
         "ie" => [
             "title" => "Note pour les prochains promeneurs",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                '<p>Coctail, Pantocrat et Zoby sont passés ici. Cette zone ne contient plus rien d\'utile. Attention aux zo<strike>m</strike>b<strike>ie</strike>s cachés sous le sable. Danger de mort.</p>
+                <div class="other">&nbsp;c\'est bon, j\'ai fait le ménage !!</div>
+                <div class="other">&nbsp;&nbsp;&nbsp;- half</div>'
+            ],
             "lang" => "fr",
             "background" => "money",
             "design" => "written"
@@ -1180,7 +1631,9 @@ class TextFixtures extends Fixture
         "thonix" => [
             "title" => "Notes de Thonix",
             "author" => "Thonix",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1188,15 +1641,22 @@ class TextFixtures extends Fixture
         "nightm" => [
             "title" => "Nuit courte",
             "author" => "elfique20",
-            "content" => [''],
+            "content" => [
+                '<p>Je me suis encore réveillé en nage.</p>
+                <p>La nuit a été longue, chaque ombre et chaque bruit suspect me fait penser à ce qui ce trouve dehors. Ils sont là, ils sont partout et toujours plus nombreux. Cela fait maintenant 17 jours que je me suis réveillé dans cette ville. Depuis plus de la moitié des citoyens ont disparu. Ils ne sont jamais revenus de l\'extérieur, ce sont toujours les plus valeureux qui partent en premier, certains restent bien au chaud cloîtrés chez eux a renforcer leurs baraque sans penser aux autres?..</p>
+                <p>... Je ne vais pas sortir aujourd\'hui, je vais aider les autres pour la construction des défenses. Certains sont sortis après l\'attaque juste pour ramener du petit bois et des défenses, mais cela suffira-t-il ? J\'en doute. On y passera tous un jour ou l\'autre...</p>
+                <p>... A demain, si je suis toujours en vie. La soif et la faim me tiraillent l\'estomac. Que dieu nous protège...</p>'
+            ],
             "lang" => "fr",
             "background" => "grid",
-            "design" => "typed"
+            "design" => "written"
         ],
         "cold1" => [
             "title" => "Obscurité glaciale",
             "author" => "Planeshift",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -1204,7 +1664,9 @@ class TextFixtures extends Fixture
         "ode" => [
             "title" => "Ode aux corbeaux",
             "author" => "Firenz",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1212,7 +1674,9 @@ class TextFixtures extends Fixture
         "page51" => [
             "title" => "Page 51 d'un roman",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "old",
             "design" => "small"
@@ -1220,23 +1684,42 @@ class TextFixtures extends Fixture
         "rednck" => [
             "title" => "Page de carnet déchirée",
             "author" => "Savignac",
-            "content" => [''],
+            "content" => [
+                ' <div class="hr"></div>
+                <p>Des trucs de politicars, ou des trucs de toubibs qui ont foiré qu\'ils disaient. Mouais, en tous cas, le fric vaut plus rien ici, et j\'ai osé échanger mes clopes contre un peu de bouffe. J\'ne sais pas trop si des gars ont pu survivre, moi, j\'me suis réfugié dans mon ranch du Texax avec mon bon vieux fusil. A bien y réfléchir, les curés avaient ptet raison, on a sûrement fait trop de conneries. Ouep toutes ces expériences sur le clonage, sur les électrochocs sur les cadavres, toutes ces conneries là, c\'était trop pour Dieu.</p>'
+            ],
             "lang" => "fr",
             "background" => "notepad",
-            "design" => "written"
+            "design" => "small"
         ],
         "citsig" => [
             "title" => "Panneau de ville",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                '<div class="hr"></div>
+                <center>
+                <big>Terres de l\'abîme.</big>
+                <div>4<strike>0 hab</strike>itants.</div>
+                <div class="other"><strong>Ville zombie, PAS de survivant. Fouillée et hantée. DANGER !!!</strong></div>
+                </center>'
+            ],
             "lang" => "fr",
             "background" => "carton",
-            "design" => "typed"
+            "design" => "written"
         ],
         "condm" => [
             "title" => "Paroles d'un condamné",
             "author" => "Arma",
-            "content" => [''],
+            "content" => [
+                '<p>J\'ai froid, la nuit vient de tomber et je suis toujours à l\'extérieur de la ville, je crois que ma jambe est cassée... De toute façon je suis perdu, les <strike>cadav</strike>Morts-vivants m\'ont poussé vers des dunes lointaines...</p>
+                <p>Je vais mourir... Ma famille me manque...</p>
+                <p>Toi, qui lis ces mots, dis leur que je les aime et que j\'ai toujours pensé à eux...</p>
+                <p>Ils sont partout, et pourtant, ils m\'observent, sans bouger. Ils... attendent ?</p>
+                <p>Périr est... réconfortant. La vie n\'est qu\'un éternel stress devant la multitude de chemins que le <strike>futu</strike>Destin nous dessine...Je crois...</p>
+                <p>Je n\'ai plus le choix, <strike>je d</strike>il ne me reste plus qu\'une route à suivre. Peut-être la meilleure de toutes?</p>
+                <p>J\'entends au loin les douze coups de minuit. C\'est fini...</p>
+                <p>Ne m\'oubliez pas.</p>'
+            ],
             "lang" => "fr",
             "background" => "old",
             "design" => "small"
@@ -1244,23 +1727,103 @@ class TextFixtures extends Fixture
         "hangng" => [
             "title" => "Pendaison",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                ' <p><em>Le chef :</em> Tu n\'aurais jamais du te servir, encore moins sans en parler à personne. Tu sais bien que cela n\'est facile pour personne de se passer de quelqu\'un, surtout en ce moment, où nous avons besoin de tous les bras.</p>
+                <p><em>Le voleur :</em> C\'était insupportable, je mourais de faim.. Soyez indulgents.. Je vous jure que je ne le referais plus...</p>
+                <p><em>Le chef :</em> Je sais que tu regrettes, mais nous ne pouvons pas ne pas te punir, les gens le prendraient comme une faiblesse et penseraient qu\'ils peuvent, eux aussi voler impunément.</p>
+                <p><em>Le voleur :</em> S\'il vous plait, enlevez moi cette corde, je vous demande de réfléchir encore un peu, vous n\'aurez qu\'à expliquer aux autres que cela passe pour cette fois mais que c\'est la dern...</p>'
+            ],
             "lang" => "fr",
             "background" => "old",
-            "design" => "small"
+            "design" => "classic"
         ],
         "alcthe" => [
             "title" => "Pensées sur Post-its",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                '<p>La ville attire de plus en plus de zombies.</p>
+                <p>Sortons tous de la ville : si les zombies veulent entrer, qu\'ils entrent, nous, on aura le désert.</p>
+                <p>On finira bien par trouver assez de ressources pour construire une nouvelle ville.</p>',
+                '<p>J\'ai trouvé un moteur et un cochon.</p>
+                <p>Avec le moteur et un peu de ferraille, une caisse à outils et un peu d\'alcool, je peux fabriquer un camion.</p>
+                <p>Alimenté par l\'alcool, l\'engin pourrait nous transporter tous loin de tous ces cadavres mouvants.</p>
+                <p>(le cochon ne sert à rien)</p>',
+                '<p>Les zombies s\'ammassent chaque nuit devant nos maisons.</p>
+                <p>Ils doivent rechercher quelqu\'un en particulier; c\'est pas possible sinon. Tirons à la courte paille et jettons quelqu\'un dehors chaque nuit pour savoir si c\'est lui qu\'ils cherchent.</p>
+                <p>Après un moment, nous aurons bien trouvé de qui il s\'agit et les autres seront tranquilles.</p>',
+                '<div class="hr"></div>
+                <p>Je vais lire un conte d\'horreur aux zombies, il n\'oseront plus jamais revenir.</p>',
+                '<p>Dans le désert, les zombies font les malins. dans la ville, c\'est nous.</p>
+                <p>Baissons le prix des terrains, construisons des stades de foot, implantons un Mac Donald\'s, faisons venir des célébrités, construisons des HLM.</p>
+                <p>Nous aurons une métropole et les zombies serons relégués dans des réserves.</p>',
+                '<div class="hr"></div>
+                <p>Je vends des costumes d\'Halloween. Les zombies ne vous reconnaîtront pas.</p>',
+                '<p>Les zombies n\'aiment pas l\'eau, c\'est connu. On peut les tuer avec des pistolets à eau.</p>
+                <p>Mettons-nous à chanter pour faire pleuvoir. Nous serons tranquilles.</p>',
+                '<p>Les zombies essaient d\'entrer en ville.</p>
+                <p>Quelqu\'un a-t-il déjà essayé de leur parler ? Quelqu\'un a-t-il déjà essayé de savoir ce qu\'ils veulent ?</p>
+                <p>Ils veulent peut-êter juste être comme nous ?</p>
+                <p>Je me souviens d\'un concert, les fans du monsieur qui chantait torse nu voulaient monter sur le podium.</p>
+                <p>Ce sont peut-être juste nos fans ?</p>',
+                '<p>Pourquoi a-t-il fallu construire cette ville JUSTE dans un couloir de migration de zombies ?</p>
+                <p>Qui a eu cette idée ?</p>',
+                '<p>zombies par-ci, zombies par-là. Mais vous êtes tous obsédés ou quoi ?</p>
+                <p>Et ... ne me dites pas que personne n\'est exorciste ici !!!</p>',
+                '<p>Je viens de développer mon sixième sens... Je vois des morts.</p>
+                <p>Le problème c\'est que les morts me voient aussi...</p>',
+                '<p>Au fond, pourquoi ne laisse-t-on pas entrer les zombies ?</p>
+                <p>Ils nous mangeraient, nous deviendrions des zombies aussi et tous les zombies seraient heureux...</p>',
+                '<p>Il faut deux zombies pour bloquer un citoyen, mais un seul citoyen pour bloquer deux zombies.</p>
+                <p>Ils veulent peut-être juste l’égalité des votes et, tout en manifestant, prennent la ville pour un groupe de CRS...</p>
+                <p>... Forcément, les citoyens la font ressembler à un château-fort.</p>',
+                '<p>Depuis des années, les vivants ont mis les morts dans les tombes. Les morts en ont marre et en sont sortis.</p>
+                <p>Pourquoi ne pas l’accepter et nous cacher dans leurs tombes ? Ils ne penseront JAMAIS à nous chercher là-bas !</p>',
+                '<p>Les zombies nous admirent. La journée, nous sortons faire des expéditions et la nuit, nous rentrons dans la ville.</p>
+                <p>Eux aussi, la journée, ils sont dans le désert et essaient même de nous garder avec eux, preuve qu’ils nous aiment. La nuit, ils veulent dormir avec nous...</p>',
+                '<div class="hr"></div>
+                <p>Une ville, c’est comme un bocal. Tout le monde vient regarder ce qu’il y a dedans. De temps en temps, on en pèche un ou deux vivants pour les manger...</p>',
+                '<p>Mais arrêtez de tirer bon sang !!! Ce ne sont pas des zombies, c’est une rave-party !!!</p>',
+            ],
             "lang" => "fr",
             "background" => "postit",
             "design" => "postit"
         ],
+        "popoem" => [
+            "title" => "Poème amer",
+            "author" => "Bovin",
+            "content" => [
+                '>
+                <p>Mon nom s\'efface dans les mémoires tout comme il le fut dans les écrits.
+                Mon corps se dégrade, s\'éparpille, se décompose à travers le monde connu.
+                Mes paroles s\'oublient tandis que seuls les discours vides de sens restent.
+                Mes récits ne sont plus que poussière pendant que leur signification s\'évapore.
+                Ma conscience se morcèle tandis que je recherche une enveloppe où m\'incarner.
+                Ma flamme de rhéteur seule tentera de rester éveillée.
+                </p>
+                <p>
+                Voici comment je partis de l\'autre côté, damné pour l\'éternité.
+                Je suis condamné à toujours hanter un nouveau corps.
+                </p>
+                <p>
+                Mon nom est Bovin, et je suis mort.
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
+        ],
         "bricot" => [
             "title" => "Prospectus Brico-Tout",
             "author" => "sanka",
-            "content" => [''],
+            "content" => [
+                '<p>Vous en avez assez de trouver tous vos tournevis cassés ? Marre de devoir emprunter la tondeuse du voisin car la votre est toujours en panne ?</p>
+<p>Et bien tout ceci est enfin terminé grace à votre nouveau&nbsp;:</p>
+<h1>BRICO-TOUT<small>7 place des Molineux</small></h1>
+<small>Pour l\'occasion, une journée portes ouvertes est prévue le 15 juin avec 25% de réduction sur tous les articles pour les 50 premiers clients alors surtout ne traînez pas!!! </small>
+<h1>Pillez-nous avant que d\'autres ne s\'en chargent pour vous !</h1>
+<div class="hr"></div>
+<small>Ne pas jeter sur la voie publique.</small>'
+            ],
             "lang" => "fr",
             "background" => "manual",
             "design" => "modern"
@@ -1268,15 +1831,62 @@ class TextFixtures extends Fixture
         "adbnkr" => [
             "title" => "Publicité Bunker-4-Life",
             "author" => "zhack",
-            "content" => [''],
+            "content" => [
+                '<h1>Nouveau !!</h1>
+                <p>Votre ancienne vie vous manque ?</p>
+                <p>Vous en avez assez de vous terrer dans votre habitation en espérant passer la nuit ?</p>
+                <p>Les cris de votre voisin vous exaspèrent ?</p>
+                <h1>Nous avons la solution !!!</h1>
+                <p>Nous vous offrons la possibilité de vous abriter dans l\'un de nos nombreux bunkers 5 étoiles.</p>',
+                '<h1>Fantastique !!</h1>
+                <p>Au programme :</p>
+                <p>-une pièce de 10 mètres carré avec électricité et eau <sup>1</sup></p>
+                <p>-une communauté accueillante et chaleureuse</p>
+                <p>-des soins et une nourriture adapté à chacun <sup>2</sup></p>
+                <p>-Lumière artificielle remplaçant le soleil ! Vous retrouverez enfin le teint de votre jeunesse.</p>
+                <p>-La télé ! <sup>3</sup></p>
+                <p>-Et de nombreuses activités pour le plaisir de chacun !</p>
+                <h1>Incroyable !!</h1>
+                <p>Alors n\'hésitez plus ! Contactez nous  au 3-Bunker-4-life.</p>',
+                '<small>
+                <div class="hr"></div>
+                <ol>
+                <li>Eau potable en option. L\'électricité vous sera fournie pendant les horaires définie par le régisseur.</li>
+                <li>Dans la limite des stocks disponible.</li>
+                <li>Nous ne garantissons pas la disponibilité des chaines télés.</li>
+                </ol>
+                <p>La société bunker for life se réserve le droit de regard sur chaque dossier.</p>
+                <p>Bunker for life  est une filiale de Motion-Twin . Ces marques sont soumises à un copyright.</p>
+                <p>Pour votre santé, mangez au moins cinq fruits et légumes par jour.</p>
+                </small>'
+            ],
             "lang" => "fr",
-            "background" => null,
-            "design" => null
+            "background" => "stamp",
+            "design" => "ad"
+        ],
+        "puree" => [
+            "title" => "Purée de charogne",
+            "author" => "Zorone",
+            "content" => [
+                '>
+                <h1>Pensée d\'un gourmand</h1>
+                <p>Certains racontent que les purées de charognardes seraient en fait les conséquences des premiers expéditionnaires envoyés depuis une catapulte.<br>
+                Quel bande d\'idiots.<br>
+                Les expéditionnaires sont beaucoup plus goûtus.</p><br>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
         ],
         "fishes" => [
             "title" => "Pêche",
             "author" => "Irmins",
-            "content" => [''],
+            "content" => [
+                '<p><strong>Registre de la Ville: Espoirs Retrouvés, le 11 novembre<strike> 1966</strike></strong></p>
+                <p>Depuis hier, nous regagnons l\'espoir de survivre ! Les créatures déferlent les unes après les autres sur les portes de la ville, chaque jours plus nombreuses ... Nous avons foré les nappes phréatiques, et notre puis nous permettra de tenir plus de 3 mois sans problèmes d\'eau ... Nos canons a eau fonctionnent a plein régime <em>[...]</em> de moins en moins nombreux <em>[...]</em>.</p>
+                <p>Hier, nos éclaireurs sont partis avec leurs motos en direction de l\'Est <em>[...]</em> Grande découverte <em>[...]</em> changera nos vies a tout jamais ! Après plusieurs jours de progression dans l\'outre monde, ils ont trouvés <em>[...]</em> d\'eau, <em>[...]</em>possibilité de construire un bateau <em>[...]</em> système de pompage et de filtrage <em>[...]</em></p>
+                <p>Nous nous interrogeons sur l\'état des poissons... Sont ils vivants et comestibles, ou se sont ils transformés en Zombie également ? Dans le premier cas, un bon bain de mer et du poisson frit nous remonteraient le moral ! Dans le deuxième <em>[...]</em> </p>'
+            ],
             "lang" => "fr",
             "background" => "secret",
             "design" => "written"
@@ -1284,7 +1894,9 @@ class TextFixtures extends Fixture
         "army1" => [
             "title" => "Rapport d'opération Nov-46857-A",
             "author" => "zhack",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -1292,7 +1904,9 @@ class TextFixtures extends Fixture
         "heli1" => [
             "title" => "Rapport d'une unité de soutien",
             "author" => "sanka",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -1300,7 +1914,9 @@ class TextFixtures extends Fixture
         "truck1" => [
             "title" => "Rapport de combat 1",
             "author" => "sanka",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "printer",
             "design" => "poem"
@@ -1308,7 +1924,12 @@ class TextFixtures extends Fixture
         "repor5" => [
             "title" => "Rapport de ville 1",
             "author" => "Arma",
-            "content" => [''],
+            "content" => [
+                '<h1>Rapport du cinquième Jour</h1>
+                <p>La journée était bonne. Tout s\'est déroulé à merveille. Nos stocks de ressources se sont remplis d\'une manière fulgurante, les plus intrépides d\'entre nous sont revenus avec de nombreuses provisions et nous avons même eu le temps de creuser la tombe de La-Teigne, le chien.</p>
+                <p>Miwako, la pharmacienne du village, est très satisfaite. Tout le monde semble en pleine forme et nous avons assez de médicaments pour tenir des semaines. Avec l\'aide d\'autres citoyens ingénieux, elle a échafaudé de nombreux plans de défense. Nous nous sommes mis directement au travail. Les constructions se sont terminées étonnamment vite, il faut dire que les bonnes blagues de Max ont remonté le moral de la troupe. Nous avons maintenant un vrai labyrinthe de trous, de scies, de pieux, d\'explosifs devant la ville. Personne ne pourra passer !</p>
+                <p>La nuit va être tranquille. Nous allons enfin pouvoir dormir. J\'espère que les autres villes se débrouillent...</p>'
+            ],
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
@@ -1316,7 +1937,9 @@ class TextFixtures extends Fixture
         "refabr" => [
             "title" => "Refuge Abrité",
             "author" => "Loadim",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1324,7 +1947,9 @@ class TextFixtures extends Fixture
         "outrat" => [
             "title" => "Rongeur reconnaissant",
             "author" => "lerat",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -1332,7 +1957,9 @@ class TextFixtures extends Fixture
         "necro" => [
             "title" => "Rubrique nécrologique",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -1340,7 +1967,9 @@ class TextFixtures extends Fixture
         "cutleg" => [
             "title" => "Récit d'un habitant",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1348,7 +1977,9 @@ class TextFixtures extends Fixture
         "lords1" => [
             "title" => "Récits de LordSolvine, partie 1",
             "author" => "lordsolvine",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -1356,7 +1987,15 @@ class TextFixtures extends Fixture
         "lords2" => [
             "title" => "Récits de LordSolvine, partie 2",
             "author" => "lordsolvine",
-            "content" => [''],
+            "content" => [
+                ' <h2>Jour 2 après l\'accident</h2>
+                <p>Les matins ne sont plus ce qu\'ils étaient. La légère brise qui caressait mon visage le brûle à présent. L\'absence d\'eau se fait sentir, mes pas adoptent un rythme de désespoir, la fin est proche. Si je m\'en sors, je serais marqué... A vie.</p>
+                <p>Je les entends au moment où je vous écris... Les Autres comme je les nomme. Ils crient, pas de douleur... Oh non ! Ils crient de faim. Je ne vais pas m\'attarder et continuer à tracer mon chemin... Principal but, trouver de l\'eau... Potable ou non.</p>',
+                '<p>Voilà 5 heures que je ne t\'avais pas touché ce cher journal... Mais j\'ai une grande nouvelle: mon existence est sauvée pour un temps indéterminé. J\'ai croisé et pris part à la vie... Celle d\'un village. Quel bonheur. Des hommes et des femmes, ensemble, pour survivre. Un puits, des ressources, je vais m\'investir.</p>
+                <p>Etrangement, ils sortent... Pourquoi sortir quand on est protégé à l\'intérieur ? Un collecteur du nom de Zetide m\'a expliqué le tout en détail... Les expéditions, les ressources, les odeurs que l\'on dégage et qui attirent les Autres... Ils les appellent Zombies. Ces morts-vivants qu\'on ne voit que dans les films...Qu\'on ne voyait que dans les films.</p>
+                <p>Demain, c\'est décidé, je sors.</p>
+                <p> </p>'
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -1364,15 +2003,33 @@ class TextFixtures extends Fixture
         "adaper" => [
             "title" => "Réclame Overture technology",
             "author" => "Sengriff",
-            "content" => [''],
+            "content" => [
+                '<h1>Combinaison Radix</h1>
+                <p>Un système de blindage antiradiation parmi les plus fiables du marché : garanti quarante ans sans mutation gênante ! <sup>1</sup></p>',
+                '<h1>PTDG/C Mark II</h1>
+                <p>Peur de la mauvaise ambiance ? Pas d\'inquiétude. Les <strong>PDTG (C)</strong> vous permettront, d\'une pile bien ajustée, de vous débarrasser définitivement des problèmes de voisinage ! Au contraire, si l\'ambiance est à la rigolade, les projectiles de paintball s\'adaptent parfaitement au canon, pour la plus grande joie des petits et des grands !</p>',
+                '<h1>Traitements Overture-Cyanozen</h1>
+                <p>Vous êtes cardiaque ou cancéreux et vous manquez de soins ? Toutes les pharmacies des Abris seront munis d\'un traitement express et révolutionnaire à tous les maux : la pilule de Cyanozen (contient du cyanure) ! De quoi oublier rapidement toutes vos douleurs.</p>',
+                '<small>En cas de problème technique (explosion de la pile nucléaire, défaillance du système de filtrage, impossibilité de fermer le sas, effondrement du plafond) Overture Technology vous propose une assistance sous six mois à un an <sup>2</sup> ; et grâce au performant <strong>GECK</strong> (Guide d\'Évaluation des Chances et du Karma), vous pourrez facilement déterminer vos probabilités de survie jusque là et comment les optimiser grâce à divers facteurs (cannibalisme, rationnement d\'eau, etc).</small>
+                <small>Souscrivez au programme : « <strong>Être à l\'abri, c\'est être en vie</strong> » : protection assurée contre les cataclysmes nucléaires, écologiques et les épidémies, pour la modique somme de soixante mille francs : la meilleure des assurances vies !</small>
+                <small><strong>Ce que l\'avenir vous promet, Overture Technology vous en protège.</strong></small>
+                <small>1. offre non-valable pour les êtres cellulaires.</small>
+                <small>2. jours ouvrables uniquement. </small>'
+            ],
             "lang" => "fr",
-            "background" => null,
-            "design" => null
+            "background" => 'stamp',
+            "design" => "stamp"
         ],
         "sadism" => [
             "title" => "Sadique",
             "author" => "esuna114",
-            "content" => [''],
+            "content" => [
+                '<p>J’étais... sadique.</p>
+                <p>Depuis le début, la seule force qui me poussait à survivre était de voir ces zombies massacrés, sanguinolents, le corps écartelé, les yeux arrachés. Je me complaisais dans cette boucherie. D’autres sont effrayés à la suite de ce spectacle horrible, et préfèrent se terrer dans leur maison, en attendant tout simplement leur fin. Personnellement, je ne voulais pas voir s’arrêter ce maelström de violence, ce feu d’artifice morbide,  à aucun prix. Que cela soit au bâton, pour faire durer le plaisir, au couteau, pour les plus professionnels,  plus les techniques étaient variées, plus j\'avais envie de voir cette ville survivre longtemps. Je ne tirais que peu de complaisance de voir mes collègues massacrés, non pas parce cela me peinait, mais parce que la méthode des zombies manquait fortement d\'originalité tout au long des attaques de ces 18 journées.</p>',
+                '<p>C\'est alors que je trouvais, la panacée, que dis-je, le Saint Graal de la souffrance, des plaies écorchées, des effusions de sang! Nous avons eu besoin de nos dernières ressources pour "le" construire. Cette machine démoniaque, cette engeance de l\'enfer mécanique, nous l\'avons baptisé le "lance-tôle". Cette création m\'a procuré un plaisir incroyable lors de la dernière attaque, les zombies explosant littéralement de toute part, leurs membres épars étant à leur tour déchiquetés par cet impitoyable destructeur.  Ahhh, quel plaisir... </p>
+                <p>Aucune autre invention ne surpasse celle-ci.</p>
+                <p>J\'attends avec impatience cette nouvelle nuit...</p>'
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -1380,15 +2037,38 @@ class TextFixtures extends Fixture
         "nohope" => [
             "title" => "Sans espoir",
             "author" => "Boulay",
-            "content" => [''],
+            "content" => [
+                '<p>Il est près de minuit, et depuis l\'extérieur de la ville me parviennent les bruits de la horde en train de se rassembler. Combien de fois avons-nous déjà repoussé les zombies? Trop.</p>
+                <p>Hier, nous avons eu du mal à repousser l\'attaque, certaines de ces horribles créatures ont envahi la ville, de nombreux citoyens sont morts. J\'ai retrouvé la tête de mon voisin dans le puits ce matin. J\'ai échappé à leurs crocs de justesse, en me cachant sous un tas de détritus. Mais maintenant, les détritus sont en grande partie des morceaux de nos amis décédés. Impensable de retourner s\'y cacher.</p>',
+                '<p>Nous ne sommes plus qu\'une poignée dans la ville. Beaucoup de personnes qui se sont suicidées, les autres étant définitivement terrorisés. Je suis le seul être vivant encore sain d\'esprit, même la poule tremble nerveusement. Ce qui me fait penser que demain, nous serons tous morts. J\'ai passé la journée à démonter les abris des morts pour me confectionner une véritable forteresse, à grands renforts de vitamines, mais ça ne suffira certainement pas. Je ne me fais aucune illusion sur l\'avenir. Il est obscur.</p>
+                <p>Ceci était mon message d\'adieu au monde des vivants. Si jamais un jour, contre toute vraisemblance, quelqu\'un lit ces lignes, qu\'il sache qu\'il ne sert à rien de lutter pour vivre. Il n\'y a aucun espoir, à quoi bon souffrir pour repousser l\'échéance?</p>'
+            ],
             "lang" => "fr",
             "background" => "white",
-            "design" => "white"
+            "design" => "typed"
+        ],
+        "savoir" => [
+            "title" => "Savoir-vivre en société",
+            "author" => "Than",
+            "content" => [
+                '>
+                <p>J’va t’dire mon gars, quand t’a faim, tu r’garde pas c’te tu manges !<br>
+                Sûr qu’un p’tit chat c’est décoratif pis qu’ça fait d’la compagnie dans ta cahute. Mais j’vais t’dire : un p’tit chat bien préparé bah c’est goûtu pis ça ravigotte !!<br>
+                Pis une fois qu’t’as la main, le serpent, ça s’fait bien aussi. Moins savoureux mais niveau tendresse de la viande ça s’pose là !<br>
+                Alors oué. Le citoyen Martin l’était pas mauvais non plus. L’truc c’est qu’j’aurais pas dû partager avec les autres. Z’ont paniqués les autres !<br>
+                M’ont collé en cage les gueux !<br>
+                … y fait faim…</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
         ],
         "shun1" => [
             "title" => "Shuny : Témoignage des derniers jours",
             "author" => "Shuny",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -1396,7 +2076,11 @@ class TextFixtures extends Fixture
         "surviv" => [
             "title" => "Survivre",
             "author" => "Liior",
-            "content" => [''],
+            "content" => [
+                '<h2>Le 3 septembre :</h2>
+                <p>Le corbeau tourne en dessus du village, il ne sait plus où donner de la tête, car les cadavres jonchent le sol de la place. Certains bougent encore, malgré que je n\'en aie trouvé aucun de « cliniquement » vivant. Je le regarde faire ses tours pendant des heures, et je me demande lequel de mes amis va pouvoir lui servir d\'encas. Je suis libre comme l\'air, pendant encore quelques heures. Je peux me promener, entrer chez les gens, me servir de leurs affaires et prendre ce qui me plait à la banque. Je suis seul, et je suis perdu. Je crois que la drogue que j\'ai pris en banque commence à faire son effet. </p>',
+                '<p>Je me sens fort mais faible à la fois. Je sais que ce soir, je serai seul face aux hordes. Dernier survivant de mon village, j\'ai très peur, mais je ressens comme une sorte de fierté. Celle-ci ne tiendra pas quand je serai devant les zombies du soir. Une fierté bien éphémère.</p>'
+            ],
             "lang" => "fr",
             "background" => "noteup",
             "design" => "written"
@@ -1404,7 +2088,14 @@ class TextFixtures extends Fixture
         "nice" => [
             "title" => "Sélection naturelle",
             "author" => "stravingo",
-            "content" => [''],
+            "content" => [
+                ' <p>On dit souvent de moi que je suis d\'une gentillesse sans pareille.</p>
+                <p>C\'est vrai, j\'aime rendre service, m\'acquitter de tâches qui rebuteraient pourtant bien d\'autres. Je m\'investit sans compter pour la communauté, prodiguant des encouragements aux plus faibles.</p>
+                <p>Je suis toujours d\'une extrême politesse. On m\'admire d\'ailleurs pour mes talents de négociateur. Lorsqu\'il y a des tensions, qu\'éclatent des altercations, les gens sont tout de suite soulagés lorsque je m\'en mêle. Ils savent que la paix va très vite revenir.</p>
+                <p>J\'inspire confiance et les gens ont confiance en moi.</p>
+                <p>Aujourd\'hui, ils sont tous partis en expédition pour trouver de quoi subsister un jour de plus.</p>
+                <p>Je les entend frapper à la porte depuis des heures maintenant. Les insultes ont fait place aux supplications. Il est vrai que la nuit tombe rapidement.</p>'
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1412,7 +2103,9 @@ class TextFixtures extends Fixture
         "theor1" => [
             "title" => "Théories nocturnes 1",
             "author" => "Planeshift",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -1420,7 +2113,9 @@ class TextFixtures extends Fixture
         "theor2" => [
             "title" => "Théories nocturnes 2",
             "author" => "Bigmorty",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "grid",
             "design" => "typed"
@@ -1428,7 +2123,9 @@ class TextFixtures extends Fixture
         "wintck" => [
             "title" => "Ticket gagnant",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "tinystamp",
             "design" => "small"
@@ -1436,7 +2133,9 @@ class TextFixtures extends Fixture
         "lostck" => [
             "title" => "Ticket perdant",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "tinystamp",
             "design" => "small"
@@ -1444,7 +2143,9 @@ class TextFixtures extends Fixture
         "crema1" => [
             "title" => "Tirage au sort",
             "author" => "stravingo",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
@@ -1452,7 +2153,9 @@ class TextFixtures extends Fixture
         "theend" => [
             "title" => "Tout est donc fini.",
             "author" => "CeluiQuOnNeNommePas",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -1460,15 +2163,27 @@ class TextFixtures extends Fixture
         "cult1" => [
             "title" => "Tract du culte de la morte-vie",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                '<div class="hr"></div>
+                <h1><small>Vous avez perdu un être cher ? Confiez-le au</small></h1>
+                <h1>Culte de la morte-vie.</h1>
+                <p>Le culte de la morte vie redonne vie à l\'être décédé. Apportez le cadavre, une forte somme en liquide et une muselière. La morte vie, pour la réincarnation de l\'humanité dans sa nouvelle splendeur.</p>',
+                '<p>L\'humanité avance vers son nouveau stade d\'évolution. Les humains deviennent plus résistants, plus forts. Ils survivent dans la mort. Préparez-vous et votre famille à franchir le pas pour entrer dans votre nouvelle vie : la morte vie. Les cultes sont célébrés dans l\'ancien métro, toutes les nuits à minuit. </p>
+                <h1>Venez nombreux nous rejoindre pour découvrir la joie de la morte-vie et recevoir l\'illumination du grand gourou Magnus Ier en personne.</h1>
+                <p>Ne croyez pas les propos tenus par les autorités. Nous avançons vers notre futur. Un jour, la Terre entière sera recouverte de zombis. Soyez parmi les premiers à obtenir l\'état de grâce, rejoignez le mouvement de la morte-vie.</p>',
+                '<p>Grâce au culte de la morte-vie, vivez une expérience inoubliable ! Rencontrez en tête à tête et seul à seul des personnages ayant survécus à la mort. Vous aussi, survivez à la mort et devenez comme eux !</p>
+                <p>Besoin de main d\'oeuvre peu chère ? Adressez-vous au culte de la morte-vie. Chaque jour, nous tenons à votre disposition de plus en plus de travailleurs. Livrés en camion-benne.</p>'
+            ],
             "lang" => "fr",
             "background" => "letter",
-            "design" => "small"
+            "design" => "typed"
         ],
         "utpia1" => [
             "title" => "Un brouillon",
             "author" => "anonyme",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "secret",
             "design" => "written"
@@ -1476,7 +2191,9 @@ class TextFixtures extends Fixture
         "loginc" => [
             "title" => "Un journal incomplet",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -1484,23 +2201,63 @@ class TextFixtures extends Fixture
         "granma" => [
             "title" => "Un post-it",
             "author" => "sunsky",
-            "content" => [''],
+            "content" => [
+                '<p>Mamie, ca fait 3 jours que tu dors.</p>
+                <p>J\'ai froid et tu ne me réponds pas !</p>
+                <p>Quand tu te réveilleras, viens me retrouver.</p>
+                <p>Il y a des gens qui font du bruit quand il est tard le soir. Je vais aller voir s\'ils veulent pas jouer au ballon avec moi.</p>'
+            ],
             "lang" => "fr",
             "background" => "postit",
             "design" => "postit"
         ],
+        "letmys" => [
+            "title" => "Une lettre étrange",
+            "author" => "sunsky",
+            "content" => [
+                '<p>
+                Vendredi soir, je t\'écris ce petit mot.<br>
+                Encore une journée calme.<br>
+                Une bonne chose quand on sait le monde dans lequel on vit !<br>
+                Les soldats qui gardent notre camp sont très <br>
+                Efficaces et professionnels dans tout ce qu\'ils font. Ils<br>
+                Nous ont dit qu\'ils passeraient dans votre ville<br>
+                Très bientôt pour vous aider.<br>
+                <br>
+                Vous pourrez les accueillir comme il se doit !<br>
+                On a vraiment besoin de leur présence réconfortante et<br>
+                Une main de plus est toujours la bienvenue, hein.<br>
+                Sans eux, ça serait plus dur.<br>
+                <br>
+                Toi tu sais de quoi je parle.<br>
+                Une amie comme toi, depuis le temps qu\'on se connait !<br>
+                Et c\'est pas la première lettre qu\'on s\'écrit, hein, tu <br>
+                Raconteras bien à tous de préparer un accueil mérité...<br>
+                </p>
+                <br>
+                <em>Ton frère qui tient à toi</em>'
+            ],
+            "lang" => "fr",
+            "background" => "letter",
+            "design" => "typedsmall"
+        ],
         "night1" => [
             "title" => "Une nuit comme les autres...",
             "author" => "Ahmen",
-            "content" => [''],
+            "content" => [
+                '<p>Lentement, sous la lune pesante, ils marchent dans le sable ardent. Leurs douleurs effacées, leur humanité oubliée, sans cesse, ils avancent. A travers eux nous y avons vus des étoiles mais quand, au loin, les premiers grognements se répandent, que les premiers pas s\'entendent; nous nous blotissons contre nos objets dérisoires, grinçant des dents. Fermant les yeux mais, hélas, pas nos oreilles, ils sont là !</p>
+                <p>Nous sentons, alors, leurs putréfactions galopantes martellant la taule et le bois. Nous entendons, encore et toujours, les cris de nos frères restés dehors qui, comme eux, marcheront demain dès l\'aurore, toujours plus nombreux. </p>'
+            ],
             "lang" => "fr",
             "background" => "notepad",
-            "design" => "written"
+            "design" => "classic"
         ],
         "night2" => [
             "title" => "Une nuit dehors",
             "author" => "mrtee50",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "blood",
             "design" => "blood"
@@ -1508,7 +2265,9 @@ class TextFixtures extends Fixture
         "jay" => [
             "title" => "Une pile de post-its",
             "author" => "todo",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "postit",
             "design" => "postit"
@@ -1516,7 +2275,9 @@ class TextFixtures extends Fixture
         "revnge" => [
             "title" => "Vengeance",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "tinystamp",
             "design" => "small"
@@ -1524,7 +2285,9 @@ class TextFixtures extends Fixture
         "nails" => [
             "title" => "Vis et écrous",
             "author" => "totokogure",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "secret",
             "design" => "written"
@@ -1532,7 +2295,9 @@ class TextFixtures extends Fixture
         "contam" => [
             "title" => "Zone contaminée",
             "author" => "coctail",
-            "content" => [''],
+            "content" => [
+                ''
+            ],
             "lang" => "fr",
             "background" => "carton",
             "design" => "typed"
@@ -1570,10 +2335,10 @@ class TextFixtures extends Fixture
 
             // Set property
             $entity
-                ->setName( $name )
-                ->setAuthor( $entry['author'] )
-                ->setTitle( $entry['title'] )
-                ->setLanguage($entry['lang'])
+            ->setName( $name )
+            ->setAuthor( $entry['author'] )
+            ->setTitle( $entry['title'] )
+            ->setLanguage($entry['lang'])
             ;
 
             if(isset($entry['background']))

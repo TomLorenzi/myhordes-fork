@@ -12,11 +12,21 @@
 @import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import (css) url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+@font-face {
+  font-family: 'visitor2';
+  src: url('../fonts/visitor2.ttf')  format('truetype');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@myhordes-fixed-font: "Inconsolata", fixed;
+@myhordes-sans-serif-font: "Comic Neue", sans-serif;
+@myhordes-serif-font: "Lora", serif;
 
 @myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
-@myhordes-background: url(../img/bg_colored.jpg) top center no-repeat, #100C0B;
+@myhordes-background: url(../img/bg_colored.jpg) fixed top no-repeat, #100C0B;
 
 @myhordes-content-width: 950px;
 @myhordes-content-background: url(../img/bg_content.jpg) left repeat-y;
@@ -72,6 +82,10 @@ div.debug_info {
   &>div:last-child { font-size: .9rem; float: right; display: inline-block }
   & a { color: white !important; }
   &:after { content: " "; clear: both; display: block; }
+}
+
+x-message {
+  display: none;
 }
 
 #notifications {
@@ -808,6 +822,22 @@ div.death_list {
       }
     }
   }
+}
+
+div.rebirth {
+  background: #996739;
+  border: 1px solid #b37c4a;
+  div.rebirth_label {
+    font-size: 1.1rem;
+    background: #b37c4a;
+    font-variant: small-caps;
+    color: #f0d79e;
+    padding: 5px;
+  }
+  div.rebirth_btn {
+    margin-top: 10px;
+  }
+  margin-bottom: 10px;
 }
 
 div.tooltip {
