@@ -84,7 +84,7 @@
                             {% if (citizen.zone.x == 0) and (citizen.zone.y == 0) %}
                                 {{ "Am Stadttor"|trans({},'game') }}
                             {% else %}
-                                [{{ citizen.zone.x }}|{{ citizen.zone.y }}]
+                                [{{ citizen.zone.x }},{{ citizen.zone.y }}]
                             {% endif %}
                         {% endif %}
                     {% endif %}
