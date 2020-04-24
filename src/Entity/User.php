@@ -60,6 +60,11 @@ class User implements UserInterface, EquatableInterface
     private $citizens;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AdminBan", mappedBy="user")
+     */
+    private $bannings;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user")
      */
     private $foundTexts;
@@ -122,6 +127,14 @@ class User implements UserInterface, EquatableInterface
 
     public function getSalt( ): string {
         return 'user_salt_myhordes_ffee45';
+    }
+
+    /**
+     * @return Collection|AdminBan[]
+     */
+    public function getBannings(): Collection
+    {
+        return $this->bannings;
     }
 
     public function getValidated(): ?bool
@@ -194,6 +207,29 @@ class User implements UserInterface, EquatableInterface
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();
+    }
+
+    public function getIsBanned(): bool {
+        foreach ($this->getBannings() as $b)
+            if ($b->getActive())
+                return true;
+        return false;
+    }
+
+    public function getLongestActiveBan(): ?AdminBan {
+        $ban = null;
+        foreach ($this->getBannings() as $b){
+            if ($b->getActive()) {
+                if (!isset($ban)) {
+                    $ban = $b;                       
+                }
+                else if ($b->getBanEnd() > $ban->getBanEnd())
+                    $ban = $b;     
+            }
+        }            
+        if (isset($ban))
+            return $ban;
+        return null;
     }
 
     public function getActiveCitizen(): ?Citizen {
