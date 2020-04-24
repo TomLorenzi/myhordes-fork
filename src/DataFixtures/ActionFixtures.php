@@ -751,8 +751,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'water_cup_#00'       => [ 'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2' ],
 
             'water_can_3_#00'     => [ 'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2' ],
-            'water_can_2_#00'     => [ 'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2' ],
-            'water_can_1_#00'     => [ 'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2' ],
+            'water_can_2_#00'     => [ 'fill_watercan2', 'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2' ],
+            'water_can_1_#00'     => [ 'fill_watercan1', 'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2' ],
             'water_can_empty_#00' => [ 'fill_watercan0' ],
 
             'can_#00'             => [ 'can' ],
