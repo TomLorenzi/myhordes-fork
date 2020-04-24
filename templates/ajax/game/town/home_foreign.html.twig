@@ -159,10 +159,11 @@
                 const adminButtons = document.querySelectorAll('[x-admin-action]');
                 for (let i = 0; i < adminButtons.length; i++)
                     adminButtons[i].addEventListener('click', function() {
-                    $.ajax.easySend( '{{ path('town_visit_headshot', {id: owner.user.id}) }}', {},
-                        function () {
-                            $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
-                        } );
+                    if (confirm('{{ 'Diesen Bürger töten?'|trans({},'admin') }}'))
+                        $.ajax.easySend( '{{ path('town_visit_headshot', {id: owner.user.id}) }}', {},
+                            function () {
+                                $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+                            } );
                 })
             {% endif %}
         {% endif %}
