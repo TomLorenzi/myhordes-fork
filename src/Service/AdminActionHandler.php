@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Entity\AdminBan;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
 use App\Entity\Forum;
@@ -10,6 +11,7 @@ use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\User;
 use App\Service\DeathHandler;
+use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -118,5 +120,36 @@ class AdminActionHandler
             return null;
         }
         return $thread;
+    }
+
+    public function ban(int $sourceUser, int $targetUser, string $reason, int $duration): bool
+    {
+        if(!$this->hasRights($sourceUser))
+            return false;
+            
+
+        if (!($duration < 31 && $duration > 0)) return false;
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUser);
+        $banStart = new DateTime('now');
+        $banEnd = new DateTime('now');
+        $interval = ('P' . strval($duration) . 'D');
+        
+        $banInterval = new DateInterval($interval);
+        $banEnd->add($banInterval);
+        $newban = (new AdminBan())
+            ->setSourceUser( $sourceUser )
+            ->setUser( $targetUser )           
+            ->setReason( $reason )
+            ->setBanStart( $banStart )
+            ->setBanEnd( $banEnd );
+        
+        try {
+            $this->entity_manager->persist($newban);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return false;
+        }
+        return true;
     }
 }
