@@ -275,7 +275,14 @@
                                     {% for stat in other_citizen.status %}
                                         {# @var stat \App\Entity\CitizenStatus #}
                                         {% if not stat.hidden %}
-                                            <li class="status"><img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'status') }}"></li>
+                                            <li class="status">
+                                                <img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
+                                                {% if stat.description %}
+                                                <div class="tooltip temp-building">
+                                                {{ stat.description|trans({}, 'game')}}
+                                                </div>
+                                                {% endif %}
+                                            </li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
