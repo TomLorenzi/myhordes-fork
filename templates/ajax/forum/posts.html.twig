@@ -6,11 +6,21 @@
     {% if pages > 1 %}
         <div class="row">
             <div class="cell rw-12 padded center">
-                <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
-                <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
-                <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
-                <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
-                <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                {% if current_page > 1 %}
+                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
+                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
+                {% else %}
+                    <div class="forum-header-button-disabled"><i class="fa fa-fast-backward"></i></div>
+                    <div class="forum-header-button-disabled"><i class="fa fa-backward"></i></div>
+                {% endif %}
+                <div class="forum-header-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
+                {% if current_page < pages %}
+                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
+                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                {% else %}
+                    <div class="forum-header-button-disabled"><i class="fa fa-forward"></i></div>
+                    <div class="forum-header-button-disabled"><i class="fa fa-fast-forward"></i></div>
+                {% endif %}
             </div>
         </div>
     {% endif %}
@@ -45,7 +55,7 @@
         <div class="cell rw-6 left">
         {% if is_granted("ROLE_ADMIN")%}
             {% if not locked %}
-                <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Schließen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" />{{ 'Schließen'|trans({},'global') }}</div>
             {% endif %}
             {% if locked %}
                 <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
@@ -53,8 +63,10 @@
         {% endif %}
         </div>
         <div class="cell rw-6 right">
-        {% if pages == current_page and not locked %}
+        {% if not locked and not is_granted("ROLE_BANNED") %}            
             <div x-forum-action="answer" class="forum-button">{{ 'Antworten'|trans({},'global') }}</div>
+        {% else %}
+            <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" />{{ 'Antworten'|trans({},'global') }}</div>
         {% endif %}
         </div>
     </div>

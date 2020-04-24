@@ -11,7 +11,11 @@
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button">{{ 'Zurück'|trans({},'global') }}</div>
                             <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><i class="fa fa-sync-alt"></i></div>
-                            <div x-forum-action="new" class="forum-button">{{ 'Neues Thema'|trans({},'global') }}</div>
+                            {% if is_granted("ROLE_BANNED") %}
+                                <div class="banned-button" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
+                            {% else %}
+                                <div x-forum-action="new" class="forum-button" id="new-thread-button">{{ 'Neues Thema'|trans({},'global') }}</div>
+                            {% endif %}    
                         </div>
                     </div>
                     <br />
@@ -128,16 +132,16 @@
     {{ parent() }}
     <script>
         let thread_buttons = document.querySelectorAll('[x-thread-id');
-
-        let new_post_btns = document.querySelectorAll('[x-forum-action=new]');
-        for (let i = 0; i < new_post_btns.length; i++)
-            new_post_btns[i].addEventListener('click', function() {
-                for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');
-                let viewer = document.getElementById('forum-content');
-                {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
-                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ url('forum_thread_editor_controller', {id: forum.id}) }}', false )
-            })
-
+        {% if not is_granted("ROLE_BANNED") %}
+            let new_post_btns = document.querySelectorAll('[x-forum-action=new]');
+            for (let i = 0; i < new_post_btns.length; i++)
+                new_post_btns[i].addEventListener('click', function() {
+                    for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');
+                    let viewer = document.getElementById('forum-content');
+                    {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
+                    $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ url('forum_thread_editor_controller', {id: forum.id}) }}', false )
+                })            
+        {% endif %}
 
         for (let i = 0; i < thread_buttons.length; i++)
             thread_buttons[i].addEventListener('click', function() {
