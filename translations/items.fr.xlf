@@ -2559,7 +2559,7 @@
         <note>Gereinigtes modriges Wasser</note>
         <note category="german">Gereinigtes modriges Wasser</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Gereinigtes modriges Wasser</source>
         <target>Eau croupie purifiée</target>
       </segment>
@@ -2856,7 +2856,7 @@
         <note>Abgenutzte Kuriertasche</note>
         <note category="german">Abgenutzte Kuriertasche</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Abgenutzte Kuriertasche</source>
         <target>Sacoche usée</target>
       </segment>
@@ -2878,7 +2878,7 @@
         <note>Schlagschlüssel</note>
         <note category="german">Schlagschlüssel</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schlagschlüssel</source>
         <target>Clé à percussion</target>
       </segment>
@@ -2889,7 +2889,7 @@
         <note>Flaschenöffner</note>
         <note category="german">Flaschenöffner</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Flaschenöffner</source>
         <target>Décapsuleur</target>
       </segment>
@@ -2911,7 +2911,7 @@
         <note>Abdruck vom Schlagschlüssel</note>
         <note category="german">Abdruck vom Schlagschlüssel</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Abdruck vom Schlagschlüssel</source>
         <target>Empreinte de clé à percussion</target>
       </segment>
@@ -2944,7 +2944,7 @@
         <note>Hotel-Bauplan (ungewöhnlich)</note>
         <note category="german">Hotel-Bauplan (ungewöhnlich)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hotel-Bauplan (ungewöhnlich)</source>
         <target>Plan de chantier (inhabituel) (Hôtel abandonné)</target>
       </segment>
@@ -2955,7 +2955,7 @@
         <note>Hotel-Bauplan (selten)</note>
         <note category="german">Hotel-Bauplan (selten)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hotel-Bauplan (selten)</source>
         <target>Plan de chantier (rare) (Hôtel abandonné)</target>
       </segment>
@@ -2966,7 +2966,7 @@
         <note>Hotel-Bauplan (sehr selten!)</note>
         <note category="german">Hotel-Bauplan (sehr selten!)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hotel-Bauplan (sehr selten!)</source>
         <target>Plan de chantier (très rare !) (Hôtel abandonné)</target>
       </segment>
@@ -2977,7 +2977,7 @@
         <note>Bunker-Bauplan (ungewöhnlich)</note>
         <note category="german">Bunker-Bauplan (ungewöhnlich)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bunker-Bauplan (ungewöhnlich)</source>
         <target>Plan de chantier (inhabituel) (Bunker abandonné)</target>
       </segment>
@@ -2988,7 +2988,7 @@
         <note>Bunker-Bauplan (selten)</note>
         <note category="german">Bunker-Bauplan (selten)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bunker-Bauplan (selten)</source>
         <target>Plan de chantier (rare) (Hôtel abandonné)</target>
       </segment>
@@ -2999,7 +2999,7 @@
         <note>Bunker-Bauplan (sehr selten!)</note>
         <note category="german">Bunker-Bauplan (sehr selten!)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bunker-Bauplan (sehr selten!)</source>
         <target>Plan de chantier (très rare !) (Hôtel abandonné)</target>
       </segment>
@@ -3010,7 +3010,7 @@
         <note>Hospital-Bauplan (ungewöhnlich)</note>
         <note category="german">Hospital-Bauplan (ungewöhnlich)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hospital-Bauplan (ungewöhnlich)</source>
         <target>Plan de chantier (inhabituel) (Hôpital abandonné)</target>
       </segment>
@@ -3021,7 +3021,7 @@
         <note>Hospital-Bauplan (selten)</note>
         <note category="german">Hospital-Bauplan (selten)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hospital-Bauplan (selten)</source>
         <target>Plan de chantier (rare) (Hôpital abandonné)</target>
       </segment>
@@ -3032,7 +3032,7 @@
         <note>Hospital-Bauplan (sehr selten!)</note>
         <note category="german">Hospital-Bauplan (sehr selten!)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hospital-Bauplan (sehr selten!)</source>
         <target>Plan de chantier (très rare !) (Hôpital abandonné)</target>
       </segment>
@@ -3043,7 +3043,7 @@
         <note>Verirrte Seele</note>
         <note category="german">Verirrte Seele</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verirrte Seele</source>
         <target>Âme errante</target>
       </segment>
@@ -3065,7 +3065,7 @@
         <note>Schwache Seele</note>
         <note category="german">Schwache Seele</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schwache Seele</source>
         <target>Âme faible</target>
       </segment>
@@ -3087,7 +3087,7 @@
         <note>Brezel</note>
         <note category="german">Brezel</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Brezel</source>
         <target>Brezel</target>
       </segment>
@@ -3109,7 +3109,7 @@
         <note>Pfahlwerfer</note>
         <note category="german">Pfahlwerfer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Pfahlwerfer</source>
         <target>Lance-pieu</target>
       </segment>
@@ -3120,7 +3120,7 @@
         <note>Kalaschni-Splash</note>
         <note category="german">Kalaschni-Splash</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kalaschni-Splash</source>
         <target>Kalachnik'eau</target>
       </segment>
@@ -3131,7 +3131,7 @@
         <note>Schnellgebauter Tisch</note>
         <note category="german">Schnellgebauter Tisch</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schnellgebauter Tisch</source>
         <target>Bureau monté à la rache</target>
       </segment>
@@ -3142,7 +3142,7 @@
         <note>Leerer Automat</note>
         <note category="german">Leerer Automat</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Leerer Automat</source>
         <target>Distributeur vide</target>
       </segment>
@@ -3186,7 +3186,7 @@
         <note>Kalaschni-Splash (leer)</note>
         <note category="german">Kalaschni-Splash (leer)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kalaschni-Splash (leer)</source>
         <target>Kalachnik'eau (vide)</target>
       </segment>
@@ -3230,7 +3230,7 @@
         <note>Wütende Mieze (halb verdaut)</note>
         <note category="german">Wütende Mieze (halb verdaut)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wütende Mieze (halb verdaut)</source>
         <target>Petit chaton furieux (partiellement digéré)</target>
       </segment>
@@ -3241,7 +3241,7 @@
         <note>Tretmine</note>
         <note category="german">Tretmine</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Tretmine</source>
         <target>Mine Antipersonnelle</target>
       </segment>
@@ -3349,7 +3349,7 @@
       <notes>
         <note category="german">Unpersönliche Explodierende Fußmatte</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Unpersönliche Explodierende Fußmatte</source>
         <target>Paillasson piégé</target>
       </segment>
@@ -3409,7 +3409,7 @@
         <note>Verfluchte HiFi</note>
         <note category="german">Verfluchte HiFi</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verfluchte HiFi</source>
         <target>Chaine Hifi maudite</target>
       </segment>
@@ -3464,7 +3464,7 @@
         <note>Best of The King CD</note>
         <note category="german">Best of The King CD</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Best of The King CD</source>
         <target>Compilation du King</target>
       </segment>
@@ -3475,7 +3475,7 @@
         <note>Rock n Roll HiFi</note>
         <note category="german">Rock n Roll HiFi</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rock n Roll HiFi</source>
         <target>Chaîne HI-FI Rock n'Roll</target>
       </segment>
@@ -3486,7 +3486,7 @@
         <note>Verteidigende HiFi</note>
         <note category="german">Verteidigende HiFi</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verteidigende HiFi</source>
         <target>Chaîne Hi-Fi défensive</target>
       </segment>
@@ -3508,7 +3508,7 @@
         <note>Geistiger Beistand</note>
         <note category="german">Geistiger Beistand</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Geistiger Beistand</source>
         <target>Discours rassurant multicoloré</target>
       </segment>
@@ -3519,7 +3519,7 @@
         <note>Fette Python</note>
         <note category="german">Fette Python</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Fette Python</source>
         <target>Serpent agonisant</target>
       </segment>
@@ -3530,7 +3530,7 @@
         <note>Überraschungskiste (3 Geschenke)</note>
         <note category="german">Überraschungskiste (3 Geschenke)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Überraschungskiste (3 Geschenke)</source>
         <target>Caisse surprise (3)</target>
       </segment>
@@ -3541,7 +3541,7 @@
         <note>Überraschungskiste (2 Geschenke)</note>
         <note category="german">Überraschungskiste (2 Geschenke)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Überraschungskiste (2 Geschenke)</source>
         <target>Caisse surprise (2)</target>
       </segment>
@@ -3552,7 +3552,7 @@
         <note>Überraschungskiste (1 Geschenk)</note>
         <note category="german">Überraschungskiste (1 Geschenk)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Überraschungskiste (1 Geschenk)</source>
         <target>Caisse surprise (1)</target>
       </segment>
@@ -3563,7 +3563,7 @@
         <note>Verdächtiger Traubensaft</note>
         <note category="german">Verdächtiger Traubensaft</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verdächtiger Traubensaft</source>
         <target>Jus de mirabelle suspect</target>
       </segment>
@@ -6978,7 +6978,7 @@
         <note>Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.</note>
         <note category="german">Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.</source>
         <target>Vous rencontrez une forme vaporeuse qui semble se lamenter sur place, peut-être pourriez vous la récupérer et en trouver une quelconque utilité.</target>
       </segment>
@@ -6989,7 +6989,7 @@
         <note>Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
         <note category="german">Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</source>
         <target>Profitez de la mort de vos amis ! L'âme de ce citoyen est devenu utilisable pour les chantiers, servez vous en pour défendre votre ville du mieux possible.</target>
       </segment>
@@ -7033,7 +7033,7 @@
         <note>Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</note>
         <note category="german">Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</source>
         <target>Un lance-pieu qui a du servir pour renforcer les barricades sommaires des hôtels ou bunker ou lutter contre n'importe quel type de créatures, il ne reste malheureusement qu'un seul pieu dans l'appareil.</target>
       </segment>
@@ -7044,7 +7044,7 @@
         <note>Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</note>
         <note category="german">Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</source>
         <target>Une puissante sulfateuse à eau, son mécanisme grippé ne résistera pas à plus d'un assaut. </target>
       </segment>
@@ -7055,7 +7055,7 @@
         <note>Dieser wackelige Tisch wurde offensichtlich in Eile gebaut. Doch könnte er, von den Barrikaden geworfen, bestimmt gut einige Zombies zerquetschen.</note>
         <note category="german">Dieser wackelige Tisch wurde offensichtlich in Eile gebaut. Doch könnte er, von den Barrikaden geworfen, bestimmt gut einige Zombies zerquetschen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser wackelige Tisch wurde offensichtlich in Eile gebaut. Doch könnte er, von den Barrikaden geworfen, bestimmt gut einige Zombies zerquetschen.</source>
         <target>Ce bureau monté approximativement est bancal et peu elegant. Laché du haut d'un rempart, il pourra se rendre utile en écrasant des zombies.</target>
       </segment>
@@ -7066,7 +7066,7 @@
         <note>Ich weiß was du denkst: "Kann dieser Automat nicht 20 Rationen Wasser und 50 Tüten Chips enthalten?!?" Dummerweise sieht das nicht so aus...aber immerhin ist er sehr klotzig und enthält ein paar Knochen.</note>
         <note category="german">Ich weiß was du denkst: "Kann dieser Automat nicht 20 Rationen Wasser und 50 Tüten Chips enthalten?!?" Dummerweise sieht das nicht so aus...aber immerhin ist er sehr klotzig und enthält ein paar Knochen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ich weiß was du denkst: "Kann dieser Automat nicht 20 Rationen Wasser und 50 Tüten Chips enthalten?!?" Dummerweise sieht das nicht so aus...aber immerhin ist er sehr klotzig und enthält ein paar Knochen.</source>
         <target>Ce distributeur n'a plus aucune utilité depuis la fin des pillages, il peut faire cependant des ravages une fois balancé du haut d'un rempart. </target>
       </segment>
@@ -7077,7 +7077,7 @@
         <note>Es gab eine Zeit, da waren diese edlen Tiere legendär. Naja...diese Zeiten sind zwar vorbei, aber edel sind sie trotzdem noch.</note>
         <note category="german">Es gab eine Zeit, da waren diese edlen Tiere legendär. Naja...diese Zeiten sind zwar vorbei, aber edel sind sie trotzdem noch.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Es gab eine Zeit, da waren diese edlen Tiere legendär. Naja...diese Zeiten sind zwar vorbei, aber edel sind sie trotzdem noch.</source>
         <target>Il faut un temps où l'on associait ce bel animal à des légendes merveilleuses… Ce temps est bien révolu, il a désormais une toute autre utilité.</target>
       </segment>
@@ -7088,7 +7088,7 @@
         <note>Ein weitgehend verschimmeltes Osterei. Sein fauliger Gestank erinnert ein wenig an Schießpulver. Hat der Schimmel etwa seine physikalischen Eigenschaften verändert? Könnte sich lohnen, auf einen Zombie zu werfen.</note>
         <note category="german">Ein weitgehend verschimmeltes Osterei. Sein fauliger Gestank erinnert ein wenig an Schießpulver. Hat der Schimmel etwa seine physikalischen Eigenschaften verändert? Könnte sich lohnen, auf einen Zombie zu werfen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein weitgehend verschimmeltes Osterei. Sein fauliger Gestank erinnert ein wenig an Schießpulver. Hat der Schimmel etwa seine physikalischen Eigenschaften verändert? Könnte sich lohnen, auf einen Zombie zu werfen.</source>
         <target>Un oeuf de pâques largement moisi, son odeur putride rapelle celle de la poudre, ce pourrait-il que la moisissure ait changé ses propriétés physique ? Ca vaut le coup d'essayer sur des zombies.</target>
       </segment>
@@ -7099,7 +7099,7 @@
         <note>Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</note>
         <note category="german">Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</source>
         <target>Vous fouillant dans le désert de l'Outre-Monde vous tombez face à une petite lumière étincelante étrangement rassurante. En regardant de plus près il se trouve que cela ressemble à une étoile de shérif. A sa vue, vous ressentez immédiatement le pouvoir d'un guerrier d'antan. L'utilisation de cet objet du passé pourrait bien vous donner plus de courage lors des veilles.</target>
       </segment>
@@ -7110,7 +7110,7 @@
         <note>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</note>
         <note category="german">Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</source>
         <target>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</target>
       </segment>
@@ -7121,7 +7121,7 @@
         <note>Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</note>
         <note category="german">Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</source>
         <target>Attention à ne pas s'emmêler avec, on ne voudrait pas avoir à vous couper les doigts pour vous en libérer.</target>
       </segment>
@@ -7154,7 +7154,7 @@
         <note>Das Kätzchen sieht ein wenig angefressen aus. Du solltest es besser nicht noch mehr reizen, es faucht ja jetzt schon.</note>
         <note category="german">Das Kätzchen sieht ein wenig angefressen aus. Du solltest es besser nicht noch mehr reizen, es faucht ja jetzt schon.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das Kätzchen sieht ein wenig angefressen aus. Du solltest es besser nicht noch mehr reizen, es faucht ja jetzt schon.</source>
         <target>Le chat d'un concitoyen surement mort à l'heure qu'il est. Il semble partiellement en colère, mieux vaut ne pas l'énerver d'avantages.</target>
       </segment>
@@ -7165,7 +7165,7 @@
         <note>Irgendwer hat sie mal in der Wüste vergraben, vermutlich um die Zombies aufzuhalten… Bisher haben sie sich nur als effektiv gegen unvorsichtige Mitbürger erwiesen.</note>
         <note category="german">Irgendwer hat sie mal in der Wüste vergraben, vermutlich um die Zombies aufzuhalten… Bisher haben sie sich nur als effektiv gegen unvorsichtige Mitbürger erwiesen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Irgendwer hat sie mal in der Wüste vergraben, vermutlich um die Zombies aufzuhalten… Bisher haben sie sich nur als effektiv gegen unvorsichtige Mitbürger erwiesen.</source>
         <target>On trouve encore des mines dans le désert, en général, ce sont plus les citoyens imprudents que les zombies qui marchent dessus.</target>
       </segment>
@@ -7209,7 +7209,7 @@
         <note>In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden.</note>
         <note category="german">In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden.</source>
         <target>Interdit dans le monde après qu'une personne d'âge avancée ait perdu la vue en croisant le faisceau de ce petit objet, il saura être utile pour trancher de la chair putréfiée !</target>
       </segment>
@@ -7231,7 +7231,7 @@
         <note>Vor langer Zeit hat man mit diesem Werkzeug die Sterne beobachtet. Heute beobachten wir Zombies. Damit braucht die Angriffsabschätzung nur noch halb so viele Bürger.</note>
         <note category="german">Vor langer Zeit hat man mit diesem Werkzeug die Sterne beobachtet. Heute beobachten wir Zombies. Damit braucht die Angriffsabschätzung nur noch halb so viele Bürger.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Vor langer Zeit hat man mit diesem Werkzeug die Sterne beobachtet. Heute beobachten wir Zombies. Damit braucht die Angriffsabschätzung nur noch halb so viele Bürger.</source>
         <target>Dans le passé, cet objet servait à compter et observer le nombre d'étoiles dans le ciel, de nos jours, on a remplacé les étoiles par les zombies. Si utilisé, permet de réduire de moitié le nombre de personnes nécessaire pour l'estimation de l'attaque.</target>
       </segment>
@@ -7242,7 +7242,7 @@
         <note>Nichts sagt "Willkommen zuhause" mehr als eine spontane Fußamputation.</note>
         <note category="german">Nichts sagt "Willkommen zuhause" mehr als eine spontane Fußamputation.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nichts sagt "Willkommen zuhause" mehr als eine spontane Fußamputation.</source>
         <target>Une bien belle manière d'inviter les invités comme les non-invités chez soi, une bombe sous le paillasson, pourquoi n'y avons nous pas pensé plus tôt !</target>
       </segment>
@@ -7253,7 +7253,7 @@
         <note>Der Geist von Chuck lebt in dieser Figur. Nichts kann ihr schaden und sie wird noch lange nach deinem Tod hier sein, stets unerschrocken im Angesicht der Zombies.</note>
         <note category="german">Der Geist von Chuck lebt in dieser Figur. Nichts kann ihr schaden und sie wird noch lange nach deinem Tod hier sein, stets unerschrocken im Angesicht der Zombies.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Geist von Chuck lebt in dieser Figur. Nichts kann ihr schaden und sie wird noch lange nach deinem Tod hier sein, stets unerschrocken im Angesicht der Zombies.</source>
         <target>L'esprit du grand Chuck habite cette figurine, rien ne peux lui arriver, et même après votre mort, elle restera là, sans craindre les hordes.</target>
       </segment>
@@ -7264,7 +7264,7 @@
         <note>Dieses Buch wurde in vielen Sprachen veröffentlicht. Es bietet Rat für aussichtslose Situationen und schützt so vor Angststarren.</note>
         <note category="german">Dieses Buch wurde in vielen Sprachen veröffentlicht. Es bietet Rat für aussichtslose Situationen und schützt so vor Angststarren.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses Buch wurde in vielen Sprachen veröffentlicht. Es bietet Rat für aussichtslose Situationen und schützt so vor Angststarren.</source>
         <target>Ce livre, édité dans de nombreuses langues, vous permet d’appréhender plus calmement votre condition. Il y a une vie après la mort ! Prévient le statut terrorisé si utilisé.</target>
       </segment>
@@ -7297,7 +7297,7 @@
         <note>Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</note>
         <note category="german">Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</source>
         <target>Le mélange des guerriers, le cercueil des rois, le cocktail des dieux ! Si vous doutez de son effet, faîtes le goûter par un de vos voisins.</target>
       </segment>
@@ -7308,7 +7308,7 @@
         <note>Wenn kombiniert mit einer CD, diese HiFi Anlage hat das Potential zu einer Massenvernichtungswaffe zu werden.</note>
         <note category="german">Wenn kombiniert mit einer CD, diese HiFi Anlage hat das Potential zu einer Massenvernichtungswaffe zu werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn kombiniert mit einer CD, diese HiFi Anlage hat das Potential zu einer Massenvernichtungswaffe zu werden.</source>
         <target>Combiné à un CD de musique, cette chaîne devient potentiellement une arme de destruction massive !</target>
       </segment>
@@ -7319,7 +7319,7 @@
         <note>Nichts ist besser, als mit ein wenig 80er Jahre Retro-Musik den Abend zu beleben! Dreh den Regler hoch und mach das Fenster auf!</note>
         <note category="german">Nichts ist besser, als mit ein wenig 80er Jahre Retro-Musik den Abend zu beleben! Dreh den Regler hoch und mach das Fenster auf!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nichts ist besser, als mit ein wenig 80er Jahre Retro-Musik den Abend zu beleben! Dreh den Regler hoch und mach das Fenster auf!</source>
         <target>Rien ne vaut le charme retro d'un artiste des années 90 pour égayer vos soirées sous tente !</target>
       </segment>
@@ -7341,7 +7341,7 @@
         <note>Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...</note>
         <note category="german">Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...</source>
         <target>Un bout de Bâton. Trop court pour servir d'arme, mais pas inutile pour autant...</target>
       </segment>
@@ -7352,7 +7352,7 @@
         <note>Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....</note>
         <note category="german">Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....</source>
         <target>Malgré une apparence trompeuse pouvant laisser croire à un passe-temps de petite fille, il s'agit d'une véritable arme défensive. Dès que les premières ondes sonores de cet objet maudit sortent d'une chaine HIFI, aucune personne normalement constituée ne peut approcher votre habitation. Mais bon, si les zombies étaient normalement constitués, Hordes serait disponible sur facebook, donc méfiez-vous quand même...</target>
       </segment>
@@ -7363,7 +7363,7 @@
         <note>Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</note>
         <note category="german">Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</source>
         <target>Prêt à bouger votre corps suintant au rythm du rock n' roll ? Cette compilation du légendaire king of rock va mettre le feu à la scène !</target>
       </segment>
@@ -7374,7 +7374,7 @@
         <note>Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!</note>
         <note category="german">Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!</source>
         <target>Combiné à un CD du King, vous vous réveillerez avec une pêche d'enfer tous les matins.</target>
       </segment>
@@ -7385,7 +7385,7 @@
         <note>Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)</note>
         <note category="german">Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)</source>
         <target>Combiné à un CD de musique, et des boules quiès, vous serez épargné par la toute puissance de cette arme fatale pour quiconque approchera de votre domicile</target>
       </segment>
@@ -7396,7 +7396,7 @@
         <note>Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</note>
         <note category="german">Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</source>
         <target>C'est particulièrement lourd et ça contient sûrement quelque chose de précieux... Reste à trouver un outil plus adapté que vos dents pour l'ouvrir.</target>
       </segment>
@@ -7407,7 +7407,7 @@
         <note>Keine Ahnung, ob es am LSD liegt oder daran, dass Chuck Norris so hart ist, er trinkt Napalm gegen Sodbrennen - aber diese Rede hat definitiv einen positiven Einfluss auf unsere Nachtwächter!</note>
         <note category="german">Keine Ahnung, ob es am LSD liegt oder daran, dass Chuck Norris so hart ist, er trinkt Napalm gegen Sodbrennen - aber diese Rede hat definitiv einen positiven Einfluss auf unsere Nachtwächter!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Keine Ahnung, ob es am LSD liegt oder daran, dass Chuck Norris so hart ist, er trinkt Napalm gegen Sodbrennen - aber diese Rede hat definitiv einen positiven Einfluss auf unsere Nachtwächter!</source>
         <target>On ne sait pas si c'est l'effet du LSD ou le fait que Chuck Norris est le mec le plus badass au monde, mais ce discours enflammé a son effet sur les troupes des veilleurs !</target>
       </segment>
@@ -7418,7 +7418,7 @@
         <note>Diese riesige Schlange scheint Verdauungsprobleme zu haben... SO kannst du jedenfalls nichts mehr mit ihr anfangen.</note>
         <note category="german">Diese riesige Schlange scheint Verdauungsprobleme zu haben... SO kannst du jedenfalls nichts mehr mit ihr anfangen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese riesige Schlange scheint Verdauungsprobleme zu haben... SO kannst du jedenfalls nichts mehr mit ihr anfangen.</source>
         <target>Ce boa géant semble avoir une indigestion, une grosse bosse se dessine sur son ventre. Il ne sert à rien tel quel...</target>
       </segment>
@@ -7429,7 +7429,7 @@
         <note>Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</note>
         <note category="german">Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</source>
         <target>On dirait qu'un voisin a laissé une petite caisse avec votre nom inscrit dessus devant chez vous... Que peut-elle donc bien contenir ?</target>
       </segment>
@@ -7440,7 +7440,7 @@
         <note>Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: 'Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen'. Das willste doch nicht trinken? Oder etwa doch?!</note>
         <note category="german">Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: 'Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen'. Das willste doch nicht trinken? Oder etwa doch?!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: 'Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen'. Das willste doch nicht trinken? Oder etwa doch?!</source>
         <target>Cette fiole soigneusement scellée contient du jus de mirabelle. C'est vraiment suspect. D'autant qu'elle porte une étiquette : 'en cas d'ingestion, contacter le centre anti-poison le plus proche de chez vous'. Vous n'allez quand même pas boire ça ? Si ?</target>
       </segment>
@@ -7451,7 +7451,7 @@
         <note>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</note>
         <note category="german">Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</source>
         <target>Une étiquette de bouteille... Hé, il y a des choses inscrites derrière !</target>
       </segment>
