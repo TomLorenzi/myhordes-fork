@@ -80,7 +80,6 @@ class DebugCommand extends Command
 
             if ($input->getOption('add-crow')) {
                 $crow = $this->entity_manager->getRepository(User::class)->find(66);
-                file_put_contents ( "./var/log/crowlog.log", $crow->getEmail(), FILE_APPEND);
                 if (!isset($crow)) {
                     $command = $this->getApplication()->find('app:create-user');
                     for ($i = 1; $i <= 80; $i++) {
@@ -99,7 +98,6 @@ class DebugCommand extends Command
                 $crow->setName("Der Rabe");
                 $crow->setEmail("crow");
                 $crow->setPassword( $this->encoder->encodePassword($crow, '5%[9Wqc@"px.&er{thxCt)7Un^-.~K~B;E7b`,#L0"3?3Mcu:x$|8\-h.3JQ*$') );
-                file_put_contents ( "./var/log/crowlog.log", $crow->getEmail(), FILE_APPEND);
                 $this->entity_manager->persist($crow);
                 $this->entity_manager->flush();               
                 
@@ -180,10 +178,10 @@ class DebugCommand extends Command
             $users = $this->entity_manager->getRepository(User::class)->findAll();
 
             foreach ($users as $user) {
-                $activeCitizen = $user->getActiveCitizen();
-                if(isset($activeCitizen)) {
-                    if (!$activeCitizen->getAlive()) {
-                        if (strstr($user->getEmail(), "@localhost") === "@localhost") {
+                if (strstr($user->getEmail(), "@localhost") === "@localhost") {
+                    $activeCitizen = $user->getActiveCitizen();
+                    if(isset($activeCitizen)) {
+                        if (!$activeCitizen->getAlive()) {                           
                             $activeCitizen->setActive(false);
     
                             // Delete not validated picto from DB
@@ -193,10 +191,10 @@ class DebugCommand extends Command
                                 $this->entity_manager->remove($pendingPicto);
                             }
     
-                            $this->entity_manager->persist( $activeCitizen );
+                            $this->entity_manager->persist( $activeCitizen );                            
                         }
                     }
-                }               
+                }
             }
             
             $this->entity_manager->flush();
