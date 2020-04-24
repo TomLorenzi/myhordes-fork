@@ -8,6 +8,7 @@
         <li class="cell rw-2 tab selected">
             <div class="tab-link" x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
         </li>
+        {% if not citizen.town.chaos %}
         {% for name,role in votesNeeded %}
             {% if role %}
             <li class="cell rw-3 tab">
@@ -15,6 +16,7 @@
             </li>
             {% endif %}
         {% endfor %}
+        {% endif %}
     </ul>
 
     <div class="row-table citizens-list">
@@ -26,12 +28,12 @@
         {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.username|lower <=> b.user.username|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row pointer{% if citizen == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                {% if citizen.alive %}
+                {% if citizen.isOnline() %}
                     <div class="cell-small rw-1 citizen-online">&nbsp;</div>
                 {% else %}
                     <div class="cell-small rw-1 citizen-offline">&nbsp;</div>
                 {% endif %}
-                <div class="padded cell rw-4 small citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}">
+                <div class="padded cell rw-4 rw-sm-3 small citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}">
                     <div>
                         {% if citizen.alive %}
                             {% if citizen.banished %}
@@ -65,13 +67,10 @@
                     </div>
                 </div>
                 {% if citizen.alive %}
-                <div class="padded cell rw-6 small hide-md hide-sm citizen-box">
+                <div class="padded cell rw-6 small citizen-box">
                     {{ citizen.home.description }}
                 </div>
-                <div class="padded cell rw-10 small hide-desktop hide-lg citizen-box">
-                    {{ citizen.home.description }}
-                </div>
-                <div class="padded cell rw-3 citizen-box hide-sm hide-md hide-lg">
+                <div class="padded cell rw-3 citizen-box hide-lg hide-md hide-sm">
                     <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                     <span class="citizen-defense">{{ citizen.home.prototype.defense + citizen.home.additionalDefense }} pts</span>
                 </div>
@@ -85,30 +84,48 @@
                             {% if (citizen.zone.x == 0) and (citizen.zone.y == 0) %}
                                 {{ "Am Stadttor"|trans({},'game') }}
                             {% else %}
-                                [{{ citizen.zone.x }}|{{ citizen.zone.y }}]
+                                [{{ citizen.zone.x }},{{ citizen.zone.y }}]
                             {% endif %}
                         {% endif %}
                     {% endif %}
                 </div>
                 {% else %}
-                <div class="padded cell rw-12 small citizen-box">
-                    <span class="hide-md hide-sm">{{ citizen.causeOfDeath.label|trans({}, "game") }}</span>
-                    <span class="hide-desktop hide-lg">{{ 'Tot'|trans({}, "game") }}</span>
+                <div class="padded cell rw-6 hide-md hide-sm small citizen-box">
+                    {% if citizen.home.chest.items|length == 0 %}
+                        <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                    {% endif %}
+                    {% for item in citizen.home.chest.items %}
+                        {# @var \App\Entity\Item item #}
+                        <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                    {% endfor %}
+                </div>
+                <div class="padded cell rw-6 rw-lg-3 rw-md-9 small citizen-box">
+                    {% if citizen.lastWords is null %}
+                        <span>--</span>
+                    {% elseif citizen.lastWords is empty %}
+                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                    {% else %}
+                        <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords }}
+                    {% endif %}
                 </div>
                 {% endif %}
                 <div class="tooltip">
-                    {% if not hidden[citizen.id] %}
-                        {% if citizen.home.chest.items|length == 0 %}
-                            <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                    {% if citizen.alive %}
+                        {% if not hidden[citizen.id] %}
+                            {% if citizen.home.chest.items|length == 0 %}
+                                <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                            {% else %}
+                                <em>{{ 'Truhe'|trans({},'game') }}</em><br />
+                            {% endif %}
+                            {% for item in citizen.home.chest.items %}
+                                {# @var \App\Entity\Item item #}
+                                <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                            {% endfor %}
                         {% else %}
-                            <em>{{ 'Truhe'|trans({},'game') }}</em><br />
+                            <em>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</em>
                         {% endif %}
-                        {% for item in citizen.home.chest.items %}
-                            {# @var \App\Entity\Item item #}
-                            <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
-                        {% endfor %}
                     {% else %}
-                        <em>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</em>
+                        <h1>{{'Todesursache'|trans({}, 'game')}}</h1><br />{{ citizen.causeOfDeath.label|trans({}, "game") }}
                     {% endif %}
                 </div>
             </div>

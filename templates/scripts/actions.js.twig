@@ -76,7 +76,11 @@ const handleActions = function( actions, api_path, return_path ) {
             const item_id   = this.getAttribute('x-provoking-id');
             const target_id = this.getAttribute('x-target-id');
             const action_id = this.getAttribute('x-action-id');
-            let obj = { item: item_id, action: action_id };
+            const esc_c_id = this.getAttribute('x-citizen');
+            const esc_m_id = this.getAttribute('x-escort-meta-action');
+            let obj = (esc_c_id && esc_m_id)
+                ? { item: item_id, action: action_id, citizen: esc_c_id, meta: esc_m_id }
+                : { item: item_id, action: action_id };
             if (target_id) obj.target = target_id;
             $.ajax.easySend( api_path, obj,
                 function () {

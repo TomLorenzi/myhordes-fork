@@ -183,6 +183,11 @@ class Citizen
      */
     private $leadingEscorts;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $lastWords;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -665,8 +670,8 @@ class Citizen
     }
 
     public function isOnline(): bool {
-        $ts = $this->getUser()->getLastActionTime();
-        return $ts ? (time() - $ts->getTimestamp()) < 300 : false;
+        $ts = $this->getLastActionTimestamp();
+        return $ts ? (time() - $ts) < 300 : false;
     }
 
     public function isDigging(): bool {
@@ -677,13 +682,22 @@ class Citizen
                 return !$digTimer->getPassive();
         return false;
     }
+    
+    public function hasDigTimer(): bool {
+        $zone = $this->getZone();
+        if (!$zone) return false;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone()->getId() === $zone->getId())
+                return true;
+        return false;
+    }
 
     public function getDigTimeout(): int {
         $zone = $this->getZone();
         if (!$zone) return -1;
         foreach ($this->getDigTimers() as $digTimer)
             if ($digTimer->getZone()->getId() === $zone->getId())
-                return $digTimer->getPassive() ? -1 : $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
+                return $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
         return -1;
     }
 
@@ -778,6 +792,18 @@ class Citizen
                 $leadingEscort->setLeader(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLastWords(): ?string
+    {
+        return $this->lastWords;
+    }
+
+    public function setLastWords(string $lastWords): self
+    {
+        $this->lastWords = $lastWords;
 
         return $this;
     }
