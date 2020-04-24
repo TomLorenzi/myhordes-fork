@@ -7,6 +7,7 @@ use App\Entity\AdminBan;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
 use App\Entity\Forum;
+use App\Entity\Picto;
 use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\User;
@@ -171,6 +172,32 @@ class AdminActionHandler
         } catch (Exception $e) {
             return false;
         }
+        return true;
+    }
+
+    public function confirmDeath(int $sourceUser, int $targetUser): bool {
+        if(!$this->hasRights($sourceUser))
+            return false;
+
+        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUser);
+        $activeCitizen = $targetUser->getActiveCitizen();
+        if (!(isset($activeCitizen)))
+            return false;
+        if ($activeCitizen->getAlive())
+            return false;
+
+        $activeCitizen->setActive(false);
+
+        // Delete not validated picto from DB
+        // Here, every validated picto should have persisted to 2
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($targetUser);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            $this->entity_manager->remove($pendingPicto);
+        }
+
+        $this->entity_manager->persist( $activeCitizen );
+        $this->entity_manager->flush();
+
         return true;
     }
 }
