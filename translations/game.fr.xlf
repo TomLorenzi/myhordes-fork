@@ -768,7 +768,7 @@
       </notes>
       <segment>
         <source>Du verfügst über keine geeigneten Gegenstände</source>
-        <target>Du verfügst über keine geeigneten Gegenstände</target>
+        <target>Vous n'avez pas d'objet pour cette action</target>
       </segment>
     </unit>
     <unit id="bxRbnw9" name="Herstellen">
@@ -4187,8 +4187,6 @@
     </unit>
     <unit id="LQgPbVT" name="Nordosten">
       <notes>
-        <note>Nordosten</note>
-        <note>Nordosten</note>
         <note category="german">Nordosten</note>
       </notes>
       <segment>
@@ -4198,8 +4196,6 @@
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
       <notes>
-        <note>Nordwesten</note>
-        <note>Nordwesten</note>
         <note category="german">Nordwesten</note>
       </notes>
       <segment>
@@ -4209,8 +4205,6 @@
     </unit>
     <unit id="dOCvO1b" name="Norden">
       <notes>
-        <note>Norden</note>
-        <note>Norden</note>
         <note category="german">Norden</note>
       </notes>
       <segment>
@@ -4220,8 +4214,6 @@
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
       <notes>
-        <note>Südosten</note>
-        <note>Südosten</note>
         <note category="german">Südosten</note>
       </notes>
       <segment>
@@ -4231,8 +4223,6 @@
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
       <notes>
-        <note>Südwesten</note>
-        <note>Südwesten</note>
         <note category="german">Südwesten</note>
       </notes>
       <segment>
@@ -4242,8 +4232,6 @@
     </unit>
     <unit id="qxvJIc." name="Süden">
       <notes>
-        <note>Süden</note>
-        <note>Süden</note>
         <note category="german">Süden</note>
       </notes>
       <segment>
@@ -4253,8 +4241,6 @@
     </unit>
     <unit id="xMKWHhf" name="Osten">
       <notes>
-        <note>Osten</note>
-        <note>Osten</note>
         <note category="german">Osten</note>
       </notes>
       <segment>
@@ -8536,7 +8522,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+        <target>Vous recevrez un plan de chantier en campant ici.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -8545,7 +8531,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target>Hier wurde bereits ein Bauplan gefunden.</target>
+        <target>Un plan de chantier a déjà été trouvé.</target>
       </segment>
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
@@ -8788,7 +8774,88 @@
       </notes>
       <segment>
         <source>Position:</source>
-        <target>Position:</target>
+        <target>Position :</target>
+      </segment>
+    </unit>
+    <unit id="nLA31ML" name="ea40151">
+      <notes>
+        <note category="german">%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
+        <target>%citizen% a passé quelques minutes à améliorer le campement.</target>
+      </segment>
+    </unit>
+    <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
+      <notes>
+        <note category="german">%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
+        <target>%citizen% a installé %item% pour améliorer le campement.</target>
+      </segment>
+    </unit>
+    <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
+      <notes>
+        <note category="german">%citizen% hat sich für heute Nacht ein Versteck gesucht ...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
+        <target>%citizen% a trouvé une cachette pour la nuit. Souhaitons-lui bonne chance...</target>
+      </segment>
+    </unit>
+    <unit id="HyDSnff" name="%citizen% hat sein Versteck verlassen.">
+      <notes>
+        <note category="german">%citizen% hat sein Versteck verlassen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sein Versteck verlassen.</source>
+        <target>%citizen% a quitté sa planque.</target>
+      </segment>
+    </unit>
+    <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
+      <notes>
+        <note category="german">Akteneinsicht wird beantragt...</note>
+      </notes>
+      <segment>
+        <source>Akteneinsicht wird beantragt...</source>
+        <target>Rassemblement des zombies...</target>
+      </segment>
+    </unit>
+    <unit id="wbSNK79" name="Protokolle werden analysiert...">
+      <notes>
+        <note category="german">Protokolle werden analysiert...</note>
+      </notes>
+      <segment>
+        <source>Protokolle werden analysiert...</source>
+        <target>Fabrication des tas de sable...</target>
+      </segment>
+    </unit>
+    <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
+      <notes>
+        <note category="german">Überwachungsapparat wird ausgewertet...</note>
+      </notes>
+      <segment>
+        <source>Überwachungsapparat wird ausgewertet...</source>
+        <target>Rangement de la banque...</target>
+      </segment>
+    </unit>
+    <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
+      <notes>
+        <note category="german">Belastende Beweise werden übermittelt...</note>
+      </notes>
+      <segment>
+        <source>Belastende Beweise werden übermittelt...</source>
+        <target>Belastende Beweise werden übermittelt...</target>
+      </segment>
+    </unit>
+    <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
+      <notes>
+        <note category="german">Stadt im %direction% in %km% Entfernung</note>
+      </notes>
+      <segment>
+        <source>Stadt im %direction% in %km% Entfernung</source>
+        <target>Ville à %km% vers %direction%</target>
       </segment>
     </unit>
   </file>

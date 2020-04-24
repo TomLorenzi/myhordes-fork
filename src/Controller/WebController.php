@@ -49,11 +49,12 @@ class WebController extends AbstractController
             'Ludovic "<i>Ludofloria</i>" Le Brech',
             'Paul "<i>CountCount</i>" Bruhn',
             'Adrien "<i>Adri</i>" Boitelle',
+            'Niklas "<i>Choreas</i>" Kosanke',
         ];
         shuffle($devs);
 
         $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
-        $adminActions = $this->entityManager->getRepository(AdminAction::class)->findAll();
+        $adminActions = [['name' => 'Users', 'id' => 1]];
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),

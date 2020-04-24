@@ -16,6 +16,9 @@ parameters:
       features:
         camping: true
         words_of_heros: true
+        escort:
+          enabled: true
+          max: 4
 
     small:
       map:  { min: 12, max: 14 }

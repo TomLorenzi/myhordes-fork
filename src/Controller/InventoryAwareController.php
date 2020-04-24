@@ -610,16 +610,28 @@ class InventoryAwareController extends AbstractController implements GameInterfa
       $item = null;
       if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
 
-        $this->entity_manager->persist($citizen);
-        foreach ($remove as $remove_entry)
-          $this->entity_manager->remove($remove_entry);
-        try {
-          $this->entity_manager->flush();
-        } catch (Exception $e) {
-          return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+        switch($camping->getName()){
+            case 'campsite_improve':
+                $this->entity_manager->persist($this->log->beyondCampingImprovement($citizen));
+                break;
+            case 'campsite_hide':
+            case 'campsite_tomb':
+                $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
+                break;
+            case "campsite_unhide":
+            case "campsite_untomb":
+                $this->entity_manager->persist($this->log->beyondCampingUnhide($citizen));
+                break;
         }
 
-        //TODO: Add chat log
+        $this->entity_manager->persist($citizen);
+        foreach ($remove as $remove_entry)
+            $this->entity_manager->remove($remove_entry);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+        }
 
         if ($msg) $this->addFlash( 'notice', $msg );
       } elseif ($error === ActionHandler::ErrorActionForbidden) {
@@ -656,6 +668,10 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove )) === ActionHandler::ErrorNone) {
 
             if ($trigger_after) $trigger_after($action);
+
+            if($action->getName() == 'improve') {
+                $this->entity_manager->persist($this->log->beyondCampingItemImprovement($citizen, $item));
+            }
 
             $this->entity_manager->persist($citizen);
             if ($item->getInventory())

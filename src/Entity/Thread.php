@@ -183,4 +183,12 @@ class Thread
 
         return $this;
     }
+
+    public function getPages(): int
+    {
+        $postCount = $this->getPosts()->count();
+        $pages = floor(($postCount - 1) / 10) + 1;
+
+        return $pages;
+    }
 }

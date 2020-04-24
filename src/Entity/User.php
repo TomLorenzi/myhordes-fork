@@ -94,6 +94,7 @@ class User implements UserInterface, EquatableInterface
         $this->citizens = new ArrayCollection();
         $this->foundTexts = new ArrayCollection();
         $this->pictos = new ArrayCollection();
+        $this->bannings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,7 +178,7 @@ class User implements UserInterface, EquatableInterface
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
-        
+        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';        
         return $roles;
     }
 
@@ -203,10 +204,14 @@ class User implements UserInterface, EquatableInterface
      * @inheritDoc
      */
     public function isEqualTo(UserInterface $user) {
-        return
+        $b1 =
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();
+        if ($user instanceof User) {
+            return $b1 &&
+                $this->getIsAdmin() === $user->getIsAdmin();
+        } else return $b1;
     }
 
     public function getIsBanned(): bool {
@@ -230,6 +235,18 @@ class User implements UserInterface, EquatableInterface
         if (isset($ban))
             return $ban;
         return null;
+    }
+
+    /**
+     * @return Collection|AdminBan[]
+     */
+    public function getActiveBans(): Collection {
+        $bans = $this->getBannings();
+        foreach ($bans as $ban){
+                if (!($ban->getActive()))
+                    $bans->remove($ban->getId());  
+            }            
+        return $bans;
     }
 
     public function getActiveCitizen(): ?Citizen {

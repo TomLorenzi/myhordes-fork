@@ -50,6 +50,16 @@ class AdminBan
      */
     private $banEnd;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $lifted = false;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     */
+    private $liftUser;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,7 +115,7 @@ class AdminBan
 
     public function getActive(): bool
     {
-        if ($this->getBanEnd() > new DateTime("now")) return true;
+        if ($this->getBanEnd() > new DateTime("now") && !( $this->getLifted() )) return true;
         return false;
     }
 
@@ -131,5 +141,29 @@ class AdminBan
     public function getPost(): ?Post
     {
         return $this->post;
+    }
+
+    public function getLifted(): ?bool
+    {
+        return $this->lifted;
+    }
+
+    public function setLifted(?bool $lifted): self
+    {
+        $this->lifted = $lifted;
+
+        return $this;
+    }
+
+    public function getLiftUser(): ?User
+    {
+        return $this->liftUser;
+    }
+
+    public function setLiftUser(?User $liftUser): self
+    {
+        $this->liftUser = $liftUser;
+
+        return $this;
     }
 }

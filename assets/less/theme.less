@@ -901,7 +901,16 @@ div.badge {
 
 div.tooltip-dummy {
   height: 0; position: relative; overflow: visible; padding: 0; margin: 0;
-  &>* { position: absolute; width: 100%; top: 0; z-index: 3; box-shadow: 0 0 2px black, 0 0 10px black }
+  &>* {
+    position: absolute; width: 100%; top: 0; z-index: 3; box-shadow: 0 0 2px black, 0 0 10px black;
+    &.tooltip-dummy-container {
+      background: @myhordes-help-color; outline: 1px solid @myhordes-button-color;
+      &>h4 {
+        margin: 4px; padding: 0 0 4px; border-bottom: 1px solid @myhordes-button-color; color: @myhordes-button-color;
+        text-align: center;
+      }
+    }
+  }
 }
 
 div.daily-attack {

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="padded-small cell rw-4 rw-lg-6 rw-md-12">
             {% embed "ajax/game/map.html.twig" with {
-                'default_zoom': 1,
+                'default_zoom': 0,
                 'default_show_zone': true,
                 'allow_zone_view': true,
                 'move': allow_movement,
@@ -32,7 +32,25 @@
                 </div>
                 <div class="row zone-dist note note-light">
                     <div class="cell rw-12 center">
-                        {{ 'Stadt in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>'},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
+                        {% set dir = "" %}
+                        {% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+                            {% set dir = "Südosten"|trans({},'game') %}
+                        {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+                            {% set dir = "Süden"|trans({},'game') %}
+                        {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+                            {% set dir = "Südwesten"|trans({},'game') %}
+                        {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+                            {% set dir = "Osten"|trans({},'game') %}
+                        {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+                            {% set dir = "Westen"|trans({},'game') %}
+                        {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+                            {% set dir = "Nordosten"|trans({},'game') %}
+                        {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+                            {% set dir = "Norden"|trans({},'game') %}
+                        {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+                            {% set dir = 'Nordwesten'|trans({},'game') %}
+                        {% endif %}
+                        {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
                     </div>
                 </div>
             </div>

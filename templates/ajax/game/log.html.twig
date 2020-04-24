@@ -5,7 +5,7 @@
                 {{ log_content|raw }}
                 {% if log_content|length > 255 %}
                     <div class="log-complete-link">{{ 'Alle Einträge anzeigen'|trans({},'game') }}</div>
-                    <div class="log-spinner hidden"><i class="fa fa-pulse fa-spinner"></i> {{ random(['Akteneinsicht wird beantragt...','Protokolle werden analysiert...','Überwachungsapparat wird ausgewertet...','Belastende Beweise werden übermittelt...'])|trans({},'game') }}</div>
+                    <div class="log-spinner hidden"><i class="fa fa-pulse fa-spinner"></i> {{ random(['Akteneinsicht wird beantragt...'|trans({},'game'),'Protokolle werden analysiert...'|trans({},'game'),'Überwachungsapparat wird ausgewertet...'|trans({},'game'),'Belastende Beweise werden übermittelt...'|trans({},'game')]) }}</div>
                 {% endif %}
             {% endif %}
         </div>

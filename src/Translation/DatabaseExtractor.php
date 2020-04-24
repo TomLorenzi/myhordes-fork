@@ -12,6 +12,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\EscortActionGroup;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemCategory;
@@ -66,6 +67,10 @@ class DatabaseExtractor implements ExtractorInterface
                     $this->insert($c, $requirement->getFailureText(), 'items');
             }
         }
+
+        // Get the escort action labels
+        foreach ($this->em->getRepository(EscortActionGroup::class)->findAll() as $escort_action)
+            $this->insert($c, $escort_action->getLabel(), 'items');
 
         foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
             /** @var $recipe Recipe */
