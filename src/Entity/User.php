@@ -177,7 +177,7 @@ class User implements UserInterface, EquatableInterface
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
-        
+        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';        
         return $roles;
     }
 
@@ -230,6 +230,18 @@ class User implements UserInterface, EquatableInterface
         if (isset($ban))
             return $ban;
         return null;
+    }
+
+    /**
+     * @return Collection|AdminBan[]
+     */
+    public function getActiveBans(): Collection {
+        $bans = $this->getBannings();
+        foreach ($bans as $ban){
+                if (!($ban->getActive()))
+                    $bans->remove($ban->getId());  
+            }            
+        return $bans;
     }
 
     public function getActiveCitizen(): ?Citizen {

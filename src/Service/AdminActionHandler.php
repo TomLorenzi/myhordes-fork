@@ -122,6 +122,27 @@ class AdminActionHandler
         return $thread;
     }
 
+    public function liftAllBans(int $sourceUser, int $targetUser): bool
+    {
+        if(!$this->hasRights($sourceUser))
+            return false;
+            
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+        $bans = $this->entity_manager->getRepository(User::class)->find($targetUser)->getActiveBans();
+        
+        foreach ($bans as $ban){
+            $ban->setLifted(true);
+            $ban->setLiftUser($sourceUser);  
+            $this->entity_manager->persist($ban);
+        }
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return false;
+        }
+        return true;   
+    }
+
     public function ban(int $sourceUser, int $targetUser, string $reason, int $duration): bool
     {
         if(!$this->hasRights($sourceUser))
