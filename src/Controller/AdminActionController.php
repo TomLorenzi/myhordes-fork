@@ -57,9 +57,7 @@ class AdminActionController extends AbstractController
      */
     public function users(): Response
     {
-        $user = $this->entity_manager->getRepository(User::class)->find(5);
-        return $this->render( 'admin_action/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
-            'user' => $user,
+        return $this->render( 'admin_action/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [          
         ]));      
     }
 
@@ -143,5 +141,78 @@ class AdminActionController extends AbstractController
             return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_users_ban_view', ['id' => $user->getId()])] );
 
         return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+    }
+
+    /**
+     * @Route("jx/admin/action/users/{id}/citizen/view", name="admin_users_citizen_view", requirements={"id"="\d+"})
+     * @return Response
+     */
+    public function users_citizen_view(int $id): Response
+    {
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        $banned = $user->getIsBanned();
+        
+        $longestActiveBan = $user->getLongestActiveBan();
+        $bannings = $user->getBannings();
+        $banCount = $bannings->count();
+        $lastBan = null;
+        if ($banCount > 1)
+            $lastBan = $bannings[$banCount - 1];
+        else $lastBan = $bannings[0];
+
+        $citizen = $user->getActiveCitizen();
+        if (isset($citizen)) {
+            $active = true;
+            $town = $citizen->getTown();
+            if ($citizen->getAlive()) {
+                $alive = true;
+            }           
+            else {
+                $alive = false;
+            }               
+        }                    
+        else {
+            $active = false;
+            $alive = false;
+            $town = null;
+        }
+        
+        return $this->render( 'admin_action/users/citizen.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
+            'town' => $town,
+            'active' => $active,
+            'alive' => $alive,
+
+
+            'user' => $user,
+            'banned' => $banned,
+            'activeBan' => $longestActiveBan,
+            'bannings' => $bannings,
+            'banCount' => $banCount,
+            'lastBan' => $lastBan,
+        ]));        
+    }
+
+    /**
+     * @Route("jx/admin/action/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
+     * @return Response
+     */
+    public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
+    {                
+        if ($admh->headshot($this->getUser()->getId(), $id))
+            return AjaxResponse::success();
+
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("jx/admin/action/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
+     * @return Response
+     */
+    public function users_citizen_confirm_death(int $id, AdminActionHandler $admh): Response
+    {                
+        if ($admh->confirmDeath($this->getUser()->getId(), $id))
+            return AjaxResponse::success();
+
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
 }

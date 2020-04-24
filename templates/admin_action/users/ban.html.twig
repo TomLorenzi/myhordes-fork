@@ -11,7 +11,7 @@
                     <input disabled value="{% if banned %}{{ 'Verbannt bis '|trans({}, 'admin') }}{{ activeBan.banEnd|date('d.m.Y h:i:s') }}{% else %}{{ "--" }}{% endif %}" />
                 </div>
                 {% if banned %}
-                <div class="cell padded ro-3 rw-5 rw-sm-12">
+                <div class="cell padded rw-2 rw-sm-12">
                     <button id="x-lift-ban">{{ 'Aufheben'|trans({}, 'admin') }}</button>
                 </div>
                 {% endif %}
