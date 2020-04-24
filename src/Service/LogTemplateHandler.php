@@ -764,7 +764,7 @@ class LogTemplateHandler
             ->setText( $this->trans->trans(
                 $item
                     ? '%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.'
-                    : '%citizen% hat %kills% Zombies getötet.', [
+                    : 'Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%item%'    => $item ? $this->wrap( $this->iconize( $item ) ) : '',
                 '%kills%'   => $this->wrap( "{$kills}" ),
