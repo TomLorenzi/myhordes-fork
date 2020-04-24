@@ -1,330 +1,545 @@
 .soul {
-	.tabs {
-		font-size: 1.2rem;
-		color: #ddab76;
-		border-bottom: 1px solid #ddab76;
-		background-color: #5c2b20;
+    .tabs {
+        font-size: 1.2rem;
+        color: #ddab76;
+        border-bottom: 1px solid #ddab76;
+        background-color: #5c2b20;
 
-		h4.soul-name {
-			margin: 2px 4px;
-		}
-		.tab {
-			.tab-link {
-				display: block;
-				text-align: center;
-				margin: 4px 2px 0;
-				padding: 2px 4px;
-				border: 1px solid #ddab76;
-				border-bottom: none;
-				background-color: #7e4d2a;
-				cursor: pointer;
-				text-decoration: none;
-			}
+        h4.soul-name {
+            margin: 2px 4px;
+        }
+        .tab {
+            .tab-link {
+                display: block;
+                text-align: center;
+                margin: 4px 2px 0;
+                padding: 2px 4px;
+                border: 1px solid #ddab76;
+                border-bottom: none;
+                background-color: #7e4d2a;
+                cursor: pointer;
+                text-decoration: none;
+            }
 
-			&.selected, &:hover {
-				.tab-link {
-					background-color: lighten(#7e4d2a, 20%);
-					color: white;
-					font-weight: bold;
-				}
-			}
-		}
-	}
-	.distinctions {
-		max-width: 240px;
-		background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
-		padding-bottom: 0px !important;
+            &.selected, &:hover {
+                .tab-link {
+                    background-color: lighten(#7e4d2a, 20%);
+                    color: white;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .distinctions {
+        max-width: 240px;
+        background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
+        padding-bottom: 0px !important;
 
-		.distinctions-head {
-			padding-top: 45px;
-			color: #f0d79e;
-			font-variant: small-caps;
-			font-weight: bold;
-			font-size: 2rem;
-		}
+        .distinctions-head {
+            padding-top: 45px;
+            color: #f0d79e;
+            font-variant: small-caps;
+            font-weight: bold;
+            font-size: 2rem;
+        }
 
-		.distinctions-list {
-			padding: 0 10px;
-			min-height: 100px;
-			.overall {
-				color: #FF8866;
-				font-size: 2.4rem;
-				margin-top: 5px;
-			}
+        .distinctions-list {
+            padding: 0 10px;
+            min-height: 100px;
+            .overall {
+                color: #FF8866;
+                font-size: 2.4rem;
+                margin-top: 5px;
+            }
 
-			.empty {
-				border: 1px dashed #823D2D;
-				color: #FF8866;
-				padding: 10px;
-				font-size: 1.2rem;
-				font-style: italic;
-				margin-top: 10px;
-			}
+            .empty {
+                border: 1px dashed #823D2D;
+                color: #FF8866;
+                padding: 10px;
+                font-size: 1.2rem;
+                font-style: italic;
+                margin-top: 10px;
+            }
 
-			.picto {
-				display: inline-block;
-				width: 32px;
-				height: 32px;
-				font-size: 1rem;
-				padding-top: 3px;
-			}
+            .picto {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+                padding-top: 3px;
+            }
 
-			.rare {
-				background: url("../../img/pictos/rewardBg_rare.gif") no-repeat;
-			}
+            .rare {
+                background: url("../../img/pictos/rewardBg_rare.gif") no-repeat;
+            }
 
-			.counter {
-				margin-top: -10px;
+            .counter {
+                margin-top: -10px;
 
-				.count {
-					background: url("../../img/fontBitmap.png") no-repeat;
-					line-height: 0;
-					font-size: 0;
-					width: 5px;
-					height: 8px;
-					display: inline-block;
-				}
+                .count {
+                    background: url("../../img/fontBitmap.png") no-repeat;
+                    line-height: 0;
+                    font-size: 0;
+                    width: 5px;
+                    height: 8px;
+                    display: inline-block;
+                }
 
-				.count[title="0"]{
-					background-position: 0px 0px;
-				}
+                .count[title="0"]{
+                    background-position: 0px 0px;
+                }
 
-				.count[title="1"]{
-					background-position: -5px 0px;
-				}
+                .count[title="1"]{
+                    background-position: -5px 0px;
+                }
 
-				.count[title="2"]{
-					background-position: -9px 0px;
-				}
+                .count[title="2"]{
+                    background-position: -9px 0px;
+                }
 
-				.count[title="3"]{
-					background-position: -14px 0px;
-				}
+                .count[title="3"]{
+                    background-position: -14px 0px;
+                }
 
-				.count[title="4"]{
-					background-position: -19px 0px;
-				}
+                .count[title="4"]{
+                    background-position: -19px 0px;
+                }
 
-				.count[title="5"]{
-					background-position: -24px 0px;
-				}
+                .count[title="5"]{
+                    background-position: -24px 0px;
+                }
 
-				.count[title="6"]{
-					background-position: -29px 0px;
-				}
+                .count[title="6"]{
+                    background-position: -29px 0px;
+                }
 
-				.count[title="7"]{
-					background-position: -34px 0px;
-				}
+                .count[title="7"]{
+                    background-position: -34px 0px;
+                }
 
-				.count[title="8"]{
-					background-position: -39px 0px;
-				}
+                .count[title="8"]{
+                    background-position: -39px 0px;
+                }
 
-				.count[title="9"]{
-					background-position: -44px 0px;
-				}
-			}
-		}
+                .count[title="9"]{
+                    background-position: -44px 0px;
+                }
+            }
+        }
 
-		.distinctions-foot {
-			background: url("../../img/soul/rewardsBg_footer.gif") bottom/100% no-repeat;
-			height: 44px;
-			margin-top: -22px;
-		}
-	}
+        .distinctions-foot {
+            background: url("../../img/soul/rewardsBg_footer.gif") bottom/100% no-repeat;
+            height: 44px;
+            margin-top: -22px;
+        }
+    }
 
-	.block {
+    .block {
 
-	}
+    }
 
-	.score, .current {
-		margin-top: 6px;
-		margin-bottom: 10px;
-		padding: 3px;
-		font-weight: bold;
-		background-color: #5c2b20;
-		border: 1px solid #ddab76;
-		font-size: 1.2rem;
-		strong {
-			color: #f0d79e;
-		}
-	}
+    .score, .current {
+        margin-top: 6px;
+        margin-bottom: 10px;
+        padding: 3px;
+        font-weight: bold;
+        background-color: #5c2b20;
+        border: 1px solid #ddab76;
+        font-size: 1.2rem;
+        strong {
+            color: #f0d79e;
+        }
+    }
 
-	.score {
-		color: #ddab76;
-		font-variant: small-caps;
-		strong {
-			font-size: 1.4rem;
-		}
-	}
+    .score {
+        color: #ddab76;
+        font-variant: small-caps;
+        strong {
+            font-size: 1.4rem;
+        }
+    }
 
-	.current {
-		color: #f0d79e;
-		em {
-			color: #ddab76;
-			font-style: normal;
-			font-size: 1rem;
-		}
-		strong {
-			color: #f0d79e;
-			font-variant: small-caps;
-		}
-	}
+    .current {
+        color: #f0d79e;
+        em {
+            color: #ddab76;
+            font-style: normal;
+            font-size: 1rem;
+        }
+        strong {
+            color: #f0d79e;
+            font-variant: small-caps;
+        }
+    }
 
-	.town-history {
-		.header {
-			font-size: 1rem;
-			font-variant: small-caps;
-			font-weight: bold;
-			color: #f1ddc8;
-			border-bottom: 2px solid #ddab76;
-			background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
-		}
+    .town-history {
+        .header {
+            font-size: 1rem;
+            font-variant: small-caps;
+            font-weight: bold;
+            color: #f1ddc8;
+            border-bottom: 2px solid #ddab76;
+            background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
+        }
 
-		.town-container {
-			background-color: #5c2b20;
-			border-bottom: 1px solid #ddab76;
+        .town-container {
+            background-color: #5c2b20;
+            border-bottom: 1px solid #ddab76;
 
-			.town-name {
-				font-size: 1.2rem;
-			}
+            .town-name {
+                font-size: 1.2rem;
+            }
 
-			.town-days {
-			    color: #f0d79e;
-			}
+            .town-days {
+                color: #f0d79e;
+            }
 
-			.town-points {
-				color: #afacc1;
-			}
+            .town-points {
+                color: #afacc1;
+            }
 
-			.empty {
-				font-size: 1.2rem;
-				margin-top: 5px;
-				padding: 5px;
-				font-variant: small-caps;
-				color: #f86;
-				font-weight: bold;
-			}
+            .empty {
+                font-size: 1.2rem;
+                margin-top: 5px;
+                padding: 5px;
+                font-variant: small-caps;
+                color: #f86;
+                font-weight: bold;
+            }
 
-			.hardcore {
-				background-color:#773939;
-				.town-name,
-				.town-days {
-					color: #f86;
-				}
-			}
-		}
-	}
+            .hardcore {
+                background-color:#773939;
+                .town-name,
+                .town-days {
+                    color: #f86;
+                }
+            }
+        }
+    }
 
-	input {
-		width: 100%;
-	}
+    input {
+        width: 100%;
+    }
 
-	.rp-list {
-		.rp-head {
-			.rp-context {
-				margin-top: 10px;
-			}
-			h5 {
-				color: white;
-			}
-		}
-		.rp-row {
-			font-size: 1.3rem;
-			background: #5c2b20;
-			border-right: 1px solid #7e4d2a;
-			border-bottom: 1px solid #7e4d2a;
-			cursor: pointer;
-			text-decoration: underline;
-			&:hover {
-				color: lighten(@myhordes-smalltext, 20%);
-				background: #965C36;
-			}
-				
-			.rp-text {
-				.title {
-					color: #f0d79e;
-				}
+    .rp-list {
+        .rp-head {
+            .rp-context {
+                margin-top: 10px;
+            }
+            h5 {
+                color: white;
+            }
+        }
+        .rp-row {
+            font-size: 1.3rem;
+            background: #5c2b20;
+            border-right: 1px solid #7e4d2a;
+            border-bottom: 1px solid #7e4d2a;
+            cursor: pointer;
+            text-decoration: underline;
+            &:hover {
+                color: lighten(@myhordes-smalltext, 20%);
+                background: #965C36;
+            }
+                
+            .rp-text {
+                .title {
+                    color: #f0d79e;
+                }
 
-				em {
-					font-size: 1.2rem;
-					color: @myhordes-smalltext;
-				}
-			}
-		}
-	}
+                em {
+                    font-size: 1.2rem;
+                    color: @myhordes-smalltext;
+                }
+            }
+        }
+    }
 
-	.view-rp {
-		.rp-content {
-			height: 420px;
-			overflow: auto;
-			padding-top: 25px;
-			padding-left: 45px;
-			padding-right: 45px;
-			width: 585px;
-			color: black;
-			cursor: pointer;
-			
-			.hr {
-				margin-top: 70px;
-			}
+    .view-rp {
+        .rp-content {
+            height: 420px;
+            overflow: auto;
+            padding-top: 25px;
+            padding-left: 45px;
+            padding-right: 45px;
+            width: 575px;
+            color: black;
+            cursor: pointer;
 
-			h1 {
-				text-align: center;
-				color: #5c2b20;
-				margin-bottom: 10px;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				font-size: 2.3rem;
-				small {
-					display: block;
-					font-size: 1rem;
-				}
-			}
+            sup {
+                color: black;
+            }
+            
+            .hr {
+                margin-top: 70px;
+            }
 
-			&.design-typed p {
-				font-family: "Inconsolata", fixed;
-			}
-			
-			&.design-written p {
-				font-family: "Comic Neue", sans-serif;
-				font-style: italic;
-				color: #5c2b20;
-				font-size: 1.75rem;
-				line-height: 2rem;
-				font-weight: bold;
-				&::first-line {
-					color: black;
-				}
-			}
+            h1 {
+                text-align: center;
+                color: #5c2b20;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 2.3rem;
+                small {
+                    display: block;
+                    font-size: 1rem;
+                }
+            }
 
-			.pages {
-				font-size: 1rem;
-				font-weight: bold;
-			}
-		}
+            h2 {
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                color: #5c2b20;
+                margin: 0;
+                padding: 10px 0 3px 0;
+            }
 
-		.carton {
-			background: url('../../img/books/carton.gif') no-repeat;
-		}
+            p {
+                padding: 0;
+                margin: 0 0 8px 0;
+                text-align: justify;
+            }
 
-		.blood {
-			background: url('../../img/books/blood.gif') no-repeat;
-		}
+            small {
+                display: block;
+                line-height: 1.3rem;
+                font-size: 1.1rem;
+                strong {
+                    text-decoration: underline;
+                }
+            }
 
-		.noteup {
-			background: url('../../img/books/noteup.gif') no-repeat;
-		}
+            &.design-typed {
+                font-family: @myhordes-fixed-font;
+                color: #3b3249;
+                h2 {
+                    border-bottom: 1px dashed #684742;
+                    &:first-letter {
+                        color: black;
+                    }
+                }
+                p {
+                    &:first-letter {
+                        font-weight: bold;
+                    }
+                }
+            }
 
-		.white {
-			background: url('../../img/books/white.gif') no-repeat;
-		}
+            &.design-typedsmall {
+                font-family: @myhordes-fixed-font;
+                color: #3b3249;
+                font-size: 1.5rem;
+            }
+            
+            &.design-written,
+            &.design-small,
+            &.design-postit {
+                font-family: @myhordes-sans-serif-font;
+                font-style: italic;
+                color: #5c2b20;
+                font-size: 1.5rem;
+                line-height: 2rem;
+                &.design-written {
+                    font-weight: bold;
+                }
+                p:first-line,
+                p:first-letter {
+                    color: black;
+                }
+                quote {
+                    margin-left: 15px;
+                    margin-bottom: 15px;
+                    padding-left: 10px;
+                    display: block;
+                }
+                em {
+                    font-size: 1.25rem;
+                }
+                strong {
+                    color: #5c2b20;
+                }
+                big {
+                    font-size: 5rem;
+                }
 
-		.author {
-			color: #ddab76;
-			font-style: italic;
-			font-size: 1rem;
-		}
-	}
+                .other {
+                    strong {
+                        color:#992626;
+                        font-size: 2rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            &.design-classic {
+                font-family: @myhordes-serif-font;
+                color: #5c2b20;
+                font-size: 1.5rem;
+                h2 {
+                    font-size: 2rem;
+                    padding: 10px 0 0 0;
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+                em {
+                    color: #684742;
+                    font-size: 1.3rem;
+                }
+            }
+
+            &.design-modern {
+                color: #44302B;
+                h2 {
+                    font-size: 1.5rem;
+                    padding: 10px 0 0 0;
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+                small {
+                    display: block;
+                    font-size: 1rem;
+                }
+                blockquote {
+                    display: block;
+                    padding: 10px;
+                    margin: 10px;
+                    color: #464738;
+                    border: 2px solid #464738;
+                }
+            }
+
+            &.design-ad {
+                font-variant: small-caps;
+                font-weight: bold;
+                line-height: 1.5rem;
+                font-size: 1.5rem;
+                font-style: italic;
+                color: #773939;
+                h1 {
+                    color: #3b3249;
+                    &:first-letter {
+                        color: #5c2b20;
+                    }
+                }
+            }
+
+            &.design-stamp {
+                padding: 60px 110px 40px 120px;
+                h1 {
+                    color: #696486;
+                    font-size: 3rem;
+                    letter-spacing: 0rem;
+                }
+                p, strong {
+                    font-size: 1.75rem;
+                }
+                strong {
+                    color: #3b3249;
+                }
+                small {
+                    strong {
+                        font-size: inherit;
+                    }
+                }
+            }
+
+            &.design-news {
+                color: #6f7159;
+                font-family: @myhordes-serif-font;
+                h1 {
+                    color: #8c9070;
+                    font-family: @myhordes-sans-serif-font;
+                }
+                hr {
+                    color: #8c9070;
+                    border: none;
+                    border-bottom: 1px solid #adb09d;
+                }
+            }
+
+            .pages {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            strike {
+                color: #893232;
+                background: url('../../img/books/scratch.gif') repeat-x center;
+            }
+        }
+
+        .carton {
+            background: url('../../img/books/carton.gif') no-repeat;
+        }
+
+        .blood {
+            background: url('../../img/books/blood.gif') no-repeat;
+        }
+
+        .noteup {
+            background: url('../../img/books/noteup.gif') no-repeat;
+        }
+
+        .white {
+            background: url('../../img/books/white.gif') no-repeat;
+        }
+
+        .old {
+            background: url('../../img/books/old.gif') no-repeat;
+        }
+
+        .notepad {
+            background: url('../../img/books/notepad.gif') no-repeat;
+        }
+
+        .stamp {
+            background: url('../../img/books/stamp.gif') no-repeat;
+        }
+
+        .secret {
+            background: url('../../img/books/secret.gif') no-repeat;
+        }
+
+        .grid {
+            background: url('../../img/books/grid.gif') no-repeat;
+        }
+
+        .letter {
+            background: url('../../img/books/letter.gif') no-repeat;
+        }
+
+        .news {
+            background: url('../../img/books/news.gif') no-repeat;
+            .rp-content {
+                margin-left: 60px;
+                padding-top: 50px;
+                width: 555px;
+            }
+        }
+
+        .postit {
+            background: url('../../img/books/postit.gif') no-repeat;
+            .rp-content {
+                margin-left: 120px;
+                padding-top: 80px;
+                width: 360px;
+            }
+        }
+
+        .tinystamp {
+            background: url('../../img/books/tinystamp.gif') no-repeat;
+            .rp-content {
+                margin-left: 130px;
+                padding-top: 40px;
+                width: 340px;
+            }
+        }
+
+        .author {
+            color: #ddab76;
+            font-style: italic;
+            font-size: 1rem;
+        }
+    }
 }

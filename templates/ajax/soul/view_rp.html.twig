@@ -22,13 +22,13 @@
                 <div class="{{rp.text.background}}">
                     <div class="rp-content design-{{rp.text.design}}" x-ajax-href="{%if rp.text.pages|length > 1 and current < rp.text.pages|length %}{{path('soul_rp', {id: rp.id, page: current+1})}}{% else %}{{ path('soul_rps') }}{% endif %}">
                         {{page.content|raw}}
-                        {%if rp.text.pages|length > 1%}
-                        <div class="pages center">{{'Seite %page%/%pages%'|trans({"%page%": current, "%pages%": rp.text.pages|length}, 'global')}}
-                        {% endif %}
                         </div>
                     </div>
+                        {%if rp.text.pages|length > 1%}
+                        {% endif %}
                     {%if rp.text.pages|length > 1 %}
                     <div class="center">
+                            <div class="cell padded pages center">{{'Seite %page%/%pages%'|trans({"%page%": current, "%pages%": rp.text.pages|length}, 'global')}}<br />
                         {% if current > 1 %}
                             <button class="inline" x-ajax-href="{{path('soul_rp', {id: rp.id, page: current-1})}}"> {{'Vorherige Seite'|trans({}, 'soul')}}</button>
                         {% endif %}

@@ -263,7 +263,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
-            ->addOrderBy('c.ordering','ASC')
+            ->addOrderBy('cr.ordering','ASC')
             ->addOrderBy('i.count', 'DESC')
             ->addOrderBy('p.id', 'ASC')
             ->addOrderBy('i.id', 'ASC')
@@ -607,21 +607,31 @@ class InventoryAwareController extends AbstractController implements GameInterfa
       $zone = $citizen->getZone();
       if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-      // TODO check for camping status
-
       $item = null;
       if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
 
-        $this->entity_manager->persist($citizen);
-        foreach ($remove as $remove_entry)
-          $this->entity_manager->remove($remove_entry);
-        try {
-          $this->entity_manager->flush();
-        } catch (Exception $e) {
-          return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+        switch($camping->getName()){
+            case 'campsite_improve':
+                $this->entity_manager->persist($this->log->beyondCampingImprovement($citizen));
+                break;
+            case 'campsite_hide':
+            case 'campsite_tomb':
+                $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
+                break;
+            case "campsite_unhide":
+            case "campsite_untomb":
+                $this->entity_manager->persist($this->log->beyondCampingUnhide($citizen));
+                break;
         }
 
-        //TODO: Add chat log
+        $this->entity_manager->persist($citizen);
+        foreach ($remove as $remove_entry)
+            $this->entity_manager->remove($remove_entry);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+        }
 
         if ($msg) $this->addFlash( 'notice', $msg );
       } elseif ($error === ActionHandler::ErrorActionForbidden) {
@@ -633,7 +643,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
       return AjaxResponse::success();
     }
 
-    public function generic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null): Response {
+    public function generic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null, ?Citizen $base_citizen = null): Response {
         $item_id =   (int)$parser->get('item',   -1);
         $target_id = (int)$parser->get('target', -1);
         $action_id = (int)$parser->get('action', -1);
@@ -646,7 +656,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $action = ($action_id < 0) ? null : $this->entity_manager->getRepository(ItemAction::class)->find( $action_id );
 
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        $citizen = $this->getActiveCitizen();
+        $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
         if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -658,6 +668,10 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove )) === ActionHandler::ErrorNone) {
 
             if ($trigger_after) $trigger_after($action);
+
+            if($action->getName() == 'improve') {
+                $this->entity_manager->persist($this->log->beyondCampingItemImprovement($citizen, $item));
+            }
 
             $this->entity_manager->persist($citizen);
             if ($item->getInventory())

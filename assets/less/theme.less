@@ -12,10 +12,21 @@
 @import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
+@import (css) url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+@font-face {
+  font-family: 'visitor2';
+  src: url('../fonts/visitor2.ttf')  format('truetype');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@myhordes-fixed-font: "Inconsolata", fixed;
+@myhordes-sans-serif-font: "Comic Neue", sans-serif;
+@myhordes-serif-font: "Lora", serif;
 
 @myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
-@myhordes-background: url(../img/bg_colored.jpg) top center no-repeat, #100C0B;
+@myhordes-background: url(../img/bg_colored.jpg) fixed top no-repeat, #100C0B;
 
 @myhordes-content-width: 950px;
 @myhordes-content-background: url(../img/bg_content.jpg) left repeat-y;
@@ -71,6 +82,10 @@ div.debug_info {
   &>div:last-child { font-size: .9rem; float: right; display: inline-block }
   & a { color: white !important; }
   &:after { content: " "; clear: both; display: block; }
+}
+
+x-message {
+  display: none;
 }
 
 #notifications {
@@ -393,6 +408,16 @@ div.note {
     .box( #820000 ); color: white; position: relative; padding: 5px 5px 5px 26px;
     &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/small_warning.gif') no-repeat; }
   }
+  &.note-light {
+    background-color: #5c2b20;
+  }
+  &.note-lightest {
+    color: #f0d79e;
+    background-color: #996739;
+    border: none;
+    padding: 3px 3px 3px 3px;
+    margin: 0;
+  }
 }
 
 div.small-note {
@@ -419,6 +444,8 @@ button {
   min-height: 25px; background: @myhordes-button-background center/cover no-repeat; color: @myhordes-button-color; font-weight: bold;
   border: 1px solid @myhordes-button-border; border-bottom-width: 2px; outline: 1px solid rgba(0,0,0,0);
   transition: outline-color 0.5s; box-shadow: 0 0 2px black; padding: 0 8px 0;
+  text-align: left;
+  font-variant: small-caps;
 
   &:hover,&:focus { outline-color: @myhordes-button-color; color: lighten(@myhordes-button-color, 50%); }
   &:active { border-bottom-width: 1px; border-top-width: 2px; }
@@ -459,7 +486,7 @@ ul.inventory {
     vertical-align: text-bottom;
     &.title:first-child {
       &:empty {display: none}
-      background: @myhordes-cell-header-background-color;
+      background: #965C36;
       padding: 2px 6px;
       margin-right: 2px;
     }
@@ -711,10 +738,9 @@ div.game-menu-area {
   }
 }
 
-div.ap      { .icon_div("../img/ap_small.gif", middle, 0); }
+div.ap      { .icon_div("../img/ap_small.gif", middle, 0); color: white; }
 div.bp      { .icon_div("../img/bp_small.gif", middle, 0); }
 div.defense { .icon_div("../img/small_def.gif", baseline, 2px); }
-div.kill    { .icon_div("../img/item/item_gun.gif", middle, 0); }
 
 ul.tabs {
   padding: 0; list-style: none; border-bottom: 2px solid @myhordes-smalltext;
@@ -798,6 +824,22 @@ div.death_list {
   }
 }
 
+div.rebirth {
+  background: #996739;
+  border: 1px solid #b37c4a;
+  div.rebirth_label {
+    font-size: 1.1rem;
+    background: #b37c4a;
+    font-variant: small-caps;
+    color: #f0d79e;
+    padding: 5px;
+  }
+  div.rebirth_btn {
+    margin-top: 10px;
+  }
+  margin-bottom: 10px;
+}
+
 div.tooltip {
   display: none; pointer-events: none; font-size: 1rem; width: 200px; padding: 4px;
   position: fixed; z-index: 2000; color: black; margin: 20px; box-shadow: 0 0 5px black;
@@ -859,5 +901,66 @@ div.badge {
 
 div.tooltip-dummy {
   height: 0; position: relative; overflow: visible; padding: 0; margin: 0;
-  &>* { position: absolute; width: 100%; top: 0; z-index: 3; box-shadow: 0 0 2px black, 0 0 10px black }
+  &>* {
+    position: absolute; width: 100%; top: 0; z-index: 3; box-shadow: 0 0 2px black, 0 0 10px black;
+    &.tooltip-dummy-container {
+      background: @myhordes-help-color; outline: 1px solid @myhordes-button-color;
+      &>h4 {
+        margin: 4px; padding: 0 0 4px; border-bottom: 1px solid @myhordes-button-color; color: @myhordes-button-color;
+        text-align: center;
+      }
+    }
+  }
+}
+
+div.daily-attack {
+  margin: 0 auto;
+  width: 442px;
+  div.content {
+    padding: 10px;
+    background-color: #5c2b20;
+    border: 1px solid #ddab76;
+    outline: 2px solid #5c2b20;
+    font-style: italic;
+    color: #ddab76;
+    p::first-letter {
+      color: #f0d79e;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    strong {
+      color :#cf7058;
+      font-weight: normal;
+    }
+  }
+
+  div.infos {
+    margin-top: 20px;
+    background-color: #3b3249;
+    border: 1px solid #ddab76;
+    outline: 2px solid #5c2b20;
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem;
+    img {
+      float: left;
+      margin-right: 5px;
+    }
+    h2 {
+      margin: 0px;
+      padding: 0px;
+      margin-top: 0px;
+      margin-bottom: 5px;
+      color: #ddab76;
+      text-align: left;
+      font-family: Verdana;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ddab76;
+      font-size: 1.2rem;
+    }
+    em {
+      color: #f0d79e;
+      font-size: 1rem;
+    }
+  }
 }

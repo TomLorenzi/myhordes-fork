@@ -138,7 +138,7 @@
     </unit>
     <unit id="Ap6glg5" name="262981c">
       <notes>
-        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</note>
+        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt %town_name% betreten?</note>
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
@@ -152,6 +152,64 @@
       <segment>
         <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
         <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
+      </segment>
+    </unit>
+    <unit id="AwZY28C" name="31a3422">
+      <notes>
+        <note category="german">&lt;p&gt;
+                    Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                    Was tust du, solange der Angriff tobt?               
+                    &lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;p&gt;
+                    Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                    Was tust du, solange der Angriff tobt?               
+                    &lt;/p&gt;</source>
+        <target><![CDATA[<p>
+          Votre ville est <strong>attaquée</strong> par des hordes de zombies ! Il en vient de partout, vous entendez des citoyens <strong>hurler</strong> dans la nuit, des bruits de tôle que l'on frappe... Des <strong>grognements</strong> affamés par centaines... Que va-t-il advenir ?!</p>
+
+          <p>Allez-vous mourir cette nuit ?!</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="EVKC8.Z" name="Was hat das zu bedeuten?">
+      <notes>
+        <note category="german">Was hat das zu bedeuten?</note>
+      </notes>
+      <segment>
+        <source>Was hat das zu bedeuten?</source>
+        <target>Qu'est-ce que ça veut dire ?</target>
+      </segment>
+    </unit>
+    <unit id="ePJ.g5_" name="070fa24">
+      <notes>
+        <note category="german">Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
+      </notes>
+      <segment>
+        <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
+        <target>Le site MyHordes est actuellement submergé de zombies ! C'est l'assaut quotidien !</target>
+      </segment>
+    </unit>
+    <unit id="6YlCau0" name="5a5d604">
+      <notes>
+        <note category="german">Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</note>
+      </notes>
+      <segment>
+        <source>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</source>
+        <target>Impossible de se connecter ou même de s'inscrire... Le site devrait ré-ouvrir d'ici quelques dizaines de minutes..</target>
+      </segment>
+    </unit>
+    <unit id="QfY5rKB" name="Und ja, es wird Tote geben...">
+      <notes>
+        <note category="german">Und ja, es wird Tote geben...</note>
+      </notes>
+      <segment>
+        <source>Und ja, es wird Tote geben...</source>
+        <target>Avec quelques cadavres en plus...</target>
       </segment>
     </unit>
   </file>

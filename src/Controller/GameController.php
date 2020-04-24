@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CauseOfDeath;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
@@ -20,6 +21,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -27,10 +29,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class GameController extends AbstractController implements GameInterfaceController
 {
     protected $entity_manager;
+    protected $translator;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator)
     {
         $this->entity_manager = $em;
+        $this->translator = $translator;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -172,7 +176,7 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function unsubscribe_api(EntityManagerInterface $em, SessionInterface $session): Response {
+    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session): Response {
         if ($this->getActiveCitizen()->getAlive())
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -183,7 +187,13 @@ class GameController extends AbstractController implements GameInterfaceControll
         if (!$active || $active->getId() !== $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $last_words = $parser->get('lastwords');
+
         $active->setActive(false);
+        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Posion)
+            $active->setLastWords($last_words);
+        else
+            $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));
 
         // Delete not validated picto from DB
         // Here, every validated picto should have persisted to 2

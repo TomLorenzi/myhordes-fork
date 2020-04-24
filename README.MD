@@ -68,6 +68,32 @@ module.exports = {
 ## If you have found an untranslatable string
 Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console app:migrate -t fr` cmdlet to update FR location (available languages : fr, en, de, es)
 
+## How to add a missing RP text
+Go to your soul, and go read the first page of the RP text. Then, open your Web Console (CTRL+MAJ+I).
+On the first page, copy paste this command : `console.log($("#ghost_pages .document").attr('class'))`. Note down the "bg_" and "design_" classes.
+The, paste this command : `console.log(new URLSearchParams(window.location.hash.substring(window.location.hash.lastIndexOf('?'))).get('bkey').split(';')[0])`
+Then, on each pages, run this command : `console.log($("#ghost_pages .document .content").html().replace(/'/gi, "\\\'"))`.
+Once you have everything, in `src/DataFixture/TextFixtures.php`, add a new element as follow :
+```
+"<FIRSTCOMMAND>" => [
+    "title" => "<TITLEOFYOURTEXT>",
+    "author" => "<AUTHOR>",
+    "content" => [
+        '<CONTENTOFPAGE1>',
+        '<CONTENTOFPAGE2>',
+        ...
+    ],
+    "lang" => "<LANGOFTHERP>" // choose between fr, de, en, es,
+    "background" => "<CONTENTOFBG_ ATTR>",
+    "design" => "<CONTENTOFDESIGN_ ATTR>"
+],
+```
+Then update the fixtures:
+```
+bin/console doctrine:schema:update --force
+bin/console doctrine:fixtures:load --append
+```
+
 ## Update
 
 ```bash

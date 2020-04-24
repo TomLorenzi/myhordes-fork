@@ -764,7 +764,7 @@ class LogTemplateHandler
             ->setText( $this->trans->trans(
                 $item
                     ? '%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.'
-                    : '%citizen% hat %kills% Zombies getötet.', [
+                    : 'Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%item%'    => $item ? $this->wrap( $this->iconize( $item ) ) : '',
                 '%kills%'   => $this->wrap( "{$kills}" ),
@@ -781,6 +781,63 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $sender )
             ->setText( $this->wrap( $this->iconize( $sender ) ) . ': ' . htmlentities( $message ) );
+    }
+
+    public function beyondCampingImprovement( Citizen $citizen ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeVarious )
+            ->setClass( TownLogEntry::ClassInfo )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans('%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+            ], 'game' ) );
+    }
+
+    public function beyondCampingItemImprovement( Citizen $citizen, Item $item ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeVarious )
+            ->setClass( TownLogEntry::ClassInfo )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans('%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+                '%item%' => $this->wrap( $this->iconize( $item ) ),
+            ], 'game' ) );
+    }
+
+    public function beyondCampingHide( Citizen $citizen ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeVarious )
+            ->setClass( TownLogEntry::ClassInfo )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans('%citizen% hat sich für heute Nacht ein Versteck gesucht ...', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+            ], 'game' ) );
+    }
+
+    public function beyondCampingUnhide( Citizen $citizen ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeVarious )
+            ->setClass( TownLogEntry::ClassInfo )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans('%citizen% hat sein Versteck verlassen.', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+            ], 'game' ) );
     }
 
 }

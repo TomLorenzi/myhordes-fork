@@ -176,6 +176,12 @@ class CitizenHandler
             if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
 
+            // Disable escort on banishment
+            if ($citizen->getEscortSettings()) {
+                $this->entity_manager->remove($citizen->getEscortSettings());
+                $citizen->setEscortSettings(null);
+            }
+
             if (!$kill) {
                 $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ban_#00');
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);

@@ -5,16 +5,19 @@ namespace App\Controller;
 use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
+use App\Entity\EscortActionGroup;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\ScoutVisit;
+use App\Entity\Town;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -59,6 +62,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorChatMessageInvalid   = ErrorHelper::BaseBeyondErrors + 8;
     const ErrorTrashLimitHit        = ErrorHelper::BaseBeyondErrors + 9;
     const ErrorNoMovementWhileHiding= ErrorHelper::BaseBeyondErrors + 10;
+    const ErrorEscortLimitHit       = ErrorHelper::BaseBeyondErrors + 11;
 
     protected $game_factory;
     protected $zone_handler;
@@ -119,9 +123,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $trash_count = ($this->getActiveCitizen()->getBanished() || $this->getActiveCitizen()->getTown()->getDevastated()) ? $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeTrash) : 0;
 
         $rucksack_sizes = [];
+        $escort_actions = [];
         foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
-            if ($escort->getAllowInventoryAccess())
+            if ($escort->getAllowInventoryAccess()) {
                 $rucksack_sizes[ $escort->getCitizen()->getId() ] = $this->inventory_handler->getSize( $escort->getCitizen()->getInventory() );
+                $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
+            }
 
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
@@ -137,10 +144,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
             'km' => $this->zone_handler->getZoneKm($zone),
-            'ap' => $this->zone_handler->getZoneAp($zone),
+            'town_ap' => $this->zone_handler->getZoneAp($zone),
             'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
             'citizen_hidden' => $citizen_hidden,
             'rucksack_sizes' => $rucksack_sizes,
+            'escort_actions' => $escort_actions,
         ], $data, $this->get_map_blob()) );
     }
 
@@ -265,9 +273,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? T::__("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", 'game') : "";
 
-            $camping_blueprint = ($zone->getBlueprint() === Zone::BlueprintAvailable)
-                ? T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game')
-                : T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
+            $camping_blueprint = "";
+            $blueprintFound = false;
+            if ($zone->getBlueprint() === Zone::BlueprintAvailable) {
+                $camping_blueprint = T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game');
+            } else if ($zone->getBlueprint() === Zone::BlueprintFound) {
+                $camping_blueprint = T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
+                $blueprintFound = true;
+            }
+
 
             // Uncomment next line to show camping values in game interface.
             #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
@@ -296,6 +310,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping_chance' => $camping_chance ?? '',
             'camping_improvable' => $camping_improvable ?? '',
             'camping_blueprint' => $camping_blueprint ?? '',
+            'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
         ]) );
     }
@@ -488,10 +503,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
-        foreach ($movers as $mover)
+
+        foreach ($movers as $mover){
             // Check if the labyrinth is built and the user enters from 0/0
-            if ($labyrinth && $mover->getAp() <= 0 || $this->citizen_handler->isTired( $mover ))
+            if ($labyrinth && ($mover->getAp() <= 0 || $this->citizen_handler->isTired($mover)))
                 return AjaxResponse::error( $mover->getId() === $citizen->getId() ? ErrorHelper::ErrorNoAP : ErrorHelper::ErrorEscortFailure );
+        }
 
         $cp_ok = $this->zone_handler->check_cp( $zone );
 
@@ -680,7 +697,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param InventoryHandler $handler
      * @return Response
      */
-    public function action_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function action_desert_api(JSONRequestParser $parser): Response {
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -692,6 +709,43 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         };
 
         return $this->generic_action_api($parser, $uncover_fun);
+    }
+
+    /**
+     * @Route("api/beyond/desert/escort/action", name="beyond_desert_escort_action_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function escort_action_desert_api(JSONRequestParser $parser): Response {
+        $this->deferZoneUpdate();
+
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$parser->has_all(['citizen','meta','action'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find( (int)$parser->get('citizen', -1) );
+        /** @var EscortActionGroup $esc_act */
+        $esc_act = $this->entity_manager->getRepository(EscortActionGroup::class)->find( (int)$parser->get('meta', -1) );
+        $action  = $this->entity_manager->getRepository(ItemAction::class)->find( (int)$parser->get('action', -1) );
+
+        if (!$citizen || !$esc_act || !$action) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$citizen->getEscortSettings() || !$citizen->getEscortSettings()->getAllowInventoryAccess() ||
+            !$citizen->getEscortSettings()->getLeader() ||
+            $citizen->getEscortSettings()->getLeader()->getId() !== $this->getActiveCitizen()->getId()
+        ) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (!$esc_act->getActions()->contains($action))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $uncover_fun = function(ItemAction &$a) use ($citizen) {
+            if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($citizen))
+                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $citizen->getUser()->getUsername()], 'game') );
+        };
+
+        return $this->generic_action_api($parser, $uncover_fun, $citizen);
     }
 
     /**
@@ -1032,9 +1086,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     /**
      * @Route("api/beyond/desert/escort/self", name="beyond_desert_escort_self_controller")
      * @param JSONRequestParser $parser
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function desert_escort_self_api(JSONRequestParser $parser): Response {
+    public function desert_escort_self_api(JSONRequestParser $parser, ConfMaster $conf): Response {
+        if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenIsNotCamping()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1073,9 +1131,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @Route("api/beyond/desert/escort/{cid<\d+>}", name="beyond_desert_escort_controller")
      * @param int $cid
      * @param JSONRequestParser $parser
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function desert_escort_api(int $cid, JSONRequestParser $parser): Response {
+    public function desert_escort_api(int $cid, JSONRequestParser $parser, ConfMaster $conf): Response {
+        if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1091,8 +1153,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (!$citizen->getProfession()->getHeroic() || $citizen->getBanished())
+        if ((!$citizen->getProfession()->getHeroic() && !$citizen->getRoles()->contains($this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide")))
+            || $citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);
+
+        if ($on && $citizen->getLeadingEscorts()->count() >= $max_escort_size)
+            return AjaxResponse::error( self::ErrorEscortLimitHit );
 
         if ($target_citizen->getBanished() || !$target_citizen->getEscortSettings() ||
             ($on && $target_citizen->getEscortSettings()->getLeader() !== null) || (!$on && ($target_citizen->getEscortSettings()->getLeader() === null || $target_citizen->getEscortSettings()->getLeader()->getId() !== $citizen->getId())))
@@ -1118,10 +1186,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
     /**
      * @Route("api/beyond/desert/escort/all", name="beyond_desert_escort_drop_controller")
-     * @param JSONRequestParser $parser
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function desert_escort_api_drop_all(JSONRequestParser $parser): Response {
+    public function desert_escort_api_drop_all(ConfMaster $conf): Response {
+        if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
