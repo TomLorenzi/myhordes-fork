@@ -49,6 +49,7 @@ class WebController extends AbstractController
             'Ludovic "<i>Ludofloria</i>" Le Brech',
             'Paul "<i>CountCount</i>" Bruhn',
             'Adrien "<i>Adri</i>" Boitelle',
+            'Niklas "<i>Choreas</i>" Kosanke',
         ];
         shuffle($devs);
 
