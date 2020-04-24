@@ -42,48 +42,62 @@
             {% endif %}
         </div>
     </div>
-    {% if (zone.x != 0 or zone.y != 0) and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CAMPING'),false) %}
-        <div class="row">
-            <div class="cell rw-12 zone-camp">
-                <input type="checkbox" name="zone-camp" id="zone-camp"{% if citizen_hidden %} checked="checked"{% endif %} /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>
-                <div class="zone-camp-info">
-                    <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
-                    {% if camping_zone != "" %}
-                        <p>{{ camping_zone|trans({}, 'game') }}</p>
-                    {% endif %}
-                    {% if camping_zombies != "" %}
-                        <p>{{ camping_zombies|trans({}, 'game') }}</p>
-                    {% endif %}
-                    {% if camping_chance != "" %}
-                        <p class="emphasis">{{ camping_chance|trans({}, 'game') }}</p>
-                    {% endif %}
-                    {% if camping_improvable != "" %}
-                        <p>{{ camping_improvable }}</p>
-                    {% endif %}
-                    {% if camping_blueprint != "" %}
-                        <p{% if not blueprintFound %} class="emphasis"{% endif %}><b>{{ camping_blueprint|trans({}, 'game') }}</b></p>
-                    {% endif %}
-                    {% if camping_debug != "" %}
-                        <pre>{{ camping_debug }}</pre>
-                    {% endif %}
-                    {% embed "ajax/game/camping.html.twig" with {'list': camping, 'hidden': citizen_hidden} %}
-                    {% endembed %}
+
+    {% if citizen.escortSettings is not null and citizen.escortSettings.leader is not null %}
+
+        <div class="help">
+            <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.username}, 'game') }}</b>
+            <p>
+                {% trans %}
+                    Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.
+                {% endtrans %}
+            </p>
+        </div>
+
+    {% else %}
+        {% if (zone.x != 0 or zone.y != 0) and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CAMPING'),false) %}
+            <div class="row">
+                <div class="cell rw-12 zone-camp">
+                    <input type="checkbox" name="zone-camp" id="zone-camp"{% if citizen_hidden %} checked="checked"{% endif %} /><label for="zone-camp">{% trans from 'game' %}Die Zone untersuchen{% endtrans %}</label>
+                    <div class="zone-camp-info">
+                        <p>{% trans from 'game' %}Du schaust dir die Gegend etwas genauer an...{% endtrans %}</p>
+                        {% if camping_zone != "" %}
+                            <p>{{ camping_zone|trans({}, 'game') }}</p>
+                        {% endif %}
+                        {% if camping_zombies != "" %}
+                            <p>{{ camping_zombies|trans({}, 'game') }}</p>
+                        {% endif %}
+                        {% if camping_chance != "" %}
+                            <p class="emphasis">{{ camping_chance|trans({}, 'game') }}</p>
+                        {% endif %}
+                        {% if camping_improvable != "" %}
+                            <p>{{ camping_improvable }}</p>
+                        {% endif %}
+                        {% if camping_blueprint != "" %}
+                            <p{% if not blueprintFound %} class="emphasis"{% endif %}><b>{{ camping_blueprint|trans({}, 'game') }}</b></p>
+                        {% endif %}
+                        {% if camping_debug != "" %}
+                            <pre>{{ camping_debug }}</pre>
+                        {% endif %}
+                        {% embed "ajax/game/camping.html.twig" with {'list': camping, 'hidden': citizen_hidden} %}
+                        {% endembed %}
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endif %}
-    {% if zone_blocked %}
-        <div class="row">
-            <div class="cell rw-12">
-                <div class="zone-blocked-warning">
-                    <b>
-                        {% if zone_escape > 0 %}
-                            {% trans from 'game' %}Temporäre Zonenkontrolle{% endtrans %}
-                        {% else %}
-                            {% trans with { '%z%': zone_zombies } from 'game' %}%z% Zombies kontrollieren diese Zone!{% endtrans %}
-                        {% endif %}
-                    </b><br />
-                    <span>
+        {% endif %}
+        {% if zone_blocked %}
+            <div class="row">
+                <div class="cell rw-12">
+                    <div class="zone-blocked-warning">
+                        <b>
+                            {% if zone_escape > 0 %}
+                                {% trans from 'game' %}Temporäre Zonenkontrolle{% endtrans %}
+                            {% else %}
+                                {% trans with { '%z%': zone_zombies } from 'game' %}%z% Zombies kontrollieren diese Zone!{% endtrans %}
+                            {% endif %}
+                        </b><br />
+                        <span>
                         {% if zone_escape > 0 %}
                             {% trans from 'game' %}
                                 Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:
@@ -104,142 +118,143 @@
                             {% endtrans %}
                         {% endif %}
                     </span>
-                    {% if zone_escape <= 0 and not active_scout_mode %}
-                        <div class="row">
-                            <div class="padded-small cell rw-6"><button x-ajax-href="{{ url('forum_town_redirect') }}"><img alt="" src="{{ asset('build/images/attacked.gif') }}" />{% trans from 'game' %}Hilfe rufen!{% endtrans %}</button></div>
-                            <div {% if not can_escape %}disabled{% endif %} class="padded-small cell rw-6"><button id="escape-btn"><img alt="" src="{{ asset('build/images/death.gif') }}" />{% trans from 'game' %}Die Flucht wagen!{% endtrans %}</button></div>
-                        </div>
-                        <div class="row">
-                            <div {% if not can_attack %}disabled{% endif %} class="padded-small cell rw-8"><button id="attack-btn"><img alt="" src="{{ asset('build/images/fist.gif') }}" />{% trans from 'game' %}Gegen einen Zombie kämpfen!{% endtrans %} (<div class="ap">1</div>)</button></div>
-                        </div>
-                    {% endif %}
+                        {% if zone_escape <= 0 and not active_scout_mode %}
+                            <div class="row">
+                                <div class="padded-small cell rw-6"><button x-ajax-href="{{ url('forum_town_redirect') }}"><img alt="" src="{{ asset('build/images/attacked.gif') }}" />{% trans from 'game' %}Hilfe rufen!{% endtrans %}</button></div>
+                                <div {% if not can_escape %}disabled{% endif %} class="padded-small cell rw-6"><button id="escape-btn"><img alt="" src="{{ asset('build/images/death.gif') }}" />{% trans from 'game' %}Die Flucht wagen!{% endtrans %}</button></div>
+                            </div>
+                            <div class="row">
+                                <div {% if not can_attack %}disabled{% endif %} class="padded-small cell rw-8"><button id="attack-btn"><img alt="" src="{{ asset('build/images/fist.gif') }}" />{% trans from 'game' %}Gegen einen Zombie kämpfen!{% endtrans %} (<div class="ap">1</div>)</button></div>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
 
-    {% endif %}
-    <div class="row">
-        <div class="padded cell rw-6 rw-md-12">
-            <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
+        {% endif %}
+        <div class="row">
+            <div class="padded cell rw-6 rw-md-12">
+                <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
 
-            {% if zone.digs <= 0 %}
-                <div class="note note-light">
-                    <img alt="" src="{{ asset('build/images/Small_broken.gif') }}" />
-                    {% trans from 'game' %}
-                        Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
-                    {% endtrans %}
-                </div>
-            {% endif %}
-
-            <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-            {% if zone.x != 0 or zone.y != 0 %}
-                {% if not citizen_hidden %}
-                    {% if not digging %}
-                        {% if zone_blocked %}
-                            <div class="note note-light">
-                                <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
-                                {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
-                            </div>
-                        {% elseif citizen.digTimeout > 0 %}
-                            <div class="note note-light">
-                                <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
-                                {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
-                                <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
-                            </div>
-                        {% endif %}
-                        <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 %}disabled{% endif %}>
-                            <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
-                            {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
-                    {% else %}
-                        <div class="note note-light">
-                            <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
-                            {% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}
-                            <span x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</span>
-                        </div>
-                    {% endif %}
-                    {% if zone.prototype %}
-                        <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
-                            {% if (zone_blocked and active_scout_mode) %}
-                                <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
-                            {% endif %}
-                            <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
-                            {% set ruin_label = zone.prototype.label|trans({},'game') %}
-                            {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
-                            {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
-                        </button>
-                        {% if zone.buryCount > 0 %}
-                            <button id="uncover_ruin_button">
-                                {% if (zone_blocked and active_scout_mode) %}
-                                    <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
-                                {% endif %}
-                                <img class="icon left" alt="" src="{{ asset('build/images/uncover.gif') }}" />
-                                {{ 'Zone freiräumen'|trans({},'game') }} (<div class="ap">1</div>)
-                            </button>
-                        {% endif %}
-                    {% endif %}
-                {% endif %}
-
-                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
-                {% endembed %}
-
-            {% else %}
-
-                {% if banished or town_chaos %}
-                    <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)</button>
-                {% endif %}
-
-            {% endif %}
-
-            {% if allow_enter_town %}
-                <button id="town-enter">
-                    {% if zone.x == 0 and zone.y == 0 %}
-                        {% trans from 'game' %}Stadt betreten{% endtrans %}
-                    {% else %}
-                        <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
-                    {% endif %}
-                    {% if enter_costs_ap %}
-                        (<div class="ap">1</div>)
-                    {% endif %}
-                </button>
-            {% endif %}
-            {% if show_ventilation %}
-                <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
-            {% endif %}
-        </div>
-
-        <div class="padded cell rw-6 rw-md-12">
-            {% if zone.x != 0 or zone.y != 0 %}
-                <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
-            {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
-                {% block class %}rucksack{% endblock %}
-                {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
-            {% endembed %}
-            {% endif %}
-
-            {% if allow_floor_access %}
-                {% if (zone_blocked and active_scout_mode) %}
-                    <div class="note">
-                        <b>{{ 'Achtung'|trans({},'global') }}</b>: {% trans from 'game' %}
-                            Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!
+                {% if zone.digs <= 0 %}
+                    <div class="note note-light">
+                        <img alt="" src="{{ asset('build/images/Small_broken.gif') }}" />
+                        {% trans from 'game' %}
+                            Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
                         {% endtrans %}
                     </div>
                 {% endif %}
 
-                {% if not citizen_hidden %}
-                    <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
+                <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
+                {% if zone.x != 0 or zone.y != 0 %}
+                    {% if not citizen_hidden %}
+                        {% if not digging %}
+                            {% if zone_blocked %}
+                                <div class="note note-light">
+                                    <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                                    {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
+                                </div>
+                            {% elseif citizen.digTimeout > 0 %}
+                                <div class="note note-light">
+                                    <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                                    {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                    <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
+                                </div>
+                            {% endif %}
+                            <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 %}disabled{% endif %}>
+                                <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
+                                {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
+                        {% else %}
+                            <div class="note note-light">
+                                <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
+                                {% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}
+                                <span x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</span>
+                            </div>
+                        {% endif %}
+                        {% if zone.prototype %}
+                            <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
+                                {% if (zone_blocked and active_scout_mode) %}
+                                    <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
+                                {% endif %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
+                                {% set ruin_label = zone.prototype.label|trans({},'game') %}
+                                {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
+                                {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
+                            </button>
+                            {% if zone.buryCount > 0 %}
+                                <button id="uncover_ruin_button">
+                                    {% if (zone_blocked and active_scout_mode) %}
+                                        <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
+                                    {% endif %}
+                                    <img class="icon left" alt="" src="{{ asset('build/images/uncover.gif') }}" />
+                                    {{ 'Zone freiräumen'|trans({},'game') }} (<div class="ap">1</div>)
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+
+                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
+                    {% endembed %}
+
+                {% else %}
+
+                    {% if banished or town_chaos %}
+                        <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)</button>
+                    {% endif %}
+
                 {% endif %}
-                {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden} %}
-                    {% block class %}desert{% endblock %}
-                    {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
-                {% endembed %}
-            {% endif %}
+
+                {% if allow_enter_town %}
+                    <button id="town-enter">
+                        {% if zone.x == 0 and zone.y == 0 %}
+                            {% trans from 'game' %}Stadt betreten{% endtrans %}
+                        {% else %}
+                            <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
+                        {% endif %}
+                        {% if enter_costs_ap %}
+                            (<div class="ap">1</div>)
+                        {% endif %}
+                    </button>
+                {% endif %}
+                {% if show_ventilation %}
+                    <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+                {% endif %}
+            </div>
+
+            <div class="padded cell rw-6 rw-md-12">
+                {% if zone.x != 0 or zone.y != 0 %}
+                    <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
+                        {% block class %}rucksack{% endblock %}
+                        {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
+                    {% endembed %}
+                {% endif %}
+
+                {% if allow_floor_access %}
+                    {% if (zone_blocked and active_scout_mode) %}
+                        <div class="note">
+                            <b>{{ 'Achtung'|trans({},'global') }}</b>: {% trans from 'game' %}
+                                Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!
+                            {% endtrans %}
+                        </div>
+                    {% endif %}
+
+                    {% if not citizen_hidden %}
+                        <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
+                    {% endif %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden} %}
+                        {% block class %}desert{% endblock %}
+                        {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
+                    {% endembed %}
+                {% endif %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     <div class="other_citizens">
     {% if other_citizens|length == 1 %}
         <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
-    {% else %}
+    {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
         {% if citizen.validLeadingEscorts|length > 0 %}
             <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
             <div class="row-table">
