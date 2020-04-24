@@ -503,6 +503,7 @@ class ActionHandler
                 } else $this->citizen_handler->setAP( $citizen, true, $ap->getAp(), $ap->getAp() < 0 ? null :$ap->getBonus() );
 
                 $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
+                $tags[] = 'ap-up';
             }
 
             if ($pm = $result->getPm()) {
