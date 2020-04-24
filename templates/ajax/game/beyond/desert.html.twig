@@ -321,17 +321,21 @@
                                 {% for escort_action in escort_actions[other_citizen.id] %}
                                     {# @var \App\Structures\EscortItemActionSet escort_action #}
                                     <div class="tooltip-dummy hidden _ec _ec_{{ other_citizen.id }}_{{ escort_action.group.id }}">
-                                        <ul class="escort-action-list">
-                                            {% for item in escort_action.items %}
-                                                {# @var \App\Entity\Item item #}
-                                                {% for action in escort_action.availableActions(item) %}
-                                                    <li x-provoking-id="{{ item.id }}" x-citizen="{{ other_citizen.id }}" x-action-id="{{ action.id }}" x-escort-meta-action="{{ escort_action.group.id }}"><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
+                                        <div class="tooltip-dummy-container">
+                                            <h4>{{ escort_action.group.label|trans({},'items') }}</h4>
+                                            <ul class="escort-action-list">
+                                                {% for item in escort_action.items %}
+                                                    {# @var \App\Entity\Item item #}
+                                                    {% for action in escort_action.availableActions(item) %}
+                                                        <li x-provoking-id="{{ item.id }}" x-citizen="{{ other_citizen.id }}" x-action-id="{{ action.id }}" x-escort-meta-action="{{ escort_action.group.id }}"><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
+                                                    {% endfor %}
+                                                    {% for action in escort_action.crossedActions(item) %}
+                                                        <li disabled><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
+                                                    {% endfor %}
                                                 {% endfor %}
-                                                {% for action in escort_action.crossedActions(item) %}
-                                                    <li disabled><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
-                                                {% endfor %}
-                                            {% endfor %}
-                                        </ul>
+                                            </ul>
+                                        </div>
+
                                     </div>
                                 {% endfor %}
                             </div>
