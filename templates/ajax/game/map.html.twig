@@ -80,7 +80,12 @@
         </div>
 
         {% if allow_zone_view %}
-            <div class="zone-plane">
+            <div class="zone-plane retro">
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
                 <div class="zone-sub-container">
                     {% for plane_y in 2..-2 %}
                         {% for plane_x in -2..2 %}
@@ -210,6 +215,7 @@
         {% endif %}
     </div>
 </div>
+{#
 <script>
 var words = [
     'Psychoses',
@@ -286,3 +292,4 @@ setTimeout(pickRandomWord, Math.random() * 30000);
 
 
 </script>
+#}
