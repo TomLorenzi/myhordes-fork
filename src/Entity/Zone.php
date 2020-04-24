@@ -438,15 +438,15 @@ class Zone
 
         if ($this->getX() === 0 && $this->getY() === 0) return self::DirectionCenter;
         elseif ($this->getX() != 0 && $this->getY() != 0 && (abs(abs($this->getX())-abs($this->getY())) < min(abs($this->getX()),abs($this->getY())))) {
-            if ($this->getX() < 0 && $this->getY() < 0) return self::DirectionNorthWest;
-            if ($this->getX() < 0 && $this->getY() > 0) return self::DirectionNorthEast;
-            if ($this->getX() > 0 && $this->getY() < 0) return self::DirectionSouthWest;
-            if ($this->getX() > 0 && $this->getY() > 0) return self::DirectionSouthEast;
+            if ($this->getX() < 0 && $this->getY() < 0) return self::DirectionSouthWest;
+            if ($this->getX() < 0 && $this->getY() > 0) return self::DirectionNorthWest;
+            if ($this->getX() > 0 && $this->getY() < 0) return self::DirectionSouthEast;
+            if ($this->getX() > 0 && $this->getY() > 0) return self::DirectionNorthEast;
         } else {
-            if (abs($this->getX()) > abs($this->getY()) && $this->getX() < 0) return self::DirectionNorth;
-            if (abs($this->getX()) > abs($this->getY()) && $this->getX() > 0) return self::DirectionSouth;
-            if (abs($this->getX()) < abs($this->getY()) && $this->getY() < 0) return self::DirectionWest;
-            if (abs($this->getX()) < abs($this->getY()) && $this->getY() > 0) return self::DirectionEast;
+            if (abs($this->getX()) > abs($this->getY()) && $this->getX() < 0) return self::DirectionWest;
+            if (abs($this->getX()) > abs($this->getY()) && $this->getX() > 0) return self::DirectionEast;
+            if (abs($this->getX()) < abs($this->getY()) && $this->getY() < 0) return self::DirectionSouth;
+            if (abs($this->getX()) < abs($this->getY()) && $this->getY() > 0) return self::DirectionNorth;
         }
 
     }

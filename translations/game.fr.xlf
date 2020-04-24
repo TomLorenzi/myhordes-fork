@@ -4187,8 +4187,6 @@
     </unit>
     <unit id="LQgPbVT" name="Nordosten">
       <notes>
-        <note>Nordosten</note>
-        <note>Nordosten</note>
         <note category="german">Nordosten</note>
       </notes>
       <segment>
@@ -4198,8 +4196,6 @@
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
       <notes>
-        <note>Nordwesten</note>
-        <note>Nordwesten</note>
         <note category="german">Nordwesten</note>
       </notes>
       <segment>
@@ -4209,8 +4205,6 @@
     </unit>
     <unit id="dOCvO1b" name="Norden">
       <notes>
-        <note>Norden</note>
-        <note>Norden</note>
         <note category="german">Norden</note>
       </notes>
       <segment>
@@ -4220,8 +4214,6 @@
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
       <notes>
-        <note>Südosten</note>
-        <note>Südosten</note>
         <note category="german">Südosten</note>
       </notes>
       <segment>
@@ -4231,8 +4223,6 @@
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
       <notes>
-        <note>Südwesten</note>
-        <note>Südwesten</note>
         <note category="german">Südwesten</note>
       </notes>
       <segment>
@@ -4242,8 +4232,6 @@
     </unit>
     <unit id="qxvJIc." name="Süden">
       <notes>
-        <note>Süden</note>
-        <note>Süden</note>
         <note category="german">Süden</note>
       </notes>
       <segment>
@@ -4253,8 +4241,6 @@
     </unit>
     <unit id="xMKWHhf" name="Osten">
       <notes>
-        <note>Osten</note>
-        <note>Osten</note>
         <note category="german">Osten</note>
       </notes>
       <segment>
@@ -8861,6 +8847,15 @@
       <segment>
         <source>Belastende Beweise werden übermittelt...</source>
         <target>Belastende Beweise werden übermittelt...</target>
+      </segment>
+    </unit>
+    <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
+      <notes>
+        <note category="german">Stadt im %direction% in %km% Entfernung</note>
+      </notes>
+      <segment>
+        <source>Stadt im %direction% in %km% Entfernung</source>
+        <target>Ville à %km% vers %direction%</target>
       </segment>
     </unit>
   </file>
