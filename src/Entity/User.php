@@ -204,10 +204,14 @@ class User implements UserInterface, EquatableInterface
      * @inheritDoc
      */
     public function isEqualTo(UserInterface $user) {
-        return
+        $b1 =
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();
+        if ($user instanceof User) {
+            return $b1 &&
+                $this->getIsAdmin() === $user->getIsAdmin();
+        } else return $b1;
     }
 
     public function getIsBanned(): bool {
