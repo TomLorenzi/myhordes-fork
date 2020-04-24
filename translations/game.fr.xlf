@@ -8827,5 +8827,41 @@
         <target>%citizen% a quitté sa planque.</target>
       </segment>
     </unit>
+    <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
+      <notes>
+        <note category="german">Akteneinsicht wird beantragt...</note>
+      </notes>
+      <segment>
+        <source>Akteneinsicht wird beantragt...</source>
+        <target>Rassemblement des zombies...</target>
+      </segment>
+    </unit>
+    <unit id="wbSNK79" name="Protokolle werden analysiert...">
+      <notes>
+        <note category="german">Protokolle werden analysiert...</note>
+      </notes>
+      <segment>
+        <source>Protokolle werden analysiert...</source>
+        <target>Fabrication des tas de sable...</target>
+      </segment>
+    </unit>
+    <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
+      <notes>
+        <note category="german">Überwachungsapparat wird ausgewertet...</note>
+      </notes>
+      <segment>
+        <source>Überwachungsapparat wird ausgewertet...</source>
+        <target>Rangement de la banque...</target>
+      </segment>
+    </unit>
+    <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
+      <notes>
+        <note category="german">Belastende Beweise werden übermittelt...</note>
+      </notes>
+      <segment>
+        <source>Belastende Beweise werden übermittelt...</source>
+        <target>Belastende Beweise werden übermittelt...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
