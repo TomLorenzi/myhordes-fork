@@ -711,7 +711,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     /**
      * @Route("api/beyond/desert/escort/action", name="beyond_desert_escort_action_controller")
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
     public function escort_action_desert_api(JSONRequestParser $parser): Response {
