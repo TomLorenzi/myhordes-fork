@@ -120,7 +120,7 @@ class ZoneHandler
                         }
                     }
 
-                    $zone->setDigs( max($item_prototype ? 0 : 1, $zone->getDigs() - 1) );
+                    $zone->setDigs( max(($item_prototype || $zone->getDigs() <= 0) ? 0 : 1, $zone->getDigs() - 1) );
                     $zone_update = true;
 
                     try {
