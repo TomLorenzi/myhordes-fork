@@ -37,7 +37,7 @@ class Zone
     const DirectionSouthEast = 9;
 
     const BlueprintAvailable = 1;
-    const BlueprintFound     = 0;
+    const BlueprintFound     = 2;
 
     /**
      * @ORM\Id()

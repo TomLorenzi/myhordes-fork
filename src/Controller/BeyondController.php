@@ -270,9 +270,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? T::__("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", 'game') : "";
 
-            $camping_blueprint = ($zone->getBlueprint() === Zone::BlueprintAvailable)
-                ? T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game')
-                : T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
+            $camping_blueprint = "";
+            $blueprintFound = false;
+            if ($zone->getBlueprint() === Zone::BlueprintAvailable) {
+                $camping_blueprint = T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game');
+            } else if ($zone->getBlueprint() === Zone::BlueprintFound) {
+                $camping_blueprint = T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
+                $blueprintFound = true;
+            }
+
 
             // Uncomment next line to show camping values in game interface.
             #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
@@ -301,6 +307,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping_chance' => $camping_chance ?? '',
             'camping_improvable' => $camping_improvable ?? '',
             'camping_blueprint' => $camping_blueprint ?? '',
+            'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
         ]) );
     }
