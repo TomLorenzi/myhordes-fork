@@ -5979,7 +5979,7 @@
       </notes>
       <segment>
         <source>Der Tisch lässt sich ganz leicht mit Gummizügen und Holzstiften zusammenbauen. In deinem Wohnzimmer wird er ein richtiger Hingucker sein. Und wenn du ihn senkrecht stellst, kann er dir eines Nachts vielleicht sogar das Leben retten.</source>
-	<target>Entièrement assemblée avec des élastiques et des picots de bois, cette table fera sûrement très joli dans votre "salon". Et mise à la verticale, elle pourrait bien aussi vous sauver la vie, un soir.</target>
+        <target>Entièrement assemblée avec des élastiques et des picots de bois, cette table fera sûrement très joli dans votre "salon". Et mise à la verticale, elle pourrait bien aussi vous sauver la vie, un soir.</target>
       </segment>
     </unit>
     <unit id="6QQT9fb" name="f1e3a18">
@@ -6320,7 +6320,7 @@
       </notes>
       <segment>
         <source>Eine gammelige alte Zigarettenschachtel, die nach Aas riecht. Du kannst dich richtig glücklich schätzen, sowas findet man heutzutage nur noch sehr selten. Auf der Packung ist ein Warnhinweis: "Rauchen ist tödlich".</source>
-	<target>Un vieux paquet de cigarettes qui sent la charogne et la moisissure. Mais c'est tellement rare d'en trouver de nos jours... Il porte une mention en rouge ainsi qu'une demi-douzaine de têtes de morts : "Fumer tue".</target>
+        <target>Un vieux paquet de cigarettes qui sent la charogne et la moisissure. Mais c'est tellement rare d'en trouver de nos jours... Il porte une mention en rouge ainsi qu'une demi-douzaine de têtes de morts : "Fumer tue".</target>
       </segment>
     </unit>
     <unit id="6DTv4Ck" name="7c55d77">
@@ -8277,6 +8277,33 @@
       <segment>
         <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
         <target>Un coup de fouet très violent pour oublier la fatigue (et récupérer tous ses points d'action !)… 85° d'alcool pur, avec diverses choses vaguement organiques qui flottent dedans. Santé camarade !</target>
+      </segment>
+    </unit>
+    <unit id="rQB150u" name="Nickerchen machen">
+      <notes>
+        <note category="german">Nickerchen machen</note>
+      </notes>
+      <segment>
+        <source>Nickerchen machen</source>
+        <target>Nickerchen machen</target>
+      </segment>
+    </unit>
+    <unit id="bFugpqQ" name="7f96c6f">
+      <notes>
+        <note category="german">Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</note>
+      </notes>
+      <segment>
+        <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
+        <target><![CDATA[Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>]]></target>
+      </segment>
+    </unit>
+    <unit id="exY2Hkq" name="2c7b081">
+      <notes>
+        <note category="german">Vous vous allongez un peu pour vous reposer.&lt;t-ap-up&gt;Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;La panique environnant ne vous permet pas de vous reposer....&lt;/nt-ap-up&gt;</note>
+      </notes>
+      <segment>
+        <source>Vous vous allongez un peu pour vous reposer.&lt;t-ap-up&gt;Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;La panique environnant ne vous permet pas de vous reposer....&lt;/nt-ap-up&gt;</source>
+        <target><![CDATA[Vous vous allongez un peu pour vous reposer.<t-ap-up>Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up>La panique environnant ne vous permet pas de vous reposer....</nt-ap-up>]]></target>
       </segment>
     </unit>
   </file>

@@ -177,8 +177,8 @@
                     {% if zone.x > map_x0 %}<div x-direction-x="-1" x-direction-y="0"  x-target-x="{{ zone.x - 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-west"></div>{% endif %}
                     {% if zone.y > map_y0 %}<div x-direction-x="0"  x-direction-y="-1" x-target-x="{{ zone.x }}" x-target-y="{{ zone.y - 1 }}" class="action-move action-move-south"></div>{% endif %}
                     {% if zone.y < map_y1 %}<div x-direction-x="0"  x-direction-y="1"  x-target-x="{{ zone.x }}" x-target-y="{{ zone.y + 1 }}" class="action-move action-move-north"></div>{% endif %}
-                        <div class='current-location'>{{'Position:'|trans({}, 'game')}} {{ zone.x }} / {{ zone.y }}</div>
                 {% endif %}
+                    <div class='current-location'>{{'Position:'|trans({}, 'game')}} {{ zone.x }} / {{ zone.y }}</div>
             </div>
         {% endif %}
     </div>

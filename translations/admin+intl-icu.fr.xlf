@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
+  <file id="admin.fr">
+    <unit id="kg5BPH1" name="Status">
+      <notes>
+        <note category="german">Status</note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="1BvDdjk" name="Verbannt bis">
+      <notes>
+        <note category="german">Verbannt bis</note>
+      </notes>
+      <segment>
+        <source>Verbannt bis</source>
+        <target>Verbannt bis</target>
+      </segment>
+    </unit>
+    <unit id="gswoKQz" name="Letzte Verbannung">
+      <notes>
+        <note category="german">Letzte Verbannung</note>
+      </notes>
+      <segment>
+        <source>Letzte Verbannung</source>
+        <target>Letzte Verbannung</target>
+      </segment>
+    </unit>
+    <unit id="KqvNLEL" name="Verbannungen">
+      <notes>
+        <note category="german">Verbannungen</note>
+      </notes>
+      <segment>
+        <source>Verbannungen</source>
+        <target>Verbannungen</target>
+      </segment>
+    </unit>
+    <unit id="0.QpL14" name="Verbannen">
+      <notes>
+        <note category="german">Verbannen</note>
+      </notes>
+      <segment>
+        <source>Verbannen</source>
+        <target>Verbannen</target>
+      </segment>
+    </unit>
+    <unit id="Zoy_MWF" name="Dauer">
+      <notes>
+        <note category="german">Dauer</note>
+      </notes>
+      <segment>
+        <source>Dauer</source>
+        <target>Dauer</target>
+      </segment>
+    </unit>
+    <unit id="1E2BbPr" name="1 Tag">
+      <notes>
+        <note category="german">1 Tag</note>
+      </notes>
+      <segment>
+        <source>1 Tag</source>
+        <target>1 Tag</target>
+      </segment>
+    </unit>
+    <unit id="JU_xNFX" name="3 Tage">
+      <notes>
+        <note category="german">3 Tage</note>
+      </notes>
+      <segment>
+        <source>3 Tage</source>
+        <target>3 Tage</target>
+      </segment>
+    </unit>
+    <unit id="84RJxpK" name="5 Tage">
+      <notes>
+        <note category="german">5 Tage</note>
+      </notes>
+      <segment>
+        <source>5 Tage</source>
+        <target>5 Tage</target>
+      </segment>
+    </unit>
+    <unit id="zEDFlzj" name="7 Tage">
+      <notes>
+        <note category="german">7 Tage</note>
+      </notes>
+      <segment>
+        <source>7 Tage</source>
+        <target>7 Tage</target>
+      </segment>
+    </unit>
+    <unit id="GtUIerm" name="15 Tage">
+      <notes>
+        <note category="german">15 Tage</note>
+      </notes>
+      <segment>
+        <source>15 Tage</source>
+        <target>15 Tage</target>
+      </segment>
+    </unit>
+    <unit id="WB_sVVK" name="30 Tage">
+      <notes>
+        <note category="german">30 Tage</note>
+      </notes>
+      <segment>
+        <source>30 Tage</source>
+        <target>30 Tage</target>
+      </segment>
+    </unit>
+    <unit id="tF9Axzf" name="Grund">
+      <notes>
+        <note category="german">Grund</note>
+      </notes>
+      <segment>
+        <source>Grund</source>
+        <target>Grund</target>
+      </segment>
+    </unit>
+    <unit id="FlZntyi" name="Bürger">
+      <notes>
+        <note category="german">Bürger</note>
+      </notes>
+      <segment>
+        <source>Bürger</source>
+        <target>Bürger</target>
+      </segment>
+    </unit>
+    <unit id="8kHR6Z1" name="Akte">
+      <notes>
+        <note category="german">Akte</note>
+      </notes>
+      <segment>
+        <source>Akte</source>
+        <target>Akte</target>
+      </segment>
+    </unit>
+    <unit id="S8vqbzA" name="Verbannung">
+      <notes>
+        <note category="german">Verbannung</note>
+      </notes>
+      <segment>
+        <source>Verbannung</source>
+        <target>Verbannung</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
