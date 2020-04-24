@@ -903,3 +903,55 @@ div.tooltip-dummy {
   height: 0; position: relative; overflow: visible; padding: 0; margin: 0;
   &>* { position: absolute; width: 100%; top: 0; z-index: 3; box-shadow: 0 0 2px black, 0 0 10px black }
 }
+
+div.daily-attack {
+  margin: 0 auto;
+  width: 442px;
+  div.content {
+    padding: 10px;
+    background-color: #5c2b20;
+    border: 1px solid #ddab76;
+    outline: 2px solid #5c2b20;
+    font-style: italic;
+    color: #ddab76;
+    p::first-letter {
+      color: #f0d79e;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    strong {
+      color :#cf7058;
+      font-weight: normal;
+    }
+  }
+
+  div.infos {
+    margin-top: 20px;
+    background-color: #3b3249;
+    border: 1px solid #ddab76;
+    outline: 2px solid #5c2b20;
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem;
+    img {
+      float: left;
+      margin-right: 5px;
+    }
+    h2 {
+      margin: 0px;
+      padding: 0px;
+      margin-top: 0px;
+      margin-bottom: 5px;
+      color: #ddab76;
+      text-align: left;
+      font-family: Verdana;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ddab76;
+      font-size: 1.2rem;
+    }
+    em {
+      color: #f0d79e;
+      font-size: 1rem;
+    }
+  }
+}
