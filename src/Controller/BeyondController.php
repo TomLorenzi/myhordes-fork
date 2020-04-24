@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
@@ -16,6 +17,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\ScoutVisit;
+use App\Entity\Town;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -60,6 +62,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorChatMessageInvalid   = ErrorHelper::BaseBeyondErrors + 8;
     const ErrorTrashLimitHit        = ErrorHelper::BaseBeyondErrors + 9;
     const ErrorNoMovementWhileHiding= ErrorHelper::BaseBeyondErrors + 10;
+    const ErrorEscortLimitHit       = ErrorHelper::BaseBeyondErrors + 11;
 
     protected $game_factory;
     protected $zone_handler;
@@ -1083,9 +1086,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     /**
      * @Route("api/beyond/desert/escort/self", name="beyond_desert_escort_self_controller")
      * @param JSONRequestParser $parser
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function desert_escort_self_api(JSONRequestParser $parser): Response {
+    public function desert_escort_self_api(JSONRequestParser $parser, ConfMaster $conf): Response {
+        if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenIsNotCamping()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1124,9 +1131,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @Route("api/beyond/desert/escort/{cid<\d+>}", name="beyond_desert_escort_controller")
      * @param int $cid
      * @param JSONRequestParser $parser
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function desert_escort_api(int $cid, JSONRequestParser $parser): Response {
+    public function desert_escort_api(int $cid, JSONRequestParser $parser, ConfMaster $conf): Response {
+        if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1142,8 +1153,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (!$citizen->getProfession()->getHeroic() || $citizen->getBanished())
+        if ((!$citizen->getProfession()->getHeroic() && !$citizen->getRoles()->contains($this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide")))
+            || $citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);
+
+        if ($on && $citizen->getLeadingEscorts()->count() >= $max_escort_size)
+            return AjaxResponse::error( self::ErrorEscortLimitHit );
 
         if ($target_citizen->getBanished() || !$target_citizen->getEscortSettings() ||
             ($on && $target_citizen->getEscortSettings()->getLeader() !== null) || (!$on && ($target_citizen->getEscortSettings()->getLeader() === null || $target_citizen->getEscortSettings()->getLeader()->getId() !== $citizen->getId())))
@@ -1169,10 +1186,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
     /**
      * @Route("api/beyond/desert/escort/all", name="beyond_desert_escort_drop_controller")
-     * @param JSONRequestParser $parser
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function desert_escort_api_drop_all(JSONRequestParser $parser): Response {
+    public function desert_escort_api_drop_all(ConfMaster $conf): Response {
+        if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );

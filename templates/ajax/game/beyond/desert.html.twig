@@ -255,7 +255,7 @@
     {% if other_citizens|length == 1 %}
         <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
     {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
-        {% if citizen.validLeadingEscorts|length > 0 %}
+        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
             <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
             <div class="row-table">
                 {% set not_digging = 0 %}
@@ -421,7 +421,7 @@
         {% endif %}
     {% endif %}
 
-    {% if not citizen.banished and not citizen.camping %}
+    {% if not citizen.banished and not citizen.camping and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
         <div class="row">
             {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
                 <div class="cell padded rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
@@ -588,14 +588,16 @@
 
             });
 
-            $.html.addEventListenerAll( '[x-escort-meta-group][x-escort-meta-action][x-citizen]', 'click', function(e,elem) {
-                let pp = document.querySelector('._ec_' + elem.getAttribute('x-citizen') + '_' + elem.getAttribute('x-escort-meta-action'));
-                if (pp.classList.contains('hidden')) {
-                    let tt = document.querySelectorAll('.tooltip-dummy');
-                    for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
-                    pp.classList.remove('hidden');
-                } else pp.classList.add('hidden')
-            });
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
+                $.html.addEventListenerAll( '[x-escort-meta-group][x-escort-meta-action][x-citizen]', 'click', function(e,elem) {
+                    let pp = document.querySelector('._ec_' + elem.getAttribute('x-citizen') + '_' + elem.getAttribute('x-escort-meta-action'));
+                    if (pp.classList.contains('hidden')) {
+                        let tt = document.querySelectorAll('.tooltip-dummy');
+                        for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
+                        pp.classList.remove('hidden');
+                    } else pp.classList.add('hidden')
+                });
+            {% endif %}
 
             handleItems(
                 document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked),.rucksack-escort>.item[x-item-id]:not(.locked)'),
