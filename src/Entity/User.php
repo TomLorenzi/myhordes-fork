@@ -94,6 +94,7 @@ class User implements UserInterface, EquatableInterface
         $this->citizens = new ArrayCollection();
         $this->foundTexts = new ArrayCollection();
         $this->pictos = new ArrayCollection();
+        $this->bannings = new ArrayCollection();
     }
 
     public function getId(): ?int
