@@ -61,7 +61,7 @@
                         <p>{{ camping_improvable }}</p>
                     {% endif %}
                     {% if camping_blueprint != "" %}
-                        <p>{{ camping_blueprint }}</p>
+                        <p class="emphasis"><b>{{ camping_blueprint|trans({}, 'game') }}</b></p>
                     {% endif %}
                     {% if camping_debug != "" %}
                         <pre>{{ camping_debug }}</pre>
