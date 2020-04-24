@@ -7889,7 +7889,7 @@
       </notes>
       <segment>
         <source>Aufbauen</source>
-        <target>Aufbauen</target>
+        <target>Installer</target>
       </segment>
     </unit>
     <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
@@ -8020,7 +8020,7 @@
       </notes>
       <segment>
         <source>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</source>
-        <target>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</target>
+        <target>Vous ne pensez pas pouvoir améliorer le campement mieux que ça, vous avez fait de votre mieux.</target>
       </segment>
     </unit>
     <unit id="24l83Eh" name="7fe00d0">
