@@ -79,7 +79,7 @@ class AdminActionController extends AbstractController
         $lastBan = null;
         if ($banCount > 1)
             $lastBan = $bannings[$banCount - 1];
-        else $lastBan = $longestActiveBan;
+        else $lastBan = $bannings[0];
 
         return $this->render( 'admin_action/users/ban.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
             'user' => $user,
@@ -107,6 +107,18 @@ class AdminActionController extends AbstractController
         $duration  = intval($parser->get('duration'));
         
         if ($admh->ban($this->getUser()->getId(), $id, $reason, $duration))
+            return AjaxResponse::success();
+
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("jx/admin/action/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
+     * @return Response
+     */
+    public function users_ban_lift(int $id, AdminActionHandler $admh): Response
+    {                
+        if ($admh->liftAllBans($this->getUser()->getId(), $id))
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
