@@ -10,6 +10,11 @@
                 <div class="cell padded rw-5 rw-sm-12">
                     <input disabled value="{% if banned %}{{ 'Verbannt bis '|trans({}, 'admin') }}{{ activeBan.banEnd|date('d.m.Y h:i:s') }}{% else %}{{ "--" }}{% endif %}" />
                 </div>
+                {% if banned %}
+                <div class="cell padded ro-3 rw-5 rw-sm-12">
+                    <button id="x-lift-ban">{{ 'Aufheben'|trans({}, 'admin') }}</button>
+                </div>
+                {% endif %}
             </div>
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
@@ -67,6 +72,15 @@
                     $.ajax.load(null, '{{ path('admin_users_ban_view', { 'id': user.Id }) }}', true);
                 } )
         });
-        
+        {% if banned %}
+        document.getElementById('x-lift-ban').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            $.ajax.easySend( '{{ path('admin_users_ban_lift', { 'id': user.Id }) }}', [],
+                function () {
+                    $.ajax.load(null, '{{ path('admin_users_ban_view', { 'id': user.Id }) }}', true);
+                } )
+        });
+        {% endif %}
     </script>
 {% endblock %}

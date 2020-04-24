@@ -63,7 +63,7 @@ class ForumController extends AbstractController
         if ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         else $page = 1;
-
+        
         $threads = $em->getRepository(Thread::class)->findByForum($forums[0], $num_per_page, ($page-1)*$num_per_page);
 
         $thread_list = [];
@@ -253,7 +253,9 @@ class ForumController extends AbstractController
 
         /** @var User $user */
         $user = $this->getUser();
-
+        if ($user->getIsBanned())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+            
         if (!$parser->has_all(['title','text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -309,13 +311,16 @@ class ForumController extends AbstractController
     public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response {
         /** @var User $user */
         $user = $this->getUser();
+        if ($user->getIsBanned())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1) return AjaxResponse::error( self::ErrorForumNotFound );
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
-
+        if ($thread->getLocked())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         /** @var Forum $forum */
         $forum = $forums[0];
 
