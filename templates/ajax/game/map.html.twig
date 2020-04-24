@@ -80,7 +80,12 @@
         </div>
 
         {% if allow_zone_view %}
-            <div class="zone-plane">
+            <div class="zone-plane retro">
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
+                <div class="retro-effect"></div>
                 <div class="zone-sub-container">
                     {% for plane_y in 2..-2 %}
                         {% for plane_x in -2..2 %}
@@ -172,10 +177,15 @@
                     {% if zone.x > map_x0 %}<div x-direction-x="-1" x-direction-y="0"  x-target-x="{{ zone.x - 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-west"></div>{% endif %}
                     {% if zone.y > map_y0 %}<div x-direction-x="0"  x-direction-y="-1" x-target-x="{{ zone.x }}" x-target-y="{{ zone.y - 1 }}" class="action-move action-move-south"></div>{% endif %}
                     {% if zone.y < map_y1 %}<div x-direction-x="0"  x-direction-y="1"  x-target-x="{{ zone.x }}" x-target-y="{{ zone.y + 1 }}" class="action-move action-move-north"></div>{% endif %}
-                        <div class='current-location'>{{'Position:'|trans({}, 'game')}} {{ zone.x }} / {{ zone.y }}</div>
                 {% endif %}
+                    <div class='current-location'>{{'Position:'|trans({}, 'game')}} {{ zone.x }} / {{ zone.y }}</div>
             </div>
         {% endif %}
+        <div class="retro-effect"></div>
+        <div class="retro-effect"></div>
+        <div class="retro-effect"></div>
+        <div class="retro-effect"></div>
+        <div class="retro-effect"></div>
     </div>
     <div class="controls">
         <div class="tilemap_controls">
@@ -198,11 +208,7 @@
         {% if allow_zone_view %}
             <div class="zonemap_controls">
                 <div class="row">
-                    <div class="cell rw-4">&nbsp;</div>
-                    <div class="cell rw-4 center">
-                        
-                    </div>
-                    <div class="cell rw-4 right">
+                    <div class="cell rw-12 right">
                         <button x-control="map" class="small inline">{% trans from 'game' %}Karte{% endtrans %}</button>
                     </div>
                 </div>

@@ -1,13 +1,10 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
-<div class="row admin-menu">
-    <div class="cell padded header rw-6 ro-3 rw-lg-12 ro-lg-0">
-        <input autocomplete="off" maxlength="255" type="text" name="searchUser" class="field.search" value="" id="m_125">
-        
-    </div>
-    <div class="padded cell rw-12">
-        <input autocomplete="off" maxlength="255" type="text" name="searchUser" class="field.search" value="" id="m_125">
-        
+<div class="cell padded footer-nav">
+    <div class="row">
+        <div class="cell padded rw-12 rw-sm-12">  
+            {% embed "admin_action/footer.html.twig" %}{% endembed %}
+         </div>  
     </div>
 </div>
 {% endblock %}

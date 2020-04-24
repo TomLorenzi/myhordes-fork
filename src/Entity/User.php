@@ -60,6 +60,11 @@ class User implements UserInterface, EquatableInterface
     private $citizens;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AdminBan", mappedBy="user")
+     */
+    private $bannings;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user")
      */
     private $foundTexts;
@@ -124,6 +129,14 @@ class User implements UserInterface, EquatableInterface
         return 'user_salt_myhordes_ffee45';
     }
 
+    /**
+     * @return Collection|AdminBan[]
+     */
+    public function getBannings(): Collection
+    {
+        return $this->bannings;
+    }
+
     public function getValidated(): ?bool
     {
         return $this->validated;
@@ -164,7 +177,7 @@ class User implements UserInterface, EquatableInterface
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
-        
+        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';        
         return $roles;
     }
 
@@ -190,10 +203,49 @@ class User implements UserInterface, EquatableInterface
      * @inheritDoc
      */
     public function isEqualTo(UserInterface $user) {
-        return
+        $b1 =
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();
+        if ($user instanceof User) {
+            return $b1 &&
+                $this->getIsAdmin() === $user->getIsAdmin();
+        } else return $b1;
+    }
+
+    public function getIsBanned(): bool {
+        foreach ($this->getBannings() as $b)
+            if ($b->getActive())
+                return true;
+        return false;
+    }
+
+    public function getLongestActiveBan(): ?AdminBan {
+        $ban = null;
+        foreach ($this->getBannings() as $b){
+            if ($b->getActive()) {
+                if (!isset($ban)) {
+                    $ban = $b;                       
+                }
+                else if ($b->getBanEnd() > $ban->getBanEnd())
+                    $ban = $b;     
+            }
+        }            
+        if (isset($ban))
+            return $ban;
+        return null;
+    }
+
+    /**
+     * @return Collection|AdminBan[]
+     */
+    public function getActiveBans(): Collection {
+        $bans = $this->getBannings();
+        foreach ($bans as $ban){
+                if (!($ban->getActive()))
+                    $bans->remove($ban->getId());  
+            }            
+        return $bans;
     }
 
     public function getActiveCitizen(): ?Citizen {

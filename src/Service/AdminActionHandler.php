@@ -3,13 +3,16 @@
 
 namespace App\Service;
 
+use App\Entity\AdminBan;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
 use App\Entity\Forum;
+use App\Entity\Picto;
 use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\User;
 use App\Service\DeathHandler;
+use DateInterval;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -118,5 +121,83 @@ class AdminActionHandler
             return null;
         }
         return $thread;
+    }
+
+    public function liftAllBans(int $sourceUser, int $targetUser): bool
+    {
+        if(!$this->hasRights($sourceUser))
+            return false;
+            
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+        $bans = $this->entity_manager->getRepository(User::class)->find($targetUser)->getActiveBans();
+        
+        foreach ($bans as $ban){
+            $ban->setLifted(true);
+            $ban->setLiftUser($sourceUser);  
+            $this->entity_manager->persist($ban);
+        }
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return false;
+        }
+        return true;   
+    }
+
+    public function ban(int $sourceUser, int $targetUser, string $reason, int $duration): bool
+    {
+        if(!$this->hasRights($sourceUser))
+            return false;
+            
+
+        if (!($duration < 31 && $duration > 0)) return false;
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUser);
+        $banStart = new DateTime('now');
+        $banEnd = new DateTime('now');
+        $interval = ('P' . strval($duration) . 'D');
+        
+        $banInterval = new DateInterval($interval);
+        $banEnd->add($banInterval);
+        $newban = (new AdminBan())
+            ->setSourceUser( $sourceUser )
+            ->setUser( $targetUser )           
+            ->setReason( $reason )
+            ->setBanStart( $banStart )
+            ->setBanEnd( $banEnd );
+        
+        try {
+            $this->entity_manager->persist($newban);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return false;
+        }
+        return true;
+    }
+
+    public function confirmDeath(int $sourceUser, int $targetUser): bool {
+        if(!$this->hasRights($sourceUser))
+            return false;
+
+        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUser);
+        $activeCitizen = $targetUser->getActiveCitizen();
+        if (!(isset($activeCitizen)))
+            return false;
+        if ($activeCitizen->getAlive())
+            return false;
+
+        $activeCitizen->setActive(false);
+
+        // Delete not validated picto from DB
+        // Here, every validated picto should have persisted to 2
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($targetUser);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            $this->entity_manager->remove($pendingPicto);
+        }
+
+        $this->entity_manager->persist( $activeCitizen );
+        $this->entity_manager->flush();
+
+        return true;
     }
 }

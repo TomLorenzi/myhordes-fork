@@ -16,8 +16,11 @@ class TownConf extends Conf
     const CONF_BUILDINGS_CONSTRUCTED = 'initial_buildings';
     const CONF_BUILDINGS_UNLOCKED    = 'unlocked_buildings';
     const CONF_DISTRIBUTED_ITEMS     = 'distribute_items';
+
     const CONF_FEATURE_CAMPING        = 'features.camping';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';
+    const CONF_FEATURE_ESCORT         = 'features.escort.enabled';
+    const CONF_FEATURE_ESCORT_SIZE    = 'features.escort.max';
 
     public function __construct(array $data)
     {

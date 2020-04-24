@@ -12,6 +12,8 @@
 @myhordes-forum-button-border: #c33720;
 @myhordes-forum-moderator-button-color:  #a2321a;
 @myhordes-forum-moderator-button-border: #c33720;
+@myhordes-forum-disabled-button-color:  grey;
+@myhordes-forum-disabled-button-border: grey;
 
 .forum-control {
   &>b:first-child { display: block; background: #321914; padding: 4px; }
@@ -135,24 +137,49 @@
 .forum-button-bar { margin: 5px 0; padding: 0 5px; }
 
 .forum-button {
-  display: inline-block; 
-  padding: 2px 5px; 
-  font-size: 1rem; 
-  background: @myhordes-forum-button-color;
-  border: 1px solid @myhordes-forum-button-border;
-  color: white; cursor: pointer;
-  &:hover { background: @myhordes-forum-button-border; }
-  line-height: 18px;
+  font-size: 1.4rem;
+  background-color: @myhordes-forum-moderator-button-color;
+  background: url('../../img/bg_button.gif') center / cover no-repeat;
+  border: 1px solid @myhordes-forum-moderator-button-border;
+  color: #f0d79e;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 10px 20px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: 1px 3px 0px 0 black;
+  margin-bottom: .5em;
 
-  &[x-text-control-node] {
-    padding: 0;
-    font-size: 1.6rem;
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
-    text-align: center;
+  &:hover {
+    border-color: #f0d79e;
+    box-shadow: 0px 0px 8px 0 black;
   }
 }
+
+.banned-button {
+  font-size: 1.4rem;
+  background-color: @myhordes-forum-disabled-button-color;
+  background: url('../../img/bg_button_grey.gif') center / cover no-repeat;
+  border: 1px solid @myhordes-forum-disabled-button-color;
+  color: #f0d79e;
+  font-weight: bold;
+  cursor: default;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 10px 20px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: 1px 3px 0px 0 black;
+  margin-bottom: .5em;
+
+}
+
 
 .forum-moderator-button {
   display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-moderator-button-color;
@@ -209,17 +236,82 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
-    padding: 10px 30px;
+    height: 25px;
+    padding: 7px 20px;
     vertical-align: middle;
     border-radius: 2px;
     box-shadow: 1px 1px 1px 0 black;
     margin-bottom: .5em;
 
     &:hover {
-      background-color: @myhordes-forum-moderator-button-border;
-      box-shadow: 0 0 1px 0 black;
+      border-color: #f0d79e;
+      box-shadow: 0px 0px 8px 0 black;
     }
+  }
+
+  .forum-button-disabled {
+    font-size: 1.4rem;
+    background-color: @myhordes-forum-moderator-button-color;
+    background: url('../../img/bg_button_grey.gif') center / cover no-repeat;
+    border: 1px solid @myhordes-forum-disabled-button-color;
+    color: #f0d79e;
+    font-weight: bold;
+    cursor: default;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    padding: 7px 20px;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 1px 3px 0px 0 black;
+    margin-bottom: .5em;
+  
+    
+  }
+
+  .forum-header-button {
+    font-size: 1.4rem;
+    background-color: @myhordes-forum-moderator-button-color;
+    background: url('../../img/bg_button.gif') center / cover no-repeat;
+    border: 1px solid @myhordes-forum-moderator-button-border;
+    color: #f0d79e;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 1px 3px 0px 0 black;
+    margin-bottom: .5em;
+  
+    &:hover {
+      border-color: #f0d79e;
+      box-shadow: 0px 0px 8px 0 black;
+    }
+  }
+
+  .forum-header-button-disabled {
+    font-size: 1.4rem;
+    background-color: @myhordes-forum-disabled-button-color;
+    background: url('../../img/bg_button_grey.gif') center / cover no-repeat;
+    border: 1px solid @myhordes-forum-disabled-button-color;
+    color: #f0d79e;
+    font-weight: bold;
+    cursor: default;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 1px 3px 0px 0 black;
+    margin-bottom: .5em;
+  
   }
 
   div.forum-checkbox {

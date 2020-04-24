@@ -44,7 +44,7 @@ class AffectZone
     private $escape;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $improveLevel;
 
@@ -101,12 +101,12 @@ class AffectZone
         return $this;
     }
 
-    public function getImproveLevel(): ?int
+    public function getImproveLevel(): ?float
     {
       return $this->improveLevel;
     }
 
-    public function setImproveLevel(?int $improveLevel): self
+    public function setImproveLevel(?float $improveLevel): self
     {
       $this->improveLevel = $improveLevel;
 

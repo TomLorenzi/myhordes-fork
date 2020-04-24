@@ -19,6 +19,8 @@ class ErrorHelper
     const BaseBeyondErrors        = 700;
 
     const BaseForumErrors         = 1100;
+    
+    const ErrorBannedFromFroum    = 1201;
 
     const ErrorInvalidRequest    = 1;
     const ErrorDatabaseException = 2;
