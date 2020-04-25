@@ -27,7 +27,7 @@ class TextFixtures extends Fixture
             'design' => 'stamp',
             'background' => 'stamp',
         ],
-        'crema1' => [
+        'crema1_de' => [
             'title' => 'Auslosung',
             'author' => 'Stravingo',
             'content' => [
@@ -73,7 +73,7 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'carton',
         ],
-        'noel' => [
+        'noel_de' => [
             'title' => 'Brief an den Weihnachtsmann',
             'author' => 'zhack',
             'content' => [
@@ -84,7 +84,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'letter',
         ],
-        'lettr2' => [
+        'lettr2_de' => [
             'title' => 'Brief an Emily',
             'author' => 'Ralain',
             'content' => [
@@ -139,7 +139,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'letter',
         ],
-        'coctl1' => [
+        'coctl1_de' => [
             'title' => 'Coctails Tagebuch Teil 1',
             'author' => 'coctail',
             'content' => [
@@ -163,7 +163,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'notepad',
         ],
-        'coctl3' => [
+        'coctl3_de' => [
             'title' => 'Coctails Tagebuch Teil 3',
             'author' => 'coctail',
             'content' => [
@@ -177,7 +177,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'notepad',
         ],
-        'chief' => [
+        'chief_de' => [
             'title' => 'Der Verrat',
             'author' => 'Liior',
             'content' => [
@@ -188,21 +188,117 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'grid',
         ],
-        'dv_015' => [
+        'bb' => [
             'title' => 'Ein Briefbündel',
             'author' => 'Ferra',
             'content' => [
-                ''
+                '<p>24. Februar</p>	<p>Mein Lieber,</p><p>Du weißt, wir haben schwere Zeiten durchgemacht. Es ist nicht leicht, Dich immer fortgehen zu sehen, ohne zu wissen, daß Du wiederkommst. Ich habe viel nachgedacht in der letzten Zeit und ich weiß einfach nicht, ob ich so weiterleben kann.</p><p>Ich bin hier in der Stadt so isoliert, meine Familie ist fort, nur Du bist mir geblieben. Aber immer wenn Du wieder zu den Expeditionen aufbrichst, ist es, als würdest Du mich verlassen, immer wieder.</p><p>Ich kann das einfach nicht mehr. Lass uns reden, wenn Du wieder hier bist. Es geht so nicht weiter.</p><p>Dennoch: ich liebe Dich.</p>',
+                '<p>15. März</p><p>Mein Lieber,</p><p>es war so schön, Dich hier zu haben. Wir schaffen es! Gemeinsam. Wie gut zu wissen, daß dies Dein letzter Auftrag sein wird. Ich kann es nicht erwarten, Dich wiederzusehen.</p><p>Der alte Rotti will uns übrigens seine gebrauchten Geräte vermachen, es ist nicht viel, aber gut gepflegt. Damit wird die Arbeit leichter werden. Er will auch bei der Konstruktion der Wasseranlage helfen. Ich habe das Land schon vorbereitet, soweit das möglich ist. Es war hart und mein Rücken wird wohl nie wieder aufhören zu schmerzen.</p><p>Nächstes Jahr um diese Zeit können wir vielleicht schon das erste ernten! Stell Dir nur vor, wir könnten auch ein kleines Blumenbeet anlegen - und hätten immer einen Strauß Leben im Haus.</p>',
+                '<p>Ich weiß, das Wasser ist knapp, aber es tut manchmal einfach gut, sich so etwas auszumalen.</p><p>Komm bald zurück!</p><p>Ich liebe Dich.</p>',
+                '<p>6. April</p><p>Mein Lieber,</p><p>Deine Nachricht hat mich erreicht. Noch vier weitere Monate ohne Dich. Ich wünschte manchmal, ich könnte Dich in deine entfernte Region begleiten. Der Bau der Wasseranlage geht gut voran, es fehlen nur noch ein paar Teile. Ich halte durch, Du kennst mich ja.</p><p>Es gibt noch mehr Neuigkeiten. Ich weiß nicht, ob ich mich freuen soll, es ist so viel zu tun und alles so knapp. Vorräte und Freunde. Du wolltest immer eine kleine Familie, doch ich weiß nicht, ob ich in diesen Zeiten noch ein Kind wollen kann.</p><p>Aber mir wurde die Entscheidung abgenommen. Wir sind bald zu dritt.</p><p>Ich brauche Dich und liebe Dich, mehr als ich sagen kann.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'grid',
         ],
-        'dv_016' => [
+        'utpia1_de' => [
+            'title' => 'Ein Schmierzettel',
+            'author' => null,
+            'content' => [
+                '<p>Der Typ hatte recht. Koordinaten (ungefähr): <strike>210</strike>125 Nord 210 West. </p><p>To do:</p><ul><li>Fahrzeug (Parkplatz im Norden absuchen)</li><li>Wasser (15 Liter)</li><li>Nahrung (bei Bretov besorgen; keine infiziertes Zeug andrehen lassen)</li><li>"Zitadelle" ? Was ist das??</li></ul><p>Ich muss die <strong>B 74</strong> finden.</p><p>Der Rabe???!? Wer ist das? Rausfinden und UMBRINGEN</p><quote>Termin um 16h !!!<strong>!!!!</strong></quote><p><strong>ZITADELLE</strong> finden</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'secret',
+        ],
+        'nails_de' => [
+            'title' => 'Ein paar Schrauben und Muttern',
+            'author' => 'totokogure',
+            'content' => [
+                '<p>Ich habe keine Ahnung was da draußen los ist, aber ich hab so das Gefühl, dass es um mich geht...</p><p>Im Moment sitze ich hier in meiner schützenden Baracke, aber der Menschenauflauf vor meiner Haustür wird von Tag zu Tag größer. Dabei verstehe ich gar nicht, was ich verbrochen haben soll? Ok, ich geb\'s ja zu: Ich habe mir ein paar Schrauben und ein paar Muttern aus der Bank geborgt, um meinen Rasenmäher zu reparieren, aber ich konnte ja nicht wissen, dass die Teile so wichtig sind... Da lag ne ganze Kiste von dem Zeug rum und es sah so aus, als ob sie niemand bräuchte... Na da habe ich mir ein Handvoll davon genommen.</p><p>"Hängt ihn, hängt ihn!", schallt es vor meiner Tür. Hoffentlich machen sie ihre Drohung nicht wahr... Das wäre schon zu komisch: Den Galgen, den habe nämlich ich gebaut...</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'secret',
+        ],
+        'letmys_de' => [
             'title' => 'Ein seltsamer Brief',
             'author' => null,
             'content' => [
-                ''
+                '<p>Es ist Freitag abend.<br>
+                    Wieder ein ruhiger Tag.<br>
+                    Was besseres kann man sich in dieser Welt hier gar nicht wünschen!<br>
+                    Die Soldaten passen sehr gut auf unser Lager auf.<br>
+                    Sie gehen ihrer Arbeit immer sehr professionell und ernst nach.<br>
+                    Sie haben zu uns gesagt, dass sie sich auch um eure Stadt kümmern und euch sehr bald zur Hilfe kommen würden.<br>
+                    <br>
+                    Deshalb müsst ihr sie gebührend empfangen!<br>
+                    Wir brauchen sie dringend hier. Einer mehr oder weniger, das <br>
+                    macht oft den Unterschied.<br>
+                    Ohne sie wären wir aufgeschmissen.<br>
+                    <br>
+                    Du weißt wovon ich rede.<br>
+                    Wir kennen uns jetzt schon so lange!<br>
+                    Ist ja nicht so, dass das der erste Brief ist, den wir uns schreiben, nicht wahr?<br>
+                    Gib bitte allen Bescheid und sorge dafür, dass die notwendigen Vorbereitungen getroffen werden.<br>
+                    <br>
+                    <em>Dein dich liebender Bruder</em>
+                    </p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typedsmall',
+            'background' => 'letter',
+        ],
+        'ezet' => [
+            'title' => 'Einkaufszettel',
+            'author' => 'Zippo',
+            'content' => [
+                '<p><strong>Einkaufszettel: Montag</strong></p>
+                    <p>3 Knöpfe (schwarz perlmuttglanz) (OK)</p>
+                    <p>2 Garnspulen (OK)</p>
+                    <p>2 Nadel kurz (OK)</p>
+                    <p>4 Paar Socken (OK)</p>
+                    <p>1 Brot (geschnitten) (OK)</p>
+                    <p>2 Stück Butter (OK)</p>
+                    <p>Wurstaufschnitt (OK)</p>
+                    <p>3 Liter Milch (OK)</p>',
+                '<p><strong>Einkaufszettel: Mittwoch</strong></p>
+                    <p>2 Treibstoffkanister</p>
+                    <p>Decken</p>
+                    <p>Spaten</p>
+                    <p>Hammer</p>
+                    <p>Axt/Beil</p>
+                    <p>2 Schachtel Schrauben</p>
+                    <p>3 Schachtel Nägel</p>
+                    <p>Holzbretter / Kisten</p>',
+                '<p>Atemschutz</p>
+                    <p>Zigaretten</p>
+                    <p>Chlortabletten</p>
+                    <p>Trinkwasser</p>
+                    <p>Batterien</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'postit',
+        ],
+        'fpelze' => [
+            'title' => 'Faulpelze',
+            'author' => null,
+            'content' => [
+                '<p>Hallo Cordo,</p>
+                <p>Wir haben dich zu den wenigen Auserwählten der Generation der Depressiven erkoren.</p>
+                <p>Es steht ein kleiner Ausflug in den Westen der Stadt steht an. Dieser Renegatenbande, die sich um Nobbius geschart hat, wird heute ein blaues Wunder erleben. In der Generation der 
+                Depressiven dulden wir keine Faulpelze.</p>
+                <p>Der Ausbau der Stadtmauer muss so schnell wie möglich fertig gestellt werden! Eine Stadt ohne entwicklungsfähiger Mauer ist unser sicherer Tod.</p>
+                <p>Bring dein Werkzeug mit und halte dich um 23.45 am Forschungsturm bereit.</p>',
+                '<p>Wir werden ihre kranken und egoistischen Gehirne rausreißen, ihre Körper schänden und sie danach unserem noch lebenden Zombie zum Fraß vorwerfen. In der Stadt wird das gut ankommen.</p>
+                <p>	Die Nichtsnutze MÜSSEN beseitigt werden. ALLE.</p>
+                <p>	Sprich mit niemandem darüber.</p>
+                <p class="other">Ed.</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
         'dv_017' => [
             'title' => 'Frys Erlebnis',
@@ -212,6 +308,41 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
+        'todg' => [
+            'title' => 'Gedanken eines Togeweihten',
+            'author' => 'Knolle',
+            'content' => [
+                '<p>Gedanken eines Todgeweihten</p>
+                <p>Der Tod, er rückt näher! Gleichsam mit der Nacht.
+                Ich höre, wie das Verderben in meine Seele lacht.
+                Die Sonne, sie brennt! Gleich tut’s ihr mein Herz.
+                Wie in einem Albtraum, wie als wär’s nur ein Scherz.</p>
+                <p>Der Tod, er rückt näher! Gleich hat er gewonnen.
+                Mein ganzes bittre Leben, gleich ist es zerronnen.
+                Die Sonne, sie lacht! Gleich tut’s ihr der Tod.
+                Es gibt kein Entkommen, die Nacht sie wird rot.</p>
+                <p>(Verfasser unbekannt)</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'secret',
+        ],
+        'glager' => [
+            'title' => 'Gelbes Lager, Tag 14',
+            'author' => 'Rotti',
+            'content' => [
+                '<p>Gelbes Lager, Tag 14</p>
+                <p>Mein Kater ist verschwunden.</p>
+                <p>Ich hatte ihn in meiner Truhe, nur leider habe ich es versäumt mir einen Vorhang zu bauen.
+                Also waren meine Nachbarn da, während ich draußen in der Wüste für ihr Weiterleben geblutet habe und haben ihn geklaut. Seltsamerweise haben sie ihn zweimal zurückgebracht, mir sogar Nachrichten in welschen Zungen hinterlassen.
+                Beim Dritten Mal war er dann endgültig weg.</p>
+                <p>Wie ich später herausfand, war das der Typ, der immer die Frösche gefressen hat, später haben wir ihn aufgehängt.</p>
+                <p>Den Kater habe ich nie wieder gesehen.</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'secret',
+        ],
         'dv_018' => [
             'title' => 'Gewinnlos',
             'author' => null,
@@ -220,45 +351,108 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
-        'dv_019' => [
+        'ilh' => [
             'title' => 'Ich liebe sie',
             'author' => 'Kouta',
             'content' => [
-                ''
+                '<p>Ich liebe sie. Seitdem ich ihren Arm das erste Mal berührte, will ich sie nicht mehr loslassen. Ich liebe sie so sehr. Ich will sie auf ewig umarmen, hier, neben mir, unter unserem kleinen Felsen. Sie lächelt mich immerzu an. Manchmal frage ich 
+                sie, wie lange sie schon hier ist. Doch sie antwortet mir nie. Manchmal frage ich sie, wann wir eine Stadt suchen wollen. Doch nie sagt sie ein Wort. Aber das ist mir nicht wichtig. Auch, wenn sie mir noch nie ihre Liebe gestanden hat, so weiß ich es 
+                doch. Ihr friedliches Lächeln sagt es mir. Sie wacht immer, auch wenn ich tief schlafe passt sie auf mich auf. Ich frage mich, wie lang unsere Vorräte noch reichen. Ich habe ihr gesagt, dass wir eine Stadt suchen müssen. Doch sie reagiert nie, sie 
+                lächelt mich immerzu an. Ich weiß, dass sie mir damit Mut machen will. Ich lasse mir nichts anmerken und lege mich einfach hin, esse einen Krumen Brot und trinke ein Schlückchen Wasser. Doch sie isst nie. Jeden Morgen ist ihre Ration unangetastet. </p>',
+                '<p>Ich frage sie manchmal, warum sie nicht isst und nicht trinkt. Doch sie lächelt nur. Sie erzählt mir von ihrem Leben. Von ihren Freundinnen und schönen Spielen in ihrer Stadt. Obwohl sie nichts sagt, kann ich ihre Stimme hören. Manchmal höre ich 
+                auch andere Leute. Ganz dumpf sagen sie mir, ich soll auf sie aufpassen, bis sie kommen. Ich habe sie einmal nach ihrem Namen gefragt. Doch sie lächelte mich nur an. Sie macht ein Geheimnis daraus. Sie kommen sicher bald, habe ich ihr gesagt. Sie hat 
+                nicht geantwortet, doch ich weiß, dass sie glücklich ist. Ich habe ihr einmal meine Liebe gestanden. Es war mir sehr peinlich, denn ich dachte, sie lacht mich vielleicht aus. Doch sie lag friedlich da und hat mich angelächelt. Ich weiß, dass sie sich 
+                sehr gefreut hat. Bald sind sie da. Ich höre sie ganz deutlich. Meine Eltern und Bewohner meines Dorfes. Nicht nur nachts, auch am Tag sprechen sie mir Mut zu. Ich sehe sie nicht, aber sie sind bei uns. Sie werden uns retten. Und dann werde ich mit 
+                ihr Spielen, wie ich es ihr versprochen habe. Ich liebe sie. In ihrem weißen Kleid ist wunderschön. Ich liebe sie so sehr.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
-        'dv_020' => [
+        'wratte' => [
             'title' => 'In Bier geschmorte Ratte',
             'author' => 'Akasha',
             'content' => [
-                ''
+                '<div class="hr"></div>
+                <center>In Bier geschmorte Ratte</center>
+                <ul>
+                <li>1 Ratte, küchenfertig</li>
+                <li>Starke Gewürze</li>
+                <li>Öl (soweit vorhanden)</li>
+                <li>2 Stück verdächtiges Gemüse</li>
+                <li>1 Flasche Bier</li>
+                <li>1 Ration Wasser</li>
+                </ul>',
+                '<p>Das verdächtige Gemüse schälen und in Stücke schneiden. Die küchenfertige Ratte je nach Geschmack mit den scharfen Gewürzen einreiben und in einem heißen Topf von allen Seiten gut anbraten. Das Gemüse zugeben und ebenfalls für ein paar Minuten 
+                mitbraten. Mit Wasser und Bier ablöschen und alles zum Kochen bringen. Den Topf abdecken und bei geringer Hitze fünf Stunden lang sanft köcheln lassen. Durch die lange Garzeit wird das Fleisch einfach butterzart.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
         ],
-        'dv_021' => [
+        'ketkat' => [
             'title' => 'Kettensäge & Kater',
             'author' => 'TuraSatana',
             'content' => [
-                ''
+                '<h1>Kettensäge:</h1>
+                <p>Falls du eine Batterie entdeckst,</p>
+                <p>Und du sie in die Lampe steckst</p>
+                <p>Kannst du mit Licht im Schlaf verrecken...</p>
+                <p>Oder dir einen Vibrator in [fehlender Text] stecken!</p>
+                <p>Doch willst du der König der Wüste sein</p>
+                <p>So steck sie in die Kettensäge rein !</p>',
+                '<h1>Großer knuddeliger Kater:</h1>
+                <p>So süß, so brav und doch so wild</p>
+                <p>Der Kater weiss gut wie man killt !</p>
+                <p>Und falls du Abends hungrig bist</p>
+                <p>Koch dir das Kätzchen und nimm einen Biss.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'carton',
         ],
-        'dv_022' => [
+        'delir1_de' => [
+            'title' => 'Makabre Warnung',
+            'author' => 'coctail',
+            'content' => [
+                '<div class="hr"></div>
+                <p>Sie sind überall, überall sag ich euch! Sie haben riesige Klauen und immer Hunger. Unstillbarer und unersättlicher Hunger. Fleisch, frisches Fleisch, immer nur Fleisch wollen sie. Doch das ist noch nicht das Schlimmste! Lange nicht! Das Schlimmste ist, dass ihr nicht tot seid, wenn sie euch beißen! Ihr seid nicht tot, nein, nein...  ihr vegetiert so lange vor euch hin bis ihr so werdet wie sie...</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
+        ],
+        'raya' => [
             'title' => 'Mein bester Freund KevKev',
             'author' => 'Rayalistic',
             'content' => [
-                ''
+                '<p>Liebes Tagebuch</p>
+                <p>Heute ist der 2. Februar 2010, genau, mein Geburtstag! Die Kollegen haben mir deswegen eine feine Flasche Marinostov auf die Seite gelegt.</p>
+                <p>Dennoch ist es ein düsterer Tag für mich, mein bester Freund "KevKev" ist heute Nacht gestorben. Das Tor war bereits geschlossen und ich war am Ende meiner Kräfte. Deswegen habe ich dann 500mg Twionid geschluckt, doch der Riegel war bereits fest 
+                verkeilt. Ich hörte ihn schreien und weinen, es war schrecklich. Auf seinen Willen habe ich ihm unseren Batteriewerfer mit der letzten Batterie rausgeworfen. Die Batterie war nicht für die Zombies gedacht. Das Geräusch werde ich nie Vergessen... 
+                <strong>pflogg</strong>!</p>',
+                '<p>Heute Morgen lag nur noch der Batteriewerfer vor dem Tor. Ich vermisse ihn so sehr! Die Angst, das Leid und die Umstände sind unerträglich, deswegen habe ich mich entschlossen das ganze mit meinem Vodka und einer Zyanidkapsel zu beenden. Es ist 
+                das beste für mich.</p>
+                <p>Den einzige Grund hier zu bleiben gab es heute zu Mittag, armer Flauschi! Ich mach mich jetzt auf den Weg in das verlassene Haus 5km von hier, da werde ich niemandem zur Last fallen.
+                KevKev ich komme!</p>
+                <p>Machs gut liebes Tagebuch,</p> 
+                <p>Dein Rayalistic</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'notepad',
         ],
-        'dv_023' => [
+        'mertxt' => [
             'title' => 'Merkwürdiger Text',
             'author' => 'Moyen',
             'content' => [
-                ''
+                '<div class="hr"></div>
+                <p></p><p>An Coctail:</p>
+                <p>MHSZJOLMHLOYAL</p><p></p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'notepad',
         ],
         'dv_024' => [
             'title' => 'Mitteilung',
