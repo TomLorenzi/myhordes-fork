@@ -16,29 +16,36 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 class TextFixtures extends Fixture
 {
     public static $texts = [
-        'dv_000' => [
+        'arzt' => [
             'title' => 'Arztbescheinigung',
             'author' => 'Waganga',
             'content' => [
-                ''
+                '<h1>Arztbescheinigung</h1><p>Der uns überwiesene Bürger ist für den 6.9. zu entschuldigen. Aufgrund des Zustandes seines rechten Beines war ihm das Arbeiten auf der Baustelle nicht möglich.</p><p>Auch in den nächsten Tage ist strenge Bettruhe anzuraten, um die fortschreitende Verwesung zu stoppen.</p>',
+                '<p>Sollte das Beim trotz intensiver Pflege nicht zu retten sein und wenn die Verwesung auf weitere Körperteile übergreift, ist strengst geboten den Bürger in die Wüste zum Graben zu schicken und schnellstmöglich das Tor zu schließen.</p><p>Hochachtungsvoll,</p><p>Dr. Waganga</p>',
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'stamp',
+            'background' => 'stamp',
         ],
-        'dv_001' => [
+        'crema1' => [
             'title' => 'Auslosung',
             'author' => 'Stravingo',
             'content' => [
-                ''
+                '<quote>Zufluchtsort der verlorenen Hoffnungen, 19. Februar</quote><p>Wir haben schon seit Wochen nichts mehr zu essen. Wir sind hungrig, so hungrig wie in unserem Leben nie zuvor. Der Hunger nagt an uns, presst uns die Gedärme, doch wir können die Stadt nicht verlassen.</p><p>Jenseits unserer schäbigen Verteidigungen lauern sie uns auf... Ich kann nicht mehr. Ich habe keine Kraft mehr. Ich kann den Holzkohlegeruch des Kremato-Cue schon riechen.</p><p>Heute morgen haben wir jemanden ausgelost. Das Los fiel auf mich, aber das ist mir egal. Meine Mitbürger sind dreckige Heuchler, die sich mitleidig geben. Um mir "Trost" zu spenden, sagten Sie, dass ich fast nichts spüren würde. Sie hätten mir eine Flasche Bier aufgehoben - elendige Lügner! Es gibt kein Bier mehr!! Ich hab die letzte Flasche gestern Abend ausgesoffen! Ha!</p><p><em>Stravingo</em></p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'notepad',
         ],
-        'dv_002' => [
+        'sbef' => [
             'title' => 'Befehl',
             'author' => 'Nobbz',
             'content' => [
-                ''
+                '<quote>Befehl</quote><p>Morgen um AG YQ AG AG Zulu wird der Welpe an die Garage im Baum geliefert. Der Dosenöffner nimmt die Route über die A KL. Es wird eine Abschätzung des Kartoffel Gemüse erbeten.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'notepad',
         ],
         'dv_003' => [
             'title' => 'Befehl',
@@ -56,37 +63,48 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
-        'dv_005' => [
+        'bwas' => [
             'title' => 'Bekanntmachung: Wasser',
             'author' => 'Fyodor',
             'content' => [
-                ''
+                '<div class="hr"></div><h1>Bekanntmachung</h1><p>Der Zentralrat hat beschlossen der maßlosen Wasserverschwendung entgegen zu steuern: Ab sofort werden Wasserbezugsmarken ausgegeben!</p><p>Entgegen der Propaganda der Opposition ist der Brunnen nicht leer! Er enthält lediglich kein Wasser mehr.</p><p>Eine Gefahr für die Bevölkerung bestand zu keinem Zeitpunkt.</p><p>Ab sofort wird Wasser nur noch bei Nachweis eines außerordentlichen Bedürfnisses ausgegeben. Wasserbezugsscheine können beim Zentralrat beantragt werden.</p><p>MdZR Fyodor</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'carton',
         ],
-        'dv_006' => [
+        'noel' => [
             'title' => 'Brief an den Weihnachtsmann',
             'author' => 'zhack',
             'content' => [
-                ''
+                '<p>Lieber Weihnachtsmann,</p><p>Ich war dieses Jahr ganz brav. Vor allem auch, weil meine Mama traurig ist, seitdem Papa losgezogen ist, um die bösen Monster umzubringen.</p><p>Weiß du, dass wir nicht mehr schlafen können? Diese Monster greifen uns nachts immer an und machen einen Höllenlärm.</p><p>Wenn du dieses Jahr meinem Papi was schenken könntest, wäre ich dir sehr dankbar. Er fehlt mir sehr und ich möchte, dass es ihm gut geht. Bring ihm bitte ganz viele Geschenke und diesen Brief, denn ich weiß nicht wo er ist und meine Mama will es mir nicht sagen. (Papa ich habe dich furchtbar lieb!!)</p>',
+                '<p>Letztes Jahr hast du mir nicht die Schmetterlingsfee Barbie gebracht. Das ist nicht so schlimm. Wir mussten umziehen und das konntest du ja nicht wissen. Ich will keine Barbie mehr. Dafür möchte ich eine Aquasplash haben, damit Mama uns verteidigen kann, wenn die bösen Monster wieder kommen. Wir werden in der Stadt immer weniger und ich will nicht dass uns die Monster mitnehmen (Mama sagt, dass sie ganz böse sind und immer Hunger haben).</p><p>Das ist alles was ich dieses Jahr möchte. Ich habe dich sehr gern lieber Weihnachtsmann und danke dir für alles.</p><p>Vielleicht wunderst du dich warum ich eine Wasserpistole haben möchte, aber Mama sagt dass die Monster total bescheuert sind weil sie kein Wasser mögen (sie duschen wahrscheinlich nicht so oft).</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
-        'dv_007' => [
+        'lettr2' => [
             'title' => 'Brief an Emily',
             'author' => 'Ralain',
             'content' => [
-                ''
+                '<p>Liebe Schwester,</p><p>Du fehlst mir so sehr. Du weißt gar nicht was ich jetzt geben würde, dich jetzt in meine Arme schließen zu dürfen... Wir haben uns jetzt schon seit 8 Tagen nicht mehr gesehen und ich habe meine Versprechen nicht vergessen. Ich schwöre bei Gott, dass Ich dich finden werde. Koste es was es wolle. Landauf, landab laufe ich durch die Gegend, immer auf der Suche nach dieser "Rückständigen Siedlung ohne Hoffnung". Du bist dort schon gesund und heil angekommen, nicht wahr? Schon als kleines Mädchen warst du intelligenter und gewiefter als ich...  Du hast mir schon so oft aus der Patsche geholfen... was war ich nur für ein schlechter Bruder...</p><p>Heute bist es immer noch du, die mir Kraft gibt. Hab ich dir das schon mal gesagt? Wenn ich dich nicht in Sicherheit wüsste, hätte ich schon längst aufgegeben. Wenn du nicht da gewesen wärst, würde ich jetzt bestimmt nicht mehr am Leben sein.</p>',
+                '<p>Emily, wenn du wüsstest, was ich alles ansehen und durchstehen musste: Unsere Familie, unsere Nachbarn, Petra, dieser Vollidiot von Daniel, Mama und auch Papa... Sie sind... sie haben sich...</p><p>Gestern bin ich in einer neuen Stadt angekommen, genauso wie viele andere auch. Sie sind alle aus dem selben Grund hier wie ich. Alle suchen sie ihre Verwandten, Eltern, Schwester, Söhne und Töchter. Eine komplett aufgelöste Mutter flehte mich heute auf der Straße an. Schluchzend und wimmernd presste sie mir ein Fotos ihres Sohnes auf die Brust und fragte mich, ob ich ihn gesehen hätte. Das hat mich ganz schön mitgenommen. Ich versuchte sie zu beruhigen, indem ich ihr über den Kopf streichelte, doch da wurde sie hysterisch und rannte überstürzt weg.</p><p>Morgen brechen die meisten von hier wieder auf, so auch ich. Wir hoffen bis dahin Straßen vom Sand befreit zu haben. Wenigstens ist die Gemeinschaft gut, jeder packt mit an. Ich habe eine Kopie dieses Briefs jemanden mitgegeben, mit dem ich hier Freunschaft geschlossen habe.</p>',
+                '<p>Sein Name ist Sebastian. Ich habe ihm gesagt, dass er es dem nach Vanille duftenden Mädchen geben soll, die auch "Emmy" genannt wird. Dies ist allerdings nur für den Fall, dass mir etwas zustößt. Daran möchte ich jetzt nicht denken. </p><p>Ich liebe dich. Bis bald, meine kleine Vanilleblume.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'noteup',
         ],
-        'dv_008' => [
+        'nancy' => [
             'title' => 'Brief an Nancy',
             'author' => 'Zekjostov',
             'content' => [
-                ''
+                '<p>Liebe Nancy,</p><p>viele Grüße aus der heißen Wüste. Wie du dir sicherlich vorstellen kannst, ist es tagsüber sehr heiß hier, aber auch sehr, sehr spaßig. Unser Wüstenführer ist sehr lustig und ein wahres Genie in der Wüste. Ich weiß nicht wie er das macht, aber er kann uns abends immer super unterhalten. Er tut immer so, als ob jemand um das Lager schleichen würde, was mir und der Gruppe jedes Mal einen gehörigen Schrecken einjagt!</p><p>Heute habe ich mal das Lagerfeuer verlassen um im Zelt zu schreiben. Ob du es glaubst oder nicht, heute hat der Führer wohl die ganze Gruppe eingeweiht und nun versuchen sie mir Angst zu machen! Sie stöhnen, schreien und grunzen. Aber ich kenne das langsam und werde keine Angst bekommen. Ich wünschte du wärst hier.</p><p>In L</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
         ],
         'dv_009' => [
             'title' => 'Brief an Nelly',
@@ -96,21 +114,44 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
-        'dv_010' => [
+        'brmu1' => [
             'title' => 'Brief einer Mutter',
             'author' => 'MonochromeEmpress',
             'content' => [
-                ''
+                '<div class="hr"></div><center><div>An meine geliebte Tochter.</div></center>',
+                '<p>Liebe Viktoria,</p><p>Bereits seit knapp zwei Monaten verbringen dein Vater, Markus, Tante Judith und Ich unseren alljährlichen Urlaub zusammen.</p><p>Trotz der Bedenken deiner Großmutter, bin ich froh, dass wir uns diesen Urlaub nicht entgehen haben lassen. Schade, dass du dich so vehement geweigert hast mitzukommen. Mit dir wäre es bestimmt noch schöner, aber ich schätze du bist einfach in dem Alter, in dem man sich etwas von seinen Eltern lösen will.</p><p>Wir sind irgendwo draußen in der Wüste und ich habe schon seit längerem die Orientierung verloren, bin aber froh, dass ich noch am Leben bin (was man von Markus nicht sagen kann!).Ich wünschte, ich wüsste, wie es dir geht. Ich hoffe und bete so sehr, dass du noch am Leben bist und nicht von den Nachbarn ausgeraubt wurdest.</p>',
+                '<p>In fast jeder Stadt an der wir auf unserer Reise vorbeikamen, herrschte der Ausnahmezustand (dein Vater wurde beinahe einmal erhängt! Wenn ich wieder zuhause bin, werde ich dir das Foto mit seinem entsetzten Gesicht zeigen. :) ). Außerdem wurde jede Stadt von einem seltsamen, sprechenden Raben bewacht, der eine eigene Zeitung herausgab! Ich fragte mich oft in den vielen schlaflosen Nächten, was es mit diesem Raben auf sich hat…</p><p>Werden wir das je herausfinden?</p><p>Ich schicke dir eine Schlange mit, allerdings beißt sie ganz schön viel (Ich habe einen großen lilagrünblauen Fleck am Unterarm - schon seit 2 Tagen!). Ich habe ihr den Namen „Chantal“ gegeben, kümmer dich bitte gut um sie.</p>',
+                '<p>Gerade höre ich Gegröle. Es scheint, als ob sich uns ein Zombie nähert und dein Vater rennt schon mit einem Kater bewaffnet los. Ich gehe besser und feuere den Zombie an! Schließlich habe ich mit deiner Tante Judith um eine Beruhigungsspritze gewettet! Hoffentlich erreicht dich dieser Brief irgendwann.</p><p>Ich kann noch nicht sagen, wann oder wer genau wieder zu dir zurückkommt, aber ich bleibe optimistisch. In meinem nächsten Brief, werde ich dir dann erzählen ob dein Vater den Kampf gewonnen hat!</p><p>Ich vermisse dich sehr. Küsschen.</p><p>Deine dich liebende Mutter</p>',
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
-        'dv_011' => [
+        'christ' => [
             'title' => 'Christin',
             'author' => 'Fexon',
             'content' => [
-                ''
+                '<p>Christin,</p><p>Ich weiß nicht, ob dies das letzte sein wird, was du von mir lesen wirst, und ich weiß nicht, ob, wenn du diesen letzten Brief in den Händen hältst, schon mehr bekannt ist, als jetzt – ich weiß nur, dass etwas Unerklärliches hier vorgeht, und die ganze Stadt seit vier ganzen Tagen unter Quarantäne steht.</p><p>Quarantäne! Soldaten stehen an provisorischen Schranken und überall stinkt es furchtbar. Sie sagen es sei eine neue, antigenetische Grippe-Variante. Niemand hier versteht, was das bedeutet.</p><p>Die Schrauben- und Mutternfabrik, die den meisten hier Arbeit gegeben hat, bevor die Grippe ausgebrochen ist, ist heute Morgen geschlossen worden – wegen Arbeitermangel… Aber wenn das hier solche Ausmaße annimmt, wie es sich derzeit abzeichnet – wofür braucht man dann Schrauben?!</p>',
+                '<p>Ich wünschte, du wärst nie gefahren. Ich wünschte, du wärst hier gewesen, als Porky gestorben ist. Er war so gesund, bis zu der Nacht - noch bevor uns die erste Meldung über das Virus erreichte - als er plötzlich stark aus der Nase zu bluten begann. Es dauerte vielleicht fünf quälende Minuten. Er sah mich nur an. Gott, vorgestern war ich an der Stelle im Wald, wo ich ihn vergraben hatte, irgendetwas hatte das Loch wieder aufgerissen.</p><p>Kranke Stadt.</p><p>Man solle das Haus nicht verlassen. Also verlasse ich das Haus kaum. Die Enge der Wände, der Geruch des eigenen Atems, die Stille, die, mit muffigen Vorhängen zugezogenen Fenster und die unzumutbare Ungewissheit hinterlassen Spuren. Und Porkys leeres Körbchen. Gott, ich will nicht mit blutender Nase sterben. Ich werde die Türe niemandem öffnen. Es sollen Plünderer umgehen, sagen die Leute.</p>',
+                '<p>Ich war nie ein gläubiger Mensch. Doch das, was gerade passiert, ist die Strafe für alles, was hier in der Vergangenheit geschehen ist. Eine Krankheit für eine kranke Stadt. Für eine kranke Welt.</p><p>Vielleicht sollte ich sehen, ob ich im Haus von Frau Watzek, der alten Dame von nebenan, eine Bibel finde. Die Haustür steht seit vier Tagen offen, auch wenn ich meine, sie gestern regungslos am Fenster stehen gesehen zu haben. Ob alles in Ordnung ist?</p><p>Ich denke an Dich.</p>',
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
+        ],
+        'coctl1' => [
+            'title' => 'Coctails Tagebuch Teil 1',
+            'author' => 'coctail',
+            'content' => [
+                '<p>Pantokrat hatte das Gebäude als Erster gesehen. Es war gar nicht so schlecht, zumal ich überhaupt keine Lust hatte wieder eine Nacht draußen zu schlafen.</p><p>Wir, das heißt Pantokrat, Zoby und Ich (Coctail), liefen schon seit Tagen durch diese staubige Einöde. Bei unserem Aufbruch hatten wir noch alle möglichen und unmöglichen Behälter mit Wasser gefüllt, doch es war zu wenig. Das warme Wasser verflüchtigte sich schneller als unsere Hoffnungen. Ich ertappte mich regelmäßig beim Träumen... In meiner Fantasie kam ein zugefrorener See vor, in dem wir alle badeten. Von den Zombies war da weit und breit keine Spur. Zum Glück.</p><p>Zombies sind unermüdlich und stinken zum Himmel. Glücklicherweise schaffen sie es mit ihrem schlürfenden Gang nie uns einzuholen... was sie allerdings nicht daran hindert, es immer wieder zu versuchen.</p> ',
+                '<p>Tagsüber ist es leicht ihnen zu entwischen, aber nachts sind wir jedes Mal gezwungen blitzartig unsere Zelte abzubauen und überhastet zu flüchten.</p><p>Manchmal können wir sie schon von weitem erkennen. Elendige Hampelmänner sind das, das sage ich euch! Wir müssen dann noch schneller gehen und unsere Verfolger stoßen früher oder später auf die große Horde, welche jeden Tag größer wird.</p><p>Wir standen also vor diesem Gebäude. Das Erdgeschoss war ziemlich groß und es hatte einen ersten Stock. Auf dem Dach war eine Antennen zu erkennen. Skelettgerippe lagen überall um das Gebäude herum verstreut.</p><p>Ich schaute Zoby in die Augen. Es ging ihm offensichtlich nicht gut, getrocknete Blutpfropfen bedeckten seine Lippen. Zoby war von uns dreien derjenige, dem die Hitze am meisten zu schaffen machte, regelmäßig wurde ihm schwarz vor Augen.</p>',
+                '<p>Ich betete insgeheim dafür, dass er noch lange durchhalten möge, denn er war für die Gruppe unersetzlich. Er konnte fast alles reparieren und war sehr erfindungsreich. Ich kann mich noch genau erinnern, als er mir diese geschärfte Blechplatte gegeben hat, "Reibe" hat er sie genannt. Ich habe sie noch immer, sie baumelt an meinem Gürtel. Für fast nichts auf dieser Welt würde ich sie eintauschen.</p><p>Die Luft flimmerte vor Hitze. Jeder Schritt war ein Qual und wir hatten nur noch das schützende Gebäude vor Augen. Langsam, ganz langsam kamen wir ihm näher...</p><p>Auf einmal fing Pantokrat zu schreien an.</p><p>Er hatte fünf Zombies entdeckt, die schnurstracks auf uns zukamen und die uns daran hinderten, das Gebäude zu erreichen.</p>',
+                '<p>Ich konnte und wollte nicht mehr laufen. Ich hatte Durst, einen schrecklichen Durst. Und überhaupt: Ich hatte doch nicht studiert, um hier wie ein Tier ständig von einer Zombiehorde gehetzt zu werden.</p><p>Ich hatte die Schnauze so voll.</p><p>Seit Tagen hatte ich mich auf dieses Gebäude gefreut. Egal wie abgefuckt es war, es versprach Schutz und ein paar Stunden Durchschlafen. In der Wüste ist das unmöglich. Kein Bock mehr.</p><p>Heut Nachmittag liefen wir mal wieder in brütender Hitze als uns fünf halbverrottete Kadaver entgegentorkelten. Pantokrat und Zoby begannen sich daraufhin hektisch auszutauschen, wie wir ihnen am besten ausweichen könnten usw... </p>',
+                '<p>Zoby warf eine flüchtigen Blick Richtung Sonne. Diese befand sich schon am Untergehen. Wir hatten Angst, sie vor Nachteinbruch nicht mehr abschütteln zu können.</p><p>Ich kann nicht mehr.</p><p>Um mir Mut zu machen, wollte ich mich mit meiner "Reibe" lautschreiend auf zwei Zombies stürzen, doch ich bekam keinen Laut aus meiner Kehle. Meine Stimme war weg...</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'notepad',
         ],
         'dv_012' => [
             'title' => 'Coctails Tagebuch Teil 2',
@@ -118,23 +159,34 @@ class TextFixtures extends Fixture
             'content' => [
                 ''
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'notepad',
         ],
-        'dv_013' => [
+        'coctl3' => [
             'title' => 'Coctails Tagebuch Teil 3',
             'author' => 'coctail',
             'content' => [
-                ''
+                '<p>Ich starrte auf die Autoantenne unter mir, als ich sie hören kam. Sie gaben gutturale Laute von sich und bewegten sich langsam auf unser Gebäude zu. Bald würden sie hier sein und mit ihnen dieser strenge Madengeruch.</p><p>Die ersten Male musste ich mich übergeben, aber man gewöhnt sich an alles. Der menschliche Körper kann sich an vieles gewöhnen... selbst an Zombies...</p><p>Wie von Sinnen hämmerten sie gegen die Autohauben. Pantokrats genialer Einfall zahlt sich jetzt aus: Die Blechhauben hielten stand. Allerdings veursachten sie einen Höllenlärm, an Schlaf war diese Nacht nicht zu denken.</p>',
+                '<p>Ich blieb die ganze Nacht lang auf. Kurz vor Sonnenaufgang jagte mir so ein Biest eine verdammte Angst ein! Ich war nur einen kurzen Moment unachtsam. Als ich wieder zum Fenster sah tauchte ein Kopf vor mir auf. Er hatte keinen Kiefer mehr und seine Augen waren blutrot angelaufen. Ich schrie so laut ich konnte und griff reflexartig nach meiner Reibe.</p><p>Dieses etwas kratzte mit seinen Händen gegen das Fenster und gab stöhnenden Bärenlaute von sich.</p><p>Die anderen waren zwischenzeitlich von meinem Geschrei wach geworden. Zoby stürmte ins Zimmer und fuchtelte wild mit seinen Armen.</p><p>Vor lauter Schreck hatte ich gar nicht bemerkt, dass vier Zombies eingedrungen waren. Wir mussten sie aufhalten, denn weitere Viecher würden ihnen bald folgen!</p>',
+                '<p>Zoby brüllte mich an: <quote>"Die Tür, die Tür!!"</quote></p><p>Blitzartig schaute ich nach links. Die Eingangstür schwang auf und zu! Panto und Zoby stemmten sich mit aller Kraft gegen sie und versuchten sie irgendwie zu schließen, aber es gelang ihnen nicht. Hals über Kopf rannte ich los, um etwas zu finden, womit wir sie blockieren konnten.</p><quote>"Das Sofa, das Sofa! Hol das verdammte Sofa!!", schrie mich Panto an.</quote><p>Die Couch vor mich herschiebend, konnte ich aus dem Wohnzimmer bereits sehen, dass die Haustür zu splittern begann und nicht mehr lang standhalten würde.</p><p>Ich weiß nicht wie, aber ich habe die Couch ganz allein vor die Eingangstür geschleppt.</p><p>Zoby kam mir sofort zur Hilfe, sodass wir den Eingangsbereich blockieren konnten. Wir hatten ein Riesenglück, die Couch füllte den Raum zwischen Haustür und gegenüberliegender Wand passgenau. Ich glaube, dass hat uns das Leben gerettet...</p><p>Die Zombies belagerten uns noch ein paar Stunden, ohne dass es ihnen gelang einzudringen. Als wieder Ruhe herrschte, verließ Ich mit Zoby vorsichtig das Haus. Wir stellten fest, dass die Zombies den Kleintransporter genutzt hatten, um sich ihren Weg ins Haus zu bahnen. Ich dachte mir: "Das kann doch wohl nicht wahr sein! Was für eine Scheißidee, die Eingangstür mit einem Wagen zu versperren...".</p>',
+                '<p>Panto stieß zu uns und kletterte in den Transporter, um ihn nach ein paar Sekunden wieder zu verlassen. Er war ganz blass. Panto war sowieso schon die ganze Zeit bleich, die ganzen Sonnenstiche und Sonnenbrände hatten ihm ziemlich zugesetzt, doch diesmal stammelte er etwas vor sich. Ein paar Zombies hätten es bis in der ersten Stock geschafft. Wir mussten handeln.</p><p>Ohne ein Wort zu sagen zog ich los, um die Alkoholflasche zu holen. Dann gönnte ich mir einen vollen Schluck und stieg auf das Dach des Kleintransporters. Pantokrat warf mir sein Feuerzeug zu.</p><p>Das Gebrüll der brennenden Zombies war noch ein paar Stunden zu hören.</p>',
+                '<p>Am Abend zogen wir dann Bilanz. Pantokrat hatte das Gebäude nochmal verstärkt und den Kleintransporter vom Eingang weggeschoben. Zoby hatte auf der Lade des Kettenfahrzeugs eine Metallkabine gebaut und ich hatte noch einmal das gesamte Gebäude nach brauchbaren Gegenständen abgesucht. Ich habe dann noch ein paar Kisten gefunden. Nachts wollten wir sie aufmachen.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'notepad',
         ],
-        'dv_014' => [
+        'chief' => [
             'title' => 'Der Verrat',
             'author' => 'Liior',
             'content' => [
-                ''
+                '<p>Er hat unsere Waffen gestohlen und unsere letzten Fleischvorräte mitgenommen und dann... dann ist er abgehauen... Er hat uns ganz allein zurückgelassen und sagte uns, dass er sich in der Wüste alleine durchschlagen wollte.</p><p>Wir wissen nicht mehr weiter. Wie sollen wir uns heute Nacht vor der Zombiehorde schützen? Ein paar Leute verbringen ihre letzten Stunden in der neuen Kneipe. Wahrscheinlich denken sie, dass dieser Horror mit ein paar Schnäpsen leichter zu ertragen sei...</p><p>Wir sind hier nicht mehr sicher. Er hat all unsere Waffen mitgenommen, unser Essen... Er ist weg. Einfach so, ohne ein Wort zu sagen. Wieso? War es ein Abschied?</p>',
+                '<p>Vielleicht will er einfach nur ein paar von diesen Biestern umbringen und dann wieder heimkommen?</p><p>Unser "Anführer" ist weg, wir fühlen uns verraten und belogen.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
         ],
         'dv_015' => [
             'title' => 'Ein Briefbündel',
