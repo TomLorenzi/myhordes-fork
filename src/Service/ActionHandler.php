@@ -995,7 +995,7 @@ class ActionHandler
         } else $ap = 0;
 
 
-        if ( ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ) )
+        if ( $recipe->getType() == Recipe::WorkshopType && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
             return ErrorHelper::ErrorNoAP;
 
         $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest() ]);

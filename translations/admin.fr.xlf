@@ -145,5 +145,77 @@
         <target>Verbannung</target>
       </segment>
     </unit>
+    <unit id="KANZ2Py" name="Diesen Bürger töten?">
+      <notes>
+        <note category="german">Diesen Bürger töten?</note>
+      </notes>
+      <segment>
+        <source>Diesen Bürger töten?</source>
+        <target>Diesen Bürger töten?</target>
+      </segment>
+    </unit>
+    <unit id="bZx3MQe" name="Aufheben">
+      <notes>
+        <note category="german">Aufheben</note>
+      </notes>
+      <segment>
+        <source>Aufheben</source>
+        <target>Aufheben</target>
+      </segment>
+    </unit>
+    <unit id="r8Abf9v" name="Derzeitiges Leben">
+      <notes>
+        <note category="german">Derzeitiges Leben</note>
+      </notes>
+      <segment>
+        <source>Derzeitiges Leben</source>
+        <target>Derzeitiges Leben</target>
+      </segment>
+    </unit>
+    <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
+      <notes>
+        <note category="german">TOD NICHT BESTÄTIGT</note>
+      </notes>
+      <segment>
+        <source>TOD NICHT BESTÄTIGT</source>
+        <target>TOD NICHT BESTÄTIGT</target>
+      </segment>
+    </unit>
+    <unit id="Cp7etpd" name="Kopfschuss">
+      <notes>
+        <note category="german">Kopfschuss</note>
+      </notes>
+      <segment>
+        <source>Kopfschuss</source>
+        <target>Kopfschuss</target>
+      </segment>
+    </unit>
+    <unit id="Kt_pe8F" name="Tod bestätigen">
+      <notes>
+        <note category="german">Tod bestätigen</note>
+      </notes>
+      <segment>
+        <source>Tod bestätigen</source>
+        <target>Tod bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
+      <notes>
+        <note category="german">Das Leben dieses Bürgers sofort beenden?</note>
+      </notes>
+      <segment>
+        <source>Das Leben dieses Bürgers sofort beenden?</source>
+        <target>Das Leben dieses Bürgers sofort beenden?</target>
+      </segment>
+    </unit>
+    <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
+      <notes>
+        <note category="german">Tod dieses Bürgers zwangsweise bestätigen?</note>
+      </notes>
+      <segment>
+        <source>Tod dieses Bürgers zwangsweise bestätigen?</source>
+        <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

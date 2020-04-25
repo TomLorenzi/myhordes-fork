@@ -3083,13 +3083,11 @@
     </unit>
     <unit id="GNoTm5X" name="Brezel">
       <notes>
-        <note>Brezel</note>
-        <note>Brezel</note>
         <note category="german">Brezel</note>
       </notes>
       <segment>
         <source>Brezel</source>
-        <target>Brezel</target>
+        <target>Bretzel</target>
       </segment>
     </unit>
     <unit id="1_ZEQrG" name="Dackel">
@@ -3444,7 +3442,7 @@
       </notes>
       <segment>
         <source>Kaputter Stock</source>
-        <target>Grand Bâton Sec</target>
+        <target>Bâton cassé</target>
       </segment>
     </unit>
     <unit id="My1HFp_" name="Britney Spears CD">
