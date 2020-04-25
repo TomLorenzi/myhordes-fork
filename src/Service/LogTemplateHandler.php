@@ -320,7 +320,7 @@ class LogTemplateHandler
                 $str = T::__('%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.','game');
                 break;
             case CauseOfDeath::Headshot:
-                $str = T::__('%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.','game');
+                $str = T::__('%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!','game');
                 break;
             default: $str = T::__('%citizen% hat seinen letzten Atemzug getan: %cod%!','game');
         }
