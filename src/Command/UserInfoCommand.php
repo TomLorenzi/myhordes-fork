@@ -45,7 +45,7 @@ class UserInfoCommand extends Command
 
             ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', 'auto')
 
-            ->addOption('find-all-rps', 'rps', InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
+            ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
 
             ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 1 = mod, 2 = admin');
 
@@ -62,19 +62,6 @@ class UserInfoCommand extends Command
                 $user->setIsAdmin($modlv >= 2);
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-            } elseif (($newpw = $input->getOption('set-password')) !== null) {
-
-                if ($newpw === 'auto') {
-                    $newpw = '';
-                    $source = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789-_$';
-                    for ($i = 0; $i < 9; $i++) $newpw .= $source[ mt_rand(0, strlen($source) - 1) ];
-                }
-
-                $user->setPassword($this->pwenc->encodePassword( $user,$newpw ));
-                $output->writeln("New password set: <info>$newpw</info>");
-                $this->entityManager->persist($user);
-                $this->entityManager->flush();
-
             } elseif ($rpLang = $input->getOption('find-all-rps')) {
                 $rps = $this->entityManager->getRepository(RolePlayText::class)->findAllByLang($rpLang);
                 $count = 0;
@@ -92,6 +79,19 @@ class UserInfoCommand extends Command
                 echo "Added $count RPs to user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
+            } elseif ($newpw = $input->getOption('set-password')) {
+
+                if ($newpw === 'auto') {
+                    $newpw = '';
+                    $source = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789-_$';
+                    for ($i = 0; $i < 9; $i++) $newpw .= $source[ mt_rand(0, strlen($source) - 1) ];
+                }
+
+                $user->setPassword($this->pwenc->encodePassword( $user,$newpw ));
+                $output->writeln("New password set: <info>$newpw</info>");
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+
             }
         } else {
             /** @var User[] $users */
