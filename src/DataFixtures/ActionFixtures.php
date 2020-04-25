@@ -580,7 +580,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_knife'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_machine_2'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_small_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_33'] ] ],
-            'throw_b_cutcut'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_2z_80'] ] ],
+            'throw_b_cutcut'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], 'kill_2_zombie' ] ],
             'throw_b_machine_3'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_pc'            => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], 'kill_1_zombie' ] ],
             'throw_b_lawn'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_2_zombie' ] ],
