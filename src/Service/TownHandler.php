@@ -309,6 +309,9 @@ class TownHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$future);
         if (!$est) return 0;
 
+        //TODO: Add telescop effect
+        
+
         $min = round( $est->getZombies() - $est->getZombies() * $est->getOffsetMin()/100);
         $max = round( $est->getZombies() + $est->getZombies() * $est->getOffsetMax()/100);
         return 1 - (($est->getOffsetMin() + $est->getOffsetMax()) - 10) / 24;
