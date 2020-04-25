@@ -4,9 +4,12 @@
 {% block ajax %}
     <div class="daily-attack row">
         <div class="content">
+            <div class="animation">
+                <video autoplay="true" loop="true" muted="true">
+                    <source src="{{ asset('build/images/attack.webm')}}" type="video/webm">
+                </video>
+            </div>
             <p class="justify">
-                <div class="animation">
-                </div>
                 {% trans from 'ghost' %}
                     <p>
                     Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...

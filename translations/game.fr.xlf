@@ -2153,7 +2153,7 @@
       </notes>
       <segment>
         <source>Kaum erforschte Zone</source>
-        <target>Secteur peu exploré</target>
+        <target>Secteur peu connu</target>
       </segment>
     </unit>
     <unit id="_HUy8Fq" name="Die Zone wurde teilweise erforscht">
@@ -8252,7 +8252,7 @@
       </notes>
       <segment>
         <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
-        <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
+        <target>Les zombies contrôlent la zone, vous ne pouvez pas creuser.</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -8856,6 +8856,69 @@
       <segment>
         <source>Stadt im %direction% in %km% Entfernung</source>
         <target>Ville à %km% vers %direction%</target>
+      </segment>
+    </unit>
+    <unit id="AaXbNC4" name="431e5d7">
+      <notes>
+        <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</note>
+      </notes>
+      <segment>
+        <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
+        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</target>
+      </segment>
+    </unit>
+    <unit id="BGnSZ4j" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.">
+      <notes>
+        <note category="german">%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.</note>
+      </notes>
+      <segment>
+        <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.</source>
+        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.</target>
+      </segment>
+    </unit>
+    <unit id="Tx6ACHr" name="Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.">
+      <notes>
+        <note category="german">Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</note>
+      </notes>
+      <segment>
+        <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
+        <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
+      </segment>
+    </unit>
+    <unit id="Q4Q3RlC" name="Du folgst aktuell %citizen%.">
+      <notes>
+        <note category="german">Du folgst aktuell %citizen%.</note>
+      </notes>
+      <segment>
+        <source>Du folgst aktuell %citizen%.</source>
+        <target>Du folgst aktuell %citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="G9pK1NS" name="Du kannst keinen weiteren Bürger eskortieren.">
+      <notes>
+        <note category="german">Du kannst keinen weiteren Bürger eskortieren.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen weiteren Bürger eskortieren.</source>
+        <target>Du kannst keinen weiteren Bürger eskortieren.</target>
+      </segment>
+    </unit>
+    <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">
+      <notes>
+        <note category="german">Klicke hier, um für diesen Bürger zu stimmen.</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um für diesen Bürger zu stimmen.</source>
+        <target>Cliquez-ici pour voter pour ce citoyen.</target>
+      </segment>
+    </unit>
+    <unit id="xp8ndxu" name="Du hast für diesen Bürger gestimmt.">
+      <notes>
+        <note category="german">Du hast für diesen Bürger gestimmt.</note>
+      </notes>
+      <segment>
+        <source>Du hast für diesen Bürger gestimmt.</source>
+        <target>Vous avez voté pour ce citoyen.</target>
       </segment>
     </unit>
   </file>

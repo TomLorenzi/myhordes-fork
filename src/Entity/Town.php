@@ -113,6 +113,11 @@ class Town
      */
     private $soulDefense = 0;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="towns")
+     */
+    private $season;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -429,6 +434,18 @@ class Town
     public function setSoulDefense(int $soulDefense): self
     {
         $this->soulDefense = $soulDefense;
+
+        return $this;
+    }
+
+    public function getSeason(): ?Season
+    {
+        return $this->season;
+    }
+
+    public function setSeason(?Season $season): self
+    {
+        $this->season = $season;
 
         return $this;
     }
