@@ -308,6 +308,41 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
+        'todg' => [
+            'title' => 'Gedanken eines Togeweihten',
+            'author' => 'Knolle',
+            'content' => [
+                '<p>Gedanken eines Todgeweihten</p>
+                <p>Der Tod, er rückt näher! Gleichsam mit der Nacht.
+                Ich höre, wie das Verderben in meine Seele lacht.
+                Die Sonne, sie brennt! Gleich tut’s ihr mein Herz.
+                Wie in einem Albtraum, wie als wär’s nur ein Scherz.</p>
+                <p>Der Tod, er rückt näher! Gleich hat er gewonnen.
+                Mein ganzes bittre Leben, gleich ist es zerronnen.
+                Die Sonne, sie lacht! Gleich tut’s ihr der Tod.
+                Es gibt kein Entkommen, die Nacht sie wird rot.</p>
+                <p>(Verfasser unbekannt)</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'secret',
+        ],
+        'glager' => [
+            'title' => 'Gelbes Lager, Tag 14',
+            'author' => 'Rotti',
+            'content' => [
+                '<p>Gelbes Lager, Tag 14</p>
+                <p>Mein Kater ist verschwunden.</p>
+                <p>Ich hatte ihn in meiner Truhe, nur leider habe ich es versäumt mir einen Vorhang zu bauen.
+                Also waren meine Nachbarn da, während ich draußen in der Wüste für ihr Weiterleben geblutet habe und haben ihn geklaut. Seltsamerweise haben sie ihn zweimal zurückgebracht, mir sogar Nachrichten in welschen Zungen hinterlassen.
+                Beim Dritten Mal war er dann endgültig weg.</p>
+                <p>Wie ich später herausfand, war das der Typ, der immer die Frösche gefressen hat, später haben wir ihn aufgehängt.</p>
+                <p>Den Kater habe ich nie wieder gesehen.</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'secret',
+        ],
         'dv_018' => [
             'title' => 'Gewinnlos',
             'author' => null,
@@ -316,45 +351,108 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
-        'dv_019' => [
+        'ilh' => [
             'title' => 'Ich liebe sie',
             'author' => 'Kouta',
             'content' => [
-                ''
+                '<p>Ich liebe sie. Seitdem ich ihren Arm das erste Mal berührte, will ich sie nicht mehr loslassen. Ich liebe sie so sehr. Ich will sie auf ewig umarmen, hier, neben mir, unter unserem kleinen Felsen. Sie lächelt mich immerzu an. Manchmal frage ich 
+                sie, wie lange sie schon hier ist. Doch sie antwortet mir nie. Manchmal frage ich sie, wann wir eine Stadt suchen wollen. Doch nie sagt sie ein Wort. Aber das ist mir nicht wichtig. Auch, wenn sie mir noch nie ihre Liebe gestanden hat, so weiß ich es 
+                doch. Ihr friedliches Lächeln sagt es mir. Sie wacht immer, auch wenn ich tief schlafe passt sie auf mich auf. Ich frage mich, wie lang unsere Vorräte noch reichen. Ich habe ihr gesagt, dass wir eine Stadt suchen müssen. Doch sie reagiert nie, sie 
+                lächelt mich immerzu an. Ich weiß, dass sie mir damit Mut machen will. Ich lasse mir nichts anmerken und lege mich einfach hin, esse einen Krumen Brot und trinke ein Schlückchen Wasser. Doch sie isst nie. Jeden Morgen ist ihre Ration unangetastet. </p>',
+                '<p>Ich frage sie manchmal, warum sie nicht isst und nicht trinkt. Doch sie lächelt nur. Sie erzählt mir von ihrem Leben. Von ihren Freundinnen und schönen Spielen in ihrer Stadt. Obwohl sie nichts sagt, kann ich ihre Stimme hören. Manchmal höre ich 
+                auch andere Leute. Ganz dumpf sagen sie mir, ich soll auf sie aufpassen, bis sie kommen. Ich habe sie einmal nach ihrem Namen gefragt. Doch sie lächelte mich nur an. Sie macht ein Geheimnis daraus. Sie kommen sicher bald, habe ich ihr gesagt. Sie hat 
+                nicht geantwortet, doch ich weiß, dass sie glücklich ist. Ich habe ihr einmal meine Liebe gestanden. Es war mir sehr peinlich, denn ich dachte, sie lacht mich vielleicht aus. Doch sie lag friedlich da und hat mich angelächelt. Ich weiß, dass sie sich 
+                sehr gefreut hat. Bald sind sie da. Ich höre sie ganz deutlich. Meine Eltern und Bewohner meines Dorfes. Nicht nur nachts, auch am Tag sprechen sie mir Mut zu. Ich sehe sie nicht, aber sie sind bei uns. Sie werden uns retten. Und dann werde ich mit 
+                ihr Spielen, wie ich es ihr versprochen habe. Ich liebe sie. In ihrem weißen Kleid ist wunderschön. Ich liebe sie so sehr.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
-        'dv_020' => [
+        'wratte' => [
             'title' => 'In Bier geschmorte Ratte',
             'author' => 'Akasha',
             'content' => [
-                ''
+                '<div class="hr"></div>
+                <center>In Bier geschmorte Ratte</center>
+                <ul>
+                <li>1 Ratte, küchenfertig</li>
+                <li>Starke Gewürze</li>
+                <li>Öl (soweit vorhanden)</li>
+                <li>2 Stück verdächtiges Gemüse</li>
+                <li>1 Flasche Bier</li>
+                <li>1 Ration Wasser</li>
+                </ul>',
+                '<p>Das verdächtige Gemüse schälen und in Stücke schneiden. Die küchenfertige Ratte je nach Geschmack mit den scharfen Gewürzen einreiben und in einem heißen Topf von allen Seiten gut anbraten. Das Gemüse zugeben und ebenfalls für ein paar Minuten 
+                mitbraten. Mit Wasser und Bier ablöschen und alles zum Kochen bringen. Den Topf abdecken und bei geringer Hitze fünf Stunden lang sanft köcheln lassen. Durch die lange Garzeit wird das Fleisch einfach butterzart.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
         ],
-        'dv_021' => [
+        'ketkat' => [
             'title' => 'Kettensäge & Kater',
             'author' => 'TuraSatana',
             'content' => [
-                ''
+                '<h1>Kettensäge:</h1>
+                <p>Falls du eine Batterie entdeckst,</p>
+                <p>Und du sie in die Lampe steckst</p>
+                <p>Kannst du mit Licht im Schlaf verrecken...</p>
+                <p>Oder dir einen Vibrator in [fehlender Text] stecken!</p>
+                <p>Doch willst du der König der Wüste sein</p>
+                <p>So steck sie in die Kettensäge rein !</p>',
+                '<h1>Großer knuddeliger Kater:</h1>
+                <p>So süß, so brav und doch so wild</p>
+                <p>Der Kater weiss gut wie man killt !</p>
+                <p>Und falls du Abends hungrig bist</p>
+                <p>Koch dir das Kätzchen und nimm einen Biss.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'carton',
         ],
-        'dv_022' => [
+        'delir1_de' => [
+            'title' => 'Makabre Warnung',
+            'author' => 'coctail',
+            'content' => [
+                '<div class="hr"></div>
+                <p>Sie sind überall, überall sag ich euch! Sie haben riesige Klauen und immer Hunger. Unstillbarer und unersättlicher Hunger. Fleisch, frisches Fleisch, immer nur Fleisch wollen sie. Doch das ist noch nicht das Schlimmste! Lange nicht! Das Schlimmste ist, dass ihr nicht tot seid, wenn sie euch beißen! Ihr seid nicht tot, nein, nein...  ihr vegetiert so lange vor euch hin bis ihr so werdet wie sie...</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
+        ],
+        'raya' => [
             'title' => 'Mein bester Freund KevKev',
             'author' => 'Rayalistic',
             'content' => [
-                ''
+                '<p>Liebes Tagebuch</p>
+                <p>Heute ist der 2. Februar 2010, genau, mein Geburtstag! Die Kollegen haben mir deswegen eine feine Flasche Marinostov auf die Seite gelegt.</p>
+                <p>Dennoch ist es ein düsterer Tag für mich, mein bester Freund "KevKev" ist heute Nacht gestorben. Das Tor war bereits geschlossen und ich war am Ende meiner Kräfte. Deswegen habe ich dann 500mg Twionid geschluckt, doch der Riegel war bereits fest 
+                verkeilt. Ich hörte ihn schreien und weinen, es war schrecklich. Auf seinen Willen habe ich ihm unseren Batteriewerfer mit der letzten Batterie rausgeworfen. Die Batterie war nicht für die Zombies gedacht. Das Geräusch werde ich nie Vergessen... 
+                <strong>pflogg</strong>!</p>',
+                '<p>Heute Morgen lag nur noch der Batteriewerfer vor dem Tor. Ich vermisse ihn so sehr! Die Angst, das Leid und die Umstände sind unerträglich, deswegen habe ich mich entschlossen das ganze mit meinem Vodka und einer Zyanidkapsel zu beenden. Es ist 
+                das beste für mich.</p>
+                <p>Den einzige Grund hier zu bleiben gab es heute zu Mittag, armer Flauschi! Ich mach mich jetzt auf den Weg in das verlassene Haus 5km von hier, da werde ich niemandem zur Last fallen.
+                KevKev ich komme!</p>
+                <p>Machs gut liebes Tagebuch,</p> 
+                <p>Dein Rayalistic</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'notepad',
         ],
-        'dv_023' => [
+        'mertxt' => [
             'title' => 'Merkwürdiger Text',
             'author' => 'Moyen',
             'content' => [
-                ''
+                '<div class="hr"></div>
+                <p></p><p>An Coctail:</p>
+                <p>MHSZJOLMHLOYAL</p><p></p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'notepad',
         ],
         'dv_024' => [
             'title' => 'Mitteilung',
