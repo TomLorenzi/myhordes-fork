@@ -27,7 +27,7 @@ class TextFixtures extends Fixture
             'design' => 'stamp',
             'background' => 'stamp',
         ],
-        'crema1' => [
+        'crema1_de' => [
             'title' => 'Auslosung',
             'author' => 'Stravingo',
             'content' => [
@@ -73,7 +73,7 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'carton',
         ],
-        'noel' => [
+        'noel_de' => [
             'title' => 'Brief an den Weihnachtsmann',
             'author' => 'zhack',
             'content' => [
@@ -84,7 +84,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'letter',
         ],
-        'lettr2' => [
+        'lettr2_de' => [
             'title' => 'Brief an Emily',
             'author' => 'Ralain',
             'content' => [
@@ -139,7 +139,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'letter',
         ],
-        'coctl1' => [
+        'coctl1_de' => [
             'title' => 'Coctails Tagebuch Teil 1',
             'author' => 'coctail',
             'content' => [
@@ -163,7 +163,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'notepad',
         ],
-        'coctl3' => [
+        'coctl3_de' => [
             'title' => 'Coctails Tagebuch Teil 3',
             'author' => 'coctail',
             'content' => [
@@ -177,7 +177,7 @@ class TextFixtures extends Fixture
             'design' => 'written',
             'background' => 'notepad',
         ],
-        'chief' => [
+        'chief_de' => [
             'title' => 'Der Verrat',
             'author' => 'Liior',
             'content' => [
@@ -188,21 +188,117 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'grid',
         ],
-        'dv_015' => [
+        'bb' => [
             'title' => 'Ein Briefbündel',
             'author' => 'Ferra',
             'content' => [
-                ''
+                '<p>24. Februar</p>	<p>Mein Lieber,</p><p>Du weißt, wir haben schwere Zeiten durchgemacht. Es ist nicht leicht, Dich immer fortgehen zu sehen, ohne zu wissen, daß Du wiederkommst. Ich habe viel nachgedacht in der letzten Zeit und ich weiß einfach nicht, ob ich so weiterleben kann.</p><p>Ich bin hier in der Stadt so isoliert, meine Familie ist fort, nur Du bist mir geblieben. Aber immer wenn Du wieder zu den Expeditionen aufbrichst, ist es, als würdest Du mich verlassen, immer wieder.</p><p>Ich kann das einfach nicht mehr. Lass uns reden, wenn Du wieder hier bist. Es geht so nicht weiter.</p><p>Dennoch: ich liebe Dich.</p>',
+                '<p>15. März</p><p>Mein Lieber,</p><p>es war so schön, Dich hier zu haben. Wir schaffen es! Gemeinsam. Wie gut zu wissen, daß dies Dein letzter Auftrag sein wird. Ich kann es nicht erwarten, Dich wiederzusehen.</p><p>Der alte Rotti will uns übrigens seine gebrauchten Geräte vermachen, es ist nicht viel, aber gut gepflegt. Damit wird die Arbeit leichter werden. Er will auch bei der Konstruktion der Wasseranlage helfen. Ich habe das Land schon vorbereitet, soweit das möglich ist. Es war hart und mein Rücken wird wohl nie wieder aufhören zu schmerzen.</p><p>Nächstes Jahr um diese Zeit können wir vielleicht schon das erste ernten! Stell Dir nur vor, wir könnten auch ein kleines Blumenbeet anlegen - und hätten immer einen Strauß Leben im Haus.</p>',
+                '<p>Ich weiß, das Wasser ist knapp, aber es tut manchmal einfach gut, sich so etwas auszumalen.</p><p>Komm bald zurück!</p><p>Ich liebe Dich.</p>',
+                '<p>6. April</p><p>Mein Lieber,</p><p>Deine Nachricht hat mich erreicht. Noch vier weitere Monate ohne Dich. Ich wünschte manchmal, ich könnte Dich in deine entfernte Region begleiten. Der Bau der Wasseranlage geht gut voran, es fehlen nur noch ein paar Teile. Ich halte durch, Du kennst mich ja.</p><p>Es gibt noch mehr Neuigkeiten. Ich weiß nicht, ob ich mich freuen soll, es ist so viel zu tun und alles so knapp. Vorräte und Freunde. Du wolltest immer eine kleine Familie, doch ich weiß nicht, ob ich in diesen Zeiten noch ein Kind wollen kann.</p><p>Aber mir wurde die Entscheidung abgenommen. Wir sind bald zu dritt.</p><p>Ich brauche Dich und liebe Dich, mehr als ich sagen kann.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'grid',
         ],
-        'dv_016' => [
+        'utpia1_de' => [
+            'title' => 'Ein Schmierzettel',
+            'author' => null,
+            'content' => [
+                '<p>Der Typ hatte recht. Koordinaten (ungefähr): <strike>210</strike>125 Nord 210 West. </p><p>To do:</p><ul><li>Fahrzeug (Parkplatz im Norden absuchen)</li><li>Wasser (15 Liter)</li><li>Nahrung (bei Bretov besorgen; keine infiziertes Zeug andrehen lassen)</li><li>"Zitadelle" ? Was ist das??</li></ul><p>Ich muss die <strong>B 74</strong> finden.</p><p>Der Rabe???!? Wer ist das? Rausfinden und UMBRINGEN</p><quote>Termin um 16h !!!<strong>!!!!</strong></quote><p><strong>ZITADELLE</strong> finden</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'secret',
+        ],
+        'nails_de' => [
+            'title' => 'Ein paar Schrauben und Muttern',
+            'author' => 'totokogure',
+            'content' => [
+                '<p>Ich habe keine Ahnung was da draußen los ist, aber ich hab so das Gefühl, dass es um mich geht...</p><p>Im Moment sitze ich hier in meiner schützenden Baracke, aber der Menschenauflauf vor meiner Haustür wird von Tag zu Tag größer. Dabei verstehe ich gar nicht, was ich verbrochen haben soll? Ok, ich geb\'s ja zu: Ich habe mir ein paar Schrauben und ein paar Muttern aus der Bank geborgt, um meinen Rasenmäher zu reparieren, aber ich konnte ja nicht wissen, dass die Teile so wichtig sind... Da lag ne ganze Kiste von dem Zeug rum und es sah so aus, als ob sie niemand bräuchte... Na da habe ich mir ein Handvoll davon genommen.</p><p>"Hängt ihn, hängt ihn!", schallt es vor meiner Tür. Hoffentlich machen sie ihre Drohung nicht wahr... Das wäre schon zu komisch: Den Galgen, den habe nämlich ich gebaut...</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'secret',
+        ],
+        'letmys_de' => [
             'title' => 'Ein seltsamer Brief',
             'author' => null,
             'content' => [
-                ''
+                '<p>Es ist Freitag abend.<br>
+                    Wieder ein ruhiger Tag.<br>
+                    Was besseres kann man sich in dieser Welt hier gar nicht wünschen!<br>
+                    Die Soldaten passen sehr gut auf unser Lager auf.<br>
+                    Sie gehen ihrer Arbeit immer sehr professionell und ernst nach.<br>
+                    Sie haben zu uns gesagt, dass sie sich auch um eure Stadt kümmern und euch sehr bald zur Hilfe kommen würden.<br>
+                    <br>
+                    Deshalb müsst ihr sie gebührend empfangen!<br>
+                    Wir brauchen sie dringend hier. Einer mehr oder weniger, das <br>
+                    macht oft den Unterschied.<br>
+                    Ohne sie wären wir aufgeschmissen.<br>
+                    <br>
+                    Du weißt wovon ich rede.<br>
+                    Wir kennen uns jetzt schon so lange!<br>
+                    Ist ja nicht so, dass das der erste Brief ist, den wir uns schreiben, nicht wahr?<br>
+                    Gib bitte allen Bescheid und sorge dafür, dass die notwendigen Vorbereitungen getroffen werden.<br>
+                    <br>
+                    <em>Dein dich liebender Bruder</em>
+                    </p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typedsmall',
+            'background' => 'letter',
+        ],
+        'ezet' => [
+            'title' => 'Einkaufszettel',
+            'author' => 'Zippo',
+            'content' => [
+                '<p><strong>Einkaufszettel: Montag</strong></p>
+                    <p>3 Knöpfe (schwarz perlmuttglanz) (OK)</p>
+                    <p>2 Garnspulen (OK)</p>
+                    <p>2 Nadel kurz (OK)</p>
+                    <p>4 Paar Socken (OK)</p>
+                    <p>1 Brot (geschnitten) (OK)</p>
+                    <p>2 Stück Butter (OK)</p>
+                    <p>Wurstaufschnitt (OK)</p>
+                    <p>3 Liter Milch (OK)</p>',
+                '<p><strong>Einkaufszettel: Mittwoch</strong></p>
+                    <p>2 Treibstoffkanister</p>
+                    <p>Decken</p>
+                    <p>Spaten</p>
+                    <p>Hammer</p>
+                    <p>Axt/Beil</p>
+                    <p>2 Schachtel Schrauben</p>
+                    <p>3 Schachtel Nägel</p>
+                    <p>Holzbretter / Kisten</p>',
+                '<p>Atemschutz</p>
+                    <p>Zigaretten</p>
+                    <p>Chlortabletten</p>
+                    <p>Trinkwasser</p>
+                    <p>Batterien</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'postit',
+        ],
+        'fpelze' => [
+            'title' => 'Faulpelze',
+            'author' => null,
+            'content' => [
+                '<p>Hallo Cordo,</p>
+                <p>Wir haben dich zu den wenigen Auserwählten der Generation der Depressiven erkoren.</p>
+                <p>Es steht ein kleiner Ausflug in den Westen der Stadt steht an. Dieser Renegatenbande, die sich um Nobbius geschart hat, wird heute ein blaues Wunder erleben. In der Generation der 
+                Depressiven dulden wir keine Faulpelze.</p>
+                <p>Der Ausbau der Stadtmauer muss so schnell wie möglich fertig gestellt werden! Eine Stadt ohne entwicklungsfähiger Mauer ist unser sicherer Tod.</p>
+                <p>Bring dein Werkzeug mit und halte dich um 23.45 am Forschungsturm bereit.</p>',
+                '<p>Wir werden ihre kranken und egoistischen Gehirne rausreißen, ihre Körper schänden und sie danach unserem noch lebenden Zombie zum Fraß vorwerfen. In der Stadt wird das gut ankommen.</p>
+                <p>	Die Nichtsnutze MÜSSEN beseitigt werden. ALLE.</p>
+                <p>	Sprich mit niemandem darüber.</p>
+                <p class="other">Ed.</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
         'dv_017' => [
             'title' => 'Frys Erlebnis',
