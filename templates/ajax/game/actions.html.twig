@@ -43,7 +43,7 @@
                         {% endif %}
                         <span>{{ '%action%: %item%'|trans({'%action%': entry.action.label|trans({},'items')|e('html'), '%item%': '<b>' ~ entry.item.prototype.label|trans({},'items')|e('html') ~ '</b>'},'items')|raw }}</span>
                         {% if entry.targets is not null and not entry.crossed %}
-                            {% if entry.target_mode is defined and entry.target_mode == 2 %}
+                            {% if entry.target_mode == 2 %}
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true ) }}
                             {% else %}
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false ) }}
