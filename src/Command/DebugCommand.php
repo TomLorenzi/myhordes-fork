@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\ItemPrototype;
+use App\Entity\Picto;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Service\CitizenHandler;
@@ -69,7 +70,8 @@ class DebugCommand extends Command
             ->addOption('add-crow', null, InputOption::VALUE_NONE, 'Creates the crow account. Also creates 80 validated users in case there are less than 66 users.')
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.')
-            ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.');
+            ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.')
+            ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -78,7 +80,6 @@ class DebugCommand extends Command
 
             if ($input->getOption('add-crow')) {
                 $crow = $this->entity_manager->getRepository(User::class)->find(66);
-                file_put_contents ( "./var/log/crowlog.log", $crow->getEmail(), FILE_APPEND);
                 if (!isset($crow)) {
                     $command = $this->getApplication()->find('app:create-user');
                     for ($i = 1; $i <= 80; $i++) {
@@ -97,7 +98,6 @@ class DebugCommand extends Command
                 $crow->setName("Der Rabe");
                 $crow->setEmail("crow");
                 $crow->setPassword( $this->encoder->encodePassword($crow, '5%[9Wqc@"px.&er{thxCt)7Un^-.~K~B;E7b`,#L0"3?3Mcu:x$|8\-h.3JQ*$') );
-                file_put_contents ( "./var/log/crowlog.log", $crow->getEmail(), FILE_APPEND);
                 $this->entity_manager->persist($crow);
                 $this->entity_manager->flush();               
                 
@@ -171,6 +171,35 @@ class DebugCommand extends Command
             $this->entity_manager->flush();
             $output->writeln("OK.");
 
+        }
+
+        if ($tid = $input->getOption('confirm-deaths')) {
+            for ($i = 1; $i <= 80; $i++) {
+            $users = $this->entity_manager->getRepository(User::class)->findAll();
+
+            foreach ($users as $user) {
+                if (strstr($user->getEmail(), "@localhost") === "@localhost") {
+                    $activeCitizen = $user->getActiveCitizen();
+                    if(isset($activeCitizen)) {
+                        if (!$activeCitizen->getAlive()) {                           
+                            $activeCitizen->setActive(false);
+    
+                            // Delete not validated picto from DB
+                            // Here, every validated picto should have persisted to 2
+                            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+                            foreach ($pendingPictosOfUser as $pendingPicto) {
+                                $this->entity_manager->remove($pendingPicto);
+                            }
+    
+                            $this->entity_manager->persist( $activeCitizen );                            
+                        }
+                    }
+                }
+            }
+            
+            $this->entity_manager->flush();
+            }
+            return 0;
         }
 
         return 1;
