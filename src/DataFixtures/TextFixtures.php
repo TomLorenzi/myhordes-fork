@@ -343,7 +343,25 @@ class TextFixtures extends Fixture
             "title" => "A toi, vieux compagnon...",
             "author" => "Sekhmet",
             "content" => [
-                ''
+                '<p><em>À toi, vieux compagnon, qui nous quittas trop tôt,<br />
+Nous avons tout tenté pour te sauver la vie,<br />
+Nous avons combattu des dizaines de zombies,<br />
+	Mais nous n\'avons pas pu vaincre le manque d\'eau.</em></p>
+
+<p><em>À toi, vieux compagnon, qui gis sous cette terre,<br />
+Même si cette tombe n\'est faite que de bois,<br />
+Même si le vent, la mort, le temps l\'effacera,<br />
+	Nous n\'oublierons jamais cette dernière prière.</em></p>
+
+<p><em>À toi, vieux compagnon, qui peut-être ce soir,<br />
+Te relèveras comme les autres morts-vivants,<br />
+Semant la panique, la peur et les tourments,<br />
+	La terreur et la mort, l\'effroi, le désespoir.</em></p>
+
+<p><em>À toi, vieux compagnon, qui cessas de souffrir,<br />
+Puisse ton âme, au moins, partir d\'ici en paix,<br />
+Loin de ce monde maudit, cruel et sans pitié,<br />
+	Et que reste en nos coeurs, longtemps, ton souvenir.</em></p>'
             ],
             "lang" => "fr",
             "background" => "blood",
@@ -464,31 +482,39 @@ class TextFixtures extends Fixture
             "title" => "Autopsie d'un rat (partie 1 sur 3)",
             "author" => "sanka",
             "content" => [
-                ''
+                '<h2>Compte rendu du 28 août : Autopsie d\'un rat contaminé par le virus L.P.E : Dr Malaky (1/3)</h2>
+                <p>Signes cliniques (directement observables) : Le rat, à l\'origine blanc, présente une pigmentation tirant sur le brun. Sa queue, normallement dépourvue de toute pilosité, est parcourue de nombreux petits poils naissant à sa surface. Les yeux du rongeur sont rouge sang et les pupilles légèrement dilatées. Ses dents semblent plus acérées et désordonnées et les muscles de sa mâchoire ont doublés de volume. Je note également une hyper-sécrétion de salive que j\'explique par la taille conséquente des glandes salivaires de l\'animal, observables au fond de sa gueule.</p>',
+                '<p>Les pattes du rongeur sont extrêmement musclées et ses griffes sont devenues plus rigides et plus longues. Enfin, avant sa mort, le rat présentait un comportement de plus en plus agressif avec de nombreux cris stridents et des attaques répétées contre les parois des cages dans laquelle il était enfermé.</p>'
             ],
             "lang" => "fr",
             "background" => "printer",
-            "design" => "poem"
+            "design" => "typed"
         ],
         "autop2" => [
             "title" => "Autopsie d'un rat (partie 2 sur 3)",
             "author" => "sanka",
             "content" => [
-                ''
+                 '<h2>Compte rendu du 28 août : Autopsie d\'un rat contaminé par le virus L.P.E : Dr Malaky (2/3)</h2>
+                <p>Observation des organes après dissection : Je commence ma dissection par la boîte crânienne. Cette dernière s\'ouvre brusquement alors que je viens à peine d\'inciser l\'os, ce qui traduit une forte pression intra-crânienne et confirme l\'appellation de “maladie encéphalique”. Le cerveau baigne dans une petite quantité de sang, est légèrement atrophié et présente des débuts de nécrose. L\'étude de la cavité buccale confirme mon observation des glandes salivaires qui sont pratiquement doublées par rapport à la normale. En suivant le trajet digestif j\'en arrive à l\'estomac. Celui-ci présente une surface beaucoup plus rigide et mieux protégée.</p>',
+                '<p>Je mesure le PH des sucs gastriques encore présents et m\'aperçois que celui-ci est égal à 1, donc très acide, alors qu\'il est censé être compris entre 1,6 et 3,2. Le rongeur présente une hépatomégalie (augmentation de taille du foie), sans doute dûe à la réaction immunitaire de l\'animal vis à vis du virus. Je constate également une légère splénomégalie (augmentation de volume de la rate), qui atteste d\'une forte activité immunitaire par sécrétion d\'anticorps et de la destruction de déchets sanguins. Enfin, l\'intestin grêle et le gros intestin son eux aussi revêtus d\'une couche de cellules protectrices et voient leur PH passer de 8 à 4,5.</p>'
             ],
             "lang" => "fr",
             "background" => "printer",
-            "design" => "poem"
+            "design" => "typed"
         ],
         "autop3" => [
             "title" => "Autopsie d'un rat (partie 3 sur 3)",
             "author" => "sanka",
             "content" => [
-                ''
+                '<h2>Compte rendu du 28 août : Conclusions suite à l\'autopsie du rat contaminé : Dr Malaky (3/3)</h2>
+                <p>Conclusions : Le cerveau du rongeur ressemble désormais plus à une éponge du fait de la pression supérieure à la moyenne au sein de sa boîte crânienne. Cette pression élevée détruit le cerveau petit à petit et altère les facultés de vie et de jugement de l\'animal : actions irréfléchies, violence, désinhibition totale et non reconnaissance des siens semble-t\'-il. De plus ceci explique les cris constants du rongeur, qui doit être soumis à une forte souffrance et des maux de têtes insoutenables. </p>',
+                '<p>L\'augmentation de taille de la mâchoire, des griffes et de la musculation traduit le fait que l\'animal est conditionné pour le combat et la survie en milieu difficile.</p>
+				<p>L\'appareil digestif, mieux protégé, plus acide et de taille légèrement supérieure à la normale signifie que le rat contaminé peut être capable d\'ingérer n\'importe quel aliment sans pour autant risquer sa vie (os, dents, morceaux de tissus : retrouvés dans les selles du cobaye).</p>',
+				'<p>Enfin les organes du système immunitaire, de taille disproportionnée, montrent que l\'organisme du rongeur lutte réellement contre le virus mais de manière inefficace. Vu la vitesse avec laquelle ils augmentent de volume je pense que la réponse immunitaire finit par s\'essoufler au bout d\'1 ou 2 jours, laissant ainsi le champ libre à l\'installation de la maladie. </p>'
             ],
             "lang" => "fr",
             "background" => "printer",
-            "design" => "poem"
+            "design" => "typed"
         ],
         "delir1" => [
             "title" => "Avertissement macabre",
