@@ -174,7 +174,6 @@ class DebugCommand extends Command
         }
 
         if ($tid = $input->getOption('confirm-deaths')) {
-            for ($i = 1; $i <= 80; $i++) {
             $users = $this->entity_manager->getRepository(User::class)->findAll();
 
             foreach ($users as $user) {
@@ -195,10 +194,9 @@ class DebugCommand extends Command
                         }
                     }
                 }
-            }
-            
+            }           
             $this->entity_manager->flush();
-            }
+            
             return 0;
         }
 
