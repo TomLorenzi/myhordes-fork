@@ -440,7 +440,7 @@ div.lightbox {
   span.highlight { color: @myhordes-span-color; &:first-letter { font-size: 1.4rem; font-weight: bold; } }
 }
 
-button {
+button, *.button {
   min-height: 25px; background: @myhordes-button-background center/cover no-repeat; color: @myhordes-button-color; font-weight: bold;
   border: 1px solid @myhordes-button-border; border-bottom-width: 2px; outline: 1px solid rgba(0,0,0,0);
   transition: outline-color 0.5s; box-shadow: 0 0 2px black; padding: 0 8px 0;
@@ -473,6 +473,7 @@ input[type='text'],input[type='password'],input[type='email'],textarea {
   &:not(.inline) { display: block; width: 100%; }
   &:focus { outline-color: @myhordes-input-border; }
   &:invalid,&.invalid { box-shadow: 0 0 4px red; }
+  &[disabled] { color: black; }
 }
 
 a { color: @myhordes-smalltext; font-weight: bold; }
@@ -953,10 +954,8 @@ div.daily-attack {
       margin-right: 5px;
     }
     h2 {
-      margin: 0px;
       padding: 0px;
-      margin-top: 0px;
-      margin-bottom: 5px;
+      margin: 0px 0px 5px;
       color: #ddab76;
       text-align: left;
       font-family: Verdana;
@@ -968,5 +967,17 @@ div.daily-attack {
       color: #f0d79e;
       font-size: 1rem;
     }
+  }
+}
+
+.avatar {
+  border: 1px solid @myhordes-cell-header-background-color; outline: 1px solid @myhordes-button-color;
+  display: inline-block; box-shadow: 0 0 5px rgba(0,0,0,0.7); position: relative;
+  &.avatar:not(.small):not(.full)>img { max-width: 100px; max-height: 100px; }
+  &.avatar.small>img { width: 90px; height: 30px; object-fit: cover }
+  &.avatar.full>div.crop {
+    &>div { cursor: grab; position: absolute; top: 0; left: 0; right: 0; bottom: 0;  }
+    width: 100%; height: 33.33333333333%; position: absolute; top: 0; left: 0;
+    outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
   }
 }

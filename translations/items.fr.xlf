@@ -4057,13 +4057,11 @@
     </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
       <notes>
-        <note>In den Brunnen schütten</note>
-        <note>In den Brunnen schütten</note>
         <note category="german">In den Brunnen schütten</note>
       </notes>
       <segment>
         <source>In den Brunnen schütten</source>
-        <target>In den Brunnen schütten</target>
+        <target>Verser dans le puits</target>
       </segment>
     </unit>
     <unit id="UbJNeAP" name="34970f4">
