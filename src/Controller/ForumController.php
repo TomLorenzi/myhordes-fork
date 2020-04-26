@@ -207,7 +207,11 @@ class ForumController extends AbstractController
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
 
+            $children = [];
             foreach ( $node->childNodes as $child )
+                $children[] = $child;
+
+            foreach ( $children as $child )
                 if (!$this->htmlValidator( $allowedNodes, $child, $text_length, $depth+1 ))
                     return false;
 
