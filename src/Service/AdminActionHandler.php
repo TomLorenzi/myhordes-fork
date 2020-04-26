@@ -214,18 +214,23 @@ class AdminActionHandler
 
         if (!isset($reason))
             return false;
-        
-        $post->setHidden(true);
-        $this->entity_manager->persist( $post );
+        try {
+            $post->setHidden(true);
+            $this->entity_manager->persist( $post );
 
-        $adminDeletion = (new AdminDeletion())
-            ->setSourceUser( $sourceUser )
-            ->setTimestamp( new DateTime('now') )           
-            ->setReason( $reason )
-            ->setPost( $post );
-        
-        $this->entity_manager->persist( $adminDeletion );        
-        $this->entity_manager->flush();
+            $adminDeletion = (new AdminDeletion())
+                ->setSourceUser( $sourceUser )
+                ->setTimestamp( new DateTime('now') )           
+                ->setReason( $reason )
+                ->setPost( $post );
+            
+            $this->entity_manager->persist( $adminDeletion );        
+            $this->entity_manager->flush();
+        }        
+        catch (Exception $e) 
+        {
+            return false;
+        }
 
         return true;
     }
