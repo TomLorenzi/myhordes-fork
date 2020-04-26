@@ -173,10 +173,12 @@
                             </svg>
                         </div>{% endif %}
                     {% endif %}
+                    {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
                     {% if zone.x < map_x1 %}<div x-direction-x="1"  x-direction-y="0"  x-target-x="{{ zone.x + 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-east"></div>{% endif %}
                     {% if zone.x > map_x0 %}<div x-direction-x="-1" x-direction-y="0"  x-target-x="{{ zone.x - 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-west"></div>{% endif %}
                     {% if zone.y > map_y0 %}<div x-direction-x="0"  x-direction-y="-1" x-target-x="{{ zone.x }}" x-target-y="{{ zone.y - 1 }}" class="action-move action-move-south"></div>{% endif %}
                     {% if zone.y < map_y1 %}<div x-direction-x="0"  x-direction-y="1"  x-target-x="{{ zone.x }}" x-target-y="{{ zone.y + 1 }}" class="action-move action-move-north"></div>{% endif %}
+                    {% endif %}
                 {% endif %}
                     <div class='current-location'>{{'Position:'|trans({}, 'game')}} {{ zone.x }} / {{ zone.y }}</div>
             </div>
