@@ -14,18 +14,18 @@
       <notes>
         <note category="german">Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
-        <target>No puedes unirte a más de una ciudad al mismo tiempo.</target>
+        <target>No puedes unirte a más de un pueblo al mismo tiempo.</target>
       </segment>
     </unit>
     <unit id="KGUlxGY" name="Du bist dieser Stadt bereits beigetreten.">
       <notes>
         <note category="german">Du bist dieser Stadt bereits beigetreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du bist dieser Stadt bereits beigetreten.</source>
-        <target>Ya estás unido a este pueblo.</target>
+        <target>Ya te has unido a este pueblo.</target>
       </segment>
     </unit>
     <unit id="xkZqSVc" name="Wähle eine Stadt">
@@ -77,18 +77,18 @@
       <notes>
         <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
-        <target>El servidor está siendo atacado por zombies. Por favor se paciente mientras nos defendemos de las hordas enemigas.</target>
+        <target>El servidor está siendo invadido por los zombies, como todas las noches.</target>
       </segment>
     </unit>
     <unit id="e6r4m6r" name="1a8b866">
       <notes>
         <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
-        <target>Los ataques nocturnos suceden todos los días a la medianoche y toman unos 20 minutos. MisHordas no puede ser accedido durante este tiempo.</target>
+        <target>Por lo tanto, no es posible conectarse o inscribirse. El ataque suele durar unos 20 minutos.</target>
       </segment>
     </unit>
     <unit id="gqk_gdE" name="Beitreten">
@@ -104,27 +104,27 @@
       <notes>
         <note category="german">Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
-        <target>El idioma del pueblo seleccionado es %lang_town%. Tu idioma seleccionado es%lang_user%.</target>
+        <target>El idioma del pueblo seleccionado es %lang_town%. Tu idioma seleccionado es %lang_user%.</target>
       </segment>
     </unit>
     <unit id="5jsjI47" name="977e42c">
       <notes>
         <note category="german">Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</source>
-        <target>Si te unes a este pueblo, el idioma de MisHordas será cambiado a %lang_town% por la duración del pueblo.</target>
+        <target>Si te unes a este pueblo, el idioma de MyHordes será cambiado a %lang_town% por la duración del pueblo.</target>
       </segment>
     </unit>
     <unit id="0C3XaFv" name="321754f">
       <notes>
         <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
-        <target>La comunicación es importante en MisHordas. Por favor no entres a un pueblo cuyo idioma no hablas. Deseas continuar?</target>
+        <target>La comunicación es importante en MyHordes. Por favor, no entres a un pueblo cuyo idioma no hablas. ¿Deseas continuar?</target>
       </segment>
     </unit>
     <unit id="FbY7TeM" name="Bestätigen">
@@ -140,18 +140,18 @@
       <notes>
         <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten?</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
-        <target>Deseas ingresar al terrible mundo de los malditos como un habitante de %town_name%?</target>
+        <target>¿Listo para ingresar a %town_name%? ¡Buena suerte!</target>
       </segment>
     </unit>
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
       <notes>
         <note category="german">Deine Seele genügt den Anforderungen für diesen Stadttypen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
-        <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
+        <target>Tu alma cumple los requisitos para este tipo pueblo.</target>
       </segment>
     </unit>
   </file>

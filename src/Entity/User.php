@@ -97,7 +97,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $preferSmallAvatars;
+    private $preferSmallAvatars = false;
 
     public function __construct()
     {

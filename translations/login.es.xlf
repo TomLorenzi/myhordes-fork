@@ -104,9 +104,9 @@
       <notes>
         <note category="german">Hallo %name%!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hallo %name%!</source>
-        <target>Hola %name%!</target>
+        <target>¡Hola %name%!</target>
       </segment>
     </unit>
     <unit id="UA_FeeT" name="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
@@ -122,9 +122,9 @@
       <notes>
         <note category="german">Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
-        <target>Por favor ingresa el código de verificación que fue enviado a tu dirección de e-mail.</target>
+        <target>Por favor ingresa el código de verificación que ha sido enviado a tu dirección de e-mail.</target>
       </segment>
     </unit>
     <unit id="ANnpnHZ" name="Validierungscode">
@@ -158,36 +158,36 @@
       <notes>
         <note category="german">Du hast noch keinen Account?</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du hast noch keinen Account?</source>
-        <target>¿Todavía no estás registrado?</target>
+        <target>¿Aún no tienes una cuenta?</target>
       </segment>
     </unit>
     <unit id="pMJydfA" name="Registrieren!">
       <notes>
         <note category="german">Registrieren!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Registrieren!</source>
-        <target>¡Registrarse!</target>
+        <target>¡Regístrate!</target>
       </segment>
     </unit>
     <unit id="0wO.38C" name="Du hast deine E-Mail Adresse schon validiert?">
       <notes>
         <note category="german">Du hast deine E-Mail Adresse schon validiert?</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du hast deine E-Mail Adresse schon validiert?</source>
-        <target>¿Ya validaste tu dirección de e-mail?</target>
+        <target>¿Ya has validado tu dirección de e-mail?</target>
       </segment>
     </unit>
     <unit id="cLGN4MZ" name="Einloggen!">
       <notes>
         <note category="german">Einloggen!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einloggen!</source>
-        <target>¡Ingresar!</target>
+        <target>¡Ingresa!</target>
       </segment>
     </unit>
     <unit id="m8bXbyH" name="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
@@ -203,18 +203,18 @@
       <notes>
         <note category="german">Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
-        <target>Algunos campos no fueron completados correctamente. Por favor revisa lo ingresado. </target>
+        <target>Algunos campos no fueron completados correctamente. Por favor revisa lo ingresado.</target>
       </segment>
     </unit>
     <unit id="O63JhDQ" name="Registrieren">
       <notes>
         <note category="german">Registrieren</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Registrieren</source>
-        <target>Registrarse</target>
+        <target>Regístrate</target>
       </segment>
     </unit>
     <unit id="VR0KmfL" name="Spielername">
@@ -278,9 +278,9 @@
       <notes>
         <note category="german">Einloggen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einloggen</source>
-        <target>Ingresar</target>
+        <target>Ingresa</target>
       </segment>
     </unit>
     <unit id="k.cRHPZ" name="Bitte gib deinen Spielernamen und dein Passwort ein.">
@@ -296,9 +296,9 @@
       <notes>
         <note category="german">Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
-        <target>Ingreso fallido. Por favor revise los datos ingresados.</target>
+        <target>El identificador o la contraseña no son válidos.</target>
       </segment>
     </unit>
   </file>

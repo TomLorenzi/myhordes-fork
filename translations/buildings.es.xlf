@@ -6,9 +6,9 @@
         <note>Wassergraben</note>
         <note category="german">Wassergraben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wassergraben</source>
-        <target>Wassergraben</target>
+        <target>Gran charco</target>
       </segment>
     </unit>
     <unit id="pmF7FgU" name="Großer Graben">
@@ -16,9 +16,9 @@
         <note>Großer Graben</note>
         <note category="german">Großer Graben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Großer Graben</source>
-        <target>Großer Graben</target>
+        <target>Zanja periférica</target>
       </segment>
     </unit>
     <unit id="39k_QT1" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.">
@@ -26,9 +26,9 @@
         <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</target>
+        <target>La zanja periférica aporta 23 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="mkCln4o" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.">
@@ -36,9 +36,9 @@
         <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</target>
+        <target>La zanja periférica aporta 44 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="7ohJiNu" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.">
@@ -46,9 +46,9 @@
         <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</target>
+        <target>La zanja periférica aporta 76 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="wvQCfMZ" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.">
@@ -56,9 +56,9 @@
         <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</target>
+        <target>La zanja periférica aporta 109 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="HL3IJ3X" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.">
@@ -66,9 +66,9 @@
         <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</source>
-        <target>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</target>
+        <target>La zanja periférica aporta 160 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="wlt3nkJ" name="Rasierklingenmauer">
@@ -76,9 +76,9 @@
         <note>Rasierklingenmauer</note>
         <note category="german">Rasierklingenmauer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rasierklingenmauer</source>
-        <target>Rasierklingenmauer</target>
+        <target>Muro de faquir</target>
       </segment>
     </unit>
     <unit id="nDqxP50" name="Pfahlgraben">
@@ -86,9 +86,9 @@
         <note>Pfahlgraben</note>
         <note category="german">Pfahlgraben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Pfahlgraben</source>
-        <target>Pfahlgraben</target>
+        <target>Zanja trampa</target>
       </segment>
     </unit>
     <unit id="CrQIj8M" name="Köder">
@@ -96,9 +96,9 @@
         <note>Köder</note>
         <note category="german">Köder</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Köder</source>
-        <target>Köder</target>
+        <target>Cebo</target>
       </segment>
     </unit>
     <unit id="I6Ou0iS" name="Stacheldraht">
@@ -106,9 +106,9 @@
         <note>Stacheldraht</note>
         <note category="german">Stacheldraht</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Stacheldraht</source>
-        <target>Stacheldraht</target>
+        <target>Alambre de púas</target>
       </segment>
     </unit>
     <unit id="N_IRvC9" name="Weiterentwickelte Stadtmauer">
@@ -116,9 +116,9 @@
         <note>Weiterentwickelte Stadtmauer</note>
         <note category="german">Weiterentwickelte Stadtmauer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Weiterentwickelte Stadtmauer</source>
-        <target>Weiterentwickelte Stadtmauer</target>
+        <target>Muralla mejorada</target>
       </segment>
     </unit>
     <unit id="HbQ4h88" name="Groooße Mauer">
@@ -126,9 +126,9 @@
         <note>Groooße Mauer</note>
         <note category="german">Groooße Mauer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Groooße Mauer</source>
-        <target>Groooße Mauer</target>
+        <target>Murazo</target>
       </segment>
     </unit>
     <unit id="rrm6H8d" name="Zackenmauer">
@@ -136,9 +136,9 @@
         <note>Zackenmauer</note>
         <note category="german">Zackenmauer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zackenmauer</source>
-        <target>Zackenmauer</target>
+        <target>Muralla con púas</target>
       </segment>
     </unit>
     <unit id="2g3app1" name="Dritte Schicht">
@@ -146,9 +146,9 @@
         <note>Dritte Schicht</note>
         <note category="german">Dritte Schicht</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dritte Schicht</source>
-        <target>Dritte Schicht</target>
+        <target>Tercera capa</target>
       </segment>
     </unit>
     <unit id="9lvn8i4" name="Zweite Schicht">
@@ -156,9 +156,9 @@
         <note>Zweite Schicht</note>
         <note category="german">Zweite Schicht</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zweite Schicht</source>
-        <target>Zweite Schicht</target>
+        <target>Segunda capa</target>
       </segment>
     </unit>
     <unit id="Y45k2Pv" name="Betonschicht">
@@ -166,9 +166,9 @@
         <note>Betonschicht</note>
         <note category="german">Betonschicht</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Betonschicht</source>
-        <target>Betonschicht</target>
+        <target>Capa de hormigón</target>
       </segment>
     </unit>
     <unit id="jULo0MF" name="Entwicklungsfähige Stadtmauer">
@@ -176,9 +176,9 @@
         <note>Entwicklungsfähige Stadtmauer</note>
         <note category="german">Entwicklungsfähige Stadtmauer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Entwicklungsfähige Stadtmauer</source>
-        <target>Entwicklungsfähige Stadtmauer</target>
+        <target>Muralla evolutiva</target>
       </segment>
     </unit>
     <unit id="i.v_PDf" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.">
@@ -186,9 +186,9 @@
         <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</target>
+        <target>La muralla aporta 85 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="jlp8Fv_" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.">
@@ -196,9 +196,9 @@
         <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</target>
+        <target>La muralla aporta 120 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="is67H0y" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.">
@@ -206,9 +206,9 @@
         <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</target>
+        <target>La muralla aporta 170 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="V.Pp1rj" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.">
@@ -216,9 +216,9 @@
         <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</target>
+        <target>La muralla aporta 235 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="HaXbtuP" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.">
@@ -226,9 +226,9 @@
         <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</source>
-        <target>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</target>
+        <target>La muralla aporta 315 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="lgS6PS2" name="Verstärkende Balken">
@@ -236,9 +236,9 @@
         <note>Verstärkende Balken</note>
         <note category="german">Verstärkende Balken</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verstärkende Balken</source>
-        <target>Verstärkende Balken</target>
+        <target>Parches de metal</target>
       </segment>
     </unit>
     <unit id="GP9xakw" name="Zombiereibe">
@@ -246,9 +246,9 @@
         <note>Zombiereibe</note>
         <note category="german">Zombiereibe</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zombiereibe</source>
-        <target>Zombiereibe</target>
+        <target>Raspa-Zombies</target>
       </segment>
     </unit>
     <unit id="FMhDGIY" name="Fallgruben">
@@ -256,9 +256,9 @@
         <note>Fallgruben</note>
         <note category="german">Fallgruben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Fallgruben</source>
-        <target>Fallgruben</target>
+        <target>Trampas clásicas</target>
       </segment>
     </unit>
     <unit id="rCdMakD" name="Zaun">
@@ -266,9 +266,9 @@
         <note>Zaun</note>
         <note category="german">Zaun</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zaun</source>
-        <target>Zaun</target>
+        <target>Valla de madera</target>
       </segment>
     </unit>
     <unit id="1VFjm8C" name="Holzzaun">
@@ -276,9 +276,9 @@
         <note>Holzzaun</note>
         <note category="german">Holzzaun</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Holzzaun</source>
-        <target>Holzzaun</target>
+        <target>Empalizada</target>
       </segment>
     </unit>
     <unit id="sUMdYSq" name="Sperrholz">
@@ -286,9 +286,9 @@
         <note>Sperrholz</note>
         <note category="german">Sperrholz</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Sperrholz</source>
-        <target>Sperrholz</target>
+        <target>Contrachapado</target>
       </segment>
     </unit>
     <unit id="XQiF0XP" name="Rüstungsplatten 3.0">
@@ -296,9 +296,9 @@
         <note>Rüstungsplatten 3.0</note>
         <note category="german">Rüstungsplatten 3.0</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rüstungsplatten 3.0</source>
-        <target>Rüstungsplatten 3.0</target>
+        <target>Tabique grueso</target>
       </segment>
     </unit>
     <unit id="00gaKK_" name="Extramauer">
@@ -306,9 +306,9 @@
         <note>Extramauer</note>
         <note category="german">Extramauer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Extramauer</source>
-        <target>Extramauer</target>
+        <target>Muralla extra</target>
       </segment>
     </unit>
     <unit id="zlG5ILw" name="Rüstungsplatten">
@@ -316,9 +316,9 @@
         <note>Rüstungsplatten</note>
         <note category="german">Rüstungsplatten</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rüstungsplatten</source>
-        <target>Rüstungsplatten</target>
+        <target>Tabique de madera</target>
       </segment>
     </unit>
     <unit id="95xxaU2" name="Rüstungsplatten 2.0">
@@ -326,9 +326,9 @@
         <note>Rüstungsplatten 2.0</note>
         <note category="german">Rüstungsplatten 2.0</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rüstungsplatten 2.0</source>
-        <target>Rüstungsplatten 2.0</target>
+        <target>Tabique de metal</target>
       </segment>
     </unit>
     <unit id="XbhNL1e" name="Einseifer">
@@ -336,9 +336,9 @@
         <note>Einseifer</note>
         <note category="german">Einseifer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einseifer</source>
-        <target>Einseifer</target>
+        <target>Muralla enjabonada</target>
       </segment>
     </unit>
     <unit id="3q79VCE" name="Spraykanone">
@@ -346,9 +346,9 @@
         <note>Spraykanone</note>
         <note category="german">Spraykanone</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Spraykanone</source>
-        <target>Spraykanone</target>
+        <target>Cañón aspirina</target>
       </segment>
     </unit>
     <unit id="2NZcCax" name="Säurespray">
@@ -356,9 +356,9 @@
         <note>Säurespray</note>
         <note category="german">Säurespray</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Säurespray</source>
-        <target>Säurespray</target>
+        <target>Pulverizador de ácido</target>
       </segment>
     </unit>
     <unit id="i0za.Ug" name="Zerstäuber">
@@ -366,9 +366,9 @@
         <note>Zerstäuber</note>
         <note category="german">Zerstäuber</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zerstäuber</source>
-        <target>Zerstäuber</target>
+        <target>Vaporizador</target>
       </segment>
     </unit>
     <unit id="uQSIZwY" name="Verstärkte Stadtmauer">
@@ -376,9 +376,9 @@
         <note>Verstärkte Stadtmauer</note>
         <note category="german">Verstärkte Stadtmauer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verstärkte Stadtmauer</source>
-        <target>Verstärkte Stadtmauer</target>
+        <target>Muralla</target>
       </segment>
     </unit>
     <unit id="2gSRbEU" name="Minen">
@@ -386,9 +386,9 @@
         <note>Minen</note>
         <note category="german">Minen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Minen</source>
-        <target>Minen</target>
+        <target>Minas de agua</target>
       </segment>
     </unit>
     <unit id="rCKz3m3" name="Wasserfilter">
@@ -396,9 +396,9 @@
         <note>Wasserfilter</note>
         <note category="german">Wasserfilter</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserfilter</source>
-        <target>Wasserfilter</target>
+        <target>Filtro de agua</target>
       </segment>
     </unit>
     <unit id="14diVFD" name="Wasserreiniger">
@@ -406,9 +406,9 @@
         <note>Wasserreiniger</note>
         <note category="german">Wasserreiniger</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserreiniger</source>
-        <target>Wasserreiniger</target>
+        <target>Purificador de agua</target>
       </segment>
     </unit>
     <unit id="MHnbW88" name="Dünger">
@@ -416,9 +416,9 @@
         <note>Dünger</note>
         <note category="german">Dünger</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dünger</source>
-        <target>Dünger</target>
+        <target>Fertilizante</target>
       </segment>
     </unit>
     <unit id="kP2Srb9" name="Granatapfel">
@@ -426,9 +426,9 @@
         <note>Granatapfel</note>
         <note category="german">Granatapfel</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Granatapfel</source>
-        <target>Granatapfel</target>
+        <target>Pomelo explosivo</target>
       </segment>
     </unit>
     <unit id="ruRpI7F" name="Gemüsebeet">
@@ -436,9 +436,9 @@
         <note>Gemüsebeet</note>
         <note category="german">Gemüsebeet</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Gemüsebeet</source>
-        <target>Gemüsebeet</target>
+        <target>Huerta</target>
       </segment>
     </unit>
     <unit id="aMK4lTK" name="Projekt Eden">
@@ -446,9 +446,9 @@
         <note>Projekt Eden</note>
         <note category="german">Projekt Eden</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Projekt Eden</source>
-        <target>Projekt Eden</target>
+        <target>Projecto Edén</target>
       </segment>
     </unit>
     <unit id="g7vkdOB" name="Brunnenbohrer">
@@ -456,9 +456,9 @@
         <note>Brunnenbohrer</note>
         <note category="german">Brunnenbohrer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Brunnenbohrer</source>
-        <target>Brunnenbohrer</target>
+        <target>Taladro</target>
       </segment>
     </unit>
     <unit id="18uh4Vj" name="Kärcher">
@@ -466,9 +466,9 @@
         <note>Kärcher</note>
         <note category="german">Kärcher</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kärcher</source>
-        <target>Kärcher</target>
+        <target>Vaporizador pro</target>
       </segment>
     </unit>
     <unit id="CfQ_Bib" name="Kreischender Rotor">
@@ -476,9 +476,9 @@
         <note>Kreischender Rotor</note>
         <note category="german">Kreischender Rotor</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kreischender Rotor</source>
-        <target>Kreischender Rotor</target>
+        <target>Prensadora</target>
       </segment>
     </unit>
     <unit id="OcCCWxy" name="Sprinkleranlage">
@@ -486,9 +486,9 @@
         <note>Sprinkleranlage</note>
         <note category="german">Sprinkleranlage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Sprinkleranlage</source>
-        <target>Sprinkleranlage</target>
+        <target>Regaderas automáticas</target>
       </segment>
     </unit>
     <unit id="MULCyIk" name="Dusche">
@@ -496,9 +496,9 @@
         <note>Dusche</note>
         <note category="german">Dusche</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dusche</source>
-        <target>Dusche</target>
+        <target>Duchas</target>
       </segment>
     </unit>
     <unit id="7j0r7B9" name="Wasserleitungsnetz">
@@ -506,9 +506,9 @@
         <note>Wasserleitungsnetz</note>
         <note category="german">Wasserleitungsnetz</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserleitungsnetz</source>
-        <target>Wasserleitungsnetz</target>
+        <target>Red hidráulica</target>
       </segment>
     </unit>
     <unit id="Rhgjmll" name="Wasserturm">
@@ -516,9 +516,9 @@
         <note>Wasserturm</note>
         <note category="german">Wasserturm</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserturm</source>
-        <target>Wasserturm</target>
+        <target>Sistema de riego</target>
       </segment>
     </unit>
     <unit id="_TjOaCj" name="37ac031">
@@ -526,7 +526,7 @@
         <note>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</source>
         <target>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</target>
       </segment>
@@ -536,7 +536,7 @@
         <note>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</source>
         <target>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</target>
       </segment>
@@ -546,7 +546,7 @@
         <note>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</source>
         <target>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</target>
       </segment>
@@ -556,7 +556,7 @@
         <note>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</source>
         <target>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</target>
       </segment>
@@ -566,7 +566,7 @@
         <note>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</source>
         <target>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</target>
       </segment>
@@ -576,9 +576,9 @@
         <note>Wasserfänger</note>
         <note category="german">Wasserfänger</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserfänger</source>
-        <target>Wasserfänger</target>
+        <target>Perforador tectónico</target>
       </segment>
     </unit>
     <unit id="ABN1XUN" name="Wasserkanone">
@@ -586,9 +586,9 @@
         <note>Wasserkanone</note>
         <note category="german">Wasserkanone</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserkanone</source>
-        <target>Wasserkanone</target>
+        <target>Regadera</target>
       </segment>
     </unit>
     <unit id="gCJBWWD" name="Schleuse">
@@ -596,9 +596,9 @@
         <note>Schleuse</note>
         <note category="german">Schleuse</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schleuse</source>
-        <target>Schleuse</target>
+        <target>Arroyos</target>
       </segment>
     </unit>
     <unit id="qo4gzuN" name="Wasserfall">
@@ -606,9 +606,9 @@
         <note>Wasserfall</note>
         <note category="german">Wasserfall</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserfall</source>
-        <target>Wasserfall</target>
+        <target>Cortina de agua</target>
       </segment>
     </unit>
     <unit id="bZnWnKs" name="Wünschelrakete">
@@ -616,9 +616,9 @@
         <note>Wünschelrakete</note>
         <note category="german">Wünschelrakete</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wünschelrakete</source>
-        <target>Wünschelrakete</target>
+        <target>Lanza-cohetes</target>
       </segment>
     </unit>
     <unit id="kBVya6M" name="Wünschelrute">
@@ -626,9 +626,9 @@
         <note>Wünschelrute</note>
         <note category="german">Wünschelrute</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wünschelrute</source>
-        <target>Wünschelrute</target>
+        <target>Detector de agua</target>
       </segment>
     </unit>
     <unit id="FL6iCcw" name="Apfelbaum">
@@ -636,9 +636,9 @@
         <note>Apfelbaum</note>
         <note category="german">Apfelbaum</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Apfelbaum</source>
-        <target>Apfelbaum</target>
+        <target>Manzano</target>
       </segment>
     </unit>
     <unit id="sfG6Jkq" name="Pumpe">
@@ -646,9 +646,9 @@
         <note>Pumpe</note>
         <note category="german">Pumpe</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Pumpe</source>
-        <target>Pumpe</target>
+        <target>Bomba de agua</target>
       </segment>
     </unit>
     <unit id="soE_FyU" name="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
@@ -656,9 +656,9 @@
         <note>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</target>
+        <target>Añade 5 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
@@ -666,9 +666,9 @@
         <note>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</target>
+        <target>Añade 20 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="IAeAAwG" name="Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt">
@@ -676,9 +676,9 @@
         <note>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</target>
+        <target>Añade 30 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="cLG_5i1" name="Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt">
@@ -686,9 +686,9 @@
         <note>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</target>
+        <target>Añade 40 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="Mjl71we" name="Kremato-Cue">
@@ -696,9 +696,9 @@
         <note>Kremato-Cue</note>
         <note category="german">Kremato-Cue</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kremato-Cue</source>
-        <target>Kremato-Cue</target>
+        <target>Cremato bar</target>
       </segment>
     </unit>
     <unit id="j.YCYvG" name="Metzgerei">
@@ -706,9 +706,9 @@
         <note>Metzgerei</note>
         <note category="german">Metzgerei</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Metzgerei</source>
-        <target>Metzgerei</target>
+        <target>Carnicería</target>
       </segment>
     </unit>
     <unit id="aejltM1" name="Verteidigungsanlage">
@@ -716,9 +716,9 @@
         <note>Verteidigungsanlage</note>
         <note category="german">Verteidigungsanlage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verteidigungsanlage</source>
-        <target>Verteidigungsanlage</target>
+        <target>Defensas Max</target>
       </segment>
     </unit>
     <unit id="u73yQTm" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.">
@@ -726,7 +726,7 @@
         <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</target>
       </segment>
@@ -736,7 +736,7 @@
         <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</target>
       </segment>
@@ -746,7 +746,7 @@
         <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</target>
       </segment>
@@ -756,7 +756,7 @@
         <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</target>
       </segment>
@@ -766,7 +766,7 @@
         <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</target>
       </segment>
@@ -776,9 +776,9 @@
         <note>Steinkanone</note>
         <note category="german">Steinkanone</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Steinkanone</source>
-        <target>Steinkanone</target>
+        <target>Cañón de rocas</target>
       </segment>
     </unit>
     <unit id="u_k83kB" name="Selbstgebaute Railgun">
@@ -786,9 +786,9 @@
         <note>Selbstgebaute Railgun</note>
         <note category="german">Selbstgebaute Railgun</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Selbstgebaute Railgun</source>
-        <target>Selbstgebaute Railgun</target>
+        <target>Perforador</target>
       </segment>
     </unit>
     <unit id="Vj3WnMj" name="Blechplattenwerfer">
@@ -796,9 +796,9 @@
         <note>Blechplattenwerfer</note>
         <note category="german">Blechplattenwerfer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Blechplattenwerfer</source>
-        <target>Blechplattenwerfer</target>
+        <target>Lanza láminas</target>
       </segment>
     </unit>
     <unit id="CAZwcmO" name="Brutale Kanone">
@@ -806,9 +806,9 @@
         <note>Brutale Kanone</note>
         <note category="german">Brutale Kanone</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Brutale Kanone</source>
-        <target>Brutale Kanone</target>
+        <target>Cañón brutal</target>
       </segment>
     </unit>
     <unit id="ZyMPQfA" name="Kanonenhügel">
@@ -816,9 +816,9 @@
         <note>Kanonenhügel</note>
         <note category="german">Kanonenhügel</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kanonenhügel</source>
-        <target>Kanonenhügel</target>
+        <target>Montículos</target>
       </segment>
     </unit>
     <unit id="fXSFcSL" name="Holzbalkendrehkreuz">
@@ -826,9 +826,9 @@
         <note>Holzbalkendrehkreuz</note>
         <note category="german">Holzbalkendrehkreuz</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Holzbalkendrehkreuz</source>
-        <target>Holzbalkendrehkreuz</target>
+        <target>Torniquete</target>
       </segment>
     </unit>
     <unit id="G2Xnwsv" name="Manufaktur">
@@ -836,9 +836,9 @@
         <note>Manufaktur</note>
         <note category="german">Manufaktur</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Manufaktur</source>
-        <target>Manufaktur</target>
+        <target>Fábrica</target>
       </segment>
     </unit>
     <unit id="885G31O" name="Kreischende Sägen">
@@ -846,9 +846,9 @@
         <note>Kreischende Sägen</note>
         <note category="german">Kreischende Sägen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kreischende Sägen</source>
-        <target>Kreischende Sägen</target>
+        <target>Sierra aulladora</target>
       </segment>
     </unit>
     <unit id="EicSNbc" name="Bauhaus">
@@ -856,9 +856,9 @@
         <note>Bauhaus</note>
         <note category="german">Bauhaus</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bauhaus</source>
-        <target>Bauhaus</target>
+        <target>Registro de obras</target>
       </segment>
     </unit>
     <unit id="apLtnCI" name="be80c53">
@@ -866,9 +866,9 @@
         <note>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
+        <target>El pueblo recibirá 4 planos comunes después del ataque (¿y una sorpresa quizás?)</target>
       </segment>
     </unit>
     <unit id="GIcE44t" name="bfa9448">
@@ -876,9 +876,9 @@
         <note>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
+        <target>El pueblo recibirá 2 planos comunes y 2 inusuales después del ataque (¿y una sorpresa quizás?)</target>
       </segment>
     </unit>
     <unit id="4TGJ0Dx" name="ec0b7ad">
@@ -886,9 +886,9 @@
         <note>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</target>
+        <target>El pueblo recibirá 2 planos inusuales y 2 raros después del ataque (¿y una sorpresa quizás?)</target>
       </segment>
     </unit>
     <unit id="erBRQsV" name="Baustellenbuch">
@@ -896,9 +896,9 @@
         <note>Baustellenbuch</note>
         <note category="german">Baustellenbuch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Baustellenbuch</source>
-        <target>Baustellenbuch</target>
+        <target>Estudio de arquitectos</target>
       </segment>
     </unit>
     <unit id="Cou_v9E" name="Galgen">
@@ -906,9 +906,9 @@
         <note>Galgen</note>
         <note category="german">Galgen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Galgen</source>
-        <target>Galgen</target>
+        <target>Horca</target>
       </segment>
     </unit>
     <unit id="3ZbLUsz" name="Kleines Cafe">
@@ -916,9 +916,9 @@
         <note>Kleines Cafe</note>
         <note category="german">Kleines Cafe</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kleines Cafe</source>
-        <target>Kleines Cafe</target>
+        <target>Cafetería</target>
       </segment>
     </unit>
     <unit id="fIiQQtV" name="Sarg-Katapult">
@@ -926,9 +926,9 @@
         <note>Sarg-Katapult</note>
         <note category="german">Sarg-Katapult</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Sarg-Katapult</source>
-        <target>Sarg-Katapult</target>
+        <target>Lanza Muertos</target>
       </segment>
     </unit>
     <unit id="Ddy6W0H" name="Kleiner Friedhof">
@@ -936,9 +936,9 @@
         <note>Kleiner Friedhof</note>
         <note category="german">Kleiner Friedhof</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kleiner Friedhof</source>
-        <target>Kleiner Friedhof</target>
+        <target>Defensas Post-Mortem</target>
       </segment>
     </unit>
     <unit id="FN3dAwg" name="Hühnerstall">
@@ -946,9 +946,9 @@
         <note>Hühnerstall</note>
         <note category="german">Hühnerstall</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hühnerstall</source>
-        <target>Hühnerstall</target>
+        <target>Gallinero</target>
       </segment>
     </unit>
     <unit id="rvXKPYg" name="Schlachthof">
@@ -956,9 +956,9 @@
         <note>Schlachthof</note>
         <note category="german">Schlachthof</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schlachthof</source>
-        <target>Schlachthof</target>
+        <target>Matadero</target>
       </segment>
     </unit>
     <unit id="Fs4XN5W" name="Pentagon">
@@ -966,9 +966,9 @@
         <note>Pentagon</note>
         <note category="german">Pentagon</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Pentagon</source>
-        <target>Pentagon</target>
+        <target>Soporte de defensas</target>
       </segment>
     </unit>
     <unit id="NBHNMKt" name="Kantine">
@@ -976,9 +976,9 @@
         <note>Kantine</note>
         <note category="german">Kantine</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kantine</source>
-        <target>Kantine</target>
+        <target>Cafetería central</target>
       </segment>
     </unit>
     <unit id="jaLVdqp" name="Bollwerk">
@@ -986,9 +986,9 @@
         <note>Bollwerk</note>
         <note category="german">Bollwerk</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bollwerk</source>
-        <target>Bollwerk</target>
+        <target>Protección civil</target>
       </segment>
     </unit>
     <unit id="zkW4TlC" name="Baumarkt">
@@ -996,9 +996,9 @@
         <note>Baumarkt</note>
         <note category="german">Baumarkt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Baumarkt</source>
-        <target>Baumarkt</target>
+        <target>Despacho de vivienda</target>
       </segment>
     </unit>
     <unit id="YpxBmf9" name="Krankenstation">
@@ -1006,9 +1006,9 @@
         <note>Krankenstation</note>
         <note category="german">Krankenstation</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Krankenstation</source>
-        <target>Krankenstation</target>
+        <target>Enfermería</target>
       </segment>
     </unit>
     <unit id="e2uWnIv" name="Labor">
@@ -1016,9 +1016,9 @@
         <note>Labor</note>
         <note category="german">Labor</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Labor</source>
-        <target>Labor</target>
+        <target>Laboratorio central</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -1026,9 +1026,9 @@
         <note>Werkstatt</note>
         <note category="german">Werkstatt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Werkstatt</source>
-        <target>Werkstatt</target>
+        <target>Taller</target>
       </segment>
     </unit>
     <unit id="FXAUu02" name="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
@@ -1036,9 +1036,9 @@
         <note>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</target>
+        <target>Los costos en PA de todas las obras se reducen en 5%.</target>
       </segment>
     </unit>
     <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
@@ -1046,9 +1046,9 @@
         <note>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</target>
+        <target>Los costos en PA de todas las obras se reducen en 10%.</target>
       </segment>
     </unit>
     <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
@@ -1056,9 +1056,9 @@
         <note>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</target>
+        <target>Los costos en PA de todas las obras se reducen en 15%.</target>
       </segment>
     </unit>
     <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
@@ -1066,9 +1066,9 @@
         <note>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</target>
+        <target>Los costos en PA de todas las obras se reducen en 20%.</target>
       </segment>
     </unit>
     <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
@@ -1076,9 +1076,9 @@
         <note>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</target>
+        <target>Los costos en PA de todas las obras se reducen en 25%.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">
@@ -1086,9 +1086,9 @@
         <note>Scanner</note>
         <note category="german">Scanner</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Scanner</source>
-        <target>Scanner</target>
+        <target>Radar</target>
       </segment>
     </unit>
     <unit id="fxriL78" name="Verbesserte Karte">
@@ -1096,9 +1096,9 @@
         <note>Verbesserte Karte</note>
         <note category="german">Verbesserte Karte</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verbesserte Karte</source>
-        <target>Verbesserte Karte</target>
+        <target>Mapa mejorado</target>
       </segment>
     </unit>
     <unit id="wBOW_40" name="Rechenmaschine">
@@ -1106,9 +1106,9 @@
         <note>Rechenmaschine</note>
         <note category="german">Rechenmaschine</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rechenmaschine</source>
-        <target>Rechenmaschine</target>
+        <target>Pronosticador</target>
       </segment>
     </unit>
     <unit id="kOf03MZ" name="Forschungsturm">
@@ -1116,9 +1116,9 @@
         <note>Forschungsturm</note>
         <note category="german">Forschungsturm</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Forschungsturm</source>
-        <target>Forschungsturm</target>
+        <target>Barómetro</target>
       </segment>
     </unit>
     <unit id="3BWnOol" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.">
@@ -1126,9 +1126,9 @@
         <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</target>
+        <target>Las posibilidades de regeneración de una zona del desierto pasan 37%.</target>
       </segment>
     </unit>
     <unit id="wn7xMlO" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.">
@@ -1136,9 +1136,9 @@
         <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</target>
+        <target>Las posibilidades de regeneración de una zona del desierto pasan 49%.</target>
       </segment>
     </unit>
     <unit id="hOAn2zi" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.">
@@ -1146,9 +1146,9 @@
         <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</target>
+        <target>Las posibilidades de regeneración de una zona del desierto pasan 61%.</target>
       </segment>
     </unit>
     <unit id="4qtyyT_" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.">
@@ -1156,9 +1156,9 @@
         <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</target>
+        <target>Las posibilidades de regeneración de una zona del desierto pasan 73%.</target>
       </segment>
     </unit>
     <unit id="EII..O4" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.">
@@ -1166,9 +1166,9 @@
         <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</source>
-        <target>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</target>
+        <target>Las posibilidades de regeneración de una zona del desierto pasan 85%.</target>
       </segment>
     </unit>
     <unit id="iJl3i40" name="Verteidigungspfähle">
@@ -1176,9 +1176,9 @@
         <note>Verteidigungspfähle</note>
         <note category="german">Verteidigungspfähle</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verteidigungspfähle</source>
-        <target>Verteidigungspfähle</target>
+        <target>Estacas</target>
       </segment>
     </unit>
     <unit id="ZwtYGJS" name="Notfallabstützung">
@@ -1186,9 +1186,9 @@
         <note>Notfallabstützung</note>
         <note category="german">Notfallabstützung</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Notfallabstützung</source>
-        <target>Notfallabstützung</target>
+        <target>Barreras de madera</target>
       </segment>
     </unit>
     <unit id="CZ3TwGn" name="Guerilla">
@@ -1196,9 +1196,9 @@
         <note>Guerilla</note>
         <note category="german">Guerilla</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Guerilla</source>
-        <target>Guerilla</target>
+        <target>Trampas de guerrilla</target>
       </segment>
     </unit>
     <unit id="2oexLnE" name="Trümmerberg">
@@ -1206,9 +1206,9 @@
         <note>Trümmerberg</note>
         <note category="german">Trümmerberg</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Trümmerberg</source>
-        <target>Trümmerberg</target>
+        <target>Montículo espinado</target>
       </segment>
     </unit>
     <unit id="fhLdJ84" name="Abfallberg">
@@ -1216,9 +1216,9 @@
         <note>Abfallberg</note>
         <note category="german">Abfallberg</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Abfallberg</source>
-        <target>Abfallberg</target>
+        <target>Montañas de basura</target>
       </segment>
     </unit>
     <unit id="Rj.C34H" name="Wolfsfalle">
@@ -1226,9 +1226,9 @@
         <note>Wolfsfalle</note>
         <note category="german">Wolfsfalle</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wolfsfalle</source>
-        <target>Wolfsfalle</target>
+        <target>Obstáculos</target>
       </segment>
     </unit>
     <unit id="mdZatxx" name="Sprengfalle">
@@ -1236,9 +1236,9 @@
         <note>Sprengfalle</note>
         <note category="german">Sprengfalle</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Sprengfalle</source>
-        <target>Sprengfalle</target>
+        <target>Polvorín</target>
       </segment>
     </unit>
     <unit id="Bomnue9" name="Nackte Panik">
@@ -1246,9 +1246,9 @@
         <note>Nackte Panik</note>
         <note category="german">Nackte Panik</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Nackte Panik</source>
-        <target>Nackte Panik</target>
+        <target>Ataque de pánico</target>
       </segment>
     </unit>
     <unit id="0lzRs8w" name="Dollhouse">
@@ -1256,9 +1256,9 @@
         <note>Dollhouse</note>
         <note category="german">Dollhouse</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dollhouse</source>
-        <target>Dollhouse</target>
+        <target>Fiesta en casa</target>
       </segment>
     </unit>
     <unit id="thcdfWu" name="Heiliger Regen">
@@ -1266,9 +1266,9 @@
         <note>Heiliger Regen</note>
         <note category="german">Heiliger Regen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Heiliger Regen</source>
-        <target>Heiliger Regen</target>
+        <target>Chaparrón bendito</target>
       </segment>
     </unit>
     <unit id="kDKItz." name="Voodoo-Puppe">
@@ -1276,9 +1276,9 @@
         <note>Voodoo-Puppe</note>
         <note category="german">Voodoo-Puppe</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Voodoo-Puppe</source>
-        <target>Voodoo-Puppe</target>
+        <target>Muñecaza de vudú</target>
       </segment>
     </unit>
     <unit id="Pb0lyLQ" name="Spirituelles Wunder">
@@ -1286,9 +1286,9 @@
         <note>Spirituelles Wunder</note>
         <note category="german">Spirituelles Wunder</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Spirituelles Wunder</source>
-        <target>Spirituelles Wunder</target>
+        <target>Espejismo místico</target>
       </segment>
     </unit>
     <unit id="5CaCw2S" name="Bokors Guillotine">
@@ -1296,9 +1296,9 @@
         <note>Bokors Guillotine</note>
         <note category="german">Bokors Guillotine</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bokors Guillotine</source>
-        <target>Bokors Guillotine</target>
+        <target>Muerte a la Bokor</target>
       </segment>
     </unit>
     <unit id="vSThV6l" name="Notfallkonstruktion">
@@ -1306,9 +1306,9 @@
         <note>Notfallkonstruktion</note>
         <note category="german">Notfallkonstruktion</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Notfallkonstruktion</source>
-        <target>Notfallkonstruktion</target>
+        <target>Defensas de urgencia</target>
       </segment>
     </unit>
     <unit id="aPBadh7" name="Verbesserter Katapult">
@@ -1316,9 +1316,9 @@
         <note>Verbesserter Katapult</note>
         <note category="german">Verbesserter Katapult</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verbesserter Katapult</source>
-        <target>Verbesserter Katapult</target>
+        <target>Catapulta mejorada</target>
       </segment>
     </unit>
     <unit id="GWsFaiN" name="Katapult">
@@ -1326,9 +1326,9 @@
         <note>Katapult</note>
         <note category="german">Katapult</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Katapult</source>
-        <target>Katapult</target>
+        <target>Catapulta</target>
       </segment>
     </unit>
     <unit id="d_fImyz" name="Kleine Waffenschmiede">
@@ -1336,9 +1336,9 @@
         <note>Kleine Waffenschmiede</note>
         <note category="german">Kleine Waffenschmiede</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kleine Waffenschmiede</source>
-        <target>Kleine Waffenschmiede</target>
+        <target>Armería</target>
       </segment>
     </unit>
     <unit id="IILr3kv" name="Schwedische Schreinerei">
@@ -1346,9 +1346,9 @@
         <note>Schwedische Schreinerei</note>
         <note category="german">Schwedische Schreinerei</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schwedische Schreinerei</source>
-        <target>Schwedische Schreinerei</target>
+        <target>Taller sueco</target>
       </segment>
     </unit>
     <unit id="Vw74UDb" name="Schießstand">
@@ -1356,9 +1356,9 @@
         <note>Schießstand</note>
         <note category="german">Schießstand</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schießstand</source>
-        <target>Schießstand</target>
+        <target>Torre de tiro</target>
       </segment>
     </unit>
     <unit id="sgVOApH" name="Kleiner Tribok">
@@ -1366,9 +1366,9 @@
         <note>Kleiner Tribok</note>
         <note category="german">Kleiner Tribok</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kleiner Tribok</source>
-        <target>Kleiner Tribok</target>
+        <target>Lanza-mascotas</target>
       </segment>
     </unit>
     <unit id="rDDj6vk" name="Wächter-Turm">
@@ -1376,9 +1376,9 @@
         <note>Wächter-Turm</note>
         <note category="german">Wächter-Turm</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wächter-Turm</source>
-        <target>Wächter-Turm</target>
+        <target>Torre de guardia</target>
       </segment>
     </unit>
     <unit id="NIEy.oJ" name="Krähennest">
@@ -1386,9 +1386,9 @@
         <note>Krähennest</note>
         <note category="german">Krähennest</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Krähennest</source>
-        <target>Krähennest</target>
+        <target>Torre de exploración</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
@@ -1396,9 +1396,9 @@
         <note>Wachturm</note>
         <note category="german">Wachturm</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wachturm</source>
-        <target>Wachturm</target>
+        <target>Torre de vigilancia</target>
       </segment>
     </unit>
     <unit id="Sy.Q4GU" name="1bbcaa3">
@@ -1406,9 +1406,9 @@
         <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</target>
+        <target>Cada mañana, detecta todos los zombies a 3 zonas del pueblo.</target>
       </segment>
     </unit>
     <unit id="NZeNsxy" name="72834b1">
@@ -1416,9 +1416,9 @@
         <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</target>
+        <target>Cada mañana, detecta todos los zombies a 6 zonas del pueblo.</target>
       </segment>
     </unit>
     <unit id="wGZu2sa" name="e1df3f0">
@@ -1426,9 +1426,9 @@
         <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</target>
+        <target>Cada mañana, detecta todos los zombies a 10 zonas del pueblo.</target>
       </segment>
     </unit>
     <unit id="h1r5RdI" name="8125fb1">
@@ -1436,9 +1436,9 @@
         <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</target>
+        <target>Detecta zombies a 10 zonas + permite ingresar gratuitamente a los habitantes a 1km del pueblo.</target>
       </segment>
     </unit>
     <unit id="N0sOdNf" name="27f10d9">
@@ -1446,9 +1446,9 @@
         <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
-        <target>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</target>
+        <target>Detecta zombies a 10 zonas + permite ingresar gratuitamente a los habitantes a 2km del pueblo.</target>
       </segment>
     </unit>
     <unit id="2B9BF5F" name="Bohrturm">
@@ -1456,9 +1456,9 @@
         <note>Bohrturm</note>
         <note category="german">Bohrturm</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bohrturm</source>
-        <target>Bohrturm</target>
+        <target>Extractor mecánico</target>
       </segment>
     </unit>
     <unit id="ukqZW.g" name="Falsche Stadt">
@@ -1466,9 +1466,9 @@
         <note>Falsche Stadt</note>
         <note category="german">Falsche Stadt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Falsche Stadt</source>
-        <target>Falsche Stadt</target>
+        <target>Pueblo falso</target>
       </segment>
     </unit>
     <unit id="0dmkB9a" name="Wasserhahn">
@@ -1476,9 +1476,9 @@
         <note>Wasserhahn</note>
         <note category="german">Wasserhahn</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wasserhahn</source>
-        <target>Wasserhahn</target>
+        <target>Grifería</target>
       </segment>
     </unit>
     <unit id="BlCgW4T" name="Großer Umbau">
@@ -1486,9 +1486,9 @@
         <note>Großer Umbau</note>
         <note category="german">Großer Umbau</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Großer Umbau</source>
-        <target>Großer Umbau</target>
+        <target>Mudanza general</target>
       </segment>
     </unit>
     <unit id="zaMjBQ." name="Vogelscheuche">
@@ -1496,9 +1496,9 @@
         <note>Vogelscheuche</note>
         <note category="german">Vogelscheuche</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Vogelscheuche</source>
-        <target>Vogelscheuche</target>
+        <target>Espantapájaros</target>
       </segment>
     </unit>
     <unit id="WP.9MMH" name="Fleischkäfig">
@@ -1506,9 +1506,9 @@
         <note>Fleischkäfig</note>
         <note category="german">Fleischkäfig</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Fleischkäfig</source>
-        <target>Fleischkäfig</target>
+        <target>Cajita feliz</target>
       </segment>
     </unit>
     <unit id="lFBoBtv" name="Bürgergericht">
@@ -1516,9 +1516,9 @@
         <note>Bürgergericht</note>
         <note category="german">Bürgergericht</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bürgergericht</source>
-        <target>Bürgergericht</target>
+        <target>Dictadura del héroe</target>
       </segment>
     </unit>
     <unit id="ksEwaBK" name="Befestigungen">
@@ -1526,9 +1526,9 @@
         <note>Befestigungen</note>
         <note category="german">Befestigungen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Befestigungen</source>
-        <target>Befestigungen</target>
+        <target>Fortificaciones</target>
       </segment>
     </unit>
     <unit id="k0lGB7h" name="Holzabfall">
@@ -1536,9 +1536,9 @@
         <note>Holzabfall</note>
         <note category="german">Holzabfall</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Holzabfall</source>
-        <target>Holzabfall</target>
+        <target>Vertedero de madera</target>
       </segment>
     </unit>
     <unit id="EdJMx7W" name="Metallabfall">
@@ -1546,9 +1546,9 @@
         <note>Metallabfall</note>
         <note category="german">Metallabfall</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Metallabfall</source>
-        <target>Metallabfall</target>
+        <target>Vertedero de metal</target>
       </segment>
     </unit>
     <unit id="_vBaevU" name="Tierabfälle">
@@ -1556,9 +1556,9 @@
         <note>Tierabfälle</note>
         <note category="german">Tierabfälle</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Tierabfälle</source>
-        <target>Tierabfälle</target>
+        <target>Vertedero de animales</target>
       </segment>
     </unit>
     <unit id="dBs_6pB" name="Müll für Alle">
@@ -1566,9 +1566,9 @@
         <note>Müll für Alle</note>
         <note category="german">Müll für Alle</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Müll für Alle</source>
-        <target>Müll für Alle</target>
+        <target>Vertedero libre</target>
       </segment>
     </unit>
     <unit id="NNvtYXk" name="Waffenabfall">
@@ -1576,9 +1576,9 @@
         <note>Waffenabfall</note>
         <note category="german">Waffenabfall</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Waffenabfall</source>
-        <target>Waffenabfall</target>
+        <target>Vertedero de armas</target>
       </segment>
     </unit>
     <unit id="SrT9K6G" name="Biomüll">
@@ -1586,9 +1586,9 @@
         <note>Biomüll</note>
         <note category="german">Biomüll</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Biomüll</source>
-        <target>Biomüll</target>
+        <target>Vertedero de comida</target>
       </segment>
     </unit>
     <unit id="KRW3IVw" name="Rüstungsabfall">
@@ -1596,9 +1596,9 @@
         <note>Rüstungsabfall</note>
         <note category="german">Rüstungsabfall</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rüstungsabfall</source>
-        <target>Rüstungsabfall</target>
+        <target>Vertedero de defensas</target>
       </segment>
     </unit>
     <unit id="9.Bs0jf" name="Verbesserte Müllhalde">
@@ -1606,9 +1606,9 @@
         <note>Verbesserte Müllhalde</note>
         <note category="german">Verbesserte Müllhalde</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verbesserte Müllhalde</source>
-        <target>Verbesserte Müllhalde</target>
+        <target>Verterdero mejorado</target>
       </segment>
     </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
@@ -1616,9 +1616,9 @@
         <note>Müllhalde</note>
         <note category="german">Müllhalde</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Müllhalde</source>
-        <target>Müllhalde</target>
+        <target>Vertedero público</target>
       </segment>
     </unit>
     <unit id="QNQV_hH" name="Leuchtturm">
@@ -1626,9 +1626,9 @@
         <note>Leuchtturm</note>
         <note category="german">Leuchtturm</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Leuchtturm</source>
-        <target>Leuchtturm</target>
+        <target>Faro</target>
       </segment>
     </unit>
     <unit id="MwGqzqF" name="Altar">
@@ -1646,9 +1646,9 @@
         <note>Riesige Sandburg</note>
         <note category="german">Riesige Sandburg</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Riesige Sandburg</source>
-        <target>Riesige Sandburg</target>
+        <target>Castillo de arena</target>
       </segment>
     </unit>
     <unit id="Pp2_CqH" name="Leuchtfeuer">
@@ -1656,9 +1656,9 @@
         <note>Leuchtfeuer</note>
         <note category="german">Leuchtfeuer</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Leuchtfeuer</source>
-        <target>Leuchtfeuer</target>
+        <target>Fogata</target>
       </segment>
     </unit>
     <unit id="9zmUkLt" name="Ministerium für Sklaverei">
@@ -1666,9 +1666,9 @@
         <note>Ministerium für Sklaverei</note>
         <note category="german">Ministerium für Sklaverei</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ministerium für Sklaverei</source>
-        <target>Ministerium für Sklaverei</target>
+        <target>Ministerio de la esclavitud</target>
       </segment>
     </unit>
     <unit id="J1OKCl2" name="Reaktor">
@@ -1676,9 +1676,9 @@
         <note>Reaktor</note>
         <note category="german">Reaktor</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Reaktor</source>
-        <target>Reaktor</target>
+        <target>Reactor</target>
       </segment>
     </unit>
     <unit id="3zCLWcZ" name="Labyrinth">
@@ -1686,9 +1686,9 @@
         <note>Labyrinth</note>
         <note category="german">Labyrinth</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Labyrinth</source>
-        <target>Labyrinth</target>
+        <target>Laberinto</target>
       </segment>
     </unit>
     <unit id="EUDSTNQ" name="Alles oder nichts">
@@ -1696,9 +1696,9 @@
         <note>Alles oder nichts</note>
         <note category="german">Alles oder nichts</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Alles oder nichts</source>
-        <target>Alles oder nichts</target>
+        <target>Todo o nada</target>
       </segment>
     </unit>
     <unit id="PXNOlXe" name="Riesiger KVF">
@@ -1706,9 +1706,9 @@
         <note>Riesiger KVF</note>
         <note category="german">Riesiger KVF</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Riesiger KVF</source>
-        <target>Riesiger KVF</target>
+        <target>COSA gigante</target>
       </segment>
     </unit>
     <unit id="GKI2tai" name="Riesenrad">
@@ -1716,9 +1716,9 @@
         <note>Riesenrad</note>
         <note category="german">Riesenrad</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Riesenrad</source>
-        <target>Riesenrad</target>
+        <target>La rueda del miedo</target>
       </segment>
     </unit>
     <unit id="oemK25y" name="Feuerwerk">
@@ -1726,9 +1726,9 @@
         <note>Feuerwerk</note>
         <note category="german">Feuerwerk</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Feuerwerk</source>
-        <target>Feuerwerk</target>
+        <target>Fuegos artificiales</target>
       </segment>
     </unit>
     <unit id="0iB.kKU" name="Krähenstatue">
@@ -1736,9 +1736,9 @@
         <note>Krähenstatue</note>
         <note category="german">Krähenstatue</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Krähenstatue</source>
-        <target>Krähenstatue</target>
+        <target>Estatua del cuervo</target>
       </segment>
     </unit>
     <unit id="bhbqmFu" name="Kino">
@@ -1746,9 +1746,9 @@
         <note>Kino</note>
         <note category="german">Kino</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kino</source>
-        <target>Kino</target>
+        <target>Cine</target>
       </segment>
     </unit>
     <unit id="gEG0Yxp" name="Luftschlag">
@@ -1756,9 +1756,9 @@
         <note>Luftschlag</note>
         <note category="german">Luftschlag</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Luftschlag</source>
-        <target>Luftschlag</target>
+        <target>Ataque aéreo</target>
       </segment>
     </unit>
     <unit id="20Mg3eL" name="Heißluftballon">
@@ -1766,9 +1766,9 @@
         <note>Heißluftballon</note>
         <note category="german">Heißluftballon</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Heißluftballon</source>
-        <target>Heißluftballon</target>
+        <target>Globo aerostático</target>
       </segment>
     </unit>
     <unit id="sEt2j5e" name="Tunnelratte">
@@ -1776,9 +1776,9 @@
         <note>Tunnelratte</note>
         <note category="german">Tunnelratte</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Tunnelratte</source>
-        <target>Tunnelratte</target>
+        <target>Extractor con poder animal</target>
       </segment>
     </unit>
     <unit id="45eKiS1" name="Fundament">
@@ -1786,9 +1786,9 @@
         <note>Fundament</note>
         <note category="german">Fundament</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Fundament</source>
-        <target>Fundament</target>
+        <target>Cimientos</target>
       </segment>
     </unit>
     <unit id="oqi.Bcz" name="Torpanzerung">
@@ -1796,9 +1796,9 @@
         <note>Torpanzerung</note>
         <note category="german">Torpanzerung</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Torpanzerung</source>
-        <target>Torpanzerung</target>
+        <target>Refuerzos metálicos</target>
       </segment>
     </unit>
     <unit id="TsPH66_" name="Automatiktür">
@@ -1806,9 +1806,9 @@
         <note>Automatiktür</note>
         <note category="german">Automatiktür</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Automatiktür</source>
-        <target>Automatiktür</target>
+        <target>Cierre de último minuto</target>
       </segment>
     </unit>
     <unit id="ZyEH3qK" name="Kolbenschließmechanismus">
@@ -1816,9 +1816,9 @@
         <note>Kolbenschließmechanismus</note>
         <note category="german">Kolbenschließmechanismus</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kolbenschließmechanismus</source>
-        <target>Kolbenschließmechanismus</target>
+        <target>Cierre automático</target>
       </segment>
     </unit>
     <unit id="aNUYPPj" name="Ventilationssystem">
@@ -1826,9 +1826,9 @@
         <note>Ventilationssystem</note>
         <note category="german">Ventilationssystem</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ventilationssystem</source>
-        <target>Ventilationssystem</target>
+        <target>Conducto de ventilación</target>
       </segment>
     </unit>
     <unit id="tl._DOx" name="Portal">
@@ -1836,9 +1836,9 @@
         <note>Portal</note>
         <note category="german">Portal</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Portal</source>
-        <target>Portal</target>
+        <target>Seguro para puerta</target>
       </segment>
     </unit>
     <unit id="7I8s6VU" name="Feldbett">
@@ -1846,9 +1846,9 @@
         <note>Feldbett</note>
         <note category="german">Feldbett</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Feldbett</source>
-        <target>Feldbett</target>
+        <target>Camastro</target>
       </segment>
     </unit>
     <unit id="6VkIdiO" name="Zelt">
@@ -1856,9 +1856,9 @@
         <note>Zelt</note>
         <note category="german">Zelt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zelt</source>
-        <target>Zelt</target>
+        <target>Tienda</target>
       </segment>
     </unit>
     <unit id="ERgjYMQ" name="Baracke">
@@ -1866,9 +1866,9 @@
         <note>Baracke</note>
         <note category="german">Baracke</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Baracke</source>
-        <target>Baracke</target>
+        <target>Cuchitril</target>
       </segment>
     </unit>
     <unit id="0TTwMvT" name="Hütte">
@@ -1876,9 +1876,9 @@
         <note>Hütte</note>
         <note category="german">Hütte</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hütte</source>
-        <target>Hütte</target>
+        <target>Barraca</target>
       </segment>
     </unit>
     <unit id="UJdq1Y9" name="Haus">
@@ -1886,9 +1886,9 @@
         <note>Haus</note>
         <note category="german">Haus</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Haus</source>
-        <target>Haus</target>
+        <target>Casa</target>
       </segment>
     </unit>
     <unit id=".xY6IFq" name="Umzäuntes Haus">
@@ -1896,9 +1896,9 @@
         <note>Umzäuntes Haus</note>
         <note category="german">Umzäuntes Haus</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Umzäuntes Haus</source>
-        <target>Umzäuntes Haus</target>
+        <target>Casa enrejada</target>
       </segment>
     </unit>
     <unit id="Puc93rh" name="Befestigte Unterkunft">
@@ -1906,9 +1906,9 @@
         <note>Befestigte Unterkunft</note>
         <note category="german">Befestigte Unterkunft</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Befestigte Unterkunft</source>
-        <target>Befestigte Unterkunft</target>
+        <target>Fuerte</target>
       </segment>
     </unit>
     <unit id="TLVi.09" name="Bunker">
@@ -1916,9 +1916,9 @@
         <note>Bunker</note>
         <note category="german">Bunker</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bunker</source>
-        <target>Bunker</target>
+        <target>Bunker nuclear</target>
       </segment>
     </unit>
     <unit id="EQFRE1h" name="Schloss">
@@ -1926,9 +1926,9 @@
         <note>Schloss</note>
         <note category="german">Schloss</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schloss</source>
-        <target>Schloss</target>
+        <target>Castillo</target>
       </segment>
     </unit>
     <unit id="eUUzMiR" name="Großer Vorhang">
@@ -1936,9 +1936,9 @@
         <note>Großer Vorhang</note>
         <note category="german">Großer Vorhang</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Großer Vorhang</source>
-        <target>Großer Vorhang</target>
+        <target>Gran cortina</target>
       </segment>
     </unit>
     <unit id="3Gfr9md" name="4440c27">
@@ -1946,9 +1946,9 @@
         <note>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</note>
         <note category="german">Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</source>
-        <target>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</target>
+        <target>Un viejo pedazo de tela manchada. Nada más práctico para ocultar tus objetos de las miradas entrometidas de tus vecinos.</target>
       </segment>
     </unit>
     <unit id="7Bfx_db" name="Hobbylabor">
@@ -1956,9 +1956,9 @@
         <note>Hobbylabor</note>
         <note category="german">Hobbylabor</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hobbylabor</source>
-        <target>Hobbylabor</target>
+        <target>Sótano laboratorio</target>
       </segment>
     </unit>
     <unit id="P0f3sQx" name="f0abf03">
@@ -1966,9 +1966,9 @@
         <note>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</note>
         <note category="german">Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</source>
-        <target>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</target>
+        <target>Un minúsculo agujero que apesta a gato muerto en medio de tu 'sala', pero donde puedes llevar a cabo tus experimentos científicos (cada nivel aumenta en 25% las posibilidades de obtener una buena sustancia estimulante)...</target>
       </segment>
     </unit>
     <unit id="qeyHLmY" name="Küche">
@@ -1976,9 +1976,9 @@
         <note>Küche</note>
         <note category="german">Küche</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Küche</source>
-        <target>Küche</target>
+        <target>Cocina</target>
       </segment>
     </unit>
     <unit id="BL3_hNZ" name="f8d2ad1">
@@ -1986,9 +1986,9 @@
         <note>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</note>
         <note category="german">In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</source>
-        <target>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</target>
+        <target>La cocina está equipada con lo más mínimo para preparar raciones de calidad (cada nivel aumenta en 33% las posibilidades de obtener un buen platillo).</target>
       </segment>
     </unit>
     <unit id="N8dpSCq" name="Primitives Alarmsystem">
@@ -1996,9 +1996,9 @@
         <note>Primitives Alarmsystem</note>
         <note category="german">Primitives Alarmsystem</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Primitives Alarmsystem</source>
-        <target>Primitives Alarmsystem</target>
+        <target>Alarma rudimentaria</target>
       </segment>
     </unit>
     <unit id="x6GQTRQ" name="df8648b">
@@ -2006,9 +2006,9 @@
         <note>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</note>
         <note category="german">Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</source>
-        <target>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</target>
+        <target>Es un sistema muy simple: chatarra y latas unidas por un hilo, pero su eficacia despertando a los demás durante un intento de robo es indiscutible...</target>
       </segment>
     </unit>
     <unit id="Dy4Ru5R" name="Ruheecke">
@@ -2016,9 +2016,9 @@
         <note>Ruheecke</note>
         <note category="german">Ruheecke</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ruheecke</source>
-        <target>Ruheecke</target>
+        <target>Rincón para siesta</target>
       </segment>
     </unit>
     <unit id="RR.D4lZ" name="eefcc52">
@@ -2026,9 +2026,9 @@
         <note>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</note>
         <note category="german">Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</source>
-        <target>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</target>
+        <target>Solo se trata de un hoyo en el suelo cubierto por cartones, pero es muy útil para echarse una siestecilla cuando es necesario (cada nivel aumenta en 33% las posibilidades de dormir bien).</target>
       </segment>
     </unit>
     <unit id="ASpYRZf" name="Türschloss">
@@ -2036,9 +2036,9 @@
         <note>Türschloss</note>
         <note category="german">Türschloss</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Türschloss</source>
-        <target>Türschloss</target>
+        <target>Cerrojo</target>
       </segment>
     </unit>
     <unit id="cv5fZ5I" name="Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.">
@@ -2046,9 +2046,9 @@
         <note>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</note>
         <note category="german">Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</source>
-        <target>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</target>
+        <target>Este sistema rudimentario pero eficaz impedirá que te roben un objeto.</target>
       </segment>
     </unit>
     <unit id="_XJvPlM" name="61daef0">
@@ -2056,9 +2056,9 @@
         <note>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</note>
         <note category="german">Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</source>
-        <target>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</target>
+        <target>Cuando los muros no bastan, una valla no está de más. Una defensa indispensable.</target>
       </segment>
     </unit>
     <unit id="_ZwT1d7" name="Stauraum">
@@ -2066,9 +2066,9 @@
         <note>Stauraum</note>
         <note category="german">Stauraum</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Stauraum</source>
-        <target>Stauraum</target>
+        <target>Compartimentos</target>
       </segment>
     </unit>
     <unit id="ukY3L6h" name="Deine persönliche Truhe vergrößert sich. ">
@@ -2076,9 +2076,9 @@
         <note>Deine persönliche Truhe vergrößert sich. </note>
         <note category="german">Deine persönliche Truhe vergrößert sich. </note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deine persönliche Truhe vergrößert sich. </source>
-        <target>Deine persönliche Truhe vergrößert sich. </target>
+        <target>Agrega un espacio en tu baúl personal.</target>
       </segment>
     </unit>
     <unit id="9vHiNcG" name="Verstärkungen">
@@ -2086,9 +2086,9 @@
         <note>Verstärkungen</note>
         <note category="german">Verstärkungen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verstärkungen</source>
-        <target>Verstärkungen</target>
+        <target>Refuerzos</target>
       </segment>
     </unit>
     <unit id="_a49kpt" name="1bac838">
@@ -2096,9 +2096,9 @@
         <note>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</note>
         <note category="german">Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
-        <target>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</target>
+        <target>Un poco de bricolaje con lo que tienes a la mano y aumentamos su duración de vida... un poco al menos (cada nivel agrega 1 pt de defensa).</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -2106,9 +2106,9 @@
         <note>Verteidigung</note>
         <note category="german">Verteidigung</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verteidigung</source>
-        <target>Verteidigung</target>
+        <target>Defensa</target>
       </segment>
     </unit>
     <unit id="6lSJGc4" name="Brustwehr">
@@ -2116,9 +2116,9 @@
         <note>Brustwehr</note>
         <note category="german">Brustwehr</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Brustwehr</source>
-        <target>Brustwehr</target>
+        <target>Adarve</target>
       </segment>
     </unit>
     <unit id="Pnjrt1t" name="Hammam">
@@ -2135,36 +2135,36 @@
       <notes>
         <note category="german">Temporäre Konstruktion!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Temporäre Konstruktion!</source>
-        <target>Temporäre Konstruktion!</target>
+        <target>¡Construcción temporal!</target>
       </segment>
     </unit>
     <unit id="hwqD281" name="cc4eb65">
       <notes>
         <note category="german">Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
-        <target>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</target>
+        <target>Esta construcción es de un solo uso. Será destruida esta noche, después del ataque de los zombies.</target>
       </segment>
     </unit>
     <unit id="ssWP4ro" name="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
       <notes>
         <note category="german">Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</source>
-        <target>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</target>
+        <target>Puedes volver a iniciar su construcción el día siguiente si lo deseas</target>
       </segment>
     </unit>
     <unit id="ucYQb6D" name="Verbessert die Stadtverteidigung erheblich.">
       <notes>
         <note category="german">Verbessert die Stadtverteidigung erheblich.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verbessert die Stadtverteidigung erheblich.</source>
-        <target>Verbessert die Stadtverteidigung erheblich.</target>
+        <target>Aumenta significativamente las defensas del pueblo</target>
       </segment>
     </unit>
   </file>
