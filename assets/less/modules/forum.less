@@ -138,6 +138,115 @@
 
 }
 
+.forum-post-hidden {
+  background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
+  border: 1px solid #704328; margin-bottom: 10px;
+
+  &>.forum-post-header {
+    display: block; background: #f02400af; padding: 4px;
+    &>b { padding: 5px; }
+    &>i { float: right; font-size: 0.8em; }
+    &>span { font-size: 0.8em; opacity: 0.5; float: right }
+    &:before, &:after {content: " "; clear: both;}
+    &:before { display: table;}
+    &:after {display: block; height: 0;}
+
+    
+  }
+
+  &:hover >.forum-post-content {
+    display: block;
+  }
+
+  &>.forum-post-content {
+    padding-left: 10px; padding-top: 10px; max-height: 750px; overflow: auto;
+    background-color: #4a261e; display: none;
+    b, strong {
+      color: #afb3cf;
+      text-transform: initial;
+    }
+    i, em {
+      color: #f0d79e;
+    }
+    strike, del {
+      color: #cc3300;
+    }
+
+    img {
+      max-height: 480px;
+      max-width: 100%;
+      height: auto !important;
+      width: auto !important;
+    }
+
+    blockquote {
+      font-style: italic;
+      border-color: rgba(0,0,0,.6);
+      border-style: dashed;
+      border-width: 0 0 1px 1px;
+      padding-left: 10px;
+      font-size: .875em;
+      opacity: .7;
+    }
+
+    .spoiler {
+      background-image: linear-gradient(45deg, #0006 25%, #fff0 25%, #fff0 50%, #0006 50%, #0006 75%, #fff0 75%, #fff0 100%);
+      background-size: 22.63px 22.63px;
+    }
+    .spoiler:hover {
+      background-image: linear-gradient(45deg, #0003 25%, #fff0 25%, #fff0 50%, #0003 50%, #0003 75%, #fff0 75%, #fff0 100%);
+    }
+    .spoiler > * {
+      visibility: hidden;
+    }
+    .spoiler:hover > * {
+      visibility: visible;
+    }
+
+    .glory {
+      margin: 30px 30px 15px;
+      padding: 10px;
+      background-color: #301a22;
+      border: 1px solid #fe7d00;
+      border-top-color: #feb500;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 1px #000, 0 0 2px #000;
+      position: relative;
+
+      p {
+        margin: 0;
+      }
+    }
+    .glory::before {
+      content: '';
+      display: block;
+      background-image: url('../../img/gloryhordes.png');
+      background-size: 100% 22px;
+      background-position: 50% 0;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -22px;
+      left: 0;
+      width: 100%;
+      height: 22px;
+    }
+  }
+
+  
+  &>.forum-post-footer {
+    padding-left: 5px; max-height: 750px; overflow: auto;
+    background-color: #4a261e;
+
+    .action-button {
+      float: right;
+      padding-left: 2px;
+      font-style: italic;
+      font-size: 1rem;
+    }
+  }
+
+}
+
 .forum-editor {
   background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
   border: 1px solid #704328; margin: 10px 0;
