@@ -22,6 +22,8 @@ class ErrorHelper
     
     const ErrorBannedFromFroum    = 1201;
 
+    const BaseAvatarErrors        = 1300;
+
     const ErrorInvalidRequest    = 1;
     const ErrorDatabaseException = 2;
     const ErrorInternalError     = 3;

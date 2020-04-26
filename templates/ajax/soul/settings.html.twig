@@ -1,35 +1,97 @@
-{% extends "ajax/ajax.html.twig" %}
-{% block menu_text %}
-    {{ parent() }}
-    {% if app.user and not app.user.activeCitizen %}
-        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
-    {% endif %}
-{% endblock %}
-{% block ajax %}
-    <div class="row soul">
-        <div class="cell padded header rw-8">
-            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    {% trans from 'soul' %}E-Mail-Adresse{% endtrans %}
+{% extends "ajax/soul/shell.html.twig" %}
+{% block soul_content %}
+    <h5>{{ 'Dein Profil'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="padded cell rw-3 rw-lg-4 rw-md-12">
+            {% if app.user.avatar is not null %}
+                <div class="center">
+                    {% if not app.user.avatar.classic %}
+                        <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
+                    {% endif %}
+                    <div class="avatar">
+                        <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
+                    </div>
+                    {% if not app.user.avatar.classic %}
+                        <br /><br />
+                        <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
+                        <div class="avatar small">
+                            <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="cell padded rw-8 rw-sm-12">
-                    <input disabled value="{{ app.user.email }}" />
+            {% else %}
+                <div class="help">
+                    {{ 'Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen'|trans({},'soul') }}
                 </div>
+            {% endif %}
+        </div>
+        <div class="padded cell rw-9 rw-lg-8 rw-md-12">
+            <input class="hidden" type="file" id="avatar_file_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
+
+            {% if app.user.avatar is not null %}
+                <label class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
+                <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
+
+                {% if not app.user.avatar.classic %}
+                    <button class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
+                    <div id="avatar_com_edit" class="row hidden hide-mobile">
+                        <div class="padded cell rw-6">
+                            <div class="help">
+                                {% trans from 'soul' %}
+                                    Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
+                                {% endtrans %}
+                            </div>
+                        </div>
+                        <div class="padded cell rw-6 center">
+                            <div class="avatar full">
+                                <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
+                                <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
+                            </div>
+                            <div class="right">
+                                <button id="avatar_com_save" class="inline small">{{ 'Speichern'|trans({},'global') }}</button>
+                                <button x-avatar-com-toggle class="inline small">{{ 'Abbrechen'|trans({},'global') }}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+            {% else %}
+                <label class="button" for="avatar_file_select">{{ 'Profilbild hochladen'|trans({},'soul') }}</label>
+            {% endif %}
+        </div>
+    </div>
+
+    <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="note note-lightest">
+                <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen' }}</label>
             </div>
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    {% trans from 'soul' %}Externe ID für Apps{% endtrans %}
-                </div>
-                <div class="cell padded rw-4 rw-sm-12">
-                    <input disabled value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
-                </div>
-                <div class="cell padded rw-4 rw-sm-12">
-                    <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>
-                    <button id="delete-external-id">{{ 'ID löschen'|trans({}, 'soul') }}</button>
-                    <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
-                </div>
-            </div>
+        </div>
+    </div>
+
+    <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="cell padded rw-4 rw-sm-12">
+            <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
+        </div>
+        <div class="cell padded rw-8 rw-sm-12">
+            <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
+        </div>
+    </div>
+    <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="cell padded rw-4 rw-sm-12">
+            <label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label>
+        </div>
+        <div class="cell padded rw-4 rw-sm-12">
+            <input id="app_ext" type="text" disabled value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
+        </div>
+        <div class="cell padded rw-4 rw-sm-12">
+            <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>
+            <button id="delete-external-id">{{ 'ID löschen'|trans({}, 'soul') }}</button>
+            <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
         </div>
     </div>
 {% endblock %}
@@ -50,5 +112,131 @@
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });
+
+        let del_btn = document.getElementById('avatar_del')
+        if (del_btn) del_btn.addEventListener('click', function() {
+            if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                $.ajax.easySend( '{{ path('api_soul_avatar') }}', {up: 0},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    } )
+        });
+        $.html.addEventListenerAll('[x-setting]', 'change', function(e,elem) {
+            $.ajax.easySend( '{{ path('api_soul_common') }}', {
+                sma: document.getElementById('setting_prefer_classic_avatars').checked
+                },
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+
+        document.getElementById('avatar_file_select').addEventListener('change', function(e) {
+            if (e.target.files.length !== 1) {
+                $.html.error('{{ 'Bitte wähle nur eine einzige Datei aus.'|trans({},'soul'|e('js')) }}');
+                return;
+            }
+            /** @var file File */
+            const file = e.target.files[0];
+            if (file.size >= 3145728) {
+                $.html.error('{{ 'Die Datei ist zu groß.'|trans({},'soul'|e('js')) }}');
+                return;
+            }
+
+            const type_info = file.type.split('/',2);
+            if (type_info.length < 2 || type_info[0] !== 'image') {
+                $.html.error('{{ 'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul'|e('js')) }}');
+                return;
+            }
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $.ajax.easySend( '{{ path('api_soul_avatar') }}', {up: 1, image: btoa(e.target.result)},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    } )
+            };
+            reader.readAsBinaryString(file);
+        });
+
+        {% if app.user.avatar and not app.user.avatar.classic %}
+            $.html.addEventListenerAll('[x-avatar-com-toggle]', 'click', function(e,elem) {
+                let controls = document.getElementById('avatar_com_edit');
+                let button   = document.getElementById('avatar_com');
+                if (controls.classList.contains('hidden')) {
+                    controls.classList.remove('hidden')
+                    button.classList.add('hidden')
+                } else {
+                    controls.classList.add('hidden')
+                    button.classList.remove('hidden')
+                }
+            });
+
+            let sc_px = 0, sc_py = 0;
+            let sc_dx = Math.min({{ app.user.avatar.x }}, {{ app.user.avatar.y*3 }}), sc_dy = Math.min({{ app.user.avatar.x/3 }}, {{ app.user.avatar.y }});
+
+            $.html.addEventListenerAll('#avatar_com_save', 'click', function(e) {
+                e.preventDefault();
+                $.ajax.easySend( '{{ path('api_soul_small_avatar') }}', {x: sc_px, y: sc_py, dx: sc_dx, dy: sc_dy},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    } )
+            });
+
+            let dc = document.getElementById('crop_bar');
+            if (dc) {
+                dc.style.width = sc_dx + 'px';
+                dc.style.height  = sc_dy + 'px';
+            }
+
+            $.html.addEventListenerAll('#crop_bar', 'wheel', function(e,elem) {
+                e.preventDefault();
+                e.stopPropagation();
+                const d = e.deltaY / Math.abs(e.deltaY);
+
+                sc_dx = Math.max(45, Math.min(sc_dx - d*2, elem.parentElement.clientWidth ));
+                sc_dy = sc_dx / 3;
+                elem.style.width = sc_dx + 'px';
+                elem.style.height  = sc_dy + 'px';
+
+                sc_px = Math.max(0, Math.min(sc_px + d, elem.parentElement.clientWidth - elem.clientWidth ));
+                sc_py = Math.max(0, Math.min(sc_py + d/3, elem.parentElement.clientHeight - elem.clientHeight))
+
+                elem.style.left = sc_px + 'px';
+                elem.style.top  = sc_py + 'px';
+            });
+
+            $.html.addEventListenerAll('#crop_bar', 'mousemove', function(e,elem) {
+
+                if (e.buttons & 1) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    sc_dx = Math.max(45, Math.min(sc_dx + e.movementX/2, elem.parentElement.clientWidth ))
+                    sc_dy = sc_dx / 3;
+                    elem.style.width = sc_dx + 'px';
+                    elem.style.height  = sc_dy + 'px';
+
+                    sc_px = Math.max(0, Math.min(sc_px - e.movementX/2, elem.parentElement.clientWidth - elem.clientWidth ))
+                    sc_py = Math.max(0, Math.min(sc_py - e.movementY/2, elem.parentElement.clientHeight - elem.clientHeight))
+                    elem.style.left = sc_px + 'px';
+                    elem.style.top  = sc_py + 'px';
+                }
+            } )
+
+            $.html.addEventListenerAll('#crop_bar>div', 'mousemove', function(e,elem) {
+
+                let cb = elem.parentElement;
+                if (e.buttons & 1) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    sc_px = Math.max(0, Math.min(sc_px + e.movementX, cb.parentElement.clientWidth - cb.clientWidth ))
+                    sc_py = Math.max(0, Math.min(sc_py + e.movementY, cb.parentElement.clientHeight - cb.clientHeight))
+
+                    cb.style.left = sc_px + 'px';
+                    cb.style.top  = sc_py + 'px';
+                }
+            } )
+        {% endif %}
     </script>
 {% endblock %}
