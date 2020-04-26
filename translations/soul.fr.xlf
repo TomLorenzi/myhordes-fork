@@ -181,5 +181,179 @@
         <target>Page suivante</target>
       </segment>
     </unit>
+    <unit id="JW9VP2K" name="Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.">
+      <notes>
+        <note category="german">Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</note>
+      </notes>
+      <segment>
+        <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
+        <target>Ce serveur n'est pas configuré pour supporter les avatars.</target>
+      </segment>
+    </unit>
+    <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
+      <notes>
+        <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
+      </notes>
+      <segment>
+        <source>Dieses Dateiformat wird nicht unterstützt.</source>
+        <target>Ce format de fichier n'est pas pris en charge.</target>
+      </segment>
+    </unit>
+    <unit id="W6NI6B_" name="Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.">
+      <notes>
+        <note category="german">Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</note>
+      </notes>
+      <segment>
+        <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
+        <target>Ce fichier est corrompu et ne peux pas être traité.</target>
+      </segment>
+    </unit>
+    <unit id="WocA7cM" name="79a6053">
+      <notes>
+        <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
+      </notes>
+      <segment>
+        <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
+        <target>Ce fichier est trop volumineux et le serveur n'as pas pu le compresser suffisament.</target>
+      </segment>
+    </unit>
+    <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
+      <notes>
+        <note category="german">Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</note>
+      </notes>
+      <segment>
+        <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
+        <target>Une erreur interne est survenue lors du traitement de l'image.</target>
+      </segment>
+    </unit>
+    <unit id="TzbDcP2" name="Die Datei ist zu groß.">
+      <notes>
+        <note category="german">Die Datei ist zu groß.</note>
+      </notes>
+      <segment>
+        <source>Die Datei ist zu groß.</source>
+        <target>Ce fichier est trop volumineux.</target>
+      </segment>
+    </unit>
+    <unit id="WrQqCAs" name="Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.">
+      <notes>
+        <note category="german">Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</note>
+      </notes>
+      <segment>
+        <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
+        <target>La résolution de cette image ne convient pas pour une image de profil.</target>
+      </segment>
+    </unit>
+    <unit id="jhO4n0e" name="Dein Profil">
+      <notes>
+        <note category="german">Dein Profil</note>
+      </notes>
+      <segment>
+        <source>Dein Profil</source>
+        <target>Votre Profil</target>
+      </segment>
+    </unit>
+    <unit id="Mi9Pj.n" name="Normale Anzeige">
+      <notes>
+        <note category="german">Normale Anzeige</note>
+      </notes>
+      <segment>
+        <source>Normale Anzeige</source>
+        <target>Affichage normal</target>
+      </segment>
+    </unit>
+    <unit id="iiZH1u9" name="Komprimierte Anzeige">
+      <notes>
+        <note category="german">Komprimierte Anzeige</note>
+      </notes>
+      <segment>
+        <source>Komprimierte Anzeige</source>
+        <target>Affichage compressé</target>
+      </segment>
+    </unit>
+    <unit id="d_VqAwc" name="9b2af61">
+      <notes>
+        <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
+        <target>Vous avez la possibilité de choisir une image de profil afin d'être mieux reconnu des autres joueurs.</target>
+      </segment>
+    </unit>
+    <unit id="C.B17ya" name="Neues Profilbild hochladen">
+      <notes>
+        <note category="german">Neues Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Neues Profilbild hochladen</source>
+        <target>Envoyer une nouvelle image de profil</target>
+      </segment>
+    </unit>
+    <unit id="uBrCxGO" name="Profilbild löschen">
+      <notes>
+        <note category="german">Profilbild löschen</note>
+      </notes>
+      <segment>
+        <source>Profilbild löschen</source>
+        <target>Supprimer l'image de profil</target>
+      </segment>
+    </unit>
+    <unit id="ZtpVK6q" name="Komprimierte Anzeige bearbeiten">
+      <notes>
+        <note category="german">Komprimierte Anzeige bearbeiten</note>
+      </notes>
+      <segment>
+        <source>Komprimierte Anzeige bearbeiten</source>
+        <target>Choix de la zone d'affichage compressée</target>
+      </segment>
+    </unit>
+    <unit id="Af7eIx8" name="b0c95ed">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Choisissez quelle partie de votre image sera utilisée pour l'affichage compressé.
+                                    Déplacez la sélection avec la souris et redimensionnez la avec la molette.</target>
+      </segment>
+    </unit>
+    <unit id="37GuQ5_" name="Profilbild hochladen">
+      <notes>
+        <note category="german">Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Profilbild hochladen</source>
+        <target>Envoyer une image de profil</target>
+      </segment>
+    </unit>
+    <unit id="HaejtO6" name="Darstellung">
+      <notes>
+        <note category="german">Darstellung</note>
+      </notes>
+      <segment>
+        <source>Darstellung</source>
+        <target>Affichage</target>
+      </segment>
+    </unit>
+    <unit id="mjphdzq" name="Login und Sicherheit">
+      <notes>
+        <note category="german">Login und Sicherheit</note>
+      </notes>
+      <segment>
+        <source>Login und Sicherheit</source>
+        <target>Connexion et sécurité</target>
+      </segment>
+    </unit>
+    <unit id="fuUze6t" name="Externe Anwendungen">
+      <notes>
+        <note category="german">Externe Anwendungen</note>
+      </notes>
+      <segment>
+        <source>Externe Anwendungen</source>
+        <target>Applications externes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
