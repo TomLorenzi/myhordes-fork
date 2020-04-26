@@ -79,6 +79,7 @@ class DebugCommand extends Command
         if ($input->getOption('add-debug-users') | $input->getOption('add-crow')) {
 
             if ($input->getOption('add-crow')) {
+                /** @var User $crow */
                 $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 if (!isset($crow)) {
                     $command = $this->getApplication()->find('app:create-user');
@@ -94,7 +95,11 @@ class DebugCommand extends Command
                         $crow = $this->entity_manager->getRepository(User::class)->find(66);
                     }                                       
                 }
-                
+
+                if ($crow->getIsAdmin() || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
+                    $output->writeln('<error>User 66 is not a debug user. Will not proceed.</error>');
+                    return -1;
+                }
                 $crow->setName("Der Rabe");
                 $crow->setEmail("crow");
                 $crow->setPassword( $this->encoder->encodePassword($crow, '5%[9Wqc@"px.&er{thxCt)7Un^-.~K~B;E7b`,#L0"3?3Mcu:x$|8\-h.3JQ*$') );

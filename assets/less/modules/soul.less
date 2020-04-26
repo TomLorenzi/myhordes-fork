@@ -6,7 +6,7 @@
         background-color: #5c2b20;
 
         h4.soul-name {
-            margin: 2px 4px;
+            margin: 2px 4px; display: inline-block;
         }
         .tab {
             .tab-link {
@@ -20,6 +20,7 @@
                 cursor: pointer;
                 text-decoration: none;
                 overflow: hidden; text-overflow: ellipsis;
+                min-height: 27px;
             }
 
             &.selected, &:hover {
@@ -189,6 +190,15 @@
 
             .town-name {
                 font-size: 1.2rem;
+                cursor: pointer;
+                em {
+                    color: #ddab76;
+                    font-size: 1.1rem;
+                    text-decoration: underline;
+                    &:hover {
+                        color: white;
+                    }
+                }
             }
 
             .town-days {
@@ -504,6 +514,10 @@
 
         .letter {
             background: url('../../img/books/letter.gif') no-repeat;
+        }
+
+        .printer {
+            background: url('../../img/books/printer.gif') no-repeat;
         }
 
         .news {

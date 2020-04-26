@@ -378,6 +378,8 @@ class SoulController extends AbstractController
                 if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
                     return AjaxResponse::error( self::ErrorAvatarFormatUnsupported );
 
+                $im_image->coalesceImages();
+                $im_image->resetImagePage('0x0');
                 $w = $im_image->getImageWidth();
                 $h = $im_image->getImageHeight();
 
@@ -395,6 +397,10 @@ class SoulController extends AbstractController
                 $im_image->setImageAlphaChannel(Imagick::ALPHACHANNEL_REMOVE);
                 if ($im_image->getImageFormat() !== "GIF")
                     $im_image = $im_image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+
+                $im_image->setFirstIterator();
+                $w_final = $im_image->getImageWidth();
+                $h_final = $im_image->getImageHeight();
 
                 switch ($im_image->getImageFormat()) {
                     case 'JPEG':
@@ -428,8 +434,8 @@ class SoulController extends AbstractController
                 ->setSmallName( $name )
                 ->setFormat( strtolower( $im_image->getImageFormat() ) )
                 ->setImage( $processed_image_data )
-                ->setX( $im_image->getImageWidth() )
-                ->setY( $im_image->getImageHeight() )
+                ->setX( $w_final )
+                ->setY( $h_final )
                 ->setSmallImage( null );
 
             $this->entity_manager->persist( $user );
@@ -484,8 +490,12 @@ class SoulController extends AbstractController
             if (!$im_image->readImageBlob(stream_get_contents( $avatar->getImage() )))
                 return AjaxResponse::error(self::ErrorAvatarImageBroken);
 
+            $im_image->setFirstIterator();
+
             if (!$im_image->cropImage( $dx, $dy, $x, $y ))
                 return AjaxResponse::error(self::ErrorAvatarProcessingFailed);
+
+            $im_image->setFirstIterator();
 
             $iw = $im_image->getImageWidth(); $ih = $im_image->getImageHeight();
             if ($iw < 90 || $ih < 30 || ($ih/$iw != 3)) {

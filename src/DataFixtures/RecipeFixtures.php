@@ -329,6 +329,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         'com029' => ['type' => Recipe::ManualAnywhere, 'out' => 'trapma_#00',     'provoking' => ['claymo_#00','door_carpet_#00'],'in' => ['claymo_#00','door_carpet_#00'] ],
         'com030' => ['type' => Recipe::ManualAnywhere, 'out' => 'claymo_#00',     'provoking' => ['wire_#00','explo_#00'],'in' => ['wire_#00','explo_#00', 'meca_parts_#00', 'rustine_#00'] ],
+        'com031' => ['type' => Recipe::ManualAnywhere, 'out' => 'scope_#00',      'provoking' => 'lens_#00', 'in' => ['tube_#00', 'lens_#00'] ],
     ];
 
     private $entityManager;

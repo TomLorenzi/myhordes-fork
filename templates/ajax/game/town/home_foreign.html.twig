@@ -17,29 +17,48 @@
     </h5>
 
     <div class="lightbox">
+
         <div class="row">
-            <div class="cell rw-3"><span class="highlight">{{ 'Haus'|trans({},'game') }}:</span></div>
-            <div class="cell rw-9"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }}</div>
+            {% if (owner.user.avatar) %}
+                <div class="cell rw-12 hide-desktop hide-lg center">
+                    <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div><br />&nbsp;
+                </div>
+                <div class="cell rw-3 rw-lg-4 rw-md-0">
+                    {% if app.user.preferSmallAvatars %}
+                        <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div>
+                    {% else %}
+                        <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.filename, 'ext': owner.user.avatar.format}) }}"></div>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="cell rw-9 rw-lg-8 rw-md-12">
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }}:</span></div>
+                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }}</div>
+                </div>
+                {% if owner.alive %}
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.sum }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/deco.gif') }}"> {{ deco }}</div>
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Todesursache'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6">{{ owner.causeOfDeath.label|trans({},'game') }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Letzte Worte:'|trans({},'game') }}</span></div>
+                        <div class="cell rw-7 rw-lg-6"> {{ owner.lastWords }}</div>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-        {% if owner.alive %}
-            <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
-                <div class="cell rw-9"><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.sum }}</div>
-            </div>
-            <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
-                <div class="cell rw-9"><img alt="" src="{{ asset('build/images/deco.gif') }}"> {{ deco }}</div>
-            </div>
-        {% else %}
-            <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Todesursache'|trans({},'game') }} :</span></div>
-                <div class="cell rw-9">{{ owner.causeOfDeath.label|trans({},'game') }}</div>
-            </div>
-            <div class="row">
-                <div class="cell rw-3"><span class="highlight">{{ 'Letzte Worte:'|trans({},'game') }}</span></div>
-                <div class="cell rw-9"> {{ owner.lastWords }}</div>
-            </div>
-        {% endif %}
+
+
     </div>
 
     <div class="row">

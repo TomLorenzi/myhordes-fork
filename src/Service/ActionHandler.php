@@ -10,6 +10,7 @@ use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
@@ -186,8 +187,18 @@ class ActionHandler
             if ($zombie_condition = $meta_requirement->getZombies()) {
                 $cp = 0;
                 $current_zeds = $citizen->getZone() ? $citizen->getZone()->getZombies() : 0;
-                if ( $citizen->getZone() ) foreach ( $citizen->getZone()->getCitizens() as $c )
-                    $cp += $this->citizen_handler->getCP( $c );
+
+                if ( $citizen->getZone() ) {
+                    $guide_present = false;
+                    $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
+                    foreach ( $citizen->getZone()->getCitizens() as $c ) {
+                        $cp += $this->citizen_handler->getCP( $c );
+                        if($c->getRoles()->contains($roleGuide))
+                            $guide_present = true;
+                    }
+                    if($guide_present)
+                        $cp += count($citizen->getZone()->getCitizens());
+                }
 
                 if ($zombie_condition->getMustBlock() !== null) {
 
@@ -995,7 +1006,7 @@ class ActionHandler
         } else $ap = 0;
 
 
-        if ( ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ) )
+        if ( $recipe->getType() == Recipe::WorkshopType && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
             return ErrorHelper::ErrorNoAP;
 
         $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest() ]);

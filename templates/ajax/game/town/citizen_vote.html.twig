@@ -43,12 +43,18 @@
                         <b>{{ citizen.user.username }}</b>
                     </span>
                 </div>
-                <div class="padded cell rw-3 ro-5 small right ">
+                <div class="padded cell rw-3 ro-5 small right">
                     {% if citizen != me %}
                         {% if vote == null %}
                             <button class="vote" x-citizen-id='{{citizen.id}}'>{{'Abstimmen'|trans({}, 'game')}}</button>
+                            <div class="tooltip">
+                                {{'Klicke hier, um für diesen Bürger zu stimmen.'|trans({}, 'game')}}
+                            </div>
                         {% elseif vote != null and vote.votedCitizen.id == citizen.id %}
                             <img src="{{ asset('build/images/small_action.gif') }}" alt="" />
+                            <div class="tooltip">
+                                {{'Du hast für diesen Bürger gestimmt.'|trans({}, 'game')}}
+                            </div>
                         {% endif %}
                     {% endif %}
                 </div>

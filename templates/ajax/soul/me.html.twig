@@ -65,32 +65,37 @@
                     </div>
                 </div>
                 <div class="town-container">
-                {% for incarnations in app.user.citizens|filter(incarnations => not incarnations.alive)|sort((a,b) => a.survivedDays < b.survivedDays) %}
-                    <div class="row{% if incarnations.town.type.name == 'panda' %} hardcore{% endif %}">
-                    {% if not incarnations.alive %}
-                        {% set days = incarnations.survivedDays %}
-                        {% set nbSoulPoints = days * ( days + 1 ) / 2 %}
-                            <div class="cell padded rw-2 center">
-                                0
-                            </div>
-                            <div class="cell padded rw-6 center town-name">
-                                {% if incarnations.town.type.name == 'panda' %}<img src="{{ asset('build/images/soul/r_cannib.gif') }}" alt="" /> {% endif %}{{ incarnations.town.name }}
-                            </div>
-                            <div class="cell padded rw-2 center town-days bold">
-                                {{ incarnations.survivedDays }}
-                            </div>
-                            <div class="cell padded rw-2 center town-points bold">
-                                +{{nbSoulPoints}}
-                            </div>
-                    </div>
-                    {% endif %}
-                {% else %}
-                    <div class="row">
-                        <div class="empty">
-                            {{'Es wurde keine Stadt gefunden...'|trans({}, 'global')}}
+                    {% for incarnation in app.user.citizens|filter(incarnation => not incarnation.alive)|sort((a,b) => a.survivedDays < b.survivedDays) %}
+                        <div class="row{% if incarnation.town.type.name == 'panda' %} hardcore{% endif %}">
+                        {% if not incarnation.alive %}
+                            {% set days = incarnation.survivedDays %}
+                            {% set nbSoulPoints = days * ( days + 1 ) / 2 %}
+                                <div class="cell padded rw-2 center">
+                                    {% if incarnation.town.season == null %}
+                                    --
+                                    {% else %}
+                                        {{ incarnation.town.season.number }}
+                                    {% endif %}
+                                </div>
+                                <div class="cell padded rw-6 center town-name">
+                                    <span x-ajax-href="">{% if incarnation.town.type.name == 'panda' %}<img src="{{ asset('build/images/soul/r_cannib.gif') }}" alt="" /> {% endif %}{{ incarnation.town.name }}</span>
+                                    <div x-ajax-href=""><em>Commentaire</em></div>
+                                </div>
+                                <div class="cell padded rw-2 center town-days bold">
+                                    {{ incarnation.survivedDays }}
+                                </div>
+                                <div class="cell padded rw-2 center town-points bold">
+                                    +{{nbSoulPoints}}
+                                </div>
                         </div>
-                    </div>
-                {% endfor %}
+                        {% endif %}
+                    {% else %}
+                        <div class="row">
+                            <div class="empty">
+                                {{'Es wurde keine Stadt gefunden...'|trans({}, 'global')}}
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

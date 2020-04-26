@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 class ExternalFixtures extends Fixture
 {
     public static $apps = [
-        [
+        /*[
             'name' => 'BigBroth\'Hordes',
             'active' => 1,
             'url' => 'http://bbh.fred26.fr',
@@ -22,7 +22,7 @@ class ExternalFixtures extends Fixture
             'contact' => 'bbh@fred26.fr',
             'owner' => 'fred26',
             'key' => '',
-        ],
+        ],*/
         [
             'name' => 'Fata Morgana',
             'active' => 1,
@@ -32,7 +32,7 @@ class ExternalFixtures extends Fixture
             'owner' => 'CountCount',
             'key' => 'b395dad5c26be2c9',
         ],
-        [
+        /*[
             'name' => 'From Dusk Till Dawn',
             'active' => 1,
             'url' => 'http://d2n.duskdawn.net/',
@@ -40,7 +40,7 @@ class ExternalFixtures extends Fixture
             'contact' => 'berzerg.d2n@gmail.com',
             'owner' => 'BerZerg',
             'key' => 'a153246385a7111',
-        ],
+        ],*/
     ];
 
     private $entityManager;
