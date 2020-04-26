@@ -965,9 +965,8 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "author" => "Arma",
             "content" => [
                 '<small>La transmission suivante a été enregistrée sur une fréquence longue dans la région du Lac. </small>
-                <h2><small>Reçue : 20/10 15:53:31, Fréq : 158.7, Origine : N/C</small>
-                </h2>
-                <p>" Je suis le dernier ! Héhé... Ils sont tous morts ! Plus personne ne pourra me tourmenter. (rire) Stupides Humains ! Ils pensaient pouvoir vivre et maintenant ils ont rejoint leurs rangs ! <em>(phrase inaudible, parasites)</em> Moi, je savais ! Je savais qu\'ils allaient mourir ! Tous ! Mais moi je suis vivant ! Haha... J\'ai survécu ! Je suis le plus fort! Ils sont faibles et moi je suis résistant, héhé?.</p>
+                <h2><small>Reçue : 20/10 15:53:31, Fréq : 158.7, Origine : N/C</small></h2>
+                <p>"Je suis le dernier ! Héhé... Ils sont tous morts ! Plus personne ne pourra me tourmenter. (rire) Stupides Humains ! Ils pensaient pouvoir vivre et maintenant ils ont rejoint leurs rangs ! <em>(phrase inaudible, parasites)</em> Moi, je savais ! Je savais qu\'ils allaient mourir ! Tous ! Mais moi je suis vivant ! Haha... J\'ai survécu ! Je suis le plus fort! Ils sont faibles et moi je suis résistant, héhé?.</p>
                 <p>Venez ! Approchez bande de lâches ! Je vous mettrais au tapis avec seulement mes poings. Je suis vivant, vous êtes morts ! JE SUIS PLUS PUISSANT QUE VOUS !... Pourquoi attendre minuit ?! Venez me chercher ! </p>',
                 '<p>Je m\'impatiente... je vous tuerais tous... tous... jusqu\'au dernier... Je suis fort, ils sont faibles... Je suis fort, ils sont faibles... Je n\'ai pas peur." </p>
                 <small>Fin de transmission.</small>'
@@ -1073,11 +1072,13 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Dégénérescence",
             "author" => "Fabien08",
             "content" => [
-                ''
+                '<p>C\'est étrange je suis <strike>crev</strike>mort mais je vie<strike>s</strike>, je ne sen<strike>s</strike> plus rien et pourtant mon corps est ensanglante<strike>r  </strike> ... J\'était un <strike>ho</strike>citoyen<strike>s</strike> avant ... avant <strike>le</strike> l\'attaque ...</p>
+                <p>Je suis des leurs ! <strike> Je </strike></p>
+                <p>Je ne sais pas comment c\'est possible mais je pense<strike>nt</strike> encore, j\'écri<strike>t</strike>s et je suis sur<strike>r</strike> que je pourrais parl<strike>lrlrioo</strike>er si il ne m\'avait pas dévorer la moite<strike>r</strike> du visage. Je profite de <strike>ce tr</strike>"don" pour m\'excuser de <strike>se</strike> ce que je vai fair, <strike>on</strike> je le sais <strike>je</strike> un jour<strike>s </strike> je vais devoir vous dévorer ... dans <strike>ma</strike> tête je doit <strike>lut</strike> luter san cesse et je ne <strike>vais</strike>pas suporter encore <strike>clon</strike>lontemp  ... Je vous mengerai<strike>s</strike> qe je <strike>le</strike> veuille ou non ! <strike> j</strike>e</p>'
             ],
             "lang" => "fr",
             "background" => "blood",
-            "design" => "blood"
+            "design" => "written"
         ],
         "leavng" => [
             "title" => "Départ",
@@ -1131,11 +1132,14 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Errance",
             "author" => "Crow",
             "content" => [
-                ''
+                '<p>Ni Enfer, ni Paradis... Ci-gît ma dernière pensée articulée.</p>
+                <p>Le délire est trop puissant, le soleil trop accablant... Qu\'avons nous fait pour mériter tel châtiment ? Comment le destin peut-il faire montre d\'une telle cruauté ? Condamnés à nous réincarner dans un monde de mort et de désolation ou, y finir en zombies... Errance astrale ou matérielle... J\'ai vu !</p>
+                <p>J\'ai vu dans les méandres sirupeux de mon infection, les grandes et les petites choses... Nous ne sommes rien d\'autre que de l\'expérience pour la Mère. Nous avons été des enfants indignes... Nous sommes les seuls responsables ! Nous nous sommes pris pour des Dieux... Qu\'elle ironie ! Nous aurions dû apprendre à marcher avant de vouloir courir; désormais, nous rampons !!!</p>
+                <p>Quelle ironie. Qu\'elle fin pleine de panache ! Toi qui lis ces divagations, saches que la richesse est l\'Expérience...  </p>'
             ],
             "lang" => "fr",
             "background" => "carton",
-            "design" => "typed"
+            "design" => "written"
         ],
         "ster" => [
             "title" => "Etiquette de stéroïdes pour chevaux",
@@ -1176,7 +1180,12 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Etude médicale 4 : alimentation",
             "author" => "ChrisCool",
             "content" => [
-                ''
+                '<div class="hr"></div>
+                <h1>Etude analytique de l\'anatomie et du comportement des non-vivants</h1>
+                <h1>Chapitre 4 : l\'alimentation</h1>',
+                '<p>Tout simplement fascinant !</p>
+                <p>Après avoir enchaîné un spécimen et lui avoir présenté divers aliments, on peut constater que les non-vivants ont un appétit dévorant pour la viande fraîche. Ils semblent tout particulièrement raffoler de matière grise. Nos études tendent à montrer qu\'un seul non-vivant peut dévorer un humain en huit minutes. L\'humain étant bien évidemment vivant à ce moment-là.</p>
+                <p>Il est également intéressant de souligner le fait que même les spécimens dépourvus d\'intestins ou d\'?sophage ressentent le besoin de s\'alimenter.</p>'
             ],
             "lang" => "fr",
             "background" => "grid",
@@ -1255,32 +1264,32 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "author" => "lordsolvine",
             "content" => [
                 '<h1>Le chasseur et le Mort-vivant</h1>
-<p><strong>Bravo à notre gagnant qui se voit attribuer, en plus de sa parution dans notre journal, un lot de babioles en tout genre : ferrailles, planches de bois, vis et écrous... Merci aux autres citoyens participants.</strong></p>
-<quote>
-<p>Au loin, un corps décomposé</p>
-<p>S\'approche lentement pour vous dévorer.</p>
-<p>Marchant d\'un pas timide,</p>
-<p>Le cerveau complètement vide,</p>
-<p>Il n\'hésitera surement pas,</p>
-<p>A te choper le bras.</p>
-</quote>',
-'<quote>
-<p>Mais sur son cheval blanc,</p>
-<p>Le chasseur dans la nuit,</p>
-<p>S\'élance sur ces morts-vivants.</p>
-<p>D\'un coup de sabre et de cure-dent,</p>
-<p>Il coupe et pique tout.</p>
-<p>Et toi, tu deviens complètement fou.</p>
-</quote>',
-'<quote>
-<p>Soudain, un monstre surgit,</p>
-<p>Et toi, tu ris.</p>
-<p>Tu tentes de le tuer à l\'aide d\'une carotte,</p>
-<p>Mais tu ris, on te chatouille la glotte.</p>
-<p>Tout est fini, tout s\'arrête...</p>
-<p>Il t\'a bouffé la tête.</p>
-</quote>
-<p>Mr.PapyL (08/12/2003)</p>'
+                <p><strong>Bravo à notre gagnant qui se voit attribuer, en plus de sa parution dans notre journal, un lot de babioles en tout genre : ferrailles, planches de bois, vis et écrous... Merci aux autres citoyens participants.</strong></p>
+                <quote>
+                <p>Au loin, un corps décomposé</p>
+                <p>S\'approche lentement pour vous dévorer.</p>
+                <p>Marchant d\'un pas timide,</p>
+                <p>Le cerveau complètement vide,</p>
+                <p>Il n\'hésitera surement pas,</p>
+                <p>A te choper le bras.</p>
+                </quote>',
+                '<quote>
+                <p>Mais sur son cheval blanc,</p>
+                <p>Le chasseur dans la nuit,</p>
+                <p>S\'élance sur ces morts-vivants.</p>
+                <p>D\'un coup de sabre et de cure-dent,</p>
+                <p>Il coupe et pique tout.</p>
+                <p>Et toi, tu deviens complètement fou.</p>
+                </quote>',
+                '<quote>
+                <p>Soudain, un monstre surgit,</p>
+                <p>Et toi, tu ris.</p>
+                <p>Tu tentes de le tuer à l\'aide d\'une carotte,</p>
+                <p>Mais tu ris, on te chatouille la glotte.</p>
+                <p>Tout est fini, tout s\'arrête...</p>
+                <p>Il t\'a bouffé la tête.</p>
+                </quote>
+                <p>Mr.PapyL (08/12/2003)</p>'
             ],
             "lang" => "fr",
             "background" => "news",
@@ -1381,7 +1390,23 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Journal de Coctail, partie 1",
             "author" => "coctail",
             "content" => [
-                ''
+                '<p>Pantocrat avait aperçu le bâtiment en premier.</p>
+                <p>Ce n’était pas plus mal, j’en avais marre de marcher et je n’avais pas envie de passer une nouvelle nuit à la belle étoile.</p>
+                <p>Pantocrat, Zoby et moi-même (coctail) marchions sur cette terre poussiéreuse parsemée de broussailles depuis des jours et des jours. Nous avions rempli tous les récipients possibles avant de partir mais notre eau chaude s’épuisait encore plus vite que nos derniers espoirs. Mon esprit vagabondait parfois et m’imaginait baignant dans un lac gelé, loin de tous ces zombies qui nous suivaient.</p>
+                <p>Ils étaient lents, puants et infatigables. Ils marchaient plus lentement que nous mais semblaient attirés par notre présence. Le jour, nous parvenions à les semer, mais la nuit... la nuit, lorsque nous les entendions approcher, nous étions forcés de lever le camp en toute hâte.</p>',
+                '<p>Nous pouvions parfois voir de loin en loin d’autres silhouettes, misérables pantins désarticulés qui se rapprochaient de nous. Nous accélérions alors notre pas et ils se joignaient alors à la horde qui nous suivait, grossissant leurs rangs un peu plus chaque jour.</p>
+                <p>A fur et à mesure de notre approche, nous voyions mieux la bâtisse. Sa base était large et il y avait un petit étage. Une antenne se dressait au-dessus. Je vis bientôt des carcasses à côté de la construction.</p>
+                <p>Je regardais mon compagnon, Zoby. Il avait l’air encore plus misérable que le jour où nous nous étions rencontrés. Ses lèvres étaient couvertes de croûtes de sang. Il supportait le moins bien le soleil de nous trois mais était le plus bricoleur, ce qui était indispensable pour survivre dans ce monde. C’est lui qui m’avait construit ma « râpe ». Je ne me serais séparé pour rien au monde de ce bout de tôle tranchant.</p>',
+                '<p>L’air tremblait sous l’effet de la chaleur. Chaque pas était une lutte mais l’abri se rapprochait lentement... lentement...</p>
+                <p>C’est alors que Pantocrat poussa un cri.</p>
+                <p>Il venait d’apercevoir les cinq zombies qui se dirigeaient vers nous et qui nous empêchaient d’atteindre le bâtiment.</p>
+                <p>Je ne voulais plus marcher. J’avais soif. J’en avais marre d’être traqué comme une bête. Je n’avais pas étudié et travaillé dur pour finir traqué par une horde de morts-vivants.</p>',
+                '<p>J’en avais marre.</p>
+                <p>Cette construction était ce que j’attendais depuis de jours. Qu’au moins, nous puissions fermer nos yeux cernés par le manque de sommeil.</p>',
+                '<p>J’en avais marre.</p>
+                <p>Le soleil tapait sur ma tête et les cinq cadavres putrides se rapprochaient. Pantocrat et Zoby discutaient sur la manière de les contourner. Zoby regardait anxieusement le soleil descendant et craignait de ne pouvoir faire un détour suffisamment grand pour lels éviter complètement.</p>',
+                '<p>J’en avais marre.</p>
+                <p>J’aurais voulu crier mais aucun son ne sortit de ma gorge lorsque je courus vers les zombies, ma râpe levée.</p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
@@ -1447,11 +1472,17 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Journal de Pierre Ignacio Tavarez",
             "author" => "ChrisCool",
             "content" => [
-                ''
+                '<p>Voici les mémoires du grand Pierre Ignacio Tavarez. Puissent-elles servir d\'exemple aux générations futures !</p>
+                <p><strong>3 septembre :</strong> Je peux le dire sans me vanter, je suis un baroudeur. J\'ai déjà été dans de nombreuses villes, et grâce à mes talents naturels, elles ont vraiment prospéré !</p>
+                <p>Je viens de me réfugier dans une nouvelle ville, visiblement ces gens ne savent pas y faire... J\'en vois déjà en train de voler des planches dans l\'entrepôt qui nous sert de banque, afin de les garder pour eux. Je vais vite crier au et fort au bannissement, afin de faire un exemple.</p>',
+                '<div class="hr"></div>
+                <p><strong>4 septembre :</strong> rien ne va ! Certains ont commencé à vouloir construire une pompe pour avoir plus d\'eau. Après avoir fait un peu de porte-à-porte (ou plutôt, tente-à-tente) et rassemblé de bonnes volontés, nous les avons bannis, afin de rappeler les règles essentielles.</p>',
+                '<p><strong>5 septembre :</strong> encore une journée laborieuse en perspective : je suis allé faire un tour dans le désert aujourd\'hui, je rentre ce soir, et je constate qu\'il ont commencé à construire un nouveau bâtiment. J\'ignore ce qu\'ils veulent en faire, ces amateurs sont vraiment touchants. Mais ce n\'est pas cette construction qui va nous défendre contre les zombies à mon avis, surtout quand on voit leur façon de faire des noeuds.</p>
+                <p class="other">6 septembre : ci-gît Pi<strike>erre</strike> Na<strike>cimo</strike> Ta<strike>varez</strike>., le noeud qui l\'a pendu a été plus coulant que lui. </p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
-            "design" => "written"
+            "design" => "typed"
         ],
         "intime" => [
             "title" => "Journal intime",
@@ -1467,11 +1498,14 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Joyeux réveillon",
             "author" => "sanka",
             "content" => [
-                ''
+                '<h2>25 Décembre :</h2>
+                <p>Ca y\'est, le puit est à sec depuis 2 jours et je sens que mes forces commencent à me lâcher... </p>
+                <p>Il ne reste plus que 5 citoyens, moi y compris, dans cette ville remplie de cadavres qui hier encore étaient mes compagnons. L\'attaque de cette nuit aura eu raison de la plupart des habitants, les travaux restent en suspend faute de main d\'oeuvre et de matériaux. </p>
+                <p>La faim se faisant également ressentir, je me vois dans l\'obligation de troquer ma plume pour un couteau si je ne veux pas que mes collègues terminent les restes de mon fils sans moi...</p>'
             ],
             "lang" => "fr",
             "background" => "printer",
-            "design" => "poem"
+            "design" => "written"
         ],
         "thief" => [
             "title" => "Jugement",
@@ -1609,7 +1643,10 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Le crémato-cue",
             "author" => "Liior",
             "content" => [
-                ''
+                '<h1>Note pour les citoyens :</h1>
+                <p>Un nouveau buffet ouvre. Il n\'est plus possible de tenir sans nourriture dans le village. Nous avons pris une décision, une lourde décision. Pour le bien de la ville et de ses citoyens, ne protestez pas. L\'éthique n\'est plus qu\'une option dans ces temps obscurs.</p>
+                <p><strong>Les premières grillades auront lieu demain, quand les gens infectés auront quitté ce monde.</strong></p>
+                <p>N\'oubliez pas, notre monde devient de moins en moins moral et de plus en plus violent.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -1678,11 +1715,16 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Lettres d'un milicien",
             "author" => "coctail",
             "content" => [
-                ''
+                '<p>Anne,</p>
+                <p>je n\'aurais pas dû m\'engager dans la milice. Ils prétendent protéger la ville, mais ce ne sont que des voyous qui profitent de la situation des gens. Hier, nous avons raquetté une vieille dame pour manger son chat. Ensuite, les zombies sont arrivés et ils n\'ont rien trouvé de mieux que de leur balancer la vieille dame pour les occuper.</p>',
+                '<p>Anne,</p>
+                <p>nous manquons de tout. Heureusement, le sergent nous a distribué de la viande aujourd\'hui. Après les pertes énormes d\'hier, j\'avais bien besoin de me remplir l\'estomac pour me remonter le moral. Je me demande encore où il a pu la trouver cette viande, lui qui dit toujours qu\'il faut nous rationner ?</p>',
+                '<p>Anne,</p>
+                <p>quitte la ville au plus tôt. Le sergent vient de nous dire d\'évacuer la tranchée, que la horde était bien trop nombreuse pour que nous puissions la retenir. Il était blême. Je ne l\'ai jamais vu comme ça. Nous avons rassemblé nos affaires et quand je suis allé trouver le sergent dans sa tente pour lui demander où aller, j\'ai entendu un coup de feu. Il s\'est tiré une balle dans la tête.</p>'
             ],
             "lang" => "fr",
             "background" => "letter",
-            "design" => "small"
+            "design" => "typed"
         ],
         "offrex" => [
             "title" => "Maison à vendre",
@@ -1698,11 +1740,19 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Mascarade",
             "author" => "irewiss",
             "content" => [
-                ''
+                '<div class="hr"></div>
+                <h1>Lyrics for M.G.</h1>',
+                '<p>Il était tard ce matin quand mes yeux ont bien voulu s\'ouvrir sur ce spectacle plat. Cet ersatz de ville. Cette mascarade. Et toujours les mêmes questions me viennent en tête.</p>
+                <p>Qui croit-on duper ?</p>
+                <p>Pourquoi nous mentons nous à nous mêmes dans cet ultime élan désespéré ?</p>
+                <p>Cette forteresse éphémère que nous avons érigé avec tout le bric-à-brac possible et imaginable ne tiendra plus très longtemps. La horde grandit dehors. Chaque jour ils sont plus nombreux.</p>',
+                '<p>Hier ils étaient à peine plus d\'une vingtaine. J\'ai presque pu les compter, du haut de la tour je les ai vu se rassembler, traîner leur corps décédé jusqu\'à nos portes comme s\'ils sentaient nos coeurs bien vivants battre de l\'autre côté. Battre un rythme de frayeur et de dégoût mêlés.</p>
+                <p>Ils ont cogné avec la force inhumaine qui leur est propre. Ils ont frappé jusqu\'à faire exploser la chair qui reste collée à leur membres pourris. Cogné jusqu\'à faire grincer les tendons contre l\'acier de la porte blindée. Cogné jusqu\'à briser leur os creux sur ce dernier rempart, ce dernier espoir qui nous scinde en deux camps bien distincts : Celui des vivants et celui des "Pas-tout-à-fait-morts".</p>',
+                '<p>Mes yeux se sont ouvert tard ce matin. Et quelque part je crois que j\'aurais préféré qu\'ils ne s\'ouvrent plus jamais.</p>'
             ],
             "lang" => "fr",
             "background" => "noteup",
-            "design" => "written"
+            "design" => "typed"
         ],
         "messagecommiss" => [
             "title" => "Message à la commission",
@@ -1837,6 +1887,30 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "background" => "secret",
             "design" => "written"
         ],
+        "jgoulb_fr" => [
+            "title" => "Mon ami la Goule - 7ème partie",
+            "author" => "ninjaja",
+            "content" => [
+                '<h2>Mon ami la Goule, 7ème partie</h2>
+                <p>Quatrième jour :</p>
+                <p>Aujourd\'hui, je pars seul m\'amuser avec les zombies. Je me prend tellement au jeu que je fini par taper dessus à main nu pour rejoindre la ville.</p>
+                <p>La goule est restée entre les murs, à l’affût d\'un dîner potentiel car M. N. veille consciencieusement.
+                Elle profite finalement d\'une minute d’inattention pour rejoindre un groupe en expédition et l\'attaquer. Sortie discrète et fumigène, elle mange proprement.</p>
+                <p>Restée en ville pour "surveiller la goule", elle dresse aussitôt une liste farfelue des suspects potentiels avant M. N.</p>
+                <p>Tout le monde se cale sur cette liste assez longtemps pour que les vraies pistes soient froides.</p>
+                <p>En fin de journée, échaudés, les agressions commencent à tomber.</p>',
+                '<p>Cinquième et sixième jours :</p>
+                <p>Nous faisons des expés "nettoyage" pour ne pas rester en ville.</p>
+                <p>Les agressions vont bon train, les frangins n\'y coupent pas et l\'un d\'eux est blessé. Heureusement nous avons de quoi le soigner.</p>',
+                '<p>L\'ambiance est tendue en ville.</p>
+                <p>La goule n\'attaquera pas. Peut-être est-elle morte dans le désert. Nous ne contredirons pas cette théorie.</p>
+                <p>Il deviens vraiment dangereux de se nourrir.</p>
+                <p>Mais demain Trotk sera obligé de tuer, il ne pourra pas vaincre la mort tous les jours...</p>'
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "written"
+        ],
         "letwar" => [
             "title" => "Mort d'un baroudeur",
             "author" => "Planeshift",
@@ -1866,26 +1940,25 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Mot déchiré",
             "author" => "gangster",
             "content" => [
-                ''
+                '<p>Saletées, elles m\'ont eu ... je suis reclu dans ma cave, la porte est frappée, des grognement sourds résonnent dans mes oreilles, ma colonne vertébrale me brule c\'est atroce ...</p>
+                <p>Ils les ont tous eu, tous dévorés vivants, je n\'ai réussi qu\'a prolonger ma vie de quelques heures mais je sais que ma fin est proche, j\'ai été mordu au molet...</p>
+                <p>Aucune issue possible, ce n\'est plus qu\'une question de minutes, la porte va cèder sous les coups de ces choses, ils ne sont plus humains.</p>
+                <p>Je préfère mourir que devenir comme ça ...</p>'
             ],
             "lang" => "fr",
             "background" => "blood",
-            "design" => "blood"
+            "design" => "written"
         ],
-        "cave1" => [
-            "title" => "Mort d'un baroudeur",
-            "author" => "Planeshift",
+        "teia" => [
+            "title" => "Note d'un citoyen banni",
+            "author" => "???",
             "content" => [
-                '<p>Me voilà bien.</p>
-                <p>Trop confiant dans mes capacités, je me suis éloigné de la ville sans faire attention. Et comme de juste, je me suis retrouvé en compagnie de quelques zombies. Youpi. Heureusement, j\'ai réussi à les tuer sans problème, mais hélas pour moi, cela m\'a épuisé. Me voici donc comme un idiot, assis sur une moitié de zombie, en train d\'écrire l\'histoire de ma triste et courte vie. Je l\'ai appelé Léon Le zombie. Pas mon histoire.</p>',
-                '<p>Je reste optimiste, malgré tout. Peut-être que je mourrais sans souffrir, hein ? Et puis, je devrais apprécier ma chance : je dois être l\'un des rares êtres vivants des environs à voir ce magnifique coucher de soleil, insouciant de mon sort. N\'est-ce pas Léon ?</p>
-                <p>Vous ai-je dit que je n\'avais pas achevé Léon ? Ah, il s\'agite. J\'ai beau être assis sur son dos et utiliser sa tête poisseuse comme un repose-pieds, il lui manque peut-être un bras et </p>',
-                '<p>tout ce qui se trouve sous son bassin, il continue à s\'agiter pour me dévorer. Il est mignon, n\'est-ce pas ?</p>
-                <p>La nuit tombe, et je crois apercevoir d\'autres compagnons de jeu<strike>x</strike> approcher. Eh bien, qu\'il en soit ainsi ! Sur ce, je vous laisse, j\'ai des gens à aller tuer. Et après, peut-être que j\'aurai la chance de vous dévorer, qui sait ?</p>'
+                '>
+                <img src="http://www.hordes.fr/gfx/fanart/worldmap03.png" alt="">'
             ],
             "lang" => "fr",
-            "background" => "tinystamp",
-            "design" => "writter"
+            "background" => "carton",
+            "design" => "written"
         ],
         "code1" => [
             "title" => "Note illisible",
@@ -2224,17 +2297,24 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Refuge Abrité",
             "author" => "Loadim",
             "content" => [
-                ''
+                '<p><em>Refuge Abrité.</em> C\'était un nom bien choisi. Treize morts cette nuit. S\'épuiser à traîner les corps, fouiller les coffres. Il a fallu renverser des tentes lacérées pour récupérer quelques vis, un déchet moisi qu\'on allait avaler. Le courage d\'une poignée de gens peine à ralentir les hordes.</p>
+                <p>On a pourtant réussi à creuser, à dresser des pièges. Ils sont passés. Ils se sont nourris. Quand je pense que si nous n\'avions pas assemblé un atelier précipitamment nous serions déjà tous... Une semaine à peine et ils sont innombrables. </p>
+                <p>Nous n\'épargnons plus nos rations. Ils nous dévoreront bientôt, et nous en emporterons le plus possible avec nous. Je sens encore ce crâne décomposé éclater sous mon poing. Le sursis de la ville sera court mais pas la terreur mes camarades, mes chers camarades.</p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
-            "design" => "written"
+            "design" => "small"
         ],
         "outrat" => [
             "title" => "Rongeur reconnaissant",
             "author" => "lerat",
             "content" => [
-                ''
+                '<p>Un pauvre petit ouvrier s\'est aventuré dehors aujourd\'hui, dans l\'outre-monde, désert hostile, dangereux, parsemé de pièges vicieux.</p>
+                <p>Il a suffit d\'un rien, une pierre un peu trop imposante pour mon pied fébrile et ce fut la chute.</p>
+                <p>Après un roulé-boulé dans la poussière j\'ai levé la tête, cherché mes compagnons d\'expédition. Mais j\'étais seul... Enfin... Seul en vie . Partout autour de moi des zombies. Onze. Toute une équipe de foot.</p>',
+                '<p>La réalité m\'a frappé de plein fouet, la panique a empli mon coeur trop fragile, j\'ai hurlé, j\'ai appelé.</p>
+                <p>Ils m\'ont répondu, m\'ont rassuré, ont mis leurs méninges fatiguées à contribution et m\'ont finalement envoyé une équipe de sauvetage. La panique a cédé la place à la reconnaissance, à l\'émotion. Malgré mon erreur impardonnable ils sont venus, ne m\'ont pas abandonné au triste sort qui m\'attendait.</p>
+                <p>Je vous remercie, je vous aime.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -2254,11 +2334,11 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Récit d'un habitant",
             "author" => "coctail",
             "content" => [
-                ''
+                '<p>J\'ai alors tailladé la jambe à Ervin. Il m\'a regardé sans comprendre. Je lui ai dit : « Tu vois les zombies là, en haut de la colline ? Toi, tu es jeune, moi, je suis vieux. Tu courrais plus vite que moi, mais plus maintenant. Merci de m\'avoir attendu.  Et n\'oublie pas mon garçon : quand la horde arrive, il ne faut pas courir vite, il ne faut juste pas être celui qu\'ils vont rattraper. Maintenant, menotte-toi à la poutre, je ne voudrais pas te tirer dans la jambe, les munitions sont si rares... Bonne chance, je les entends arriver... Et merci de m\'avoir passé ton fusil.</p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
-            "design" => "written"
+            "design" => "typed"
         ],
         "lords1" => [
             "title" => "Récits de LordSolvine, partie 1",
@@ -2390,21 +2470,26 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Théories nocturnes 1",
             "author" => "Planeshift",
             "content" => [
-                ''
+                '<p>mais la question que je me pose, c\'est comment nous sommes arrivés ici. J\'ai plusieurs théories, toutes aussi inquiétantes les unes que les autres. Plus personne ne veut répondre à mes questions, maintenant. Ils croient que je suis fou, une sorte de nouvelle sorte de zombification. Les idiots. Si seulement ils savaient?</p>',
+                '<p>Comment sommes-nous arrivés ? Je ne me souviens de rien. Lorsque je presse les autres de questions, ils s\'énervent, me repoussent. Mais je vois leurs regards, oh, oui, je les vois ! Eux aussi sont effrayés, car ils ne savent pas. Ils ont oublié, tout comme moi. Pourtant, je sens que je sais, au fond de moi. Quelque part, mon âme connaît le dessein caché derrière tout cela.</p>',
+                '<p>Et si c\'était cela la réponse ? L\'âme ! Mais alors... Cela voudrait donc dire que [...]</p>'
             ],
             "lang" => "fr",
             "background" => "grid",
-            "design" => "typed"
+            "design" => "modern"
         ],
         "theor2" => [
             "title" => "Théories nocturnes 2",
             "author" => "Bigmorty",
             "content" => [
-                ''
+                '<p>Minuit, j’ouvre les yeux. Les premiers grognements résonnent... chaque nuit c’est le même cauchemar. D’abord les premiers raclements, puis les grattements, les grondements et enfin leurs poings, leurs ongles... parfois leur tête qui résonnent sur les murailles. Un martèlement qui me terrifie... surtout quand les portes grincent sinistrement... un martèlement qui rend fou les plus fragiles d’entre nous... mais ne le sommes nous tous pas déjà ? Parfois je crois les voir abattre nos défenses, dévorer mes camarades... j’entends les hurlements, les hoquets de terreurs, les larmes de désespoir et toujours les grognements sourds...</p>',
+                '<p>Certaines nuits je les vois fracasser ma maison, remplir mon espace comme une marée putride et démoniaque... je ne lutte jamais longtemps et, l’espace d’un court instant, j’entends nettement ma peau qui se déchire, les ligaments se rompre, mes os craquer... tout est tellement réel et pourtant... je me réveille à chaque fois dans mon lit, en sueur... A chaque réveil des gens différents mais le même cauchemar en commun... </p>
+                <p>Est ce l’enfer ? Sommes nous damnés ? Ou une succession de mauvais rêves ? </p>
+                <p>Quand vais-je enfin me réveiller ?</p>'
             ],
             "lang" => "fr",
             "background" => "grid",
-            "design" => "typed"
+            "design" => "modern"
         ],
         "wintck" => [
             "title" => "Ticket gagnant",
@@ -2430,7 +2515,11 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Tirage au sort",
             "author" => "stravingo",
             "content" => [
-                ''
+                '<quote>Refuge des illusions perdues, le 19 février</quote>
+                <p>Cela fait des <strike>jour</strike>semaines que nous n\'avons plus de nourriture. La faim nous tenaille mais nous ne pouvons pas sortir<strike>e</strike>. Au-delà de nos maigres barricades, les créatures sont maintenant beaucoup trop nombreuses. Je n\'en peux plus. Je n\'ai plus la force.</p>
+                <p>Ce matin, nous avons tiré au sort. C\'est tombé sur moi mais je m\'en fiche. Les autres m\'ont presque envié. Je sens à l\'odeur du charbon de bois qu\'ils ont allumé le crématocue. Ils m\'ont dit que je ne sentirai <strike>presque</strike> rien, qu\'ils m\'ont réservé toute une bouteille de vodka. Mais je sais qu\'ils mentent. </p>
+                <p>J\'avais volé la dernière<strike>..</strike></p>
+                <p><em>Stravingo</em></p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
@@ -2478,11 +2567,12 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Un journal incomplet",
             "author" => "coctail",
             "content" => [
-                ''
+                '<p>en faudrait plus.</p>
+                <p>Et elle pensait : « Ils ne savent pas encore. Non, ils ne savent pas encore. Ils regardent tous vers la porte mais ils ne savent pas encore. Ils entendent la horde qui arrive mais ils ne savent pas encore. Non, ils ne savent pas encore que j\'ai dévissé les plaques du mur de derrière ».</p>'
             ],
             "lang" => "fr",
             "background" => "blood",
-            "design" => "blood"
+            "design" => "written"
         ],
         "granma" => [
             "title" => "Un post-it",
@@ -2552,7 +2642,13 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Une pile de post-its",
             "author" => "todo",
             "content" => [
-                ''
+                '<p>Hier, le vieux Jay nous a tous réunis autour de la potence pour un de ses discours moralisateur à la noix, «Il faut qu\'on se serrent les coudes les gars, si on veut avoir une chance de survivre, tout ce qu\'on a ramené du désert doit impérativement être utilisé  pour fortifier les défenses de la ville » qu\'il  disait.</p>',
+                '<p>Au début, on a vraiment cru qu\'on allait tous s\'en sortir, on les a d\'abord vus  littéralement exploser les uns après les autres en pénétrant dans le champ de mines à eau, ensuite beaucoup d\'entre eux sont tombés dans le grand fossé pour ne jamais en ressortir? du moins c\'est ce qu\'on croyait.  Apres un moment, on en a vu un refaire surface, un pieu lui transperçait la poitrine, mais malgré ca, il s\'est mis à escalader nos remparts, et en l\'espace d\'un instant,</p>',
+                '<p>il fut rejoint par une poignée d\'autres qui se sont mis à suivre son exemple. </p>
+                <p>Aujourd\'hui, le vieux Jay est mort.</p>',
+                '<p>Après l\'attaque, la ville était en état de choc, j\'en ai profité pour me  faufiler en douce avec mon caddie, et j\'ai pris les quelques planches et bouts de ferrailles qu\'il restait dans les stocks de la ville. J\'ai ensuite passé toute l\'après-midi à me bâtir une vraie petite baraque, rustique mais solide.</p>',
+                '<div class="hr"></div>
+                <p>Cette nuit, ils seront plus nombreux encore, mais ils ne m\'auront pas, parce que moi, je suis plus malin que ce bon vieux Jay.</p>'
             ],
             "lang" => "fr",
             "background" => "postit",
@@ -2613,6 +2709,45 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "lang" => "fr",
             "background" => "blood",
             "design" => "typed"
+        ],
+        "regler_fr" => [
+            "title" => "Regretté Regler",
+            "author" => "???",
+            "content" => [
+                '>
+                <p>COALITIONS RUSTRES - EPITAPHE</p>
+                <p>Il s\'appelait Regler. Jusqu\'au bout il s\'est battu contre l\'infection.
+                Un homme presqu’ordinaire, ni meilleur, ni pire que le commun d\'entre nous, un homme qui, face à la maladie, a révélé, autant qu’il s’est découvert, une humanité, une grandeur, une densité.
+                Ce n\'était pas un héros, ni un grand homme…
+                Juste un homme entier, avec ses certitudes, ses ambitions, sa prétention, ses convictions, ses faiblesses, ses travers, sa mauvaise foi et sa part d’ombre…
+                Mais aussi une homme fragile, un doux dur, un inquiet, un père, un exigeant, un fidèle en amitié… IL S’APPELAIT Regler. IL ÉTAIT MON AMI… un frère.
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "classic"
+        ],
+        "lawtab_fr" => [
+            "title" => "Table de la loi",
+            "author" => "???",
+            "content" => [
+                '>
+                <h2>La Bible Apo-Catholique Orange</h2>
+                <p>Tu n\'auras d\'autre dieu que le Corbeau.<br>
+                Tu ne proféreras d\'insulte envers le monde des Hordes, car Le Corbeau ne tolère d\'insulte.<br>
+                Tu n\'utiliseras de double identité, car le Corbeau ne le tolère.<br>
+                Tu travailleras chaque jour, mais un jour sur deux est consacré à l\'offrande d\'eau envers ton prochain.<br>
+                Honore ton voisin pour vivre dans le pays qu\'offre le Corbeau.<br>
+                Tu ne commettras de meurtre, autre qu\'une goule.<br>
+                Tu ne commettras d\'adultère nécrophile.<br>
+                Tu ne commettras de vol, sauf en panique.<br>
+                Tu ne porteras de faux témoignage sous peine.<br>
+                Tu n\'envieras ton prochain, tant qu\'il vit.<br>
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "carton",
+            "design" => "modern"
         ],
     ];
 

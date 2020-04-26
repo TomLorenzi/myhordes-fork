@@ -320,6 +320,10 @@
                 }
             }
 
+            img {
+                width: 100%;
+            }
+
             &.design-typed {
                 font-family: @myhordes-fixed-font;
                 color: #3b3249;
@@ -333,9 +337,16 @@
                     &:first-letter {
                         font-weight: bold;
                     }
+
+                    &.other {
+                        font-family: @myhordes-sans-serif-font;
+                        color: #b16567;
+                        font-style: italic;
+                    }
                 }
                 strong {
                     color: black;
+                    text-transform: none;
                 }
             }
 
@@ -464,10 +475,16 @@
                     color: #8c9070;
                     font-family: @myhordes-sans-serif-font;
                 }
+                strong {
+                    color: #707056;
+                }
                 hr {
                     color: #8c9070;
                     border: none;
                     border-bottom: 1px solid #adb09d;
+                }
+                p:first-letter {
+                    font-weight: bold;
                 }
             }
 
