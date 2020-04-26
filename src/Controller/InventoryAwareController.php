@@ -218,7 +218,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed );
             if (empty($available) && empty($crossed)) continue;
 
-            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'action' => $a, 'targets' => $a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() , ) : null, 'target_mode' => $a->getTarget() ? $a->getTarget()->getSpawner() : 0, 'crossed' => false ];
+            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'action' => $a, 'targets' => $a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null, 'target_mode' => $a->getTarget() ? $a->getTarget()->getSpawner() : 0, 'crossed' => false ];
             foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'action' => $c, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
         }
 
