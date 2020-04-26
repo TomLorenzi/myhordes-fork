@@ -598,7 +598,7 @@ class ExternalController extends InventoryAwareController
                                     'count' => $item->getCount(),
                                     'id' => $item->getPrototype()->getId(),
                                     'img' => $item->getPrototype()->getIcon(),
-                                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
+                                    'cat' => $item->getPrototype()->getCategory()->getParent() ? $item->getPrototype()->getCategory()->getParent()->getName() : $item->getPrototype()->getCategory()->getName(),
                                     'broken' => $item->getBroken(),
                                 ],
                             ];

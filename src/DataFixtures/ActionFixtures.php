@@ -580,7 +580,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_knife'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_machine_2'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_small_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_33'] ] ],
-            'throw_b_cutcut'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_2z_80'] ] ],
+            'throw_b_cutcut'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], 'kill_2_zombie' ] ],
             'throw_b_machine_3'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_pc'            => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], 'kill_1_zombie' ] ],
             'throw_b_lawn'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_2_zombie' ] ],
@@ -619,7 +619,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'watercup_1' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_inside',  'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ 'water_cup_#00' ] ] ], 'message' => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.' ],
             'watercup_2' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_outside', 'must_have_micropur' ],                                                   'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ 'water_cup_#00' ] ] ], 'message' => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.' ],
-            'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 1, 'max' => 1 ] ] ], 'message' => 'Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.' ],
+            'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 2, 'max' => 2 ] ] ], 'message' => 'Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.' ],
             'jerrycan_1' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_inside', 'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
                 [ [ ['spawn' => [ ['water_#00', 2] ] ] ], 1 ],
                 [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
@@ -751,8 +751,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'water_cup_#00'       => [ 'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2' ],
 
             'water_can_3_#00'     => [ 'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2' ],
-            'water_can_2_#00'     => [ 'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2' ],
-            'water_can_1_#00'     => [ 'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2' ],
+            'water_can_2_#00'     => [ 'fill_watercan2', 'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2' ],
+            'water_can_1_#00'     => [ 'fill_watercan1', 'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2' ],
             'water_can_empty_#00' => [ 'fill_watercan0' ],
 
             'can_#00'             => [ 'can' ],

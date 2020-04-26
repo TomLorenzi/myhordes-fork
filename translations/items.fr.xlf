@@ -3083,13 +3083,11 @@
     </unit>
     <unit id="GNoTm5X" name="Brezel">
       <notes>
-        <note>Brezel</note>
-        <note>Brezel</note>
         <note category="german">Brezel</note>
       </notes>
       <segment>
         <source>Brezel</source>
-        <target>Brezel</target>
+        <target>Bretzel</target>
       </segment>
     </unit>
     <unit id="1_ZEQrG" name="Dackel">
@@ -3444,7 +3442,7 @@
       </notes>
       <segment>
         <source>Kaputter Stock</source>
-        <target>Grand Bâton Sec</target>
+        <target>Bâton cassé</target>
       </segment>
     </unit>
     <unit id="My1HFp_" name="Britney Spears CD">
@@ -4059,13 +4057,11 @@
     </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
       <notes>
-        <note>In den Brunnen schütten</note>
-        <note>In den Brunnen schütten</note>
         <note category="german">In den Brunnen schütten</note>
       </notes>
       <segment>
         <source>In den Brunnen schütten</source>
-        <target>In den Brunnen schütten</target>
+        <target>Verser dans le puits</target>
       </segment>
     </unit>
     <unit id="UbJNeAP" name="34970f4">
@@ -5550,7 +5546,7 @@
       </notes>
       <segment>
         <source>Ein schlichter Stuhl mit lustigem Namen aus schwedischer Herstellung. Man kann damit Leute vermöbeln, aber besser du stellst ihn dir ins Wohnzimmer...</source>
-        <target>Une banale chaise de fabrication suédoise. On peut taper des gens avec, mais ca fonctionnera mieux si c'est simplement rangé en sécurité chez soi…</target>
+        <target>Une banale chaise de fabrication suédoise. On peut taper des gens avec, mais ça fonctionnera mieux si c'est simplement rangé en sécurité chez soi…</target>
       </segment>
     </unit>
     <unit id="1NgoafB" name="1fed0e4">
@@ -7515,7 +7511,7 @@
       </notes>
       <segment>
         <source>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</source>
-        <target>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</target>
+        <target>Votre précieux guide, intitulé "le manuel des castors juniors". Même s'il ressemble à une édition pour enfants, il contient une foule d'informations utiles pour qui veut se débrouiller seul dans la nature. Il vous permettra de trouver à manger ou à boire facilement.</target>
       </segment>
     </unit>
     <unit id="zNdPJiM" name="b1076bd">

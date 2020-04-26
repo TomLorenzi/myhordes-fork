@@ -405,11 +405,11 @@ class InventoryHandler
      * @param Inventory[] $inventories
      * @return bool
      */
-    public function placeItem( Citizen $citizen, Item $item, array $inventories ): bool {
+    public function placeItem( Citizen $citizen, Item $item, array $inventories ): Inventory {
         $source = null;
         foreach ($inventories as $inventory)
             if ($this->transferItem( $citizen, $item, $source, $inventory ) == self::ErrorNone)
-                return true;
+                return $inventory;
         return false;
     }
 
