@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Avatar;
 use App\Entity\Citizen;
 use App\Entity\User;
 use App\Entity\Picto;
@@ -12,8 +13,10 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,6 +33,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class SoulController extends AbstractController
 {
     protected $entity_manager;
+
+    const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
+    const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors + 2;
+    const ErrorAvatarFormatUnsupported       = ErrorHelper::BaseAvatarErrors + 3;
+    const ErrorAvatarImageBroken             = ErrorHelper::BaseAvatarErrors + 4;
+    const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors + 5;
+    const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors + 6;
+    const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
 
     public function __construct(EntityManagerInterface $em)
     {
@@ -72,13 +83,13 @@ class SoulController extends AbstractController
 
         foreach ($pictos as $picto) {
             switch($picto["name"]){
-                case "r_heroac_#00":
+                case "r_heroac_#00": case "r_explor_#00":
                     if ($picto["c"] >= 15)
                         $points += 3.5;
                     if ($picto["c"] >= 30)
                         $points += 6.5;
                     break;
-                case "r_cookr_#00":
+                case "r_cookr_#00": case "r_cmplst_#00": case "r_camp_#00": case "r_drgmkr_#00":
                     if ($picto["c"] >= 10)
                         $points += 3.5;
                     if ($picto["c"] >= 25)
@@ -90,19 +101,7 @@ class SoulController extends AbstractController
                     if ($picto["c"] >= 60)
                         $points += 6.5;
                     break;
-                case "r_cmplst_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 25)
-                        $points += 6.5;
-                    break;
-                case "r_camp_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 25)
-                        $points += 6.5;
-                    break;
-                case "r_chstxl_#00":
+                case "r_chstxl_#00": case "r_ruine_#00":
                     if ($picto["c"] >= 5)
                         $points += 3.5;
                     if ($picto["c"] >= 10)
@@ -138,18 +137,6 @@ class SoulController extends AbstractController
                     if ($picto["c"] >= 250)
                         $points += 6.5;
                     break;
-                case "r_ruine_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    break;
-                case "r_explor_#00":
-                    if ($picto["c"] >= 15)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
                 case "r_explo2_#00":
                     if ($picto["c"] >= 5)
                         $points += 3.5;
@@ -162,33 +149,17 @@ class SoulController extends AbstractController
                     if ($picto["c"] >= 1000)
                         $points += 6.5;
                     break;
-                case "r_drgmkr_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 25)
-                        $points += 6.5;
-                    break;
-                case "r_theft_#00":
+                case "r_theft_#00": case "r_jtamer_#00": case "r_jrangr_#00": case "r_jguard_#00": case "r_jermit_#00":
+                case "r_jtech_#00": case "r_jcolle_#00":
                     if ($picto["c"] >= 10)
                         $points += 3.5;
                     if ($picto["c"] >= 30)
                         $points += 6.5;
                     break;
-                case "r_maso_#00":
+                case "r_maso_#00": case "r_guard_#00":
                     if ($picto["c"] >= 20)
                         $points += 3.5;
                     if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-                case "r_jtamer_#00":
-                case "r_jrangr_#00":
-                case "r_jguard_#00":
-                case "r_jermit_#00":
-                case "r_jtech_#00":
-                case "r_jcolle_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
                         $points += 6.5;
                     break;
                 case "r_surlst_#00":
@@ -242,12 +213,6 @@ class SoulController extends AbstractController
                         $points += 16.5;
                     if($picto["c"] >= 60)
                         $points += 20;
-                    break;
-                case "r_guard_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    if($picto["c"] >= 40)
-                        $points += 6.5;
                     break;
                 case "r_winbas_#00":
                     if($picto["c"] >= 2)
@@ -350,6 +315,7 @@ class SoulController extends AbstractController
 
     /**
      * @Route("api/soul/settings/deleteid", name="api_soul_settings_deleteid")
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
     public function soul_settings_deleteid(EntityManagerInterface $entityManager): Response {
@@ -363,5 +329,198 @@ class SoulController extends AbstractController
         $entityManager->flush();
 
         return new AjaxResponse( ['success' => true] );
+    }
+
+    /**
+     * @Route("api/soul/settings/common", name="api_soul_common")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_settings_common(JSONRequestParser $parser): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
+        $this->entity_manager->persist( $user );
+        $this->entity_manager->flush();
+
+        return new AjaxResponse( ['success' => true] );
+    }
+
+    /**
+     * @Route("api/soul/settings/avatar", name="api_soul_avatar")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_settings_avatar(JSONRequestParser $parser): Response {
+
+        if (!extension_loaded('imagick')) return AjaxResponse::error(self::ErrorAvatarBackendUnavailable );
+
+        $payload = $parser->get_base64('image', null);
+        $upload = (int)$parser->get('up', 1);
+
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if ($upload) {
+
+            if (!$payload) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            // Processing limit: 3MB
+            if (strlen( $payload ) > 3145728) return AjaxResponse::error( self::ErrorAvatarTooLarge );
+
+            $im_image = new Imagick();
+            $processed_image_data = null;
+
+            try {
+                if (!$im_image->readImageBlob($payload))
+                    return AjaxResponse::error( self::ErrorAvatarImageBroken );
+
+                if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
+                    return AjaxResponse::error( self::ErrorAvatarFormatUnsupported );
+
+                $w = $im_image->getImageWidth();
+                $h = $im_image->getImageHeight();
+
+                if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 30 || $w < 90)
+                    return AjaxResponse::error( self::ErrorAvatarResolutionUnacceptable );
+
+                if ( max($w,$h) > 200 &&
+                    !$im_image->resizeImage(
+                        min(200,max(100,$w,$h)),
+                        min(200,max(100,$w,$h)),
+                        imagick::FILTER_SINC, 1, true )
+                ) return AjaxResponse::error( self:: ErrorAvatarProcessingFailed );
+
+                $im_image->setImageBackgroundColor('black');
+                $im_image->setImageAlphaChannel(Imagick::ALPHACHANNEL_REMOVE);
+                if ($im_image->getImageFormat() !== "GIF")
+                    $im_image = $im_image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+
+                switch ($im_image->getImageFormat()) {
+                    case 'JPEG':
+                        $im_image->setImageCompressionQuality ( 90 );
+                        break;
+                    case 'PNG':
+                        $im_image->setOption('png:compression-level', 9);
+                        break;
+                    case 'GIF':
+                        $im_image->setOption('optimize', true);
+                        break;
+                    default: break;
+                }
+
+                $processed_image_data = $im_image->getImagesBlob();
+                if (strlen($processed_image_data) > 1048576) return AjaxResponse::error( self::ErrorAvatarInsufficientCompression );
+            } catch (Exception $e) {
+                return AjaxResponse::error( self::ErrorAvatarProcessingFailed );
+            }
+
+            if (!($avatar = $user->getAvatar())) {
+                $avatar = new Avatar();
+                $user->setAvatar($avatar);
+            }
+
+            $name = md5( $processed_image_data );
+
+            $avatar
+                ->setChanged(new DateTime())
+                ->setFilename( $name )
+                ->setSmallName( $name )
+                ->setFormat( strtolower( $im_image->getImageFormat() ) )
+                ->setImage( $processed_image_data )
+                ->setX( $im_image->getImageWidth() )
+                ->setY( $im_image->getImageHeight() )
+                ->setSmallImage( null );
+
+            $this->entity_manager->persist( $user );
+            $this->entity_manager->persist( $avatar );
+        } elseif ($user->getAvatar()) {
+
+            $this->entity_manager->remove($user->getAvatar());
+            $user->setAvatar(null);
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/avatar/crop", name="api_soul_small_avatar")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_settings_small_avatar(JSONRequestParser $parser): Response
+    {
+
+        if (!$parser->has_all(['x', 'y', 'dx', 'dy'], false))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $x  = (int)floor((float)$parser->get('x', 0));
+        $y  = (int)floor((float)$parser->get('y', 0));
+        $dx = (int)floor((float)$parser->get('dx', 0));
+        $dy = (int)floor((float)$parser->get('dy', 0));
+
+        /** @var User $user */
+        $user = $this->getUser();
+        $avatar = $user->getAvatar();
+
+        if (!$avatar || $avatar->isClassic())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (
+            $x < 0 || $dx < 0 || $x + $dx > $avatar->getX() ||
+            $y < 0 || $dy < 0 || $y + $dy > $avatar->getY()
+        ) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest, [$x,$y,$dx,$dy,$avatar->getX(),$avatar->getY()]);
+
+        $im_image = new Imagick();
+        $processed_image_data = null;
+
+        try {
+            if (!$im_image->readImageBlob(stream_get_contents( $avatar->getImage() )))
+                return AjaxResponse::error(self::ErrorAvatarImageBroken);
+
+            if (!$im_image->cropImage( $dx, $dy, $x, $y ))
+                return AjaxResponse::error(self::ErrorAvatarProcessingFailed);
+
+            $iw = $im_image->getImageWidth(); $ih = $im_image->getImageHeight();
+            if ($iw < 90 || $ih < 30 || ($ih/$iw != 3)) {
+                $new_height = max(30,$ih);
+                $new_width = $new_height * 3;
+                if (!$im_image->resizeImage(
+                    $new_width, $new_height,
+                    imagick::FILTER_SINC, 1, true ))
+                    return AjaxResponse::error(self::ErrorAvatarProcessingFailed);
+            }
+
+            if ($im_image->getImageFormat() === 'GIF')
+                $im_image->setOption('optimize', true);
+
+            $processed_image_data = $im_image->getImagesBlob();
+            if (strlen($processed_image_data) > 1048576) return AjaxResponse::error( self::ErrorAvatarInsufficientCompression );
+
+        } catch (Exception $e) {
+            return AjaxResponse::error( self::ErrorAvatarProcessingFailed );
+        }
+
+        $name = md5( (new DateTime())->getTimestamp() );
+
+        $avatar
+            ->setSmallName( $name )
+            ->setSmallImage( $processed_image_data );
+
+        $this->entity_manager->persist($avatar);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 }

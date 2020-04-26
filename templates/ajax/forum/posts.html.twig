@@ -39,6 +39,13 @@
                             {{ post.date.format('D, d.m.Y G:i') }}
                         {% endif %}
                     </i>
+                    {% if (post.owner.avatar) %}
+                        {% if app.user.preferSmallAvatars %}
+                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                        {% else %}
+                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                        {% endif %}
+                    {% endif %}
                     <b>
                         {% if post.owner.username == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
@@ -69,6 +76,13 @@
                             {{ post.date.format('D, d.m.Y G:i') }}
                         {% endif %}
                     </i>
+                    {% if (post.owner.avatar) %}
+                        {% if app.user.preferSmallAvatars %}
+                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                        {% else %}
+                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                        {% endif %}
+                    {% endif %}
                     <b>
                         {% if post.owner.username == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}

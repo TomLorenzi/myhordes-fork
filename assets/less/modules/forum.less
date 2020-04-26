@@ -28,25 +28,16 @@
 }
 
 .forum-post {
-  background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
+  background-color: #4a261e; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
   border: 1px solid #704328; margin-bottom: 10px;
 
   &>.forum-post-header {
-    display: block; background: #804d2f; padding: 4px;
+    display: block; background: #804d2f; padding: 4px; min-height: 40px;
     &>b { padding: 5px; }
     &>i { float: right; font-size: 0.8em; }
     &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &:before, &:after {content: " "; clear: both;}
-    &:before { display: table;}
-    &:after {display: block; height: 0;}
-  }
-
-  &>.forum-post-hidden-header {
-    display: block; background: #f02400af; padding: 4px;
-    &>b { padding: 5px; }
-    &>i { float: right; font-size: 0.8em; }
-    &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &:before, &:after {content: " "; clear: both;}
+    &>.avatar { margin: 0 5px 0 10px; float: left }
+    &:before, &:after {content: " "; clear: right;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
   }
