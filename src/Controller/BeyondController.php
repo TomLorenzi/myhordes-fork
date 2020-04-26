@@ -1006,8 +1006,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );
                 if ($item) {
-                    $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
-                    $this->entity_manager->persist( $this->log->outsideDig( $citizen, $prototype ) );
+                    $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
+                    if($inventoryDest == $zone->getFloor())
+                        $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
                     $this->entity_manager->persist( $item );
                     $this->entity_manager->persist( $citizen->getInventory() );
                     $this->entity_manager->persist( $zone->getFloor() );

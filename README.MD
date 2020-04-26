@@ -88,6 +88,16 @@ Once you have everything, in `src/DataFixture/TextFixtures.php`, add a new eleme
     "design" => "<CONTENTOFDESIGN_ ATTR>"
 ],
 ```
+If you want to import a lot, it saves time to combine the commands into a function paste this once and then run ```x()``` in the console for each text/page:
+```
+var x = function() {
+   	console.log(new URLSearchParams(window.location.hash.substring(window.location.hash.lastIndexOf('?'))).get('bkey').split(';')[0]);
+   	console.log($("#ghost_pages .document").attr('class'));
+   	console.log($("#ghost_pages .document .content").html().replace(/'/gi, "\\\'"));
+   }
+```
+Pay attention with predefined texts from Motion Twin (mostly with anonymous authors), it will overwrite previous translations, best to add language suffix to these text ids.
+
 Then update the fixtures:
 ```
 bin/console doctrine:schema:update --force

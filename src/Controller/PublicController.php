@@ -106,6 +106,9 @@ class PublicController extends AbstractController
         if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        if (in_array($parser->trimmed('user', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
             'user'  => new Constraints\Length(
                 ['min' => 4, 'max' => 16,
@@ -233,8 +236,6 @@ class PublicController extends AbstractController
      */
     public function welcome(): Response
     {
-        
-
         return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs());
     }
 

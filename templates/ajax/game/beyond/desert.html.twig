@@ -48,7 +48,7 @@
         <div class="help">
             <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.username}, 'game') }}</b>
             <p>
-                {% trans %}
+                {% trans from 'game' %}
                     Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
                     Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.
                 {% endtrans %}

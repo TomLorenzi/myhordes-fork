@@ -14,9 +14,9 @@
       <notes>
         <note category="german">Willkommen bei MyHordes</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Willkommen bei MyHordes</source>
-        <target>Bienvenido a MisHordas</target>
+        <target>Bienvenido a MyHordes</target>
       </segment>
     </unit>
     <unit id="Sq5rAhc" name="99de2c1">
@@ -24,10 +24,10 @@
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</source>
-        <target>MisHordas es una implementación abierta del juego de navegador "Zombinoia" de %motiontwin%,
+        <target>MyHordes es una implementación abierta del juego de navegador "Zombinoia" de %motiontwin%,
 					desarrollada por la comunidad.</target>
       </segment>
     </unit>
@@ -37,13 +37,13 @@
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
         <target>El objetivo de este proyecto es crear una versión de "Zombinoia" que no solo funcione
 					luego del cese de soporte de Flash Player para exploradores, sino que
-					también siga siendo desarrollado y recibiendo nuevas actualizaciones. </target>
+					también siga siendo desarrollado y recibiendo nuevas actualizaciones.</target>
       </segment>
     </unit>
     <unit id="mbIzlHW" name="Zum Spiel">

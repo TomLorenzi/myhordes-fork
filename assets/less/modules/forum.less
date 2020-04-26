@@ -3,8 +3,26 @@
 .forum-preview {
   font-weight: bold; font-size: 1.1em; padding: 10px; border-radius: 10px; margin: 10px;
   background: url("../../img/forum.png") top center repeat-x; cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); background-position-y: -2px; border: 2px solid transparent;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); background-position-y: -2px; border: 2px solid #7e4d2b;
   transition: border-color 0.5s ease-in-out, box-shadow 0.25s ease-in-out;
+
+  &:not(.forum-preview-town) {
+    background: #7e4d2b url("../../img/forum.png") top center repeat-x; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #7e4d2b 65%, #a73a1f 80%), url("../../img/forum.png") top center repeat-x; /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #7e4d2b 65%,#a73a1f 80%), url("../../img/forum.png") top center repeat-x; /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #7e4d2b 65%,#a73a1f 80%), url("../../img/forum.png") top center repeat-x; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7e4d2b', endColorstr='#a73a1f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    &::after {
+      content: '';
+      background: transparent url('../../img/globe.png') 50% / contain no-repeat;
+      line-height: 26px;
+      width: 26px;
+      height: 26px;
+      margin-right: 1em;
+      float: right;
+    }
+  }
   &:hover { border-color: @myhordes-smalltext; box-shadow: 0 0 10px rgba(0,0,0,0.8); }
 }
 
@@ -28,20 +46,20 @@
 }
 
 .forum-post {
-  background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
+  background-color: #4a261e; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
   border: 1px solid #704328; margin-bottom: 10px;
   &>.forum-post-header {
-    display: block; background: #804d2f; padding: 4px;
+    display: block; background: #804d2f; padding: 4px; min-height: 40px;
     &>b { padding: 5px; }
     &>i { float: right; font-size: 0.8em; }
     &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &:before, &:after {content: " "; clear: both;}
+    &>.avatar { margin: 0 5px 0 10px; float: left }
+    &:before, &:after {content: " "; clear: right;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
   }
   &>.forum-post-content {
     padding: 25px; max-height: 750px; overflow: auto;
-    background-color: #4a261e;
     b, strong {
       color: #afb3cf;
       text-transform: initial;

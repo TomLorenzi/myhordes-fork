@@ -6,7 +6,7 @@
         background-color: #5c2b20;
 
         h4.soul-name {
-            margin: 2px 4px;
+            margin: 2px 4px; display: inline-block;
         }
         .tab {
             .tab-link {
@@ -19,6 +19,8 @@
                 background-color: #7e4d2a;
                 cursor: pointer;
                 text-decoration: none;
+                overflow: hidden; text-overflow: ellipsis;
+                min-height: 27px;
             }
 
             &.selected, &:hover {
@@ -224,10 +226,6 @@
                 }
             }
         }
-    }
-
-    input {
-        width: 100%;
     }
 
     .rp-list {
@@ -516,6 +514,10 @@
 
         .letter {
             background: url('../../img/books/letter.gif') no-repeat;
+        }
+
+        .printer {
+            background: url('../../img/books/printer.gif') no-repeat;
         }
 
         .news {

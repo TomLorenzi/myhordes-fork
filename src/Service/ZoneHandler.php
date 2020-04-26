@@ -62,14 +62,21 @@ class ZoneHandler
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
         $cp = 0;
+        $guide_present = false;
+        $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
         foreach ($zone->getCitizens() as $citizen) {
             $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $citizen );
             if ($timer && !$timer->getPassive() && $timer->getTimestamp() < $up_to)
                 $dig_timers[] = $timer;
             $cp += $this->citizen_handler->getCP( $citizen );
+            if($citizen->getRoles()->contains($roleGuide))
+                $guide_present = true;
         }
+        if($guide_present)
+            $cp += count($zone->getCitizens());
 
         if ($cp < $zone->getZombies()) {
+
             foreach ($dig_timers as $timer) {
                 $timer->setPassive(true);
                 $this->entity_manager->persist($timer);
@@ -125,7 +132,7 @@ class ZoneHandler
                             $found_by_escorts[] = $item_prototype;
                     }
 
-                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) );
+                    // $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) );
                     if ($item_prototype) {
 
                         // If we get a Chest XL, we earn a picto
@@ -135,7 +142,9 @@ class ZoneHandler
                         }
 
                         $item = $this->item_factory->createItem($item_prototype);
-                        if ($this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $timer->getZone()->getFloor() ] )) {
+                        if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $timer->getZone()->getFloor() ] )) {
+                            if($inventoryDest == $timer->getZone()->getFloor())
+                                $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
                             $this->entity_manager->persist( $item );
                             $this->entity_manager->persist( $current_citizen->getInventory() );
                             $this->entity_manager->persist( $timer->getZone()->getFloor() );

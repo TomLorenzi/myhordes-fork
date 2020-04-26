@@ -89,6 +89,16 @@ class User implements UserInterface, EquatableInterface
      */
     private $isAdmin = 0;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Avatar", cascade={"persist", "remove"})
+     */
+    private $avatar;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $preferSmallAvatars = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -391,6 +401,30 @@ class User implements UserInterface, EquatableInterface
     public function setIsAdmin(bool $isAdmin): self
     {
         $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?Avatar
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?Avatar $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getPreferSmallAvatars(): ?bool
+    {
+        return $this->preferSmallAvatars;
+    }
+
+    public function setPreferSmallAvatars(bool $preferSmallAvatars): self
+    {
+        $this->preferSmallAvatars = $preferSmallAvatars;
 
         return $this;
     }
