@@ -173,7 +173,7 @@
                 ['removeFormat'],
                 ['outdent', 'indent', 'list'],
                 ['spoiler', 'glory'],
-                ['blockquote', 'link', 'image']
+                ['blockquote', 'link' {% if app.user.isAdmin %}, 'image'{% endif %}]
             ],
             // Insert options
             // Language global object (default: en)

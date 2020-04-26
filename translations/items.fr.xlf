@@ -3806,8 +3806,6 @@
     </unit>
     <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
       <notes>
-        <note>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
-        <note>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
         <note category="german">Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
       </notes>
       <segment>
@@ -3823,7 +3821,7 @@
       </notes>
       <segment>
         <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Vous avez ouvert {items_spawn} et avez obtenu {item} !</target>
+        <target>Vous avez ouvert {item} et avez obtenu {items_spawn} !</target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">

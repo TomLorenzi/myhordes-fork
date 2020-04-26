@@ -378,6 +378,8 @@ class SoulController extends AbstractController
                 if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
                     return AjaxResponse::error( self::ErrorAvatarFormatUnsupported );
 
+                $im_image->coalesceImages();
+                $im_image->resetImagePage('0x0');
                 $w = $im_image->getImageWidth();
                 $h = $im_image->getImageHeight();
 
@@ -395,6 +397,10 @@ class SoulController extends AbstractController
                 $im_image->setImageAlphaChannel(Imagick::ALPHACHANNEL_REMOVE);
                 if ($im_image->getImageFormat() !== "GIF")
                     $im_image = $im_image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+
+                $im_image->setFirstIterator();
+                $w_final = $im_image->getImageWidth();
+                $h_final = $im_image->getImageHeight();
 
                 switch ($im_image->getImageFormat()) {
                     case 'JPEG':
@@ -428,8 +434,8 @@ class SoulController extends AbstractController
                 ->setSmallName( $name )
                 ->setFormat( strtolower( $im_image->getImageFormat() ) )
                 ->setImage( $processed_image_data )
-                ->setX( $im_image->getImageWidth() )
-                ->setY( $im_image->getImageHeight() )
+                ->setX( $w_final )
+                ->setY( $h_final )
                 ->setSmallImage( null );
 
             $this->entity_manager->persist( $user );
@@ -457,13 +463,13 @@ class SoulController extends AbstractController
     public function soul_settings_small_avatar(JSONRequestParser $parser): Response
     {
 
-        if (!$parser->has_all(['x', 'y', 'dx', 'dy'], true))
+        if (!$parser->has_all(['x', 'y', 'dx', 'dy'], false))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $x  = (int)round((float)$parser->get('x', 0));
-        $y  = (int)round((float)$parser->get('y', 0));
-        $dx = (int)round((float)$parser->get('dx', 0));
-        $dy = (int)round((float)$parser->get('dy', 0));
+        $x  = (int)floor((float)$parser->get('x', 0));
+        $y  = (int)floor((float)$parser->get('y', 0));
+        $dx = (int)floor((float)$parser->get('dx', 0));
+        $dy = (int)floor((float)$parser->get('dy', 0));
 
         /** @var User $user */
         $user = $this->getUser();
@@ -475,7 +481,7 @@ class SoulController extends AbstractController
         if (
             $x < 0 || $dx < 0 || $x + $dx > $avatar->getX() ||
             $y < 0 || $dy < 0 || $y + $dy > $avatar->getY()
-        ) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        ) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest, [$x,$y,$dx,$dy,$avatar->getX(),$avatar->getY()]);
 
         $im_image = new Imagick();
         $processed_image_data = null;
@@ -484,8 +490,12 @@ class SoulController extends AbstractController
             if (!$im_image->readImageBlob(stream_get_contents( $avatar->getImage() )))
                 return AjaxResponse::error(self::ErrorAvatarImageBroken);
 
+            $im_image->setFirstIterator();
+
             if (!$im_image->cropImage( $dx, $dy, $x, $y ))
                 return AjaxResponse::error(self::ErrorAvatarProcessingFailed);
+
+            $im_image->setFirstIterator();
 
             $iw = $im_image->getImageWidth(); $ih = $im_image->getImageHeight();
             if ($iw < 90 || $ih < 30 || ($ih/$iw != 3)) {

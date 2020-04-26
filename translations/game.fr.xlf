@@ -8921,5 +8921,14 @@
         <target>Vous avez voté pour ce citoyen.</target>
       </segment>
     </unit>
+    <unit id="a8CDdVQ" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!">
+      <notes>
+        <note category="german">%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</note>
+      </notes>
+      <segment>
+        <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
+        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
