@@ -855,11 +855,19 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Conspiration",
             "author" => "anonyme",
             "content" => [
-                ''
+                '<p>Voisin,</p>
+                <p>Si tu reçois cette missive, c\'est que tu fais partie des <strong>élus</strong> des Bas-Fonds de la Pourriture Occidentale.</p>
+                <p>Nous organisons ce soir une <strong>expédition punitive</strong> dans le quartier ouest de la ville, pour porter un coup fatal aux ordures du Comité du Bon goût, responsables de tous nos maux : chantiers avortés, gaspillage de l\'eau, vol de rations...</p>
+                <p>Tiens toi prêt ce soir, à 23h45. </p>
+                <p>Comme nos autres sympathisants, nous savons que tu disposes chez toi d\'une arme. Ce soir, <strong>elle frappera avec force et vigueur le crâne de ces raclures du Comité</strong> !</p>',
+                '<p>Nous trainerons alors leurs corps brisés dans les rues du quartier ouest, occupant ainsi pour cette nuit les Hordes qui cognent à nos portes !</p>
+                <p>Il en va de notre survie à tous, <strong>les malades et les feinéants doivent mourir</strong>.</p>
+                <p>TOUS.</p>
+                <h1>N\'en parle à personne !</h1>'
             ],
             "lang" => "fr",
             "background" => "notepad",
-            "design" => "written"
+            "design" => "typed"
         ],
         "contine" => [
             "title" => "Contine : SilverTub",
@@ -956,11 +964,17 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             "title" => "Dernier survivant",
             "author" => "Arma",
             "content" => [
-                ''
-            ],
+                '<small>La transmission suivante a été enregistrée sur une fréquence longue dans la région du Lac. </small>
+                <h2><small>Reçue : 20/10 15:53:31, Fréq : 158.7, Origine : N/C</small>
+                </h2>
+                <p>" Je suis le dernier ! Héhé... Ils sont tous morts ! Plus personne ne pourra me tourmenter. (rire) Stupides Humains ! Ils pensaient pouvoir vivre et maintenant ils ont rejoint leurs rangs ! <em>(phrase inaudible, parasites)</em> Moi, je savais ! Je savais qu\'ils allaient mourir ! Tous ! Mais moi je suis vivant ! Haha... J\'ai survécu ! Je suis le plus fort! Ils sont faibles et moi je suis résistant, héhé?.</p>
+                <p>Venez ! Approchez bande de lâches ! Je vous mettrais au tapis avec seulement mes poings. Je suis vivant, vous êtes morts ! JE SUIS PLUS PUISSANT QUE VOUS !... Pourquoi attendre minuit ?! Venez me chercher ! </p>',
+                '<p>Je m\'impatiente... je vous tuerais tous... tous... jusqu\'au dernier... Je suis fort, ils sont faibles... Je suis fort, ils sont faibles... Je n\'ai pas peur." </p>
+                <small>Fin de transmission.</small>'
+                            ],
             "lang" => "fr",
             "background" => "printer",
-            "design" => "poem"
+            "design" => "typed"
         ],
         "short1" => [
             "title" => "Derniers mots",
@@ -2572,6 +2586,32 @@ Loin de ce monde maudit, cruel et sans pitié,<br />
             ],
             "lang" => "fr",
             "background" => "carton",
+            "design" => "typed"
+        ],
+        "morse1" => [
+            "title" => "Communication en morse (16 mai)",
+            "author" => "zhack",
+            "content" => [
+                '<small>16 mai, ETA: 07:10</small>
+                <small>[Début de la transmission]</small>
+                <p>.... .. - -- .- -. / ..--- ...-- ..---/... --- ... / --.. --- -- -... .. . / - .-. --- .--. / -. --- -- -... .-. . ..- -..- / .---- -.... / ... ..- .-. ...- .. ...- .- -. - .../ .--. ..- .. - ... / .- / ... . -.-. /-... . ... --- .. -. / .- .--. .--. ..- .. / -- .. .-.. .. - .- .. .-. ./ .. -- -- . -.. .. .- - . -- . -. -/-.-. --- --- .-. -.. --- -. -. . . .../ .-.. .- - / ....- ---.. .-.-.- ---.. ...-- ...-- / ....- ---.. / ....- ----. .----. -./.-.. --- -. --. / ..--- .-.-.- ...-- ...-- ...-- / ..--- / .---- ----. .----. ./ --- ...- . .-.</p>
+                <small>[Fin de la transmission]</small>'
+            ],
+            "lang" => "fr",
+            "background" => "blood",
+            "design" => "typed"
+        ],
+        "morse2" => [
+            "title" => "Communication en morse (31 août)",
+            "author" => "anonyme",
+            "content" => [
+                '<small>31 août, ETA: 23:30</small>
+                <small>[Début de la transmission]</small>
+                <p>. - .- - / -- .- .--- --- .-. / / - .-. .- -. -.-. .... . / -. .---- ..--- / / .-. .- ...- .. - .- .. .-.. .-.. . -- . -. - / -.-. --- ..- .--. --..-- / .--. .- ... ... .- --. . / - . -. ..- / .--. .- .-. / .-.. .----. . -. -. . -- .. .-.-.- / .. -- .--. --- ... ... .. -... .-.. . / -.. . / .-. . .--. .-. . -. -.. .-. . / .-.. . / ... . -.-. - . ..- .-. .-.-.- / - . -. . --.. / .--. --- ... .. - .. --- -. / .-.. . / .--. .-.. ..- ... / .-.. --- -. --. - . -- .--. ... / .--. --- ... ... .. -... .-.. . .-.-.- / -.. .. . ..- / ...- --- ..- ... / --. .- .-. -.. . </p>
+                <small>[Fin de la transmission]</small>'
+            ],
+            "lang" => "fr",
+            "background" => "blood",
             "design" => "typed"
         ],
     ];
