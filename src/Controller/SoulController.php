@@ -490,19 +490,12 @@ class SoulController extends AbstractController
             if (!$im_image->readImageBlob(stream_get_contents( $avatar->getImage() )))
                 return AjaxResponse::error(self::ErrorAvatarImageBroken);
 
-            if ($im_image->getImageFormat() === 'GIF') {
-                $im_image->coalesceImages();
-                $im_image->resetImagePage('0x0');
-                $im_image->setFirstIterator();
-            }
+            $im_image->setFirstIterator();
 
             if (!$im_image->cropImage( $dx, $dy, $x, $y ))
                 return AjaxResponse::error(self::ErrorAvatarProcessingFailed);
 
-            if ($im_image->getImageFormat() === 'GIF') {
-                $im_image->resetImagePage('0x0');
-                $im_image->setFirstIterator();
-            }
+            $im_image->setFirstIterator();
 
             $iw = $im_image->getImageWidth(); $ih = $im_image->getImageHeight();
             if ($iw < 90 || $ih < 30 || ($ih/$iw != 3)) {
