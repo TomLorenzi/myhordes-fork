@@ -472,4 +472,28 @@ class ForumController extends AbstractController
         return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
 
     }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/delete", name="forum_delete_post_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function delete_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        if (!$parser->has('postId')){
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+        
+        /** @var User $user */
+        $user = $this->getUser();
+        $postId = $parser->get('postId');
+        
+        if ($admh->hidePost($user->getId(), $postId, "abc" ))
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+
+            
+        return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+    }
 }

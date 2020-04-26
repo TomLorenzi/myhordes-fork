@@ -27,28 +27,67 @@
 {% endblock %}
 <div class="forum-posts">
     {% for post in posts %}
-        <div class="forum-post">
-            <div class="forum-post-header">
-                <i>
-                    {% if post.date.format('Ymd') == today|date("Ymd") %}
-                        {{ 'Heute um'|trans({},'global') }}{{ post.date.format(' G:i') }}
-                    {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
-                        {{ 'Gestern um'|trans({},'global') }}{{ post.date.format(' G:i') }}
-                    {% else %}
-                        {{ post.date.format('D, d.m.Y G:i') }}
+        {% if not post.hidden %}
+            <div class="forum-post">
+                <div class="forum-post-header">
+                    <i>
+                        {% if post.date.format('Ymd') == today|date("Ymd") %}
+                            {{ 'Heute um'|trans({},'global') }}{{ post.date.format(' G:i') }}
+                        {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
+                            {{ 'Gestern um'|trans({},'global') }}{{ post.date.format(' G:i') }}
+                        {% else %}
+                            {{ post.date.format('D, d.m.Y G:i') }}
+                        {% endif %}
+                    </i>
+                    <b>
+                        {% if post.owner.username == 'Der Rabe' %}
+                            {{ 'Der Rabe'|trans({},'global') }}
+                        {% else %}
+                            {{ post.owner.username }}
+                        {% endif %}
+                    </b>
+                    {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
+                </div>
+                <div class="forum-post-content">
+                    {{ post.text|raw }}
+                </div>
+                <div class="forum-post-footer">
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a>
                     {% endif %}
-                </i>
-                <b>
-                    {% if post.owner.username == 'Der Rabe' %}
-                        {{ 'Der Rabe'|trans({},'global') }}
-                    {% else %}
-                        {{ post.owner.username }}
-                    {% endif %}
-                </b>
-                {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
+                </div>
             </div>
-            <div class="forum-post-content">{{ post.text|raw }}</div>
-        </div>
+        {% elseif is_granted("ROLE_ADMIN") %}
+            <div class="forum-post">
+                <div class="forum-post-hidden-header">
+                    <i>
+                        {% if post.date.format('Ymd') == today|date("Ymd") %}
+                            {{ 'Heute um'|trans({},'global') }}{{ post.date.format(' G:i') }}
+                        {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
+                            {{ 'Gestern um'|trans({},'global') }}{{ post.date.format(' G:i') }}
+                        {% else %}
+                            {{ post.date.format('D, d.m.Y G:i') }}
+                        {% endif %}
+                    </i>
+                    <b>
+                        {% if post.owner.username == 'Der Rabe' %}
+                            {{ 'Der Rabe'|trans({},'global') }}
+                        {% else %}
+                            {{ post.owner.username }}
+                        {% endif %}
+                    </b>
+                    {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
+                </div>
+                <div class="forum-post-content">
+                    {{ post.text|raw }}
+                </div>
+                <div class="forum-post-footer">
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
     {% endfor %}
 </div>
     <div class="row">
@@ -73,18 +112,28 @@
 {{ block('pagenav') }}
 <script>
     {% if is_granted("ROLE_ADMIN")%}
-        {% if not locked %}
-            let lock_button = document.querySelector('[x-forum-moderator-action=lock]');
-            lock_button.addEventListener('click', function() {
-                $.ajax.no_history().load( null, '{{ url('forum_thread_lock_controller', {fid: fid, tid: tid}) }}', false )
-            })
-        {% endif %}
-        {% if locked %}
-            let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
-            unlock_button.addEventListener('click', function() {
-                $.ajax.no_history().load( null, '{{ url('forum_thread_unlock_controller', {fid: fid, tid: tid}) }}', false )
-            })
-        {% endif %}
+        let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"');
+        for (let i = 0; i < del_buttons.length; i++)
+            del_buttons[i].addEventListener('click', function() {
+                let editor = document.getElementById('forum-editor');
+                {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
+                $.ajax.easySend( '{{ url('forum_delete_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
+                    function (data) {
+                        $.ajax.load(null, data.url, true);
+                    } )
+                })
+    {% endif %}
+    {% if not locked %}
+        let lock_button = document.querySelector('[x-forum-moderator-action=lock]');
+        lock_button.addEventListener('click', function() {
+            $.ajax.no_history().load( null, '{{ url('forum_thread_lock_controller', {fid: fid, tid: tid}) }}', false )
+        })
+    {% endif %}
+    {% if locked %}
+        let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
+        unlock_button.addEventListener('click', function() {
+            $.ajax.no_history().load( null, '{{ url('forum_thread_unlock_controller', {fid: fid, tid: tid}) }}', false )
+        })
     {% endif %}
     let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
     for (let i = 0; i < new_post_btns.length; i++)

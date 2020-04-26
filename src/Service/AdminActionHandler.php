@@ -4,6 +4,7 @@
 namespace App\Service;
 
 use App\Entity\AdminBan;
+use App\Entity\AdminDeletion;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
 use App\Entity\Forum;
@@ -196,6 +197,34 @@ class AdminActionHandler
         }
 
         $this->entity_manager->persist( $activeCitizen );
+        $this->entity_manager->flush();
+
+        return true;
+    }
+
+    public function hidePost(int $sourceUser, int $postId, string $reason): bool {
+        if(!$this->hasRights($sourceUser))
+            return false;
+
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);        
+        $post = $this->entity_manager->getRepository(Post::class)->find($postId);
+
+        if (!(isset($post)))
+            return false;
+
+        if (!isset($reason))
+            return false;
+        
+        $post->setHidden(true);
+        $this->entity_manager->persist( $post );
+
+        $adminDeletion = (new AdminDeletion())
+            ->setSourceUser( $sourceUser )
+            ->setTimestamp( new DateTime('now') )           
+            ->setReason( $reason )
+            ->setPost( $post );
+        
+        $this->entity_manager->persist( $adminDeletion );        
         $this->entity_manager->flush();
 
         return true;
