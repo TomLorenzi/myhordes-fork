@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
+use App\Entity\User;
 use App\Service\AdminActionHandler;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,6 +12,7 @@ use Exception;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -82,6 +84,46 @@ class WebController extends AbstractController
     public function loader(string $ajax): Response
     {
         return $this->render_web_framework(Request::createFromGlobals()->getBasePath() . '/jx/' . $ajax);
+    }
+
+    /**
+     * @Route("/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
+     * @param int $uid
+     * @param string $name
+     * @param string $ext
+     * @return Response
+     */
+    public function avatar(int $uid, string $name, string $ext): Response
+    {
+        /** @var User $user */
+        $user = $this->entityManager->getRepository(User::class)->find( $uid );
+        if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
+        if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name) || $user->getAvatar()->getFormat() !== $ext)
+            return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
+
+        $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
+        $response = new Response(stream_get_contents( $target));
+        $disposition = HeaderUtils::makeDisposition(
+            HeaderUtils::DISPOSITION_INLINE,
+            "{$name}.{$ext}"
+        );
+        $response->headers->set('Content-Disposition', $disposition);
+        $response->headers->set('Content-Type', "image/{$ext}");
+        $response->headers->set('Cache-Control', ['public','max-age=157680000','immutable']);
+        return $response;
+    }
+
+    /**
+     * @Route("/cdn/{url}",requirements={"url"=".+"},condition="!request.isXmlHttpRequest()")
+     * @param string $url
+     * @return Response
+     */
+    public function cdn_fallback(string $url): Response {
+        return new Response(
+            "File not found: cdn/{$url}",
+            Response::HTTP_NOT_FOUND,
+            ['content-type' => 'text/plain']
+        );
     }
 
 }

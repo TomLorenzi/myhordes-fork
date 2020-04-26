@@ -1,0 +1,37 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{ parent() }}
+    {% if app.user and not app.user.activeCitizen %}
+        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+    {% endif %}
+{% endblock %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0">
+            <div class="row tabs">
+                <div class="cell rw-2 rw-lg-12">
+                    <h4 class="soul-name">
+                        <img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ app.user.username }}
+                    </h4>
+                </div>
+                <div class="cell-small rw-4 rw-lg-5 tab{% if soul_tab == "soul_me" %} selected{% endif %}">
+                    <div class="tab-link" x-ajax-href="{{ path('soul_me') }}">{% trans from 'soul' %}Seele{% endtrans %}</div>
+                </div>
+                <div class="cell-small rw-4 rw-lg-5 tab{% if soul_tab == "soul_rps" %} selected{% endif %}">
+                    <div class="tab-link" x-ajax-href="{{ path('soul_rps') }}">{% trans from 'soul' %}Schriften{% endtrans %}</div>
+                </div>
+                <div class="cell-small rw-4 rw-lg-5 tab{% if soul_tab == "soul_news" %} selected{% endif %}">
+                    <div class="tab-link" x-ajax-href="{{ path('soul_news') }}">{% trans from 'soul' %}News{% endtrans %}</div>
+                </div>
+                <div class="cell-small rw-4 rw-lg-5 tab{% if soul_tab == "soul_settings" %} selected{% endif %}">
+                    <div class="tab-link" x-ajax-href="{{ path('soul_settings') }}">{% trans from 'soul' %}Einstellungen{% endtrans %}</div>
+                </div>
+                <div class="cell rw-2 tab">
+                    <a class="tab-link" target="_self" href="{{ path('auto_logout') }}">{% trans from 'soul' %}Logout{% endtrans %}</a>
+                </div>
+            </div>
+            {% block soul_content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

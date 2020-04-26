@@ -1,29 +1,18 @@
-{% extends "ajax/ajax.html.twig" %}
-{% block menu_text %}
-    {{ parent() }}
-    {% if app.user and not app.user.activeCitizen %}
-        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
-    {% endif %}
-{% endblock %}
-{% block ajax %}
-    <div class="row soul">
-        <div class="cell padded header rw-8 rp-list">
-            {% embed "ajax/soul/tabs.html.twig" %}{% endembed %}
-            <div class="row rp-head">
-                <div class="cell padded rw-12 small center rp-context"><img alt="" src="{{ asset('build/images/small_rp.gif') }}" /> {{'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...'|trans({}, 'soul')}}</div>
-                <div class="cell rw-8 center"><h5>{{'Titel'|trans({}, 'soul')}}</h5></div>
-                <div class="cell rw-4 center"><h5>{{'Entdeckt'|trans({}, 'soul')}}</h5></div>
-            </div>
-            <div class="row">
-                {% for rp in rps %}
-                <div class="row rp-row" x-ajax-href="{{path('soul_rp', {id: rp.id, page: 1})}}">
-                    <div class="cell padded rw-8 rp-text">
-                        <span class="title">{{rp.text.title}}</span><br /><em>« {{rp.text.pages[0].content|striptags|slice(0,49)}}{% if rp.text.pages[0].content|striptags|length > 49 %}[...]{% endif %} »</em></div>
-                    <div class="cell padded rw-4 author">{{rp.datefound|date('d/m/Y H:i')}}</div>
-                </div>
-                {% endfor %}
-                <div class="cell padded rw-12 center small">{{'Gefundene Texte: %count%'|trans({'%count%': rps|length}, "soul")}}</div>
-            </div>
+{% extends "ajax/soul/shell.html.twig" %}
+{% block soul_content %}
+    <div class="row rp-head">
+        <div class="cell padded rw-12 small center rp-context"><img alt="" src="{{ asset('build/images/small_rp.gif') }}" /> {{'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...'|trans({}, 'soul')}}</div>
+        <div class="cell rw-8 center"><h5>{{'Titel'|trans({}, 'soul')}}</h5></div>
+        <div class="cell rw-4 center"><h5>{{'Entdeckt'|trans({}, 'soul')}}</h5></div>
+    </div>
+    <div class="row">
+        {% for rp in rps %}
+        <div class="row rp-row" x-ajax-href="{{path('soul_rp', {id: rp.id, page: 1})}}">
+            <div class="cell padded rw-8 rp-text">
+                <span class="title">{{rp.text.title}}</span><br /><em>« {{rp.text.pages[0].content|striptags|slice(0,49)}}{% if rp.text.pages[0].content|striptags|length > 49 %}[...]{% endif %} »</em></div>
+            <div class="cell padded rw-4 author">{{rp.datefound|date('d/m/Y H:i')}}</div>
         </div>
+        {% endfor %}
+        <div class="cell padded rw-12 center small">{{'Gefundene Texte: %count%'|trans({'%count%': rps|length}, "soul")}}</div>
     </div>
 {% endblock %}
