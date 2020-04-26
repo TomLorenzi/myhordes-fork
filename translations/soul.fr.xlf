@@ -355,5 +355,14 @@
         <target>Applications externes</target>
       </segment>
     </unit>
+    <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
+      <notes>
+        <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle nur eine einzige Datei aus.</source>
+        <target>Bitte wähle nur eine einzige Datei aus.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

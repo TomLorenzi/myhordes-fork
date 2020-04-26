@@ -228,6 +228,8 @@
                         {% block class %}rucksack{% endblock %}
                         {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
                     {% endembed %}
+                {% else %}
+                    <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span></h5>
                 {% endif %}
 
                 {% if allow_floor_access %}
