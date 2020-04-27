@@ -355,5 +355,32 @@
         <target>Applications externes</target>
       </segment>
     </unit>
+    <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
+      <notes>
+        <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle nur eine einzige Datei aus.</source>
+        <target>Bitte wähle nur eine einzige Datei aus.</target>
+      </segment>
+    </unit>
+    <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
+      <notes>
+        <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
+      </notes>
+      <segment>
+        <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
+        <target>Préférer l'affichage compressé des avatars</target>
+      </segment>
+    </unit>
+    <unit id="elfn6js" name="Einen Kommentar hinzufügen">
+      <notes>
+        <note category="german">Einen Kommentar hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Einen Kommentar hinzufügen</source>
+        <target>Ajouter un commentaire</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

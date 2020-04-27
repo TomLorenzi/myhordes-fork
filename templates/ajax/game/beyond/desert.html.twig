@@ -228,6 +228,8 @@
                         {% block class %}rucksack{% endblock %}
                         {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
                     {% endembed %}
+                {% else %}
+                    <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span></h5>
                 {% endif %}
 
                 {% if allow_floor_access %}
@@ -317,7 +319,8 @@
                                 {% endif %}
 
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
-
+                                
+                                {% if escort_actions.other_citizen.id is defined %}
                                 {% for escort_action in escort_actions[other_citizen.id] %}
                                     {# @var \App\Structures\EscortItemActionSet escort_action #}
                                     <div class="tooltip-dummy hidden _ec _ec_{{ other_citizen.id }}_{{ escort_action.group.id }}">
@@ -338,6 +341,7 @@
 
                                     </div>
                                 {% endfor %}
+                                {% endif %}
                             </div>
 
                             {% if other_citizen.escortSettings.allowInventoryAccess %}

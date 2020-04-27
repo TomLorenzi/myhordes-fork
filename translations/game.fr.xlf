@@ -8891,7 +8891,7 @@
       </notes>
       <segment>
         <source>Du folgst aktuell %citizen%.</source>
-        <target>Du folgst aktuell %citizen%.</target>
+        <target>Vous suivez actuellement %citizen%.</target>
       </segment>
     </unit>
     <unit id="G9pK1NS" name="Du kannst keinen weiteren Bürger eskortieren.">
@@ -8928,6 +8928,18 @@
       <segment>
         <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
         <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
+      </segment>
+    </unit>
+    <unit id="tNPDkbr" name="6eb9def">
+      <notes>
+        <note category="german">Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</note>
+      </notes>
+      <segment>
+        <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
+        <target>Lorsque vous suivez un citoyen, vos actions sont limitées.
+                    Vous ne pouvez pas utiliser la carte ni effectuer d'actions à l'extérieur.</target>
       </segment>
     </unit>
   </file>

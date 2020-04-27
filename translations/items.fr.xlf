@@ -1791,7 +1791,7 @@
       </notes>
       <segment>
         <source>Schießpulverbombe</source>
-        <target>Poudre super-fuzz</target>
+        <target>Bombe Pulvérine</target>
       </segment>
     </unit>
     <unit id="1Ogs2Gm" name="Teddybär">
@@ -3806,8 +3806,6 @@
     </unit>
     <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
       <notes>
-        <note>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
-        <note>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
         <note category="german">Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
       </notes>
       <segment>
@@ -3823,7 +3821,7 @@
       </notes>
       <segment>
         <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Vous avez ouvert {items_spawn} et avez obtenu {item} !</target>
+        <target>Vous avez ouvert {item} et avez obtenu {items_spawn} !</target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -7544,7 +7542,7 @@
       </notes>
       <segment>
         <source>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</source>
-        <target>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</target>
+        <target>Masque ultra-antique, bénéficiant du savoir-faire millénaire des anciens sorciers vaudou, permettra au Chaman de connaître l'emplacement des âmes de citoyens fraîchement décédés se promenant dans l'Outre-monde.</target>
       </segment>
     </unit>
     <unit id="wESWf2D" name="Berufsgegenstand">
@@ -7918,7 +7916,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck verbessert.</source>
-        <target>Du hast das hiesige Versteck verbessert.</target>
+        <target>Vous avez passé de longues minutes à aménager une planque avec tout ce qui pouvait vous passer sous la main...</target>
       </segment>
     </unit>
     <unit id="I4OeVwm" name="Sich verstecken und die Nacht hier schlafen!">
@@ -7940,7 +7938,7 @@
       </notes>
       <segment>
         <source>Du hast Dich notdürftig versteckt.</source>
-        <target>Du hast Dich notdürftig versteckt.</target>
+        <target>Vous êtes actuellement caché(e) dans le secteur !</target>
       </segment>
     </unit>
     <unit id="XqeL5yu" name="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
@@ -7973,7 +7971,7 @@
       </notes>
       <segment>
         <source>Versteck verlassen</source>
-        <target>Quitter votre planque</target>
+        <target>Quitter votre cachette</target>
       </segment>
     </unit>
     <unit id="DLyYjGK" name="Du hast Dein Versteck verlassen.">
@@ -7995,7 +7993,7 @@
       </notes>
       <segment>
         <source>Grab verlassen</source>
-        <target>Quitter votre planque</target>
+        <target>Quitter votre cachette</target>
       </segment>
     </unit>
     <unit id="fz7VoYN" name="Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!">
