@@ -373,5 +373,14 @@
         <target>Préférer l'affichage compressé des avatars</target>
       </segment>
     </unit>
+    <unit id="elfn6js" name="Einen Kommentar hinzufügen">
+      <notes>
+        <note category="german">Einen Kommentar hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Einen Kommentar hinzufügen</source>
+        <target>Ajouter un commentaire</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
