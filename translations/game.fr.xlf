@@ -8960,5 +8960,59 @@
         <target>L'objet que vous venez de trouver ne peut être mis dans votre sac. Il est donc par terre...</target>
       </segment>
     </unit>
+    <unit id="gLkZ8wY" name="0e83286">
+      <notes>
+        <note category="german">Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</note>
+      </notes>
+      <segment>
+        <source>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</source>
+        <target>Vous réalisez une danse chamanique et suppliez le ciel d'apporter la pluie qui permettra de purifier cette zone de terre des mauvais esprits.</target>
+      </segment>
+    </unit>
+    <unit id="qNbi2jZ" name="f202f15">
+      <notes>
+        <note category="german">Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</note>
+      </notes>
+      <segment>
+        <source>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</source>
+        <target>Mais rien ne se passe. C'est sur, si on vous a vu, vous êtes passé pour un amateur de la pire espèce. Et pour ne rien arranger vous avez des ampoules aux pieds maintenant...</target>
+      </segment>
+    </unit>
+    <unit id="pYjjICz" name="e210a83">
+      <notes>
+        <note category="german">%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
+        <target>%citizen% a fait tomber la pluie ! Le puits a gagné %num% rations d'eau !</target>
+      </segment>
+    </unit>
+    <unit id="8c.i3q2" name="Zone reinigen">
+      <notes>
+        <note category="german">Zone reinigen</note>
+      </notes>
+      <segment>
+        <source>Zone reinigen</source>
+        <target>Purifier la zone</target>
+      </segment>
+    </unit>
+    <unit id="ROlGH4i" name="7e84046">
+      <notes>
+        <note category="german">Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</note>
+      </notes>
+      <segment>
+        <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
+        <target>Et l'énergie allouée à cette danse paie enfin, les premières gouttes tombent sur les zombis et vous savourez ce délicat moment durant lequel leur chair fond comme neige au soleil et vous attendez patiemment jusqu'à ce que leurs corps se liquéfient.</target>
+      </segment>
+    </unit>
+    <unit id="GIJWmHF" name="91f8c9a">
+      <notes>
+        <note category="german">Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</note>
+      </notes>
+      <segment>
+        <source>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</source>
+        <target>Maîtrise des esprits ou hasard du calendrier météorologique, des gouttes de pluie tombent sur la ville, apportant un peu d'eau potable au puits.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

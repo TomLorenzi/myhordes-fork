@@ -137,6 +137,20 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
+    public function wellAddShaman( Citizen $citizen, int $count ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeWell )
+            ->setClass( TownLogEntry::ClassInfo )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans('%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+                '%num%'     => $this->wrap( "$count" ),
+            ], 'game' ) );
+    }
+
     public function constructionsInvestAP( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeConstruction )
@@ -767,6 +781,22 @@ class LogTemplateHandler
                     : 'Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%item%'    => $item ? $this->wrap( $this->iconize( $item ) ) : '',
+                '%kills%'   => $this->wrap( "{$kills}" ),
+            ], 'game' ) );
+    }
+
+    public function zombieKillShaman( Citizen $citizen, int $kills ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeVarious )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans(
+                '%citizen% hat %kills% Zombies getötet.', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%kills%'   => $this->wrap( "{$kills}" ),
             ], 'game' ) );
     }
