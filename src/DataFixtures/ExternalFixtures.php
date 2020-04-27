@@ -14,15 +14,15 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 class ExternalFixtures extends Fixture
 {
     public static $apps = [
-        /*[
+        [
             'name' => 'BigBroth\'Hordes',
             'active' => 1,
             'url' => 'http://bbh.fred26.fr',
             'icon' => 'bbh',
             'contact' => 'bbh@fred26.fr',
             'owner' => 'fred26',
-            'key' => '',
-        ],*/
+            'key' => 'bf6ec30728002df7',
+        ],
         [
             'name' => 'Fata Morgana',
             'active' => 1,
@@ -32,7 +32,7 @@ class ExternalFixtures extends Fixture
             'owner' => 'CountCount',
             'key' => 'b395dad5c26be2c9',
         ],
-        /*[
+        [
             'name' => 'From Dusk Till Dawn',
             'active' => 1,
             'url' => 'http://d2n.duskdawn.net/',
@@ -40,7 +40,16 @@ class ExternalFixtures extends Fixture
             'contact' => 'berzerg.d2n@gmail.com',
             'owner' => 'BerZerg',
             'key' => 'a153246385a7111',
-        ],*/
+        ],
+        [
+            'name' => 'Gest\'Hordes',
+            'active' => 1,
+            'url' => 'https://gest-hordes2.eragaming.fr/',
+            'icon' => 'gest',
+            'contact' => 'gesthordes@eragaming.fr',
+            'owner' => 'Eragony',
+            'key' => '84013b00ab338778',
+        ],
     ];
 
     private $entityManager;
