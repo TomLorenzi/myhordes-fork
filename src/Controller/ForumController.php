@@ -194,7 +194,7 @@ class ForumController extends AbstractController
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
             // Element not allowed.
-            if (!in_array($node->nodeName, array_keys($allowedNodes))) {
+            if (!in_array($node->nodeName, array_keys($allowedNodes)) && !($depth === 0 && $node->nodeName === 'body')) {
                 $node->parentNode->removeChild( $node );
                 return true;
             }
@@ -227,7 +227,7 @@ class ForumController extends AbstractController
     private function preparePost(User $user, Forum $forum, Thread $thread, Post &$post, int &$tx_len): bool {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $dom->loadHTML( '<?xml encoding="utf-8" ?><body>' . $post->getText() . '</body>' );
+        $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
 
@@ -235,17 +235,10 @@ class ForumController extends AbstractController
             return false;
 
         $tmp_str = "";
-        if ($body_item = $body->item(0)) {
-            foreach ($body_item->childNodes as $child) {
-                $tmp_str .= $dom->saveHTML($child);
-            }
-        }
+        foreach ($body->item(0)->childNodes as $child)
+            $tmp_str .= $dom->saveHTML($child);
 
-        if (mb_strlen(trim($tmp_str)) == 0) {
-            return false;
-        }
         $post->setText( $tmp_str );
-
         if ($forum->getTown()) {
 
             foreach ( $forum->getTown()->getCitizens() as $citizen )
