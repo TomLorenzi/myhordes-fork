@@ -382,5 +382,50 @@
         <target>Ajouter un commentaire</target>
       </segment>
     </unit>
+    <unit id="GiaI_3b" name="Überlebte Tage">
+      <notes>
+        <note category="german">Überlebte Tage</note>
+      </notes>
+      <segment>
+        <source>Überlebte Tage</source>
+        <target>Jours survécus</target>
+      </segment>
+    </unit>
+    <unit id="zY4iz3Q" name="Ergebnis">
+      <notes>
+        <note category="german">Ergebnis</note>
+      </notes>
+      <segment>
+        <source>Ergebnis</source>
+        <target>Score</target>
+      </segment>
+    </unit>
+    <unit id="FlZntyi" name="Bürger">
+      <notes>
+        <note category="german">Bürger</note>
+      </notes>
+      <segment>
+        <source>Bürger</source>
+        <target>Citoyen</target>
+      </segment>
+    </unit>
+    <unit id="7F000hR" name="Todesursache">
+      <notes>
+        <note category="german">Todesursache</note>
+      </notes>
+      <segment>
+        <source>Todesursache</source>
+        <target>Cause de la mort</target>
+      </segment>
+    </unit>
+    <unit id="coQifWg" name="Kommentar">
+      <notes>
+        <note category="german">Kommentar</note>
+      </notes>
+      <segment>
+        <source>Kommentar</source>
+        <target>Commentaire</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

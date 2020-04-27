@@ -8942,5 +8942,14 @@
                     Vous ne pouvez pas utiliser la carte ni effectuer d'actions à l'extérieur.</target>
       </segment>
     </unit>
+    <unit id="EKpWan5" name="Was sagst du dazu?">
+      <notes>
+        <note category="german">Was sagst du dazu?</note>
+      </notes>
+      <segment>
+        <source>Was sagst du dazu?</source>
+        <target>Was sagst du dazu?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
