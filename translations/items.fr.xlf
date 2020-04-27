@@ -5592,9 +5592,9 @@
         <note>Eine Medikamentenschachtel, dessen Etikett abgerissen wurde... Die darin eingepackten Pillen sind größtenteils verschimmelt. Allerdings findest du welche, die noch einigermaßen "genießbar" sind. Um das zu schlucken, muss es dir schon wirklich schlecht gehen...</note>
         <note category="german">Eine Medikamentenschachtel, dessen Etikett abgerissen wurde... Die darin eingepackten Pillen sind größtenteils verschimmelt. Allerdings findest du welche, die noch einigermaßen "genießbar" sind. Um das zu schlucken, muss es dir schon wirklich schlecht gehen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Eine Medikamentenschachtel, dessen Etikett abgerissen wurde... Die darin eingepackten Pillen sind größtenteils verschimmelt. Allerdings findest du welche, die noch einigermaßen "genießbar" sind. Um das zu schlucken, muss es dir schon wirklich schlecht gehen...</source>
-        <target>Une boîte de médicaments dont l'étiquette est complètement effacée.Les cachets dedans sont pour la plupart moisis, mais vous en trouver quelques uns qui soient encore “consommables”. Mais êtes-vous suffisamment mal pour pouvoir avaler ça ?</target>
+        <target>Une boîte de médicaments dont l'étiquette est complètement effacée... Les cachets dedans sont pour la plupart moisis, mais vous en trouver quelques uns qui soient encore "consommables". Mais êtes-vous suffisamment mal pour pouvoir avaler ça ?</target>
       </segment>
     </unit>
     <unit id="KrhMddH" name="a79453b">
