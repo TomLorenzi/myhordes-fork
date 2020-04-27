@@ -35,6 +35,20 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
+    public function countUnhiddenByThread( Thread $thread ): int {
+        try {
+            return $this->createQueryBuilder('p')
+                ->select('COUNT(p.id)')
+                ->andWhere('p.thread = :thread')
+                ->andWhere('p.hidden = false')
+                ->setParameter('thread', $thread)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
     public function getOffsetOfPostByThread( Thread $thread, Post $post ): int {
         try {
             return $this->createQueryBuilder('p')
@@ -52,6 +66,21 @@ class PostRepository extends ServiceEntityRepository
     {
         $q = $this->createQueryBuilder('p')
             ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
+            ->orderBy('p.date', 'ASC');
+        if ($number !== null) $q->setMaxResults($number);
+        if ($offset !== null) $q->setFirstResult($offset);
+        return $q
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findUnhiddenByThread(Thread $thread, $number = null, $offset = null)
+    {
+        $q = $this->createQueryBuilder('p')
+            ->andWhere('p.thread = :thread')
+            ->andWhere('p.hidden = false')
+            ->setParameter('thread', $thread)
             ->orderBy('p.date', 'ASC');
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
