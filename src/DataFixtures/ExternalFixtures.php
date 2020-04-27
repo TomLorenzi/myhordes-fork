@@ -83,7 +83,7 @@ class ExternalFixtures extends Fixture
                 ->setIcon($entry['icon'])
                 ->setContact($entry['contact'])
                 //->setOwner($entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['owner']) ?? null)
-                ->setSecret($entry['key'] ?? substr(sha1(mt_rand() . $entry['url'] . time()), 0, 16))
+                ->setSecret($entry['key'] != '' ? $entry['key'] : substr(sha1(mt_rand() . $entry['url'] . time()), 0, 16))
             ;
 
             $manager->persist($entity);
