@@ -712,5 +712,14 @@
         <target>Du wurdest aus dem Forum verbannt.</target>
       </segment>
     </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Löschen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

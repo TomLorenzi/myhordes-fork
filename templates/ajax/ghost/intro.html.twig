@@ -26,7 +26,7 @@
                                     {% if town.open %}
                                         {% set found = true %}
                                         <div class="row town-row">
-                                            <div class="padded cell rw-1"><span class="language">{{ town.getLanguage }}</span></div>
+                                            <div class="padded cell rw-1"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~".png") }}" alt="{{ town.getLanguage }}" /></span></div>
                                             <div class="padded cell rw-5">{{ town.getName }}</div>
                                             <div class="padded cell rw-2">{{ town.citizens|length }}/{{ town.population }}</div>
                                             <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /></div>

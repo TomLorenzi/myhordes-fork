@@ -129,6 +129,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $rucksack_sizes[ $escort->getCitizen()->getId() ] = $this->inventory_handler->getSize( $escort->getCitizen()->getInventory() );
                 $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
             }
+        $is_shaman = false;
+        foreach ($this->getActiveCitizen()->getRoles() as $role) {
+            if($role->getName() == "shaman") {
+                $is_shaman = true;
+                break;
+            }
+        }
 
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
@@ -149,6 +156,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'citizen_hidden' => $citizen_hidden,
             'rucksack_sizes' => $rucksack_sizes,
             'escort_actions' => $escort_actions,
+            'is_shaman' => $is_shaman
         ], $data, $this->get_map_blob()) );
     }
 
@@ -1005,10 +1013,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );
+                $noPlaceLeftMsg = "";
                 if ($item) {
                     $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
-                    if($inventoryDest == $zone->getFloor())
+                    if($inventoryDest == $zone->getFloor()){
                         $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
+                        $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...', [], 'game');
+                    }
                     $this->entity_manager->persist( $item );
                     $this->entity_manager->persist( $citizen->getInventory() );
                     $this->entity_manager->persist( $zone->getFloor() );
@@ -1027,7 +1038,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 }
                 $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                     '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
-                ], 'game' ));
+                ], 'game' ) . "$noPlaceLeftMsg");
             } else {
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
@@ -1214,4 +1225,74 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return AjaxResponse::success();
     }
 
+    // 'purify_zone' => ['label' => 'Lass es regnen', 'meta' => [ 'must_be_outside', 'min_3_pm', 'role_shaman' ], 'result' => ['minus_3pm', 'g_rain_fall']],
+    /**
+     * @Route("api/beyond/desert/rain", name="beyond_desert_shaman_rain")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function desert_shaman_rain(JSONRequestParser $parser): Response {
+        $this->deferZoneUpdate();
+
+        if (!$this->activeCitizenCanAct())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $citizen = $this->getActiveCitizen();
+
+        $is_shaman = false;
+        foreach ($citizen->getRoles() as $role) {
+            if($role->getName() == "shaman") {
+                $is_shaman = true;
+                break;
+            }
+        }
+
+        // Forbidden if not shaman
+        if(!$is_shaman){
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        }
+
+        if($citizen->getPM() < 3) {
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );   
+        }
+
+        $zone = $citizen->getZone();
+        // Forbidden if not outside
+        if($zone == null)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $str = array();
+        $str[] = $this->translator->trans('Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.', [], 'game');
+
+        $success = $this->random_generator->chance(0.75);
+
+        if(!$success){
+            $str[] = $this->translator->trans('Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...', [], 'game');
+        } else {
+            if($zone->getX() != 0 || $zone->getY() != 0) {
+                $nbKills = min(mt_rand(3, 6), $zone->getZombies());
+                $this->entity_manager->persist($this->log->zombieKillShaman($citizen, $nbKills));
+                $zone->setZombies( $citizen->getZone()->getZombies() - $nbKills );
+                $this->entity_manager->persist($zone);
+                $str[] = $this->translator->trans("Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.", [], 'game');
+            } else {
+                $str[] = $this->translator->trans("Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.", [], 'game');
+                $town = $citizen->getTown();
+                $town->setWell($town->getWell() + 5);
+                $this->entity_manager->persist($town);
+                $this->entity_manager->persist($this->log->wellAddShaman($citizen, 5));
+            }
+            $citizen->setPM($citizen->getPM() - 3);
+        }
+
+        try {
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        $this->addFlash('notice', implode("<hr />", $str));
+
+        return AjaxResponse::success();
+    }
 }

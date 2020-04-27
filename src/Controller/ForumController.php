@@ -397,14 +397,22 @@ class ForumController extends AbstractController
 
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
+        
+        if ($user->getIsAdmin())
+            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
+        else
+            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
 
-        $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
         if ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         elseif (!$marker->getPost()) $page = 1;
         else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
 
-        $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+        if ($user->getIsAdmin())
+            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+        else
+            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+            
         if (!empty($posts)) {
             $marker->setPost( $posts[array_key_last($posts)] );
             try {
@@ -419,7 +427,7 @@ class ForumController extends AbstractController
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
-            'pages' => floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1
+            'pages' => $pages
         ] );
     }
 
@@ -486,5 +494,29 @@ class ForumController extends AbstractController
         $admh->unlockThread($this->getUser()->getId(), $fid, $tid);
         return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
 
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/delete", name="forum_delete_post_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function delete_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        if (!$parser->has('postId')){
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+        
+        /** @var User $user */
+        $user = $this->getUser();
+        $postId = $parser->get('postId');
+        
+        if ($admh->hidePost($user->getId(), $postId, "abc" ))
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+
+            
+        return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
     }
 }

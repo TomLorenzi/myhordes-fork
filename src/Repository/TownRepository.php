@@ -19,6 +19,22 @@ class TownRepository extends ServiceEntityRepository
         parent::__construct($registry, Town::class);
     }
 
+    /**
+     * @return Town[] Returns an array of Town objects
+     */
+    
+    public function findOpenTown()
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.day = 1')
+            ->andHaving('count(c) < t.population')
+            ->groupBy('t.id')
+            ->leftJoin('t.citizens', 'c')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Town[] Returns an array of Town objects
     //  */
