@@ -77,14 +77,14 @@
                 <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
                 <div class="words-of-heroes {{ town.language }}">
                     <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
-                    {% if active_citizen.profession.heroic %}
-                    <div class="content hidden" id="words-of-heroes-editor">
-                        <textarea>{{ town.wordsOfHeroes }}</textarea>
-                    </div>
-                    <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
-                    <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
+                    {% if active_citizen.profession.heroic and not active_citizen.banished %}
+                        <div class="content hidden" id="words-of-heroes-editor">
+                            <textarea>{{ town.wordsOfHeroes }}</textarea>
+                        </div>
+                        <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
+                        <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
                     {% else %}
-                    <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
+                        <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
                     {% endif %}
                 </div>
             {% endif %}
