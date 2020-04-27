@@ -57,6 +57,8 @@
                                 <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
                             {% endif %}
                         {% endif %}
+                    {% else %}
+                        <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
                     {% endif %}
                     <b>
                         {% if post.owner.username == 'Der Rabe' %}
