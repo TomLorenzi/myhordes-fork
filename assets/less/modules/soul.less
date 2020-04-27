@@ -194,10 +194,12 @@
             .town-name {
                 font-size: 1.2rem;
                 cursor: pointer;
-                em {
+                .comment {
                     color: #ddab76;
                     font-size: 1.1rem;
-                    text-decoration: underline;
+                    .add-comment {
+                        text-decoration: underline;
+                    }
                     &:hover {
                         color: white;
                     }
@@ -320,6 +322,10 @@
                 }
             }
 
+            img {
+                width: 100%;
+            }
+
             &.design-typed {
                 font-family: @myhordes-fixed-font;
                 color: #3b3249;
@@ -333,6 +339,16 @@
                     &:first-letter {
                         font-weight: bold;
                     }
+
+                    &.other {
+                        font-family: @myhordes-sans-serif-font;
+                        color: #b16567;
+                        font-style: italic;
+                    }
+                }
+                strong {
+                    color: black;
+                    text-transform: none;
                 }
             }
 
@@ -461,10 +477,16 @@
                     color: #8c9070;
                     font-family: @myhordes-sans-serif-font;
                 }
+                strong {
+                    color: #707056;
+                }
                 hr {
                     color: #8c9070;
                     border: none;
                     border-bottom: 1px solid #adb09d;
+                }
+                p:first-letter {
+                    font-weight: bold;
                 }
             }
 
@@ -521,6 +543,10 @@
 
         .printer {
             background: url('../../img/books/printer.gif') no-repeat;
+        }
+
+        .manual {
+            background: url('../../img/books/manual.gif') no-repeat;
         }
 
         .news {

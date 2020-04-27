@@ -10,7 +10,7 @@
     <h5>{{ 'Wachturm'|trans({},'buildings') }}</h5>
     <div class="block watchtower">
         <div class="row">
-            {% if town.type.name == 'small' or  z0[4] > 33%}
+            {% if town.type.name == 'small' or  z0[4] >= 33%}
             <div class="padded cell rw-12 left">
                 {{ 'Heutige Abschätzung'|trans({},'game') }}
             </div>
