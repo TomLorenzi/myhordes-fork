@@ -98,17 +98,12 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         foreach ($count as $townLang => $array) {
             foreach ($array as $townClass => $openCount) {
                 if($openCount < $minOpenTown[$townClass]){
-                    // Fetch min/max pop from config for this townClass
-                    $class = $em->getRepository(TownClass::class)->findOneByName($townClass);
-                    $townTpl = new Town();
-                    $townTpl->setType($class);
-                    $townConf = $conf->getTownConfiguration($townTpl);
-                    $min = $townConf->get(TownConf::CONF_POPULATION_MIN, 0);
-                    $max = $townConf->get(TownConf::CONF_POPULATION_MAX, 0);
+
                     // Create the count we need
                     for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
-                        $newTown = $factory->createTown(null, $townLang, mt_rand($min, $max), $townClass);
+                        $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
+                        $em->flush();
                     }
                 }
             }
