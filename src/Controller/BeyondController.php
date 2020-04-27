@@ -1005,10 +1005,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );
+                $noPlaceLeftMsg = "";
                 if ($item) {
                     $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
-                    if($inventoryDest == $zone->getFloor())
+                    if($inventoryDest == $zone->getFloor()){
                         $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
+                        $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...', [], 'game');
+                    }
                     $this->entity_manager->persist( $item );
                     $this->entity_manager->persist( $citizen->getInventory() );
                     $this->entity_manager->persist( $zone->getFloor() );
@@ -1027,7 +1030,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 }
                 $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                     '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
-                ], 'game' ));
+                ], 'game' ) . "$noPlaceLeftMsg");
             } else {
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }

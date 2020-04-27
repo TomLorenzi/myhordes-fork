@@ -8948,7 +8948,16 @@
       </notes>
       <segment>
         <source>Was sagst du dazu?</source>
-        <target>Was sagst du dazu?</target>
+        <target>Quel est votre commentaire ?</target>
+      </segment>
+    </unit>
+    <unit id="Oa1E9pH" name="d5feda7">
+      <notes>
+        <note category="german">Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...</note>
+      </notes>
+      <segment>
+        <source>Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...</source>
+        <target>L'objet que vous venez de trouver ne peut être mis dans votre sac. Il est donc par terre...</target>
       </segment>
     </unit>
   </file>

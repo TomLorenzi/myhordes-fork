@@ -1202,8 +1202,6 @@
     </unit>
     <unit id="4yWesEi" name="Batteriewerfer 1-PDTG (entladen)">
       <notes>
-        <note>Batteriewerfer 1-PDTG (entladen)</note>
-        <note>Batteriewerfer 1-PDTG (entladen)</note>
         <note category="german">Batteriewerfer 1-PDTG (entladen)</note>
       </notes>
       <segment>
@@ -1213,8 +1211,6 @@
     </unit>
     <unit id="VjisjD7" name="Taser (ohne Strom)">
       <notes>
-        <note>Taser (ohne Strom)</note>
-        <note>Taser (ohne Strom)</note>
         <note category="german">Taser (ohne Strom)</note>
       </notes>
       <segment>
@@ -1224,8 +1220,6 @@
     </unit>
     <unit id="Pv.PdId" name="Elektrischer Bauchmuskeltrainer (ohne Strom)">
       <notes>
-        <note>Elektrischer Bauchmuskeltrainer (ohne Strom)</note>
-        <note>Elektrischer Bauchmuskeltrainer (ohne Strom)</note>
         <note category="german">Elektrischer Bauchmuskeltrainer (ohne Strom)</note>
       </notes>
       <segment>
@@ -1235,8 +1229,6 @@
     </unit>
     <unit id="OI3OQ.V" name="Elektrischer Bauchmuskeltrainer (geladen)">
       <notes>
-        <note>Elektrischer Bauchmuskeltrainer (geladen)</note>
-        <note>Elektrischer Bauchmuskeltrainer (geladen)</note>
         <note category="german">Elektrischer Bauchmuskeltrainer (geladen)</note>
       </notes>
       <segment>
@@ -1246,8 +1238,6 @@
     </unit>
     <unit id="bZVhk3Y" name="Zerstörer (entladen)">
       <notes>
-        <note>Zerstörer (entladen)</note>
-        <note>Zerstörer (entladen)</note>
         <note category="german">Zerstörer (entladen)</note>
       </notes>
       <segment>
@@ -1257,8 +1247,6 @@
     </unit>
     <unit id="6JzGDe3" name="Zerstörer (geladen)">
       <notes>
-        <note>Zerstörer (geladen)</note>
-        <note>Zerstörer (geladen)</note>
         <note category="german">Zerstörer (geladen)</note>
       </notes>
       <segment>
@@ -1268,19 +1256,15 @@
     </unit>
     <unit id="NWwA1_1" name="Unvollständiger Zerstörer">
       <notes>
-        <note>Unvollständiger Zerstörer</note>
-        <note>Unvollständiger Zerstörer</note>
         <note category="german">Unvollständiger Zerstörer</note>
       </notes>
       <segment>
         <source>Unvollständiger Zerstörer</source>
-        <target>Devastatpor incomplet</target>
+        <target>Devastator incomplet</target>
       </segment>
     </unit>
     <unit id=".NeFZzB" name="Zonenmarker 'Radius'">
       <notes>
-        <note>Zonenmarker 'Radius'</note>
-        <note>Zonenmarker 'Radius'</note>
         <note category="german">Zonenmarker 'Radius'</note>
       </notes>
       <segment>
