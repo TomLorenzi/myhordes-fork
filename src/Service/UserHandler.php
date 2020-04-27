@@ -438,9 +438,22 @@ class UserHandler
      * Tests if the username wanted is valid
      * Uses Levenshtein's algo
      * @param string $name The username to test
+	 * @param bool $too_long If the username was rejected because it was too long
+	 * @param int $custom_length The max length of the username
+	 * @param bool $disable_preg If we should match the username against the pattern /[^\p{L}\w]/u
      * @return bool The validity of the username
      */
     public function isNameValid(string $name, ?bool &$too_long = null, int $custom_length = 16, bool $disable_preg = false): bool {
+		// Define banned starting display name
+        $invalidNameStarters = [
+            'Corvus', 'Corbilla', '_'
+        ];
+
+		// If wanted name starts with a banned starter
+        foreach ($invalidNameStarters as $starter)
+            if (str_starts_with($name, $starter)) return false;
+
+		//Define static forbidden names
         $invalidNames = [
             // The Crow
             'Der Rabe', 'Rabe', 'Le Corbeau', 'Corbeau', 'The Crow', 'Crow', 'El Cuervo', 'Cuervo',
@@ -449,31 +462,47 @@ class UserHandler
             'Moderator', 'Admin', 'Administrator', 'Administrateur', 'Administrador', 'Moderador'
         ];
 
+		// Add banned names from DB
         $additional_names = array_map(
             fn(AntiSpamDomains $a) => $a->getType()->convert( $a->getDomain() ),
             $this->entity_manager->getRepository(AntiSpamDomains::class)->findAllActive( DomainBlacklistType::BannedName )
         );
 
-        $invalidNameStarters = [
-            'Corvus', 'Corbilla', '_'
-        ];
+		dump("Testing '$name' against those names:", [...$invalidNames,...$additional_names]);
 
+		// Calculate the Levenshtein distance between the wanted name and
+		// one from the list
+		// We save [distance, match]
         $closestDistance = [PHP_INT_MAX, ''];
+
         foreach ([...$invalidNames,...$additional_names] as $invalidName) {
+			// Remove wildcard chars from the banned name
             $base = str_replace(["'", '*', '?', '[', ']', '!'], '', $invalidName);
+
+			$levenshtein_max = mb_strlen( $base ) <= 5 ? 1 : 2;
+
+			// Match wildcardly
             if (fnmatch(strtolower($invalidName), strtolower($name)))
                 $closestDistance = [ 0, $base ];
             else {
-                $levenshtein = levenshtein($name, $base);
-                if ($levenshtein < $closestDistance[0])
-                    $closestDistance = [ $levenshtein, $base ];
+				if (strlen($name) > strlen($base) + $levenshtein_max) {
+					for ($i = 0 ; $i + strlen($base) <= strlen($name) ; $i++) {
+						$substr = substr($name, $i, strlen($base));
+
+						// Calculate the levenshtein distance
+						$levenshtein = levenshtein(strtolower($substr), strtolower($base));
+
+						if ($levenshtein < $closestDistance[0])
+							$closestDistance = [ $levenshtein, $base ];
+					}
+				} else {
+					// Calculate the levenshtein distance
+					$levenshtein = levenshtein(strtolower($name), strtolower($base));
+					if ($levenshtein < $closestDistance[0])
+						$closestDistance = [ $levenshtein, $base ];
+				}
             }
         }
-
-        foreach ($invalidNameStarters as $starter)
-            if (str_starts_with($name, $starter)) return false;
-
-        $levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
 
         $too_long = mb_strlen($name) > $custom_length;
         return ($disable_preg || !preg_match('/[^\p{L}\w]/u', $name)) && mb_strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
