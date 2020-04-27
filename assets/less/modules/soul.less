@@ -6,7 +6,8 @@
         background-color: #5c2b20;
 
         h4.soul-name {
-            margin: 2px 4px; display: inline-block;
+            margin: 2px 4px;
+            display: inline-block;
         }
         .tab {
             .tab-link {
@@ -19,7 +20,9 @@
                 background-color: #7e4d2a;
                 cursor: pointer;
                 text-decoration: none;
-                overflow: hidden; text-overflow: ellipsis;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 2.3rem;
                 min-height: 27px;
             }
 
@@ -191,10 +194,12 @@
             .town-name {
                 font-size: 1.2rem;
                 cursor: pointer;
-                em {
+                .comment {
                     color: #ddab76;
                     font-size: 1.1rem;
-                    text-decoration: underline;
+                    .add-comment {
+                        text-decoration: underline;
+                    }
                     &:hover {
                         color: white;
                     }
@@ -317,6 +322,10 @@
                 }
             }
 
+            img {
+                width: 100%;
+            }
+
             &.design-typed {
                 font-family: @myhordes-fixed-font;
                 color: #3b3249;
@@ -330,6 +339,16 @@
                     &:first-letter {
                         font-weight: bold;
                     }
+
+                    &.other {
+                        font-family: @myhordes-sans-serif-font;
+                        color: #b16567;
+                        font-style: italic;
+                    }
+                }
+                strong {
+                    color: black;
+                    text-transform: none;
                 }
             }
 
@@ -458,10 +477,16 @@
                     color: #8c9070;
                     font-family: @myhordes-sans-serif-font;
                 }
+                strong {
+                    color: #707056;
+                }
                 hr {
                     color: #8c9070;
                     border: none;
                     border-bottom: 1px solid #adb09d;
+                }
+                p:first-letter {
+                    font-weight: bold;
                 }
             }
 
@@ -520,6 +545,10 @@
             background: url('../../img/books/printer.gif') no-repeat;
         }
 
+        .manual {
+            background: url('../../img/books/manual.gif') no-repeat;
+        }
+
         .news {
             background: url('../../img/books/news.gif') no-repeat;
             .rp-content {
@@ -551,6 +580,19 @@
             color: #ddab76;
             font-style: italic;
             font-size: 1rem;
+        }
+    }
+
+    .view-town {
+        .citizens-list {
+            font-size: 1.2rem;
+            .header {
+                font-size: 1.4rem
+            }
+            .town-points {
+                color: #afacc1;
+                font-size: 2rem;
+            }
         }
     }
 }

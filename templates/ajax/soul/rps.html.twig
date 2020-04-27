@@ -5,7 +5,7 @@
         <div class="cell rw-8 center"><h5>{{'Titel'|trans({}, 'soul')}}</h5></div>
         <div class="cell rw-4 center"><h5>{{'Entdeckt'|trans({}, 'soul')}}</h5></div>
     </div>
-    <div class="row">
+    <div class="row rp-list">
         {% for rp in rps %}
         <div class="row rp-row" x-ajax-href="{{path('soul_rp', {id: rp.id, page: 1})}}">
             <div class="cell padded rw-8 rp-text">

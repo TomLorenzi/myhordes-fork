@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Avatar;
 use App\Entity\Citizen;
+use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Picto;
 use App\Entity\FoundRolePlayText;
@@ -297,6 +298,43 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("jx/soul/town/{id}", name="soul_view_town", requirements={"id"="\d+"})
+     * @return Response
+     */
+    public function soul_view_town(int $id): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->findOneById($id);
+        if($town === null){
+            return $this->redirect($this->generateUrl('soul_me'));
+        }
+
+        return $this->render( 'ajax/soul/view_town.html.twig', $this->addDefaultTwigArgs("soul_me", array(
+            'town' => $town,
+        )));
+    }
+
+    /**
+     * @Route("jx/soul/town/add_comment", name="soul_add_comment")
+     * @return Response
+     */
+    public function soul_add_comment(JSONRequestParser $parser): Response
+    {
+        $id = $parser->get("id");
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($id);
+        if($citizen === null){
+            return $this->redirect($this->generateUrl('soul_me'));
+        }
+
+        $comment = $parser->get("comment");
+        $citizen->setComment($comment);
+
+        $this->entity_manager->persist($citizen);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/settings/generateid", name="api_soul_settings_generateid")
      * @return Response
      */
@@ -378,8 +416,11 @@ class SoulController extends AbstractController
                 if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
                     return AjaxResponse::error( self::ErrorAvatarFormatUnsupported );
 
-                $im_image->coalesceImages();
-                $im_image->resetImagePage('0x0');
+                if ($im_image->getImageFormat() === 'GIF') {
+                    $im_image->coalesceImages();
+                    $im_image->resetImagePage('0x0');
+                }
+
                 $w = $im_image->getImageWidth();
                 $h = $im_image->getImageHeight();
 
@@ -398,7 +439,10 @@ class SoulController extends AbstractController
                 if ($im_image->getImageFormat() !== "GIF")
                     $im_image = $im_image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
 
-                $im_image->setFirstIterator();
+                if ($im_image->getImageFormat() === 'GIF') {
+                    $im_image->setFirstIterator();
+                }
+
                 $w_final = $im_image->getImageWidth();
                 $h_final = $im_image->getImageHeight();
 

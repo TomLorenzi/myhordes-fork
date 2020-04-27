@@ -188,6 +188,11 @@ class Citizen
      */
     private $lastWords;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $comment;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -804,6 +809,18 @@ class Citizen
     public function setLastWords(string $lastWords): self
     {
         $this->lastWords = $lastWords;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(string $comment): self
+    {
+        $this->comment = $comment;
 
         return $this;
     }

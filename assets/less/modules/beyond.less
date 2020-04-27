@@ -110,12 +110,19 @@ div.ruin-info {
 }
 
 div.zone-info {
-  margin-top: 5px; border: 1px solid @myhordes-smalltext; background: @myhordes-cell-header-background-color; font-size: 0;
+  margin-top: 0px;
+  border: 1px solid @myhordes-smalltext;
+  /*background: @myhordes-cell-header-background-color;*/
+  font-size: 0;
   &>div.row {
     &>.cell>span { vertical-align: bottom; font-size: 1.2rem; }
     &.zone-cp {
       padding: 1px 0px 0px 1px;
       height: 22px;
+      margin-top: 0;
+      border: 1px solid #e1bd9b;
+      outline: 2px solid #43281a;
+      background-color: #5c2b20;
     }
     &.zone-cp>.cell{
       &:first-child { color: #d6f523; }
@@ -123,9 +130,13 @@ div.zone-info {
     }
     &.zone-dist { 
       padding: 0px 0px 0px 0px;
-      height: 18px;
+      margin-top: 5px;
+      min-height: 18px;
       font-size: 1rem;
       color: #f0d79e;
+      border: 1px solid #e1bd9b;
+      outline: 2px solid #43281a;
+      background-color: #5c2b20;
     }
   }
 }
@@ -148,6 +159,9 @@ div.ruin-bury-count {
 div.zone-scout {
   font-variant: small-caps;
   text-align: center;
+  font-weight: bold;
+  color: #f0d79e;
+  font-size: 1.1rem;
 }
 
 div.beyond-escort-off, div.beyond-escort-on {

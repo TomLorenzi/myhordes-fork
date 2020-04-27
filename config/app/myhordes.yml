@@ -6,3 +6,9 @@ parameters:
         panda: 0 # 500
         return_small: 0 # 500
         custom: 0 # 1000
+    towns:
+      openmin:
+        remote: 4
+        panda: 2
+        small: 2
+        custom: 0
