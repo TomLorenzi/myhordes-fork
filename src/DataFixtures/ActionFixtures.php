@@ -876,7 +876,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'pet_cat_#00'   => [ 'slaughter_2xs', 'throw_animal_cat' ],
             'tekel_#00'     => [ 'slaughter_2xs', 'throw_animal_dog' ],
             'pet_dog_#00'   => [ 'slaughter_2xs', 'throw_animal_dog' ],
-            'pet_pig_#00'   => [ 'slaughter_4xs', ],
             'angryc_#00'    => [ 'slaughter_bmb' ],
 
             'machine_1_#00'     => ['throw_b_machine_1'    ],
