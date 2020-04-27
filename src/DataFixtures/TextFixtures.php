@@ -462,29 +462,47 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
-        'dv_025' => [
+        'morse2' => [
             'title' => 'Morsecode (21.Juni)',
             'author' => 'zhack',
             'content' => [
-                ''
+                '<small>21. Juni, MEZ: 13:30</small>
+                <small>[Anfang der Übertragung]</small>
+                <p>.... . . .-. . ... --. .-. ..- .--. .--. .  -..-. / -. --- .-. -.. -..-. / .- -... ... -.-. .... -. .. - - -..-. / .-  / --.. ..- --. .- -. --. -..-. / --.. ..- -- -..-. / -. .- -.-. .... ... -.-. .... ..- -... -.. . .--. --- - -..-. / .-- .. .-. -.. -..-. / ...- --- -- -..-. / ..-. . .. -. -.. -..-. / -... .-.. --- -.-. -.- .. . .-. - .-.-.- -..-. / -.- . .. -. -..-. / -.. ..- .-. -.-. .... -... .-. ..- -.-. .... -..-. / -- --- . --. .-.. .. -.-. .... .-.-.- -..-. / -.- .- . -- .--. ..-. . -. -..-. / -... .. ... -..-. / --.. ..- -- -..-. / .-.. . - --.. - . -. -..-. / -- .- -. -. .-.-.- / --. --- - - / -..-. / ... -.-. .... ..- . - --.. . / -..-. / . ..- -.-. .... .-.-.-</p>
+                <small>[Ende der Übertragung]</small>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'blood',
         ],
-        'dv_026' => [
+        'news2' => [
             'title' => 'Mysteriöse Befunde - Tote weisen menschliche Bissspuren auf',
             'author' => null,
             'content' => [
-                ''
+                '<small>(Fortsetzung von Seite 1)</small>
+                <p>[...] Nach Angaben der Staatsanwaltschaft weisen beide Opfer mehrere Bissspuren auf. Außerdem lassen sich aus dem Bericht Parallelen zu jenen Morden ziehen, die in den vergangenen zwei Wochen unter ähnlich mysteriösen Umständen begangen wurden. Auch diesmal hatten die getöteten Frauen keine Haustiere.</p>
+                <p>Der Autopsiebericht, aus dem die Staatsanwaltschaft zitiert, habe zum Ergebnis, dass die Bissspuren keinem Tier zugeordnet werden könnten. Vielmehr häuften sich die Indizien, dass es sich um menschliche Bissspuren handle.</p>
+                <p>Eine weitere Erkenntnis aus dem Autopsiebericht stellt die Ermittler indes vor das größte Rätsel: Eine erste Analyse der Speichelproben komme zu dem Ergebnis, dass die DNS zwar von einem Menschen sei, das Erbgut aber [...]</p>',
+                '<p> [... ]atypische Mutationen und Merkmale aufweisen. Für weitergehende Analysen soll das Robert-Koch-Institut umgehend in die Untersuchungen miteinbezogen werden..</p>
+                <h1>Westerwelle will Hartz IV aufstocken</h1>
+                <em>von Ziya Kanpara</em>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'news',
+            'background' => 'news',
         ],
-        'dv_027' => [
+        'cave1' => [
             'title' => 'Papierfetzen',
             'author' => 'gangster',
             'content' => [
-                ''
+                '<p>Die Schweine haben mich erwischt... ich hock jetzt hier im Keller, die Tür ist eingeschlagen und ich höre ein leises Fiepen in meinen Ohren. Meine Wirbelsäule brennt wie Feuer, der Schmerz ist kaum auszuhalten...</p>
+                <p>Alle sind tot, die meisten lebendig aufgefressen. Es war grauenhaft. Ich bin der Letzte. Wie heißt es doch so gleich: Den letzten beißen die Hunde. Nun ja, wenn\'s denn Hunde gewesen wären... Das Dreckstück hat mich in die Wade gebissen... das war\'s. Game over.</p>
+                <p>Es wird jetzt alles ganz schnell gehen, sicher nur noch ein paar Minuten. Die Tür geht gleich auf und sie werden mich finden.</p>
+                <p>Ich würde lieber sterben anstatt so zu werden wie sie ...</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
         ],
         'dv_028' => [
             'title' => 'Post-It',
@@ -492,15 +510,70 @@ class TextFixtures extends Fixture
             'content' => [
                 ''
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
         ],
-        'dv_029' => [
+        'profi1' => [
+            'title' => 'Profits Tagebuch',
+            'author' => 'profit',
+            'content' => [
+                '<p>13. Tag nach dem Zerfall meiner Heimatstadt</p>
+                <p>Einsamkeit</p>
+                <p>Das ist es, was man fühlt wenn man in der Wüste unterwegs ist.</p>
+                <p>Einsamkeit</p>
+                <p>Obwohl ich mit anderen die nähere Umgebung meiner neuen Zuflucht erkunde:Es bleibt nur </p>
+                <p>Einsamkeit</p>
+                <p>Die Leere der Wüste kann niemand füllen. Nichtmal unsere Gruppe, in der zwei echte Hünen sind mit einem Schild welches so groß wie sie selbst ist, wie sie selbst. Es erzeugt nur ein Trugbild von Sicherheit, von Zusammenhalt.
+                Denn jeder in der Siedlung weiß, dass man immer auf seinen Rücken aufpassen muss, sonst stehst du allein dort.</p>
+                <p>Es bleibt nur Einsamkeit.</p>
+                <p>Das einzige Gefühl, welches versichert, das du am Leben und ein Mensch bist.</p>
+                <p>Einsamkeit...</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'notepad',
+        ],
+        'bilan_de' => [
+            'title' => 'Protokoll der Stadtratsitzung vom 7. November',
+            'author' => 'Liior',
+            'content' => [
+                '<h1>Sitzungsprotokoll vom 7. November:<small>(Protokollführer: Liior, Redakteur)</small></h1>
+                <p>Bürgermeister Merkal verkündete den Baubeginn eines neuen Projekts, welches das Überleben aller Stadtbürger garantieren würde:</p>
+                <quote>"Zugegeben, es handelt sich um eine wahnsinnige Unternehmung, die nur geringe Erfolgschancen verspricht, aber wir müssen es versuchen. <p>Wenn es klappt, könnte dieses neue Gebäude uns allen das Leben retten. Wir haben in den letzten Tagen das Optimum aus dieser Stadt herausgeholt: Ein Katapult wurde gebaut, ein Graben wurde angelegt, Zombiefallen wurde innerhalb und außerhalb der Stadt aufgestellt [...]</p>
+                </quote>',
+                '<p>- jede einzelne Maßnahme war ein gewaltiger Kraftakt, doch jetzt ist der Zeitpunkt gekommen, an dem wir uns etwas Neues einfallen lassen mussten. 
+                </p><p>Ich habe mit unseren Helden gestern Nacht schon darüber gesprochen und wir sind einstimmig zur Überzeugung gelangt, dass wir eine "Falsche Stadt" bauen müssen.</p>
+                <p>Es hört sich verrückt an, aber wir denken, dass die Zombies den Unterschied nicht merken werden. Wenn es uns gelingt eine möglichst originalgetreue Stadt nachzubauen, könnten wir die Angriffslast von dieser Stadt nehmen und so langfristig unser Überleben sichern."</p>',
+                '<p>Die Versammlung reagierte skeptisch: </p>
+                <quote>"Eine \'falsche Stadt\'? Und das soll funktionieren?", fragten sich einige Bürger sichtlich echauffiert.</quote>
+                <p>Es scheint, als ob diese Stadt ihre Hoffnung schon aufgegeben hätte...</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'white',
+        ],
+        'rabs' => [
             'title' => 'Rabe, schwarz',
             'author' => 'accorexel',
             'content' => [
-                ''
+                '<p>Ein Rabe sitz an einem Ort,</p>
+                <p>Doch mir wird klar</p>
+                <p>Ich hab kein Glück.</p>
+                <p>Er fliegt hinfort</p>
+                <p>Und es ist wahr -</p>
+                <p>Schaut nicht zurück</p>
+                <p>Und sprich kein Wort.</p>
+                <p>Er war nie da,</p>
+                <p>Was mich bedrück.</p>
+                <p>Ein elend\' Narr</p>
+                <p>Steht jetzt nur dort</p>
+                <p>Wo nie zuvor</p>
+                <p>Der Rabe war.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'white',
         ],
         'dv_030' => [
             'title' => 'Richards Tagebuch',
@@ -526,6 +599,47 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
+        'gbuch' => [
+            'title' => 'Seite aus einem alten Gesangsbuch',
+            'author' => 'CarolinaCremasta',
+            'content' => [
+                '<h1>Mein Herr, ich will dir ewig folgen (Choral in c-moll)</h1>
+                <br>
+                <p>Mein Herr ich will dir e-e-wi-i-g folgen!
+                <br>
+                Du führest mi-ich auf saft\'ge-e Flur!
+                <br>
+                Ich gebe dir mein le-etzte-es Wasser
+                <br>
+                und Hydrato-o-on gönn\' ich mi-ir nur.</p>
+                <p>Mein Herr o lass mi-ich diese-en Balken
+                <br>
+                für dich nur schni-itzen ganz a-allein!
+                <br>
+                Und jede Schraube-e jede-e Mutter
+                <br>
+                soll dir nur dir! ge-e-ewidme-et sein.</p>',
+                '<p>Mein Herr wenn dich die-ie Schaue-er schütteln
+                <br>
+                dann geb\' ich hi-in mein Twi-inoid!
+                <br>
+                Ich hab\' es mir gesto-ohl\'n vo-om Freunde
+                <br>
+                der in der Nacht da-a-arauf verschied.</p>
+                <p>Mein Herr du da-arfst mich schwe-er beladen
+                <br>
+                mit Mikrowelle-en und mi-it Stahl!
+                <br>
+                Nur dir zu diene-e-e-n, ganz alleine
+                <br>
+                ist Fre-e-eude für mich, keine Qual!
+                <br>
+                Ist Freude für mich, keine Qua-a-al!</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
+        ],
         'dv_033' => [
             'title' => 'Seite 62 eines Buches',
             'author' => 'kozi',
@@ -534,21 +648,72 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
-        'dv_034' => [
+        'refabr_de' => [
             'title' => 'Sicherer Unterschlupf',
             'author' => 'Loadim',
             'content' => [
-                ''
+                '<p><strong>Sicherer Unterschlupf</strong>, der Name war wirklich gut gewählt...</p><p>Allein heute Nacht hatten wir dreizehn Tote. Es folgte das gewöhnliche Prozedere: Leichen nach draußen schleppen, Privattruhen ausleeren, Zelte abbauen und so weiter und sofort... Alles, was essbar oder auch nicht essbar war, wurde vertilgt. Es ist dem Mut und dem Überlebenswillen einiger weniger Leute zu verdanken, dass wir noch immer am Leben sind...</p>
+                <p>Wir hatten Fallgruben und Sprengfallen errichtet. Sogar das Stadtor wurde nochmal verstärkt. Vergebens. Sie haben sich an uns satt gegessen.</p><p> Wenn ich mir vorstelle, was jetzt wäre, wenn wir letzte Woche die Werkstatt nicht fertig bekommen hätten...</p>
+                <p>Auf unseren Wasserverbrauch müssen wir jetzt aber nicht mehr achten, sie werden uns eh bald auffressen und mitnehmen.</p><p> Meine Hand juckt, ich spüre wie ein verfaulter Schädel unter meinem Faustschlag zerbirst. Diese Stadt macht es nicht nicht mehr lang, meine Freunde...</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'notepad',
         ],
-        'dv_035' => [
+        'polcor' => [
             'title' => 'Sie nennen sie Zombies - Politisch korrekter Umgang mit Vermindert Lebenden',
             'author' => 'accorexel',
             'content' => [
-                ''
+                '<div class="hr"></div>
+                <center>Prof. Dr. Edgar Neubauer</center>
+                <h1>Sie nennen sie Zombies - Politisch korrekter Umgang mit vermindert Lebenden</h1>',
+                '<p>Sie nennen Sie Zombies, Leichenfresser, wandelnde Tote – schon immer wurden infizierte Menschen von der scheinbar normalen und gesunden Bevölkerung diffamiert, ausgestoßen, verfolgt, in Lager gesperrt und systematisch getötet.</p>
+                <p>Wer glaubt die Menschheit habe die asozialen Zustände eines pestverseuchten Frankfurts im 14. Jahrhundert oder eines von Cholera heimgesuchten Londons um 1854 überwunden, irrt. Was in der aufgeklärten Moderne, insbesondere in den westlichen 
+                Industrieländern als undenkbar galt ist heute schreckliche Realität.</p>
+                <p>Einzelne Individuen, Bevölkerungsgruppen, ja ganze Ethnien werden in diesem Moment mit den negativsten Attributen besetzt, die sich ein Mensch nur ausdenken kann: die vermindert Lebenden. Ihnen wird der Status Mensch entzogen und damit jedes 
+                Menschenrecht. Ein Genozid in noch nie da gewesener Form.</p>',
+                '<p>Der medial geschürten Massenpanik, dem der Lynchmob mit Fackeln und Kettensäge in den Händen folgt, gilt es mit wissenschaftlicher Methode zu begegnen.</p>
+                <p>Zu allererst sollten wir uns daher von dem Gedanken befreien, es handele sich bei den vermindert Lebenden um Leichen, die sich aus ihren Gräbern erhoben haben um die Menschheit heimzusuchen. Zombies, oder taxonomisch korrekt Corpse Cadarve, 
+                gehören ins Reich der Fantasie – kreolische Taschenspielertricks, die den westlichen Hypnoseshows in nichts nachstehen. Vielmehr sind sie der Subspezies Ghul zuzuschreiben, dem mit einem immer noch nicht näher untersuchten Retrovirus infizierten Homo 
+                sapiens sapiens. Bereits hier wird deutlich, dass die beim Ghul angewandte ursprüngliche Taxonomie Manesphagus horridus nicht nur ungenau ist, sondern völlig an der Gattung vorbei gewählt wurde. Selbst die Bezeichnung Homo sapiens wichtus trifft hier 
+                allenfalls nur bedingt zu.</p>',
+                '<p>Auch wenn der Ursprung bislang ungeklärt bleibt, so weisen aktuelle Untersuchungen der verschiedenen Ausprägungen der Krankheit auf eine Vielzahl von Virenstämmen hin und damit folglich einer Vielzahl von im Entstehen begriffener Subspezies: Homo 
+                sapiens ingentis monerus, Homo sapiens ingentis vrykolkas, Homo sapiens nobilis vrykolkas, oder Homo sapiens sapiens sanguisuga um nur einige zu nennen.</p>
+                <p>Das Problem, das es nun zu lösen gilt ist, wie wir zukünftig ethisch vertretbar auf das Vorhandensein weiterer dominanter Spezies auf unserem Planeten reagieren und wie ein gemeinsames Miteinander gewährleistet werden kann. Die Integrationspolitik 
+                ist im neuen Jahrtausend angekommen.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'classic',
+            'background' => 'old',
+        ],
+        'citsig_de' => [
+            'title' => 'Stadtschild',
+            'author' => 'coctail',
+            'content' => [
+                '<div class="hr"></div>
+                <center>
+                <big>Gnadenlose Festung.</big>
+                <div>40 Einwohner.</div>
+                <div class="other"><strong>Zombie-Stadt, KEINE Überlebenden. NICHT WEITERGEHEN!!!</strong></div>
+                </center>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
+        ],
+        'necro_de' => [
+            'title' => 'Todesanzeigen',
+            'author' => null,
+            'content' => [
+                '<h1>Kürzlich verstorben:</h1>
+                <p><strong>Dienstag</strong>: Ralf, Jürgen, warp, Artecz</p>
+                <p><strong>Mittwoch</strong>: Dayan, Phantom, Ebola, Whitetigle <span class="other">(ach ne...)</span></p>
+                <p><strong>Donnerstag</strong>: Whitetigle <span class="other">(Scheiß Infektion)</span></p>
+                <p><strong>Freitag</strong>: Morkai, Amorphis, Deniz</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'carton',
         ],
         'dv_036' => [
             'title' => 'Twinoidetikett',
@@ -558,21 +723,70 @@ class TextFixtures extends Fixture
             ],
             'lang' => 'de'
         ],
-        'dv_037' => [
+        'santw' => [
+            'title' => 'Verstanden!',
+            'author' => 'NobbZ',
+            'content' => [
+                '<quote>Befehl</quote>
+                <p>Verstanden! Rasenmäher wird entsand um die Kartoffeln zu Frikadelle, gegenwärtige Gemüse ist etwa HJ AG AG</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
+        ],
+        'crazy_de' => [
+            'title' => 'Wahn',
+            'author' => 'Arco',
+            'content' => [
+                '<p>Ich bin heute Abend auf\'s Dach gestiegen.</p>
+                <p>die anderen sagen ich sei verrückt geworden.</p>
+                <p>Ich glaube sie haben recht.</p>
+                <p>Ungeduldig sehnte ich den Sonnenuntergang herbei und schaute zu wie die letzten blutroten Sonnenstrahlen hinter der Hügelkette verschwanden.</p>
+                <p>In der Ferne konnte ich alsbald schon die Horde sehen. Ihre ungelenken und holprigen Bewegungen gaben ein bizarres Schattenspiel ab.</p>
+                <p>Lüstern blitzten meine Augen.</p>
+                <p>Ich bin verrückt geworden - sie haben recht.</p>
+                <p>Spielt das denn noch eine Rolle?</p>
+                <p>Mein Blick richtete sich erneut auf die torkelnde Masse...</p>',
+                '<p>Ein nicht zu bändigendes Rauschgefühl durchströmte meinen Körper.</p>	
+                <p>Ich sah, wie sie die Stadtmauer überwanden!</p>
+                <p>Ich begrüßte sie mit einem Freudenschrei.</p>
+                <p>Und bekam ein tiefes, kehliges Gebrüll als Antwort!</p>
+                <p>Ich bin verrückt geworden.</p>
+                <p>Was soll\'s.</p>
+                <p>Ich will mir das Spektakel ansehen.</p>
+                <p>Hier auf dem Dach.</p>
+                <p>Jubelnd sehe ich wie sie die Stadt in Schutt und Asche legen.</p>
+                <p>Lachend.</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'blood',
+        ],
+        'ie' => [
             'title' => 'Warnhinweis an zukünftige Wanderer',
             'author' => 'coctail',
             'content' => [
-                ''
+                '<p>Coctail, Pantokrat und Zoby sind hier gewesen. In dieser Zone gibt es nichts mehr zu holen. Passt auf die Zombies auf, die unter dem Sand auf euch lauern! Sie können euch das Leben kosten!</p>
+                <div class="other">&nbsp; Es ist jetzt wieder alles Ok. Ich habe aufgeräumt!!</div>
+                <div class="other">&nbsp;&nbsp;&nbsp; -half</div>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'money',
         ],
-        'dv_038' => [
+        'coloc_de' => [
             'title' => 'WG',
             'author' => null,
             'content' => [
-                ''
+                '<h1>Suche Mitbewohner</h1>
+                <p>Männlicher Bürger sucht einen Mitbewohner für sein verbarrikadiertes Haus im Norden der Stadt. Es handelt sich um eine ruhige Lage, weit ab von den Baustellen. Der <strong>Brunnen</strong> sowie andere Ablenkungsmöglichkeiten (Galgen u.ä.) befinden sich in unmittelbarer Nähe.</p>
+                <p>Verbannte und Infizierte bitte nicht bewerben. Potenzielle Kandidaten müssen ihre Nahrung und Medikamente selbst mitbringen.</p>
+                <p>Nahrungsmittel und andere wichtige Gegenstände werden in der WG nicht geteilt.</p>
+                <p>Interessierte können sich bei "Kosi" melden ;-)</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'carton',
         ],
         'dv_039' => [
             'title' => 'Zahlen',
@@ -581,6 +795,50 @@ class TextFixtures extends Fixture
                 ''
             ],
             'lang' => 'de'
+        ],
+        'binary' => [
+            'title' => 'Zerknitterter Programmausdruck',
+            'author' => null,
+            'content' => [
+                '<p><small>[Anfang der Übertragung]</small></p>
+                <p>01000011 01100101 01100011 01101001 00100000 01100101 01110011 01110100 00100000 01110101 01101110 00100000 01101101 01100101 01110011 01110011 01100001 01100111 01100101 00100000 01100100 01100101 00100000 01100100 11101001 01110100 01110010 01100101 01110011 01110011 01100101 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01001101 00100111 01100101 01101110 01110100 01100101 01101110 01100100 01100101 01111010 00101101 01110110 01101111 01110101 01110011 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01000001 01101100 01101100 01101111 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01011001 00100000 01100001 00100000</p>',
+                '<p>01110001 01110101 01100101 01101100 01110001 01110101 00100111 01110101 01101110 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01010000 01101001 01110100 01101001 11101001 00101100 00100000 01100001 01101001 01100100 01100101 01111010 00100000 01101101 01101111 01101001 00100000 01000110 01001001 01001110 00101110</p>
+                <p><small>[Ende der Übertragung]</small></p>
+                <p><small>ETR: 01/04 23h16 - An error has occurred: corrupt data - status : <strike>IGNORED</strike></small></p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'printer',
+        ],
+        'uereg' => [
+            'title' => 'Überlebensregeln',
+            'author' => 'Schmerzengel',
+            'content' => [
+                '<h1>Schmerzengels Überlebensregeln</h1>
+                <p>Punkt 1.
+                <br>
+                Stehle niemandem sein Wasser, außer Du hast keines.	
+                </p>
+                <p>Punkt 2.
+                <br>
+                Gehe nur mit Waffen und Proviant in die Außenwelt. Solltest Du beides nicht haben. Nimm jemanden mit, der langsamer läuft als DU.	
+                </p>
+                <p>Punkt 3.
+                <br>
+                Wenn Du Nahrung findest, laß erst Deinen Kameraden davon essen. Er ist bestimmt genau so hungrig wie Du.	
+                </p>',
+                '<p>Punkt 4.
+                <br>
+                Mit einer Fackel in der Hand ist der Verdammte gleich entbrannt.	
+                </p>
+                <p>Punkt 5.
+                <br>
+                Wenn Du meinst es geht nichts mehr kommt von irgendwo ....ach was soll´s. Ich bin ehrlich zu Dir. Du hast verschissen. Punkt.	
+                </p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
         ],
         /**
          * FRENCH ROLE PLAY TEXTS
