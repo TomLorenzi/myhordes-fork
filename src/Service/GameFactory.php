@@ -123,6 +123,8 @@ class GameFactory
     ];
 
     public function createTownName($language): string {
+        if(!isset(static::$town_name_snippets[$language]))
+            $language = 'de';
         return implode(' ', array_map(function(array $list): string {
             return $list[ array_rand( $list ) ];
         }, static::$town_name_snippets[$language][array_rand( static::$town_name_snippets[$language] )]));
