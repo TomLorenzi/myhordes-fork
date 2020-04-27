@@ -364,5 +364,14 @@
         <target>Bitte wähle nur eine einzige Datei aus.</target>
       </segment>
     </unit>
+    <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
+      <notes>
+        <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
+      </notes>
+      <segment>
+        <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
+        <target>Préférer l'affichage compressé des avatars</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
