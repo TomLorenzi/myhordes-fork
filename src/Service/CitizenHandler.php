@@ -286,8 +286,8 @@ class CitizenHandler
         else {
             $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
 
-            $has_clean_body = false; // TODO: Add hero experience clean body
-            $has_body_armor = false; // TODO: Add hero experience body armor
+            $has_clean_body = true; // TODO: Add hero experience clean body
+            $has_body_armor = true; // TODO: Add hero experience body armor
 
             if ($this->hasStatusEffect( $citizen, 'clean', false ) && $has_clean_body) $base += 1;
             if ($citizen->getProfession()->getHeroic() && $has_body_armor)             $base += 1;
