@@ -195,7 +195,7 @@ class ZoneHandler
 
         if ($chances_by_escorts > 0) {
             if (empty($found_by_escorts) && $chances_by_escorts === 1) $ret_str[] = $this->trans->trans( 'Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...', [], 'game' );
-            if (empty($found_by_escorts) && $chances_by_escorts > 1)   $ret_str[] = $this->trans->trans( 'Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...', [], 'game' );
+            elseif (empty($found_by_escorts) && $chances_by_escorts > 1) $ret_str[] = $this->trans->trans( 'Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...', [], 'game' );
             elseif ($chances_by_escorts === 1) $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' );
             else $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' );
         }

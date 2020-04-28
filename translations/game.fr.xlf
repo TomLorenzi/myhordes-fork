@@ -8601,7 +8601,7 @@
       </notes>
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
-        <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
+        <target>Après des recherches épuisantes, ce citoyen n'a finalement rien trouvé...</target>
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -8610,7 +8610,7 @@
       </notes>
       <segment>
         <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
-        <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
+        <target>Après des recherches épuisantes, votre expédition n'a finalement rien trouvé...</target>
       </segment>
     </unit>
     <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
