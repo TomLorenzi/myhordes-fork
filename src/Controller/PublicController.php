@@ -103,7 +103,7 @@ class PublicController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
+        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2','privacy'], true ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (in_array($parser->trimmed('user', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe']))
@@ -123,6 +123,7 @@ class PublicController extends AbstractController
                 ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
+            'privacy' => new Constraints\IsTrue(['message' => $translator->trans('Du musst die Datenschutzerklärung lesen und akzeptieren.'), [], 'login']),
         ]) );
 
         if ($violations->count() === 0) {
@@ -237,6 +238,15 @@ class PublicController extends AbstractController
     public function welcome(): Response
     {
         return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs());
+    }
+
+    /**
+     * @Route("jx/public/privacy", name="public_privacy")
+     * @return Response
+     */
+    public function privacy(): Response
+    {
+        return $this->render('ajax/public/privacy.html.twig', $this->addDefaultTwigArgs());
     }
 
 }
