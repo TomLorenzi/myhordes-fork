@@ -419,18 +419,19 @@ class SoulController extends AbstractController
                 if ($im_image->getImageFormat() === 'GIF') {
                     $im_image->coalesceImages();
                     $im_image->resetImagePage('0x0');
+                    $im_image->setFirstIterator();
                 }
 
                 $w = $im_image->getImageWidth();
                 $h = $im_image->getImageHeight();
 
-                if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 30 || $w < 90)
-                    return AjaxResponse::error( self::ErrorAvatarResolutionUnacceptable );
+                if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
+                    return AjaxResponse::error( self::ErrorAvatarResolutionUnacceptable, [$w,$h,$im_image->getImageFormat() ] );
 
-                if ( max($w,$h) > 200 &&
+                if ( (max($w,$h) > 200 || min($w,$h < 90)) &&
                     !$im_image->resizeImage(
-                        min(200,max(100,$w,$h)),
-                        min(200,max(100,$w,$h)),
+                        min(200,max(90,$w,$h)),
+                        min(200,max(90,$w,$h)),
                         imagick::FILTER_SINC, 1, true )
                 ) return AjaxResponse::error( self:: ErrorAvatarProcessingFailed );
 
