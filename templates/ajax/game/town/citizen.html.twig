@@ -31,11 +31,17 @@
                 <div class="cell-small rw-5 rw-lg-0" style="background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/empty_avatar.gif') }}') center/cover no-repeat">
 
                 </div>
-                {% if citizen.isOnline() %}
-                    <div class="cell-small rw-1 citizen-online">&nbsp;</div>
+
+                {% if citizen.alive %}
+                    {% if citizen.isOnline() %}
+                        <div class="cell-small rw-1 citizen-online">&nbsp;</div>
+                    {% else %}
+                        <div class="cell-small rw-1 citizen-offline">&nbsp;</div>
+                    {% endif %}
                 {% else %}
-                    <div class="cell-small rw-1 citizen-offline">&nbsp;</div>
+                    <div class="cell-small rw-1 citizen-dead">&nbsp;</div>
                 {% endif %}
+                
                 <div class="padded cell-small rw-7 rw-sm-3 small citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}">
                     <div>
                         {% if citizen.alive %}
