@@ -62,7 +62,7 @@
 <script>
     (function() {
 
-        // Cusotmized Hordes plugins for Suneditor
+        // Customized Hordes plugins for Suneditor
         // ex) A command plugin to add "Range format element(util.isRangeFormatElement)" to selection
         var spoiler_command = {
             // @Required @Unique
@@ -73,7 +73,7 @@
             display: 'command',
 
             // @Options
-            title: 'Add range tag',
+            title: 'Spoiler',
             buttonClass: '',
             innerHTML: '<i class="fas fa-carrot"></i>',
 
@@ -179,7 +179,7 @@
             ],
             // Insert options
             // Language global object (default: en)
-            //lang: window.SUNEDITOR_LANG['de']
+            //lang: SUNEDITOR_LANG."{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
         });
 
         const allowed_nodes  = [ 'br', 'b', 'strong', 'i', 'u', 'strike', 'div', 'blockquote', 'hr', 'ul', 'ol', 'li', 'style' ];

@@ -139,6 +139,11 @@
             {% if locked %}
                 <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
             {% endif %}
+            {% if not pinned %}
+                <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Anpinnen'|trans({},'global') }}</div>
+            {% else %}
+                <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Loslösen'|trans({},'global') }}</div>
+            {% endif %}
         {% endif %}
         </div>
         <div class="cell rw-6 right">
@@ -171,6 +176,19 @@
             let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
             unlock_button.addEventListener('click', function() {
                 $.ajax.no_history().load( null, '{{ url('forum_thread_unlock_controller', {fid: fid, tid: tid}) }}', false )
+            })
+        {% endif %}
+
+        {% if not pinned %}
+            let pin_button = document.querySelector('[x-forum-moderator-action=pin]');
+            pin_button.addEventListener('click', function() {
+                
+                $.ajax.no_history().load( null, '{{ url('forum_thread_pin_controller', {fid: fid, tid: tid}) }}', false )
+            })
+        {% else %}
+            let unpin_button = document.querySelector('[x-forum-moderator-action=unpin]');
+            unpin_button.addEventListener('click', function() {
+                $.ajax.no_history().load( null, '{{ url('forum_thread_unpin_controller', {fid: fid, tid: tid}) }}', false )
             })
         {% endif %}
     {% endif %}

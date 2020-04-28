@@ -58,7 +58,8 @@ class ZoneHandler
         $chances_by_escorts = 0;
         $found_by_player = [];
         $found_by_escorts = [];
-        $noPlaceLeftMsg = "";
+        $ret_str = [];
+
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
         $cp = 0;
@@ -145,7 +146,10 @@ class ZoneHandler
                         if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $timer->getZone()->getFloor() ] )) {
                             if($inventoryDest == $timer->getZone()->getFloor()){
                                 $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
-                                $noPlaceLeftMsg = $this->trans->trans('Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...', [], 'game');
+                                if ($current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId())
+                                    $ret_str[] = $this->trans->trans('Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.', [], 'game');
+                                else
+                                    $ret_str[] = $this->trans->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                             }
                             $this->entity_manager->persist( $item );
                             $this->entity_manager->persist( $current_citizen->getInventory() );
@@ -179,25 +183,25 @@ class ZoneHandler
             }, $a));
         };
 
-        $ret_str = [];
-
         if ($chances_by_player > 0) {
             if (empty($found_by_player))
-                $ret_str[] = $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' );
+                array_unshift($ret_str, $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             elseif (count($found_by_player) === 1)
-                $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                     '%item%' => $wrap($found_by_player)
-                ], 'game' );
-            else $ret_str[] = $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%', ['%items%' => $wrap($found_by_player)], 'game' );
-            if(!empty($noPlaceLeftMsg))
-                $ret_str[] = $noPlaceLeftMsg;
+                ], 'game' ));
+            else array_unshift($ret_str, $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%', ['%items%' => $wrap($found_by_player)], 'game' ));
         }
 
         if ($chances_by_escorts > 0) {
-            if (empty($found_by_escorts) && $chances_by_escorts === 1) $ret_str[] = $this->trans->trans( 'Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...', [], 'game' );
-            if (empty($found_by_escorts) && $chances_by_escorts > 1)   $ret_str[] = $this->trans->trans( 'Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...', [], 'game' );
-            elseif ($chances_by_escorts === 1) $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' );
-            else $ret_str[] = $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' );
+            if (empty($found_by_escorts) && $chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...', [], 'game' ));
+            elseif (empty($found_by_escorts) && $chances_by_escorts > 1) array_unshift($ret_str, $this->trans->trans( 'Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...', [], 'game' ));
+            elseif ($chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' ));
+            else array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' ));
+        }
+
+        if(($chances_by_player > 0 || $chances_by_escorts > 0) && $zone->getDigs() <= 0) {
+            $ret_str[] = $this->trans->trans("Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.", [], "game");
         }
 
         return empty($ret_str) ? null : implode('<hr />', $ret_str);

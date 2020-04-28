@@ -103,6 +103,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_yet_home_heal_2'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_heal_2' ] ]],
             'not_yet_home_defbuff'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_defbuff' ] ]],
             'not_yet_rested'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_rested' ]  ]],
+            'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_immune' ]  ]],
+            'immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_immune' ]  ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -248,6 +250,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'infect'       => [ 'status' => 'add_infection' ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
+            'give_immune'  => [ 'status' => 'immune'],
 
             'minus_1ap'    => [ 'ap' => 'minus_1' ],
             'minus_5ap'    => [ 'ap' => 'minus_5' ],
@@ -349,6 +352,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'inflict_wound' => [ 'from' => null, 'to' => 'tg_meta_wound' ],
                 'heal_wound'    => [ 'from' => 'tg_meta_wound', 'to' => null ],
                 'add_bandage'   => [ 'from' => null, 'to' => 'healed' ],
+                'immune'   => [ 'from' => null, 'to' => 'tg_immune' ],
 
                 'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
                 'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
@@ -404,6 +408,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_kill_1z_85' => [[['do_nothing'], 15], [['kill_1_zombie'], 85]],
 
                 'g_kill_2z_80' => [[['do_nothing'], 20], [['kill_2_zombie'], 80]],
+                'g_immune_70' => [[['do_nothing'], 30], [['give_immune'], 70]],
 
             ],
 
@@ -424,10 +429,15 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'water_tl1b' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'reset_thirst_counter',               'drink_ap_2',  'consume_item' ] ],
             'water_tl2'  => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [                              'drink_tl2'                ], 'result' => [ 'reset_thirst_counter',               'drink_no_ap', 'consume_item' ] ],
 
-            'potion_tl0'  => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1',                'consume_item' ] ],
-            'potion_tl1a' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [               'drink_hide',  'drink_tl1'                ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'consume_item' ] ],
-            'potion_tl1b' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'reset_thirst_counter',               'drink_ap_2',  'consume_item' ] ],
-            'potion_tl2'  => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [                              'drink_tl2'                ], 'result' => [ 'reset_thirst_counter',               'drink_no_ap', 'consume_item' ] ],
+
+            'potion_tl0'         => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_yet_immune', 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1',                'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...' ],
+            'potion_tl1a'        => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_yet_immune',               'drink_hide',  'drink_tl1'                ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...' ],
+            'potion_tl1b'        => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_yet_immune',               'drink_rhide', 'drink_tl1'                ], 'result' => [ 'reset_thirst_counter',               'drink_ap_2',  'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...' ],
+            'potion_tl2'         => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_yet_immune',                              'drink_tl2'                ], 'result' => [ 'reset_thirst_counter',               'drink_no_ap', 'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...' ],
+            'potion_tl0_immune'  => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'immune',         'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1',                'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!' ],
+            'potion_tl1a_immune' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'immune',                       'drink_hide',  'drink_tl1'                ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!' ],
+            'potion_tl1b_immune' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'immune',                       'drink_rhide', 'drink_tl1'                ], 'result' => [ 'reset_thirst_counter',               'drink_ap_2',  'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!' ],
+            'potion_tl2_immune'  => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'immune',                                      'drink_tl2'                ], 'result' => [ 'reset_thirst_counter',               'drink_no_ap', 'consume_item', ['group' => 'g_immune_70'], ], 'message' => 'Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!' ],
 
             'watercan3_tl0'  => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'no_full_ap', 'drink_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1',                'produce_watercan2' ] ],
             'watercan3_tl1a' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [               'drink_hide',  'drink_tl1'                ], 'result' => [ 'reset_thirst_counter', 'drink_ap_1', 'drink_ap_2',  'produce_watercan2' ] ],
@@ -754,7 +764,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         'items' => [
             'water_#00'           => [ 'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2' ],
             'water_cup_#00'       => [ 'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2' ],
-            'potion_#00'          => [ 'potion_tl0', 'potion_tl1a', 'potion_tl1b', 'potion_tl2' ],
+            'potion_#00'          => [ 'potion_tl0', 'potion_tl1a', 'potion_tl1b', 'potion_tl2', 'potion_tl0_immune', 'potion_tl1a_immune', 'potion_tl1b_immune', 'potion_tl2_immune' ],
 
             'water_can_3_#00'     => [ 'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2' ],
             'water_can_2_#00'     => [ 'fill_watercan2', 'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2' ],

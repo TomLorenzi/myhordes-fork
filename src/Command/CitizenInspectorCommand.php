@@ -44,7 +44,7 @@ class CitizenInspectorCommand extends Command
     }
 
     protected function info(Citizen &$citizen, OutputInterface $output) {
-        $output->writeln("This is a citizen of '<info>{$citizen->getTown()->getName()}</info>'.");
+        $output->writeln("<info>{$citizen->getUser()->getUsername()}</info> is a citizen of '<info>{$citizen->getTown()->getName()}</info>'.");
 
         $output->writeln('<comment>Citizen info</comment>');
         $table = new Table( $output );
