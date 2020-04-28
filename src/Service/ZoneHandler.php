@@ -144,8 +144,8 @@ class ZoneHandler
 
                         $item = $this->item_factory->createItem($item_prototype);
                         if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $timer->getZone()->getFloor() ] )) {
-                            if($inventoryDest == $timer->getZone()->getFloor()){
-                                $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
+                            if($inventoryDest->getId() === $timer->getZone()->getFloor()->getId()){
+                                $this->entity_manager->persist($this->log->beyondItemLog($current_citizen, $item, true));
                                 if ($current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId())
                                     $ret_str[] = $this->trans->trans('Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.', [], 'game');
                                 else
