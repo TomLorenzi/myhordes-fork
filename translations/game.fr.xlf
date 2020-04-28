@@ -1966,7 +1966,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</source>
-        <target> Vous avez été banni et ne pouvez plus travailler aux chantiers.</target>
+        <target>Vous avez été banni et ne pouvez plus travailler aux chantiers.</target>
       </segment>
     </unit>
     <unit id="m_7J.WC" name="Baustellenregister">
