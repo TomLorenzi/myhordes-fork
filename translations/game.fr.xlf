@@ -6043,8 +6043,6 @@
     </unit>
     <unit id="vR5IoMk" name="Nach einigen Anstrengungen hast du folgendes gefunden: %item%!">
       <notes>
-        <note>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</note>
-        <note>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</note>
         <note category="german">Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</note>
       </notes>
       <segment>
@@ -8621,7 +8619,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
+        <target>Après de longues recherches, ce citoyen a fini par trouver %item% par terre...</target>
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
