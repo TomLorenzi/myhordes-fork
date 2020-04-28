@@ -417,6 +417,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        if ($this->getActiveCitizen()->getBanished())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
         $severity = (int)$parser->get('severity', -1);
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
@@ -1119,6 +1122,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function dashboard_save_wordofheroes_api(JSONRequestParser $parser): Response {
         if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_WORDS_OF_HEROS, false) || !$this->getActiveCitizen()->getProfession()->getHeroic())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         // Get town

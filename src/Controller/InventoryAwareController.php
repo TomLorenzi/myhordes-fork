@@ -264,7 +264,6 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC')
-            ->addOrderBy('i.count', 'DESC')
             ->addOrderBy('p.id', 'ASC')
             ->addOrderBy('i.id', 'ASC')
             ->getQuery();

@@ -28,12 +28,8 @@
         {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.username|lower <=> b.user.username|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row pointer{% if citizen == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                <div class="cell-small rw-5 rw-lg-0">
-                    {% if citizen.user.avatar %}
-                        <div class="avatar small raw"><img alt="" src="{{ path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) }}"></div>
-                    {% else %}
-                        <div class="avatar small raw"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
-                    {% endif %}
+                <div class="cell-small rw-5 rw-lg-0" style="background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/empty_avatar.gif') }}') center/cover no-repeat">
+
                 </div>
                 {% if citizen.isOnline() %}
                     <div class="cell-small rw-1 citizen-online">&nbsp;</div>

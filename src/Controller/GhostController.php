@@ -135,9 +135,9 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
     public function getMinOpenTownClass(MyHordesConf $conf): array {
         return [
-            'small' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 2 ),
-            'remote' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 4 ),
-            'panda' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 2 ),
+            'small' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_SMALL, 1 ),
+            'remote' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_REMOTE, 1 ),
+            'panda' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_PANDA, 1 ),
             'custom' => $conf->get( MyHordesConf::CONF_TOWNS_OPENMIN_CUSTOM, 0 ),
         ];
     }
