@@ -289,8 +289,14 @@ class CitizenHandler
             $has_clean_body = true; // TODO: Add hero experience clean body
             $has_body_armor = true; // TODO: Add hero experience body armor
 
-            if ($this->hasStatusEffect( $citizen, 'clean', false ) && $has_clean_body) $base += 1;
-            if ($citizen->getProfession()->getHeroic() && $has_body_armor)             $base += 1;
+            if ($citizen->getProfession()->getHeroic() 
+                    && $this->hasStatusEffect( $citizen, 'clean', false ) 
+                    && $has_clean_body)  
+                $base += 1;
+
+            if ($citizen->getProfession()->getHeroic() 
+                    && $has_body_armor)             
+                $base += 1;
 
             if (!empty($this->inventory_handler->fetchSpecificItems(
                 $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
