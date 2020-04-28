@@ -31,6 +31,8 @@
             <div class="forum-post">
                 {% if post.owner.username == 'Der Rabe' %}
                     <div class="forum-post-header-crow">
+                {% elseif post.type == "DEV" %}
+                    <div class="forum-post-header-dev">                        
                 {% else %}
                     <div class="forum-post-header">
                 {% endif %}
@@ -63,6 +65,9 @@
                     <b>
                         {% if post.owner.username == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
+                        {% elseif post.type == "DEV" %}
+                            {{ post.owner.username }}
+                            <img src="{{ asset('build/images/small_admin.gif') }}" />
                         {% else %}
                             {{ post.owner.username }}
                         {% endif %}

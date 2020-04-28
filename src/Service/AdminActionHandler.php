@@ -112,7 +112,9 @@ class AdminActionHandler
         $post = (new Post())
             ->setOwner( $theCrow )
             ->setText( $text )
-            ->setDate( new DateTime('now') );
+            ->setDate( new DateTime('now') )
+            ->setType("CROW");
+            
         $thread->addPost($post)->setLastPost( $post->getDate() );
         try {
             $this->entity_manager->persist($thread);
