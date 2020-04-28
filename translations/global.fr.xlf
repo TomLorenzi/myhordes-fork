@@ -721,5 +721,23 @@
         <target>Effacer</target>
       </segment>
     </unit>
+    <unit id="_zZCBE9" name="Anpinnen">
+      <notes>
+        <note category="german">Anpinnen</note>
+      </notes>
+      <segment>
+        <source>Anpinnen</source>
+        <target>Anpinnen</target>
+      </segment>
+    </unit>
+    <unit id="Bw5vcAl" name="Loslösen">
+      <notes>
+        <note category="german">Loslösen</note>
+      </notes>
+      <segment>
+        <source>Loslösen</source>
+        <target>Loslösen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
