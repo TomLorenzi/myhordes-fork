@@ -46,6 +46,7 @@
 }
 
 .forum-post {
+  &:before, &:after { content: " "; clear: both; display: table; }
   background-color: #4a261e; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
   border: 1px solid #704328; margin-bottom: 10px;
 
@@ -60,9 +61,20 @@
     &:after {display: block; height: 0;}
   }
 
+  &>.forum-post-header-crow {
+    display: block; background: #773939; padding: 4px; min-height: 40px;
+    &>b { padding: 5px; }
+    &>i { float: right; font-size: 0.8em; }
+    &>span { font-size: 0.8em; opacity: 0.5; float: right }
+    &>.avatar { margin: 0 5px 0 10px; float: left }
+    &:before, &:after {content: " "; clear: right;}
+    &:before { display: table;}
+    &:after {display: block; height: 0;}
+  }
+
   &>.forum-post-content {
-    padding-left: 10px; padding-top: 10px; max-height: 750px; overflow: auto;
-    background-color: #4a261e;
+    padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/
+    background-color: #4a261e; padding-right: 4px; word-break: break-word;
     b, strong {
       color: #afb3cf;
       text-transform: initial;
@@ -159,8 +171,17 @@
     &:before, &:after {content: " "; clear: both;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
+  }
 
-    
+  &>.forum-post-header-crow {
+    display: block; background: #773939; padding: 4px; min-height: 40px;
+    &>b { padding: 5px; }
+    &>i { float: right; font-size: 0.8em; }
+    &>span { font-size: 0.8em; opacity: 0.5; float: right }
+    &>.avatar { margin: 0 5px 0 10px; float: left }
+    &:before, &:after {content: " "; clear: right;}
+    &:before { display: table;}
+    &:after {display: block; height: 0;}
   }
 
   &:hover >.forum-post-content {

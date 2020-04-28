@@ -28,12 +28,8 @@
         {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.username|lower <=> b.user.username|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row pointer{% if citizen == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                <div class="cell-small rw-5 rw-lg-0">
-                    {% if citizen.user.avatar %}
-                        <div class="avatar small raw"><img alt="" src="{{ path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) }}"></div>
-                    {% else %}
-                        <div class="avatar small raw"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
-                    {% endif %}
+                <div class="cell-small rw-5 rw-lg-0" style="background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/empty_avatar.gif') }}') center/cover no-repeat">
+
                 </div>
                 {% if citizen.isOnline() %}
                     <div class="cell-small rw-1 citizen-online">&nbsp;</div>
@@ -42,7 +38,6 @@
                 {% endif %}
                 <div class="padded cell-small rw-7 rw-sm-3 small citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}">
                     <div>
-
                         {% if citizen.alive %}
                             {% if citizen.banished %}
                                 <img alt="" src="{{ asset('build/images/banished.gif') }}" />
@@ -82,7 +77,7 @@
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                         <span class="citizen-defense">{{ citizen.home.prototype.defense + citizen.home.additionalDefense }} pts</span>
                     </div>
-                    <div class="padded cell rw-3 small right citizen-box">
+                    <div class="padded cell-small rw-3 small right citizen-box">
                     {% if not citizen.zone %}
                         {{ "In der Stadt"|trans({},'game') }}
                     {% else %}
@@ -96,9 +91,9 @@
                             {% endif %}
                         {% endif %}
                     {% endif %}
-                </div>
+                    </div>
                 {% else %}
-                    <div class="padded cell rw-6 hide-md hide-sm small citizen-box">
+                    <div class="padded cell-small rw-7 hide-md hide-sm small citizen-box">
                         {% if citizen.home.chest.items|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
                         {% endif %}
@@ -107,7 +102,7 @@
                             <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
                         {% endfor %}
                     </div>
-                    <div class="padded cell rw-4 rw-lg-3 rw-md-9 small citizen-box">
+                    <div class="padded cell-small rw-10 small citizen-box">
                         {% if citizen.lastWords is null %}
                             <span>--</span>
                         {% elseif citizen.lastWords is empty %}

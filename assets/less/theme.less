@@ -741,6 +741,7 @@ div.game-menu-area {
 
 div.ap      { .icon_div("../img/ap_small.gif", middle, 0); color: white; }
 div.bp      { .icon_div("../img/bp_small.gif", middle, 0); }
+div.pm      { .icon_div("../img/pm_small.gif", middle, 0); color: white; }
 div.defense { .icon_div("../img/small_def.gif", baseline, 2px); }
 
 ul.tabs {
@@ -980,5 +981,18 @@ div.daily-attack {
     width: 100%; height: 33.33333333333%; position: absolute; top: 0; left: 0;
     outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
   }
-  &.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
+&.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
+}
+
+.avatarcrow {
+  border: 1px solid #773939; outline: 1px solid red;
+  display: inline-block; box-shadow: 0 0 5px rgba(0,0,0,0.7); position: relative;
+  &:not(.small):not(.full)>img { max-width: 100px; max-height: 100px; }
+  &.small>img { width: 90px; height: 30px; object-fit: cover }
+  &.full>div.crop {
+    &>div { cursor: grab; position: absolute; top: 0; left: 0; right: 0; bottom: 0;  }
+    width: 100%; height: 33.33333333333%; position: absolute; top: 0; left: 0;
+    outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
+  }
+&.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
 }

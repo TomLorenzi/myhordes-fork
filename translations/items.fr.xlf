@@ -1202,8 +1202,6 @@
     </unit>
     <unit id="4yWesEi" name="Batteriewerfer 1-PDTG (entladen)">
       <notes>
-        <note>Batteriewerfer 1-PDTG (entladen)</note>
-        <note>Batteriewerfer 1-PDTG (entladen)</note>
         <note category="german">Batteriewerfer 1-PDTG (entladen)</note>
       </notes>
       <segment>
@@ -1213,8 +1211,6 @@
     </unit>
     <unit id="VjisjD7" name="Taser (ohne Strom)">
       <notes>
-        <note>Taser (ohne Strom)</note>
-        <note>Taser (ohne Strom)</note>
         <note category="german">Taser (ohne Strom)</note>
       </notes>
       <segment>
@@ -1224,8 +1220,6 @@
     </unit>
     <unit id="Pv.PdId" name="Elektrischer Bauchmuskeltrainer (ohne Strom)">
       <notes>
-        <note>Elektrischer Bauchmuskeltrainer (ohne Strom)</note>
-        <note>Elektrischer Bauchmuskeltrainer (ohne Strom)</note>
         <note category="german">Elektrischer Bauchmuskeltrainer (ohne Strom)</note>
       </notes>
       <segment>
@@ -1235,8 +1229,6 @@
     </unit>
     <unit id="OI3OQ.V" name="Elektrischer Bauchmuskeltrainer (geladen)">
       <notes>
-        <note>Elektrischer Bauchmuskeltrainer (geladen)</note>
-        <note>Elektrischer Bauchmuskeltrainer (geladen)</note>
         <note category="german">Elektrischer Bauchmuskeltrainer (geladen)</note>
       </notes>
       <segment>
@@ -1246,8 +1238,6 @@
     </unit>
     <unit id="bZVhk3Y" name="Zerstörer (entladen)">
       <notes>
-        <note>Zerstörer (entladen)</note>
-        <note>Zerstörer (entladen)</note>
         <note category="german">Zerstörer (entladen)</note>
       </notes>
       <segment>
@@ -1257,8 +1247,6 @@
     </unit>
     <unit id="6JzGDe3" name="Zerstörer (geladen)">
       <notes>
-        <note>Zerstörer (geladen)</note>
-        <note>Zerstörer (geladen)</note>
         <note category="german">Zerstörer (geladen)</note>
       </notes>
       <segment>
@@ -1268,19 +1256,15 @@
     </unit>
     <unit id="NWwA1_1" name="Unvollständiger Zerstörer">
       <notes>
-        <note>Unvollständiger Zerstörer</note>
-        <note>Unvollständiger Zerstörer</note>
         <note category="german">Unvollständiger Zerstörer</note>
       </notes>
       <segment>
         <source>Unvollständiger Zerstörer</source>
-        <target>Devastatpor incomplet</target>
+        <target>Devastator incomplet</target>
       </segment>
     </unit>
     <unit id=".NeFZzB" name="Zonenmarker 'Radius'">
       <notes>
-        <note>Zonenmarker 'Radius'</note>
-        <note>Zonenmarker 'Radius'</note>
         <note category="german">Zonenmarker 'Radius'</note>
       </notes>
       <segment>
@@ -3577,8 +3561,6 @@
     </unit>
     <unit id="J4KATtV" name="Bürgerbekleidung">
       <notes>
-        <note>Bürgerbekleidung</note>
-        <note>Bürgerbekleidung</note>
         <note category="german">Bürgerbekleidung</note>
       </notes>
       <segment>
@@ -3588,8 +3570,6 @@
     </unit>
     <unit id="tH36hZc" name="Dreckige Bürgerbekleidung">
       <notes>
-        <note>Dreckige Bürgerbekleidung</note>
-        <note>Dreckige Bürgerbekleidung</note>
         <note category="german">Dreckige Bürgerbekleidung</note>
       </notes>
       <segment>
@@ -3599,8 +3579,6 @@
     </unit>
     <unit id="Ppxhgkz" name="Tarnanzug">
       <notes>
-        <note>Tarnanzug</note>
-        <note>Tarnanzug</note>
         <note category="german">Tarnanzug</note>
       </notes>
       <segment>
@@ -3610,8 +3588,6 @@
     </unit>
     <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
       <notes>
-        <note>Tarnanzug (abgelegt)</note>
-        <note>Tarnanzug (abgelegt)</note>
         <note category="german">Tarnanzug (abgelegt)</note>
       </notes>
       <segment>
@@ -3751,8 +3727,6 @@
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
-        <note>Öffnen</note>
-        <note>Öffnen</note>
         <note category="german">Öffnen</note>
       </notes>
       <segment>
@@ -3773,8 +3747,6 @@
     </unit>
     <unit id="ohJAffK" name="Essen">
       <notes>
-        <note>Essen</note>
-        <note>Essen</note>
         <note category="german">Essen</note>
       </notes>
       <segment>
@@ -3795,8 +3767,6 @@
     </unit>
     <unit id="yvLm0Wo" name="Einsetzen">
       <notes>
-        <note>Einsetzen</note>
-        <note>Einsetzen</note>
         <note category="german">Einsetzen</note>
       </notes>
       <segment>
@@ -3815,8 +3785,6 @@
     </unit>
     <unit id="v4TehoJ" name="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
       <notes>
-        <note>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</note>
-        <note>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</note>
         <note category="german">Du hast die {item} geöffnet und darin {items_spawn} gefunden!</note>
       </notes>
       <segment>
@@ -3826,8 +3794,6 @@
     </unit>
     <unit id="TbNnR3t" name="2055760">
       <notes>
-        <note>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</note>
-        <note>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</note>
         <note category="german">&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</note>
       </notes>
       <segment>
@@ -3837,8 +3803,6 @@
     </unit>
     <unit id="ANXSLZW" name="Laden">
       <notes>
-        <note>Laden</note>
-        <note>Laden</note>
         <note category="german">Laden</note>
       </notes>
       <segment>
@@ -3859,8 +3823,6 @@
     </unit>
     <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
       <notes>
-        <note>Hierfür brauchst du eine Batterie.</note>
-        <note>Hierfür brauchst du eine Batterie.</note>
         <note category="german">Hierfür brauchst du eine Batterie.</note>
       </notes>
       <segment>
@@ -3870,8 +3832,6 @@
     </unit>
     <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
       <notes>
-        <note>Hierfür brauchst du einen Kanister.</note>
-        <note>Hierfür brauchst du einen Kanister.</note>
         <note category="german">Hierfür brauchst du einen Kanister.</note>
       </notes>
       <segment>
@@ -3881,8 +3841,6 @@
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
       <notes>
-        <note>Waffe einsetzen</note>
-        <note>Waffe einsetzen</note>
         <note category="german">Waffe einsetzen</note>
       </notes>
       <segment>
@@ -3892,19 +3850,15 @@
     </unit>
     <unit id="LNBNFk1" name="Zum Glück sind hier keine Zombies...">
       <notes>
-        <note>Zum Glück sind hier keine Zombies...</note>
-        <note>Zum Glück sind hier keine Zombies...</note>
         <note category="german">Zum Glück sind hier keine Zombies...</note>
       </notes>
       <segment>
         <source>Zum Glück sind hier keine Zombies...</source>
-        <target>Par chance, il n'y a aucun zombie...</target>
+        <target>Il n'y a pas de zombie dans le coin...</target>
       </segment>
     </unit>
     <unit id="3Kj2SRD" name="Lesen">
       <notes>
-        <note>Lesen</note>
-        <note>Lesen</note>
         <note category="german">Lesen</note>
       </notes>
       <segment>
@@ -3914,19 +3868,15 @@
     </unit>
     <unit id="g7lA4hJ" name="75edd8c">
       <notes>
-        <note>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
-        <note>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
         <note category="german">Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Vous trouvez un écrit nommé {rp_text}. Vous commencez à le lire<t-rp_ok> ! Ce texte à été ajouté à vos archives !</t-rp_ok><t-rp_fail>... Malheureusement, vous vous rendez compte que vous connaissez déjà ce texte.</t-rp_fail>]]></target>
+        <target><![CDATA[Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...<t-rp_ok>Un nouveau document a été ajouté à vos écrits !</t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc pas de distinction supplémentaire.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
       <notes>
-        <note>Werfen</note>
-        <note>Werfen</note>
         <note category="german">Werfen</note>
       </notes>
       <segment>
@@ -5610,7 +5560,7 @@
       </notes>
       <segment>
         <source>Eine Medikamentenschachtel, dessen Etikett abgerissen wurde... Die darin eingepackten Pillen sind größtenteils verschimmelt. Allerdings findest du welche, die noch einigermaßen "genießbar" sind. Um das zu schlucken, muss es dir schon wirklich schlecht gehen...</source>
-        <target>Une boîte de médicaments dont l'étiquette est complètement effacée.Les cachets dedans sont pour la plupart moisis, mais vous en trouver quelques uns qui soient encore “consommables”. Mais êtes-vous suffisamment mal pour pouvoir avaler ça ?</target>
+        <target>Une boîte de médicaments dont l'étiquette est complètement effacée... Les cachets dedans sont pour la plupart moisis, mais vous en trouver quelques uns qui soient encore "consommables". Mais êtes-vous suffisamment mal pour pouvoir avaler ça ?</target>
       </segment>
     </unit>
     <unit id="KrhMddH" name="a79453b">

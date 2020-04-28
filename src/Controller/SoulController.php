@@ -416,8 +416,11 @@ class SoulController extends AbstractController
                 if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
                     return AjaxResponse::error( self::ErrorAvatarFormatUnsupported );
 
-                $im_image->coalesceImages();
-                $im_image->resetImagePage('0x0');
+                if ($im_image->getImageFormat() === 'GIF') {
+                    $im_image->coalesceImages();
+                    $im_image->resetImagePage('0x0');
+                }
+
                 $w = $im_image->getImageWidth();
                 $h = $im_image->getImageHeight();
 
@@ -436,7 +439,10 @@ class SoulController extends AbstractController
                 if ($im_image->getImageFormat() !== "GIF")
                     $im_image = $im_image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
 
-                $im_image->setFirstIterator();
+                if ($im_image->getImageFormat() === 'GIF') {
+                    $im_image->setFirstIterator();
+                }
+
                 $w_final = $im_image->getImageWidth();
                 $h_final = $im_image->getImageHeight();
 

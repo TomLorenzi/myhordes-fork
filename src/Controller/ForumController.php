@@ -239,7 +239,6 @@ class ForumController extends AbstractController
             $tmp_str .= $dom->saveHTML($child);
 
         $post->setText( $tmp_str );
-
         if ($forum->getTown()) {
 
             foreach ( $forum->getTown()->getCitizens() as $citizen )

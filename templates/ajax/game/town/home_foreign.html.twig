@@ -75,10 +75,12 @@
                         {% endif %}
                     </div>
                 {% endif %}
-                {% if complaint is null or complaint.severity == 0 %}<button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>{% endif %}
-                {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
-                {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
-                {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
+                {% if not citizen.banished %}
+                    {% if complaint is null or complaint.severity == 0 %}<button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>{% endif %}
+                    {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
+                    {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
+                    {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
+                {% endif %}
             {% endif %}
             {% if owner.home.holdsBody %}
                 <button x-disposal-id="1">{{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">1</div>)</button>

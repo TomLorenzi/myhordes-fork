@@ -18,38 +18,38 @@ class ItemFixtures extends Fixture
     public static $item_category_data = [
 
         ["name" => "root_rsc" ,"label" => "Baustoffe"               ,"parent" => null,"ordering" => 0],
-            ["name" => "rsc_b","label" => "Grundlegend","parent" => "root_rsc", "ordering" => 1],
-            ["name" => "rsc"  ,"label" => "Sonstiges"  ,"parent" => "root_rsc", "ordering" => 2],
+            ["name" => "rsc_b","label" => "Grundlegend","parent" => "root_rsc", "ordering" => 0],
+            ["name" => "rsc"  ,"label" => "Sonstiges"  ,"parent" => "root_rsc", "ordering" => 0],
 
-        ["name" => "root_exp" ,"label" => "Expedition"              ,"parent" => null,"ordering" => 3],
-            ["name" => "exp_s","label" => "Nützliches"          ,"parent" => "root_exp","ordering" => 4],
-            ["name" => "camp" ,"label" => "Camping"             ,"parent" => "root_exp","ordering" => 5],
+        ["name" => "root_exp" ,"label" => "Expedition"              ,"parent" => null,"ordering" => 1],
+            ["name" => "exp_s","label" => "Nützliches"          ,"parent" => "root_exp","ordering" => 1],
+            ["name" => "camp" ,"label" => "Camping"             ,"parent" => "root_exp","ordering" => 1],
 
-        ["name" => "root_ein" ,"label" => "Einrichtungen","parent" => null,"ordering" => 6],
+        ["name" => "root_ein" ,"label" => "Einrichtungen","parent" => null,"ordering" => 2],
 
-        ["name" => "root_def",  "label" => "Verteidigung","parent" => null,"ordering" => 7],
-            ["name" => "armor" ,"label" => "Verteidigung"       ,"parent" => "root_def","ordering" => 8],
-            ["name" => "aud_n" ,"label" => "Nicht Einsatzbereit","parent" => "root_def","ordering" => 9],
+        ["name" => "root_def",  "label" => "Verteidigung","parent" => null,"ordering" => 3],
+            ["name" => "armor" ,"label" => "Verteidigung"       ,"parent" => "root_def","ordering" => 3],
+            ["name" => "aud_n" ,"label" => "Nicht Einsatzbereit","parent" => "root_def","ordering" => 3],
         
-        ["name" => "root_weapon","label" => "Waffenarsenal"             ,"parent" => null,"ordering" => 10],
-        ["name" => "root_exp_b", "label" => "Taschen und Behälter","parent" => null,"ordering" => 11],
+        ["name" => "root_weapon","label" => "Waffenarsenal"             ,"parent" => null,"ordering" => 4],
+        ["name" => "root_exp_b", "label" => "Taschen und Behälter","parent" => null,"ordering" => 4],
         
-        ["name" => "root_drug","label" => "Apotheke und Labor"      ,"parent" => null,"ordering" => 12],
-            ["name" => "drug_d","label" => "Drogen"                 ,"parent" => "root_drug","ordering" => 13],
-            ["name" => "drug"  ,"label" => "Chemikalien und Zubehör","parent" => "root_drug","ordering" => 14],
+        ["name" => "root_drug","label" => "Apotheke und Labor"      ,"parent" => null,"ordering" => 5],
+            ["name" => "drug_d","label" => "Drogen"                 ,"parent" => "root_drug","ordering" => 5],
+            ["name" => "drug"  ,"label" => "Chemikalien und Zubehör","parent" => "root_drug","ordering" => 5],
         
-        ["name" => "root_food","label" => "Grundnahrungsmittel"     ,"parent" => null,"ordering" => 15],
-            ["name" => "food"  ,"label" => "Nahrung und Wasser","parent" => "root_food","ordering" => 16],
-            ["name" => "food_7","label" => "Leckeres Essen"    ,"parent" => "root_food","ordering" => 17],
-            ["name" => "food_a","label" => "Alkohol"           ,"parent" => "root_food","ordering" => 18],
-            ["name" => "food_g","label" => "Menschenfleisch"   ,"parent" => "root_food","ordering" => 19],
-            ["name" => "food_n","label" => "Nicht Essbar"      ,"parent" => "root_food","ordering" => 20],
+        ["name" => "root_food","label" => "Grundnahrungsmittel"     ,"parent" => null,"ordering" => 6],
+            ["name" => "food"  ,"label" => "Nahrung und Wasser","parent" => "root_food","ordering" => 6],
+            ["name" => "food_7","label" => "Leckeres Essen"    ,"parent" => "root_food","ordering" => 6],
+            ["name" => "food_a","label" => "Alkohol"           ,"parent" => "root_food","ordering" => 6],
+            ["name" => "food_g","label" => "Menschenfleisch"   ,"parent" => "root_food","ordering" => 6],
+            ["name" => "food_n","label" => "Nicht Essbar"      ,"parent" => "root_food","ordering" => 6],
 
-        ["name" => "root_misc","label" => "Sonstiges"               ,"parent" => null,"ordering" => 21],
-            ["name" => "box"      ,"label" => "Kisten und Behälter","parent" => "root_misc","ordering" => 22],
-            ["name" => "imp"      ,"label" => "Wichtige Items"     ,"parent" => "root_misc","ordering" => 23],
-            ["name" => "furniture","label" => "Dekoration"         ,"parent" => "root_misc","ordering" => 24],
-            ["name" => "misc"     ,"label" => "Sonstige Items"     ,"parent" => "root_misc","ordering" => 25],
+        ["name" => "root_misc","label" => "Sonstiges"               ,"parent" => null,"ordering" => 7],
+            ["name" => "box"      ,"label" => "Kisten und Behälter","parent" => "root_misc","ordering" => 7],
+            ["name" => "imp"      ,"label" => "Wichtige Items"     ,"parent" => "root_misc","ordering" => 7],
+            ["name" => "furniture","label" => "Dekoration"         ,"parent" => "root_misc","ordering" => 7],
+            ["name" => "misc"     ,"label" => "Sonstige Items"     ,"parent" => "root_misc","ordering" => 7],
     ];
 
     public static $item_prototype_data = [
@@ -732,7 +732,7 @@ class ItemFixtures extends Fixture
     ];
     
     public static $item_prototype_properties = [
-        'saw_tool_#00'     => [ 'can_opener' ],
+        'saw_tool_#00'     => [ 'impoundable', 'can_opener' ],
         'can_opener_#00'   => [ 'impoundable', 'root_weapon', 'can_opener', 'box_opener' ],
         'screw_#00'        => [ 'impoundable', 'root_weapon', 'can_opener', 'box_opener' ],
         'swiss_knife_#00'  => [ 'impoundable', 'root_weapon', 'can_opener', 'box_opener' ],
