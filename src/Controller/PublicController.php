@@ -103,7 +103,7 @@ class PublicController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2','privacy'], true ))
+        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (in_array($parser->trimmed('user', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe']))
