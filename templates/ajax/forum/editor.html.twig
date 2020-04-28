@@ -60,7 +60,7 @@
 <script>
     (function() {
 
-        // Cusotmized Hordes plugins for Suneditor
+        // Customized Hordes plugins for Suneditor
         // ex) A command plugin to add "Range format element(util.isRangeFormatElement)" to selection
         var spoiler_command = {
             // @Required @Unique
@@ -71,7 +71,7 @@
             display: 'command',
 
             // @Options
-            title: 'Add range tag',
+            title: 'Spoiler',
             buttonClass: '',
             innerHTML: '<i class="fas fa-carrot"></i>',
 
@@ -177,7 +177,7 @@
             ],
             // Insert options
             // Language global object (default: en)
-            //lang: window.SUNEDITOR_LANG['de']
+            //lang: SUNEDITOR_LANG."{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
         });
 
         const allowed_nodes  = [ 'br', 'b', 'strong', 'i', 'u', 'strike', 'div', 'blockquote', 'hr', 'ul', 'ol', 'li', 'style' ];
@@ -256,7 +256,7 @@
             function changeHandler(){
                 document.getElementById('crow-checkbox').click();
                 if(document.getElementById('crow-checkbox').checked){
-                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";                
+                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Der Rabe'|trans({},'global') }}";                
                 }
                 else{
                     document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
@@ -283,7 +283,7 @@
                     target_payload = {
                         text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
                         {% if is_granted("ROLE_ADMIN") %}
-                        as_crow: document.getElementById('crow-checkbox').checked,
+                        as_crow: document.getElementById('crow-checkbox').checked
                         {% endif %}
                     };
                 {% endif %}

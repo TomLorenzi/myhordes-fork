@@ -423,6 +423,7 @@ class ForumController extends AbstractController
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
             'locked' => $thread->getLocked(),
+            'pinned' => $thread->getPinned(),
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
@@ -491,6 +492,33 @@ class ForumController extends AbstractController
      */
     public function unlock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
         $admh->unlockThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/pin", name="forum_thread_pin_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->pinThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+    }
+
+     /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unpin", name="forum_thread_unpin_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function unpin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->unpinThread($this->getUser()->getId(), $fid, $tid);
         return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
 
     }

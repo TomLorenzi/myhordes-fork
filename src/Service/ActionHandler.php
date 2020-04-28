@@ -806,9 +806,6 @@ class ActionHandler
 
                             if ($drink) $citizen->setWalkingDistance(0);
 
-                            file_put_contents("/tmp/dump.txt", "survivalist. drink $drink\n");
-                            file_put_contents("/tmp/dump.txt", "Déshydraté :{$this->citizen_handler->hasStatusEffect($citizen, 'thirst2')}\n", FILE_APPEND);
-
                             if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'thirst2')) {
                                 $this->citizen_handler->removeStatus($citizen, 'thirst2');
                                 $this->citizen_handler->inflictStatus($citizen, 'thirst1');
