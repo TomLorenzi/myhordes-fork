@@ -9050,5 +9050,50 @@
         <target>%citizen% hat beschlossen %target_citizen% hier zurückzulassen...</target>
       </segment>
     </unit>
+    <unit id="2MBbf8L" name="416726b">
+      <notes>
+        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+      </notes>
+      <segment>
+        <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
+        <target>Vous déblayez une partie du secteur, mais de nombreux débris obstruent encore le passage...</target>
+      </segment>
+    </unit>
+    <unit id="AL6LzU0" name="9a476a3">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
+        <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : %ruin% !</target>
+      </segment>
+    </unit>
+    <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
+      <notes>
+        <note category="german">%citizen% a convaincu %target_citizen% de le suivre.</note>
+      </notes>
+      <segment>
+        <source>%citizen% a convaincu %target_citizen% de le suivre.</source>
+        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
+      </segment>
+    </unit>
+    <unit id="VlmfWWl" name="Finalement, %citizen% a décidé de planter %target_citizen% là...">
+      <notes>
+        <note category="german">Finalement, %citizen% a décidé de planter %target_citizen% là...</note>
+      </notes>
+      <segment>
+        <source>Finalement, %citizen% a décidé de planter %target_citizen% là...</source>
+        <target>Finalement, %citizen% a décidé de planter %target_citizen% là...</target>
+      </segment>
+    </unit>
+    <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
+      <notes>
+        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
+        <target>Vous avez utilisé %count% point(s) d'action.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

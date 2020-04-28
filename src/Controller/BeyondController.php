@@ -1088,12 +1088,25 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired($citizen))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
-
         $this->citizen_handler->setAP($citizen, true, -1);
         $zone->setBuryCount( $zone->getBuryCount() - 1 );
         $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
+
+        $str = [];
+
+        if($zone->getBuryCount() > 0)
+            $str[] = $this->translator->trans('Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...',[], 'game');
+        else
+            $str[] = $this->translator->trans('Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!',["%ruin%" => "<span>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game') . "</span>"], 'game');
+
+        $str[] = $this->translator->trans("Du hast %count% Aktionspunkt(e) benutzt.", ['%count%' => 1], 'game');
+
+        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
+            $str[] = $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game');
+
+
+        if(!empty($str))
+            $this->addFlash( 'notice', implode("<hr />", $str) );
 
         $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_digger_#00");
         $this->picto_handler->give_picto($citizen, $picto);
