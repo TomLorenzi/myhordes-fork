@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Du wurdest aus dem Forum verbannt.</source>
-        <target>Du wurdest aus dem Forum verbannt.</target>
+        <target>Vous avez été banni du Forum.</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Löschen</target>
+        <target>Effacer</target>
       </segment>
     </unit>
   </file>
