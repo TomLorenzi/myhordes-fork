@@ -739,5 +739,14 @@
         <target>Ne plus épingler</target>
       </segment>
     </unit>
+    <unit id="nCT0Wn6" name="Dev">
+      <notes>
+        <note category="german">Dev</note>
+      </notes>
+      <segment>
+        <source>Dev</source>
+        <target>Dev</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
