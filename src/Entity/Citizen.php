@@ -169,11 +169,6 @@ class Citizen
     private $pm;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $immune = false;
-
-    /**
      * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $escortSettings;
@@ -745,18 +740,6 @@ class Citizen
     public function setPm(int $pm): self
     {
         $this->pm = $pm;
-
-        return $this;
-    }
-
-    public function getImmune(): ?bool
-    {
-        return $this->immune;
-    }
-
-    public function setImmune(bool $immune): self
-    {
-        $this->immune = $immune;
 
         return $this;
     }
