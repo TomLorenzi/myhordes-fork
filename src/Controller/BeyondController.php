@@ -1121,9 +1121,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$on) {
             if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);
+            $this->entity_manager->persist($this->log->beyondEscortDisable($citizen));
         } elseif ($on && !$citizen->getEscortSettings()) {
-            $citizen->setEscortSettings((new CitizenEscortSettings())
-                ->setCitizen($citizen));
+            $citizen->setEscortSettings((new CitizenEscortSettings())->setCitizen($citizen));
+            $this->entity_manager->persist($this->log->beyondEscortEnable($citizen));
         }
 
         if ($on)

@@ -9014,5 +9014,23 @@
         <target>Maîtrise des esprits ou hasard du calendrier météorologique, des gouttes de pluie tombent sur la ville, apportant un peu d'eau potable au puits.</target>
       </segment>
     </unit>
+    <unit id="7P4jtds" name="%citizen% hat beschlossen auf einen Eskortenanführer zu warten...">
+      <notes>
+        <note category="german">%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</source>
+        <target>%citizen% a décidé d'attendre un chef d'escorte...</target>
+      </segment>
+    </unit>
+    <unit id="tZT81ei" name="%citizen% hat beschlossen sich wieder allein fortzubewegen.">
+      <notes>
+        <note category="german">%citizen% hat beschlossen sich wieder allein fortzubewegen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen sich wieder allein fortzubewegen.</source>
+        <target>%citizen% a finalement décidé de reprendre son indépendance.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
