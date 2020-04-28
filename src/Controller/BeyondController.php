@@ -787,6 +787,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if (!$this->activeCitizenIsNotEscorted()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        // Remove citizen from escort
+        foreach ($this->getActiveCitizen()->getLeadingEscorts() as $escorted_citizen) {
+            $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
+            $this->entity_manager->persist($escorted_citizen);
+        }
+
+        $this->entity_manager->flush();
+
         return $this->generic_camping_action_api( $parser);
   }
 
