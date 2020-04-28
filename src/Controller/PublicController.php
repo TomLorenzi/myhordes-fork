@@ -110,11 +110,14 @@ class PublicController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
-            'user'  => new Constraints\Length(
-                ['min' => 4, 'max' => 16,
-                    'minMessage' => $translator->trans('Dein Name muss mindestens {{ limit }} Zeichen umfassen.', [], 'login'),
-                    'maxMessage' => $translator->trans('Dein Name kann höchstens {{ limit }} Zeichen umfassen.', [], 'login'),
-                ]),
+            'user' => [
+                new Constraints\Regex( ['match' => false, 'pattern' => '[\s$<>]', 'message' => $translator->trans('Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.', [], 'login') ] ),
+                new Constraints\Length(
+                    ['min' => 4, 'max' => 16,
+                        'minMessage' => $translator->trans('Dein Name muss mindestens {{ limit }} Zeichen umfassen.', [], 'login'),
+                        'maxMessage' => $translator->trans('Dein Name kann höchstens {{ limit }} Zeichen umfassen.', [], 'login'),
+                    ]),
+            ],
             'mail1' => new Constraints\Email(
                 ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
             'mail2' => new Constraints\EqualTo(
