@@ -97,6 +97,34 @@ class AdminActionHandler
         return true;
     }
 
+    public function pinThread(int $sourceUser, int $forumId, int $threadId): bool{
+        if(!$this->hasRights($sourceUser))
+            return false;
+        /**
+        * @var Thread
+        */
+        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
+        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
+        $thread->setPinned(true);
+        $this->entity_manager->persist($thread);
+        $this->entity_manager->flush();
+        return true;
+    }
+
+    public function unpinThread(int $sourceUser, int $forumId, int $threadId): bool{
+        if(!$this->hasRights($sourceUser))
+            return false;
+        /**
+        * @var Thread
+        */
+        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
+        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
+        $thread->setPinned(false);
+        $this->entity_manager->persist($thread);
+        $this->entity_manager->flush();
+        return true;
+    }
+
     public function crowPost(int $sourceUser, Forum $forum, ?Thread $thread, string $text, ?string $title): ?Thread
     {
         if(!$this->hasRights($sourceUser))

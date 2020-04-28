@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Diesen Bürger töten?</source>
-        <target>Diesen Bürger töten?</target>
+        <target>Tuer ce citoyen ?</target>
       </segment>
     </unit>
     <unit id="bZx3MQe" name="Aufheben">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>Derzeitiges Leben</source>
-        <target>Derzeitiges Leben</target>
+        <target>Incarnation actuelle</target>
       </segment>
     </unit>
     <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Kopfschuss</target>
+        <target>Balle dans la tête</target>
       </segment>
     </unit>
     <unit id="Kt_pe8F" name="Tod bestätigen">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Tod bestätigen</source>
-        <target>Tod bestätigen</target>
+        <target>Valider la mort</target>
       </segment>
     </unit>
     <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">

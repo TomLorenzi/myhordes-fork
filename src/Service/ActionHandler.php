@@ -806,7 +806,7 @@ class ActionHandler
 
                             if ($drink) $citizen->setWalkingDistance(0);
 
-                            if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'dehydrated')) {
+                            if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'thirst2')) {
                                 $this->citizen_handler->removeStatus($citizen, 'thirst2');
                                 $this->citizen_handler->inflictStatus($citizen, 'thirst1');
                             } else {
@@ -818,8 +818,8 @@ class ActionHandler
                                 if ($drink) $this->citizen_handler->removeStatus($citizen, 'thirst1');
                                 $this->citizen_handler->inflictStatus($citizen, $drink ? 'hasdrunk' : 'haseaten');
 
-                                $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
                             }
+                            $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
                         break;
