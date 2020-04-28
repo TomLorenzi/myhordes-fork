@@ -171,7 +171,7 @@ class Citizen
     /**
      * @ORM\Column(type="boolean")
      */
-    private $immune = true;
+    private $immune = false;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
