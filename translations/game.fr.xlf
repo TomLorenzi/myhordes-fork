@@ -8880,7 +8880,7 @@
       </notes>
       <segment>
         <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
-        <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
+        <target>Hurlant comme un forcené, %citizen% a tué %kills% zombies.</target>
       </segment>
     </unit>
     <unit id="Q4Q3RlC" name="Du folgst aktuell %citizen%.">
@@ -8947,15 +8947,6 @@
       <segment>
         <source>Was sagst du dazu?</source>
         <target>Quel est votre commentaire ?</target>
-      </segment>
-    </unit>
-    <unit id="Oa1E9pH" name="d5feda7">
-      <notes>
-        <note category="german">Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...</note>
-      </notes>
-      <segment>
-        <source>Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...</source>
-        <target>L'objet que vous venez de trouver ne peut être mis dans votre sac. Il est donc par terre...</target>
       </segment>
     </unit>
     <unit id="gLkZ8wY" name="0e83286">
@@ -9091,6 +9082,24 @@
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
         <target>Vous avez utilisé %count% point(s) d'action.</target>
+      </segment>
+    </unit>
+    <unit id="KYKuCCa" name="0570887">
+      <notes>
+        <note category="german">Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</note>
+      </notes>
+      <segment>
+        <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
+        <target>Il ne peut pas emporter cet objet pour le moment et il l'a donc abandonné par terre.</target>
+      </segment>
+    </unit>
+    <unit id="jIaT.gH" name="b043aa1">
+      <notes>
+        <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
+      </notes>
+      <segment>
+        <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
+        <target>Vous ne pouvez pas emporter cet objet pour le moment, vous l'avez abandonné par terre.</target>
       </segment>
     </unit>
   </file>

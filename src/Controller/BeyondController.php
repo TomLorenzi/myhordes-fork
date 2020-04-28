@@ -1031,7 +1031,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
                     if($inventoryDest == $zone->getFloor()){
                         $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
-                        $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den Sie gerade gefunden haben, kann nicht in Ihre Tasche gesteckt werden. Es liegt also auf dem Boden...', [], 'game');
+                        $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                     }
                     $this->entity_manager->persist( $item );
                     $this->entity_manager->persist( $citizen->getInventory() );
