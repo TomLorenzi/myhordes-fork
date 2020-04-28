@@ -283,16 +283,25 @@ class ForumController extends AbstractController
         $title = $parser->trimmed('title');
         $text  = $parser->trimmed('text');
 
+        if ($user->getIsAdmin()) {
+            $type  = $parser->get('type');
+        }
+        else {
+            $type = "USER";
+        }
+
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)   return AjaxResponse::error( self::ErrorPostTitleLength );
 
-        $as_crow = $parser->get('as_crow');
-        if (isset($as_crow)){
-            if ($as_crow) {
-                $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
-                if (isset($thread))
-                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
-                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
+
+        if ($type === "CROW") {
+            $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
+            if (isset($thread))
+                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
+            else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        if ($type !== "DEV") {
+            $type = "USER";
         }
 
         if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -302,7 +311,9 @@ class ForumController extends AbstractController
         $post = (new Post())
             ->setOwner( $user )
             ->setText( $text )
-            ->setDate( new DateTime('now') );
+            ->setDate( new DateTime('now') )
+            ->setType($type);
+
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -334,7 +345,7 @@ class ForumController extends AbstractController
         $user = $this->getUser();
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
+          
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1) return AjaxResponse::error( self::ErrorForumNotFound );
 
@@ -349,14 +360,22 @@ class ForumController extends AbstractController
         if (!$parser->has_all(['text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $text  = $parser->get('text');
-        $as_crow = $parser->get('as_crow');
-        if (isset($as_crow)){
-            if ($as_crow) {
-                if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
-                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
-                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
+        $text = $parser->get('text');
+        
+        if ($user->getIsAdmin()) {
+            $type  = $parser->get('type');
+        }
+        else {
+            $type = "USER";
+        }
+        
+        if ($type === "CROW"){
+            if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
+                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+        if ($type !== "DEV") {
+            $type = "USER";
         }
 
         if (mb_strlen(strip_tags($text)) < 10 || mb_strlen(strip_tags($text)) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -364,7 +383,9 @@ class ForumController extends AbstractController
         $post = (new Post())
             ->setOwner( $user )
             ->setText( $text )
-            ->setDate( new DateTime('now') );
+            ->setDate( new DateTime('now') )
+            ->setType($type);
+
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

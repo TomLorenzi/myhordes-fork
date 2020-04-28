@@ -53,6 +53,11 @@ class Post
      */
     private $hidden = false;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $type = "USER";
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +143,18 @@ class Post
     public function setHidden(bool $hidden): self
     {
         $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
