@@ -283,7 +283,9 @@ class CitizenHandler
 
     public function getCP(Citizen &$citizen): int {
         if ($this->hasStatusEffect( $citizen, 'terror', false )) $base = 0;
-        else $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
+        else $base = $citizen->getProfession()->getName() == 'guardian' ? 3 : 2;
+
+        if ($citizen->getProfession()->getHeroic()) $base++;
 
         if (!empty($this->inventory_handler->fetchSpecificItems(
             $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
