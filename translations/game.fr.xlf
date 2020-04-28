@@ -9032,5 +9032,23 @@
         <target>%citizen% a finalement décidé de reprendre son indépendance.</target>
       </segment>
     </unit>
+    <unit id="6kRr75r" name="%citizen% hat %target_citizen% überzeugt ihm zu folgen.">
+      <notes>
+        <note category="german">%citizen% hat %target_citizen% überzeugt ihm zu folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %target_citizen% überzeugt ihm zu folgen.</source>
+        <target>%citizen% hat %target_citizen% überzeugt ihm zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="zbqhbfy" name="%citizen% hat beschlossen %target_citizen% hier zurückzulassen...">
+      <notes>
+        <note category="german">%citizen% hat beschlossen %target_citizen% hier zurückzulassen...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen %target_citizen% hier zurückzulassen...</source>
+        <target>%citizen% hat beschlossen %target_citizen% hier zurückzulassen...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -898,4 +898,34 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
+    public function beyondEscortTakeCitizen( Citizen $citizen, Citizen $target_citizen ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeVarious )
+            ->setClass( TownLogEntry::ClassInfo )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans('%citizen% a convaincu %target_citizen% de le suivre.', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+                '%target_citizen%' => $this->wrap( $this->iconize( $target_citizen ) ),
+            ], 'game' ) );
+    }
+
+    public function beyondEscortReleaseCitizen( Citizen $citizen, Citizen $target_citizen ): TownLogEntry {
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeVarious )
+            ->setClass( TownLogEntry::ClassInfo )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setText( $this->trans->trans('Finalement, %citizen% a décidé de planter %target_citizen% là...', [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+                '%target_citizen%' => $this->wrap( $this->iconize( $target_citizen ) ),
+            ], 'game' ) );
+    }
+
 }
