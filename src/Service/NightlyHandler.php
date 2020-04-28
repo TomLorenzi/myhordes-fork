@@ -377,6 +377,9 @@ class NightlyHandler
             $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ),0);
             $citizen->getActionCounters()->clear();
             $citizen->getDigTimers()->clear();
+            if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
+            $citizen->setEscortSettings(null);
+            
             foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
                 $this->cleanup[] = $et;
             foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findAllByCitizen( $citizen ) as $drm)
