@@ -72,7 +72,7 @@
                     <div class="hide-desktop small-citizen-defense">
                         {% if citizen.alive %}
                             <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
-                            <span class="citizen-defense">{{ citizenInfo.defense }} pts</span>
+                            <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
                         {% endif %}
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="padded cell-small rw-5 citizen-box hide-lg hide-md hide-sm">
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
-                        <span class="citizen-defense">{{ citizenInfo.defense }} pts</span>
+                        <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
                     </div>
                     <div class="padded cell-small rw-3 small right citizen-box">
                     {% if not citizen.zone %}
