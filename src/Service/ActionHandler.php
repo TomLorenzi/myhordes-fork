@@ -522,7 +522,7 @@ class ActionHandler
                 if ($pm->getMax()) {
                     $to = $this->citizen_handler->getMaxPM($citizen) + $pm->getPm();
                     $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ), null );
-                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null :$pm->getBonus() );
+                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null : $pm->getBonus() );
 
                 $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
             }

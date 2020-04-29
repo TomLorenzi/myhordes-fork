@@ -115,7 +115,9 @@
                 {% block class %}chest{% endblock %}
                 {% block title %}{% endblock %}
             {% endembed %}
-            {% if (citizen.alive) %}
+            {% if already_stolen %}
+                <div class="notice">{{'Du kannst heute keinen weiteren Gegenstand stehlen.'|trans({},'game')}}</div>
+            {% elseif owner.alive %}
                 {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                     {% block class %}rucksack{% endblock %}
                     {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}

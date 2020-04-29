@@ -25,6 +25,8 @@ Log in to your database with `sudo mysql -u root` (specify `-p` if you have a lo
 CREATE USER 'hordes'@'localhost' IDENTIFIED BY 'hordes_pwd';
 ```
 
+Exit the mariadb command prompt with CTRL+C or `exit;`
+
 Clone the project inside any directory
 
 ```bash

@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Anpinnen</source>
-        <target>Anpinnen</target>
+        <target>Épingler</target>
       </segment>
     </unit>
     <unit id="Bw5vcAl" name="Loslösen">
@@ -736,7 +736,16 @@
       </notes>
       <segment>
         <source>Loslösen</source>
-        <target>Loslösen</target>
+        <target>Ne plus épingler</target>
+      </segment>
+    </unit>
+    <unit id="nCT0Wn6" name="Dev">
+      <notes>
+        <note category="german">Dev</note>
+      </notes>
+      <segment>
+        <source>Dev</source>
+        <target>Dev</target>
       </segment>
     </unit>
   </file>
