@@ -9118,5 +9118,23 @@
         <target>Ce citoyen n'a plus de PA.</target>
       </segment>
     </unit>
+    <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
+      <notes>
+        <note category="german">Das ist keine gute Idee, das ist dir doch wohl klar!</note>
+      </notes>
+      <segment>
+        <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
+        <target>Ce n'est pas une bonne idée, vous savez... ?</target>
+      </segment>
+    </unit>
+    <unit id="3eUF.n2" name="39c8b98">
+      <notes>
+        <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
+        <target>Vous avez signalé le message de %username% aux Corbeaux. Qui sait, peut-être que %username% va mourrir ce soâââr...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

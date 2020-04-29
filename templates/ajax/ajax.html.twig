@@ -10,8 +10,12 @@
                             <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">{{ 'Forum'|trans({},'global') }}</li>
                         {% endif %}
                         {% block menu_text %}
-                            {% if app.user and app.user.activeCitizen %}
-                                <li class="forum" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+                            {% if app.user %}
+                                {% if app.user.activeCitizen %}
+                                    <li class="forum" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+                                {% else %}
+                                    <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+                                {% endif %}
                             {% endif %}
                         {% endblock %}
                         {% if is_granted('ROLE_USER') %}
