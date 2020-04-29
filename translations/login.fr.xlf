@@ -336,5 +336,14 @@
         <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
       </segment>
     </unit>
+    <unit id="ZJtAei3" name="f062e66">
+      <notes>
+        <note category="german">Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</note>
+      </notes>
+      <segment>
+        <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
+        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

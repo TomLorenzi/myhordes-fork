@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Loslösen</source>
-        <target>Ne plus épingler</target>
+        <target>Désépingler</target>
       </segment>
     </unit>
     <unit id="nCT0Wn6" name="Dev">
@@ -746,6 +746,15 @@
       <segment>
         <source>Dev</source>
         <target>Dev</target>
+      </segment>
+    </unit>
+    <unit id="oR9GFiR" name="Melden">
+      <notes>
+        <note category="german">Melden</note>
+      </notes>
+      <segment>
+        <source>Melden</source>
+        <target>Signaler</target>
       </segment>
     </unit>
   </file>

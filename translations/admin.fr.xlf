@@ -217,5 +217,50 @@
         <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
       </segment>
     </unit>
+    <unit id="Tae9Qqu" name="Forum">
+      <notes>
+        <note category="german">Forum</note>
+      </notes>
+      <segment>
+        <source>Forum</source>
+        <target>Forum</target>
+      </segment>
+    </unit>
+    <unit id="BygLauq" name="Autor">
+      <notes>
+        <note category="german">Autor</note>
+      </notes>
+      <segment>
+        <source>Autor</source>
+        <target>Autor</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="YlkNCJx" name="gemeldet von">
+      <notes>
+        <note category="german">gemeldet von</note>
+      </notes>
+      <segment>
+        <source>gemeldet von</source>
+        <target>gemeldet von</target>
+      </segment>
+    </unit>
+    <unit id="wbOHhHO" name="Gesehen">
+      <notes>
+        <note category="german">Gesehen</note>
+      </notes>
+      <segment>
+        <source>Gesehen</source>
+        <target>Gesehen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
