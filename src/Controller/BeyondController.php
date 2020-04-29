@@ -63,6 +63,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorTrashLimitHit        = ErrorHelper::BaseBeyondErrors + 9;
     const ErrorNoMovementWhileHiding= ErrorHelper::BaseBeyondErrors + 10;
     const ErrorEscortLimitHit       = ErrorHelper::BaseBeyondErrors + 11;
+    const ErrorEscortFailure        = ErrorHelper::BaseBeyondErrors + 12;
 
     protected $game_factory;
     protected $zone_handler;
@@ -610,7 +611,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             // Check if citizen can move (zone not blocked and enough AP)
             if (!$cp_ok && $this->get_escape_timeout( $mover ) < 0 && !$scouts[$mover->getId()]) return AjaxResponse::error( self::ErrorZoneBlocked );
             if ($mover->getAp() < 1 || $this->citizen_handler->isTired( $mover ))
-                return AjaxResponse::error( $citizen->getId() === $mover->getId() ? ErrorHelper::ErrorNoAP : ErrorHelper::ErrorEscortFailure );
+                return AjaxResponse::error( $citizen->getId() === $mover->getId() ? ErrorHelper::ErrorNoAP : BeyondController::ErrorEscortFailure );
 
             // Check if escortee wants to go home
             if (count($movers) > 1 && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $away_from_town)
