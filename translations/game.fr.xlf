@@ -8545,7 +8545,7 @@
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+        <target>%citizen% refuse d'aller dans cette direction ! Ce citoyen vous demande de le ramener en ville...</target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
