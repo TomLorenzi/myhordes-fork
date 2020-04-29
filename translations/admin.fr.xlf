@@ -262,5 +262,14 @@
         <target>Vu</target>
       </segment>
     </unit>
+    <unit id="ZVsq_1H" name="Beitrag löschen?">
+      <notes>
+        <note category="german">Beitrag löschen?</note>
+      </notes>
+      <segment>
+        <source>Beitrag löschen?</source>
+        <target>Effacer le poste ?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

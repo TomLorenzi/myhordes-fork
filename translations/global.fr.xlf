@@ -660,7 +660,7 @@
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
-        <note category="german">Unlock</note>
+        <note category="german">Öffnen</note>
       </notes>
       <segment>
         <source>Öffnen</source>
