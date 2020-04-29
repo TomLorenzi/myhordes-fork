@@ -1292,6 +1292,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         $zone = $citizen->getZone();
+
         // Forbidden if not outside
         if($zone == null)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1317,8 +1318,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $this->entity_manager->persist($town);
                 $this->entity_manager->persist($this->log->wellAddShaman($citizen, 5));
             }
-            $citizen->setPM($citizen->getPM() - 3);
         }
+        
+        $citizen->setPM($citizen->getPM() - 3);
 
         try {
             $this->entity_manager->persist( $citizen );
