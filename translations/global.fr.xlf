@@ -757,5 +757,23 @@
         <target>Signaler</target>
       </segment>
     </unit>
+    <unit id="awzJBNC" name="Users">
+      <notes>
+        <note category="german">Users</note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Utilisateurs</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Signalements</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
