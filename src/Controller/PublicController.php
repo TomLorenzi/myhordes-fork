@@ -123,7 +123,7 @@ class PublicController extends AbstractController
                 ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
-            'privacy' => new Constraints\IsTrue(['message' => $translator->trans('Du musst die Datenschutzerklärung lesen und akzeptieren.'), [], 'login']),
+            'privacy' => new Constraints\IsTrue(),
         ]) );
 
         if ($violations->count() === 0) {
