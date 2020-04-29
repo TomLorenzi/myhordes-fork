@@ -36,6 +36,7 @@ class Zone
     const DirectionSouth     = 8;
     const DirectionSouthEast = 9;
 
+    const BluePrintNone      = 0;
     const BlueprintAvailable = 1;
     const BlueprintFound     = 2;
 
@@ -144,9 +145,9 @@ class Zone
     private $improvementLevel = 0;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
-    private $blueprint = NULL;
+    private $blueprint = Zone::BluePrintNone;
 
     public function __construct()
     {

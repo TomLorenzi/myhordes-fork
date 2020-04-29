@@ -9102,5 +9102,23 @@
         <target>Vous ne pouvez pas emporter cet objet pour le moment, vous l'avez abandonné par terre.</target>
       </segment>
     </unit>
+    <unit id="GSKpJCY" name="32bd220">
+      <notes>
+        <note category="german">Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
+        <target>Ce citoyen a déjà creusé dans cette zone. La prochaine fouille est possible dans :</target>
+      </segment>
+    </unit>
+    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
+      <notes>
+        <note category="german">Dieser Bürger hat kein AP mehr.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat kein AP mehr.</source>
+        <target>Ce citoyen n'a plus de PA.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -327,5 +327,14 @@
         <target>Mot de passe actuel</target>
       </segment>
     </unit>
+    <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
+      <notes>
+        <note category="german">Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</note>
+      </notes>
+      <segment>
+        <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
+        <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
