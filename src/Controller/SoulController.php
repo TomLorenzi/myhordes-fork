@@ -442,14 +442,8 @@ class SoulController extends AbstractController
                         imagick::FILTER_SINC, 1, true )
                 ) return AjaxResponse::error( self:: ErrorAvatarProcessingFailed );
 
-                $im_image->setImageBackgroundColor('black');
-                $im_image->setImageAlphaChannel(Imagick::ALPHACHANNEL_REMOVE);
-                if ($im_image->getImageFormat() !== "GIF")
-                    $im_image = $im_image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
-
-                if ($im_image->getImageFormat() === 'GIF') {
+                if ($im_image->getImageFormat() === 'GIF')
                     $im_image->setFirstIterator();
-                }
 
                 $w_final = $im_image->getImageWidth();
                 $h_final = $im_image->getImageHeight();
