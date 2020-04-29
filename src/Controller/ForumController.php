@@ -19,6 +19,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
+use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -165,10 +166,10 @@ class ForumController extends AbstractController
         'q' => [],
         'blockquote' => [],
         'hr' => [],
-        'ul' => [ 'class' ],
-        'ol' => [ 'class' ],
+        'ul' => [],
+        'ol' => [],
         'li' => [],
-        'p'  => [ 'class' ],
+        'p'  => [],
         'div' => [ 'class' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
@@ -176,6 +177,13 @@ class ForumController extends AbstractController
 
     private const HTML_ALLOWED_ADMIN = [
         'img' => [ 'alt', 'src', 'title'],
+    ];
+
+    private const HTML_ATTRIB_ALLOWED = [
+        'div.class' => [
+            'glory', 'spoiler',
+            'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
+        ]
     ];
 
     private function getAllowedHTML(): array {
@@ -186,24 +194,34 @@ class ForumController extends AbstractController
         if ($user->getIsAdmin())
             $r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
 
-        return $r;
+        return ['nodes' => $r, 'attribs' => self::HTML_ATTRIB_ALLOWED];
     }
 
     private function htmlValidator( array $allowedNodes, DOMNode $node, int &$text_length, int $depth = 0 ): bool {
         if ($depth > 32) return false;
+
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
             // Element not allowed.
-            if (!in_array($node->nodeName, array_keys($allowedNodes)) && !($depth === 0 && $node->nodeName === 'body')) {
+            if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body')) {
                 $node->parentNode->removeChild( $node );
                 return true;
             }
 
             // Attributes not allowed.
             $remove_attribs = [];
-            for ($i = 0; $i < $node->attributes->length; $i++)
-                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes[$node->nodeName]))
+            for ($i = 0; $i < $node->attributes->length; $i++) {
+                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes['nodes'][$node->nodeName]))
                     $remove_attribs[] = $node->attributes->item($i)->nodeName;
+                elseif (isset($allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"])) {
+                    // Attribute values not allowed
+                    $allowed_entries = $allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"];
+                    $node->attributes->item($i)->nodeValue = implode( ' ', array_filter( explode(' ', $node->attributes->item($i)->nodeValue), function (string $s) use ($allowed_entries) {
+                        return in_array( $s, $allowed_entries );
+                    }));
+                }
+            }
+
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
 
@@ -233,6 +251,20 @@ class ForumController extends AbstractController
 
         if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0),$tx_len))
             return false;
+
+        $handlers = [
+            '//div[@class=\'dice-4\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,4); },
+            '//div[@class=\'dice-6\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,6); },
+            '//div[@class=\'dice-8\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,8); },
+            '//div[@class=\'dice-10\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,10); },
+            '//div[@class=\'dice-12\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,12); },
+            '//div[@class=\'dice-20\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,20); },
+            '//div[@class=\'dice-100\']' => function (DOMNode $d) { $d->nodeValue = mt_rand(1,100); },
+        ];
+
+        foreach ($handlers as $query => $handler)
+            foreach ( (new DOMXPath($dom))->query($query, $body->item(0)) as $node )
+                $handler($node);
 
         $tmp_str = "";
         foreach ($body->item(0)->childNodes as $child)

@@ -62,120 +62,222 @@
 <script>
     (function() {
 
-        // Customized Hordes plugins for Suneditor
-        // ex) A command plugin to add "Range format element(util.isRangeFormatElement)" to selection
-        var spoiler_command = {
-            // @Required @Unique
-            // plugin name
-            name: 'spoiler',
-            // @Required
-            // data display
-            display: 'command',
+        const sun_editor_plugin_base = function(name, title, innerHTML, tag, classNameInternal, classNameExternal) {
+            return {
+                // @Required @Unique
+                // plugin name
+                name: name,
+                // @Required
+                // data display
+                display: 'command',
 
-            // @Options
-            title: 'Spoiler',
-            buttonClass: '',
-            innerHTML: '<i class="fas fa-carrot"></i>',
-
-            // @Required
-            // add function - It is called only once when the plugin is first run.
-            // This function generates HTML to append and register the event.
-            // arguments - (core : core object, targetElement : clicked button element)
-            add: function (core, targetElement) {
-                const context = core.context;
-                const rangeTag = core.util.createElement('div');
-                core.util.addClass(rangeTag, '__se__format__spoiler');
-                core.util.addClass(rangeTag, 'spoiler');
+                // @Options
+                title: title,
+                buttonClass: '',
+                innerHTML: innerHTML,
 
                 // @Required
-                // Registering a namespace for caching as a plugin name in the context object
-                context.spoilerCommand = {
-                    targetButton: targetElement,
-                    tag: rangeTag
-                };
-            },
+                // add function - It is called only once when the plugin is first run.
+                // This function generates HTML to append and register the event.
+                // arguments - (core : core object, targetElement : clicked button element)
+                add: function (core, targetElement) {
+                    const context = core.context;
+                    const new_tag = core.util.createElement(tag);
+                    core.util.addClass(new_tag, classNameInternal);
+                    for (let i = 0; i < classNameExternal.length; i++)
+                        core.util.addClass(new_tag, classNameExternal[i]);
 
-            // @Overriding
-            // Plugins with active methods load immediately when the editor loads.
-            // Called each time the selection is moved.
-            active: function (element) {
-                if (!element) {
-                    this.util.removeClass(this.context.spoilerCommand.targetButton, 'active');
-                } else if (this.util.hasClass(element, '__se__format__spoiler')) {
-                    this.util.addClass(this.context.spoilerCommand.targetButton, 'active');
-                    return true;
-                }
+                    // @Required
+                    // Registering a namespace for caching as a plugin name in the context object
+                    context[name + '_command'] = {
+                        targetButton: targetElement,
+                        tag: new_tag
+                    };
+                },
 
-                return false;
-            },
+                // @Overriding
+                // Plugins with active methods load immediately when the editor loads.
+                // Called each time the selection is moved.
+                active: function (element) {
+                    if (!element) {
+                        this.util.removeClass(this.context[name + '_command'].targetButton, 'active');
+                    } else if (this.util.hasClass(element, classNameInternal)) {
+                        this.util.addClass(this.context[name + '_command'].targetButton, 'active');
+                        return true;
+                    }
 
-            // @Required
-            // The behavior of the "command plugin" must be defined in the "action" method.
-            action: function () {
-                const rangeTag = this.util.getRangeFormatElement(this.getSelectionNode());
-
-                if (this.util.hasClass(rangeTag, '__se__format__spoiler')) {
-                    this.detachRangeFormatElement(rangeTag, null, null, false, false);
-                } else {
-                    this.applyRangeFormatElement(this.context.spoilerCommand.tag.cloneNode(false));
-                }
+                    return false;
+                },
             }
         }
 
-        var glory_command = {
-            name: 'glory',
-            display: 'command',
-            title: 'Glory',
-            buttonClass: '',
-            innerHTML: '<i class="fas fa-crown"></i>',
+        const sun_editor_range_prototype = function(name, title, innerHTML, tag, classNameInternal, classNameExternal) {
+            let base = sun_editor_plugin_base(name, title, innerHTML, tag, classNameInternal, classNameExternal);
+            base.action = function () {
+                // @Required
+                // The behavior of the "command plugin" must be defined in the "action" method.
+                const new_tag = this.util.getRangeFormatElement(this.getSelectionNode());
 
-            add: function (core, targetElement) {
-                const context = core.context;
-                const rangeTag = core.util.createElement('div');
-                core.util.addClass(rangeTag, '__se__format__glory');
-                core.util.addClass(rangeTag, 'glory');
-
-                context.gloryCommand = {
-                    targetButton: targetElement,
-                    tag: rangeTag
-                };
-            },
-
-            active: function (element) {
-                if (!element) {
-                    this.util.removeClass(this.context.gloryCommand.targetButton, 'active');
-                } else if (this.util.hasClass(element, '__se__format__spoiler')) {
-                    this.util.addClass(this.context.gloryCommand.targetButton, 'active');
-                    return true;
-                }
-
-                return false;
-            },
-
-            action: function () {
-                const rangeTag = this.util.getRangeFormatElement(this.getSelectionNode());
-
-                if (this.util.hasClass(rangeTag, '__se__format__spoiler')) {
-                    this.detachRangeFormatElement(rangeTag, null, null, false, false);
+                if (this.util.hasClass(new_tag, classNameInternal)) {
+                    this.detachRangeFormatElement(new_tag, null, null, false, false);
                 } else {
-                    this.applyRangeFormatElement(this.context.gloryCommand.tag.cloneNode(false));
+                    this.applyRangeFormatElement(this.context[name + '_command'].tag.cloneNode(false));
                 }
             }
+            return base;
         }
+
+        const sun_editor_monolyth_prototype = function(name, title, innerHTML, tag, classNameInternal, classNameExternal, staticHTML) {
+            let base = sun_editor_plugin_base(name, title, innerHTML, tag, classNameInternal, classNameExternal);
+            base.action = function () {
+                // @Required
+                // The behavior of the "command plugin" must be defined in the "action" method.
+                let new_node = this.context[name + '_command'].tag.cloneNode(false);
+
+
+                let range = this.getRange();
+                if (!range.collapsed) return;
+                let parent = range.startContainer.parentNode;
+                if (staticHTML) {
+                    const inner = document.createElement('span');
+                    inner.innerHTML = staticHTML;
+                    new_node.setAttribute('contenteditable','false');
+                    new_node.appendChild(inner);
+                } else new_node.setAttribute('contenteditable','false');
+
+                if (parent.classList.contains('sun-editor-editable')) {
+                    parent.appendChild(new_node);
+                } else {
+                    const before = parent.innerHTML.substring(0,range.startOffset);
+                    const after = parent.innerHTML.substring(range.startOffset);
+                    parent.innerHTML = before + new_node.outerHTML + after;
+                }
+            }
+            return base;
+        }
+
+        const sun_editor_group = function(name, title, innerHTML, plugins) {
+            return {
+                // @Required @Unique
+                // plugin name
+                name: name,
+                // @Required
+                // data display
+                dataDisplay: 'container',
+                display: 'container',
+
+                // @Options
+                title: title,
+                buttonClass: '',
+                innerHTML: innerHTML,
+
+                // @Required
+                // add function - It is called only once when the plugin is first run.
+                // This function generates HTML to append and register the event.
+                // arguments - (core : core object, targetElement : clicked button element)
+                add: function (core, targetElement) {
+
+                    // @Required
+                    // Registering a namespace for caching as a plugin name in the context object
+                    const context = core.context;
+                    context.custom_container = {};
+
+                    // Generate submenu HTML
+                    // Always bind "core" when calling a plugin function
+                    let listDiv = this.setSubmenu.call(core);
+
+                    // You must bind "core" object when registering an event.
+                    /** add event listeners */
+                    listDiv.querySelector('.se-submenu-form-group').addEventListener('click', this.onClick.bind(core));
+
+                    // @Required
+                    // You must add the "submenu" element using the "core.initMenuTarget" method.
+                    /** append target button menu */
+                    core.initMenuTarget(this.name, targetElement, listDiv);
+                },
+
+                setSubmenu: function () {
+                    const listDiv = this.util.createElement('DIV');
+                    listDiv.className = 'se-list-layer';
+                    let html_build = '' +
+                        '<div class="se-list-inner">' +
+                            '<div class="se-submenu-form-group">';
+
+                    for (let i = 0; i < plugins.length; i++) {
+                        html_build +=
+                            // @Required
+                            // The "position" style of each element surrounding the button must be "relative".
+                            // suneditor.css: .sun-editor .se-submenu-form-group > div {position:relative;}
+                            '<div>' +
+                                // @Required
+                                // Enter the button name of the plug-in or default command in the button's "data-command"
+                                '<button type="button" class="se-btn se-tooltip" data-command="' + plugins[i].name + '" style="margin: 0 !important;">' +
+                                    plugins[i].innerHTML +
+                                    '<span class="se-tooltip-inner">' +
+                                        '<span class="se-tooltip-text">' + plugins[i].title + '</span>' +
+                                    '</span>' +
+                                '</button>' +
+                            '</div>';
+                    }
+                    html_build +=
+                            '</div>' +
+                    '</div>';
+                    listDiv.innerHTML = html_build;
+
+                    return listDiv;
+                },
+
+                onClick: function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    let target = e.target;
+                    let command = '';
+
+                    while (!command && !/^UL$/i.test(target.tagName)) {
+                        command = target.getAttribute('data-command');
+                        if (command) break;
+                        target = target.parentNode;
+                    }
+
+                    if (!command) return;
+
+                    const plugin = this.plugins[command];
+                    this.actionCall(command, (plugin ? plugin.display : ''), target);
+                }
+            };
+        }
+
+
+        const spoiler_command = sun_editor_range_prototype('spoiler','Spoiler','<i class="fas fa-carrot"></i>','div','__se__format__spoiler',['spoiler']);
+        const glory_command   = sun_editor_range_prototype('glory','Glory','<i class="fas fa-crown"></i>','div','__se__format__glory',['glory']);
+
+        const dice4_command   = sun_editor_monolyth_prototype('dice4','{{ 'Würfel'|trans({},'game')|e('js') }} (4)','<img alt="" src="{{ asset('build/images/forum/dice4.png') }}" />','div','__se__format__dice-4',['dice-4'], '???');
+        const dice6_command   = sun_editor_monolyth_prototype('dice6','{{ 'Würfel'|trans({},'game')|e('js') }} (6)','<img alt="" src="{{ asset('build/images/forum/dice6.png') }}" />','div','__se__format__dice-6',['dice-6'], '???');
+        const dice_group = sun_editor_group('dice','dice','<b>D</b>', [dice4_command,dice6_command]);
 
         const editor = SUNEDITOR.create((document.getElementById('forum-suneditor-text') || 'forum-suneditor-text'),{
             // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
             plugins : {
                 spoiler_command,
-                glory_command
+                glory_command,
+
+                dice_group, dice4_command, dice6_command
             },
             buttonList: [
                 ['undo', 'redo'],
                 ['bold', 'underline', 'italic', 'strike'],
                 ['removeFormat'],
                 ['outdent', 'indent', 'list'],
+                ['blockquote', 'link' {% if app.user.isAdmin %}, 'image'{% endif %}],
                 ['spoiler', 'glory'],
-                ['blockquote', 'link' {% if app.user.isAdmin %}, 'image'{% endif %}]
+                [{
+                    name: 'dice',
+                    dataDisplay:'container',
+                    title: 'dice',
+                    buttonClass:'',
+                    innerHTML:'<i class="fa fa-dice"></i>'
+                }]
             ],
             // Insert options
             // Language global object (default: en)
