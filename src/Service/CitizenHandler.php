@@ -291,11 +291,11 @@ class CitizenHandler
 
             if ($citizen->getProfession()->getHeroic() 
                     && $this->hasStatusEffect( $citizen, 'clean', false ) 
-                    && $has_clean_body)  
+                    && $has_clean_body)
                 $base += 1;
 
             if ($citizen->getProfession()->getHeroic() 
-                    && $has_body_armor)             
+                    && $has_body_armor)
                 $base += 1;
 
             if (!empty($this->inventory_handler->fetchSpecificItems(
