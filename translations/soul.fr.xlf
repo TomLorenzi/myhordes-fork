@@ -463,5 +463,59 @@
         <target>Souhaitez vous réellement supprimer votre compte ? Cette action est irréversible.</target>
       </segment>
     </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <notes>
+        <note category="german">Passwort ändern</note>
+      </notes>
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Changer de mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="iLulTXC" name="Neues Passwort">
+      <notes>
+        <note category="german">Neues Passwort</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort</source>
+        <target>Nouveau mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="Icwc1Fo" name="Neues Passwort wiederholen">
+      <notes>
+        <note category="german">Neues Passwort wiederholen</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort wiederholen</source>
+        <target>Confirmation du nouveau mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="e99uiXA" name="Aktuelles Passwort">
+      <notes>
+        <note category="german">Aktuelles Passwort</note>
+      </notes>
+      <segment>
+        <source>Aktuelles Passwort</source>
+        <target>Mot de passe actuel</target>
+      </segment>
+    </unit>
+    <unit id="wIQ05bj" name="Passwort aktualisieren">
+      <notes>
+        <note category="german">Passwort aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Passwort aktualisieren</source>
+        <target>Mettre à jour le mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="EZLjPxc" name="f6fa7cb">
+      <notes>
+        <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
+      </notes>
+      <segment>
+        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
+        <target>Votre mot de passe est incorrect. Vous devez saisir votre mot de passe actuel pour modifier votre compte.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

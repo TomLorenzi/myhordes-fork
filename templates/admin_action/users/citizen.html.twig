@@ -5,7 +5,7 @@
             {% embed "admin_action/tabs.html.twig" %}{% endembed %}
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
-                    {{ 'Derzeitiges Leben '|trans({}, 'admin') }}
+                    {{ 'Derzeitiges Leben'|trans({}, 'admin') }}
                 </div>
                 <div class="cell padded rw-5 rw-sm-12">
                     <input disabled value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" />

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
-  <file id="admin.fr">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="admin.de">
+    <unit id="KANZ2Py" name="Diesen Bürger töten?">
+      <notes>
+        <note category="german">Diesen Bürger töten?</note>
+      </notes>
+      <segment>
+        <source>Diesen Bürger töten?</source>
+        <target>Diesen Bürger töten?</target>
+      </segment>
+    </unit>
     <unit id="kg5BPH1" name="Status">
       <notes>
         <note category="german">Status</note>
@@ -16,142 +25,7 @@
       </notes>
       <segment>
         <source>Verbannt bis</source>
-        <target>Banni jusqu'au</target>
-      </segment>
-    </unit>
-    <unit id="gswoKQz" name="Letzte Verbannung">
-      <notes>
-        <note category="german">Letzte Verbannung</note>
-      </notes>
-      <segment>
-        <source>Letzte Verbannung</source>
-        <target>Dernier bannissement</target>
-      </segment>
-    </unit>
-    <unit id="KqvNLEL" name="Verbannungen">
-      <notes>
-        <note category="german">Verbannungen</note>
-      </notes>
-      <segment>
-        <source>Verbannungen</source>
-        <target>Bannissements</target>
-      </segment>
-    </unit>
-    <unit id="0.QpL14" name="Verbannen">
-      <notes>
-        <note category="german">Verbannen</note>
-      </notes>
-      <segment>
-        <source>Verbannen</source>
-        <target>Bannir</target>
-      </segment>
-    </unit>
-    <unit id="Zoy_MWF" name="Dauer">
-      <notes>
-        <note category="german">Dauer</note>
-      </notes>
-      <segment>
-        <source>Dauer</source>
-        <target>Durée</target>
-      </segment>
-    </unit>
-    <unit id="1E2BbPr" name="1 Tag">
-      <notes>
-        <note category="german">1 Tag</note>
-      </notes>
-      <segment>
-        <source>1 Tag</source>
-        <target>1 Jour</target>
-      </segment>
-    </unit>
-    <unit id="JU_xNFX" name="3 Tage">
-      <notes>
-        <note category="german">3 Tage</note>
-      </notes>
-      <segment>
-        <source>3 Tage</source>
-        <target>3 Jours</target>
-      </segment>
-    </unit>
-    <unit id="84RJxpK" name="5 Tage">
-      <notes>
-        <note category="german">5 Tage</note>
-      </notes>
-      <segment>
-        <source>5 Tage</source>
-        <target>5 Jours</target>
-      </segment>
-    </unit>
-    <unit id="zEDFlzj" name="7 Tage">
-      <notes>
-        <note category="german">7 Tage</note>
-      </notes>
-      <segment>
-        <source>7 Tage</source>
-        <target>7 Jours</target>
-      </segment>
-    </unit>
-    <unit id="GtUIerm" name="15 Tage">
-      <notes>
-        <note category="german">15 Tage</note>
-      </notes>
-      <segment>
-        <source>15 Tage</source>
-        <target>15 Jours</target>
-      </segment>
-    </unit>
-    <unit id="WB_sVVK" name="30 Tage">
-      <notes>
-        <note category="german">30 Tage</note>
-      </notes>
-      <segment>
-        <source>30 Tage</source>
-        <target>30 Jours</target>
-      </segment>
-    </unit>
-    <unit id="tF9Axzf" name="Grund">
-      <notes>
-        <note category="german">Grund</note>
-      </notes>
-      <segment>
-        <source>Grund</source>
-        <target>Raison</target>
-      </segment>
-    </unit>
-    <unit id="FlZntyi" name="Bürger">
-      <notes>
-        <note category="german">Bürger</note>
-      </notes>
-      <segment>
-        <source>Bürger</source>
-        <target>Citoyens</target>
-      </segment>
-    </unit>
-    <unit id="8kHR6Z1" name="Akte">
-      <notes>
-        <note category="german">Akte</note>
-      </notes>
-      <segment>
-        <source>Akte</source>
-        <target>Voir</target>
-      </segment>
-    </unit>
-    <unit id="S8vqbzA" name="Verbannung">
-      <notes>
-        <note category="german">Verbannung</note>
-      </notes>
-      <segment>
-        <source>Verbannung</source>
-        <target>Banni</target>
-      </segment>
-    </unit>
-    <unit id="KANZ2Py" name="Diesen Bürger töten?">
-      <notes>
-        <note category="german">Diesen Bürger töten?</note>
-      </notes>
-      <segment>
-        <source>Diesen Bürger töten?</source>
-        <target>Tuer ce citoyen ?</target>
+        <target>Verbannt bis</target>
       </segment>
     </unit>
     <unit id="bZx3MQe" name="Aufheben">
@@ -163,13 +37,112 @@
         <target>Aufheben</target>
       </segment>
     </unit>
+    <unit id="gswoKQz" name="Letzte Verbannung">
+      <notes>
+        <note category="german">Letzte Verbannung</note>
+      </notes>
+      <segment>
+        <source>Letzte Verbannung</source>
+        <target>Letzte Verbannung</target>
+      </segment>
+    </unit>
+    <unit id="KqvNLEL" name="Verbannungen">
+      <notes>
+        <note category="german">Verbannungen</note>
+      </notes>
+      <segment>
+        <source>Verbannungen</source>
+        <target>Verbannungen</target>
+      </segment>
+    </unit>
+    <unit id="0.QpL14" name="Verbannen">
+      <notes>
+        <note category="german">Verbannen</note>
+      </notes>
+      <segment>
+        <source>Verbannen</source>
+        <target>Verbannen</target>
+      </segment>
+    </unit>
+    <unit id="Zoy_MWF" name="Dauer">
+      <notes>
+        <note category="german">Dauer</note>
+      </notes>
+      <segment>
+        <source>Dauer</source>
+        <target>Dauer</target>
+      </segment>
+    </unit>
+    <unit id="1E2BbPr" name="1 Tag">
+      <notes>
+        <note category="german">1 Tag</note>
+      </notes>
+      <segment>
+        <source>1 Tag</source>
+        <target>1 Tag</target>
+      </segment>
+    </unit>
+    <unit id="JU_xNFX" name="3 Tage">
+      <notes>
+        <note category="german">3 Tage</note>
+      </notes>
+      <segment>
+        <source>3 Tage</source>
+        <target>3 Tage</target>
+      </segment>
+    </unit>
+    <unit id="84RJxpK" name="5 Tage">
+      <notes>
+        <note category="german">5 Tage</note>
+      </notes>
+      <segment>
+        <source>5 Tage</source>
+        <target>5 Tage</target>
+      </segment>
+    </unit>
+    <unit id="zEDFlzj" name="7 Tage">
+      <notes>
+        <note category="german">7 Tage</note>
+      </notes>
+      <segment>
+        <source>7 Tage</source>
+        <target>7 Tage</target>
+      </segment>
+    </unit>
+    <unit id="GtUIerm" name="15 Tage">
+      <notes>
+        <note category="german">15 Tage</note>
+      </notes>
+      <segment>
+        <source>15 Tage</source>
+        <target>15 Tage</target>
+      </segment>
+    </unit>
+    <unit id="WB_sVVK" name="30 Tage">
+      <notes>
+        <note category="german">30 Tage</note>
+      </notes>
+      <segment>
+        <source>30 Tage</source>
+        <target>30 Tage</target>
+      </segment>
+    </unit>
+    <unit id="tF9Axzf" name="Grund">
+      <notes>
+        <note category="german">Grund</note>
+      </notes>
+      <segment>
+        <source>Grund</source>
+        <target>Grund</target>
+      </segment>
+    </unit>
     <unit id="r8Abf9v" name="Derzeitiges Leben">
       <notes>
         <note category="german">Derzeitiges Leben</note>
       </notes>
       <segment>
         <source>Derzeitiges Leben</source>
-        <target>Incarnation actuelle</target>
+        <target>Derzeitiges Leben</target>
       </segment>
     </unit>
     <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
@@ -187,7 +160,7 @@
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Balle dans la tête</target>
+        <target>Kopfschuss</target>
       </segment>
     </unit>
     <unit id="Kt_pe8F" name="Tod bestätigen">
@@ -196,7 +169,7 @@
       </notes>
       <segment>
         <source>Tod bestätigen</source>
-        <target>Valider la mort</target>
+        <target>Tod bestätigen</target>
       </segment>
     </unit>
     <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
@@ -217,6 +190,15 @@
         <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
       </segment>
     </unit>
+    <unit id="8kHR6Z1" name="Akte">
+      <notes>
+        <note category="german">Akte</note>
+      </notes>
+      <segment>
+        <source>Akte</source>
+        <target>Akte</target>
+      </segment>
+    </unit>
     <unit id="Tae9Qqu" name="Forum">
       <notes>
         <note category="german">Forum</note>
@@ -232,7 +214,7 @@
       </notes>
       <segment>
         <source>Autor</source>
-        <target>Auteur</target>
+        <target>Autor</target>
       </segment>
     </unit>
     <unit id="5qZlTRd" name="Meldungen">
@@ -241,7 +223,7 @@
       </notes>
       <segment>
         <source>Meldungen</source>
-        <target>Signalements</target>
+        <target>Meldungen</target>
       </segment>
     </unit>
     <unit id="YlkNCJx" name="gemeldet von">
@@ -250,7 +232,7 @@
       </notes>
       <segment>
         <source>gemeldet von</source>
-        <target>Signalé par</target>
+        <target>gemeldet von</target>
       </segment>
     </unit>
     <unit id="wbOHhHO" name="Gesehen">
@@ -259,7 +241,25 @@
       </notes>
       <segment>
         <source>Gesehen</source>
-        <target>Vu</target>
+        <target>Gesehen</target>
+      </segment>
+    </unit>
+    <unit id="S8vqbzA" name="Verbannung">
+      <notes>
+        <note category="german">Verbannung</note>
+      </notes>
+      <segment>
+        <source>Verbannung</source>
+        <target>Verbannung</target>
+      </segment>
+    </unit>
+    <unit id="FlZntyi" name="Bürger">
+      <notes>
+        <note category="german">Bürger</note>
+      </notes>
+      <segment>
+        <source>Bürger</source>
+        <target>Bürger</target>
       </segment>
     </unit>
   </file>

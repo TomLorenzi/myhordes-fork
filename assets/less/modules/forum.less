@@ -186,6 +186,7 @@
     &>b { padding: 5px; }
     &>i { float: right; font-size: 0.8em; }
     &>span { font-size: 0.8em; opacity: 0.5; float: right }
+    &>.avatar { margin: 0 5px 0 10px; float: left }
     &:before, &:after {content: " "; clear: both;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
@@ -224,7 +225,7 @@
   }
 
   &>.forum-post-content {
-    padding-left: 10px; padding-top: 10px; max-height: 750px; overflow: auto;
+    padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/
     background-color: #4a261e; display: none;
     b, strong {
       color: #afb3cf;
@@ -346,7 +347,7 @@
   justify-content: center;
   align-items: center;
   height: 20px;
-  padding: 10px 20px;
+  padding: 10px;
   vertical-align: middle;
   border-radius: 2px;
   box-shadow: 1px 3px 0px 0 black;
