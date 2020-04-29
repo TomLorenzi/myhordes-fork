@@ -233,11 +233,11 @@ class AdminActionHandler
         return true;
     }
 
-    public function hidePost(int $sourceUser, int $postId, string $reason): bool {
-        if(!$this->hasRights($sourceUser))
+    public function hidePost(int $srcUser, int $postId, string $reason): bool {
+        if(!$this->hasRights($srcUser))
             return false;
 
-        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);        
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($srcUser);        
         $post = $this->entity_manager->getRepository(Post::class)->find($postId);
 
         if (!(isset($post)))
@@ -262,6 +262,8 @@ class AdminActionHandler
         {
             return false;
         }
+
+        $this->clearReports($srcUser, $postId);
 
         return true;
     }
