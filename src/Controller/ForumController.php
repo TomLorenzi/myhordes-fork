@@ -581,7 +581,7 @@ class ForumController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh, EntityManagerInterface $em): Response {
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh, EntityManagerInterface $em, TranslatorInterface $ti): Response {
         if (!$parser->has('postId')){
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
@@ -591,6 +591,13 @@ class ForumController extends AbstractController
         $postId = $parser->get('postId');
 
         $post = $em->getRepository( Post::class )->find( $postId );
+        $targetUser = $post->getOwner();
+        if ($targetUser->getUsername() === "Der Rabe" ) {
+            $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');
+            $this->addFlash('notice', $message);
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+        }
+
         $reports = $post->getAdminReports();
         foreach ($reports as $report) {
             if ($report->getSourceUser() == $user) {
@@ -609,7 +616,8 @@ class ForumController extends AbstractController
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
-            
+            $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
+            $this->addFlash('notice', $message);
             return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
     }
 }
