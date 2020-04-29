@@ -5,6 +5,7 @@ namespace App\Service;
 
 use App\Entity\AdminBan;
 use App\Entity\AdminDeletion;
+use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
 use App\Entity\Forum;
@@ -262,6 +263,28 @@ class AdminActionHandler
             return false;
         }
 
+        return true;
+    }
+
+    public function clearReports(int $sourceUser, int $postId): bool {
+
+        if (!$this->hasRights($sourceUser))
+            return false;
+
+        $post = $this->entity_manager->getRepository(Post::class)->find($postId);
+        $reports = $post->getAdminReports();
+        
+        try 
+        {
+            foreach ($reports as $report) {
+                $report->setSeen(true);
+                $this->entity_manager->persist($report);
+            }
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return false;
+        }
         return true;
     }
 }

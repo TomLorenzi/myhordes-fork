@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\Post;
@@ -409,11 +410,15 @@ class ForumController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
-        if (count($forums) !== 1) return new Response('');
-
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        } 
 
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
@@ -566,5 +571,45 @@ class ForumController extends AbstractController
 
             
         return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/report", name="forum_report_post_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh, EntityManagerInterface $em): Response {
+        if (!$parser->has('postId')){
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+        
+        /** @var User $user */
+        $user = $this->getUser();
+        $postId = $parser->get('postId');
+
+        $post = $em->getRepository( Post::class )->find( $postId );
+        $reports = $post->getAdminReports();
+        foreach ($reports as $report) {
+            if ($report->getSourceUser() == $user) {
+                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            }
+        }
+
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setTs(new DateTime('now'))
+            ->setPost($post);
+        
+            try {
+                $em->persist($newReport);
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+            
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
     }
 }

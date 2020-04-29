@@ -56,7 +56,7 @@ class WebController extends AbstractController
         shuffle($devs);
 
         $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
-        $adminActions = [['name' => 'Users', 'id' => 1]];
+        $adminActions = [['name' => 'Users', 'id' => 1], ['name' => 'Meldungen', 'id' => 2]];
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
