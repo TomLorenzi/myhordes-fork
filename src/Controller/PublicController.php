@@ -234,6 +234,75 @@ class PublicController extends AbstractController
     }
 
     /**
+     * @Route("api/public/recover", name="api_recover")
+     * @param JSONRequestParser $parser
+     * @param TranslatorInterface $translator
+     * @param UserFactory $factory
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function recover_api(
+        JSONRequestParser $parser,
+        TranslatorInterface $translator,
+        UserFactory $factory,
+        EntityManagerInterface $entityManager
+    ): Response
+    {
+        if ($this->isGranted( 'ROLE_REGISTERED' ))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$parser->has_all( ['mail','pass1','pass2'], true ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+            'mail' => new Constraints\Email(
+                ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+            'pass1' => new Constraints\Length(
+                ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
+            'pass2' => new Constraints\EqualTo(
+                ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
+        ]) );
+
+        if ($violations->count() === 0) {
+
+            $user = $factory->createUser(
+                $parser->trimmed('user'),
+                $parser->trimmed('mail1'),
+                $parser->trimmed('pass1'),
+                false,
+                $error
+            );
+
+            switch ($error) {
+                case UserFactory::ErrorNone:
+                    try {
+                        $entityManager->persist( $user );
+                        $entityManager->flush();
+                    } catch (Exception $e) {
+                        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+                    }
+                    $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
+                    $this->get('security.token_storage')->setToken($token);
+
+                    return AjaxResponse::success( 'validation');
+
+                case UserFactory::ErrorInvalidParams: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                default: return AjaxResponse::error($error);
+            }
+
+        } else {
+            $v = [];
+            foreach ($violations as &$violation)
+                /** @var ConstraintViolationInterface $violation */
+                $v[] = $violation->getMessage();
+
+            return AjaxResponse::error( 'invalid_fields', ['fields' => $v] );
+        }
+    }
+
+    /**
      * @Route("jx/public/welcome", name="public_welcome")
      * @return Response
      */

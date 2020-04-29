@@ -36,6 +36,19 @@ class UserFactory
         $this->locksmith = $l;
     }
 
+    public function resetUserPassword( string $email, string $password ): ?User {
+        $error = 0;
+
+        $lock = $this->locksmith->waitForLock( 'user-creation' );
+
+        if (!($user = $this->entity_manager->getRepository(User::class)->findOneByMail( $email ))) {
+            $error = self::ErrorInvalidParams;
+            return null;
+        }
+
+        $user->setPassword( $this->encoder->encodePassword($user, $password) );
+        return $user;
+    }
 
     public function createUser( string $name, string $email, string $password, bool $validated, ?int &$error ): ?User {
         $error = 0;
