@@ -289,4 +289,30 @@ class AdminActionHandler
         }
         return true;
     }
+
+    public function setDefaultRoleDev(int $sourceUser, bool $asDev): bool {
+
+        if (!$this->hasRights($sourceUser))
+            return false;
+
+        $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+            
+        if ($asDev) {
+            $defaultRole = "DEV";
+        }    
+        else {
+            $defaultRole = "USER";
+        }
+        
+        try 
+        {
+            $user->setPostAsDefault($defaultRole);
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return false;
+        }
+        return true;
+    }
 }
