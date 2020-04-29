@@ -367,6 +367,9 @@ class InventoryHandler
             if ($actor->getBanished()) return self::ErrorBankBlocked;
         }
 
+        if ( $type_to === self::TransferTypeSteal && !$to->getHome()->getCitizen()->getAlive())
+            return self::ErrorInvalidTransfer;
+
         if ($type_from === self::TransferTypeSteal || $type_to === self::TransferTypeSteal) {
             if (!$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_steal' ) ))
                 return self::ErrorStealLimitHit;
