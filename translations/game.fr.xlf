@@ -817,13 +817,11 @@
     </unit>
     <unit id="UgTjBPn" name="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
       <notes>
-        <note>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</note>
-        <note>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</note>
         <note category="german">Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</note>
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
-        <target>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</target>
+        <target>Vous avez été banni et ne pouvez donc ni ouvrir ni fermer la porte de la ville.</target>
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">

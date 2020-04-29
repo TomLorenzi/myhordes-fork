@@ -284,6 +284,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
         $has_job       = $c->getProfession()->getName() != 'none';
         $is_admin      = $c->getUser()->getIsAdmin();
+        $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal');
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
@@ -306,7 +307,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'has_job' => $has_job,
             'is_admin' => $is_admin,
             'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
-            'day' => $c->getTown()->getDay()
+            'day' => $c->getTown()->getDay(),
+            'already_stolen' => $already_stolen,
         ]) );
     }
 

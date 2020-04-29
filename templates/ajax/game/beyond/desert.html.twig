@@ -511,7 +511,7 @@
 
         $.html.addEventListenerAll( '[x-toggle-escort]:not([x-escort-control-endpoint])', 'click', function(e,elem) {
             const allow_rucksack = document.getElementById('escort_allow_rucksack') ? document.getElementById('escort_allow_rucksack').checked : false;
-            const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : false;
+            const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : true;
             $.ajax.easySend( '{{ path('beyond_desert_escort_self_controller') }}', {
                 on: elem.getAttribute('x-toggle-escort') === '1',
                 cf_ruc: allow_rucksack,

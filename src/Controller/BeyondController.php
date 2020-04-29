@@ -1140,10 +1140,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $on = (bool)$parser->get('on');
 
         $cf_ruc = (bool)$parser->get('cf_ruc', false);
-        $cf_ret = (bool)$parser->get('cf_ret', false);
+        $cf_ret = (bool)$parser->get('cf_ret', true);
 
         $citizen = $this->getActiveCitizen();
-        if ($citizen->getBanished()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$on) {
             if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
@@ -1202,7 +1201,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($on && $citizen->getLeadingEscorts()->count() >= $max_escort_size)
             return AjaxResponse::error( self::ErrorEscortLimitHit );
 
-        if ($target_citizen->getBanished() || !$target_citizen->getEscortSettings() ||
+        if (!$target_citizen->getEscortSettings() ||
             ($on && $target_citizen->getEscortSettings()->getLeader() !== null) || (!$on && ($target_citizen->getEscortSettings()->getLeader() === null || $target_citizen->getEscortSettings()->getLeader()->getId() !== $citizen->getId())))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1212,10 +1211,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         if($on){
-            //$citizen a convaincu $target_citizen de le suivre. 
             $this->entity_manager->persist($this->log->beyondEscortTakeCitizen($citizen, $target_citizen));
         } else {
-            //Finalement, $citizen a décidé de planter $target_citizen là... 
             $this->entity_manager->persist($this->log->beyondEscortReleaseCitizen($citizen, $target_citizen));
         }
 
