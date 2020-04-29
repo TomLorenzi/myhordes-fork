@@ -319,7 +319,7 @@ class TownHandler
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100) / ($has_scope+1)*1);
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100) / ($has_scope+1)*1);
 
-        return (1 - (($offsetMin + $offsetMax) - 10) / 24) * ($has_scope+1)*1;
+        return min((1 - (($offsetMin + $offsetMax) - 10) / 24) * ($has_scope+1)*1, 1);
     }
 
     public function calculate_zombie_attacks(Town &$town, int $future = 2) {
