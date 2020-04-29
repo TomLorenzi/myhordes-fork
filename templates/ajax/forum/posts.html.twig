@@ -211,7 +211,9 @@
     for (let i = 0; i < nav_buttons.length; i++)
         nav_buttons[i].addEventListener('click', function() {
             let editor = document.getElementById('forum-editor');
-            {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
+            {% if editor is defined %}
+                {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
+            {% endif %}
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') )} )
         })
     {% if pages == current_page %}
