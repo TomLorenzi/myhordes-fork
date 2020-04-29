@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AdminReport;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
@@ -45,10 +46,41 @@ class AdminActionController extends AbstractController
             case 1: 
                 return $this->redirect($this->generateUrl('admin_users'));             
                 break;
+            case 2:
+                return $this->redirect($this->generateUrl('admin_reports'));   
+                break;
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+    }
+
+    /**
+     * @Route("jx/admin/action/reports", name="admin_reports")
+     * @return Response
+     */
+    public function reports(): Response
+    {
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
+        return $this->render( 'admin_action/reports/reports.html.twig', [  
+            'reports' => $reports,        
+        ]);      
+    }
+
+    /**
+     * @Route("jx/admin/action/reports/clear", name="admin_reports_clear")
+     * @return Response
+     */
+    public function reports_clear(JSONRequestParser $parser, AdminActionHandler $admh): Response
+    {
+        if (!$parser->has_all(['postId'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $user = $this->getUser();
+        $postId = $parser->get('postId');
+        if ($admh->clearReports($user->getId(), $postId))
+            return AjaxResponse::success();
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
 
     /**

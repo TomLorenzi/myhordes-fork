@@ -191,4 +191,14 @@ class Thread
 
         return $pages;
     }
+
+    public function hasReportedPosts(): bool
+    {
+        foreach ($this->posts as $post){
+            if ($post->getAdminReports()->count() > 0)
+                return true;
+        }
+
+        return false;
+    }
 }
