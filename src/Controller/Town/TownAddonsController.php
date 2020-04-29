@@ -145,7 +145,7 @@ class TownAddonsController extends TownController
         if ($day === 1) {
             if (!$th->getBuilding($town, 'item_tagger_#02', true))
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-            if ($th->get_zombie_estimation_quality( $town, 0) < 1)
+            if ($th->get_zombie_estimation_quality($town, 0) < 1)
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         }
 
@@ -165,7 +165,22 @@ class TownAddonsController extends TownController
                 if ($increase_min) $est->setOffsetMin( $est->getOffsetMin() - 1);
                 else $est->setOffsetMax( $est->getOffsetMax() - 1);
             }
-        $est->addCitizen( $this->getActiveCitizen() );
+        $est->addCitizen($this->getActiveCitizen());
+
+        if($day === 1) {
+            // If we are calculating for tomorrow, we also add that this citizen estimated for today
+            $est_current = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+            if(!$est_current->getCitizens()->contains($this->getActiveCitizen())) {
+                for ($i = 0; $i < $c; $i++)
+                    if ($est_current->getOffsetMin() + $est_current->getOffsetMax() > 10) {
+                        $increase_min = $rg->chance( $est_current->getOffsetMin() / ($est_current->getOffsetMin() + $est_current->getOffsetMax()) );
+                        if ($increase_min) $est_current->setOffsetMin( $est_current->getOffsetMin() - 1);
+                        else $est_current->setOffsetMax( $est_current->getOffsetMax() - 1);
+                    }
+                $est_current->addCitizen($this->getActiveCitizen());
+                $this->entity_manager->persist($est_current);    
+            }
+        }
 
         try {
             $this->entity_manager->persist($est);

@@ -222,6 +222,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
             'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ] ],
             'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
+            'empty_jerrygun'      => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
+
             'consume_water'   => [ 'consume' => [ 'water_#00' ] ],
             'consume_matches' => [ 'consume' => [ 'lights_#00' ] ],
             'consume_battery' => [ 'consume' => [ 'pile_#00'  ] ],
@@ -410,6 +412,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_kill_2z_80' => [[['do_nothing'], 20], [['kill_2_zombie'], 80]],
                 'g_immune_70' => [[['do_nothing'], 30], [['give_immune'], 70]],
 
+                'g_empty_jerrygun'  => [[['do_nothing'], 85], [['empty_jerrygun'], 15]],
             ],
 
             'zombies' => [
@@ -610,6 +613,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_grenade'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 2, 'max' =>  4 ]] ] ],
             'throw_exgrenade'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 6, 'max' => 10 ]] ] ],
             'throw_boomfruit'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 5, 'max' =>  9 ]] ] ],
+            'throw_jerrygun'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ ['group' => 'g_empty_jerrygun'], 'kill_1_zombie'] ],
 
             'bp_generic_1'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => [1] ] ], 'message' => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>' ],
             'bp_generic_2'          => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => [2] ] ], 'message' => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>' ],
@@ -857,6 +861,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'watergun_opt_empty_#00' => [ 'fill_asplash' ],
             'watergun_empty_#00'     => [ 'fill_splash' ],
             'jerrygun_off_#00'       => [ 'fill_jsplash'],
+            'jerrygun_#00'           => [ 'throw_jerrygun'],
             'kalach_#01'             => [ 'fill_ksplash'],
             'grenade_empty_#00'      => [ 'fill_grenade'],
             'bgrenade_empty_#00'     => [ 'fill_exgrenade'],

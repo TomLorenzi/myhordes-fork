@@ -427,5 +427,41 @@
         <target>Commentaire</target>
       </segment>
     </unit>
+    <unit id="mUtATjH" name="1de0d19">
+      <notes>
+        <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</note>
+      </notes>
+      <segment>
+        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
+        <target>Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</target>
+      </segment>
+    </unit>
+    <unit id="HbhZq4U" name="Account löschen">
+      <notes>
+        <note category="german">Account löschen</note>
+      </notes>
+      <segment>
+        <source>Account löschen</source>
+        <target>Suppression du compte</target>
+      </segment>
+    </unit>
+    <unit id="q58CKHC" name="Meinen Account löschen">
+      <notes>
+        <note category="german">Meinen Account löschen</note>
+      </notes>
+      <segment>
+        <source>Meinen Account löschen</source>
+        <target>Supprimer mon compte</target>
+      </segment>
+    </unit>
+    <unit id="LS.JtiE" name="c5a39bb">
+      <notes>
+        <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+      </notes>
+      <segment>
+        <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
+        <target>Souhaitez vous réellement supprimer votre compte ? Cette action est irréversible.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -253,31 +253,31 @@
             });
         }
 
-        // Post as crow toggle
         {% if is_granted("ROLE_ADMIN") %}
-            function changeHandler(){
-                switch (document.querySelector("input[name=post-type]:checked").value) {
-                    case "USER":
-                        document.getElementById("radio-crow").checked = true;
-                        document.getElementById("radio-dev").checked = false;
-                        document.getElementById("radio-user").checked = false;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
-                        break;
-                    case "CROW":
-                        document.getElementById("radio-crow").checked = false;
-                        document.getElementById("radio-dev").checked = true;
-                        document.getElementById("radio-user").checked = false;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                        break;
-                    case "DEV":
-                        document.getElementById("radio-crow").checked = false;
-                        document.getElementById("radio-dev").checked = false;
-                        document.getElementById("radio-user").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
-                        break;
-                }
-            };        
-            document.getElementById('crowpost').addEventListener('click', changeHandler);       
+        // Post as crow toggle
+        function changeHandler(){
+            switch (document.querySelector("input[name=post-type]:checked").value) {
+                case "USER":
+                    document.getElementById("radio-crow").checked = true;
+                    document.getElementById("radio-dev").checked = false;
+                    document.getElementById("radio-user").checked = false;
+                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                    break;
+                case "CROW":
+                    document.getElementById("radio-crow").checked = false;
+                    document.getElementById("radio-dev").checked = true;
+                    document.getElementById("radio-user").checked = false;
+                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    break;
+                case "DEV":
+                    document.getElementById("radio-crow").checked = false;
+                    document.getElementById("radio-dev").checked = false;
+                    document.getElementById("radio-user").checked = true;
+                    document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                    break;
+            }
+        };        
+        document.getElementById('crowpost').addEventListener('click', changeHandler);       
         {% endif %}
 
         let send_buttons = document.querySelectorAll('[x-forum-action=send]');
@@ -289,13 +289,13 @@
                     target_payload = {
                         title: document.getElementById('forum-editor-title').value,
                         text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
-                        type: document.querySelector("input[name=post-type]:checked").value,
+                        {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
                     };
                 {% else %}
                     target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
                     target_payload = {
                         text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
-                        type: document.querySelector("input[name=post-type]:checked").value,
+                        {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
                     };
                 {% endif %}
                 $.ajax.easySend( target_url, target_payload,

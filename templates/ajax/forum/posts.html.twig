@@ -131,7 +131,7 @@
     {% endfor %}
 </div>
     <div class="row">
-        <div class="cell rw-6 left">
+        <div class="cell padded rw-6 left">
         {% if is_granted("ROLE_ADMIN")%}
             {% if not locked %}
                 <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" />{{ 'Schließen'|trans({},'global') }}</div>
@@ -146,7 +146,7 @@
             {% endif %}
         {% endif %}
         </div>
-        <div class="cell rw-6 right">
+        <div class="cell padded rw-6 right">
         {% if not locked and not is_granted("ROLE_BANNED") %}            
             <div x-forum-action="answer" class="forum-button">{{ 'Antworten'|trans({},'global') }}</div>
         {% else %}
@@ -192,6 +192,7 @@
             })
         {% endif %}
     {% endif %}
+    
     let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
     for (let i = 0; i < new_post_btns.length; i++)
         new_post_btns[i].addEventListener('click', function() {
