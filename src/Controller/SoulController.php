@@ -24,6 +24,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -48,7 +49,7 @@ class SoulController extends AbstractController
     const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors + 5;
     const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors + 6;
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
-    const ErrorUserDeletePasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
+    const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
     public function __construct(EntityManagerInterface $em)
     {
@@ -581,14 +582,47 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("api/soul/settings/change_password", name="api_soul_change_password")
+     * @param TranslatorInterface $trans
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param JSONRequestParser $parser
+     * @param TokenStorageInterface $token
+     * @return Response
+     */
+    public function soul_settings_change_pass(TranslatorInterface $trans, UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if (in_array('ROLE_DUMMY', $user->getRoles()))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $new_pw = $parser->trimmed('pw_new', '');
+        if (mb_strlen($new_pw) < 6) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
+            return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
+
+        $user->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) );
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        $this->addFlash( 'notice', $trans->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
+        $token->setToken(null);
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/settings/delete_account", name="api_soul_delete_account")
      * @param TranslatorInterface $trans
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param DeathHandler $death
+     * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_delete_account(TranslatorInterface $trans, UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, DeathHandler $death): Response
+    public function soul_settings_delete_account(TranslatorInterface $trans, UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, DeathHandler $death, TokenStorageInterface $token): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -597,7 +631,7 @@ class SoulController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
-            return AjaxResponse::error(self::ErrorUserDeletePasswordIncorrect );
+            return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
         $name = $user->getUsername();
         $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setIsAdmin(false);
@@ -614,6 +648,7 @@ class SoulController extends AbstractController
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $trans->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
+        $token->setToken(null);
         return AjaxResponse::success();
     }
 }

@@ -80,6 +80,20 @@
             <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
         </div>
     </div>
+    <div class="row">
+        <div class="cell padded rw-4 rw-sm-12">
+            {% trans from 'soul' %}Passwort ändern{% endtrans %}
+        </div>
+        <div class="cell rw-8 rw-sm-12">
+            <div class="row">
+                <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
+                <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+            </div>
+
+        </div>
+    </div>
     <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
     <div class="row">
         <div class="cell padded rw-4 rw-sm-12">
@@ -114,6 +128,28 @@
             $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
                 function () {
                     $.ajax.load(null, '{{ path('public_welcome') }}', true);
+                } )
+        });
+
+        document.getElementById('acc_ch_pw').addEventListener('click', function(e) {
+            e.preventDefault();
+            const pw_old = document.getElementById('app_pw_change_old').value;
+            const pw_new1 = document.getElementById('app_pw_change_new1').value;
+            const pw_new2 = document.getElementById('app_pw_change_new2').value;
+
+            if (pw_new1 !== pw_new2) {
+                $.html.error('{{ 'Die eingegebenen Passwörter stimmen nicht überein.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            if (pw_new1.length < 6) {
+                $.html.error('{{ 'Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
+                return;
+            }
+
+            $.ajax.easySend( '{{ path('api_soul_change_password') }}', {'pw': pw_old, 'pw_new': pw_new1},
+                function () {
+                    $.ajax.load(null, '{{ path('public_login') }}', true);
                 } )
         });
 
