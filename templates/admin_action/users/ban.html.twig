@@ -5,7 +5,7 @@
             {% embed "admin_action/tabs.html.twig" %}{% endembed %}
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
-                    {{ 'Status '|trans({}, 'admin') }}
+                    {{ 'Status'|trans({}, 'admin') }}
                 </div>
                 <div class="cell padded rw-5 rw-sm-12">
                     <input disabled value="{% if banned %}{{ 'Verbannt bis '|trans({}, 'admin') }}{{ activeBan.banEnd|date('d.m.Y h:i:s') }}{% else %}{{ "--" }}{% endif %}" />
@@ -18,7 +18,7 @@
             </div>
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
-                    {{ 'Letzte Verbannung '|trans({}, 'admin') }}
+                    {{ 'Letzte Verbannung'|trans({}, 'admin') }}
                 </div>
                 <div class="cell padded rw-5 rw-sm-12">
                     <input disabled value="{% if banCount > 0 %}{{ lastBan.banStart|date('d.m.Y') }} -- {{ 'Verbannungen'|trans({}, 'admin') }}: {{ banCount }}{% else %}{{ "--" }}{% endif %}" />
@@ -26,7 +26,7 @@
             </div>
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
-                    {{ 'Verbannen '|trans({}, 'admin') }}
+                    {{ 'Verbannen'|trans({}, 'admin') }}
                 </div>
                 <div class="cell padded rw-5 rw-sm-12">
                     <select name="duration" id="ban-duration">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="row">
                     <div class="cell padded ro-2 rw-1 rw-sm-12">
-                        {{ 'Grund '|trans({}, 'admin') }}
+                        {{ 'Grund'|trans({}, 'admin') }}
                     </div>
                     <div class="cell padded rw-5 rw-sm-12">
                         <textarea id="ban-reason"></textarea>                       
