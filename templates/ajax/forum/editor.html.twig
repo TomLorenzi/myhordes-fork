@@ -47,10 +47,10 @@
                 {# <span>{{ 'als '|trans({},'global') }}</span> #}
                 {#<input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
                 <label for="user_answer">{{ app.user.username }}</label> #}
-                <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" checked>
+                <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                 <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
-                <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV">
-                <span id="crow_answer_content">{{ app.user.username }}</span>
+                <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
 
             </div>
             {% endif %}
