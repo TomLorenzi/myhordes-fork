@@ -329,7 +329,7 @@ class InventoryHandler
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone ): int {
         // Block Transfer if citizen is hiding
-        if ($actor->getZone() && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
+        if ($actor->getZone() && $modality !== self::ModalityImpound && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
             return self::ErrorTransferBlocked;
         }
 
@@ -403,14 +403,14 @@ class InventoryHandler
      * @param Citizen $citizen
      * @param Item $item
      * @param Inventory[] $inventories
-     * @return bool
+     * @return Inventory|null
      */
-    public function placeItem( Citizen $citizen, Item $item, array $inventories ): Inventory {
+    public function placeItem( Citizen $citizen, Item $item, array $inventories ): ?Inventory {
         $source = null;
         foreach ($inventories as $inventory)
             if ($this->transferItem( $citizen, $item, $source, $inventory ) == self::ErrorNone)
                 return $inventory;
-        return false;
+        return null;
     }
 
     /**

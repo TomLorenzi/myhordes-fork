@@ -40,7 +40,7 @@ class User implements UserInterface, EquatableInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $pass;
 
@@ -184,6 +184,7 @@ class User implements UserInterface, EquatableInterface
     public function getRoles()
     {
         $roles = [];
+        if ($this->pass === null) return $roles;
         if ($this->isAdmin) $roles[] = 'ROLE_ADMIN';
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
         if ($this->validated) $roles[] = 'ROLE_USER';
@@ -200,7 +201,7 @@ class User implements UserInterface, EquatableInterface
         return $this->pass;
     }
 
-    public function setPassword(string $pass): self {
+    public function setPassword(?string $pass): self {
         $this->pass = $pass;
         return $this;
     }
@@ -214,7 +215,7 @@ class User implements UserInterface, EquatableInterface
      * @inheritDoc
      */
     public function isEqualTo(UserInterface $user) {
-        $b1 =
+        $b1 = $this->getPassword() !== null && $user->getPassword() !== null &&
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();

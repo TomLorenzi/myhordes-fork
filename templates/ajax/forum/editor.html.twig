@@ -47,7 +47,9 @@
                 {# <span>{{ 'als '|trans({},'global') }}</span> #}
                 {#<input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
                 <label for="user_answer">{{ app.user.username }}</label> #}
-                <input class="forum-checkbox" type="checkbox" name="mod_answer" id="crow-checkbox" />
+                <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" checked>
+                <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
+                <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV">
                 <span id="crow_answer_content">{{ app.user.username }}</span>
 
             </div>
@@ -60,7 +62,7 @@
 <script>
     (function() {
 
-        // Cusotmized Hordes plugins for Suneditor
+        // Customized Hordes plugins for Suneditor
         // ex) A command plugin to add "Range format element(util.isRangeFormatElement)" to selection
         var spoiler_command = {
             // @Required @Unique
@@ -71,7 +73,7 @@
             display: 'command',
 
             // @Options
-            title: 'Add range tag',
+            title: 'Spoiler',
             buttonClass: '',
             innerHTML: '<i class="fas fa-carrot"></i>',
 
@@ -177,7 +179,7 @@
             ],
             // Insert options
             // Language global object (default: en)
-            //lang: window.SUNEDITOR_LANG['de']
+            //lang: SUNEDITOR_LANG."{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
         });
 
         const allowed_nodes  = [ 'br', 'b', 'strong', 'i', 'u', 'strike', 'div', 'blockquote', 'hr', 'ul', 'ol', 'li', 'style' ];
@@ -254,12 +256,25 @@
         // Post as crow toggle
         {% if is_granted("ROLE_ADMIN") %}
             function changeHandler(){
-                document.getElementById('crow-checkbox').click();
-                if(document.getElementById('crow-checkbox').checked){
-                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";                
-                }
-                else{
-                    document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                switch (document.querySelector("input[name=post-type]:checked").value) {
+                    case "USER":
+                        document.getElementById("radio-crow").checked = true;
+                        document.getElementById("radio-dev").checked = false;
+                        document.getElementById("radio-user").checked = false;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                        break;
+                    case "CROW":
+                        document.getElementById("radio-crow").checked = false;
+                        document.getElementById("radio-dev").checked = true;
+                        document.getElementById("radio-user").checked = false;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                        break;
+                    case "DEV":
+                        document.getElementById("radio-crow").checked = false;
+                        document.getElementById("radio-dev").checked = false;
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                        break;
                 }
             };        
             document.getElementById('crowpost').addEventListener('click', changeHandler);       
@@ -274,17 +289,13 @@
                     target_payload = {
                         title: document.getElementById('forum-editor-title').value,
                         text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
-                        {% if is_granted("ROLE_ADMIN") %}
-                        as_crow: document.getElementById('crow-checkbox').checked,
-                        {% endif %}
+                        type: document.querySelector("input[name=post-type]:checked").value,
                     };
                 {% else %}
                     target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
                     target_payload = {
                         text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
-                        {% if is_granted("ROLE_ADMIN") %}
-                        as_crow: document.getElementById('crow-checkbox').checked,
-                        {% endif %}
+                        type: document.querySelector("input[name=post-type]:checked").value,
                     };
                 {% endif %}
                 $.ajax.easySend( target_url, target_payload,

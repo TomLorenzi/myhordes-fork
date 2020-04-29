@@ -32,6 +32,7 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
+use App\Structures\CitizenInfo;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
@@ -417,6 +418,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        if ($this->getActiveCitizen()->getBanished())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
         $severity = (int)$parser->get('severity', -1);
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
@@ -653,22 +657,30 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     /**
      * @Route("jx/town/citizens", name="town_citizens")
      * @param EntityManagerInterface $em
+     * @param TownHandler $th
      * @return Response
      */
-    public function citizens(EntityManagerInterface $em): Response
+    public function citizens(EntityManagerInterface $em, TownHandler $th): Response
     {
+        $citizenInfos = [];
         $hidden = [];
 
         $prof_count = [];
         $death_count = 0;
 
         foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+            $citizenInfo = new CitizenInfo();
+            $citizenInfo->citizen = $c;
+            $citizenInfo->defense = 0;
+
             $hidden[$c->getId()] = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($c->getHome(),
                 $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
             ));
 
             if (!$c->getAlive()) $death_count++;
             else {
+                $home = $c->getHome();
+                $citizenInfo->defense = $th->calculate_home_def($home);
 
                 if (!isset($prof_count[ $c->getProfession()->getId() ])) {
                     $prof_count[ $c->getProfession()->getId() ] = [
@@ -678,10 +690,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 } else $prof_count[ $c->getProfession()->getId() ][0]++;
 
             }
+
+            $citizenInfos[] = $citizenInfo;
         }
 
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
-            'citizens' => $this->getActiveCitizen()->getTown()->getCitizens(),
+            'citizens' => $citizenInfos,
             'me' => $this->getActiveCitizen(),
             'hidden' => $hidden,
             'prof_count' => $prof_count,
@@ -1119,6 +1133,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function dashboard_save_wordofheroes_api(JSONRequestParser $parser): Response {
         if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_WORDS_OF_HEROS, false) || !$this->getActiveCitizen()->getProfession()->getHeroic())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         // Get town

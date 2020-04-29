@@ -29,7 +29,13 @@
     {% for post in posts %}
         {% if not post.hidden %}
             <div class="forum-post">
-                <div class="forum-post-header">
+                {% if post.owner.username == 'Der Rabe' %}
+                    <div class="forum-post-header-crow">
+                {% elseif post.type == "DEV" %}
+                    <div class="forum-post-header-dev">                        
+                {% else %}
+                    <div class="forum-post-header">
+                {% endif %}
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
                             {{ 'Heute um'|trans({},'global') }}{{ post.date.format(' G:i') }}
@@ -41,14 +47,27 @@
                     </i>
                     {% if (post.owner.avatar) %}
                         {% if app.user.preferSmallAvatars %}
-                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% if post.owner.username == 'Der Rabe' %}
+                                <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% else %}
+                                <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% endif %}
                         {% else %}
-                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% if post.owner.username == 'Der Rabe' %}
+                                <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% else %}
+                                <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% endif %}
                         {% endif %}
+                    {% else %}
+                        <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
                     {% endif %}
                     <b>
                         {% if post.owner.username == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
+                        {% elseif post.type == "DEV" %}
+                            {{ post.owner.username }}
+                            <img src="{{ asset('build/images/small_admin.gif') }}" />
                         {% else %}
                             {{ post.owner.username }}
                         {% endif %}
@@ -78,9 +97,17 @@
                     </i>
                     {% if (post.owner.avatar) %}
                         {% if app.user.preferSmallAvatars %}
-                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% if post.owner.username == 'Der Rabe' %}
+                                <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% else %}
+                                <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% endif %}
                         {% else %}
-                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% if post.owner.username == 'Der Rabe' %}
+                                <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% else %}
+                                <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% endif %}
                         {% endif %}
                     {% endif %}
                     <b>
@@ -111,6 +138,11 @@
             {% endif %}
             {% if locked %}
                 <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
+            {% endif %}
+            {% if not pinned %}
+                <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Anpinnen'|trans({},'global') }}</div>
+            {% else %}
+                <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Loslösen'|trans({},'global') }}</div>
             {% endif %}
         {% endif %}
         </div>
@@ -144,6 +176,19 @@
             let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
             unlock_button.addEventListener('click', function() {
                 $.ajax.no_history().load( null, '{{ url('forum_thread_unlock_controller', {fid: fid, tid: tid}) }}', false )
+            })
+        {% endif %}
+
+        {% if not pinned %}
+            let pin_button = document.querySelector('[x-forum-moderator-action=pin]');
+            pin_button.addEventListener('click', function() {
+                
+                $.ajax.no_history().load( null, '{{ url('forum_thread_pin_controller', {fid: fid, tid: tid}) }}', false )
+            })
+        {% else %}
+            let unpin_button = document.querySelector('[x-forum-moderator-action=unpin]');
+            unpin_button.addEventListener('click', function() {
+                $.ajax.no_history().load( null, '{{ url('forum_thread_unpin_controller', {fid: fid, tid: tid}) }}', false )
             })
         {% endif %}
     {% endif %}

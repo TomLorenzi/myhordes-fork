@@ -114,7 +114,13 @@ export default class Ajax {
         }
 
         for (let i = 0; i < script_source.length; i++)
-            eval(script_source[i].innerText);
+            try {
+                eval(script_source[i].innerText);
+            } catch (e) {
+                $.html.error('A script on this page has crashed; details have been sent to the web console. The page may no longer work properly. Please report this issue: "' + e.message + '".');
+                console.error(e);
+            }
+
 
         for (let i = 0; i < flash_source.length; i++)
             $.html.message( flash_source[i].getAttribute('x-label'), flash_source[i].innerHTML );

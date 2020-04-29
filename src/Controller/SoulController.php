@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Avatar;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Entity\User;
@@ -10,6 +11,7 @@ use App\Entity\Picto;
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayTextPage;
 use App\Exception\DynamicAjaxResetException;
+use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
@@ -23,6 +25,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validation;
@@ -42,6 +48,7 @@ class SoulController extends AbstractController
     const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors + 5;
     const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors + 6;
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
+    const ErrorUserDeletePasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
     public function __construct(EntityManagerInterface $em)
     {
@@ -416,18 +423,22 @@ class SoulController extends AbstractController
                 if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
                     return AjaxResponse::error( self::ErrorAvatarFormatUnsupported );
 
-                $im_image->coalesceImages();
-                $im_image->resetImagePage('0x0');
+                if ($im_image->getImageFormat() === 'GIF') {
+                    $im_image->coalesceImages();
+                    $im_image->resetImagePage('0x0');
+                    $im_image->setFirstIterator();
+                }
+
                 $w = $im_image->getImageWidth();
                 $h = $im_image->getImageHeight();
 
-                if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 30 || $w < 90)
-                    return AjaxResponse::error( self::ErrorAvatarResolutionUnacceptable );
+                if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
+                    return AjaxResponse::error( self::ErrorAvatarResolutionUnacceptable, [$w,$h,$im_image->getImageFormat() ] );
 
-                if ( max($w,$h) > 200 &&
+                if ( (max($w,$h) > 200 || min($w,$h < 90)) &&
                     !$im_image->resizeImage(
-                        min(200,max(100,$w,$h)),
-                        min(200,max(100,$w,$h)),
+                        min(200,max(90,$w,$h)),
+                        min(200,max(90,$w,$h)),
                         imagick::FILTER_SINC, 1, true )
                 ) return AjaxResponse::error( self:: ErrorAvatarProcessingFailed );
 
@@ -436,7 +447,10 @@ class SoulController extends AbstractController
                 if ($im_image->getImageFormat() !== "GIF")
                     $im_image = $im_image->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
 
-                $im_image->setFirstIterator();
+                if ($im_image->getImageFormat() === 'GIF') {
+                    $im_image->setFirstIterator();
+                }
+
                 $w_final = $im_image->getImageWidth();
                 $h_final = $im_image->getImageHeight();
 
@@ -569,6 +583,43 @@ class SoulController extends AbstractController
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/delete_account", name="api_soul_delete_account")
+     * @param TranslatorInterface $trans
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param JSONRequestParser $parser
+     * @param DeathHandler $death
+     * @return Response
+     */
+    public function soul_settings_delete_account(TranslatorInterface $trans, UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, DeathHandler $death): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if (in_array('ROLE_DUMMY', $user->getRoles()))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
+            return AjaxResponse::error(self::ErrorUserDeletePasswordIncorrect );
+
+        $name = $user->getUsername();
+        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setIsAdmin(false);
+        if ($user->getAvatar()) {
+            $this->entity_manager->remove($user->getAvatar());
+            $user->setAvatar(null);
+        }
+        $citizen = $user->getActiveCitizen();
+        if ($citizen) {
+            $death->kill( $citizen, CauseOfDeath::Headshot, $r );
+            foreach ($r as $re) $this->entity_manager->remove($re);
+        }
+
+        $this->entity_manager->flush();
+
+        $this->addFlash( 'notice', $trans->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
         return AjaxResponse::success();
     }
 }
