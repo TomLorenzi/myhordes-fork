@@ -25,6 +25,11 @@
         </div>
     {% endif %}
 {% endblock %}
+{% if markedPost is defined %}
+    {% set postMarker = markedPost %}
+{% else %}
+    {% set postMarker = 0 %}  
+{% endif %}
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden %}
@@ -74,9 +79,15 @@
                     </b>
                     {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
                 </div>
-                <div class="forum-post-content">
-                    {{ post.text|raw }}
-                </div>
+                {% if post.id == postMarker %}
+                    <div class="forum-post-content-marked">
+                        {{ post.text|raw }}
+                    </div>
+                {% else %}
+                    <div class="forum-post-content">
+                        {{ post.text|raw }}
+                    </div>
+                {% endif %}
                 <div class="forum-post-footer">
                         <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
                     {% if is_granted("ROLE_ADMIN") %}
@@ -120,9 +131,15 @@
                     </b>
                     {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
                 </div>
-                <div class="forum-post-content">
-                    {{ post.text|raw }}
-                </div>
+                {% if post.id == postMarker %}
+                    <div class="forum-post-content-marked">
+                        {{ post.text|raw }}
+                    </div>
+                {% else %}
+                    <div class="forum-post-content">
+                        {{ post.text|raw }}
+                    </div>
+                {% endif %}
                 <div class="forum-post-footer">
                     {% if is_granted("ROLE_ADMIN") %}
                     {% endif %}
