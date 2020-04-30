@@ -22,7 +22,7 @@
                     {% set posts = posts|merge([report.post.id]) %}
                     <div class="row">
                         <div class="cell padded rw-3 rw-sm-12">
-                            <a href="#" x-ajax-href="{{ path('forum_viewer_controller', {fid: report.post.thread.forum.id, tid: report.post.thread.id }) }}">{{ report.post.thread.forum.title }}</a>
+                            <a href="#" x-ajax-href="{{ path('forum_viewer_jump_post_controller', {pid: report.post.id }) }}">{{ report.post.thread.forum.title }}</a>
                         </div>
                         <div class="cell padded rw-2 rw-sm-12">
                             <span>{{ report.post.owner.username }}</span>

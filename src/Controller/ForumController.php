@@ -340,15 +340,21 @@ class ForumController extends AbstractController
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
           
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
-        if (count($forums) !== 1) return AjaxResponse::error( self::ErrorForumNotFound );
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
         if ($thread->getLocked())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return AjaxResponse::error( self::ErrorForumNotFound );
+            }      
+        } 
+        
         /** @var Forum $forum */
-        $forum = $forums[0];
+        $forum = $thread->getForum();
 
 
         if (!$parser->has_all(['text'], true))
@@ -458,6 +464,56 @@ class ForumController extends AbstractController
     }
 
     /**
+     * @Route("api/forum/{pid<\d+>}/jump", name="forum_viewer_jump_post_controller")
+     * @param int $pid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function jumpToPost_api(int $pid, EntityManagerInterface $em): Response {
+        $num_per_page = 10;
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $jumpPost = $em->getRepository(Post::class)->find( $pid );
+
+        $thread = $jumpPost->getThread();
+        if (!$thread) return new Response('');
+
+        $forum = $thread->getForum();
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $forum->getId());
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        } 
+        
+        if ($user->getIsAdmin())
+            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
+        else
+            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
+
+        $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jumpPost )) / $num_per_page));
+
+        if ($user->getIsAdmin())
+            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+        else
+            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+
+        return $this->render( 'ajax/forum/posts.html.twig', [
+            'posts' => $posts,
+            'locked' => $thread->getLocked(),
+            'pinned' => $thread->getPinned(),
+            'fid' => $forum->getId(),
+            'tid' => $thread->getId(),
+            'current_page' => $page,
+            'pages' => $pages,
+            'markedPost' => $pid,
+        ] );
+    }
+
+    /**
      * @Route("api/forum/{id<\d+>}/editor", name="forum_thread_editor_controller")
      * @param int $id
      * @param EntityManagerInterface $em
@@ -482,11 +538,17 @@ class ForumController extends AbstractController
      * @return Response
      */
     public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em): Response {
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
-        if (count($forums) !== 1) return new Response('');
+        $user = $this->getUser();
 
         $thread = $em->getRepository( Thread::class )->find( $tid );
         if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        } 
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
