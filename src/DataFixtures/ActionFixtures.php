@@ -551,7 +551,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'load_radio'     => [ 'label' => 'Laden', 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'radio_on_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!' ],
             'load_emt'       => [ 'label' => 'Laden', 'meta' => [ 'have_battery' ], 'result' => [ 'consume_battery', [ 'item' => [ 'consume' => false, 'morph' => 'sport_elec_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!' ],
 
-            'light_cig' => [ 'label' => 'Rauchen', 'meta' => [ 'have_matches', 'must_be_terrorized' ], 'result' => [ ['group' => [ [['do_nothing'],1], [['consume_matches'],1]]], ['group' => [ [['do_nothing'],1], [['consume_item'],1]]], 'unterrorize' ] ],
+            'light_cig' => [ 'label' => 'Rauchen', 'meta' => [ 'have_matches', 'must_be_terrorized' ], 'result' => [ ['group' => [ [['do_nothing'],20], [['consume_matches'],80]]], ['group' => [ [['do_nothing'],90], [['consume_item'],10]]], 'unterrorize' ] ],
 
             'fill_asplash'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
             'fill_splash'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
