@@ -360,9 +360,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $message = "";
         switch ($action) {
             case 1:
-                if ($ac->getAp() <= 0 || $this->citizen_handler->isTired( $ac ))
+                if ($ac->getAp() <= 1 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-                $this->citizen_handler->setAP($ac, true, -1);
+                $this->citizen_handler->setAP($ac, true, -2);
                 $pictoName = "r_cgarb_#00";
                 $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
                 break;
