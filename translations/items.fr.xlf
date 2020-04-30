@@ -113,8 +113,6 @@
     </unit>
     <unit id="9tVy8rd" name="99bed0a">
       <notes>
-        <note>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
-        <note>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
         <note category="german">Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
       </notes>
       <segment>
@@ -124,8 +122,6 @@
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
       <notes>
-        <note>Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
-        <note>Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
         <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
       </notes>
       <segment>
@@ -3398,19 +3394,15 @@
     </unit>
     <unit id="cG6nZVM" name="Phil Collins CD">
       <notes>
-        <note>Phil Collins CD</note>
-        <note>Phil Collins CD</note>
         <note category="german">Phil Collins CD</note>
       </notes>
       <segment>
         <source>Phil Collins CD</source>
-        <target>CD Phil Collins</target>
+        <target>CD de Phil Collins</target>
       </segment>
     </unit>
     <unit id="p57UGdl" name="Ohrstöpsel">
       <notes>
-        <note>Ohrstöpsel</note>
-        <note>Ohrstöpsel</note>
         <note category="german">Ohrstöpsel</note>
       </notes>
       <segment>
@@ -3420,8 +3412,6 @@
     </unit>
     <unit id="vJ9pHA2" name="Kaputter Stock">
       <notes>
-        <note>Kaputter Stock</note>
-        <note>Kaputter Stock</note>
         <note category="german">Kaputter Stock</note>
       </notes>
       <segment>
@@ -3437,7 +3427,7 @@
       </notes>
       <segment>
         <source>Britney Spears CD</source>
-        <target>CD Britney Spears</target>
+        <target>CD de Britney Spears</target>
       </segment>
     </unit>
     <unit id="rfDmpCK" name="Best of The King CD">
@@ -3475,8 +3465,6 @@
     </unit>
     <unit id="ahj5_Qd" name="Schrödingers Box">
       <notes>
-        <note>Schrödingers Box</note>
-        <note>Schrödingers Box</note>
         <note category="german">Schrödingers Box</note>
       </notes>
       <segment>
@@ -3486,8 +3474,6 @@
     </unit>
     <unit id="jKvG1Xa" name="Geistiger Beistand">
       <notes>
-        <note>Geistiger Beistand</note>
-        <note>Geistiger Beistand</note>
         <note category="german">Geistiger Beistand</note>
       </notes>
       <segment>
@@ -3497,8 +3483,6 @@
     </unit>
     <unit id="y7Kt8H7" name="Fette Python">
       <notes>
-        <note>Fette Python</note>
-        <note>Fette Python</note>
         <note category="german">Fette Python</note>
       </notes>
       <segment>
@@ -3508,8 +3492,6 @@
     </unit>
     <unit id="YE.6ZMc" name="Überraschungskiste (3 Geschenke)">
       <notes>
-        <note>Überraschungskiste (3 Geschenke)</note>
-        <note>Überraschungskiste (3 Geschenke)</note>
         <note category="german">Überraschungskiste (3 Geschenke)</note>
       </notes>
       <segment>
@@ -3906,19 +3888,15 @@
     </unit>
     <unit id="WPixbld" name="Spielen">
       <notes>
-        <note>Spielen</note>
-        <note>Spielen</note>
         <note category="german">Spielen</note>
       </notes>
       <segment>
         <source>Spielen</source>
-        <target>Spielen</target>
+        <target>Jouer</target>
       </segment>
     </unit>
     <unit id="qz1Q.uu" name="Verwenden">
       <notes>
-        <note>Verwenden</note>
-        <note>Verwenden</note>
         <note category="german">Verwenden</note>
       </notes>
       <segment>
@@ -4014,8 +3992,6 @@
     </unit>
     <unit id="UbJNeAP" name="34970f4">
       <notes>
-        <note>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</note>
-        <note>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</note>
         <note category="german">Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</note>
       </notes>
       <segment>
@@ -4025,19 +4001,15 @@
     </unit>
     <unit id="m2_GRND" name="7d11094">
       <notes>
-        <note>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</note>
-        <note>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</note>
         <note category="german">Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</note>
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
-        <target>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</target>
+        <target>Grâce au Purificateur, {well} rations d'eau supplémentaires ont été ajoutées dans le puits !</target>
       </segment>
     </unit>
     <unit id="T9EFRxo" name="Reparieren mit">
       <notes>
-        <note>Reparieren mit</note>
-        <note>Reparieren mit</note>
         <note category="german">Reparieren mit</note>
       </notes>
       <segment>
@@ -4047,8 +4019,6 @@
     </unit>
     <unit id="SKEGJd1" name="8534543">
       <notes>
-        <note>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</note>
-        <note>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</note>
         <note category="german">Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</note>
       </notes>
       <segment>
@@ -4168,13 +4138,11 @@
     </unit>
     <unit id="4oX2an8" name="Hierfür brauchst du Streichhölzer...">
       <notes>
-        <note>Hierfür brauchst du Streichhölzer...</note>
-        <note>Hierfür brauchst du Streichhölzer...</note>
         <note category="german">Hierfür brauchst du Streichhölzer...</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du Streichhölzer...</source>
-        <target>Hierfür brauchst du Streichhölzer...</target>
+        <target>Vous avez besoin d'allumettes...</target>
       </segment>
     </unit>
     <unit id="4Xp26aZ" name="Losschicken">
