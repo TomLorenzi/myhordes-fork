@@ -770,8 +770,13 @@ class ActionHandler
                     case 3:
                         $count = 0;
                         foreach ($citizen->getTown()->getCitizens() as $target_citizen) {
+                            // Don't give AP to dead citizen 
+                            if(!$target_citizen->getAlive())
+                                continue;
+                            
                             $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
-                            if ($target_citizen->getZone()) continue;
+                            if ($target_citizen->getZone()) 
+                                continue;
                             else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
                                 $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;

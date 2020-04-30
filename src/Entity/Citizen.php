@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Citizen
 {
+    const Thrown = 1;
+    const Watered = 2;
+    const Cooked = 3;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -188,6 +192,19 @@ class Citizen
      */
     private $comment;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $disposed;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Citizen")
+     * @ORM\JoinTable(name="citizen_disposed",
+     *     joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id", unique=true)},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="disposed_by_id", referencedColumnName="id")})
+     */
+    private $disposedBy;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -199,6 +216,7 @@ class Citizen
         $this->roles = new ArrayCollection();
         $this->votes = new ArrayCollection();
         $this->leadingEscorts = new ArrayCollection();
+        $this->disposedBy = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -804,6 +822,44 @@ class Citizen
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getDisposed(): ?int
+    {
+        return $this->disposed;
+    }
+
+    public function setDisposed(int $disposed): self
+    {
+        $this->disposed = $disposed;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Citizen[]
+     */
+    public function getDisposedBy(): Collection
+    {
+        return $this->disposedBy;
+    }
+
+    public function addDisposedBy(Citizen $citizen): self
+    {
+        if (!$this->disposedBy->contains($citizen)) {
+            $this->disposedBy[] = $citizen;
+        }
+
+        return $this;
+    }
+
+    public function removeDisposedBy(Citizen $citizen): self
+    {
+        if ($this->disposedBy->contains($citizen)) {
+            $this->disposedBy->removeElement($citizen);
+        }
 
         return $this;
     }
