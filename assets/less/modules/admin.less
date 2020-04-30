@@ -1,6 +1,6 @@
 @import (once) "../theme";
 
-
+/*
 &>.row.admin-menu>.cell {
     margin-top: 40px;
     color: #f0d79e;
@@ -50,4 +50,48 @@
         outline: 1px solid #5c2b20;
         
     }
+}*/
+
+#user-list-wrapper {
+  background-color: #5c2b20;
+  border: 1px solid transparent;
+  padding: 1rem;
+  margin: .5rem;
+  background: @myhordes-panel-border, @myhordes-panel-bg;
+  color: @myhordes-panel-color;
+
+  #user-list {
+    margin: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    max-height: 12rem;
+    overflow: auto;
+
+    .user-list-entry {
+      flex-basis: 120px;
+      margin-bottom: 4px;
+      margin-right: 4px;
+
+      button {
+        text-overflow: ellipsis;
+        cursor: pointer;
+        font-size: .8em;
+        font-variant: unset;
+        text-transform: none;
+
+      }
+    }
+  }
+
+  p {
+    padding: 0 1rem;
+
+    input#user-search {
+      width: 10rem;
+      display: inline;
+    }
+  }
 }
