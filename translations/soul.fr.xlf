@@ -517,5 +517,23 @@
         <target>Votre mot de passe est incorrect. Vous devez saisir votre mot de passe actuel pour modifier votre compte.</target>
       </segment>
     </unit>
+    <unit id="isnXPfR" name="Standardrolle im Forum">
+      <notes>
+        <note category="german">Standardrolle im Forum</note>
+      </notes>
+      <segment>
+        <source>Standardrolle im Forum</source>
+        <target>Rôle par défaut dans le forum</target>
+      </segment>
+    </unit>
+    <unit id="uqXS6rA" name="Standardmäßig als dev posten">
+      <notes>
+        <note category="german">Standardmäßig als dev posten</note>
+      </notes>
+      <segment>
+        <source>Standardmäßig als dev posten</source>
+        <target>Poster comme développeur par défaut</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
