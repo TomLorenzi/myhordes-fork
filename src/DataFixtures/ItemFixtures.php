@@ -338,7 +338,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'root_weapon','deco'=>0,'heavy'=>false],                           // --
         ['label' =>'Tretmine','icon'=>'claymo','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                               // -- ---
         ['label' =>'Laserdiode','icon'=>'diode','category'=>'rsc','deco'=>0,'heavy'=>false],                                                 // -- ---
-        ['label' =>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'imp','deco'=>0,'heavy'=>false],                                     // In ---
+        ['label' =>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'imp','deco'=>6,'heavy'=>false],                                     // In ---
         ['label' =>'LSD','icon'=>'lsd','category'=>'drug','deco'=>0,'heavy'=>false],                                                         //
         ['label' =>'Starker Laserpointer (4 Schuss)','icon'=>'lpoint4','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
         ['label' =>'Starker Laserpointer (3 Schuss)','icon'=>'lpoint3','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
