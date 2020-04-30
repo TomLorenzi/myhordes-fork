@@ -340,15 +340,21 @@ class ForumController extends AbstractController
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
           
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
-        if (count($forums) !== 1) return AjaxResponse::error( self::ErrorForumNotFound );
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
         if ($thread->getLocked())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return AjaxResponse::error( self::ErrorForumNotFound );
+            }      
+        } 
+        
         /** @var Forum $forum */
-        $forum = $forums[0];
+        $forum = $thread->getForum();
 
 
         if (!$parser->has_all(['text'], true))
@@ -532,11 +538,17 @@ class ForumController extends AbstractController
      * @return Response
      */
     public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em): Response {
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
-        if (count($forums) !== 1) return new Response('');
+        $user = $this->getUser();
 
         $thread = $em->getRepository( Thread::class )->find( $tid );
         if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        } 
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
