@@ -14,12 +14,14 @@ use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\AdminActionHandler;
 use App\Service\JSONRequestParser;
+use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
+use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,6 +43,15 @@ class ForumController extends AbstractController
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
+
+    private $rand;
+    private $trans;
+
+    public function __construct(RandomGenerator $r, TranslatorInterface $t)
+    {
+        $this->rand = $r;
+        $this->trans = $t;
+    }
 
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
@@ -166,10 +177,10 @@ class ForumController extends AbstractController
         'q' => [],
         'blockquote' => [],
         'hr' => [],
-        'ul' => [ 'class' ],
-        'ol' => [ 'class' ],
+        'ul' => [],
+        'ol' => [],
         'li' => [],
-        'p'  => [ 'class' ],
+        'p'  => [],
         'div' => [ 'class' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
@@ -177,6 +188,15 @@ class ForumController extends AbstractController
 
     private const HTML_ALLOWED_ADMIN = [
         'img' => [ 'alt', 'src', 'title'],
+    ];
+
+    private const HTML_ATTRIB_ALLOWED = [
+        'div.class' => [
+            'glory', 'spoiler',
+            'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
+            'letter-a', 'letter-v', 'letter-c',
+            'rps', 'coin', 'card'
+        ]
     ];
 
     private function getAllowedHTML(): array {
@@ -187,24 +207,34 @@ class ForumController extends AbstractController
         if ($user->getIsAdmin())
             $r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
 
-        return $r;
+        return ['nodes' => $r, 'attribs' => self::HTML_ATTRIB_ALLOWED];
     }
 
     private function htmlValidator( array $allowedNodes, DOMNode $node, int &$text_length, int $depth = 0 ): bool {
         if ($depth > 32) return false;
+
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
             // Element not allowed.
-            if (!in_array($node->nodeName, array_keys($allowedNodes)) && !($depth === 0 && $node->nodeName === 'body')) {
+            if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body')) {
                 $node->parentNode->removeChild( $node );
                 return true;
             }
 
             // Attributes not allowed.
             $remove_attribs = [];
-            for ($i = 0; $i < $node->attributes->length; $i++)
-                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes[$node->nodeName]))
+            for ($i = 0; $i < $node->attributes->length; $i++) {
+                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes['nodes'][$node->nodeName]))
                     $remove_attribs[] = $node->attributes->item($i)->nodeName;
+                elseif (isset($allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"])) {
+                    // Attribute values not allowed
+                    $allowed_entries = $allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"];
+                    $node->attributes->item($i)->nodeValue = implode( ' ', array_filter( explode(' ', $node->attributes->item($i)->nodeValue), function (string $s) use ($allowed_entries) {
+                        return in_array( $s, $allowed_entries );
+                    }));
+                }
+            }
+
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
 
@@ -234,6 +264,31 @@ class ForumController extends AbstractController
 
         if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0),$tx_len))
             return false;
+
+        $handlers = [
+            '//div[@class=\'dice-4\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,4); },
+            '//div[@class=\'dice-6\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,6); },
+            '//div[@class=\'dice-8\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,8); },
+            '//div[@class=\'dice-10\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,10); },
+            '//div[@class=\'dice-12\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,12); },
+            '//div[@class=\'dice-20\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,20); },
+            '//div[@class=\'dice-100\']' => function (DOMNode $d) { $d->nodeValue = mt_rand(1,100); },
+            '//div[@class=\'letter-a\']' => function (DOMNode $d) { $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-c\']' => function (DOMNode $d) { $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-v\']' => function (DOMNode $d) { $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'rps\']'      => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Schere',[],'global'),$this->trans->trans('Stein',[],'global'),$this->trans->trans('Papier',[],'global')]); },
+            '//div[@class=\'coin\']'     => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Kopf',[],'global'),$this->trans->trans('Zahl',[],'global')]); },
+            '//div[@class=\'card\']'     => function (DOMNode $d) {
+                $s_color = $this->rand->pick([$this->trans->trans('Kreuz',[],'items'),$this->trans->trans('Pik',[],'items'),$this->trans->trans('Herz',[],'items'),$this->trans->trans('Karo',[],'items')]);
+                $value = mt_rand(1,12);
+                $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
+                $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
+            },
+        ];
+
+        foreach ($handlers as $query => $handler)
+            foreach ( (new DOMXPath($dom))->query($query, $body->item(0)) as $node )
+                $handler($node);
 
         $tmp_str = "";
         foreach ($body->item(0)->childNodes as $child)
