@@ -6,6 +6,7 @@ use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -46,6 +47,16 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
                 ->andWhere('u.name = :val')->setParameter('val', $value)
                 ->getQuery()->getOneOrNullResult();
         } catch (NonUniqueResultException $e) { return null; }
+    }
+
+    /**
+      * @return User[] Returns an array of User objects
+      */
+    public function findByNameContains(string $value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.name LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->getQuery()->getResult();
     }
 
     public function findOneByMail(string $value): ?User

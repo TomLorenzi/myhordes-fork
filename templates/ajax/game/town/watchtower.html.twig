@@ -58,7 +58,7 @@
                     <b>???</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/small_zombie.gif') }}" />
                 {% endif %}
             </div>
-            <div class="padded cell rw-4 rw-md-6 center small">
+            <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
                     <div class="watchtower-prediction">
                         <p>{{ 'Qualität der Abschätzung'|trans({},'game') }}</p>
@@ -69,7 +69,7 @@
                     </div>
                 {% endif %}
             </div>
-            <div class="padded cell rw-4 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12 right">
+            <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
                     <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1">{{ 'Abschätzung verbessern'|trans({},'game') }}</button>
                 {% endif %}

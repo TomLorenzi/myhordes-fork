@@ -25,6 +25,11 @@
         </div>
     {% endif %}
 {% endblock %}
+{% if markedPost is defined %}
+    {% set postMarker = markedPost %}
+{% else %}
+    {% set postMarker = 0 %}  
+{% endif %}
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden %}
@@ -74,10 +79,17 @@
                     </b>
                     {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
                 </div>
-                <div class="forum-post-content">
-                    {{ post.text|raw }}
-                </div>
+                {% if post.id == postMarker %}
+                    <div class="forum-post-content-marked">
+                        {{ post.text|raw }}
+                    </div>
+                {% else %}
+                    <div class="forum-post-content">
+                        {{ post.text|raw }}
+                    </div>
+                {% endif %}
                 <div class="forum-post-footer">
+                        <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
                     {% if is_granted("ROLE_ADMIN") %}
                         <a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a>
                     {% endif %}
@@ -119,9 +131,15 @@
                     </b>
                     {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
                 </div>
-                <div class="forum-post-content">
-                    {{ post.text|raw }}
-                </div>
+                {% if post.id == postMarker %}
+                    <div class="forum-post-content-marked">
+                        {{ post.text|raw }}
+                    </div>
+                {% else %}
+                    <div class="forum-post-content">
+                        {{ post.text|raw }}
+                    </div>
+                {% endif %}
                 <div class="forum-post-footer">
                     {% if is_granted("ROLE_ADMIN") %}
                     {% endif %}
@@ -156,16 +174,23 @@
     </div>
 {{ block('pagenav') }}
 <script>
+    let report_buttons = document.querySelectorAll('[x-forum-action="report-post"');
+    for (let i = 0; i < report_buttons.length; i++)
+        report_buttons[i].addEventListener('click', function() {
+            $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
+                function (data) {
+                    $.ajax.load(null, data.url, true);
+                } )
+            })
     {% if is_granted("ROLE_ADMIN")%}
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"');
         for (let i = 0; i < del_buttons.length; i++)
             del_buttons[i].addEventListener('click', function() {
-                let editor = document.getElementById('forum-editor');
-                {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
-                $.ajax.easySend( '{{ url('forum_delete_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
-                    function (data) {
-                        $.ajax.load(null, data.url, true);
-                    } )
+                if (confirm('{{ 'Beitrag löschen?'|trans({},'admin') }}'))
+                    $.ajax.easySend( '{{ url('forum_delete_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
+                        function (data) {
+                            $.ajax.load(null, data.url, true);
+                        } )
                 })
         {% if not locked %}
             let lock_button = document.querySelector('[x-forum-moderator-action=lock]');
@@ -203,7 +228,9 @@
     for (let i = 0; i < nav_buttons.length; i++)
         nav_buttons[i].addEventListener('click', function() {
             let editor = document.getElementById('forum-editor');
-            {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
+            {% if editor is defined %}
+                {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
+            {% endif %}
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') )} )
         })
     {% if pages == current_page %}

@@ -660,7 +660,7 @@
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
-        <note category="german">Unlock</note>
+        <note category="german">Öffnen</note>
       </notes>
       <segment>
         <source>Öffnen</source>
@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Loslösen</source>
-        <target>Ne plus épingler</target>
+        <target>Désépingler</target>
       </segment>
     </unit>
     <unit id="nCT0Wn6" name="Dev">
@@ -746,6 +746,33 @@
       <segment>
         <source>Dev</source>
         <target>Dev</target>
+      </segment>
+    </unit>
+    <unit id="oR9GFiR" name="Melden">
+      <notes>
+        <note category="german">Melden</note>
+      </notes>
+      <segment>
+        <source>Melden</source>
+        <target>Signaler</target>
+      </segment>
+    </unit>
+    <unit id="awzJBNC" name="Users">
+      <notes>
+        <note category="german">Users</note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Utilisateurs</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Signalements</target>
       </segment>
     </unit>
   </file>

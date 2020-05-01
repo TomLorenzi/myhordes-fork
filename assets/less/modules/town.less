@@ -228,6 +228,21 @@ div.town-banner {
     margin-top: 0;
     font-size: 1.2rem;
   }
+  .notice {
+    padding-left: 20px;
+    padding-right: 5px;
+    font-size: 1.1rem;
+    color: #f0d79e;
+    margin-top: 2px;
+    background-image: url("../../img/small_middot.gif");
+    background-repeat: no-repeat;
+    background-position: 3px 1px;
+    background-color: #996739;
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .buildings {
@@ -265,7 +280,7 @@ div.town-banner {
   background-image: url('../../img/cityBoard.png');
 
   .content {
-    margin: 40px 10px 0 5px;
+    margin: 40px 30px 0 5px;
     height: 190px;
     max-height: 190px;
     overflow: auto;
@@ -275,6 +290,7 @@ div.town-banner {
     font-style: italic;
     font-weight: bold;
     font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+    word-break: break-word;
     textarea, textarea:focus {
       width: 100%;
       overflow: hidden;

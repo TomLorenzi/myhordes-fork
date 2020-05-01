@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
+  <file id="legal.de">
+    <unit id="oSNe_8G" name="Datenschutzerklärung">
+      <notes>
+        <note category="german">Datenschutzerklärung</note>
+      </notes>
+      <segment>
+        <source>Datenschutzerklärung</source>
+        <target>Datenschutzerklärung</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

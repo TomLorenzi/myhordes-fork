@@ -284,6 +284,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
         $has_job       = $c->getProfession()->getName() != 'none';
         $is_admin      = $c->getUser()->getIsAdmin();
+        $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal');
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
@@ -306,7 +307,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'has_job' => $has_job,
             'is_admin' => $is_admin,
             'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
-            'day' => $c->getTown()->getDay()
+            'day' => $c->getTown()->getDay(),
+            'already_stolen' => $already_stolen,
         ]) );
     }
 
@@ -358,11 +360,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $message = "";
         switch ($action) {
             case 1:
-                if ($ac->getAp() <= 0 || $this->citizen_handler->isTired( $ac ))
+                if ($ac->getAp() <= 1 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-                $this->citizen_handler->setAP($ac, true, -1);
+                $this->citizen_handler->setAP($ac, true, -2);
                 $pictoName = "r_cgarb_#00";
                 $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
+                $c->setDisposed(Citizen::Thrown);
+                $c->addDisposedBy($ac);
                 break;
             case 2:
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
@@ -370,6 +374,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $this->inventory_handler->forceRemoveItem( $items[0] );
                 $pictoName = "r_cwater_#00";
                 $message = $this->translator->trans('Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...', [], 'game');
+                $c->setDisposed(Citizen::Watered);
+                $c->addDisposedBy($ac);
                 break;
             case 3:
                 $town = $ac->getTown();
@@ -377,7 +383,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 $spawn_items[] = [ $em->getRepository( ItemPrototype::class )->findOneByName( 'hmeat_#00' ), 4 ];
                 $pictoName = "r_cooked_#00";
-                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
+                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>','%ration%' => '<span>4</span>'], 'game');
+                $c->setDisposed(Citizen::Cooked);
+                $c->addDisposedBy($ac);
                 break;
         }
 

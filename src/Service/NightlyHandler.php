@@ -405,6 +405,9 @@ class NightlyHandler
                 if ($aliveCitizenInTown > 0 && $aliveCitizenInTown <= 10 && !$town->getDevastated()) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, the town is not devastated, setting the town to <info>chaos</info> mode");
                     $town->setChaos(true);
+                    foreach ($town->getCitizens() as $target_citizen) {
+                        $target_citizen->setBanished(false);
+                    }
                 } else if ($aliveCitizenInTown == 0) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
                     // TODO: give Last Man Standing to one of the citizens that has died IN TOWN

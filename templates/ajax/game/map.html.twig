@@ -24,7 +24,7 @@
                                 {% if zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
                                     <div class="count">{% if zones[x][y].zombies > 0 %}{{ zones[x][y].zombies }}{% endif %}</div>
                                 {% endif %}
-                                {% if in_town and zones[x][y].citizens|length != 0 %}
+                                {% if in_town and zones[x][y].citizens|length != 0 and not chaos %}
                                     <div class="citizen_marker"></div>
                                 {% endif %}
                                 <div class="tooltip tooltip-map">
