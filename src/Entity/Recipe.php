@@ -70,9 +70,15 @@ class Recipe
      */
     private $pictoPrototype;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\ItemPrototype")
+     */
+    private $keep;
+
     public function __construct()
     {
         $this->provoking = new ArrayCollection();
+        $this->keep = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -174,6 +180,32 @@ class Recipe
     public function setPictoPrototype(?PictoPrototype $pictoPrototype): self
     {
         $this->pictoPrototype = $pictoPrototype;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ItemPrototype[]
+     */
+    public function getKeep(): Collection
+    {
+        return $this->keep;
+    }
+
+    public function addKeep(ItemPrototype $keep): self
+    {
+        if (!$this->keep->contains($keep)) {
+            $this->keep[] = $keep;
+        }
+
+        return $this;
+    }
+
+    public function removeKeep(ItemPrototype $keep): self
+    {
+        if ($this->keep->contains($keep)) {
+            $this->keep->removeElement($keep);
+        }
 
         return $this;
     }

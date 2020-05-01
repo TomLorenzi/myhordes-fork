@@ -1022,6 +1022,7 @@ class ActionHandler
 
         $list = [];
         foreach ($items as $item) {
+            if($recipe->getKeep()->contains($item->getPrototype())) continue;
             $r = $recipe->getSource()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r->getChance() );
             $list[] = $item->getPrototype();
