@@ -1021,6 +1021,37 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return AjaxResponse::success();
     }
 
+    /**
+     * @Route("api/town/door/exit_hero", name="town_door_hero_exit_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function door_hero_exit_api(JSONRequestParser $parser): Response {
+        if (!$this->getActiveCitizen()->getProfession()->getHeroic())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $citizen = $this->getActiveCitizen();
+        $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), 0, 0);
+
+        if (!$zone)
+            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+
+        $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
+        $zone->addCitizen( $citizen );
+
+        try {
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
     private function door_is_locked(TownHandler $th): bool {
         $town = $this->getActiveCitizen()->getTown();
         if ( !$town->getDoor() && (($s = $this->time_keeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
@@ -1046,8 +1077,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 	$can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'town'  =>  $this->getActiveCitizen()->getTown(),
-	    'door_locked' => $door_locked,
-	    'can_go_out' => $can_go_out,
+    	    'door_locked' => $door_locked,
+    	    'can_go_out' => $can_go_out,
+            'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
+            'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ], $this->get_map_blob())) );
