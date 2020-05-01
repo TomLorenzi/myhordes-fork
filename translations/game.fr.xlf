@@ -284,7 +284,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% de zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
+        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -964,7 +964,7 @@
       </notes>
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
-        <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
+        <target>Woaw! vous pouvez voir pratiquement tout d'ici! C'est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville.</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -3795,7 +3795,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %zombies% zerfleischt!</source>
-        <target>%citizen% a été tué par %zombies% zombies!</target>
+        <target>%citizen% a été tué par %zombies% !</target>
       </segment>
     </unit>
     <unit id="26dC9N0" name="5206011">
@@ -5046,7 +5046,7 @@
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Dévoré par un goule</target>
+        <target>Dévoré par une goule</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -7897,9 +7897,10 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Les points de construction peuvent être utilisés dans l'atelier et sur les chantiers de construction,
+                    où ils comptent comme des points d'action. Si possible, les points de construction sont toujours
+                    utilisés en premier avant l'utilisation des points d'action. Gardez à l'esprit que les points de
+                    construction ne peuvent pas être utilisés lorsque vous êtes épuisé!</target>
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">

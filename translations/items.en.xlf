@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
-        <target>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</target>
+        <target>A little live music can seduce the ladies and restores the spirit... but you'll have to be content with the 2nd effect. Your playing has generated {ap} action points which will be shared amongst the townsfolk.</target>
       </segment>
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
@@ -688,7 +688,7 @@
       </notes>
       <segment>
         <source>Videoprojektor</source>
-        <target>Videoprojektor</target>
+        <target>Video projector</target>
       </segment>
     </unit>
     <unit id="1QAZbip" name="Sprengstoff">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Zyanid</target>
+        <target>Suicide by ingestion of cyanide</target>
       </segment>
     </unit>
     <unit id="TKW8Gi8" name="Alte Tür">
@@ -2808,7 +2808,7 @@
       </notes>
       <segment>
         <source>Brezel</source>
-        <target>Brezel</target>
+        <target>Pretzel</target>
       </segment>
     </unit>
     <unit id="1_ZEQrG" name="Dackel">
@@ -2818,7 +2818,7 @@
       </notes>
       <segment>
         <source>Dackel</source>
-        <target>Dackel</target>
+        <target>Dachshund</target>
       </segment>
     </unit>
     <unit id="2Dgiwf_" name="Pfahlwerfer">
@@ -3098,7 +3098,7 @@
       </notes>
       <segment>
         <source>Korn-Bräu</source>
-        <target>Korn-Bräu</target>
+        <target>Ergot Homebrew</target>
       </segment>
     </unit>
     <unit id="6hs5Izq" name="Verfluchte HiFi">
@@ -4618,7 +4618,7 @@
       </notes>
       <segment>
         <source>Das Glas dieser gut erhaltenen Bierflasche ist ziemlich verfärbt. Du vermutest, dass es früher mal grün war. Ah, da, das Etikett! Roter Rand..."Welcome to the Feck's experience"... okay, ein Pils. Na dann lass uns doch mal das "Experiment" wagen... .(Mit einem kräftigen Schluck kippst du dir den Saft hinter die Binde und lässt kurz darauf einen Riesenrülpser los!) - "Prost Kameraden!"</source>
-        <target>Das Glas dieser gut erhaltenen Bierflasche ist ziemlich verfärbt. Du vermutest, dass es früher mal grün war. Ah, da, das Etikett! Roter Rand..."Welcome to the Feck's experience"... okay, ein Pils. Na dann lass uns doch mal das "Experiment" wagen... .(Mit einem kräftigen Schluck kippst du dir den Saft hinter die Binde und lässt kurz darauf einen Riesenrülpser los!) - "Prost Kameraden!"</target>
+        <target>After spending forever under the sun, this bottle is completely discolored. You have the intuition that it must have been green in the past. Ah, here's the label!... okay, just a pale lager. "Keep away from light and all sources of heat", well, let's try... (You take a huge sip and release a giant burp shortly after!) - "Cheers, Pap Finn!"</target>
       </segment>
     </unit>
     <unit id="aPzzrWh" name="c16389a">
@@ -4628,7 +4628,7 @@
       </notes>
       <segment>
         <source>Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</source>
-        <target>Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</target>
+        <target>This faulty projector can no longer be used for nothing. However, the lens still seems relatively intact... unfortunately you have nothing to take it apart...</target>
       </segment>
     </unit>
     <unit id="3YrxlcA" name="Booom! ">
@@ -6378,7 +6378,7 @@
       </notes>
       <segment>
         <source>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</source>
-        <target>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</target>
+        <target>You look at this oversized mug of beer with melancholy... Warm and tasteless, but surely the best thing you will have drunk since the Apocalypse. Something to remember the good old Oktoberfest days...</target>
       </segment>
     </unit>
     <unit id="kVcbwU4" name="21d2d10">
@@ -6388,7 +6388,7 @@
       </notes>
       <segment>
         <source>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</source>
-        <target>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</target>
+        <target>A tasty and edible snack... even after hanging around the ground for months. It tastes as if it was soaked in petrol (unfortunately too little to be used for the tank to the southwest of the city...) Beyond making you full, it can also amuse: it strongly reminds you of the hat of Princess Beatrice's wedding.</target>
       </segment>
     </unit>
     <unit id="2wt0mMv" name="dbc5ae1">
@@ -6398,7 +6398,7 @@
       </notes>
       <segment>
         <source>Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</source>
-        <target>Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</target>
+        <target>The only form of life who can really give you love in this cursed hell. As far as you are familiar with dogs, this one is loyal, with sharp jaws and can grunt wonderfully. In the worst case, the butcher will be happy to "take care" of this "wiener-dog"...</target>
       </segment>
     </unit>
     <unit id="tHLOoYh" name="3c2b71c">
@@ -6418,7 +6418,7 @@
       </notes>
       <segment>
         <source>Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</source>
-        <target>Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</target>
+        <target>A powerful water weapon, whose broken mechanism is only enough for one shot.</target>
       </segment>
     </unit>
     <unit id="RDf9WEe" name="bba3476">
@@ -6478,7 +6478,7 @@
       </notes>
       <segment>
         <source>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</source>
-        <target>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</target>
+        <target>A powerful water gun against zombies. However, it does not kill many people when it is empty...</target>
       </segment>
     </unit>
     <unit id="qHYIgFE" name="e7fefa9">
@@ -6648,7 +6648,7 @@
       </notes>
       <segment>
         <source>Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</source>
-        <target>Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</target>
+        <target>The dream of warriors, the blend of kings, the cocktail of the gods! If you doubt its strength, let one of your neighbors taste it.</target>
       </segment>
     </unit>
     <unit id="910sonF" name="febf617">
@@ -7058,7 +7058,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>You read the {item} and see that it is a plan for {bp_spawn}.</t-bp_ok><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -7158,7 +7158,7 @@
       </notes>
       <segment>
         <source>Du hast Dein Versteck verlassen.</source>
-        <target>Du hast Dein Versteck verlassen.</target>
+        <target>You left your hiding spot.</target>
       </segment>
     </unit>
     <unit id="vD_lf43" name="Grab verlassen">
@@ -7178,7 +7178,7 @@
       </notes>
       <segment>
         <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
-        <target>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</target>
+        <target>You leave the grave you had dug. What a wasteful work...</target>
       </segment>
     </unit>
     <unit id="A7SKfkS" name="Wandeln">
