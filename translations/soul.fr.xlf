@@ -535,5 +535,14 @@
         <target>Poster comme développeur par défaut</target>
       </segment>
     </unit>
+    <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
+      <notes>
+        <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
+      </notes>
+      <segment>
+        <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
+        <target>Es sind in dieser Stadt noch ein paar Bürger übrig...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

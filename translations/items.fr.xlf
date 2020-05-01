@@ -8197,7 +8197,7 @@
       </notes>
       <segment>
         <source>Nickerchen machen</source>
-        <target>Nickerchen machen</target>
+        <target>Faire une sieste</target>
       </segment>
     </unit>
     <unit id="bFugpqQ" name="7f96c6f">
@@ -8206,16 +8206,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
-        <target><![CDATA[Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>]]></target>
-      </segment>
-    </unit>
-    <unit id="exY2Hkq" name="2c7b081">
-      <notes>
-        <note category="german">Vous vous allongez un peu pour vous reposer.&lt;t-ap-up&gt;Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;La panique environnant ne vous permet pas de vous reposer....&lt;/nt-ap-up&gt;</note>
-      </notes>
-      <segment>
-        <source>Vous vous allongez un peu pour vous reposer.&lt;t-ap-up&gt;Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;La panique environnant ne vous permet pas de vous reposer....&lt;/nt-ap-up&gt;</source>
-        <target><![CDATA[Vous vous allongez un peu pour vous reposer.<t-ap-up>Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up>La panique environnant ne vous permet pas de vous reposer....</nt-ap-up>]]></target>
+        <target><![CDATA[Vous vous allongez un peu pour vous reposer...<t-ap-up> Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up> La panique environnant ne vous permet pas de vous reposer...</nt-ap-up>]]></target>
       </segment>
     </unit>
     <unit id="p0SlVNr" name="4ec35c5">
@@ -8224,7 +8215,7 @@
       </notes>
       <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+        <target>Vous venez de voire la potion chamanique ! Il ne reste plus qu'à espérer que ce chaman sache un peu ce qu'il fait...</target>
       </segment>
     </unit>
     <unit id="qpQMEHf" name="5f07d6b">
@@ -8233,7 +8224,79 @@
       </notes>
       <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
-        <target>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</target>
+        <target>On sent la confiance... car oui, vous étiez déjà bien protégé !</target>
+      </segment>
+    </unit>
+    <unit id="s1_qYeB" name="Kreuz">
+      <notes>
+        <note category="german">Kreuz</note>
+      </notes>
+      <segment>
+        <source>Kreuz</source>
+        <target>Trèfle</target>
+      </segment>
+    </unit>
+    <unit id="XnWnfMP" name="Pik">
+      <notes>
+        <note category="german">Pik</note>
+      </notes>
+      <segment>
+        <source>Pik</source>
+        <target>Pique</target>
+      </segment>
+    </unit>
+    <unit id="Rduezfz" name="Herz">
+      <notes>
+        <note category="german">Herz</note>
+      </notes>
+      <segment>
+        <source>Herz</source>
+        <target>Cœur</target>
+      </segment>
+    </unit>
+    <unit id="2P.dMD0" name="Karo">
+      <notes>
+        <note category="german">Karo</note>
+      </notes>
+      <segment>
+        <source>Karo</source>
+        <target>Carreau</target>
+      </segment>
+    </unit>
+    <unit id="cIg8Tyq" name="Bube">
+      <notes>
+        <note category="german">Bube</note>
+      </notes>
+      <segment>
+        <source>Bube</source>
+        <target>Valet</target>
+      </segment>
+    </unit>
+    <unit id="82FCAix" name="Dame">
+      <notes>
+        <note category="german">Dame</note>
+      </notes>
+      <segment>
+        <source>Dame</source>
+        <target>Dame</target>
+      </segment>
+    </unit>
+    <unit id="5IgH0Ms" name="König">
+      <notes>
+        <note category="german">König</note>
+      </notes>
+      <segment>
+        <source>König</source>
+        <target>Roi</target>
+      </segment>
+    </unit>
+    <unit id="Dq2RYL6" name="Ass">
+      <notes>
+        <note category="german">Ass</note>
+      </notes>
+      <segment>
+        <source>Ass</source>
+        <target>As</target>
       </segment>
     </unit>
   </file>
