@@ -203,7 +203,7 @@
 
                 {% endif %}
                 {% if allow_enter_town %}
-                    <button id="town-enter">
+                    <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
                         {% if zone.x == 0 and zone.y == 0 %}
                             {% trans from 'game' %}Stadt betreten{% endtrans %}
                         {% else %}
