@@ -8923,7 +8923,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
-        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
+        <target>%citizen% a été abattu. Vive la dictature !</target>
       </segment>
     </unit>
     <unit id="tNPDkbr" name="6eb9def">

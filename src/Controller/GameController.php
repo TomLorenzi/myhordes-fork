@@ -195,11 +195,16 @@ class GameController extends AbstractController implements GameInterfaceControll
         else
             $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));
 
-        // Delete not validated picto from DB
-        // Here, every validated picto should have persisted to 2
+        // Here, we delete picto with persisted = 0,
+        // and definitively validate picto with persisted = 1
         $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
         foreach ($pendingPictosOfUser as $pendingPicto) {
-            $this->entity_manager->remove($pendingPicto);
+            if($pendingPicto->getPersisted() == 0)
+                $this->entity_manager->remove($pendingPicto);
+            else {
+                $pendingPicto->setPersisted(2);
+                $this->entity_manager->persist($pendingPicto);
+            }
         }
 
         $this->entity_manager->persist( $active );
