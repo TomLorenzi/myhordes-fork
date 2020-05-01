@@ -13,6 +13,7 @@ use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\AdminActionHandler;
 use App\Service\JSONRequestParser;
+use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use DateTime;
@@ -41,6 +42,15 @@ class ForumController extends AbstractController
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
+
+    private $rand;
+    private $trans;
+
+    public function __construct(RandomGenerator $r, TranslatorInterface $t)
+    {
+        $this->rand = $r;
+        $this->trans = $t;
+    }
 
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
@@ -183,6 +193,8 @@ class ForumController extends AbstractController
         'div.class' => [
             'glory', 'spoiler',
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
+            'letter-a', 'letter-v', 'letter-c',
+            'rps', 'coin', 'card'
         ]
     ];
 
@@ -260,6 +272,17 @@ class ForumController extends AbstractController
             '//div[@class=\'dice-12\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,12); },
             '//div[@class=\'dice-20\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,20); },
             '//div[@class=\'dice-100\']' => function (DOMNode $d) { $d->nodeValue = mt_rand(1,100); },
+            '//div[@class=\'letter-a\']' => function (DOMNode $d) { $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-c\']' => function (DOMNode $d) { $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-v\']' => function (DOMNode $d) { $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'rps\']'      => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Schere',[],'global'),$this->trans->trans('Stein',[],'global'),$this->trans->trans('Papier',[],'global')]); },
+            '//div[@class=\'coin\']'     => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Kopf',[],'global'),$this->trans->trans('Zahl',[],'global')]); },
+            '//div[@class=\'card\']'     => function (DOMNode $d) {
+                $s_color = $this->rand->pick([$this->trans->trans('Kreuz',[],'items'),$this->trans->trans('Pik',[],'items'),$this->trans->trans('Herz',[],'items'),$this->trans->trans('Karo',[],'items')]);
+                $value = mt_rand(1,12);
+                $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
+                $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
+            },
         ];
 
         foreach ($handlers as $query => $handler)
