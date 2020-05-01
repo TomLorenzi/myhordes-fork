@@ -678,12 +678,17 @@ class ForumController extends AbstractController
         if (!$parser->has('postId')){
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
+
+        if ($parser->has('reason'))
+            $reason = $parser->get('reason');     
+        else 
+            $reason = "";
         
         /** @var User $user */
         $user = $this->getUser();
         $postId = $parser->get('postId');
         
-        if ($admh->hidePost($user->getId(), $postId, "abc" ))
+        if ($admh->hidePost($user->getId(), $postId, $reason ))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
 
             

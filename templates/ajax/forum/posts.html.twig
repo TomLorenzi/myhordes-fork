@@ -186,8 +186,9 @@
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"');
         for (let i = 0; i < del_buttons.length; i++)
             del_buttons[i].addEventListener('click', function() {
-                if (confirm('{{ 'Beitrag löschen?'|trans({},'admin') }}'))
-                    $.ajax.easySend( '{{ url('forum_delete_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
+                let reason = prompt('{{ 'Grund'|trans({},'admin') }}', '');
+                if (!(reason == null))
+                    $.ajax.easySend( '{{ url('forum_delete_post_controller', { 'fid': fid, 'tid': tid}) }}', {reason: reason, postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
                         function (data) {
                             $.ajax.load(null, data.url, true);
                         } )
