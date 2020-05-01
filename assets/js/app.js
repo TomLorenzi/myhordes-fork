@@ -22,8 +22,7 @@ require('./suneditor.min');
 require('./suneditor.de');
 require('./suneditor.fr');
 require('./suneditor.es');
-//require("./createjs")
-//require("./attack") // -> createjs doesn't want to work
+require("./attack"); // -> createjs doesn't want to work
 
 // Get the base URL
 const base_node = document.getElementsByTagName('base');

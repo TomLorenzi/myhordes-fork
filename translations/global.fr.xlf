@@ -775,5 +775,68 @@
         <target>Signalements</target>
       </segment>
     </unit>
+    <unit id="5lMuG5Z" name="Schere">
+      <notes>
+        <note category="german">Schere</note>
+      </notes>
+      <segment>
+        <source>Schere</source>
+        <target>Ciseaux</target>
+      </segment>
+    </unit>
+    <unit id="eVtWA3U" name="Stein">
+      <notes>
+        <note category="german">Stein</note>
+      </notes>
+      <segment>
+        <source>Stein</source>
+        <target>Pierre</target>
+      </segment>
+    </unit>
+    <unit id="vXPlKOG" name="Papier">
+      <notes>
+        <note category="german">Papier</note>
+      </notes>
+      <segment>
+        <source>Papier</source>
+        <target>Papier</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Pile</target>
+      </segment>
+    </unit>
+    <unit id="ZU60wKO" name="Zahl">
+      <notes>
+        <note category="german">Zahl</note>
+      </notes>
+      <segment>
+        <source>Zahl</source>
+        <target>Face</target>
+      </segment>
+    </unit>
+    <unit id="ysTRqQl" name="{color} {value}">
+      <notes>
+        <note category="german">{color} {value}</note>
+      </notes>
+      <segment>
+        <source>{color} {value}</source>
+        <target>{value} de {color}</target>
+      </segment>
+    </unit>
+    <unit id="aTN.bek" name="Vorschau">
+      <notes>
+        <note category="german">Vorschau</note>
+      </notes>
+      <segment>
+        <source>Vorschau</source>
+        <target>Aperçu</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

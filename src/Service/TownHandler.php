@@ -102,6 +102,7 @@ class TownHandler
         if (isset($water_db[$building->getPrototype()->getName()]))
             $well += $water_db[$building->getPrototype()->getName()];
 
+        $pictos = [];
 
         $town->setWell( $town->getWell() + $well );
         if ($well > 0)
@@ -158,16 +159,34 @@ class TownHandler
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteAllOrNothing($town, $destroyedItems ) );
                 break;
             case "small_castle_#00":
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcstl_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                break;
             case "small_pmvbig_#00":
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebpmv_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                break;
             case "small_wheel_#00":
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebgros_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                break;
             case "small_crow_#00":
-                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
-                foreach ($town->getCitizens() as $citizen)
-                    if ($citizen->getAlive()) {
-                        $this->picto_handler->give_picto($citizen, $picto);
-                    }
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcrow_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
                 break;
             default: break;
+        }
+
+        // If this is a child of fundament, give a picto
+        if($building->getPrototype()->getParent() != null && $building->getPrototype()->getParent()->getName() == 'small_building_#00'){
+            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wondrs_#00");
+        }
+        foreach ($town->getCitizens() as $target_citizen) {
+            if (!$target_citizen->getAlive()) continue;
+
+            foreach ($pictos as $picto) {
+                $this->picto_handler->give_picto($target_citizen, $picto);
+            }
         }
     }
 

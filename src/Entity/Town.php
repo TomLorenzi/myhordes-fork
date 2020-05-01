@@ -450,4 +450,13 @@ class Town
         return $this;
     }
 
+    public function hasAliveCitizen(): bool
+    {
+        foreach ($this->getCitizens() as $citizen) {
+            if($citizen->getAlive())
+                return true;
+        }
+        return false;
+    }
+
 }

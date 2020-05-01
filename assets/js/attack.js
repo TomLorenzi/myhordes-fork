@@ -1,5 +1,5 @@
+require("latest-createjs");
 (function (cjs, an) {
-
 	var p; // shortcut to reference prototypes
 	var lib={};var ss={};var img={};
 	lib.ssMetadata = [
@@ -2061,10 +2061,10 @@
 		color: "#612D20",
 		opacity: 1.00,
 		manifest: [
-			{src:"images/CachedBmp_19.png?1588198643707", id:"CachedBmp_19"},
-			{src:"images/attack_as3_HTML5 Canvas_atlas_.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_"},
-			{src:"images/attack_as3_HTML5 Canvas_atlas_2.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_2"},
-			{src:"images/attack_as3_HTML5 Canvas_atlas_3.png?1588198643558", id:"attack_as3_HTML5 Canvas_atlas_3"}
+			{src:"/images/CachedBmp_19.png?1588198643707", id:"CachedBmp_19"},
+			{src:"/images/attack_as3_HTML5 Canvas_atlas_.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_"},
+			{src:"/images/attack_as3_HTML5 Canvas_atlas_2.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_2"},
+			{src:"/images/attack_as3_HTML5 Canvas_atlas_3.png?1588198643558", id:"attack_as3_HTML5 Canvas_atlas_3"}
 		],
 		preloads: []
 	};
@@ -2150,13 +2150,14 @@
 				container.style.width = w * sRatio + 'px';				
 				container.style.height = h * sRatio + 'px';			
 			});			
-			stage.scaleX = pRatio*sRatio;			
-			stage.scaleY = pRatio*sRatio;			
+			window.stage.scaleX = pRatio*sRatio;			
+			window.stage.scaleY = pRatio*sRatio;			
 			lastW = iw; lastH = ih; lastS = sRatio;            
-			stage.tickOnUpdate = false;            
-			stage.update();            
-			stage.tickOnUpdate = true;		
+			window.stage.tickOnUpdate = false;            
+			window.stage.update();            
+			window.stage.tickOnUpdate = true;		
 		}
 	}
-})(createjs = createjs||{}, AdobeAn = AdobeAn||{});
-var createjs, AdobeAn;
+})(createjs = window.createjs||{}, window.AdobeAn = window.AdobeAn||{});
+/*var createjs;
+var AdobeAn;*/

@@ -8,7 +8,6 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
-use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -20,10 +19,11 @@ class DeathHandler
     private $inventory_handler;
     private $citizen_handler;
     private $zone_handler;
+    private $picto_handler;
     private $log;
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt)
+        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -31,6 +31,7 @@ class DeathHandler
         $this->item_factory = $if;
         $this->zone_handler = $zh;
         $this->citizen_handler = $ch;
+        $this->picto_handler = $ph;
         $this->log = $lt;
     }
 
@@ -123,14 +124,7 @@ class DeathHandler
 
                 if($nameOfPicto != "") {
                     $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($nameOfPicto);
-                    $picto = new Picto();
-                    $picto->setPrototype($pictoPrototype)
-                        ->setPersisted(2)
-                        ->setTown($citizen->getTown())
-                        ->setUser($citizen->getUser())
-                        ->setCount($citizen->getSurvivedDays() - 1); // The day of death never count
-
-                    $this->entity_manager->persist($picto);
+                    $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getSurvivedDays() - 1);
                 }
             }
 
@@ -138,24 +132,10 @@ class DeathHandler
             if($citizen->getSurvivedDays() >= 3 && $this->citizen_handler->hasStatusEffect($citizen, "clean", true)) {
                 // We earn for good the picto for the past days
                 $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_nodrug_#00");
-                $picto = new Picto();
-                $picto->setPrototype($pictoPrototype)
-                    ->setPersisted(2)
-                    ->setTown($citizen->getTown())
-                    ->setUser($citizen->getUser())
-                    ->setCount(round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
-
-                $this->entity_manager->persist($picto);
+                $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
 
                 // We need to do the day 5 / day 8 rule calculation for the last day
-                $picto = new Picto();
-                $picto->setPrototype($pictoPrototype)
-                    ->setPersisted(0)
-                    ->setTown($citizen->getTown())
-                    ->setUser($citizen->getUser())
-                    ->setCount(round(pow($citizen->getSurvivedDays(), 1.5), 0) - round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
-
-                $this->entity_manager->persist($picto);
+                $this->picto_handler->give_picto($citizen, $pictoPrototype, round(pow($citizen->getSurvivedDays(), 1.5), 0) - round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
             }
         }
 
@@ -187,74 +167,16 @@ class DeathHandler
         }
 
         if($pictoDeath !== null) {
-            $picto = new Picto();
-            $picto->setPrototype($pictoDeath)
-                ->setPersisted(2)
-                ->setTown($citizen->getTown())
-                ->setUser($citizen->getUser())
-                ->setCount(1);
-
-            $this->entity_manager->persist($picto);
+            $this->picto_handler->give_validated_picto($citizen, $pictoDeath);
         }
 
         if($pictoDeath2 !== null) {
-            $picto = new Picto();
-            $picto->setPrototype($pictoDeath2)
-                ->setPersisted(2)
-                ->setTown($citizen->getTown())
-                ->setUser($citizen->getUser())
-                ->setCount(1);
-
-            $this->entity_manager->persist($picto);
+            $this->picto_handler->give_validated_picto($citizen, $pictoDeath2);
         }
 
-        // Set all picto of town as persisted
-        $pictoRepository = $this->entity_manager->getRepository(Picto::class);
-
-        $pendingPictosOfUser = $pictoRepository->findPendingByUser($citizen->getUser());
-        foreach ($pendingPictosOfUser as $pendingPicto) {
-            // The picto has been validated for the previous day
-            // We validate it
-            // Also, the RP, Sandball, ban, theft and soul collector pictos are always validated
-            // In small town, we add the Guide and Nightwatch pictos
-            $pictoAlwaysPersisted = array('r_rp_#00', 'r_sandb_#00', 'r_ban_#00', 'r_theft_#00', 'r_collec_#00');
-            if($citizen->getTown()->getType()->getName() == "small"){
-                $pictoAlwaysPersisted = array_merge($pictoAlwaysPersisted, array('r_guide_#00', 'r_guard_#00'));
-            }
-
-            $persistPicto = $pendingPicto->getPersisted() == 1 || in_array($pendingPicto->getPrototype()->getName(), $pictoAlwaysPersisted);
-            // We check the day 5 / 8 rule to persist the picto or not
-            // The picto **IS NOT DELETED HERE**. Instead, it is deleted upon death confirmation
-            // To show "You could have earn those if you survived X more days"
-            // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
-            // to validate the picto (set them as persisted)
-            if($citizen->getTown()->getType()->getName() == "small" && $citizen->getUser()->getSoulPoints() >= 100) {
-                if($citizen->getSurvivedDays() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
-                    $persistPicto = true;
-                } else if  ($citizen->getSurvivedDays() > 8) {
-                    $persistPicto = true;
-                }
-            } else if($citizen->getSurvivedDays() >= 5) {
-                $persistPicto = true;
-            }
-
-            if (!$persistPicto)
-                continue;
-
-            // We check if this picto has already been earned previously (such as Heroic Action, 1 per day)
-            $previousPicto = $pictoRepository->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
-            if($previousPicto === null) {
-                // We do not have it, we set it as earned
-                $pendingPicto->setPersisted(2);
-                $this->entity_manager->persist($pendingPicto);
-            } else {
-                // We have it, we add the count to the previously earned
-                // And remove the picto from today
-                $previousPicto->setCount($previousPicto->getCount() + $pendingPicto->getCount());
-                $this->entity_manager->persist($previousPicto);
-                $this->entity_manager->remove($pendingPicto);
-            }
-        }
+        // Now that we are dead, we set persisted = 1 to pictos with persisted = 0
+        // according to the day 5 / 8 rule
+        $this->picto_handler->validate_picto($citizen);
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 
