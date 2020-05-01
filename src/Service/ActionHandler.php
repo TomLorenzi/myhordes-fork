@@ -600,7 +600,7 @@ class ActionHandler
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
                             $citizen->getZone()
-                                ? [ $citizen->getInventory(), $citizen->getZone()->getFloor() ]
+                                ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
                                 : ( $item_in_chest ? [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ] : [ $citizen->getInventory(), $citizen->getHome()->getChest(), $citizen->getTown()->getBank() ])
                         )) $execute_info_cache['items_spawn'][] = $proto;
                 }
