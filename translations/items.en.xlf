@@ -458,7 +458,7 @@
       </notes>
       <segment>
         <source>Riemen</source>
-        <target>Riemen</target>
+        <target>Belt</target>
       </segment>
     </unit>
     <unit id="toP999A" name="Handvoll Schrauben und Muttern">
@@ -468,7 +468,7 @@
       </notes>
       <segment>
         <source>Handvoll Schrauben und Muttern</source>
-        <target>Handvoll Schrauben und Muttern</target>
+        <target>Handful of nuts and bolts</target>
       </segment>
     </unit>
     <unit id="okUuElR" name="Huhn">
@@ -608,7 +608,7 @@
       </notes>
       <segment>
         <source>Krummes Holzbrett</source>
-        <target>Krummes Holzbrett</target>
+        <target>Twisted Plank</target>
       </segment>
     </unit>
     <unit id="r34kWTF" name="Alteisen">
@@ -618,7 +618,7 @@
       </notes>
       <segment>
         <source>Alteisen</source>
-        <target>Alteisen</target>
+        <target>Wrought Iron</target>
       </segment>
     </unit>
     <unit id="DaI_a1f" name="Wasserbombe">
@@ -698,7 +698,7 @@
       </notes>
       <segment>
         <source>Sprengstoff</source>
-        <target>Sprengstoff</target>
+        <target>Semtex</target>
       </segment>
     </unit>
     <unit id="lx5AsQb" name="Menschenfleisch">
@@ -768,7 +768,7 @@
       </notes>
       <segment>
         <source>Klebeband</source>
-        <target>Klebeband</target>
+        <target>Duct Tape</target>
       </segment>
     </unit>
     <unit id="lvvVLfS" name="Zerlegter Rasenmäher">
@@ -788,7 +788,7 @@
       </notes>
       <segment>
         <source>Kupferrohr</source>
-        <target>Kupferrohr</target>
+        <target>Copper Pipe</target>
       </segment>
     </unit>
     <unit id="ASrDZYr" name="Wackliger Einkaufswagen">
@@ -938,7 +938,7 @@
       </notes>
       <segment>
         <source>Elektronisches Bauteil</source>
-        <target>Elektronisches Bauteil</target>
+        <target>Electronic component</target>
       </segment>
     </unit>
     <unit id="jmju1vc" name="Habseligkeiten eines Bürgers">
@@ -1228,7 +1228,7 @@
       </notes>
       <segment>
         <source>Zünder</source>
-        <target>Zünder</target>
+        <target>Compact detonator</target>
       </segment>
     </unit>
     <unit id="A58TR.A" name="Zementsack">
@@ -1478,7 +1478,7 @@
       </notes>
       <segment>
         <source>Zusammengeschusterter Holzbalken</source>
-        <target>Zusammengeschusterter Holzbalken</target>
+        <target>Patchwork Beam</target>
       </segment>
     </unit>
     <unit id="Sl0KV.H" name="Metallstruktur">
@@ -1488,7 +1488,7 @@
       </notes>
       <segment>
         <source>Metallstruktur</source>
-        <target>Metallstruktur</target>
+        <target>Metal Support</target>
       </segment>
     </unit>
     <unit id="TqQ0G6m" name="Metalltrümmer">
@@ -1498,7 +1498,7 @@
       </notes>
       <segment>
         <source>Metalltrümmer</source>
-        <target>Metalltrümmer</target>
+        <target>Scrap Metal</target>
       </segment>
     </unit>
     <unit id="6hpmLkn" name="Verrotteter Baumstumpf">
@@ -1508,7 +1508,7 @@
       </notes>
       <segment>
         <source>Verrotteter Baumstumpf</source>
-        <target>Verrotteter Baumstumpf</target>
+        <target>Rotting Log</target>
       </segment>
     </unit>
     <unit id="dOiqM_." name="Metallsäge">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Gut erhaltener Holzscheit</source>
-        <target>Gut erhaltener Holzscheit</target>
+        <target>Quality Log</target>
       </segment>
     </unit>
     <unit id="JEMbD4T" name="Defektes Elektrogerät">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>Raketenpulver</source>
-        <target>Raketenpulver</target>
+        <target>Flash Powder</target>
       </segment>
     </unit>
     <unit id="Ij90JBp" name="Schießpulverbombe">
@@ -1898,7 +1898,7 @@
       </notes>
       <segment>
         <source>Maschendrahtzaunstück</source>
-        <target>Maschendrahtzaunstück</target>
+        <target>Wire Mesh</target>
       </segment>
     </unit>
     <unit id="tAL1.1o" name="Wasserpistole (3 Ladungen)">
@@ -2908,7 +2908,7 @@
       </notes>
       <segment>
         <source>Drahtspule</source>
-        <target>Drahtspule</target>
+        <target>Wire Reel</target>
       </segment>
     </unit>
     <unit id="ynO9FV_" name="Ölkännchen">
@@ -2918,7 +2918,7 @@
       </notes>
       <segment>
         <source>Ölkännchen</source>
-        <target>Ölkännchen</target>
+        <target>Empty Oil Can</target>
       </segment>
     </unit>
     <unit id="nBuv_E9" name="Konvexlinse">
@@ -2928,7 +2928,7 @@
       </notes>
       <segment>
         <source>Konvexlinse</source>
-        <target>Konvexlinse</target>
+        <target>Convex lense</target>
       </segment>
     </unit>
     <unit id="rKEzMvW" name="Wütende Mieze (halb verdaut)">
@@ -2958,7 +2958,7 @@
       </notes>
       <segment>
         <source>Laserdiode</source>
-        <target>Laserdiode</target>
+        <target>Laser Diode</target>
       </segment>
     </unit>
     <unit id="cAR.8i4" name="Selbstgebaute Gitarre">
@@ -3078,7 +3078,7 @@
       </notes>
       <segment>
         <source>Trockene Kräuter</source>
-        <target>Trockene Kräuter</target>
+        <target>Bag of Damp Grass</target>
       </segment>
     </unit>
     <unit id="SrwSSZ5" name="Mutterkorn">
@@ -3128,7 +3128,7 @@
       </notes>
       <segment>
         <source>Ohrstöpsel</source>
-        <target>Ohrstöpsel</target>
+        <target>Earplugs</target>
       </segment>
     </unit>
     <unit id="vJ9pHA2" name="Kaputter Stock">
@@ -3138,7 +3138,7 @@
       </notes>
       <segment>
         <source>Kaputter Stock</source>
-        <target>Kaputter Stock</target>
+        <target>Broken Staff</target>
       </segment>
     </unit>
     <unit id="My1HFp_" name="Britney Spears CD">
@@ -3268,7 +3268,7 @@
       </notes>
       <segment>
         <source>Bürgerbekleidung</source>
-        <target>Bürgerbekleidung</target>
+        <target>Town Uniform</target>
       </segment>
     </unit>
     <unit id="tH36hZc" name="Dreckige Bürgerbekleidung">
@@ -3428,7 +3428,7 @@
       </notes>
       <segment>
         <source>Öffnen</source>
-        <target>Öffnen</target>
+        <target>Open</target>
       </segment>
     </unit>
     <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
@@ -4418,7 +4418,7 @@
       </notes>
       <segment>
         <source>Ein Riemen... Der ist bestimmt für irgendetwas nützlich.</source>
-        <target>Ein Riemen... Der ist bestimmt für irgendetwas nützlich.</target>
+        <target>A belt... it's surely got to be good for something.</target>
       </segment>
     </unit>
     <unit id="XQYqwmP" name="b938b3a">
@@ -4428,7 +4428,7 @@
       </notes>
       <segment>
         <source>Ein paar Teile sind verrostet, andere von einem moosartigen Flaum überzogen... aber sie funktionieren noch halbwegs.</source>
-        <target>Ein paar Teile sind verrostet, andere von einem moosartigen Flaum überzogen... aber sie funktionieren noch halbwegs.</target>
+        <target>Some are rusty, some are covered in a greenish scum, but at least they're all still good for their intended purpose. More or less.</target>
       </segment>
     </unit>
     <unit id="EAmtLwt" name="1ce80bb">
@@ -4558,7 +4558,7 @@
       </notes>
       <segment>
         <source>Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...</source>
-        <target>Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...</target>
+        <target>It's a plank of wood which is soaking wet but still more or less solid... Note: The wood is used for the construction of buildings in the town (deposit it in the Bank).</target>
       </segment>
     </unit>
     <unit id="MsbPzc_" name="Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!">
@@ -4568,7 +4568,7 @@
       </notes>
       <segment>
         <source>Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!</source>
-        <target>Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!</target>
+        <target>Wrought Iron... It's bloody heavy, but it's always useful ! Note: Wrought Iron is used for the construction of buildings in the town (deposit it in the Bank).</target>
       </segment>
     </unit>
     <unit id="RIS2inC" name="8cbe1a8">
@@ -4638,7 +4638,7 @@
       </notes>
       <segment>
         <source>Booom! </source>
-        <target>Booom! </target>
+        <target>Boom ! </target>
       </segment>
     </unit>
     <unit id="ujBxAqp" name="f59c0af">
@@ -4708,7 +4708,7 @@
       </notes>
       <segment>
         <source>Immer nützlich, wenn man etwas kleben möchte. </source>
-        <target>Immer nützlich, wenn man etwas kleben möchte. </target>
+        <target>Always useful for when you want to stick things together.</target>
       </segment>
     </unit>
     <unit id="YtFLSoh" name="654559c">
@@ -4728,7 +4728,7 @@
       </notes>
       <segment>
         <source>Ein schmutziges Rohr aus Kupfer, für das dir noch keine Verwendung einfällt...</source>
-        <target>Ein schmutziges Rohr aus Kupfer, für das dir noch keine Verwendung einfällt...</target>
+        <target>A rather dirty copper pipe which doesn't seem to have any obvious application...</target>
       </segment>
     </unit>
     <unit id="0uCWReg" name="30df7d2">
@@ -4878,7 +4878,7 @@
       </notes>
       <segment>
         <source>Eine alte elektronische Platine, die wahrscheinlich aus einem Radioempfänger oder aus einem sonstigen Gerät stammt.</source>
-        <target>Eine alte elektronische Platine, die wahrscheinlich aus einem Radioempfänger oder aus einem sonstigen Gerät stammt.</target>
+        <target>An old circuit board probably from a radio or some other electronic gadget.</target>
       </segment>
     </unit>
     <unit id="J5an85." name="d057d17">
@@ -5088,7 +5088,7 @@
       </notes>
       <segment>
         <source>Ein kleiner, kompakter Zünder, mit dem man eine kleine Sprengladung explodieren lassen kann.</source>
-        <target>Ein kleiner, kompakter Zünder, mit dem man eine kleine Sprengladung explodieren lassen kann.</target>
+        <target>A compact tool which can detonate a small explosive charge.</target>
       </segment>
     </unit>
     <unit id="nIldj3S" name="9c9c656">
@@ -5338,7 +5338,7 @@
       </notes>
       <segment>
         <source>Notdürftig zusammengebundene Holzstücke, die einen relativ stabilen Stützbalken abgeben.</source>
-        <target>Notdürftig zusammengebundene Holzstücke, die einen relativ stabilen Stützbalken abgeben.</target>
+        <target>A relatively solid beam made from an assortment of scrap wood.</target>
       </segment>
     </unit>
     <unit id="rb6TbZx" name="cb3393c">
@@ -5348,7 +5348,7 @@
       </notes>
       <segment>
         <source>Eine schnell zusammengebaute Metallstruktur, die ein gutes stützendes Bauteil abgibt.</source>
-        <target>Eine schnell zusammengebaute Metallstruktur, die ein gutes stützendes Bauteil abgibt.</target>
+        <target>Rudimentary crucible steel scaffolding made from the carburization of wrought iron.</target>
       </segment>
     </unit>
     <unit id="J6L0HPZ" name="b2bb7fb">
@@ -5358,7 +5358,7 @@
       </notes>
       <segment>
         <source>Ein paar verrostete Metallstangen, ein Gitter, ein paar Schrauben... Nichts, was du sofort benutzen könntest. Du musst es erst in der Stadt ein wenig bearbeiten.</source>
-        <target>Ein paar verrostete Metallstangen, ein Gitter, ein paar Schrauben... Nichts, was du sofort benutzen könntest. Du musst es erst in der Stadt ein wenig bearbeiten.</target>
+        <target>Rusty scraps of metal, wire mesh and screws... Nothing immediately useful, but if you take it back to the town maybe it can be recycled.</target>
       </segment>
     </unit>
     <unit id="2Uvbu6b" name="3235bd9">
@@ -5368,7 +5368,7 @@
       </notes>
       <segment>
         <source>Ein großer Baumstumpf, der von schleimigen Pilzen bedeckt ist. Damit kannst du nichts anfangen, es sei denn, du schneidest ihn dir in der Stadt zurecht.</source>
-        <target>Ein großer Baumstumpf, der von schleimigen Pilzen bedeckt ist. Damit kannst du nichts anfangen, es sei denn, du schneidest ihn dir in der Stadt zurecht.</target>
+        <target>A decent-sized log covered in sticky mushrooms. It's no good for anything until it is cut properly in town...</target>
       </segment>
     </unit>
     <unit id="f5wZWxD" name="1876cb0">
@@ -5388,7 +5388,7 @@
       </notes>
       <segment>
         <source>Ein schöner Holzscheit, den du als Hocker für deine Einrichtung verwenden kannst. Was willst du mehr? Ist doch besser als nichts.</source>
-        <target>Ein schöner Holzscheit, den du als Hocker für deine Einrichtung verwenden kannst. Was willst du mehr? Ist doch besser als nichts.</target>
+        <target>A decent log which could be used as a stool. Look - it's better than nothing...</target>
       </segment>
     </unit>
     <unit id="t.tvUKi" name="1554dba">
@@ -5478,7 +5478,7 @@
       </notes>
       <segment>
         <source>Dieses Feuerwerkraketenpulver könnte als Ablenkung dienen, wenn du es korrekt verwendest ...</source>
-        <target>Dieses Feuerwerkraketenpulver könnte als Ablenkung dienen, wenn du es korrekt verwendest ...</target>
+        <target>This firework powder makes a good distraction if it's used correctly...</target>
       </segment>
     </unit>
     <unit id="4aRUvN_" name="1bc8b70">
@@ -5738,7 +5738,7 @@
       </notes>
       <segment>
         <source>Ein kleines, verrostetes Stück Maschendrahtzaun. </source>
-        <target>Ein kleines, verrostetes Stück Maschendrahtzaun. </target>
+        <target>A small rusty piece of mesh. It's seen better days...</target>
       </segment>
     </unit>
     <unit id="pzadlIU" name="3a924cb">
@@ -6398,7 +6398,7 @@
       </notes>
       <segment>
         <source>Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</source>
-        <target>The only form of life who can really give you love in this cursed hell. As far as you are familiar with dogs, this one is loyal, with sharp jaws and can grunt wonderfully. In the worst case, the butcher will be happy to "take care" of this "wiener-dog"...</target>
+        <target>The only form of life who can really give you love in this cursed hell. As far as you are familiar with dogs, this one is loyal, with sharp jaws and can grunt wonderfully. In the worst case, the butcher will be happy to "take care" of this "saucage dog"...</target>
       </segment>
     </unit>
     <unit id="tHLOoYh" name="3c2b71c">
@@ -6488,7 +6488,7 @@
       </notes>
       <segment>
         <source>Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</source>
-        <target>Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</target>
+        <target>Make sure you don't get tangled up in this, we'd hate to have to cut off your fingers to set you free.</target>
       </segment>
     </unit>
     <unit id="gqDdsxv" name="3e60a86">
@@ -6498,7 +6498,7 @@
       </notes>
       <segment>
         <source> Ab und an finden wir diese Behälter leer in der Wüste - meistens an der Seite einer Leiche. Wann lernen die Leute endlich, dass man Motoröl nicht trinken kann?</source>
-        <target> Ab und an finden wir diese Behälter leer in der Wüste - meistens an der Seite einer Leiche. Wann lernen die Leute endlich, dass man Motoröl nicht trinken kann?</target>
+        <target>From time to time we find empty oil cans in the desert, often accompanied by a corpse. When will citizens learn that motor oil is undrinkable...</target>
       </segment>
     </unit>
     <unit id="ZIo5wGX" name="f4b4b0e">
@@ -6508,7 +6508,7 @@
       </notes>
       <segment>
         <source>Diese fast makellose Linse wartet scheinbar nur darauf, von deiner Kreativität einem höheren Zweck zugeführt zu werden.</source>
-        <target>Diese fast makellose Linse wartet scheinbar nur darauf, von deiner Kreativität einem höheren Zweck zugeführt zu werden.</target>
+        <target>This almoust flawless lens is just waiting for your ingenuity to find a use for it.</target>
       </segment>
     </unit>
     <unit id="9wStwCD" name="5fbb21e">
@@ -6538,7 +6538,7 @@
       </notes>
       <segment>
         <source>Ein elektronisches Bauteil aus alter Zeit. Du hast nicht viel Ahnung von dem Zeug, aber es scheint noch zu funktionieren.</source>
-        <target>Ein elektronisches Bauteil aus alter Zeit. Du hast nicht viel Ahnung von dem Zeug, aber es scheint noch zu funktionieren.</target>
+        <target>An electronic component from a revolutionary time. It looks like it's in good order, even if you can't see though it personally.</target>
       </segment>
     </unit>
     <unit id="pP0JDNU" name="f03e724">
@@ -6628,7 +6628,7 @@
       </notes>
       <segment>
         <source>Scheint nicht viel besser als Heu zu sein, aber es wird sicher für irgendwas verwendbar sein. Außer ziemlich enttäuschenden Zigaretten.</source>
-        <target>Scheint nicht viel besser als Heu zu sein, aber es wird sicher für irgendwas verwendbar sein. Außer ziemlich enttäuschenden Zigaretten.</target>
+        <target>Although it appears to be nothing but hay in the making, there must be another use for this herb apart from very disappointing cigarettes.</target>
       </segment>
     </unit>
     <unit id="j1nAPIq" name="d3c56ff">
@@ -6678,7 +6678,7 @@
       </notes>
       <segment>
         <source>Hast du genug von dem Gequassel vor deiner Tür, den Streitereien nach zu viel Korn-Bräu oder Bürgern, die verzweifelt um ihr Leben schreien? Diese Ohrstöpsel sind genau das Richtige für dich!</source>
-        <target>Hast du genug von dem Gequassel vor deiner Tür, den Streitereien nach zu viel Korn-Bräu oder Bürgern, die verzweifelt um ihr Leben schreien? Diese Ohrstöpsel sind genau das Richtige für dich!</target>
+        <target>Had enough of the chitchat outside your door, townspeople insulting one another after too much Ergot Homebrew, citizens screaming in fear for their lives? These earplugs are your best friend!</target>
       </segment>
     </unit>
     <unit id="AZvjPLz" name="1224a21">
@@ -6688,7 +6688,7 @@
       </notes>
       <segment>
         <source>Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...</source>
-        <target>Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...</target>
+        <target>Half a staff. Too short to be a really effective weapon, but not entirely useless...</target>
       </segment>
     </unit>
     <unit id="w0aH9Mj" name="9faef00">
@@ -6798,7 +6798,7 @@
       </notes>
       <segment>
         <source>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</source>
-        <target>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</target>
+        <target>A Resident is effectively a normal, everyday citizen, with no remarkable abilities to speak of...</target>
       </segment>
     </unit>
     <unit id="rNdy2IV" name="bdd58ca">
@@ -6888,7 +6888,7 @@
       </notes>
       <segment>
         <source>Berufsgegenstand</source>
-        <target>Berufsgegenstand</target>
+        <target>Professional tool (cannot be dropped)</target>
       </segment>
     </unit>
     <unit id="m3.VXgQ" name="Schwerer Gegenstand">
@@ -6898,7 +6898,7 @@
       </notes>
       <segment>
         <source>Schwerer Gegenstand</source>
-        <target>Schwerer Gegenstand</target>
+        <target>Heavy object</target>
       </segment>
     </unit>
     <unit id="ZFVsUqp" name="Einrichtungsgegenstand">
@@ -6908,7 +6908,7 @@
       </notes>
       <segment>
         <source>Einrichtungsgegenstand</source>
-        <target>Einrichtungsgegenstand</target>
+        <target>Home decoration</target>
       </segment>
     </unit>
     <unit id="r0TQqLv" name="Verteidigungsgegenstand">
@@ -7208,7 +7208,7 @@
       </notes>
       <segment>
         <source>Baustoffe</source>
-        <target>Baustoffe</target>
+        <target>Resources</target>
       </segment>
     </unit>
     <unit id="eEycb65" name="Grundnahrungsmittel">
@@ -7218,7 +7218,7 @@
       </notes>
       <segment>
         <source>Grundnahrungsmittel</source>
-        <target>Grundnahrungsmittel</target>
+        <target>Food</target>
       </segment>
     </unit>
     <unit id="8beKQr4" name="Apotheke und Labor">
@@ -7228,7 +7228,7 @@
       </notes>
       <segment>
         <source>Apotheke und Labor</source>
-        <target>Apotheke und Labor</target>
+        <target>Pharmacy</target>
       </segment>
     </unit>
     <unit id="bj.MFsK" name="Expedition">
@@ -7248,7 +7248,7 @@
       </notes>
       <segment>
         <source>Sonstiges</source>
-        <target>Sonstiges</target>
+        <target>Miscellaneous</target>
       </segment>
     </unit>
     <unit id="nzgEuGm" name="Einrichtungen">
@@ -7288,7 +7288,7 @@
       </notes>
       <segment>
         <source>Taschen und Behälter</source>
-        <target>Taschen und Behälter</target>
+        <target>Containers and boxes</target>
       </segment>
     </unit>
     <unit id="XfbyTTX" name="Kaputt">
@@ -7334,7 +7334,7 @@
       </notes>
       <segment>
         <source>Haus aufräumen und putzen</source>
-        <target>Haus aufräumen und putzen</target>
+        <target>Clean and tidy my house</target>
       </segment>
     </unit>
     <unit id="tOABtGm" name="0f9daa1">
@@ -7505,7 +7505,7 @@
       </notes>
       <segment>
         <source>Gegenstände suchen</source>
-        <target>Gegenstände suchen</target>
+        <target>Search an object...</target>
       </segment>
     </unit>
     <unit id="R2RcDum" name="Kompass">
