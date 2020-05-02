@@ -963,11 +963,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $target_citizens = [$t];
         } else $target_citizens = [];
 
+        $allow_redig = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_ALLOW_REDIGS, false);
+
         foreach ($target_citizens as $target_citizen)
             try {
                 $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $target_citizen );
                 if (!$timer) $timer = (new DigTimer())->setZone( $zone )->setCitizen( $target_citizen );
-                else if ($timer->getTimestamp() > new DateTime()) {
+                else if (!$allow_redig || $timer->getTimestamp() > new DateTime()) {
                     if (count($target_citizens) === 1)
                         return AjaxResponse::error( self::ErrorNotDiggable );
                     else continue;

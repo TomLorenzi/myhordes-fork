@@ -154,14 +154,19 @@
                                     <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                     {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
                                 </div>
-                            {% elseif citizen.digTimeout > 0 %}
+                            {% elseif citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
                                 <div class="note note-light">
                                     <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                     {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
                                     <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
                                 </div>
+                            {% elseif citizen.passiveDigTimer %}
+                                <div class="note note-light">
+                                    <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                                    {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
+                                </div>
                             {% endif %}
-                            <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 %}disabled{% endif %}>
+                            <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 or ( citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) ) %}disabled{% endif %}>
                                 <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
                                 {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
                         {% else %}
