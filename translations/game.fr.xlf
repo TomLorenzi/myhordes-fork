@@ -8780,7 +8780,7 @@
       </notes>
       <segment>
         <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
-        <target>%citizen% a passé quelques minutes à améliorer le campement.</target>
+        <target>%citizen% a passé de longues minutes à aménager une planque avec tout ce qui pouvait lui passer sous la main.</target>
       </segment>
     </unit>
     <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
@@ -8789,7 +8789,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
-        <target>%citizen% a installé %item% pour améliorer le campement.</target>
+        <target>%citizen% a aménagé une cachette avec %item%.</target>
       </segment>
     </unit>
     <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
