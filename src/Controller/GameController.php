@@ -173,7 +173,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         // TODO: remove this after beta! Add betapropin500mg to chest of player.
-        $betapropin = $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->find(213));
+        $betapropin = $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("beta_drug_#00"));
         $chest = $citizen->getHome()->getChest();
         $chest = $invh->placeItem($citizen, $betapropin, array($chest));
 
