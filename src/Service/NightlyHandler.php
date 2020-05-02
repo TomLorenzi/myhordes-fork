@@ -661,6 +661,7 @@ class NightlyHandler
         $picto_camping            = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_camp_#00' );
         $picto_camping_devastated = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_cmplst_#00' );
         $this->log->info('<info>Processing Pictos functions</info> ...');
+
         // Marking pictos as obtained not-today
         $citizens = $town->getCitizens();
         foreach ($citizens as $citizen) {
@@ -680,11 +681,11 @@ class NightlyHandler
                     $this->log->debug("This is a small town, and <info>{$citizen->getUser()->getUsername()}</info> has more that 100 soul points, we use the day 8 rule");
                     if($town->getDay() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
                         $persistPicto = true;
-                    } else if  ($town->getDay() > 8) {
+                    } else if ($town->getDay() > 8) {
                         $persistPicto = true;
                     }
                 } else {
-                    $this->log->debug("We persist the pictos earned the previous days");
+                    $this->log->debug("This is not a small town, we persist the pictos earned the previous days");
                     $persistPicto = true;
                 }
 

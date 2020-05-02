@@ -8924,7 +8924,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
-        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
+        <target>%citizen% a été abattu. Vive la dictature !</target>
       </segment>
     </unit>
     <unit id="tNPDkbr" name="6eb9def">
@@ -9155,7 +9155,7 @@
         <target>Mort à l'extérieur, %citizen% n'aura offert aucun reste à ses concitoyens.</target>
       </segment>
     </unit>
-    <unit id="JGiWLCH" name="7b62627">
+    <unit id="zeR3KvL" name="8c2d7df">
       <notes>
         <note category="german">Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</note>
       </notes>
@@ -9164,13 +9164,31 @@
         <target>C'est non sans dégoût que %disposing_citizen% s'est débarrassé(e) du corps inanimé de %citizen%.</target>
       </segment>
     </unit>
-    <unit id="Vdm4Lt." name="bf95694">
+    <unit id="g69lh6D" name="a22eaa2">
       <notes>
         <note category="german">Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</note>
       </notes>
       <segment>
         <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
         <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été réduit en liquide putride.</target>
+      </segment>
+    </unit>
+    <unit id="rFh36Gr" name="Klassischer Editor">
+      <notes>
+        <note category="german">Klassischer Editor</note>
+      </notes>
+      <segment>
+        <source>Klassischer Editor</source>
+        <target>Éditeur classique</target>
+      </segment>
+    </unit>
+    <unit id="wkidHer" name="Grafischer Editor">
+      <notes>
+        <note category="german">Grafischer Editor</note>
+      </notes>
+      <segment>
+        <source>Grafischer Editor</source>
+        <target>Éditeur graphique</target>
       </segment>
     </unit>
   </file>
