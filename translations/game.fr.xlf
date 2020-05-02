@@ -2738,7 +2738,7 @@
       <segment>
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                                                       verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>En tant qu'%citizen%, vous n'utiliserez pas de jours héros.
+        <target>En tant que %citizen%, vous n'utiliserez pas de jours héros.
                                                         Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
       </segment>
     </unit>
