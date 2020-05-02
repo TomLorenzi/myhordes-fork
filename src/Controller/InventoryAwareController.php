@@ -227,7 +227,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function getItemCombinations(bool $inside): array {
         $town = $this->getActiveCitizen()->getTown();
-        $source_inv = [ $this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest() ];
+        $source_inv = $this->getActiveCitizen()->getZone() ? [ $this->getActiveCitizen()->getInventory() ] : [ $this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getHome()->getChest() ];
+
+        if ($this->getActiveCitizen()->getZone() && $this->getTownConf()->get( TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false )) $source_inv[] = $this->getActiveCitizen()->getZone()->getFloor();
 
         $recipes = $this->entity_manager->getRepository(Recipe::class)->findByType( [Recipe::ManualAnywhere, $inside ? Recipe::ManualInside : Recipe::ManualOutside] );
         $out = [];
@@ -256,19 +258,21 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function renderInventoryAsBank( Inventory $inventory ) {
         $qb = $this->entity_manager->createQueryBuilder();
-        $query = $qb
+        $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
-            ->where('i.inventory = :inv')->setParameter('inv', $inventory)
-            ->groupBy('i.prototype', 'i.broken')
+            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
+        if ($this->getTownConf()->get(TownConf::CONF_MODIFIER_POISON_STACK, false))
+            $qb->groupBy('i.prototype', 'i.broken');
+        else $qb->groupBy('i.prototype', 'i.broken', 'i.poison');
+        $qb
             ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC')
             ->addOrderBy('p.id', 'ASC')
-            ->addOrderBy('i.id', 'ASC')
-            ->getQuery();
+            ->addOrderBy('i.id', 'ASC');
 
-        $data = $query->getResult(AbstractQuery::HYDRATE_ARRAY);
+        $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
 
         $final = [];
         $cache = [];
