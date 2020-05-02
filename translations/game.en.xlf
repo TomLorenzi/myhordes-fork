@@ -878,7 +878,7 @@
       </notes>
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
-        <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
+        <target>Wow, you can see pretty much everything from here! It's just a shame that this "everything" is limited to an empty sandy desert. However, if you take a closer look, you can count the zombies that are crawling towards the city.</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -4381,7 +4381,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Zyanid</target>
+        <target>Cyanide</target>
       </segment>
     </unit>
     <unit id="25.Fib." name="a5ebe5c">
@@ -4391,7 +4391,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</source>
-        <target>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</target>
+        <target>Rather than continue living with this band of losers, you decided to simplify your existence... by shortening it somewhat. In short, by a day or so...</target>
       </segment>
     </unit>
     <unit id="n7kmZ_p" name="Ermordung durch Gift">

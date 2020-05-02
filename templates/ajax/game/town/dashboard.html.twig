@@ -99,7 +99,7 @@
                 <li>{{ 'Stadttor:'|trans({}, 'game') }} <strong class="{% if(town.door) %}warning{% endif %}">{% if(town.door) %} {{ 'Offen!'|trans({}, 'game')}} {% else %} {{'Geschlossen'|trans({}, 'game')}} {% endif %}</strong></li>
                 <li>{{ 'Wasservorräte:'|trans({}, 'game') }} <strong>{{ town.well}}</strong>{% if town.well < 15 %} <span class="warning">(<img src="{{ asset('build/images/small_warning.gif') }}" alt="" /> {{ 'Gefahr'|trans({}, 'game') }})</span>{% endif %}</li>
                 <li>{{ 'Einwohner am Leben:'|trans({}, 'game') }} <strong>{{ living_citizens }}</strong></li>
-                <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{{ zeds_today[1] }} - {{ zeds_today[2] }}</strong></li>
+                <li>{{ 'Geschätzter Angriff :'|trans({}, 'game') }} <strong>{% if (town.type.name == 'small' or zeds_today[3] >= 33) and zeds_today[0] %}{{ zeds_today[1] }} - {{ zeds_today[2] }}{% else %}{{ 'Unbekannt'|trans({}, 'game')}}{% endif %}</strong></li>
             </ul>
         </div>
         <div class="padded cell rw-6 rw-md-8 rw-sm-12">

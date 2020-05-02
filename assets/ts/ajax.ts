@@ -98,7 +98,11 @@ export default class Ajax {
             for (let b = 0; b < buttons.length; b++)
                 buttons[b].addEventListener('click', function(e) {
                     e.preventDefault();
-                    ajax_instance.load( target, buttons[b].getAttribute('x-ajax-href'), true )
+                    let load_target = document.querySelector(buttons[b].getAttribute('x-ajax-target')) as HTMLElement;
+                    if (load_target == undefined) {
+                        load_target = target;
+                    }
+                    ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), true )
                 }, {once: true, capture: true});
             let countdowns = content_source[i].querySelectorAll('*[x-countdown]');
             for (let c = 0; c < countdowns.length; c++) {

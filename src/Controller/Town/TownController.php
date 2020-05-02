@@ -284,6 +284,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
         $has_job       = $c->getProfession()->getName() != 'none';
         $is_admin      = $c->getUser()->getIsAdmin();
+        $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal');
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
@@ -306,7 +307,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'has_job' => $has_job,
             'is_admin' => $is_admin,
             'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
-            'day' => $c->getTown()->getDay()
+            'day' => $c->getTown()->getDay(),
+            'already_stolen' => $already_stolen,
         ]) );
     }
 
@@ -358,11 +360,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $message = "";
         switch ($action) {
             case 1:
-                if ($ac->getAp() <= 0 || $this->citizen_handler->isTired( $ac ))
+                if ($ac->getAp() <= 1 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-                $this->citizen_handler->setAP($ac, true, -1);
+                $this->citizen_handler->setAP($ac, true, -2);
                 $pictoName = "r_cgarb_#00";
                 $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
+                $c->setDisposed(Citizen::Thrown);
+                $c->addDisposedBy($ac);
                 break;
             case 2:
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
@@ -370,6 +374,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $this->inventory_handler->forceRemoveItem( $items[0] );
                 $pictoName = "r_cwater_#00";
                 $message = $this->translator->trans('Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...', [], 'game');
+                $c->setDisposed(Citizen::Watered);
+                $c->addDisposedBy($ac);
                 break;
             case 3:
                 $town = $ac->getTown();
@@ -377,7 +383,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 $spawn_items[] = [ $em->getRepository( ItemPrototype::class )->findOneByName( 'hmeat_#00' ), 4 ];
                 $pictoName = "r_cooked_#00";
-                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
+                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>','%ration%' => '<span>4</span>'], 'game');
+                $c->setDisposed(Citizen::Cooked);
+                $c->addDisposedBy($ac);
                 break;
         }
 
@@ -873,6 +881,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
+
         // Give picto to the citizen
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
         $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
@@ -1012,6 +1021,37 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return AjaxResponse::success();
     }
 
+    /**
+     * @Route("api/town/door/exit_hero", name="town_door_hero_exit_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function door_hero_exit_api(JSONRequestParser $parser): Response {
+        if (!$this->getActiveCitizen()->getProfession()->getHeroic())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $citizen = $this->getActiveCitizen();
+        $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), 0, 0);
+
+        if (!$zone)
+            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+
+        $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
+        $zone->addCitizen( $citizen );
+
+        try {
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
     private function door_is_locked(TownHandler $th): bool {
         $town = $this->getActiveCitizen()->getTown();
         if ( !$town->getDoor() && (($s = $this->time_keeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
@@ -1037,8 +1077,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 	$can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'town'  =>  $this->getActiveCitizen()->getTown(),
-	    'door_locked' => $door_locked,
-	    'can_go_out' => $can_go_out,
+    	    'door_locked' => $door_locked,
+    	    'can_go_out' => $can_go_out,
+            'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
+            'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ], $this->get_map_blob())) );

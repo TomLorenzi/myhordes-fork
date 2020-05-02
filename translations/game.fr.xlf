@@ -284,7 +284,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% de zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
+        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -817,13 +817,11 @@
     </unit>
     <unit id="UgTjBPn" name="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
       <notes>
-        <note>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</note>
-        <note>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</note>
         <note category="german">Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</note>
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
-        <target>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</target>
+        <target>Vous avez été banni et ne pouvez donc ni ouvrir ni fermer la porte de la ville.</target>
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -966,7 +964,7 @@
       </notes>
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
-        <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
+        <target>Woaw! vous pouvez voir pratiquement tout d'ici! C'est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville.</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -3797,7 +3795,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %zombies% zerfleischt!</source>
-        <target>%citizen% a été tué par %zombies% zombies!</target>
+        <target>%citizen% a été tué par %zombies% !</target>
       </segment>
     </unit>
     <unit id="26dC9N0" name="5206011">
@@ -5048,7 +5046,7 @@
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Dévoré par un goule</target>
+        <target>Dévoré par une goule</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -7899,9 +7897,10 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Les points de construction peuvent être utilisés dans l'atelier et sur les chantiers de construction,
+                    où ils comptent comme des points d'action. Si possible, les points de construction sont toujours
+                    utilisés en premier avant l'utilisation des points d'action. Gardez à l'esprit que les points de
+                    construction ne peuvent pas être utilisés lorsque vous êtes épuisé!</target>
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">
@@ -8008,14 +8007,14 @@
         <target>Le corps s'est liquéfié en une répugnante flaque nauséabonde. Vos chaussures en ont pris un coup, c'est certain...</target>
       </segment>
     </unit>
-    <unit id="rJRa84E" name="4a1e54c">
+    <unit id="IMXvDT6" name="6f93cd3">
       <notes>
-        <note>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</note>
-        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</note>
+        <note>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</note>
+        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</note>
       </notes>
       <segment>
-        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</source>
-        <target>Vous avez amené le corps de %disposed% au Crémato-Cue. Vous en tirez 4 rations... mais à quel prix ?</target>
+        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</source>
+        <target>Vous avez amené le corps de %disposed% au Crémato-Cue. Vous en tirez %ration% rations... mais à quel prix ?</target>
       </segment>
     </unit>
     <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
@@ -8547,7 +8546,7 @@
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+        <target>%citizen% refuse d'aller dans cette direction ! Ce citoyen vous demande de le ramener en ville...</target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -8574,7 +8573,7 @@
       </notes>
       <segment>
         <source>%username% wurde standrechtlich erschossen.</source>
-        <target>%username% wurde standrechtlich erschossen.</target>
+        <target>%username% a été abattu.</target>
       </segment>
     </unit>
     <unit id="tkJcWLe" name="%username% gehört keiner Stadt an.">
@@ -8871,7 +8870,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.</source>
-        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.</target>
+        <target>%citizen% a été abattu. Vive la dictature ! (%cod%).</target>
       </segment>
     </unit>
     <unit id="Tx6ACHr" name="Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.">
@@ -8925,7 +8924,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
-        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
+        <target>%citizen% a été abattu. Vive la dictature !</target>
       </segment>
     </unit>
     <unit id="tNPDkbr" name="6eb9def">
@@ -9100,6 +9099,96 @@
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
         <target>Vous ne pouvez pas emporter cet objet pour le moment, vous l'avez abandonné par terre.</target>
+      </segment>
+    </unit>
+    <unit id="GSKpJCY" name="32bd220">
+      <notes>
+        <note category="german">Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
+        <target>Ce citoyen a déjà creusé dans cette zone. La prochaine fouille est possible dans :</target>
+      </segment>
+    </unit>
+    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
+      <notes>
+        <note category="german">Dieser Bürger hat kein AP mehr.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat kein AP mehr.</source>
+        <target>Ce citoyen n'a plus de PA.</target>
+      </segment>
+    </unit>
+    <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
+      <notes>
+        <note category="german">Das ist keine gute Idee, das ist dir doch wohl klar!</note>
+      </notes>
+      <segment>
+        <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
+        <target>Ce n'est pas une bonne idée, vous savez... ?</target>
+      </segment>
+    </unit>
+    <unit id="3eUF.n2" name="39c8b98">
+      <notes>
+        <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
+        <target>Vous avez signalé le message de %username% aux Corbeaux. Qui sait, peut-être que %username% va mourrir ce soâââr...</target>
+      </segment>
+    </unit>
+    <unit id="sK.fJbP" name="Was ist mit ihm geschehen?">
+      <notes>
+        <note category="german">Was ist mit ihm geschehen?</note>
+      </notes>
+      <segment>
+        <source>Was ist mit ihm geschehen?</source>
+        <target>Qu'est-il devenu ?</target>
+      </segment>
+    </unit>
+    <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
+      <notes>
+        <note category="german">Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</note>
+      </notes>
+      <segment>
+        <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
+        <target>Mort à l'extérieur, %citizen% n'aura offert aucun reste à ses concitoyens.</target>
+      </segment>
+    </unit>
+    <unit id="zeR3KvL" name="8c2d7df">
+      <notes>
+        <note category="german">Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
+        <target>C'est non sans dégoût que %disposing_citizen% s'est débarrassé(e) du corps inanimé de %citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="g69lh6D" name="a22eaa2">
+      <notes>
+        <note category="german">Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</note>
+      </notes>
+      <segment>
+        <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
+        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été réduit en liquide putride.</target>
+      </segment>
+    </unit>
+    <unit id="rFh36Gr" name="Klassischer Editor">
+      <notes>
+        <note category="german">Klassischer Editor</note>
+      </notes>
+      <segment>
+        <source>Klassischer Editor</source>
+        <target>Éditeur classique</target>
+      </segment>
+    </unit>
+    <unit id="wkidHer" name="Grafischer Editor">
+      <notes>
+        <note category="german">Grafischer Editor</note>
+      </notes>
+      <segment>
+        <source>Grafischer Editor</source>
+        <target>Éditeur graphique</target>
       </segment>
     </unit>
   </file>

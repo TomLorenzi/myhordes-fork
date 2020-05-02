@@ -23,8 +23,12 @@ export default class HTML {
             const node_name = input_fields[i].getAttribute('name')
                 ? input_fields[i].getAttribute('name')
                 : input_fields[i].getAttribute('id');
-            if (node_name)
+            if (node_name && input_fields[i].getAttribute('type') != 'checkbox') {
                 data[node_name] = input_fields[i].value;
+            }
+            if (node_name && input_fields[i].getAttribute('type') == 'checkbox') {
+                data[node_name] = input_fields[i].checked ? true : false;
+            }
         }
 
         return data;

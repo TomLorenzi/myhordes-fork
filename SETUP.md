@@ -25,6 +25,8 @@ Log in to your database with `sudo mysql -u root` (specify `-p` if you have a lo
 CREATE USER 'hordes'@'localhost' IDENTIFIED BY 'hordes_pwd';
 ```
 
+Exit the mariadb command prompt with CTRL+C or `exit;`
+
 Clone the project inside any directory
 
 ```bash
@@ -269,8 +271,8 @@ bin/console app:users
 
 Find your user ID in the displayed results.
 
-```sql
-app:user <id> --set-mod-level 2
+```bash
+bin/console app:user <id> --set-mod-level 2
 ```
 
 Replace `<id>` with the ID you found during the previous steps. You can also use the value 1 for a simple moderator.

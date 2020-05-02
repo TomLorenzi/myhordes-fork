@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>Akte</source>
-        <target>Fichier</target>
+        <target>Voir</target>
       </segment>
     </unit>
     <unit id="S8vqbzA" name="Verbannung">
@@ -215,6 +215,69 @@
       <segment>
         <source>Tod dieses Bürgers zwangsweise bestätigen?</source>
         <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
+      </segment>
+    </unit>
+    <unit id="Tae9Qqu" name="Forum">
+      <notes>
+        <note category="german">Forum</note>
+      </notes>
+      <segment>
+        <source>Forum</source>
+        <target>Forum</target>
+      </segment>
+    </unit>
+    <unit id="BygLauq" name="Autor">
+      <notes>
+        <note category="german">Autor</note>
+      </notes>
+      <segment>
+        <source>Autor</source>
+        <target>Auteur</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Signalements</target>
+      </segment>
+    </unit>
+    <unit id="YlkNCJx" name="gemeldet von">
+      <notes>
+        <note category="german">gemeldet von</note>
+      </notes>
+      <segment>
+        <source>gemeldet von</source>
+        <target>Signalé par</target>
+      </segment>
+    </unit>
+    <unit id="wbOHhHO" name="Gesehen">
+      <notes>
+        <note category="german">Gesehen</note>
+      </notes>
+      <segment>
+        <source>Gesehen</source>
+        <target>Vu</target>
+      </segment>
+    </unit>
+    <unit id="ZVsq_1H" name="Beitrag löschen?">
+      <notes>
+        <note category="german">Beitrag löschen?</note>
+      </notes>
+      <segment>
+        <source>Beitrag löschen?</source>
+        <target>Effacer le poste ?</target>
+      </segment>
+    </unit>
+    <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
+      <notes>
+        <note category="german">Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</note>
+      </notes>
+      <segment>
+        <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
+        <target>Commencez à entrer un pseudo, ceux correspondant s'afficheront :</target>
       </segment>
     </unit>
   </file>

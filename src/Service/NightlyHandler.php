@@ -405,6 +405,9 @@ class NightlyHandler
                 if ($aliveCitizenInTown > 0 && $aliveCitizenInTown <= 10 && !$town->getDevastated()) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, the town is not devastated, setting the town to <info>chaos</info> mode");
                     $town->setChaos(true);
+                    foreach ($town->getCitizens() as $target_citizen) {
+                        $target_citizen->setBanished(false);
+                    }
                 } else if ($aliveCitizenInTown == 0) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
                     // TODO: give Last Man Standing to one of the citizens that has died IN TOWN
@@ -658,6 +661,7 @@ class NightlyHandler
         $picto_camping            = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_camp_#00' );
         $picto_camping_devastated = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_cmplst_#00' );
         $this->log->info('<info>Processing Pictos functions</info> ...');
+
         // Marking pictos as obtained not-today
         $citizens = $town->getCitizens();
         foreach ($citizens as $citizen) {
@@ -677,11 +681,11 @@ class NightlyHandler
                     $this->log->debug("This is a small town, and <info>{$citizen->getUser()->getUsername()}</info> has more that 100 soul points, we use the day 8 rule");
                     if($town->getDay() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
                         $persistPicto = true;
-                    } else if  ($town->getDay() > 8) {
+                    } else if ($town->getDay() > 8) {
                         $persistPicto = true;
                     }
                 } else {
-                    $this->log->debug("We persist the pictos earned the previous days");
+                    $this->log->debug("This is not a small town, we persist the pictos earned the previous days");
                     $persistPicto = true;
                 }
 

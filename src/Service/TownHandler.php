@@ -102,6 +102,7 @@ class TownHandler
         if (isset($water_db[$building->getPrototype()->getName()]))
             $well += $water_db[$building->getPrototype()->getName()];
 
+        $pictos = [];
 
         $town->setWell( $town->getWell() + $well );
         if ($well > 0)
@@ -158,16 +159,34 @@ class TownHandler
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteAllOrNothing($town, $destroyedItems ) );
                 break;
             case "small_castle_#00":
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcstl_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                break;
             case "small_pmvbig_#00":
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebpmv_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                break;
             case "small_wheel_#00":
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebgros_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                break;
             case "small_crow_#00":
-                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
-                foreach ($town->getCitizens() as $citizen)
-                    if ($citizen->getAlive()) {
-                        $this->picto_handler->give_picto($citizen, $picto);
-                    }
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcrow_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
                 break;
             default: break;
+        }
+
+        // If this is a child of fundament, give a picto
+        if($building->getPrototype()->getParent() != null && $building->getPrototype()->getParent()->getName() == 'small_building_#00'){
+            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wondrs_#00");
+        }
+        foreach ($town->getCitizens() as $target_citizen) {
+            if (!$target_citizen->getAlive()) continue;
+
+            foreach ($pictos as $picto) {
+                $this->picto_handler->give_picto($target_citizen, $picto);
+            }
         }
     }
 
@@ -309,12 +328,17 @@ class TownHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$future);
         if (!$est) return 0;
 
-        //TODO: Add telescop effect
-        
+        $has_scope = false;
+        if($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00') > 0)
+            $has_scope = true;
 
-        $min = round( $est->getZombies() - $est->getZombies() * $est->getOffsetMin()/100);
-        $max = round( $est->getZombies() + $est->getZombies() * $est->getOffsetMax()/100);
-        return 1 - (($est->getOffsetMin() + $est->getOffsetMax()) - 10) / 24;
+        $offsetMin = $est->getOffsetMin();
+        $offsetMax = $est->getOffsetMax();
+
+        $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100) / ($has_scope+1)*1);
+        $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100) / ($has_scope+1)*1);
+
+        return min((1 - (($offsetMin + $offsetMax) - 10) / 24) * ($has_scope+1)*1, 1);
     }
 
     public function calculate_zombie_attacks(Town &$town, int $future = 2) {

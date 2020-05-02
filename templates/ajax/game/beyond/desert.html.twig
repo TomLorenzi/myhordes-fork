@@ -203,7 +203,7 @@
 
                 {% endif %}
                 {% if allow_enter_town %}
-                    <button id="town-enter">
+                    <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
                         {% if zone.x == 0 and zone.y == 0 %}
                             {% trans from 'game' %}Stadt betreten{% endtrans %}
                         {% else %}
@@ -282,7 +282,15 @@
                             </div>
                             <div class="padded cell rw-3">
                                 <ul class="status">
-                                    {% if other_citizen.digging %}
+                                    {% if not other_citizen.digging %}
+                                        <li class="status">
+                                            <img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                            <div class="tooltip">
+                                                {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                                <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
+                                            </div>
+                                        </li>
+                                    {% else %}
                                         <li class="status">
                                             <img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
                                             <div class="tooltip">
@@ -318,12 +326,13 @@
                                     {% endfor %}
                                 {% endif %}
                                 {% if zone.x != 0 or zone.y != 0 %}
-                                    <button {% if other_citizen.digging or zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/small_gather.gif') }}"></button>
+                                    <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/small_gather.gif') }}"></button>
                                 {% endif %}
 
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
+
                                 
-                                {% if escort_actions.other_citizen.id is defined %}
+                                {% if escort_actions[other_citizen.id] is defined %}
                                 {% for escort_action in escort_actions[other_citizen.id] %}
                                     {# @var \App\Structures\EscortItemActionSet escort_action #}
                                     <div class="tooltip-dummy hidden _ec _ec_{{ other_citizen.id }}_{{ escort_action.group.id }}">
@@ -428,19 +437,19 @@
         {% endif %}
     {% endif %}
 
-    {% if not citizen.banished and not citizen.camping and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
+    {% if not citizen.camping and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
         <div class="row">
             {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
                 <div class="cell padded rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
             {% elseif citizen.escortSettings is not null %}
                 <div class="cell padded rw-12">
                     <div class="note note-lightest">
-                        <input type="checkbox" {% if citizen.escortSettings.allowInventoryAccess %}checked{% endif%} x-toggle-escort="1" id="escort_allow_rucksack" />&nbsp;<label for="escort_allow_rucksack">{{ 'Zugriff auf meinen Rucksack zulassen'|trans({},'game') }}</label>
+                        <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
                     </div>
                 </div>
                 <div class="cell padded rw-12">
                     <div class="note note-lightest">
-                        <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
+                        <input type="checkbox" {% if citizen.escortSettings.allowInventoryAccess %}checked{% endif%} x-toggle-escort="1" id="escort_allow_rucksack" />&nbsp;<label for="escort_allow_rucksack">{{ 'Zugriff auf meinen Rucksack zulassen'|trans({},'game') }}</label>
                     </div>
                 </div>
                 <div class="cell rw-12 padded left">
@@ -452,7 +461,7 @@
 
     {% if zone.x != 0 or zone.y != 0 %}
         <div class="row">
-            <h5>{{ 'Zonenregister'|trans({},'game') }}</h5>
+            <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }}</h5>
             <div class="cell rw-12">
                 <div class="row">
                     <div class="padded cell rw-10 rw-lg-10 rw-md-9 rw-sm-8"><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></div>
@@ -477,7 +486,7 @@
 
         $.html.addEventListenerAll( '[x-toggle-escort]:not([x-escort-control-endpoint])', 'click', function(e,elem) {
             const allow_rucksack = document.getElementById('escort_allow_rucksack') ? document.getElementById('escort_allow_rucksack').checked : false;
-            const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : false;
+            const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : {% if zone.x == 0 and zone.y == 0 %}false{% else %}true{% endif %};
             $.ajax.easySend( '{{ path('beyond_desert_escort_self_controller') }}', {
                 on: elem.getAttribute('x-toggle-escort') === '1',
                 cf_ruc: allow_rucksack,

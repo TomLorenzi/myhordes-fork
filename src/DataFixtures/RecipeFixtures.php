@@ -302,7 +302,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com005' => ['type' => Recipe::ManualAnywhere, 'out' => 'torch_#00',              'provoking' => 'lights_#00',             'in' => ['lights_#00', 'wood_bad_#00'] ],
         'com006' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_plate_#00',         'provoking' => 'wood_plate_part_#00',    'in' => ['wood_plate_part_#00', 'wood2_#00'] ],
         'com007' => ['type' => Recipe::ManualAnywhere, 'out' => 'concrete_wall_#00',      'provoking' => 'concrete_#00',           'in' => ['concrete_#00', 'water_#00'] ],
-        'com008' => ['type' => Recipe::ManualAnywhere, 'out' => 'chama_tasty_#00',        'provoking' => 'torch_#00',              'in' => ['chama_#00'] ],
+        'com008' => ['type' => Recipe::ManualAnywhere, 'out' => 'chama_tasty_#00',        'provoking' => 'torch_#00',              'in' => ['chama_#00', 'torch_#00'], 'keep' => ['torch_#00'] ],
         'com009' => ['type' => Recipe::ManualAnywhere, 'out' => 'food_noodles_hot_#00',   'provoking' => 'food_noodles_#00',       'in' => ['food_noodles_#00', 'spices_#00', 'water_#00'] ],
         'com010' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_#00',             'provoking' => 'coffee_machine_#00',     'in' => ['pile_#00', 'pharma_#00', 'wood_bad_#00'] ],
 
@@ -494,6 +494,11 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
             if(isset($recipe_data['picto'])){
                 $recipe->setPictoPrototype($manager->getRepository(PictoPrototype::class)->findOneByName($recipe_data['picto']));
+            }
+
+            if(isset($recipe_data['keep'])){
+                foreach ($recipe_data['keep'] as $item)
+                    $recipe->addKeep( $manager->getRepository(ItemPrototype::class)->findOneByName($item));
             }
             $manager->persist($recipe);
 

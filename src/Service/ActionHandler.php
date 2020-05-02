@@ -522,7 +522,7 @@ class ActionHandler
                 if ($pm->getMax()) {
                     $to = $this->citizen_handler->getMaxPM($citizen) + $pm->getPm();
                     $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ), null );
-                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null :$pm->getBonus() );
+                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null : $pm->getBonus() );
 
                 $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
             }
@@ -600,7 +600,7 @@ class ActionHandler
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
                             $citizen->getZone()
-                                ? [ $citizen->getInventory(), $citizen->getZone()->getFloor() ]
+                                ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
                                 : ( $item_in_chest ? [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ] : [ $citizen->getInventory(), $citizen->getHome()->getChest(), $citizen->getTown()->getBank() ])
                         )) $execute_info_cache['items_spawn'][] = $proto;
                 }
@@ -770,8 +770,13 @@ class ActionHandler
                     case 3:
                         $count = 0;
                         foreach ($citizen->getTown()->getCitizens() as $target_citizen) {
+                            // Don't give AP to dead citizen 
+                            if(!$target_citizen->getAlive())
+                                continue;
+                            
                             $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
-                            if ($target_citizen->getZone()) continue;
+                            if ($target_citizen->getZone()) 
+                                continue;
                             else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
                                 $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;
@@ -1017,6 +1022,7 @@ class ActionHandler
 
         $list = [];
         foreach ($items as $item) {
+            if($recipe->getKeep()->contains($item->getPrototype())) continue;
             $r = $recipe->getSource()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r->getChance() );
             $list[] = $item->getPrototype();

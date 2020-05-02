@@ -300,5 +300,50 @@
         <target>La connexion a échoué. Veuillez vérifier votre saisie.</target>
       </segment>
     </unit>
+    <unit id="DMKAJPg" name="Dein Name kann keine Leerzeichen sowie &quot;$&quot;, &quot;&lt;&quot; und &quot;&gt;&quot; enthalten.">
+      <notes>
+        <note category="german">Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</note>
+      </notes>
+      <segment>
+        <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
+        <target><![CDATA[Votre pseudo ne peut pas contenir d'espaces ou les symboles "$", "<" et ">".]]></target>
+      </segment>
+    </unit>
+    <unit id="U4wx4AP" name="13f0f8d">
+      <notes>
+        <note category="german">Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
+      </notes>
+      <segment>
+        <source>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
+        <target>Au revoir, %name%. Votre âme se dissipe, nous espérons que vous aurez la force d'en reformer une nouvelle.</target>
+      </segment>
+    </unit>
+    <unit id="e99uiXA" name="Aktuelles Passwort">
+      <notes>
+        <note category="german">Aktuelles Passwort</note>
+      </notes>
+      <segment>
+        <source>Aktuelles Passwort</source>
+        <target>Mot de passe actuel</target>
+      </segment>
+    </unit>
+    <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
+      <notes>
+        <note category="german">Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</note>
+      </notes>
+      <segment>
+        <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
+        <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
+      </segment>
+    </unit>
+    <unit id="ZJtAei3" name="f062e66">
+      <notes>
+        <note category="german">Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</note>
+      </notes>
+      <segment>
+        <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
+        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

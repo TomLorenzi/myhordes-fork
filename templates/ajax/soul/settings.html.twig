@@ -71,6 +71,17 @@
         </div>
     </div>
 
+    {% if is_granted("ROLE_ADMIN") %}
+    <h5>{{ 'Standardrolle im Forum'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="note note-lightest">
+                <input x-default-role-setting {% if app.user.postAsDefault == "DEV" %}checked{% endif%} type="checkbox" id="setting_default_forum_role">&nbsp;<label for="setting_default_forum_role">{{ 'Standardmäßig als dev posten'|trans({}, 'soul') }}</label>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
     <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
     <div class="row">
         <div class="cell padded rw-4 rw-sm-12">
@@ -184,6 +195,17 @@
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });
+
+        {% if is_granted("ROLE_ADMIN") %}
+            $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
+                $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
+                    dev: document.getElementById('setting_default_forum_role').checked
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    } )
+            });
+        {% endif %}
 
         document.getElementById('avatar_file_select').addEventListener('change', function(e) {
             if (e.target.files.length !== 1) {

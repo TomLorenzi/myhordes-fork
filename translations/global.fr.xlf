@@ -660,7 +660,7 @@
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
-        <note category="german">Unlock</note>
+        <note category="german">Öffnen</note>
       </notes>
       <segment>
         <source>Öffnen</source>
@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Anpinnen</source>
-        <target>Anpinnen</target>
+        <target>Épingler</target>
       </segment>
     </unit>
     <unit id="Bw5vcAl" name="Loslösen">
@@ -736,7 +736,106 @@
       </notes>
       <segment>
         <source>Loslösen</source>
-        <target>Loslösen</target>
+        <target>Désépingler</target>
+      </segment>
+    </unit>
+    <unit id="nCT0Wn6" name="Dev">
+      <notes>
+        <note category="german">Dev</note>
+      </notes>
+      <segment>
+        <source>Dev</source>
+        <target>Dev</target>
+      </segment>
+    </unit>
+    <unit id="oR9GFiR" name="Melden">
+      <notes>
+        <note category="german">Melden</note>
+      </notes>
+      <segment>
+        <source>Melden</source>
+        <target>Signaler</target>
+      </segment>
+    </unit>
+    <unit id="awzJBNC" name="Users">
+      <notes>
+        <note category="german">Users</note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Utilisateurs</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Signalements</target>
+      </segment>
+    </unit>
+    <unit id="5lMuG5Z" name="Schere">
+      <notes>
+        <note category="german">Schere</note>
+      </notes>
+      <segment>
+        <source>Schere</source>
+        <target>Ciseaux</target>
+      </segment>
+    </unit>
+    <unit id="eVtWA3U" name="Stein">
+      <notes>
+        <note category="german">Stein</note>
+      </notes>
+      <segment>
+        <source>Stein</source>
+        <target>Pierre</target>
+      </segment>
+    </unit>
+    <unit id="vXPlKOG" name="Papier">
+      <notes>
+        <note category="german">Papier</note>
+      </notes>
+      <segment>
+        <source>Papier</source>
+        <target>Papier</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Pile</target>
+      </segment>
+    </unit>
+    <unit id="ZU60wKO" name="Zahl">
+      <notes>
+        <note category="german">Zahl</note>
+      </notes>
+      <segment>
+        <source>Zahl</source>
+        <target>Face</target>
+      </segment>
+    </unit>
+    <unit id="ysTRqQl" name="{color} {value}">
+      <notes>
+        <note category="german">{color} {value}</note>
+      </notes>
+      <segment>
+        <source>{color} {value}</source>
+        <target>{value} de {color}</target>
+      </segment>
+    </unit>
+    <unit id="aTN.bek" name="Vorschau">
+      <notes>
+        <note category="german">Vorschau</note>
+      </notes>
+      <segment>
+        <source>Vorschau</source>
+        <target>Aperçu</target>
       </segment>
     </unit>
   </file>
