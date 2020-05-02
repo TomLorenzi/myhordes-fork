@@ -390,7 +390,6 @@ class ItemFixtures extends Fixture
         ['label' => 'Beleuchteter Kürbis','icon' => 'pumpkin_on','category' => 'root_def','deco' => 15,'heavy' => true],                                   // -- ---
         ['label' => 'Krähengirlande','icon' => 'xmas_gift','category' => 'root_ein','deco' => 2,'heavy' => false],                              // -- Out
         ['label' => 'Mystischer Trank','icon' => 'potion','category' => 'root_food','deco' => 0,'heavy' => false],                              // -- Out
-
     ];
     
     public static $item_desc_data = [
@@ -1143,6 +1142,9 @@ class ItemFixtures extends Fixture
                 ->setCategory( $category )
                 ->setDescription( static::$item_desc_data[ $entry_unique_id ] ?? "" )
                 ->getProperties()->clear();
+
+            if(isset($entry['watchpoint']))
+                $entity->setWatchpoint($entry['watchpoint']);
 
             if (isset(static::$item_prototype_properties[$entry_unique_id]))
                 foreach (static::$item_prototype_properties[$entry_unique_id] as $property) {
