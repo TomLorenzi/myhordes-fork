@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
@@ -14,6 +15,7 @@ use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
+use App\Service\LogTemplateHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,11 +32,13 @@ class GameController extends AbstractController implements GameInterfaceControll
 {
     protected $entity_manager;
     protected $translator;
+    protected $logTemplateHandler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
+        $this->logTemplateHandler = $lth;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -42,11 +46,30 @@ class GameController extends AbstractController implements GameInterfaceControll
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+        $entries = [];
+        /** @var TownLogEntry $entity */
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
+            $this->getActiveCitizen()->getTown(),
+            $day, $citizen, $zone, $type, $max ) as $entity) {
+
+                /** @var LogEntryTemplate $template */
+                $template = $entity->getLogEntryTemplate();
+                $templateClass = $template->getClass();
+                $templateType = $template->getType();
+                $variableTypes = $template->getVariableTypes();
+                $entityVariables = $entity->getVariables();
+
+                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+
+                $entryText = $this->translator->trans($template->getText(), $transParams, 'log');
+
+                $entries[] = array('entry'=>$entity, 'template'=>$entity->getLogEntryTemplate());
+            }
+
+        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
+
         return $this->render( 'ajax/game/log_content.html.twig', [
-            'entries' => $this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-                $this->getActiveCitizen()->getTown(),
-                $day, $citizen, $zone, $type, $max
-            )
+            'entries' => $entries,
         ] );
     }
 

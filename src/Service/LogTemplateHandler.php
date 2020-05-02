@@ -14,12 +14,15 @@ use App\Entity\Complaint;
 use App\Entity\Item;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Translation\T;
 use DateTime;
 use DateTimeInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\Asset\Packages;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -27,11 +30,13 @@ class LogTemplateHandler
 {
     private $trans;
     private $asset;
+    private $entity_manager;
 
-    public function __construct(TranslatorInterface $t, Packages $a )
+    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em )
     {
         $this->trans = $t;
         $this->asset = $a;
+        $this->entity_manager = $em;
     }
 
     private function wrap(string $obj): string {
@@ -69,7 +74,42 @@ class LogTemplateHandler
         return "";
     }
 
+    public function fetchVariableObject (string $type, int $key): Entity {
+        switch ($type) {
+            case 'citizen':
+                $object = $this->entity_manager->getRepository(Citizen::class)->find($key);
+                break;
+            case 'item':
+                $object = $this->entity_manager->getRepository(Item::class)->find($key);
+                break;
+        }
+        return $object;
+    }
+
+    public function parseTransParams (array $variableTypes, array $variables): ?array {
+        $transParams = [];
+        foreach ($variableTypes as $typeEntry) {
+            if (is_array($typeEntry)){
+                $listArray = [];
+                foreach ($typeEntry as $idx=>$subTypeEntry) {
+                    $listArray[] = $this->fetchVariableObject($subTypeEntry, $variables['list'][$idx]);
+                }
+                $transParams['%list%'] = implode( ', ', $listArray );
+            }
+            else {
+                $transParams['%'.$typeEntry.'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject($typeEntry, $variables[$typeEntry]) ) );
+            }
+        }
+        return $transParams;
+    }
+
     public function bankItemLog( Citizen $citizen, Item $item, bool $toBank ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getPrototype()->getId());
+        if ($toBank)
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findByName('bankGive');
+        else
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findByName('bankTake');
+
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeBank )
             ->setClass( $toBank ? TownLogEntry::ClassNone : TownLogEntry::ClassWarning )
@@ -77,6 +117,8 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
             ->setText( $this->trans->trans(
                 $toBank
                     ? '%citizen% hat der Stadt folgendes gespendet: %item%'
@@ -84,6 +126,8 @@ class LogTemplateHandler
                         '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                         '%item%'    => $this->wrap( $this->iconize( $item ) ),
             ], 'game' ) );
+
+
     }
 
     public function beyondItemLog( Citizen $citizen, Item $item, bool $toFloor ): TownLogEntry {
