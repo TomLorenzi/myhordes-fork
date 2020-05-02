@@ -76,11 +76,11 @@ class ItemFixtures extends Fixture
         ['label' =>'Extra Tasche','icon'=>'bag','category'=>'root_exp_b','deco'=>0,'heavy'=>false],                                               // -- ---
         ['label' =>'Streichholzschachtel','icon'=>'lights','category'=>'misc','deco'=>0,'heavy'=>false],                                     // -- ---
         ['label' =>'Beruhigungsspritze','icon'=>'xanax','category'=>'drug_d','deco'=>0,'heavy'=>false],                                      // In Out
-        ['label' =>'Schaukelstuhl','icon'=>'chair','category'=>'furniture','deco'=>5,'heavy'=>true],                                         // -- ---
+        ['label' =>'Schaukelstuhl','icon'=>'chair','category'=>'furniture','deco'=>5,'heavy'=>true, 'watchpoint' => 15],                                         // -- ---
         ['label' =>'Staubiges Buch','icon'=>'rp_book','category'=>'imp','deco'=>0,'heavy'=>false],                                           // In Out
         ['label' =>'Matratze','icon'=>'bed','category'=>'armor','deco'=>3,'heavy'=>true],                                                    // -- ---
-        ['label' =>'Ausgeschaltete Nachttischlampe','icon'=>'lamp','category'=>'furniture','deco'=>1,'heavy'=>false],                        // In Out
-        ['label' =>'Perser','icon'=>'carpet','category'=>'furniture','deco'=>10,'heavy'=>false],                                             // -- ---
+        ['label' =>'Ausgeschaltete Nachttischlampe','icon'=>'lamp','category'=>'furniture','deco'=>1,'heavy'=>false, 'watchpoint' => 10],                        // In Out
+        ['label' =>'Perser','icon'=>'carpet','category'=>'furniture','deco'=>10,'heavy'=>false, 'watchpoint' => 6],                                             // -- ---
         ['label' =>'Mini Hi-Fi Anlage (defekt)','icon'=>'music_part','category'=>'furniture','deco'=>1,'heavy'=>true],                       // -- ---
         ['label' =>'Kette + Vorhängeschloss','icon'=>'lock','category'=>'furniture','deco'=>0,'heavy'=>false],                               // -- ---
         ['label' =>'Fußabstreifer','icon'=>'door_carpet','category'=>'furniture','deco'=>5,'heavy'=>false],                                  // -- ---
@@ -127,7 +127,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Metallkiste','icon'=>'chest','category'=>'box','deco'=>0,'heavy'=>true],                                                 // In Out
         ['label' =>'Großer Metallkoffer','icon'=>'chest_xl','category'=>'box','deco'=>0,'heavy'=>true],                                      // In Out
         ['label' =>'Werkzeugkiste','icon'=>'chest_tools','category'=>'box','deco'=>0,'heavy'=>true],                                         // In Out
-        ['label' =>'Nachttischlampe (an)','icon'=>'lamp_on','category'=>'furniture','deco'=>3,'heavy'=>false],                               // -- ---
+        ['label' =>'Nachttischlampe (an)','icon'=>'lamp_on','category'=>'furniture','deco'=>3,'heavy'=>false, 'watchpoint' => 4],                               // -- ---
         ['label' =>'Mini Hi-Fi Anlage (an)','icon'=>'music','category'=>'furniture','deco'=>10,'heavy'=>true],                               // -- ---
         ['label' =>'Pharmazeutische Substanz','icon'=>'pharma','category'=>'drug','deco'=>0,'heavy'=>false],                                 // -- ---
         ['label' =>'Unverarbeitete Blechplatten','icon'=>'plate_raw','category'=>'aud_n','deco'=>0,'heavy'=>true],                           // -- ---
@@ -226,8 +226,8 @@ class ItemFixtures extends Fixture
         ['label' =>'Große rostige Kette','icon'=>'chain','category'=>'imp','deco'=>0,'heavy'=>false],                                        // -- Out
         ['label' =>'Verdächtige Speise','icon'=>'dish','category'=>'food','deco'=>0,'heavy'=>false],                                         // In Out
         ['label' =>'Leckere Speise','icon'=>'dish_tasty','category'=>'food_7','deco'=>0,'heavy'=>false],                                     // In Out
-        ['label' =>'Schrankkoffer','icon'=>'home_box_xl','category'=>'furniture','deco'=>0,'heavy'=>true],                                   // In ---
-        ['label' =>'Kartons','icon'=>'home_box','category'=>'furniture','deco'=>0,'heavy'=>false],                                           // In ---
+        ['label' =>'Schrankkoffer','icon'=>'home_box_xl','category'=>'furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 8],                                   // In ---
+        ['label' =>'Kartons','icon'=>'home_box','category'=>'furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                           // In ---
         ['label' =>'Nagelbare Barrikade','icon'=>'home_def','category'=>'furniture','deco'=>0,'heavy'=>true],                                // In ---
         ['label' =>'Ein Briefumschlag','icon'=>'book_gen_letter','category'=>'imp','deco'=>0,'heavy'=>false],                                // In Out
         ['label' =>'Ein Paket','icon'=>'book_gen_box','category'=>'box','deco'=>0,'heavy'=>false],                                           // In Out
@@ -327,7 +327,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Pfahlwerfer','icon'=>'rlaunc','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                            // --
         ['label' =>'Kalaschni-Splash','icon'=>'kalach','category'=>'root_weapon','deco'=>0,'heavy'=>true],                                        // -- ---
         ['label' =>'Schnellgebauter Tisch','icon'=>'bureau','category'=>'furniture','deco'=>0,'heavy'=>true],                                // -- ---
-        ['label' =>'Leerer Automat','icon'=>'distri','category'=>'furniture','deco'=>0,'heavy'=>true],                                       // -- ---
+        ['label' =>'Leerer Automat','icon'=>'distri','category'=>'furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 30],                                       // -- ---
         ['label' =>'Santas Rentier','icon'=>'renne','category'=>'misc','deco'=>0,'heavy'=>true],                                             // -- ---
         ['label' =>'Osterei','icon'=>'paques','category'=>'misc','deco'=>0,'heavy'=>false],                                                  // -- ---
         ['label' =>'ANZAC Badge','icon'=>'badge','category'=>'armor','deco'=>0,'heavy'=>false],                                              // -- ---
@@ -338,7 +338,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'root_weapon','deco'=>0,'heavy'=>false],                           // --
         ['label' =>'Tretmine','icon'=>'claymo','category'=>'root_weapon','deco'=>0,'heavy'=>false],                                               // -- ---
         ['label' =>'Laserdiode','icon'=>'diode','category'=>'rsc','deco'=>0,'heavy'=>false],                                                 // -- ---
-        ['label' =>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'imp','deco'=>6,'heavy'=>false],                                     // In ---
+        ['label' =>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'imp','deco'=>6,'heavy'=>false, 'watchpoint' => 19],                                     // In ---
         ['label' =>'LSD','icon'=>'lsd','category'=>'drug','deco'=>0,'heavy'=>false],                                                         //
         ['label' =>'Starker Laserpointer (4 Schuss)','icon'=>'lpoint4','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
         ['label' =>'Starker Laserpointer (3 Schuss)','icon'=>'lpoint3','category'=>'root_weapon','deco'=>0,'heavy'=>false],                       // -- Out
