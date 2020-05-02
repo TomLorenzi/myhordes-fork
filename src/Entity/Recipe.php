@@ -72,6 +72,7 @@ class Recipe
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\ItemPrototype")
+     * @ORM\JoinTable(name="recipe_keep_item_prototype")
      */
     private $keep;
 
