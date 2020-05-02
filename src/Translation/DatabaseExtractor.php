@@ -166,7 +166,7 @@ class DatabaseExtractor implements ExtractorInterface
         foreach ($this->em->getRepository(LogEntryTemplate::class)->findAll() as $logtemplate)
             /** @var $logtemplate LogEntryTemplate */
             if ($logtemplate->getText())
-                $this->insert( $c, $logtemplate->getText(), 'log' );
+                $this->insert( $c, $logtemplate->getText(), 'game' );
         //</editor-fold>
     }
 

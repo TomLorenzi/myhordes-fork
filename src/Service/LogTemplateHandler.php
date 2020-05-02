@@ -74,13 +74,13 @@ class LogTemplateHandler
         return "";
     }
 
-    public function fetchVariableObject (string $type, int $key): Entity {
+    public function fetchVariableObject (string $type, int $key) {
         switch ($type) {
             case 'citizen':
                 $object = $this->entity_manager->getRepository(Citizen::class)->find($key);
                 break;
             case 'item':
-                $object = $this->entity_manager->getRepository(Item::class)->find($key);
+                $object = $this->entity_manager->getRepository(ItemPrototype::class)->find($key);
                 break;
         }
         return $object;
@@ -88,7 +88,8 @@ class LogTemplateHandler
 
     public function parseTransParams (array $variableTypes, array $variables): ?array {
         $transParams = [];
-        foreach ($variableTypes as $typeEntry) {
+        foreach ($variableTypes as $idx=>$typeEntry) {
+            
             if (is_array($typeEntry)){
                 $listArray = [];
                 foreach ($typeEntry as $idx=>$subTypeEntry) {
@@ -100,15 +101,16 @@ class LogTemplateHandler
                 $transParams['%'.$typeEntry.'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject($typeEntry, $variables[$typeEntry]) ) );
             }
         }
+        
         return $transParams;
     }
 
     public function bankItemLog( Citizen $citizen, Item $item, bool $toBank ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'item' => $item->getPrototype()->getId());
         if ($toBank)
-            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findByName('bankGive');
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankGive');
         else
-            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findByName('bankTake');
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankTake');
 
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeBank )

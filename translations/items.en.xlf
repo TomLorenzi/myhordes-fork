@@ -7523,5 +7523,95 @@
         <target></target>
       </segment>
     </unit>
+    <unit id="txP7Qji" name="Vodka Marinostov">
+      <notes>
+        <note category="german">Vodka Marinostov</note>
+      </notes>
+      <segment>
+        <source>Vodka Marinostov</source>
+        <target>Vodka Marinostov</target>
+      </segment>
+    </unit>
+    <unit id="Xty7y8z" name="686a25e">
+      <notes>
+        <note category="german">Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</note>
+      </notes>
+      <segment>
+        <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
+        <target>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</target>
+      </segment>
+    </unit>
+    <unit id="QwC3IQO" name="Mystischer Trank">
+      <notes>
+        <note category="german">Mystischer Trank</note>
+      </notes>
+      <segment>
+        <source>Mystischer Trank</source>
+        <target>Mystischer Trank</target>
+      </segment>
+    </unit>
+    <unit id="6IZOpuK" name="29848f3">
+      <notes>
+        <note category="german">Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</note>
+      </notes>
+      <segment>
+        <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
+        <target>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</target>
+      </segment>
+    </unit>
+    <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
+      <notes>
+        <note category="german">Herstellung eines Mystischern Trank</note>
+      </notes>
+      <segment>
+        <source>Herstellung eines Mystischern Trank</source>
+        <target>Herstellung eines Mystischern Trank</target>
+      </segment>
+    </unit>
+    <unit id="rQB150u" name="Nickerchen machen">
+      <notes>
+        <note category="german">Nickerchen machen</note>
+      </notes>
+      <segment>
+        <source>Nickerchen machen</source>
+        <target>Nickerchen machen</target>
+      </segment>
+    </unit>
+    <unit id="exY2Hkq" name="2c7b081">
+      <notes>
+        <note category="german">Vous vous allongez un peu pour vous reposer.&lt;t-ap-up&gt;Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;La panique environnant ne vous permet pas de vous reposer....&lt;/nt-ap-up&gt;</note>
+      </notes>
+      <segment>
+        <source>Vous vous allongez un peu pour vous reposer.&lt;t-ap-up&gt;Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;La panique environnant ne vous permet pas de vous reposer....&lt;/nt-ap-up&gt;</source>
+        <target><![CDATA[Vous vous allongez un peu pour vous reposer.<t-ap-up>Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up>La panique environnant ne vous permet pas de vous reposer....</nt-ap-up>]]></target>
+      </segment>
+    </unit>
+    <unit id="bFugpqQ" name="7f96c6f">
+      <notes>
+        <note category="german">Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</note>
+      </notes>
+      <segment>
+        <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
+        <target><![CDATA[Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>]]></target>
+      </segment>
+    </unit>
+    <unit id="p0SlVNr" name="4ec35c5">
+      <notes>
+        <note category="german">Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
+        <target>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+      </segment>
+    </unit>
+    <unit id="qpQMEHf" name="5f07d6b">
+      <notes>
+        <note category="german">Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</note>
+      </notes>
+      <segment>
+        <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
+        <target>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

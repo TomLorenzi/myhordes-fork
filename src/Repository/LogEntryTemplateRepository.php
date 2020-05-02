@@ -20,30 +20,30 @@ class LogEntryTemplateRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
+     * @return LogEntryTemplate Returns a single LogEntryTemplate object
      */
-    public function findByName($value)
+    public function findOneByName($value): ?LogEntryTemplate
     {
         return $this->createQueryBuilder('l')
             ->andWhere('l.name = :val')
             ->setParameter('val', $value)
             ->orderBy('l.id', 'ASC')
             ->getQuery()
-            ->getResult()
+            ->getOneOrNullResult()
         ;
     }
 
     /**
-     * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
+     * @return LogEntryTemplate Returns a single LogEntryTemplate object
      */
-    public function findByText($value)
+    public function findOneByText($value): ?LogEntryTemplate
     {
         return $this->createQueryBuilder('l')
             ->andWhere('l.text = :val')
             ->setParameter('val', $value)
             ->orderBy('l.id', 'ASC')
             ->getQuery()
-            ->getResult()
+            ->getOneOrNullResult()
         ;
     }
 

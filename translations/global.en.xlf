@@ -658,5 +658,113 @@
         <target>Moderation</target>
       </segment>
     </unit>
+    <unit id="awzJBNC" name="Users">
+      <notes>
+        <note category="german">Users</note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Users</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="nCT0Wn6" name="Dev">
+      <notes>
+        <note category="german">Dev</note>
+      </notes>
+      <segment>
+        <source>Dev</source>
+        <target>Dev</target>
+      </segment>
+    </unit>
+    <unit id="8WE8vgC" name="Rabe">
+      <notes>
+        <note category="german">Rabe</note>
+      </notes>
+      <segment>
+        <source>Rabe</source>
+        <target>Rabe</target>
+      </segment>
+    </unit>
+    <unit id="oR9GFiR" name="Melden">
+      <notes>
+        <note category="german">Melden</note>
+      </notes>
+      <segment>
+        <source>Melden</source>
+        <target>Melden</target>
+      </segment>
+    </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Löschen</target>
+      </segment>
+    </unit>
+    <unit id="_zZCBE9" name="Anpinnen">
+      <notes>
+        <note category="german">Anpinnen</note>
+      </notes>
+      <segment>
+        <source>Anpinnen</source>
+        <target>Anpinnen</target>
+      </segment>
+    </unit>
+    <unit id="Bw5vcAl" name="Loslösen">
+      <notes>
+        <note category="german">Loslösen</note>
+      </notes>
+      <segment>
+        <source>Loslösen</source>
+        <target>Loslösen</target>
+      </segment>
+    </unit>
+    <unit id="h0cXaFP" name="Sticky">
+      <notes>
+        <note category="german">Sticky</note>
+      </notes>
+      <segment>
+        <source>Sticky</source>
+        <target>Sticky</target>
+      </segment>
+    </unit>
+    <unit id="DSG9UgI" name="Online">
+      <notes>
+        <note category="german">Online</note>
+      </notes>
+      <segment>
+        <source>Online</source>
+        <target>Online</target>
+      </segment>
+    </unit>
+    <unit id="oXlHg6q" name="Offline">
+      <notes>
+        <note category="german">Offline</note>
+      </notes>
+      <segment>
+        <source>Offline</source>
+        <target>Offline</target>
+      </segment>
+    </unit>
+    <unit id="qyBuyhw" name="Du wurdest aus dem Forum verbannt.">
+      <notes>
+        <note category="german">Du wurdest aus dem Forum verbannt.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest aus dem Forum verbannt.</source>
+        <target>Du wurdest aus dem Forum verbannt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

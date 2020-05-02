@@ -91,5 +91,431 @@
         <target>Logout</target>
       </segment>
     </unit>
+    <unit id="elfn6js" name="Einen Kommentar hinzufügen">
+      <notes>
+        <note category="german">Einen Kommentar hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Einen Kommentar hinzufügen</source>
+        <target>Einen Kommentar hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="q.Y8zXe" name="787b8ea">
+      <notes>
+        <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
+      </notes>
+      <segment>
+        <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
+        <target>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</target>
+      </segment>
+    </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <notes>
+        <note category="german">Titel</note>
+      </notes>
+      <segment>
+        <source>Titel</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="PHUagJt" name="Entdeckt">
+      <notes>
+        <note category="german">Entdeckt</note>
+      </notes>
+      <segment>
+        <source>Entdeckt</source>
+        <target>Entdeckt</target>
+      </segment>
+    </unit>
+    <unit id="fUgR4gE" name="Gefundene Texte: %count%">
+      <notes>
+        <note category="german">Gefundene Texte: %count%</note>
+      </notes>
+      <segment>
+        <source>Gefundene Texte: %count%</source>
+        <target>Gefundene Texte: %count%</target>
+      </segment>
+    </unit>
+    <unit id="jhO4n0e" name="Dein Profil">
+      <notes>
+        <note category="german">Dein Profil</note>
+      </notes>
+      <segment>
+        <source>Dein Profil</source>
+        <target>Dein Profil</target>
+      </segment>
+    </unit>
+    <unit id="Mi9Pj.n" name="Normale Anzeige">
+      <notes>
+        <note category="german">Normale Anzeige</note>
+      </notes>
+      <segment>
+        <source>Normale Anzeige</source>
+        <target>Normale Anzeige</target>
+      </segment>
+    </unit>
+    <unit id="iiZH1u9" name="Komprimierte Anzeige">
+      <notes>
+        <note category="german">Komprimierte Anzeige</note>
+      </notes>
+      <segment>
+        <source>Komprimierte Anzeige</source>
+        <target>Komprimierte Anzeige</target>
+      </segment>
+    </unit>
+    <unit id="d_VqAwc" name="9b2af61">
+      <notes>
+        <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
+        <target>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</target>
+      </segment>
+    </unit>
+    <unit id="C.B17ya" name="Neues Profilbild hochladen">
+      <notes>
+        <note category="german">Neues Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Neues Profilbild hochladen</source>
+        <target>Neues Profilbild hochladen</target>
+      </segment>
+    </unit>
+    <unit id="uBrCxGO" name="Profilbild löschen">
+      <notes>
+        <note category="german">Profilbild löschen</note>
+      </notes>
+      <segment>
+        <source>Profilbild löschen</source>
+        <target>Profilbild löschen</target>
+      </segment>
+    </unit>
+    <unit id="ZtpVK6q" name="Komprimierte Anzeige bearbeiten">
+      <notes>
+        <note category="german">Komprimierte Anzeige bearbeiten</note>
+      </notes>
+      <segment>
+        <source>Komprimierte Anzeige bearbeiten</source>
+        <target>Komprimierte Anzeige bearbeiten</target>
+      </segment>
+    </unit>
+    <unit id="Af7eIx8" name="b0c95ed">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+      </segment>
+    </unit>
+    <unit id="37GuQ5_" name="Profilbild hochladen">
+      <notes>
+        <note category="german">Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Profilbild hochladen</source>
+        <target>Profilbild hochladen</target>
+      </segment>
+    </unit>
+    <unit id="HaejtO6" name="Darstellung">
+      <notes>
+        <note category="german">Darstellung</note>
+      </notes>
+      <segment>
+        <source>Darstellung</source>
+        <target>Darstellung</target>
+      </segment>
+    </unit>
+    <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
+      <notes>
+        <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
+      </notes>
+      <segment>
+        <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
+        <target>Bevorzugt komprimierte Profilbilder anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="isnXPfR" name="Standardrolle im Forum">
+      <notes>
+        <note category="german">Standardrolle im Forum</note>
+      </notes>
+      <segment>
+        <source>Standardrolle im Forum</source>
+        <target>Standardrolle im Forum</target>
+      </segment>
+    </unit>
+    <unit id="uqXS6rA" name="Standardmäßig als dev posten">
+      <notes>
+        <note category="german">Standardmäßig als dev posten</note>
+      </notes>
+      <segment>
+        <source>Standardmäßig als dev posten</source>
+        <target>Standardmäßig als dev posten</target>
+      </segment>
+    </unit>
+    <unit id="mjphdzq" name="Login und Sicherheit">
+      <notes>
+        <note category="german">Login und Sicherheit</note>
+      </notes>
+      <segment>
+        <source>Login und Sicherheit</source>
+        <target>Login und Sicherheit</target>
+      </segment>
+    </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <notes>
+        <note category="german">Passwort ändern</note>
+      </notes>
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Passwort ändern</target>
+      </segment>
+    </unit>
+    <unit id="iLulTXC" name="Neues Passwort">
+      <notes>
+        <note category="german">Neues Passwort</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort</source>
+        <target>Neues Passwort</target>
+      </segment>
+    </unit>
+    <unit id="Icwc1Fo" name="Neues Passwort wiederholen">
+      <notes>
+        <note category="german">Neues Passwort wiederholen</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort wiederholen</source>
+        <target>Neues Passwort wiederholen</target>
+      </segment>
+    </unit>
+    <unit id="e99uiXA" name="Aktuelles Passwort">
+      <notes>
+        <note category="german">Aktuelles Passwort</note>
+      </notes>
+      <segment>
+        <source>Aktuelles Passwort</source>
+        <target>Aktuelles Passwort</target>
+      </segment>
+    </unit>
+    <unit id="wIQ05bj" name="Passwort aktualisieren">
+      <notes>
+        <note category="german">Passwort aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Passwort aktualisieren</source>
+        <target>Passwort aktualisieren</target>
+      </segment>
+    </unit>
+    <unit id="fuUze6t" name="Externe Anwendungen">
+      <notes>
+        <note category="german">Externe Anwendungen</note>
+      </notes>
+      <segment>
+        <source>Externe Anwendungen</source>
+        <target>Externe Anwendungen</target>
+      </segment>
+    </unit>
+    <unit id="HbhZq4U" name="Account löschen">
+      <notes>
+        <note category="german">Account löschen</note>
+      </notes>
+      <segment>
+        <source>Account löschen</source>
+        <target>Account löschen</target>
+      </segment>
+    </unit>
+    <unit id="q58CKHC" name="Meinen Account löschen">
+      <notes>
+        <note category="german">Meinen Account löschen</note>
+      </notes>
+      <segment>
+        <source>Meinen Account löschen</source>
+        <target>Meinen Account löschen</target>
+      </segment>
+    </unit>
+    <unit id="LS.JtiE" name="c5a39bb">
+      <notes>
+        <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+      </notes>
+      <segment>
+        <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
+        <target>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</target>
+      </segment>
+    </unit>
+    <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
+      <notes>
+        <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle nur eine einzige Datei aus.</source>
+        <target>Bitte wähle nur eine einzige Datei aus.</target>
+      </segment>
+    </unit>
+    <unit id="TzbDcP2" name="Die Datei ist zu groß.">
+      <notes>
+        <note category="german">Die Datei ist zu groß.</note>
+      </notes>
+      <segment>
+        <source>Die Datei ist zu groß.</source>
+        <target>Die Datei ist zu groß.</target>
+      </segment>
+    </unit>
+    <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
+      <notes>
+        <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
+      </notes>
+      <segment>
+        <source>Dieses Dateiformat wird nicht unterstützt.</source>
+        <target>Dieses Dateiformat wird nicht unterstützt.</target>
+      </segment>
+    </unit>
+    <unit id="EpWptWk" name="Schriften">
+      <notes>
+        <note category="german">Schriften</note>
+      </notes>
+      <segment>
+        <source>Schriften</source>
+        <target>Schriften</target>
+      </segment>
+    </unit>
+    <unit id="KJJicse" name="36b050a">
+      <notes>
+        <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
+      </notes>
+      <segment>
+        <source>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</source>
+        <target>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</target>
+      </segment>
+    </unit>
+    <unit id="boYEw93" name="Vorherige Seite">
+      <notes>
+        <note category="german">Vorherige Seite</note>
+      </notes>
+      <segment>
+        <source>Vorherige Seite</source>
+        <target>Vorherige Seite</target>
+      </segment>
+    </unit>
+    <unit id="hc2Xbgb" name="Nächste Seite">
+      <notes>
+        <note category="german">Nächste Seite</note>
+      </notes>
+      <segment>
+        <source>Nächste Seite</source>
+        <target>Nächste Seite</target>
+      </segment>
+    </unit>
+    <unit id="MCPpLdD" name="Redakteur:">
+      <notes>
+        <note category="german">Redakteur:</note>
+      </notes>
+      <segment>
+        <source>Redakteur:</source>
+        <target>Redakteur:</target>
+      </segment>
+    </unit>
+    <unit id="GiaI_3b" name="Überlebte Tage">
+      <notes>
+        <note category="german">Überlebte Tage</note>
+      </notes>
+      <segment>
+        <source>Überlebte Tage</source>
+        <target>Überlebte Tage</target>
+      </segment>
+    </unit>
+    <unit id="zY4iz3Q" name="Ergebnis">
+      <notes>
+        <note category="german">Ergebnis</note>
+      </notes>
+      <segment>
+        <source>Ergebnis</source>
+        <target>Ergebnis</target>
+      </segment>
+    </unit>
+    <unit id="FlZntyi" name="Bürger">
+      <notes>
+        <note category="german">Bürger</note>
+      </notes>
+      <segment>
+        <source>Bürger</source>
+        <target>Bürger</target>
+      </segment>
+    </unit>
+    <unit id="7F000hR" name="Todesursache">
+      <notes>
+        <note category="german">Todesursache</note>
+      </notes>
+      <segment>
+        <source>Todesursache</source>
+        <target>Todesursache</target>
+      </segment>
+    </unit>
+    <unit id="coQifWg" name="Kommentar">
+      <notes>
+        <note category="german">Kommentar</note>
+      </notes>
+      <segment>
+        <source>Kommentar</source>
+        <target>Kommentar</target>
+      </segment>
+    </unit>
+    <unit id="JW9VP2K" name="Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.">
+      <notes>
+        <note category="german">Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</note>
+      </notes>
+      <segment>
+        <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
+        <target>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</target>
+      </segment>
+    </unit>
+    <unit id="W6NI6B_" name="Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.">
+      <notes>
+        <note category="german">Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</note>
+      </notes>
+      <segment>
+        <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
+        <target>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</target>
+      </segment>
+    </unit>
+    <unit id="WocA7cM" name="79a6053">
+      <notes>
+        <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
+      </notes>
+      <segment>
+        <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
+        <target>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</target>
+      </segment>
+    </unit>
+    <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
+      <notes>
+        <note category="german">Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</note>
+      </notes>
+      <segment>
+        <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
+        <target>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</target>
+      </segment>
+    </unit>
+    <unit id="WrQqCAs" name="Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.">
+      <notes>
+        <note category="german">Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</note>
+      </notes>
+      <segment>
+        <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
+        <target>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="EZLjPxc" name="f6fa7cb">
+      <notes>
+        <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
+      </notes>
+      <segment>
+        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
+        <target>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -46,24 +46,25 @@ class GameController extends AbstractController implements GameInterfaceControll
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+        $this->translator->setlocale("fr");
         $entries = [];
         /** @var TownLogEntry $entity */
         foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
             $this->getActiveCitizen()->getTown(),
-            $day, $citizen, $zone, $type, $max ) as $entity) {
+            $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
 
                 /** @var LogEntryTemplate $template */
                 $template = $entity->getLogEntryTemplate();
-                $templateClass = $template->getClass();
-                $templateType = $template->getType();
+                $entries[$idx]['timestamp'] = $entity->getTimestamp();
+                $entries[$idx]['class'] = $template->getClass();
+                $entries[$idx]['type'] = $template->getType();
+
                 $variableTypes = $template->getVariableTypes();
                 $entityVariables = $entity->getVariables();
-
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
 
-                $entryText = $this->translator->trans($template->getText(), $transParams, 'log');
-
-                $entries[] = array('entry'=>$entity, 'template'=>$entity->getLogEntryTemplate());
+                $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                
             }
 
         // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());

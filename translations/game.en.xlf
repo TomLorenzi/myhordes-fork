@@ -3361,7 +3361,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat der Stadt folgendes gespendet: %item%</source>
-        <target>%citizen% a donné %item% à la ville.</target>
+        <target>%citizen% placed %item% in the bank.</target>
       </segment>
     </unit>
     <unit id="d8vpz_8" name="%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%">
@@ -7655,6 +7655,702 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Dazu hast Du kein Recht.</source>
         <target>Dazu hast Du kein Recht.</target>
+      </segment>
+    </unit>
+    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Schamane dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Schamane dieser Stadt.</source>
+        <target>Du bist der Schamane dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
+        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="AaXbNC4" name="431e5d7">
+      <notes>
+        <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</note>
+      </notes>
+      <segment>
+        <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
+        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</target>
+      </segment>
+    </unit>
+    <unit id="6vrzCbN" name="Hexe">
+      <notes>
+        <note category="german">Hexe</note>
+      </notes>
+      <segment>
+        <source>Hexe</source>
+        <target>Hexe</target>
+      </segment>
+    </unit>
+    <unit id="lMFd6N6" name="Seher">
+      <notes>
+        <note category="german">Seher</note>
+      </notes>
+      <segment>
+        <source>Seher</source>
+        <target>Seher</target>
+      </segment>
+    </unit>
+    <unit id="6oWK_.g" name="Wolf">
+      <notes>
+        <note category="german">Wolf</note>
+      </notes>
+      <segment>
+        <source>Wolf</source>
+        <target>Wolf</target>
+      </segment>
+    </unit>
+    <unit id="hPxJR6S" name="Amor">
+      <notes>
+        <note category="german">Amor</note>
+      </notes>
+      <segment>
+        <source>Amor</source>
+        <target>Amor</target>
+      </segment>
+    </unit>
+    <unit id="_tfrY2X" name="Jäger">
+      <notes>
+        <note category="german">Jäger</note>
+      </notes>
+      <segment>
+        <source>Jäger</source>
+        <target>Jäger</target>
+      </segment>
+    </unit>
+    <unit id="FoS7MOU" name="0b6b395">
+      <notes>
+        <note category="german">Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</note>
+      </notes>
+      <segment>
+        <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
+        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+      </segment>
+    </unit>
+    <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
+      <notes>
+        <note category="german">Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</note>
+      </notes>
+      <segment>
+        <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
+        <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+      </segment>
+    </unit>
+    <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
+      <notes>
+        <note category="german">Hier wurde bereits ein Bauplan gefunden.</note>
+      </notes>
+      <segment>
+        <source>Hier wurde bereits ein Bauplan gefunden.</source>
+        <target>Hier wurde bereits ein Bauplan gefunden.</target>
+      </segment>
+    </unit>
+    <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
+      <notes>
+        <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
+        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+      </segment>
+    </unit>
+    <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
+      <notes>
+        <note category="german">Die Tarnung von %name% ist aufgeflogen!</note>
+      </notes>
+      <segment>
+        <source>Die Tarnung von %name% ist aufgeflogen!</source>
+        <target>Die Tarnung von %name% ist aufgeflogen!</target>
+      </segment>
+    </unit>
+    <unit id="jIaT.gH" name="b043aa1">
+      <notes>
+        <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
+      </notes>
+      <segment>
+        <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
+        <target>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</target>
+      </segment>
+    </unit>
+    <unit id="2MBbf8L" name="416726b">
+      <notes>
+        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+      </notes>
+      <segment>
+        <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
+        <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
+      </segment>
+    </unit>
+    <unit id="AL6LzU0" name="9a476a3">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
+        <target>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</target>
+      </segment>
+    </unit>
+    <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
+      <notes>
+        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
+        <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
+      </segment>
+    </unit>
+    <unit id="gLkZ8wY" name="0e83286">
+      <notes>
+        <note category="german">Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</note>
+      </notes>
+      <segment>
+        <source>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</source>
+        <target>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</target>
+      </segment>
+    </unit>
+    <unit id="qNbi2jZ" name="f202f15">
+      <notes>
+        <note category="german">Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</note>
+      </notes>
+      <segment>
+        <source>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</source>
+        <target>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</target>
+      </segment>
+    </unit>
+    <unit id="ROlGH4i" name="7e84046">
+      <notes>
+        <note category="german">Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</note>
+      </notes>
+      <segment>
+        <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
+        <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
+      </segment>
+    </unit>
+    <unit id="GIJWmHF" name="91f8c9a">
+      <notes>
+        <note category="german">Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</note>
+      </notes>
+      <segment>
+        <source>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</source>
+        <target>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</target>
+      </segment>
+    </unit>
+    <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
+      <notes>
+        <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
+      </notes>
+      <segment>
+        <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
+        <target>...der Mörder .. ist.. IST.. AAARGHhh..</target>
+      </segment>
+    </unit>
+    <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Bank.</source>
+        <target>In diesem Thread dreht sich alles um die Bank.</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</target>
+      </segment>
+    </unit>
+    <unit id="Tx6ACHr" name="Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.">
+      <notes>
+        <note category="german">Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</note>
+      </notes>
+      <segment>
+        <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
+        <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
+      </segment>
+    </unit>
+    <unit id="pYjjICz" name="e210a83">
+      <notes>
+        <note category="german">%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
+        <target>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</target>
+      </segment>
+    </unit>
+    <unit id="nLA31ML" name="ea40151">
+      <notes>
+        <note category="german">%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
+        <target>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
+      <notes>
+        <note category="german">%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
+        <target>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
+      <notes>
+        <note category="german">%citizen% hat sich für heute Nacht ein Versteck gesucht ...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
+        <target>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</target>
+      </segment>
+    </unit>
+    <unit id="HyDSnff" name="%citizen% hat sein Versteck verlassen.">
+      <notes>
+        <note category="german">%citizen% hat sein Versteck verlassen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sein Versteck verlassen.</source>
+        <target>%citizen% hat sein Versteck verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="7P4jtds" name="%citizen% hat beschlossen auf einen Eskortenanführer zu warten...">
+      <notes>
+        <note category="german">%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</source>
+        <target>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</target>
+      </segment>
+    </unit>
+    <unit id="tZT81ei" name="%citizen% hat beschlossen sich wieder allein fortzubewegen.">
+      <notes>
+        <note category="german">%citizen% hat beschlossen sich wieder allein fortzubewegen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen sich wieder allein fortzubewegen.</source>
+        <target>%citizen% hat beschlossen sich wieder allein fortzubewegen.</target>
+      </segment>
+    </unit>
+    <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
+      <notes>
+        <note category="german">%citizen% a convaincu %target_citizen% de le suivre.</note>
+      </notes>
+      <segment>
+        <source>%citizen% a convaincu %target_citizen% de le suivre.</source>
+        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
+      </segment>
+    </unit>
+    <unit id="VlmfWWl" name="Finalement, %citizen% a décidé de planter %target_citizen% là...">
+      <notes>
+        <note category="german">Finalement, %citizen% a décidé de planter %target_citizen% là...</note>
+      </notes>
+      <segment>
+        <source>Finalement, %citizen% a décidé de planter %target_citizen% là...</source>
+        <target>Finalement, %citizen% a décidé de planter %target_citizen% là...</target>
+      </segment>
+    </unit>
+    <unit id="KYKuCCa" name="0570887">
+      <notes>
+        <note category="german">Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</note>
+      </notes>
+      <segment>
+        <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
+        <target>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</target>
+      </segment>
+    </unit>
+    <unit id="J2aR_r9" name="ed375df">
+      <notes>
+        <note category="german">Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</note>
+      </notes>
+      <segment>
+        <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
+        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</target>
+      </segment>
+    </unit>
+    <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
+      <notes>
+        <note category="german">Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</note>
+      </notes>
+      <segment>
+        <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
+        <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
+      </segment>
+    </unit>
+    <unit id="ldDJ4DB" name="5617aca">
+      <notes>
+        <note category="german">Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</note>
+      </notes>
+      <segment>
+        <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
+        <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
+      </segment>
+    </unit>
+    <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
+      <notes>
+        <note category="german">Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</note>
+      </notes>
+      <segment>
+        <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
+        <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
+      </segment>
+    </unit>
+    <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
+      <notes>
+        <note category="german">Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</note>
+      </notes>
+      <segment>
+        <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
+        <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
+      </segment>
+    </unit>
+    <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
+      <notes>
+        <note category="german">Das ist keine gute Idee, das ist dir doch wohl klar!</note>
+      </notes>
+      <segment>
+        <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
+        <target>Das ist keine gute Idee, das ist dir doch wohl klar!</target>
+      </segment>
+    </unit>
+    <unit id="3eUF.n2" name="39c8b98">
+      <notes>
+        <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
+        <target>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</target>
+      </segment>
+    </unit>
+    <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
+      <notes>
+        <note category="german">Stadt im %direction% in %km% Entfernung</note>
+      </notes>
+      <segment>
+        <source>Stadt im %direction% in %km% Entfernung</source>
+        <target>Stadt im %direction% in %km% Entfernung</target>
+      </segment>
+    </unit>
+    <unit id="Q4Q3RlC" name="Du folgst aktuell %citizen%.">
+      <notes>
+        <note category="german">Du folgst aktuell %citizen%.</note>
+      </notes>
+      <segment>
+        <source>Du folgst aktuell %citizen%.</source>
+        <target>Du folgst aktuell %citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="tNPDkbr" name="6eb9def">
+      <notes>
+        <note category="german">Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</note>
+      </notes>
+      <segment>
+        <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
+        <target>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</target>
+      </segment>
+    </unit>
+    <unit id="8c.i3q2" name="Zone reinigen">
+      <notes>
+        <note category="german">Zone reinigen</note>
+      </notes>
+      <segment>
+        <source>Zone reinigen</source>
+        <target>Zone reinigen</target>
+      </segment>
+    </unit>
+    <unit id="Ci7U3L." name="Aktualisierung">
+      <notes>
+        <note category="german">Aktualisierung</note>
+      </notes>
+      <segment>
+        <source>Aktualisierung</source>
+        <target>Aktualisierung</target>
+      </segment>
+    </unit>
+    <unit id="i5FChQj" name="Deine Eskorte">
+      <notes>
+        <note category="german">Deine Eskorte</note>
+      </notes>
+      <segment>
+        <source>Deine Eskorte</source>
+        <target>Deine Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="GSKpJCY" name="32bd220">
+      <notes>
+        <note category="german">Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
+        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+      </segment>
+    </unit>
+    <unit id="_s1Oex0" name="Gesamte Eskorte">
+      <notes>
+        <note category="german">Gesamte Eskorte</note>
+      </notes>
+      <segment>
+        <source>Gesamte Eskorte</source>
+        <target>Gesamte Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="Jh.CarL" name="Bürger in dieser Zone">
+      <notes>
+        <note category="german">Bürger in dieser Zone</note>
+      </notes>
+      <segment>
+        <source>Bürger in dieser Zone</source>
+        <target>Bürger in dieser Zone</target>
+      </segment>
+    </unit>
+    <unit id="wVNJv3." name="Camping">
+      <notes>
+        <note category="german">Camping</note>
+      </notes>
+      <segment>
+        <source>Camping</source>
+        <target>Camping</target>
+      </segment>
+    </unit>
+    <unit id="qIelrId" name="Eskorte">
+      <notes>
+        <note category="german">Eskorte</note>
+      </notes>
+      <segment>
+        <source>Eskorte</source>
+        <target>Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="fWKRZJU" name="Eskorte aktivieren">
+      <notes>
+        <note category="german">Eskorte aktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorte aktivieren</source>
+        <target>Eskorte aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="DvcImFR" name="Ich will auf direktem Weg zurück zur Stadt">
+      <notes>
+        <note category="german">Ich will auf direktem Weg zurück zur Stadt</note>
+      </notes>
+      <segment>
+        <source>Ich will auf direktem Weg zurück zur Stadt</source>
+        <target>Ich will auf direktem Weg zurück zur Stadt</target>
+      </segment>
+    </unit>
+    <unit id="td.v3Fq" name="Zugriff auf meinen Rucksack zulassen">
+      <notes>
+        <note category="german">Zugriff auf meinen Rucksack zulassen</note>
+      </notes>
+      <segment>
+        <source>Zugriff auf meinen Rucksack zulassen</source>
+        <target>Zugriff auf meinen Rucksack zulassen</target>
+      </segment>
+    </unit>
+    <unit id="dV_nb5u" name="Eskorte deaktivieren">
+      <notes>
+        <note category="german">Eskorte deaktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorte deaktivieren</source>
+        <target>Eskorte deaktivieren</target>
+      </segment>
+    </unit>
+    <unit id="B5vvTiM" name="Senden">
+      <notes>
+        <note category="german">Senden</note>
+      </notes>
+      <segment>
+        <source>Senden</source>
+        <target>Senden</target>
+      </segment>
+    </unit>
+    <unit id="iF7FJz5" name="Deine letzten Worte:">
+      <notes>
+        <note category="german">Deine letzten Worte:</note>
+      </notes>
+      <segment>
+        <source>Deine letzten Worte:</source>
+        <target>Deine letzten Worte:</target>
+      </segment>
+    </unit>
+    <unit id="xbvLcF5" name="Mystic-Punkte">
+      <notes>
+        <note category="german">Mystic-Punkte</note>
+      </notes>
+      <segment>
+        <source>Mystic-Punkte</source>
+        <target>Mystic-Punkte</target>
+      </segment>
+    </unit>
+    <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
+      <notes>
+        <note category="german">Diese Punkte sind exklusiv für den Schamanen reserviert.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
+        <target>Diese Punkte sind exklusiv für den Schamanen reserviert.</target>
+      </segment>
+    </unit>
+    <unit id="1_CH2K0" name="Du bist der %rolename% dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der %rolename% dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der %rolename% dieser Stadt.</source>
+        <target>Du bist der %rolename% dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
+      <notes>
+        <note category="german">Akteneinsicht wird beantragt...</note>
+      </notes>
+      <segment>
+        <source>Akteneinsicht wird beantragt...</source>
+        <target>Akteneinsicht wird beantragt...</target>
+      </segment>
+    </unit>
+    <unit id="wbSNK79" name="Protokolle werden analysiert...">
+      <notes>
+        <note category="german">Protokolle werden analysiert...</note>
+      </notes>
+      <segment>
+        <source>Protokolle werden analysiert...</source>
+        <target>Protokolle werden analysiert...</target>
+      </segment>
+    </unit>
+    <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
+      <notes>
+        <note category="german">Überwachungsapparat wird ausgewertet...</note>
+      </notes>
+      <segment>
+        <source>Überwachungsapparat wird ausgewertet...</source>
+        <target>Überwachungsapparat wird ausgewertet...</target>
+      </segment>
+    </unit>
+    <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
+      <notes>
+        <note category="german">Belastende Beweise werden übermittelt...</note>
+      </notes>
+      <segment>
+        <source>Belastende Beweise werden übermittelt...</source>
+        <target>Belastende Beweise werden übermittelt...</target>
+      </segment>
+    </unit>
+    <unit id="ZLNo.4B" name="Position:">
+      <notes>
+        <note category="german">Position:</note>
+      </notes>
+      <segment>
+        <source>Position:</source>
+        <target>Position:</target>
+      </segment>
+    </unit>
+    <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
+      <notes>
+        <note category="german">Dieser Bürger hat keine letzten Worte hinterlassen ...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
+        <target>Dieser Bürger hat keine letzten Worte hinterlassen ...</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <notes>
+        <note category="german">Letzte Worte:</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Letzte Worte:</target>
+      </segment>
+    </unit>
+    <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">
+      <notes>
+        <note category="german">Klicke hier, um für diesen Bürger zu stimmen.</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um für diesen Bürger zu stimmen.</source>
+        <target>Klicke hier, um für diesen Bürger zu stimmen.</target>
+      </segment>
+    </unit>
+    <unit id="xp8ndxu" name="Du hast für diesen Bürger gestimmt.">
+      <notes>
+        <note category="german">Du hast für diesen Bürger gestimmt.</note>
+      </notes>
+      <segment>
+        <source>Du hast für diesen Bürger gestimmt.</source>
+        <target>Du hast für diesen Bürger gestimmt.</target>
+      </segment>
+    </unit>
+    <unit id="EV3WmmI" name="712ee4f">
+      <notes>
+        <note category="german">Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
+        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+      </segment>
+    </unit>
+    <unit id="EKpWan5" name="Was sagst du dazu?">
+      <notes>
+        <note category="german">Was sagst du dazu?</note>
+      </notes>
+      <segment>
+        <source>Was sagst du dazu?</source>
+        <target>Was sagst du dazu?</target>
+      </segment>
+    </unit>
+    <unit id="G9pK1NS" name="Du kannst keinen weiteren Bürger eskortieren.">
+      <notes>
+        <note category="german">Du kannst keinen weiteren Bürger eskortieren.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen weiteren Bürger eskortieren.</source>
+        <target>Du kannst keinen weiteren Bürger eskortieren.</target>
+      </segment>
+    </unit>
+    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
+      <notes>
+        <note category="german">Dieser Bürger hat kein AP mehr.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat kein AP mehr.</source>
+        <target>Dieser Bürger hat kein AP mehr.</target>
       </segment>
     </unit>
   </file>
