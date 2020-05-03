@@ -16,6 +16,7 @@ class TownConf extends Conf
     const CONF_BUILDINGS_CONSTRUCTED = 'initial_buildings';
     const CONF_BUILDINGS_UNLOCKED    = 'unlocked_buildings';
     const CONF_DISTRIBUTED_ITEMS     = 'distribute_items';
+    const CONF_DEFAULT_CHEST_ITEMS   = 'initial_chest';
 
     const CONF_MODIFIER_POISON_STACK = 'modifiers.poison.stack_poisoned_items';
     const CONF_MODIFIER_POISON_TRANS = 'modifiers.poison.transgress';
