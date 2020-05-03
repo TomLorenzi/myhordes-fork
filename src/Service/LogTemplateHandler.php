@@ -88,17 +88,27 @@ class LogTemplateHandler
 
     public function parseTransParams (array $variableTypes, array $variables): ?array {
         $transParams = [];
-        foreach ($variableTypes as $idx=>$typeEntry) {
+        foreach ($variableTypes as $typeEntry) {
             
-            if (is_array($typeEntry)){
+            if ($typeEntry['type'] === 'list') {
                 $listArray = [];
-                foreach ($typeEntry as $idx=>$subTypeEntry) {
-                    $listArray[] = $this->fetchVariableObject($subTypeEntry, $variables['list'][$idx]);
+                foreach ($variables[$typeEntry['name']] as $variable) {
+                    $listArray[] = $this->fetchVariableObject($typeEntry['listType'], $variable);
                 }
-                $transParams['%list%'] = implode( ', ', $listArray );
+                $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', $listArray );
             }
+            elseif ($typeEntry['type'] === 'num') {
+                $transParams['%'.$typeEntry['name'].'%'] = $this->wrap($variables[$typeEntry['name']]);
+            }
+            elseif ($typeEntry['type'] === 'transString') {
+                $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
+            }
+            elseif ($typeEntry['type'] === 'ap') {
+                $ap = $variables[$typeEntry['name']];
+                $transParams['%'.$typeEntry['name'].'%'] ="<div class='ap'>{$ap}</div>";
+            }        
             else {
-                $transParams['%'.$typeEntry.'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject($typeEntry, $variables[$typeEntry]) ) );
+                $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']]) ) );
             }
         }
         
@@ -251,7 +261,7 @@ class LogTemplateHandler
 
     public function constructionsBuildingCompleteSpawnItems( Building $building, $items ): TownLogEntry {
         $list = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
-
+        $proto = $building->getPrototype();
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeConstruction )
             ->setSecondaryType( TownLogEntry::TypeBank )
@@ -260,7 +270,7 @@ class LogTemplateHandler
             ->setDay( $building->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setText( $this->trans->trans( 'Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%', [
-                '%building%' => $this->wrap( $this->iconize( $building ) ),
+                '%building%' => $this->wrap( $this->iconize( $proto ) ),
                 '%list%'     => implode( ', ', $list )
             ], 'game' ) );
     }
