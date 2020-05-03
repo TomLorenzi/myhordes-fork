@@ -3753,7 +3753,7 @@
       </notes>
       <segment>
         <source>Einsetzen</source>
-        <target>Installer</target>
+        <target>Utiliser</target>
       </segment>
     </unit>
     <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
@@ -3917,8 +3917,6 @@
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
       <notes>
-        <note>Das brauchst du gerade nicht ...</note>
-        <note>Das brauchst du gerade nicht ...</note>
         <note category="german">Das brauchst du gerade nicht ...</note>
       </notes>
       <segment>
@@ -3928,8 +3926,6 @@
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
       <notes>
-        <note>Aufstellen</note>
-        <note>Aufstellen</note>
         <note category="german">Aufstellen</note>
       </notes>
       <segment>
@@ -3939,8 +3935,6 @@
     </unit>
     <unit id="Du_7vOz" name="Verbinden">
       <notes>
-        <note>Verbinden</note>
-        <note>Verbinden</note>
         <note category="german">Verbinden</note>
       </notes>
       <segment>
@@ -7795,8 +7789,6 @@
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
       <notes>
-        <note>Aufbauen</note>
-        <note>Aufbauen</note>
         <note category="german">Aufbauen</note>
       </notes>
       <segment>
@@ -7992,7 +7984,7 @@
       </notes>
       <segment>
         <source>Heilen (5AP)</source>
-        <target>Heilen (5AP)</target>
+        <target>Se soigner (5AP)</target>
       </segment>
     </unit>
     <unit id="8.uDazR" name="Heilen (6AP)">
@@ -8002,7 +7994,7 @@
       </notes>
       <segment>
         <source>Heilen (6AP)</source>
-        <target>Heilen (6AP)</target>
+        <target>Se soigner (6AP)</target>
       </segment>
     </unit>
     <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
@@ -8297,6 +8289,24 @@
       <segment>
         <source>Ass</source>
         <target>As</target>
+      </segment>
+    </unit>
+    <unit id="hEgldti" name="Nachtwache-Waffen">
+      <notes>
+        <note category="german">Nachtwache-Waffen</note>
+      </notes>
+      <segment>
+        <source>Nachtwache-Waffen</source>
+        <target>Arme de veille</target>
+      </segment>
+    </unit>
+    <unit id="47LA9aV" name="Pkte">
+      <notes>
+        <note category="german">Pkte</note>
+      </notes>
+      <segment>
+        <source>Pkte</source>
+        <target>Pts</target>
       </segment>
     </unit>
   </file>

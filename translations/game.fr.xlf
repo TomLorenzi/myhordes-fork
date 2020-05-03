@@ -8722,7 +8722,7 @@
     </unit>
     <unit id="B5vvTiM" name="Senden">
       <notes>
-        <note category="german">Senden</note>
+        <note category="german">Send</note>
       </notes>
       <segment>
         <source>Senden</source>
@@ -9130,7 +9130,7 @@
     </unit>
     <unit id="3eUF.n2" name="39c8b98">
       <notes>
-        <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
+        <note category="german">You have reported this post from %username% to the raven. Who knows, maybe %username% will die tonight... caaaw caaaw!</note>
       </notes>
       <segment>
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
@@ -9175,7 +9175,7 @@
     </unit>
     <unit id="rFh36Gr" name="Klassischer Editor">
       <notes>
-        <note category="german">Klassischer Editor</note>
+        <note category="german">Classic Editor</note>
       </notes>
       <segment>
         <source>Klassischer Editor</source>
@@ -9184,7 +9184,7 @@
     </unit>
     <unit id="wkidHer" name="Grafischer Editor">
       <notes>
-        <note category="german">Grafischer Editor</note>
+        <note category="german">Graphic Editor</note>
       </notes>
       <segment>
         <source>Grafischer Editor</source>
@@ -9202,7 +9202,7 @@
     </unit>
     <unit id="jqa.16L" name="da1981d">
       <notes>
-        <note category="german">Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
+        <note category="german">You already dugged here. The next search will not be available until tomorrow.</note>
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
@@ -9270,6 +9270,69 @@
       <segment>
         <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
         <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
+      </segment>
+    </unit>
+    <unit id="nusxEDS" name="Benutzte Waffe">
+      <notes>
+        <note category="german">Benutzte Waffe</note>
+      </notes>
+      <segment>
+        <source>Benutzte Waffe</source>
+        <target>Arme(s) utilisée(s)</target>
+      </segment>
+    </unit>
+    <unit id="hz8ReXU" name="06d5938">
+      <notes>
+        <note category="german">Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à la tête ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="yuk5yk0" name="e612e0a">
+      <notes>
+        <note category="german">Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à la main ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="U1wN7M9" name="15166e5">
+      <notes>
+        <note category="german">Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé au bras ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="y0CRLzz" name="383cf44">
+      <notes>
+        <note category="german">Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à la jambe ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="04Y3sHe" name="c3919ad">
+      <notes>
+        <note category="german">Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à l'œil ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="lUN_NCt" name="520ae66">
+      <notes>
+        <note category="german">Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé au pied ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
       </segment>
     </unit>
   </file>
