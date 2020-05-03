@@ -105,6 +105,29 @@
 
         </div>
     </div>
+
+    {% set preferredLanguage = 'de' %}
+
+    <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="language-picker">
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'de' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_de">&nbsp;<label for="setting_preferred_language_de">{{ 'Deutsch'|trans({}, 'soul') }}</label>
+                </div>
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'fr' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_fr">&nbsp;<label for="setting_preferred_language_fr">{{ 'Französisch'|trans({}, 'soul') }}</label>
+                </div>
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'en' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_en">&nbsp;<label for="setting_preferred_language_en">{{ 'Englisch'|trans({}, 'soul') }}</label>
+                </div>
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'es' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_es">&nbsp;<label for="setting_preferred_language_es">{{ 'Spanisch'|trans({}, 'soul') }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
     <div class="row">
         <div class="cell padded rw-4 rw-sm-12">
