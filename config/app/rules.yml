@@ -19,6 +19,7 @@ parameters:
         allow_redig: false
         assemble_items_from_floor: false
         preview_item_assemblage: false
+        infection_death_chance: 0.5
         poison:
           stack_poisoned_items: false
           transgress: false
@@ -51,6 +52,8 @@ parameters:
 
     panda:
       well: { min: 60, max: 90 }
+      modifiers:
+        infection_death_chance: 0.75
 
     custom:
       allow_local_conf: true

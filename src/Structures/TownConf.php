@@ -24,6 +24,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_ALLOW_REDIGS = 'modifiers.allow_redig';
     const CONF_MODIFIER_FLOOR_ASMBLY = 'modifiers.assemble_items_from_floor';
     const CONF_MODIFIER_PRE_ASSEMBLY = 'modifiers.preview_item_assemblage';
+    const CONF_MODIFIER_INFECT_DEATH = 'modifiers.infection_death_chance';
 
     const CONF_FEATURE_CAMPING        = 'features.camping';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';
