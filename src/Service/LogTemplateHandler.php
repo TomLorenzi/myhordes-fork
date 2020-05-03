@@ -963,7 +963,7 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% a convaincu %target_citizen% de le suivre.', [
+            ->setText( $this->trans->trans('%citizen% hat %target_citizen% überzeugt, ihm zu folgen.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%target_citizen%' => $this->wrap( $this->iconize( $target_citizen ) ),
             ], 'game' ) );
@@ -978,7 +978,7 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('Finalement, %citizen% a décidé de planter %target_citizen% là...', [
+            ->setText( $this->trans->trans('%citizen% hat %target_citizen% aus seiner Eskorte entlassen.', [
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%target_citizen%' => $this->wrap( $this->iconize( $target_citizen ) ),
             ], 'game' ) );
