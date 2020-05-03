@@ -170,8 +170,6 @@
 
   &>.forum-post-footer {
     padding: 5px;
-    max-height: 750px;
-    overflow: auto;
     background-color: #4a261e;
     font-size: 1rem;
     font-style: italic;
@@ -181,6 +179,44 @@
       padding-left: 2px;
       text-decoration: underline;
       cursor: pointer;
+    }
+    .mod-submenu {
+      display: inline-block;
+      position: relative;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      background-image: url('../../img/mod.png');
+      margin-left: 1rem;
+      cursor: pointer;
+
+      input {
+        display: none;
+      }
+
+      .mod-submenu-links {
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: 16px;
+        border: 1px solid @myhordes-smalltext;
+        background-color: #4a261e;
+        margin: 0;
+        padding: .5rem;
+        outline: 1px solid black;
+        list-style: none;
+
+        li {
+          list-style-type: none;
+
+          a {
+            color: @myhordes-smalltext;
+          }
+        }
+      }
+      input:checked + .mod-submenu-links {
+        display: block;
+      }
     }
   }
 
