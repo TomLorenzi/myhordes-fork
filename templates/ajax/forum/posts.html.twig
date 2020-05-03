@@ -159,23 +159,23 @@
         <div class="cell padded rw-6 left">
         {% if is_granted("ROLE_ADMIN")%}
             {% if not locked %}
-                <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" />{{ 'Schließen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
             {% endif %}
             {% if locked %}
-                <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
             {% endif %}
             {% if not pinned %}
-                <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Anpinnen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
             {% else %}
-                <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Loslösen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
             {% endif %}
         {% endif %}
         </div>
         <div class="cell padded rw-6 right">
         {% if not locked and not is_granted("ROLE_BANNED") %}            
-            <div x-forum-action="answer" class="forum-button">{{ 'Antworten'|trans({},'global') }}</div>
+            <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
         {% else %}
-            <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" />{{ 'Antworten'|trans({},'global') }}</div>
+            <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
         {% endif %}
         </div>
     </div>

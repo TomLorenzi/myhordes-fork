@@ -14,7 +14,7 @@
                             {% if is_granted("ROLE_BANNED") %}
                                 <div class="banned-button" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
-                                <div x-forum-action="new" class="forum-button" id="new-thread-button">{{ 'Neues Thema'|trans({},'global') }}</div>
+                                <div x-forum-action="new" class="forum-button" id="new-thread-button"><span>{{ 'Neues Thema'|trans({},'global') }}</span></div>
                             {% endif %}    
                         </div>
                     </div>

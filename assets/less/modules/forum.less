@@ -446,8 +446,11 @@
   box-shadow: 1px 1px 1px 0 black; margin-bottom: .5em;
   &:hover { border-color: #f0d79e; box-shadow: 0 0 8px 0 black; }
   img {
-    margin-right: 1rem;
     vertical-align: middle;
+
+    & + span {
+      margin-left: 1rem;
+    }
   }
 }
 
