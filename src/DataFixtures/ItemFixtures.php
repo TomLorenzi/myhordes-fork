@@ -733,7 +733,7 @@ class ItemFixtures extends Fixture
     
     public static $item_prototype_properties = [
         'saw_tool_#00'     => [ 'impoundable', 'can_opener' ],
-        'can_opener_#00'   => [ 'impoundable', 'root_weapon', 'can_opener', 'box_opener' ],
+        'can_opener_#00'   => [ 'impoundable', 'weapon', 'can_opener', 'box_opener' ],
         'screw_#00'        => [ 'impoundable', 'weapon', 'can_opener', 'box_opener' ],
         'swiss_knife_#00'  => [ 'impoundable', 'weapon', 'can_opener', 'box_opener' ],
         'wrench_#00'       => [ 'impoundable', 'weapon', 'box_opener' ],
