@@ -192,7 +192,7 @@
                         switch (tag) {
                             case 'hr': blocks.push( [ '', tag, null] ); break;
                             case 'br': blocks.push( listspace ? null : [ '', tag, null] ); break;
-                            case 'dice': case 'dc': case 'de': case 'des': case 'd':
+                            case 'dice': case 'dc': case 'de': case 'des': case 'd': case 'w':
                                 if (["4","6","8","10","12","20","100"].indexOf( match[2] ) !== -1) blocks.push( [ '???', 'div', 'dice-' + match[2]] );
                                 else blocks.push( match[0] );
                                 break;
