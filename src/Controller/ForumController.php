@@ -471,6 +471,7 @@ class ForumController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
+        /** @var Thread $thread */
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return new Response('');
 
@@ -498,13 +499,20 @@ class ForumController extends AbstractController
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
-            
+
         if (!empty($posts)) {
-            $marker->setPost( $posts[array_key_last($posts)] );
-            try {
-                $em->persist($marker);
-                $em->flush();
-            } catch (Exception $e) {}
+            /** @var Post $read_post */
+            $read_post = $posts[array_key_last($posts)];
+            /** @var Post $last_read */
+            $last_read = $marker->getPost();
+            if ($last_read && $read_post->getId() > $last_read->getId()) {
+                $marker->setPost($read_post);
+                try {
+                    $em->persist($marker);
+                    $em->flush();
+                } catch (Exception $e) {
+                }
+            }
         }
 
         return $this->render( 'ajax/forum/posts.html.twig', [
@@ -514,7 +522,7 @@ class ForumController extends AbstractController
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
-            'pages' => $pages
+            'pages' => $pages,
         ] );
     }
 

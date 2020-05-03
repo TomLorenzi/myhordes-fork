@@ -368,14 +368,14 @@
                     target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
                     target_payload = {
                         title: document.getElementById('forum-editor-title').value,
-                        text: content,
-                        type: document.querySelector("input[name=post-type]:checked").value,
+                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
+                        {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
                     };
                 {% else %}
                     target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
                     target_payload = {
-                        text: content,
-                        type: document.querySelector("input[name=post-type]:checked").value,
+                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
+                        {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
                     };
                 {% endif %}
                 $.ajax.easySend( target_url, target_payload,
