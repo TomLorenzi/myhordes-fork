@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\Item;
+use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
@@ -12,6 +14,8 @@ use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use Doctrine\ORM\EntityManagerInterface;
@@ -145,7 +149,7 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @param CitizenHandler $ch
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch): Response {
+    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch, InventoryHandler $invh, ItemFactory $if): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -166,6 +170,18 @@ class GameController extends AbstractController implements GameInterfaceControll
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        // TODO: remove this after beta! Add betapropin500mg to chest of player.
+        $betapropin = $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("beta_drug_#00"));
+        $chest = $citizen->getHome()->getChest();
+        $chest = $invh->placeItem($citizen, $betapropin, array($chest));
+
+        try {
+            $this->entity_manager->persist( $chest );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            
         }
 
         return AjaxResponse::success();
