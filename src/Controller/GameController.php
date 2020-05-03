@@ -46,7 +46,6 @@ class GameController extends AbstractController implements GameInterfaceControll
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
-        $this->translator->setlocale("fr");
         $entries = [];
         /** @var TownLogEntry $entity */
         foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
