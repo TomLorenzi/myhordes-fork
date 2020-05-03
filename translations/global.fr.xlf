@@ -838,5 +838,78 @@
         <target>Aperçu</target>
       </segment>
     </unit>
+    <unit id="oR9GFiR" name="Melden">
+      <notes>
+        <note category="german">Melden</note>
+      </notes>
+      <segment>
+        <source>Melden</source>
+        <target>Signaler</target>
+      </segment>
+    </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Supprimer</target>
+      </segment>
+    </unit>
+    <unit id="Bw5vcAl" name="Loslösen">
+      <notes>
+        <note category="german">Loslösen</note>
+      </notes>
+      <segment>
+        <source>Loslösen</source>
+        <target>Désépingler</target>
+      </segment>
+    </unit>
+    <unit id="_zZCBE9" name="Anpinnen">
+      <notes>
+        <note category="german">Anpinnen</note>
+      </notes>
+      <segment>
+        <source>Anpinnen</source>
+        <target>Épingler</target>
+      </segment>
+    </unit>
+    <unit id="266wx0d" name="Verbesserung des Tages">
+      <notes>
+        <note>Verbesserung des Tages</note>
+        <note category="german">Verbesserung des Tages</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages</source>
+        <target>Les évolutions du jour</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>Utilisez ce sujet pour discuter autour des évolutions du jour que vous souhaitez développer...</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>Utilisez ce sujet pour discuter autour de l'atelier et de la production de ressources en ville...</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>Utilisez ce sujet pour discuter autour des chantiers à construire...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

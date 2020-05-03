@@ -8179,7 +8179,7 @@
       </notes>
       <segment>
         <source>Senden</source>
-        <target>Senden</target>
+        <target>Send</target>
       </segment>
     </unit>
     <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
