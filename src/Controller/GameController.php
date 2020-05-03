@@ -5,15 +5,21 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\Item;
+use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -143,9 +149,12 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @Route("api/game/job", name="api_jobcenter")
      * @param JSONRequestParser $parser
      * @param CitizenHandler $ch
+     * @param InventoryHandler $invh
+     * @param ItemFactory $if
+     * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch): Response {
+    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -166,6 +175,18 @@ class GameController extends AbstractController implements GameInterfaceControll
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
+        $chest = $citizen->getHome()->getChest();
+        foreach ($item_spawns as $spawn)
+            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($spawn)), [$chest]);
+
+        try {
+            $this->entity_manager->persist( $chest );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            
         }
 
         return AjaxResponse::success();
@@ -195,11 +216,16 @@ class GameController extends AbstractController implements GameInterfaceControll
         else
             $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));
 
-        // Delete not validated picto from DB
-        // Here, every validated picto should have persisted to 2
+        // Here, we delete picto with persisted = 0,
+        // and definitively validate picto with persisted = 1
         $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
         foreach ($pendingPictosOfUser as $pendingPicto) {
-            $this->entity_manager->remove($pendingPicto);
+            if($pendingPicto->getPersisted() == 0)
+                $this->entity_manager->remove($pendingPicto);
+            else {
+                $pendingPicto->setPersisted(2);
+                $this->entity_manager->persist($pendingPicto);
+            }
         }
 
         $this->entity_manager->persist( $active );

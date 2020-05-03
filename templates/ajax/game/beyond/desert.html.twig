@@ -154,14 +154,19 @@
                                     <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                     {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
                                 </div>
-                            {% elseif citizen.digTimeout > 0 %}
+                            {% elseif citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
                                 <div class="note note-light">
                                     <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                     {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
                                     <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
                                 </div>
+                            {% elseif citizen.passiveDigTimer %}
+                                <div class="note note-light">
+                                    <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                                    {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
+                                </div>
                             {% endif %}
-                            <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 %}disabled{% endif %}>
+                            <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 or ( citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) ) %}disabled{% endif %}>
                                 <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
                                 {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
                         {% else %}
@@ -203,7 +208,7 @@
 
                 {% endif %}
                 {% if allow_enter_town %}
-                    <button id="town-enter">
+                    <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
                         {% if zone.x == 0 and zone.y == 0 %}
                             {% trans from 'game' %}Stadt betreten{% endtrans %}
                         {% else %}
@@ -282,31 +287,6 @@
                             </div>
                             <div class="padded cell rw-3">
                                 <ul class="status">
-                                    {#
-{% if not digging %}
-    {% if zone_blocked %}
-        <div class="note note-light">
-            <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
-            {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
-        </div>
-    {% elseif citizen.digTimeout > 0 %}
-        <div class="note note-light">
-            <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
-            {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
-            <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
-        </div>
-    {% endif %}
-    <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 %}disabled{% endif %}>
-        <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
-        {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
-{% else %}
-    <div class="note note-light">
-        <img class="icon left" alt="" src="{{ asset('build/images/small_gather.gif') }}" />
-        {% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}
-        <span x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</span>
-    </div>
-{% endif %}
-                                    #}
                                     {% if not other_citizen.digging %}
                                         <li class="status">
                                             <img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
@@ -511,7 +491,7 @@
 
         $.html.addEventListenerAll( '[x-toggle-escort]:not([x-escort-control-endpoint])', 'click', function(e,elem) {
             const allow_rucksack = document.getElementById('escort_allow_rucksack') ? document.getElementById('escort_allow_rucksack').checked : false;
-            const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : true;
+            const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : {% if zone.x == 0 and zone.y == 0 %}false{% else %}true{% endif %};
             $.ajax.easySend( '{{ path('beyond_desert_escort_self_controller') }}', {
                 on: elem.getAttribute('x-toggle-escort') === '1',
                 cf_ruc: allow_rucksack,

@@ -168,7 +168,7 @@
       </notes>
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</source>
-        <target>Un nouveau citoyen est arrivé en ville : %citizen%.</target>
+        <target>A new citizen has arrived : %citizen%.</target>
       </segment>
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine neue Berufung als %profession% gefunden.</source>
-        <target>%citizen% a choisi le métier %profession%.</target>
+        <target>%citizen% choose the profession %profession%.</target>
       </segment>
     </unit>
     <unit id="nK4zXOH" name="%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -668,7 +668,7 @@
       </notes>
       <segment>
         <source>Stadttor</source>
-        <target>Grande Porte</target>
+        <target>The town gates</target>
       </segment>
     </unit>
     <unit id="NqjEmUx" name="Karte">
@@ -758,7 +758,7 @@
       </notes>
       <segment>
         <source>Meine Aktionen</source>
-        <target>Mes Actions</target>
+        <target>My Actions</target>
       </segment>
     </unit>
     <unit id="Ja76Y2N" name="Tor schließen">
@@ -878,7 +878,7 @@
       </notes>
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
-        <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
+        <target>Wow, you can see pretty much everything from here! It's just a shame that this "everything" is limited to an empty sandy desert. However, if you take a closer look, you can count the zombies that are crawling towards the city.</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -918,7 +918,7 @@
       </notes>
       <segment>
         <source>Truhe</source>
-        <target>Coffre</target>
+        <target>Chest</target>
       </segment>
     </unit>
     <unit id="X3ACy1e" name="Truhe und Aktionen">
@@ -928,7 +928,7 @@
       </notes>
       <segment>
         <source>Truhe und Aktionen</source>
-        <target>Coffre et Actions</target>
+        <target>Inventory + Actions</target>
       </segment>
     </unit>
     <unit id="jsTL6lr" name="Mein(e) %type%">
@@ -938,7 +938,7 @@
       </notes>
       <segment>
         <source>Mein(e) %type%</source>
-        <target>Improvements %type%</target>
+        <target>Home Improvements</target>
       </segment>
     </unit>
     <unit id="lQhjNcE" name="Bauarbeiten">
@@ -948,7 +948,7 @@
       </notes>
       <segment>
         <source>Bauarbeiten</source>
-        <target>Travaux</target>
+        <target>Building upgrades</target>
       </segment>
     </unit>
     <unit id="PA2qVgw" name="Dein Beschreibungstext">
@@ -958,7 +958,7 @@
       </notes>
       <segment>
         <source>Dein Beschreibungstext</source>
-        <target>Dein Beschreibungstext</target>
+        <target>Your description text</target>
       </segment>
     </unit>
     <unit id="9rL.OfV" name="Speichern">
@@ -968,7 +968,7 @@
       </notes>
       <segment>
         <source>Speichern</source>
-        <target>Inscrire mon annonce</target>
+        <target>Make an announcement</target>
       </segment>
     </unit>
     <unit id="vwfykUF" name="Du hast %num% anonyme Anzeige(n).">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>La colonne de gauche présente les actions permises par vos objets. Celle de droite montre le contenu de votre sac à dos et de votre coffre de maison.</target>
+        <target> The column on the left lists the actions associated with your objects. The one on the right shows the contents of your rucksack and your personal chest.</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -1008,7 +1008,7 @@
       </notes>
       <segment>
         <source>Meine Spezialaktionen</source>
-        <target>Mes actions spéciales</target>
+        <target>My special Actions</target>
       </segment>
     </unit>
     <unit id="zSx1h9s" name="Rucksack ausleeren">
@@ -1018,7 +1018,7 @@
       </notes>
       <segment>
         <source>Rucksack ausleeren</source>
-        <target>Vider mon sac à dos dans le coffre</target>
+        <target>Empty your rucksack into your chest</target>
       </segment>
     </unit>
     <unit id="bd_whxO" name="Mein Register">
@@ -1038,7 +1038,7 @@
       </notes>
       <segment>
         <source>Verteidigung und Dekoration</source>
-        <target>Defense and Decoration</target>
+        <target>Defences and Decoration</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -1048,7 +1048,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Defense</target>
+        <target>Home Defences</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -1130,7 +1130,7 @@
       <segment>
         <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</source>
-        <target>Seul les héros peuvent effectuer des améliorations. En tant qu'habitant, vous ne bénéficiez pas des avantages de celles-ci.</target>
+        <target>Only Heroes can improve their homes with upgrades. As a citizen, you do not benefit of these.</target>
       </segment>
     </unit>
     <unit id="XhECS_Z" name="Stufe %level%">
@@ -1743,7 +1743,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Voici l'intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des dons des citoyens. Ils serviront notamment à construire des bâtiments communautaires ou défendre la ville lors des attaques quotidiennes de la Horde.</target>
+        <target> This is a complete list of everything currently stored in the Bank. These objects are the fruit of the citizens' hard work. These objects are mainly used for the construction of community buildings and to defend the town during the attack of the zombie horde.</target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
@@ -1816,7 +1816,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%rations% Rationen Wasser übrig</source>
-        <target>%rations% rations d'eau restantes</target>
+        <target>%rations% water rations remaining</target>
       </segment>
     </unit>
     <unit id="qv0A9J5" name="e390795">
@@ -1876,7 +1876,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target>L'eau est indispensable pour récupérer ses Points d'action une fois par jour (en buvant) et pour servir de munitions contre les zombies (l'eau pure détruit les morts-vivants).</target>
+        <target> Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
       </segment>
     </unit>
     <unit id="96udPgY" name="Brunnenregister">
@@ -2366,7 +2366,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Aktionspunkte</source>
-        <target>Action Points</target>
+        <target>Action Points remaining</target>
       </segment>
     </unit>
     <unit id="dWg5UEc" name="0e07264">
@@ -2382,10 +2382,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</target>
+        <target>These are used to move around the World Beyond, the desert which surrounds the town...</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2445,7 +2442,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.</source>
-        <target>Selon la profession que vous choisissez, vous aurez différentes actions et manières de jouer disponibles lors de cette ville.</target>
+        <target>According to your chosen profession, you will have different actions and gameplays available during this town.</target>
       </segment>
     </unit>
     <unit id="kw2Iw8G" name="0a39755">
@@ -2457,8 +2454,8 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>En tant que %hero%, un jour héros vous sera déduit chaque jour.
-                Si vous êtes toujours en ville et n'en avez plus, vous continuerez la partie en tant qu'habitant.</target>
+        <target>If you choose to be a %hero%, a Hero day will be deducted for each played day.
+                If you are still alive when you have no more Hero days, you will continue the town as a citizen.</target>
       </segment>
     </unit>
     <unit id="hc1h_MP" name="Held">
@@ -2480,8 +2477,8 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>En tant qu'%citizen%, vous n'utiliserez pas de jours héros.
-                Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
+        <target>As a %citizen%, no Hero days will be deducted.
+                However, you can always change your mind and choose a profession while in town.</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -2511,7 +2508,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alle Einträge anzeigen</source>
-        <target>Afficher toutes les entrées</target>
+        <target>View all registry entries</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -3781,7 +3778,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Rucksack in der Bank ausleeren</source>
-        <target>Rucksack in der Bank ausleeren</target>
+        <target>Empty your rucksack Here!</target>
       </segment>
     </unit>
     <unit id="mwAKBpm" name="Meine objekte">
@@ -3801,7 +3798,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kleine Stadt</source>
-        <target>Kleine Stadt</target>
+        <target>Non-distant region</target>
       </segment>
     </unit>
     <unit id="bElrYkF" name="Entfernte Regionen">
@@ -4041,7 +4038,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Verbesserung des Tages</target>
+        <target>Proj.</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
@@ -4051,7 +4048,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wachturm</source>
-        <target>Watchtower</target>
+        <target>Tower</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -4061,7 +4058,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Werkstatt</source>
-        <target>Workshop</target>
+        <target>Works</target>
       </segment>
     </unit>
     <unit id="Wf9i_SY" name="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
@@ -4141,7 +4138,9 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
-        <target>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</target>
+        <target>The well is where citizens go each day to collect their water ration.
+
+                If the town builds a pump, you will be able to get more water!</target>
       </segment>
     </unit>
     <unit id="TSuzaPk" name="Übersicht">
@@ -4151,7 +4150,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Übersicht</target>
+        <target>Overview of the town</target>
       </segment>
     </unit>
     <unit id="a8zlw81" name="d91d555">
@@ -4241,7 +4240,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Heute ist nichts Erwähnenswertes passiert...</source>
-        <target>Heute ist nichts Erwähnenswertes passiert...</target>
+        <target>Nothing exciting today...</target>
       </segment>
     </unit>
     <unit id="IYYfo2O" name="Unbekannte Todesursache">
@@ -4381,7 +4380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Zyanid</target>
+        <target>Cyanide</target>
       </segment>
     </unit>
     <unit id="25.Fib." name="a5ebe5c">
@@ -4391,7 +4390,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</source>
-        <target>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</target>
+        <target>Rather than continue living with this band of losers, you decided to simplify your existence... by shortening it somewhat. In short, by a day or so...</target>
       </segment>
     </unit>
     <unit id="n7kmZ_p" name="Ermordung durch Gift">
@@ -5311,7 +5310,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Geschätzter Angriff :</source>
-        <target>Geschätzter Angriff :</target>
+        <target>Attack estimation:</target>
       </segment>
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
@@ -5351,7 +5350,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Meine täglichen Aufgaben</source>
-        <target>Meine täglichen Aufgaben</target>
+        <target>My daily tasks</target>
       </segment>
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
@@ -5361,7 +5360,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Einen Blick ins Forum werfen.</target>
+        <target>Take a look at your town forum,</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -5371,7 +5370,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Meine Ration Wasser im Brunnen entnehmen (optional).</target>
+        <target>Collect your water ration at the well (optional),</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
@@ -5381,7 +5380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>An der Angriffsabschätzung teilnehmen</target>
+        <target>Help estimate the attack,</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
@@ -5391,7 +5390,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Für ein Tagesprojekt abstimmen.</target>
+        <target>Vote for today's upgrade project,</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc" name="36edbd1">
@@ -5401,7 +5400,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</target>
+        <target>Work on a construction site at the workshop, or go outside and scavenge (your choice).</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -5421,7 +5420,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unsere Situation</source>
-        <target>Unsere Situation</target>
+        <target>Current situation</target>
       </segment>
     </unit>
     <unit id="PouMrbo" name="Stadttyp:">
@@ -5431,7 +5430,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadttyp:</source>
-        <target>Stadttyp:</target>
+        <target>Town type:</target>
       </segment>
     </unit>
     <unit id="jVUAKv9" name="Stadttor:">
@@ -5441,7 +5440,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadttor:</source>
-        <target>Stadttor:</target>
+        <target>Gates:</target>
       </segment>
     </unit>
     <unit id="dKGSLP." name="Offen!">
@@ -5451,7 +5450,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Offen!</source>
-        <target>Offen!</target>
+        <target>Open!</target>
       </segment>
     </unit>
     <unit id="UlrC9u_" name="Geschlossen">
@@ -5461,7 +5460,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Geschlossen</source>
-        <target>Geschlossen</target>
+        <target>Closed</target>
       </segment>
     </unit>
     <unit id="gGd7K.3" name="Wasservorräte:">
@@ -5471,7 +5470,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wasservorräte:</source>
-        <target>Wasservorräte:</target>
+        <target>Water reserves:</target>
       </segment>
     </unit>
     <unit id="xa6ARi1" name="Einwohner am Leben:">
@@ -5481,7 +5480,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Einwohner am Leben:</source>
-        <target>Einwohner am Leben:</target>
+        <target>Living citizens:</target>
       </segment>
     </unit>
     <unit id="Bij.q6J" name="Lesen Sie das Mitteilungsblatt">
@@ -5491,7 +5490,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Lesen Sie das Mitteilungsblatt</source>
-        <target>Lesen Sie das Mitteilungsblatt</target>
+        <target>Read the gazette</target>
       </segment>
     </unit>
     <unit id="3MPDTZN" name="Unsere Verteidigungen">
@@ -5501,7 +5500,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unsere Verteidigungen</source>
-        <target>Unsere Verteidigungen</target>
+        <target>Detailed defence report</target>
       </segment>
     </unit>
     <unit id="BlKVHJ7" name="Grundbefestigungsmauer">
@@ -5511,7 +5510,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Grundbefestigungsmauer</source>
-        <target>Grundbefestigungsmauer</target>
+        <target>Basic defences</target>
       </segment>
     </unit>
     <unit id="8UxoSSm" name="Verteidigungsgegenstände">
@@ -5521,7 +5520,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
-        <target>Verteidigungsgegenstände</target>
+        <target>Defensive objects</target>
       </segment>
     </unit>
     <unit id="FAUZkS8" name="Häuser">
@@ -5531,7 +5530,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Häuser</source>
-        <target>Häuser</target>
+        <target>Citizens' Houses</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -5551,7 +5550,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</target>
+        <target>Note: defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -7465,7 +7464,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast noch keine Drogen genommen.</source>
-        <target>Du hast noch keine Drogen genommen.</target>
+        <target>You have never taken drugs.</target>
       </segment>
     </unit>
     <unit id="Tzmt5qh" name="d848698">

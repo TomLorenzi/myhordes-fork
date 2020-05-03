@@ -10,8 +10,8 @@
     {# @var home \App\Entity\CitizenHome #}
     <div class="row">
         <div class="padded-small cell rw-4 rw-sm-12">
-            {% if chaos%}
-	    <div class="header-menu-chaos"></div>
+            {% if chaos %}
+	           <div class="header-menu-chaos"></div>
             {% endif %}
             {% set hour = "now"|date("G") %}
             <div class="row town-menu {% if hour < 7 or hour > 18 %}night{% endif %}">

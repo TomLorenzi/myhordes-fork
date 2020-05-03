@@ -233,11 +233,11 @@ class AdminActionHandler
         return true;
     }
 
-    public function hidePost(int $sourceUser, int $postId, string $reason): bool {
-        if(!$this->hasRights($sourceUser))
+    public function hidePost(int $srcUser, int $postId, string $reason): bool {
+        if(!$this->hasRights($srcUser))
             return false;
 
-        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);        
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($srcUser);        
         $post = $this->entity_manager->getRepository(Post::class)->find($postId);
 
         if (!(isset($post)))
@@ -263,6 +263,8 @@ class AdminActionHandler
             return false;
         }
 
+        $this->clearReports($srcUser, $postId);
+
         return true;
     }
 
@@ -280,6 +282,32 @@ class AdminActionHandler
                 $report->setSeen(true);
                 $this->entity_manager->persist($report);
             }
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return false;
+        }
+        return true;
+    }
+
+    public function setDefaultRoleDev(int $sourceUser, bool $asDev): bool {
+
+        if (!$this->hasRights($sourceUser))
+            return false;
+
+        $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+            
+        if ($asDev) {
+            $defaultRole = "DEV";
+        }    
+        else {
+            $defaultRole = "USER";
+        }
+        
+        try 
+        {
+            $user->setPostAsDefault($defaultRole);
+            $this->entity_manager->persist($user);
             $this->entity_manager->flush();
         }
         catch (Exception $e) {

@@ -99,6 +99,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $preferSmallAvatars = false;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $postAsDefault;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -171,7 +176,7 @@ class User implements UserInterface, EquatableInterface
 
         // set (or unset) the owning side of the relation if necessary
         $newUser = null === $pendingValidation ? null : $this;
-        if ($pendingValidation->getUser() !== $newUser) {
+        if ($pendingValidation && $pendingValidation->getUser() !== $newUser) {
             $pendingValidation->setUser($newUser);
         }
 
@@ -426,6 +431,18 @@ class User implements UserInterface, EquatableInterface
     public function setPreferSmallAvatars(bool $preferSmallAvatars): self
     {
         $this->preferSmallAvatars = $preferSmallAvatars;
+
+        return $this;
+    }
+
+    public function getPostAsDefault(): ?string
+    {
+        return $this->postAsDefault;
+    }
+
+    public function setPostAsDefault(?string $postAsDefault): self
+    {
+        $this->postAsDefault = $postAsDefault;
 
         return $this;
     }

@@ -326,6 +326,7 @@ class InventoryHandler
     const ModalityNone    = 0;
     const ModalityTamer   = 1;
     const ModalityImpound = 2;
+    const ModalityEnforcePlacement = 3;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone ): int {
         // Block Transfer if citizen is hiding
@@ -341,7 +342,7 @@ class InventoryHandler
             return self::ErrorInvalidTransfer;
 
         // Check inventory size
-        if ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) return self::ErrorInventoryFull;
+        if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
       /* This snippet restores original Hordes functionality, but was intentionally left out.
@@ -406,12 +407,13 @@ class InventoryHandler
      * @param Citizen $citizen
      * @param Item $item
      * @param Inventory[] $inventories
+     * @param bool $force
      * @return Inventory|null
      */
-    public function placeItem( Citizen $citizen, Item $item, array $inventories ): ?Inventory {
+    public function placeItem( Citizen $citizen, Item $item, array $inventories, bool $force = false ): ?Inventory {
         $source = null;
         foreach ($inventories as $inventory)
-            if ($this->transferItem( $citizen, $item, $source, $inventory ) == self::ErrorNone)
+            if ($this->transferItem( $citizen, $item, $source, $inventory, $force ? self::ModalityEnforcePlacement : self::ModalityNone ) == self::ErrorNone)
                 return $inventory;
         return null;
     }

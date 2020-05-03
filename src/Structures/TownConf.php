@@ -16,6 +16,15 @@ class TownConf extends Conf
     const CONF_BUILDINGS_CONSTRUCTED = 'initial_buildings';
     const CONF_BUILDINGS_UNLOCKED    = 'unlocked_buildings';
     const CONF_DISTRIBUTED_ITEMS     = 'distribute_items';
+    const CONF_DEFAULT_CHEST_ITEMS   = 'initial_chest';
+
+    const CONF_MODIFIER_POISON_STACK = 'modifiers.poison.stack_poisoned_items';
+    const CONF_MODIFIER_POISON_TRANS = 'modifiers.poison.transgress';
+    const CONF_MODIFIER_WT_THRESHOLD = 'modifiers.watchtower_estimation_threshold';
+    const CONF_MODIFIER_ALLOW_REDIGS = 'modifiers.allow_redig';
+    const CONF_MODIFIER_FLOOR_ASMBLY = 'modifiers.assemble_items_from_floor';
+    const CONF_MODIFIER_PRE_ASSEMBLY = 'modifiers.preview_item_assemblage';
+    const CONF_MODIFIER_INFECT_DEATH = 'modifiers.infection_death_chance';
 
     const CONF_FEATURE_CAMPING        = 'features.camping';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';

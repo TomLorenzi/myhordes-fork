@@ -316,7 +316,7 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
-    public function citizenDeath( Citizen $citizen, int $zombies = 0, ?Zone $zone = null ): TownLogEntry {
+    public function citizenDeath( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
         switch ($citizen->getCauseOfDeath()->getRef()) {
             case CauseOfDeath::NightlyAttack:
                 $str = T::__('%citizen% wurde von %zombies% zerfleischt!','game');
@@ -343,7 +343,7 @@ class LogTemplateHandler
             ->setType( TownLogEntry::TypeCitizens )
             ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
-            ->setDay( $citizen->getTown()->getDay() )
+            ->setDay( $day ?? $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
             ->setZone( $zone )

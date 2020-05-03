@@ -77,6 +77,9 @@ If you want a production server instead of a development server, replace `APP_EN
 
 Save the file.
 
+If you would like to override the application config (for example to create custom game rules for your local installation), copy the `config/app` folder to `config/packages/dev/app`. 
+All config files in there will overwrite default config files without being pushed to the repository.
+
 #### MyHordes database setup
 
 At this point, you can chose which branch you want to follow. If you want to checkout, do it now.
@@ -271,8 +274,8 @@ bin/console app:users
 
 Find your user ID in the displayed results.
 
-```sql
-app:user <id> --set-mod-level 2
+```bash
+bin/console app:user <id> --set-mod-level 2
 ```
 
 Replace `<id>` with the ID you found during the previous steps. You can also use the value 1 for a simple moderator.

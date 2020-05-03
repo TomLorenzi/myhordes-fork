@@ -16,8 +16,10 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
+use App\Service\AdminActionHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Error;
 use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -391,6 +393,22 @@ class SoulController extends AbstractController
         $this->entity_manager->flush();
 
         return new AjaxResponse( ['success' => true] );
+    }
+
+    /**
+     * @Route("api/soul/settings/defaultrole", name="api_soul_defaultrole")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_settings_defaultrole(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $asDev = $parser->get('dev', false);
+        if ($admh->setDefaultRoleDev($user->getId(), $asDev))
+            return new AjaxResponse( ['success' => true] );
+
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
 
     /**

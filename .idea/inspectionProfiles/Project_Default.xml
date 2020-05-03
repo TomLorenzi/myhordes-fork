@@ -4,7 +4,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="74">
+          <list size="76">
             <item index="0" class="java.lang.String" itemvalue="x-ajax-intention" />
             <item index="1" class="java.lang.String" itemvalue="x-ajax-href" />
             <item index="2" class="java.lang.String" itemvalue="x-ajax-landing" />
@@ -79,6 +79,8 @@
             <item index="71" class="java.lang.String" itemvalue="x-escort-meta-group" />
             <item index="72" class="java.lang.String" itemvalue="x-avatar-com-toggle" />
             <item index="73" class="java.lang.String" itemvalue="x-setting" />
+            <item index="74" class="java.lang.String" itemvalue="x-text-wrap-node" />
+            <item index="75" class="java.lang.String" itemvalue="x-text-insert-game" />
           </list>
         </value>
       </option>
