@@ -24,7 +24,6 @@
                 <li x-tab-id="suneditor">{% trans from 'game' %}Grafischer Editor{% endtrans %}</li>
             </ul>
         </div>
-
     </div>
     <div x-tab-group="forum-editor" x-tab-id="classic" x-tab-target>
         <div class="row classic-editor">
@@ -47,6 +46,35 @@
                 </div>
 
                 <textarea id="forum-editor-text"></textarea>
+
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <ul class="tabs" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                            <li x-tab-id="emotes"><i class="fa fa-smile"></i></li>
+                            <li x-tab-id="games"><i class="fa fa-dice"></i></li>
+                        </ul>
+                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
+                            COMING SOON! :)
+                        </div>
+                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
+                            <div class="forum-button-bar">
+                                <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="card" class="forum-button"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -69,7 +97,6 @@
                 <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
                 <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                 <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
-
             </div>
             {% endif %}
             <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
@@ -103,11 +130,11 @@
                 elem.parentNode.removeChild(elem);
             }
 
-            const parseRangeBlocks = function(elem) {
+            const parseRangeBlocks = function(elem, secondary = false) {
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
-                    const regex_wrappers = /\[(.*?)]([\s\S]*?)\[\/\1]/gm;
+                    const regex_wrappers = !secondary ? /\[(.*?)]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
                     let current_offset = 0;
                     let blocks = [];
 
@@ -116,9 +143,14 @@
                             blocks.push(str.substr(current_offset,match.index-current_offset));
 
                         const tag = match[1].toLowerCase();
-                        switch (tag) {
+                        if (!secondary) switch (tag) {
                             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); break;
                             case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); break;
+                            default: blocks.push( match[0] ); break;
+                        } else switch (tag) {
+                            case '*': blocks.push( [ match[2], 'b', null] ); break;
+                            case '/': blocks.push( [ match[2], 'i', null] ); break;
+                            case '-': blocks.push( [ match[2], 's', null] ); break;
                             default: blocks.push( match[0] ); break;
                         }
                         current_offset = (match[0].length + match.index);
@@ -134,7 +166,7 @@
                 } else {
                     let children = elem.childNodes;
                     for (let i = 0; i < children.length; i++)
-                        changed |= parseRangeBlocks(children[i]);
+                        changed |= parseRangeBlocks(children[i],secondary);
                 }
 
                 return changed;
@@ -160,7 +192,7 @@
                         switch (tag) {
                             case 'hr': blocks.push( [ '', tag, null] ); break;
                             case 'br': blocks.push( listspace ? null : [ '', tag, null] ); break;
-                            case 'dice': case 'dc': case 'de': case 'des': case 'd':
+                            case 'dice': case 'dc': case 'de': case 'des': case 'd': case 'w':
                                 if (["4","6","8","10","12","20","100"].indexOf( match[2] ) !== -1) blocks.push( [ '???', 'div', 'dice-' + match[2]] );
                                 else blocks.push( match[0] );
                                 break;
@@ -192,8 +224,11 @@
             }
 
             let changed = true;
-            while (changed) changed &= parseRangeBlocks(container_node);
+            while (changed) changed &= parseRangeBlocks(container_node,false);
             parseInsets(container_node);
+
+            changed = true;
+            while (changed) changed &= parseRangeBlocks(container_node,true);
 
             let c = null;
             while ((c = node_transfer_target.lastChild))
@@ -361,6 +396,7 @@
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
+                let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
                 let content = document.querySelector('[x-tab-id="classic"].selected')
                     ? document.getElementById('forum-editor-preview').innerHTML
                     : document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML;

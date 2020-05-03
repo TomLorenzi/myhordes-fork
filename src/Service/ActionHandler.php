@@ -588,7 +588,7 @@ class ActionHandler
                             $citizen->getZone()
                                 ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
                                 : ( [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ])
-                        )) $execute_info_cache['items_spawn'][] = $target;
+                        , true)) $execute_info_cache['items_spawn'][] = $target;
                 }
             }
 
@@ -607,7 +607,7 @@ class ActionHandler
                             $citizen->getZone()
                                 ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
                                 : ( $item_in_chest ? [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ] : [ $citizen->getInventory(), $citizen->getHome()->getChest(), $citizen->getTown()->getBank() ])
-                        )) $execute_info_cache['items_spawn'][] = $proto;
+                        , true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
 
@@ -1039,7 +1039,7 @@ class ActionHandler
         $this->citizen_handler->deductAPBP( $citizen, $ap );
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult() );
-        $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv );
+        $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
 
         if ($recipe->getType() === Recipe::WorkshopType)
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, $items, [$new_item] ) );

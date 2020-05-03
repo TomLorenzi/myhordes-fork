@@ -17,6 +17,7 @@ use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -36,9 +37,11 @@ class NightlyHandler
     private $picto_handler;
     private $item_factory;
     private $logTemplates;
+    private $conf;
 
   public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
-                                RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh)
+                              RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
+                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -52,6 +55,7 @@ class NightlyHandler
         $this->item_factory = $if;
         $this->log = $log;
         $this->logTemplates = $lh;
+        $this->conf = $conf;
     }
 
     private function check_town(Town &$town): bool {
@@ -75,11 +79,11 @@ class NightlyHandler
         return true;
     }
 
-    private function kill_wrap( Citizen &$citizen, CauseOfDeath &$cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false ) {
+    private function kill_wrap( Citizen &$citizen, CauseOfDeath &$cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ) {
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
-        if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies ) );
+        if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies, null, $day ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
     }
@@ -101,7 +105,7 @@ class NightlyHandler
 
                     if (!$this->random->chance($survival_chance)) {
                         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
-                        $this->kill_wrap($citizen, $cod);
+                        $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay()+1);
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
@@ -122,7 +126,7 @@ class NightlyHandler
                 }
                 else {
                   $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> without protection!");
-                  $this->kill_wrap($citizen, $cod);
+                  $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay()+1);
                 }
             }
     }
@@ -150,23 +154,19 @@ class NightlyHandler
 
             if ($citizen->getStatus()->contains( $status_thirst2 )) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_thirst2->getLabel()}</info>." );
-                $this->kill_wrap( $citizen, $cod_thirst, true );
+                $this->kill_wrap( $citizen, $cod_thirst, true, 0, false, $town->getDay()+1 );
                 continue;
             }
 
             if ($citizen->getStatus()->contains( $status_addicted ) && !$citizen->getStatus()->contains( $status_drugged )) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_addicted->getLabel()}</info>, but not <info>{$status_drugged->getLabel()}</info>." );
-                $this->kill_wrap( $citizen, $cod_addict, true );
+                $this->kill_wrap( $citizen, $cod_addict, true, 0, false, $town->getDay()+1 );
                 continue;
             }
 
             if ($citizen->getStatus()->contains( $status_infected )) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_infected->getLabel()}</info>." );
-                $chance = 0.5;
-                // In Pandamonium town, there is 0.75 chance you die from infection
-                if($town->getType()->getName() == 'panda')
-                    $chance = 0.75;
-                if ($this->random->chance(0.5)) $this->kill_wrap( $citizen, $cod_infect, true );
+                if ($this->random->chance($this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_INFECT_DEATH, 0.5 ))) $this->kill_wrap( $citizen, $cod_infect, true, 0, false, $town->getDay()+1 );
                 continue;
             }
         }
