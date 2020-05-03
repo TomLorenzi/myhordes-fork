@@ -12,12 +12,14 @@ use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -147,9 +149,12 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @Route("api/game/job", name="api_jobcenter")
      * @param JSONRequestParser $parser
      * @param CitizenHandler $ch
+     * @param InventoryHandler $invh
+     * @param ItemFactory $if
+     * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch, InventoryHandler $invh, ItemFactory $if): Response {
+    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -172,10 +177,10 @@ class GameController extends AbstractController implements GameInterfaceControll
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        // TODO: remove this after beta! Add betapropin500mg to chest of player.
-        $betapropin = $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("beta_drug_#00"));
+        $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
         $chest = $citizen->getHome()->getChest();
-        $chest = $invh->placeItem($citizen, $betapropin, array($chest));
+        foreach ($item_spawns as $spawn)
+            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($spawn)), [$chest]);
 
         try {
             $this->entity_manager->persist( $chest );
