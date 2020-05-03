@@ -42,9 +42,9 @@
 @media (max-width: (@screen-large-threshold - 1)) and (min-width: @screen-medium-threshold) {
   .hide-@{screen-large} {display: none !important;};
   .dashboard .deco-estimation { border-right: none; }
-  .language-picker {
+  .soul .language-picker {
     flex-wrap: wrap;
-    .note {
+    &>.note {
       width: 50%;
       flex-basis: 50%;
     }
@@ -53,9 +53,9 @@
 @media (max-width: (@screen-medium-threshold - 1)) and (min-width: @screen-small-threshold) {
   .hide-@{screen-medium} {display: none !important;};
   .dashboard .attack-estimation, .dashboard .deco-estimation { border-right: none; }
-  .language-picker {
+  .soul .language-picker {
     flex-wrap: wrap;
-    .note {
+    &>.note {
       width: 100%;
       flex-basis: 100%;
     }
@@ -86,9 +86,9 @@
   }
   .dashboard .attack-estimation, .dashboard .deco-estimation { border-right: none; }
 
-  .language-picker {
+  .soul .language-picker {
     flex-wrap: wrap;
-    .note {
+    &>.note {
       width: 100%;
       flex-basis: 100%;
     }
