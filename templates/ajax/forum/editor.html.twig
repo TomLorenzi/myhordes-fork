@@ -396,6 +396,7 @@
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
+                let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
                 let content = document.querySelector('[x-tab-id="classic"].selected')
                     ? document.getElementById('forum-editor-preview').innerHTML
                     : document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML;
@@ -404,13 +405,13 @@
                     target_payload = {
                         title: document.getElementById('forum-editor-title').value,
                         text: content,
-                        type: document.querySelector("input[name=post-type]:checked").value,
+                        type: type
                     };
                 {% else %}
                     target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
                     target_payload = {
                         text: content,
-                        type: document.querySelector("input[name=post-type]:checked").value,
+                        type: type,
                     };
                 {% endif %}
                 $.ajax.easySend( target_url, target_payload,
