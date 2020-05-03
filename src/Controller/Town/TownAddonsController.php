@@ -437,11 +437,103 @@ class TownAddonsController extends TownController
                 $is_watcher = true;
             }
             
-            $watchers[] = array(
+            $watchers[$watcher->getId()] = array(
                 'citizen' => $watcher->getCitizen(),
                 'def' => $this->citizen_handler->getNightwatchDefense($watcher->getCitizen()),
+                'bonusDef' => $this->citizen_handler->getNightwatchProfessionDefenseBonus($watcher->getCitizen()),
+                'bonusSurvival' => $this->citizen_handler->getNightwatchProfessionSurvivalBonus($watcher->getCitizen()),
                 'status' => array()
             );
+
+            foreach ($watcher->getCitizen()->getStatus() as $status) {
+                switch($status->getName()){
+                    case 'drunk':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 20,
+                            'deathImpact' => 4
+                        );
+                        break;
+                    case 'hangover':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -15,
+                            'deathImpact' => 5
+                        );
+                        break;
+                    case 'terror':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -30,
+                            'deathImpact' => 45
+                        );
+                        break;
+                    case 'drugged':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 10,
+                            'deathImpact' => 0
+                        );
+                        break;
+                    case 'addict':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 15,
+                            'deathImpact' => 10
+                        );
+                        break;
+                    case 'wound1':
+                    case 'wound2':
+                    case 'wound3':
+                    case 'wound4':
+                    case 'wound5':
+                    case 'wound6':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -20,
+                            'deathImpact' => 20
+                        );
+                        break;
+                    case 'healed':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -10,
+                            'deathImpact' => 10
+                        );
+                        break;
+                    case 'infection':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -15,
+                            'deathImpact' => 20
+                        );
+                        break;
+                    case 'ghul':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 0,
+                            'deathImpact' => -5
+                        );
+                        break;
+                    case 'thirst2':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -10,
+                            'deathImpact' => 0
+                        );
+                        break;
+                }
+            }
         }
 
         $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
@@ -468,7 +560,7 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $action = $parser->get("action");
-        file_put_contents("/tmp/dump.txt", "$action");
+
         if($action == 'unwatch') {
             $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
             $activeCitizenWatcher = null;

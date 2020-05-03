@@ -37,6 +37,7 @@
                     	<img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
                     	{% if stat.description %}
                     	<div class="tooltip temp-building">
+                            <h1>{{ stat.label|trans({}, 'game') }}</h1>
                         {{ stat.description|trans({}, 'game')}}
                     	</div>
                     	{% endif %}

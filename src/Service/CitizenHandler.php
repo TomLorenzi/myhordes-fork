@@ -513,8 +513,25 @@ class CitizenHandler
         return $camping_values;
     }
 
+    public function getNightwatchProfessionDefenseBonus(Citizen $citizen){
+        if ($citizen->getProfession()->getName() == "guardian") {
+            return 0.04;
+        }
+        return 0;
+    }
+
+    public function getNightwatchProfessionSurvivalBonus(Citizen $citizen){
+        if ($citizen->getProfession()->getName() == "guardian") {
+            return 30;
+        } else if ($citizen->getProfession()->getName() == "tamer") {
+            return 20;
+        }
+        return 0;
+    }
+
     public function getDeathChances(Citizen $citizen): float {
-        $baseChance = ($citizen->getProfession()->getName() == "guardian") ? 0.01 : 0.05;
+        $baseChance = 0.05;
+        $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
 
         $town = $citizen->getTown();
 
@@ -559,11 +576,8 @@ class CitizenHandler
 
     public function getNightwatchDefense(Citizen $citizen): int {
         $def = 10;
-        if ($citizen->getProfession()->getName() == "guardian") {
-            $def += 30;
-        } else if ($citizen->getProfession()->getName() == "tamer") {
-            $def += 20;
-        }
+        $def += $this->getNightwatchProfessionDefenseBonus($citizen);
+
         if($this->hasStatusEffect($citizen, 'drunk')) {
             $def += 20;
         }
