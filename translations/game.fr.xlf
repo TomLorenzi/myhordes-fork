@@ -8780,7 +8780,7 @@
       </notes>
       <segment>
         <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
-        <target>%citizen% a passé quelques minutes à améliorer le campement.</target>
+        <target>%citizen% a passé de longues minutes à aménager une planque avec tout ce qui pouvait lui passer sous la main.</target>
       </segment>
     </unit>
     <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
@@ -8789,7 +8789,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
-        <target>%citizen% a installé %item% pour améliorer le campement.</target>
+        <target>%citizen% a aménagé une cachette avec %item%.</target>
       </segment>
     </unit>
     <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
@@ -9189,6 +9189,87 @@
       <segment>
         <source>Grafischer Editor</source>
         <target>Éditeur graphique</target>
+      </segment>
+    </unit>
+    <unit id="BpkKJfs" name="Zusammenbauen">
+      <notes>
+        <note category="german">Zusammenbauen</note>
+      </notes>
+      <segment>
+        <source>Zusammenbauen</source>
+        <target>Zusammenbauen</target>
+      </segment>
+    </unit>
+    <unit id="jqa.16L" name="da1981d">
+      <notes>
+        <note category="german">Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
+      </notes>
+      <segment>
+        <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
+        <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+      </segment>
+    </unit>
+    <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
+      <notes>
+        <note category="german">Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</source>
+        <target>Finalement être veilleur vous effraie ? Alors n'hésitez pas un seul instant:</target>
+      </segment>
+    </unit>
+    <unit id="sSdGp03" name="Ich habe doch zu große Angst...">
+      <notes>
+        <note category="german">Ich habe doch zu große Angst...</note>
+      </notes>
+      <segment>
+        <source>Ich habe doch zu große Angst...</source>
+        <target>Finalement j'ai trop peur...</target>
+      </segment>
+    </unit>
+    <unit id="_xMXxrI" name="e0dcb5d">
+      <notes>
+        <note category="german">Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
+        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+      </segment>
+    </unit>
+    <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
+      <notes>
+        <note category="german">Ich möchte Wächter werden!</note>
+      </notes>
+      <segment>
+        <source>Ich möchte Wächter werden!</source>
+        <target>Je veux devenir veilleur !</target>
+      </segment>
+    </unit>
+    <unit id="ANSfsJY" name="0e97f6c">
+      <notes>
+        <note category="german">Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</note>
+      </notes>
+      <segment>
+        <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
+        <target>Ah et oui, pour info, il nous semble utilse de vous signaler que vous avez %deathChance%% de chance de mourir ce soir et %woundAndTerrorChance%% d'être blessé ou terrorisé au cours de cette garde.</target>
+      </segment>
+    </unit>
+    <unit id="WEf5fsd" name="Wähle meine Waffen!">
+      <notes>
+        <note category="german">Wähle meine Waffen!</note>
+      </notes>
+      <segment>
+        <source>Wähle meine Waffen!</source>
+        <target>Choisir des armes !</target>
+      </segment>
+    </unit>
+    <unit id="dGfxw4F" name="2242ddb">
+      <notes>
+        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
+        <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
       </segment>
     </unit>
   </file>

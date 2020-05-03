@@ -14,7 +14,7 @@ parameters:
       distribute_items: ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00']
 
       modifiers:
-        watchtower_estimation_threshold: 33
+        watchtower_estimation_threshold: 0
         allow_redig: false
         assemble_items_from_floor: false
         preview_item_assemblage: false

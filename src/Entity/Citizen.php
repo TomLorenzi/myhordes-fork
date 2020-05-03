@@ -205,6 +205,11 @@ class Citizen
      */
     private $disposedBy;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\CitizenWatch", mappedBy="citizen", orphanRemoval=true)
+     */
+    private $citizenWatch;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -869,6 +874,18 @@ class Citizen
         if ($this->disposedBy->contains($citizen)) {
             $this->disposedBy->removeElement($citizen);
         }
+
+        return $this;
+    }
+
+    public function getCitizenWatch(): ?CitizenWatch
+    {
+        return $this->citizenWatch;
+    }
+
+    public function setCitizenWatch(?CitizenWatch $citizenWatch): self
+    {
+        $this->citizenWatch = $citizenWatch;
 
         return $this;
     }

@@ -1,0 +1,60 @@
+{% extends "ajax/game/town/town.html.twig" %}
+{% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+    </div>
+
+    <div class="help">
+         {% if is_watcher %}
+            {{'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:'|trans({}, 'game')}}<br />
+            <button class="inline" id="unwatch-button"><img alt="" src="{{ asset('build/images/small_action.gif') }}" />{{'Ich habe doch zu große Angst...'|trans({}, 'game')}}</button>
+        {% else %}
+            {{'Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:'|trans({}, 'game')}}<br />
+            <button class="inline" id="watch-button"><img alt="" src="{{ asset('build/images/small_action.gif') }}" />{{'Ich möchte Wächter werden!'|trans({}, 'game')}}</button>
+        {% endif %}
+    </div>
+    {% if is_watcher %}
+    <div class="help">
+        {{'Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.'|trans({'%deathChance%': deathChance * 100|round(), '%woundAndTerrorChance%': woundAndTerrorChance * 100|round()}, 'game')}}
+    </div>
+    {% endif %}
+
+
+    <h5>{{ 'Nachtwächter'|trans({},'game') }}</h5>
+    <div class="nightwatch row-table citizens-list">
+        <div class="row header">
+            <div class="cell padded rw-3"></div>
+            <div class="cell padded rw-2"></div>
+            <div class="cell padded rw-6">{{ 'Benutzte Waffe' }}</div>
+        </div>
+        {% for watcher in watchers %}
+            <div class="row">
+                <div class="cell padded rw-3 center vmiddle">{{watcher.citizen.user.username}}</div>
+                <div class="cell padded rw-2 center vmiddle">{{watcher.def}} <img src="{{ asset('build/images/small_zombie.gif') }}" /></div>
+                <div class="cell padded rw-6">10 <img src="{{ asset('build/images/small_zombie.gif') }}" /> <img src="{{ asset('build/images/professions/' ~ watcher.citizen.profession.icon ~ '.gif') }}" alt="{{ watcher.citizen.profession.label|trans({},'items') }}">{% if watcher.citizen == me %}<br /><button x-ajax-href="{{path('town_bank')}}">{{'Wähle meine Waffen!'|trans({}, 'game')}}</div>{% endif %}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        const handleWatch = function(element, action) {
+            if (!element) return;
+            element.addEventListener('click', function() {
+                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                    return;
+                $.ajax.easySend( '{{ path('town_nightwatch_go_controller') }}', {
+                        action: action
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('town_nightwatch') }}', true);
+                    } );
+            });
+        };
+
+        handleWatch( document.getElementById('watch-button'), 'watch' );
+        handleWatch( document.getElementById('unwatch-button'), 'unwatch' );
+    </script>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Entity\Building;
+use App\Entity\CitizenWatch;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
@@ -416,5 +417,90 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
     }
+
+    /**
+     * @Route("jx/town/nightwatch", name="town_nightwatch")
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function addon_nightwatch(TownHandler $th): Response
+    {
+        $town = $this->getActiveCitizen()->getTown();
+        if (!$th->getBuilding($town, 'small_round_path_#00', true))
+            return $this->redirect($this->generateUrl('town_dashboard'));
+
+        $citizenWatch = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+        $watchers = [];
+        $is_watcher = false;
+        foreach ($citizenWatch as $watcher) {
+            if($watcher->getCitizen() == $this->getActiveCitizen()){
+                $is_watcher = true;
+            }
+            
+            $watchers[] = array(
+                'citizen' => $watcher->getCitizen(),
+                'def' => $this->citizen_handler->getNightwatchDefense($watcher->getCitizen()),
+                'status' => array()
+            );
+        }
+
+        $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
+        $woundAndTerrorPenalty = $town->getType()->getName() == 'panda' ? 0.2 : 0.05;
+        return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
+            'watchers' => $watchers,
+            'is_watcher' => $is_watcher,
+            'deathChance' => $deathChance,
+            'woundAndTerrorChance' => $deathChance + $woundAndTerrorPenalty,
+            'me' => $this->getActiveCitizen()
+        ]) );
+    }
+
+    /**
+     * @Route("api/town/nightwatch/gowatch", name="town_nightwatch_go_controller")
+     * @param TownHandler $th
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function api_nightwatch_gowatch(TownHandler $th, JSONRequestParser $parser): Response
+    {
+        $town = $this->getActiveCitizen()->getTown();
+        if (!$th->getBuilding($town, 'small_round_path_#00', true))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $action = $parser->get("action");
+        file_put_contents("/tmp/dump.txt", "$action");
+        if($action == 'unwatch') {
+            $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+            $activeCitizenWatcher = null;
+
+            foreach ($watchers as $watcher) {
+                if($watcher->getCitizen() == $this->getActiveCitizen()){
+                    $activeCitizenWatcher = $watcher;
+                    break;
+                }
+            }
+            if($activeCitizenWatcher === null) {
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            }
+
+            $town->removeCitizenWatch($activeCitizenWatcher);
+            $this->getActiveCitizen()->setCitizenWatch(null);
+            $this->entity_manager->remove($activeCitizenWatcher);
+        } else if ($action == "watch") {
+            $citizenWatch = new CitizenWatch();
+            $citizenWatch->setTown($town)->setCitizen($this->getActiveCitizen())->setDay($town->getDay());
+            $town->addCitizenWatch($citizenWatch);
+            $this->getActiveCitizen()->setCitizenWatch($citizenWatch);
+            $this->entity_manager->persist($citizenWatch);
+        }
+
+        $this->entity_manager->persist($this->getActiveCitizen());
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    
 
 }
