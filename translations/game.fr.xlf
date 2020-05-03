@@ -1489,7 +1489,7 @@
       <segment>
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                 in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexent commencent et terminent où vous voulez.</target>
+        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexes commencent et terminent où vous voulez.</target>
       </segment>
     </unit>
     <unit id="dLIxjrY" name="Nur Helden können komplexe Routen planen.">
@@ -4551,7 +4551,7 @@
       </notes>
       <segment>
         <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
-        <target> Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
+        <target>Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
       </segment>
     </unit>
     <unit id="Fak6Ovg" name="b6452db">
@@ -9206,7 +9206,7 @@
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+        <target>Vous avez récemment creusé ici. La prochaine fouille ne sera possible que demain.</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">

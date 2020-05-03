@@ -578,7 +578,7 @@
       </notes>
       <segment>
         <source>Zeltplane</source>
-        <target>Zeltplane</target>
+        <target>Groundsheet</target>
       </segment>
     </unit>
     <unit id="17I74tP" name="Superpraktischer Rucksack">
@@ -1168,7 +1168,7 @@
       </notes>
       <segment>
         <source>Zonenmarker 'Radius'</source>
-        <target>Zonenmarker 'Radius'</target>
+        <target>Radius Radar Beacon</target>
       </segment>
     </unit>
     <unit id="xOfrB2C" name="Leuchtrakete">
@@ -1278,7 +1278,7 @@
       </notes>
       <segment>
         <source>Unkrautbekämpfungsmittel Ness-Quick</source>
-        <target>Unkrautbekämpfungsmittel Ness-Quick</target>
+        <target>Ness-Quick Weedkiller</target>
       </segment>
     </unit>
     <unit id="TZNVizA" name="Nahrungsmittelkiste">
@@ -1628,7 +1628,7 @@
       </notes>
       <segment>
         <source>Schießpulverbombe</source>
-        <target>Schießpulverbombe</target>
+        <target>Flash Grenade</target>
       </segment>
     </unit>
     <unit id="1Ogs2Gm" name="Teddybär">
@@ -1688,7 +1688,7 @@
       </notes>
       <segment>
         <source>Radius Mark II (entladen)</source>
-        <target>Radius Mark II (entladen)</target>
+        <target>Radius Mark II (incomplete)</target>
       </segment>
     </unit>
     <unit id="BY3bv3L" name="Radius Mark II">
@@ -2118,7 +2118,7 @@
       </notes>
       <segment>
         <source>Sperrholzstück</source>
-        <target>Sperrholzstück</target>
+        <target>Sheet of Plywood</target>
       </segment>
     </unit>
     <unit id="2.wFBkZ" name="Fackel">
@@ -2198,7 +2198,7 @@
       </notes>
       <segment>
         <source>Wasserspender (leer)</source>
-        <target>Wasserspender (leer)</target>
+        <target>Water Cooler Bottle (Empty)</target>
       </segment>
     </unit>
     <unit id="SPLICbh" name="Wasserspender (1 Ration)">
@@ -2208,7 +2208,7 @@
       </notes>
       <segment>
         <source>Wasserspender (1 Ration)</source>
-        <target>Wasserspender (1 Ration)</target>
+        <target>Water Cooler Bottle (1 Ration)</target>
       </segment>
     </unit>
     <unit id="DqdgpMC" name="Wasserspender (2 Rationen)">
@@ -2218,7 +2218,7 @@
       </notes>
       <segment>
         <source>Wasserspender (2 Rationen)</source>
-        <target>Wasserspender (2 Rationen)</target>
+        <target>Water Cooler Bottle (2 Rations)</target>
       </segment>
     </unit>
     <unit id="hbYHhbK" name="Wasserspender (3 Rationen)">
@@ -2228,7 +2228,7 @@
       </notes>
       <segment>
         <source>Wasserspender (3 Rationen)</source>
-        <target>Wasserspender (3 Rationen)</target>
+        <target>Water Cooler Bottle (3 Rations)</target>
       </segment>
     </unit>
     <unit id="9kUAXmE" name="Abgelaufene Betapropin-Tablette 5mg">
@@ -2288,7 +2288,7 @@
       </notes>
       <segment>
         <source>Makabre Bombe</source>
-        <target>Makabre Bombe</target>
+        <target>Grisly Bomb</target>
       </segment>
     </unit>
     <unit id="zc4zxPy" name="Dickflüssige Substanz">
@@ -2338,7 +2338,7 @@
       </notes>
       <segment>
         <source>Notizzettel eines Verbannten</source>
-        <target>Notizzettel eines Verbannten</target>
+        <target>Banned Citizen's Note</target>
       </segment>
     </unit>
     <unit id="TyGvbgL" name="Blutdurchtränkter Verband">
@@ -2428,7 +2428,7 @@
       </notes>
       <segment>
         <source>Ekliger Hautfetzen</source>
-        <target>Ekliger Hautfetzen</target>
+        <target>Festering Flesh</target>
       </segment>
     </unit>
     <unit id="9z__4T5" name="MagLite Kinderlampe (aus)">
@@ -2438,7 +2438,7 @@
       </notes>
       <segment>
         <source>MagLite Kinderlampe (aus)</source>
-        <target>MagLite Kinderlampe (aus)</target>
+        <target>Novelty Torch (off)</target>
       </segment>
     </unit>
     <unit id="CohhMIg" name="MagLite Kinderlampe (1 Ladung)">
@@ -2448,7 +2448,7 @@
       </notes>
       <segment>
         <source>MagLite Kinderlampe (1 Ladung)</source>
-        <target>MagLite Kinderlampe (1 Ladung)</target>
+        <target>Novelty Torch (1 charge)</target>
       </segment>
     </unit>
     <unit id="WaA0OSd" name="MagLite Kinderlampe (2 Ladungen)">
@@ -2458,7 +2458,7 @@
       </notes>
       <segment>
         <source>MagLite Kinderlampe (2 Ladungen)</source>
-        <target>MagLite Kinderlampe (2 Ladungen)</target>
+        <target>Novelty Torch (2 charges)</target>
       </segment>
     </unit>
     <unit id="KC3QuZx" name="Leiche eines Reisenden">
@@ -2608,7 +2608,7 @@
       </notes>
       <segment>
         <source>Magnet-Schlüssel</source>
-        <target>Magnet-Schlüssel</target>
+        <target>Magnetic Key</target>
       </segment>
     </unit>
     <unit id="_DFJUZ7" name="Schlagschlüssel">
@@ -2618,7 +2618,7 @@
       </notes>
       <segment>
         <source>Schlagschlüssel</source>
-        <target>Schlagschlüssel</target>
+        <target>Bump Key</target>
       </segment>
     </unit>
     <unit id="iuNFSRK" name="Flaschenöffner">
@@ -2628,7 +2628,7 @@
       </notes>
       <segment>
         <source>Flaschenöffner</source>
-        <target>Flaschenöffner</target>
+        <target>Bottle Opener</target>
       </segment>
     </unit>
     <unit id="sDu2xGP" name="Abdruck vom Magnet-Schlüssel">
@@ -2638,7 +2638,7 @@
       </notes>
       <segment>
         <source>Abdruck vom Magnet-Schlüssel</source>
-        <target>Abdruck vom Magnet-Schlüssel</target>
+        <target>Magnetic Key Blank</target>
       </segment>
     </unit>
     <unit id="zKuoJUv" name="Abdruck vom Schlagschlüssel">
@@ -2648,7 +2648,7 @@
       </notes>
       <segment>
         <source>Abdruck vom Schlagschlüssel</source>
-        <target>Abdruck vom Schlagschlüssel</target>
+        <target>Bump Key Blank</target>
       </segment>
     </unit>
     <unit id="ST6MLb5" name="Abdruck vom Dosenöffner">
@@ -2658,7 +2658,7 @@
       </notes>
       <segment>
         <source>Abdruck vom Dosenöffner</source>
-        <target>Abdruck vom Dosenöffner</target>
+        <target>Bottle Opener Blank</target>
       </segment>
     </unit>
     <unit id="UH8KN45" name="Ghul-Serum">
@@ -3448,7 +3448,7 @@
       </notes>
       <segment>
         <source>Essen</source>
-        <target>Essen</target>
+        <target>Eat</target>
       </segment>
     </unit>
     <unit id="m8ZO.Qg" name="Einnehmen">
@@ -3458,7 +3458,7 @@
       </notes>
       <segment>
         <source>Einnehmen</source>
-        <target>Einnehmen</target>
+        <target>Consume</target>
       </segment>
     </unit>
     <unit id="yvLm0Wo" name="Einsetzen">
@@ -3508,7 +3508,7 @@
       </notes>
       <segment>
         <source>Laden</source>
-        <target>Laden</target>
+        <target>Build</target>
       </segment>
     </unit>
     <unit id="VahlHoL" name="83909a7">
@@ -3608,7 +3608,7 @@
       </notes>
       <segment>
         <source>Karte ziehen</source>
-        <target>Karte ziehen</target>
+        <target>Draw card</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -4528,7 +4528,7 @@
       </notes>
       <segment>
         <source>Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</source>
-        <target>Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</target>
+        <target>A large, thick camping groundsheet, but it's not exactly waterproof any more. Ideal if you want to spend the night under the stars (if you forget about the vermin, the zombies, diseases, storms and the cold). It significantly increases your chances of survival when camping. You must have the sheet on your person while camping to obtain this bonus.</target>
       </segment>
     </unit>
     <unit id="GSxglCR" name="cd630c4">
@@ -5038,7 +5038,7 @@
       </notes>
       <segment>
         <source>Der Zonenmarker 'Radius' zeigt dir auf der Karte alle Zonen an, die an deine aktuelle Position angrenzen.</source>
-        <target>Der Zonenmarker 'Radius' zeigt dir auf der Karte alle Zonen an, die an deine aktuelle Position angrenzen.</target>
+        <target>The beacon lets you uncover all squares on the map adjacent to your current location.</target>
       </segment>
     </unit>
     <unit id="725pRxY" name="43c3beb">
@@ -5138,7 +5138,7 @@
       </notes>
       <segment>
         <source>Das auf den Sack geklebte Etikett besagt, dass das Produkt genießbar sei wenn man es in Milch auflöst. Ein leichter Zweifel befällt dich...</source>
-        <target>Das auf den Sack geklebte Etikett besagt, dass das Produkt genießbar sei wenn man es in Milch auflöst. Ein leichter Zweifel befällt dich...</target>
+        <target>The label on this bag of weedkiller implies that it is also edible when added to milk. What are you worried about ?</target>
       </segment>
     </unit>
     <unit id="jpZGeIt" name="d80e3cd">
@@ -5488,7 +5488,7 @@
       </notes>
       <segment>
         <source>Diese improvisierte Granate ermöglicht dir, die Zombies in einer Zone abzulenken. Nutze die sich bietende Gelegenheit um dich zu verdrücken.</source>
-        <target>Diese improvisierte Granate ermöglicht dir, die Zombies in einer Zone abzulenken. Nutze die sich bietende Gelegenheit um dich zu verdrücken.</target>
+        <target>This homemade grenade will distract nearby zombies and make them concentrate on something other than your oh-so-tasty flesh... giving you precious seconds to do your thing... running away probably.</target>
       </segment>
     </unit>
     <unit id="O1_0MNF" name="db11f4f">
@@ -5548,7 +5548,7 @@
       </notes>
       <segment>
         <source>Der Radar-Marker 'Radius Mark II' ist ein fantasievoll zusammengeschraubtes Gerät, das dir ermöglicht, Lebewesen in deiner Umgebung ausfindig zu machen. Es wird behauptet, dass er Krebs verursache und Gehirnzellen irreparabel schädige, doch das kann dir egal sein, da du eh nicht lang genug leben wirst... und überhaupt: Um ihn zu benutzen brauchst du erstmal eine Batterie.</source>
-        <target>Der Radar-Marker 'Radius Mark II' ist ein fantasievoll zusammengeschraubtes Gerät, das dir ermöglicht, Lebewesen in deiner Umgebung ausfindig zu machen. Es wird behauptet, dass er Krebs verursache und Gehirnzellen irreparabel schädige, doch das kann dir egal sein, da du eh nicht lang genug leben wirst... und überhaupt: Um ihn zu benutzen brauchst du erstmal eine Batterie.</target>
+        <target>The Radius Mark II beacon is a device which has been cobbled together from the limited equipment available that detects any creatures within a given area. Some say it causes cancer and kills brain cells, but you won't live long enough for that to be a concern.</target>
       </segment>
     </unit>
     <unit id="JoOZ0xo" name="8a08c82">
@@ -5888,7 +5888,7 @@
       </notes>
       <segment>
         <source>Dieses alte Sperrholzstück stammt aus irgendeinem alten Gebäude. Mit ein wenig Einfallsreichtum könntest du es für eine neue Konstruktion wiederverwerten.</source>
-        <target>Dieses alte Sperrholzstück stammt aus irgendeinem alten Gebäude. Mit ein wenig Einfallsreichtum könntest du es für eine neue Konstruktion wiederverwerten.</target>
+        <target>This old sheet of plywood came from some old building. With a little effort, it could be used to make a good hideout.</target>
       </segment>
     </unit>
     <unit id="yLFG9dI" name="771426e">
@@ -5968,7 +5968,7 @@
       </notes>
       <segment>
         <source>Ein typischer Wasserspender, wie man ihn in jedem Großraumbüro antreffen kann. Wie durch ein Wunder ist er dir in die Hände gefallen. So ein Ding könnte hier gut nützlich sein...</source>
-        <target>Ein typischer Wasserspender, wie man ihn in jedem Großraumbüro antreffen kann. Wie durch ein Wunder ist er dir in die Hände gefallen. So ein Ding könnte hier gut nützlich sein...</target>
+        <target>You'd usually expect to find one of these in some office somewhere, but by no small miracle it has fallen into your grubby paws. This could be most useful...</target>
       </segment>
     </unit>
     <unit id=".lm05eM" name="f42e48c">
@@ -6028,7 +6028,7 @@
       </notes>
       <segment>
         <source>Das tolle an dieser unförmigen Fleischkugel ist, dass sie auf 10 Meter nach Aas stinkt. Damit kannst du die Zombies 'ne Zeit lang beschäftigen.</source>
-        <target>Das tolle an dieser unförmigen Fleischkugel ist, dass sie auf 10 Meter nach Aas stinkt. Damit kannst du die Zombies 'ne Zeit lang beschäftigen.</target>
+        <target>The best thing about this deformed lump of flesh is that the stench of decay hits you from ten metres away. Ideal for distracting zombies while you get the hell outta there !</target>
       </segment>
     </unit>
     <unit id="lJIeyAh" name="007b25c">
@@ -6078,7 +6078,7 @@
       </notes>
       <segment>
         <source>Dieser Notizzettel gehörte einem *Verbannten*. Mal sehen, was er geschrieben hat...</source>
-        <target>Dieser Notizzettel gehörte einem *Verbannten*. Mal sehen, was er geschrieben hat...</target>
+        <target>This note was written by a banned citizen... Who knows what he could have written ?</target>
       </segment>
     </unit>
     <unit id="IgVl2Co" name="e50f8f0">
@@ -6168,7 +6168,7 @@
       </notes>
       <segment>
         <source>Dieser übelriechende Hautfetzen gehörte früher mal einem deiner Mitbürger. Jetzt gehört er den Maden... Mit seinem unerträglichen Gestank kannst du deinen eigenen Körpergeruch überdecken, so dass dich die Untoten nicht mehr so gut riechen können. Benutze diesen Gegenstand, um deine Überlebenschancen beim Campen zu verbessern (Dazu musst du den Hautfetzen bei Dir tragen).</source>
-        <target>Dieser übelriechende Hautfetzen gehörte früher mal einem deiner Mitbürger. Jetzt gehört er den Maden... Mit seinem unerträglichen Gestank kannst du deinen eigenen Körpergeruch überdecken, so dass dich die Untoten nicht mehr so gut riechen können. Benutze diesen Gegenstand, um deine Überlebenschancen beim Campen zu verbessern (Dazu musst du den Hautfetzen bei Dir tragen).</target>
+        <target>This disgusting lump of flesh must have been torn off another citizen and left with the worms for a while. The odious stench could probably even cover your own atrocious body odour! This item will significantly increase your chances of surviving a little camping trip (you must be carrying the item to benefit from the bonus).</target>
       </segment>
     </unit>
     <unit id="xGW6fhp" name="5a1d12b">
@@ -6178,7 +6178,7 @@
       </notes>
       <segment>
         <source>Diese große Taschenlampe ist wirklich nützlich für die Suche in der Wüste, vor allem Nachts. Möglicherweise kan man noch eine andere Verwendung für sie finden, wenn sie angehen würde....</source>
-        <target>Diese große Taschenlampe ist wirklich nützlich für die Suche in der Wüste, vor allem Nachts. Möglicherweise kan man noch eine andere Verwendung für sie finden, wenn sie angehen würde....</target>
+        <target>This big, dubiously designed pocket torch would be really useful for your searches in the desert were it not for the fact that day and night are but concepts in MyHordes. You might be able to find another use for it though.</target>
       </segment>
     </unit>
     <unit id="um8Nw03" name="77c93da">
@@ -6188,7 +6188,7 @@
       </notes>
       <segment>
         <source>Diese große Taschenlampe ist wirklich nützlich für die Suche in der Wüste, vor allem Nachts. Möglicherweise kann man noch eine andere Verwendung für sie finden.</source>
-        <target>Diese große Taschenlampe ist wirklich nützlich für die Suche in der Wüste, vor allem Nachts. Möglicherweise kann man noch eine andere Verwendung für sie finden.</target>
+        <target>This big, dubiously designed pocket torch would be really useful for your searches in the desert were it not for the fact that day and night are but concepts in MyHordes. You might be able to find another use for it though.</target>
       </segment>
     </unit>
     <unit id="OMmjmx1" name="3d27f5e">
@@ -6308,7 +6308,7 @@
       </notes>
       <segment>
         <source>Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</target>
+        <target>This hi-tech key allows you to open doors secured up until level 6.2 AOC, only elite technicians are deigned to have one in their possession. Unfortunately, as yours is in pitiful condition, this key will only open one more door.</target>
       </segment>
     </unit>
     <unit id="5ufgUwK" name="6fe0542">
@@ -6318,7 +6318,7 @@
       </notes>
       <segment>
         <source>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</target>
+        <target>This key, a favourite amongst up-and-coming burglars, allows you to open any door in a matter of seconds. So easily in fact you might ask yourself what is the point in having normal keys. Unfortunately, as yours is in pitiful condition, this key will only open one more door.</target>
       </segment>
     </unit>
     <unit id="tXHEeaI" name="284ff3d">
@@ -6328,7 +6328,7 @@
       </notes>
       <segment>
         <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</target>
+        <target>Some of the rooms here are a tight squeeze to say the least, so this would appear to be the perfect tool with which to gain access and get down to some serious rummaging! Unfortunately, your tool is in a wretched state and will give up after one more use.</target>
       </segment>
     </unit>
     <unit id="vclIZyk" name="33638dc">

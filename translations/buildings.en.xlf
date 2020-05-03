@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Zaun</source>
-        <target>Wooden Fencing</target>
+        <target>Fence</target>
       </segment>
     </unit>
     <unit id="1VFjm8C" name="Holzzaun">
@@ -1968,7 +1968,7 @@
       </notes>
       <segment>
         <source>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</source>
-        <target>Un minuscule trou qui sent fort le camphre et la mort, creusé au milieu de votre 'salon'. Mais vous pouvez y mener vos expériences pharmaceutiques tranquillement (Each level increase by 25% chance to produce a greater drug)…</target>
+        <target>A small hole which smells of camphor and death, right in the middle of your 'living room'. However, you can carry out your chemistry experiments in peace here (each level increases the chances of obtaining a powerful drug by 33%.)...</target>
       </segment>
     </unit>
     <unit id="qeyHLmY" name="Küche">
@@ -1988,7 +1988,7 @@
       </notes>
       <segment>
         <source>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</source>
-        <target>La cuisine est un coin aménagé de manière très sommaire pour y préparer des rations de meilleure qualité (chaque niveau augmente de 33% les chances d'obtenir un bon plat).</target>
+        <target>The kitchen is an area which is roughly equipped to prepare the best quality rations (each level increases the chance of getting a good dish by 33%).</target>
       </segment>
     </unit>
     <unit id="N8dpSCq" name="Primitives Alarmsystem">
@@ -2008,7 +2008,7 @@
       </notes>
       <segment>
         <source>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</source>
-        <target>C'est un système un peu simpliste de ferrailles fixées par un fil, mais ça marchera bien pour rameuter tout le monde si quelqu'un entre chez vous...</target>
+        <target>This is a somewhat simplistic system made up of scrap metal held in place with a cable, but it works well for mobilising everybody if someone breaks into your home...</target>
       </segment>
     </unit>
     <unit id="Dy4Ru5R" name="Ruheecke">
@@ -2018,7 +2018,7 @@
       </notes>
       <segment>
         <source>Ruheecke</source>
-        <target>Siesta Time</target>
+        <target>Siesta Time™</target>
       </segment>
     </unit>
     <unit id="RR.D4lZ" name="eefcc52">
@@ -2028,7 +2028,7 @@
       </notes>
       <segment>
         <source>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</source>
-        <target>Il s'agit juste d'un trou dans le sol couvert par quelques cartons. Mais c'est bien utile pour se faire une petite sieste quand l'envie s'en fait sentir (chaque niveau augmente de 33% les chances de bien dormir).</target>
+        <target>It's really just a hole in the ground covered with cardboard, but it's great for grabbing a quick nap when you feel like it (each level increases the chances of sleeping soundly by 33%.).</target>
       </segment>
     </unit>
     <unit id="ASpYRZf" name="Türschloss">
@@ -2048,7 +2048,7 @@
       </notes>
       <segment>
         <source>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</source>
-        <target>Ce système rudimentaire mais efficace empêchera quiconque de vous voler un objet.</target>
+        <target>This rudimentary but efficient system prevents anybody from stealing your property.</target>
       </segment>
     </unit>
     <unit id="_XJvPlM" name="61daef0">
@@ -2058,7 +2058,7 @@
       </notes>
       <segment>
         <source>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</source>
-        <target>Quand les murs ne suffisent plus, une vraie clôture n'est jamais un luxe. Une défense de bonne qualité.</target>
+        <target>When walls just don't cut it anymore, a good fence isn't a luxury, it's a quality defensive measure.</target>
       </segment>
     </unit>
     <unit id="_ZwT1d7" name="Stauraum">
@@ -2098,7 +2098,7 @@
       </notes>
       <segment>
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
-        <target>Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie... un peu (chaque niveau ajoute 1 pt de défense)..</target>
+        <target>A little bit of DIY from MacGyver here should make it last longer... should. (each level adds one defence point).</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
