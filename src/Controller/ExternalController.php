@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Citizen;
 use App\Entity\ExternalApp;
+use App\Entity\ItemPrototype;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -101,10 +102,10 @@ class ExternalController extends InventoryAwareController
     }
 
     /**
-     * @Route("/api/x/json", name="api_x_json", defaults={"_format"="json"}, methods={"POST"})
+     * @Route("/api/x/json/{type}", name="api_x_json", defaults={"_format"="json"}, methods={"POST"})
      * @return Response
      */
-    public function api_json(): Response
+    public function api_json($type = 'town'): Response
     {
 
         $request = Request::createFromGlobals();
@@ -146,7 +147,15 @@ class ExternalController extends InventoryAwareController
         }
 
         // All fine, let's populate the response.
-        $data = $this->generateData($user);
+        switch ($type) {
+            case 'town':
+                $data = $this->generateData($user);
+                break;
+
+            case 'items':
+                $data = $this->getItemsData();
+                break;
+        }
         return $this->json( $data );
     }
 
@@ -672,6 +681,52 @@ class ExternalController extends InventoryAwareController
                 ];
                 $data['hordes']['data']['cadavers']['list']['items'][] = $citizen_data;
             }
+        }
+
+        return $data ?? [];
+    }
+
+    private function getItemsData(): array
+    {
+        // Base data.
+        $data = [];
+
+        // Add items.
+        $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        /** @var ItemPrototype $item */
+        foreach ( $items as $item ) {
+            $item_data = [
+                'all' => [
+                    'id' => $item->getId(),
+                    'icon' => $item->getIcon(),
+                    'category' => $item->getCategory()->getName(),
+                    'heavy' => $item->getHeavy(),
+                    'decoration' => $item->getDeco(),
+                    'nightwatch' => $item->getWatchpoint(),
+
+                ],
+                'de' => [
+                    'name' => $item->getLabel(),
+                    'description' => $item->getDescription(),
+                    'category' => $item->getCategory()->getLabel(),
+                ],
+                'fr' => [
+                    'name' => $this->translator->trans($item->getLabel(), [], 'items', 'fr'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'items', 'fr'),
+                    'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'fr'),
+                ],
+                'en' => [
+                    'name' => $this->translator->trans($item->getLabel(), [], 'items', 'en'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'items', 'en'),
+                    'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'en'),
+                ],
+                'es' => [
+                    'name' => $this->translator->trans($item->getLabel(), [], 'items', 'es'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'items', 'es'),
+                    'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'es'),
+                ],
+            ];
+            $data[] = $item_data;
         }
 
         return $data ?? [];
