@@ -247,8 +247,8 @@ class GameFactory
                 $max_distance = $distribution[$item]['max'];
             }
             else {
-                $min_distance = 2;
-                $max_distance = 6;
+                $min_distance = 6;
+                $max_distance = 15;
             }
 
             /** @var Zone[] $dist_zone_list */
