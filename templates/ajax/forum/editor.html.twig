@@ -24,6 +24,7 @@
                 <li x-tab-id="suneditor">{% trans from 'game' %}Grafischer Editor{% endtrans %}</li>
             </ul>
         </div>
+
     </div>
     <div x-tab-group="forum-editor" x-tab-id="classic" x-tab-target>
         <div class="row classic-editor">
@@ -97,6 +98,7 @@
                 <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
                 <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                 <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
+
             </div>
             {% endif %}
             <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
@@ -131,6 +133,9 @@
             }
 
             const parseRangeBlocks = function(elem, secondary = false) {
+                if (elem.nodeType === Node.ELEMENT_NODE && elem.tagName === 'br') {
+                    return false;
+                }
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
@@ -163,12 +168,11 @@
                     }
 
                     lego(blocks,elem);
-                } else {
+                } else if (elem.nodeType === Node.ELEMENT_NODE) {
                     let children = elem.childNodes;
                     for (let i = 0; i < children.length; i++)
                         changed |= parseRangeBlocks(children[i],secondary);
                 }
-
                 return changed;
             }
             const parseInsets = function(elem, listspace = false) {
