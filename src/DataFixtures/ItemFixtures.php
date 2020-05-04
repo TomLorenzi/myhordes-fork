@@ -360,7 +360,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Best of The King CD','icon'=>'cdelvi','category'=>'furniture','deco'=>7,'heavy'=>false],                                 // -- ---
         ['label' =>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>0,'heavy'=>true],                                     // -- ---
         ['label' =>'Verteidigende HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>0,'heavy'=>true],                                   // -- ---
-        ['label' =>'Schrödingers Box','icon'=>'catbox','category'=>'box','deco'=>0,'heavy'=>false],                                          // In Out
+        ['label' =>'Schrödingers Box','icon'=>'catbox','category'=>'box','deco'=>0,'heavy'=>true],                                          // In Out
         ['label' =>'Geistiger Beistand','icon'=>'chkspk','category'=>'misc','deco'=>0,'heavy'=>false],                                       // -- ---
         ['label' =>'Fette Python','icon'=>'pet_snake2','category'=>'misc','deco'=>0,'heavy'=>true],                                          // -- ---
         ['label' =>'Überraschungskiste (3 Geschenke)','icon'=>'chest_christmas_3','category'=>'misc','deco'=>0,'heavy'=>true],               // In Out
