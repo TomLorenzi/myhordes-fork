@@ -235,9 +235,27 @@ class GameFactory
         }
 
         $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
-        shuffle($zone_list);
-        for ($i = 0; $i < min(count($item_spawns),count($zone_list)); $i++)
-            $this->inventory_handler->forceMoveItem( $zone_list[$i]->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
+        $distribution_distances = $conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []);
+        $distribution = [];
+        foreach ($distribution_distances as $dd) {
+            $distribution[$dd['item']] = ['min' => $dd['min'], 'max' => $dd['max']];
+        }
+        for ($i = 0; $i < count($item_spawns); $i++) {
+            $item = $item_spawns[$i];
+            if (isset($distribution[$item])) {
+                $min_distance = $distribution[$item]['min'];
+                $max_distance = $distribution[$item]['max'];
+            }
+            else {
+                $min_distance = 2;
+                $max_distance = 6;
+            }
+
+            /** @var Zone[] $dist_zone_list */
+            $dist_zone_list = array_filter($zone_list, new BetweenFilter($min_distance, $max_distance));
+            shuffle($dist_zone_list);
+            $this->inventory_handler->forceMoveItem( $dist_zone_list[0]->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
+        }
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
 
@@ -354,5 +372,22 @@ class GameFactory
         $this->entity_manager->persist( $this->log->citizenJoin( $citizen ) );
 
         return $citizen;
+    }
+}
+
+class BetweenFilter {
+    private $min;
+    private $max;
+
+    function __construct($min, $max) {
+        $this->min = $min;
+        $this->max = $max;
+    }
+    function isBetween($i) {
+        $d = round(sqrt( pow($i->getX(),2) + pow($i->getY(),2) ));
+        return $d >= $this->min && $d <= $this->max;
+    }
+    function __invoke($i) {
+        return $this->isBetween($i);
     }
 }
