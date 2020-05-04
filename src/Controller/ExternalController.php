@@ -111,16 +111,16 @@ class ExternalController extends InventoryAwareController
         $this->request = $request;
 
         // Try POST data
-        $app_key = $request->query->get('appkey');
-        $user_key = $request->query->get('userkey');
+        $app_key = $request->request->get('appkey');
+        $user_key = $request->request->get('userkey');
 
         // Symfony 5 has a bug on treating request data.
         // If POST didn't work, access GET data.
         if (trim($app_key) == '') {
-            $app_key = $request->request->get('appkey');
+            $app_key = $request->query->get('appkey');
         }
         if (trim($user_key) == '') {
-            $user_key = $request->request->get('userkey');
+            $user_key = $request->query->get('userkey');
         }
 
         // If still no key, none was sent correctly.
