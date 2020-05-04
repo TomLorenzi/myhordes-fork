@@ -584,7 +584,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackWatchers( Town $town ): TownLogEntry {
-        $str = T::__('De valeureux citoyens se sont postés sur les ramparts de la ville : %citizens%', 'game');
+        $str = T::__('Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'game');
 
         $citizens = "";
         foreach ($town->getCitizenWatches() as $watcher) {

@@ -605,7 +605,8 @@ class CitizenHandler
             $def -= 10;
         }
         foreach ($citizen->getInventory()->getItems() as $item) {
-            $def += $item->getPrototype()->getWatchpoint();
+            $itemWatchPoints = $item->getPrototype()->getWatchpoint();
+            $def += $itemWatchPoints;
         }
         return $def;
     }
