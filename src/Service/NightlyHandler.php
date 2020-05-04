@@ -287,21 +287,22 @@ class NightlyHandler
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen());
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
+            $ctz = $watcher->getCitizen();
             if($this->random->chance($deathChances)){
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
                 // too sad, he died by falling from the edge
                 if($overflow == 0)
-                    $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), $zombies, null, $town->getDay()+1));
-                $this->kill_wrap($watcher->getCitizen(), $cod, $false, $overflow > 0 ? $def : 0);
+                    $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0, null, $town->getDay()+1));
+                $this->kill_wrap($ctz, $cod, false, ($overflow > 0 ? $def : 0));
             } else if($this->random->chance($woundOrTerrorChances)){
                 if($this->random->chance(0.5)){
                     // Wound
-                    $this->citizen_handler->inflictWound($watcher->getCitizen());
-                    $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>wounded</info>");
+                    $this->citizen_handler->inflictWound($ctz);
+                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
                 } else {
                     // Terror
-                    $this->citizen_handler->inflictStatus($watcher->getCitizen(), $status_terror);
-                    $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
+                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
                 }
             }
 
