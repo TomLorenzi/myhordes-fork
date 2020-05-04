@@ -442,7 +442,8 @@ class TownAddonsController extends TownController
                 'def' => $this->citizen_handler->getNightwatchDefense($watcher->getCitizen()),
                 'bonusDef' => $this->citizen_handler->getNightwatchProfessionDefenseBonus($watcher->getCitizen()),
                 'bonusSurvival' => $this->citizen_handler->getNightwatchProfessionSurvivalBonus($watcher->getCitizen()),
-                'status' => array()
+                'status' => array(),
+                'items' => array()
             );
 
             foreach ($watcher->getCitizen()->getStatus() as $status) {
@@ -533,6 +534,16 @@ class TownAddonsController extends TownController
                         );
                         break;
                 }
+            }
+
+            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
+            	if($item->getPrototype()->getWatchpoint() <= 0)
+            		continue;
+            	$watchers[$watcher->getId()]['items'][] = array(
+                    'icon' => $item->getPrototype()->getIcon(),
+                    'label' => $item->getPrototype()->getLabel(),
+                    'defImpact' => $item->getPrototype()->getWatchpoint()
+                );
             }
         }
 
