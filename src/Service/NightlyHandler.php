@@ -251,6 +251,7 @@ class NightlyHandler
 	    $def  = $this->town_handler->calculate_town_def( $town );
 	    if($town->getDevastated())
 	        $def = 0;
+        
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;

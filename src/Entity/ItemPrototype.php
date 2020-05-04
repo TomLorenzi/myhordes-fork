@@ -74,7 +74,7 @@ class ItemPrototype
     /**
      * @ORM\Column(type="integer")
      */
-    private $watchpoint;
+    private $watchpoint = 0;
 
     public function __construct()
     {

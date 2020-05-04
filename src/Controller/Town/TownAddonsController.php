@@ -432,10 +432,14 @@ class TownAddonsController extends TownController
         $citizenWatch = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
         $watchers = [];
         $is_watcher = false;
+        $has_counsel = false;
+        $total_def = 0;
         foreach ($citizenWatch as $watcher) {
             if($watcher->getCitizen() == $this->getActiveCitizen()){
                 $is_watcher = true;
             }
+
+            $total_def += $this->citizen_handler->getNightwatchDefense($watcher->getCitizen());
             
             $watchers[$watcher->getId()] = array(
                 'citizen' => $watcher->getCitizen(),
@@ -537,6 +541,9 @@ class TownAddonsController extends TownController
             }
 
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
+                if($item->getPrototype()->getName() == 'chkspk_#00')
+                    $has_counsel = true;
+
             	if($item->getPrototype()->getWatchpoint() <= 0)
             		continue;
             	$watchers[$watcher->getId()]['items'][] = array(
@@ -547,6 +554,10 @@ class TownAddonsController extends TownController
             }
         }
 
+        if($has_counsel){
+            $total_def += 20 * count($watchers);
+        }
+
         $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
         $woundAndTerrorPenalty = $town->getType()->getName() == 'panda' ? 0.2 : 0.05;
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
@@ -554,7 +565,9 @@ class TownAddonsController extends TownController
             'is_watcher' => $is_watcher,
             'deathChance' => $deathChance,
             'woundAndTerrorChance' => $deathChance + $woundAndTerrorPenalty,
-            'me' => $this->getActiveCitizen()
+            'me' => $this->getActiveCitizen(),
+            'total_def' => $total_def,
+            'has_counsel' => $has_counsel
         ]) );
     }
 

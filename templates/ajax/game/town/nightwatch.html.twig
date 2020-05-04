@@ -14,9 +14,16 @@
             <button class="inline" id="watch-button">{{'Ich möchte Wächter werden!'|trans({}, 'game')}}</button>
         {% endif %}
     </div>
+
     {% if is_watcher %}
     <div class="help">
         {{'Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.'|trans({'%deathChance%': deathChance * 100|round(), '%woundAndTerrorChance%': woundAndTerrorChance * 100|round()}, 'game')}}
+    </div>
+    {% endif %}
+
+    {% if has_counsel %}
+    <div class="help">
+        La présence d'un discours rassurant multi-coloré apporte 20 points supplémentaire par veilleur :)
     </div>
     {% endif %}
 
@@ -29,9 +36,9 @@
             <div class="cell padded rw-6">{{ 'Benutzte Waffe'|trans({}, 'game') }}</div>
         </div>
         {% for watcher in watchers %}
-            <div class="row{% if watcher.citizen == me %} me{% endif %}">
-                <div class="cell padded rw-3 center vmiddle">{{watcher.citizen.user.username}}</div>
-                <div class="cell padded rw-2 center vmiddle">{{watcher.def}} <img src="{{ asset('build/images/small_zombie.gif') }}" /></div>
+            <div class="row small {% if watcher.citizen == me %} me{% endif %}">
+                <div class="cell padded rw-3 center">{{watcher.citizen.user.username}}</div>
+                <div class="cell padded rw-2 center">{{watcher.def}} <img src="{{ asset('build/images/small_zombie.gif') }}" /></div>
                 <div class="cell padded rw-6">
                     {% if watcher.citizen == me %}
                     <span>
@@ -57,6 +64,10 @@
                     {% endif %}
             </div>
         {% endfor %}
+        <div class="row small">
+            <div class="cell padded rw-6">Nombre de zombies pouvant mourir ce soir :</div>
+            <div class="cell padded rw-6">{{total_def}}</div>
+        </div>
     </div>
 {% endblock %}
 {% block js %}
