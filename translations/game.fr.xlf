@@ -9358,5 +9358,14 @@
         <target>De valeureux citoyens se sont postés sur les ramparts de la ville : %citizens%</target>
       </segment>
     </unit>
+    <unit id="vuWaICz" name="87f59f6">
+      <notes>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
+      </notes>
+      <segment>
+        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
+        <target>La présence du Discours Rassurant Multicoloré apporte 20 points de défense supplémentaire par veilleur.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
