@@ -12,7 +12,24 @@ parameters:
       unlocked_buildings: []
 
       initial_chest: ['beta_drug_#00']
-      distribute_items: ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00']
+      distribute_items: ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'firework_powder_#00','firework_tube_#00','firework_box_#00']
+
+      distribution_distance:
+        - item: 'bplan_box_e_#00'
+          min: 9
+          max: 21
+        - item: 'bplan_box_#00'
+          min: 6
+          max: 15
+        - item: 'firework_powder_#00'
+          min: 6
+          max: 15
+        - item: 'firework_tube_#00'
+          min: 6
+          max: 15
+        - item: 'firework_box_#00'
+          min: 6
+          max: 15
 
       modifiers:
         watchtower_estimation_threshold: 0
