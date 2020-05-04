@@ -104,6 +104,9 @@
             }
 
             const parseRangeBlocks = function(elem) {
+                if (elem.nodeType === Node.ELEMENT_NODE && elem.tagName === 'br') {
+                    return false;
+                }
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
@@ -131,12 +134,11 @@
                     }
 
                     lego(blocks,elem);
-                } else {
+                } else if (elem.nodeType === Node.ELEMENT_NODE) {
                     let children = elem.childNodes;
                     for (let i = 0; i < children.length; i++)
                         changed |= parseRangeBlocks(children[i]);
                 }
-
                 return changed;
             }
             const parseInsets = function(elem, listspace = false) {
@@ -361,6 +363,7 @@
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
+                console.log(document.querySelector('[x-tab-id="classic"].selected'));
                 let content = document.querySelector('[x-tab-id="classic"].selected')
                     ? document.getElementById('forum-editor-preview').innerHTML
                     : document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML;
@@ -368,13 +371,13 @@
                     target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
                     target_payload = {
                         title: document.getElementById('forum-editor-title').value,
-                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
+                        text: content,
                         {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
                     };
                 {% else %}
                     target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
                     target_payload = {
-                        text: document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML,
+                        text: content,
                         {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
                     };
                 {% endif %}
