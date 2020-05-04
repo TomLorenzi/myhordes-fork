@@ -515,16 +515,16 @@ class CitizenHandler
 
     public function getNightwatchProfessionDefenseBonus(Citizen $citizen){
         if ($citizen->getProfession()->getName() == "guardian") {
-            return 0.04;
+            return 30;
+        } else if ($citizen->getProfession()->getName() == "tamer") {
+            return 20;
         }
         return 0;
     }
 
     public function getNightwatchProfessionSurvivalBonus(Citizen $citizen){
         if ($citizen->getProfession()->getName() == "guardian") {
-            return 30;
-        } else if ($citizen->getProfession()->getName() == "tamer") {
-            return 20;
+            return 0.04;
         }
         return 0;
     }
@@ -536,15 +536,11 @@ class CitizenHandler
         $town = $citizen->getTown();
 
         $chances = $baseChance;
-        file_put_contents("/tmp/dump.txt", "getDeathChances\n");
         for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
-            file_put_contents("/tmp/dump.txt", "Day " . ($i+1) . "\n", FILE_APPEND);
             if($previousWatches === null) {
-                file_put_contents("/tmp/dump.txt", "Repos\n", FILE_APPEND);
                 $chances = max($baseChance, $chances -= 0.05);
             } else {
-                file_put_contents("/tmp/dump.txt", "Fatigue\n", FILE_APPEND);
                 $chances = min(1, $chances += 0.1);
             }
         }

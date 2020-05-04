@@ -35,14 +35,14 @@
                          <span class="warning">
                             {{'Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.'|trans({}, 'game')}}
                             {% if has_battlement %}
-                            <div x-ajax-href="{{ path('town_dashboard') }}">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
+                            <div x-ajax-href="{{ path('town_nightwatch') }}" class="link">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}
                         </span>
                     {% elseif def > zeds_today[1] and def < zeds_today[2] %}
                         <span class="warning">
                             {{'Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...'|trans({}, 'game')}}
                             {% if has_battlement %}
-                                <div x-ajax-href="{{ path('town_dashboard') }}">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
+                                <div x-ajax-href="{{ path('town_nightwatch') }}" class="link">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}
                         </span>
                     {% else %}

@@ -7,6 +7,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
+use App\Entity\CitizenWatch;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
@@ -261,7 +262,12 @@ class NightlyHandler
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
-        if(count($town->getCitizenWatches()) > 0) {
+
+        $this->log->debug("Getting watchers for day " . $town->getDay());
+        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
+
+        if(count($watchers) > 0) {
+
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town));
         }
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
@@ -274,9 +280,7 @@ class NightlyHandler
             $zeds_each_watcher = $overflow / count($town->getCitizenWatches());
         }
 
-        $watchers = $this->entity_manager->getRepository(Town::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
-
-        $this->log->debug("There are <info>".count($watchers)."</info> in the town");
+        $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town");
 
         foreach ($watchers as $watcher) {
             $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) : $zeds_each_watcher;
@@ -706,6 +710,7 @@ class NightlyHandler
         $status_camping           = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
         $picto_camping            = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_camp_#00' );
         $picto_camping_devastated = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_cmplst_#00' );
+        $picto_nightwatch         = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_guard_#00' );
         $this->log->info('<info>Processing Pictos functions</info> ...');
 
         // Marking pictos as obtained not-today
@@ -762,6 +767,12 @@ class NightlyHandler
                 } else {
                     $this->picto_handler->give_picto($citizen, $picto_camping);
                 }
+            }
+
+            // Giving picto nightwatch if he's watcher
+            $watch = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $town->getDay() - 1);
+            if($watch !== null){
+                $this->picto_handler->give_picto($citizen, $picto_nightwatch);
             }
         }
     }

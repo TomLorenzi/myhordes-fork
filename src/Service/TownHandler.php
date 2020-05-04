@@ -344,7 +344,7 @@ class TownHandler
         }
 
         if($has_counsel)
-            $total_def += 20 * count($town->getCitizenWatches());
+            $total_def += 20 * count($watchers);
 
         return $total_def;
     }

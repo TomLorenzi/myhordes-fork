@@ -6336,8 +6336,6 @@
     </unit>
     <unit id="rSInXr8" name="Du kannst dich nicht fortbewegen während du versteckt bist.">
       <notes>
-        <note>Du kannst dich nicht fortbewegen während du versteckt bist.</note>
-        <note>Du kannst dich nicht fortbewegen, während du versteckt bist.</note>
         <note category="german">Du kannst dich nicht fortbewegen, während du versteckt bist.</note>
       </notes>
       <segment>
@@ -6358,13 +6356,11 @@
     </unit>
     <unit id="jpuNBoV" name="Du kannst helfen und dich der heutigen Nachtwache anschließen!">
       <notes>
-        <note>Du kannst helfen und dich der heutigen Nachtwache anschließen!</note>
-        <note>Du kannst helfen und dich der heutigen Nachtwache anschließen!</note>
         <note category="german">Du kannst helfen und dich der heutigen Nachtwache anschließen!</note>
       </notes>
       <segment>
         <source>Du kannst helfen und dich der heutigen Nachtwache anschließen!</source>
-        <target>Du kannst helfen und dich der heutigen Nachtwache anschließen!</target>
+        <target>Vous pouvez aider en devenant veilleur !</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -9269,7 +9265,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
+        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
       </segment>
     </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
