@@ -133,9 +133,6 @@
             }
 
             const parseRangeBlocks = function(elem, secondary = false) {
-                if (elem.nodeType === Node.ELEMENT_NODE && elem.tagName === 'br') {
-                    return false;
-                }
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
@@ -149,23 +146,20 @@
 
                         const tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
-                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); break;
-                            case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); break;
+                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); changed = true; break;
+                            case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
-                            case '*': blocks.push( [ match[2], 'b', null] ); break;
-                            case '/': blocks.push( [ match[2], 'i', null] ); break;
-                            case '-': blocks.push( [ match[2], 's', null] ); break;
+                            case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
+                            case '/': blocks.push( [ match[2], 'i', null] ); changed = true; break;
+                            case '-': blocks.push( [ match[2], 's', null] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         }
                         current_offset = (match[0].length + match.index);
                     }
 
                     if (blocks.length === 0) blocks.push( str );
-                    else {
-                        changed = true;
-                        if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
-                    }
+                    else if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
 
                     lego(blocks,elem);
                 } else if (elem.nodeType === Node.ELEMENT_NODE) {
