@@ -3,9 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CitizenWatchRepository")
+ * @UniqueEntity("watch_unique")
+ * @Table(uniqueConstraints={
+ *     @UniqueConstraint(name="watch_unique_unique",columns={"town_id", "citizen_id", "day"})
+ * })
  */
 class CitizenWatch
 {
@@ -23,7 +30,7 @@ class CitizenWatch
     private $town;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Citizen", inversedBy="citizenWatch")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Citizen", inversedBy="citizenWatch")
      * @ORM\JoinColumn(nullable=true)
      */
     private $citizen;

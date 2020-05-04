@@ -251,7 +251,7 @@ class NightlyHandler
 	    $def  = $this->town_handler->calculate_town_def( $town );
 	    if($town->getDevastated())
 	        $def = 0;
-        
+
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
@@ -261,9 +261,54 @@ class NightlyHandler
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
+        if(count($town->getCitizenWatches()) > 0) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town));
+        }
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
-        if ($overflow <= 0) return;
+        $total_watch_def = $this->town_handler->calculate_watch_def($town);
+        $zeds_each_watcher = -1;
+        if($total_watch_def > $overflow){
+            // If we have more watchpoint than the overflow, 
+            // we dispatch the zeds
+            $zeds_each_watcher = $overflow / count($town->getCitizenWatches());
+        }
+
+        $watchers = $this->entity_manager->getRepository(Town::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
+
+        $this->log->debug("There are <info>".count($watchers)."</info> in the town");
+
+        foreach ($watchers as $watcher) {
+            $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) : $zeds_each_watcher;
+
+            $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen());
+            $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
+            if($this->random->chance($deathChances)){
+                $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
+                // too sad, he died by falling from the edge
+                if($overflow == 0)
+                    $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), $zombies, null, $town->getDay()+1));
+                $this->kill_wrap($watcher->getCitizen(), $cod, $false, $overflow > 0 ? $def : 0);
+            } else if($this->random->chance($woundOrTerrorChances)){
+                if($this->random->chance(0.5)){
+                    // Wound
+                    $this->citizen_handler->inflictWound($watcher->getCitizen());
+                    $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>wounded</info>");
+                } else {
+                    // Terror
+                    $this->citizen_handler->inflictStatus($watcher->getCitizen(), $status_terror);
+                    $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                }
+            }
+
+            $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
+
+            $overflow -= $def;
+        }
+
+        if ($overflow <= 0) {
+            return;
+        }
 
         $survival_count = 0;
         /** @var Citizen[] $targets */

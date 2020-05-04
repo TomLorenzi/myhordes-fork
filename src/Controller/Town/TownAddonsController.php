@@ -25,6 +25,7 @@ use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -439,11 +440,11 @@ class TownAddonsController extends TownController
                 $is_watcher = true;
             }
 
-            $total_def += $this->citizen_handler->getNightwatchDefense($watcher->getCitizen());
+            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
             
             $watchers[$watcher->getId()] = array(
                 'citizen' => $watcher->getCitizen(),
-                'def' => $this->citizen_handler->getNightwatchDefense($watcher->getCitizen()),
+                'def' => $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()),
                 'bonusDef' => $this->citizen_handler->getNightwatchProfessionDefenseBonus($watcher->getCitizen()),
                 'bonusSurvival' => $this->citizen_handler->getNightwatchProfessionSurvivalBonus($watcher->getCitizen()),
                 'status' => array(),
@@ -554,17 +555,19 @@ class TownAddonsController extends TownController
             }
         }
 
+        // total def cannot be negative
+        $total_def = max(0, $total_def);
+
         if($has_counsel){
             $total_def += 20 * count($watchers);
         }
 
         $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
-        $woundAndTerrorPenalty = $town->getType()->getName() == 'panda' ? 0.2 : 0.05;
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
             'deathChance' => $deathChance,
-            'woundAndTerrorChance' => $deathChance + $woundAndTerrorPenalty,
+            'woundAndTerrorChance' => $deathChance + $this->getTownConf()->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05),
             'me' => $this->getActiveCitizen(),
             'total_def' => $total_def,
             'has_counsel' => $has_counsel
@@ -600,13 +603,15 @@ class TownAddonsController extends TownController
             }
 
             $town->removeCitizenWatch($activeCitizenWatcher);
-            $this->getActiveCitizen()->setCitizenWatch(null);
+            $this->getActiveCitizen()->removeCitizenWatch($activeCitizenWatcher);
             $this->entity_manager->remove($activeCitizenWatcher);
         } else if ($action == "watch") {
             $citizenWatch = new CitizenWatch();
             $citizenWatch->setTown($town)->setCitizen($this->getActiveCitizen())->setDay($town->getDay());
             $town->addCitizenWatch($citizenWatch);
-            $this->getActiveCitizen()->setCitizenWatch($citizenWatch);
+
+            $this->getActiveCitizen()->addCitizenWatch($citizenWatch);
+
             $this->entity_manager->persist($citizenWatch);
         }
 

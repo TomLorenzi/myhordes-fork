@@ -60,13 +60,14 @@
                             <div class="tooltip">{{ item.defImpact }} <img src="{{ asset('build/images/small_zombie.gif') }}" /></div>
                         </span>
                     {% endfor %}
-                    {% if watcher.citizen == me %}<button x-ajax-href="{{path('town_bank')}}">{{'Wähle meine Waffen!'|trans({}, 'game')}}</div>{% endif %}</div>
+                    {% if watcher.citizen == me %}<button x-ajax-href="{{path('town_bank')}}">{{'Wähle meine Waffen!'|trans({}, 'game')}}</button>{% endif %}
                     {% endif %}
+                </div>
             </div>
         {% endfor %}
-        <div class="row small">
-            <div class="cell padded rw-6">Nombre de zombies pouvant mourir ce soir :</div>
-            <div class="cell padded rw-6">{{total_def}}</div>
+        <div class="row small total">
+            <div class="cell padded rw-8">{{'Gesamtzahl der Zombies, die heute Nacht sterben könnten:'|trans({}, 'game')}}</div>
+            <div class="cell padded rw-4">{{total_def}}</div>
         </div>
     </div>
 {% endblock %}

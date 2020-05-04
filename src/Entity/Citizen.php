@@ -206,7 +206,7 @@ class Citizen
     private $disposedBy;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\CitizenWatch", mappedBy="citizen", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="citizen", orphanRemoval=true)
      */
     private $citizenWatch;
 
@@ -222,6 +222,7 @@ class Citizen
         $this->votes = new ArrayCollection();
         $this->leadingEscorts = new ArrayCollection();
         $this->disposedBy = new ArrayCollection();
+        $this->citizenWatch = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -883,9 +884,18 @@ class Citizen
         return $this->citizenWatch;
     }
 
-    public function setCitizenWatch(?CitizenWatch $citizenWatch): self
+    public function addCitizenWatch(?CitizenWatch $citizenWatch): self
     {
-        $this->citizenWatch = $citizenWatch;
+        if(!$this->citizenWatch->contains($citizenWatch))
+            $this->citizenWatch[] = $citizenWatch;
+
+        return $this;
+    }
+
+    public function removeCitizenWatch(?CitizenWatch $citizenWatch): self
+    {
+        if($this->citizenWatch->contains($citizenWatch))
+        $this->citizenWatch->removeElement($citizenWatch);
 
         return $this;
     }

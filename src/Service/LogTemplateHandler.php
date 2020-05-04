@@ -354,6 +354,22 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
+    public function citizenDeathOnWatch( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
+        $str = T::__('%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!','game');
+
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeCitizens )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $day ?? $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setZone( $zone )
+            ->setText( $this->trans->trans($str, [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
+            ], 'game' ) );
+    }
+
     public function homeUpgrade( Citizen $citizen ): TownLogEntry {
         return (new TownLogEntry())
             ->setType( TownLogEntry::TypeHome )
@@ -564,6 +580,26 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setText( $this->trans->trans($str, [
                 '%num%' => $this->wrap( "{$num_zombies}" ),
+            ], 'game' ) );
+    }
+
+    public function nightlyAttackWatchers( Town $town ): TownLogEntry {
+        $str = T::__('De valeureux citoyens se sont postés sur les ramparts de la ville : %citizens%', 'game');
+
+        $citizens = "";
+        foreach ($town->getCitizenWatches() as $watcher) {
+            if(!empty($citizens)) $citizens .= ", ";
+            $citizens .= $this->wrap( $this->iconize( $watcher->getCitizen()));
+        }
+        
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeNightly )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setText( $this->trans->trans($str, [
+                '%citizens%' => $citizens,
             ], 'game' ) );
     }
 

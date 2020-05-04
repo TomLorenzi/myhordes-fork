@@ -20,6 +20,7 @@ parameters:
         assemble_items_from_floor: false
         preview_item_assemblage: false
         infection_death_chance: 0.5
+        wound_terror_penalty: 0.05
         poison:
           stack_poisoned_items: false
           transgress: false
@@ -54,6 +55,7 @@ parameters:
       well: { min: 60, max: 90 }
       modifiers:
         infection_death_chance: 0.75
+        wound_terror_penalty: 0.2
 
     custom:
       allow_local_conf: true

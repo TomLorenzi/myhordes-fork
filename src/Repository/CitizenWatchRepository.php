@@ -33,6 +33,18 @@ class CitizenWatchRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findWatchersOfDay(Town $town, int $day){
+         return $this->createQueryBuilder('c')
+            ->andWhere('c.town = :town')
+            ->andWhere('c.day = :day')
+            ->setParameter('town', $town)
+            ->setParameter('day', $day)
+            ->orderBy('c.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function findWatchOfCitizenForADay(Citizen $citizen, int $day){
          return $this->createQueryBuilder('c')
             ->andWhere('c.town = :town')
@@ -41,7 +53,7 @@ class CitizenWatchRepository extends ServiceEntityRepository
             ->setParameter('town', $citizen->getTown())
             ->setParameter('citizen', $citizen)
             ->setParameter('day', $day)
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('c.day', 'ASC')
             ->getQuery()
             ->getOneOrNullResult()
         ;

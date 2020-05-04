@@ -9,6 +9,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
@@ -320,8 +321,32 @@ class TownHandler
             $summary->item_defense = 500;
 
         $summary->soul_defense = $town->getSoulDefense();
+
+        $summary->nightwatch_defense = $this->calculate_watch_def($town);
         
         return $summary->sum();
+    }
+
+    public function calculate_watch_def(Town $town){
+        $total_def = 0;
+        $has_counsel = false;
+
+        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+
+        foreach ($watchers as $watcher) {
+            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
+            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
+                if($item->getPrototype()->getName() == 'chkspk_#00') {
+                    $has_counsel = true;
+                    break;
+                }
+            }
+        }
+
+        if($has_counsel)
+            $total_def += 20 * count($town->getCitizenWatches());
+
+        return $total_def;
     }
 
     public function get_zombie_estimation_quality(Town &$town, int $future = 0, ?int &$min = null, ?int &$max = null): float {

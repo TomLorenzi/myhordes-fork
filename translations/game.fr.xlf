@@ -9335,5 +9335,14 @@
         <target>Vous êtes gravement blessé au pied ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
       </segment>
     </unit>
+    <unit id="xi60kHY" name="Gesamtzahl der Zombies, die heute Nacht sterben könnten:">
+      <notes>
+        <note category="german">Gesamtzahl der Zombies, die heute Nacht sterben könnten:</note>
+      </notes>
+      <segment>
+        <source>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</source>
+        <target>Total des zombies qui peuvent mourir ce soir :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
