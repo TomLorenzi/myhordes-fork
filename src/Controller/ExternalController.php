@@ -24,6 +24,7 @@ use App\Service\TimeKeeperService;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use App\Service\ZoneHandler;
+use App\Translation\T;
 use DateTime;
 use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
@@ -100,49 +101,100 @@ class ExternalController extends InventoryAwareController
     }
 
     /**
-     * @Route("/api/x/json", name="api_x_json", methods={"POST"})
+     * @Route("/api/x/json", name="api_x_json", defaults={"_format"="json"}, methods={"POST"})
      * @return Response
      */
-    public function api_json(Request $request): Response
+    public function api_json(): Response
     {
+
+        $request = Request::createFromGlobals();
         $this->request = $request;
-        $user_key = $request->request->get('userkey');
-        $app_key = $request->request->get('appkey');
 
+        // Try POST data
+        $app_key = $request->query->get('appkey');
+        $user_key = $request->query->get('userkey');
+
+        // Symfony 5 has a bug on treating request data.
+        // If POST didn't work, access GET data.
+        if (trim($app_key) == '') {
+            $app_key = $request->request->get('appkey');
+        }
+        if (trim($user_key) == '') {
+            $user_key = $request->request->get('userkey');
+        }
+
+        // If still no key, none was sent correctly.
+        if (trim($app_key) == '') {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No app key found in request.']);
+        }
+        if (trim($app_key) == '') {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No user key found in request.']);
+        }
+
+        // Get the app.
+        /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-
         if (!$app) {
             return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
         }
-        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
 
+        // Get the user.
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
         if (!$user) {
             return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed by user.']);
         }
+
+        // All fine, let's populate the response.
         $data = $this->generateData($user);
         return $this->json( $data );
     }
 
     /**
-     * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"POST"})
      * @return Response
      */
-    public function api_xml(Request $request): Response
+    public function api_xml(): Response
     {
+        $request = Request::createFromGlobals();
         $this->request = $request;
-        $user_key = $request->request->get('userkey') ?? $request->query->get('userkey');
-        $app_key = $request->request->get('appkey') ?? $request->query->get('appkey');
 
-        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
+        // Try POST data
+        $app_key = $request->query->get('appkey');
+        $user_key = $request->query->get('userkey');
 
-        if (!$app) {
-           return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
+        // Symfony 5 has a bug on treating request data.
+        // If POST didn't work, access GET data.
+        if (trim($app_key) == '') {
+            $app_key = $request->request->get('appkey');
         }
-        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
+        if (trim($user_key) == '') {
+            $user_key = $request->request->get('userkey');
+        }
 
+        // If still no key, none was sent correctly.
+        if (trim($app_key) == '') {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No app key found in request.']);
+        }
+        if (trim($app_key) == '') {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No user key found in request.']);
+        }
+
+        // Get the app.
+        /** @var ExternalApp $app */
+        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
+        if (!$app) {
+            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
+        }
+
+        // Get the user.
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
         if (!$user) {
             return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed by user.']);
         }
+
+        // All fine, let's populate the response.
         $data = $this->generateLegacyData($user);
         $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
         #$response = new Response(print_r($data, 1));
@@ -402,6 +454,8 @@ class ExternalController extends InventoryAwareController
         /** @var Zone $citizen_zone */
         $citizen_zone = $citizen->getZone();
 
+        $language = $town->getLanguage() ?? 'de';
+
         $x_min = $x_max = $y_min = $y_max = 0;
         foreach ( $town->getZones() as $zone ) {
             /** @var Zone $zone */
@@ -529,7 +583,7 @@ class ExternalController extends InventoryAwareController
             if ($building->getComplete()) {
                 $building_data = [
                     'attributes' => [
-                        'name' => $building->getPrototype()->getLabel(),
+                        'name' => T::__($building->getPrototype()->getLabel(), "game"),
                         'temporary' => $building->getPrototype()->getTemp(),
                         'id' => $building->getPrototype()->getId(),
                         'img' => $building->getPrototype()->getIcon(),
@@ -544,7 +598,7 @@ class ExternalController extends InventoryAwareController
         foreach ( $inventory->getItems() as $item ) {
             $item_data = [
                 'attributes' => [
-                    'name' => $item->getPrototype()->getLabel(),
+                    'name' => T::__($item->getPrototype()->getLabel(), "game"),
                     'count' => $item->getCount(),
                     'id' => $item->getPrototype()->getId(),
                     'img' => $item->getPrototype()->getIcon(),
