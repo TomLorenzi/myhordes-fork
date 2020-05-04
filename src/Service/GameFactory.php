@@ -235,9 +235,8 @@ class GameFactory
         }
 
         $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
-        $distribution_distances = $conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []);
         $distribution = [];
-        foreach ($distribution_distances as $dd) {
+        foreach ($conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []) as $dd) {
             $distribution[$dd['item']] = ['min' => $dd['min'], 'max' => $dd['max']];
         }
         for ($i = 0; $i < count($item_spawns); $i++) {
