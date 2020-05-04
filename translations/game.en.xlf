@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>L'alarme de %victim% a réveillé la moitié de la ville et vous a effrayé !</target>
+        <target>%victim%'s alarm woke up half of the town and scared you !</target>
       </segment>
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
@@ -28,7 +28,7 @@
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</source>
-        <target>Parfait, personne ne vous a vu vous infiltrer chez %victim%.</target>
+        <target>Perfect, nobody saw you infiltrating %victim%'s home.</target>
       </segment>
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
@@ -38,7 +38,7 @@
       </notes>
       <segment>
         <source>Deine Route wurde gespeichert.</source>
-        <target>Votre expédition a été sauvegardée.</target>
+        <target>Your expedition has been saved.</target>
       </segment>
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
@@ -48,7 +48,7 @@
       </notes>
       <segment>
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>Vous avez changé votre annonce.</target>
+        <target>You have changed your announcement.</target>
       </segment>
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</source>
-        <target>%citizen% a travaillé sur le projet %plan% et a dépensé %ap%.</target>
+        <target>%citizen% worked on the project %plan% and spent %ap%.</target>
       </segment>
     </unit>
     <unit id="XyE6HNd" name="4d6306a">
@@ -98,7 +98,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadttor %action%.</source>
-        <target>%citizen% a %action% les portes de la ville.</target>
+        <target>%citizen% has %action% town's gates.</target>
       </segment>
     </unit>
     <unit id="7F6V04y" name="geöffnet">
@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>geöffnet</source>
-        <target>ouvert</target>
+        <target>open</target>
       </segment>
     </unit>
     <unit id="2nMdNJ8" name="geschlossen">
@@ -118,7 +118,7 @@
       </notes>
       <segment>
         <source>geschlossen</source>
-        <target>fermé</target>
+        <target>closed</target>
       </segment>
     </unit>
     <unit id="_B_xHpE" name="Das Stadttor wurde automatisch %action%.">
@@ -128,7 +128,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>La porte a été %action% automatiquement.</target>
+        <target>Gates had been %action% automaticaly.</target>
       </segment>
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
@@ -138,7 +138,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% est %action% de la ville.</target>
+        <target>%citizen% has %action% town.</target>
       </segment>
     </unit>
     <unit id="RvCIvJN" name="betreten">
@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>betreten</source>
-        <target>entré</target>
+        <target>entered</target>
       </segment>
     </unit>
     <unit id="N0kS6xp" name="verlassen">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>verlassen</source>
-        <target>sorti</target>
+        <target>left</target>
       </segment>
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
@@ -208,7 +208,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</source>
-        <target>%citizen% a amélioré sa maison en %home%...</target>
+        <target>%citizen% upgraded his home in %home%...</target>
       </segment>
     </unit>
     <unit id="0uk_Ijd" name="8121de7">
@@ -218,7 +218,7 @@
       </notes>
       <segment>
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% a produit %list2% a partir de %list1%.</target>
+        <target>%citizen% produced %list2% from %list1%.</target>
       </segment>
     </unit>
     <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% a ressucité et a dévoré %victim% !</target>
+        <target>%zombie% resurrected and devoured %victim% !</target>
       </segment>
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% a ressucité et le bâtiment %building% a été détruit !</target>
+        <target>%zombie% resurrected and the building %building% has been destroyed !</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -248,7 +248,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% a ressucité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
+        <target>%zombie% resurrected and infected the well ! This cost us %num% water ration(s) !</target>
       </segment>
     </unit>
     <unit id="ByzkImj" name="8895c43">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>%num% Zombies attackieren die Stadtbewohner!</source>
-        <target>%num% zombies ont attaqués les citoyens !</target>
+        <target>%num% zombies attacked the citizens !</target>
       </segment>
     </unit>
     <unit id="eJyeGor" name="82478bf">
