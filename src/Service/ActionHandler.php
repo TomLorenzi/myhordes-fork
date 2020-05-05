@@ -1028,7 +1028,7 @@ class ActionHandler
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv );
 
         if ($recipe->getType() === Recipe::WorkshopType)
-            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, $items, [$new_item] ) );
+            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( function(Item $e) { return array($e->getPrototype()); }, $items  ), array([$new_item]) ) );
 
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
