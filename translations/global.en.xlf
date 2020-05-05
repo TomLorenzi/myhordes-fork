@@ -685,7 +685,7 @@
         <target>Unstick</target>
       </segment>
     </unit>
-     <unit id="_zZCBE9" name="Anpinnen">
+    <unit id="_zZCBE9" name="Anpinnen">
       <notes>
         <note category="german">Anpinnen</note>
       </notes>
@@ -697,7 +697,7 @@
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
         <note>Verbesserung des Tages</note>
-        <note category="german">Verbesserung des Tages</note>
+        <note category="german">Town upgrades</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -706,7 +706,7 @@
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
       <notes>
-        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+        <note category="german">Use this subject for discussions involving the town upgrades you wish to carry out...</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
@@ -715,7 +715,7 @@
     </unit>
     <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
       <notes>
-        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+        <note category="german">Use this subject for discussions involving the workshop and production of resources in town...</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
@@ -724,7 +724,7 @@
     </unit>
     <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
       <notes>
-        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+        <note category="german">Use this subject for discussions involving buildings and construction sites...</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
@@ -733,11 +733,137 @@
     </unit>
     <unit id="aTN.bek" name="Vorschau">
       <notes>
-        <note category="german">Vorschau</note>
+        <note category="german">Preview</note>
       </notes>
       <segment>
         <source>Vorschau</source>
         <target>Preview</target>
+      </segment>
+    </unit>
+    <unit id="5lMuG5Z" name="Schere">
+      <notes>
+        <note category="german">Schere</note>
+      </notes>
+      <segment>
+        <source>Schere</source>
+        <target>Schere</target>
+      </segment>
+    </unit>
+    <unit id="eVtWA3U" name="Stein">
+      <notes>
+        <note category="german">Stein</note>
+      </notes>
+      <segment>
+        <source>Stein</source>
+        <target>Stein</target>
+      </segment>
+    </unit>
+    <unit id="vXPlKOG" name="Papier">
+      <notes>
+        <note category="german">Papier</note>
+      </notes>
+      <segment>
+        <source>Papier</source>
+        <target>Papier</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Kopf</target>
+      </segment>
+    </unit>
+    <unit id="ZU60wKO" name="Zahl">
+      <notes>
+        <note category="german">Zahl</note>
+      </notes>
+      <segment>
+        <source>Zahl</source>
+        <target>Zahl</target>
+      </segment>
+    </unit>
+    <unit id="ysTRqQl" name="{color} {value}">
+      <notes>
+        <note category="german">{color} {value}</note>
+      </notes>
+      <segment>
+        <source>{color} {value}</source>
+        <target>{color} {value}</target>
+      </segment>
+    </unit>
+    <unit id="awzJBNC" name="Users">
+      <notes>
+        <note category="german">Users</note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Users</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="qyBuyhw" name="Du wurdest aus dem Forum verbannt.">
+      <notes>
+        <note category="german">Du wurdest aus dem Forum verbannt.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest aus dem Forum verbannt.</source>
+        <target>Du wurdest aus dem Forum verbannt.</target>
+      </segment>
+    </unit>
+    <unit id="nCT0Wn6" name="Dev">
+      <notes>
+        <note category="german">Dev</note>
+      </notes>
+      <segment>
+        <source>Dev</source>
+        <target>Dev</target>
+      </segment>
+    </unit>
+    <unit id="8WE8vgC" name="Rabe">
+      <notes>
+        <note category="german">Rabe</note>
+      </notes>
+      <segment>
+        <source>Rabe</source>
+        <target>Rabe</target>
+      </segment>
+    </unit>
+    <unit id="h0cXaFP" name="Sticky">
+      <notes>
+        <note category="german">Sticky</note>
+      </notes>
+      <segment>
+        <source>Sticky</source>
+        <target>Sticky</target>
+      </segment>
+    </unit>
+    <unit id="DSG9UgI" name="Online">
+      <notes>
+        <note category="german">Online</note>
+      </notes>
+      <segment>
+        <source>Online</source>
+        <target>Online</target>
+      </segment>
+    </unit>
+    <unit id="oXlHg6q" name="Offline">
+      <notes>
+        <note category="german">Offline</note>
+      </notes>
+      <segment>
+        <source>Offline</source>
+        <target>Offline</target>
       </segment>
     </unit>
   </file>

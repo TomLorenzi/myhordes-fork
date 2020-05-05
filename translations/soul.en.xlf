@@ -420,7 +420,7 @@
     </unit>
     <unit id="mUtATjH" name="1de0d19">
       <notes>
-        <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</note>
+        <note category="german">Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</note>
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
@@ -510,7 +510,7 @@
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
       <notes>
-        <note category="german">Standardrolle im Forum</note>
+        <note category="german">Rôle par défaut dans le forum</note>
       </notes>
       <segment>
         <source>Standardrolle im Forum</source>
@@ -519,7 +519,7 @@
     </unit>
     <unit id="uqXS6rA" name="Standardmäßig als dev posten">
       <notes>
-        <note category="german">Standardmäßig als dev posten</note>
+        <note category="german">Poster comme développeur par défaut</note>
       </notes>
       <segment>
         <source>Standardmäßig als dev posten</source>
@@ -528,15 +528,57 @@
     </unit>
     <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
       <notes>
-        <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
+        <note category="german">There's still alive citizens in this town...</note>
       </notes>
       <segment>
         <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
         <target>There's still alive citizens in this town...</target>
       </segment>
     </unit>
-  </file>
-</xliff>
-
+    <unit id="YDybxz8" name="Standardsprache">
+      <notes>
+        <note category="german">Standardsprache</note>
+      </notes>
+      <segment>
+        <source>Standardsprache</source>
+        <target>Standardsprache</target>
+      </segment>
+    </unit>
+    <unit id="gBz_D6E" name="Deutsch">
+      <notes>
+        <note category="german">Deutsch</note>
+      </notes>
+      <segment>
+        <source>Deutsch</source>
+        <target>Deutsch</target>
+      </segment>
+    </unit>
+    <unit id="vp_4VdN" name="Französisch">
+      <notes>
+        <note category="german">Französisch</note>
+      </notes>
+      <segment>
+        <source>Französisch</source>
+        <target>Französisch</target>
+      </segment>
+    </unit>
+    <unit id="mD6lfyI" name="Englisch">
+      <notes>
+        <note category="german">Englisch</note>
+      </notes>
+      <segment>
+        <source>Englisch</source>
+        <target>Englisch</target>
+      </segment>
+    </unit>
+    <unit id="bjgV6Xr" name="Spanisch">
+      <notes>
+        <note category="german">Spanisch</note>
+      </notes>
+      <segment>
+        <source>Spanisch</source>
+        <target>Spanisch</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

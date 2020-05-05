@@ -8293,5 +8293,29 @@
         <target>Pts</target>
       </segment>
     </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="R2RcDum" name="Kompass">
+      <notes>
+        <note category="german">Kompass</note>
+      </notes>
+      <segment>
+        <source>Kompass</source>
+        <target>Kompass</target>
+      </segment>
+    </unit>
+    <unit id="TWuwK4M" name="Angriff und Verteidigung">
+      <notes>
+        <note category="german">Angriff und Verteidigung</note>
+      </notes>
+      <segment>
+        <source>Angriff und Verteidigung</source>
+        <target>Angriff und Verteidigung</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

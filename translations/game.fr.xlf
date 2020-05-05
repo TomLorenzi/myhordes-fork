@@ -2481,7 +2481,7 @@
       </notes>
       <segment>
         <source>Zonenchat</source>
-        <target></target>
+        <target>Zone Chat</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -8716,7 +8716,7 @@
     </unit>
     <unit id="B5vvTiM" name="Senden">
       <notes>
-        <note category="german">Senden</note>
+        <note category="german">Send</note>
       </notes>
       <segment>
         <source>Senden</source>
@@ -9381,6 +9381,24 @@
       <segment>
         <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
         <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sur dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir à l'agonie dans le désert.</target>
+      </segment>
+    </unit>
+    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Schamane dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Schamane dieser Stadt.</source>
+        <target>Du bist der Schamane dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
+        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
       </segment>
     </unit>
   </file>
