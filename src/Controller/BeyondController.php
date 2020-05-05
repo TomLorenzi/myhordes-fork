@@ -109,6 +109,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
         $citizen_hidden = !$this->activeCitizenIsNotCamping();
 
+
+
+        $scavenger_sense = $this->getActiveCitizen()->getProfession()->getName() === 'collec';
         $scout_level = null;
         $scout_sense = false;
 
@@ -140,6 +143,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'active_scout_mode' => $scout_movement,
             'scout_level' => $scout_level,
             'scout_sense' => $scout_sense,
+            'scavenger_sense' => $scavenger_sense,
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'camping' => $this->getCampingActions(),
