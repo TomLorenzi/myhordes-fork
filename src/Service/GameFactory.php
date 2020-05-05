@@ -351,8 +351,6 @@ class GameFactory
             /** @var $heroic_action HeroicActionPrototype */
             $citizen->addHeroicAction( $heroic_action );
 
-        $this->entity_manager->persist( $this->log->citizenJoin( $citizen ) );
-
         return $citizen;
     }
 }
