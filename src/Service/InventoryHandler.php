@@ -320,8 +320,8 @@ class InventoryHandler
     const ErrorExpandBlocked   = ErrorHelper::BaseInventoryErrors + 8;
     const ErrorTransferBlocked   = ErrorHelper::BaseInventoryErrors + 9;
     const ErrorUnstealableItem   = ErrorHelper::BaseInventoryErrors + 10;
-
-
+    const ErrorEscortDropForbidden  = ErrorHelper::BaseInventoryErrors + 11;
+    const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
 
     const ModalityNone    = 0;
     const ModalityTamer   = 1;
@@ -339,7 +339,7 @@ class InventoryHandler
             return self::ErrorInvalidTransfer;
 
         if (!$this->transferType( $item,$actor, $to, $from, $type_to, $type_from ))
-            return self::ErrorInvalidTransfer;
+            return $item->getEssential() ? self::ErrorEssentialItemBlocked : self::ErrorInvalidTransfer;
 
         // Check inventory size
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
@@ -362,6 +362,11 @@ class InventoryHandler
             ($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
             $this->countHeavyItems($to)
         ) return self::ErrorHeavyLimitHit;
+
+        if ($type_from === self::TransferTypeEscort) {
+            // Prevent undroppable items
+            if ($item->getEssential() || $item->getPrototype()->hasProperty('esc_fixed')) return self::ErrorEscortDropForbidden;
+        }
 
         //ToDo Check Bank lock
         if ($type_from === self::TransferTypeBank) {
