@@ -24,6 +24,7 @@
                 <li x-tab-id="suneditor">{% trans from 'game' %}Grafischer Editor{% endtrans %}</li>
             </ul>
         </div>
+
     </div>
     <div x-tab-group="forum-editor" x-tab-id="classic" x-tab-target>
         <div class="row classic-editor">
@@ -97,6 +98,7 @@
                 <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
                 <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                 <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
+
             </div>
             {% endif %}
             <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
@@ -151,23 +153,20 @@
 
                         const tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
-                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); break;
-                            case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); break;
+                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); changed = true; break;
+                            case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
-                            case '*': blocks.push( [ match[2], 'b', null] ); break;
-                            case '/': blocks.push( [ match[2], 'i', null] ); break;
-                            case '-': blocks.push( [ match[2], 's', null] ); break;
+                            case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
+                            case '/': blocks.push( [ match[2], 'i', null] ); changed = true; break;
+                            case '-': blocks.push( [ match[2], 's', null] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         }
                         current_offset = (match[0].length + match.index);
                     }
 
                     if (blocks.length === 0) blocks.push( str );
-                    else {
-                        changed = true;
-                        if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
-                    }
+                    else if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
 
                     lego(blocks,elem);
                 } else if (elem.nodeType === Node.ELEMENT_NODE) {
