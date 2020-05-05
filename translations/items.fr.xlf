@@ -3019,8 +3019,6 @@
     </unit>
     <unit id="dy9JAOu" name="Verirrte Seele">
       <notes>
-        <note>Verirrte Seele</note>
-        <note>Verirrte Seele</note>
         <note category="german">Verirrte Seele</note>
       </notes>
       <segment>
@@ -3030,8 +3028,6 @@
     </unit>
     <unit id="ddjrtHa" name="Starke Seele">
       <notes>
-        <note>Starke Seele</note>
-        <note>Starke Seele</note>
         <note category="german">Starke Seele</note>
       </notes>
       <segment>
@@ -3041,8 +3037,6 @@
     </unit>
     <unit id="qERZioI" name="Schwache Seele">
       <notes>
-        <note>Schwache Seele</note>
-        <note>Schwache Seele</note>
         <note category="german">Schwache Seele</note>
       </notes>
       <segment>
@@ -6887,8 +6881,6 @@
     </unit>
     <unit id="doGsSie" name="2e1e3f5">
       <notes>
-        <note>Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
-        <note>Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
         <note category="german">Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
       </notes>
       <segment>
@@ -6898,8 +6890,6 @@
     </unit>
     <unit id="RyyUrj8" name="cc9a53c">
       <notes>
-        <note>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</note>
-        <note>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</note>
         <note category="german">In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</note>
       </notes>
       <segment>
@@ -6909,8 +6899,6 @@
     </unit>
     <unit id="kVcbwU4" name="21d2d10">
       <notes>
-        <note>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
-        <note>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
         <note category="german">Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
       </notes>
       <segment>
@@ -8077,7 +8065,7 @@
       </notes>
       <segment>
         <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
-        <target>Du hast die Seele gereinigt und sie friedlich gemacht.</target>
+        <target>Vous avez purifié une âme errante, elle disparait vous laissant un arrière goût étrange de paix et de sérénité...</target>
       </segment>
     </unit>
     <unit id="GhoMZLz" name="Gegenstände suchen">
