@@ -101,7 +101,7 @@ div.map_area {
         position: absolute; z-index: 4; cursor: pointer;
         &.on-route { filter: hue-rotate(90deg); transform: scale(1.2); }
       }
-      &>.scout-sense,&>.scavenger-sense,&>.marker-direction { cursor: default; }
+      &>.scout-sense,&>.scavenger-sense,&>.marker-direction { cursor: default; pointer-events: none; }
       &>.scout-sense-west , &>.scavenger-sense-west  { top: 43%; bottom: 43%; left: 8%; right: 87% }
       &>.scout-sense-east , &>.scavenger-sense-east  { top: 43%; bottom: 43%; left: 87%; right: 8% }
       &>.scout-sense-north, &>.scavenger-sense-north { top: 8%; bottom: 87%; left: 43%; right: 43% }
