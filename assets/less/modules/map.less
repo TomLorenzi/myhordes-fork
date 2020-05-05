@@ -97,15 +97,17 @@ div.map_area {
     &>.zone-plane-controls {
       top: 0; left: 0; width: 100%; height: 100%; transform: scale(1.2); z-index: 4;
       &.hide { opacity: 0 };
-      &>.action-move,&>.marker-direction, &>.scout-sense {
+      &>.action-move,&>.marker-direction, &>.scout-sense, &>.scavenger-sense {
         position: absolute; z-index: 4; cursor: pointer;
         &.on-route { filter: hue-rotate(90deg); transform: scale(1.2); }
       }
-      &>.scout-sense,&>.marker-direction { cursor: default; }
-      &>.scout-sense-west  { top: 43%; bottom: 43%; left: 8%; right: 87% }
-      &>.scout-sense-east  { top: 43%; bottom: 43%; left: 87%; right: 8% }
-      &>.scout-sense-north { top: 8%; bottom: 87%; left: 43%; right: 43% }
-      &>.scout-sense-south { top: 87%; bottom: 8%; left: 43%; right: 43% }
+      &>.scout-sense,&>.scavenger-sense,&>.marker-direction { cursor: default; }
+      &>.scout-sense-west , &>.scavenger-sense-west  { top: 43%; bottom: 43%; left: 8%; right: 87% }
+      &>.scout-sense-east , &>.scavenger-sense-east  { top: 43%; bottom: 43%; left: 87%; right: 8% }
+      &>.scout-sense-north, &>.scavenger-sense-north { top: 8%; bottom: 87%; left: 43%; right: 43% }
+      &>.scout-sense-south, &>.scavenger-sense-south { top: 87%; bottom: 8%; left: 43%; right: 43% }
+      &>.scavenger-sense-0 { background: url("../../img/Small_broken.gif") center no-repeat }
+      &>.scavenger-sense-1 { background: url("../../img/small_gather.gif") center no-repeat }
 
       &>.action-move {
         background: url(../../img/227.svg) 50% / contain no-repeat, url(../../img/226.svg) 50% / contain no-repeat;
