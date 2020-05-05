@@ -91,6 +91,17 @@ class TownLogEntry
      */
     private $secondaryCitizen;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LogEntryTemplate")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $logEntryTemplate;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $variables = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -224,6 +235,30 @@ class TownLogEntry
     public function setSecondaryCitizen(?Citizen $secondaryCitizen): self
     {
         $this->secondaryCitizen = $secondaryCitizen;
+
+        return $this;
+    }
+
+    public function getLogEntryTemplate(): ?LogEntryTemplate
+    {
+        return $this->logEntryTemplate;
+    }
+
+    public function setLogEntryTemplate(?LogEntryTemplate $logEntryTemplate): self
+    {
+        $this->logEntryTemplate = $logEntryTemplate;
+
+        return $this;
+    }
+
+    public function getVariables(): ?array
+    {
+        return $this->variables;
+    }
+
+    public function setVariables(?array $variables): self
+    {
+        $this->variables = $variables;
 
         return $this;
     }

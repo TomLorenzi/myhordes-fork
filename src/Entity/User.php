@@ -104,6 +104,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $postAsDefault;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $language = "de";
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -443,6 +448,18 @@ class User implements UserInterface, EquatableInterface
     public function setPostAsDefault(?string $postAsDefault): self
     {
         $this->postAsDefault = $postAsDefault;
+
+        return $this;
+    }
+
+    public function getLanguage(): ?string
+    {
+        return $this->language;
+    }
+
+    public function setLanguage(string $language): self
+    {
+        $this->language = $language;
 
         return $this;
     }

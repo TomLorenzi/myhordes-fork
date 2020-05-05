@@ -11,6 +11,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
+use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -641,7 +642,7 @@ class NightlyHandler
                         $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
                     }
 
-                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, $plans ) );
+                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, array_map( function(Item $e) { return  array($e->getPrototype()) ;}, $plans ) ));
                     $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
                     break;
             }
@@ -678,11 +679,11 @@ class NightlyHandler
                 foreach ( $spawn as $item_id => $count ) {
                     if (!isset($daily_items[$item_id])) $daily_items[$item_id] = $count;
                     else $daily_items[$item_id] += $count;
-                    if ($count > 0) $local[$item_id] = $count;
+                    if ($count > 0) $local[] = ['item' => $item_id, 'count' => $count];
                 }
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProduction( $b, array_map( function($proto,$count) {
-                    return [ $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($proto), $count ];
-                }, array_keys($local), $local ) ) );
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProduction( $b, array_map( function($e) {
+                    return [ 'item' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($e['item']), 'count' => $e['count'] ];
+                }, $local ) ) );
             }
 
 

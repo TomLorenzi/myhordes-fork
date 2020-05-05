@@ -24,6 +24,8 @@ class LanguageSubscriber implements EventSubscriberInterface
         // try to see if the locale has been set as a _locale routing parameter
         if ($locale = $event->getRequest()->attributes->get('_locale')) {
             $event->getRequest()->getSession()->set('_locale', $locale);
+        } elseif ($event->getRequest()->getSession()->has('_user_lang')) {
+            $event->getRequest()->setLocale($event->getRequest()->getSession()->get('_user_lang', null));
         } elseif ($event->getRequest()->getSession()->has('_town_lang')) {
             $event->getRequest()->setLocale($event->getRequest()->getSession()->get('_town_lang', null));
         } elseif ($event->getRequest()->getSession()->has('_locale')) {
