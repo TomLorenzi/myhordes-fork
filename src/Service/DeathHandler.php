@@ -10,6 +10,7 @@ use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\PictoPrototype;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Structures\BetweenFilter;
 
 class DeathHandler
 {
@@ -21,9 +22,11 @@ class DeathHandler
     private $zone_handler;
     private $picto_handler;
     private $log;
+    private $random_generator;
+
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph)
+        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -33,6 +36,7 @@ class DeathHandler
         $this->citizen_handler = $ch;
         $this->picto_handler = $ph;
         $this->log = $lt;
+        $this->random_generator = $rg;
     }
 
     /**
@@ -181,5 +185,15 @@ class DeathHandler
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
+
+        // If the town is not small, spawn a soul
+        if($citizen->getTown()->getType()->getName() != 'small') {
+            $minDistance = 4;
+            $maxDistance = min($citizen->getTown()->getDay() + 6, 15);
+
+            $spawnZone = $this->random_generator->pickLocationBetweenFromList($citizen->getTown()->getZones()->toArray(), $minDistance, $maxDistance);
+            
+            $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $this->item_factory->createItem( "soul_blue_#00"));
+        }
     }
 }

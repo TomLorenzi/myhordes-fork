@@ -20,6 +20,7 @@ use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Structures\TownConf;
+use App\Structures\BetweenFilter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -250,18 +251,9 @@ class GameFactory
                 $max_distance = 15;
             }
 
-            // Get a random distance from normal distribution.
-            $range = $max_distance - $min_distance + 1;
-            $mean = $min_distance + $range / 2;
-            $sd = $range / 8;
-            $x = mt_rand() / mt_getrandmax();
-            $y = mt_rand() / mt_getrandmax();
-            $rd = sqrt(-2 * log($x)) * cos(2 * pi() * $y) * $sd + $mean;
-
-            /** @var Zone[] $dist_zone_list */
-            $dist_zone_list = array_filter($zone_list, new BetweenFilter(floor($rd), ceil($rd)));
-            shuffle($dist_zone_list);
-            $this->inventory_handler->forceMoveItem( $dist_zone_list[0]->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
+            $spawnZone = $this->random_generator->pickLocationBetweenFromList($zone_list, $min_distance, $max_distance);
+            
+            $this->inventory_handler->forceMoveItem( $spawnZone->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
         }
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
@@ -379,22 +371,5 @@ class GameFactory
         $this->entity_manager->persist( $this->log->citizenJoin( $citizen ) );
 
         return $citizen;
-    }
-}
-
-class BetweenFilter {
-    private $min;
-    private $max;
-
-    function __construct($min, $max) {
-        $this->min = $min;
-        $this->max = $max;
-    }
-    function isBetween($i) {
-        $d = round(sqrt( pow($i->getX(),2) + pow($i->getY(),2) ));
-        return $d >= $this->min && $d <= $this->max;
-    }
-    function __invoke($i) {
-        return $this->isBetween($i);
     }
 }

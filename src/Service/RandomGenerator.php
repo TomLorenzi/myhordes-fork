@@ -10,9 +10,11 @@ use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Result;
+use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Interfaces\RandomEntry;
 use App\Interfaces\RandomGroup;
+use App\Structures\BetweenFilter;
 
 class RandomGenerator
 {
@@ -86,6 +88,27 @@ class RandomGenerator
         /** @var ZonePrototype|null $r */
         $r = $this->pickEntryFromRandomArray( $g );
         return $r;
+    }
+
+    // Get a random distance from normal distribution
+    function getRandomDistance(int $min, int $max): int {
+        $range = $max - $min + 1;
+        $mean = $min + $range / 2;
+        $sd = $range / 8;
+        $x = mt_rand() / mt_getrandmax();
+        $y = mt_rand() / mt_getrandmax();
+        $rd = sqrt(-2 * log($x)) * cos(2 * pi() * $y) * $sd + $mean;
+        return $rd;
+    }
+    
+    function pickLocationBetweenFromList(array $g, int $min, int $max): ?Zone {
+        $rd = $this->getRandomDistance($min, $max);
+
+        /** @var Zone[] $dist_zone_list */
+        $dist_zone_list = array_filter($g, new BetweenFilter(floor($rd), ceil($rd)));
+        shuffle($dist_zone_list);
+
+        return $dist_zone_list[0];
     }
 
 }

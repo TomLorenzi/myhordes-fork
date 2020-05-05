@@ -1261,7 +1261,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return AjaxResponse::success();
     }
 
-    // 'purify_zone' => ['label' => 'Lass es regnen', 'meta' => [ 'must_be_outside', 'min_3_pm', 'role_shaman' ], 'result' => ['minus_3pm', 'g_rain_fall']],
     /**
      * @Route("api/beyond/desert/rain", name="beyond_desert_shaman_rain")
      * @param JSONRequestParser $parser
