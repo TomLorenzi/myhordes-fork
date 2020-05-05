@@ -377,15 +377,15 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $town = $ac->getTown();
                 if (!$th->getBuilding($town, 'item_hmeat_#00', true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-                $spawn_items[] = [ $em->getRepository( ItemPrototype::class )->findOneByName( 'hmeat_#00' ), 4 ];
+                $spawn_items[] = [ 'item' => $em->getRepository( ItemPrototype::class )->findOneByName( 'hmeat_#00' ), 'count' => 4 ];
                 $pictoName = "r_cooked_#00";
                 $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
                 break;
         }
 
         foreach ($spawn_items as $item_spec)
-            for ($i = 0; $i < $item_spec[1]; $i++)
-                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $if->createItem( $item_spec[0] )  );
+            for ($i = 0; $i < $item_spec['count']; $i++)
+                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $if->createItem( $item_spec['item'] )  );
         $em->persist( $this->log->citizenDisposal( $ac, $c, $action, $spawn_items ) );
         $c->getHome()->setHoldsBody( false );
 
