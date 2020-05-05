@@ -1213,7 +1213,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $message = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
         } else {
             /** @var Citizen $c */
-            $c = $em->getRepository(Citizen::class)->find( $id );
+            $c = $$this->entity_manager->getRepository(Citizen::class)->find( $id );
             if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
         }
