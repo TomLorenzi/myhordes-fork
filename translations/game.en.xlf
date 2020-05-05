@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>L'alarme de %victim% a réveillé la moitié de la ville et vous a effrayé !</target>
+        <target>%victim%'s alarm woke up half of the town and scared you !</target>
       </segment>
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
@@ -28,7 +28,7 @@
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</source>
-        <target>Parfait, personne ne vous a vu vous infiltrer chez %victim%.</target>
+        <target>Perfect, nobody saw you infiltrating %victim%'s home.</target>
       </segment>
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
@@ -38,7 +38,7 @@
       </notes>
       <segment>
         <source>Deine Route wurde gespeichert.</source>
-        <target>Your route has been saved.</target>
+        <target>Your expedition has been saved.</target>
       </segment>
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
@@ -48,7 +48,7 @@
       </notes>
       <segment>
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>You changed your .</target>
+        <target>You have changed your announcement.</target>
       </segment>
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</source>
-        <target>%citizen% worked on the project %plan% and spended %ap%.</target>
+        <target>%citizen% worked on the project %plan% and spent %ap%.</target>
       </segment>
     </unit>
     <unit id="XyE6HNd" name="4d6306a">
@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>geöffnet</source>
-        <target>open</target>
+        <target>opened</target>
       </segment>
     </unit>
     <unit id="2nMdNJ8" name="geschlossen">
@@ -128,7 +128,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>The gates has been %action% automatically.</target>
+        <target>The gates have been %action% automatically.</target>
       </segment>
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
@@ -138,7 +138,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% is the %action% of this town.</target>
+        <target>%citizen% has %action% town.</target>
       </segment>
     </unit>
     <unit id="RvCIvJN" name="betreten">
@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>betreten</source>
-        <target>got in</target>
+        <target>entered</target>
       </segment>
     </unit>
     <unit id="N0kS6xp" name="verlassen">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>verlassen</source>
-        <target>got out</target>
+        <target>left</target>
       </segment>
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% has resuscitated and devoured %victim% !</target>
+        <target>%zombie% resurrected and devoured %victim% !</target>
       </segment>
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% resuscitated and the construction %building% has been destructed !</target>
+        <target>%zombie% resurrected and the building %building% has been destroyed !</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -248,7 +248,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% has resuscitated and contamined the well ! This cost %num% water ration(s) to us !</target>
+        <target>%zombie% resurrected and infected the well ! This cost us %num% water ration(s) !</target>
       </segment>
     </unit>
     <unit id="ByzkImj" name="8895c43">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>%num% Zombies attackieren die Stadtbewohner!</source>
-        <target>%num% zombies attacked citizens !</target>
+        <target>%num% zombies attacked the citizens !</target>
       </segment>
     </unit>
     <unit id="eJyeGor" name="82478bf">
@@ -408,7 +408,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</source>
-        <target>Your message lenght must be between 2 and 256 characters.</target>
+        <target>The length of your message must be between 2 and 256 characters.</target>
       </segment>
     </unit>
     <unit id="7CYUPCo" name="Heute wirst du nichts mehr im Müll finden.">
@@ -438,7 +438,7 @@
       </notes>
       <segment>
         <source>Ungültige Auswahl.</source>
-        <target>Selection non valid.</target>
+        <target>Selection invalid.</target>
       </segment>
     </unit>
     <unit id="iSpeYjc" name="Der Brunnen ist leer!">
@@ -498,7 +498,7 @@
       </notes>
       <segment>
         <source>Für dieses Gebäude fehlen Baumaterialien.</source>
-        <target>It lacks some resources for this construction.</target>
+        <target>Some resources for this construction are missing.</target>
       </segment>
     </unit>
     <unit id="P242oK2" name="Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.">
@@ -518,7 +518,7 @@
       </notes>
       <segment>
         <source>Dieser Gegenstand ist außerhalb deiner Reichweite.</source>
-        <target>This point is out of your reach.</target>
+        <target>This item is out of your reach.</target>
       </segment>
     </unit>
     <unit id="WFi0NxJ" name="Du hast keinen Platz mehr für diesen Gegenstand!">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>You can not take one more heavy object!</target>
+        <target>You cannot carry more than one heavy object!</target>
       </segment>
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
@@ -578,7 +578,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>As a shunned, you are not allowed to pick any items out of the bank.</target>
+        <target>Being shunned, you are not allowed to pick any items out of the bank.</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>aus</source>
-        <target>Require</target>
+        <target>Requires</target>
       </segment>
     </unit>
     <unit id="SQxs_a5" name="Kombinieren">
@@ -1160,9 +1160,7 @@
       </notes>
       <segment>
         <source>Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.</source>
-        <target>Upgrading your home means you will be better defended during the midnight attack!
-        
-                After the first upgrade, you will also be able to carry out special projects...</target>
+        <target>Upgrading your home means you will be better defended during the midnight attack!</target>
       </segment>
     </unit>
     <unit id="9.thJKR" name="235f5fc">
@@ -7754,7 +7752,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>You already dugged here. The next search will not be available until tomorrow.</target>
+        <target>You already searched this zone. The next search will not be available until tomorrow.</target>
       </segment>
     </unit>
   </file>

@@ -188,7 +188,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (leer)</source>
-        <target>Aqua-Splash (leer)</target>
+        <target>Aqua-Splash (vide)</target>
       </segment>
     </unit>
     <unit id="itMAdqK" name="Handmixer (geladen)">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Motor</source>
-        <target>Motor</target>
+        <target>Engine</target>
       </segment>
     </unit>
     <unit id="fxoSn0F" name="Riemen">
@@ -478,7 +478,7 @@
       </notes>
       <segment>
         <source>Huhn</source>
-        <target>Huhn</target>
+        <target>Chicken</target>
       </segment>
     </unit>
     <unit id="DPw6YlX" name="Übelriechendes Schwein">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Vibrator (geladen)</source>
-        <target>Vibrator (geladen)</target>
+        <target>Vibrator (charged)</target>
       </segment>
     </unit>
     <unit id="4S_8T7g" name="Anaboles Steroid">
@@ -558,7 +558,7 @@
       </notes>
       <segment>
         <source>Leckeres Steak</source>
-        <target>Leckeres Steak</target>
+        <target>Tasty-looking Steak</target>
       </segment>
     </unit>
     <unit id="W2_xkl." name="Undefinierbares Fleisch">
@@ -568,7 +568,7 @@
       </notes>
       <segment>
         <source>Undefinierbares Fleisch</source>
-        <target>Undefinierbares Fleisch</target>
+        <target>Unspecified Meat</target>
       </segment>
     </unit>
     <unit id=".HTB.ix" name="Zeltplane">
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Wasserbombe</source>
-        <target>Wasserbombe</target>
+        <target>Water Bomb</target>
       </segment>
     </unit>
     <unit id="K5mkao7" name="Blechplatte">
@@ -638,7 +638,7 @@
       </notes>
       <segment>
         <source>Blechplatte</source>
-        <target>Blechplatte</target>
+        <target>Sheet Metal</target>
       </segment>
     </unit>
     <unit id="3oQRBC3" name="Kanisterpumpe (zerlegt)">
@@ -688,7 +688,7 @@
       </notes>
       <segment>
         <source>Videoprojektor</source>
-        <target>Video projector</target>
+        <target>Video Projector</target>
       </segment>
     </unit>
     <unit id="1QAZbip" name="Sprengstoff">
@@ -708,7 +708,7 @@
       </notes>
       <segment>
         <source>Menschenfleisch</source>
-        <target>Menschenfleisch</target>
+        <target>Human Meat</target>
       </segment>
     </unit>
     <unit id="3fPWnBg" name="Plastiktüte">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Plastiktüte</source>
-        <target>Plastiktüte</target>
+        <target>Plastic Bag</target>
       </segment>
     </unit>
     <unit id="Kwr9vYW" name="Explodierende Wasserbombe">
@@ -728,7 +728,7 @@
       </notes>
       <segment>
         <source>Explodierende Wasserbombe</source>
-        <target>Explodierende Wasserbombe</target>
+        <target>Exploding Water Bomb</target>
       </segment>
     </unit>
     <unit id="D_NZx3e" name="Plastiktüte mit Sprengstoff">
@@ -738,7 +738,7 @@
       </notes>
       <segment>
         <source>Plastiktüte mit Sprengstoff</source>
-        <target>Plastiktüte mit Sprengstoff</target>
+        <target>Plastic Bag and Semtex/target>
       </segment>
     </unit>
     <unit id="c8B12bU" name="Unvollständige Kettensäge">
@@ -748,7 +748,7 @@
       </notes>
       <segment>
         <source>Unvollständige Kettensäge</source>
-        <target>Unvollständige Kettensäge</target>
+        <target>Incomplete Chainsaw/target>
       </segment>
     </unit>
     <unit id="cAvX.4." name="Unvollständiger Handmixer">
@@ -808,7 +808,7 @@
       </notes>
       <segment>
         <source>Gürtel mit Tasche</source>
-        <target>Gürtel mit Tasche</target>
+        <target>Utility Belt/target>
       </segment>
     </unit>
     <unit id="E_mYVPX" name="Twinoid 500mg">
@@ -828,7 +828,7 @@
       </notes>
       <segment>
         <source>Metallkiste</source>
-        <target>Metallkiste</target>
+        <target>Metal Chest</target>
       </segment>
     </unit>
     <unit id="noOxbGo" name="Großer Metallkoffer">
@@ -838,7 +838,7 @@
       </notes>
       <segment>
         <source>Großer Metallkoffer</source>
-        <target>Großer Metallkoffer</target>
+        <target>Large Metal Chest</target>
       </segment>
     </unit>
     <unit id="Cu3BBfx" name="Werkzeugkiste">
@@ -848,7 +848,7 @@
       </notes>
       <segment>
         <source>Werkzeugkiste</source>
-        <target>Werkzeugkiste</target>
+        <target>Toolbox</target>
       </segment>
     </unit>
     <unit id="lRZoAQB" name="Nachttischlampe (an)">
@@ -878,7 +878,7 @@
       </notes>
       <segment>
         <source>Pharmazeutische Substanz</source>
-        <target>Pharmazeutische Substanz</target>
+        <target>Pharmaceutical Product</target>
       </segment>
     </unit>
     <unit id="b9Bz03N" name="Unverarbeitete Blechplatten">

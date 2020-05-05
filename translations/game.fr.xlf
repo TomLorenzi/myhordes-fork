@@ -4103,7 +4103,7 @@
       </notes>
       <segment>
         <source>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
-        <target>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
+        <target>Il semblerait que quelqu'un a fait irruption chez %victim% et y a déposé %item%...</target>
       </segment>
     </unit>
     <unit id="e.cUavH" name="%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.">
@@ -4672,7 +4672,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Nos défenses suffisent à couvrir toute l'attaque de ce soir.</target>
+        <target>Nos défenses sont suffisantes pour l'attaque de ce soir.</target>
       </segment>
     </unit>
     <unit id="0lltLsX" name="Unsere Verteidigung :">
@@ -5090,7 +5090,7 @@
       </notes>
       <segment>
         <source>Strangulation</source>
-        <target>Strangulation</target>
+        <target>Étranglement</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -6111,7 +6111,7 @@
       </notes>
       <segment>
         <source>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</source>
-        <target>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</target>
+        <target>Dans la Décharge, vous pouvez y jeter les objets de la banque pour améliorer temporairement les défenses de la ville.</target>
       </segment>
     </unit>
     <unit id="u3C29q0" name="Jeder so zerstörte Gegenstand kostet dich %ap%.">
@@ -6122,7 +6122,7 @@
       </notes>
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich %ap%.</source>
-        <target>Jeder so zerstörte Gegenstand kostet dich %ap%.</target>
+        <target>Chaque objet détruit de cette façon coûte %ap%.</target>
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -6133,7 +6133,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</target>
+        <target>Vous avez été banni et ne pouvez donc plus utiliser le Dépotoir.</target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -6155,7 +6155,7 @@
       </notes>
       <segment>
         <source>Gegenstand</source>
-        <target>Gegenstand</target>
+        <target>Objet</target>
       </segment>
     </unit>
     <unit id="9WgEJfS" name="Installieren">
@@ -6340,7 +6340,7 @@
       </notes>
       <segment>
         <source>Du kannst dich nicht fortbewegen während du versteckt bist.</source>
-        <target>Du kannst dich nicht fortbewegen während du versteckt bist.</target>
+        <target>Vous ne pouvez pas vous déplacer tant que vous êtes caché.</target>
       </segment>
     </unit>
     <unit id="q9a_zyp" name="Du kannst das nicht tun während du dich versteckst.">
@@ -6351,7 +6351,7 @@
       </notes>
       <segment>
         <source>Du kannst das nicht tun während du dich versteckst.</source>
-        <target>Du kannst das nicht tun während du dich versteckst.</target>
+        <target>Vous ne pouvez pas faire cela en étant caché.</target>
       </segment>
     </unit>
     <unit id="jpuNBoV" name="Du kannst helfen und dich der heutigen Nachtwache anschließen!">
@@ -7931,8 +7931,7 @@
       <segment>
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
+        <target>Si vous jouez en tant que %hero%, un Jour Héro vous sera déduit quotidiennement. Si vous tombez à court de Jours Héro pendant une incernation, vous continuerez à jouer en tant que simple citoyen.</target>
       </segment>
     </unit>
     <unit id="nbN6CQm" name="f843777">
@@ -7955,8 +7954,7 @@
       <segment>
         <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
-        <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+        <target><![CDATA[La ville a légalisé l'esclavage. Vous pouvez désormais travailler sur les chantiers malgré votre bannissement et y obtenir un bonus de 50%. <div class="ap"></div>.]]></target>
       </segment>
     </unit>
     <unit id="QL.qpuP" name="d231db0">
@@ -8056,7 +8054,7 @@
       </notes>
       <segment>
         <source>Gereinigte Seelen</source>
-        <target>Gereinigte Seelen</target>
+        <target>Âmes purifiées</target>
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -8254,7 +8252,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Gegenstand nicht stehlen.</source>
-        <target>Du kannst diesen Gegenstand nicht stehlen.</target>
+        <target>Vous ne pouvez pas voler cet objet.</target>
       </segment>
     </unit>
     <unit id="Tzmt5qh" name="d848698">
@@ -8281,7 +8279,7 @@
       </notes>
       <segment>
         <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
-        <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
+        <target>Dernière chance! Tout les objets de la ville on été détruits. La ville reçoit %def% de défense grace à cela.</target>
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
@@ -8497,7 +8495,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Notre défense n'est pas suffisante pour encaisser l'attaque de ce soir.</target>
       </segment>
     </unit>
     <unit id="FoS7MOU" name="0b6b395">
@@ -8718,7 +8716,7 @@
     </unit>
     <unit id="B5vvTiM" name="Senden">
       <notes>
-        <note category="german">Send</note>
+        <note category="german">Senden</note>
       </notes>
       <segment>
         <source>Senden</source>
@@ -9022,7 +9020,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% überzeugt ihm zu folgen.</source>
-        <target>%citizen% hat %target_citizen% überzeugt ihm zu folgen.</target>
+        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
       </segment>
     </unit>
     <unit id="zbqhbfy" name="%citizen% hat beschlossen %target_citizen% hier zurückzulassen...">
@@ -9126,7 +9124,7 @@
     </unit>
     <unit id="3eUF.n2" name="39c8b98">
       <notes>
-        <note category="german">You have reported this post from %username% to the raven. Who knows, maybe %username% will die tonight... caaaw caaaw!</note>
+        <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
       </notes>
       <segment>
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
@@ -9171,7 +9169,7 @@
     </unit>
     <unit id="rFh36Gr" name="Klassischer Editor">
       <notes>
-        <note category="german">Classic Editor</note>
+        <note category="german">Klassischer Editor</note>
       </notes>
       <segment>
         <source>Klassischer Editor</source>
@@ -9180,7 +9178,7 @@
     </unit>
     <unit id="wkidHer" name="Grafischer Editor">
       <notes>
-        <note category="german">Graphic Editor</note>
+        <note category="german">Grafischer Editor</note>
       </notes>
       <segment>
         <source>Grafischer Editor</source>
@@ -9198,11 +9196,11 @@
     </unit>
     <unit id="jqa.16L" name="da1981d">
       <notes>
-        <note category="german">You already dugged here. The next search will not be available until tomorrow.</note>
+        <note category="german">Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Vous avez récemment creusé ici. La prochaine fouille ne sera possible que demain.</target>
+        <target>Vous avez déjà fouiller ce secteur aujourd'hui, une prochaine fouille sera possible demain.</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
