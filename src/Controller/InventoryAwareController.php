@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\CampingActionPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
@@ -48,6 +49,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 {
     protected $entity_manager;
     protected $inventory_handler;
+    protected $death_handler;
     protected $citizen_handler;
     protected $action_handler;
     protected $picto_handler;
@@ -78,6 +80,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->random_generator = $rd;
         $this->conf = $conf;
         $this->zone_handler = $zh;
+        $this->death_handler = $dh;
     }
 
     protected function getTownConf() {
@@ -338,6 +341,17 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $errors = [];
             $item_count = count($items);
             foreach ($items as $current_item)
+                if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
+                    // We pick a read soul in the World Beyond
+                    if(!$this->citizen_handler->hasStatusEffect($citizen, "tg_immune")) {
+                        // He is not immune, he dies.
+                        $rem = [];
+                        $this->death_handler->kill( $citizen, CauseOfDeath::Haunted, $rem );
+                        $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
+                        $this->entity_manager->flush();
+                        return AjaxResponse::success();
+                    }
+                }
                 if (($error = $handler->transferItem(
                         $citizen,
                         $current_item,$inv_source, $inv_target

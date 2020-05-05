@@ -9367,5 +9367,23 @@
         <target>La présence du Discours Rassurant Multicoloré apporte 20 points de défense supplémentaire par veilleur.</target>
       </segment>
     </unit>
+    <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
+      <notes>
+        <note category="german">Besessen von einer gequälten Seele</note>
+      </notes>
+      <segment>
+        <source>Besessen von einer gequälten Seele</source>
+        <target>Possédé par une âme torturée</target>
+      </segment>
+    </unit>
+    <unit id="cxtMADZ" name="6462887">
+      <notes>
+        <note category="german">Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</note>
+      </notes>
+      <segment>
+        <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
+        <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sur dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir à l'agonie dans le désert.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
