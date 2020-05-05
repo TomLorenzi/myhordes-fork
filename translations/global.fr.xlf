@@ -831,7 +831,7 @@
     </unit>
     <unit id="aTN.bek" name="Vorschau">
       <notes>
-        <note category="german">Preview</note>
+        <note category="german">Vorschau</note>
       </notes>
       <segment>
         <source>Vorschau</source>

@@ -714,7 +714,7 @@
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
-        <note category="german">Unlock</note>
+        <note category="german">Öffnen</note>
       </notes>
       <segment>
         <source>Öffnen</source>
@@ -746,6 +746,87 @@
       <segment>
         <source>Du wurdest aus dem Forum verbannt.</source>
         <target>Du wurdest aus dem Forum verbannt.</target>
+      </segment>
+    </unit>
+    <unit id="5lMuG5Z" name="Schere">
+      <notes>
+        <note category="german">Schere</note>
+      </notes>
+      <segment>
+        <source>Schere</source>
+        <target>Schere</target>
+      </segment>
+    </unit>
+    <unit id="eVtWA3U" name="Stein">
+      <notes>
+        <note category="german">Stein</note>
+      </notes>
+      <segment>
+        <source>Stein</source>
+        <target>Stein</target>
+      </segment>
+    </unit>
+    <unit id="vXPlKOG" name="Papier">
+      <notes>
+        <note category="german">Papier</note>
+      </notes>
+      <segment>
+        <source>Papier</source>
+        <target>Papier</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Kopf</target>
+      </segment>
+    </unit>
+    <unit id="ZU60wKO" name="Zahl">
+      <notes>
+        <note category="german">Zahl</note>
+      </notes>
+      <segment>
+        <source>Zahl</source>
+        <target>Zahl</target>
+      </segment>
+    </unit>
+    <unit id="ysTRqQl" name="{color} {value}">
+      <notes>
+        <note category="german">{color} {value}</note>
+      </notes>
+      <segment>
+        <source>{color} {value}</source>
+        <target>{color} {value}</target>
+      </segment>
+    </unit>
+    <unit id="awzJBNC" name="Users">
+      <notes>
+        <note category="german">Users</note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Users</target>
+      </segment>
+    </unit>
+    <unit id="5qZlTRd" name="Meldungen">
+      <notes>
+        <note category="german">Meldungen</note>
+      </notes>
+      <segment>
+        <source>Meldungen</source>
+        <target>Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="aTN.bek" name="Vorschau">
+      <notes>
+        <note category="german">Preview</note>
+      </notes>
+      <segment>
+        <source>Vorschau</source>
+        <target>Vorschau</target>
       </segment>
     </unit>
   </file>
