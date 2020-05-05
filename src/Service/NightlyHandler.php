@@ -625,7 +625,7 @@ class NightlyHandler
                 foreach ( $spawn as $item_id => $count ) {
                     if (!isset($daily_items[$item_id])) $daily_items[$item_id] = $count;
                     else $daily_items[$item_id] += $count;
-                    if ($count > 0) $local[] = ['item' => $item_id, '' => $count];
+                    if ($count > 0) $local[] = ['item' => $item_id, 'count' => $count];
                 }
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackProduction( $b, array_map( function($e) {
                     return [ 'item' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($e['item']), 'count' => $e['count'] ];
