@@ -37,7 +37,7 @@
             <button x-ajax-href="{{ path('town_planner') }}"><img alt="" src="{{ asset('build/images/planner.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>
         </div>
         <div class="padded cell rw-6 rw-md-12">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos} %}
+            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos, 'is_shaman': is_shaman} %}
             {% endembed %}
         </div>
     </div>

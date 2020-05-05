@@ -610,4 +610,28 @@ class CitizenHandler
         }
         return $def;
     }
+
+    /**
+     * @param Citizen $citizen
+     * @param string|CitizenRole|string[]|CitizenRole[] $status
+     * @param bool $all
+     * @return bool
+     */
+    public function hasRole( Citizen $citizen, $role, bool $all = false ): bool {
+        $role = array_map(function($r): string {
+            /** @var $r string|CitizenRole */
+            if (is_a($r, CitizenRole::class)) return $r->getName();
+            elseif (is_string($r)) return $r;
+            else return '???';
+        }, is_array($role) ? $role : [$role]);
+
+        if ($all) {
+            foreach ($citizen->getRoles() as $r)
+                if (!in_array($r->getName(), $role)) return false;
+        } else {
+            foreach ($citizen->getRoles() as $r)
+                if (in_array($r->getName(), $role)) return true;
+        }
+        return $all;
+    }
 }

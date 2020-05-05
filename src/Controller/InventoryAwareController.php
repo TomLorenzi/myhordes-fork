@@ -95,6 +95,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
+        $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
+
         $data['citizen'] = $this->getActiveCitizen();
         $data['conf'] = $this->getTownConf();
         $data['ap'] = $this->getActiveCitizen()->getAp();
@@ -110,6 +112,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $data['pm'] = $this->getActiveCitizen()->getPm();
         $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
         $data['username'] = $this->getUser()->getUsername();
+        $data['is_shaman'] = $is_shaman;
         return $data;
     }
 

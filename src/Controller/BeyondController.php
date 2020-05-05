@@ -130,13 +130,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $rucksack_sizes[ $escort->getCitizen()->getId() ] = $this->inventory_handler->getSize( $escort->getCitizen()->getInventory() );
                 $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
             }
-        $is_shaman = false;
-        foreach ($this->getActiveCitizen()->getRoles() as $role) {
-            if($role->getName() == "shaman") {
-                $is_shaman = true;
-                break;
-            }
-        }
 
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
@@ -157,7 +150,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'citizen_hidden' => $citizen_hidden,
             'rucksack_sizes' => $rucksack_sizes,
             'escort_actions' => $escort_actions,
-            'is_shaman' => $is_shaman
         ], $data, $this->get_map_blob()) );
     }
 
