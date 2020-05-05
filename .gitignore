@@ -28,7 +28,7 @@ composer.phar
 webpack.config.local.js
 
 # Local app configs
-config/packages/dev/app/*
+config/packages/dev/app/*.yml
 
 # Misc
 .DS_Store
