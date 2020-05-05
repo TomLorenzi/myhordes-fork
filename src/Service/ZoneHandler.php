@@ -369,6 +369,9 @@ class ZoneHandler
             }
         }
 
+        if($zone->hasSoul())
+            $attributes[] = "soul";
+
         return $attributes;
     }
 

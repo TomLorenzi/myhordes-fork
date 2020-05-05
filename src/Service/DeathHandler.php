@@ -9,6 +9,7 @@ use App\Entity\Citizen;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\PictoPrototype;
+use App\Entity\Soul;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Structures\BetweenFilter;
 
@@ -192,8 +193,8 @@ class DeathHandler
             $maxDistance = min($citizen->getTown()->getDay() + 6, 15);
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($citizen->getTown()->getZones()->toArray(), $minDistance, $maxDistance);
-            
-            $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $this->item_factory->createItem( "soul_blue_#00"));
+            $soulItem = $this->item_factory->createItem( "soul_blue_#00");
+            $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $item);
         }
     }
 }
