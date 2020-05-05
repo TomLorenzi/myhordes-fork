@@ -6111,7 +6111,7 @@
       </notes>
       <segment>
         <source>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</source>
-        <target>Dans le Dépotoir, vous pouvez y jeter les objets de la banque pour améliorer temporairement les défenses de la ville.</target>
+        <target>Dans la Décharge, vous pouvez y jeter les objets de la banque pour améliorer temporairement les défenses de la ville.</target>
       </segment>
     </unit>
     <unit id="u3C29q0" name="Jeder so zerstörte Gegenstand kostet dich %ap%.">
@@ -8283,7 +8283,7 @@
       </notes>
       <segment>
         <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
-        <target>Tout ou rien! Tout les objets de la ville on été détruits. La ville reçoit %def% de défense grace à cela.</target>
+        <target>Dernière chance! Tout les objets de la ville on été détruits. La ville reçoit %def% de défense grace à cela.</target>
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
