@@ -9401,5 +9401,32 @@
         <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
       </segment>
     </unit>
+    <unit id="GulZlLD" name="Nutze deine heilenden Hände">
+      <notes>
+        <note category="german">Nutze deine heilenden Hände</note>
+      </notes>
+      <segment>
+        <source>Nutze deine heilenden Hände</source>
+        <target>Réaliser un soin curatif</target>
+      </segment>
+    </unit>
+    <unit id="JYO69lS" name="Von diesem Gegenstand will sich der Bürger nicht trennen.">
+      <notes>
+        <note category="german">Von diesem Gegenstand will sich der Bürger nicht trennen.</note>
+      </notes>
+      <segment>
+        <source>Von diesem Gegenstand will sich der Bürger nicht trennen.</source>
+        <target>Von diesem Gegenstand will sich der Bürger nicht trennen.</target>
+      </segment>
+    </unit>
+    <unit id="TH1rJgR" name="Das kannst du mit einem Berufsgegenstand nicht tun.">
+      <notes>
+        <note category="german">Das kannst du mit einem Berufsgegenstand nicht tun.</note>
+      </notes>
+      <segment>
+        <source>Das kannst du mit einem Berufsgegenstand nicht tun.</source>
+        <target>Das kannst du mit einem Berufsgegenstand nicht tun.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
