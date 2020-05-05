@@ -172,6 +172,21 @@ div.map_area {
 
         &.past   >div.icon { background: url("../../img/map_zone_past.svg") center/contain no-repeat; }
         &.unknown>div.icon { background: url("../../img/map_zone_unknown.svg") center/contain no-repeat; }
+
+        &.soul::after {
+          content: "";
+          z-index: 3;
+          width: 200%;
+          height: 200%;
+          position: absolute;
+          left: -100%;
+          top: -100%;
+          background-image: url('../../img/item/item_soul_blue.gif');
+          background-repeat: no-repeat;
+          background-size: 8px 12px;
+          animation: soul 18s infinite linear;
+          transform: rotate(0deg);
+        }
       }
     }
 
@@ -267,6 +282,43 @@ div.map_area {
 
 
 /* Animation presets */
+@keyframes soul {
+  0% { background-position: 50% 5%; transform: rotate(0deg); }
+  8.3% { background-position: 50% 90%; transform: rotate(30deg); } /*030*/
+  8.4% { background-position: 50% 5%; transform: rotate(210deg); }
+  16.6% { background-position: 50% 90%; transform: rotate(240deg); } /*060*/
+  16.7% { background-position: 50% 5%; transform: rotate(60deg); }
+  24.9% { background-position: 50% 90%; transform: rotate(90deg); } /*090*/
+  25.0% { background-position: 50% 5%; transform: rotate(270deg); }
+  33.3% { background-position: 50% 90%; transform: rotate(300deg); } /*120*/
+  33.4% { background-position: 50% 5%; transform: rotate(120deg); }
+  41.6% { background-position: 50% 90%; transform: rotate(150deg); } /*150*/
+  41.7% { background-position: 50% 5%; transform: rotate(330deg); }
+  50.0% { background-position: 50% 90%; transform: rotate(360deg); } /*180*/
+  50.1% { background-position: 50% 5%; transform: rotate(180deg); }
+  58.4% { background-position: 50% 90%; transform: rotate(210deg); } /*210*/
+  58.5% { background-position: 50% 5%; transform: rotate(390deg); }
+  66.7% { background-position: 50% 90%; transform: rotate(420deg); } /*240*/
+  66.8% { background-position: 50% 5%; transform: rotate(240deg); }
+  75.0% { background-position: 50% 90%; transform: rotate(270deg); } /*270*/
+  75.1% { background-position: 50% 5%; transform: rotate(450deg); }
+  83.4% { background-position: 50% 90%; transform: rotate(480deg); } /*300*/
+  83.5% { background-position: 50% 5%; transform: rotate(300deg); }
+  91.7% { background-position: 50% 90%; transform: rotate(330deg); } /*330*/
+  91.8% { background-position: 50% 5%; transform: rotate(510deg); }
+  100% { background-position: 50% 90%; transform: rotate(540deg); } /*360*/
+}
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 @keyframes glitch-actor-1 {
   0% { transform: translate(2px, -4px) scale(3); }
   1% { transform: translate(3px, -3px) scale(2.8); }
