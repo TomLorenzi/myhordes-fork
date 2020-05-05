@@ -12,6 +12,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
 use App\Entity\FoundRolePlayText;
@@ -838,25 +839,27 @@ class ActionHandler
                     case 8:case 9: {
                         $zone = null; $cp_ok = true;
                         $jumper = null;
-                        if ($result->getCustom() === 8 && $citizen->getZone()) {
-                            $zone = $citizen->getZone();
-                            $cp_ok = $this->zone_handler->check_cp( $zone );
-                            $citizen->setZone(null);
-                            $zone->removeCitizen( $citizen );
+                        if ($result->getCustom() === 8 && $citizen->getZone())
                             $jumper = $citizen;
-                        }
 
-                        if ($result->getCustom() === 9 && is_a( $target, Citizen::class )) {
-                            $zone = $target->getZone();
-                            $this->zone_handler->updateZone( $zone );
-                            $cp_ok = $this->zone_handler->check_cp( $zone );
-                            $target->setZone(null);
-                            $zone->removeCitizen( $target );
+                        if ($result->getCustom() === 9 && is_a( $target, Citizen::class ))
                             $jumper = $target;
-                        }
 
+                        if (!$jumper) break;
+                        $zone = $jumper->getZone();
                         if (!$zone) break;
                         $others_are_here = $zone->getCitizens()->count() > 0;
+
+                        $this->zone_handler->updateZone( $zone );
+                        $cp_ok = $this->zone_handler->check_cp( $zone );
+
+                        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($jumper)) {
+                            $dig_timer->setPassive(true);
+                            $this->entity_manager->persist( $dig_timer );
+                        }
+
+                        $jumper->setZone(null);
+                        $zone->removeCitizen( $jumper );
 
                         if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );

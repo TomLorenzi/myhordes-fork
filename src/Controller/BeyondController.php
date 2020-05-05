@@ -524,6 +524,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $mover->setEscortSettings(null);
             }
 
+            // Disable the dig timer
+            if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($mover)) {
+                $dig_timer->setPassive(true);
+                $this->entity_manager->persist( $dig_timer );
+            }
+
             // Remove zone from citizen
             $mover->setZone( null );
             $zone->removeCitizen( $mover );
