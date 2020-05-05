@@ -1207,6 +1207,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function visit_heal_citizen(int $id): Response
     {
+        if ($id === $this->getActiveCitizen()->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+        
         $citizen = $this->getActiveCitizen();
         $message = [];
         if($citizen->getPM() < 2 || $this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {

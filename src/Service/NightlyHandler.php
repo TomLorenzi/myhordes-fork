@@ -543,6 +543,18 @@ class NightlyHandler
             }
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
+
+        $this->log->debug("Processing <info>souls</info> mutations.");
+        foreach ($town->getZones() as $zone) {
+            if(!$zone->hasSoul()) continue;
+            foreach ($zone->getFloor()->getItems() as $item) {
+                if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
+                if($this->random->Chance(0.1)){
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
+                }
+            }
+        }
     }
 
     private function stage3_items(Town &$town) {
