@@ -97,7 +97,7 @@ class RandomGenerator
         $sd = $range / 8;
         $x = mt_rand() / mt_getrandmax();
         $y = mt_rand() / mt_getrandmax();
-        $rd = sqrt(-2 * log($x)) * cos(2 * pi() * $y) * $sd + $mean;
+        $rd = round(sqrt(-2 * log($x)) * cos(2 * pi() * $y) * $sd + $mean);
         return $rd;
     }
     
