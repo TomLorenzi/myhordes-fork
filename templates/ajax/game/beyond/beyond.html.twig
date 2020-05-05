@@ -61,7 +61,7 @@
                         {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
                             {% set dir = 'Nordwesten'|trans({},'game') %}
                         {% endif %}
-                        {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
+                        {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
                     </div>
                 </div>
                 {% endif %}
