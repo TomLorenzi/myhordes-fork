@@ -144,9 +144,12 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 $variableTypes = $template->getVariableTypes();
                 $entityVariables = $entity->getVariables();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
-
-                $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
-                
+                try {
+                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                }
+                catch (Exception $e) {
+                    $entries[$idx]['text'] = "null";
+                }                          
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
