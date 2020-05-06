@@ -62,6 +62,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':chat:', 'path'=>'build/images/emotes/chat.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':deco:', 'path'=>'build/images/emotes/deco.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':scout:', 'path'=>'build/images/emotes/scout.gif', 'isactive'=> true, 'requiresunlock'=> false],
+        ['tag'=>':scav:', 'path'=>'build/images/emotes/scav.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':surv:', 'path'=>'build/images/emotes/surv.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':sham:', 'path'=>'build/images/emotes/sham.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':guard:', 'path'=>'build/images/emotes/guard.gif', 'isactive'=> true, 'requiresunlock'=> false],
