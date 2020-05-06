@@ -11,6 +11,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\Item;
 use App\Entity\ItemProperty;
@@ -283,11 +284,25 @@ class CitizenHandler
 
     public function getCP(Citizen &$citizen): int {
         if ($this->hasStatusEffect( $citizen, 'terror', false )) $base = 0;
-        else $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
+        else {
+            $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
 
-        if (!empty($this->inventory_handler->fetchSpecificItems(
-            $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
-        ))) $base += 1;
+            $has_clean_body = true; // TODO: Add hero experience clean body
+            $has_body_armor = true; // TODO: Add hero experience body armor
+
+            if ($citizen->getProfession()->getHeroic() 
+                    && $this->hasStatusEffect( $citizen, 'clean', false ) 
+                    && $has_clean_body)
+                $base += 1;
+
+            if ($citizen->getProfession()->getHeroic() 
+                    && $has_body_armor)
+                $base += 1;
+
+            if (!empty($this->inventory_handler->fetchSpecificItems(
+                $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
+            ))) $base += 1;
+        }
 
         return $base;
     }
@@ -496,5 +511,127 @@ class CitizenHandler
         $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;
 
         return $camping_values;
+    }
+
+    public function getNightwatchProfessionDefenseBonus(Citizen $citizen){
+        if ($citizen->getProfession()->getName() == "guardian") {
+            return 30;
+        } else if ($citizen->getProfession()->getName() == "tamer") {
+            return 20;
+        }
+        return 0;
+    }
+
+    public function getNightwatchProfessionSurvivalBonus(Citizen $citizen){
+        if ($citizen->getProfession()->getName() == "guardian") {
+            return 0.04;
+        }
+        return 0;
+    }
+
+    public function getDeathChances(Citizen $citizen): float {
+        $baseChance = 0.05;
+        $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
+
+        $town = $citizen->getTown();
+
+        $chances = $baseChance;
+        for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
+            $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
+            if($previousWatches === null) {
+                $chances = max($baseChance, $chances -= 0.05);
+            } else {
+                $chances = min(1, $chances += 0.1);
+            }
+        }
+
+        if($this->hasStatusEffect($citizen, "drunk")) {
+            $chances -= 0.04;
+        }
+        if($this->hasStatusEffect($citizen, "hangover")) {
+            $chances += 0.05;
+        }
+        if($this->hasStatusEffect($citizen, "terror")) {
+            $chances += 0.45;
+        }
+        if($this->hasStatusEffect($citizen, "addict")) {
+            $chances += 0.1;
+        }
+        if($this->isWounded($citizen)) {
+            $chances += 0.20;
+        }
+        if($this->hasStatusEffect($citizen, "healed")) {
+            $chances += 0.10;
+        }
+        if($this->hasStatusEffect($citizen, "infection")) {
+            $chances += 0.20;
+        }
+        if($this->hasStatusEffect($citizen, "ghul")) {
+            $chances -= 0.05;
+        }
+
+        return $chances;
+    }
+
+    public function getNightWatchDefense(Citizen $citizen): int {
+        $def = 10;
+        $def += $this->getNightwatchProfessionDefenseBonus($citizen);
+
+        if($this->hasStatusEffect($citizen, 'drunk')) {
+            $def += 20;
+        }
+        if($this->hasStatusEffect($citizen, 'hangover')) {
+            $def -= 15;
+        }
+        if($this->hasStatusEffect($citizen, 'terror')) {
+            $def -= 30;
+        }
+        if($this->hasStatusEffect($citizen, 'drugged')) {
+            $def += 10;
+        }
+        if($this->hasStatusEffect($citizen, 'addict')) {
+            $def += 15;
+        }
+        if($this->isWounded($citizen)) {
+            $def -= 20;
+        }
+        if($this->hasStatusEffect($citizen, 'healed')) {
+            $def -= 10;
+        }
+        if($this->hasStatusEffect($citizen, 'infection')) {
+            $def -= 15;
+        }
+        if($this->hasStatusEffect($citizen, 'thirst2')) {
+            $def -= 10;
+        }
+        foreach ($citizen->getInventory()->getItems() as $item) {
+            $itemWatchPoints = $item->getPrototype()->getWatchpoint();
+            $def += $itemWatchPoints;
+        }
+        return $def;
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param string|CitizenRole|string[]|CitizenRole[] $status
+     * @param bool $all
+     * @return bool
+     */
+    public function hasRole( Citizen $citizen, $role, bool $all = false ): bool {
+        $role = array_map(function($r): string {
+            /** @var $r string|CitizenRole */
+            if (is_a($r, CitizenRole::class)) return $r->getName();
+            elseif (is_string($r)) return $r;
+            else return '???';
+        }, is_array($role) ? $role : [$role]);
+
+        if ($all) {
+            foreach ($citizen->getRoles() as $r)
+                if (!in_array($r->getName(), $role)) return false;
+        } else {
+            foreach ($citizen->getRoles() as $r)
+                if (in_array($r->getName(), $role)) return true;
+        }
+        return $all;
     }
 }

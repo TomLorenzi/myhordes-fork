@@ -8,6 +8,8 @@
 @import (once) "modules/forum";
 @import (once) "modules/ghost";
 @import (once) "modules/soul";
+@import (once) "modules/admin";
+@import (once) "modules/suneditor";
 
 @import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
@@ -27,6 +29,7 @@
 @myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
 @myhordes-background: url(../img/bg_colored.jpg) fixed top no-repeat, #100C0B;
+@myhordes-background-online: url(../img/bg_gray.jpg) fixed top no-repeat, #100C0B;
 
 @myhordes-content-width: 950px;
 @myhordes-content-background: url(../img/bg_content.jpg) left repeat-y;
@@ -69,7 +72,15 @@ html {
 }
 
 body {
-  font-family: @myhordes-font; font-size: 1.6rem; background: @myhordes-background; margin: 0;
+  font-family: @myhordes-font; font-size: 1.6rem; margin: 0;
+}
+
+.offline_body {
+  background: @myhordes-background;
+}
+
+.online_body {
+  background: @myhordes-background-online;
 }
 
 div.debug_info {
@@ -875,13 +886,13 @@ div.block {
   background-color: #5c2b20;
   border: 1px solid #e1bd9b;
   outline: 2px solid #43281a;
-}
 
-strong {
-  color: #afacc1;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 1.2rem;
+  strong {
+    color: #afacc1;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.2rem;
+  }
 }
 
 div.item-tag {

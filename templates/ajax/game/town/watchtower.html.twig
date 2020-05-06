@@ -1,6 +1,6 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
-
+    {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
     <div class="help">
         {% trans from 'game' %}
             Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.
@@ -10,7 +10,7 @@
     <h5>{{ 'Wachturm'|trans({},'buildings') }}</h5>
     <div class="block watchtower">
         <div class="row">
-            {% if town.type.name == 'small' or  z0[4] >= 33%}
+            {% if z0[4] >= wtt %}
             <div class="padded cell rw-12 left">
                 {{ 'Heutige Abschätzung'|trans({},'game') }}
             </div>
@@ -58,7 +58,7 @@
                     <b>???</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/small_zombie.gif') }}" />
                 {% endif %}
             </div>
-            <div class="padded cell rw-4 rw-md-6 center small">
+            <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
                     <div class="watchtower-prediction">
                         <p>{{ 'Qualität der Abschätzung'|trans({},'game') }}</p>
@@ -69,7 +69,7 @@
                     </div>
                 {% endif %}
             </div>
-            <div class="padded cell rw-4 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12 right">
+            <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
                     <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1">{{ 'Abschätzung verbessern'|trans({},'game') }}</button>
                 {% endif %}

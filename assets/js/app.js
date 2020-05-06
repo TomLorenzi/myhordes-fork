@@ -22,6 +22,7 @@ require('./suneditor.min');
 require('./suneditor.de');
 require('./suneditor.fr');
 require('./suneditor.es');
+require("./attack");
 
 // Get the base URL
 const base_node = document.getElementsByTagName('base');
@@ -49,7 +50,9 @@ const resize_game_menu = function() {
     let game_menu_burger = document.querySelector('#gma>div.game-bar>ul.text-menu>li.burger-button');
     let game_menu_hide = document.querySelectorAll('#gma>div.game-bar>ul.text-menu>li:not(.burger-button)');
 
-    game_menu_burger.style.display = 'none';
+    if(game_menu_burger !== null)
+        game_menu_burger.style.display = 'none';
+
     for (let i = 0; i < game_menu_hide.length; i++)
         game_menu_hide[i].style.display = null;
 
@@ -58,7 +61,9 @@ const resize_game_menu = function() {
         content_width += game_menu_elems[i].offsetWidth;
 
     if (game_menu.offsetWidth - content_width < 80) {
-        game_menu_burger.style.display = null;
+        if(game_menu_burger !== null)
+            game_menu_burger.style.display = null;
+        
         for (let i = 0; i < game_menu_hide.length; i++)
             game_menu_hide[i].style.display = 'none';
     } else {

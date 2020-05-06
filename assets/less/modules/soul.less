@@ -309,8 +309,8 @@
 
             p {
                 padding: 0;
-                margin: 0 0 8px 0;
                 text-align: justify;
+                margin: 0;
             }
 
             small {
@@ -368,6 +368,11 @@
                 line-height: 2rem;
                 &.design-written {
                     font-weight: bold;
+                    h1 {
+                        strong {
+                            text-decoration: underline;
+                        }
+                    }
                 }
                 p:first-line,
                 p:first-letter {
@@ -384,6 +389,7 @@
                 }
                 strong {
                     color: #5c2b20;
+                    font-weight: bolder;
                 }
                 big {
                     font-size: 5rem;
@@ -490,6 +496,18 @@
                 }
             }
 
+            &.design-poem {
+                font-style: italic;
+                padding-left: 100px;
+                font-size: 1.2rem;
+                div.hr {
+                    margin-top: 5px;
+                }
+                h2 {
+                    padding: 0;
+                }
+            }
+
             .pages {
                 font-size: 1rem;
                 font-weight: bold;
@@ -549,10 +567,26 @@
             background: url('../../img/books/manual.gif') no-repeat;
         }
 
+        .money {
+            background: url('../../img/books/money.gif') no-repeat;
+            .rp-content {
+                padding-left: 120px;
+                padding-top: 120px;
+                color: #544224;
+                p::first-line{
+                    color: inherit;
+                }
+                p::first-letter {
+                    color: black;
+                }
+            }
+        }
+
         .news {
             background: url('../../img/books/news.gif') no-repeat;
             .rp-content {
                 margin-left: 60px;
+                padding-right: 60px;
                 padding-top: 50px;
                 width: 555px;
             }
@@ -593,6 +627,16 @@
                 color: #afacc1;
                 font-size: 2rem;
             }
+        }
+    }
+
+    .language-picker {
+        display: flex;
+        justify-content: space-between;
+
+        .note {
+            width: 24%;
+            flex-basis: 24%;
         }
     }
 }

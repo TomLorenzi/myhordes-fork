@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AdminReport;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
@@ -45,10 +46,41 @@ class AdminActionController extends AbstractController
             case 1: 
                 return $this->redirect($this->generateUrl('admin_users'));             
                 break;
+            case 2:
+                return $this->redirect($this->generateUrl('admin_reports'));   
+                break;
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+    }
+
+    /**
+     * @Route("jx/admin/action/reports", name="admin_reports")
+     * @return Response
+     */
+    public function reports(): Response
+    {
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
+        return $this->render( 'admin_action/reports/reports.html.twig', [  
+            'reports' => $reports,        
+        ]);      
+    }
+
+    /**
+     * @Route("jx/admin/action/reports/clear", name="admin_reports_clear")
+     * @return Response
+     */
+    public function reports_clear(JSONRequestParser $parser, AdminActionHandler $admh): Response
+    {
+        if (!$parser->has_all(['postId'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $user = $this->getUser();
+        $postId = $parser->get('postId');
+        if ($admh->clearReports($user->getId(), $postId))
+            return AjaxResponse::success();
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
 
     /**
@@ -57,7 +89,7 @@ class AdminActionController extends AbstractController
      */
     public function users(): Response
     {
-        return $this->render( 'admin_action/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [          
+        return $this->render( 'admin_action/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
         ]));      
     }
 
@@ -141,6 +173,26 @@ class AdminActionController extends AbstractController
             return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_users_ban_view', ['id' => $user->getId()])] );
 
         return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+    }
+
+    /**
+     * @Route("jx/admin/action/users/fuzzyfind", name="admin_users_fuzzyfind")
+     * @return Response
+     */
+    public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
+    {
+        $userRoles = $this->getUser()->getRoles();
+        if (!in_array("ROLE_ADMIN", $userRoles))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$parser->has_all(['name'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $searchName = $parser->get('name');
+        $users = $em->getRepository(User::class)->findByNameContains($searchName);
+
+        return $this->render( 'admin_action/users/list.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
+            'users' => $users,
+        ]));
     }
 
     /**

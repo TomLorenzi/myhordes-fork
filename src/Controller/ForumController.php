@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\Post;
@@ -13,12 +14,14 @@ use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\AdminActionHandler;
 use App\Service\JSONRequestParser;
+use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
+use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,6 +43,15 @@ class ForumController extends AbstractController
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
+
+    private $rand;
+    private $trans;
+
+    public function __construct(RandomGenerator $r, TranslatorInterface $t)
+    {
+        $this->rand = $r;
+        $this->trans = $t;
+    }
 
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
@@ -165,10 +177,10 @@ class ForumController extends AbstractController
         'q' => [],
         'blockquote' => [],
         'hr' => [],
-        'ul' => [ 'class' ],
-        'ol' => [ 'class' ],
+        'ul' => [],
+        'ol' => [],
         'li' => [],
-        'p'  => [ 'class' ],
+        'p'  => [],
         'div' => [ 'class' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
@@ -176,6 +188,15 @@ class ForumController extends AbstractController
 
     private const HTML_ALLOWED_ADMIN = [
         'img' => [ 'alt', 'src', 'title'],
+    ];
+
+    private const HTML_ATTRIB_ALLOWED = [
+        'div.class' => [
+            'glory', 'spoiler',
+            'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
+            'letter-a', 'letter-v', 'letter-c',
+            'rps', 'coin', 'card'
+        ]
     ];
 
     private function getAllowedHTML(): array {
@@ -186,24 +207,34 @@ class ForumController extends AbstractController
         if ($user->getIsAdmin())
             $r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
 
-        return $r;
+        return ['nodes' => $r, 'attribs' => self::HTML_ATTRIB_ALLOWED];
     }
 
     private function htmlValidator( array $allowedNodes, DOMNode $node, int &$text_length, int $depth = 0 ): bool {
         if ($depth > 32) return false;
+
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
             // Element not allowed.
-            if (!in_array($node->nodeName, array_keys($allowedNodes)) && !($depth === 0 && $node->nodeName === 'body')) {
+            if (!in_array($node->nodeName, array_keys($allowedNodes['nodes'])) && !($depth === 0 && $node->nodeName === 'body')) {
                 $node->parentNode->removeChild( $node );
                 return true;
             }
 
             // Attributes not allowed.
             $remove_attribs = [];
-            for ($i = 0; $i < $node->attributes->length; $i++)
-                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes[$node->nodeName]))
+            for ($i = 0; $i < $node->attributes->length; $i++) {
+                if (!in_array($node->attributes->item($i)->nodeName, $allowedNodes['nodes'][$node->nodeName]))
                     $remove_attribs[] = $node->attributes->item($i)->nodeName;
+                elseif (isset($allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"])) {
+                    // Attribute values not allowed
+                    $allowed_entries = $allowedNodes['attribs']["{$node->nodeName}.{$node->attributes->item($i)->nodeName}"];
+                    $node->attributes->item($i)->nodeValue = implode( ' ', array_filter( explode(' ', $node->attributes->item($i)->nodeValue), function (string $s) use ($allowed_entries) {
+                        return in_array( $s, $allowed_entries );
+                    }));
+                }
+            }
+
             foreach ($remove_attribs as $attrib)
                 $node->removeAttribute($attrib);
 
@@ -233,6 +264,31 @@ class ForumController extends AbstractController
 
         if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0),$tx_len))
             return false;
+
+        $handlers = [
+            '//div[@class=\'dice-4\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,4); },
+            '//div[@class=\'dice-6\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,6); },
+            '//div[@class=\'dice-8\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,8); },
+            '//div[@class=\'dice-10\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,10); },
+            '//div[@class=\'dice-12\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,12); },
+            '//div[@class=\'dice-20\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,20); },
+            '//div[@class=\'dice-100\']' => function (DOMNode $d) { $d->nodeValue = mt_rand(1,100); },
+            '//div[@class=\'letter-a\']' => function (DOMNode $d) { $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-c\']' => function (DOMNode $d) { $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-v\']' => function (DOMNode $d) { $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'rps\']'      => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Schere',[],'global'),$this->trans->trans('Stein',[],'global'),$this->trans->trans('Papier',[],'global')]); },
+            '//div[@class=\'coin\']'     => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Kopf',[],'global'),$this->trans->trans('Zahl',[],'global')]); },
+            '//div[@class=\'card\']'     => function (DOMNode $d) {
+                $s_color = $this->rand->pick([$this->trans->trans('Kreuz',[],'items'),$this->trans->trans('Pik',[],'items'),$this->trans->trans('Herz',[],'items'),$this->trans->trans('Karo',[],'items')]);
+                $value = mt_rand(1,12);
+                $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
+                $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
+            },
+        ];
+
+        foreach ($handlers as $query => $handler)
+            foreach ( (new DOMXPath($dom))->query($query, $body->item(0)) as $node )
+                $handler($node);
 
         $tmp_str = "";
         foreach ($body->item(0)->childNodes as $child)
@@ -276,16 +332,25 @@ class ForumController extends AbstractController
         $title = $parser->trimmed('title');
         $text  = $parser->trimmed('text');
 
+        if ($user->getIsAdmin()) {
+            $type  = $parser->get('type');
+        }
+        else {
+            $type = "USER";
+        }
+
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)   return AjaxResponse::error( self::ErrorPostTitleLength );
 
-        $as_crow = $parser->get('as_crow');
-        if (isset($as_crow)){
-            if ($as_crow) {
-                $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
-                if (isset($thread))
-                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
-                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
+
+        if ($type === "CROW") {
+            $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
+            if (isset($thread))
+                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
+            else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        if ($type !== "DEV") {
+            $type = "USER";
         }
 
         if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -295,7 +360,9 @@ class ForumController extends AbstractController
         $post = (new Post())
             ->setOwner( $user )
             ->setText( $text )
-            ->setDate( new DateTime('now') );
+            ->setDate( new DateTime('now') )
+            ->setType($type);
+
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -327,29 +394,43 @@ class ForumController extends AbstractController
         $user = $this->getUser();
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
-        if (count($forums) !== 1) return AjaxResponse::error( self::ErrorForumNotFound );
+          
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
         if ($thread->getLocked())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return AjaxResponse::error( self::ErrorForumNotFound );
+            }      
+        } 
+        
         /** @var Forum $forum */
-        $forum = $forums[0];
+        $forum = $thread->getForum();
 
 
         if (!$parser->has_all(['text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $text  = $parser->get('text');
-        $as_crow = $parser->get('as_crow');
-        if (isset($as_crow)){
-            if ($as_crow) {
-                if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
-                    return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
-                else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
+        $text = $parser->get('text');
+        
+        if ($user->getIsAdmin()) {
+            $type  = $parser->get('type');
+        }
+        else {
+            $type = "USER";
+        }
+        
+        if ($type === "CROW"){
+            if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
+                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+        if ($type !== "DEV") {
+            $type = "USER";
         }
 
         if (mb_strlen(strip_tags($text)) < 10 || mb_strlen(strip_tags($text)) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -357,7 +438,9 @@ class ForumController extends AbstractController
         $post = (new Post())
             ->setOwner( $user )
             ->setText( $text )
-            ->setDate( new DateTime('now') );
+            ->setDate( new DateTime('now') )
+            ->setType($type);
+
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -388,11 +471,16 @@ class ForumController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
-        if (count($forums) !== 1) return new Response('');
-
+        /** @var Thread $thread */
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        } 
 
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
@@ -411,22 +499,80 @@ class ForumController extends AbstractController
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
-            
+
         if (!empty($posts)) {
-            $marker->setPost( $posts[array_key_last($posts)] );
-            try {
-                $em->persist($marker);
-                $em->flush();
-            } catch (Exception $e) {}
+            /** @var Post $read_post */
+            $read_post = $posts[array_key_last($posts)];
+            /** @var Post $last_read */
+            $last_read = $marker->getPost();
+            if ($last_read && $read_post->getId() > $last_read->getId()) {
+                $marker->setPost($read_post);
+                try {
+                    $em->persist($marker);
+                    $em->flush();
+                } catch (Exception $e) {
+                }
+            }
         }
 
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
             'locked' => $thread->getLocked(),
+            'pinned' => $thread->getPinned(),
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
-            'pages' => $pages
+            'pages' => $pages,
+        ] );
+    }
+
+    /**
+     * @Route("api/forum/{pid<\d+>}/jump", name="forum_viewer_jump_post_controller")
+     * @param int $pid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function jumpToPost_api(int $pid, EntityManagerInterface $em): Response {
+        $num_per_page = 10;
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $jumpPost = $em->getRepository(Post::class)->find( $pid );
+
+        $thread = $jumpPost->getThread();
+        if (!$thread) return new Response('');
+
+        $forum = $thread->getForum();
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $forum->getId());
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        } 
+        
+        if ($user->getIsAdmin())
+            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
+        else
+            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
+
+        $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jumpPost )) / $num_per_page));
+
+        if ($user->getIsAdmin())
+            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+        else
+            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+
+        return $this->render( 'ajax/forum/posts.html.twig', [
+            'posts' => $posts,
+            'locked' => $thread->getLocked(),
+            'pinned' => $thread->getPinned(),
+            'fid' => $forum->getId(),
+            'tid' => $thread->getId(),
+            'current_page' => $page,
+            'pages' => $pages,
+            'markedPost' => $pid,
         ] );
     }
 
@@ -455,11 +601,17 @@ class ForumController extends AbstractController
      * @return Response
      */
     public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em): Response {
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
-        if (count($forums) !== 1) return new Response('');
+        $user = $this->getUser();
 
         $thread = $em->getRepository( Thread::class )->find( $tid );
         if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1){
+            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        } 
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
@@ -496,6 +648,33 @@ class ForumController extends AbstractController
     }
 
     /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/pin", name="forum_thread_pin_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->pinThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+    }
+
+     /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unpin", name="forum_thread_unpin_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function unpin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
+        $admh->unpinThread($this->getUser()->getId(), $fid, $tid);
+        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
+
+    }
+
+    /**
      * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/delete", name="forum_delete_post_controller")
      * @param int $fid
      * @param int $tid
@@ -507,15 +686,68 @@ class ForumController extends AbstractController
         if (!$parser->has('postId')){
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
+
+        if ($parser->has('reason'))
+            $reason = $parser->get('reason');     
+        else 
+            $reason = "";
         
         /** @var User $user */
         $user = $this->getUser();
         $postId = $parser->get('postId');
         
-        if ($admh->hidePost($user->getId(), $postId, "abc" ))
+        if ($admh->hidePost($user->getId(), $postId, $reason ))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
 
             
         return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/report", name="forum_report_post_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+        if (!$parser->has('postId')){
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+        
+        /** @var User $user */
+        $user = $this->getUser();
+        $postId = $parser->get('postId');
+
+        $post = $em->getRepository( Post::class )->find( $postId );
+        $targetUser = $post->getOwner();
+        if ($targetUser->getUsername() === "Der Rabe" ) {
+            $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');
+            $this->addFlash('notice', $message);
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+        }
+
+        $reports = $post->getAdminReports();
+        foreach ($reports as $report) {
+            if ($report->getSourceUser() == $user) {
+                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            }
+        }
+
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setTs(new DateTime('now'))
+            ->setPost($post);
+        
+            try {
+                $em->persist($newReport);
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+            $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
+            $this->addFlash('notice', $message);
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
     }
 }

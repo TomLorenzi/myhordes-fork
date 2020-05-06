@@ -83,6 +83,14 @@
                                 </div>
                                 <div class="cell padded rw-2 center town-days bold">
                                     {{ incarnation.survivedDays }}
+                                    {% if incarnation.town.hasAliveCitizen %}
+                                        <span>
+                                            <img src="{{asset('build/images/small_new.gif')}}" />
+                                            <div class="tooltip">
+                                                {{ 'Es sind in dieser Stadt noch ein paar Bürger übrig...'|trans({}, 'soul') }}
+                                            </div>
+                                        </span>
+                                    {% endif %}
                                 </div>
                                 <div class="cell padded rw-2 center town-points bold">
                                     +{{nbSoulPoints}}

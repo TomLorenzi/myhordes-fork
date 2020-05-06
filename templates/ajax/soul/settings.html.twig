@@ -71,6 +71,17 @@
         </div>
     </div>
 
+    {% if is_granted("ROLE_ADMIN") %}
+    <h5>{{ 'Standardrolle im Forum'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="note note-lightest">
+                <input x-default-role-setting {% if app.user.postAsDefault == "DEV" %}checked{% endif%} type="checkbox" id="setting_default_forum_role">&nbsp;<label for="setting_default_forum_role">{{ 'Standardmäßig als dev posten'|trans({}, 'soul') }}</label>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
     <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
     <div class="row">
         <div class="cell padded rw-4 rw-sm-12">
@@ -80,6 +91,43 @@
             <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
         </div>
     </div>
+    <div class="row">
+        <div class="cell padded rw-4 rw-sm-12">
+            {% trans from 'soul' %}Passwort ändern{% endtrans %}
+        </div>
+        <div class="cell rw-8 rw-sm-12">
+            <div class="row">
+                <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
+                <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+            </div>
+
+        </div>
+    </div>
+
+    {% set preferredLanguage = 'de' %}
+
+    <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="language-picker">
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'de' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_de">&nbsp;<label for="setting_preferred_language_de">{{ 'Deutsch'|trans({}, 'soul') }}</label>
+                </div>
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'fr' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_fr">&nbsp;<label for="setting_preferred_language_fr">{{ 'Französisch'|trans({}, 'soul') }}</label>
+                </div>
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'en' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_en">&nbsp;<label for="setting_preferred_language_en">{{ 'Englisch'|trans({}, 'soul') }}</label>
+                </div>
+                <div class="note note-lightest">
+                    <input x-setting {% if preferredLanguage == 'es' %}checked{% endif%} type="radio" name="setting_preferred_language" id="setting_preferred_language_es">&nbsp;<label for="setting_preferred_language_es">{{ 'Spanisch'|trans({}, 'soul') }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
     <div class="row">
         <div class="cell padded rw-4 rw-sm-12">
@@ -94,10 +142,51 @@
             <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
         </div>
     </div>
+
+    <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+    <div class="row">
+        <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+        <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
+        <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+    </div>
 {% endblock %}
 {% block js %}
     {{ parent() }}
     <script>
+        document.getElementById('acc_del_btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const pw = document.getElementById('acc_del_input').value;
+            if (!confirm('{{ 'Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul')|e('js') }}'))
+                return;
+
+            $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
+                function () {
+                    $.ajax.load(null, '{{ path('public_welcome') }}', true);
+                } )
+        });
+
+        document.getElementById('acc_ch_pw').addEventListener('click', function(e) {
+            e.preventDefault();
+            const pw_old = document.getElementById('app_pw_change_old').value;
+            const pw_new1 = document.getElementById('app_pw_change_new1').value;
+            const pw_new2 = document.getElementById('app_pw_change_new2').value;
+
+            if (pw_new1 !== pw_new2) {
+                $.html.error('{{ 'Die eingegebenen Passwörter stimmen nicht überein.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            if (pw_new1.length < 6) {
+                $.html.error('{{ 'Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
+                return;
+            }
+
+            $.ajax.easySend( '{{ path('api_soul_change_password') }}', {'pw': pw_old, 'pw_new': pw_new1},
+                function () {
+                    $.ajax.load(null, '{{ path('public_login') }}', true);
+                } )
+        });
+
         document.getElementById('generate-external-id').addEventListener('click', function(e) {
             e.preventDefault();
             $.ajax.easySend( '{{ path('api_soul_settings_generateid') }}', [],
@@ -129,6 +218,17 @@
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });
+
+        {% if is_granted("ROLE_ADMIN") %}
+            $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
+                $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
+                    dev: document.getElementById('setting_default_forum_role').checked
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    } )
+            });
+        {% endif %}
 
         document.getElementById('avatar_file_select').addEventListener('change', function(e) {
             if (e.target.files.length !== 1) {

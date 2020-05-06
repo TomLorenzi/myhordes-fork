@@ -5,6 +5,7 @@ namespace App\Service;
 
 use App\Entity\AdminBan;
 use App\Entity\AdminDeletion;
+use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
 use App\Entity\Forum;
@@ -97,6 +98,34 @@ class AdminActionHandler
         return true;
     }
 
+    public function pinThread(int $sourceUser, int $forumId, int $threadId): bool{
+        if(!$this->hasRights($sourceUser))
+            return false;
+        /**
+        * @var Thread
+        */
+        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
+        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
+        $thread->setPinned(true);
+        $this->entity_manager->persist($thread);
+        $this->entity_manager->flush();
+        return true;
+    }
+
+    public function unpinThread(int $sourceUser, int $forumId, int $threadId): bool{
+        if(!$this->hasRights($sourceUser))
+            return false;
+        /**
+        * @var Thread
+        */
+        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
+        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
+        $thread->setPinned(false);
+        $this->entity_manager->persist($thread);
+        $this->entity_manager->flush();
+        return true;
+    }
+
     public function crowPost(int $sourceUser, Forum $forum, ?Thread $thread, string $text, ?string $title): ?Thread
     {
         if(!$this->hasRights($sourceUser))
@@ -112,7 +141,9 @@ class AdminActionHandler
         $post = (new Post())
             ->setOwner( $theCrow )
             ->setText( $text )
-            ->setDate( new DateTime('now') );
+            ->setDate( new DateTime('now') )
+            ->setType("CROW");
+            
         $thread->addPost($post)->setLastPost( $post->getDate() );
         try {
             $this->entity_manager->persist($thread);
@@ -202,11 +233,11 @@ class AdminActionHandler
         return true;
     }
 
-    public function hidePost(int $sourceUser, int $postId, string $reason): bool {
-        if(!$this->hasRights($sourceUser))
+    public function hidePost(int $srcUser, int $postId, string $reason): bool {
+        if(!$this->hasRights($srcUser))
             return false;
 
-        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);        
+        $sourceUser = $this->entity_manager->getRepository(User::class)->find($srcUser);        
         $post = $this->entity_manager->getRepository(Post::class)->find($postId);
 
         if (!(isset($post)))
@@ -232,6 +263,56 @@ class AdminActionHandler
             return false;
         }
 
+        $this->clearReports($srcUser, $postId);
+
+        return true;
+    }
+
+    public function clearReports(int $sourceUser, int $postId): bool {
+
+        if (!$this->hasRights($sourceUser))
+            return false;
+
+        $post = $this->entity_manager->getRepository(Post::class)->find($postId);
+        $reports = $post->getAdminReports();
+        
+        try 
+        {
+            foreach ($reports as $report) {
+                $report->setSeen(true);
+                $this->entity_manager->persist($report);
+            }
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return false;
+        }
+        return true;
+    }
+
+    public function setDefaultRoleDev(int $sourceUser, bool $asDev): bool {
+
+        if (!$this->hasRights($sourceUser))
+            return false;
+
+        $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+            
+        if ($asDev) {
+            $defaultRole = "DEV";
+        }    
+        else {
+            $defaultRole = "USER";
+        }
+        
+        try 
+        {
+            $user->setPostAsDefault($defaultRole);
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return false;
+        }
         return true;
     }
 }

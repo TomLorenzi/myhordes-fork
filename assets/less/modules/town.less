@@ -200,12 +200,32 @@ div.town-banner {
 }
 
 .citizens-list {
+  .row.header {
+    font-weight: bold;
+    background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
+    font-size: 1.2rem;
+    border-bottom: 2px solid #ddab76;
+  }
+
   .row:not(.header):hover {
     outline: 1px solid #EFDBAB;
   }
 
   .row.me {
     background-color: #423f54 !important;
+  }
+}
+
+.nightwatch {
+  .small {
+    color: white;
+
+  }
+  .total div {
+    background: #5c2b20;
+    font-weight: bold;
+    border-bottom: 1px solid #f0d79e;
+    color: #f0d79e;
   }
 }
 
@@ -227,6 +247,21 @@ div.town-banner {
   &>p {
     margin-top: 0;
     font-size: 1.2rem;
+  }
+  .notice {
+    padding-left: 20px;
+    padding-right: 5px;
+    font-size: 1.1rem;
+    color: #f0d79e;
+    margin-top: 2px;
+    background-image: url("../../img/small_middot.gif");
+    background-repeat: no-repeat;
+    background-position: 3px 1px;
+    background-color: #996739;
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
   }
 }
 
@@ -265,7 +300,7 @@ div.town-banner {
   background-image: url('../../img/cityBoard.png');
 
   .content {
-    margin: 40px 10px 0 5px;
+    margin: 40px 30px 0 5px;
     height: 190px;
     max-height: 190px;
     overflow: auto;
@@ -275,6 +310,7 @@ div.town-banner {
     font-style: italic;
     font-weight: bold;
     font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+    word-break: break-word;
     textarea, textarea:focus {
       width: 100%;
       overflow: hidden;
@@ -412,6 +448,14 @@ div.town-banner {
 .citizen-offline {
   max-width: 6px;
   background-color: #ba6767;
+  border-bottom: 1px solid #7e4d2a;
+  margin: 0px 0px 0px 0px;
+  position: relative;
+}
+
+.citizen-dead {
+  max-width: 6px;
+  background-color: #b37c4a;
   border-bottom: 1px solid #7e4d2a;
   margin: 0px 0px 0px 0px;
   position: relative;

@@ -118,12 +118,18 @@ class Town
      */
     private $season;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="town", orphanRemoval=true)
+     */
+    private $citizenWatches;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
         $this->zones = new ArrayCollection();
         $this->buildings = new ArrayCollection();
         $this->zombieEstimations = new ArrayCollection();
+        $this->citizenWatches = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -446,6 +452,46 @@ class Town
     public function setSeason(?Season $season): self
     {
         $this->season = $season;
+
+        return $this;
+    }
+
+    public function hasAliveCitizen(): bool
+    {
+        foreach ($this->getCitizens() as $citizen) {
+            if($citizen->getAlive())
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return Collection|CitizenWatch[]
+     */
+    public function getCitizenWatches(): Collection
+    {
+        return $this->citizenWatches;
+    }
+
+    public function addCitizenWatch(CitizenWatch $citizenWatch): self
+    {
+        if (!$this->citizenWatches->contains($citizenWatch)) {
+            $this->citizenWatches[] = $citizenWatch;
+            $citizenWatch->setTown($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCitizenWatch(CitizenWatch $citizenWatch): self
+    {
+        if ($this->citizenWatches->contains($citizenWatch)) {
+            $this->citizenWatches->removeElement($citizenWatch);
+            // set the owning side to null (unless already changed)
+            if ($citizenWatch->getTown() === $this) {
+                $citizenWatch->setTown(null);
+            }
+        }
 
         return $this;
     }

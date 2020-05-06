@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +54,21 @@ class Post
      * @ORM\Column(type="boolean")
      */
     private $hidden = false;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $type = "USER";
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AdminReport", mappedBy="post", orphanRemoval=true)
+     */
+    private $adminReports;
+
+    public function __construct()
+    {
+        $this->adminReports = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -138,6 +155,49 @@ class Post
     public function setHidden(bool $hidden): self
     {
         $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AdminReport[]
+     */
+    public function getAdminReports(): Collection
+    {
+        return $this->adminReports;
+    }
+
+    public function addAdminReport(AdminReport $adminReport): self
+    {
+        if (!$this->adminReports->contains($adminReport)) {
+            $this->adminReports[] = $adminReport;
+            $adminReport->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdminReport(AdminReport $adminReport): self
+    {
+        if ($this->adminReports->contains($adminReport)) {
+            $this->adminReports->removeElement($adminReport);
+            // set the owning side to null (unless already changed)
+            if ($adminReport->getPost() === $this) {
+                $adminReport->setPost(null);
+            }
+        }
 
         return $this;
     }

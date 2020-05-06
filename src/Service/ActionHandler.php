@@ -12,6 +12,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
 use App\Entity\FoundRolePlayText;
@@ -29,6 +30,7 @@ use App\Entity\RolePlayText;
 use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -50,12 +52,13 @@ class ActionHandler
     private $picto_handler;
     private $assets;
     private $log;
+    private $conf;
 
 
     public function __construct(
         EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
         RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt)
+        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -71,6 +74,7 @@ class ActionHandler
         $this->zone_handler = $zh;
         $this->picto_handler = $ph;
         $this->log = $lt;
+        $this->conf = $conf;
     }
 
     const ActionValidityNone = 1;
@@ -443,6 +447,8 @@ class ActionHandler
         $kill_by_poison = $item && $item->getPoison() && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
         $spread_poison = false;
 
+        $town_conf = $this->conf->getTownConfiguration( $citizen->getTown() );
+
         $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
         if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
         if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
@@ -475,7 +481,7 @@ class ActionHandler
 
         $item_in_chest = $item && $item->getInventory() && $item->getInventory()->getId() === $citizen->getHome()->getChest()->getId();
 
-        $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest) {
+        $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest, $town_conf) {
             if ($status = $result->getStatus()) {
                 if ($status->getResetThirstCounter())
                     $citizen->setWalkingDistance(0);
@@ -522,7 +528,7 @@ class ActionHandler
                 if ($pm->getMax()) {
                     $to = $this->citizen_handler->getMaxPM($citizen) + $pm->getPm();
                     $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ), null );
-                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null :$pm->getBonus() );
+                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null : $pm->getBonus() );
 
                 $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
             }
@@ -583,7 +589,7 @@ class ActionHandler
                             $citizen->getZone()
                                 ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
                                 : ( [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ])
-                        )) $execute_info_cache['items_spawn'][] = $target;
+                        , true)) $execute_info_cache['items_spawn'][] = $target;
                 }
             }
 
@@ -600,9 +606,9 @@ class ActionHandler
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
                             $citizen->getZone()
-                                ? [ $citizen->getInventory(), $citizen->getZone()->getFloor() ]
+                                ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
                                 : ( $item_in_chest ? [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ] : [ $citizen->getInventory(), $citizen->getHome()->getChest(), $citizen->getTown()->getBank() ])
-                        )) $execute_info_cache['items_spawn'][] = $proto;
+                        , true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
 
@@ -615,7 +621,7 @@ class ActionHandler
 
                     if ($consume_item->getPoison()) {
                         if ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume) $kill_by_poison = true;
-                        if ($action->getPoisonHandler() & ItemAction::PoisonHandlerTransgress) $spread_poison = true;
+                        if ($action->getPoisonHandler() & ItemAction::PoisonHandlerTransgress) $spread_poison = $town_conf->get( TownConf::CONF_MODIFIER_POISON_TRANS, false );
                     }
 
                     $this->inventory_handler->forceRemoveItem( $consume_item );
@@ -770,8 +776,13 @@ class ActionHandler
                     case 3:
                         $count = 0;
                         foreach ($citizen->getTown()->getCitizens() as $target_citizen) {
+                            // Don't give AP to dead citizen 
+                            if(!$target_citizen->getAlive())
+                                continue;
+                            
                             $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
-                            if ($target_citizen->getZone()) continue;
+                            if ($target_citizen->getZone()) 
+                                continue;
                             else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
                                 $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;
@@ -806,7 +817,7 @@ class ActionHandler
 
                             if ($drink) $citizen->setWalkingDistance(0);
 
-                            if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'dehydrated')) {
+                            if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'thirst2')) {
                                 $this->citizen_handler->removeStatus($citizen, 'thirst2');
                                 $this->citizen_handler->inflictStatus($citizen, 'thirst1');
                             } else {
@@ -818,8 +829,8 @@ class ActionHandler
                                 if ($drink) $this->citizen_handler->removeStatus($citizen, 'thirst1');
                                 $this->citizen_handler->inflictStatus($citizen, $drink ? 'hasdrunk' : 'haseaten');
 
-                                $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
                             }
+                            $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
                         break;
@@ -828,25 +839,27 @@ class ActionHandler
                     case 8:case 9: {
                         $zone = null; $cp_ok = true;
                         $jumper = null;
-                        if ($result->getCustom() === 8 && $citizen->getZone()) {
-                            $zone = $citizen->getZone();
-                            $cp_ok = $this->zone_handler->check_cp( $zone );
-                            $citizen->setZone(null);
-                            $zone->removeCitizen( $citizen );
+                        if ($result->getCustom() === 8 && $citizen->getZone())
                             $jumper = $citizen;
-                        }
 
-                        if ($result->getCustom() === 9 && is_a( $target, Citizen::class )) {
-                            $zone = $target->getZone();
-                            $this->zone_handler->updateZone( $zone );
-                            $cp_ok = $this->zone_handler->check_cp( $zone );
-                            $target->setZone(null);
-                            $zone->removeCitizen( $target );
+                        if ($result->getCustom() === 9 && is_a( $target, Citizen::class ))
                             $jumper = $target;
-                        }
 
+                        if (!$jumper) break;
+                        $zone = $jumper->getZone();
                         if (!$zone) break;
                         $others_are_here = $zone->getCitizens()->count() > 0;
+
+                        $this->zone_handler->updateZone( $zone );
+                        $cp_ok = $this->zone_handler->check_cp( $zone );
+
+                        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($jumper)) {
+                            $dig_timer->setPassive(true);
+                            $this->entity_manager->persist( $dig_timer );
+                        }
+
+                        $jumper->setZone(null);
+                        $zone->removeCitizen( $jumper );
 
                         if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
@@ -1009,14 +1022,18 @@ class ActionHandler
         if ( $recipe->getType() == Recipe::WorkshopType && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
             return ErrorHelper::ErrorNoAP;
 
-        $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest() ]);
+        $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
         $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
+
+        if ($recipe->getType() !== Recipe::WorkshopType && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
+            $source_inv[] = $citizen->getZone()->getFloor();
 
         $items = $this->inventory_handler->fetchSpecificItems( $source_inv, $recipe->getSource() );
         if (empty($items)) return ErrorHelper::ErrorItemsMissing;
 
         $list = [];
         foreach ($items as $item) {
+            if($recipe->getKeep()->contains($item->getPrototype())) continue;
             $r = $recipe->getSource()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r->getChance() );
             $list[] = $item->getPrototype();
@@ -1025,7 +1042,7 @@ class ActionHandler
         $this->citizen_handler->deductAPBP( $citizen, $ap );
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult() );
-        $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv );
+        $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
 
         if ($recipe->getType() === Recipe::WorkshopType)
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, $items, [$new_item] ) );

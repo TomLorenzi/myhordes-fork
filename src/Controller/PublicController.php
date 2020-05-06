@@ -6,6 +6,7 @@ use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\User;
+use App\Entity\UserPendingValidation;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -85,6 +86,102 @@ class PublicController extends AbstractController
     }
 
     /**
+     * @Route("jx/public/reset/{pkey}", name="public_reset")
+     * @param string|null $pkey
+     * @return Response
+     */
+    public function reset_pw(?string $pkey = null): Response
+    {
+        if ($this->isGranted( 'ROLE_REGISTERED' ))
+            return $this->redirect($this->generateUrl('initial_landing'));
+
+        /** @var UserPendingValidation|null $pending */
+        $pending = null;
+        if ($pkey) $pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByToken($pkey, UserPendingValidation::ResetValidation);
+
+        return $pending
+            ? $this->render( 'ajax/public/passreset.html.twig', ['mail' => $pending->getUser()->getEmail(), 'pkey' => $pkey] )
+            : $this->render( 'ajax/public/passreset.html.twig', ['mail' => ''] );
+    }
+
+    /**
+     * @Route("api/public/reset", name="api_reset")
+     * @param JSONRequestParser $parser
+     * @param TranslatorInterface $translator
+     * @param UserFactory $factory
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function reset_api(
+        JSONRequestParser $parser,
+        TranslatorInterface $translator,
+        UserFactory $factory,
+        EntityManagerInterface $entityManager
+    ): Response
+    {
+        if ($this->isGranted( 'ROLE_REGISTERED' ))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$parser->has( 'mail', true ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($parser->has('pkey', true)) {
+
+            if (!$parser->has_all( ['pass1','pass2'], true ))
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+                'mail' => new Constraints\NotBlank(), 'pkey' => new Constraints\NotBlank(),
+                'pass1' => new Constraints\Length(
+                    ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
+                'pass2' => new Constraints\EqualTo(
+                    ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
+            ]) );
+
+            if ($violations->count() === 0) {
+
+                $factory->resetUserPassword(
+                    $parser->trimmed('mail'),
+                    $parser->trimmed('pkey'),
+                    $parser->trimmed('pass1'),
+                    $error
+                );
+
+                switch ($error) {
+                    case UserFactory::ErrorNone:
+                        return AjaxResponse::success( );
+                    case UserFactory::ErrorInvalidParams: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                    default: return AjaxResponse::error($error);
+                }
+
+            } else {
+                $v = [];
+                foreach ($violations as &$violation)
+                    /** @var ConstraintViolationInterface $violation */
+                    $v[] = $violation->getMessage();
+
+                return AjaxResponse::error( 'invalid_fields', ['fields' => $v] );
+            }
+
+        } else {
+            $user = $factory->prepareUserPasswordReset(
+                $parser->trimmed('mail'),
+                $error
+            );
+
+            $this->entity_manager->persist($user);
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            }
+
+            return AjaxResponse::success( 'validate' );
+        }
+    }
+
+    /**
      * @Route("api/public/register", name="api_register")
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
@@ -110,11 +207,14 @@ class PublicController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
-            'user'  => new Constraints\Length(
-                ['min' => 4, 'max' => 16,
-                    'minMessage' => $translator->trans('Dein Name muss mindestens {{ limit }} Zeichen umfassen.', [], 'login'),
-                    'maxMessage' => $translator->trans('Dein Name kann höchstens {{ limit }} Zeichen umfassen.', [], 'login'),
-                ]),
+            'user' => [
+                new Constraints\Regex( ['match' => false, 'pattern' => '/[\s$<>]/', 'message' => $translator->trans('Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.', [], 'login') ] ),
+                new Constraints\Length(
+                    ['min' => 4, 'max' => 16,
+                        'minMessage' => $translator->trans('Dein Name muss mindestens {{ limit }} Zeichen umfassen.', [], 'login'),
+                        'maxMessage' => $translator->trans('Dein Name kann höchstens {{ limit }} Zeichen umfassen.', [], 'login'),
+                    ]),
+            ],
             'mail1' => new Constraints\Email(
                 ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
             'mail2' => new Constraints\EqualTo(
@@ -123,6 +223,7 @@ class PublicController extends AbstractController
                 ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
+            'privacy' => new Constraints\IsTrue(),
         ]) );
 
         if ($violations->count() === 0) {
@@ -237,6 +338,15 @@ class PublicController extends AbstractController
     public function welcome(): Response
     {
         return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs());
+    }
+
+    /**
+     * @Route("jx/public/privacy", name="public_privacy")
+     * @return Response
+     */
+    public function privacy(): Response
+    {
+        return $this->render('ajax/public/privacy.html.twig', $this->addDefaultTwigArgs());
     }
 
 }

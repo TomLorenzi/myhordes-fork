@@ -427,5 +427,167 @@
         <target>Commentaire</target>
       </segment>
     </unit>
+    <unit id="mUtATjH" name="1de0d19">
+      <notes>
+        <note category="german">Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</note>
+      </notes>
+      <segment>
+        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
+        <target>Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</target>
+      </segment>
+    </unit>
+    <unit id="HbhZq4U" name="Account löschen">
+      <notes>
+        <note category="german">Account löschen</note>
+      </notes>
+      <segment>
+        <source>Account löschen</source>
+        <target>Suppression du compte</target>
+      </segment>
+    </unit>
+    <unit id="q58CKHC" name="Meinen Account löschen">
+      <notes>
+        <note category="german">Meinen Account löschen</note>
+      </notes>
+      <segment>
+        <source>Meinen Account löschen</source>
+        <target>Supprimer mon compte</target>
+      </segment>
+    </unit>
+    <unit id="LS.JtiE" name="c5a39bb">
+      <notes>
+        <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+      </notes>
+      <segment>
+        <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
+        <target>Souhaitez vous réellement supprimer votre compte ? Cette action est irréversible.</target>
+      </segment>
+    </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <notes>
+        <note category="german">Passwort ändern</note>
+      </notes>
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Changer de mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="iLulTXC" name="Neues Passwort">
+      <notes>
+        <note category="german">Neues Passwort</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort</source>
+        <target>Nouveau mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="Icwc1Fo" name="Neues Passwort wiederholen">
+      <notes>
+        <note category="german">Neues Passwort wiederholen</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort wiederholen</source>
+        <target>Confirmation du nouveau mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="e99uiXA" name="Aktuelles Passwort">
+      <notes>
+        <note category="german">Aktuelles Passwort</note>
+      </notes>
+      <segment>
+        <source>Aktuelles Passwort</source>
+        <target>Mot de passe actuel</target>
+      </segment>
+    </unit>
+    <unit id="wIQ05bj" name="Passwort aktualisieren">
+      <notes>
+        <note category="german">Passwort aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Passwort aktualisieren</source>
+        <target>Mettre à jour le mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="EZLjPxc" name="f6fa7cb">
+      <notes>
+        <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
+      </notes>
+      <segment>
+        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
+        <target>Votre mot de passe est incorrect. Vous devez saisir votre mot de passe actuel pour modifier votre compte.</target>
+      </segment>
+    </unit>
+    <unit id="isnXPfR" name="Standardrolle im Forum">
+      <notes>
+        <note category="german">Standardrolle im Forum</note>
+      </notes>
+      <segment>
+        <source>Standardrolle im Forum</source>
+        <target>Rôle par défaut dans le forum</target>
+      </segment>
+    </unit>
+    <unit id="uqXS6rA" name="Standardmäßig als dev posten">
+      <notes>
+        <note category="german">Standardmäßig als dev posten</note>
+      </notes>
+      <segment>
+        <source>Standardmäßig als dev posten</source>
+        <target>Poster comme développeur par défaut</target>
+      </segment>
+    </unit>
+    <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
+      <notes>
+        <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
+      </notes>
+      <segment>
+        <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
+        <target>Il y a encore des citoyens vivant dans cette ville...</target>
+      </segment>
+    </unit>
+    <unit id="YDybxz8" name="Standardsprache">
+      <notes>
+        <note category="german">Standardsprache</note>
+      </notes>
+      <segment>
+        <source>Standardsprache</source>
+        <target>Standardsprache</target>
+      </segment>
+    </unit>
+    <unit id="gBz_D6E" name="Deutsch">
+      <notes>
+        <note category="german">Deutsch</note>
+      </notes>
+      <segment>
+        <source>Deutsch</source>
+        <target>Deutsch</target>
+      </segment>
+    </unit>
+    <unit id="vp_4VdN" name="Französisch">
+      <notes>
+        <note category="german">Französisch</note>
+      </notes>
+      <segment>
+        <source>Französisch</source>
+        <target>Französisch</target>
+      </segment>
+    </unit>
+    <unit id="mD6lfyI" name="Englisch">
+      <notes>
+        <note category="german">Englisch</note>
+      </notes>
+      <segment>
+        <source>Englisch</source>
+        <target>Englisch</target>
+      </segment>
+    </unit>
+    <unit id="bjgV6Xr" name="Spanisch">
+      <notes>
+        <note category="german">Spanisch</note>
+      </notes>
+      <segment>
+        <source>Spanisch</source>
+        <target>Spanisch</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -57,13 +57,23 @@
                     <li class="action" x-recipe-id="{{ recipe.id }}">
                         {# @var recipe \App\Entity\Recipe #}
                         {% if recipe.result.entries.count == 1 %}
-                            <img src="{{ asset('build/images/item/item_' ~ recipe.result.entries[0].prototype.icon ~ '.gif') }}" alt="{{ recipe.result.entries[0].prototype.label|trans({},'items') }}">
                             {% if scout %}
                                 <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
                             {% endif %}
-                            <span>{{ 'Herstellen'|trans({},'game') }}: <b>{{ recipe.result.entries[0].prototype.label|trans({},'items') }}</b></span>
-                            {% if recipe.source %}
-                                <span>
+                            {% if recipe.source and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_PRE_ASSEMBLY'),false) %}
+                                <span>{{ 'Zusammenbauen'|trans({},'game') }}:
+                                    {% for entry in recipe.source.entries %}
+                                        {# @var entry \App\Entity\ItemGroupEntry #}
+                                        {% for n in 1..entry.chance %}
+                                            <img class="{% if n > recipe_list.source_items[entry.prototype.id] %}unavailable{% endif %}" src="{{ asset('build/images/item/item_' ~ entry.prototype.icon ~ '.gif') }}" alt="{{ entry.prototype.label|trans({},'items') }}">
+                                        {% endfor %}
+                                    {% endfor %}
+                                </span>
+                            {% else %}
+                                <img src="{{ asset('build/images/item/item_' ~ recipe.result.entries[0].prototype.icon ~ '.gif') }}" alt="{{ recipe.result.entries[0].prototype.label|trans({},'items') }}">
+                                <span>{{ 'Herstellen'|trans({},'game') }}: <b>{{ recipe.result.entries[0].prototype.label|trans({},'items') }}</b></span>
+                                {% if recipe.source %}
+                                    <span>
                                     {{ 'aus'|trans({},'game') }}:
                                     {% for entry in recipe.source.entries %}
                                         {# @var entry \App\Entity\ItemGroupEntry #}
@@ -72,7 +82,9 @@
                                         {% endfor %}
                                     {% endfor %}
                                 </span>
+                                {% endif %}
                             {% endif %}
+
                         {% else %}
                             {% if recipe.source %}
                                 {% if scout %}

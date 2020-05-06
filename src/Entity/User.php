@@ -40,7 +40,7 @@ class User implements UserInterface, EquatableInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $pass;
 
@@ -98,6 +98,11 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="boolean")
      */
     private $preferSmallAvatars = false;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $postAsDefault;
 
     public function __construct()
     {
@@ -171,7 +176,7 @@ class User implements UserInterface, EquatableInterface
 
         // set (or unset) the owning side of the relation if necessary
         $newUser = null === $pendingValidation ? null : $this;
-        if ($pendingValidation->getUser() !== $newUser) {
+        if ($pendingValidation && $pendingValidation->getUser() !== $newUser) {
             $pendingValidation->setUser($newUser);
         }
 
@@ -184,6 +189,7 @@ class User implements UserInterface, EquatableInterface
     public function getRoles()
     {
         $roles = [];
+        if ($this->pass === null) return $roles;
         if ($this->isAdmin) $roles[] = 'ROLE_ADMIN';
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
         if ($this->validated) $roles[] = 'ROLE_USER';
@@ -200,7 +206,7 @@ class User implements UserInterface, EquatableInterface
         return $this->pass;
     }
 
-    public function setPassword(string $pass): self {
+    public function setPassword(?string $pass): self {
         $this->pass = $pass;
         return $this;
     }
@@ -214,7 +220,7 @@ class User implements UserInterface, EquatableInterface
      * @inheritDoc
      */
     public function isEqualTo(UserInterface $user) {
-        $b1 =
+        $b1 = $this->getPassword() !== null && $user->getPassword() !== null &&
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();
@@ -425,6 +431,18 @@ class User implements UserInterface, EquatableInterface
     public function setPreferSmallAvatars(bool $preferSmallAvatars): self
     {
         $this->preferSmallAvatars = $preferSmallAvatars;
+
+        return $this;
+    }
+
+    public function getPostAsDefault(): ?string
+    {
+        return $this->postAsDefault;
+    }
+
+    public function setPostAsDefault(?string $postAsDefault): self
+    {
+        $this->postAsDefault = $postAsDefault;
 
         return $this;
     }

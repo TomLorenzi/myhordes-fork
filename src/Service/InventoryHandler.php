@@ -320,16 +320,17 @@ class InventoryHandler
     const ErrorExpandBlocked   = ErrorHelper::BaseInventoryErrors + 8;
     const ErrorTransferBlocked   = ErrorHelper::BaseInventoryErrors + 9;
     const ErrorUnstealableItem   = ErrorHelper::BaseInventoryErrors + 10;
-
-
+    const ErrorEscortDropForbidden  = ErrorHelper::BaseInventoryErrors + 11;
+    const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
 
     const ModalityNone    = 0;
     const ModalityTamer   = 1;
     const ModalityImpound = 2;
+    const ModalityEnforcePlacement = 3;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone ): int {
         // Block Transfer if citizen is hiding
-        if ($actor->getZone() && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
+        if ($actor->getZone() && $modality !== self::ModalityImpound && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
             return self::ErrorTransferBlocked;
         }
 
@@ -338,10 +339,10 @@ class InventoryHandler
             return self::ErrorInvalidTransfer;
 
         if (!$this->transferType( $item,$actor, $to, $from, $type_to, $type_from ))
-            return self::ErrorInvalidTransfer;
+            return $item->getEssential() ? self::ErrorEssentialItemBlocked : self::ErrorInvalidTransfer;
 
         // Check inventory size
-        if ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) return self::ErrorInventoryFull;
+        if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
       /* This snippet restores original Hordes functionality, but was intentionally left out.
@@ -362,10 +363,18 @@ class InventoryHandler
             $this->countHeavyItems($to)
         ) return self::ErrorHeavyLimitHit;
 
+        if ($type_from === self::TransferTypeEscort) {
+            // Prevent undroppable items
+            if ($item->getEssential() || $item->getPrototype()->hasProperty('esc_fixed')) return self::ErrorEscortDropForbidden;
+        }
+
         //ToDo Check Bank lock
         if ($type_from === self::TransferTypeBank) {
             if ($actor->getBanished()) return self::ErrorBankBlocked;
         }
+
+        if ( $type_to === self::TransferTypeSteal && !$to->getHome()->getCitizen()->getAlive())
+            return self::ErrorInvalidTransfer;
 
         if ($type_from === self::TransferTypeSteal || $type_to === self::TransferTypeSteal) {
             if (!$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_steal' ) ))
@@ -403,14 +412,15 @@ class InventoryHandler
      * @param Citizen $citizen
      * @param Item $item
      * @param Inventory[] $inventories
-     * @return bool
+     * @param bool $force
+     * @return Inventory|null
      */
-    public function placeItem( Citizen $citizen, Item $item, array $inventories ): Inventory {
+    public function placeItem( Citizen $citizen, Item $item, array $inventories, bool $force = false ): ?Inventory {
         $source = null;
         foreach ($inventories as $inventory)
-            if ($this->transferItem( $citizen, $item, $source, $inventory ) == self::ErrorNone)
+            if ($this->transferItem( $citizen, $item, $source, $inventory, $force ? self::ModalityEnforcePlacement : self::ModalityNone ) == self::ErrorNone)
                 return $inventory;
-        return false;
+        return null;
     }
 
     /**

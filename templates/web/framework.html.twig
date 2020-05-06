@@ -31,7 +31,7 @@
         {% endif %}
     {% endblock %}
 </head>
-<body>
+<body class="{% if is_granted('ROLE_USER') %} online_body {% else %} offline_body {% endif %}">
 <div id="notifications"></div>
 <div id="wrapper">
     <div id="header">
@@ -60,7 +60,7 @@
                     {% for adminAction in adminActions %}
                         {# @var adminAction \App\Entity\AdminAction #}
 
-                        <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a>
+                        <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a><br>
 
                     {% endfor %}
                     </ul>

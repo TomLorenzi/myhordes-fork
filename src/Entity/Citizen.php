@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Citizen
 {
+    const Thrown = 1;
+    const Watered = 2;
+    const Cooked = 3;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -169,11 +173,6 @@ class Citizen
     private $pm;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $immune = true;
-
-    /**
      * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $escortSettings;
@@ -193,6 +192,24 @@ class Citizen
      */
     private $comment;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $disposed;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Citizen")
+     * @ORM\JoinTable(name="citizen_disposed",
+     *     joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id", unique=true)},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="disposed_by_id", referencedColumnName="id")})
+     */
+    private $disposedBy;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="citizen", orphanRemoval=true)
+     */
+    private $citizenWatch;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -204,6 +221,8 @@ class Citizen
         $this->roles = new ArrayCollection();
         $this->votes = new ArrayCollection();
         $this->leadingEscorts = new ArrayCollection();
+        $this->disposedBy = new ArrayCollection();
+        $this->citizenWatch = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -697,6 +716,15 @@ class Citizen
         return false;
     }
 
+    public function hasPassiveDigTimer(): bool {
+        $zone = $this->getZone();
+        if (!$zone) return false;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone()->getId() === $zone->getId())
+                return $digTimer->getPassive();
+        return false;
+    }
+
     public function getDigTimeout(): int {
         $zone = $this->getZone();
         if (!$zone) return -1;
@@ -745,18 +773,6 @@ class Citizen
     public function setPm(int $pm): self
     {
         $this->pm = $pm;
-
-        return $this;
-    }
-
-    public function getImmune(): ?bool
-    {
-        return $this->immune;
-    }
-
-    public function setImmune(bool $immune): self
-    {
-        $this->immune = $immune;
 
         return $this;
     }
@@ -821,6 +837,65 @@ class Citizen
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getDisposed(): ?int
+    {
+        return $this->disposed;
+    }
+
+    public function setDisposed(int $disposed): self
+    {
+        $this->disposed = $disposed;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Citizen[]
+     */
+    public function getDisposedBy(): Collection
+    {
+        return $this->disposedBy;
+    }
+
+    public function addDisposedBy(Citizen $citizen): self
+    {
+        if (!$this->disposedBy->contains($citizen)) {
+            $this->disposedBy[] = $citizen;
+        }
+
+        return $this;
+    }
+
+    public function removeDisposedBy(Citizen $citizen): self
+    {
+        if ($this->disposedBy->contains($citizen)) {
+            $this->disposedBy->removeElement($citizen);
+        }
+
+        return $this;
+    }
+
+    public function getCitizenWatch(): ?CitizenWatch
+    {
+        return $this->citizenWatch;
+    }
+
+    public function addCitizenWatch(?CitizenWatch $citizenWatch): self
+    {
+        if(!$this->citizenWatch->contains($citizenWatch))
+            $this->citizenWatch[] = $citizenWatch;
+
+        return $this;
+    }
+
+    public function removeCitizenWatch(?CitizenWatch $citizenWatch): self
+    {
+        if($this->citizenWatch->contains($citizenWatch))
+        $this->citizenWatch->removeElement($citizenWatch);
 
         return $this;
     }

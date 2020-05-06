@@ -27,7 +27,7 @@ const handleSpecialActions = function( actions, api_path, return_path ) {
                     $.ajax.load(null, return_path, true);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
-                        return data.message ? data.message : '{% trans from 'game' %}Das kannst du zur Zeit nicht tun.{% endtrans %}'
+                        return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
                     }
                 } );
         });
@@ -41,12 +41,14 @@ const handleHeroicActions = function( actions, api_path, return_path ) {
             const action_id = this.getAttribute('x-action-id');
             let obj = { action: action_id };
             if (target_id) obj.target = target_id;
+            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                return;
             $.ajax.easySend( api_path, obj,
                 function () {
                     $.ajax.load(null, return_path, true);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
-                        return data.message ? data.message : '{% trans from 'game' %}Das kannst du zur Zeit nicht tun.{% endtrans %}'
+                        return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
                     }
                 } );
         });
@@ -63,7 +65,7 @@ const handleCampingActions = function( actions, api_path, return_path ) {
                          $.ajax.load(null, return_path, true);
                        }, {
                          '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
-                           return data.message ? data.message : '{% trans from 'game' %}Das kannst du zur Zeit nicht tun.{% endtrans %}'
+                           return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
                          }
                        } );
     });
@@ -87,7 +89,7 @@ const handleActions = function( actions, api_path, return_path ) {
                     $.ajax.load(null, return_path, true);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
-                        return data.message ? data.message : '{% trans from 'game' %}Das kannst du zur Zeit nicht tun.{% endtrans %}'
+                        return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
                     }
                 } );
         });
@@ -121,7 +123,7 @@ const handleRecipes = function( recipes, api_path, return_path ) {
                     $.ajax.load(null, return_path, true);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
-                        return data.message ? data.message : '{% trans from 'game' %}Das kannst du zur Zeit nicht tun.{% endtrans %}'
+                        return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
                     }
                 } );
         });

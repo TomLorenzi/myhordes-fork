@@ -9,6 +9,7 @@ use App\Service\AdminActionHandler;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class WebController extends AbstractController
 {
@@ -24,13 +26,15 @@ class WebController extends AbstractController
     private $kernel;
     private $entityManager;
     private $adminAction_handler;
+    protected $translator;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh)
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh, TranslatorInterface $translator)
     {
         $this->version_manager = $v;
         $this->kernel = $k;
         $this->entityManager = $e;
         $this->adminAction_handler = $admh;
+        $this->translator = $translator;
     }
 
     private function render_web_framework(string $ajax_landing) {
@@ -56,7 +60,7 @@ class WebController extends AbstractController
         shuffle($devs);
 
         $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
-        $adminActions = [['name' => 'Users', 'id' => 1]];
+        $adminActions = [['name' => $this->translator->trans('Users' ,[],'global'), 'id' => 1], ['name' => $this->translator->trans('Meldungen' ,[],'global'), 'id' => 2]];
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
