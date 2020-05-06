@@ -120,6 +120,21 @@ class GameController extends AbstractController implements GameInterfaceControll
         return $this->renderLog((int)$parser->get('day', -1), null, false, null, null);
     }
 
+    /**
+     * @Route("api/game/raventimes/debugtest", name="game_debugtest")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function debug_test(JSONRequestParser $parser, LogTemplateHandler $lth): Response {
+        $user = $this->getUser();
+        $citizen = $user->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        $this->entity_manager->persist($lth->nightlyAttackWatchers($town));
+        $this->entity_manager->flush();
+        return $this->newspaper();
+    }
+
 
     /**
      * @Route("jx/game/jobcenter", name="game_jobs")
