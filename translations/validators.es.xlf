@@ -50,7 +50,7 @@
       <notes>
         <note category="german">Sie müssen mindestens {{ limit }} Möglichkeit wählen.|Sie müssen mindestens {{ limit }} Möglichkeiten wählen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.</source>
         <target>Debes seleccionar al menos {{ limit }} opción.|Debes seleccionar al menos {{ limit }} opciones.</target>
       </segment>
@@ -59,7 +59,7 @@
       <notes>
         <note category="german">Sie dürfen höchstens {{ limit }} Möglichkeit wählen.|Sie dürfen höchstens {{ limit }} Möglichkeiten wählen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.</source>
         <target>Debes seleccionar como máximo {{ limit }} opciones.|Debes seleccionar como máximo {{ limit }} opciones.</target>
       </segment>
@@ -86,7 +86,7 @@
       <notes>
         <note category="german">Dieses Feld fehlt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>This field is missing.</source>
         <target>Falta este campo.</target>
       </segment>
@@ -428,7 +428,7 @@
       <notes>
         <note category="german">Es wurde kein temporärer Ordner in der php.ini konfiguriert oder der temporäre Ordner existiert nicht.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>No temporary folder was configured in php.ini.</source>
         <target>Ninguna carpeta temporal fue configurada en php.ini.</target>
       </segment>
@@ -500,7 +500,7 @@
       <notes>
         <note category="german">Dieser Wert ist keine gültige internationale Bankkontonummer (IBAN).</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>This is not a valid International Bank Account Number (IBAN).</source>
         <target>Esto no es un Código Internacional de Cuenta Bancaria (IBAN) válido.</target>
       </segment>
@@ -671,7 +671,7 @@
       <notes>
         <note category="german">Eine leere Datei ist nicht erlaubt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>An empty file is not allowed.</source>
         <target>No se permite un archivo vacío.</target>
       </segment>
@@ -771,7 +771,7 @@
       <notes>
         <note category="german">Diese Zahl sollte entweder positiv oder 0 sein.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>This value should be either positive or zero.</source>
         <target>Este valor debería ser positivo o cero.</target>
       </segment>
@@ -789,7 +789,7 @@
       <notes>
         <note category="german">Diese Zahl sollte entweder negativ oder 0 sein.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>This value should be either negative or zero.</source>
         <target>Este valor debería ser negativo o cero.</target>
       </segment>
@@ -807,7 +807,7 @@
       <notes>
         <note category="german">Dieses Passwort ist Teil eines Datenlecks, es darf nicht verwendet werden.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>This password has been leaked in a data breach, it must not be used. Please use another password.</source>
         <target>Esta contraseña no se puede utilizar porque fue filtrada en una violación de datos. Por favor utilice otra contraseña.</target>
       </segment>
