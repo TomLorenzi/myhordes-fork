@@ -69,7 +69,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':tech:', 'path'=>'build/images/emotes/tech.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':tamer:', 'path'=>'build/images/emotes/tamer.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':ghoul:', 'path'=>'build/images/emotes/ghoul.gif', 'isactive'=> true, 'requiresunlock'=> false],
-        ['tag'=>':basic:', 'path'=>'build/images/emotes/basic.gf', 'isactive'=> true, 'requiresunlock'=> false],
+        ['tag'=>':basic:', 'path'=>'build/images/emotes/basic.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':ap:', 'path'=>'build/images/emotes/ap.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':pc:', 'path'=>'build/images/emotes/pc.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':pm:', 'path'=>'build/images/emotes/pm.gif', 'isactive'=> true, 'requiresunlock'=> false]

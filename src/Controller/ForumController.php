@@ -301,7 +301,6 @@ class ForumController extends AbstractController
         foreach ($body->item(0)->childNodes as $child)
             $tmp_str .= $dom->saveHTML($child);
 
-        $tmp_str = $this->prepareEmotes($tmp_str);
         $post->setText( $tmp_str );
         if ($forum->getTown()) {
 
@@ -315,14 +314,21 @@ class ForumController extends AbstractController
         return true;
     }
 
-    private function prepareEmotes(string $str): string {
-        $result = $str;
+    private $emote_cache = null;
+    private function get_emotes(bool $url_only = false): array {
+        if ($this->emote_cache !== null) return $this->emote_cache;
+
+        $this->emote_cache = [];
         $repo = $this->entityManager->getRepository(Emotes::class);
         foreach($repo->findAll() as $value)
             /** @var $value Emotes */
-            $result = str_replace($value->getTag(), "<img src='{$this->asset->getUrl( $value->getPath() )}'/>", $result);
+            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
+        return $this->emote_cache;
+    }
 
-        return  $result;
+    private function prepareEmotes(string $str): string {
+        $emotes = $this->get_emotes();
+        return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
     }
 
     /**
@@ -533,6 +539,7 @@ class ForumController extends AbstractController
             }
         }
 
+        foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
             'locked' => $thread->getLocked(),
@@ -548,7 +555,6 @@ class ForumController extends AbstractController
      * @Route("api/forum/{pid<\d+>}/jump", name="forum_viewer_jump_post_controller")
      * @param int $pid
      * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
      * @return Response
      */
     public function jumpToPost_api(int $pid, EntityManagerInterface $em): Response {
@@ -607,6 +613,7 @@ class ForumController extends AbstractController
             'fid' => $id,
             'tid' => null,
             'pid' => null,
+            'emotes' => $this->get_emotes(true),
             'username' => $this->getUser()->getUsername(),
         ] );
     }
@@ -635,6 +642,7 @@ class ForumController extends AbstractController
             'fid' => $fid,
             'tid' => $tid,
             'pid' => null,
+            'emotes' => $this->get_emotes(true),
         ] );
     }
 
