@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Citizen;
+use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
@@ -48,8 +49,10 @@ class TownLogEntryRepository extends ServiceEntityRepository
         elseif ($zone !== null) $q->andWhere('t.zone = :zone')->setParameter('zone', $zone);
 
         if ($type !== null) {
-            if (is_array($type)) $q->andWhere( 't.type IN (:type) OR t.secondaryType IN (:type)' )->setParameter('type', $type);
-            else                 $q->andWhere( 't.type = :type OR t.secondaryType = :type' )->setParameter('type', $type);
+            if (is_array($type)) $applicableEntryTemplates = $this->_em->getRepository(LogEntryTemplate::class)->findByTypes($type);
+            else                 $applicableEntryTemplates = $this->_em->getRepository(LogEntryTemplate::class)->findByType($type);
+
+            $q->andWhere( 't.logEntryTemplate IN (:type)' )->setParameter('type', $applicableEntryTemplates);
         }
 
         if ($max !== null) $q->setMaxResults( $max );

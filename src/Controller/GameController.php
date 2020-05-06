@@ -7,6 +7,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
@@ -21,6 +22,7 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Structures\TownConf;
+use App\Service\LogTemplateHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,11 +39,13 @@ class GameController extends AbstractController implements GameInterfaceControll
 {
     protected $entity_manager;
     protected $translator;
+    protected $logTemplateHandler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
+        $this->logTemplateHandler = $lth;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -49,11 +53,37 @@ class GameController extends AbstractController implements GameInterfaceControll
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+        $entries = [];
+        /** @var TownLogEntry $entity */
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
+            $this->getActiveCitizen()->getTown(),
+            $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
+                /** @var LogEntryTemplate $template */
+                $template = $entity->getLogEntryTemplate();
+                if (!$template)
+                    continue;
+                $entityVariables = $entity->getVariables();
+                if (!$entityVariables)
+                    continue;
+                $entries[$idx]['timestamp'] = $entity->getTimestamp();
+                $entries[$idx]['class'] = $template->getClass();
+                $entries[$idx]['type'] = $template->getType();
+
+                $variableTypes = $template->getVariableTypes();
+                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+
+                try {
+                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                }
+                catch (Exception $e) {
+                    $entries[$idx]['text'] = "null";
+                }             
+            }
+
+        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
+
         return $this->render( 'ajax/game/log_content.html.twig', [
-            'entries' => $this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-                $this->getActiveCitizen()->getTown(),
-                $day, $citizen, $zone, $type, $max
-            )
+            'entries' => $entries,
         ] );
     }
 
@@ -86,7 +116,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         foreach ($town->getCitizens() as $citizen) {
             if($citizen->getAlive()) continue;
             if($citizen->getSurvivedDays() >= $town->getDay() - 1)
-            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getDisposed() == 0) {
+            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
                 $death_inside[] = $citizen;
             } else {
                 $death_outside[] = $citizen;
@@ -130,6 +160,21 @@ class GameController extends AbstractController implements GameInterfaceControll
      */
     public function log_newspaper_api(JSONRequestParser $parser): Response {
         return $this->renderLog((int)$parser->get('day', -1), null, false, null, null);
+    }
+
+    /**
+     * @Route("api/game/raventimes/debugtest", name="game_debugtest")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function debug_test(JSONRequestParser $parser, LogTemplateHandler $lth): Response {
+        $user = $this->getUser();
+        $citizen = $user->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        $this->entity_manager->persist($lth->nightlyAttackWatchers($town));
+        $this->entity_manager->flush();
+        return $this->newspaper();
     }
 
 

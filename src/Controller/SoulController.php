@@ -396,6 +396,30 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("api/soul/settings/setlanguage", name="api_soul_set_language")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_settings_set_language(JSONRequestParser $parser): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $validLanguages = ['de','fr','en','es'];
+        if (!$parser->has('lang', true))
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        
+        $lang = $parser->get('lang', 'de');
+        if (!in_array($lang, $validLanguages))
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+
+        $user->setLanguage( $lang );
+        $this->entity_manager->persist( $user );
+        $this->entity_manager->flush();
+
+        return new AjaxResponse( ['success' => true] );
+    }
+
+    /**
      * @Route("api/soul/settings/defaultrole", name="api_soul_defaultrole")
      * @param JSONRequestParser $parser
      * @return Response

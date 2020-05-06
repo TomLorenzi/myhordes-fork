@@ -59,6 +59,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $random_generator;
     protected $conf;
     protected $zone_handler;
+    protected $logTemplateHandler;
 
     protected $cache_active_citizen = null;
 
@@ -66,7 +67,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh)
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh,
+        LogTemplateHandler $lth)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -81,6 +83,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->conf = $conf;
         $this->zone_handler = $zh;
         $this->death_handler = $dh;
+        $this->logTemplateHandler = $lth;
     }
 
     protected function getTownConf() {
@@ -126,11 +129,34 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+        $entries = [];
+        /** @var TownLogEntry $entity */
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
+            $this->getActiveCitizen()->getTown(),
+            $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
+
+                /** @var LogEntryTemplate $template */
+                $template = $entity->getLogEntryTemplate();
+                if (!$template)
+                    continue;
+                $entityVariables = $entity->getVariables();
+                if (!$entityVariables)
+                    continue;
+                $entries[$idx]['timestamp'] = $entity->getTimestamp();
+                $entries[$idx]['class'] = $template->getClass();
+                $entries[$idx]['type'] = $template->getType();
+
+                $variableTypes = $template->getVariableTypes();
+                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+                try {
+                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                }
+                catch (Exception $e) {
+                    $entries[$idx]['text'] = "null";
+                }                          
+            }
         return $this->render( 'ajax/game/log_content.html.twig', [
-            'entries' => $this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-                $this->getActiveCitizen()->getTown(),
-                $day, $citizen, $zone, $type, $max
-            )
+            'entries' => $entries,
         ] );
     }
 

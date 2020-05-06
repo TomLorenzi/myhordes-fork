@@ -63,6 +63,10 @@ services:
         tags:
             - { name: translation.dumper, alias: xlf2 }
 
+    App\Translation\FixtureExtractor:
+        tags:
+            - { name: translation.extractor, alias: FixtureExtractor }
+
     App\Service\ConfMaster:
         arguments:
             $global: '%myhordes%'
