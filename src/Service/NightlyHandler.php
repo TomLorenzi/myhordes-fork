@@ -256,6 +256,8 @@ class NightlyHandler
 
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
+        $est->setDefense($def);
+        $this->entity_manager->persist($est);
         $zombies = $est ? $est->getZombies() : 0;
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;

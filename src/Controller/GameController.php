@@ -11,6 +11,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
+use App\Entity\ZombieEstimation;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -110,28 +111,45 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
         $town = $this->getActiveCitizen()->getTown();
-        $death_outside = array();
-        $death_in_town = array();
+        $death_outside = $death_inside = [];
 
         foreach ($town->getCitizens() as $citizen) {
             if($citizen->getAlive()) continue;
             if($citizen->getSurvivedDays() >= $town->getDay() - 1)
-            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getHoldsBody() == 1) {
-                $death_in_town[] = $citizen;
+            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getDisposed() == 0) {
+                $death_inside[] = $citizen;
             } else {
                 $death_outside[] = $citizen;
             }
         }
 
+        $day = $town->getDay();
+        $days = [
+            'final' => $day % 5,
+            'repeat' => floor($day / 5),
+        ];
+        /** @var ZombieEstimation $estimation */
+        $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
+        $gazette = [
+            'season_version' => 0,
+            'season_label' => "Betapropine FTW",
+            'name' => $town->getName(),
+            'day' => $day,
+            'days' => $days,
+            'devast' => $town->getDevastated(),
+            'chaos' => $town->getChaos(),
+            'death_outside' => $death_outside,
+            'death_inside' => $death_inside,
+            'attack' => $estimation->getZombies(),
+            'defense' => $estimation->getDefense(),
+            'deaths' => count($death_inside),
+        ];
 
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
-            'town_name' => $town->getName(),
-            'death_in_town' => $death_in_town,
-            'death_outside' => $death_outside,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'gazette' => $gazette,
         ] );
     }
 
