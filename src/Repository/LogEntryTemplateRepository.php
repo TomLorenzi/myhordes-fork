@@ -47,6 +47,42 @@ class LogEntryTemplateRepository extends ServiceEntityRepository
         ;
     }
 
+
+         /**
+      * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
+      */
+    
+      public function findByType($value)
+      {
+          return $this->createQueryBuilder('l')
+              ->andWhere('l.type = :val')
+              ->orWhere('l.secondaryType = :val')
+              ->setParameter('val', $value)
+              ->orderBy('l.id', 'ASC')
+              ->setMaxResults(10)
+              ->getQuery()
+              ->getResult()
+          ;
+      }
+  
+       /**
+        * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
+        */
+      
+        public function findByTypes(array $value)
+        {
+            return $this->createQueryBuilder('l')
+                ->andWhere('l.type IN (:val)')
+                ->orWhere('l.secondaryType IN (:val)')
+                ->setParameter('val', $value)
+                ->orderBy('l.id', 'ASC')
+                ->setMaxResults(10)
+                ->getQuery()
+                ->getResult()
+            ;
+        }
+
+        
     // /**
     //  * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
     //  */
