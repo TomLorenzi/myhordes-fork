@@ -68,8 +68,12 @@ class GameController extends AbstractController implements GameInterfaceControll
                 $entityVariables = $entity->getVariables();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
 
-                $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
-                
+                try {
+                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                }
+                catch (Exception $e) {
+                    $entries[$idx]['text'] = "null";
+                }               
             }
 
         // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
