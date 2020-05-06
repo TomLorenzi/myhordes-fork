@@ -14,7 +14,7 @@
       <notes>
         <note category="german">Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
         <target>No puedes unirte a más de un pueblo al mismo tiempo.</target>
       </segment>
@@ -23,7 +23,7 @@
       <notes>
         <note category="german">Du bist dieser Stadt bereits beigetreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du bist dieser Stadt bereits beigetreten.</source>
         <target>Ya te has unido a este pueblo.</target>
       </segment>
@@ -77,7 +77,7 @@
       <notes>
         <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
         <target>El servidor está siendo invadido por los zombies, como todas las noches.</target>
       </segment>
@@ -86,7 +86,7 @@
       <notes>
         <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
         <target>Por lo tanto, no es posible conectarse o inscribirse. El ataque suele durar unos 20 minutos.</target>
       </segment>
@@ -104,7 +104,7 @@
       <notes>
         <note category="german">Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
         <target>El idioma del pueblo seleccionado es %lang_town%. Tu idioma seleccionado es %lang_user%.</target>
       </segment>
@@ -113,7 +113,7 @@
       <notes>
         <note category="german">Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</source>
         <target>Si te unes a este pueblo, el idioma de MyHordes será cambiado a %lang_town% por la duración del pueblo.</target>
       </segment>
@@ -122,7 +122,7 @@
       <notes>
         <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
         <target>La comunicación es importante en MyHordes. Por favor, no entres a un pueblo cuyo idioma no hablas. ¿Deseas continuar?</target>
       </segment>
@@ -138,9 +138,9 @@
     </unit>
     <unit id="Ap6glg5" name="262981c">
       <notes>
-        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt %town_name% betreten?</note>
+        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten?</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
         <target>¿Listo para ingresar a %town_name%? ¡Buena suerte!</target>
       </segment>
@@ -149,7 +149,7 @@
       <notes>
         <note category="german">Deine Seele genügt den Anforderungen für diesen Stadttypen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
         <target>Tu alma cumple los requisitos para este tipo pueblo.</target>
       </segment>
