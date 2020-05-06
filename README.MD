@@ -90,11 +90,19 @@ Once you have everything, in `src/DataFixture/TextFixtures.php`, add a new eleme
 ```
 If you want to import a lot, it saves time to combine the commands into a function paste this once and then run ```x()``` in the console for each text/page:
 ```
-var x = function() {
-   	console.log(new URLSearchParams(window.location.hash.substring(window.location.hash.lastIndexOf('?'))).get('bkey').split(';')[0]);
-   	console.log($("#ghost_pages .document").attr('class'));
-   	console.log($("#ghost_pages .document .content").html().replace(/'/gi, "\\\'"));
-   }
+var x = function () {
+  var g = $('#ghost_pages'), d = g.find('.document'), z = '', h = window.location.hash || z,
+    bkey = new URLSearchParams(h.substring(h.lastIndexOf('?'))).get('bkey').split(';')[0] || z,
+    title = g.find('h2').html() || z,
+    cls = d.attr('class') || z,
+    txt = d.find('.content').html().replace(/'/gi, "\\'"),
+    pages = g.find('div.pages').html() || z,
+    author = g.find('div.author').html() || z,
+    body = [
+      'Title: ', title, '\n', 'bkey: ', bkey, '\n', cls, '\n', txt, '\n', author, pages
+    ].join(z);
+  console.log(body);
+};
 ```
 Pay attention with predefined texts from Motion Twin (mostly with anonymous authors), it will overwrite previous translations, best to add language suffix to these text ids.
 

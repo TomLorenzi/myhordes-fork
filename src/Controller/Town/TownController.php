@@ -1199,4 +1199,26 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return AjaxResponse::success();
     }
+
+    /**
+     * @Route("jx/town/visit/{id}/heal", name="visit_heal_citizen", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function visit_heal_citizen(int $id): Response
+    {
+        $citizen = $this->getActiveCitizen();
+        $message = "";
+        if($citizen->getPM() < 2 || $this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {
+            $message = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
+        } else {
+            /** @var Citizen $c */
+            $c = $$this->entity_manager->getRepository(Citizen::class)->find( $id );
+            if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success();
+    }
 }
