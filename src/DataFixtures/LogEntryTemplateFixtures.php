@@ -98,6 +98,9 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'%citizen% hat beschlossen sich wieder allein fortzubewegen.', 'name'=>'beyondEscortDisable', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'])],
         ['text'=>'%citizen% hat %target_citizen% überzeugt, ihm zu folgen.', 'name'=>'beyondEscortTakeCitizen', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"citizen",'name'=>'target_citizen'])],
         ['text'=>'%citizen% hat %target_citizen% aus der Eskorte entlassen.', 'name'=>'beyondEscortReleaseCitizen', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"citizen",'name'=>'target_citizen'])],
+        ['text'=>'%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!', 'name'=>'citizenDeathOnWatch', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'])],
+        ['text'=>'Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'name'=>'nightlyAttackWatchers', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"list",'name'=>'citizens','listType' =>'citizen'])],
+
     ];
 
     private $entityManager;
