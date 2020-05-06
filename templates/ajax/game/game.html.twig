@@ -18,6 +18,7 @@
     
     {% if rucksack is defined %}
         <ul class="rucksack">
+            <li class="text">{{'Rucksack'|trans({}, 'game')}}</li>
             {% for item in rucksack.items %}
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
             {% endfor %}
@@ -30,6 +31,7 @@
     {% endif %}
     {% if status is defined %}
         <ul class="status">
+            <li class="text">{{'Status'|trans({}, 'game')}}</li>
             {% for stat in status %}
                 {# @var stat \App\Entity\CitizenStatus #}
                 {% if not stat.hidden %}

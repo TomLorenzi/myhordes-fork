@@ -143,6 +143,28 @@ div.town-banner {
   }
 }
 
+.town-upgrades {
+  p {
+    margin: 0;
+  }
+  & .vote-bar {
+    margin-top: .25em;
+    height: 1.25em;
+    border: 1px solid #ddab76;
+    background-color: #5c2b20;
+    position: relative;
+
+    & > * {
+      height: 100%;
+      position: absolute;
+    }
+    & .vote-progress {
+      border-right: 1px solid #ddab76;
+      background-color: #b37c4a;
+    }
+  }
+}
+
 .town-buildings {
   &>ul{
     background-color: #3e2417;
