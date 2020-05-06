@@ -115,18 +115,19 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         foreach ($town->getCitizens() as $citizen) {
             if($citizen->getAlive()) continue;
-            if($citizen->getSurvivedDays() >= $town->getDay() - 1)
-            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
-                $death_inside[] = $citizen;
-            } else {
-                $death_outside[] = $citizen;
+            if($citizen->getSurvivedDays() >= $town->getDay() - 1) {
+                if ($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
+                    $death_inside[] = $citizen;
+                } else {
+                    $death_outside[] = $citizen;
+                }
             }
         }
 
         $day = $town->getDay();
         $days = [
-            'final' => $day % 5,
-            'repeat' => floor($day / 5),
+            'final' => ($day - 1) % 5,
+            'repeat' => floor(($day - 1) / 5),
         ];
         /** @var ZombieEstimation $estimation */
         $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
