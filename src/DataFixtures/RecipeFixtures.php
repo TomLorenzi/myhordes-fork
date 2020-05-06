@@ -294,6 +294,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws015' => ['type' => Recipe::WorkshopType, 'in' => 'chest_tools_#00',     'out' => [ 'pile_#00', 'meca_parts_#00', 'rustine_#00', 'tube_#00', 'pharma_#00', 'explo_#00', 'lights_#00' ], 'action' => 'Öffnen' ],
         'ws016' => ['type' => Recipe::WorkshopType, 'in' => 'chest_food_#00',      'out' => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', 'vegetable_#00' ], 'action' => 'Öffnen' ],
         'ws017' => ['type' => Recipe::WorkshopType, 'in' => 'deco_box_#00',        'out' => [ 'door_#00', 'chair_basic_#00', 'trestle_#00', 'table_#00', 'chair_#00' ], 'action' => 'Öffnen' ],
+        'ws018' => ['type' => Recipe::WorkshopType, 'in' => 'catbox_#00',          'out' => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ], 'action' => 'Öffnen' ],
 
         'com001' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_machine_#00',     'provoking' => 'coffee_machine_part_#00','in' => ['coffee_machine_part_#00', 'cyanure_#00', 'electro_#00', 'meca_parts_#00', 'rustine_#00', 'metal_#00', 'tube_#00' ] ],
         'com002' => ['type' => Recipe::ManualAnywhere, 'out' => 'music_#00',              'provoking' => 'music_part_#00',         'in' => ['music_part_#00', 'pile_#00', 'electro_#00'] ],
