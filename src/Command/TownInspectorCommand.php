@@ -63,7 +63,6 @@ class TownInspectorCommand extends Command
             ->addOption('zombie-estimates', null, InputOption::VALUE_REQUIRED, 'Calculates the zombie estimations for the next days.')
             ->addOption('unlock-buildings', null, InputOption::VALUE_NONE, 'Unlocks all buildings.')
             ->addOption('build-buildings', null, InputOption::VALUE_NONE, 'Builds all unlocked buildings.')
-            ->addOption('everyone-drink', null, InputOption::VALUE_NONE, 'Unset thirst status of all citizen.')
 
             ->addOption('unveil-map', null, InputOption::VALUE_NONE, 'Uncovers the map')
             ->addOption('map-ds', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the discovery state')
@@ -200,23 +199,6 @@ class TownInspectorCommand extends Command
                 $output->writeln("Added <comment>" . count($possible) . "</comment> buildings.");
             } while ($found);
             $this->entityManager->persist( $town );
-        }
-
-        if ($input->getOption('everyone-drink')) {
-            
-            $statusHasDrunk = $this->entityManager->getRepository(CitizenStatus::class)->findOneByName("hasdrunk");
-            $statusThirst = $this->entityManager->getRepository(CitizenStatus::class)->findOneByName("thirst1");
-            $statusDehydrated = $this->entityManager->getRepository(CitizenStatus::class)->findOneByName("thirst2");
-
-            $citizens = $town->getCitizens();
-            foreach ($citizens as $citizen) {
-                $citizen->addStatus($statusHasDrunk);
-                $citizen->removeStatus($statusThirst);
-                $citizen->removeStatus($statusDehydrated);
-                $this->entityManager->persist( $citizen );
-            }
-            $this->entityManager->flush();
-            $output->writeln("All citizen from selected town are full of water now.");
         }
 
         if ($input->getOption('build-buildings')) {
