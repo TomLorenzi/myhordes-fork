@@ -116,7 +116,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         foreach ($town->getCitizens() as $citizen) {
             if($citizen->getAlive()) continue;
             if($citizen->getSurvivedDays() >= $town->getDay() - 1)
-            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getDisposed() == 0) {
+            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getHoldsBody() == 1) {
                 $death_in_town[] = $citizen;
             } else {
                 $death_outside[] = $citizen;
