@@ -29,7 +29,7 @@ class AdminReport
     private $sourceUser;
 
     /**
-     * @ORM\Column(type="datetimetz")
+     * @ORM\Column(type="datetime")
      */
     private $ts;
 
