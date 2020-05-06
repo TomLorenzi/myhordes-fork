@@ -831,12 +831,35 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $current = $parent;
         }
 
+        $workshopBonus = 1;
+
+        if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
+            $level = $workshop->getLevel();
+            switch($level){
+                case 1:
+                    $workshopBonus = 0.94;
+                    break;
+                case 2:
+                    $workshopBonus = 0.88;
+                    break;
+                case 3:
+                    $workshopBonus = 0.82;
+                    break;
+                case 4:
+                    $workshopBonus = 0.76;
+                    break;
+                case 5:
+                    $workshopBonus = 0.70;
+                    break;
+            }
+        }
+
         // Check out how much AP is missing to complete the building; restrict invested AP to not exceed this
-        $missing_ap = ceil( ($building->getPrototype()->getAp() - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
+        $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
         $ap = max(0,min( $ap, $missing_ap ) );
 
         // If the citizen has not enough AP, fail
-        if (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ))
+        if ($ap > 0 && ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Get all resources needed for this building
@@ -865,7 +888,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Deduct AP and increase completion of the building
         $this->citizen_handler->deductAPBP( $citizen, $ap );
-        $building->setAp( $building->getAp() + $ap_effect );
+
+        if($missing_ap <= 0){
+            // Missing ap == 0, the building has been completed by the workshop upgrade.
+            $building->setAp($building->getPrototype()->getAp());
+        } else {
+            $building->setAp($building->getAp() + $ap_effect);
+        }
 
         // If the building was not previously completed but reached 100%, complete the building and trigger the completion handler
         $building->setComplete( $building->getComplete() || $building->getAp() >= $building->getPrototype()->getAp() );
@@ -909,6 +938,29 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();
 
+        $workshopBonus = 1;
+
+        if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
+            $level = $workshop->getLevel();
+            switch($level){
+                case 1:
+                    $workshopBonus = 0.94;
+                    break;
+                case 2:
+                    $workshopBonus = 0.88;
+                    break;
+                case 3:
+                    $workshopBonus = 0.82;
+                    break;
+                case 4:
+                    $workshopBonus = 0.76;
+                    break;
+                case 5:
+                    $workshopBonus = 0.70;
+                    break;
+            }
+        }
+
         $root = [];
         $dict = [];
         $items = [];
@@ -931,7 +983,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'dictionary' => $dict,
             'bank' => $items,
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
-
+            'workshopBonus' => $workshopBonus,
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeConstruction, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
