@@ -146,7 +146,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();
 
-                $entityVariables = $entity->getVariables();
+                $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
                 try {
                     $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
