@@ -9545,5 +9545,122 @@
         <target>Autre victimes</target>
       </segment>
     </unit>
+    <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
+      <notes>
+        <note category="german">%citizen% hat einen Bauplan für %plan% gefunden.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
+        <target>%citizen% hat einen Bauplan für %plan% gefunden.</target>
+      </segment>
+    </unit>
+    <unit id="2jSPgup" name="c7e40ad">
+      <notes>
+        <note category="german">%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
+        <target>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</target>
+      </segment>
+    </unit>
+    <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
+      <notes>
+        <note category="german">%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
+      </notes>
+      <segment>
+        <source>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
+        <target>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+      </segment>
+    </unit>
+    <unit id="mxKAfZX" name="%citizen% wurde von %num% Zombies zerfleischt!">
+      <notes>
+        <note category="german">%citizen% wurde von %num% Zombies zerfleischt!</note>
+      </notes>
+      <segment>
+        <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
+        <target>%citizen% wurde von %num% Zombies zerfleischt!</target>
+      </segment>
+    </unit>
+    <unit id="0OgA2rX" name="0505799">
+      <notes>
+        <note category="german">%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
+        <target>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+      </segment>
+    </unit>
+    <unit id="1c66H6u" name="85ec328">
+      <notes>
+        <note category="german">Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</note>
+      </notes>
+      <segment>
+        <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
+        <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
+      </segment>
+    </unit>
+    <unit id="vdpIvG7" name="6b9d94e">
+      <notes>
+        <note category="german">Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
+      </notes>
+      <segment>
+        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
+        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+      </segment>
+    </unit>
+    <unit id="OVTYzwK" name="%sender%: %message%">
+      <notes>
+        <note category="german">%sender%: %message%</note>
+      </notes>
+      <segment>
+        <source>%sender%: %message%</source>
+        <target>%sender% : %message%</target>
+      </segment>
+    </unit>
+    <unit id="7KSNPZ_" name="%citizen% hat %target_citizen% überzeugt, ihm zu folgen.">
+      <notes>
+        <note category="german">%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</source>
+        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
+      </segment>
+    </unit>
+    <unit id="XTPqDbX" name="%citizen% hat %target_citizen% aus der Eskorte entlassen.">
+      <notes>
+        <note category="german">%citizen% hat %target_citizen% aus der Eskorte entlassen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %target_citizen% aus der Eskorte entlassen.</source>
+        <target>%citizen% a laissé tomber %target_citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="bkMZ85E" name="Horizont">
+      <notes>
+        <note category="german">Horizont</note>
+      </notes>
+      <segment>
+        <source>Horizont</source>
+        <target>Horizon</target>
+      </segment>
+    </unit>
+    <unit id="wvs954U" name="Niemand!">
+      <notes>
+        <note category="german">Niemand!</note>
+      </notes>
+      <segment>
+        <source>Niemand!</source>
+        <target>Aucun !</target>
+      </segment>
+    </unit>
+    <unit id="w60IHjv" name="Keine Opfer">
+      <notes>
+        <note category="german">Keine Opfer</note>
+      </notes>
+      <segment>
+        <source>Keine Opfer</source>
+        <target>Aucun mort !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -126,8 +126,8 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $day = $town->getDay();
         $days = [
-            'final' => ($day - 1) % 5,
-            'repeat' => floor(($day - 1) / 5),
+            'final' => $day % 5,
+            'repeat' => floor($day / 5),
         ];
         /** @var ZombieEstimation $estimation */
         $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
