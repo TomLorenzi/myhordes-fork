@@ -25,6 +25,7 @@
 @myhordes-fixed-font: "Inconsolata", fixed;
 @myhordes-sans-serif-font: "Comic Neue", sans-serif;
 @myhordes-serif-font: "Lora", serif;
+@myhordes-gazette-font: "Courier New", "Courier", monospace;
 
 @myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
@@ -1012,37 +1013,4 @@ div.daily-attack {
     outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
   }
 &.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
-}
-
-#raventimes {
-  .newspage {
-    width: 435px;
-    height: 360px;
-    background-image: url('../img/news/newsBg.gif');
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-
-    &#newspage-1 {
-      margin-left: 20px;
-
-      div#headline {
-        position: absolute;
-        top: 12%;
-        left: 6%;
-        font-family: "Courier New", "Courier", monospace, fixed;
-        color: #3b3249;
-        font-weight: bold;
-        font-size: 110%;
-      }
-    }
-
-    &#newspage-2 {
-      background-position: 100% 0;
-      width: 419px;
-      margin-left: -4px;
-    }
-  }
 }
