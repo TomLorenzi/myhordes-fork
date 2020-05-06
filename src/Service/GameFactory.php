@@ -252,8 +252,7 @@ class GameFactory
             }
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($zone_list, $min_distance, $max_distance);
-            
-            $this->inventory_handler->forceMoveItem( $spawnZone->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
+            if ($spawnZone) $this->inventory_handler->forceMoveItem( $spawnZone->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
         }
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
