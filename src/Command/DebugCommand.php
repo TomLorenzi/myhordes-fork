@@ -6,6 +6,7 @@ namespace App\Command;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenStatus;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\Town;
@@ -67,6 +68,7 @@ class DebugCommand extends Command
             ->setDescription('Debug options.')
             ->setHelp('Debug options.')
             
+            ->addOption('everyone-drink', null, InputOption::VALUE_REQUIRED, 'Unset thirst status of all citizen.')
             ->addOption('add-crow', null, InputOption::VALUE_NONE, 'Creates the crow account. Also creates 80 validated users in case there are less than 66 users.')
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.')
@@ -121,6 +123,24 @@ class DebugCommand extends Command
                 $command->run($nested_input, $output);
             }
             return 0;
+        }
+
+        if ($tid = $input->getOption('everyone-drink')) {
+            /** @var Town $town */
+            $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
+            $statusHasDrunk = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("hasdrunk");
+            $statusThirst = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("thirst1");
+            $statusDehydrated = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("thirst2");
+
+            $citizens = $town->getCitizens();
+            foreach ($citizens as $citizen) {
+                $citizen->addStatus($statusHasDrunk);
+                $citizen->removeStatus($statusThirst);
+                $citizen->removeStatus($statusDehydrated);
+                $this->entity_manager->persist( $citizen );
+            }
+            $this->entity_manager->flush();
+            $output->writeln("All citizen from selected town are full of water now.");
         }
 
         if ($tid = $input->getOption('fill-town')) {
