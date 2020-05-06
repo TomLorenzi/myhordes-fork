@@ -11,7 +11,9 @@ class FixtureExtractor implements ExtractorInterface
     protected $prefix;
     protected $em;
 
-    protected $fixturesGame = [];
+    protected $fixturesGame = ['geöffnet','geschlossen','betreten','verlassen','Zombies',
+                                'Nordosten','Nordwesten','Norden','Südosten','Südwesten',
+                                'Süden','Osten','Westen','Horizont'];
 
     protected static $has_been_run = false;
 
