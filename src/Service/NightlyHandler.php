@@ -262,15 +262,14 @@ class NightlyHandler
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $this->log->debug("Getting watchers for day " . $town->getDay());
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
         if(count($watchers) > 0) {
-
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town));
         }
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town);
         $zeds_each_watcher = -1;

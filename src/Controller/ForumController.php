@@ -449,6 +449,7 @@ class ForumController extends AbstractController
         if ($forum->getTown()) {
             foreach ($forum->getTown()->getCitizens() as $citizen)
                 if ($citizen->getUser()->getId() === $user->getId()) {
+                    // Give picto if the post is in the town forum
                     $ph->give_picto($citizen, 'r_forum_#00');
                 }
         }
