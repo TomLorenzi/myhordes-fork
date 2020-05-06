@@ -369,7 +369,7 @@ class ZoneHandler
             }
         }
 
-        if($zone->hasSoul())
+        if($zone->hasSoul() && $citizen != null && ($this->citizen_handler->hasRole($citizen, 'shaman') || $citizen->getProfession()->getName() == 'shaman'))
             $attributes[] = "soul";
 
         return $attributes;

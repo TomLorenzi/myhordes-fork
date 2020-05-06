@@ -189,12 +189,12 @@ class DeathHandler
 
         // If the town is not small, spawn a soul
         if($citizen->getTown()->getType()->getName() != 'small') {
-            $minDistance = 4;
+            $minDistance = max(4, $citizen->getTown()->getDay());
             $maxDistance = min($citizen->getTown()->getDay() + 6, 15);
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($citizen->getTown()->getZones()->toArray(), $minDistance, $maxDistance);
             $soulItem = $this->item_factory->createItem( "soul_blue_#00");
-            $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $item);
+            $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $soulItem);
         }
     }
 }

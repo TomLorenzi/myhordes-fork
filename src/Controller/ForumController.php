@@ -15,6 +15,7 @@ use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\AdminActionHandler;
 use App\Service\JSONRequestParser;
+use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
@@ -303,11 +304,11 @@ class ForumController extends AbstractController
 
         $post->setText( $tmp_str );
         if ($forum->getTown()) {
-
             foreach ( $forum->getTown()->getCitizens() as $citizen )
                 if ($citizen->getUser()->getId() === $user->getId()) {
-                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}]");
+                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
                     else $post->setNote("[{$citizen->getTown()->getName()}]");
+
                 }
         }
 
@@ -413,7 +414,7 @@ class ForumController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response {
+    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh, PictoHandler $ph): Response {
         /** @var User $user */
         $user = $this->getUser();
         if ($user->getIsBanned())
@@ -434,7 +435,6 @@ class ForumController extends AbstractController
         
         /** @var Forum $forum */
         $forum = $thread->getForum();
-
 
         if (!$parser->has_all(['text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -470,6 +470,13 @@ class ForumController extends AbstractController
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         //if ($tx_len < 10) return AjaxResponse::error( self::ErrorPostTextLength );
         $thread->addPost($post)->setLastPost( $post->getDate() );
+        if ($forum->getTown()) {
+            foreach ($forum->getTown()->getCitizens() as $citizen)
+                if ($citizen->getUser()->getId() === $user->getId()) {
+                    // Give picto if the post is in the town forum
+                    $ph->give_picto($citizen, 'r_forum_#00');
+                }
+        }
 
         try {
             $em->persist($thread);

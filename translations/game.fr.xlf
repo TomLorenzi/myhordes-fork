@@ -9401,5 +9401,149 @@
         <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
       </segment>
     </unit>
+    <unit id="GulZlLD" name="Nutze deine heilenden Hände">
+      <notes>
+        <note category="german">Nutze deine heilenden Hände</note>
+      </notes>
+      <segment>
+        <source>Nutze deine heilenden Hände</source>
+        <target>Réaliser un soin curatif</target>
+      </segment>
+    </unit>
+    <unit id="JYO69lS" name="Von diesem Gegenstand will sich der Bürger nicht trennen.">
+      <notes>
+        <note category="german">Von diesem Gegenstand will sich der Bürger nicht trennen.</note>
+      </notes>
+      <segment>
+        <source>Von diesem Gegenstand will sich der Bürger nicht trennen.</source>
+        <target>Ce citoyen a refusé d'abandonner cet objet.</target>
+      </segment>
+    </unit>
+    <unit id="TH1rJgR" name="Das kannst du mit einem Berufsgegenstand nicht tun.">
+      <notes>
+        <note category="german">Das kannst du mit einem Berufsgegenstand nicht tun.</note>
+      </notes>
+      <segment>
+        <source>Das kannst du mit einem Berufsgegenstand nicht tun.</source>
+        <target>Vous ne pouvez pas faire cela avec votre objet de métier.</target>
+      </segment>
+    </unit>
+    <unit id="7K7nTLN" name="In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.">
+      <notes>
+        <note category="german">In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</note>
+      </notes>
+      <segment>
+        <source>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</source>
+        <target>Vous ne pouvez pas effectuer d'actions dans votre état.</target>
+      </segment>
+    </unit>
+    <unit id="owwwxrQ" name="4363ae3">
+      <notes>
+        <note category="german">Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
+        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subit une tentative de soin aujourd'hui.</target>
+      </segment>
+    </unit>
+    <unit id="yKYNmZu" name="356ee99">
+      <notes>
+        <note category="german">Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</note>
+      </notes>
+      <segment>
+        <source>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</source>
+        <target>Impossible... vous ne ressentez rien, pas d'énergie, aucun flux sur lequel vous appuyer. Le risque de tuer %citizen% est donc grand.</target>
+      </segment>
+    </unit>
+    <unit id="y09QGB5" name="08e53f6">
+      <notes>
+        <note category="german">Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</note>
+      </notes>
+      <segment>
+        <source>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</source>
+        <target>Il n'y a rien de mieux que la peur pour vaincre la terreur. Vous retirez votre masque de chaman et soufflez doucement une poudre hallucinogène maison sur leur visage, pour provoquer un état de somnambulisme. Votre tête-à-tête provoque rapidement un "pavor nocturnus". Lorsqu'il se réveille, %citizen% semble avoir été libéré de son état de terreur.</target>
+      </segment>
+    </unit>
+    <unit id="RTU8pgm" name="b4a7495">
+      <notes>
+        <note category="german">Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</note>
+      </notes>
+      <segment>
+        <source>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</source>
+        <target>Seulement, la simple vue de ce citoyen dans un tel état de terreur vous a terrorisé !</target>
+      </segment>
+    </unit>
+    <unit id="8c5KAcV" name="8760dc7">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</source>
+        <target>Vous sortez votre couteau de rituel et entâmez sa «chauffe» au travers d'exercices dont la forme vous appartient. Les flux énergétiques vous guident et vous réalisez sans hésitation une saignée au niveau du membre infecté. Le processus de décontamination est en cours, bien que lent.</target>
+      </segment>
+    </unit>
+    <unit id="vU0kRt8" name="38c2470">
+      <notes>
+        <note category="german">Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</note>
+      </notes>
+      <segment>
+        <source>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</source>
+        <target>Subitement, un pustule infecté explose. Votre peau déjà brûlée se décompose rapidement en plaies ouvertes et les germes infectieux décident d'en faire leur maison.</target>
+      </segment>
+    </unit>
+    <unit id="4ghkz8M" name="625a63d">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</source>
+        <target>Vous sortez votre couteau de rituel et entâmez sa «chauffe» au travers d'exercices dont la forme vous appartient. Les flux énergétiques vous guident et vous réalisez sans hésitation une saignée au niveau du foie. Alors qu'un liquide s'écoule du corps fraichement mutilé, %citizen% se libère de l'emprise de l'alcool.</target>
+      </segment>
+    </unit>
+    <unit id="_GYzBvg" name="f2ccdc7">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</source>
+        <target>Vous sortez votre couteau de rituel et entâmez sa «chauffe» au travers d'exercices dont la forme vous appartient. Les flux énergétiques vous guident et vous réalisez sans hésitation une saignée au niveau du poumon droit. Tandis que vous résistez de toutes vos forces contre l'envie de voir votre lame s'enfoncer durablement sous la peau de %citizen%, un liquide surgit du corps fraichement mutilé.</target>
+      </segment>
+    </unit>
+    <unit id="kg5BPH1" name="Status">
+      <notes>
+        <note category="german">Status</note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="8fTcb5D" name="Tote in der Stadt">
+      <notes>
+        <note category="german">Tote in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Tote in der Stadt</source>
+        <target>Mort en ville</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <notes>
+        <note category="german">Niemand</note>
+      </notes>
+      <segment>
+        <source>Niemand</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
+    <unit id="ooesDbN" name="Sonstige Opfer">
+      <notes>
+        <note category="german">Sonstige Opfer</note>
+      </notes>
+      <segment>
+        <source>Sonstige Opfer</source>
+        <target>Autre victimes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -98,7 +98,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
         ];
-        $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
+        $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
 
         $data['citizen'] = $this->getActiveCitizen();
         $data['conf'] = $this->getTownConf();
@@ -349,6 +349,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         $this->death_handler->kill( $citizen, CauseOfDeath::Haunted, $rem );
                         $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
                         $this->entity_manager->flush();
+
+                        // The red soul vanishes too
+                        $this->inventory_handler->forceRemoveItem($current_item);
                         return AjaxResponse::success();
                     }
                 }

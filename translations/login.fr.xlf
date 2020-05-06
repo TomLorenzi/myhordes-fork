@@ -342,7 +342,7 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
-        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+        <target>Votre mot de passe a été modifié avec succès. Veuillez vous connecter avec votre nouveau mot de passe.</target>
       </segment>
     </unit>
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
@@ -351,7 +351,7 @@
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
-        <target>Passwort zurücksetzen</target>
+        <target>Réinitialiser le mot de passe</target>
       </segment>
     </unit>
     <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
@@ -360,7 +360,7 @@
       </notes>
       <segment>
         <source>Bitte gib ein neues Passwort ein.</source>
-        <target>Bitte gib ein neues Passwort ein.</target>
+        <target>Veuillez saisir un nouveau mot de passe.</target>
       </segment>
     </unit>
     <unit id="lTbuIE7" name="Bitte gib deine E-Mail Adresse ein.">
@@ -369,7 +369,7 @@
       </notes>
       <segment>
         <source>Bitte gib deine E-Mail Adresse ein.</source>
-        <target>Bitte gib deine E-Mail Adresse ein.</target>
+        <target>Veuillez saisir votre adresse e-mail.</target>
       </segment>
     </unit>
     <unit id="9.8ReK8" name="Abbrechen">
@@ -378,7 +378,7 @@
       </notes>
       <segment>
         <source>Abbrechen</source>
-        <target>Abbrechen</target>
+        <target>Annuler</target>
       </segment>
     </unit>
     <unit id="eO_T4uw" name="Passwort vergessen?">

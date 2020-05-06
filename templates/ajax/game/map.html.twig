@@ -19,6 +19,9 @@
                     {% if zones[x] and zones[x][y] %}
                         {% set classes = zones_classes[x][y] %}
                         <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
+                            {% if 'soul' in classes %}
+                                <div class="soul-area"><span></span></div>
+                            {% endif %}
                                 <div class="icon"></div>
                                 <div class="overlay"></div>
                                 {% if zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}

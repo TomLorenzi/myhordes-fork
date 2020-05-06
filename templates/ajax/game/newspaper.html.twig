@@ -10,6 +10,63 @@
 {% block ajax %}
     {{ parent() }}
     <div class="row">
+        <div class="row newspaper">
+            <div class="cell left-page rw-6">
+                <div class="town-name">{{ town_name }} ({{day}})</div>
+                <div class="text">
+                    blablabla
+                </div>
+                <div class="right sign">
+                    - {{'Der Rabe'|trans({}, 'global')}}
+                </div>
+                {% if day > 1 %}
+                <div class="death">
+                    <div class="death-category">
+                        {{'Tote in der Stadt'|trans({}, 'game')}} {% if death_in_town|length > 0 %}({{death_in_town|length}}){% endif %}:
+                    </div>
+                    {% if death_in_town|length == 0 %}
+                        {{'Niemand'|trans({}, 'game')}}
+                    {% else %}
+                        {% for citizen in death_in_town %}
+                        <span>
+                            {{citizen.user.username}}
+                            <div class="tooltip">
+                                {{citizen.causeOfDeath.label|trans({}, 'game')}}
+                            </div>
+                        </span> 
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="death">
+                    <div class="death-category">
+                        {{'Sonstige Opfer'|trans({}, 'game')}} {% if death_outside|length > 0 %}({{death_outside|length}}){% endif %} :
+                    </div>
+                    {% if death_outside|length == 0 %}
+                        {{'Niemand'|trans({}, 'game')}}
+                    {% else %}
+                        {% for citizen in death_outside %}
+                        <span>
+                            {{citizen.user.username}}
+                            <div class="tooltip">
+                                {{citizen.causeOfDeath.label|trans({}, 'game')}}
+                            </div>
+                        </span> 
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="cell right-page rw-6">
+                {% if day > 1 %}
+                    <img src="{{ asset('build/images/newsSchema_classic.gif') }}" alt="" />
+                    <div class="row">
+                        <div class="cell rw-4 center"><span class="nightstat"><span class="count">123</span> zombies</span></div>
+                        <div class="cell rw-4 center"><span class="nightstat"><span class="count">123</span> defences</span></div>
+                        <div class="cell rw-4 center"><span class="nightstat"><span class="nightstat">no death</span></div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
         <div class="padded cell rw-12">
             <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
             {% if show_register %}

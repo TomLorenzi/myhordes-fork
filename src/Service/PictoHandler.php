@@ -22,7 +22,12 @@ class PictoHandler
         $this->entity_manager = $em;
     }
 
-    public function give_picto(Citizen &$citizen, PictoPrototype $pictoPrototype, $count = 1){
+    public function give_picto(Citizen &$citizen, $pictoPrototype, $count = 1){
+        if(is_string($pictoPrototype)){
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoPrototype);
+            if($pictoPrototype === null)
+                return;
+        }
         $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
         if($picto === null) $picto = new Picto();
         $picto->setPrototype($pictoPrototype)
@@ -35,7 +40,12 @@ class PictoHandler
         $this->entity_manager->flush();
     }
 
-    public function give_validated_picto(Citizen &$citizen, PictoPrototype $pictoPrototype, $count = 1){
+    public function give_validated_picto(Citizen &$citizen, $pictoPrototype, $count = 1){
+        if(is_string($pictoPrototype)){
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoPrototype);
+            if($pictoPrototype === null)
+                return;
+        }
         $picto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
         if($picto === null) $picto = new Picto();
         $picto->setPrototype($pictoPrototype)

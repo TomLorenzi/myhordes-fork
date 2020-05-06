@@ -47,10 +47,12 @@ class TownAddonsController extends TownController
         $town = $this->getActiveCitizen()->getTown();
         $buildings = [];
         $max_votes = 0;
+        $total_votes = 0;
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
             if ($b->getPrototype()->getMaxLevel() > 0)
                 $buildings[] = $b;
             $max_votes = max($max_votes, $b->getDailyUpgradeVotes()->count());
+            $total_votes += $b->getDailyUpgradeVotes()->count();
         }
 
         if (empty($buildings)) return $this->redirect( $this->generateUrl('town_dashboard') );
@@ -58,6 +60,7 @@ class TownAddonsController extends TownController
         return $this->render( 'ajax/game/town/upgrades.html.twig', $this->addDefaultTwigArgs('upgrade', [
             'buildings' => $buildings,
             'max_votes' => $max_votes,
+            'total_votes' => $total_votes,
             'vote' => $this->getActiveCitizen()->getDailyUpgradeVote() ? $this->getActiveCitizen()->getDailyUpgradeVote()->getBuilding() : null,
         ]) );
     }
