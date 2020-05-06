@@ -57,34 +57,14 @@ class TownLogEntry
     private $citizen;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $type = self::TypeVarious;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $hidden = false;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $text;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $class = self::ClassNone;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Zone")
      */
     private $zone;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $secondaryType;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Citizen")
@@ -155,18 +135,6 @@ class TownLogEntry
         return $this;
     }
 
-    public function getType(): ?int
-    {
-        return $this->type;
-    }
-
-    public function setType(int $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function getHidden(): ?bool
     {
         return $this->hidden;
@@ -179,30 +147,6 @@ class TownLogEntry
         return $this;
     }
 
-    public function getText(): ?string
-    {
-        return $this->text;
-    }
-
-    public function setText(string $text): self
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    public function getClass(): ?int
-    {
-        return $this->class;
-    }
-
-    public function setClass(int $class): self
-    {
-        $this->class = $class;
-
-        return $this;
-    }
-
     public function getZone(): ?Zone
     {
         return $this->zone;
@@ -211,18 +155,6 @@ class TownLogEntry
     public function setZone(?Zone $zone): self
     {
         $this->zone = $zone;
-
-        return $this;
-    }
-
-    public function getSecondaryType(): ?int
-    {
-        return $this->secondaryType;
-    }
-
-    public function setSecondaryType(?int $secondaryType): self
-    {
-        $this->secondaryType = $secondaryType;
 
         return $this;
     }

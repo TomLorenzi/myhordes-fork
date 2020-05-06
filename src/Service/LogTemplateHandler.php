@@ -157,21 +157,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeBank )
-            ->setClass( $toBank ? TownLogEntry::ClassNone : TownLogEntry::ClassWarning )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans(
-                $toBank
-                    ? '%citizen% hat der Stadt folgendes gespendet: %item%'
-                    : '%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%', [
-                        '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                        '%item%'    => $this->wrap( $this->iconize( $item ) ),
-            ], 'game' ) );
-
-
+            ->setCitizen( $citizen );
     }
 
     public function beyondItemLog( Citizen $citizen, Item $item, bool $toFloor ): TownLogEntry {
@@ -183,20 +172,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans(
-                $toFloor
-                    ? '%citizen% hat folgenden Gegenstand hier abgelegt: %item%'
-                    : '%citizen% hat diesen Gegenstand mitgenommen: %item%', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%item%'    => $this->wrap( $this->iconize( $item ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function wellLog( Citizen $citizen, bool $tooMuch ): TownLogEntry {
@@ -208,18 +188,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeWell )
-            ->setClass( $tooMuch ? TownLogEntry::ClassWarning : TownLogEntry::ClassNone )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans(
-                $tooMuch
-                    ? '%citizen% hat mehr Wasser genommen, als erlaubt ist...'
-                    : '%citizen% hat eine Ration Wasser genommen.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function wellAdd( Citizen $citizen, ?Item $item, int $count ): TownLogEntry {
@@ -234,19 +206,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeWell )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans($item
-                ? '%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.'
-                : '%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%item%'    => $this->wrap( $this->iconize( $item ) ),
-                '%num%'     => $this->wrap( "$count" ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function wellAddShaman( Citizen $citizen, int $count ): TownLogEntry {
@@ -255,16 +218,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeWell )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%num%'     => $this->wrap( "$count" ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function constructionsInvestAP( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
@@ -273,17 +230,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeConstruction )
-            ->setClass( TownLogEntry::ClassNone )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans( '%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%plan%'    => $this->wrap( $this->iconize( $proto ) ),
-                '%ap%'      => "<div class='ap'>{$ap}</div>"
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function constructionsNewSite( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
@@ -295,27 +245,17 @@ class LogTemplateHandler
             $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('constructionsNewSite');
         }   
-        $str = '%citizen% hat einen Bauplan für %plan% gefunden.';
-        if ($proto->getParent()) $str .= ' Dafür ist das Bauprojekt %parent% nötig.';
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeConstruction )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans( $str, [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%plan%'    => $this->wrap( $this->iconize( $proto ) ),
-                '%parent%'  => $proto->getParent() ? $this->wrap( $this->iconize( $proto->getParent() ) ) : '???',
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function constructionsBuildingComplete( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
         $list = $proto->getResources() ? $proto->getResources()->getEntries()->getValues() : [];
-
         if (!empty($list)){
             $varlist = array_map( function(ItemGroupEntry $e) { return array('id' => $e->getPrototype()->getId(), 'count' => $e->getChance()); }, $list );
 
@@ -326,29 +266,16 @@ class LogTemplateHandler
             $variables = array('plan' => $proto->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('constructionsBuildingCompleteNoResources');
         }
-        $list = array_map( function(ItemGroupEntry $e) { return $this->wrap( $this->iconize( $e ) ); }, $list );
-        $uses_res = !empty($list);
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeConstruction )
-            ->setSecondaryType( TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans( $uses_res
-                ? 'Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%'
-                : 'Es wurde ein neues Gebäude gebaut: %plan%.', [
-                '%plan%' => $this->wrap( $this->iconize( $proto ) ),
-                '%list%' => implode( ', ', $list )
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function constructionsBuildingCompleteSpawnItems( Building $building, $items ): TownLogEntry {
-        $list = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
         $proto = $building->getPrototype();
-
         $variables = array('building' => $proto->getId(), 
             'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
               else { return array('id' => $e[0]->getId()); } ;}, $items ));
@@ -356,37 +283,21 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeConstruction )
-            ->setSecondaryType( TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $building->getTown() )
             ->setDay( $building->getTown()->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans( 'Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%', [
-                '%building%' => $this->wrap( $this->iconize( $proto ) ),
-                '%list%'     => implode( ', ', $list )
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function constructionsBuildingCompleteWell( Building $building, int $water ): TownLogEntry {
-
         $variables = array('building' => $building->getPrototype()->getId(), 'num' => $water);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('constructionsBuildingCompleteWell');
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeConstruction )
-            ->setSecondaryType( TownLogEntry::TypeWell )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $building->getTown() )
             ->setDay( $building->getTown()->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans( 'Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!', [
-                '%building%' => $this->wrap( $this->iconize( $building ) ),
-                '%num%'      => $this->wrap( "{$water}" )
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
-
 
     public function doorControl( Citizen $citizen, bool $open ): TownLogEntry {
         if ($open)
@@ -399,16 +310,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeDoor )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat das Stadttor %action%.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%action%'  => $this->wrap( $open ? $this->trans->trans('geöffnet', [], 'game') : $this->trans->trans('geschlossen', [], 'game') ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function doorControlAuto( Town $town, bool $open, ?DateTimeInterface $time ): TownLogEntry {
@@ -422,14 +327,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeDoor )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( $time ?? new DateTime('now') )
-            ->setText( $this->trans->trans('Das Stadttor wurde automatisch %action%.', [
-                '%action%'  => $this->wrap( $open ? $this->trans->trans('geöffnet', [], 'game') : $this->trans->trans('geschlossen', [], 'game') ),
-            ], 'game' ) );
+            ->setTimestamp( $time ?? new DateTime('now') );
     }
 
     public function doorPass( Citizen $citizen, bool $in ): TownLogEntry {
@@ -443,16 +343,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeDoor )
-            ->setClass( TownLogEntry::ClassNone )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat die Stadt %action%.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%action%'  => $this->wrap( $in ? $this->trans->trans('betreten', [], 'game') : $this->trans->trans('verlassen', [], 'game') ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function citizenJoin( Citizen $citizen ): TownLogEntry {
@@ -462,15 +356,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeCitizens )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('Ein neuer Bürger ist in der Stadt angekommen: %citizen%.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function citizenProfession( Citizen $citizen ): TownLogEntry {
@@ -480,16 +369,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeCitizens )
-            ->setClass( TownLogEntry::ClassNone )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat seine neue Berufung als %profession% gefunden.', [
-                '%citizen%'    => $this->wrap( $this->iconize( $citizen ) ),
-                '%profession%' => $this->wrap( $this->iconize( $citizen->getProfession() ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function citizenZombieAttackRepelled( Citizen $citizen, int $def, int $zombies ): TownLogEntry {
@@ -498,17 +381,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeCitizens )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%zombies%' => $this->wrap( $this->trans->trans( '%num% Zombies', ['%num%' => $zombies], 'game' ) ),
-                '%defense%' => $this->wrap( "{$def}" ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function citizenDeath( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
@@ -516,75 +392,54 @@ class LogTemplateHandler
             case CauseOfDeath::NightlyAttack:
                 $variables = array('citizen' => $citizen->getId(), 'num' => $zombies);
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathNightlyAttack');
-                $str = T::__('%citizen% wurde von %zombies% zerfleischt!','game');
                 break;
             case CauseOfDeath::Vanished:
                 $variables = array('citizen' => $citizen->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathVanished');
-                $str = T::__('Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...','game');
                 break;
             case CauseOfDeath::Cyanide:
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathCyanide');
-                $str = T::__('%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.','game');
                 break;
             case CauseOfDeath::Posion: case CauseOfDeath::GhulEaten:
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathPoison');
-                $str = T::__('Verrat! %citizen% ist gestorben: %cod%.','game');
                 break;
             case CauseOfDeath::Hanging: case CauseOfDeath::FleshCage:
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathHanging');
-                $str = T::__('%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.','game');
                 break;
             case CauseOfDeath::Headshot:
                 $variables = array('citizen' => $citizen->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathHeadshot');
-                $str = T::__('%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!','game');
                 break;
             default: 
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathDefault');
-                $str = T::__('%citizen% hat seinen letzten Atemzug getan: %cod%!','game');
         }
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeCitizens )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
             ->setDay( $day ?? $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setZone( $zone )
-            ->setText( $this->trans->trans($str, [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%zombies%' => $this->wrap( $this->trans->trans( '%num% Zombies', ['%num%' => $zombies], 'game' ) ),
-                '%cod%'     => $this->wrap( $this->iconize( $citizen->getCauseOfDeath() ) ),
-            ], 'game' ) );
+            ->setZone( $zone );
     }
 
     public function citizenDeathOnWatch( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
-        $str = T::__('%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!','game');
-
         $variables = array('citizen' => $citizen->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathOnWatch');
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeCitizens )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
             ->setDay( $day ?? $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setZone( $zone )
-            ->setText( $this->trans->trans($str, [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setZone( $zone );
     }
 
     public function homeUpgrade( Citizen $citizen ): TownLogEntry {
@@ -594,22 +449,13 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeHome )
-            ->setClass( TownLogEntry::ClassNone )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%home%'    => $this->wrap( $this->iconize( $citizen->getHome() ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function workshopConvert( Citizen $citizen, array $items_in, array $items_out ): TownLogEntry {
-        $list1 = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items_in  );
-        $list2 = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items_out );
-
         $variables = array('citizen' => $citizen->getId(), 
             'list1' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
               else { return array('id' => $e[0]->getId()); } ;}, $items_in ),
@@ -620,18 +466,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeWorkshop )
-            ->setSecondaryType( TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%list1%' => implode( ', ', $list1 ),
-                '%list2%' => implode( ', ', $list2 )
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function outsideMove( Citizen $citizen, Zone $zone1, Zone $zone2, bool $depart ): TownLogEntry {
@@ -654,11 +492,8 @@ class LogTemplateHandler
         } elseif ($d_east)   $str = 'Osten';
         elseif ($d_west)     $str = 'Westen';
 
-        if ($is_zero_zone)
-            $base = $depart ?  T::__('%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.', 'game') : T::__('%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.', 'game');
-        else $base = $depart ? T::__('%citizen% (%profession%) ist Richtung %direction% aufgebrochen.', 'game') :  T::__('%citizen% (%profession%) ist aus dem %direction% angekommen.', 'game');
-
-        if ($is_zero_zone) {
+        if ($is_zero_zone) 
+        {
             $variables = array('citizen' => $citizen->getId(), 'direction' => $str);
             if ($depart) {               
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('townMoveLeave');
@@ -667,7 +502,8 @@ class LogTemplateHandler
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('townMoveEnter');
             }
         }
-        else {
+        else 
+        {
             $variables = array('citizen' => $citizen->getId(), 'direction' => $str, 'profession' => $citizen->getProfession()->getId());
             if ($depart) {               
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('outsideMoveLeave');
@@ -677,33 +513,22 @@ class LogTemplateHandler
             }
         }
         
-
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setSecondaryType( $is_zero_zone ? TownLogEntry::TypeDoor : null )
-            ->setClass( TownLogEntry::ClassNone )
             ->setTown( $citizen->getTown() )
             ->setZone( $is_zero_zone ? null : $zone1 )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans($base, [
-                '%citizen%'   => $this->wrap( $this->iconize( $citizen ) ),
-                '%direction%' => $this->wrap( $this->trans->trans($str, [], 'game') ),
-                '%profession%' => $this->wrap( $this->iconize( $citizen->getProfession(), true ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function outsideDig( Citizen $citizen, ?ItemPrototype $item, ?DateTimeInterface $time = null ): TownLogEntry {
         $found_something = $item !== null;
-
         if ($found_something) {
             $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('outsideDigSuccess');
         }
-
         else {
             $variables = array('citizen' => $citizen->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('outsideDigFail');
@@ -712,22 +537,15 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( $time ?? new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setZone( $citizen->getZone() )
-            ->setText( $this->trans->trans($found_something ? '%citizen% hat ein(e,n) %item% ausgegraben!' : '%citizen% hat hier durch Graben nichts gefunden...', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%item%' => $item ? $this->wrap( $this->iconize( $item ) ) : ''
-            ], 'game' ) );
+            ->setZone( $citizen->getZone() );
     }
 
     public function outsideUncover( Citizen $citizen ): TownLogEntry {
         $bc = $citizen->getZone()->getBuryCount() > 0;
-
         if ($bc) {
             $variables = array('citizen' => $citizen->getId());
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('outsideUncover');
@@ -740,17 +558,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( ($citizen->getZone()->getBuryCount() === 0) ? TownLogEntry::ClassCritical : TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( $time ?? new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setZone( $citizen->getZone() )
-            ->setText( $this->trans->trans( $bc ? '%citizen% hat etwas Schutt entfernt.' : '%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%type%'    => ($citizen->getZone()->getBuryCount() > 0) ? '' : $this->wrap( $this->trans->trans( $citizen->getZone()->getPrototype()->getLabel(), [], 'game' ) )
-            ], 'game' ) );
+            ->setZone( $citizen->getZone() );
     }
 
     public function constructionsBuildingCompleteAllOrNothing( town $town, $tempDef ): TownLogEntry {
@@ -760,14 +572,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...', [
-                '%def%' => $this->wrap($tempDef),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyInternalAttackKill( Citizen $zombie, Citizen $victim ): TownLogEntry {
@@ -777,17 +584,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $zombie->getTown() )
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $zombie )
-            ->setSecondaryCitizen( $victim )
-            ->setText( $this->trans->trans('%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!', [
-                '%zombie%' => $this->wrap( $this->iconize( $zombie ) ),
-                '%victim%' => $this->wrap( $this->iconize( $victim ) ),
-            ], 'game' ) );
+            ->setSecondaryCitizen( $victim );
     }
 
     public function nightlyInternalAttackDestroy( Citizen $zombie, Building $building ): TownLogEntry {
@@ -797,17 +598,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setSecondaryType( TownLogEntry::TypeConstruction )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $zombie->getTown() )
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $zombie )
-            ->setText( $this->trans->trans('%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!', [
-                '%zombie%' => $this->wrap( $this->iconize( $zombie ) ),
-                '%building%' => $this->wrap( $this->iconize( $building ) ),
-            ], 'game' ) );
+            ->setCitizen( $zombie );
     }
 
     public function nightlyInternalAttackWell( Citizen $zombie, int $units ): TownLogEntry {
@@ -817,50 +611,29 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setSecondaryType( TownLogEntry::TypeWell )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $zombie->getTown() )
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $zombie )
-            ->setText( $this->trans->trans('%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!', [
-                '%zombie%' => $this->wrap( $this->iconize( $zombie ) ),
-                '%num%'    => $this->wrap( "{$units}" ),
-            ], 'game' ) );
+            ->setCitizen( $zombie );
     }
 
     public function nightlyInternalAttackNothing( Citizen $zombie ): TownLogEntry {
-        $list = [
-            T::__('%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!', 'game'),
-            T::__('%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!', 'game'),
-            T::__('%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!', 'game'),
-            T::__('%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!', 'game'),
-        ];
-        $str = $list[array_rand($list,1)];
-
         $templateList = [
             'nightlyInternalAttackNothing1',
             'nightlyInternalAttackNothing2',
             'nightlyInternalAttackNothing3',
             'nightlyInternalAttackNothing4',
         ];
-
         $variables = array('zombie' => $zombie->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName($templateList[array_rand($templateList,1)]);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $zombie->getTown() )
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $zombie )
-            ->setText( $this->trans->trans($str, [
-                '%zombie%' => $this->wrap( $this->iconize( $zombie ) ),
-            ], 'game' ) );
+            ->setCitizen( $zombie );
     }
 
     public function nightlyAttackBegin( Town $town, int $num_zombies ): TownLogEntry {
@@ -870,22 +643,12 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...', [
-                '%num%' => $this->wrap( "{$num_zombies}" ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackSummary( Town $town, bool $door_open, int $num_zombies ): TownLogEntry {
-        
-        if ($door_open)
-            $str = T::__('... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!', 'game');
-        else $str = $num_zombies > 0 ? T::__('%num% Zombies sind durch unsere Verteidigung gebrochen!', 'game') : T::__('Nicht ein Zombie hat die Stadt betreten!', 'game');
-
         if ($door_open) {
             $variables = array('num' => $num_zombies);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('nightlyAttackSummaryOpenDoor');
@@ -902,24 +665,15 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans($str, [
-                '%num%' => $this->wrap( "{$num_zombies}" ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackWatchers( Town $town ): TownLogEntry {
-        $str = T::__('Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'game');
         $citizenList = [];
-        $citizens = "";
         foreach ($town->getCitizenWatches() as $watcher) {
-            if(!empty($citizens)) $citizens .= ", ";
             $citizenList[] = array('id' => $watcher->getCitizen()->getId());
-            $citizens .= $this->wrap( $this->iconize( $watcher->getCitizen()));
         }
         $variables = array('citizens' => $citizenList);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('nightlyAttackWatchers');
@@ -927,14 +681,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans($str, [
-                '%citizens%' => $citizens,
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackLazy( Town $town, int $num_attacking_zombies ): TownLogEntry {
@@ -944,14 +693,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('%num% Zombies attackieren die Stadtbewohner!', [
-                '%num%' => $this->wrap( "{$num_attacking_zombies}" ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackBuildingDefenseWater( Building $building, int $num ): TownLogEntry {
@@ -961,16 +705,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setSecondaryType( TownLogEntry::TypeWell )
-            ->setClass( TownLogEntry::ClassWarning )
             ->setTown( $building->getTown() )
             ->setDay( $building->getTown()->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.', [
-                '%building%' => $this->wrap( $this->iconize( $building ) ),
-                '%num%'      => $this->wrap( "{$num}" ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackUpgradeBuildingWell( Building $building, int $num ): TownLogEntry {
@@ -980,21 +717,12 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setSecondaryType( TownLogEntry::TypeWell )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $building->getTown() )
             ->setDay( $building->getTown()->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.', [
-                '%building%' => $this->wrap( $this->iconize( $building ) ),
-                '%num%'      => $this->wrap( "{$num}" ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackUpgradeBuildingItems( Building $building, ?array $items ): TownLogEntry {
-        $items = [];
-
         $variables = array('building' => $building->getPrototype()->getId(), 
             'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
               else { return array('id' => $e[0]->getId()); } ;}, $items ));
@@ -1003,16 +731,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setSecondaryType( TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $building->getTown() )
             ->setDay( $building->getTown()->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%', [
-                '%building%' => $this->wrap( $this->iconize( $building ) ),
-                '%items%'    => implode( ', ', $items )
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     /**
@@ -1027,15 +748,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setSecondaryType( TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%', [
-                '%item%' => $this->wrap( $this->iconize( $item ) ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackProduction( Building $building, ?array $items = [] ): TownLogEntry {        
@@ -1044,20 +759,12 @@ class LogTemplateHandler
               else { return array('id' => $e[0]->getId()); } ;}, $items ));
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('nightlyAttackProduction');
 
-        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setSecondaryType( TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $building->getTown() )
             ->setDay( $building->getTown()->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%', [
-                '%building%' => $this->wrap( $this->iconize( $building ) ),
-                '%items%'    => implode( ', ', $items )
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackDestroyBuilding( Town $town, Building $building ): TownLogEntry {
@@ -1067,14 +774,9 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeNightly )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $town )
             ->setDay( $town->getDay() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans('Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.', [
-                '%buildingName%' => $this->wrap( $this->iconize( $building ) ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function citizenComplaint( Complaint $complaint ): TownLogEntry {
@@ -1088,18 +790,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeHome )
-            ->setClass( $complaint->getSeverity() === Complaint::SeverityNone ? TownLogEntry::ClassInfo : TownLogEntry::ClassCritical )
             ->setTown( $complaint->getAutor()->getTown() )
             ->setDay( $complaint->getAutor()->getTown()->getDay() )
             ->setCitizen( $complaint->getCulprit() )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans( $complaint->getSeverity() > Complaint::SeverityNone
-                    ? T::__('Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!', 'game')
-                    : T::__('Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.', 'game'),
-                [
-                    '%citizen%'  => $this->wrap( $this->iconize( $complaint->getCulprit() ) ),
-                ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function citizenBanish( Citizen $citizen ): TownLogEntry {
@@ -1109,42 +803,31 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeHome )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setCitizen( $citizen )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans( 'Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!' ,
-                [
-                    '%citizen%'  => $this->wrap( $this->iconize( $citizen ) ),
-                ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function citizenDisposal( Citizen $actor, Citizen $disposed, int $action, ?array $items = [] ): TownLogEntry {
-        $str = '';
         switch ($action) {
             case 1:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalDrag');
-                $str = T::__('%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.', 'game');
                 break;
             case 2:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalWater');
-                $str = T::__('%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.', 'game');
                 break;
             case 3:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId(), 
                     'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
                         else { return array('id' => $e[0]->getId()); } ;}, $items ));
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalCremato');
-                $str = T::__('%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.', 'game');
                 break;
             default:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalDefault');
-                $str = T::__('%citizen% hat die Leiche von %disposed% vernichtet.', 'game');
                 break;
         }
 
@@ -1153,19 +836,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeHome )
-            ->setSecondaryType( empty($items) ? TownLogEntry::TypeVarious : TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $actor->getTown() )
             ->setDay( $actor->getTown()->getDay() )
             ->setCitizen( $actor )
             ->setSecondaryCitizen( $disposed )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans($str, [
-                '%citizen%'  => $this->wrap( $this->iconize( $actor ) ),
-                '%disposed%' => $this->wrap( $this->iconize( $disposed ) ),
-                '%items%'    => implode( ', ', $items )
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function townSteal( Citizen $victim, ?Citizen $actor, Item $item, bool $up, bool $santa = false): TownLogEntry {
@@ -1174,8 +849,8 @@ class LogTemplateHandler
             if($santa){
                 $variables = array('victim' => $victim->getId(), 'item' => $item->getPrototype()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('townStealSanta');
-                $str = T::__("Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat", 'game');
-            } else {
+            } 
+            else {
                 if ($actor) {
                     $variables = array('actor' => $actor->getId(), 'victim' => $victim->getId(), 'item' => $item->getPrototype()->getId());
                     $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('townStealCaught');
@@ -1184,10 +859,7 @@ class LogTemplateHandler
                     $variables = array('victim' => $victim->getId(), 'item' => $item->getPrototype()->getId());
                     $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('townStealUncaught');
                 }
-                $str = $actor
-                    ? T::__('HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!', 'game')
-                    : T::__('VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...', 'game');
-                }
+            }
         }
         else {
             if ($actor) {
@@ -1198,27 +870,16 @@ class LogTemplateHandler
                 $variables = array('victim' => $victim->getId(), 'item' => $item->getPrototype()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('townSmuggleUncaught');
             }
-            $str = $actor
-                ? T::__('%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...', 'game')
-                : T::__('Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...', 'game');
         }
             
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeHome )
-            ->setSecondaryType( empty($items) ? TownLogEntry::TypeVarious : TownLogEntry::TypeBank )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $victim->getTown() )
             ->setDay( $victim->getTown()->getDay() )
             ->setCitizen( $victim )
             ->setSecondaryCitizen( $actor )
-            ->setTimestamp( new DateTime('now') )
-            ->setText( $this->trans->trans( $str , [
-                '%actor%'    => $actor ? $this->wrap( $this->iconize( $actor ) ) : '',
-                '%victim%'   => $this->wrap( $this->iconize( $victim ) ),
-                '%item%'     => $this->wrap( $this->iconize( $item ) ),
-            ], 'game' ) );
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function zombieKill( Citizen $citizen, ?Item $item, int $kills ): TownLogEntry {
@@ -1234,21 +895,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans(
-                $item
-                    ? '%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.'
-                    : 'Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%item%'    => $item ? $this->wrap( $this->iconize( $item ) ) : '',
-                '%kills%'   => $this->wrap( "{$kills}" ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function zombieKillShaman( Citizen $citizen, int $kills ): TownLogEntry {
@@ -1258,18 +909,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans(
-                '%citizen% hat %kills% Zombies getötet.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%kills%'   => $this->wrap( "{$kills}" ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondChat( Citizen $sender, string $message ): TownLogEntry {
@@ -1279,14 +923,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeChat )
-            ->setClass( TownLogEntry::ClassChat )
             ->setTown( $sender->getTown() )
             ->setDay( $sender->getTown()->getDay() )
             ->setZone( $sender->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $sender )
-            ->setText( $this->wrap( $this->iconize( $sender ) ) . ': ' . htmlentities( $message ) );
+            ->setCitizen( $sender );
     }
 
     public function beyondCampingImprovement( Citizen $citizen ): TownLogEntry {
@@ -1296,16 +937,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondCampingItemImprovement( Citizen $citizen, Item $item ): TownLogEntry {
@@ -1315,17 +951,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%item%' => $this->wrap( $this->iconize( $item ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondCampingHide( Citizen $citizen ): TownLogEntry {
@@ -1335,16 +965,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat sich für heute Nacht ein Versteck gesucht ...', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondCampingUnhide( Citizen $citizen ): TownLogEntry {
@@ -1354,16 +979,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat sein Versteck verlassen.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondEscortEnable( Citizen $citizen ): TownLogEntry {
@@ -1373,16 +993,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat beschlossen auf einen Eskortenanführer zu warten...', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondEscortDisable( Citizen $citizen ): TownLogEntry {
@@ -1392,16 +1007,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat beschlossen sich wieder allein fortzubewegen.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondEscortTakeCitizen( Citizen $citizen, Citizen $target_citizen ): TownLogEntry {
@@ -1411,17 +1021,11 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat %target_citizen% überzeugt, ihm zu folgen.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%target_citizen%' => $this->wrap( $this->iconize( $target_citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 
     public function beyondEscortReleaseCitizen( Citizen $citizen, Citizen $target_citizen ): TownLogEntry {
@@ -1431,16 +1035,10 @@ class LogTemplateHandler
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
-            ->setType( TownLogEntry::TypeVarious )
-            ->setClass( TownLogEntry::ClassInfo )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $citizen )
-            ->setText( $this->trans->trans('%citizen% hat %target_citizen% aus seiner Eskorte entlassen.', [
-                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
-                '%target_citizen%' => $this->wrap( $this->iconize( $target_citizen ) ),
-            ], 'game' ) );
+            ->setCitizen( $citizen );
     }
 }
