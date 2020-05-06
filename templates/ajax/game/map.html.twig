@@ -19,6 +19,9 @@
                     {% if zones[x] and zones[x][y] %}
                         {% set classes = zones_classes[x][y] %}
                         <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
+                            {% if 'soul' in classes %}
+                                <div class="soul-area"><span></span></div>
+                            {% endif %}
                                 <div class="icon"></div>
                                 <div class="overlay"></div>
                                 {% if zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
@@ -180,16 +183,16 @@
                             </div>{% endif %}
                     {% endif %}
                     {% if scavenger_sense  %}
-                        {% if zone.x < map_x1 and zone.x != -1 and zones[zone.x+1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                        {% if zone.x < map_x1 and (zone.x != -1 or zone.y != 0) and zones[zone.x+1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
                             <div class="scavenger-sense scavenger-sense-east scavenger-sense-{% if zones[zone.x+1][zone.y].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
-                        {% if zone.x > map_x0 and zone.x != 1 and zones[zone.x-1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                        {% if zone.x > map_x0 and (zone.x != 1 or zone.y != 0) and zones[zone.x-1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
                             <div class="scavenger-sense scavenger-sense-west scavenger-sense-{% if zones[zone.x-1][zone.y].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
-                        {% if zone.y > map_y0 and zone.y != 1 and zones[zone.x][zone.y-1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                        {% if zone.y > map_y0 and (zone.x != 0 or zone.y != 1) and zones[zone.x][zone.y-1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
                             <div class="scavenger-sense scavenger-sense-south scavenger-sense-{% if zones[zone.x][zone.y-1].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
-                        {% if zone.y < map_y0 and zone.y != -1 and zones[zone.x][zone.y+1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                        {% if zone.y < map_y0 and (zone.x != 0 or zone.y != -1) and zones[zone.x][zone.y+1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
                             <div class="scavenger-sense scavenger-sense-north scavenger-sense-{% if zones[zone.x][zone.y+1].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
                     {% endif %}
