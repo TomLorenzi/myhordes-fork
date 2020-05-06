@@ -80,11 +80,36 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
 
+        $town = $this->getActiveCitizen()->getTown();
+        $citizens = $town->getCitizens();
+        $cadavers = [];
+        foreach ($citizens as $citizen) {
+            if (!$citizen->getAlive() && $citizen->getSurvivedDays() == $town->getDay() - 1) {
+                $cadavers[] = $citizen->getUser()->getUsername();
+            }
+        }
+        $day = $town->getDay();
+        $days = [
+            'final' => $day % 5,
+            'repeat' => floor($day / 5),
+        ];
+        $gazette = [
+            'season_version' => 0,
+            'season_label' => "Betapropine FTW",
+            'name' => $town->getName(),
+            'day' => $day,
+            'days' => $days,
+            'devast' => $town->getDevastated(),
+            'chaos' => $town->getChaos(),
+            'death_note' => count($cadavers) > 0 ? implode(', ', $cadavers) : 'Keiner!',
+        ];
+
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'day' => $day,
+            'gazette' => $gazette,
         ] );
     }
 

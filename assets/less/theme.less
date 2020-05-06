@@ -1022,9 +1022,21 @@ div.daily-attack {
     background-repeat: no-repeat;
     background-position: 0 0;
     display: inline-block;
+    vertical-align: top;
+    position: relative;
 
     &#newspage-1 {
       margin-left: 20px;
+
+      div#headline {
+        position: absolute;
+        top: 12%;
+        left: 6%;
+        font-family: "Courier New", "Courier", monospace, fixed;
+        color: #3b3249;
+        font-weight: bold;
+        font-size: 110%;
+      }
     }
 
     &#newspage-2 {
