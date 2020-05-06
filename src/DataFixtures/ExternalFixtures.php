@@ -50,6 +50,24 @@ class ExternalFixtures extends Fixture
             'owner' => 'Eragony',
             'key' => '84013b00ab338778',
         ],
+        [
+            'name' => 'HTools',
+            'active' => 1,
+            'url' => 'https://hordestools.000webhostapp.com/',
+            'icon' => 'htools',
+            'contact' => 'ordealisium@gmail.com',
+            'owner' => 'Koya',
+            'key' => 'fe00156994102897',
+        ],
+        [
+            'name' => 'Hordes-la-loi',
+            'active' => 1,
+            'url' => 'http://myh.hordes-la-loi.fr/receive.php',
+            'icon' => 'null',
+            'contact' => 'xemaro@hordes-la-loi.fr',
+            'owner' => 'Xemaro',
+            'key' => 'b4af912cbe75debe',
+        ],
     ];
 
     private $entityManager;

@@ -52,12 +52,12 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'infection', 'label' => 'Infektion', 'description' => 'Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.'],
         ['name' => 'drunk', 'label' => 'Trunkenheit', 'description' => 'Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.'],
         ['name' => 'hungover', 'label' => 'Kater', 'description' => 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.'],
-        ['name' => 'wound1', 'label' => 'Verwundung - Kopf', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound2', 'label' => 'Verwundung - Hände', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound3', 'label' => 'Verwundung - Arme', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound4', 'label' => 'Verwundung - Bein', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound5', 'label' => 'Verwundung - Auge', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound1', 'label' => 'Verwundung - Kopf', 'description' => 'Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound2', 'label' => 'Verwundung - Hände', 'description' => 'Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound3', 'label' => 'Verwundung - Arme', 'description' => 'Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound4', 'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound5', 'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'ghul', 'label' => 'Ghul', 'description' => 'Endlich kannst du deine Schwiegermutter loswerden!'],
         ['name' => 'healed', 'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
 
@@ -83,6 +83,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_home_defbuff'],
         ['name' => 'tg_rested' ],
         ['name' => 'tg_immune' ],
+        ['name' => 'tg_shaman_heal' ],
     ];
 
     public static $causes_of_death = [
@@ -101,7 +102,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [ 'ref' => CauseOfDeath::FleshCage    , 'label' => 'Im Fleischkäfig geendet', 'icon' => 'caged', 'desc' => 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.' ],
         [ 'ref' => CauseOfDeath::Strangulation, 'label' => 'Strangulation', 'icon' => 'strangulation', 'desc' => 'Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.' ],
         [ 'ref' => CauseOfDeath::Headshot     , 'label' => 'Kopfschuss', 'icon' => 'headshot', 'desc' => 'Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?' ],
-        [ 'ref' => CauseOfDeath::Radiations     , 'label' => 'Tod durch Radioaktivität', 'icon' => 'infection', 'desc' => 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.' ],
+        [ 'ref' => CauseOfDeath::Radiations   , 'label' => 'Tod durch Radioaktivität', 'icon' => 'infection', 'desc' => 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.' ],
+        [ 'ref' => CauseOfDeath::Haunted      , 'label' => 'Besessen von einer gequälten Seele', 'icon' => 'haunted', 'desc' => 'Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.' ],
     ];
 
     public static $home_levels = [

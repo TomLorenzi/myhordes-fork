@@ -122,7 +122,7 @@ export default class Ajax {
                 eval(script_source[i].innerText);
             } catch (e) {
                 $.html.error('A script on this page has crashed; details have been sent to the web console. The page may no longer work properly. Please report this issue: "' + e.message + '".');
-                console.error(e);
+                console.error(e,script_source[i].innerText);
             }
 
 

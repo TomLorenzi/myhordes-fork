@@ -73,7 +73,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $addons['workshop'] = [T::__('Werkstatt', 'game'), 'town_workshop'];
 
             if ($b->getPrototype()->getName() === 'small_round_path_#00')
-                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_dashboard'];
+                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch'];
 
             if ($b->getPrototype()->getName() === 'small_trash_#00')
                 $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump'];
@@ -1021,6 +1021,37 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return AjaxResponse::success();
     }
 
+    /**
+     * @Route("api/town/door/exit_hero", name="town_door_hero_exit_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function door_hero_exit_api(JSONRequestParser $parser): Response {
+        if (!$this->getActiveCitizen()->getProfession()->getHeroic())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $citizen = $this->getActiveCitizen();
+        $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), 0, 0);
+
+        if (!$zone)
+            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+
+        // Set the activity status
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+
+        $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
+        $zone->addCitizen( $citizen );
+
+        try {
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
     private function door_is_locked(TownHandler $th): bool {
         $town = $this->getActiveCitizen()->getTown();
         if ( !$town->getDoor() && (($s = $this->time_keeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
@@ -1042,14 +1073,18 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function door(TownHandler $th): Response
     {
-	$door_locked = $this->door_is_locked($th);
-	$can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
+
+        $door_locked = $this->door_is_locked($th);
+        $can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
+
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'town'  =>  $this->getActiveCitizen()->getTown(),
-	    'door_locked' => $door_locked,
-	    'can_go_out' => $can_go_out,
+    	    'door_locked' => $door_locked,
+    	    'can_go_out' => $can_go_out,
+            'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
+            'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ], $this->get_map_blob())) );
     }
 
@@ -1162,6 +1197,90 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/town/visit/{id}/heal", name="visit_heal_citizen", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function visit_heal_citizen(int $id): Response
+    {
+        if ($id === $this->getActiveCitizen()->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+        
+        $citizen = $this->getActiveCitizen();
+        $message = [];
+        if($citizen->getPM() < 2 || $this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {
+            $message[] = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
+            $this->addFlash('notice', implode('<hr />', $message));
+            return AjaxResponse::success();
+        }
+
+        /** @var Citizen $c */
+        $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        $healableStatus = [
+            'terror' => array(
+                'success' => T::__('Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.', 'game'),
+                'transfer' => T::__('Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.', 'game'),
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+            ),
+            'infected' => array(
+                'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.', 'game'),
+                'transfer' => T::__('Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.', 'game'),
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+            ),
+            'drunk' => array(
+                'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.', 'game'),
+                'transfer' => 'You end up with this status yourself !', //TODO: translate this text with the original one (from D2N maybe)
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+            ),
+            'drugged' => array(
+                'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.', 'game'),
+                'transfer' => 'You end up with this status yourself !', //TODO: translate this text with the original one (from D2N maybe)
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+            ),
+        ];
+
+        if(!$this->citizen_handler->hasStatusEffect($c, array_keys($healableStatus)) || $c->getZone() || $this->citizen_handler->hasStatusEffect($c, 'tg_shaman_heal')){
+            $message[] = $this->translator->trans('Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.', [], 'game');
+            $this->addFlash('notice', implode('<hr />', $message));
+            return AjaxResponse::success();
+        }
+
+        $this->citizen_handler->inflictStatus($c, 'tg_shaman_heal');
+        $status = [];
+        foreach ($c->getStatus() as $citizenStatus) {
+            if(in_array($citizenStatus->getName(), array_keys($healableStatus)))
+                $status[] = $citizenStatus->getName();
+        }
+        $healedStatus = $this->random_generator->pick($status);
+        $healChances = $this->random_generator->chance(0.6);
+        if($healChances) {
+
+            $this->citizen_handler->removeStatus($c, $healedStatus);
+
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getUser()->getUsername() . "</span>"], 'game');
+
+            $transfer = $this->random_generator->chance(0.1);
+            if($transfer){
+                $this->citizen_handler->inflictStatus($citizen, $healedStatus);
+                $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getUsername() . "</span>"], 'game');
+            }
+        } else {
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getUsername() . "</span>"], 'game');
+        }
+        $citizen->setPM($citizen->getPM() - 2);
+
+        $this->entity_manager->persist($c);
+        $this->entity_manager->persist($citizen);
+        $this->entity_manager->flush();
+
+        $this->addFlash('notice', implode('<hr />', $message));
         return AjaxResponse::success();
     }
 }

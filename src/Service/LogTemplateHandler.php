@@ -316,7 +316,7 @@ class LogTemplateHandler
             ], 'game' ) );
     }
 
-    public function citizenDeath( Citizen $citizen, int $zombies = 0, ?Zone $zone = null ): TownLogEntry {
+    public function citizenDeath( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
         switch ($citizen->getCauseOfDeath()->getRef()) {
             case CauseOfDeath::NightlyAttack:
                 $str = T::__('%citizen% wurde von %zombies% zerfleischt!','game');
@@ -343,7 +343,7 @@ class LogTemplateHandler
             ->setType( TownLogEntry::TypeCitizens )
             ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
-            ->setDay( $citizen->getTown()->getDay() )
+            ->setDay( $day ?? $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
             ->setZone( $zone )
@@ -351,6 +351,22 @@ class LogTemplateHandler
                 '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
                 '%zombies%' => $this->wrap( $this->trans->trans( '%num% Zombies', ['%num%' => $zombies], 'game' ) ),
                 '%cod%'     => $this->wrap( $this->iconize( $citizen->getCauseOfDeath() ) ),
+            ], 'game' ) );
+    }
+
+    public function citizenDeathOnWatch( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
+        $str = T::__('%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!','game');
+
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeCitizens )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $citizen->getTown() )
+            ->setDay( $day ?? $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen )
+            ->setZone( $zone )
+            ->setText( $this->trans->trans($str, [
+                '%citizen%' => $this->wrap( $this->iconize( $citizen ) ),
             ], 'game' ) );
     }
 
@@ -564,6 +580,26 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setText( $this->trans->trans($str, [
                 '%num%' => $this->wrap( "{$num_zombies}" ),
+            ], 'game' ) );
+    }
+
+    public function nightlyAttackWatchers( Town $town ): TownLogEntry {
+        $str = T::__('Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'game');
+
+        $citizens = "";
+        foreach ($town->getCitizenWatches() as $watcher) {
+            if(!empty($citizens)) $citizens .= ", ";
+            $citizens .= $this->wrap( $this->iconize( $watcher->getCitizen()));
+        }
+        
+        return (new TownLogEntry())
+            ->setType( TownLogEntry::TypeNightly )
+            ->setClass( TownLogEntry::ClassCritical )
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setText( $this->trans->trans($str, [
+                '%citizens%' => $citizens,
             ], 'game' ) );
     }
 

@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
-        <target>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</target>
+        <target>Les joueurs de cette ville parlent %lang_town%. Vous jouez actuellement en %lang_user%.</target>
       </segment>
     </unit>
     <unit id="5jsjI47" name="977e42c">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</source>
-        <target>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</target>
+        <target>En rejoignant cette ville, l'intégralité de MyHordes sera en %lang_town% le temps de cette incarnation.</target>
       </segment>
     </unit>
     <unit id="0C3XaFv" name="321754f">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
-        <target>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</target>
+        <target>La communication est indispensable dans MyHordes. Veuillez ne pas rejoindre une ville dont vous ne parlez pas la langue... Validez-vous ce choix?</target>
       </segment>
     </unit>
     <unit id="FbY7TeM" name="Bestätigen">
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
-        <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
+        <target>Votre âme répond aux conditions nécessaires pour ce type de ville.</target>
       </segment>
     </unit>
     <unit id="AwZY28C" name="31a3422">

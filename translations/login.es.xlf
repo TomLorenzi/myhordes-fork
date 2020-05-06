@@ -104,7 +104,7 @@
       <notes>
         <note category="german">Hallo %name%!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hallo %name%!</source>
         <target>¡Hola %name%!</target>
       </segment>
@@ -122,7 +122,7 @@
       <notes>
         <note category="german">Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
         <target>Por favor ingresa el código de verificación que ha sido enviado a tu dirección de e-mail.</target>
       </segment>
@@ -158,7 +158,7 @@
       <notes>
         <note category="german">Du hast noch keinen Account?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast noch keinen Account?</source>
         <target>¿Aún no tienes una cuenta?</target>
       </segment>
@@ -167,7 +167,7 @@
       <notes>
         <note category="german">Registrieren!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Registrieren!</source>
         <target>¡Regístrate!</target>
       </segment>
@@ -176,7 +176,7 @@
       <notes>
         <note category="german">Du hast deine E-Mail Adresse schon validiert?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast deine E-Mail Adresse schon validiert?</source>
         <target>¿Ya has validado tu dirección de e-mail?</target>
       </segment>
@@ -185,7 +185,7 @@
       <notes>
         <note category="german">Einloggen!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einloggen!</source>
         <target>¡Ingresa!</target>
       </segment>
@@ -203,7 +203,7 @@
       <notes>
         <note category="german">Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
         <target>Algunos campos no fueron completados correctamente. Por favor revisa lo ingresado.</target>
       </segment>
@@ -212,7 +212,7 @@
       <notes>
         <note category="german">Registrieren</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Registrieren</source>
         <target>Regístrate</target>
       </segment>
@@ -278,7 +278,7 @@
       <notes>
         <note category="german">Einloggen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einloggen</source>
         <target>Ingresa</target>
       </segment>
@@ -296,9 +296,99 @@
       <notes>
         <note category="german">Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
         <target>El identificador o la contraseña no son válidos.</target>
+      </segment>
+    </unit>
+    <unit id="DMKAJPg" name="Dein Name kann keine Leerzeichen sowie &quot;$&quot;, &quot;&lt;&quot; und &quot;&gt;&quot; enthalten.">
+      <notes>
+        <note category="german">Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</note>
+      </notes>
+      <segment>
+        <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
+        <target><![CDATA[Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.]]></target>
+      </segment>
+    </unit>
+    <unit id="ZJtAei3" name="f062e66">
+      <notes>
+        <note category="german">Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</note>
+      </notes>
+      <segment>
+        <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
+        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+      </segment>
+    </unit>
+    <unit id="U4wx4AP" name="13f0f8d">
+      <notes>
+        <note category="german">Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
+      </notes>
+      <segment>
+        <source>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
+        <target>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</target>
+      </segment>
+    </unit>
+    <unit id="e99uiXA" name="Aktuelles Passwort">
+      <notes>
+        <note category="german">Aktuelles Passwort</note>
+      </notes>
+      <segment>
+        <source>Aktuelles Passwort</source>
+        <target>Aktuelles Passwort</target>
+      </segment>
+    </unit>
+    <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
+      <notes>
+        <note category="german">Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</note>
+      </notes>
+      <segment>
+        <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
+        <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
+      </segment>
+    </unit>
+    <unit id="eO_T4uw" name="Passwort vergessen?">
+      <notes>
+        <note category="german">Passwort vergessen?</note>
+      </notes>
+      <segment>
+        <source>Passwort vergessen?</source>
+        <target>Passwort vergessen?</target>
+      </segment>
+    </unit>
+    <unit id="bGFqxj8" name="Passwort zurücksetzen">
+      <notes>
+        <note category="german">Passwort zurücksetzen</note>
+      </notes>
+      <segment>
+        <source>Passwort zurücksetzen</source>
+        <target>Passwort zurücksetzen</target>
+      </segment>
+    </unit>
+    <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
+      <notes>
+        <note category="german">Bitte gib ein neues Passwort ein.</note>
+      </notes>
+      <segment>
+        <source>Bitte gib ein neues Passwort ein.</source>
+        <target>Bitte gib ein neues Passwort ein.</target>
+      </segment>
+    </unit>
+    <unit id="lTbuIE7" name="Bitte gib deine E-Mail Adresse ein.">
+      <notes>
+        <note category="german">Bitte gib deine E-Mail Adresse ein.</note>
+      </notes>
+      <segment>
+        <source>Bitte gib deine E-Mail Adresse ein.</source>
+        <target>Bitte gib deine E-Mail Adresse ein.</target>
+      </segment>
+    </unit>
+    <unit id="9.8ReK8" name="Abbrechen">
+      <notes>
+        <note category="german">Abbrechen</note>
+      </notes>
+      <segment>
+        <source>Abbrechen</source>
+        <target>Abbrechen</target>
       </segment>
     </unit>
   </file>

@@ -262,5 +262,14 @@
         <target>Bürger</target>
       </segment>
     </unit>
+    <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
+      <notes>
+        <note category="german">Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</note>
+      </notes>
+      <segment>
+        <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
+        <target>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

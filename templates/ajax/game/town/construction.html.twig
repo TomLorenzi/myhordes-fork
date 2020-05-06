@@ -70,7 +70,7 @@
                         <div class="ap">{{ building.prototype.ap - building.ap }}</div>
                     </div>
                 {% endif %}
-                {% if not building.complete and building.prototype.resources is not null %}
+                {% if not building.complete and building.prototype.resources is not null and buildable %}
                     {% for itemgroup in building.prototype.resources.entries %}
                         {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
                             {% set res_ok = false %}

@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Effacer</target>
+        <target>Supprimer</target>
       </segment>
     </unit>
     <unit id="_zZCBE9" name="Anpinnen">
@@ -836,6 +836,43 @@
       <segment>
         <source>Vorschau</source>
         <target>Aperçu</target>
+      </segment>
+    </unit>
+    <unit id="266wx0d" name="Verbesserung des Tages">
+      <notes>
+        <note>Verbesserung des Tages</note>
+        <note category="german">Town upgrades</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages</source>
+        <target>Les évolutions du jour</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">Use this subject for discussions involving the town upgrades you wish to carry out...</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>Utilisez ce sujet pour discuter autour des évolutions du jour que vous souhaitez développer...</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">Use this subject for discussions involving the workshop and production of resources in town...</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>Utilisez ce sujet pour discuter autour de l'atelier et de la production de ressources en ville...</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">Use this subject for discussions involving buildings and construction sites...</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>Utilisez ce sujet pour discuter autour des chantiers à construire...</target>
       </segment>
     </unit>
   </file>

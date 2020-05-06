@@ -32,6 +32,7 @@ class CauseOfDeath
     const Strangulation = 14;
     const Headshot = 15;
     const Radiations = 16;
+    const Haunted = 17;
 
     /**
      * @ORM\Id()

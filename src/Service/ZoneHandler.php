@@ -133,9 +133,7 @@ class ZoneHandler
                             $found_by_escorts[] = $item_prototype;
                     }
 
-                    // $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) );
                     if ($item_prototype) {
-
                         // If we get a Chest XL, we earn a picto
                         if ($item_prototype->getName() == 'chest_xl_#00') {
                             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_chstxl_#00");
@@ -155,6 +153,8 @@ class ZoneHandler
                             $this->entity_manager->persist( $current_citizen->getInventory() );
                             $this->entity_manager->persist( $timer->getZone()->getFloor() );
                         }
+                    } else {
+                       $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
                     }
 
                     $zone->setDigs( max(($item_prototype || $zone->getDigs() <= 0) ? 0 : 1, $zone->getDigs() - 1) );
@@ -368,6 +368,9 @@ class ZoneHandler
                 $attributes[] = 'danger-3';
             }
         }
+
+        if($zone->hasSoul() && $citizen != null && ($this->citizen_handler->hasRole($citizen, 'shaman') || $citizen->getProfession()->getName() == 'shaman'))
+            $attributes[] = "soul";
 
         return $attributes;
     }

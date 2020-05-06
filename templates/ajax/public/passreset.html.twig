@@ -1,0 +1,70 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
+            <h4>{% trans from 'login' %}Passwort zurücksetzen{% endtrans %}</h4>
+            <p class="justify">
+                {% if pkey is defined %}
+                    {% trans from 'login' %}Bitte gib ein neues Passwort ein.{% endtrans %}
+
+                {% else %}
+                    {% trans from 'login' %}Bitte gib deine E-Mail Adresse ein.{% endtrans %}
+                {% endif %}
+            </p>
+            <form id="recover-form">
+                <div class="row">
+                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="recover-mail">{% trans from 'login' %}E-Mail Adresse{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-6 rw-md-12"><input {% if pkey is defined %}disabled{% endif%} name="mail" id="recover-mail" type="text" value="{{ mail }}" /></div>
+                </div>
+                {% if pkey is defined %}
+                    <br />
+                    <input name="pkey" type="hidden" value="{{ pkey }}"/>
+                    <div class="row">
+                        <div class="cell padded-small rw-6 rw-md-12"><b><label for="recover-password1">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
+                        <div class="cell padded-small rw-6 rw-md-12"><input name="pass1" id="recover-password1" type="password" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell padded-small rw-6 rw-md-12"><b><label for="recover-password2">{% trans from 'login' %}Passwort{% endtrans %} ({% trans from 'login' %}wiederholen{% endtrans %})</label></b></div>
+                        <div class="cell padded-small rw-6 rw-md-12"><input name="pass2" id="recover-password2" type="password" /></div>
+                    </div>
+                {% endif %}
+            </form>
+            <div class="row">
+                <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">
+                    <button id="reset_button">{% trans from 'login' %}Passwort zurücksetzen{% endtrans %}</button>
+                </div>
+            </div>
+            <p class="right small">
+                <a href="" x-ajax-href="{{ path('public_login') }}">{% trans from 'login' %}Abbrechen{% endtrans %}</a>
+            </p>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        document.getElementById('reset_button').addEventListener('click', function(e) {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('api_reset') }}', $.html.serializeForm(document.getElementById('recover-form')),
+                function (data) {
+                    if (data.success === 'validate') {
+                        $.html.message('notice', '{{ 'Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.' }}')
+                        $.ajax.load(null, '{{ path('public_welcome') }}', true);
+                    } else {
+                        $.html.message('notice', '{{ 'Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.' }}')
+                        $.ajax.load(null, '{{ path('public_login') }}', true);
+                    }
+                }, {
+                    'invalid_fields': function(data) {
+                        let message = '{% trans from 'login' %}Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.{% endtrans %}' + "\n";
+                        for (let i = 0; i < data.fields.length; ++i)
+                            message += "\n" + data.fields[i];
+                        return message;
+                    }
+                } )
+        });
+    </script>
+{% endblock %}

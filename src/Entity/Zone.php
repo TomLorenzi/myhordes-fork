@@ -540,4 +540,13 @@ class Zone
 
         return $this;
     }
+
+    public function hasSoul(): bool
+    {
+        foreach ($this->getFloor()->getItems() as $item) {
+            if($item->getPrototype()->getName() == "soul_blue_#00" || $item->getPrototype()->getName() == "soul_blue_#01" || $item->getPrototype()->getName() == "soul_red_#00")
+                return true;
+        }
+        return false;
+    }
 }

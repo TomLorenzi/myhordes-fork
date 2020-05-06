@@ -588,7 +588,7 @@
       </notes>
       <segment>
         <source>Vibrator (geladen)</source>
-        <target>Petit manche vibrant</target>
+        <target>Petit manche vibrant (chargé)</target>
       </segment>
     </unit>
     <unit id="4S_8T7g" name="Anaboles Steroid">
@@ -3019,8 +3019,6 @@
     </unit>
     <unit id="dy9JAOu" name="Verirrte Seele">
       <notes>
-        <note>Verirrte Seele</note>
-        <note>Verirrte Seele</note>
         <note category="german">Verirrte Seele</note>
       </notes>
       <segment>
@@ -3030,8 +3028,6 @@
     </unit>
     <unit id="ddjrtHa" name="Starke Seele">
       <notes>
-        <note>Starke Seele</note>
-        <note>Starke Seele</note>
         <note category="german">Starke Seele</note>
       </notes>
       <segment>
@@ -3041,8 +3037,6 @@
     </unit>
     <unit id="qERZioI" name="Schwache Seele">
       <notes>
-        <note>Schwache Seele</note>
-        <note>Schwache Seele</note>
         <note category="german">Schwache Seele</note>
       </notes>
       <segment>
@@ -3078,7 +3072,7 @@
       </notes>
       <segment>
         <source>Dackel</source>
-        <target>Dackel</target>
+        <target>Teckel</target>
       </segment>
     </unit>
     <unit id="2Dgiwf_" name="Pfahlwerfer">
@@ -3378,7 +3372,7 @@
       </notes>
       <segment>
         <source>Korn-Bräu</source>
-        <target>Korn-Bräu</target>
+        <target>Cidre Claviceps Artisanal</target>
       </segment>
     </unit>
     <unit id="6hs5Izq" name="Verfluchte HiFi">
@@ -3574,7 +3568,7 @@
       </notes>
       <segment>
         <source>Tarnanzug (abgelegt)</source>
-        <target>Tenue de camouflage (enlevé)</target>
+        <target>Tenue de camouflage (enlevée)</target>
       </segment>
     </unit>
     <unit id="zozlCDV" name="Kleine Schaufel">
@@ -3640,7 +3634,7 @@
       </notes>
       <segment>
         <source>Schraubenschlüssel</source>
-        <target>Schraubenschlüssel</target>
+        <target>Clé à molette de compet'</target>
       </segment>
     </unit>
     <unit id="ZnKlh2A" name="Schutzschild">
@@ -3651,7 +3645,7 @@
       </notes>
       <segment>
         <source>Schutzschild</source>
-        <target>Schutzschild</target>
+        <target>Bouclier Anti-émeutes</target>
       </segment>
     </unit>
     <unit id="1F8QOk_" name="Voodoo-Maske">
@@ -3753,7 +3747,7 @@
       </notes>
       <segment>
         <source>Einsetzen</source>
-        <target>Installer</target>
+        <target>Utiliser</target>
       </segment>
     </unit>
     <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
@@ -3883,7 +3877,7 @@
       </notes>
       <segment>
         <source>Karte ziehen</source>
-        <target>Karte ziehen</target>
+        <target>Piocher</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -3912,13 +3906,11 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</target>
+        <target>Il vibre, vous titille et vous chatouille et vous fait oublier tous vos soucis pendant quelques instants (nécessite 1 pile par utilisation).</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
       <notes>
-        <note>Das brauchst du gerade nicht ...</note>
-        <note>Das brauchst du gerade nicht ...</note>
         <note category="german">Das brauchst du gerade nicht ...</note>
       </notes>
       <segment>
@@ -3928,8 +3920,6 @@
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
       <notes>
-        <note>Aufstellen</note>
-        <note>Aufstellen</note>
         <note category="german">Aufstellen</note>
       </notes>
       <segment>
@@ -3939,8 +3929,6 @@
     </unit>
     <unit id="Du_7vOz" name="Verbinden">
       <notes>
-        <note>Verbinden</note>
-        <note>Verbinden</note>
         <note category="german">Verbinden</note>
       </notes>
       <segment>
@@ -4406,7 +4394,7 @@
       </notes>
       <segment>
         <source>Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...</source>
-        <target>La Pile sert à plein de trucs. Mais ça se décharge des fois trop vite...</target>
+        <target>La Pile sert à plein de trucs. Mais ça se décharge parfois trop vite...</target>
       </segment>
     </unit>
     <unit id="bs5aNY9" name="ef7edd6">
@@ -4978,7 +4966,7 @@
       </notes>
       <segment>
         <source>Das Glas dieser gut erhaltenen Bierflasche ist ziemlich verfärbt. Du vermutest, dass es früher mal grün war. Ah, da, das Etikett! Roter Rand..."Welcome to the Feck's experience"... okay, ein Pils. Na dann lass uns doch mal das "Experiment" wagen... .(Mit einem kräftigen Schluck kippst du dir den Saft hinter die Binde und lässt kurz darauf einen Riesenrülpser los!) - "Prost Kameraden!"</source>
-        <target>Das Glas dieser gut erhaltenen Bierflasche ist ziemlich verfärbt. Du vermutest, dass es früher mal grün war. Ah, da, das Etikett! Roter Rand..."Welcome to the Feck's experience"... okay, ein Pils. Na dann lass uns doch mal das "Experiment" wagen... .(Mit einem kräftigen Schluck kippst du dir den Saft hinter die Binde und lässt kurz darauf einen Riesenrülpser los!) - "Prost Kameraden!"</target>
+        <target>Après avoir passé une éternité au soleil, cette bouteille s'est complètement décolorée. Vous avez l'intuition qu'elle devait être verte par le passé. Ah, voilà l'étiquette! ...d'accord, une simple blonde. "À conserver à l'écart de la lumière et de toute source de chaleur", eh bien, tentons... (Vous avalez une énorme gorgée et relâchez un rot géant peu de temps après!) - "À la tienne, Étienne!"</target>
       </segment>
     </unit>
     <unit id="aPzzrWh" name="c16389a">
@@ -4989,7 +4977,7 @@
       </notes>
       <segment>
         <source>Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</source>
-        <target>Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</target>
+        <target>Ce vidéoprojecteur défectueux ne peut plus être utilisé pour rien. Cependant, l'objectif semble encore relativement intact... malheureusement vous n'avez rien pour le démonter...</target>
       </segment>
     </unit>
     <unit id="3YrxlcA" name="Booom! ">
@@ -5082,8 +5070,6 @@
     </unit>
     <unit id="YtFLSoh" name="654559c">
       <notes>
-        <note>DAS klassische Gerät für die Gartenarbeit. Es funktioniert ohne Strom und ist in seine Einzelteile zerlegt...Du musst ihn zusammenbauen.</note>
-        <note>DAS klassische Gerät für die Gartenarbeit. Es funktioniert ohne Strom und ist in seine Einzelteile zerlegt...Du musst ihn zusammenbauen.</note>
         <note category="german">DAS klassische Gerät für die Gartenarbeit. Es funktioniert ohne Strom und ist in seine Einzelteile zerlegt...Du musst ihn zusammenbauen.</note>
       </notes>
       <segment>
@@ -5093,8 +5079,6 @@
     </unit>
     <unit id="IA_f5AZ" name="Ein schmutziges Rohr aus Kupfer, für das dir noch keine Verwendung einfällt...">
       <notes>
-        <note>Ein schmutziges Rohr aus Kupfer, für das dir noch keine Verwendung einfällt...</note>
-        <note>Ein schmutziges Rohr aus Kupfer, für das dir noch keine Verwendung einfällt...</note>
         <note category="german">Ein schmutziges Rohr aus Kupfer, für das dir noch keine Verwendung einfällt...</note>
       </notes>
       <segment>
@@ -6760,7 +6744,7 @@
       </notes>
       <segment>
         <source>Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.</source>
-        <target>Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.</target>
+        <target>Vous tenez entre vos mains ce qui ressemble à un projet de chantier ! Difficile de comprendre plus précisément ce dont il s'agit, il vous faudrait l'étudier pour en tirer quoi que ce soit.</target>
       </segment>
     </unit>
     <unit id="Xmytkfd" name="2c9e817">
@@ -6870,7 +6854,7 @@
       </notes>
       <segment>
         <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</source>
-        <target>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</target>
+        <target>Cette empreinte de clé vous permettra d'obtenir une clé à percussion, grand apanage des cambrioleurs en herbe. Elle permet d'ouvrir n'importe quelle porte en quelques secondes, c'est à ce demander à quoi peuvent bien servir les clés traditionnelles.</target>
       </segment>
     </unit>
     <unit id="1gt825t" name="2c41683">
@@ -6897,8 +6881,6 @@
     </unit>
     <unit id="doGsSie" name="2e1e3f5">
       <notes>
-        <note>Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
-        <note>Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
         <note category="german">Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
       </notes>
       <segment>
@@ -6908,24 +6890,20 @@
     </unit>
     <unit id="RyyUrj8" name="cc9a53c">
       <notes>
-        <note>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</note>
-        <note>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</note>
         <note category="german">In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</note>
       </notes>
       <segment>
         <source>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</source>
-        <target>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</target>
+        <target>Vous regardez avec mélancolie cette chope de bière surdimensionnée... Chaude et insipide, mais sûrement la meilleure chose que vous aurez bu depuis l'Apocalypse. De quoi se remémorer avec émotion l'Oktoberfest...</target>
       </segment>
     </unit>
     <unit id="kVcbwU4" name="21d2d10">
       <notes>
-        <note>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
-        <note>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
         <note category="german">Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
       </notes>
       <segment>
         <source>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</source>
-        <target>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</target>
+        <target>Une collation savoureuse et comestible... même après avoir traîné partout au sol des mois durant. Il sent comme s'il était imbibé d'essence (malheureusement trop peu pour être utilisé pour le réservoir au sud-ouest de la ville...) Au delà de rendre rassasié, il peut aussi amuser : il vous rappelle fortement le chapeau de mariage de la princesse Béatrice.</target>
       </segment>
     </unit>
     <unit id="2wt0mMv" name="dbc5ae1">
@@ -6936,7 +6914,7 @@
       </notes>
       <segment>
         <source>Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</source>
-        <target>Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</target>
+        <target>Le seul être qui pourra vraiment vous donner de l'amour dans ce maudit enfer. Pour autant que vous soyez familier avec les chiens, celui-ci est fidèle, avec des mâchoires acérées et peut grogner à merveille. Dans le pire des cas, le boucher se fera un plaisir de "prendre soin" de de ce "chien-saucisse"...</target>
       </segment>
     </unit>
     <unit id="tHLOoYh" name="3c2b71c">
@@ -6947,7 +6925,7 @@
       </notes>
       <segment>
         <source>Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</source>
-        <target>Un lance-pieu qui a du servir pour renforcer les barricades sommaires des hôtels ou bunker ou lutter contre n'importe quel type de créatures, il ne reste malheureusement qu'un seul pieu dans l'appareil.</target>
+        <target>Un lance-pieu qui a du servir pour renforcer les barricades sommaires des hôtels, des bunkers ou encore à lutter contre n'importe quel type de créatures. Il ne reste malheureusement qu'un seul pieu dans l'appareil.</target>
       </segment>
     </unit>
     <unit id="6XdodLe" name="66391c4">
@@ -6958,7 +6936,7 @@
       </notes>
       <segment>
         <source>Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</source>
-        <target>Une puissante sulfateuse à eau, son mécanisme grippé ne résistera pas à plus d'un assaut. </target>
+        <target>Une puissante sulfateuse à eau, son mécanisme grippé ne résistera pas à plus d'un assaut.</target>
       </segment>
     </unit>
     <unit id="RDf9WEe" name="bba3476">
@@ -7013,7 +6991,7 @@
       </notes>
       <segment>
         <source>Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</source>
-        <target>Vous fouillant dans le désert de l'Outre-Monde vous tombez face à une petite lumière étincelante étrangement rassurante. En regardant de plus près il se trouve que cela ressemble à une étoile de shérif. A sa vue, vous ressentez immédiatement le pouvoir d'un guerrier d'antan. L'utilisation de cet objet du passé pourrait bien vous donner plus de courage lors des veilles.</target>
+        <target>En fouillant dans le désert de l'Outre-Monde, vous tombez face à une petite lumière étincelante et étrangement rassurante. En regardant de plus près, il se trouve que cela ressemble à une étoile de shérif. À sa vue, vous sentez naître le pouvoir d'un guerrier d'antan. L'utilisation de cet objet du passé pourrait bien vous donner plus de courage lors des veilles.</target>
       </segment>
     </unit>
     <unit id="9Yy7MEf" name="4c8196d">
@@ -7024,7 +7002,7 @@
       </notes>
       <segment>
         <source>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</source>
-        <target>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</target>
+        <target>Une arme à eau est toujours très efficace contre les zombies, mais jamais lorsqu'elle est vide...</target>
       </segment>
     </unit>
     <unit id="qHYIgFE" name="e7fefa9">
@@ -7134,7 +7112,7 @@
       </notes>
       <segment>
         <source>In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden. Jetzt brauchst du nur noch eine Batterie...</source>
-        <target>In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden. Jetzt brauchst du nur noch eine Batterie...</target>
+        <target>Interdit dans le monde après qu'une personne d'âge avancée ait perdu la vue en croisant le faisceau de ce petit objet, il saura être utile pour trancher de la chair putréfiée ! Maintenant il ne vous manque plus qu'une pile...</target>
       </segment>
     </unit>
     <unit id="HdTswyu" name="a7c2c07">
@@ -7438,7 +7416,7 @@
       </notes>
       <segment>
         <source>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</source>
-        <target>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</target>
+        <target>Indispensable pour pulvériser les records de construction de chantier, le kit complet du bricoleur est accompagné d'une clé à molette de compétition !</target>
       </segment>
     </unit>
     <unit id="jwGWTvk" name="affc55c">
@@ -7449,7 +7427,7 @@
       </notes>
       <segment>
         <source> Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</source>
-        <target> Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</target>
+        <target>Dans le désert, il retient 4 zombies au lieu de 2 (pour un citoyen normal)</target>
       </segment>
     </unit>
     <unit id="Z1OLvdq" name="af1cd74">
@@ -7614,7 +7592,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>Vous lisez le {item} et constatez qu'il s'agit d'un plan pour {bp_spawn}.</t-bp_ok><t-bp_fail>Vous essayez de lire le {item} mais vous ne comprenez pas un mot de ce qui est écrit...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -7795,8 +7773,6 @@
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
       <notes>
-        <note>Aufbauen</note>
-        <note>Aufbauen</note>
         <note category="german">Aufbauen</note>
       </notes>
       <segment>
@@ -7900,7 +7876,7 @@
       </notes>
       <segment>
         <source>Du hast Dein Versteck verlassen.</source>
-        <target>Du hast Dein Versteck verlassen.</target>
+        <target>Vous avez quitté votre cachette.</target>
       </segment>
     </unit>
     <unit id="vD_lf43" name="Grab verlassen">
@@ -7922,7 +7898,7 @@
       </notes>
       <segment>
         <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
-        <target>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</target>
+        <target>Vous quittez la tombe que vous aviez creusé. Que de labeur gâché!</target>
       </segment>
     </unit>
     <unit id="5OR30sk" name="01df5c7">
@@ -7992,7 +7968,7 @@
       </notes>
       <segment>
         <source>Heilen (5AP)</source>
-        <target>Heilen (5AP)</target>
+        <target>Se soigner (5AP)</target>
       </segment>
     </unit>
     <unit id="8.uDazR" name="Heilen (6AP)">
@@ -8002,7 +7978,7 @@
       </notes>
       <segment>
         <source>Heilen (6AP)</source>
-        <target>Heilen (6AP)</target>
+        <target>Se soigner (6AP)</target>
       </segment>
     </unit>
     <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
@@ -8089,7 +8065,7 @@
       </notes>
       <segment>
         <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
-        <target>Du hast die Seele gereinigt und sie friedlich gemacht.</target>
+        <target>Vous avez purifié une âme errante, elle disparait vous laissant un arrière goût étrange de paix et de sérénité...</target>
       </segment>
     </unit>
     <unit id="GhoMZLz" name="Gegenstände suchen">
@@ -8297,6 +8273,48 @@
       <segment>
         <source>Ass</source>
         <target>As</target>
+      </segment>
+    </unit>
+    <unit id="hEgldti" name="Nachtwache-Waffen">
+      <notes>
+        <note category="german">Nachtwache-Waffen</note>
+      </notes>
+      <segment>
+        <source>Nachtwache-Waffen</source>
+        <target>Arme de veille</target>
+      </segment>
+    </unit>
+    <unit id="47LA9aV" name="Pkte">
+      <notes>
+        <note category="german">Pkte</note>
+      </notes>
+      <segment>
+        <source>Pkte</source>
+        <target>Pts</target>
+      </segment>
+    </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="R2RcDum" name="Kompass">
+      <notes>
+        <note category="german">Kompass</note>
+      </notes>
+      <segment>
+        <source>Kompass</source>
+        <target>Kompass</target>
+      </segment>
+    </unit>
+    <unit id="TWuwK4M" name="Angriff und Verteidigung">
+      <notes>
+        <note category="german">Angriff und Verteidigung</note>
+      </notes>
+      <segment>
+        <source>Angriff und Verteidigung</source>
+        <target>Angriff und Verteidigung</target>
       </segment>
     </unit>
   </file>

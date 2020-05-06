@@ -90,7 +90,7 @@
       </notes>
       <segment>
         <source>Bürger gestorben</source>
-        <target>Bürger gestorben</target>
+        <target>Citizens killed</target>
       </segment>
     </unit>
     <unit id="5bHzvXH" name="Zombies gekillt">
@@ -99,7 +99,7 @@
       </notes>
       <segment>
         <source>Zombies gekillt</source>
-        <target>Zombies gekillt</target>
+        <target>Zombies exterminated</target>
       </segment>
     </unit>
     <unit id="YlMROjW" name="Akte von Kannibalismus">
@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>Akte von Kannibalismus</source>
-        <target>Akte von Kannibalismus</target>
+        <target>Acts of cannibalism</target>
       </segment>
     </unit>
     <unit id="ad6M6Yb" name="Und das wird kaum besser werden...">

@@ -20,6 +20,7 @@ use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Structures\TownConf;
+use App\Structures\BetweenFilter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -235,9 +236,25 @@ class GameFactory
         }
 
         $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
-        shuffle($zone_list);
-        for ($i = 0; $i < min(count($item_spawns),count($zone_list)); $i++)
-            $this->inventory_handler->forceMoveItem( $zone_list[$i]->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
+        $distribution = [];
+        foreach ($conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []) as $dd) {
+            $distribution[$dd['item']] = ['min' => $dd['min'], 'max' => $dd['max']];
+        }
+        for ($i = 0; $i < count($item_spawns); $i++) {
+            $item = $item_spawns[$i];
+            if (isset($distribution[$item])) {
+                $min_distance = $distribution[$item]['min'];
+                $max_distance = $distribution[$item]['max'];
+            }
+            else {
+                $min_distance = 6;
+                $max_distance = 15;
+            }
+
+            $spawnZone = $this->random_generator->pickLocationBetweenFromList($zone_list, $min_distance, $max_distance);
+            
+            $this->inventory_handler->forceMoveItem( $spawnZone->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
+        }
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
 

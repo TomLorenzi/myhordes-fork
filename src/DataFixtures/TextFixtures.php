@@ -315,11 +315,11 @@ class TextFixtures extends Fixture
                 '<p>Gedanken eines Todgeweihten</p>
                 <p>Der Tod, er rückt näher! Gleichsam mit der Nacht.
                 Ich höre, wie das Verderben in meine Seele lacht.
-                Die Sonne, sie brennt! Gleich tut’s ihr mein Herz.
-                Wie in einem Albtraum, wie als wär’s nur ein Scherz.</p>
+                Die Sonne, sie brennt! Gleich tut\'s ihr mein Herz.
+                Wie in einem Albtraum, wie als wär\'s nur ein Scherz.</p>
                 <p>Der Tod, er rückt näher! Gleich hat er gewonnen.
                 Mein ganzes bittre Leben, gleich ist es zerronnen.
-                Die Sonne, sie lacht! Gleich tut’s ihr der Tod.
+                Die Sonne, sie lacht! Gleich tut\'s ihr der Tod.
                 Es gibt kein Entkommen, die Nacht sie wird rot.</p>
                 <p>(Verfasser unbekannt)</p>'
             ],
@@ -1048,10 +1048,10 @@ class TextFixtures extends Fixture
              "author" => "Than",
              "content" => [
                 '>
-                <p>Cette fois-ci c’est la dernière... Je les entends taper aux portes... Toutes nos ruses pour les retenir ont échoué...
-                Hier nous n’étions plus que 6, nous avons mis nos dernières forces à réparer le réacteur .
-                Chaque soir, ils l’entament un peu plus, chaque jour nous le réparons... mais nous sommes de moins en moins.<br>
-                Nos réparations sont de plus en plus des bricolages de fortune... J’ai laissé le tuyau n°5 en l’état, je n’ai réussi à colmater que partiellement la fuite... Pas eu le temps...<br>
+                <p>Cette fois-ci c\'est la dernière... Je les entends taper aux portes... Toutes nos ruses pour les retenir ont échoué...
+                Hier nous n\'étions plus que 6, nous avons mis nos dernières forces à réparer le réacteur .
+                Chaque soir, ils l\'entament un peu plus, chaque jour nous le réparons... mais nous sommes de moins en moins.<br>
+                Nos réparations sont de plus en plus des bricolages de fortune... J\'ai laissé le tuyau n°5 en l’état, je n’ai réussi à colmater que partiellement la fuite... Pas eu le temps...<br>
                 Qu’est ce ce c’est que cette lumièr....
                 </p>'
              ],
@@ -1153,26 +1153,6 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "notepad",
             "design" => "typed"
-        ],
-        "contine" => [
-            "title" => "Contine : SilverTub",
-            "author" => "TubuBlobz",
-            "content" => [
-                ''
-            ],
-            "lang" => "fr",
-            "background" => "notepad",
-            "design" => "written"
-        ],
-        "sngsek" => [
-            "title" => "Contine des jours sans lendemain",
-            "author" => "Sekhmet",
-            "content" => [
-                ''
-            ],
-            "lang" => "fr",
-            "background" => "old",
-            "design" => "small"
         ],
         "lettre" => [
             "title" => "Correspondance",
@@ -4023,6 +4003,242 @@ class TextFixtures extends Fixture
              "background" => "notepad",
              "design" => "written"
          ],
+         "hulurl_fr" => [
+             "title" => "Hulurlements",
+             "author" => "Walvyk",
+             "content" => [
+                '>
+                <p>Noir. Hurlements. Flash. Silence.<br>
+                Je m\'éveille et regarde autour de moi.<br>
+                Flou. Sang. Brouillard. Cadavres.<br>
+                J\'essaye de me remémorer les événements de la veille.<br>
+                Zombies. Beaucoup. Destruction. Peur.<br>
+                Ils s\'étaient engouffrés dans une brèche de la muraille.<br>
+                Un. Dix. Cent. Mille. Trop.<br>
+                On n\'avait pas pu les repousser tous, il y en avait tellement.<br>
+                Veilleurs. Carnage. Désolation. Terreur.<br>
+                J\'étais le dernier, le dernier en vie.<br>
+                Famille. Proches. Voisins. Tristesse.<br>
+                Je devais organiser ma survie.<br>
+                Pillage. Stockage. Barricades.<br>
+                J\'eu fini au moment ou le soleil se couchait.<br>
+                Survie. Espoir. Avenir.<br>
+                Ils arrivaient, je les entendaient, ils étaient là tout près.<br>
+                Minuit. Râles. Noir.<br>
+                </p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
+         "exp2_fr" => [
+             "title" => "Journal d'un chercheur",
+             "author" => "Exdanrale",
+             "content" => [
+                '<p><small>Un petit journal très ancien, vous avez peur qu’il tombe en lambeaux si vous essayez de l’ouvrir. Le nom de l’auteur est effacé... Peut-être un témoignage des temps anciens ?</small></p>
+                <h2>Mercredi 26 septembre 1963</h2>
+                <p>Aujourd’hui nous sommes sortis pique-niquer avec Sam et les enfants. Cela fait du bien de sortir un peu du labo. Toutes ces blouses blanches, à longueur de temps, cela fatigue... Voir un peu de verdure ne peut que me faire du bien et je pense avoir besoin de tout moyen de décompresser avant l’expérience de la semaine prochaine. Ce sera l’aboutissement de nos recherches, un moyen que le monde nous croit finalement... Nous leur offrons l’immortalité...</p>',
+                '<h2>Vendredi 28 septembre 1963</h2>
+                <p>Hier, John a protesté contre l’expérience, clamant nos méthodes « inhumaines ». Il hurlait « et si cela ne marchait pas ? Et si quelque chose tournait mal ? ». Nous ne pouvons nous permettre de douter... Aujourd’hui, John a l’air en retrait, il est bien loin de son enthousiasme révolutionnaire d’hier...</p>
+                <h2>Samedi 29 septembre 1963</h2>
+                <p>John n’était pas présent aujourd’hui... C’est étrange, en 5 ans de bons et loyaux services, il n’a pas raté une seule journée de travail. Et si ? Non, pas de doute permis. Je m’étais dis que je passerai chez lui après le travail mais je n’en ai pas eu le temps. Demain, je l’espère !</p>',
+                '<h2>Dimanche 30 septembre 1963</h2>
+                <p>Exceptionnellement on nous a convoqués au labo aujourd’hui... C’est compréhensible, nous devons nous assurer que tout est prêt pour l’expérience ! Nous allons enfin passer à des sujets vivants, c’est un grand moment et la pression est palpable parmi nous... Si tout fonctionne, nous serons considérés comme des dieux... Mais si quelque chose venait à tourner mal... Non, tout ira bien. Le pessimisme n’est pas de rigueur.</p>
+                <p>Après le travail, je suis allé chez John. Arrivé à sa porte, j’ai entendu des espèces de sombres grognements. J’ai frappé, une fois, deux fois, trois fois, pas de réponse. La porte était ouverte, je suis donc entré vérifier que tout allait bien. </p>',
+                '<p>Sa femme était assise à la table du salon, me tournant le dos. <em>A l’aide... </em>Je m’en approchais, l’interpellant, sans réponse. </p>
+                <p>Alors que je posais ma main sur son épaule, sa tête se retourna soudainement avant de se détacher de son corps et de tomber à terre... </p><p>D’effroi, je bondis en arrière et trébuchai sur le tapis. Arrivé au niveau du sol, je vis ses deux enfants, le corps lacéré par terre, la chair de leur visage arrachée et un vaste trou dans le crâne. Je me relevai <em>..ma tête...</em> et pris la direction de la porte en courant quand j’aperçus John.</p>',
+                '<p>Il avait les yeux vitreux, la peau grisâtre, les traits tirés et était recouvert de sang. Il s’approchait de moi lentement. <em>J’ai si faim...</em> J\'étais paralysé. Arrivé à distance, il m\'empoigna et sa bouche se précipita vers mon épaule qu\'il mordit avec force. <em>J\'ai si froid...</em> Dans un cri de douleur, j\'attrapais un chandelier qui traînait sur la table et le frappait avec force à la tête. <em>J\'ai si mal...</em> Il s\'affala alors que je sortais en trombe de chez lui, me dirigeant chez moi pour me soigner.</p>
+                <p>Dans la soirée, mes blessures - pas si profondes que cela - pansées <em>J\'ai si faim...</em> Je, <em>faim,... Sam approche..</em> me touche le cou. <em>J\'ai faim...</em> Tout est bientôt fini...</p>
+                <small>Le reste du journal est maculé de sang.</small>
+                <p>Auteur : Exdanrale</p>'
+             ],
+             "lang" => "fr",
+             "background" => "old",
+             "design" => "typed"
+         ],
+         "immot_fr" => [
+             "title" => "Journal d'un immortel",
+             "author" => "Vertoss",
+             "content" => [
+                '>
+                <h1>Journal d\'un immortel</h1>
+                <p>Cette fois, mon appareil photo n\'a pas fonctionné.<br>
+                Heureusement, j\'avais ce matériel de peinture en réserve. Dans un monde si éphémère, j\'aime immortaliser les choses pour ceux qui passeront après moi.<br>
+                Je trempe encore mon pinceau dans le zombie que l\'individu a tué pour moi. La peinture moderne...<br>
+                Voilà l\'homme, qui prend la pose, vaniteux, qui m\'urge de me dépêcher. Il est entré dans une fureur noire devant mes gesticulations, croyant que je ne voulais plus honorer ma part du contrat.<br>
+                J\'ai un sujet bien plus intéressant désormais, puisqu\'il ne m\'a pas écouté. J\'ai intitulé ce futur tableau : "nature morte".<br>
+                </p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
+         "dorme_fr" => [
+             "title" => "Le dormeur de l'Outre-Monde",
+             "author" => "LArverne",
+             "content" => [
+                '>
+                <h1>Le dormeur de l\'Outre-Monde</h1>
+                <p>
+                C’est un désert immense où plane quelques oiseaux,<br>
+                Accrochant follement aux herbes des haillons,<br>
+                Cette étendue sans fin a tout d\'une prison,<br>
+                Et son ciel étincelant est le règne des corbeaux,
+                </p>
+                <p>
+                Un jeune habitant, bouche ouverte, tête nue,<br>
+                Et la nuque baignant dans la chaude rocaille ,<br>
+                Dort, il est étendu dans le sable, sous la nue,<br>
+                Pâle, dans son lit désertique où la chaleur l\'assaille,
+                </p>
+                <p>
+                Les pieds dans le talus, il dort, souriant comme<br>
+                Sourirait un enfant malade il fait un somme,<br>
+                Désert, berce-le chaudement : il a froid.<br>
+                </p>
+                <p>
+                Les parfums ne font pas frissonner sa narine,<br>
+                Il dort dans le soleil, la main sur sa poitrine,<br>
+                Tranquille, il a une morsure, au côté droit.
+                </p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "poem"
+         ],
+         "enfer_fr" => [
+             "title" => "L'enfer, c'est les autres",
+             "author" => "Marmowa",
+             "content" => [
+                '>
+                <p>
+                Ca pue la merde.<br>
+                Littéralement.<br> 
+                J\'ai du prendre le dernier lit de camp en ville, celui à côté de la fosse communautaire. <br>
+                Des mecs jouent les chefs.<br> 
+                Tranquille. <br>
+                Un peu trop. <br>
+                </p>
+                <p>
+                Quelque part, cette solidarité soudaine entre des gens paumés, ça me débecte...<br> 
+                C\'est que du flan, du vent, une fumée sans feu ! <br>
+                Dès que ça sentira le roussi, y aura plus un rat. <br>
+                Et ceux qui donnent des ordres, des directives, ils espèrent quoi, hein ? <br>
+                De la reconnaissance ? Vivre ? Réchauffer les cœurs à la chandelle de l\'amitié ? <br>
+                </p>
+                <p>
+                Conneries. On va tous crever. Ils chient de peur, dans la fosse, là, ils y mettent toutes leurs peurs intestinales.<br> 
+                Je vois, leurs grimaces de douleur, le bruit de leurs intestins... Je vais les faire cramer de l\'intérieur... Leur donner une raison d\'avoir mal au bide...<br>
+                </p>'
+             ],
+             "lang" => "fr",
+             "background" => "carton",
+             "design" => "written"
+         ],
+         "noyel_fr" => [
+             "title" => "Lettre du papa noël",
+             "author" => "PatrickLaPastek",
+             "content" => [
+                '>
+                <p>Vous venez de trouver ce qu\'il reste d\'un petit journal rouge cramoisi et... blanc ? Le peu de pages qu\'il contient pourrai peut-être vous apprendre quelque chose…</p>
+                <h3>Le journal du père noël</h3>
+                <p>Dimanche 23 Décembre 2018<br>
+                Tout est prêt pour cette année ! Les sucreries sont bien emballés, les rennes sont prêts, les cadeaux prêt par millier..<br>
+                J\'espère que cette fois ci, tout se passera bien !<br>
+                </p>',
+                'Lundi 24 Décembre 2018<br>
+                Petit problème technique avec Rodolf et agitation certaines chez nos petits lutins..<br>
+                Tout ce passera bien !<br>
+                Jeudi.<br>
+                JE LES DÉTESTE TOUS !!! JE LES HAIS ! JE LES HAIS !! IL VONT ME LE PAYER !!!!!<br>
+                IL ME LE PAYERONS TOUS !!!!!!!<br>
+                [La suite est illisible.. ]
+                <p></p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
+         "manif_fr" => [
+             "title" => "Manifeste",
+             "author" => "NabOleon",
+             "content" => [
+                '&gt;
+                <h1>Manifeste pour un monde sans piles broyées</h1>
+                <p>Citoyens, Citoyennes !<br>
+                Pensez à votre propre avenir : Respectez le monde que vous lèguerez aux zombies.<br>
+                Ne laissez pas traîner partout les piles broyées :<br>
+                -elles polluent le désert<br>
+                -elles détériorent les cadavres comestibles<br>
+                -elles heurteront votre future sensibilité de zombie en évoquant de mauvais souvenirs<br>
+                ...<br>
+                </p>',
+                'Depuis la loi TWIN2.1267.1 du 24 février 2014, les maires sont tenus de proposer une solution pour la collecte et le recyclage des piles broyées.<br>
+                Ramenez-les en ville<br>
+                Déposez-les en banque<br>
+                Exigez de vos dirigeants une solution de recyclage.<br>
+                Sinon, recyclez vos dirigeants ! (c\'est toujours utile)<br>
+                C.R.I.E.Z<br>
+                (Comité Révolutionnaire pour une Initiative Ecologique Zombie)<br>
+                <p></p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
+         "opal1_fr" => [
+             "title" => "Memoriae recto",
+             "author" => "Opaline",
+             "content" => [
+                '>
+                <h3>Memoriae</h3>
+                <p>Du sol elle s\'est épanouie<br>
+                Toutes dents dehors<br>
+                Rouille et sang,<br>
+                Témoins d\'un autre temps<br>
+                Dans les grains agglutinés j\'ai vu<br>
+                J\'ai vu cette main généreuse<br>
+                que j\'avais imaginée<br>
+                Dans le chant du silice contre le métal<br>
+                J\'ai entendu<br>
+                entendu Sa Voix.<br>
+                </p>
+                <p>J\'ai accueilli le signe offert
+                Gouté le moment
+                dansé mon plaisir
+                et partagé son Don.
+                </p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
+         "grosei_fr" => [
+            "title" => "Regrettée Groseille",
+            "author" => "NeCa",
+            "content" => [
+                '>
+                <h1>A ma groseille bien aimée</h1>
+                <p>Cela faisait depuis des mois,<br>
+                Que je n\'avais pas revu mon chat.<br>
+                Mais lorsque la faim me vint<br>
+                Et que je vis cet énorme serpent,<br>
+                Je pris mon couteau à deux mains<br>
+                Et l\'éventrai instantanément.<br>
+                Immense fut ma surprise<br>
+                Quand surgit ma belle chatte grise.<br>
+                Je voulus la prendre dans mes bras<br>
+                mais furieuse elle esquiva.<br>
+                Elle sauta pour me griffer<br>
+                Mais atterrit sur les zombies.<br>
+                A ce moment, je réalisai<br>
+                Qu\'elle m\'avait sauvé la vie.<br>
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "poem"
+        ],
     ];
 
     private $entityManager;

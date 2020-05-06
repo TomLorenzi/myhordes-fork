@@ -1,2 +1,13 @@
-# Add flash text on dig outside + `Vous ne pouvez pas emporter cet objet pour le moment, vous l'avez abandonné par terre.` if no more space + remove text in the chatbox
-# Change death text before day 5 to "Si vous aviez tenu une nuit de plus, vous auriez également pu gagner les distinctions suivantes :"
+# NIGHTWATCH
+ * GUI
+ * Watch / Unwatch
+ * NightlyHandler stuff
+
+Stats :
+    Death : 5% chance, 1% for guardian
+    Terror : 6% chance ? [TOBECONFIRMED]
+
+    Increase death by 10% each watched night
+    Decrease death by 5% each non wathed night
+
+    Injured chances are death + 5% chances in normal, +20% chance in panda
