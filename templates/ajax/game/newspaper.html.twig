@@ -68,6 +68,14 @@
             </div>
         </div>
         <div class="padded cell rw-12">
+            <div id="raventimes">
+                <div id="newspage-1" class="newspage">
+
+                </div>
+                <div id="newspage-2" class="newspage">
+
+                </div>
+            </div>
             <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
             {% if show_register %}
                 {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}
