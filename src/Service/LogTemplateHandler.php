@@ -112,15 +112,9 @@ class LogTemplateHandler
                     $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) { return $this->wrap( $this->iconize( $e ) ); }, $itemGroupEntries ));
                 }
                 elseif ($typeEntry['type'] === 'list') {
-                    $listArray = [];
-                    switch ($typeEntry['listType']) {
-                        case 'item':
-                            $listArray = array_map( function($e) { if(array_key_exists('count', $e)) {return array('item' => $this->fetchVariableObject("item", $e['id']),'count' => $e['count']);}
-                                else { return $this->fetchVariableObject("item", $e['id']); } ;}, $variables[$typeEntry['name']] );
-                            break;
-                        default:
-                            break;
-                    }
+                    $listType = $typeEntry['listType'];
+                    $listArray = array_map( function($e) use ($listType) { if(array_key_exists('count', $e)) {return array('item' => $this->fetchVariableObject($listType, $e['id']),'count' => $e['count']);}
+                        else { return $this->fetchVariableObject($listType, $e['id']); } ;}, $variables[$typeEntry['name']] );
                     if (isset($listArray)) {
                         $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $listArray ) );
                     }
@@ -146,6 +140,7 @@ class LogTemplateHandler
             }
             catch (Exception $e) {
                 $transParams['%'.$typeEntry['name'].'%'] = "null";
+                // $transParams['%'.$typeEntry['name'].'%'] = $e->getMessage();
             }
         }
         
@@ -160,14 +155,14 @@ class LogTemplateHandler
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankTake');
 
         return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
             ->setType( TownLogEntry::TypeBank )
             ->setClass( $toBank ? TownLogEntry::ClassNone : TownLogEntry::ClassWarning )
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen )
-            ->setLogEntryTemplate($template)
-            ->setVariables($variables)
             ->setText( $this->trans->trans(
                 $toBank
                     ? '%citizen% hat der Stadt folgendes gespendet: %item%'
@@ -574,7 +569,12 @@ class LogTemplateHandler
     public function citizenDeathOnWatch( Citizen $citizen, int $zombies = 0, ?Zone $zone = null, ?int $day = null ): TownLogEntry {
         $str = T::__('%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!','game');
 
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathOnWatch');
+
         return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
             ->setType( TownLogEntry::TypeCitizens )
             ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $citizen->getTown() )
@@ -914,14 +914,19 @@ class LogTemplateHandler
 
     public function nightlyAttackWatchers( Town $town ): TownLogEntry {
         $str = T::__('Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'game');
-
+        $citizenList = [];
         $citizens = "";
         foreach ($town->getCitizenWatches() as $watcher) {
             if(!empty($citizens)) $citizens .= ", ";
+            $citizenList[] = array('id' => $watcher->getCitizen()->getId());
             $citizens .= $this->wrap( $this->iconize( $watcher->getCitizen()));
         }
+        $variables = array('citizens' => $citizenList);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('nightlyAttackWatchers');
         
         return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
             ->setType( TownLogEntry::TypeNightly )
             ->setClass( TownLogEntry::ClassCritical )
             ->setTown( $town )
