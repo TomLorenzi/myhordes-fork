@@ -79,6 +79,20 @@ class GameController extends AbstractController implements GameInterfaceControll
             return $this->redirect($this->generateUrl('game_landing'));
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
+        $town = $this->getActiveCitizen()->getTown();
+        $death_outside = array();
+        $death_in_town = array();
+
+        foreach ($town->getCitizens() as $citizen) {
+            if($citizen->getAlive()) continue;
+            if($citizen->getSurvivedDays() >= $town->getDay() - 1)
+            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getDisposed() == 0) {
+                $death_in_town[] = $citizen;
+            } else {
+                $death_outside[] = $citizen;
+            }
+        }
+
 
         $town = $this->getActiveCitizen()->getTown();
         $citizens = $town->getCitizens();
@@ -107,6 +121,9 @@ class GameController extends AbstractController implements GameInterfaceControll
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
+            'town_name' => $town->getName(),
+            'death_in_town' => $death_in_town,
+            'death_outside' => $death_outside,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'day' => $day,
             'gazette' => $gazette,

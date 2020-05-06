@@ -9509,5 +9509,41 @@
         <target>Vous sortez votre couteau de rituel et entâmez sa «chauffe» au travers d'exercices dont la forme vous appartient. Les flux énergétiques vous guident et vous réalisez sans hésitation une saignée au niveau du poumon droit. Tandis que vous résistez de toutes vos forces contre l'envie de voir votre lame s'enfoncer durablement sous la peau de %citizen%, un liquide surgit du corps fraichement mutilé.</target>
       </segment>
     </unit>
+    <unit id="kg5BPH1" name="Status">
+      <notes>
+        <note category="german">Status</note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="8fTcb5D" name="Tote in der Stadt">
+      <notes>
+        <note category="german">Tote in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Tote in der Stadt</source>
+        <target>Mort en ville</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <notes>
+        <note category="german">Niemand</note>
+      </notes>
+      <segment>
+        <source>Niemand</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
+    <unit id="ooesDbN" name="Sonstige Opfer">
+      <notes>
+        <note category="german">Sonstige Opfer</note>
+      </notes>
+      <segment>
+        <source>Sonstige Opfer</source>
+        <target>Autre victimes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
