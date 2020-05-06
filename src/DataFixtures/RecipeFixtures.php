@@ -155,7 +155,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ]],
             ["name" => "Galgen",'desc' => 'An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...', "temporary" => 0,"img" => "r_dhang","vp" => 0,"ap" => 13,"bp" => 0,"rsc" => ["wood_beam_#00" => 1,"chain_#00" => 1,], "orderby" => 6],
             ["name" => "Schlachthof",'desc' => 'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.', "temporary" => 0,"img" => "small_slaughterhouse","vp" => 35,"ap" => 40,"bp" => 1,"rsc" => ["concrete_wall_#00" => 2,"metal_beam_#00" => 10,], "orderby" => 7],
-            ["name" => "Pentagon",'desc' => 'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).', "temporary" => 0,"img" => "item_shield","vp" => 8,"ap" => 55,"bp" => 3,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 10,], "orderby" => 8,
+            ["name" => "Pentagon",'maxLevel' => 2, 'desc' => 'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).', "temporary" => 0,"img" => "item_shield","vp" => 8,"ap" => 55,"bp" => 3,"rsc" => ["wood_beam_#00" => 5,"metal_beam_#00" => 10,], "orderby" => 8,
                 "upgradeTexts" => [
                     'Die Verteidigung der Stadt wird um 12% erhöht.',
                     'Die Verteidigung der Stadt wird um 14% erhöht.'
