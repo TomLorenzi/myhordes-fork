@@ -121,7 +121,7 @@
         "version": "2.2.3"
     },
     "php": {
-        "version": "7.2"
+        "version": "7.4"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
@@ -564,6 +564,9 @@
     },
     "twig/extra-bundle": {
         "version": "v3.0.0"
+    },
+    "twig/intl-extra": {
+        "version": "v3.0.3"
     },
     "twig/twig": {
         "version": "v3.0.0"
