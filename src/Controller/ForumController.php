@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
+use App\Entity\Emotes;
 use App\Entity\Forum;
 use App\Entity\Post;
 use App\Entity\Thread;
@@ -18,6 +19,7 @@ use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use DateTime;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
@@ -25,6 +27,7 @@ use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -45,12 +48,16 @@ class ForumController extends AbstractController
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
 
     private $rand;
+    private $asset;
     private $trans;
+    private $entityManager;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em)
     {
+        $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
+        $this->entityManager = $em;
     }
 
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
@@ -294,6 +301,7 @@ class ForumController extends AbstractController
         foreach ($body->item(0)->childNodes as $child)
             $tmp_str .= $dom->saveHTML($child);
 
+        $tmp_str = $this->prepareEmotes($tmp_str);
         $post->setText( $tmp_str );
         if ($forum->getTown()) {
 
@@ -305,6 +313,16 @@ class ForumController extends AbstractController
         }
 
         return true;
+    }
+
+    private function prepareEmotes(string $str): string {
+        $result = $str;
+        $repo = $this->entityManager->getRepository(Emotes::class);
+        foreach($repo->findAll() as $value)
+            /** @var $value Emotes */
+            $result = str_replace($value->getTag(), "<img src='{$this->asset->getUrl( $value->getPath() )}'/>", $result);
+
+        return  $result;
     }
 
     /**
