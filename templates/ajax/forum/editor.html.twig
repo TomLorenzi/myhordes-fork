@@ -132,14 +132,10 @@
                 elem.parentNode.removeChild(elem);
             }
 
-<<<<<<< HEAD
             const parseRangeBlocks = function(elem, secondary = false) {
-=======
-            const parseRangeBlocks = function(elem) {
                 if (elem.nodeType === Node.ELEMENT_NODE && elem.tagName === 'br') {
                     return false;
                 }
->>>>>>> b8077a52153397b71fe7dc95adc1db06c2f402da
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;

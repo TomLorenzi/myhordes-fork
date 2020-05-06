@@ -299,7 +299,7 @@ class ForumController extends AbstractController
 
             foreach ( $forum->getTown()->getCitizens() as $citizen )
                 if ($citizen->getUser()->getId() === $user->getId()) {
-                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}]");
+                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
                     else $post->setNote("[{$citizen->getTown()->getName()}]");
                 }
         }

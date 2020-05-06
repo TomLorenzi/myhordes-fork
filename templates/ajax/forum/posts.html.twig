@@ -77,7 +77,7 @@
                             {{ post.owner.username }}
                         {% endif %}
                     </b>
-                    {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
+                    {% if post.note is not null %}<div class="right post-note"><img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" /> <span>{{ post.note }}</span></div>{% endif %}
                 </div>
                 {% if post.id == postMarker %}
                     <div class="forum-post-content-marked">
