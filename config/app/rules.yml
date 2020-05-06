@@ -59,6 +59,9 @@ parameters:
       distribute_items:
         replace: ['bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00']
 
+      distribution_distance:
+        replace: []
+
       modifiers:
         watchtower_estimation_threshold: 0
 

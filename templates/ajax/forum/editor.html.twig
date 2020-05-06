@@ -42,6 +42,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i></div>
                     <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i></div>
                     <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i></div>
+                    <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i></div>
                     <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i></div>
                 </div>
@@ -55,23 +56,27 @@
                             <li x-tab-id="games"><i class="fa fa-dice"></i></li>
                         </ul>
                         <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
-                            COMING SOON! :)
+                            <div class="forum-button-bar">
+                                {% for tag,url in emotes %}
+                                    <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
+                                {% endfor %}
+                            </div>
                         </div>
                         <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
                             <div class="forum-button-bar">
-                                <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="card" class="forum-button"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                                <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
                             </div>
                         </div>
                     </div>
@@ -90,16 +95,16 @@
     <div class="row">
         <div class="padded cell rw-12 right">
             {% if is_granted("ROLE_ADMIN") %}
-            <div id="crowpost" class="forum-checkbox">
-                {# <span>{{ 'als '|trans({},'global') }}</span> #}
-                {#<input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
-                <label for="user_answer">{{ app.user.username }}</label> #}
-                <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
-                <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
-                <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
-                <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
+                <div id="crowpost" class="forum-checkbox">
+                    {# <span>{{ 'als '|trans({},'global') }}</span> #}
+                    {#<input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
+                    <label for="user_answer">{{ app.user.username }}</label> #}
+                    <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
+                    <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
+                    <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                    <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
 
-            </div>
+                </div>
             {% endif %}
             <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
         </div>
@@ -126,16 +131,15 @@
                         node = document.createElement( blocks[i][1] );
                         node.appendChild( document.createTextNode( blocks[i][0] ) );
                         if (blocks[i][2]) node.classList.add(blocks[i][2]);
+                        if (blocks[i][3]) for (let j = 0; j < blocks[i][3].length; j += 2)
+                            node.setAttribute(blocks[i][3][j], blocks[i][3][j+1]);
                     }
                     if (node) elem.parentNode.insertBefore(node, elem);
                 }
                 elem.parentNode.removeChild(elem);
             }
 
-            const parseRangeBlocks = function(elem) {
-                if (elem.nodeType === Node.ELEMENT_NODE && elem.tagName === 'br') {
-                    return false;
-                }
+            const parseRangeBlocks = function(elem, secondary = false) {
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
@@ -151,6 +155,7 @@
                         if (!secondary) switch (tag) {
                             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); changed = true; break;
                             case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); changed = true; break;
+                            case 'quote': blocks.push( [ match[2], 'blockquote', null] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
                             case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
@@ -224,9 +229,41 @@
                 }
             }
 
+            const parseEmotes = function(elem) {
+                if (elem.nodeType === Node.TEXT_NODE) {
+                    const str = elem.textContent;
+                    const regex_wrappers = /:(\w+?):/g;
+                    let current_offset = 0;
+                    let blocks = [];
+
+                    for (const match of str.matchAll( regex_wrappers )) {
+
+                        if (current_offset < match.index )
+                            blocks.push(str.substr(current_offset,match.index-current_offset));
+
+                        const tag = match[0].toLowerCase();
+                        let ctrl = document.querySelector('[x-text-emote][x-text-insert-emote="' + tag + '"]');
+                        if (ctrl)
+                            blocks.push( [ '', 'img', null, ['src', ctrl.getAttribute('x-text-emote'), 'x-foxy-proxy', tag]] );
+                        else blocks.push( match[0] );
+                        current_offset = (match[0].length + match.index);
+                    }
+
+                    if (blocks.length === 0) blocks.push( str );
+                    else if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
+
+                    lego(blocks,elem);
+                } else {
+                    let children = elem.childNodes;
+                    for (let i = 0; i < children.length; i++)
+                        parseEmotes(children[i]);
+                }
+            }
+
             let changed = true;
             while (changed) changed &= parseRangeBlocks(container_node,false);
             parseInsets(container_node);
+            parseEmotes(container_node);
 
             changed = true;
             while (changed) changed &= parseRangeBlocks(container_node,true);
@@ -276,6 +313,22 @@
                 content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
+            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            transfer_to_preview();
+        } );
+        $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const tag = elem.getAttribute('x-text-insert-emote');
+            const content = node_transfer_source.value;
+            const s_start = node_transfer_source.selectionStart;
+            const s_end = node_transfer_source.selectionEnd;
+
+            node_transfer_source.value =
+                content.substr( 0, s_start ) + tag + content.substr( s_start );
+
+            node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
             window.setTimeout( function() {node_transfer_source.focus()}, 10 )
             transfer_to_preview();
         } );
@@ -368,51 +421,62 @@
 
         // Post as crow toggle
         {% if is_granted("ROLE_ADMIN") %}
-            function changeHandler(){
-                switch (document.querySelector("input[name=post-type]:checked").value) {
-                    case "USER":
-                        document.getElementById("radio-crow").checked = true;
-                        document.getElementById("radio-dev").checked = false;
-                        document.getElementById("radio-user").checked = false;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
-                        break;
-                    case "CROW":
-                        document.getElementById("radio-crow").checked = false;
-                        document.getElementById("radio-dev").checked = true;
-                        document.getElementById("radio-user").checked = false;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                        break;
-                    case "DEV":
-                        document.getElementById("radio-crow").checked = false;
-                        document.getElementById("radio-dev").checked = false;
-                        document.getElementById("radio-user").checked = true;
-                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
-                        break;
-                }
+        function changeHandler(){
+            switch (document.querySelector("input[name=post-type]:checked").value) {
+                case "USER":
+                    document.getElementById("radio-crow").checked = true;
+                    document.getElementById("radio-dev").checked = false;
+                    document.getElementById("radio-user").checked = false;
+                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                    break;
+                case "CROW":
+                    document.getElementById("radio-crow").checked = false;
+                    document.getElementById("radio-dev").checked = true;
+                    document.getElementById("radio-user").checked = false;
+                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    break;
+                case "DEV":
+                    document.getElementById("radio-crow").checked = false;
+                    document.getElementById("radio-dev").checked = false;
+                    document.getElementById("radio-user").checked = true;
+                    document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                    break;
             }
-            document.getElementById('crowpost').addEventListener('click', changeHandler);       
+        }
+        document.getElementById('crowpost').addEventListener('click', changeHandler);
         {% endif %}
 
         let send_buttons = document.querySelectorAll('[x-forum-action=send]');
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
-                let content = document.querySelector('[x-tab-id="classic"].selected')
-                    ? document.getElementById('forum-editor-preview').innerHTML
-                    : document.getElementById('suneditor_forum-suneditor-text').getElementsByClassName("sun-editor-editable")[0].innerHTML;
+                let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
+
+                // Replace proxies
+                let content_node = document.querySelector('[x-tab-id="classic"].selected')
+                    ? document.getElementById('forum-editor-preview').cloneNode(true)
+                    : document.getElementById('suneditor_forum-suneditor-text').cloneNode(true);
+
+                let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
+                for (let j = 0; j < proxies.length; j++) {
+                    if (!proxies[j].parentNode) continue;
+                    proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
+                    proxies[j].parentNode.removeChild(proxies[j]);
+                }
+
                 {% if tid is null %}
-                    target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
-                    target_payload = {
-                        title: document.getElementById('forum-editor-title').value,
-                        text: content,
-                        {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
-                    };
+                target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
+                target_payload = {
+                    title: document.getElementById('forum-editor-title').value,
+                    text: content_node.innerHTML,
+                    type: type
+                };
                 {% else %}
-                    target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
-                    target_payload = {
-                        text: content,
-                        {% if is_granted("ROLE_ADMIN") %}type: document.querySelector("input[name=post-type]:checked").value,{% endif %}
-                    };
+                target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
+                target_payload = {
+                    text: content_node.innerHTML,
+                    type: type,
+                };
                 {% endif %}
                 $.ajax.easySend( target_url, target_payload,
                     function (data) {

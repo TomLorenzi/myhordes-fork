@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
+use App\Entity\Emotes;
 use App\Entity\Forum;
 use App\Entity\Post;
 use App\Entity\Thread;
@@ -14,10 +15,12 @@ use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\AdminActionHandler;
 use App\Service\JSONRequestParser;
+use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use DateTime;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
@@ -25,6 +28,7 @@ use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -45,12 +49,16 @@ class ForumController extends AbstractController
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
 
     private $rand;
+    private $asset;
     private $trans;
+    private $entityManager;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em)
     {
+        $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
+        $this->entityManager = $em;
     }
 
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
@@ -296,15 +304,32 @@ class ForumController extends AbstractController
 
         $post->setText( $tmp_str );
         if ($forum->getTown()) {
-
             foreach ( $forum->getTown()->getCitizens() as $citizen )
                 if ($citizen->getUser()->getId() === $user->getId()) {
-                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}]");
+                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
                     else $post->setNote("[{$citizen->getTown()->getName()}]");
+
                 }
         }
 
         return true;
+    }
+
+    private $emote_cache = null;
+    private function get_emotes(bool $url_only = false): array {
+        if ($this->emote_cache !== null) return $this->emote_cache;
+
+        $this->emote_cache = [];
+        $repo = $this->entityManager->getRepository(Emotes::class);
+        foreach($repo->findAll() as $value)
+            /** @var $value Emotes */
+            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
+        return $this->emote_cache;
+    }
+
+    private function prepareEmotes(string $str): string {
+        $emotes = $this->get_emotes();
+        return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
     }
 
     /**
@@ -389,7 +414,7 @@ class ForumController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response {
+    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh, PictoHandler $ph): Response {
         /** @var User $user */
         $user = $this->getUser();
         if ($user->getIsBanned())
@@ -410,7 +435,6 @@ class ForumController extends AbstractController
         
         /** @var Forum $forum */
         $forum = $thread->getForum();
-
 
         if (!$parser->has_all(['text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -446,6 +470,13 @@ class ForumController extends AbstractController
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         //if ($tx_len < 10) return AjaxResponse::error( self::ErrorPostTextLength );
         $thread->addPost($post)->setLastPost( $post->getDate() );
+        if ($forum->getTown()) {
+            foreach ($forum->getTown()->getCitizens() as $citizen)
+                if ($citizen->getUser()->getId() === $user->getId()) {
+                    // Give picto if the post is in the town forum
+                    $ph->give_picto($citizen, 'r_forum_#00');
+                }
+        }
 
         try {
             $em->persist($thread);
@@ -515,6 +546,7 @@ class ForumController extends AbstractController
             }
         }
 
+        foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
             'locked' => $thread->getLocked(),
@@ -530,7 +562,6 @@ class ForumController extends AbstractController
      * @Route("api/forum/{pid<\d+>}/jump", name="forum_viewer_jump_post_controller")
      * @param int $pid
      * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
      * @return Response
      */
     public function jumpToPost_api(int $pid, EntityManagerInterface $em): Response {
@@ -589,6 +620,7 @@ class ForumController extends AbstractController
             'fid' => $id,
             'tid' => null,
             'pid' => null,
+            'emotes' => $this->get_emotes(true),
             'username' => $this->getUser()->getUsername(),
         ] );
     }
@@ -617,6 +649,7 @@ class ForumController extends AbstractController
             'fid' => $fid,
             'tid' => $tid,
             'pid' => null,
+            'emotes' => $this->get_emotes(true),
         ] );
     }
 

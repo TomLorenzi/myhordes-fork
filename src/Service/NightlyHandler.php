@@ -263,15 +263,14 @@ class NightlyHandler
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $this->log->debug("Getting watchers for day " . $town->getDay());
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
         if(count($watchers) > 0) {
-
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town));
         }
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town);
         $zeds_each_watcher = -1;
@@ -544,6 +543,18 @@ class NightlyHandler
             }
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
+
+        $this->log->debug("Processing <info>souls</info> mutations.");
+        foreach ($town->getZones() as $zone) {
+            if(!$zone->hasSoul()) continue;
+            foreach ($zone->getFloor()->getItems() as $item) {
+                if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
+                if($this->random->Chance(0.1)){
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
+                }
+            }
+        }
     }
 
     private function stage3_items(Town &$town) {

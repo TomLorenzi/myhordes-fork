@@ -26,28 +26,26 @@
         {% for building in buildings %}
             {# @var building \App\Entity\Building #}
             <div class="row {% if building.level >= building.prototype.maxLevel %}complete{% endif %}">
-                <div class="padded cell rw-8 rw-md-12">
-                    <strong>{{ building.prototype.label|trans({},'buildings') }}</strong><br />
+                <div class="padded cell rw-10 rw-md-12">
+                    <strong>{{ building.prototype.label|trans({},'buildings') }}{% if building.level > 0 %} ({% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}/{{building.prototype.maxLevel}}){% endif %}</strong>
                     {% if building.prototype.upgradeTexts %}
                         {% if building.level > 0 %}
                             <p>
-                                <b>{% trans from 'game' %}Aktuelles Level:{% endtrans %}</b><br/>
+                                <b>{% trans from 'game' %}Aktuelles Level:{% endtrans %}</b>
                                 {{ building.prototype.upgradeTexts[min(building.prototype.upgradeTexts|length,building.level-1)]|trans({},'buildings') }}
                             </p>
                         {% endif %}
                         {% if building.level < building.prototype.maxLevel %}
                             <p>
-                                <b>{% trans from 'game' %}Nächstes Level:{% endtrans %}</b><br/>
+                                <b>{% trans from 'game' %}Nächstes Level:{% endtrans %}</b>
                                 {{ building.prototype.upgradeTexts[min(building.prototype.upgradeTexts|length,building.level)]|trans({},'buildings') }}
                             </p>
                         {% endif %}
                     {% endif %}
                 </div>
-                <div class="padded cell rw-4 rw-md-12">
+                <div class="padded cell rw-2 rw-md-12">
                     {% if building.level >= building.prototype.maxLevel %}
                         <p><i>{% trans from 'game' %}Max. Level{% endtrans %}</i></p>
-                    {% elseif building.level > 0 %}
-                        <p><i>{% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}</i></p>
                     {% else %}
                         <p>&nbsp;</p>
                     {% endif %}
@@ -58,6 +56,9 @@
                         {% if building.dailyUpgradeVotes|length == max_votes %}
                             <div class="float-right"><img alt="!" src="{{ asset('build/images/star.gif') }}" /></div>
                         {% endif %}
+                        <div class="vote-bar">
+                            <div class="vote-progress" style="width: {{building.dailyUpgradeVotes|length / total_votes * 100}}%;"></div>
+                        </div>
                     {% endif %}
                 </div>
             </div>

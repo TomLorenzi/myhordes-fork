@@ -375,6 +375,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         $this->death_handler->kill( $citizen, CauseOfDeath::Haunted, $rem );
                         $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
                         $this->entity_manager->flush();
+
+                        // The red soul vanishes too
+                        $this->inventory_handler->forceRemoveItem($current_item);
                         return AjaxResponse::success();
                     }
                 }

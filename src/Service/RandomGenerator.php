@@ -108,7 +108,7 @@ class RandomGenerator
         $dist_zone_list = array_filter($g, new BetweenFilter(floor($rd), ceil($rd)));
         shuffle($dist_zone_list);
 
-        return $dist_zone_list[0];
+        return $dist_zone_list[0] ?? null;
     }
 
 }
