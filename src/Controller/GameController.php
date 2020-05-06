@@ -57,15 +57,18 @@ class GameController extends AbstractController implements GameInterfaceControll
         foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
             $this->getActiveCitizen()->getTown(),
             $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
-
                 /** @var LogEntryTemplate $template */
                 $template = $entity->getLogEntryTemplate();
+                if (!$template)
+                    continue;
+                $entityVariables = $entity->getVariables();
+                if (!$entityVariables)
+                    continue;
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();
 
                 $variableTypes = $template->getVariableTypes();
-                $entityVariables = $entity->getVariables();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
 
                 try {
@@ -73,7 +76,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                 }
                 catch (Exception $e) {
                     $entries[$idx]['text'] = "null";
-                }               
+                }             
             }
 
         // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());

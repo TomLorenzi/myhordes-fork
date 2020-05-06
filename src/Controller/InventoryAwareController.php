@@ -137,11 +137,15 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
                 /** @var LogEntryTemplate $template */
                 $template = $entity->getLogEntryTemplate();
+                if (!$template)
+                    continue;
+                $entityVariables = $entity->getVariables();
+                if (!$entityVariables)
+                    continue;
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();
 
-                $variableTypes = $template->getVariableTypes();
                 $entityVariables = $entity->getVariables();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
                 try {
