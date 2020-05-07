@@ -588,7 +588,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ist ungültig.</source>
-        <target>Diese Aktion ist ungültig.</target>
+        <target>This action is invalid.</target>
       </segment>
     </unit>
     <unit id="RvTmYTp" name="Diese Aktion ist nicht verfügbar.">
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Verschüttete Ruine</source>
-        <target>Bâtiment non déterré</target>
+        <target>Buried building</target>
       </segment>
     </unit>
     <unit id="qKBuSla" name="Zone">
@@ -978,7 +978,7 @@
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n).</source>
-        <target>Vous avez reçu %num% plaintes anonymes.</target>
+        <target>You have received %num% anonymous complaints.</target>
       </segment>
     </unit>
     <unit id="0drragL" name="4a5cb7a">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target> The column on the left lists the actions associated with your objects. The one on the right shows the contents of your rucksack and your personal chest.</target>
+        <target>The column on the left lists the actions associated with your objects. The one on the right shows the contents of your rucksack and your personal chest.</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -1290,7 +1290,7 @@
       </notes>
       <segment>
         <source>Tot!</source>
-        <target>Mort!</target>
+        <target>Dead!</target>
       </segment>
     </unit>
     <unit id="fV5wxwj" name="In der Stadt">
