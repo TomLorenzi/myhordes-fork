@@ -274,6 +274,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'kill_1_zombie' => [ 'zombies' => 'kill_1z' ],
             'kill_1_2_zombie' => [ 'zombies' => 'kill_1z_2z' ],
             'kill_2_zombie' => [ 'zombies' => 'kill_2z' ],
+            'kill_all_zombie' => [ 'zombies' => 'kill_all_z' ],
 
             'find_rp' => [ 'rp' => [true] ],
 
@@ -422,6 +423,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'kill_1z' => [ 'num' => 1 ],
                 'kill_2z' => [ 'num' => 2 ],
                 'kill_3z' => [ 'num' => 3 ],
+                'kill_all_z' => [ 'num' => 999999 ],
             ],
 
             'well' => []
@@ -585,9 +587,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fire_splash2'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_1_#00',         'consume' => false], 'zombies' => 'kill_1z' ] ] ],
             'fire_splash1'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'watergun_empty_#00',     'consume' => false], 'zombies' => 'kill_1z' ] ] ],
 
-            'throw_animal'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', 'kill_1_zombie' ] ],
-            'throw_animal_cat' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [['consume_item'], 3] ], 'zombies' => 'kill_1z' ] ] ],
-            'throw_animal_dog' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 95], [['consume_item'], 5] ], 'zombies' => 'kill_1z' ] ] ],
+            'throw_animal'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', 'kill_1_zombie' ] ],
+            'throw_animal_cat'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [['consume_item'], 3] ], 'zombies' => 'kill_1z' ] ] ],
+            'throw_animal_dog'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 95], [['consume_item'], 5] ], 'zombies' => 'kill_1z' ] ] ],
+            'throw_animal_angryc' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', [ 'group' => [ [['inflict_wound'], 1], [[ 'kill_all_zombie'], 1] ] ] ] ],
 
             'throw_b_machine_1'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
             'throw_b_bone'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_80'], 'kill_1_zombie' ] ],
@@ -898,7 +901,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'pet_cat_#00'   => [ 'slaughter_2xs', 'throw_animal_cat' ],
             'tekel_#00'     => [ 'slaughter_2xs', 'throw_animal_dog' ],
             'pet_dog_#00'   => [ 'slaughter_2xs', 'throw_animal_dog' ],
-            'angryc_#00'    => [ 'slaughter_bmb' ],
+            'angryc_#00'    => [ 'slaughter_bmb', 'throw_animal_angryc' ],
 
             'machine_1_#00'     => ['throw_b_machine_1'    ],
             'bone_#00'          => ['throw_b_bone'         ],
