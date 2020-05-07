@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Deutsch</source>
-        <target>Deutsch</target>
+        <target>German</target>
       </segment>
     </unit>
     <unit id="mD6lfyI" name="Englisch">
@@ -547,7 +547,7 @@
       </notes>
       <segment>
         <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</source>
-        <target>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</target>
+        <target>Warning! The link you have selected will take you to an unofficial site (i.e. a site created by players of MyHordes).</target>
       </segment>
     </unit>
     <unit id="eg7vZTp" name="b187301">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</source>
-        <target>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</target>
+        <target>In the event of problems or concerns regarding this site, please contact %contact%.</target>
       </segment>
     </unit>
     <unit id="EGfY674" name="Weiter zu">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>Verzeichnis</source>
-        <target>Verzeichnis</target>
+        <target>Directory</target>
       </segment>
     </unit>
     <unit id=".Fw_MgQ" name="35799f5">
@@ -746,7 +746,7 @@
       </notes>
       <segment>
         <source>Schere</source>
-        <target>Schere</target>
+        <target>Scissors</target>
       </segment>
     </unit>
     <unit id="eVtWA3U" name="Stein">
@@ -755,7 +755,7 @@
       </notes>
       <segment>
         <source>Stein</source>
-        <target>Stein</target>
+        <target>Rock</target>
       </segment>
     </unit>
     <unit id="vXPlKOG" name="Papier">
@@ -764,7 +764,7 @@
       </notes>
       <segment>
         <source>Papier</source>
-        <target>Papier</target>
+        <target>Paper</target>
       </segment>
     </unit>
     <unit id="l2sp7PJ" name="Kopf">
@@ -773,7 +773,7 @@
       </notes>
       <segment>
         <source>Kopf</source>
-        <target>Kopf</target>
+        <target>Head</target>
       </segment>
     </unit>
     <unit id="ZU60wKO" name="Zahl">
@@ -782,7 +782,7 @@
       </notes>
       <segment>
         <source>Zahl</source>
-        <target>Zahl</target>
+        <target>Tails</target>
       </segment>
     </unit>
     <unit id="ysTRqQl" name="{color} {value}">
@@ -818,7 +818,7 @@
       </notes>
       <segment>
         <source>Du wurdest aus dem Forum verbannt.</source>
-        <target>Du wurdest aus dem Forum verbannt.</target>
+        <target>You have been banned from the forum.</target>
       </segment>
     </unit>
     <unit id="nCT0Wn6" name="Dev">
@@ -836,7 +836,7 @@
       </notes>
       <segment>
         <source>Rabe</source>
-        <target>Rabe</target>
+        <target>Crow</target>
       </segment>
     </unit>
     <unit id="h0cXaFP" name="Sticky">
