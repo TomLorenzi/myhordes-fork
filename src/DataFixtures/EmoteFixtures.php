@@ -60,7 +60,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':arma:', 'path'=>'build/images/emotes/arma.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':ban:', 'path'=>'build/images/emotes/ban.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':chat:', 'path'=>'build/images/emotes/chat.gif', 'isactive'=> true, 'requiresunlock'=> false],
-        ['tag'=>':deco:', 'path'=>'build/images/emotes/deco.gif', 'isactive'=> true, 'requiresunlock'=> false],
+        ['tag'=>':deco:', 'path'=>'build/images/emotes/deco.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':scout:', 'path'=>'build/images/emotes/scout.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':scav:', 'path'=>'build/images/emotes/scav.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':surv:', 'path'=>'build/images/emotes/surv.gif', 'isactive'=> true, 'requiresunlock'=> false],
@@ -72,7 +72,15 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':basic:', 'path'=>'build/images/emotes/basic.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':ap:', 'path'=>'build/images/emotes/ap.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':pc:', 'path'=>'build/images/emotes/pc.gif', 'isactive'=> true, 'requiresunlock'=> false],
-        ['tag'=>':pm:', 'path'=>'build/images/emotes/pm.gif', 'isactive'=> true, 'requiresunlock'=> false]
+        ['tag'=>':pm:', 'path'=>'build/images/emotes/pm.gif', 'isactive'=> true, 'requiresunlock'=> false],
+        ['tag'=>':build:', 'path'=>'build/images/emotes/build.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':clean:', 'path'=>'build/images/emotes/clean.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':repair:', 'path'=>'build/images/emotes/repair.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':wonder:', 'path'=>'build/images/emotes/wonder.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':tasty:', 'path'=>'build/images/emotes/tasty.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':rptext:', 'path'=>'build/images/emotes/rptext.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':extreme:', 'path'=>'build/images/emotes/extreme.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':proscout:', 'path'=>'build/images/emotes/proscout.gif', 'isactive'=> true, 'requiresunlock'=> true]
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {
