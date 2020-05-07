@@ -3217,7 +3217,7 @@
       </notes>
       <segment>
         <source>Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</source>
-        <target>Increases the yield of any object thrown in the dump by +1 temporary defence point./target>
+        <target>Increases the yield of any object thrown in the dump by +1 temporary defence point.</target>
       </segment>
     </unit>
     <unit id="90cHzot" name="667eac4">
