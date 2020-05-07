@@ -14,7 +14,7 @@
       <notes>
         <note category="german">E-Mail-Adresse</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>E-Mail-Adresse</source>
         <target>Dirección de e-mail</target>
       </segment>
@@ -23,7 +23,7 @@
       <notes>
         <note category="german">Externe ID für Apps</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Externe ID für Apps</source>
         <target>ID externo para aplicaciones</target>
       </segment>
@@ -32,7 +32,7 @@
       <notes>
         <note category="german">Neue ID generieren</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neue ID generieren</source>
         <target>Generar nuevo ID</target>
       </segment>
@@ -41,7 +41,7 @@
       <notes>
         <note category="german">ID löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>ID löschen</source>
         <target>Eliminar ID</target>
       </segment>
@@ -50,7 +50,7 @@
       <notes>
         <note category="german">Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</source>
         <target>Eliminar el ID evita que las aplicaciones externas tengan acceso a tus datos.</target>
       </segment>
@@ -59,7 +59,7 @@
       <notes>
         <note category="german">Seele</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Seele</source>
         <target>Alma</target>
       </segment>
@@ -68,7 +68,7 @@
       <notes>
         <note category="german">News</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>News</source>
         <target>Noticias</target>
       </segment>
@@ -77,7 +77,7 @@
       <notes>
         <note category="german">Einstellungen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einstellungen</source>
         <target>Configuración</target>
       </segment>
@@ -86,7 +86,7 @@
       <notes>
         <note category="german">Logout</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Logout</source>
         <target>Desconexión</target>
       </segment>
