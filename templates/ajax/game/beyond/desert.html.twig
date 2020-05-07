@@ -225,16 +225,16 @@
                 {% endif %}
 
                 {% if zone.x != 0 or zone.y != 0 %}
-                    {% if is_shaman %}
-                        <button id="fall_rain">
-                            <img alt="" src="{{ asset('build/images/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} (3 <div class="pm"></div>)
-                        </button>
-                    {% endif %}
                 {% else %}
                     {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                     {% endembed %}
                 {% endif %}
 
+                {% if is_shaman %}
+                    <button id="fall_rain">
+                        <img alt="" src="{{ asset('build/images/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} (3 <div class="pm"></div>)
+                    </button>
+                {% endif %}
 
             </div>
 
