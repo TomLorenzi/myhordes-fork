@@ -822,7 +822,8 @@ class ActionHandler
                             } else {
                                 if (!$drink || !$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
                                     $old_ap = $citizen->getAp();
-                                    $this->citizen_handler->setAP($citizen, false, 6, 0);
+                                    if ($old_ap < 6)
+                                        $this->citizen_handler->setAP($citizen, false, 6, 0);
                                     $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
                                 }
                                 if ($drink) $this->citizen_handler->removeStatus($citizen, 'thirst1');
