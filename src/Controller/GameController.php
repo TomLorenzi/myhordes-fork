@@ -124,26 +124,44 @@ class GameController extends AbstractController implements GameInterfaceControll
             }
         }
 
+        $text = "";
+
         $day = $town->getDay();
         $days = [
             'final' => $day % 5,
             'repeat' => floor($day / 5),
         ];
+
+        //FIXME: Do translation, get random funny text for each days
+        if($town->isOpen()){
+        	$text = "<p>Heute Morgen ist kein Artikel erschienen...</p><p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+        } else {
+        	$text = "";
+        }
         /** @var ZombieEstimation $estimation */
         $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
+        $attack = -1;
+        $defense = -1;
+        if($estimation != null){
+        	$attack = $estimation->getZombies();
+        	$defense = $estimation->getDefense();
+        }
+
         $gazette = [
             'season_version' => 0,
             'season_label' => "Betapropine FTW",
             'name' => $town->getName(),
+            'open' => $town->isOpen(),
             'day' => $day,
             'days' => $days,
             'devast' => $town->getDevastated(),
             'chaos' => $town->getChaos(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
-            'attack' => $estimation->getZombies(),
-            'defense' => $estimation->getDefense(),
+            'attack' => $attack,
+            'defense' => $defense,
             'deaths' => count($death_inside),
+            'text' => $text
         ];
 
         return $this->render( 'ajax/game/newspaper.html.twig', [

@@ -16,6 +16,9 @@
                 <div id="gazette-headline">
                     {{ gazette.name }} ({{ gazette.day }})
                 </div>
+                <div id="gazette-content">
+                    {{gazette.text|raw}}
+                </div>
                 <div id="gazette-signature">
                     - {{'Der Rabe'|trans({}, 'global')}}
                 </div>
@@ -55,6 +58,7 @@
                         {% endif %}
                     </div>
                 {% endif %}
+                {% if not gazette.open %}
                 <div id="gazette-tally">
                     {% if gazette.days.repeat > 0 %}
                         {% for i in 1..gazette.days.repeat %}
@@ -66,6 +70,7 @@
                         <div class="tally tally-{{ gazette.days.final }}"></div>
                     {% endif %}
                 </div>
+                {% endif %}
             </div>
             <div id="newspage-back" class="newspage">
                 {% if gazette.day > 1 %}
