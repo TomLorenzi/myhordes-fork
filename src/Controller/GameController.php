@@ -134,23 +134,50 @@ class GameController extends AbstractController implements GameInterfaceControll
             }
         }
 
+        $text = "";
+
         $days = [
             'final' => $day % 5,
             'repeat' => floor($day / 5),
         ];
+
+        // FIXME: Do translation, get random funny text for each days
+        if($day == 1){
+            // Baguette text:
+            // Aucun article ce matin...
+            $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
+            if ($town->isOpen()){
+                $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+            } else {
+                // Serrez les fesses, citoyens, les zombies nous attaqueront ce soir à minuit !
+                $text .= "";
+            }
+        } else {
+            $text = "";
+        }
+        $textClass = "day$day";
+        $attack = -1;
+        $defense = -1;
+        $attack = $gazette->getAttack();
+        $defense = $gazette->getDefense();
+
+
         $gazette_info = [
             'season_version' => 0,
             'season_label' => "Betapropine FTW",
             'name' => $town->getName(),
+            'open' => $town->isOpen(),
             'day' => $day,
             'days' => $days,
             'devast' => $town->getDevastated(),
             'chaos' => $town->getChaos(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
-            'attack' => $gazette->getAttack(),
-            'defense' => $gazette->getDefense(),
+            'attack' => $attack,
+            'defense' => $defense,
             'deaths' => count($death_inside),
+            'text' => $text,
+            'textClass' => $textClass,
         ];
 
         return $this->render( 'ajax/game/newspaper.html.twig', [

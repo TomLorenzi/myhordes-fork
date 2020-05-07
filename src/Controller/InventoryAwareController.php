@@ -347,10 +347,11 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if ($direction !== 'down-all') {
                 $item = $this->entity_manager->getRepository(Item::class)->find( $item_id );
                 if ($item && $item->getInventory()) $items = [$item];
-            } else
+            } else{
                 $items = $drop_carriers ? $citizen->getInventory()->getItems() : array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items) {
-                    return !in_array($i->getPrototype()->getName(), $carrier_items);
+                    return !in_array($i->getPrototype()->getName(), $carrier_items) && !$i->getEssential();
                 });
+            }
 
             $bank_up = null;
             if ($inv_source->getTown()) $bank_up = true;
@@ -366,7 +367,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             $errors = [];
             $item_count = count($items);
-            foreach ($items as $current_item)
+            foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
                     if(!$this->citizen_handler->hasStatusEffect($citizen, "tg_immune")) {
@@ -383,8 +384,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 }
                 if (($error = $handler->transferItem(
                         $citizen,
-                        $current_item,$inv_source, $inv_target
+                        $current_item, $inv_source, $inv_target
                     )) === InventoryHandler::ErrorNone) {
+
                     if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item, !$bank_up ) );
                     if ($floor_up !== null) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
                     if ($steal_up !== null) {
@@ -433,12 +435,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                             $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up ) );
                             $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                         }
-
                     }
                     if ($current_item->getInventory())
                         $this->entity_manager->persist($current_item);
                     else $this->entity_manager->remove($current_item);
+
                 } else $errors[] = $error;
+            }
 
             if (count($errors) < $item_count) {
                 try {
@@ -565,7 +568,6 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $citizen = $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$this->extract_target_object( $target_id, $heroic->getAction()->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))

@@ -3388,7 +3388,7 @@
       </notes>
       <segment>
         <source>Trinken</source>
-        <target>Trinken</target>
+        <target>Drink</target>
       </segment>
     </unit>
     <unit id="ih8Me2k" name="Befüllen">
@@ -3398,7 +3398,7 @@
       </notes>
       <segment>
         <source>Befüllen</source>
-        <target>Befüllen</target>
+        <target>Fill</target>
       </segment>
     </unit>
     <unit id="qv4Y2EG" name="b89c05e">
@@ -3468,7 +3468,7 @@
       </notes>
       <segment>
         <source>Einsetzen</source>
-        <target>Einsetzen</target>
+        <target>Assemble</target>
       </segment>
     </unit>
     <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
@@ -7268,7 +7268,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Verteidigung</target>
+        <target>Defences</target>
       </segment>
     </unit>
     <unit id="PO0OQ3j" name="Waffenarsenal">
@@ -7278,7 +7278,7 @@
       </notes>
       <segment>
         <source>Waffenarsenal</source>
-        <target>Waffenarsenal</target>
+        <target>Armoury</target>
       </segment>
     </unit>
     <unit id="u1z.6sr" name="Taschen und Behälter">

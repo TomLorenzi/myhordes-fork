@@ -160,7 +160,7 @@
                                     {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
                                     <b x-countdown="{{ citizen.digTimeout }}" x-on-expire="reload">...</b>
                                 </div>
-                            {% elseif citizen.passiveDigTimer %}
+                            {% elseif citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
                                 <div class="note note-light">
                                     <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
                                     {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
@@ -202,6 +202,7 @@
                     {% endembed %}
 
                 {% else %}
+
                     {% if banished or town_chaos %}
                         <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)</button>
                     {% endif %}
@@ -222,23 +223,27 @@
                 {% if show_ventilation %}
                     <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
                 {% endif %}
+
+                {% if zone.x != 0 or zone.y != 0 %}
+                {% else %}
+                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
+                    {% endembed %}
+                {% endif %}
+
                 {% if is_shaman %}
                     <button id="fall_rain">
                         <img alt="" src="{{ asset('build/images/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} (3 <div class="pm"></div>)
                     </button>
                 {% endif %}
+
             </div>
 
             <div class="padded cell rw-6 rw-md-12">
-                {% if zone.x != 0 or zone.y != 0 %}
-                    <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
-                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
-                        {% block class %}rucksack{% endblock %}
-                        {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
-                    {% endembed %}
-                {% else %}
-                    <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span><span>&nbsp;</span></h5>
-                {% endif %}
+                <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
+                    {% block class %}rucksack{% endblock %}
+                    {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
+                {% endembed %}
 
                 {% if allow_floor_access %}
                     {% if (zone_blocked and active_scout_mode) %}
@@ -484,7 +489,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/actions.js.twig" %}{% endembed %};
+        {% embed "scripts/actions.js.twig" %}{% endembed %}
         {% if zone.x != 0 or zone.y != 0 %}
             {% embed "scripts/log.js.twig" %}{% endembed %}
         {% endif %}
@@ -626,26 +631,28 @@
                 'down', '{{ path('beyond_dashboard') }}'
             );
 
-        handleItems(
-            document.querySelectorAll('#drop-all-button'),
-            '{{ path('beyond_desert_item_controller') }}',
-            'down-all', '{{ path('beyond_dashboard') }}'
-        );
+            handleItems(
+                document.querySelectorAll('#drop-all-button'),
+                '{{ path('beyond_desert_item_controller') }}',
+                'down-all', '{{ path('beyond_dashboard') }}'
+            );
 
-        handleItems(
-            document.querySelectorAll('.desert>.item[x-item-id]:not(.locked),.desert-escort>.item[x-item-id]:not(.locked)'),
-            '{{ path('beyond_desert_item_controller') }}',
-            'up', '{{ path('beyond_dashboard') }}'
-        );
+            handleItems(
+                document.querySelectorAll('.desert>.item[x-item-id]:not(.locked),.desert-escort>.item[x-item-id]:not(.locked)'),
+                '{{ path('beyond_desert_item_controller') }}',
+                'up', '{{ path('beyond_dashboard') }}'
+            );
+
+            handleCampingActions(
+              document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
+              '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard') }}'
+            );
+
+        {% endif %}
 
         handleHeroicActions(
             document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
-        );
-
-        handleCampingActions(
-          document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
-          '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(
@@ -665,7 +672,6 @@
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
             '{{ path('beyond_desert_recipe_controller') }}', '{{ path('beyond_dashboard') }}'
         );
-        {% endif %}
 
         {% if allow_enter_town %}
             document.getElementById('town-enter').addEventListener('click', function() {
