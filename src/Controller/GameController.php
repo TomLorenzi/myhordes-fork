@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\Gazette;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -111,9 +112,18 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
         $town = $this->getActiveCitizen()->getTown();
+        $day = $town->getDay();
         $death_outside = $death_inside = [];
 
-        foreach ($town->getCitizens() as $citizen) {
+        /** @var Gazette $gazette */
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $day);
+        if (!$gazette) {
+            $gazette = new Gazette();
+            $gazette->setTown($town)->setDay($town->getDay());
+            $town->addGazette($gazette);
+        }
+
+        foreach ($gazette->getVictims() as $citizen) {
             if($citizen->getAlive()) continue;
             if($citizen->getSurvivedDays() >= $town->getDay() - 1) {
                 if ($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
@@ -124,14 +134,11 @@ class GameController extends AbstractController implements GameInterfaceControll
             }
         }
 
-        $day = $town->getDay();
         $days = [
-            'final' => ($day - 1) % 5,
-            'repeat' => floor(($day - 1) / 5),
+            'final' => $day % 5,
+            'repeat' => floor($day / 5),
         ];
-        /** @var ZombieEstimation $estimation */
-        $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
-        $gazette = [
+        $gazette_info = [
             'season_version' => 0,
             'season_label' => "Betapropine FTW",
             'name' => $town->getName(),
@@ -141,8 +148,8 @@ class GameController extends AbstractController implements GameInterfaceControll
             'chaos' => $town->getChaos(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
-            'attack' => $estimation->getZombies(),
-            'defense' => $estimation->getDefense(),
+            'attack' => $gazette->getAttack(),
+            'defense' => $gazette->getDefense(),
             'deaths' => count($death_inside),
         ];
 
@@ -150,7 +157,7 @@ class GameController extends AbstractController implements GameInterfaceControll
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
-            'gazette' => $gazette,
+            'gazette' => $gazette_info,
         ] );
     }
 

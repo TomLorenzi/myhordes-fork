@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ZombieEstimationRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\GazetteRepository")
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="town_day_unique",columns={"town_id","day"})
  * })
@@ -43,6 +43,11 @@ class Gazette
      * @ORM\Column(type="integer")
      */
     private $defense = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $invasion = 0;
 
     /**
      * @ORM\Column(type="integer")
@@ -113,6 +118,18 @@ class Gazette
     public function setDefense(int $defense): self
     {
         $this->defense = $defense;
+
+        return $this;
+    }
+
+    public function getInvasion(): ?int
+    {
+        return $this->invasion;
+    }
+
+    public function setInvasion(int $invasion): self
+    {
+        $this->invasion = $invasion;
 
         return $this;
     }

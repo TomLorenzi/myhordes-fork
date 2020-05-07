@@ -54,18 +54,18 @@
                             </div>
                         {% endif %}
                     </div>
+                    <div id="gazette-tally">
+                        {% if gazette.days.repeat > 0 %}
+                            {% for i in 1..gazette.days.repeat %}
+                                {% set v = (i % 3) + 1 %}
+                                <div class="tally tally-5-{{ v }}"></div>
+                            {% endfor %}
+                        {% endif %}
+                        {% if gazette.days.final > 0 %}
+                            <div class="tally tally-{{ gazette.days.final }}"></div>
+                        {% endif %}
+                    </div>
                 {% endif %}
-                <div id="gazette-tally">
-                    {% if gazette.days.repeat > 0 %}
-                        {% for i in 1..gazette.days.repeat %}
-                            {% set v = (i % 3) + 1 %}
-                            <div class="tally tally-5-{{ v }}"></div>
-                        {% endfor %}
-                    {% endif %}
-                    {% if gazette.days.final > 0 %}
-                        <div class="tally tally-{{ gazette.days.final }}"></div>
-                    {% endif %}
-                </div>
             </div>
             <div id="newspage-back" class="newspage">
                 {% if gazette.day > 1 %}
