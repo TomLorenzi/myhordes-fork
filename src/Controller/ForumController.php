@@ -321,7 +321,7 @@ class ForumController extends AbstractController
 
         $this->emote_cache = [];
         $repo = $this->entityManager->getRepository(Emotes::class);
-        foreach($repo->findAll() as $value)
+        foreach($repo->getDefaultEmotes() as $value)
             /** @var $value Emotes */
             $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
         return $this->emote_cache;
