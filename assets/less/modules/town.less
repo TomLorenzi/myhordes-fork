@@ -479,57 +479,195 @@ div.town-banner {
   max-width: 6px;
   background-color: #b37c4a;
   border-bottom: 1px solid #7e4d2a;
-  margin: 0px 0px 0px 0px;
+  margin: 0;
   position: relative;
 }
 
-.newspaper {
-  background: url('../../img/newsBg.gif') center no-repeat;
-  width: 100%;
-  height: 360px;
+#gazette {
+  .newspage {
+    width: 435px;
+    height: 360px;
+    background-image: url('../../img/news/newsBg.gif');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
 
-  .left-page {
-    padding-top: 50px;
-    padding-left: 70px;
-  }
+    &#newspage-front {
+      margin-left: 20px;
 
-  .right-page {
-    padding-top: 50px;
-    padding-left: 20px;
-    padding-right: 30px;
-  }
+      &>div {
+        position: absolute;
+        font-family: @myhordes-fixed-font;
+        color: #3b3249;
+      }
 
-  .town-name {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #3b3249;
-    font-family: @myhordes-fixed-font;
-    margin-bottom: 20px;
-  }
+      div#gazette-headline {
+        top: 12%;
+        left: 6%;
+        font-weight: bold;
+        font-size: 110%;
+      }
 
-  .sign {
-    color: #5a5132;
-    font-style: italic;
-    font-size: 1.2rem;
-  }
+      div#gazette-content {
+        top: 20%;
+        left: 6%;
+        font-size: 80%;
+        &.day1 {
+          font-style: italic;
+        }
+        p {
+          margin: 0;
 
-  .death {
-    font-size: 1.5rem;
-    font-family: @myhordes-fixed-font;
-    padding-left: 10px;
-    cursor: default;
-    .death-category {
-      font-variant: small-caps;
-      color: #3b3249;
-      margin-left: -10px;
+          &:first-letter {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 120%;
+          }
+        }
+      }
+
+      div#gazette-signature {
+        top: 45%;
+        left: 75%;
+        font-size: 80%;
+        font-style: italic;
+        color: #5a5132;
+      }
+
+      div#gazette-deaths {
+        top: 58%;
+        left: 10%;
+        font-size: 80%;
+        width: 65%;
+        height: 30%;
+
+        &>div {
+          padding-left: 10px;
+        }
+
+        #gazette-death-outside {
+          margin-top: 3%;
+        }
+
+        .death-category {
+          font-variant: small-caps;
+          font-weight: bold;
+          color: #3b3249;
+          margin-left: -10px;
+        }
+      }
+
+      div#gazette-tally {
+        top: 65%;
+        left: 75%;
+        width: 20%;
+        height: 20%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .tally {
+          width: 33%;
+          height: 50%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: 50%;
+
+          &.tally-1 {
+            background-image: url('../../img/news/news_cpt_1.gif');
+          }
+          &.tally-2 {
+            background-image: url('../../img/news/news_cpt_2.gif');
+          }
+          &.tally-3 {
+            background-image: url('../../img/news/news_cpt_3.gif');
+          }
+          &.tally-4 {
+            background-image: url('../../img/news/news_cpt_4.gif');
+          }
+          &.tally-5-1 {
+            background-image: url('../../img/news/news_cpt_5_1.gif');
+          }
+          &.tally-5-2 {
+            background-image: url('../../img/news/news_cpt_5_2.gif');
+          }
+          &.tally-5-3 {
+            background-image: url('../../img/news/news_cpt_5_3.gif');
+          }
+        }
+      }
+
+    }
+
+    &#newspage-back {
+      background-position: 100% 0;
+      width: 419px;
+      margin-left: -4px;
+
+      &>div {
+        position: absolute;
+        font-family: @myhordes-fixed-font;
+        color: #3b3249;
+      }
+
+      #gazette-attack, #gazette-empty {
+        background-size: contain;
+        background-position: 50% 0%;
+        background-repeat: no-repeat;
+      }
+
+      #gazette-attack {
+        background-image: url('../../img/news/newsSchema_classic.gif');
+        top: 13%;
+        width: 97%;
+        height: 35%;
+        left: 0;
+        padding-top: 22%;
+
+        &.devast {
+          background-image: url('../../img/news/newsSchema_door.gif');
+        }
+
+        .nightstat {
+          font-size: 85%;
+          position: absolute;
+          text-align: center;
+
+          &.nightstat-attack {
+            top: 70%;
+            left: 5%;
+            width: 30%;
+          }
+          &.nightstat-defense {
+            top: 70%;
+            left: 40%;
+            width: 30%;
+          }
+          &.nightstat-deaths {
+            top: 70%;
+            left: 74%;
+            width: 25%;
+          }
+
+          .count {
+            font-size: 125%;
+            font-weight: bold;
+          }
+        }
+      }
+
+      #gazette-empty {
+        background-image: url('../../img/news/newsEmpty.gif');
+        width: 90%;
+        height: 100%;
+        top: 25%;
+      }
+
     }
   }
-
-  .nightstat {
-    font-family: @myhordes-fixed-font;
-    font-size: 1.3rem;
-    .count {
-      font-size: 2rem;
-    }
-  }
+}
+#gazette-switcher, #gazette-switch {
+  display: none;
 }

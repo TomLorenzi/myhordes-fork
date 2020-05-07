@@ -10,6 +10,7 @@ use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
+use App\Service\LogTemplateHandler;
 use App\Structures\Conf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
@@ -45,7 +46,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      * @param ConfMaster $conf
      * @return Response
      */
-    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf) {
+    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $log) {
         if (!$parser->has('town')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $town_id = (int)$parser->get('town', -1);
         if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -114,6 +115,13 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $em->persist($citizen);
             $em->flush();
         } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+        try {
+            $em->persist( $log->citizenJoin( $citizen ) );
+            $em->flush();
+        }
+        catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 

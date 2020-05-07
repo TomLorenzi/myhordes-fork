@@ -117,6 +117,7 @@ class ZoneHandler
                     $factor = 1.0;
                     if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.2;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.2;
+                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.4; // Totally arbitrary
                     $item_prototype = $this->random_generator->chance($factor * ($zone->getDigs() > 0 ? 0.40 : 0.25))
                         ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
                         : null;
@@ -184,8 +185,12 @@ class ZoneHandler
         };
 
         if ($chances_by_player > 0) {
-            if (empty($found_by_player))
+            if (empty($found_by_player)){
+                if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' ))
+                    array_unshift($ret_str, $this->trans->trans( 'Votre blessure à l\'oeil vous gêne énormément lors de vos fouilles', [], 'game'));
+                
                 array_unshift($ret_str, $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
+            }
             elseif (count($found_by_player) === 1)
                 array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                     '%item%' => $wrap($found_by_player)
@@ -314,7 +319,7 @@ class ZoneHandler
                 $this->entity_manager->remove( $et );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
-                if ($entry->getClass() !== TownLogEntry::ClassCritical)
+                if ($entry->getLogEntryTemplate()->getClass() !== TownLogEntry::ClassCritical)
                     $this->entity_manager->remove( $entry );
         }
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer

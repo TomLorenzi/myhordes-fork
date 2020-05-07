@@ -16,6 +16,7 @@ use App\Entity\EscortActionGroup;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemCategory;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownClass;
@@ -161,6 +162,11 @@ class DatabaseExtractor implements ExtractorInterface
             if ($pictoPrototype->getDescription())
                 $this->insert( $c, $pictoPrototype->getDescription(), 'game' );
         }
+
+        foreach ($this->em->getRepository(LogEntryTemplate::class)->findAll() as $logtemplate)
+            /** @var $logtemplate LogEntryTemplate */
+            if ($logtemplate->getText())
+                $this->insert( $c, $logtemplate->getText(), 'game' );
         //</editor-fold>
     }
 

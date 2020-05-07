@@ -23,7 +23,7 @@ class AdminDeletion
     private $sourceUser;
 
     /**
-     * @ORM\Column(type="datetimetz")
+     * @ORM\Column(type="datetime")
      */
     private $timestamp;
 
