@@ -16,7 +16,7 @@
                 <div id="gazette-headline">
                     {{ gazette.name }} ({{ gazette.day }})
                 </div>
-                <div id="gazette-content">
+                <div id="gazette-content" class="{{gazette.textClass}}">
                     {{gazette.text|raw}}
                 </div>
                 <div id="gazette-signature">

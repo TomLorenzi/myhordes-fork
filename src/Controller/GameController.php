@@ -132,19 +132,28 @@ class GameController extends AbstractController implements GameInterfaceControll
             'repeat' => floor($day / 5),
         ];
 
-        //FIXME: Do translation, get random funny text for each days
-        if($town->isOpen()){
-        	$text = "<p>Heute Morgen ist kein Artikel erschienen...</p><p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+        // FIXME: Do translation, get random funny text for each days
+        if($day == 1){
+            // Baguette text:
+            // Aucun article ce matin...
+            $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
+            if ($town->isOpen()){
+                $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+            } else {
+                // Serrez les fesses, citoyens, les zombies nous attaqueront ce soir à minuit !
+                $text .= "";
+            }
         } else {
-        	$text = "";
+            $text = "";
         }
+        $textClass = "day$day";
         /** @var ZombieEstimation $estimation */
         $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
         $attack = -1;
         $defense = -1;
         if($estimation != null){
-        	$attack = $estimation->getZombies();
-        	$defense = $estimation->getDefense();
+            $attack = $estimation->getZombies();
+            $defense = $estimation->getDefense();
         }
 
         $gazette = [
@@ -161,7 +170,8 @@ class GameController extends AbstractController implements GameInterfaceControll
             'attack' => $attack,
             'defense' => $defense,
             'deaths' => count($death_inside),
-            'text' => $text
+            'text' => $text,
+            'textClass' => $textClass,
         ];
 
         return $this->render( 'ajax/game/newspaper.html.twig', [

@@ -499,7 +499,7 @@ div.town-banner {
 
       &>div {
         position: absolute;
-        font-family: @myhordes-gazette-font;
+        font-family: @myhordes-fixed-font;
         color: #3b3249;
       }
 
@@ -514,11 +514,16 @@ div.town-banner {
         top: 20%;
         left: 6%;
         font-size: 80%;
+        &.day1 {
+          font-style: italic;
+        }
         p {
           margin: 0;
+
           &:first-letter {
             font-weight: bold;
             text-transform: uppercase;
+            font-size: 120%;
           }
         }
       }
@@ -603,7 +608,7 @@ div.town-banner {
 
       &>div {
         position: absolute;
-        font-family: @myhordes-gazette-font;
+        font-family: @myhordes-fixed-font;
         color: #3b3249;
       }
 
