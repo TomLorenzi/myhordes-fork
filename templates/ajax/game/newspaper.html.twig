@@ -10,84 +10,87 @@
 {% block ajax %}
     {{ parent() }}
     <div class="row">
-        <input type="checkbox" name="gazette-switch" id="gazette-switch" />
-        <div id="gazette">
-            <div id="newspage-front" class="newspage">
-                <div id="gazette-headline">
-                    {{ gazette.name }} ({{ gazette.day }})
-                </div>
-                <div id="gazette-content" class="{{gazette.textClass}}">
-                    {{gazette.text|raw}}
-                </div>
-                <div id="gazette-signature">
-                    - {{'Der Rabe'|trans({}, 'global')}}
-                </div>
-                {% if gazette.day > 1 %}
-                    <div id="gazette-deaths">
-                        <div id="gazette-death-inside" class="death">
-                            <div class="death-category">
-                                {{'Tote in der Stadt'|trans({}, 'game')}} {% if gazette.death_inside|length > 0 %}({{ gazette.death_inside|length }}){% endif %}:
-                            </div>
-                            {% if gazette.death_inside|length == 0 %}
-                                {{'Niemand!'|trans({}, 'game')}}
-                            {% else %}
-                                {% for citizen in gazette.death_inside %}
-                                    <span>
+
+        <div class="padded cell rw-12">
+
+            <input type="checkbox" name="gazette-switch" id="gazette-switch" />
+            <div id="gazette">
+                <div id="newspage-front" class="newspage">
+                    <div id="gazette-headline">
+                        {{ gazette.name }} ({{ gazette.day }})
+                    </div>
+                    <div id="gazette-content" class="{{gazette.textClass}}">
+                        {{gazette.text|raw}}
+                    </div>
+                    <div id="gazette-signature">
+                        - {{'Der Rabe'|trans({}, 'global')}}
+                    </div>
+                    {% if gazette.day > 1 %}
+                        <div id="gazette-deaths">
+                            <div id="gazette-death-inside" class="death">
+                                <div class="death-category">
+                                    {{'Tote in der Stadt'|trans({}, 'game')}} {% if gazette.death_inside|length > 0 %}({{ gazette.death_inside|length }}){% endif %}:
+                                </div>
+                                {% if gazette.death_inside|length == 0 %}
+                                    {{'Niemand!'|trans({}, 'game')}}
+                                {% else %}
+                                    {% for citizen in gazette.death_inside %}
+                                        <span>
                                         {{citizen.user.username}}
                                         <div class="tooltip">
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
                                         </div>
                                     </span>
-                                {% endfor %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            {% if gazette.death_outside|length > 0 %}
+                                <div id="gazette-death-outside" class="death">
+                                    <div class="death-category">
+                                        {{'Sonstige Opfer'|trans({}, 'game')}} ({{ gazette.death_outside|length }}):
+                                    </div>
+                                    {% for citizen in gazette.death_outside %}
+                                        <span>
+                                        {{citizen.user.username}}
+                                        <div class="tooltip">
+                                            {{citizen.causeOfDeath.label|trans({}, 'game')}}
+                                        </div>
+                                    </span>
+                                    {% endfor %}
+                                </div>
                             {% endif %}
                         </div>
-                        {% if gazette.death_outside|length > 0 %}
-                            <div id="gazette-death-outside" class="death">
-                                <div class="death-category">
-                                    {{'Sonstige Opfer'|trans({}, 'game')}} ({{ gazette.death_outside|length }}):
-                                </div>
-                                {% for citizen in gazette.death_outside %}
-                                    <span>
-                                        {{citizen.user.username}}
-                                        <div class="tooltip">
-                                            {{citizen.causeOfDeath.label|trans({}, 'game')}}
-                                        </div>
-                                    </span>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endif %}
-                {% if not gazette.open %}
-                <div id="gazette-tally">
-                    {% if gazette.days.repeat > 0 %}
-                        {% for i in 1..gazette.days.repeat %}
-                            {% set v = (i % 3) + 1 %}
-                            <div class="tally tally-5-{{ v }}"></div>
-                        {% endfor %}
                     {% endif %}
-                    {% if gazette.days.final > 0 %}
-                        <div class="tally tally-{{ gazette.days.final }}"></div>
+                    {% if not gazette.open %}
+                        <div id="gazette-tally">
+                            {% if gazette.days.repeat > 0 %}
+                                {% for i in 1..gazette.days.repeat %}
+                                    {% set v = (i % 3) + 1 %}
+                                    <div class="tally tally-5-{{ v }}"></div>
+                                {% endfor %}
+                            {% endif %}
+                            {% if gazette.days.final > 0 %}
+                                <div class="tally tally-{{ gazette.days.final }}"></div>
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div>
-                {% endif %}
+                <div id="newspage-back" class="newspage">
+                    {% if gazette.day > 1 %}
+                        <div id="gazette-attack" class="row {% if gazette.devast %}devast{% endif %}">
+                            <div class="nightstat nightstat-attack"><span class="count">{{ gazette.attack }}</span>
+                                {{ 'Zombies'|trans({},'game') }}</div>
+                            <div class="nightstat nightstat-defense"><span class="count">{{ gazette.defense }}</span>
+                                {{ 'Verteidigung'|trans({},'game') }}</div>
+                            <div class="nightstat nightstat-deaths">{% if gazette.deaths > 0 %}<span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans }}{% else %}<span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>{% endif %}</div>
+                        </div>
+                    {% else %}
+                        <div id="gazette-empty"></div>
+                    {% endif %}
+                </div>
             </div>
-            <div id="newspage-back" class="newspage">
-                {% if gazette.day > 1 %}
-                    <div id="gazette-attack" class="row {% if gazette.devast %}devast{% endif %}">
-                        <div class="nightstat nightstat-attack"><span class="count">{{ gazette.attack }}</span>
-                            {{ 'Zombies'|trans({},'game') }}</div>
-                        <div class="nightstat nightstat-defense"><span class="count">{{ gazette.defense }}</span>
-                            {{ 'Verteidigung'|trans({},'game') }}</div>
-                        <div class="nightstat nightstat-deaths">{% if gazette.deaths > 0 %}<span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans }}{% else %}<span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>{% endif %}</div>
-                    </div>
-                {% else %}
-                    <div id="gazette-empty"></div>
-                {% endif %}
-            </div>
-        </div>
-        <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans }}</label></div>
-        <div class="padded cell rw-12">
+            <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans }}</label></div>
+
             <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
             {% if show_register %}
                 {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}
