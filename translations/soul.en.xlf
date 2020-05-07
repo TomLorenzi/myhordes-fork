@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>E-Mail-Adresse</source>
-        <target>E-Mail-Adresse</target>
+        <target>Email address</target>
       </segment>
     </unit>
     <unit id="1fRghxK" name="Externe ID für Apps">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Externe ID für Apps</source>
-        <target>Externe ID für Apps</target>
+        <target>External ID for apps</target>
       </segment>
     </unit>
     <unit id="44idCpa" name="Neue ID generieren">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Neue ID generieren</source>
-        <target>Neue ID generieren</target>
+        <target>Generate a new ID</target>
       </segment>
     </unit>
     <unit id="E1Sq9FV" name="ID löschen">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>ID löschen</source>
-        <target>ID löschen</target>
+        <target>Delete ID</target>
       </segment>
     </unit>
     <unit id="Jh3UFwC" name="df31751">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</source>
-        <target>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</target>
+        <target>By deleting the ID, you prevent external apps to access your data.</target>
       </segment>
     </unit>
     <unit id="2.gcbi0" name="Seele">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Seele</source>
-        <target>Seele</target>
+        <target>Soul</target>
       </segment>
     </unit>
     <unit id="aXUvIxO" name="News">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Einstellungen</source>
-        <target>Einstellungen</target>
+        <target>Settings</target>
       </segment>
     </unit>
     <unit id="0FJ_Sz1" name="Logout">
@@ -89,6 +89,495 @@
       <segment>
         <source>Logout</source>
         <target>Logout</target>
+      </segment>
+    </unit>
+    <unit id="EpWptWk" name="Schriften">
+      <notes>
+        <note category="german">Schriften</note>
+      </notes>
+      <segment>
+        <source>Schriften</source>
+        <target>Texts</target>
+      </segment>
+    </unit>
+    <unit id="q.Y8zXe" name="787b8ea">
+      <notes>
+        <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
+      </notes>
+      <segment>
+        <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
+        <target>L'histoire d'un monde n'est que le reflet de multiples épopées individuelles...</target>
+      </segment>
+    </unit>
+    <unit id="fUgR4gE" name="Gefundene Texte: %count%">
+      <notes>
+        <note category="german">Gefundene Texte: %count%</note>
+      </notes>
+      <segment>
+        <source>Gefundene Texte: %count%</source>
+        <target>Texts discovered : %count%</target>
+      </segment>
+    </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <notes>
+        <note category="german">Titel</note>
+      </notes>
+      <segment>
+        <source>Titel</source>
+        <target>Title</target>
+      </segment>
+    </unit>
+    <unit id="PHUagJt" name="Entdeckt">
+      <notes>
+        <note category="german">Entdeckt</note>
+      </notes>
+      <segment>
+        <source>Entdeckt</source>
+        <target>Discovered</target>
+      </segment>
+    </unit>
+    <unit id="MCPpLdD" name="Redakteur:">
+      <notes>
+        <note category="german">Redakteur:</note>
+      </notes>
+      <segment>
+        <source>Redakteur:</source>
+        <target>Editor :</target>
+      </segment>
+    </unit>
+    <unit id="KJJicse" name="36b050a">
+      <notes>
+        <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
+      </notes>
+      <segment>
+        <source>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</source>
+        <target>This document contain many pages. Click here to go to the next page...</target>
+      </segment>
+    </unit>
+    <unit id="boYEw93" name="Vorherige Seite">
+      <notes>
+        <note category="german">Vorherige Seite</note>
+      </notes>
+      <segment>
+        <source>Vorherige Seite</source>
+        <target>Previous page</target>
+      </segment>
+    </unit>
+    <unit id="hc2Xbgb" name="Nächste Seite">
+      <notes>
+        <note category="german">Nächste Seite</note>
+      </notes>
+      <segment>
+        <source>Nächste Seite</source>
+        <target>Next page</target>
+      </segment>
+    </unit>
+    <unit id="JW9VP2K" name="Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.">
+      <notes>
+        <note category="german">Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</note>
+      </notes>
+      <segment>
+        <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
+        <target>Ce serveur n'est pas configuré pour supporter les avatars.</target>
+      </segment>
+    </unit>
+    <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
+      <notes>
+        <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
+      </notes>
+      <segment>
+        <source>Dieses Dateiformat wird nicht unterstützt.</source>
+        <target>Ce format de fichier n'est pas pris en charge.</target>
+      </segment>
+    </unit>
+    <unit id="W6NI6B_" name="Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.">
+      <notes>
+        <note category="german">Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</note>
+      </notes>
+      <segment>
+        <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
+        <target>Ce fichier est corrompu et ne peux pas être traité.</target>
+      </segment>
+    </unit>
+    <unit id="WocA7cM" name="79a6053">
+      <notes>
+        <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
+      </notes>
+      <segment>
+        <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
+        <target>Ce fichier est trop volumineux et le serveur n'as pas pu le compresser suffisament.</target>
+      </segment>
+    </unit>
+    <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
+      <notes>
+        <note category="german">Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</note>
+      </notes>
+      <segment>
+        <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
+        <target>Une erreur interne est survenue lors du traitement de l'image.</target>
+      </segment>
+    </unit>
+    <unit id="TzbDcP2" name="Die Datei ist zu groß.">
+      <notes>
+        <note category="german">Die Datei ist zu groß.</note>
+      </notes>
+      <segment>
+        <source>Die Datei ist zu groß.</source>
+        <target>Ce fichier est trop volumineux.</target>
+      </segment>
+    </unit>
+    <unit id="WrQqCAs" name="Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.">
+      <notes>
+        <note category="german">Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</note>
+      </notes>
+      <segment>
+        <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
+        <target>La résolution de cette image ne convient pas pour une image de profil.</target>
+      </segment>
+    </unit>
+    <unit id="jhO4n0e" name="Dein Profil">
+      <notes>
+        <note category="german">Dein Profil</note>
+      </notes>
+      <segment>
+        <source>Dein Profil</source>
+        <target>Your Profile</target>
+      </segment>
+    </unit>
+    <unit id="Mi9Pj.n" name="Normale Anzeige">
+      <notes>
+        <note category="german">Normale Anzeige</note>
+      </notes>
+      <segment>
+        <source>Normale Anzeige</source>
+        <target>Normal display</target>
+      </segment>
+    </unit>
+    <unit id="iiZH1u9" name="Komprimierte Anzeige">
+      <notes>
+        <note category="german">Komprimierte Anzeige</note>
+      </notes>
+      <segment>
+        <source>Komprimierte Anzeige</source>
+        <target>Compressed display</target>
+      </segment>
+    </unit>
+    <unit id="d_VqAwc" name="9b2af61">
+      <notes>
+        <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
+        <target>Vous avez la possibilité de choisir une image de profil afin d'être mieux reconnu des autres joueurs.</target>
+      </segment>
+    </unit>
+    <unit id="C.B17ya" name="Neues Profilbild hochladen">
+      <notes>
+        <note category="german">Neues Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Neues Profilbild hochladen</source>
+        <target>Send a new profile avatar</target>
+      </segment>
+    </unit>
+    <unit id="uBrCxGO" name="Profilbild löschen">
+      <notes>
+        <note category="german">Profilbild löschen</note>
+      </notes>
+      <segment>
+        <source>Profilbild löschen</source>
+        <target>Delete profile avatar</target>
+      </segment>
+    </unit>
+    <unit id="ZtpVK6q" name="Komprimierte Anzeige bearbeiten">
+      <notes>
+        <note category="german">Komprimierte Anzeige bearbeiten</note>
+      </notes>
+      <segment>
+        <source>Komprimierte Anzeige bearbeiten</source>
+        <target>Choix de la zone d'affichage compressée</target>
+      </segment>
+    </unit>
+    <unit id="Af7eIx8" name="b0c95ed">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Choisissez quelle partie de votre image sera utilisée pour l'affichage compressé.
+                                    Déplacez la sélection avec la souris et redimensionnez la avec la molette.</target>
+      </segment>
+    </unit>
+    <unit id="37GuQ5_" name="Profilbild hochladen">
+      <notes>
+        <note category="german">Profilbild hochladen</note>
+      </notes>
+      <segment>
+        <source>Profilbild hochladen</source>
+        <target>Send a profile avatar</target>
+      </segment>
+    </unit>
+    <unit id="HaejtO6" name="Darstellung">
+      <notes>
+        <note category="german">Darstellung</note>
+      </notes>
+      <segment>
+        <source>Darstellung</source>
+        <target>Display</target>
+      </segment>
+    </unit>
+    <unit id="mjphdzq" name="Login und Sicherheit">
+      <notes>
+        <note category="german">Login und Sicherheit</note>
+      </notes>
+      <segment>
+        <source>Login und Sicherheit</source>
+        <target>Connexion et sécurité</target>
+      </segment>
+    </unit>
+    <unit id="fuUze6t" name="Externe Anwendungen">
+      <notes>
+        <note category="german">Externe Anwendungen</note>
+      </notes>
+      <segment>
+        <source>Externe Anwendungen</source>
+        <target>External Applications</target>
+      </segment>
+    </unit>
+    <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
+      <notes>
+        <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle nur eine einzige Datei aus.</source>
+        <target>Bitte wähle nur eine einzige Datei aus.</target>
+      </segment>
+    </unit>
+    <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
+      <notes>
+        <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
+      </notes>
+      <segment>
+        <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
+        <target>Préférer l'affichage compressé des avatars</target>
+      </segment>
+    </unit>
+    <unit id="elfn6js" name="Einen Kommentar hinzufügen">
+      <notes>
+        <note category="german">Einen Kommentar hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Einen Kommentar hinzufügen</source>
+        <target>Add a comment</target>
+      </segment>
+    </unit>
+    <unit id="GiaI_3b" name="Überlebte Tage">
+      <notes>
+        <note category="german">Überlebte Tage</note>
+      </notes>
+      <segment>
+        <source>Überlebte Tage</source>
+        <target>Days survived</target>
+      </segment>
+    </unit>
+    <unit id="zY4iz3Q" name="Ergebnis">
+      <notes>
+        <note category="german">Ergebnis</note>
+      </notes>
+      <segment>
+        <source>Ergebnis</source>
+        <target>Score</target>
+      </segment>
+    </unit>
+    <unit id="FlZntyi" name="Bürger">
+      <notes>
+        <note category="german">Bürger</note>
+      </notes>
+      <segment>
+        <source>Bürger</source>
+        <target>Citizen</target>
+      </segment>
+    </unit>
+    <unit id="7F000hR" name="Todesursache">
+      <notes>
+        <note category="german">Todesursache</note>
+      </notes>
+      <segment>
+        <source>Todesursache</source>
+        <target>Cause of death</target>
+      </segment>
+    </unit>
+    <unit id="coQifWg" name="Kommentar">
+      <notes>
+        <note category="german">Kommentar</note>
+      </notes>
+      <segment>
+        <source>Kommentar</source>
+        <target>Comment</target>
+      </segment>
+    </unit>
+    <unit id="mUtATjH" name="1de0d19">
+      <notes>
+        <note category="german">Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</note>
+      </notes>
+      <segment>
+        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
+        <target>Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</target>
+      </segment>
+    </unit>
+    <unit id="HbhZq4U" name="Account löschen">
+      <notes>
+        <note category="german">Account löschen</note>
+      </notes>
+      <segment>
+        <source>Account löschen</source>
+        <target>Account deletion</target>
+      </segment>
+    </unit>
+    <unit id="q58CKHC" name="Meinen Account löschen">
+      <notes>
+        <note category="german">Meinen Account löschen</note>
+      </notes>
+      <segment>
+        <source>Meinen Account löschen</source>
+        <target>Delete my account</target>
+      </segment>
+    </unit>
+    <unit id="LS.JtiE" name="c5a39bb">
+      <notes>
+        <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+      </notes>
+      <segment>
+        <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
+        <target>Souhaitez vous réellement supprimer votre compte ? Cette action est irréversible.</target>
+      </segment>
+    </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <notes>
+        <note category="german">Passwort ändern</note>
+      </notes>
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Change password</target>
+      </segment>
+    </unit>
+    <unit id="iLulTXC" name="Neues Passwort">
+      <notes>
+        <note category="german">Neues Passwort</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort</source>
+        <target>New password</target>
+      </segment>
+    </unit>
+    <unit id="Icwc1Fo" name="Neues Passwort wiederholen">
+      <notes>
+        <note category="german">Neues Passwort wiederholen</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort wiederholen</source>
+        <target>Confirm new password</target>
+      </segment>
+    </unit>
+    <unit id="e99uiXA" name="Aktuelles Passwort">
+      <notes>
+        <note category="german">Aktuelles Passwort</note>
+      </notes>
+      <segment>
+        <source>Aktuelles Passwort</source>
+        <target>Current password</target>
+      </segment>
+    </unit>
+    <unit id="wIQ05bj" name="Passwort aktualisieren">
+      <notes>
+        <note category="german">Passwort aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Passwort aktualisieren</source>
+        <target>Update password</target>
+      </segment>
+    </unit>
+    <unit id="EZLjPxc" name="f6fa7cb">
+      <notes>
+        <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
+      </notes>
+      <segment>
+        <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
+        <target>Votre mot de passe est incorrect. Vous devez saisir votre mot de passe actuel pour modifier votre compte.</target>
+      </segment>
+    </unit>
+    <unit id="isnXPfR" name="Standardrolle im Forum">
+      <notes>
+        <note category="german">Rôle par défaut dans le forum</note>
+      </notes>
+      <segment>
+        <source>Standardrolle im Forum</source>
+        <target>Rôle par défaut dans le forum</target>
+      </segment>
+    </unit>
+    <unit id="uqXS6rA" name="Standardmäßig als dev posten">
+      <notes>
+        <note category="german">Poster comme développeur par défaut</note>
+      </notes>
+      <segment>
+        <source>Standardmäßig als dev posten</source>
+        <target>Poster comme développeur par défaut</target>
+      </segment>
+    </unit>
+    <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
+      <notes>
+        <note category="german">There's still alive citizens in this town...</note>
+      </notes>
+      <segment>
+        <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
+        <target>There's still alive citizens in this town...</target>
+      </segment>
+    </unit>
+    <unit id="YDybxz8" name="Standardsprache">
+      <notes>
+        <note category="german">Standardsprache</note>
+      </notes>
+      <segment>
+        <source>Standardsprache</source>
+        <target>Standardsprache</target>
+      </segment>
+    </unit>
+    <unit id="gBz_D6E" name="Deutsch">
+      <notes>
+        <note category="german">Deutsch</note>
+      </notes>
+      <segment>
+        <source>Deutsch</source>
+        <target>Deutsch</target>
+      </segment>
+    </unit>
+    <unit id="vp_4VdN" name="Französisch">
+      <notes>
+        <note category="german">Französisch</note>
+      </notes>
+      <segment>
+        <source>Französisch</source>
+        <target>Französisch</target>
+      </segment>
+    </unit>
+    <unit id="mD6lfyI" name="Englisch">
+      <notes>
+        <note category="german">Englisch</note>
+      </notes>
+      <segment>
+        <source>Englisch</source>
+        <target>Englisch</target>
+      </segment>
+    </unit>
+    <unit id="bjgV6Xr" name="Spanisch">
+      <notes>
+        <note category="german">Spanisch</note>
+      </notes>
+      <segment>
+        <source>Spanisch</source>
+        <target>Spanisch</target>
       </segment>
     </unit>
   </file>

@@ -36,9 +36,9 @@
         <note>Deine Route wurde gespeichert.</note>
         <note category="german">Deine Route wurde gespeichert.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Deine Route wurde gespeichert.</source>
-        <target>Deine Route wurde gespeichert.</target>
+        <target/>
       </segment>
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
@@ -46,9 +46,9 @@
         <note>Du hast deine Beschreibung geändert.</note>
         <note category="german">Du hast deine Beschreibung geändert.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>Du hast deine Beschreibung geändert.</target>
+        <target>Has cambiado tu anuncio personal.</target>
       </segment>
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
@@ -86,9 +86,9 @@
         <note>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
         <note category="german">Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</source>
-        <target>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</target>
+        <target>¡La construcción %building% ha dado %num% raciones de agua al pozo!</target>
       </segment>
     </unit>
     <unit id="IrDOx2H" name="%citizen% hat das Stadttor %action%.">
@@ -96,9 +96,9 @@
         <note>%citizen% hat das Stadttor %action%.</note>
         <note category="german">%citizen% hat das Stadttor %action%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat das Stadttor %action%.</source>
-        <target>%citizen% hat das Stadttor %action%.</target>
+        <target>%citizen% ha %action% el Portal.</target>
       </segment>
     </unit>
     <unit id="7F6V04y" name="geöffnet">
@@ -106,9 +106,9 @@
         <note>geöffnet</note>
         <note category="german">geöffnet</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>geöffnet</source>
-        <target>geöffnet</target>
+        <target>abierto</target>
       </segment>
     </unit>
     <unit id="2nMdNJ8" name="geschlossen">
@@ -116,9 +116,9 @@
         <note>geschlossen</note>
         <note category="german">geschlossen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>geschlossen</source>
-        <target>geschlossen</target>
+        <target>cerrado</target>
       </segment>
     </unit>
     <unit id="_B_xHpE" name="Das Stadttor wurde automatisch %action%.">
@@ -136,9 +136,9 @@
         <note>%citizen% hat die Stadt %action%.</note>
         <note category="german">%citizen% hat die Stadt %action%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% hat die Stadt %action%.</target>
+        <target>%citizen% %action% pueblo.</target>
       </segment>
     </unit>
     <unit id="RvCIvJN" name="betreten">
@@ -146,9 +146,9 @@
         <note>betreten</note>
         <note category="german">betreten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>betreten</source>
-        <target>betreten</target>
+        <target>está de vuelta en el</target>
       </segment>
     </unit>
     <unit id="N0kS6xp" name="verlassen">
@@ -156,9 +156,9 @@
         <note>verlassen</note>
         <note category="german">verlassen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>verlassen</source>
-        <target>verlassen</target>
+        <target>ha salido del</target>
       </segment>
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
@@ -166,9 +166,9 @@
         <note>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
         <note category="german">Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</source>
-        <target>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</target>
+        <target>Un nuevo habitante ha llegado: %citizen%.</target>
       </segment>
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
@@ -196,9 +196,9 @@
         <note>%num% Zombies</note>
         <note category="german">%num% Zombies</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%num% Zombies</source>
-        <target>%num% Zombies</target>
+        <target>%num% zombies</target>
       </segment>
     </unit>
     <unit id="DyVRMkF" name="%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...">
@@ -206,9 +206,9 @@
         <note>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</note>
         <note category="german">%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</source>
-        <target>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</target>
+        <target>%citizen% ha decidido tener una vida mejor viviendo en %home%.</target>
       </segment>
     </unit>
     <unit id="0uk_Ijd" name="8121de7">
@@ -636,9 +636,9 @@
         <note>Zone</note>
         <note category="german">Zone</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zone</source>
-        <target>Zone</target>
+        <target>Zona</target>
       </segment>
     </unit>
     <unit id="8Nqa1HE" name="Entfernung">
@@ -646,9 +646,9 @@
         <note>Entfernung</note>
         <note category="german">Entfernung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Entfernung</source>
-        <target>Entfernung</target>
+        <target>Distancia</target>
       </segment>
     </unit>
     <unit id="VasxdH5" name="Routen">
@@ -656,9 +656,9 @@
         <note>Routen</note>
         <note category="german">Routen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Routen</source>
-        <target>Routen</target>
+        <target>Expedición</target>
       </segment>
     </unit>
     <unit id="wkJT.qQ" name="Stadttor">
@@ -666,9 +666,9 @@
         <note>Stadttor</note>
         <note category="german">Stadttor</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Stadttor</source>
-        <target>Stadttor</target>
+        <target>Gran Portal</target>
       </segment>
     </unit>
     <unit id="NqjEmUx" name="Karte">
@@ -676,9 +676,9 @@
         <note>Karte</note>
         <note category="german">Karte</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Karte</source>
-        <target>Karte</target>
+        <target>Mapa</target>
       </segment>
     </unit>
     <unit id="VgeAGfB" name="Bitte wähle einen Gegenstand:">
@@ -706,9 +706,9 @@
         <note>Herstellen</note>
         <note category="german">Herstellen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Herstellen</source>
-        <target>Herstellen</target>
+        <target>Ensamblar</target>
       </segment>
     </unit>
     <unit id="IzfDfwc" name="aus">
@@ -726,9 +726,9 @@
         <note>Kombinieren</note>
         <note category="german">Kombinieren</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kombinieren</source>
-        <target>Kombinieren</target>
+        <target>Combinar</target>
       </segment>
     </unit>
     <unit id="dizwCRc" name="8d60119">
@@ -736,9 +736,9 @@
         <note>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</note>
         <note category="german">Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
-        <target>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</target>
+        <target>Puedes salir del pueblo y explorar el Ultramundo desde aquí. Sobre todo, ¡no olvides cerrar el Gran Portal antes del ataque nocturno!</target>
       </segment>
     </unit>
     <unit id="UgTjBPn" name="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
@@ -756,9 +756,9 @@
         <note>Meine Aktionen</note>
         <note category="german">Meine Aktionen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Meine Aktionen</source>
-        <target>Meine Aktionen</target>
+        <target>Mis acciones</target>
       </segment>
     </unit>
     <unit id="Ja76Y2N" name="Tor schließen">
@@ -766,9 +766,9 @@
         <note>Tor schließen</note>
         <note category="german">Tor schließen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tor schließen</source>
-        <target>Tor schließen</target>
+        <target>Cerrar el portal</target>
       </segment>
     </unit>
     <unit id="0UyjBX6" name="Tor öffnen">
@@ -776,9 +776,9 @@
         <note>Tor öffnen</note>
         <note category="german">Tor öffnen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tor öffnen</source>
-        <target>Tor öffnen</target>
+        <target>Abrir el portal</target>
       </segment>
     </unit>
     <unit id="uhQorE4" name="Route planen...">
@@ -786,9 +786,9 @@
         <note>Route planen...</note>
         <note category="german">Route planen...</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Route planen...</source>
-        <target>Route planen...</target>
+        <target>Preparar una expedición</target>
       </segment>
     </unit>
     <unit id="wKVgmMx" name="Stadt verlassen">
@@ -806,9 +806,9 @@
         <note>Stadttor-Register</note>
         <note category="german">Stadttor-Register</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Stadttor-Register</source>
-        <target>Stadttor-Register</target>
+        <target>Portal del pueblo</target>
       </segment>
     </unit>
     <unit id="oCYA07E" name="f495286">
@@ -816,9 +816,9 @@
         <note>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
         <note category="german">Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</target>
+        <target>La torre de vigilancia construida en el pueblo permite obtener una estimación del ataque de esta noche. La calidad del pronóstico depende directamente de la cantidad de habitantes que participen en él.</target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -826,9 +826,9 @@
         <note>Heutige Abschätzung</note>
         <note category="german">Heutige Abschätzung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Heutige Abschätzung</source>
-        <target>Heutige Abschätzung</target>
+        <target/>
       </segment>
     </unit>
     <unit id="8N0dl_g" name="Zombies">
@@ -836,7 +836,7 @@
         <note>Zombies</note>
         <note category="german">Zombies</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zombies</source>
         <target>Zombies</target>
       </segment>
@@ -846,9 +846,9 @@
         <note>Qualität der Abschätzung</note>
         <note category="german">Qualität der Abschätzung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Qualität der Abschätzung</source>
-        <target>Qualität der Abschätzung</target>
+        <target/>
       </segment>
     </unit>
     <unit id="GHVvmus" name="Abschätzung verbessern">
@@ -856,9 +856,9 @@
         <note>Abschätzung verbessern</note>
         <note category="german">Abschätzung verbessern</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Abschätzung verbessern</source>
-        <target>Abschätzung verbessern</target>
+        <target>Observar el horizonte</target>
       </segment>
     </unit>
     <unit id="PudnUuv" name="Morgige Abschätzung">
@@ -866,9 +866,9 @@
         <note>Morgige Abschätzung</note>
         <note category="german">Morgige Abschätzung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Morgige Abschätzung</source>
-        <target>Morgige Abschätzung</target>
+        <target>Ataque de la noche siguiente</target>
       </segment>
     </unit>
     <unit id="Y5SuVaF" name="a9255e7">
@@ -886,9 +886,9 @@
         <note>Tag %day%</note>
         <note category="german">Tag %day%</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tag %day%</source>
-        <target>Tag %day%</target>
+        <target>Día %day%</target>
       </segment>
     </unit>
     <unit id="HMtmyP_" name="Rucksack">
@@ -896,9 +896,9 @@
         <note>Rucksack</note>
         <note category="german">Rucksack</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Rucksack</source>
-        <target>Rucksack</target>
+        <target>Mochila</target>
       </segment>
     </unit>
     <unit id="n__v7g9" name="Truhe">
@@ -906,9 +906,9 @@
         <note>Truhe</note>
         <note category="german">Truhe</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Truhe</source>
-        <target>Truhe</target>
+        <target>Baúl</target>
       </segment>
     </unit>
     <unit id="X3ACy1e" name="Truhe und Aktionen">
@@ -936,9 +936,9 @@
         <note>Bauarbeiten</note>
         <note category="german">Bauarbeiten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bauarbeiten</source>
-        <target>Bauarbeiten</target>
+        <target>Obras</target>
       </segment>
     </unit>
     <unit id="PA2qVgw" name="Dein Beschreibungstext">
@@ -986,9 +986,9 @@
         <note>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
         <note category="german">In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</target>
+        <target>La columna de la izquierda presenta las acciones que puedes realizar. La de la derecha muestra el contenido de tu mochila y del baúl de tu casa.</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -996,9 +996,9 @@
         <note>Meine Spezialaktionen</note>
         <note category="german">Meine Spezialaktionen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Meine Spezialaktionen</source>
-        <target>Meine Spezialaktionen</target>
+        <target>Mis acciones especiales</target>
       </segment>
     </unit>
     <unit id="zSx1h9s" name="Rucksack ausleeren">
@@ -1006,9 +1006,9 @@
         <note>Rucksack ausleeren</note>
         <note category="german">Rucksack ausleeren</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Rucksack ausleeren</source>
-        <target>Rucksack ausleeren</target>
+        <target>Vaciar tu mochila</target>
       </segment>
     </unit>
     <unit id="bd_whxO" name="Mein Register">
@@ -1016,9 +1016,9 @@
         <note>Mein Register</note>
         <note category="german">Mein Register</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mein Register</source>
-        <target>Mein Register</target>
+        <target>Mi registro</target>
       </segment>
     </unit>
     <unit id="HbM7uO9" name="Verteidigung und Dekoration">
@@ -1026,9 +1026,9 @@
         <note>Verteidigung und Dekoration</note>
         <note category="german">Verteidigung und Dekoration</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verteidigung und Dekoration</source>
-        <target>Verteidigung und Dekoration</target>
+        <target>Defensa y decoración</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -1036,9 +1036,9 @@
         <note>Verteidigung</note>
         <note category="german">Verteidigung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verteidigung</source>
-        <target>Verteidigung</target>
+        <target>Defensa</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -1086,9 +1086,9 @@
         <note>Dekoration</note>
         <note category="german">Dekoration</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dekoration</source>
-        <target>Dekoration</target>
+        <target>Decoración</target>
       </segment>
     </unit>
     <unit id="aai5fCx" name="Gegenstände">
@@ -1096,9 +1096,9 @@
         <note>Gegenstände</note>
         <note category="german">Gegenstände</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Gegenstände</source>
-        <target>Gegenstände</target>
+        <target>Objetos de defensa</target>
       </segment>
     </unit>
     <unit id="UfaHlFI" name="Ausbauten">
@@ -1139,9 +1139,9 @@
         <note>Mein Haus ausbauen</note>
         <note category="german">Mein Haus ausbauen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mein Haus ausbauen</source>
-        <target>Mein Haus ausbauen</target>
+        <target>Mejora tu casa</target>
       </segment>
     </unit>
     <unit id="J53z_38" name="10e9370">
@@ -1169,9 +1169,9 @@
         <note>Bauen</note>
         <note category="german">Bauen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bauen</source>
-        <target>Bauen</target>
+        <target>Construir</target>
       </segment>
     </unit>
     <unit id="0uS2PQd" name="44a6b27">
@@ -1239,9 +1239,9 @@
         <note>Einbauen</note>
         <note category="german">Einbauen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Einbauen</source>
-        <target>Einbauen</target>
+        <target>Instalar</target>
       </segment>
     </unit>
     <unit id="lxPyIGw" name="Upgrade auf St. %level%">
@@ -1329,9 +1329,9 @@
         <note>Name der Route</note>
         <note category="german">Name der Route</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Name der Route</source>
-        <target>Name der Route</target>
+        <target>Nombre de la expedición</target>
       </segment>
     </unit>
     <unit id="QL.qpuP" name="d231db0">
@@ -1372,9 +1372,9 @@
         <note>%citizen%s Truhe</note>
         <note category="german">%citizen%s Truhe</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen%s Truhe</source>
-        <target>%citizen%s Truhe</target>
+        <target>Inventario de %citizen%</target>
       </segment>
     </unit>
     <unit id="ygfGVvY" name="Tot">
@@ -1402,9 +1402,9 @@
         <note>Todesursache</note>
         <note category="german">Todesursache</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Todesursache</source>
-        <target>Todesursache</target>
+        <target>Causa de la muerte</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -1422,9 +1422,9 @@
         <note>Gemeinschaft</note>
         <note category="german">Gemeinschaft</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Gemeinschaft</source>
-        <target>Gemeinschaft</target>
+        <target>Espionaje y chismes del vecindario</target>
       </segment>
     </unit>
     <unit id="qvB2Xk." name="%citizen% hat bereits %num% Anzeige(n).">
@@ -1472,9 +1472,9 @@
         <note>Anzeige erstatten</note>
         <note category="german">Anzeige erstatten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Anzeige erstatten</source>
-        <target>Anzeige erstatten</target>
+        <target>Hacer una denuncia</target>
       </segment>
     </unit>
     <unit id="hWJotD4" name="Anzeige zurückziehen">
@@ -1482,9 +1482,9 @@
         <note>Anzeige zurückziehen</note>
         <note category="german">Anzeige zurückziehen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Anzeige zurückziehen</source>
-        <target>Anzeige zurückziehen</target>
+        <target>Retirar mi denuncia</target>
       </segment>
     </unit>
     <unit id="NiNilxh" name="Anzeige: Todesstrafe fordern">
@@ -1512,9 +1512,9 @@
         <note>%citizen%s Register</note>
         <note category="german">%citizen%s Register</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen%s Register</source>
-        <target>%citizen%s Register</target>
+        <target>Habitante %citizen%</target>
       </segment>
     </unit>
     <unit id="oYgU.Rg" name="c9fdaab">
@@ -1572,9 +1572,9 @@
         <note>Aktuelles Level:</note>
         <note category="german">Aktuelles Level:</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aktuelles Level:</source>
-        <target>Aktuelles Level:</target>
+        <target>Actualmente:</target>
       </segment>
     </unit>
     <unit id="tSHIOru" name="Nächstes Level:">
@@ -1582,9 +1582,9 @@
         <note>Nächstes Level:</note>
         <note category="german">Nächstes Level:</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Nächstes Level:</source>
-        <target>Nächstes Level:</target>
+        <target>Próximo nivel:</target>
       </segment>
     </unit>
     <unit id="vihCVqO" name="Max. Level">
@@ -1592,9 +1592,9 @@
         <note>Max. Level</note>
         <note category="german">Max. Level</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Max. Level</source>
-        <target>Max. Level</target>
+        <target>Nivel máximo.</target>
       </segment>
     </unit>
     <unit id="QMbrYas" name="Level %lv%">
@@ -1612,9 +1612,9 @@
         <note>Abstimmen</note>
         <note category="german">Abstimmen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Votar</target>
       </segment>
     </unit>
     <unit id="_fJ2tva" name="Stimmen:">
@@ -1632,9 +1632,9 @@
         <note>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</note>
         <note category="german">In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
-        <target>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</target>
+        <target>En el taller transformarás los materiales de construcción avanzados que algunas construcciones necesitan. Los materiales transformados se colocan directamente en el Almacén del pueblo. Cada transformación cuesta desde 3PA (ciertos objetos pueden reducir este costo).</target>
       </segment>
     </unit>
     <unit id="pOcBXgj" name="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
@@ -1682,9 +1682,9 @@
         <note>Vorrat</note>
         <note category="german">Vorrat</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Vorrat</source>
-        <target>Vorrat</target>
+        <target>Stock</target>
       </segment>
     </unit>
     <unit id="hQll2q4" name="Umwandlung">
@@ -1692,9 +1692,9 @@
         <note>Umwandlung</note>
         <note category="german">Umwandlung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Umwandlung</source>
-        <target>Umwandlung</target>
+        <target>Objeto obtenido</target>
       </segment>
     </unit>
     <unit id="cXTeIrr" name="Anzahl">
@@ -1702,9 +1702,9 @@
         <note>Anzahl</note>
         <note category="german">Anzahl</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Anzahl</source>
-        <target>Anzahl</target>
+        <target>Stock</target>
       </segment>
     </unit>
     <unit id="UNwR9SS" name="Zufälliger Gegenstand">
@@ -1712,9 +1712,9 @@
         <note>Zufälliger Gegenstand</note>
         <note category="german">Zufälliger Gegenstand</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zufälliger Gegenstand</source>
-        <target>Zufälliger Gegenstand</target>
+        <target>Objeto aleatorio</target>
       </segment>
     </unit>
     <unit id="5WqPLsh" name="Werkstatt-Register">
@@ -1722,9 +1722,9 @@
         <note>Werkstatt-Register</note>
         <note category="german">Werkstatt-Register</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Werkstatt-Register</source>
-        <target>Werkstatt-Register</target>
+        <target>Taller</target>
       </segment>
     </unit>
     <unit id="hbYU0EF" name="095757a">
@@ -1742,9 +1742,9 @@
         <note>Bankregister</note>
         <note category="german">Bankregister</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bankregister</source>
-        <target>Bankregister</target>
+        <target>Almacén</target>
       </segment>
     </unit>
     <unit id="TygUMhY" name="c03baa1">
@@ -1752,9 +1752,9 @@
         <note>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</note>
         <note category="german">In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</target>
+        <target>Construid las defensas y diversas cosas que prolonguen la vida del pueblo. En el desierto encontrarás materiales (madera, metal...). Participa en las obras donando Puntos de Acción (PA) a la construcción más útil.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -1785,9 +1785,9 @@
         <note>Baustellenregister</note>
         <note category="german">Baustellenregister</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Baustellenregister</source>
-        <target>Baustellenregister</target>
+        <target>Construcciones</target>
       </segment>
     </unit>
     <unit id="0m1lFXV" name="Wie viele Aktionspunkte möchtest du in den Bau investieren?">
@@ -1805,9 +1805,9 @@
         <note>%rations% Rationen Wasser übrig</note>
         <note category="german">%rations% Rationen Wasser übrig</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%rations% Rationen Wasser übrig</source>
-        <target>%rations% Rationen Wasser übrig</target>
+        <target>%rations% raciones de agua restantes</target>
       </segment>
     </unit>
     <unit id="qv0A9J5" name="e390795">
@@ -1835,9 +1835,9 @@
         <note>Deine Ration Wasser erhalten</note>
         <note category="german">Deine Ration Wasser erhalten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Deine Ration Wasser erhalten</source>
-        <target>Deine Ration Wasser erhalten</target>
+        <target>¡Toma tu ración de agua!</target>
       </segment>
     </unit>
     <unit id="unhSN_Y" name="Eine weitere Ration erhalten">
@@ -1845,9 +1845,9 @@
         <note>Eine weitere Ration erhalten</note>
         <note category="german">Eine weitere Ration erhalten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Eine weitere Ration erhalten</source>
-        <target>Eine weitere Ration erhalten</target>
+        <target>¡Ración adicional!</target>
       </segment>
     </unit>
     <unit id="eEQntCE" name="Wasser hinzufügen">
@@ -1855,9 +1855,9 @@
         <note>Wasser hinzufügen</note>
         <note category="german">Wasser hinzufügen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Wasser hinzufügen</source>
-        <target>Wasser hinzufügen</target>
+        <target>Agregar agua</target>
       </segment>
     </unit>
     <unit id="BMwsxtX" name="49de9c9">
@@ -1865,9 +1865,9 @@
         <note>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</note>
         <note category="german">Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</target>
+        <target>Beber agua es indispensable para vivir y recuperar Puntos de Acción cada día. También sirve para matar zombies.</target>
       </segment>
     </unit>
     <unit id="96udPgY" name="Brunnenregister">
@@ -1875,9 +1875,9 @@
         <note>Brunnenregister</note>
         <note category="german">Brunnenregister</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Brunnenregister</source>
-        <target>Brunnenregister</target>
+        <target>Pozo</target>
       </segment>
     </unit>
     <unit id="Inm9E03" name="Stadt">
@@ -1895,9 +1895,9 @@
         <note>Mein Haus</note>
         <note category="german">Mein Haus</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mein Haus</source>
-        <target>Mein Haus</target>
+        <target>Tu Casa</target>
       </segment>
     </unit>
     <unit id="lQNhv.P" name="Brunnen">
@@ -1905,9 +1905,9 @@
         <note>Brunnen</note>
         <note category="german">Brunnen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Brunnen</source>
-        <target>Brunnen</target>
+        <target>El Pozo</target>
       </segment>
     </unit>
     <unit id="Z2xHG8j" name="Bank">
@@ -1915,9 +1915,9 @@
         <note>Bank</note>
         <note category="german">Bank</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bank</source>
-        <target>Bank</target>
+        <target>El Almacén</target>
       </segment>
     </unit>
     <unit id="FlZntyi" name="Bürger">
@@ -1925,9 +1925,9 @@
         <note>Bürger</note>
         <note category="german">Bürger</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bürger</source>
-        <target>Bürger</target>
+        <target>Habitantes</target>
       </segment>
     </unit>
     <unit id="OlFB1V6" name="Konstruktionen">
@@ -1935,9 +1935,9 @@
         <note>Konstruktionen</note>
         <note category="german">Konstruktionen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Konstruktionen</source>
-        <target>Konstruktionen</target>
+        <target>Construcciones</target>
       </segment>
     </unit>
     <unit id="SVMpOGM" name="Kaum erforschte Zone">
@@ -1985,9 +1985,9 @@
         <note>Punkt(e)</note>
         <note category="german">Punkt(e)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Punkt(e)</source>
-        <target>Punkt(e)</target>
+        <target>puntos</target>
       </segment>
     </unit>
     <unit id="MwvCTQm" name="Stadt in %km% Entfernung">
@@ -2075,9 +2075,9 @@
         <note>Hilfe rufen!</note>
         <note category="german">Hilfe rufen!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hilfe rufen!</source>
-        <target>Hilfe rufen!</target>
+        <target>¡Pedir ayuda!</target>
       </segment>
     </unit>
     <unit id="9IuEojL" name="Die Flucht wagen!">
@@ -2145,9 +2145,9 @@
         <note>Stadt betreten</note>
         <note category="german">Stadt betreten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Stadt betreten</source>
-        <target>Stadt betreten</target>
+        <target>Entrar al pueblo</target>
       </segment>
     </unit>
     <unit id="WrJhBrF" name="In die Stadt zurückkehren">
@@ -2185,9 +2185,9 @@
         <note>Nächste automatische Ausgrabung:</note>
         <note category="german">Nächste automatische Ausgrabung:</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Nächste automatische Ausgrabung:</source>
-        <target>Nächste automatische Ausgrabung:</target>
+        <target>Próxima búsqueda auto:</target>
       </segment>
     </unit>
     <unit id="GwPmPsr" name="%ruin% durchsuchen">
@@ -2195,9 +2195,9 @@
         <note>%ruin% durchsuchen</note>
         <note category="german">%ruin% durchsuchen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%ruin% durchsuchen</source>
-        <target>%ruin% durchsuchen</target>
+        <target>Hurgar: %ruin%</target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -2235,9 +2235,9 @@
         <note>Zonenregister</note>
         <note category="german">Zonenregister</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zonenregister</source>
-        <target>Zonenregister</target>
+        <target>Charlas</target>
       </segment>
     </unit>
     <unit id="T478uEB" name="Zonenchat">
@@ -2255,9 +2255,9 @@
         <note>Stadtregister</note>
         <note category="german">Stadtregister</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Stadtregister</source>
-        <target>Stadtregister</target>
+        <target>Registro del pueblo</target>
       </segment>
     </unit>
     <unit id="eR2SPb." name="Das Stadtregister steht nicht zur Verfügung.">
@@ -2275,9 +2275,9 @@
         <note>Herzlichen Glückwunsch, du bist TOT!</note>
         <note category="german">Herzlichen Glückwunsch, du bist TOT!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Herzlichen Glückwunsch, du bist TOT!</source>
-        <target>Herzlichen Glückwunsch, du bist TOT!</target>
+        <target>¡Felicidades, HAS MUERTO!</target>
       </segment>
     </unit>
     <unit id="AEDztPF" name="Du hast %sp% Seelenpunkte gewonnen!">
@@ -2285,9 +2285,9 @@
         <note>Du hast %sp% Seelenpunkte gewonnen!</note>
         <note category="german">Du hast %sp% Seelenpunkte gewonnen!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du hast %sp% Seelenpunkte gewonnen!</source>
-        <target>Du hast %sp% Seelenpunkte gewonnen!</target>
+        <target>¡Has ganado %sp% Puntos de Alma!</target>
       </segment>
     </unit>
     <unit id="wD7XaTz" name="Du hast folgende Auszeichnungen verliehen bekommen:">
@@ -2295,9 +2295,9 @@
         <note>Du hast folgende Auszeichnungen verliehen bekommen:</note>
         <note category="german">Du hast folgende Auszeichnungen verliehen bekommen:</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Du hast folgende Auszeichnungen verliehen bekommen:</target>
+        <target>Has ganado las distinciones:</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -2345,9 +2345,9 @@
         <note>Zeitung</note>
         <note category="german">Zeitung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zeitung</source>
-        <target>Zeitung</target>
+        <target>Boletín</target>
       </segment>
     </unit>
     <unit id="r6ej4.8" name="Aktionspunkte">
@@ -2355,9 +2355,9 @@
         <note>Aktionspunkte</note>
         <note category="german">Aktionspunkte</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aktionspunkte</source>
-        <target>Aktionspunkte</target>
+        <target>Puntos de Acción</target>
       </segment>
     </unit>
     <unit id="dWg5UEc" name="0e07264">
@@ -2410,9 +2410,9 @@
         <note>Verbannt</note>
         <note category="german">Verbannt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verbannt</source>
-        <target>Verbannt</target>
+        <target>Desterrado</target>
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">
@@ -2459,9 +2459,9 @@
         <note>Held</note>
         <note category="german">Held</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Held</source>
-        <target>Held</target>
+        <target>Héroe</target>
       </segment>
     </unit>
     <unit id="nbN6CQm" name="f843777">
@@ -2482,9 +2482,9 @@
         <note>Einwohner</note>
         <note category="german">Einwohner</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Einwohner</source>
-        <target>Einwohner</target>
+        <target>Habitante</target>
       </segment>
     </unit>
     <unit id="ssGV66L" name="Wähle einen Beruf">
@@ -2512,9 +2512,9 @@
         <note>Tag</note>
         <note category="german">Tag</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Día</target>
       </segment>
     </unit>
     <unit id="UTfIdgy" name="Clean">
@@ -2522,9 +2522,9 @@
         <note>Clean</note>
         <note category="german">Clean</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Clean</source>
-        <target>Clean</target>
+        <target>Limpio</target>
       </segment>
     </unit>
     <unit id="2rjbtHk" name="Getrunken">
@@ -2532,9 +2532,9 @@
         <note>Getrunken</note>
         <note category="german">Getrunken</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Getrunken</source>
-        <target>Getrunken</target>
+        <target>Sin sed</target>
       </segment>
     </unit>
     <unit id="_akkbne" name="Satt">
@@ -2542,9 +2542,9 @@
         <note>Satt</note>
         <note category="german">Satt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Satt</source>
-        <target>Satt</target>
+        <target>Sin hambre</target>
       </segment>
     </unit>
     <unit id="LQhKsMz" name="Umsichtiger Camper">
@@ -2552,9 +2552,9 @@
         <note>Umsichtiger Camper</note>
         <note category="german">Umsichtiger Camper</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Umsichtiger Camper</source>
-        <target>Umsichtiger Camper</target>
+        <target>Campista astuto</target>
       </segment>
     </unit>
     <unit id="LoyMaAF" name="Immunisiert">
@@ -2562,9 +2562,9 @@
         <note>Immunisiert</note>
         <note category="german">Immunisiert</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Immunisiert</source>
-        <target>Immunisiert</target>
+        <target>Inmunizado</target>
       </segment>
     </unit>
     <unit id="dIXELzM" name="Den Tod besiegen">
@@ -2572,9 +2572,9 @@
         <note>Den Tod besiegen</note>
         <note category="german">Den Tod besiegen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Den Tod besiegen</source>
-        <target>Den Tod besiegen</target>
+        <target>Vencer a la muerte</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -2582,9 +2582,9 @@
         <note>Erschöpfung</note>
         <note category="german">Erschöpfung</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Erschöpfung</source>
-        <target>Erschöpfung</target>
+        <target>Cansado</target>
       </segment>
     </unit>
     <unit id="m0NU7Ex" name="Angststarre">
@@ -2594,7 +2594,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Angststarre</source>
-        <target>Angststarre</target>
+        <target>Aterrado</target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2602,9 +2602,9 @@
         <note>Durst</note>
         <note category="german">Durst</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Durst</source>
-        <target>Durst</target>
+        <target>Sediento</target>
       </segment>
     </unit>
     <unit id="csu4Gzn" name="Dehydriert">
@@ -2614,7 +2614,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Dehydriert</source>
-        <target>Dehydriert</target>
+        <target>Deshidratado</target>
       </segment>
     </unit>
     <unit id="4cxMzfa" name="Rauschzustand">
@@ -2622,9 +2622,9 @@
         <note>Rauschzustand</note>
         <note category="german">Rauschzustand</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Rauschzustand</source>
-        <target>Rauschzustand</target>
+        <target>Drogado</target>
       </segment>
     </unit>
     <unit id="eIBDvhn" name="Drogenabhängig">
@@ -2632,9 +2632,9 @@
         <note>Drogenabhängig</note>
         <note category="german">Drogenabhängig</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Drogenabhängig</source>
-        <target>Drogenabhängig</target>
+        <target>Dependencia</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2644,7 +2644,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Infektion</source>
-        <target>Infektion</target>
+        <target>Infectado</target>
       </segment>
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
@@ -2652,9 +2652,9 @@
         <note>Trunkenheit</note>
         <note category="german">Trunkenheit</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Trunkenheit</source>
-        <target>Trunkenheit</target>
+        <target>Ebrio</target>
       </segment>
     </unit>
     <unit id="EPpwyta" name="Kater">
@@ -2662,9 +2662,9 @@
         <note>Kater</note>
         <note category="german">Kater</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kater</source>
-        <target>Kater</target>
+        <target>Resaca</target>
       </segment>
     </unit>
     <unit id="E6kbVNC" name="Verwundung - Kopf">
@@ -2672,9 +2672,9 @@
         <note>Verwundung - Kopf</note>
         <note category="german">Verwundung - Kopf</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verwundung - Kopf</source>
-        <target>Verwundung - Kopf</target>
+        <target>Herido: Cabeza</target>
       </segment>
     </unit>
     <unit id="yI0ueHI" name="Verwundung - Hände">
@@ -2682,9 +2682,9 @@
         <note>Verwundung - Hände</note>
         <note category="german">Verwundung - Hände</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verwundung - Hände</source>
-        <target>Verwundung - Hände</target>
+        <target>Herido: Mano</target>
       </segment>
     </unit>
     <unit id="lfaLaVU" name="Verwundung - Arme">
@@ -2692,9 +2692,9 @@
         <note>Verwundung - Arme</note>
         <note category="german">Verwundung - Arme</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verwundung - Arme</source>
-        <target>Verwundung - Arme</target>
+        <target>Herido: Brazo</target>
       </segment>
     </unit>
     <unit id="KRP.Csa" name="Verwundung - Bein">
@@ -2702,9 +2702,9 @@
         <note>Verwundung - Bein</note>
         <note category="german">Verwundung - Bein</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verwundung - Bein</source>
-        <target>Verwundung - Bein</target>
+        <target>Herido: Pierna</target>
       </segment>
     </unit>
     <unit id="15_YwON" name="Verwundung - Auge">
@@ -2712,9 +2712,9 @@
         <note>Verwundung - Auge</note>
         <note category="german">Verwundung - Auge</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verwundung - Auge</source>
-        <target>Verwundung - Auge</target>
+        <target>Herido: Ojo</target>
       </segment>
     </unit>
     <unit id="iU.tgTh" name="Verwundung - Fuß">
@@ -2722,9 +2722,9 @@
         <note>Verwundung - Fuß</note>
         <note category="german">Verwundung - Fuß</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verwundung - Fuß</source>
-        <target>Verwundung - Fuß</target>
+        <target>Herido: Pie</target>
       </segment>
     </unit>
     <unit id="72h0.SN" name="Ghul">
@@ -2732,9 +2732,9 @@
         <note>Ghul</note>
         <note category="german">Ghul</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ghul</source>
-        <target>Ghul</target>
+        <target>Mutante</target>
       </segment>
     </unit>
     <unit id="AdfvkQI" name="Bandagiert">
@@ -2742,9 +2742,9 @@
         <note>Bandagiert</note>
         <note category="german">Bandagiert</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bandagiert</source>
-        <target>Bandagiert</target>
+        <target>Convaleciente</target>
       </segment>
     </unit>
     <unit id="UUnigxa" name="Abgelegenes Haus">
@@ -2752,9 +2752,9 @@
         <note>Abgelegenes Haus</note>
         <note category="german">Abgelegenes Haus</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Abgelegenes Haus</source>
-        <target>Abgelegenes Haus</target>
+        <target>Casa de un habitante</target>
       </segment>
     </unit>
     <unit id="BuoM8x8" name="Albi Supermarkt">
@@ -2762,9 +2762,9 @@
         <note>Albi Supermarkt</note>
         <note category="german">Albi Supermarkt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Albi Supermarkt</source>
-        <target>Albi Supermarkt</target>
+        <target>Tienda de Don Chicho</target>
       </segment>
     </unit>
     <unit id="z79LmBi" name="Alte Höhle">
@@ -2772,9 +2772,9 @@
         <note>Alte Höhle</note>
         <note category="german">Alte Höhle</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Alte Höhle</source>
-        <target>Alte Höhle</target>
+        <target>Refugio en construcción</target>
       </segment>
     </unit>
     <unit id="7N1b8YP" name="Alte Hydraulikpumpe">
@@ -2782,9 +2782,9 @@
         <note>Alte Hydraulikpumpe</note>
         <note category="german">Alte Hydraulikpumpe</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Alte Hydraulikpumpe</source>
-        <target>Alte Hydraulikpumpe</target>
+        <target>Vieja Bomba hidráuulica</target>
       </segment>
     </unit>
     <unit id="S85DdXs" name="Alter Fahrradverleih">
@@ -2792,9 +2792,9 @@
         <note>Alter Fahrradverleih</note>
         <note category="german">Alter Fahrradverleih</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Alter Fahrradverleih</source>
-        <target>Alter Fahrradverleih</target>
+        <target>Taller de bicicletas</target>
       </segment>
     </unit>
     <unit id="swauljp" name="Alter Rangierbahnhof">
@@ -2802,9 +2802,9 @@
         <note>Alter Rangierbahnhof</note>
         <note category="german">Alter Rangierbahnhof</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Alter Rangierbahnhof</source>
-        <target>Alter Rangierbahnhof</target>
+        <target>Plataforma ferroviaria</target>
       </segment>
     </unit>
     <unit id="gjzBe3w" name="Altes Feldkrankenhaus">
@@ -2812,9 +2812,9 @@
         <note>Altes Feldkrankenhaus</note>
         <note category="german">Altes Feldkrankenhaus</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Altes Feldkrankenhaus</source>
-        <target>Altes Feldkrankenhaus</target>
+        <target>Hospital de campaña</target>
       </segment>
     </unit>
     <unit id="yKnc_Mp" name="Altes Flugfeld">
@@ -2822,9 +2822,9 @@
         <note>Altes Flugfeld</note>
         <note category="german">Altes Flugfeld</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Altes Flugfeld</source>
-        <target>Altes Flugfeld</target>
+        <target>Antiguo aeródromo</target>
       </segment>
     </unit>
     <unit id="Kt0e8zP" name="Altes Polizeipräsidium">
@@ -2832,9 +2832,9 @@
         <note>Altes Polizeipräsidium</note>
         <note category="german">Altes Polizeipräsidium</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Altes Polizeipräsidium</source>
-        <target>Altes Polizeipräsidium</target>
+        <target>Antigua comisaría</target>
       </segment>
     </unit>
     <unit id="GRuqR5L" name="Atombunker">
@@ -2842,9 +2842,9 @@
         <note>Atombunker</note>
         <note category="german">Atombunker</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Atombunker</source>
-        <target>Atombunker</target>
+        <target>Refugio anti-atómico</target>
       </segment>
     </unit>
     <unit id="pSDkjjr" name="Atomic Cafe">
@@ -2852,9 +2852,9 @@
         <note>Atomic Cafe</note>
         <note category="german">Atomic Cafe</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Atomic Cafe</source>
-        <target>Atomic Cafe</target>
+        <target>Atomic Café</target>
       </segment>
     </unit>
     <unit id="yMlxN96" name="Autobahnraststätte">
@@ -2862,9 +2862,9 @@
         <note>Autobahnraststätte</note>
         <note category="german">Autobahnraststätte</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Autobahnraststätte</source>
-        <target>Autobahnraststätte</target>
+        <target>Restaurante de autopista</target>
       </segment>
     </unit>
     <unit id="wuZIxTk" name="Autowracks">
@@ -2872,9 +2872,9 @@
         <note>Autowracks</note>
         <note category="german">Autowracks</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Autowracks</source>
-        <target>Autowracks</target>
+        <target>Carrocería de autos</target>
       </segment>
     </unit>
     <unit id="lVmO2OQ" name="Bar der verlorenen Hoffnungen">
@@ -2882,9 +2882,9 @@
         <note>Bar der verlorenen Hoffnungen</note>
         <note category="german">Bar der verlorenen Hoffnungen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bar der verlorenen Hoffnungen</source>
-        <target>Bar der verlorenen Hoffnungen</target>
+        <target>El bar de las ilusiones perdidas</target>
       </segment>
     </unit>
     <unit id="zkW4TlC" name="Baumarkt">
@@ -2892,9 +2892,9 @@
         <note>Baumarkt</note>
         <note category="german">Baumarkt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Baumarkt</source>
-        <target>Baumarkt</target>
+        <target>Home depot</target>
       </segment>
     </unit>
     <unit id="ejtguBI" name="Baustellencontainer">
@@ -2902,9 +2902,9 @@
         <note>Baustellencontainer</note>
         <note category="german">Baustellencontainer</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Baustellencontainer</source>
-        <target>Baustellencontainer</target>
+        <target>La casa del constructor</target>
       </segment>
     </unit>
     <unit id="4P7trch" name="Dönerbude Utsel-Brutzel">
@@ -2912,9 +2912,9 @@
         <note>Dönerbude Utsel-Brutzel</note>
         <note category="german">Dönerbude Utsel-Brutzel</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dönerbude Utsel-Brutzel</source>
-        <target>Dönerbude Utsel-Brutzel</target>
+        <target>Sándwiches «San Guchito»</target>
       </segment>
     </unit>
     <unit id="JNOFU3C" name="Dukes Villa">
@@ -2922,9 +2922,9 @@
         <note>Dukes Villa</note>
         <note category="german">Dukes Villa</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dukes Villa</source>
-        <target>Dukes Villa</target>
+        <target>Mansión de Duke</target>
       </segment>
     </unit>
     <unit id=".ebOOu8" name="Dunkler Hain">
@@ -2932,9 +2932,9 @@
         <note>Dunkler Hain</note>
         <note category="german">Dunkler Hain</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dunkler Hain</source>
-        <target>Dunkler Hain</target>
+        <target>Bosque obscuro</target>
       </segment>
     </unit>
     <unit id="tRFSLoD" name="Eingestürzte Mine">
@@ -2942,9 +2942,9 @@
         <note>Eingestürzte Mine</note>
         <note category="german">Eingestürzte Mine</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Eingestürzte Mine</source>
-        <target>Eingestürzte Mine</target>
+        <target>Mina colapsada</target>
       </segment>
     </unit>
     <unit id="qV.QEqb" name="Eingestürzter Steinbruch">
@@ -2952,9 +2952,9 @@
         <note>Eingestürzter Steinbruch</note>
         <note category="german">Eingestürzter Steinbruch</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Eingestürzter Steinbruch</source>
-        <target>Eingestürzter Steinbruch</target>
+        <target>Cantera derrumbada</target>
       </segment>
     </unit>
     <unit id="9jdPsSc" name="Ein seltsames kreisförmiges Gerät">
@@ -2962,9 +2962,9 @@
         <note>Ein seltsames kreisförmiges Gerät</note>
         <note category="german">Ein seltsames kreisförmiges Gerät</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein seltsames kreisförmiges Gerät</source>
-        <target>Ein seltsames kreisförmiges Gerät</target>
+        <target>Dispositivo circular</target>
       </segment>
     </unit>
     <unit id="XbKWmCS" name="E-KEA">
@@ -2972,9 +2972,9 @@
         <note>E-KEA</note>
         <note category="german">E-KEA</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>E-KEA</source>
-        <target>E-KEA</target>
+        <target>Muebles Kiela</target>
       </segment>
     </unit>
     <unit id="04ljFsj" name="Familiengrab">
@@ -2982,9 +2982,9 @@
         <note>Familiengrab</note>
         <note category="german">Familiengrab</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Familiengrab</source>
-        <target>Familiengrab</target>
+        <target>Cripta familiar</target>
       </segment>
     </unit>
     <unit id="Obfx4xd" name="Fast Food Restaurant">
@@ -2992,9 +2992,9 @@
         <note>Fast Food Restaurant</note>
         <note category="german">Fast Food Restaurant</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Fast Food Restaurant</source>
-        <target>Fast Food Restaurant</target>
+        <target>Restaurante «Rey Hamburgo»</target>
       </segment>
     </unit>
     <unit id="3jRHmba" name="Flugzeugwrack">
@@ -3002,9 +3002,9 @@
         <note>Flugzeugwrack</note>
         <note category="german">Flugzeugwrack</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Flugzeugwrack</source>
-        <target>Flugzeugwrack</target>
+        <target>Fuselaje de avión</target>
       </segment>
     </unit>
     <unit id="jeS33HC" name="Gartenhaus">
@@ -3012,9 +3012,9 @@
         <note>Gartenhaus</note>
         <note category="german">Gartenhaus</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Gartenhaus</source>
-        <target>Gartenhaus</target>
+        <target>Cabaña de jardín</target>
       </segment>
     </unit>
     <unit id=".BpYDum" name="Geplünderte Mall">
@@ -3022,9 +3022,9 @@
         <note>Geplünderte Mall</note>
         <note category="german">Geplünderte Mall</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Geplünderte Mall</source>
-        <target>Geplünderte Mall</target>
+        <target>Supermercado saqueado</target>
       </segment>
     </unit>
     <unit id=".fpd4co" name="Höhle">
@@ -3032,9 +3032,9 @@
         <note>Höhle</note>
         <note category="german">Höhle</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Höhle</source>
-        <target>Höhle</target>
+        <target>Cueva</target>
       </segment>
     </unit>
     <unit id="9x03HdM" name="Indianerfriedhof">
@@ -3042,9 +3042,9 @@
         <note>Indianerfriedhof</note>
         <note category="german">Indianerfriedhof</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Indianerfriedhof</source>
-        <target>Indianerfriedhof</target>
+        <target>Cementerio indio</target>
       </segment>
     </unit>
     <unit id="ruzMP1g" name="Jahrmarktstand">
@@ -3052,9 +3052,9 @@
         <note>Jahrmarktstand</note>
         <note category="german">Jahrmarktstand</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Jahrmarktstand</source>
-        <target>Jahrmarktstand</target>
+        <target>Stand de feria de atracciones</target>
       </segment>
     </unit>
     <unit id="xBqXQ3h" name="Kleines Haus">
@@ -3062,9 +3062,9 @@
         <note>Kleines Haus</note>
         <note category="german">Kleines Haus</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kleines Haus</source>
-        <target>Kleines Haus</target>
+        <target>Casita</target>
       </segment>
     </unit>
     <unit id="HaU4ESp" name="Kleinwasserkraftwerk">
@@ -3072,9 +3072,9 @@
         <note>Kleinwasserkraftwerk</note>
         <note category="german">Kleinwasserkraftwerk</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kleinwasserkraftwerk</source>
-        <target>Kleinwasserkraftwerk</target>
+        <target>Central hidráulica</target>
       </segment>
     </unit>
     <unit id="Dm49uOY" name="Kosmetiklabor">
@@ -3082,9 +3082,9 @@
         <note>Kosmetiklabor</note>
         <note category="german">Kosmetiklabor</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kosmetiklabor</source>
-        <target>Kosmetiklabor</target>
+        <target>Laboratorio cosmético</target>
       </segment>
     </unit>
     <unit id="XZBo0Eq" name="Krankenwagen">
@@ -3092,9 +3092,9 @@
         <note>Krankenwagen</note>
         <note category="german">Krankenwagen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Krankenwagen</source>
-        <target>Krankenwagen</target>
+        <target>Ambulancia</target>
       </segment>
     </unit>
     <unit id="VGlWZjs" name="Lagerhalle">
@@ -3102,9 +3102,9 @@
         <note>Lagerhalle</note>
         <note category="german">Lagerhalle</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Lagerhalle</source>
-        <target>Lagerhalle</target>
+        <target>Hangares</target>
       </segment>
     </unit>
     <unit id="yAH2rE7" name="Leeres Parkhaus">
@@ -3112,9 +3112,9 @@
         <note>Leeres Parkhaus</note>
         <note category="german">Leeres Parkhaus</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Leeres Parkhaus</source>
-        <target>Leeres Parkhaus</target>
+        <target>Parking abandonado</target>
       </segment>
     </unit>
     <unit id="PLyihQR" name="Liegengebliebener Kampfpanzer">
@@ -3122,9 +3122,9 @@
         <note>Liegengebliebener Kampfpanzer</note>
         <note category="german">Liegengebliebener Kampfpanzer</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Liegengebliebener Kampfpanzer</source>
-        <target>Liegengebliebener Kampfpanzer</target>
+        <target>Tanque desvalijado</target>
       </segment>
     </unit>
     <unit id="ECpLJti" name="Motel 'Dusk'">
@@ -3132,9 +3132,9 @@
         <note>Motel 'Dusk'</note>
         <note category="german">Motel 'Dusk'</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Motel 'Dusk'</source>
-        <target>Motel 'Dusk'</target>
+        <target>Hostal «Hollywood Inn»</target>
       </segment>
     </unit>
     <unit id="aXgXOJr" name="Militärischer Wachposten">
@@ -3142,9 +3142,9 @@
         <note>Militärischer Wachposten</note>
         <note category="german">Militärischer Wachposten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Militärischer Wachposten</source>
-        <target>Militärischer Wachposten</target>
+        <target>Puesto militar</target>
       </segment>
     </unit>
     <unit id="zNUF7cP" name="Postfiliale">
@@ -3152,9 +3152,9 @@
         <note>Postfiliale</note>
         <note category="german">Postfiliale</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Postfiliale</source>
-        <target>Postfiliale</target>
+        <target>Oficina de correos</target>
       </segment>
     </unit>
     <unit id="Xf.22AP" name="Räuberhöhle">
@@ -3162,9 +3162,9 @@
         <note>Räuberhöhle</note>
         <note category="german">Räuberhöhle</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Räuberhöhle</source>
-        <target>Räuberhöhle</target>
+        <target>Escondite de contrabandistas</target>
       </segment>
     </unit>
     <unit id="BoMLh_D" name="Schützengraben">
@@ -3172,9 +3172,9 @@
         <note>Schützengraben</note>
         <note category="german">Schützengraben</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Schützengraben</source>
-        <target>Schützengraben</target>
+        <target>Trincheras militares</target>
       </segment>
     </unit>
     <unit id="3XX2wLZ" name="Stadtbücherei">
@@ -3182,9 +3182,9 @@
         <note>Stadtbücherei</note>
         <note category="german">Stadtbücherei</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Stadtbücherei</source>
-        <target>Stadtbücherei</target>
+        <target>Biblioteca de barrio</target>
       </segment>
     </unit>
     <unit id="mgQ86_P" name="Tante Emma Laden">
@@ -3192,9 +3192,9 @@
         <note>Tante Emma Laden</note>
         <note category="german">Tante Emma Laden</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tante Emma Laden</source>
-        <target>Tante Emma Laden</target>
+        <target>Minimercado</target>
       </segment>
     </unit>
     <unit id="19QLQFs" name="Truck 'Rathaus auf Rädern'">
@@ -3202,9 +3202,9 @@
         <note>Truck 'Rathaus auf Rädern'</note>
         <note category="german">Truck 'Rathaus auf Rädern'</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Truck 'Rathaus auf Rädern'</source>
-        <target>Truck 'Rathaus auf Rädern'</target>
+        <target>Bus turístico</target>
       </segment>
     </unit>
     <unit id="OHLvvVZ" name="Umgekippter Laster">
@@ -3212,9 +3212,9 @@
         <note>Umgekippter Laster</note>
         <note category="german">Umgekippter Laster</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Umgekippter Laster</source>
-        <target>Umgekippter Laster</target>
+        <target>Camión averiado</target>
       </segment>
     </unit>
     <unit id="_TTUt_P" name="Verbrannte Grundschule">
@@ -3222,9 +3222,9 @@
         <note>Verbrannte Grundschule</note>
         <note category="german">Verbrannte Grundschule</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verbrannte Grundschule</source>
-        <target>Verbrannte Grundschule</target>
+        <target>Escuela quemada</target>
       </segment>
     </unit>
     <unit id="h5BzcKH" name="Verfallenes Bürogebäude">
@@ -3232,9 +3232,9 @@
         <note>Verfallenes Bürogebäude</note>
         <note category="german">Verfallenes Bürogebäude</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verfallenes Bürogebäude</source>
-        <target>Verfallenes Bürogebäude</target>
+        <target>Edificio deteriorado</target>
       </segment>
     </unit>
     <unit id="mAr1mWV" name="Verfallene Villa">
@@ -3242,9 +3242,9 @@
         <note>Verfallene Villa</note>
         <note category="german">Verfallene Villa</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verfallene Villa</source>
-        <target>Verfallene Villa</target>
+        <target>Pueblo fantasma</target>
       </segment>
     </unit>
     <unit id="kP_vzTg" name="Verlassene Baustelle">
@@ -3252,9 +3252,9 @@
         <note>Verlassene Baustelle</note>
         <note category="german">Verlassene Baustelle</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verlassene Baustelle</source>
-        <target>Verlassene Baustelle</target>
+        <target>Sitio de construcción abandonado</target>
       </segment>
     </unit>
     <unit id="gy.Tm7F" name="Verlassener Brunnen">
@@ -3262,9 +3262,9 @@
         <note>Verlassener Brunnen</note>
         <note category="german">Verlassener Brunnen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verlassener Brunnen</source>
-        <target>Verlassener Brunnen</target>
+        <target>Pozo abandonado</target>
       </segment>
     </unit>
     <unit id="c9WjvSB" name="Verlassene Silos">
@@ -3272,9 +3272,9 @@
         <note>Verlassene Silos</note>
         <note category="german">Verlassene Silos</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verlassene Silos</source>
-        <target>Verlassene Silos</target>
+        <target>Silos abandonados</target>
       </segment>
     </unit>
     <unit id="dSZWbRo" name="Versperrte Straße">
@@ -3282,9 +3282,9 @@
         <note>Versperrte Straße</note>
         <note category="german">Versperrte Straße</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Versperrte Straße</source>
-        <target>Versperrte Straße</target>
+        <target>Pista bloqueada</target>
       </segment>
     </unit>
     <unit id="12P6EOC" name="Verwilderter Park">
@@ -3292,9 +3292,9 @@
         <note>Verwilderter Park</note>
         <note category="german">Verwilderter Park</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verwilderter Park</source>
-        <target>Verwilderter Park</target>
+        <target>Parque abandonado</target>
       </segment>
     </unit>
     <unit id="u17l49g" name="Waffengeschäft Guns'n'Zombies">
@@ -3302,9 +3302,9 @@
         <note>Waffengeschäft Guns'n'Zombies</note>
         <note category="german">Waffengeschäft Guns'n'Zombies</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Waffengeschäft Guns'n'Zombies</source>
-        <target>Waffengeschäft Guns'n'Zombies</target>
+        <target>Armería «Guns'n'Zombies»</target>
       </segment>
     </unit>
     <unit id="TcWj320" name="Warenlager">
@@ -3312,9 +3312,9 @@
         <note>Warenlager</note>
         <note category="german">Warenlager</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Warenlager</source>
-        <target>Warenlager</target>
+        <target>Depósito abandonado</target>
       </segment>
     </unit>
     <unit id="bQ1Prey" name="Zelt eines Bürgers">
@@ -3322,9 +3322,9 @@
         <note>Zelt eines Bürgers</note>
         <note category="german">Zelt eines Bürgers</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zelt eines Bürgers</source>
-        <target>Zelt eines Bürgers</target>
+        <target>Tienda de un habitante</target>
       </segment>
     </unit>
     <unit id="z04UYqm" name="Zerstörte Apotheke">
@@ -3332,9 +3332,9 @@
         <note>Zerstörte Apotheke</note>
         <note category="german">Zerstörte Apotheke</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zerstörte Apotheke</source>
-        <target>Zerstörte Apotheke</target>
+        <target>Farmacia destruida</target>
       </segment>
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
@@ -3342,9 +3342,9 @@
         <note>ZomBIER Bar</note>
         <note category="german">ZomBIER Bar</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>ZomBIER Bar</source>
-        <target>ZomBIER Bar</target>
+        <target>Bar de mala muerte</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
@@ -3352,9 +3352,9 @@
         <note>%citizen% hat der Stadt folgendes gespendet: %item%</note>
         <note category="german">%citizen% hat der Stadt folgendes gespendet: %item%</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat der Stadt folgendes gespendet: %item%</source>
-        <target>%citizen% hat der Stadt folgendes gespendet: %item%</target>
+        <target>%citizen% ha donado %item%.</target>
       </segment>
     </unit>
     <unit id="d8vpz_8" name="%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%">
@@ -3362,9 +3362,9 @@
         <note>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</note>
         <note category="german">%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</target>
+        <target>¡%citizen% ha cogido %item% de los cofres del Almacén!</target>
       </segment>
     </unit>
     <unit id="R43wWvR" name="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
@@ -3372,9 +3372,9 @@
         <note>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</note>
         <note category="german">%citizen% hat folgenden Gegenstand hier abgelegt: %item%</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
-        <target>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</target>
+        <target>%citizen% ha dejado %item% en el suelo.</target>
       </segment>
     </unit>
     <unit id="6zpuvqo" name="%citizen% hat diesen Gegenstand mitgenommen: %item%">
@@ -3382,9 +3382,9 @@
         <note>%citizen% hat diesen Gegenstand mitgenommen: %item%</note>
         <note category="german">%citizen% hat diesen Gegenstand mitgenommen: %item%</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
-        <target>%citizen% hat diesen Gegenstand mitgenommen: %item%</target>
+        <target>%citizen% ha recogido %item% que encontró por ahí...</target>
       </segment>
     </unit>
     <unit id="Msm_smP" name="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
@@ -3402,9 +3402,9 @@
         <note>%citizen% hat eine Ration Wasser genommen.</note>
         <note category="german">%citizen% hat eine Ration Wasser genommen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat eine Ration Wasser genommen.</source>
-        <target>%citizen% hat eine Ration Wasser genommen.</target>
+        <target>%citizen% ha tomado una ración de agua.</target>
       </segment>
     </unit>
     <unit id="mdts1Bm" name="195b155">
@@ -3412,9 +3412,9 @@
         <note>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</note>
         <note category="german">Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</target>
+        <target>Un nuevo edificio ha sido construido: %plan%. Para esta construcción se utilizaron: %list%.</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
@@ -3422,9 +3422,9 @@
         <note>Es wurde ein neues Gebäude gebaut: %plan%.</note>
         <note category="german">Es wurde ein neues Gebäude gebaut: %plan%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Es wurde ein neues Gebäude gebaut: %plan%.</source>
-        <target>Es wurde ein neues Gebäude gebaut: %plan%.</target>
+        <target>Un nuevo edificio ha sido construido: %plan%.</target>
       </segment>
     </unit>
     <unit id="WsxqQWs" name="%citizen% wurde von %zombies% zerfleischt!">
@@ -3522,9 +3522,9 @@
         <note>%citizen% (%profession%) ist aus dem %direction% angekommen.</note>
         <note category="german">%citizen% (%profession%) ist aus dem %direction% angekommen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% (%profession%) ist aus dem %direction% angekommen.</source>
-        <target>%citizen% (%profession%) ist aus dem %direction% angekommen.</target>
+        <target>%citizen% (%profession%) ha llegado desde el %direction%.</target>
       </segment>
     </unit>
     <unit id="pCkOgOT" name="%citizen% hat ein(e,n) %item% ausgegraben!">
@@ -3542,9 +3542,9 @@
         <note>%citizen% hat hier durch Graben nichts gefunden...</note>
         <note category="german">%citizen% hat hier durch Graben nichts gefunden...</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
-        <target>%citizen% hat hier durch Graben nichts gefunden...</target>
+        <target>En su última búsqueda, %citizen% no encontró nada...</target>
       </segment>
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
@@ -3632,9 +3632,9 @@
         <note>Nicht ein Zombie hat die Stadt betreten!</note>
         <note category="german">Nicht ein Zombie hat die Stadt betreten!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Nicht ein Zombie hat die Stadt betreten!</source>
-        <target>Nicht ein Zombie hat die Stadt betreten!</target>
+        <target>¡Ningún zombie pudo entrar en el pueblo!</target>
       </segment>
     </unit>
     <unit id="qdFcLMD" name="%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.">
@@ -3682,9 +3682,9 @@
         <note>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</note>
         <note category="german">HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</source>
-        <target>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</target>
+        <target>¡%actor% ha sido visto robando %item% a %victim%!</target>
       </segment>
     </unit>
     <unit id="4N3qfX_" name="3dc5d36">
@@ -3772,9 +3772,9 @@
         <note>Kleine Stadt</note>
         <note category="german">Kleine Stadt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kleine Stadt</source>
-        <target>Kleine Stadt</target>
+        <target>Amateur</target>
       </segment>
     </unit>
     <unit id="bElrYkF" name="Entfernte Regionen">
@@ -3782,9 +3782,9 @@
         <note>Entfernte Regionen</note>
         <note category="german">Entfernte Regionen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Entfernte Regionen</source>
-        <target>Entfernte Regionen</target>
+        <target>Leyenda</target>
       </segment>
     </unit>
     <unit id="7H7gGH1" name="Pandämonium">
@@ -3792,9 +3792,9 @@
         <note>Pandämonium</note>
         <note category="german">Pandämonium</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Pandämonium</source>
-        <target>Pandämonium</target>
+        <target>Pandemonio</target>
       </segment>
     </unit>
     <unit id="2ZxNAfn" name="Private Stadt">
@@ -3802,9 +3802,9 @@
         <note>Private Stadt</note>
         <note category="german">Private Stadt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Private Stadt</source>
-        <target>Private Stadt</target>
+        <target>Pueblo privado</target>
       </segment>
     </unit>
     <unit id="GOlt3k3" name="%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.">
@@ -3822,9 +3822,9 @@
         <note>Nordosten</note>
         <note category="german">Nordosten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Nordosten</source>
-        <target>Nordosten</target>
+        <target>Noreste</target>
       </segment>
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
@@ -3832,9 +3832,9 @@
         <note>Nordwesten</note>
         <note category="german">Nordwesten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Nordwesten</source>
-        <target>Nordwesten</target>
+        <target>Noroeste</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3842,9 +3842,9 @@
         <note>Norden</note>
         <note category="german">Norden</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Norden</source>
-        <target>Norden</target>
+        <target>Norte</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3852,9 +3852,9 @@
         <note>Südosten</note>
         <note category="german">Südosten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Südosten</source>
-        <target>Südosten</target>
+        <target>Sudeste</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3862,9 +3862,9 @@
         <note>Südwesten</note>
         <note category="german">Südwesten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Südwesten</source>
-        <target>Südwesten</target>
+        <target>Sudoeste</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3872,9 +3872,9 @@
         <note>Süden</note>
         <note category="german">Süden</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Süden</source>
-        <target>Süden</target>
+        <target>Sur</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3882,9 +3882,9 @@
         <note>Osten</note>
         <note category="german">Osten</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Osten</source>
-        <target>Osten</target>
+        <target>Este</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3892,9 +3892,9 @@
         <note>Westen</note>
         <note category="german">Westen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Westen</source>
-        <target>Westen</target>
+        <target>Oeste</target>
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -3922,9 +3922,9 @@
         <note>Rucksack in der Bank ausleeren</note>
         <note category="german">Rucksack in der Bank ausleeren</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Rucksack in der Bank ausleeren</source>
-        <target>Rucksack in der Bank ausleeren</target>
+        <target>Vaciar tu mochila en el Almacén</target>
       </segment>
     </unit>
     <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
@@ -3932,9 +3932,9 @@
         <note>Durch die Lüftungsschächte klettern</note>
         <note category="german">Durch die Lüftungsschächte klettern</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Durch die Lüftungsschächte klettern</source>
-        <target>Durch die Lüftungsschächte klettern</target>
+        <target/>
       </segment>
     </unit>
     <unit id="mwAKBpm" name="Meine objekte">
@@ -3942,9 +3942,9 @@
         <note>Meine Objekte</note>
         <note category="german">Meine Objekte</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Meine objekte</source>
-        <target>Meine objekte</target>
+        <target>Mis objetos</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
@@ -3962,9 +3962,9 @@
         <note>Buddler</note>
         <note category="german">Buddler</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>Excavador</target>
       </segment>
     </unit>
     <unit id="aMWLa_K" name="Wächter">
@@ -3972,9 +3972,9 @@
         <note>Wächter</note>
         <note category="german">Wächter</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>Guardián</target>
       </segment>
     </unit>
     <unit id="N55mPtD" name="Aufklärer">
@@ -3982,9 +3982,9 @@
         <note>Aufklärer</note>
         <note category="german">Aufklärer</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>Explorador</target>
       </segment>
     </unit>
     <unit id="l9gYoq8" name="Dompteur">
@@ -3992,9 +3992,9 @@
         <note>Dompteur</note>
         <note category="german">Dompteur</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>Domador</target>
       </segment>
     </unit>
     <unit id="CcGFUIM" name="Techniker">
@@ -4002,9 +4002,9 @@
         <note>Techniker</note>
         <note category="german">Techniker</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>Técnico</target>
       </segment>
     </unit>
     <unit id="gMJ9FD2" name="Schamane">
@@ -4012,9 +4012,9 @@
         <note>Schamane</note>
         <note category="german">Schamane</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Schamane</source>
-        <target>Schamane</target>
+        <target>Chamán</target>
       </segment>
     </unit>
     <unit id="jYiPQYC" name="Einsiedler">
@@ -4022,9 +4022,9 @@
         <note>Einsiedler</note>
         <note category="german">Einsiedler</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>Ermitaño</target>
       </segment>
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
@@ -4032,9 +4032,9 @@
         <note>Verbesserung des Tages</note>
         <note category="german">Verbesserung des Tages</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verbesserung des Tages</source>
-        <target>Verbesserung des Tages</target>
+        <target>Mejora del día</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
@@ -4042,9 +4042,9 @@
         <note>Wachturm</note>
         <note category="german">Wachturm</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Wachturm</source>
-        <target>Wachturm</target>
+        <target>Torre de vigilancia</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -4052,9 +4052,9 @@
         <note>Werkstatt</note>
         <note category="german">Werkstatt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Werkstatt</source>
-        <target>Werkstatt</target>
+        <target>Taller</target>
       </segment>
     </unit>
     <unit id="Wf9i_SY" name="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
@@ -4152,9 +4152,9 @@
         <note>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</note>
         <note category="german">Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
-        <target>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</target>
+        <target>Te encuentras ante un vasto horizonte desolado. El Ultramundo. Hay otros condenados como tú recorriendo el desierto, escarbando en sus ruinas. Muchos de ellos no volverán jamás.</target>
       </segment>
     </unit>
     <unit id="Fak6Ovg" name="b6452db">
@@ -7658,6 +7658,918 @@
       <segment state="translated" subState="poedit:fuzzy">
         <source>Dazu hast Du kein Recht.</source>
         <target>Dazu hast Du kein Recht.</target>
+      </segment>
+    </unit>
+    <unit id="hz8ReXU" name="06d5938">
+      <notes>
+        <note category="german">Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="yuk5yk0" name="e612e0a">
+      <notes>
+        <note category="german">Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="U1wN7M9" name="15166e5">
+      <notes>
+        <note category="german">Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="y0CRLzz" name="383cf44">
+      <notes>
+        <note category="german">Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="04Y3sHe" name="c3919ad">
+      <notes>
+        <note category="german">Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="lUN_NCt" name="520ae66">
+      <notes>
+        <note category="german">Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Schamane dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Schamane dieser Stadt.</source>
+        <target>Du bist der Schamane dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
+        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="AaXbNC4" name="431e5d7">
+      <notes>
+        <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</note>
+      </notes>
+      <segment>
+        <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
+        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</target>
+      </segment>
+    </unit>
+    <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
+      <notes>
+        <note category="german">Besessen von einer gequälten Seele</note>
+      </notes>
+      <segment>
+        <source>Besessen von einer gequälten Seele</source>
+        <target>Besessen von einer gequälten Seele</target>
+      </segment>
+    </unit>
+    <unit id="cxtMADZ" name="6462887">
+      <notes>
+        <note category="german">Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</note>
+      </notes>
+      <segment>
+        <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
+        <target>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="FoS7MOU" name="0b6b395">
+      <notes>
+        <note category="german">Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</note>
+      </notes>
+      <segment>
+        <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
+        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+      </segment>
+    </unit>
+    <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
+      <notes>
+        <note category="german">Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</note>
+      </notes>
+      <segment>
+        <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
+        <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+      </segment>
+    </unit>
+    <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
+      <notes>
+        <note category="german">Hier wurde bereits ein Bauplan gefunden.</note>
+      </notes>
+      <segment>
+        <source>Hier wurde bereits ein Bauplan gefunden.</source>
+        <target>Hier wurde bereits ein Bauplan gefunden.</target>
+      </segment>
+    </unit>
+    <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
+      <notes>
+        <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
+        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+      </segment>
+    </unit>
+    <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
+      <notes>
+        <note category="german">Die Tarnung von %name% ist aufgeflogen!</note>
+      </notes>
+      <segment>
+        <source>Die Tarnung von %name% ist aufgeflogen!</source>
+        <target>Die Tarnung von %name% ist aufgeflogen!</target>
+      </segment>
+    </unit>
+    <unit id="jIaT.gH" name="b043aa1">
+      <notes>
+        <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
+      </notes>
+      <segment>
+        <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
+        <target>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</target>
+      </segment>
+    </unit>
+    <unit id="2MBbf8L" name="416726b">
+      <notes>
+        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+      </notes>
+      <segment>
+        <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
+        <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
+      </segment>
+    </unit>
+    <unit id="AL6LzU0" name="9a476a3">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
+        <target>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</target>
+      </segment>
+    </unit>
+    <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
+      <notes>
+        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
+        <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
+      </segment>
+    </unit>
+    <unit id="gLkZ8wY" name="0e83286">
+      <notes>
+        <note category="german">Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</note>
+      </notes>
+      <segment>
+        <source>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</source>
+        <target>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</target>
+      </segment>
+    </unit>
+    <unit id="qNbi2jZ" name="f202f15">
+      <notes>
+        <note category="german">Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</note>
+      </notes>
+      <segment>
+        <source>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</source>
+        <target>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</target>
+      </segment>
+    </unit>
+    <unit id="ROlGH4i" name="7e84046">
+      <notes>
+        <note category="german">Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</note>
+      </notes>
+      <segment>
+        <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
+        <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
+      </segment>
+    </unit>
+    <unit id="GIJWmHF" name="91f8c9a">
+      <notes>
+        <note category="german">Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</note>
+      </notes>
+      <segment>
+        <source>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</source>
+        <target>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</target>
+      </segment>
+    </unit>
+    <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
+      <notes>
+        <note category="german">Das ist keine gute Idee, das ist dir doch wohl klar!</note>
+      </notes>
+      <segment>
+        <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
+        <target>Das ist keine gute Idee, das ist dir doch wohl klar!</target>
+      </segment>
+    </unit>
+    <unit id="3eUF.n2" name="39c8b98">
+      <notes>
+        <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
+        <target>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</target>
+      </segment>
+    </unit>
+    <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
+      <notes>
+        <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
+      </notes>
+      <segment>
+        <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
+        <target>...der Mörder .. ist.. IST.. AAARGHhh..</target>
+      </segment>
+    </unit>
+    <unit id="IMXvDT6" name="6f93cd3">
+      <notes>
+        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</note>
+      </notes>
+      <segment>
+        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</source>
+        <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</target>
+      </segment>
+    </unit>
+    <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Bank.</source>
+        <target>In diesem Thread dreht sich alles um die Bank.</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</target>
+      </segment>
+    </unit>
+    <unit id="skuy31m" name="%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!">
+      <notes>
+        <note category="german">%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</note>
+      </notes>
+      <segment>
+        <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
+        <target>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</target>
+      </segment>
+    </unit>
+    <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
+      <notes>
+        <note category="german">Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</note>
+      </notes>
+      <segment>
+        <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</source>
+        <target>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</target>
+      </segment>
+    </unit>
+    <unit id="Tx6ACHr" name="Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.">
+      <notes>
+        <note category="german">Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</note>
+      </notes>
+      <segment>
+        <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
+        <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
+      </segment>
+    </unit>
+    <unit id="pYjjICz" name="e210a83">
+      <notes>
+        <note category="german">%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
+        <target>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</target>
+      </segment>
+    </unit>
+    <unit id="nLA31ML" name="ea40151">
+      <notes>
+        <note category="german">%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
+        <target>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
+      <notes>
+        <note category="german">%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
+        <target>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
+      <notes>
+        <note category="german">%citizen% hat sich für heute Nacht ein Versteck gesucht ...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
+        <target>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</target>
+      </segment>
+    </unit>
+    <unit id="HyDSnff" name="%citizen% hat sein Versteck verlassen.">
+      <notes>
+        <note category="german">%citizen% hat sein Versteck verlassen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sein Versteck verlassen.</source>
+        <target>%citizen% hat sein Versteck verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="7P4jtds" name="%citizen% hat beschlossen auf einen Eskortenanführer zu warten...">
+      <notes>
+        <note category="german">%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</source>
+        <target>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</target>
+      </segment>
+    </unit>
+    <unit id="tZT81ei" name="%citizen% hat beschlossen sich wieder allein fortzubewegen.">
+      <notes>
+        <note category="german">%citizen% hat beschlossen sich wieder allein fortzubewegen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen sich wieder allein fortzubewegen.</source>
+        <target>%citizen% hat beschlossen sich wieder allein fortzubewegen.</target>
+      </segment>
+    </unit>
+    <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
+      <notes>
+        <note category="german">%citizen% a convaincu %target_citizen% de le suivre.</note>
+      </notes>
+      <segment>
+        <source>%citizen% a convaincu %target_citizen% de le suivre.</source>
+        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
+      </segment>
+    </unit>
+    <unit id="VlmfWWl" name="Finalement, %citizen% a décidé de planter %target_citizen% là...">
+      <notes>
+        <note category="german">Finalement, %citizen% a décidé de planter %target_citizen% là...</note>
+      </notes>
+      <segment>
+        <source>Finalement, %citizen% a décidé de planter %target_citizen% là...</source>
+        <target>Finalement, %citizen% a décidé de planter %target_citizen% là...</target>
+      </segment>
+    </unit>
+    <unit id="KYKuCCa" name="0570887">
+      <notes>
+        <note category="german">Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</note>
+      </notes>
+      <segment>
+        <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
+        <target>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</target>
+      </segment>
+    </unit>
+    <unit id="J2aR_r9" name="ed375df">
+      <notes>
+        <note category="german">Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</note>
+      </notes>
+      <segment>
+        <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
+        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</target>
+      </segment>
+    </unit>
+    <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
+      <notes>
+        <note category="german">Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</note>
+      </notes>
+      <segment>
+        <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
+        <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
+      </segment>
+    </unit>
+    <unit id="ldDJ4DB" name="5617aca">
+      <notes>
+        <note category="german">Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</note>
+      </notes>
+      <segment>
+        <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
+        <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
+      </segment>
+    </unit>
+    <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
+      <notes>
+        <note category="german">Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</note>
+      </notes>
+      <segment>
+        <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
+        <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
+      </segment>
+    </unit>
+    <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
+      <notes>
+        <note category="german">Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</note>
+      </notes>
+      <segment>
+        <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
+        <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
+      </segment>
+    </unit>
+    <unit id="G9pK1NS" name="Du kannst keinen weiteren Bürger eskortieren.">
+      <notes>
+        <note category="german">Du kannst keinen weiteren Bürger eskortieren.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen weiteren Bürger eskortieren.</source>
+        <target>Du kannst keinen weiteren Bürger eskortieren.</target>
+      </segment>
+    </unit>
+    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
+      <notes>
+        <note category="german">Dieser Bürger hat kein AP mehr.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat kein AP mehr.</source>
+        <target>Dieser Bürger hat kein AP mehr.</target>
+      </segment>
+    </unit>
+    <unit id="rFh36Gr" name="Klassischer Editor">
+      <notes>
+        <note category="german">Klassischer Editor</note>
+      </notes>
+      <segment>
+        <source>Klassischer Editor</source>
+        <target>Klassischer Editor</target>
+      </segment>
+    </unit>
+    <unit id="wkidHer" name="Grafischer Editor">
+      <notes>
+        <note category="german">Grafischer Editor</note>
+      </notes>
+      <segment>
+        <source>Grafischer Editor</source>
+        <target>Grafischer Editor</target>
+      </segment>
+    </unit>
+    <unit id="ZLNo.4B" name="Position:">
+      <notes>
+        <note category="german">Position:</note>
+      </notes>
+      <segment>
+        <source>Position:</source>
+        <target>Position:</target>
+      </segment>
+    </unit>
+    <unit id="BpkKJfs" name="Zusammenbauen">
+      <notes>
+        <note category="german">Zusammenbauen</note>
+      </notes>
+      <segment>
+        <source>Zusammenbauen</source>
+        <target>Zusammenbauen</target>
+      </segment>
+    </unit>
+    <unit id="EV3WmmI" name="712ee4f">
+      <notes>
+        <note category="german">Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
+        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+      </segment>
+    </unit>
+    <unit id="dGfxw4F" name="2242ddb">
+      <notes>
+        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
+        <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
+      </segment>
+    </unit>
+    <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
+      <notes>
+        <note category="german">Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</source>
+        <target>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</target>
+      </segment>
+    </unit>
+    <unit id="sSdGp03" name="Ich habe doch zu große Angst...">
+      <notes>
+        <note category="german">Ich habe doch zu große Angst...</note>
+      </notes>
+      <segment>
+        <source>Ich habe doch zu große Angst...</source>
+        <target>Ich habe doch zu große Angst...</target>
+      </segment>
+    </unit>
+    <unit id="_xMXxrI" name="e0dcb5d">
+      <notes>
+        <note category="german">Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
+        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+      </segment>
+    </unit>
+    <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
+      <notes>
+        <note category="german">Ich möchte Wächter werden!</note>
+      </notes>
+      <segment>
+        <source>Ich möchte Wächter werden!</source>
+        <target>Ich möchte Wächter werden!</target>
+      </segment>
+    </unit>
+    <unit id="ANSfsJY" name="0e97f6c">
+      <notes>
+        <note category="german">Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</note>
+      </notes>
+      <segment>
+        <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
+        <target>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</target>
+      </segment>
+    </unit>
+    <unit id="vuWaICz" name="87f59f6">
+      <notes>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
+      </notes>
+      <segment>
+        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
+        <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</target>
+      </segment>
+    </unit>
+    <unit id="nusxEDS" name="Benutzte Waffe">
+      <notes>
+        <note category="german">Benutzte Waffe</note>
+      </notes>
+      <segment>
+        <source>Benutzte Waffe</source>
+        <target>Benutzte Waffe</target>
+      </segment>
+    </unit>
+    <unit id="WEf5fsd" name="Wähle meine Waffen!">
+      <notes>
+        <note category="german">Wähle meine Waffen!</note>
+      </notes>
+      <segment>
+        <source>Wähle meine Waffen!</source>
+        <target>Wähle meine Waffen!</target>
+      </segment>
+    </unit>
+    <unit id="xi60kHY" name="Gesamtzahl der Zombies, die heute Nacht sterben könnten:">
+      <notes>
+        <note category="german">Gesamtzahl der Zombies, die heute Nacht sterben könnten:</note>
+      </notes>
+      <segment>
+        <source>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</source>
+        <target>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</target>
+      </segment>
+    </unit>
+    <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
+      <notes>
+        <note category="german">Dieser Bürger hat keine letzten Worte hinterlassen ...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
+        <target>Dieser Bürger hat keine letzten Worte hinterlassen ...</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <notes>
+        <note category="german">Letzte Worte:</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Letzte Worte:</target>
+      </segment>
+    </unit>
+    <unit id="sK.fJbP" name="Was ist mit ihm geschehen?">
+      <notes>
+        <note category="german">Was ist mit ihm geschehen?</note>
+      </notes>
+      <segment>
+        <source>Was ist mit ihm geschehen?</source>
+        <target>Was ist mit ihm geschehen?</target>
+      </segment>
+    </unit>
+    <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
+      <notes>
+        <note category="german">Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</note>
+      </notes>
+      <segment>
+        <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
+        <target>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</target>
+      </segment>
+    </unit>
+    <unit id="zeR3KvL" name="8c2d7df">
+      <notes>
+        <note category="german">Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
+        <target>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</target>
+      </segment>
+    </unit>
+    <unit id="g69lh6D" name="a22eaa2">
+      <notes>
+        <note category="german">Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</note>
+      </notes>
+      <segment>
+        <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
+        <target>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</target>
+      </segment>
+    </unit>
+    <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">
+      <notes>
+        <note category="german">Klicke hier, um für diesen Bürger zu stimmen.</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um für diesen Bürger zu stimmen.</source>
+        <target>Klicke hier, um für diesen Bürger zu stimmen.</target>
+      </segment>
+    </unit>
+    <unit id="xp8ndxu" name="Du hast für diesen Bürger gestimmt.">
+      <notes>
+        <note category="german">Du hast für diesen Bürger gestimmt.</note>
+      </notes>
+      <segment>
+        <source>Du hast für diesen Bürger gestimmt.</source>
+        <target>Du hast für diesen Bürger gestimmt.</target>
+      </segment>
+    </unit>
+    <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
+      <notes>
+        <note category="german">Stadt im %direction% in %km% Entfernung</note>
+      </notes>
+      <segment>
+        <source>Stadt im %direction% in %km% Entfernung</source>
+        <target>Stadt im %direction% in %km% Entfernung</target>
+      </segment>
+    </unit>
+    <unit id="Q4Q3RlC" name="Du folgst aktuell %citizen%.">
+      <notes>
+        <note category="german">Du folgst aktuell %citizen%.</note>
+      </notes>
+      <segment>
+        <source>Du folgst aktuell %citizen%.</source>
+        <target>Du folgst aktuell %citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="tNPDkbr" name="6eb9def">
+      <notes>
+        <note category="german">Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</note>
+      </notes>
+      <segment>
+        <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
+        <target>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</target>
+      </segment>
+    </unit>
+    <unit id="jqa.16L" name="da1981d">
+      <notes>
+        <note category="german">Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
+      </notes>
+      <segment>
+        <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
+        <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+      </segment>
+    </unit>
+    <unit id="8c.i3q2" name="Zone reinigen">
+      <notes>
+        <note category="german">Zone reinigen</note>
+      </notes>
+      <segment>
+        <source>Zone reinigen</source>
+        <target>Zone reinigen</target>
+      </segment>
+    </unit>
+    <unit id="Ci7U3L." name="Aktualisierung">
+      <notes>
+        <note category="german">Aktualisierung</note>
+      </notes>
+      <segment>
+        <source>Aktualisierung</source>
+        <target>Aktualisierung</target>
+      </segment>
+    </unit>
+    <unit id="i5FChQj" name="Deine Eskorte">
+      <notes>
+        <note category="german">Deine Eskorte</note>
+      </notes>
+      <segment>
+        <source>Deine Eskorte</source>
+        <target>Deine Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="GSKpJCY" name="32bd220">
+      <notes>
+        <note category="german">Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
+        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+      </segment>
+    </unit>
+    <unit id="_s1Oex0" name="Gesamte Eskorte">
+      <notes>
+        <note category="german">Gesamte Eskorte</note>
+      </notes>
+      <segment>
+        <source>Gesamte Eskorte</source>
+        <target>Gesamte Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="Jh.CarL" name="Bürger in dieser Zone">
+      <notes>
+        <note category="german">Bürger in dieser Zone</note>
+      </notes>
+      <segment>
+        <source>Bürger in dieser Zone</source>
+        <target>Bürger in dieser Zone</target>
+      </segment>
+    </unit>
+    <unit id="wVNJv3." name="Camping">
+      <notes>
+        <note category="german">Camping</note>
+      </notes>
+      <segment>
+        <source>Camping</source>
+        <target>Camping</target>
+      </segment>
+    </unit>
+    <unit id="qIelrId" name="Eskorte">
+      <notes>
+        <note category="german">Eskorte</note>
+      </notes>
+      <segment>
+        <source>Eskorte</source>
+        <target>Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="fWKRZJU" name="Eskorte aktivieren">
+      <notes>
+        <note category="german">Eskorte aktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorte aktivieren</source>
+        <target>Eskorte aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="DvcImFR" name="Ich will auf direktem Weg zurück zur Stadt">
+      <notes>
+        <note category="german">Ich will auf direktem Weg zurück zur Stadt</note>
+      </notes>
+      <segment>
+        <source>Ich will auf direktem Weg zurück zur Stadt</source>
+        <target>Ich will auf direktem Weg zurück zur Stadt</target>
+      </segment>
+    </unit>
+    <unit id="td.v3Fq" name="Zugriff auf meinen Rucksack zulassen">
+      <notes>
+        <note category="german">Zugriff auf meinen Rucksack zulassen</note>
+      </notes>
+      <segment>
+        <source>Zugriff auf meinen Rucksack zulassen</source>
+        <target>Zugriff auf meinen Rucksack zulassen</target>
+      </segment>
+    </unit>
+    <unit id="dV_nb5u" name="Eskorte deaktivieren">
+      <notes>
+        <note category="german">Eskorte deaktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorte deaktivieren</source>
+        <target>Eskorte deaktivieren</target>
+      </segment>
+    </unit>
+    <unit id="B5vvTiM" name="Senden">
+      <notes>
+        <note category="german">Send</note>
+      </notes>
+      <segment>
+        <source>Senden</source>
+        <target>Senden</target>
+      </segment>
+    </unit>
+    <unit id="iF7FJz5" name="Deine letzten Worte:">
+      <notes>
+        <note category="german">Deine letzten Worte:</note>
+      </notes>
+      <segment>
+        <source>Deine letzten Worte:</source>
+        <target>Deine letzten Worte:</target>
+      </segment>
+    </unit>
+    <unit id="xbvLcF5" name="Mystic-Punkte">
+      <notes>
+        <note category="german">Mystic-Punkte</note>
+      </notes>
+      <segment>
+        <source>Mystic-Punkte</source>
+        <target>Mystic-Punkte</target>
+      </segment>
+    </unit>
+    <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
+      <notes>
+        <note category="german">Diese Punkte sind exklusiv für den Schamanen reserviert.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
+        <target>Diese Punkte sind exklusiv für den Schamanen reserviert.</target>
+      </segment>
+    </unit>
+    <unit id="1_CH2K0" name="Du bist der %rolename% dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der %rolename% dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der %rolename% dieser Stadt.</source>
+        <target>Du bist der %rolename% dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
+      <notes>
+        <note category="german">Akteneinsicht wird beantragt...</note>
+      </notes>
+      <segment>
+        <source>Akteneinsicht wird beantragt...</source>
+        <target>Akteneinsicht wird beantragt...</target>
+      </segment>
+    </unit>
+    <unit id="wbSNK79" name="Protokolle werden analysiert...">
+      <notes>
+        <note category="german">Protokolle werden analysiert...</note>
+      </notes>
+      <segment>
+        <source>Protokolle werden analysiert...</source>
+        <target>Protokolle werden analysiert...</target>
+      </segment>
+    </unit>
+    <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
+      <notes>
+        <note category="german">Überwachungsapparat wird ausgewertet...</note>
+      </notes>
+      <segment>
+        <source>Überwachungsapparat wird ausgewertet...</source>
+        <target>Überwachungsapparat wird ausgewertet...</target>
+      </segment>
+    </unit>
+    <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
+      <notes>
+        <note category="german">Belastende Beweise werden übermittelt...</note>
+      </notes>
+      <segment>
+        <source>Belastende Beweise werden übermittelt...</source>
+        <target>Belastende Beweise werden übermittelt...</target>
+      </segment>
+    </unit>
+    <unit id="EKpWan5" name="Was sagst du dazu?">
+      <notes>
+        <note category="german">Was sagst du dazu?</note>
+      </notes>
+      <segment>
+        <source>Was sagst du dazu?</source>
+        <target>Was sagst du dazu?</target>
       </segment>
     </unit>
   </file>

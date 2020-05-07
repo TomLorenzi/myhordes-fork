@@ -29,7 +29,7 @@
             {% set citizen = citizenInfo.citizen %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row pointer{% if citizen == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                <div class="cell-small rw-5 rw-lg-0" style="background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/empty_avatar.gif') }}') center/cover no-repeat">
+                <div class="cell-small rw-5 rw-lg-0" style="background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/empty_avatar.gif') }}') center/cover no-repeat; height: 33px;">
 
                 </div>
 

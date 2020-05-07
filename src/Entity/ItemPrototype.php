@@ -71,6 +71,11 @@ class ItemPrototype
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $watchpoint = 0;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -220,6 +225,18 @@ class ItemPrototype
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getWatchpoint(): ?int
+    {
+        return $this->watchpoint;
+    }
+
+    public function setWatchpoint(int $watchpoint): self
+    {
+        $this->watchpoint = $watchpoint;
 
         return $this;
     }

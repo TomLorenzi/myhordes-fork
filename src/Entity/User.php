@@ -176,7 +176,7 @@ class User implements UserInterface, EquatableInterface
 
         // set (or unset) the owning side of the relation if necessary
         $newUser = null === $pendingValidation ? null : $this;
-        if ($pendingValidation->getUser() !== $newUser) {
+        if ($pendingValidation && $pendingValidation->getUser() !== $newUser) {
             $pendingValidation->setUser($newUser);
         }
 

@@ -7310,12 +7310,6 @@
         <target>__Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</target>
       </segment>
     </unit>
-    <unit id="47DEQpj" name="">
-      <segment>
-        <source></source>
-        <target></target>
-      </segment>
-    </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
       <notes>
         <note category="german">Haus aufräumen und putzen</note>
@@ -7629,6 +7623,102 @@
       <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
         <target>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</target>
+      </segment>
+    </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="s1_qYeB" name="Kreuz">
+      <notes>
+        <note category="german">Kreuz</note>
+      </notes>
+      <segment>
+        <source>Kreuz</source>
+        <target>Kreuz</target>
+      </segment>
+    </unit>
+    <unit id="XnWnfMP" name="Pik">
+      <notes>
+        <note category="german">Pik</note>
+      </notes>
+      <segment>
+        <source>Pik</source>
+        <target>Pik</target>
+      </segment>
+    </unit>
+    <unit id="Rduezfz" name="Herz">
+      <notes>
+        <note category="german">Herz</note>
+      </notes>
+      <segment>
+        <source>Herz</source>
+        <target>Herz</target>
+      </segment>
+    </unit>
+    <unit id="2P.dMD0" name="Karo">
+      <notes>
+        <note category="german">Karo</note>
+      </notes>
+      <segment>
+        <source>Karo</source>
+        <target>Karo</target>
+      </segment>
+    </unit>
+    <unit id="cIg8Tyq" name="Bube">
+      <notes>
+        <note category="german">Bube</note>
+      </notes>
+      <segment>
+        <source>Bube</source>
+        <target>Bube</target>
+      </segment>
+    </unit>
+    <unit id="82FCAix" name="Dame">
+      <notes>
+        <note category="german">Dame</note>
+      </notes>
+      <segment>
+        <source>Dame</source>
+        <target>Dame</target>
+      </segment>
+    </unit>
+    <unit id="5IgH0Ms" name="König">
+      <notes>
+        <note category="german">König</note>
+      </notes>
+      <segment>
+        <source>König</source>
+        <target>König</target>
+      </segment>
+    </unit>
+    <unit id="Dq2RYL6" name="Ass">
+      <notes>
+        <note category="german">Ass</note>
+      </notes>
+      <segment>
+        <source>Ass</source>
+        <target>Ass</target>
+      </segment>
+    </unit>
+    <unit id="hEgldti" name="Nachtwache-Waffen">
+      <notes>
+        <note category="german">Nachtwache-Waffen</note>
+      </notes>
+      <segment>
+        <source>Nachtwache-Waffen</source>
+        <target>Nachtwache-Waffen</target>
+      </segment>
+    </unit>
+    <unit id="47LA9aV" name="Pkte">
+      <notes>
+        <note category="german">Pkte</note>
+      </notes>
+      <segment>
+        <source>Pkte</source>
+        <target>Pkte</target>
       </segment>
     </unit>
   </file>

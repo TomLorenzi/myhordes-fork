@@ -1,6 +1,6 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
-
+    {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
     <div class="help">
         {% trans from 'game' %}
             Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.
@@ -10,7 +10,7 @@
     <h5>{{ 'Wachturm'|trans({},'buildings') }}</h5>
     <div class="block watchtower">
         <div class="row">
-            {% if town.type.name == 'small' or  z0[4] >= 33%}
+            {% if z0[4] >= wtt %}
             <div class="padded cell rw-12 left">
                 {{ 'Heutige Abschätzung'|trans({},'game') }}
             </div>

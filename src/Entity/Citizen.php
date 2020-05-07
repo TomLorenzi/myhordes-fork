@@ -205,6 +205,11 @@ class Citizen
      */
     private $disposedBy;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="citizen", orphanRemoval=true)
+     */
+    private $citizenWatch;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -217,6 +222,7 @@ class Citizen
         $this->votes = new ArrayCollection();
         $this->leadingEscorts = new ArrayCollection();
         $this->disposedBy = new ArrayCollection();
+        $this->citizenWatch = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -710,6 +716,15 @@ class Citizen
         return false;
     }
 
+    public function hasPassiveDigTimer(): bool {
+        $zone = $this->getZone();
+        if (!$zone) return false;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone()->getId() === $zone->getId())
+                return $digTimer->getPassive();
+        return false;
+    }
+
     public function getDigTimeout(): int {
         $zone = $this->getZone();
         if (!$zone) return -1;
@@ -860,6 +875,27 @@ class Citizen
         if ($this->disposedBy->contains($citizen)) {
             $this->disposedBy->removeElement($citizen);
         }
+
+        return $this;
+    }
+
+    public function getCitizenWatch(): ?CitizenWatch
+    {
+        return $this->citizenWatch;
+    }
+
+    public function addCitizenWatch(?CitizenWatch $citizenWatch): self
+    {
+        if(!$this->citizenWatch->contains($citizenWatch))
+            $this->citizenWatch[] = $citizenWatch;
+
+        return $this;
+    }
+
+    public function removeCitizenWatch(?CitizenWatch $citizenWatch): self
+    {
+        if($this->citizenWatch->contains($citizenWatch))
+        $this->citizenWatch->removeElement($citizenWatch);
 
         return $this;
     }

@@ -21,32 +21,38 @@ class UserPendingValidationRepository extends ServiceEntityRepository
         parent::__construct($registry, UserPendingValidation::class);
     }
 
-    public function findOneByToken(string $value): ?UserPendingValidation
+    public function findOneByToken(string $value, ?int $type = null): ?UserPendingValidation
     {
         try {
-            return $this->createQueryBuilder('uv')
-                ->andWhere('uv.pkey = :val')->setParameter('val', $value)
-                ->getQuery()->getOneOrNullResult();
+            $q = $this->createQueryBuilder('uv')
+                ->andWhere('uv.pkey = :val')->setParameter('val', $value);
+
+            if ($type !== null)
+                $q->andWhere('uv.type = :t')->setParameter('t', $type);
+
+            return $q->getQuery()->getOneOrNullResult();
         } catch (NonUniqueResultException $e) { return null; }
     }
 
-    public function findOneByUser(User $user): ?UserPendingValidation
+    public function findOneByUserAndType(User $user, int $type): ?UserPendingValidation
     {
         try {
             return $this->createQueryBuilder('uv')
                 ->andWhere('uv.user = :val')->setParameter('val', $user->getId())
+                ->andWhere('uv.type = :t')->setParameter('t', $type)
                 ->getQuery()->getOneOrNullResult();
         } catch (NonUniqueResultException $e) { return null; }
     }
 
-    public function findOneByTokenAndUser(string $value, ?User $user = null): ?UserPendingValidation
+    public function findOneByTokenAndUserAndType(string $value, ?User $user = null, ?int $type = null): ?UserPendingValidation
     {
         try {
             $query = $this->createQueryBuilder('uv')
                 ->andWhere('uv.pkey = :key')->setParameter('key', $value);
             if ($user)
                 $query->andWhere('uv.user = :uid')->setParameter('uid', $user->getId());
-
+            if ($type !== null)
+                $query->andWhere('uv.type = :type')->setParameter('type', $type);
             return $query->getQuery()->getOneOrNullResult();
         } catch (NonUniqueResultException $e) { return null; }
     }

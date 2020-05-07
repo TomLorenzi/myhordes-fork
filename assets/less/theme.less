@@ -714,13 +714,19 @@ div.game-menu-area {
         position: relative; padding: 2px 8px; background: rgba(0,0,0,0.5); font-weight: bold;
         color: @myhordes-smalltext; box-shadow: inset 0 0 4px rgba(0,0,0,0.9); border-radius: 4px;
         border: 1px solid rgba(0,0,0,0.3); height: 28px; float: right; font-size: .2rem;
-        &:before {
-          display: block; position: absolute; top: -1px; left: 5px; right: 0; font-size: .7rem; content: "Status";
+        &>.text {
+          display: block;
+          position: absolute;
+          top: -1px;
+          left: 5px;
+          right: 0;
+          font-size: .7rem;
           font-variant: small-caps;
+          margin-top: 0;
         }
         &:not(.ap):not(.bp):not(.pm) {
           &:not(.civil) { min-width: 64px };
-          &>li {
+          &>li:not(.text) {
             height: 18px; width: 18px; margin-top: 6px; vertical-align: bottom;
             &.free,&.item {border: 1px dotted @myhordes-smalltext;}
             &.item { border-color: transparent; }
@@ -728,7 +734,7 @@ div.game-menu-area {
           }
         }
 
-        &.rucksack:before { content: "Rucksack"}
+        /*&.rucksack:before*/
         &.ap,&.bp,&.pm {
           font-size: 1.6rem;
           &>li { margin-top: 3px; }
@@ -1006,4 +1012,25 @@ div.daily-attack {
     outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
   }
 &.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
+}
+
+#raventimes {
+  .newspage {
+    width: 435px;
+    height: 360px;
+    background-image: url('../img/news/newsBg.gif');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    display: inline-block;
+
+    &#newspage-1 {
+      margin-left: 20px;
+    }
+
+    &#newspage-2 {
+      background-position: 100% 0;
+      width: 419px;
+      margin-left: -4px;
+    }
+  }
 }

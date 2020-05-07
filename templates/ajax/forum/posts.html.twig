@@ -43,11 +43,11 @@
                 {% endif %}
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
-                            {{ 'Heute um'|trans({},'global') }}{{ post.date.format(' G:i') }}
+                            {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
                         {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
-                            {{ 'Gestern um'|trans({},'global') }}{{ post.date.format(' G:i') }}
+                            {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
                         {% else %}
-                            {{ post.date.format('D, d.m.Y G:i') }}
+                            {{ post.date|format_datetime('medium', 'short') }}
                         {% endif %}
                     </i>
                     {% if (post.owner.avatar) %}
@@ -77,7 +77,7 @@
                             {{ post.owner.username }}
                         {% endif %}
                     </b>
-                    {% if post.note is not null %}<br /><span>{{ post.note }}</span>{% endif %}
+                    {% if post.note is not null %}<div class="right post-note"><img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" /> <span>{{ post.note }}</span></div>{% endif %}
                 </div>
                 {% if post.id == postMarker %}
                     <div class="forum-post-content-marked">
@@ -88,10 +88,17 @@
                         {{ post.text|raw }}
                     </div>
                 {% endif %}
-                <div class="forum-post-footer">
+                <div class="forum-post-footer right">
                         <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
                     {% if is_granted("ROLE_ADMIN") %}
-                        <a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a>
+                        <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
+                            <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
+                            <ul class="mod-submenu-links">
+                                <li>
+                                    <a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a>
+                                </li>
+                            </ul>
+                        </label>
                     {% endif %}
                 </div>
             </div>
@@ -152,23 +159,23 @@
         <div class="cell padded rw-6 left">
         {% if is_granted("ROLE_ADMIN")%}
             {% if not locked %}
-                <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" />{{ 'Schließen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
             {% endif %}
             {% if locked %}
-                <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Öffnen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
             {% endif %}
             {% if not pinned %}
-                <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Anpinnen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
             {% else %}
-                <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" />{{ 'Loslösen'|trans({},'global') }}</div>
+                <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
             {% endif %}
         {% endif %}
         </div>
         <div class="cell padded rw-6 right">
         {% if not locked and not is_granted("ROLE_BANNED") %}            
-            <div x-forum-action="answer" class="forum-button">{{ 'Antworten'|trans({},'global') }}</div>
+            <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
         {% else %}
-            <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" />{{ 'Antworten'|trans({},'global') }}</div>
+            <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
         {% endif %}
         </div>
     </div>
@@ -186,8 +193,9 @@
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"');
         for (let i = 0; i < del_buttons.length; i++)
             del_buttons[i].addEventListener('click', function() {
-                if (confirm('{{ 'Beitrag löschen?'|trans({},'admin') }}'))
-                    $.ajax.easySend( '{{ url('forum_delete_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
+                let reason = prompt('{{ 'Grund'|trans({},'admin') }}', '');
+                if (!(reason == null))
+                    $.ajax.easySend( '{{ url('forum_delete_post_controller', { 'fid': fid, 'tid': tid}) }}', {reason: reason, postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) },
                         function (data) {
                             $.ajax.load(null, data.url, true);
                         } )
@@ -231,7 +239,8 @@
             {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
             {% endif %}
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') )} )
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') )} );
+            window.scrollTo(window.top);
         })
     {% if pages == current_page %}
         let thread_listings = document.querySelectorAll('[x-thread-id="{{ tid }}"]');

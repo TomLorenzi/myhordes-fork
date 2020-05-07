@@ -284,7 +284,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% de zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
+        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -964,7 +964,7 @@
       </notes>
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
-        <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
+        <target>Woaw! vous pouvez voir pratiquement tout d'ici! C'est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville.</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -1489,7 +1489,7 @@
       <segment>
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                 in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexent commencent et terminent où vous voulez.</target>
+        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexes commencent et terminent où vous voulez.</target>
       </segment>
     </unit>
     <unit id="dLIxjrY" name="Nur Helden können komplexe Routen planen.">
@@ -2481,7 +2481,7 @@
       </notes>
       <segment>
         <source>Zonenchat</source>
-        <target></target>
+        <target>Zone Chat</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -2738,7 +2738,7 @@
       <segment>
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                                                       verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>En tant qu'%citizen%, vous n'utiliserez pas de jours héros.
+        <target>En tant que %citizen%, vous n'utiliserez pas de jours héros.
                                                         Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
       </segment>
     </unit>
@@ -3795,7 +3795,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %zombies% zerfleischt!</source>
-        <target>%citizen% a été tué par %zombies% zombies!</target>
+        <target>%citizen% a été tué par %zombies% !</target>
       </segment>
     </unit>
     <unit id="26dC9N0" name="5206011">
@@ -4103,7 +4103,7 @@
       </notes>
       <segment>
         <source>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
-        <target>Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
+        <target>Il semblerait que quelqu'un a fait irruption chez %victim% et y a déposé %item%...</target>
       </segment>
     </unit>
     <unit id="e.cUavH" name="%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.">
@@ -4551,7 +4551,7 @@
       </notes>
       <segment>
         <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
-        <target> Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
+        <target>Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
       </segment>
     </unit>
     <unit id="Fak6Ovg" name="b6452db">
@@ -4672,7 +4672,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Nos défenses suffisent à couvrir toute l'attaque de ce soir.</target>
+        <target>Nos défenses sont suffisantes pour l'attaque de ce soir.</target>
       </segment>
     </unit>
     <unit id="0lltLsX" name="Unsere Verteidigung :">
@@ -5046,7 +5046,7 @@
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Dévoré par un goule</target>
+        <target>Dévoré par une goule</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -5090,7 +5090,7 @@
       </notes>
       <segment>
         <source>Strangulation</source>
-        <target>Strangulation</target>
+        <target>Étranglement</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -6111,7 +6111,7 @@
       </notes>
       <segment>
         <source>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</source>
-        <target>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</target>
+        <target>Dans la Décharge, vous pouvez y jeter les objets de la banque pour améliorer temporairement les défenses de la ville.</target>
       </segment>
     </unit>
     <unit id="u3C29q0" name="Jeder so zerstörte Gegenstand kostet dich %ap%.">
@@ -6122,7 +6122,7 @@
       </notes>
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich %ap%.</source>
-        <target>Jeder so zerstörte Gegenstand kostet dich %ap%.</target>
+        <target>Chaque objet détruit de cette façon coûte %ap%.</target>
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -6133,7 +6133,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</target>
+        <target>Vous avez été banni et ne pouvez donc plus utiliser le Dépotoir.</target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -6155,7 +6155,7 @@
       </notes>
       <segment>
         <source>Gegenstand</source>
-        <target>Gegenstand</target>
+        <target>Objet</target>
       </segment>
     </unit>
     <unit id="9WgEJfS" name="Installieren">
@@ -6336,13 +6336,11 @@
     </unit>
     <unit id="rSInXr8" name="Du kannst dich nicht fortbewegen während du versteckt bist.">
       <notes>
-        <note>Du kannst dich nicht fortbewegen während du versteckt bist.</note>
-        <note>Du kannst dich nicht fortbewegen, während du versteckt bist.</note>
         <note category="german">Du kannst dich nicht fortbewegen, während du versteckt bist.</note>
       </notes>
       <segment>
         <source>Du kannst dich nicht fortbewegen während du versteckt bist.</source>
-        <target>Du kannst dich nicht fortbewegen während du versteckt bist.</target>
+        <target>Vous ne pouvez pas vous déplacer tant que vous êtes caché.</target>
       </segment>
     </unit>
     <unit id="q9a_zyp" name="Du kannst das nicht tun während du dich versteckst.">
@@ -6353,18 +6351,16 @@
       </notes>
       <segment>
         <source>Du kannst das nicht tun während du dich versteckst.</source>
-        <target>Du kannst das nicht tun während du dich versteckst.</target>
+        <target>Vous ne pouvez pas faire cela en étant caché.</target>
       </segment>
     </unit>
     <unit id="jpuNBoV" name="Du kannst helfen und dich der heutigen Nachtwache anschließen!">
       <notes>
-        <note>Du kannst helfen und dich der heutigen Nachtwache anschließen!</note>
-        <note>Du kannst helfen und dich der heutigen Nachtwache anschließen!</note>
         <note category="german">Du kannst helfen und dich der heutigen Nachtwache anschließen!</note>
       </notes>
       <segment>
         <source>Du kannst helfen und dich der heutigen Nachtwache anschließen!</source>
-        <target>Du kannst helfen und dich der heutigen Nachtwache anschließen!</target>
+        <target>Vous pouvez aider en devenant veilleur !</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -7897,9 +7893,10 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Les points de construction peuvent être utilisés dans l'atelier et sur les chantiers de construction,
+                    où ils comptent comme des points d'action. Si possible, les points de construction sont toujours
+                    utilisés en premier avant l'utilisation des points d'action. Gardez à l'esprit que les points de
+                    construction ne peuvent pas être utilisés lorsque vous êtes épuisé!</target>
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">
@@ -7934,8 +7931,7 @@
       <segment>
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
+        <target>Si vous jouez en tant que %hero%, un Jour Héro vous sera déduit quotidiennement. Si vous tombez à court de Jours Héro pendant une incernation, vous continuerez à jouer en tant que simple citoyen.</target>
       </segment>
     </unit>
     <unit id="nbN6CQm" name="f843777">
@@ -7958,8 +7954,7 @@
       <segment>
         <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
-        <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+        <target><![CDATA[La ville a légalisé l'esclavage. Vous pouvez désormais travailler sur les chantiers malgré votre bannissement et y obtenir un bonus de 50%. <div class="ap"></div>.]]></target>
       </segment>
     </unit>
     <unit id="QL.qpuP" name="d231db0">
@@ -8059,7 +8054,7 @@
       </notes>
       <segment>
         <source>Gereinigte Seelen</source>
-        <target>Gereinigte Seelen</target>
+        <target>Âmes purifiées</target>
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -8257,7 +8252,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Gegenstand nicht stehlen.</source>
-        <target>Du kannst diesen Gegenstand nicht stehlen.</target>
+        <target>Vous ne pouvez pas voler cet objet.</target>
       </segment>
     </unit>
     <unit id="Tzmt5qh" name="d848698">
@@ -8284,7 +8279,7 @@
       </notes>
       <segment>
         <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
-        <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
+        <target>Dernière chance! Tout les objets de la ville on été détruits. La ville reçoit %def% de défense grace à cela.</target>
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
@@ -8500,7 +8495,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Notre défense n'est pas suffisante pour encaisser l'attaque de ce soir.</target>
       </segment>
     </unit>
     <unit id="FoS7MOU" name="0b6b395">
@@ -8721,7 +8716,7 @@
     </unit>
     <unit id="B5vvTiM" name="Senden">
       <notes>
-        <note category="german">Senden</note>
+        <note category="german">Send</note>
       </notes>
       <segment>
         <source>Senden</source>
@@ -8779,7 +8774,7 @@
       </notes>
       <segment>
         <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
-        <target>%citizen% a passé quelques minutes à améliorer le campement.</target>
+        <target>%citizen% a passé de longues minutes à aménager une planque avec tout ce qui pouvait lui passer sous la main.</target>
       </segment>
     </unit>
     <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
@@ -8788,7 +8783,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
-        <target>%citizen% a installé %item% pour améliorer le campement.</target>
+        <target>%citizen% a aménagé une cachette avec %item%.</target>
       </segment>
     </unit>
     <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
@@ -9025,7 +9020,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% überzeugt ihm zu folgen.</source>
-        <target>%citizen% hat %target_citizen% überzeugt ihm zu folgen.</target>
+        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
       </segment>
     </unit>
     <unit id="zbqhbfy" name="%citizen% hat beschlossen %target_citizen% hier zurückzulassen...">
@@ -9188,6 +9183,366 @@
       <segment>
         <source>Grafischer Editor</source>
         <target>Éditeur graphique</target>
+      </segment>
+    </unit>
+    <unit id="BpkKJfs" name="Zusammenbauen">
+      <notes>
+        <note category="german">Zusammenbauen</note>
+      </notes>
+      <segment>
+        <source>Zusammenbauen</source>
+        <target>Assembler</target>
+      </segment>
+    </unit>
+    <unit id="jqa.16L" name="da1981d">
+      <notes>
+        <note category="german">Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
+      </notes>
+      <segment>
+        <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
+        <target>Vous avez déjà fouiller ce secteur aujourd'hui, une prochaine fouille sera possible demain.</target>
+      </segment>
+    </unit>
+    <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
+      <notes>
+        <note category="german">Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</source>
+        <target>Finalement être veilleur vous effraie ? Alors n'hésitez pas un seul instant:</target>
+      </segment>
+    </unit>
+    <unit id="sSdGp03" name="Ich habe doch zu große Angst...">
+      <notes>
+        <note category="german">Ich habe doch zu große Angst...</note>
+      </notes>
+      <segment>
+        <source>Ich habe doch zu große Angst...</source>
+        <target>Finalement j'ai trop peur...</target>
+      </segment>
+    </unit>
+    <unit id="_xMXxrI" name="e0dcb5d">
+      <notes>
+        <note category="german">Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
+        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+      </segment>
+    </unit>
+    <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
+      <notes>
+        <note category="german">Ich möchte Wächter werden!</note>
+      </notes>
+      <segment>
+        <source>Ich möchte Wächter werden!</source>
+        <target>Je veux devenir veilleur !</target>
+      </segment>
+    </unit>
+    <unit id="ANSfsJY" name="0e97f6c">
+      <notes>
+        <note category="german">Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</note>
+      </notes>
+      <segment>
+        <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
+        <target>Ah et oui, pour info, il nous semble utilse de vous signaler que vous avez %deathChance%% de chance de mourir ce soir et %woundAndTerrorChance%% d'être blessé ou terrorisé au cours de cette garde.</target>
+      </segment>
+    </unit>
+    <unit id="WEf5fsd" name="Wähle meine Waffen!">
+      <notes>
+        <note category="german">Wähle meine Waffen!</note>
+      </notes>
+      <segment>
+        <source>Wähle meine Waffen!</source>
+        <target>Choisir des armes !</target>
+      </segment>
+    </unit>
+    <unit id="dGfxw4F" name="2242ddb">
+      <notes>
+        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
+        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
+      </segment>
+    </unit>
+    <unit id="nusxEDS" name="Benutzte Waffe">
+      <notes>
+        <note category="german">Benutzte Waffe</note>
+      </notes>
+      <segment>
+        <source>Benutzte Waffe</source>
+        <target>Arme(s) utilisée(s)</target>
+      </segment>
+    </unit>
+    <unit id="hz8ReXU" name="06d5938">
+      <notes>
+        <note category="german">Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à la tête ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="yuk5yk0" name="e612e0a">
+      <notes>
+        <note category="german">Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à la main ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="U1wN7M9" name="15166e5">
+      <notes>
+        <note category="german">Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé au bras ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="y0CRLzz" name="383cf44">
+      <notes>
+        <note category="german">Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à la jambe ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="04Y3sHe" name="c3919ad">
+      <notes>
+        <note category="german">Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé à l'œil ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="lUN_NCt" name="520ae66">
+      <notes>
+        <note category="german">Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Vous êtes gravement blessé au pied ! Vous récupérez 1 PA en moins lorsque vous buvez, mangez et vous vous reposez.</target>
+      </segment>
+    </unit>
+    <unit id="xi60kHY" name="Gesamtzahl der Zombies, die heute Nacht sterben könnten:">
+      <notes>
+        <note category="german">Gesamtzahl der Zombies, die heute Nacht sterben könnten:</note>
+      </notes>
+      <segment>
+        <source>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</source>
+        <target>Total des zombies qui peuvent mourir ce soir :</target>
+      </segment>
+    </unit>
+    <unit id="skuy31m" name="%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!">
+      <notes>
+        <note category="german">%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</note>
+      </notes>
+      <segment>
+        <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
+        <target>%citizen% est mort en tombant ridiculement du haut de la muraille !</target>
+      </segment>
+    </unit>
+    <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
+      <notes>
+        <note category="german">Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</note>
+      </notes>
+      <segment>
+        <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</source>
+        <target>De valeureux citoyens se sont postés sur les ramparts de la ville : %citizens%</target>
+      </segment>
+    </unit>
+    <unit id="vuWaICz" name="87f59f6">
+      <notes>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
+      </notes>
+      <segment>
+        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
+        <target>La présence du Discours Rassurant Multicoloré apporte 20 points de défense supplémentaire par veilleur.</target>
+      </segment>
+    </unit>
+    <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
+      <notes>
+        <note category="german">Besessen von einer gequälten Seele</note>
+      </notes>
+      <segment>
+        <source>Besessen von einer gequälten Seele</source>
+        <target>Possédé par une âme torturée</target>
+      </segment>
+    </unit>
+    <unit id="cxtMADZ" name="6462887">
+      <notes>
+        <note category="german">Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</note>
+      </notes>
+      <segment>
+        <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
+        <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sur dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir à l'agonie dans le désert.</target>
+      </segment>
+    </unit>
+    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Schamane dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Schamane dieser Stadt.</source>
+        <target>Du bist der Schamane dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
+        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="GulZlLD" name="Nutze deine heilenden Hände">
+      <notes>
+        <note category="german">Nutze deine heilenden Hände</note>
+      </notes>
+      <segment>
+        <source>Nutze deine heilenden Hände</source>
+        <target>Réaliser un soin curatif</target>
+      </segment>
+    </unit>
+    <unit id="JYO69lS" name="Von diesem Gegenstand will sich der Bürger nicht trennen.">
+      <notes>
+        <note category="german">Von diesem Gegenstand will sich der Bürger nicht trennen.</note>
+      </notes>
+      <segment>
+        <source>Von diesem Gegenstand will sich der Bürger nicht trennen.</source>
+        <target>Ce citoyen a refusé d'abandonner cet objet.</target>
+      </segment>
+    </unit>
+    <unit id="TH1rJgR" name="Das kannst du mit einem Berufsgegenstand nicht tun.">
+      <notes>
+        <note category="german">Das kannst du mit einem Berufsgegenstand nicht tun.</note>
+      </notes>
+      <segment>
+        <source>Das kannst du mit einem Berufsgegenstand nicht tun.</source>
+        <target>Vous ne pouvez pas faire cela avec votre objet de métier.</target>
+      </segment>
+    </unit>
+    <unit id="7K7nTLN" name="In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.">
+      <notes>
+        <note category="german">In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</note>
+      </notes>
+      <segment>
+        <source>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</source>
+        <target>Vous ne pouvez pas effectuer d'actions dans votre état.</target>
+      </segment>
+    </unit>
+    <unit id="owwwxrQ" name="4363ae3">
+      <notes>
+        <note category="german">Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
+        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subit une tentative de soin aujourd'hui.</target>
+      </segment>
+    </unit>
+    <unit id="yKYNmZu" name="356ee99">
+      <notes>
+        <note category="german">Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</note>
+      </notes>
+      <segment>
+        <source>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</source>
+        <target>Impossible... vous ne ressentez rien, pas d'énergie, aucun flux sur lequel vous appuyer. Le risque de tuer %citizen% est donc grand.</target>
+      </segment>
+    </unit>
+    <unit id="y09QGB5" name="08e53f6">
+      <notes>
+        <note category="german">Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</note>
+      </notes>
+      <segment>
+        <source>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</source>
+        <target>Il n'y a rien de mieux que la peur pour vaincre la terreur. Vous retirez votre masque de chaman et soufflez doucement une poudre hallucinogène maison sur leur visage, pour provoquer un état de somnambulisme. Votre tête-à-tête provoque rapidement un "pavor nocturnus". Lorsqu'il se réveille, %citizen% semble avoir été libéré de son état de terreur.</target>
+      </segment>
+    </unit>
+    <unit id="RTU8pgm" name="b4a7495">
+      <notes>
+        <note category="german">Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</note>
+      </notes>
+      <segment>
+        <source>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</source>
+        <target>Seulement, la simple vue de ce citoyen dans un tel état de terreur vous a terrorisé !</target>
+      </segment>
+    </unit>
+    <unit id="8c5KAcV" name="8760dc7">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</source>
+        <target>Vous sortez votre couteau de rituel et entâmez sa «chauffe» au travers d'exercices dont la forme vous appartient. Les flux énergétiques vous guident et vous réalisez sans hésitation une saignée au niveau du membre infecté. Le processus de décontamination est en cours, bien que lent.</target>
+      </segment>
+    </unit>
+    <unit id="vU0kRt8" name="38c2470">
+      <notes>
+        <note category="german">Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</note>
+      </notes>
+      <segment>
+        <source>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</source>
+        <target>Subitement, un pustule infecté explose. Votre peau déjà brûlée se décompose rapidement en plaies ouvertes et les germes infectieux décident d'en faire leur maison.</target>
+      </segment>
+    </unit>
+    <unit id="4ghkz8M" name="625a63d">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</source>
+        <target>Vous sortez votre couteau de rituel et entâmez sa «chauffe» au travers d'exercices dont la forme vous appartient. Les flux énergétiques vous guident et vous réalisez sans hésitation une saignée au niveau du foie. Alors qu'un liquide s'écoule du corps fraichement mutilé, %citizen% se libère de l'emprise de l'alcool.</target>
+      </segment>
+    </unit>
+    <unit id="_GYzBvg" name="f2ccdc7">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</source>
+        <target>Vous sortez votre couteau de rituel et entâmez sa «chauffe» au travers d'exercices dont la forme vous appartient. Les flux énergétiques vous guident et vous réalisez sans hésitation une saignée au niveau du poumon droit. Tandis que vous résistez de toutes vos forces contre l'envie de voir votre lame s'enfoncer durablement sous la peau de %citizen%, un liquide surgit du corps fraichement mutilé.</target>
+      </segment>
+    </unit>
+    <unit id="kg5BPH1" name="Status">
+      <notes>
+        <note category="german">Status</note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="8fTcb5D" name="Tote in der Stadt">
+      <notes>
+        <note category="german">Tote in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Tote in der Stadt</source>
+        <target>Mort en ville</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <notes>
+        <note category="german">Niemand</note>
+      </notes>
+      <segment>
+        <source>Niemand</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
+    <unit id="ooesDbN" name="Sonstige Opfer">
+      <notes>
+        <note category="german">Sonstige Opfer</note>
+      </notes>
+      <segment>
+        <source>Sonstige Opfer</source>
+        <target>Autre victimes</target>
       </segment>
     </unit>
   </file>

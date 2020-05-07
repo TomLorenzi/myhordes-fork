@@ -333,7 +333,7 @@
       </notes>
       <segment>
         <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
-        <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
+        <target>J'ai lu et accepte la politique de confidentialité</target>
       </segment>
     </unit>
     <unit id="ZJtAei3" name="f062e66">
@@ -342,7 +342,52 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
-        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+        <target>Votre mot de passe a été modifié avec succès. Veuillez vous connecter avec votre nouveau mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="bGFqxj8" name="Passwort zurücksetzen">
+      <notes>
+        <note category="german">Passwort zurücksetzen</note>
+      </notes>
+      <segment>
+        <source>Passwort zurücksetzen</source>
+        <target>Réinitialiser le mot de passe</target>
+      </segment>
+    </unit>
+    <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
+      <notes>
+        <note category="german">Bitte gib ein neues Passwort ein.</note>
+      </notes>
+      <segment>
+        <source>Bitte gib ein neues Passwort ein.</source>
+        <target>Veuillez saisir un nouveau mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="lTbuIE7" name="Bitte gib deine E-Mail Adresse ein.">
+      <notes>
+        <note category="german">Bitte gib deine E-Mail Adresse ein.</note>
+      </notes>
+      <segment>
+        <source>Bitte gib deine E-Mail Adresse ein.</source>
+        <target>Veuillez saisir votre adresse e-mail.</target>
+      </segment>
+    </unit>
+    <unit id="9.8ReK8" name="Abbrechen">
+      <notes>
+        <note category="german">Abbrechen</note>
+      </notes>
+      <segment>
+        <source>Abbrechen</source>
+        <target>Annuler</target>
+      </segment>
+    </unit>
+    <unit id="eO_T4uw" name="Passwort vergessen?">
+      <notes>
+        <note category="german">Passwort vergessen?</note>
+      </notes>
+      <segment>
+        <source>Passwort vergessen?</source>
+        <target>Mot de passe oublié?</target>
       </segment>
     </unit>
   </file>

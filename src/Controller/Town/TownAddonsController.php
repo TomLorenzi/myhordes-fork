@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Entity\Building;
+use App\Entity\CitizenWatch;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
@@ -24,6 +25,7 @@ use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -45,10 +47,12 @@ class TownAddonsController extends TownController
         $town = $this->getActiveCitizen()->getTown();
         $buildings = [];
         $max_votes = 0;
+        $total_votes = 0;
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
             if ($b->getPrototype()->getMaxLevel() > 0)
                 $buildings[] = $b;
             $max_votes = max($max_votes, $b->getDailyUpgradeVotes()->count());
+            $total_votes += $b->getDailyUpgradeVotes()->count();
         }
 
         if (empty($buildings)) return $this->redirect( $this->generateUrl('town_dashboard') );
@@ -56,6 +60,7 @@ class TownAddonsController extends TownController
         return $this->render( 'ajax/game/town/upgrades.html.twig', $this->addDefaultTwigArgs('upgrade', [
             'buildings' => $buildings,
             'max_votes' => $max_votes,
+            'total_votes' => $total_votes,
             'vote' => $this->getActiveCitizen()->getDailyUpgradeVote() ? $this->getActiveCitizen()->getDailyUpgradeVote()->getBuilding() : null,
         ]) );
     }
@@ -416,5 +421,210 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
     }
+
+    /**
+     * @Route("jx/town/nightwatch", name="town_nightwatch")
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function addon_nightwatch(TownHandler $th): Response
+    {
+        $town = $this->getActiveCitizen()->getTown();
+        if (!$th->getBuilding($town, 'small_round_path_#00', true))
+            return $this->redirect($this->generateUrl('town_dashboard'));
+
+        $citizenWatch = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+        $watchers = [];
+        $is_watcher = false;
+        $has_counsel = false;
+        $total_def = 0;
+        foreach ($citizenWatch as $watcher) {
+            if($watcher->getCitizen() == $this->getActiveCitizen()){
+                $is_watcher = true;
+            }
+
+            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
+            
+            $watchers[$watcher->getId()] = array(
+                'citizen' => $watcher->getCitizen(),
+                'def' => $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()),
+                'bonusDef' => $this->citizen_handler->getNightwatchProfessionDefenseBonus($watcher->getCitizen()),
+                'bonusSurvival' => $this->citizen_handler->getNightwatchProfessionSurvivalBonus($watcher->getCitizen()),
+                'status' => array(),
+                'items' => array()
+            );
+
+            foreach ($watcher->getCitizen()->getStatus() as $status) {
+                switch($status->getName()){
+                    case 'drunk':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 20,
+                            'deathImpact' => 4
+                        );
+                        break;
+                    case 'hangover':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -15,
+                            'deathImpact' => 5
+                        );
+                        break;
+                    case 'terror':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -30,
+                            'deathImpact' => 45
+                        );
+                        break;
+                    case 'drugged':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 10,
+                            'deathImpact' => 0
+                        );
+                        break;
+                    case 'addict':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 15,
+                            'deathImpact' => 10
+                        );
+                        break;
+                    case 'wound1':
+                    case 'wound2':
+                    case 'wound3':
+                    case 'wound4':
+                    case 'wound5':
+                    case 'wound6':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -20,
+                            'deathImpact' => 20
+                        );
+                        break;
+                    case 'healed':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -10,
+                            'deathImpact' => 10
+                        );
+                        break;
+                    case 'infection':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -15,
+                            'deathImpact' => 20
+                        );
+                        break;
+                    case 'ghul':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => 0,
+                            'deathImpact' => -5
+                        );
+                        break;
+                    case 'thirst2':
+                        $watchers[$watcher->getId()]['status'][] = array(
+                            'icon' => $status->getIcon(),
+                            'label' => $status->getLabel(),
+                            'defImpact' => -10,
+                            'deathImpact' => 0
+                        );
+                        break;
+                }
+            }
+
+            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
+                if($item->getPrototype()->getName() == 'chkspk_#00')
+                    $has_counsel = true;
+
+            	if($item->getPrototype()->getWatchpoint() <= 0)
+            		continue;
+            	$watchers[$watcher->getId()]['items'][] = array(
+                    'icon' => $item->getPrototype()->getIcon(),
+                    'label' => $item->getPrototype()->getLabel(),
+                    'defImpact' => $item->getPrototype()->getWatchpoint()
+                );
+            }
+        }
+
+        // total def cannot be negative
+        $total_def = max(0, $total_def);
+
+        if($has_counsel){
+            $total_def += 20 * count($watchers);
+        }
+
+        $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
+        return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
+            'watchers' => $watchers,
+            'is_watcher' => $is_watcher,
+            'deathChance' => $deathChance,
+            'woundAndTerrorChance' => $deathChance + $this->getTownConf()->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05),
+            'me' => $this->getActiveCitizen(),
+            'total_def' => $total_def,
+            'has_counsel' => $has_counsel
+        ]) );
+    }
+
+    /**
+     * @Route("api/town/nightwatch/gowatch", name="town_nightwatch_go_controller")
+     * @param TownHandler $th
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function api_nightwatch_gowatch(TownHandler $th, JSONRequestParser $parser): Response
+    {
+        $town = $this->getActiveCitizen()->getTown();
+        if (!$th->getBuilding($town, 'small_round_path_#00', true))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $action = $parser->get("action");
+
+        if($action == 'unwatch') {
+            $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+            $activeCitizenWatcher = null;
+
+            foreach ($watchers as $watcher) {
+                if($watcher->getCitizen() == $this->getActiveCitizen()){
+                    $activeCitizenWatcher = $watcher;
+                    break;
+                }
+            }
+            if($activeCitizenWatcher === null) {
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            }
+
+            $town->removeCitizenWatch($activeCitizenWatcher);
+            $this->getActiveCitizen()->removeCitizenWatch($activeCitizenWatcher);
+            $this->entity_manager->remove($activeCitizenWatcher);
+        } else if ($action == "watch") {
+            $citizenWatch = new CitizenWatch();
+            $citizenWatch->setTown($town)->setCitizen($this->getActiveCitizen())->setDay($town->getDay());
+            $town->addCitizenWatch($citizenWatch);
+
+            $this->getActiveCitizen()->addCitizenWatch($citizenWatch);
+
+            $this->entity_manager->persist($citizenWatch);
+        }
+
+        $this->entity_manager->persist($this->getActiveCitizen());
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    
 
 }

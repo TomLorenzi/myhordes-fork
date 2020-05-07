@@ -50,43 +50,37 @@
   background-color: #4a261e; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
   border: 1px solid #704328; margin-bottom: 10px;
 
-  &>.forum-post-header {
-    display: block; background: #804d2f; padding: 4px; min-height: 40px;
+  &>.forum-post-header,
+  &>.forum-post-header-crow,
+  &>.forum-post-header-dev {
+    display: block;
+    padding: 4px;
+    min-height: 40px;
     &>b { padding: 5px; }
     &>i { float: right; font-size: 0.8em; }
-    &>span { font-size: 0.8em; opacity: 0.5; float: right }
+    &>div.post-note { font-size: 0.8em; span { opacity: 0.5; } }
     &>.avatar { margin: 0 5px 0 10px; float: left }
     &:before, &:after {content: " "; clear: right;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
+  }
+
+  &>.forum-post-header {
+    background: #804d2f;
   }
 
   &>.forum-post-header-crow {
-    display: block; background: #773939; padding: 4px; min-height: 40px;
-    &>b { padding: 5px; }
-    &>i { float: right; font-size: 0.8em; }
-    &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &>.avatar { margin: 0 5px 0 10px; float: left }
-    &:before, &:after {content: " "; clear: right;}
-    &:before { display: table;}
-    &:after {display: block; height: 0;}
+    background: #773939;
   }
 
   &>.forum-post-header-dev {
-    display: block; background: #006495; padding: 4px; min-height: 40px;
+    background: #006495;
     &>b { 
       img {
         position: absolute;
         padding: 2px 2px 0px 5px;
       }
-      padding: 5px;    
     }
-    &>i { float: right; font-size: 0.8em; }
-    &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &>.avatar { margin: 0 5px 0 10px; float: left }
-    &:before, &:after {content: " "; clear: right;}
-    &:before { display: table;}
-    &:after {display: block; height: 0;}
   }
 
   &>.forum-post-content {
@@ -169,15 +163,58 @@
   }
 
   &>.forum-post-footer {
-    padding-left: 5px; max-height: 750px; overflow: auto;
+    padding: 5px;
     background-color: #4a261e;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(0,0,0,0.2);
 
     .action-button {
-      float: right;
       padding-left: 2px;
-      font-style: italic;
-      font-size: 1rem;
+      text-decoration: underline;
       cursor: pointer;
+      line-height: 16px
+    }
+
+    .mod-submenu {
+      display: inline-block;
+      position: relative;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      vertical-align: middle;
+      background-image: url('../../img/mod.png');
+      margin-left: 1rem;
+      cursor: pointer;
+
+      input {
+        display: none;
+      }
+
+      .mod-submenu-links {
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: 16px;
+        border: 1px solid @myhordes-smalltext;
+        background-color: #4a261e;
+        margin: 0;
+        padding: .5rem;
+        outline: 1px solid black;
+        list-style: none;
+
+        li {
+          list-style-type: none;
+
+          a {
+            color: @myhordes-smalltext;
+          }
+        }
+      }
+
+      input:checked + .mod-submenu-links {
+        display: block;
+      }
     }
   }
 
@@ -260,7 +297,8 @@
   div.dice-4, div.dice-6, div.dice-8, div.dice-10, div.dice-12, div.dice-20, div.dice-100,
   div.letter-a, div.letter-c, div.letter-v,
   div.rps, div.coin, div.card {
-    display: inline-block; padding: 1px 3px 1px 19px; border-radius: 2px; background: #3B3249; font-size: 0.8em; font-weight: bold;
+    display: inline-block; padding: 1px 3px 1px 19px; border-radius: 2px; background: #3B3249; font-size: 0.8em;
+    font-weight: bold; margin: 0 2px;
   }
   div.dice-4   { background: url("../../img/forum/dice4.png")   left center no-repeat, #3B3249 }
   div.dice-6   { background: url("../../img/forum/dice6.png")   left center no-repeat, #3B3249 }
@@ -365,10 +403,21 @@
 
 .forum-button-bar { margin: 5px 0; padding: 0 5px; }
 
-.forum-button, .banned-button {
+.forum-button, .banned-button, .forum-button-inline {
   font-size: 1.4rem;
-  background: @myhordes-forum-moderator-button-color url('../../img/bg_button.gif') no-repeat;
-  border: 1px solid @myhordes-forum-moderator-button-border;
+  &:not(.forum-button-inline) {
+    background: @myhordes-forum-moderator-button-color url('../../img/bg_button.gif') no-repeat;
+    border: 1px solid @myhordes-forum-moderator-button-border;
+    padding: 10px;
+    border-radius: 2px;
+  }
+
+  &.forum-button-inline {
+    background: none;
+    border: 1px solid transparent;
+    padding: 2px;
+  }
+
   color: #f0d79e;
   font-weight: bold;
   cursor: pointer;
@@ -376,15 +425,16 @@
   justify-content: center;
   align-items: center;
   height: 20px;
-  padding: 10px;
   vertical-align: middle;
-  border-radius: 2px;
-  box-shadow: 1px 3px 0px 0 black;
   margin-bottom: .5em;
 
   &:hover {
     border-color: #f0d79e;
-    box-shadow: 0px 0px 8px 0 black;
+    &:not(.forum-button-inline) { box-shadow: 0 0 8px 0 black; }
+    &.forum-button-inline {
+      background: rgba(240, 215, 158, 0.4);
+      box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
+    }
   }
 }
 
@@ -395,19 +445,28 @@
 
 .forum-moderator-button, .forum-header-button, .forum-header-button-disabled, .forum-moderator-button,
 .forum-button, .forum-button-disabled {
-  font-size: 1.4rem;
+  font-size: 1.4rem; line-height: 16px;
   background: url('../../img/bg_button.gif') center / cover no-repeat;
   border: 1px solid @myhordes-forum-moderator-button-border;
   color: #f0d79e; font-weight: bold; cursor: pointer; display: inline-flex; justify-content: center;
   align-items: center; height: 25px; padding: 7px 20px; vertical-align: middle; border-radius: 2px;
   box-shadow: 1px 1px 1px 0 black; margin-bottom: .5em;
-  &:hover { border-color: #f0d79e; box-shadow: 0px 0px 8px 0 black; }
+  &:hover { border-color: #f0d79e; box-shadow: 0 0 8px 0 black; }
+  img {
+    vertical-align: middle;
+
+    & + span {
+      margin-left: 1rem;
+    }
+  }
 }
 
 .forum-button-disabled, .forum-header-button-disabled {
   background: url('../../img/bg_button_grey.gif') center / cover no-repeat;
   border: 1px solid @myhordes-forum-disabled-button-color;
 }
+
+.forum-button-bar .forum-button { padding: 7px 7px; }
 
 .forum-checkbox {
   display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-moderator-button-color;

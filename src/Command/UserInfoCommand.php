@@ -114,7 +114,7 @@ class UserInfoCommand extends Command
                     $user->getId(), $user->getUsername(), $user->getEmail(), $user->getValidated() ? '1' : '0',
                     $user->getIsAdmin() ? '1' : '0',
                     $activeCitizen ? $activeCitizen->getId() : '-',
-                    $pendingValidation ? $pendingValidation->getPkey() : '-'
+                    $pendingValidation ? "{$pendingValidation->getPkey()} ({$pendingValidation->getType()})" : '-'
                 ] );
             }
 

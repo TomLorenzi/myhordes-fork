@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>L'alarme de %victim% a réveillé la moitié de la ville et vous a effrayé !</target>
+        <target>%victim%'s alarm woke up half of the town and scared you !</target>
       </segment>
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
@@ -28,7 +28,7 @@
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</source>
-        <target>Parfait, personne ne vous a vu vous infiltrer chez %victim%.</target>
+        <target>Perfect, nobody saw you infiltrating %victim%'s home.</target>
       </segment>
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
@@ -38,7 +38,7 @@
       </notes>
       <segment>
         <source>Deine Route wurde gespeichert.</source>
-        <target>Votre expédition a été sauvegardée.</target>
+        <target>Your expedition has been saved.</target>
       </segment>
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
@@ -48,7 +48,7 @@
       </notes>
       <segment>
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>Vous avez changé votre annonce.</target>
+        <target>You have changed your announcement.</target>
       </segment>
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
@@ -58,7 +58,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target>%citizen% a versé %item% dans le puits et a ajouté %num% ration(s) d'eau.</target>
+        <target>%citizen% poured %item% into the well and it added %num% water rations.</target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</source>
-        <target>%citizen% a travaillé sur le projet %plan% et a dépensé %ap%.</target>
+        <target>%citizen% worked on the project %plan% and spent %ap%.</target>
       </segment>
     </unit>
     <unit id="XyE6HNd" name="4d6306a">
@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</source>
-        <target>La construction du chantier %building% a donné à la ville : %list%</target>
+        <target>The construction of the building %building% gave to the following to the town : %list%</target>
       </segment>
     </unit>
     <unit id="RScnWL2" name="ec97dc9">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</source>
-        <target>La construction du chantier %building% a apporté %num% rations d'eau !</target>
+        <target>Finishing the construction of %building% gave us %num% water rations !</target>
       </segment>
     </unit>
     <unit id="IrDOx2H" name="%citizen% hat das Stadttor %action%.">
@@ -98,7 +98,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadttor %action%.</source>
-        <target>%citizen% a %action% les portes de la ville.</target>
+        <target>%citizen% has %action% the town gates.</target>
       </segment>
     </unit>
     <unit id="7F6V04y" name="geöffnet">
@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>geöffnet</source>
-        <target>ouvert</target>
+        <target>opened</target>
       </segment>
     </unit>
     <unit id="2nMdNJ8" name="geschlossen">
@@ -118,7 +118,7 @@
       </notes>
       <segment>
         <source>geschlossen</source>
-        <target>fermé</target>
+        <target>closed</target>
       </segment>
     </unit>
     <unit id="_B_xHpE" name="Das Stadttor wurde automatisch %action%.">
@@ -128,7 +128,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>La porte a été %action% automatiquement.</target>
+        <target>The gates have been %action% automatically.</target>
       </segment>
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
@@ -138,7 +138,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% est %action% de la ville.</target>
+        <target>%citizen% has %action% town.</target>
       </segment>
     </unit>
     <unit id="RvCIvJN" name="betreten">
@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>betreten</source>
-        <target>entré</target>
+        <target>entered</target>
       </segment>
     </unit>
     <unit id="N0kS6xp" name="verlassen">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>verlassen</source>
-        <target>sorti</target>
+        <target>left</target>
       </segment>
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
@@ -168,7 +168,7 @@
       </notes>
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</source>
-        <target>Un nouveau citoyen est arrivé en ville : %citizen%.</target>
+        <target>A new citizen has arrived : %citizen%.</target>
       </segment>
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine neue Berufung als %profession% gefunden.</source>
-        <target>%citizen% a choisi le métier %profession%.</target>
+        <target>%citizen% choose the profession %profession%.</target>
       </segment>
     </unit>
     <unit id="nK4zXOH" name="%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -188,7 +188,7 @@
       </notes>
       <segment>
         <source>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%zombies% ont tenté en vain d'entrer dans la maison de %citizen%.</target>
+        <target>%zombies% tried in vain to enter into %citizen%'s house.</target>
       </segment>
     </unit>
     <unit id="fPimUWN" name="%num% Zombies">
@@ -208,7 +208,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</source>
-        <target>%citizen% a amélioré sa maison en %home%...</target>
+        <target>%citizen% decided to upgrade their house to a %home%...</target>
       </segment>
     </unit>
     <unit id="0uk_Ijd" name="8121de7">
@@ -218,7 +218,7 @@
       </notes>
       <segment>
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% a produit %list2% a partir de %list1%.</target>
+        <target>%citizen% produced %list2% from %list1%.</target>
       </segment>
     </unit>
     <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% a ressucité et a dévoré %victim% !</target>
+        <target>%zombie% resurrected and devoured %victim% !</target>
       </segment>
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% a ressucité et le bâtiment %building% a été détruit !</target>
+        <target>%zombie% resurrected and the building %building% has been destroyed !</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -248,7 +248,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% a ressucité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
+        <target>%zombie% resurrected and infected the well ! This cost us %num% water ration(s) !</target>
       </segment>
     </unit>
     <unit id="ByzkImj" name="8895c43">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>%num% Zombies attackieren die Stadtbewohner!</source>
-        <target>%num% zombies ont attaqués les citoyens !</target>
+        <target>%num% zombies attacked the citizens !</target>
       </segment>
     </unit>
     <unit id="eJyeGor" name="82478bf">
@@ -278,7 +278,7 @@
       </notes>
       <segment>
         <source>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</source>
-        <target>L'utilisation de %building% pour défendre la ville nous a couté %num% ration(s) d'eau.</target>
+        <target>The use of %building% to defend the town cost us %num% water ration(s).</target>
       </segment>
     </unit>
     <unit id="F2roj_A" name="3e28238">
@@ -288,7 +288,7 @@
       </notes>
       <segment>
         <source>Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
-        <target>En améliorant le chantier %building%, %num% rations d'eau ont été ajoutées au puits.</target>
+        <target>By upgrading the construction %building%, %num% water rations has been added to the well.</target>
       </segment>
     </unit>
     <unit id="Bv9VF1c" name="71ec870">
@@ -298,7 +298,7 @@
       </notes>
       <segment>
         <source>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</source>
-        <target>En améliorant le chantier %building% la ville a reçu : %items%</target>
+        <target>By upgrading the construction %building% , the town received : %items%</target>
       </segment>
     </unit>
     <unit id="icmQw3h" name="07277f1">
@@ -308,7 +308,7 @@
       </notes>
       <segment>
         <source>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</source>
-        <target>Quelle chance ! Un plan est apparu dans la banque après l'attaque. Vous avez reçu : %item%</target>
+        <target>What a luck ! A construction plan appeared in the bank after the attack. You received : %item%</target>
       </segment>
     </unit>
     <unit id="v7qhwcN" name="Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%">
@@ -318,7 +318,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Le chantier %building% a produit : %items%</target>
+        <target>The construction %building% produced : %items%</target>
       </segment>
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
@@ -328,7 +328,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>La dernière plainte a été celle de trop. %citizen% a été bannis de la ville !</target>
+        <target>The last complaint was the too-much one. %citizen% has been shunned from the town !</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -338,7 +338,7 @@
       </notes>
       <segment>
         <source>Du kannst die Stadt von hier aus nicht betreten.</source>
-        <target>Vous ne pouvez pas rentrer en ville.</target>
+        <target>You cannot enter the town.</target>
       </segment>
     </unit>
     <unit id="4rHd9Vd" name="Du kannst diese Zone von hier aus nicht betreten.">
@@ -348,7 +348,7 @@
       </notes>
       <segment>
         <source>Du kannst diese Zone von hier aus nicht betreten.</source>
-        <target>Vous ne pouvez pas entrer dans cette zone d'ici.</target>
+        <target>You cannot enter in this zone from here.</target>
       </segment>
     </unit>
     <unit id="E3IPzEv" name="Zombies blockieren deine Zone!">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Zombies blockieren deine Zone!</source>
-        <target>Les zombie sont en surnombre !</target>
+        <target>We are suffering an excess of zombies !</target>
       </segment>
     </unit>
     <unit id="eDXR6Le" name="a506be7">
@@ -368,7 +368,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</source>
-        <target>Ces actions ne peuvent être effectuées que lorsque la zone est sous contrôle.</target>
+        <target>This actions can be done only when the zone is under control.</target>
       </segment>
     </unit>
     <unit id="scZCiSc" name="Du kannst nicht angreifen wenn du bereits verwundet bist.">
@@ -378,7 +378,7 @@
       </notes>
       <segment>
         <source>Du kannst nicht angreifen wenn du bereits verwundet bist.</source>
-        <target>Vous ne pouvez pas attaquer si vous êtes blessé.</target>
+        <target>You cannot attack if you are injured.</target>
       </segment>
     </unit>
     <unit id="Lil.cvr" name="Du kannst auf dieser Zone nicht graben.">
@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
-        <target>Vous ne pouvez pas creuser dans cette zone.</target>
+        <target>You cannot search this zone.</target>
       </segment>
     </unit>
     <unit id="MPn9B5E" name="Das Stadttor ist geschlossen!">
@@ -398,7 +398,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist geschlossen!</source>
-        <target>La porte de la ville est fermée!</target>
+        <target>The gates are closed!</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -408,7 +408,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</source>
-        <target>Votre message doit contenir entre 2 et 256 caractères.</target>
+        <target>The length of your message must be between 2 and 256 characters.</target>
       </segment>
     </unit>
     <unit id="7CYUPCo" name="Heute wirst du nichts mehr im Müll finden.">
@@ -418,7 +418,7 @@
       </notes>
       <segment>
         <source>Heute wirst du nichts mehr im Müll finden.</source>
-        <target>Vous ne trouvez rien dans les poubelles aujourd'hui.</target>
+        <target>You do not find anything in the refuse today...</target>
       </segment>
     </unit>
     <unit id="4cWeVEO" name="Du hast bereits einen Beruf gewählt.">
@@ -428,7 +428,7 @@
       </notes>
       <segment>
         <source>Du hast bereits einen Beruf gewählt.</source>
-        <target>Vous avez déjà choisi une profession.</target>
+        <target>You have already choosed a profession.</target>
       </segment>
     </unit>
     <unit id="3fRIOKg" name="Ungültige Auswahl.">
@@ -438,7 +438,7 @@
       </notes>
       <segment>
         <source>Ungültige Auswahl.</source>
-        <target>Sélection non valable.</target>
+        <target>Selection invalid.</target>
       </segment>
     </unit>
     <unit id="iSpeYjc" name="Der Brunnen ist leer!">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Der Brunnen ist leer!</source>
-        <target>Le puits est vide!</target>
+        <target>The well is empty!</target>
       </segment>
     </unit>
     <unit id="t9s1UYK" name="Du kannst heute keine weiteren Rationen entnehmen.">
@@ -458,7 +458,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keine weiteren Rationen entnehmen.</source>
-        <target>Vous ne pouvez plus prendre de ration aujourd'hui.</target>
+        <target>You can take no more water ration for today.</target>
       </segment>
     </unit>
     <unit id="GNSPYmK" name="Hierfür brauchst du klares Wasser (keine Kanister)!">
@@ -468,7 +468,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Vous avez besoin d'une ration d'eau pour faire ceci !</target>
+        <target>You need a Water Ration to do this !</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
@@ -478,7 +478,7 @@
       </notes>
       <segment>
         <source>Das Tor ist bereits geschlossen.</source>
-        <target>La porte est déjà fermée.</target>
+        <target>The gates are already closed.</target>
       </segment>
     </unit>
     <unit id="JsP4vsH" name="Das Tor ist bereits offen.">
@@ -488,7 +488,7 @@
       </notes>
       <segment>
         <source>Das Tor ist bereits offen.</source>
-        <target>La porte est déjà ouverte.</target>
+        <target>The gates are already opened.</target>
       </segment>
     </unit>
     <unit id="GjXgBou" name="Für dieses Gebäude fehlen Baumaterialien.">
@@ -498,7 +498,7 @@
       </notes>
       <segment>
         <source>Für dieses Gebäude fehlen Baumaterialien.</source>
-        <target>Il manque des ressources pour ce chantier.</target>
+        <target>Some resources for this construction are missing.</target>
       </segment>
     </unit>
     <unit id="P242oK2" name="Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.">
@@ -508,7 +508,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</source>
-        <target>Vous avez déjà amélioré votre maison aujourd'hui.</target>
+        <target>You have already upgraded your home today.</target>
       </segment>
     </unit>
     <unit id="s1D0Mug" name="Dieser Gegenstand ist außerhalb deiner Reichweite.">
@@ -518,7 +518,7 @@
       </notes>
       <segment>
         <source>Dieser Gegenstand ist außerhalb deiner Reichweite.</source>
-        <target>Ce point est hors de votre portée.</target>
+        <target>This item is out of your reach.</target>
       </segment>
     </unit>
     <unit id="WFi0NxJ" name="Du hast keinen Platz mehr für diesen Gegenstand!">
@@ -528,7 +528,7 @@
       </notes>
       <segment>
         <source>Du hast keinen Platz mehr für diesen Gegenstand!</source>
-        <target>Vous n'avez plus de place pour cet objet!</target>
+        <target>You have no more room for this item!</target>
       </segment>
     </unit>
     <unit id="4lQ8bY." name="Du kannst keinen weiteren schweren Gegenstand tragen!">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Vous ne pouvez pas porter plus d'un encombrant !</target>
+        <target>You cannot carry more than one heavy object!</target>
       </segment>
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
@@ -548,7 +548,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</target>
+        <target>You cannot take any more items out of the bank for a while.</target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -558,7 +558,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keinen weiteren Gegenstand stehlen.</source>
-        <target>Du kannst heute keinen weiteren Gegenstand stehlen.</target>
+        <target>You cannot steal another item today.</target>
       </segment>
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
@@ -578,7 +578,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</target>
+        <target>Being shunned, you are not allowed to pick any items out of the bank.</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -598,7 +598,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ist nicht verfügbar.</source>
-        <target>Diese Aktion ist nicht verfügbar.</target>
+        <target>This action is not available.</target>
       </segment>
     </unit>
     <unit id="UK6Ie5i" name="Das kannst du zur Zeit nicht tun.">
@@ -608,7 +608,7 @@
       </notes>
       <segment>
         <source>Das kannst du zur Zeit nicht tun.</source>
-        <target>Das kannst du zur Zeit nicht tun.</target>
+        <target>You can't do that at the moment.</target>
       </segment>
     </unit>
     <unit id="2dPpxn7" name="960101b">
@@ -618,7 +618,7 @@
       </notes>
       <segment>
         <source>Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.</source>
-        <target>Malheureusement, vous n'avez actuellement accès à aucun forum. Veuillez réessayer ultérieurement.</target>
+        <target>Unfortunately, you do not currently have access to any forum. Please try again later.</target>
       </segment>
     </unit>
     <unit id="QI_O4UJ" name="Verschüttete Ruine">
@@ -658,7 +658,7 @@
       </notes>
       <segment>
         <source>Routen</source>
-        <target>Expédition</target>
+        <target>Expeditions</target>
       </segment>
     </unit>
     <unit id="wkJT.qQ" name="Stadttor">
@@ -668,7 +668,7 @@
       </notes>
       <segment>
         <source>Stadttor</source>
-        <target>Grande Porte</target>
+        <target>The town gates</target>
       </segment>
     </unit>
     <unit id="NqjEmUx" name="Karte">
@@ -678,7 +678,7 @@
       </notes>
       <segment>
         <source>Karte</source>
-        <target>Carte</target>
+        <target>Map</target>
       </segment>
     </unit>
     <unit id="VgeAGfB" name="Bitte wähle einen Gegenstand:">
@@ -688,7 +688,7 @@
       </notes>
       <segment>
         <source>Bitte wähle einen Gegenstand:</source>
-        <target>Choisissez un objet :</target>
+        <target>Choose an object :</target>
       </segment>
     </unit>
     <unit id="m.LKoYd" name="Du verfügst über keine geeigneten Gegenstände">
@@ -708,7 +708,7 @@
       </notes>
       <segment>
         <source>Herstellen</source>
-        <target>Assembler </target>
+        <target>Assemble</target>
       </segment>
     </unit>
     <unit id="IzfDfwc" name="aus">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>aus</source>
-        <target>Nécessite </target>
+        <target>Requires</target>
       </segment>
     </unit>
     <unit id="SQxs_a5" name="Kombinieren">
@@ -728,7 +728,7 @@
       </notes>
       <segment>
         <source>Kombinieren</source>
-        <target>Combiner</target>
+        <target>Combine</target>
       </segment>
     </unit>
     <unit id="dizwCRc" name="8d60119">
@@ -738,7 +738,7 @@
       </notes>
       <segment>
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
-        <target>Vous pouvez sortir de la ville et explorer l'Outre-Monde depuis ici. N'oubliez pas de garder la Grande Porte fermée lors de l'attaque à minuit !</target>
+        <target>From here, you can leave the town and explore the World Beyond. Don't forget to keep the Town Gates closed during the midnight attack! </target>
       </segment>
     </unit>
     <unit id="UgTjBPn" name="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
@@ -758,7 +758,7 @@
       </notes>
       <segment>
         <source>Meine Aktionen</source>
-        <target>Mes Actions</target>
+        <target>My Actions</target>
       </segment>
     </unit>
     <unit id="Ja76Y2N" name="Tor schließen">
@@ -768,7 +768,7 @@
       </notes>
       <segment>
         <source>Tor schließen</source>
-        <target>Fermer les portes</target>
+        <target>Close the gates</target>
       </segment>
     </unit>
     <unit id="0UyjBX6" name="Tor öffnen">
@@ -778,7 +778,7 @@
       </notes>
       <segment>
         <source>Tor öffnen</source>
-        <target>Ouvrir les portes</target>
+        <target>Open the gates</target>
       </segment>
     </unit>
     <unit id="uhQorE4" name="Route planen...">
@@ -788,7 +788,7 @@
       </notes>
       <segment>
         <source>Route planen...</source>
-        <target>Préparer une expédition</target>
+        <target>Plan an expedition</target>
       </segment>
     </unit>
     <unit id="wKVgmMx" name="Stadt verlassen">
@@ -798,7 +798,7 @@
       </notes>
       <segment>
         <source>Stadt verlassen</source>
-        <target>Sortir dans l'Outre-Monde...</target>
+        <target>Go into the World Beyond...</target>
       </segment>
     </unit>
     <unit id="VHo.w1Y" name="Stadttor-Register">
@@ -808,7 +808,7 @@
       </notes>
       <segment>
         <source>Stadttor-Register</source>
-        <target>Porte de la ville</target>
+        <target>Town gates</target>
       </segment>
     </unit>
     <unit id="oCYA07E" name="f495286">
@@ -828,7 +828,7 @@
       </notes>
       <segment>
         <source>Heutige Abschätzung</source>
-        <target>Si nos estimations tombent juste, nous devrions être attaqués par environ :</target>
+        <target>If our estimations are correct, we should be attacked by between:</target>
       </segment>
     </unit>
     <unit id="8N0dl_g" name="Zombies">
@@ -848,7 +848,7 @@
       </notes>
       <segment>
         <source>Qualität der Abschätzung</source>
-        <target>Qualité de l'estimation :</target>
+        <target>Estimation quality :</target>
       </segment>
     </unit>
     <unit id="GHVvmus" name="Abschätzung verbessern">
@@ -858,7 +858,7 @@
       </notes>
       <segment>
         <source>Abschätzung verbessern</source>
-        <target>Scruter les environs</target>
+        <target>Scan the surroundings</target>
       </segment>
     </unit>
     <unit id="PudnUuv" name="Morgige Abschätzung">
@@ -868,7 +868,7 @@
       </notes>
       <segment>
         <source>Morgige Abschätzung</source>
-        <target>Attaque du lendemain</target>
+        <target>TOMORROW'S ATTACK</target>
       </segment>
     </unit>
     <unit id="Y5SuVaF" name="a9255e7">
@@ -878,7 +878,7 @@
       </notes>
       <segment>
         <source>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</source>
-        <target>Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.</target>
+        <target>Wow, you can see pretty much everything from here! It's just a shame that this "everything" is limited to an empty sandy desert. However, if you take a closer look, you can count the zombies that are crawling towards the city.</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -918,7 +918,7 @@
       </notes>
       <segment>
         <source>Truhe</source>
-        <target>Coffre</target>
+        <target>Chest</target>
       </segment>
     </unit>
     <unit id="X3ACy1e" name="Truhe und Aktionen">
@@ -928,7 +928,7 @@
       </notes>
       <segment>
         <source>Truhe und Aktionen</source>
-        <target>Coffre et Actions</target>
+        <target>Inventory + Actions</target>
       </segment>
     </unit>
     <unit id="jsTL6lr" name="Mein(e) %type%">
@@ -938,7 +938,7 @@
       </notes>
       <segment>
         <source>Mein(e) %type%</source>
-        <target>Improvements %type%</target>
+        <target>Home Improvements</target>
       </segment>
     </unit>
     <unit id="lQhjNcE" name="Bauarbeiten">
@@ -948,7 +948,7 @@
       </notes>
       <segment>
         <source>Bauarbeiten</source>
-        <target>Travaux</target>
+        <target>Building upgrades</target>
       </segment>
     </unit>
     <unit id="PA2qVgw" name="Dein Beschreibungstext">
@@ -958,7 +958,7 @@
       </notes>
       <segment>
         <source>Dein Beschreibungstext</source>
-        <target>Dein Beschreibungstext</target>
+        <target>Your description text</target>
       </segment>
     </unit>
     <unit id="9rL.OfV" name="Speichern">
@@ -968,7 +968,7 @@
       </notes>
       <segment>
         <source>Speichern</source>
-        <target>Inscrire mon annonce</target>
+        <target>Make an announcement</target>
       </segment>
     </unit>
     <unit id="vwfykUF" name="Du hast %num% anonyme Anzeige(n).">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>La colonne de gauche présente les actions permises par vos objets. Celle de droite montre le contenu de votre sac à dos et de votre coffre de maison.</target>
+        <target> The column on the left lists the actions associated with your objects. The one on the right shows the contents of your rucksack and your personal chest.</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -1008,7 +1008,7 @@
       </notes>
       <segment>
         <source>Meine Spezialaktionen</source>
-        <target>Mes actions spéciales</target>
+        <target>My special Actions</target>
       </segment>
     </unit>
     <unit id="zSx1h9s" name="Rucksack ausleeren">
@@ -1018,7 +1018,7 @@
       </notes>
       <segment>
         <source>Rucksack ausleeren</source>
-        <target>Vider mon sac à dos dans le coffre</target>
+        <target>Empty your rucksack into your chest</target>
       </segment>
     </unit>
     <unit id="bd_whxO" name="Mein Register">
@@ -1038,7 +1038,7 @@
       </notes>
       <segment>
         <source>Verteidigung und Dekoration</source>
-        <target>Defense and Decoration</target>
+        <target>Defences and Decoration</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -1048,7 +1048,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Defense</target>
+        <target>Home Defences</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -1130,7 +1130,7 @@
       <segment>
         <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</source>
-        <target>Seul les héros peuvent effectuer des améliorations. En tant qu'habitant, vous ne bénéficiez pas des avantages de celles-ci.</target>
+        <target>Only Heroes can improve their homes with upgrades. As a citizen, you do not benefit of these.</target>
       </segment>
     </unit>
     <unit id="XhECS_Z" name="Stufe %level%">
@@ -1210,7 +1210,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau werden keine Gegenstände benötigt.</source>
-        <target>Cette amélioration ne nécessite aucun objet.</target>
+        <target>Does not require any materials for its construction.</target>
       </segment>
     </unit>
     <unit id="x7duHnG" name="f68beef">
@@ -1220,7 +1220,7 @@
       </notes>
       <segment>
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
-        <target>Vous pouvez effectuer les travaux de construction suivants sur votre maison. Chaque amélioration vous apporte des avantages particuliers.</target>
+        <target>Here is the list of projects you can carry out at your home. Each upgrade gives specific advantages, but be aware, everything has its cost...</target>
       </segment>
     </unit>
     <unit id="r5DiSCv" name="Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.">
@@ -1230,7 +1230,7 @@
       </notes>
       <segment>
         <source>Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.</source>
-        <target>Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.</target>
+        <target>You need to be a hero to do the following upgrades.</target>
       </segment>
     </unit>
     <unit id="jvbOgSC" name="Erfordert">
@@ -1300,7 +1300,7 @@
       </notes>
       <segment>
         <source>In der Stadt</source>
-        <target>In der Stadt</target>
+        <target>--</target>
       </segment>
     </unit>
     <unit id="5TOztAt" name="Am Stadttor">
@@ -1320,7 +1320,7 @@
       </notes>
       <segment>
         <source>Neue einfache Route</source>
-        <target>Nouvelle expédition simple</target>
+        <target>New simple expedition</target>
       </segment>
     </unit>
     <unit id="v88wslY" name="Neue komplexe Route">
@@ -1330,7 +1330,7 @@
       </notes>
       <segment>
         <source>Neue komplexe Route</source>
-        <target>Nouvelle expédition complexe</target>
+        <target>New complex expedition</target>
       </segment>
     </unit>
     <unit id="fn_qM4v" name="Name der Route">
@@ -1352,7 +1352,7 @@
       <segment>
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent. Les itinéraires simples commencent et arrivent en ville. Les itinéraires complexent commencent et terminent où vous voulez.</target>
+        <target>This section allows you to indicate to your fellow citizens "paths" in the World Beyond, and thus to organize expeditions passing by the zones which interest you. A simple expedition start and arrive in town. A complex expedition start and end where you want.</target>
       </segment>
     </unit>
     <unit id="dLIxjrY" name="Nur Helden können komplexe Routen planen.">
@@ -1362,7 +1362,7 @@
       </notes>
       <segment>
         <source>Nur Helden können komplexe Routen planen.</source>
-        <target>Seuls les héros peuvent créer des expéditions complexes.</target>
+        <target>Only heroes can create complex expeditions.</target>
       </segment>
     </unit>
     <unit id="qjGq_3f" name="Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).">
@@ -1573,7 +1573,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast bereits für folgendes Projekt abgestimmt:</source>
-        <target>Vous avez voté pour le projet :</target>
+        <target>You have voted for the project :</target>
       </segment>
     </unit>
     <unit id="HDgwb1i" name="Aktuelles Level:">
@@ -1583,7 +1583,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Aktuelles Level:</source>
-        <target>Actuellement :</target>
+        <target>Current :</target>
       </segment>
     </unit>
     <unit id="tSHIOru" name="Nächstes Level:">
@@ -1593,7 +1593,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nächstes Level:</source>
-        <target>Prochain niveau :</target>
+        <target>Next level :</target>
       </segment>
     </unit>
     <unit id="vihCVqO" name="Max. Level">
@@ -1743,7 +1743,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Voici l'intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des dons des citoyens. Ils serviront notamment à construire des bâtiments communautaires ou défendre la ville lors des attaques quotidiennes de la Horde.</target>
+        <target> This is a complete list of everything currently stored in the Bank. These objects are the fruit of the citizens' hard work. These objects are mainly used for the construction of community buildings and to defend the town during the attack of the zombie horde.</target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
@@ -1763,7 +1763,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target>Cette section permet de participer à la construction de nouveaux bâtiments. Commencez par récupérer des ressources dans le désert (bois, métal...), puis apportez des Points d'Action (PA) au bâtiment qui vous intéresse le plus.</target>
+        <target> This area allows you to participate in the construction of new buildings. Start by collecting materials in the desert (wood, metal...), then use your Action Points (AP) to help construct whichever building you choose.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -1806,7 +1806,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wie viele Aktionspunkte möchtest du in den Bau investieren?</source>
-        <target>Wie viele Aktionspunkte möchtest du in den Bau investieren?</target>
+        <target>How many action points do you want to invest in this construction?</target>
       </segment>
     </unit>
     <unit id="CNDL68g" name="%rations% Rationen Wasser übrig">
@@ -1816,7 +1816,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%rations% Rationen Wasser übrig</source>
-        <target>%rations% rations d'eau restantes</target>
+        <target>%rations% water rations remaining</target>
       </segment>
     </unit>
     <unit id="qv0A9J5" name="e390795">
@@ -1876,7 +1876,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wasser ist unersetzbar. Es ermöglicht dir einmal pro Tag deine Aktionspunkte durch Trinken wieder aufzufüllen. Des weiteren kann man es auch gegen Zombies einsetzen (reines Wasser zerstört sie).</source>
-        <target>L'eau est indispensable pour récupérer ses Points d'action une fois par jour (en buvant) et pour servir de munitions contre les zombies (l'eau pure détruit les morts-vivants).</target>
+        <target> Water is used to restore Action Points (by drinking it), and for use as a weapon against the zombies (pure water destroys the living dead).</target>
       </segment>
     </unit>
     <unit id="96udPgY" name="Brunnenregister">
@@ -2016,7 +2016,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Am Boden</source>
-        <target>Par terre</target>
+        <target>Ground</target>
       </segment>
     </unit>
     <unit id="uBY6LwO" name="Temporäre Zonenkontrolle">
@@ -2156,7 +2156,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadt betreten</source>
-        <target>Entrer en ville</target>
+        <target>Enter the town</target>
       </segment>
     </unit>
     <unit id="WrJhBrF" name="In die Stadt zurückkehren">
@@ -2176,7 +2176,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>Vous avez déjà creusé dans cette zone. La prochaine fouille est possible dans :</target>
+        <target>You have already searched this sector. The next possible search is available in :</target>
       </segment>
     </unit>
     <unit id="IUt.xlO" name="In dieser Zone graben">
@@ -2186,7 +2186,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>In dieser Zone graben</source>
-        <target>Fouiller les environs</target>
+        <target>Search</target>
       </segment>
     </unit>
     <unit id="K5c71RM" name="Nächste automatische Ausgrabung:">
@@ -2196,7 +2196,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nächste automatische Ausgrabung:</source>
-        <target>Prochaine fouille auto :</target>
+        <target>Next auto-search :</target>
       </segment>
     </unit>
     <unit id="GwPmPsr" name="%ruin% durchsuchen">
@@ -2366,7 +2366,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Aktionspunkte</source>
-        <target>Action Points</target>
+        <target>Action Points remaining</target>
       </segment>
     </unit>
     <unit id="dWg5UEc" name="0e07264">
@@ -2382,10 +2382,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</target>
+        <target>These are used to move around the World Beyond, the desert which surrounds the town...</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2445,7 +2442,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.</source>
-        <target>Selon la profession que vous choisissez, vous aurez différentes actions et manières de jouer disponibles lors de cette ville.</target>
+        <target>According to your chosen profession, you will have different actions and gameplays available during this town.</target>
       </segment>
     </unit>
     <unit id="kw2Iw8G" name="0a39755">
@@ -2457,8 +2454,8 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>En tant que %hero%, un jour héros vous sera déduit chaque jour.
-                Si vous êtes toujours en ville et n'en avez plus, vous continuerez la partie en tant qu'habitant.</target>
+        <target>If you choose to be a %hero%, a Hero day will be deducted for each played day.
+                If you are still alive when you have no more Hero days, you will continue the town as a citizen.</target>
       </segment>
     </unit>
     <unit id="hc1h_MP" name="Held">
@@ -2480,8 +2477,8 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>En tant qu'%citizen%, vous n'utiliserez pas de jours héros.
-                Cependant, vous pourrez toujours changer d'avis et choisir un métier en cours de ville.</target>
+        <target>As a %citizen%, no Hero days will be deducted.
+                However, you can always change your mind and choose a profession while in town.</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -2511,7 +2508,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alle Einträge anzeigen</source>
-        <target>Afficher toutes les entrées</target>
+        <target>View all registry entries</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -3361,7 +3358,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat der Stadt folgendes gespendet: %item%</source>
-        <target>%citizen% a donné %item% à la ville.</target>
+        <target>%citizen% has given %item% to the town.</target>
       </segment>
     </unit>
     <unit id="d8vpz_8" name="%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%">
@@ -3371,7 +3368,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% a pris %item% dans le coffre de la Banque !</target>
+        <target>%citizen% has taken %item% from the bank!</target>
       </segment>
     </unit>
     <unit id="R43wWvR" name="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
@@ -3501,7 +3498,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.</source>
-        <target>%citizen% a quitté la ville vers %direction%.</target>
+        <target>%citizen% left the town to the %direction%.</target>
       </segment>
     </unit>
     <unit id="o9wb9sd" name="%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.">
@@ -3531,7 +3528,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist aus dem %direction% angekommen.</source>
-        <target>%citizen% (%profession%) est arrivé depuis %direction%.</target>
+        <target>%citizen% (%profession%) has arrived from %direction%.</target>
       </segment>
     </unit>
     <unit id="pCkOgOT" name="%citizen% hat ein(e,n) %item% ausgegraben!">
@@ -3781,7 +3778,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Rucksack in der Bank ausleeren</source>
-        <target>Rucksack in der Bank ausleeren</target>
+        <target>Empty your rucksack Here!</target>
       </segment>
     </unit>
     <unit id="mwAKBpm" name="Meine objekte">
@@ -3791,7 +3788,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Meine objekte</source>
-        <target>Meine objekte</target>
+        <target>Objects</target>
       </segment>
     </unit>
     <unit id="MJMhV5L" name="Kleine Stadt">
@@ -3801,7 +3798,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kleine Stadt</source>
-        <target>Kleine Stadt</target>
+        <target>Non-distant region</target>
       </segment>
     </unit>
     <unit id="bElrYkF" name="Entfernte Regionen">
@@ -3861,7 +3858,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nordwesten</source>
-        <target>North-West</target>
+        <target>The North-West</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3871,7 +3868,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Norden</source>
-        <target>North</target>
+        <target>The North</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3881,7 +3878,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Südosten</source>
-        <target>South-East</target>
+        <target>The South-East</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3891,7 +3888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Südwesten</source>
-        <target>South-West</target>
+        <target>The South-West</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3901,7 +3898,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Süden</source>
-        <target>South</target>
+        <target>The South</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3911,7 +3908,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Osten</source>
-        <target>East</target>
+        <target>The East</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3921,7 +3918,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Westen</source>
-        <target>West</target>
+        <target>The West</target>
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -4041,7 +4038,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Verbesserung des Tages</target>
+        <target>Proj.</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
@@ -4051,7 +4048,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wachturm</source>
-        <target>Watchtower</target>
+        <target>Tower</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -4061,7 +4058,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Werkstatt</source>
-        <target>Workshop</target>
+        <target>Works</target>
       </segment>
     </unit>
     <unit id="Wf9i_SY" name="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
@@ -4091,7 +4088,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</source>
-        <target>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</target>
+        <target>We don't have the technology required to forecast tomorrow's attack.</target>
       </segment>
     </unit>
     <unit id="cHKuQLy" name="Den morgigen Angriff berechnen">
@@ -4101,7 +4098,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Den morgigen Angriff berechnen</source>
-        <target>Den morgigen Angriff berechnen</target>
+        <target>Calculate tomorrow's attack</target>
       </segment>
     </unit>
     <unit id="cePRD7K" name="In der Stadt wohnen @citizens Bürger.">
@@ -4141,7 +4138,9 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
-        <target>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</target>
+        <target>The well is where citizens go each day to collect their water ration.
+
+                If the town builds a pump, you will be able to get more water!</target>
       </segment>
     </unit>
     <unit id="TSuzaPk" name="Übersicht">
@@ -4151,7 +4150,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Übersicht</target>
+        <target>Overview of the town</target>
       </segment>
     </unit>
     <unit id="a8zlw81" name="d91d555">
@@ -4161,7 +4160,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.</source>
-        <target> Devant vous s'offre à perte de vue le paysage désolé de l'Outre-Monde. Vous imaginez les autres colons qui l'explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.</target>
+        <target>The desolate wastelands of the World Beyond extend for as far as the eye can see. You spare a thought for the other colonists who are scavenging at this very moment, searching the ruins. You pause to think about the suffering of those who will never return.</target>
       </segment>
     </unit>
     <unit id="Fak6Ovg" name="b6452db">
@@ -4171,7 +4170,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</source>
-        <target>Déciderez-vous de vous avancer ou de rester derrière les enceintes fortifiées ? Certains pensent qu'il faut être fou, d'autres qu'il faut être malin. Peut-être faut-il être un peu des deux...</target>
+        <target>Will you decide to move forward or to hide behind the fortified walls ? Some believe that it is best to be cautious and consider all options, others maintain that faint heart never won fair maiden... Perhaps the truth lies somewhere between the two...</target>
       </segment>
     </unit>
     <unit id="v3pLWJA" name="b728cc6">
@@ -4231,7 +4230,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Rucksack auf dem Boden ausleeren</source>
-        <target>Rucksack auf dem Boden ausleeren</target>
+        <target>Empty your Rucksack on the Ground</target>
       </segment>
     </unit>
     <unit id="aARNmv6" name="Heute ist nichts Erwähnenswertes passiert...">
@@ -4241,7 +4240,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Heute ist nichts Erwähnenswertes passiert...</source>
-        <target>Heute ist nichts Erwähnenswertes passiert...</target>
+        <target>Nothing exciting today...</target>
       </segment>
     </unit>
     <unit id="IYYfo2O" name="Unbekannte Todesursache">
@@ -4381,7 +4380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Zyanid</target>
+        <target>Cyanide</target>
       </segment>
     </unit>
     <unit id="25.Fib." name="a5ebe5c">
@@ -4391,7 +4390,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</source>
-        <target>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</target>
+        <target>Rather than continue living with this band of losers, you decided to simplify your existence... by shortening it somewhat. In short, by a day or so...</target>
       </segment>
     </unit>
     <unit id="n7kmZ_p" name="Ermordung durch Gift">
@@ -5201,7 +5200,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</source>
-        <target>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</target>
+        <target>After exhaustive searching, the only thing you have discovered is the emptiness of wasted time...</target>
       </segment>
     </unit>
     <unit id="vR5IoMk" name="Nach einigen Anstrengungen hast du folgendes gefunden: %item%!">
@@ -5211,7 +5210,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</target>
+        <target>After a few efforts, you found the following: %item%!</target>
       </segment>
     </unit>
     <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
@@ -5241,7 +5240,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?</source>
-        <target>Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?</target>
+        <target>The desert stretches for as far as the eye can see... How many lives were lost in its vastness? Who is to say that you won't be next?</target>
       </segment>
     </unit>
     <unit id="B.iCi_d" name="Sie sind allein in dieser Gegend...">
@@ -5251,7 +5250,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Sie sind allein in dieser Gegend...</source>
-        <target>Sie sind allein in dieser Gegend...</target>
+        <target>You are alone in the zone...</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
@@ -5261,7 +5260,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nachricht</source>
-        <target>Nachricht</target>
+        <target>Status message</target>
       </segment>
     </unit>
     <unit id="UHGC2Ea" name="Draußen?">
@@ -5271,7 +5270,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Draußen?</source>
-        <target>Draußen?</target>
+        <target>Outside?</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -5281,7 +5280,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Yes</target>
       </segment>
     </unit>
     <unit id="0vW.4CA" name="Ein Vorhang blockiert die Sicht ...">
@@ -5291,7 +5290,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein Vorhang blockiert die Sicht ...</source>
-        <target>Ein Vorhang blockiert die Sicht ...</target>
+        <target>The contents of this house are hidden by curtains over the windows... how rude!</target>
       </segment>
     </unit>
     <unit id="0lltLsX" name="Unsere Verteidigung :">
@@ -5301,7 +5300,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unsere Verteidigung :</source>
-        <target>Unsere Verteidigung :</target>
+        <target>Our defences :</target>
       </segment>
     </unit>
     <unit id="fCsY_QS" name="Geschätzter Angriff :">
@@ -5311,7 +5310,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Geschätzter Angriff :</source>
-        <target>Geschätzter Angriff :</target>
+        <target>Attack estimation:</target>
       </segment>
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
@@ -5321,7 +5320,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unbekannt</source>
-        <target>Unbekannt</target>
+        <target>Unknown</target>
       </segment>
     </unit>
     <unit id="0.KJY95" name="Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.">
@@ -5331,7 +5330,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Our defences should be strong enough to withstand tonight's attack.</target>
       </segment>
     </unit>
     <unit id="3Nw75Vc" name="847f9a6">
@@ -5351,7 +5350,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Meine täglichen Aufgaben</source>
-        <target>Meine täglichen Aufgaben</target>
+        <target>My daily tasks</target>
       </segment>
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
@@ -5361,7 +5360,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Einen Blick ins Forum werfen.</target>
+        <target>Take a look at your town forum,</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -5371,7 +5370,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Meine Ration Wasser im Brunnen entnehmen (optional).</target>
+        <target>Collect your water ration at the well (optional),</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
@@ -5381,7 +5380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>An der Angriffsabschätzung teilnehmen</target>
+        <target>Help estimate the attack,</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
@@ -5391,7 +5390,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Für ein Tagesprojekt abstimmen.</target>
+        <target>Vote for today's upgrade project,</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc" name="36edbd1">
@@ -5401,7 +5400,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</target>
+        <target>Work on a construction site at the workshop, or go outside and scavenge (your choice).</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -5421,7 +5420,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unsere Situation</source>
-        <target>Unsere Situation</target>
+        <target>Current situation</target>
       </segment>
     </unit>
     <unit id="PouMrbo" name="Stadttyp:">
@@ -5431,7 +5430,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadttyp:</source>
-        <target>Stadttyp:</target>
+        <target>Town type:</target>
       </segment>
     </unit>
     <unit id="jVUAKv9" name="Stadttor:">
@@ -5441,7 +5440,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadttor:</source>
-        <target>Stadttor:</target>
+        <target>Gates:</target>
       </segment>
     </unit>
     <unit id="dKGSLP." name="Offen!">
@@ -5451,7 +5450,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Offen!</source>
-        <target>Offen!</target>
+        <target>Open!</target>
       </segment>
     </unit>
     <unit id="UlrC9u_" name="Geschlossen">
@@ -5461,7 +5460,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Geschlossen</source>
-        <target>Geschlossen</target>
+        <target>Closed</target>
       </segment>
     </unit>
     <unit id="gGd7K.3" name="Wasservorräte:">
@@ -5471,7 +5470,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wasservorräte:</source>
-        <target>Wasservorräte:</target>
+        <target>Water reserves:</target>
       </segment>
     </unit>
     <unit id="xa6ARi1" name="Einwohner am Leben:">
@@ -5481,7 +5480,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Einwohner am Leben:</source>
-        <target>Einwohner am Leben:</target>
+        <target>Living citizens:</target>
       </segment>
     </unit>
     <unit id="Bij.q6J" name="Lesen Sie das Mitteilungsblatt">
@@ -5491,7 +5490,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Lesen Sie das Mitteilungsblatt</source>
-        <target>Lesen Sie das Mitteilungsblatt</target>
+        <target>Read the gazette</target>
       </segment>
     </unit>
     <unit id="3MPDTZN" name="Unsere Verteidigungen">
@@ -5501,7 +5500,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unsere Verteidigungen</source>
-        <target>Unsere Verteidigungen</target>
+        <target>Detailed defence report</target>
       </segment>
     </unit>
     <unit id="BlKVHJ7" name="Grundbefestigungsmauer">
@@ -5511,7 +5510,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Grundbefestigungsmauer</source>
-        <target>Grundbefestigungsmauer</target>
+        <target>Basic defences</target>
       </segment>
     </unit>
     <unit id="8UxoSSm" name="Verteidigungsgegenstände">
@@ -5521,7 +5520,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
-        <target>Verteidigungsgegenstände</target>
+        <target>Defensive objects</target>
       </segment>
     </unit>
     <unit id="FAUZkS8" name="Häuser">
@@ -5531,7 +5530,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Häuser</source>
-        <target>Häuser</target>
+        <target>Citizens' Houses</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -5551,7 +5550,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</target>
+        <target>Note: defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -5890,7 +5889,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Heldentaten</source>
-        <target>Heldentaten</target>
+        <target>Heroic Actions</target>
       </segment>
     </unit>
     <unit id="1H1xdaJ" name="Anzahl deiner wirklich außergewöhnlichen Heldentaten.">
@@ -5908,7 +5907,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alkohol</source>
-        <target>Alkohol</target>
+        <target>Alcohol</target>
       </segment>
     </unit>
     <unit id="5DxEd.t" name="Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.">
@@ -6601,7 +6600,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>Nachrichten</target>
+        <target>News</target>
       </segment>
     </unit>
     <unit id="Gp8QV9S" name="11324ce">
@@ -7465,7 +7464,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast noch keine Drogen genommen.</source>
-        <target>Du hast noch keine Drogen genommen.</target>
+        <target>You have never taken drugs.</target>
       </segment>
     </unit>
     <unit id="Tzmt5qh" name="d848698">
@@ -7627,7 +7626,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Reiseleiter in der Außenwelt</source>
-        <target>Reiseleiter in der Außenwelt</target>
+        <target>Guide to the World Beyond</target>
       </segment>
     </unit>
     <unit id="ti26S85" name="Dazu hast Du nicht das Recht.">
@@ -7655,6 +7654,918 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Dazu hast Du kein Recht.</source>
         <target>Dazu hast Du kein Recht.</target>
+      </segment>
+    </unit>
+    <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Bank.</source>
+        <target>Use this subject for discussions involving the town Bank...</target>
+      </segment>
+    </unit>
+    <unit id="rFh36Gr" name="Klassischer Editor">
+      <notes>
+        <note category="german">Classic Editor</note>
+      </notes>
+      <segment>
+        <source>Klassischer Editor</source>
+        <target>Classic Editor</target>
+      </segment>
+    </unit>
+    <unit id="wkidHer" name="Grafischer Editor">
+      <notes>
+        <note category="german">Graphic Editor</note>
+      </notes>
+      <segment>
+        <source>Grafischer Editor</source>
+        <target>Graphic Editor</target>
+      </segment>
+    </unit>
+    <unit id="3eUF.n2" name="39c8b98">
+      <notes>
+        <note category="german">You have reported this post from %username% to the raven. Who knows, maybe %username% will die tonight... caaaw caaaw!</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
+        <target>You have reported this post from %username% to the raven. Who knows, maybe %username% will die tonight... caaaw caaaw!</target>
+      </segment>
+    </unit>
+    <unit id="Ci7U3L." name="Aktualisierung">
+      <notes>
+        <note category="german">Aktualisierung</note>
+      </notes>
+      <segment>
+        <source>Aktualisierung</source>
+        <target>Refresh</target>
+      </segment>
+    </unit>
+    <unit id="fWKRZJU" name="Eskorte aktivieren">
+      <notes>
+        <note category="german">Eskorte aktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorte aktivieren</source>
+        <target>Wait for an escort</target>
+      </segment>
+    </unit>
+    <unit id="dV_nb5u" name="Eskorte deaktivieren">
+      <notes>
+        <note category="german">Eskorte deaktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorte deaktivieren</source>
+        <target>Cancel escort</target>
+      </segment>
+    </unit>
+    <unit id="DvcImFR" name="Ich will auf direktem Weg zurück zur Stadt">
+      <notes>
+        <note category="german">Ich will auf direktem Weg zurück zur Stadt</note>
+      </notes>
+      <segment>
+        <source>Ich will auf direktem Weg zurück zur Stadt</source>
+        <target>Don't allow my escort to take me further away from the town</target>
+      </segment>
+    </unit>
+    <unit id="td.v3Fq" name="Zugriff auf meinen Rucksack zulassen">
+      <notes>
+        <note category="german">Zugriff auf meinen Rucksack zulassen</note>
+      </notes>
+      <segment>
+        <source>Zugriff auf meinen Rucksack zulassen</source>
+        <target>Allow the objects in my rucksack to be viewed and used</target>
+      </segment>
+    </unit>
+    <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
+      <notes>
+        <note category="german">Stadt im %direction% in %km% Entfernung</note>
+      </notes>
+      <segment>
+        <source>Stadt im %direction% in %km% Entfernung</source>
+        <target>The town is %km% to %direction%</target>
+      </segment>
+    </unit>
+    <unit id="jqa.16L" name="da1981d">
+      <notes>
+        <note category="german">You already searched this zone. The next search will not be available until tomorrow.</note>
+      </notes>
+      <segment>
+        <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
+        <target>You already searched this zone. The next search will not be available until tomorrow.</target>
+      </segment>
+    </unit>
+    <unit id="hz8ReXU" name="06d5938">
+      <notes>
+        <note category="german">Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="yuk5yk0" name="e612e0a">
+      <notes>
+        <note category="german">Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="U1wN7M9" name="15166e5">
+      <notes>
+        <note category="german">Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="y0CRLzz" name="383cf44">
+      <notes>
+        <note category="german">Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="04Y3sHe" name="c3919ad">
+      <notes>
+        <note category="german">Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="lUN_NCt" name="520ae66">
+      <notes>
+        <note category="german">Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
+        <target>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+      </segment>
+    </unit>
+    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Schamane dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Schamane dieser Stadt.</source>
+        <target>Du bist der Schamane dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
+        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="AaXbNC4" name="431e5d7">
+      <notes>
+        <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</note>
+      </notes>
+      <segment>
+        <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
+        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</target>
+      </segment>
+    </unit>
+    <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
+      <notes>
+        <note category="german">Besessen von einer gequälten Seele</note>
+      </notes>
+      <segment>
+        <source>Besessen von einer gequälten Seele</source>
+        <target>Besessen von einer gequälten Seele</target>
+      </segment>
+    </unit>
+    <unit id="cxtMADZ" name="6462887">
+      <notes>
+        <note category="german">Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</note>
+      </notes>
+      <segment>
+        <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
+        <target>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="FoS7MOU" name="0b6b395">
+      <notes>
+        <note category="german">Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</note>
+      </notes>
+      <segment>
+        <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
+        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+      </segment>
+    </unit>
+    <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
+      <notes>
+        <note category="german">Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</note>
+      </notes>
+      <segment>
+        <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
+        <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+      </segment>
+    </unit>
+    <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
+      <notes>
+        <note category="german">Hier wurde bereits ein Bauplan gefunden.</note>
+      </notes>
+      <segment>
+        <source>Hier wurde bereits ein Bauplan gefunden.</source>
+        <target>Hier wurde bereits ein Bauplan gefunden.</target>
+      </segment>
+    </unit>
+    <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
+      <notes>
+        <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
+        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+      </segment>
+    </unit>
+    <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
+      <notes>
+        <note category="german">Die Tarnung von %name% ist aufgeflogen!</note>
+      </notes>
+      <segment>
+        <source>Die Tarnung von %name% ist aufgeflogen!</source>
+        <target>Die Tarnung von %name% ist aufgeflogen!</target>
+      </segment>
+    </unit>
+    <unit id="jIaT.gH" name="b043aa1">
+      <notes>
+        <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
+      </notes>
+      <segment>
+        <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
+        <target>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</target>
+      </segment>
+    </unit>
+    <unit id="2MBbf8L" name="416726b">
+      <notes>
+        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+      </notes>
+      <segment>
+        <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
+        <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
+      </segment>
+    </unit>
+    <unit id="AL6LzU0" name="9a476a3">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
+        <target>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</target>
+      </segment>
+    </unit>
+    <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
+      <notes>
+        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
+        <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
+      </segment>
+    </unit>
+    <unit id="gLkZ8wY" name="0e83286">
+      <notes>
+        <note category="german">Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</note>
+      </notes>
+      <segment>
+        <source>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</source>
+        <target>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</target>
+      </segment>
+    </unit>
+    <unit id="qNbi2jZ" name="f202f15">
+      <notes>
+        <note category="german">Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</note>
+      </notes>
+      <segment>
+        <source>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</source>
+        <target>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</target>
+      </segment>
+    </unit>
+    <unit id="ROlGH4i" name="7e84046">
+      <notes>
+        <note category="german">Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</note>
+      </notes>
+      <segment>
+        <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
+        <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
+      </segment>
+    </unit>
+    <unit id="GIJWmHF" name="91f8c9a">
+      <notes>
+        <note category="german">Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</note>
+      </notes>
+      <segment>
+        <source>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</source>
+        <target>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</target>
+      </segment>
+    </unit>
+    <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
+      <notes>
+        <note category="german">Das ist keine gute Idee, das ist dir doch wohl klar!</note>
+      </notes>
+      <segment>
+        <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
+        <target>Das ist keine gute Idee, das ist dir doch wohl klar!</target>
+      </segment>
+    </unit>
+    <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
+      <notes>
+        <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
+      </notes>
+      <segment>
+        <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
+        <target>...der Mörder .. ist.. IST.. AAARGHhh..</target>
+      </segment>
+    </unit>
+    <unit id="IMXvDT6" name="6f93cd3">
+      <notes>
+        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</note>
+      </notes>
+      <segment>
+        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</source>
+        <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</target>
+      </segment>
+    </unit>
+    <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
+        <target>Use this subject for discussions involving the town upgrades you wish to carry out...</target>
+      </segment>
+    </unit>
+    <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
+        <target>Use this subject for discussions involving the workshop and production of resources in town...</target>
+      </segment>
+    </unit>
+    <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
+      <notes>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+      </notes>
+      <segment>
+        <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
+        <target>Use this subject for discussions involving buildings and construction sites...</target>
+      </segment>
+    </unit>
+    <unit id="skuy31m" name="%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!">
+      <notes>
+        <note category="german">%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</note>
+      </notes>
+      <segment>
+        <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
+        <target>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</target>
+      </segment>
+    </unit>
+    <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
+      <notes>
+        <note category="german">Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</note>
+      </notes>
+      <segment>
+        <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</source>
+        <target>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</target>
+      </segment>
+    </unit>
+    <unit id="Tx6ACHr" name="Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.">
+      <notes>
+        <note category="german">Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</note>
+      </notes>
+      <segment>
+        <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
+        <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
+      </segment>
+    </unit>
+    <unit id="pYjjICz" name="e210a83">
+      <notes>
+        <note category="german">%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
+        <target>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</target>
+      </segment>
+    </unit>
+    <unit id="nLA31ML" name="ea40151">
+      <notes>
+        <note category="german">%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
+        <target>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
+      <notes>
+        <note category="german">%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
+        <target>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
+      <notes>
+        <note category="german">%citizen% hat sich für heute Nacht ein Versteck gesucht ...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
+        <target>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</target>
+      </segment>
+    </unit>
+    <unit id="HyDSnff" name="%citizen% hat sein Versteck verlassen.">
+      <notes>
+        <note category="german">%citizen% hat sein Versteck verlassen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat sein Versteck verlassen.</source>
+        <target>%citizen% hat sein Versteck verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="7P4jtds" name="%citizen% hat beschlossen auf einen Eskortenanführer zu warten...">
+      <notes>
+        <note category="german">%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</source>
+        <target>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</target>
+      </segment>
+    </unit>
+    <unit id="tZT81ei" name="%citizen% hat beschlossen sich wieder allein fortzubewegen.">
+      <notes>
+        <note category="german">%citizen% hat beschlossen sich wieder allein fortzubewegen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat beschlossen sich wieder allein fortzubewegen.</source>
+        <target>%citizen% hat beschlossen sich wieder allein fortzubewegen.</target>
+      </segment>
+    </unit>
+    <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
+      <notes>
+        <note category="german">%citizen% a convaincu %target_citizen% de le suivre.</note>
+      </notes>
+      <segment>
+        <source>%citizen% a convaincu %target_citizen% de le suivre.</source>
+        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
+      </segment>
+    </unit>
+    <unit id="VlmfWWl" name="Finalement, %citizen% a décidé de planter %target_citizen% là...">
+      <notes>
+        <note category="german">Finalement, %citizen% a décidé de planter %target_citizen% là...</note>
+      </notes>
+      <segment>
+        <source>Finalement, %citizen% a décidé de planter %target_citizen% là...</source>
+        <target>Finalement, %citizen% a décidé de planter %target_citizen% là...</target>
+      </segment>
+    </unit>
+    <unit id="KYKuCCa" name="0570887">
+      <notes>
+        <note category="german">Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</note>
+      </notes>
+      <segment>
+        <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
+        <target>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</target>
+      </segment>
+    </unit>
+    <unit id="J2aR_r9" name="ed375df">
+      <notes>
+        <note category="german">Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</note>
+      </notes>
+      <segment>
+        <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
+        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</target>
+      </segment>
+    </unit>
+    <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
+      <notes>
+        <note category="german">Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</note>
+      </notes>
+      <segment>
+        <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
+        <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
+      </segment>
+    </unit>
+    <unit id="ldDJ4DB" name="5617aca">
+      <notes>
+        <note category="german">Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</note>
+      </notes>
+      <segment>
+        <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
+        <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
+      </segment>
+    </unit>
+    <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
+      <notes>
+        <note category="german">Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</note>
+      </notes>
+      <segment>
+        <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
+        <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
+      </segment>
+    </unit>
+    <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
+      <notes>
+        <note category="german">Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</note>
+      </notes>
+      <segment>
+        <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
+        <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
+      </segment>
+    </unit>
+    <unit id="G9pK1NS" name="Du kannst keinen weiteren Bürger eskortieren.">
+      <notes>
+        <note category="german">Du kannst keinen weiteren Bürger eskortieren.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen weiteren Bürger eskortieren.</source>
+        <target>Du kannst keinen weiteren Bürger eskortieren.</target>
+      </segment>
+    </unit>
+    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
+      <notes>
+        <note category="german">Dieser Bürger hat kein AP mehr.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat kein AP mehr.</source>
+        <target>Dieser Bürger hat kein AP mehr.</target>
+      </segment>
+    </unit>
+    <unit id="ZLNo.4B" name="Position:">
+      <notes>
+        <note category="german">Position:</note>
+      </notes>
+      <segment>
+        <source>Position:</source>
+        <target>Position:</target>
+      </segment>
+    </unit>
+    <unit id="BpkKJfs" name="Zusammenbauen">
+      <notes>
+        <note category="german">Zusammenbauen</note>
+      </notes>
+      <segment>
+        <source>Zusammenbauen</source>
+        <target>Zusammenbauen</target>
+      </segment>
+    </unit>
+    <unit id="EV3WmmI" name="712ee4f">
+      <notes>
+        <note category="german">Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
+        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+      </segment>
+    </unit>
+    <unit id="dGfxw4F" name="2242ddb">
+      <notes>
+        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
+        <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
+      </segment>
+    </unit>
+    <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
+      <notes>
+        <note category="german">Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</source>
+        <target>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</target>
+      </segment>
+    </unit>
+    <unit id="sSdGp03" name="Ich habe doch zu große Angst...">
+      <notes>
+        <note category="german">Ich habe doch zu große Angst...</note>
+      </notes>
+      <segment>
+        <source>Ich habe doch zu große Angst...</source>
+        <target>Ich habe doch zu große Angst...</target>
+      </segment>
+    </unit>
+    <unit id="_xMXxrI" name="e0dcb5d">
+      <notes>
+        <note category="german">Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</note>
+      </notes>
+      <segment>
+        <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
+        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+      </segment>
+    </unit>
+    <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
+      <notes>
+        <note category="german">Ich möchte Wächter werden!</note>
+      </notes>
+      <segment>
+        <source>Ich möchte Wächter werden!</source>
+        <target>Ich möchte Wächter werden!</target>
+      </segment>
+    </unit>
+    <unit id="ANSfsJY" name="0e97f6c">
+      <notes>
+        <note category="german">Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</note>
+      </notes>
+      <segment>
+        <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
+        <target>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</target>
+      </segment>
+    </unit>
+    <unit id="vuWaICz" name="87f59f6">
+      <notes>
+        <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
+      </notes>
+      <segment>
+        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
+        <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</target>
+      </segment>
+    </unit>
+    <unit id="nusxEDS" name="Benutzte Waffe">
+      <notes>
+        <note category="german">Benutzte Waffe</note>
+      </notes>
+      <segment>
+        <source>Benutzte Waffe</source>
+        <target>Benutzte Waffe</target>
+      </segment>
+    </unit>
+    <unit id="WEf5fsd" name="Wähle meine Waffen!">
+      <notes>
+        <note category="german">Wähle meine Waffen!</note>
+      </notes>
+      <segment>
+        <source>Wähle meine Waffen!</source>
+        <target>Wähle meine Waffen!</target>
+      </segment>
+    </unit>
+    <unit id="xi60kHY" name="Gesamtzahl der Zombies, die heute Nacht sterben könnten:">
+      <notes>
+        <note category="german">Gesamtzahl der Zombies, die heute Nacht sterben könnten:</note>
+      </notes>
+      <segment>
+        <source>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</source>
+        <target>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</target>
+      </segment>
+    </unit>
+    <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
+      <notes>
+        <note category="german">Dieser Bürger hat keine letzten Worte hinterlassen ...</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
+        <target>Dieser Bürger hat keine letzten Worte hinterlassen ...</target>
+      </segment>
+    </unit>
+    <unit id="O9RB2q8" name="Letzte Worte:">
+      <notes>
+        <note category="german">Letzte Worte:</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte:</source>
+        <target>Letzte Worte:</target>
+      </segment>
+    </unit>
+    <unit id="sK.fJbP" name="Was ist mit ihm geschehen?">
+      <notes>
+        <note category="german">Was ist mit ihm geschehen?</note>
+      </notes>
+      <segment>
+        <source>Was ist mit ihm geschehen?</source>
+        <target>Was ist mit ihm geschehen?</target>
+      </segment>
+    </unit>
+    <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
+      <notes>
+        <note category="german">Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</note>
+      </notes>
+      <segment>
+        <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
+        <target>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</target>
+      </segment>
+    </unit>
+    <unit id="zeR3KvL" name="8c2d7df">
+      <notes>
+        <note category="german">Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
+        <target>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</target>
+      </segment>
+    </unit>
+    <unit id="g69lh6D" name="a22eaa2">
+      <notes>
+        <note category="german">Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</note>
+      </notes>
+      <segment>
+        <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
+        <target>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</target>
+      </segment>
+    </unit>
+    <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">
+      <notes>
+        <note category="german">Klicke hier, um für diesen Bürger zu stimmen.</note>
+      </notes>
+      <segment>
+        <source>Klicke hier, um für diesen Bürger zu stimmen.</source>
+        <target>Klicke hier, um für diesen Bürger zu stimmen.</target>
+      </segment>
+    </unit>
+    <unit id="xp8ndxu" name="Du hast für diesen Bürger gestimmt.">
+      <notes>
+        <note category="german">Du hast für diesen Bürger gestimmt.</note>
+      </notes>
+      <segment>
+        <source>Du hast für diesen Bürger gestimmt.</source>
+        <target>Du hast für diesen Bürger gestimmt.</target>
+      </segment>
+    </unit>
+    <unit id="Q4Q3RlC" name="Du folgst aktuell %citizen%.">
+      <notes>
+        <note category="german">Du folgst aktuell %citizen%.</note>
+      </notes>
+      <segment>
+        <source>Du folgst aktuell %citizen%.</source>
+        <target>Du folgst aktuell %citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="tNPDkbr" name="6eb9def">
+      <notes>
+        <note category="german">Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</note>
+      </notes>
+      <segment>
+        <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
+        <target>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
+                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</target>
+      </segment>
+    </unit>
+    <unit id="8c.i3q2" name="Zone reinigen">
+      <notes>
+        <note category="german">Zone reinigen</note>
+      </notes>
+      <segment>
+        <source>Zone reinigen</source>
+        <target>Zone reinigen</target>
+      </segment>
+    </unit>
+    <unit id="i5FChQj" name="Deine Eskorte">
+      <notes>
+        <note category="german">Deine Eskorte</note>
+      </notes>
+      <segment>
+        <source>Deine Eskorte</source>
+        <target>Deine Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="GSKpJCY" name="32bd220">
+      <notes>
+        <note category="german">Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
+        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+      </segment>
+    </unit>
+    <unit id="_s1Oex0" name="Gesamte Eskorte">
+      <notes>
+        <note category="german">Gesamte Eskorte</note>
+      </notes>
+      <segment>
+        <source>Gesamte Eskorte</source>
+        <target>Gesamte Eskorte</target>
+      </segment>
+    </unit>
+    <unit id="Jh.CarL" name="Bürger in dieser Zone">
+      <notes>
+        <note category="german">Bürger in dieser Zone</note>
+      </notes>
+      <segment>
+        <source>Bürger in dieser Zone</source>
+        <target>Citizens in this Zone</target>
+      </segment>
+    </unit>
+    <unit id="wVNJv3." name="Camping">
+      <notes>
+        <note category="german">Camping</note>
+      </notes>
+      <segment>
+        <source>Camping</source>
+        <target>Camping</target>
+      </segment>
+    </unit>
+    <unit id="qIelrId" name="Eskorte">
+      <notes>
+        <note category="german">Eskorte</note>
+      </notes>
+      <segment>
+        <source>Eskorte</source>
+        <target>Escort</target>
+      </segment>
+    </unit>
+    <unit id="B5vvTiM" name="Senden">
+      <notes>
+        <note category="german">Send</note>
+      </notes>
+      <segment>
+        <source>Senden</source>
+        <target>Send</target>
+      </segment>
+    </unit>
+    <unit id="iF7FJz5" name="Deine letzten Worte:">
+      <notes>
+        <note category="german">Deine letzten Worte:</note>
+      </notes>
+      <segment>
+        <source>Deine letzten Worte:</source>
+        <target>Your last words:</target>
+      </segment>
+    </unit>
+    <unit id="xbvLcF5" name="Mystic-Punkte">
+      <notes>
+        <note category="german">Mystic-Punkte</note>
+      </notes>
+      <segment>
+        <source>Mystic-Punkte</source>
+        <target>Shamanic Points</target>
+      </segment>
+    </unit>
+    <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
+      <notes>
+        <note category="german">Diese Punkte sind exklusiv für den Schamanen reserviert.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
+        <target>These points are reserved exclusively for the shaman.</target>
+      </segment>
+    </unit>
+    <unit id="1_CH2K0" name="Du bist der %rolename% dieser Stadt.">
+      <notes>
+        <note category="german">Du bist der %rolename% dieser Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du bist der %rolename% dieser Stadt.</source>
+        <target>You are the %rolename% of this Town.</target>
+      </segment>
+    </unit>
+    <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
+      <notes>
+        <note category="german">Akteneinsicht wird beantragt...</note>
+      </notes>
+      <segment>
+        <source>Akteneinsicht wird beantragt...</source>
+        <target>Akteneinsicht wird beantragt...</target>
+      </segment>
+    </unit>
+    <unit id="wbSNK79" name="Protokolle werden analysiert...">
+      <notes>
+        <note category="german">Protokolle werden analysiert...</note>
+      </notes>
+      <segment>
+        <source>Protokolle werden analysiert...</source>
+        <target>Protokolle werden analysiert...</target>
+      </segment>
+    </unit>
+    <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
+      <notes>
+        <note category="german">Überwachungsapparat wird ausgewertet...</note>
+      </notes>
+      <segment>
+        <source>Überwachungsapparat wird ausgewertet...</source>
+        <target>Überwachungsapparat wird ausgewertet...</target>
+      </segment>
+    </unit>
+    <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
+      <notes>
+        <note category="german">Belastende Beweise werden übermittelt...</note>
+      </notes>
+      <segment>
+        <source>Belastende Beweise werden übermittelt...</source>
+        <target>Belastende Beweise werden übermittelt...</target>
+      </segment>
+    </unit>
+    <unit id="EKpWan5" name="Was sagst du dazu?">
+      <notes>
+        <note category="german">Was sagst du dazu?</note>
+      </notes>
+      <segment>
+        <source>Was sagst du dazu?</source>
+        <target>Was sagst du dazu?</target>
       </segment>
     </unit>
   </file>

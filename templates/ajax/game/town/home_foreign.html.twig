@@ -82,6 +82,9 @@
                         {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
                         {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
                     {% endif %}
+                    {% if is_shaman and not banished %}
+                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
+                    {% endif %}
                 {% endif %}
                 {% if owner.home.holdsBody %}
                     <button x-disposal-id="1">{{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">2</div>)</button>
@@ -208,6 +211,19 @@
                             } );
                 })
             {% endif %}
+            {% if is_shaman and not banished %}
+	        const healButtons = document.querySelectorAll('[x-heal-citizen]');
+	        for (let i = 0; i < healButtons.length; i++) {
+	            healButtons[i].addEventListener('click', function() {
+	                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+	                    return;
+	                $.ajax.easySend( '{{ path('visit_heal_citizen', {id: owner.id}) }}', {},
+	                    function () {
+	                        $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+	                    } );
+	            });
+	        }
+	        {% endif %}
         {% endif %}
 
         {% if owner.home.holdsBody %}

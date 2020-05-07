@@ -36,13 +36,16 @@
         "symfony/web-link": "5.0.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.0.*",
-      "ext-imagick": "*"
+        "twig/intl-extra": "^3.0"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.14",
         "symfony/profiler-pack": "^1.0",
         "symfony/test-pack": "*"
+    },
+    "suggest": {
+        "ext-imagick": "*"
     },
     "config": {
         "preferred-install": {

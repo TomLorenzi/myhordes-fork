@@ -3457,5 +3457,23 @@
         <target>Lorsque les choses deviennent difficiles, il est souvent essentiel d'aider ici et là avec quelques planches de bois et de tout resserrer. Cela vous aide souvent à passer une autre nuit.</target>
       </segment>
     </unit>
+    <unit id="R_OfhbT" name="Die Verteidigung der Stadt wird um 12% erhöht.">
+      <notes>
+        <note category="german">Die Verteidigung der Stadt wird um 12% erhöht.</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
+        <target> L'organisation de la défense est optimisée, le gain de la défense total de la ville passe à 12%.</target>
+      </segment>
+    </unit>
+    <unit id="ZSyuopW" name="Die Verteidigung der Stadt wird um 14% erhöht.">
+      <notes>
+        <note category="german">Die Verteidigung der Stadt wird um 14% erhöht.</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
+        <target>L'organisation de la défense atteint sont niveau maximum, le gain de la défense total de la ville passe à 14%.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

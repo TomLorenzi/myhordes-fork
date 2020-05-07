@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Aufheben</source>
-        <target>Aufheben</target>
+        <target>Annuler</target>
       </segment>
     </unit>
     <unit id="r8Abf9v" name="Derzeitiges Leben">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>TOD NICHT BESTÄTIGT</source>
-        <target>TOD NICHT BESTÄTIGT</target>
+        <target>MORT NON CONFIRMÉE</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
-        <target>Das Leben dieses Bürgers sofort beenden?</target>
+        <target>Terminer la vie de ce citoyen immédiatement?</target>
       </segment>
     </unit>
     <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
@@ -214,7 +214,7 @@
       </notes>
       <segment>
         <source>Tod dieses Bürgers zwangsweise bestätigen?</source>
-        <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
+        <target>Forcer la confirmation de mort de ce citoyen?</target>
       </segment>
     </unit>
     <unit id="Tae9Qqu" name="Forum">

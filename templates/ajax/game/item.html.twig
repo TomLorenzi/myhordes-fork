@@ -15,6 +15,7 @@
             {% if item.prototype.deco > 0 %}<div class="item-tag item-tag-deco">{{ 'Einrichtungsgegenstand'|trans({},'items') }}</div>{% endif %}
             {% if item.prototype.hasProperty('defence') %}<div class="item-tag item-tag-defense">{{ 'Verteidigungsgegenstand'|trans({},'items') }}</div>{% endif %}
             {% if item.prototype.hasProperty('weapon') %}<div class="item-tag item-tag-weapon">{{ 'Waffe'|trans({},'items') }}</div>{% endif %}
+            {% if item.prototype.watchpoint > 0 %}<div class="item-tag item-tag-weapon">{{ 'Nachtwache-Waffen'|trans({},'items') }} <em>({{item.prototype.watchpoint}} {{ 'Pkte'|trans({},'items') }})</em></div>{% endif %}
         </div>
     {% endif %}
 </li>

@@ -30,11 +30,14 @@
                     <button id="door_opener" {% if door_locked %}disabled{% endif %}><img alt="" src="{{ asset('build/images/small_action.gif') }}" />{% trans from 'game' %}Tor öffnen{% endtrans %} (<div class="ap">1</div>)</button>
                 {% endif %}
             {% endif %}
+            {% if show_ventilation %}
+                <button id="door_exit_hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+            {% endif %}
             <button id="door_exit" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/small_move.gif') }}" />{% trans from 'game' %}Stadt verlassen{% endtrans %}</button>
             <button x-ajax-href="{{ path('town_planner') }}"><img alt="" src="{{ asset('build/images/planner.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>
         </div>
         <div class="padded cell rw-6 rw-md-12">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos} %}
+            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos, 'is_shaman': is_shaman} %}
             {% endembed %}
         </div>
     </div>
@@ -76,5 +79,14 @@
                     $.ajax.load(null, '{{ path('game_landing') }}', true);
                 } );
         });
+
+        {% if show_ventilation and allow_ventilation %}
+        document.getElementById('door_exit_hero').addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('town_door_hero_exit_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } );
+        });
+        {% endif %}
     </script>
 {% endblock %}

@@ -8,7 +8,8 @@
                 'default_show_zone': true,
                 'allow_zone_view': true,
                 'move': allow_movement,
-                'in_town': false
+                'in_town': false,
+                'is_shaman': is_shaman
             } %}{% endembed %}
             <div class="zone-info">
                 <div class="row zone-cp note note-light">
@@ -60,7 +61,7 @@
                         {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
                             {% set dir = 'Nordwesten'|trans({},'game') %}
                         {% endif %}
-                        {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
+                        {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
                     </div>
                 </div>
                 {% endif %}

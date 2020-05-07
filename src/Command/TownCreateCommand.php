@@ -87,7 +87,9 @@ class TownCreateCommand extends Command
 
         foreach ($this->conf->getTownConfiguration( $town )->raw() as $name => $value) {
             if (is_bool($value)) $value = $value ? 'true' : 'false';
-            elseif (is_array($value)) $value = empty($value) ? '[]' : implode("\n", $value);
+            elseif (is_array($value)) $value = empty($value) ? '[]' : implode("\n", array_map(function ($entry) {
+                return is_array($entry) ? implode(", ", $entry) : $entry;
+            }, $value));
             $table->addRow([$name, "<info>{$value}</info>"]);
         }
         $table->render();

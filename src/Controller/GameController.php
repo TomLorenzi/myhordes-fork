@@ -5,15 +5,21 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\Item;
+use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -73,10 +79,27 @@ class GameController extends AbstractController implements GameInterfaceControll
             return $this->redirect($this->generateUrl('game_landing'));
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
+        $town = $this->getActiveCitizen()->getTown();
+        $death_outside = array();
+        $death_in_town = array();
+
+        foreach ($town->getCitizens() as $citizen) {
+            if($citizen->getAlive()) continue;
+            if($citizen->getSurvivedDays() >= $town->getDay() - 1)
+            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getDisposed() == 0) {
+                $death_in_town[] = $citizen;
+            } else {
+                $death_outside[] = $citizen;
+            }
+        }
+
 
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
+            'town_name' => $town->getName(),
+            'death_in_town' => $death_in_town,
+            'death_outside' => $death_outside,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ] );
@@ -143,9 +166,12 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @Route("api/game/job", name="api_jobcenter")
      * @param JSONRequestParser $parser
      * @param CitizenHandler $ch
+     * @param InventoryHandler $invh
+     * @param ItemFactory $if
+     * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch): Response {
+    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -166,6 +192,18 @@ class GameController extends AbstractController implements GameInterfaceControll
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
+        $chest = $citizen->getHome()->getChest();
+        foreach ($item_spawns as $spawn)
+            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($spawn)), [$chest]);
+
+        try {
+            $this->entity_manager->persist( $chest );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            
         }
 
         return AjaxResponse::success();
