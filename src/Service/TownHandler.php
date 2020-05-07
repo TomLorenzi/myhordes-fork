@@ -389,13 +389,27 @@ class TownHandler
     }
 
     public function check_gazettes(Town &$town): bool {
-        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
-        if (!$gazette) {
+        $gazette_old = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+        if (!$gazette_old) {
             $gazette = new Gazette();
             $gazette->setTown($town)->setDay($town->getDay());
             $town->addGazette($gazette);
         }
+        $gazette_new = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 1);
+        if (!$gazette_new) {
+            $gazette = new Gazette();
+            $gazette->setTown($town)->setDay($town->getDay() + 1);
+            $town->addGazette($gazette);
+        }
 
         return true;
+    }
+
+    public function get_gazette_today(Town $town): Gazette {
+        return $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+    }
+
+    public function get_gazette_tomorrow(Town $town): Gazette {
+        return $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 1);
     }
 }

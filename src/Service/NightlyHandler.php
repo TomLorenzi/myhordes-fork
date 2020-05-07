@@ -78,6 +78,8 @@ class NightlyHandler
             return false;
         }
 
+        $this->town_handler->check_gazettes($town);
+
         return true;
     }
 
