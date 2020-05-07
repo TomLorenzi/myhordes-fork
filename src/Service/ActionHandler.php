@@ -636,6 +636,7 @@ class ActionHandler
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item, $kills ) );
+                        $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }
 
