@@ -11,6 +11,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\Gazette;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
@@ -385,6 +386,16 @@ class TownHandler
                     ->setOffsetMax( $off_max )
                 );
             }
+    }
 
+    public function check_gazettes(Town &$town): bool {
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+        if (!$gazette) {
+            $gazette = new Gazette();
+            $gazette->setTown($town)->setDay($town->getDay());
+            $town->addGazette($gazette);
+        }
+
+        return true;
     }
 }

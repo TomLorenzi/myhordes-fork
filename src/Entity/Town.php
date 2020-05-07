@@ -99,6 +99,11 @@ class Town
     private $zombieEstimations;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Gazette", mappedBy="town", orphanRemoval=true, cascade={"persist"})
+     */
+    private $gazettes;
+
+    /**
      * @ORM\OneToOne(targetEntity="App\Entity\Forum", mappedBy="town", cascade={"persist", "remove"})
      */
     private $forum;
@@ -414,6 +419,37 @@ class Town
             // set the owning side to null (unless already changed)
             if ($zombieEstimation->getTown() === $this) {
                 $zombieEstimation->setTown(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Gazette[]
+     */
+    public function getGazettes(): Collection
+    {
+        return $this->gazettes;
+    }
+
+    public function addGazette(Gazette $gazette): self
+    {
+        if (!$this->gazettes->contains($gazette)) {
+            $this->gazettes[] = $gazette;
+            $gazette->setTown($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGazette(Gazette $gazette): self
+    {
+        if ($this->gazettes->contains($gazette)) {
+            $this->gazettes->removeElement($gazette);
+            // set the owning side to null (unless already changed)
+            if ($gazette->getTown() === $this) {
+                $gazette->setTown(null);
             }
         }
 
