@@ -745,7 +745,7 @@
       </notes>
       <segment>
         <source>Hierfür fehlen dir notwendige Gegenstände.</source>
-        <target>Hierfür fehlen dir notwendige Gegenstände.</target>
+        <target>Necesitas los objetos necesarios para esto.</target>
       </segment>
     </unit>
     <unit id="aTN.bek" name="Vorschau">
