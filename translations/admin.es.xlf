@@ -14,9 +14,9 @@
       <notes>
         <note category="german">Bürger</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bürger</source>
-        <target>Bürger</target>
+        <target>Habitantes</target>
       </segment>
     </unit>
     <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
@@ -95,63 +95,63 @@
       <notes>
         <note category="german">1 Tag</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>1 Tag</source>
-        <target>1 Tag</target>
+        <target>1 día</target>
       </segment>
     </unit>
     <unit id="JU_xNFX" name="3 Tage">
       <notes>
         <note category="german">3 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>3 Tage</source>
-        <target>3 Tage</target>
+        <target>3 días</target>
       </segment>
     </unit>
     <unit id="84RJxpK" name="5 Tage">
       <notes>
         <note category="german">5 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>5 Tage</source>
-        <target>5 Tage</target>
+        <target>5 días</target>
       </segment>
     </unit>
     <unit id="zEDFlzj" name="7 Tage">
       <notes>
         <note category="german">7 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>7 Tage</source>
-        <target>7 Tage</target>
+        <target>7 días</target>
       </segment>
     </unit>
     <unit id="GtUIerm" name="15 Tage">
       <notes>
         <note category="german">15 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>15 Tage</source>
-        <target>15 Tage</target>
+        <target>15 días</target>
       </segment>
     </unit>
     <unit id="WB_sVVK" name="30 Tage">
       <notes>
         <note category="german">30 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>30 Tage</source>
-        <target>30 Tage</target>
+        <target>30 días</target>
       </segment>
     </unit>
     <unit id="tF9Axzf" name="Grund">
       <notes>
         <note category="german">Grund</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Grund</source>
-        <target>Grund</target>
+        <target>Razón</target>
       </segment>
     </unit>
     <unit id="r8Abf9v" name="Derzeitiges Leben">
@@ -212,9 +212,9 @@
       <notes>
         <note category="german">Forum</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Forum</source>
-        <target>Forum</target>
+        <target>Foro</target>
       </segment>
     </unit>
     <unit id="BygLauq" name="Autor">

@@ -350,36 +350,36 @@
       <notes>
         <note category="german">Deutsch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deutsch</source>
-        <target>Deutsch</target>
+        <target>Alemán</target>
       </segment>
     </unit>
     <unit id="vp_4VdN" name="Französisch">
       <notes>
         <note category="german">Französisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Französisch</source>
-        <target>Französisch</target>
+        <target>Francés</target>
       </segment>
     </unit>
     <unit id="mD6lfyI" name="Englisch">
       <notes>
         <note category="german">Englisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Englisch</source>
-        <target>Englisch</target>
+        <target>Inglés</target>
       </segment>
     </unit>
     <unit id="bjgV6Xr" name="Spanisch">
       <notes>
         <note category="german">Spanisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Spanisch</source>
-        <target>Spanisch</target>
+        <target>Español</target>
       </segment>
     </unit>
     <unit id="fuUze6t" name="Externe Anwendungen">
@@ -485,9 +485,9 @@
       <notes>
         <note category="german">Titel</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Titel</source>
-        <target>Titel</target>
+        <target>Título</target>
       </segment>
     </unit>
     <unit id="PHUagJt" name="Entdeckt">

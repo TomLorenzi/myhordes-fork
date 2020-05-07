@@ -806,9 +806,9 @@
         <note>Gürtel mit Tasche</note>
         <note category="german">Gürtel mit Tasche</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Gürtel mit Tasche</source>
-        <target>Cinturón</target>
+        <target>Cinturón con bolsillos</target>
       </segment>
     </unit>
     <unit id="E_mYVPX" name="Twinoid 500mg">
@@ -4326,7 +4326,7 @@
         <note>Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</note>
         <note category="german">Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</source>
         <target>texto libro empolvado</target>
       </segment>
@@ -4356,7 +4356,7 @@
         <note>Leg ihn dir ins Wohnzimmer dann fallen dir all die grässlichen Dinge, die überall am Boden herum liegen nicht mehr so auf...</note>
         <note category="german">Leg ihn dir ins Wohnzimmer dann fallen dir all die grässlichen Dinge, die überall am Boden herum liegen nicht mehr so auf...</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Leg ihn dir ins Wohnzimmer dann fallen dir all die grässlichen Dinge, die überall am Boden herum liegen nicht mehr so auf...</source>
         <target>texto alfombra persa</target>
       </segment>
@@ -4626,7 +4626,7 @@
         <note>Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</note>
         <note category="german">Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</source>
         <target>texto proyector de cine</target>
       </segment>
@@ -4716,7 +4716,7 @@
         <note>DAS klassische Gerät für die Gartenarbeit. Es funktioniert ohne Strom und ist in seine Einzelteile zerlegt...Du musst ihn zusammenbauen.</note>
         <note category="german">DAS klassische Gerät für die Gartenarbeit. Es funktioniert ohne Strom und ist in seine Einzelteile zerlegt...Du musst ihn zusammenbauen.</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>DAS klassische Gerät für die Gartenarbeit. Es funktioniert ohne Strom und ist in seine Einzelteile zerlegt...Du musst ihn zusammenbauen.</source>
         <target>texto cortacésped incompleto</target>
       </segment>
@@ -4748,7 +4748,7 @@
       </notes>
       <segment state="translated">
         <source>Mit diesem Gürtel kannst du einen weiteren Platz in deinem Rucksack freimachen. Außerdem ist der Gürtel äußerst ergonomisch entworfen worden, denn er gestattet dir, später noch eine weitere Tasche tragen zu können.</source>
-        <target>texto cinturón</target>
+        <target>Te brinda un compartimento adicional junto a tu mochila. Otra ventaja: te deja las manos libres para llevar otro contenedor (mochila).</target>
       </segment>
     </unit>
     <unit id="8EuJlsJ" name="a543191">
@@ -4776,7 +4776,7 @@
         <note>Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</note>
         <note category="german">Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</source>
         <target>texto gran cofre de metal</target>
       </segment>
@@ -4806,7 +4806,7 @@
         <note>Gönn dir etwas Entspannung und höre dir ein bisschen Musik an. Hmmm... Ne Maxi-CD mit "Zombie Eaters" von Faith No More befindet sich noch im CD-Fach.</note>
         <note category="german">Gönn dir etwas Entspannung und höre dir ein bisschen Musik an. Hmmm... Ne Maxi-CD mit "Zombie Eaters" von Faith No More befindet sich noch im CD-Fach.</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Gönn dir etwas Entspannung und höre dir ein bisschen Musik an. Hmmm... Ne Maxi-CD mit "Zombie Eaters" von Faith No More befindet sich noch im CD-Fach.</source>
         <target>texto equipo de sonido</target>
       </segment>
@@ -5897,7 +5897,7 @@
         <note>Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</note>
         <note category="german">Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</source>
         <target>texto antorcha</target>
       </segment>
@@ -6257,7 +6257,7 @@
         <note>Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...</note>
         <note category="german">Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...</source>
         <target>texto cofre de arquitecto sellado</target>
       </segment>
@@ -6939,7 +6939,7 @@
       </notes>
       <segment state="translated">
         <source>Waffe</source>
-        <target>Arma centinela</target>
+        <target>Arma</target>
       </segment>
     </unit>
     <unit id="MqglA5l" name="Super-Flaum-Pulver">
@@ -7309,7 +7309,7 @@
       </notes>
       <segment state="translated">
         <source>Kaputt</source>
-        <target>Roto...</target>
+        <target>Roto/a</target>
       </segment>
     </unit>
     <unit id="5OR30sk" name="01df5c7">
@@ -7453,7 +7453,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Läutern</source>
-        <target>Läutern</target>
+        <target>Purificar</target>
       </segment>
     </unit>
     <unit id="fJtXB6T" name="Du hast die Seele gereinigt und sie friedlich gemacht.">
@@ -7523,15 +7523,15 @@
       <notes>
         <note category="german">Kompass</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kompass</source>
-        <target>Kompass</target>
+        <target>Brújula</target>
       </segment>
     </unit>
     <unit id="47DEQpj" name="">
       <segment>
-        <source></source>
-        <target></target>
+        <source/>
+        <target/>
       </segment>
     </unit>
     <unit id="txP7Qji" name="Vodka Marinostov">
@@ -7664,45 +7664,45 @@
       <notes>
         <note category="german">Bube</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bube</source>
-        <target>Bube</target>
+        <target>Jota</target>
       </segment>
     </unit>
     <unit id="82FCAix" name="Dame">
       <notes>
         <note category="german">Dame</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dame</source>
-        <target>Dame</target>
+        <target>Reina</target>
       </segment>
     </unit>
     <unit id="5IgH0Ms" name="König">
       <notes>
         <note category="german">König</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>König</source>
-        <target>König</target>
+        <target>Rey</target>
       </segment>
     </unit>
     <unit id="Dq2RYL6" name="Ass">
       <notes>
         <note category="german">Ass</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ass</source>
-        <target>Ass</target>
+        <target>As</target>
       </segment>
     </unit>
     <unit id="hEgldti" name="Nachtwache-Waffen">
       <notes>
         <note category="german">Nachtwache-Waffen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Nachtwache-Waffen</source>
-        <target>Nachtwache-Waffen</target>
+        <target>Arma centinela</target>
       </segment>
     </unit>
     <unit id="47LA9aV" name="Pkte">

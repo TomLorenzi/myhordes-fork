@@ -163,7 +163,7 @@
                     Was tust du, solange der Angriff tobt?               
                     &lt;/p&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>&lt;p&gt;
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
                     &lt;/p&gt;
@@ -171,10 +171,10 @@
                     Was tust du, solange der Angriff tobt?               
                     &lt;/p&gt;</source>
         <target><![CDATA[<p>
-                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
+                    ¡Tu pueblo está siendo <strong>atacado</strong> por una turba de zombies! <strong>Llegan de todas partes y se meten en las casas</strong>. Entre los gritos de pánico de tus compañeros y los <strong>gruñidos hambrientos</strong> de esos monstruos... ¡la <strong>zombinoia</strong> se apodera de ti!
                     </p>
                     <p>
-                    Was tust du, solange der Angriff tobt?               
+                    ¿<strong>Morirás devorado</strong> esta noche?               
                     </p>]]></target>
       </segment>
     </unit>
@@ -182,36 +182,36 @@
       <notes>
         <note category="german">Was hat das zu bedeuten?</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Was hat das zu bedeuten?</source>
-        <target>Was hat das zu bedeuten?</target>
+        <target>¿Qué está pasando?</target>
       </segment>
     </unit>
     <unit id="ePJ.g5_" name="070fa24">
       <notes>
         <note category="german">Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
-        <target>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</target>
+        <target>¡El pueblo está siendo invadido por los zombies!</target>
       </segment>
     </unit>
     <unit id="6YlCau0" name="5a5d604">
       <notes>
         <note category="german">Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</source>
-        <target>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</target>
+        <target>El ataque puede durar alrededor de 30 minutos. Los zombies están hambrientos y buscan habitantes desprotegidos en todos los rincones. Durante este tiempo no es posible conectarse o inscribirse.</target>
       </segment>
     </unit>
     <unit id="QfY5rKB" name="Und ja, es wird Tote geben...">
       <notes>
         <note category="german">Und ja, es wird Tote geben...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Und ja, es wird Tote geben...</source>
-        <target>Und ja, es wird Tote geben...</target>
+        <target>Lo más seguro es que una buena parte de los habitantes haya muerto...</target>
       </segment>
     </unit>
   </file>
