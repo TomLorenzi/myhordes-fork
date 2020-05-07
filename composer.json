@@ -7,6 +7,7 @@
         "ext-dom": "*",
         "ext-iconv": "*",
         "ext-json": "*",
+        "ext-intl": "*",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "laminas/laminas-code": "^3.4",
         "sensio/framework-extra-bundle": "^5.5",
