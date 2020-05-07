@@ -761,9 +761,9 @@
       <notes>
         <note category="german">Dev</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dev</source>
-        <target>Dev</target>
+        <target>Desarrollador</target>
       </segment>
     </unit>
     <unit id="8WE8vgC" name="Rabe">
@@ -797,7 +797,7 @@
       <notes>
         <note category="german">Löschen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Löschen</source>
         <target>Eliminar</target>
       </segment>
@@ -806,36 +806,36 @@
       <notes>
         <note category="german">Anpinnen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Anpinnen</source>
-        <target>Anpinnen</target>
+        <target>Destacar</target>
       </segment>
     </unit>
     <unit id="Bw5vcAl" name="Loslösen">
       <notes>
         <note category="german">Loslösen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Loslösen</source>
-        <target>Loslösen</target>
+        <target>Desprender</target>
       </segment>
     </unit>
     <unit id="DSG9UgI" name="Online">
       <notes>
         <note category="german">Online</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Online</source>
-        <target>Online</target>
+        <target>On-line</target>
       </segment>
     </unit>
     <unit id="oXlHg6q" name="Offline">
       <notes>
         <note category="german">Offline</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Offline</source>
-        <target>Offline</target>
+        <target>Off-line</target>
       </segment>
     </unit>
   </file>
