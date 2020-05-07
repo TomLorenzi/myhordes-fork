@@ -587,7 +587,7 @@ class ActionHandler
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
                             $citizen->getZone()
-                                ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
+                                ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ] : [ $citizen->getInventory() ])
                                 : ( [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ])
                         , true)) $execute_info_cache['items_spawn'][] = $target;
                 }
@@ -603,10 +603,9 @@ class ActionHandler
 
                     if ($proto) $tags[] = 'spawned';
 
-
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
                             $citizen->getZone()
-                                ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ]
+                                ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [ $citizen->getInventory(), $citizen->getZone()->getFloor() ] : [$citizen->getInventory()])
                                 : ( $item_in_chest ? [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ] : [ $citizen->getInventory(), $citizen->getHome()->getChest(), $citizen->getTown()->getBank() ])
                         , true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
@@ -1023,7 +1022,7 @@ class ActionHandler
             return ErrorHelper::ErrorNoAP;
 
         $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
-        $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
+        $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
 
         if ($recipe->getType() !== Recipe::WorkshopType && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
             $source_inv[] = $citizen->getZone()->getFloor();

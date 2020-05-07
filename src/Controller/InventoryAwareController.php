@@ -539,7 +539,6 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $citizen = $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getX() === 0 && $zone->getY() === 0 ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$citizen->getProfession()->getHeroic() || !$citizen->getHeroicActions()->contains( $heroic )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$this->extract_target_object( $target_id, $heroic->getAction()->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
