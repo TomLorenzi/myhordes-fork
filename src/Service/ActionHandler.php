@@ -635,6 +635,7 @@ class ActionHandler
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item, $kills ) );
+                        $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }
 
@@ -1045,7 +1046,7 @@ class ActionHandler
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
 
         if ($recipe->getType() === Recipe::WorkshopType)
-            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, $items, [$new_item] ) );
+            $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( function(Item $e) { return array($e->getPrototype()); }, $items  ), array([$new_item]) ) );
 
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:

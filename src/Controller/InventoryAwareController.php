@@ -59,6 +59,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $random_generator;
     protected $conf;
     protected $zone_handler;
+    protected $logTemplateHandler;
 
     protected $cache_active_citizen = null;
 
@@ -66,7 +67,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh)
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh,
+        LogTemplateHandler $lth)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -81,6 +83,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->conf = $conf;
         $this->zone_handler = $zh;
         $this->death_handler = $dh;
+        $this->logTemplateHandler = $lth;
     }
 
     protected function getTownConf() {
@@ -126,11 +129,34 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+        $entries = [];
+        /** @var TownLogEntry $entity */
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
+            $this->getActiveCitizen()->getTown(),
+            $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
+
+                /** @var LogEntryTemplate $template */
+                $template = $entity->getLogEntryTemplate();
+                if (!$template)
+                    continue;
+                $entityVariables = $entity->getVariables();
+                if (!$entityVariables)
+                    continue;
+                $entries[$idx]['timestamp'] = $entity->getTimestamp();
+                $entries[$idx]['class'] = $template->getClass();
+                $entries[$idx]['type'] = $template->getType();
+
+                $variableTypes = $template->getVariableTypes();
+                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+                try {
+                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                }
+                catch (Exception $e) {
+                    $entries[$idx]['text'] = "null";
+                }                          
+            }
         return $this->render( 'ajax/game/log_content.html.twig', [
-            'entries' => $this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-                $this->getActiveCitizen()->getTown(),
-                $day, $citizen, $zone, $type, $max
-            )
+            'entries' => $entries,
         ] );
     }
 
@@ -321,10 +347,11 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if ($direction !== 'down-all') {
                 $item = $this->entity_manager->getRepository(Item::class)->find( $item_id );
                 if ($item && $item->getInventory()) $items = [$item];
-            } else
+            } else{
                 $items = $drop_carriers ? $citizen->getInventory()->getItems() : array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items) {
-                    return !in_array($i->getPrototype()->getName(), $carrier_items);
+                    return !in_array($i->getPrototype()->getName(), $carrier_items) && !$i->getEssential();
                 });
+            }
 
             $bank_up = null;
             if ($inv_source->getTown()) $bank_up = true;
@@ -340,7 +367,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             $errors = [];
             $item_count = count($items);
-            foreach ($items as $current_item)
+            foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
                     if(!$this->citizen_handler->hasStatusEffect($citizen, "tg_immune")) {
@@ -357,8 +384,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 }
                 if (($error = $handler->transferItem(
                         $citizen,
-                        $current_item,$inv_source, $inv_target
+                        $current_item, $inv_source, $inv_target
                     )) === InventoryHandler::ErrorNone) {
+
                     if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item, !$bank_up ) );
                     if ($floor_up !== null) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
                     if ($steal_up !== null) {
@@ -407,12 +435,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                             $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up ) );
                             $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                         }
-
                     }
                     if ($current_item->getInventory())
                         $this->entity_manager->persist($current_item);
                     else $this->entity_manager->remove($current_item);
+
                 } else $errors[] = $error;
+            }
 
             if (count($errors) < $item_count) {
                 try {

@@ -134,7 +134,7 @@ class DeathHandler
             }
 
             // Clean picto
-            if($citizen->getSurvivedDays() >= 3 && $this->citizen_handler->hasStatusEffect($citizen, "clean", true)) {
+            if($citizen->getSurvivedDays() >= 3 && $this->citizen_handler->hasStatusEffect($citizen, "clean")) {
                 // We earn for good the picto for the past days
                 $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_nodrug_#00");
                 $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));

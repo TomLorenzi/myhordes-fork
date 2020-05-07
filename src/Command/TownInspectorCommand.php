@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
+use App\Entity\CitizenStatus;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Service\GameFactory;

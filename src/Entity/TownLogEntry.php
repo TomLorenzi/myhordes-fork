@@ -57,24 +57,9 @@ class TownLogEntry
     private $citizen;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $type = self::TypeVarious;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $hidden = false;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $text;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $class = self::ClassNone;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Zone")
@@ -82,14 +67,20 @@ class TownLogEntry
     private $zone;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $secondaryType;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Citizen")
      */
     private $secondaryCitizen;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LogEntryTemplate")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $logEntryTemplate;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $variables = [];
 
     public function getId(): ?int
     {
@@ -144,18 +135,6 @@ class TownLogEntry
         return $this;
     }
 
-    public function getType(): ?int
-    {
-        return $this->type;
-    }
-
-    public function setType(int $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function getHidden(): ?bool
     {
         return $this->hidden;
@@ -164,30 +143,6 @@ class TownLogEntry
     public function setHidden(bool $hidden): self
     {
         $this->hidden = $hidden;
-
-        return $this;
-    }
-
-    public function getText(): ?string
-    {
-        return $this->text;
-    }
-
-    public function setText(string $text): self
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    public function getClass(): ?int
-    {
-        return $this->class;
-    }
-
-    public function setClass(int $class): self
-    {
-        $this->class = $class;
 
         return $this;
     }
@@ -204,18 +159,6 @@ class TownLogEntry
         return $this;
     }
 
-    public function getSecondaryType(): ?int
-    {
-        return $this->secondaryType;
-    }
-
-    public function setSecondaryType(?int $secondaryType): self
-    {
-        $this->secondaryType = $secondaryType;
-
-        return $this;
-    }
-
     public function getSecondaryCitizen(): ?Citizen
     {
         return $this->secondaryCitizen;
@@ -224,6 +167,30 @@ class TownLogEntry
     public function setSecondaryCitizen(?Citizen $secondaryCitizen): self
     {
         $this->secondaryCitizen = $secondaryCitizen;
+
+        return $this;
+    }
+
+    public function getLogEntryTemplate(): ?LogEntryTemplate
+    {
+        return $this->logEntryTemplate;
+    }
+
+    public function setLogEntryTemplate(?LogEntryTemplate $logEntryTemplate): self
+    {
+        $this->logEntryTemplate = $logEntryTemplate;
+
+        return $this;
+    }
+
+    public function getVariables(): ?array
+    {
+        return $this->variables;
+    }
+
+    public function setVariables(?array $variables): self
+    {
+        $this->variables = $variables;
 
         return $this;
     }

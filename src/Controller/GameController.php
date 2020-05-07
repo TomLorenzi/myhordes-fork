@@ -7,9 +7,11 @@ use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
+use App\Entity\ZombieEstimation;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -20,6 +22,7 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Structures\TownConf;
+use App\Service\LogTemplateHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,11 +39,13 @@ class GameController extends AbstractController implements GameInterfaceControll
 {
     protected $entity_manager;
     protected $translator;
+    protected $logTemplateHandler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
+        $this->logTemplateHandler = $lth;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -48,11 +53,37 @@ class GameController extends AbstractController implements GameInterfaceControll
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
+        $entries = [];
+        /** @var TownLogEntry $entity */
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
+            $this->getActiveCitizen()->getTown(),
+            $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
+                /** @var LogEntryTemplate $template */
+                $template = $entity->getLogEntryTemplate();
+                if (!$template)
+                    continue;
+                $entityVariables = $entity->getVariables();
+                if (!$entityVariables)
+                    continue;
+                $entries[$idx]['timestamp'] = $entity->getTimestamp();
+                $entries[$idx]['class'] = $template->getClass();
+                $entries[$idx]['type'] = $template->getType();
+
+                $variableTypes = $template->getVariableTypes();
+                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+
+                try {
+                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                }
+                catch (Exception $e) {
+                    $entries[$idx]['text'] = "null";
+                }             
+            }
+
+        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
+
         return $this->render( 'ajax/game/log_content.html.twig', [
-            'entries' => $this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-                $this->getActiveCitizen()->getTown(),
-                $day, $citizen, $zone, $type, $max
-            )
+            'entries' => $entries,
         ] );
     }
 
@@ -80,28 +111,74 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
         $town = $this->getActiveCitizen()->getTown();
-        $death_outside = array();
-        $death_in_town = array();
+        $death_outside = $death_inside = [];
 
         foreach ($town->getCitizens() as $citizen) {
             if($citizen->getAlive()) continue;
-            if($citizen->getSurvivedDays() >= $town->getDay() - 1)
-            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getHome()->getDisposed() == 0) {
-                $death_in_town[] = $citizen;
-            } else {
-                $death_outside[] = $citizen;
+            if($citizen->getSurvivedDays() >= $town->getDay() - 1) {
+                if ($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
+                    $death_inside[] = $citizen;
+                } else {
+                    $death_outside[] = $citizen;
+                }
             }
         }
 
+        $text = "";
+
+        $day = $town->getDay();
+        $days = [
+            'final' => $day % 5,
+            'repeat' => floor($day / 5),
+        ];
+
+        // FIXME: Do translation, get random funny text for each days
+        if($day == 1){
+            // Baguette text:
+            // Aucun article ce matin...
+            $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
+            if ($town->isOpen()){
+                $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+            } else {
+                // Serrez les fesses, citoyens, les zombies nous attaqueront ce soir à minuit !
+                $text .= "";
+            }
+        } else {
+            $text = "";
+        }
+        $textClass = "day$day";
+        /** @var ZombieEstimation $estimation */
+        $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
+        $attack = -1;
+        $defense = -1;
+        if($estimation != null){
+            $attack = $estimation->getZombies();
+            $defense = $estimation->getDefense();
+        }
+
+        $gazette = [
+            'season_version' => 0,
+            'season_label' => "Betapropine FTW",
+            'name' => $town->getName(),
+            'open' => $town->isOpen(),
+            'day' => $day,
+            'days' => $days,
+            'devast' => $town->getDevastated(),
+            'chaos' => $town->getChaos(),
+            'death_outside' => $death_outside,
+            'death_inside' => $death_inside,
+            'attack' => $attack,
+            'defense' => $defense,
+            'deaths' => count($death_inside),
+            'text' => $text,
+            'textClass' => $textClass,
+        ];
 
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
-            'town_name' => $town->getName(),
-            'death_in_town' => $death_in_town,
-            'death_outside' => $death_outside,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'gazette' => $gazette,
         ] );
     }
 
@@ -112,6 +189,21 @@ class GameController extends AbstractController implements GameInterfaceControll
      */
     public function log_newspaper_api(JSONRequestParser $parser): Response {
         return $this->renderLog((int)$parser->get('day', -1), null, false, null, null);
+    }
+
+    /**
+     * @Route("api/game/raventimes/debugtest", name="game_debugtest")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function debug_test(JSONRequestParser $parser, LogTemplateHandler $lth): Response {
+        $user = $this->getUser();
+        $citizen = $user->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        $this->entity_manager->persist($lth->nightlyAttackWatchers($town));
+        $this->entity_manager->flush();
+        return $this->newspaper();
     }
 
 

@@ -827,6 +827,7 @@ class ItemFixtures extends Fixture
         'bretz_#00'           => [ 'food', 'esc_fixed' ],
         'undef_#00'           => [ 'food', 'can_cook' ],
         'dish_#00'            => [ 'food' ],
+        'chama_#00'           => [ 'can_cook' ],
         'food_bar1_#00'       => [ 'food', 'can_cook' ],
         'food_bar2_#00'       => [ 'food', 'can_cook' ],
         'food_bar3_#00'       => [ 'food', 'can_cook' ],
