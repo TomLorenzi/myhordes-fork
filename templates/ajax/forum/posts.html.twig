@@ -43,11 +43,11 @@
                 {% endif %}
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
-                            {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                            {{ 'Heute um'|trans({},'global') }}{{ post.date.format(' G:i') }}
                         {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
-                            {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                            {{ 'Gestern um'|trans({},'global') }}{{ post.date.format(' G:i') }}
                         {% else %}
-                            {{ post.date|format_datetime('medium', 'short') }}
+                            {{ post.date.format('D, d.m.Y G:i') }}
                         {% endif %}
                     </i>
                     {% if (post.owner.avatar) %}
