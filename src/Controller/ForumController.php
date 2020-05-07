@@ -182,6 +182,7 @@ class ForumController extends AbstractController
         'u' => [],
         'del' => [],
         'strike' => [],
+        's' => [],
         'q' => [],
         'blockquote' => [],
         'hr' => [],
