@@ -2108,7 +2108,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Defense</target>
+        <target>Defence</target>
       </segment>
     </unit>
     <unit id="6lSJGc4" name="Brustwehr">
@@ -2118,7 +2118,7 @@
       </notes>
       <segment>
         <source>Brustwehr</source>
-        <target>Chemin de ronde</target>
+        <target>Battlements</target>
       </segment>
     </unit>
     <unit id="Pnjrt1t" name="Hammam">
@@ -2137,7 +2137,7 @@
       </notes>
       <segment>
         <source>Temporäre Konstruktion!</source>
-        <target>Temporäre Konstruktion!</target>
+        <target>Temporary Building!</target>
       </segment>
     </unit>
     <unit id="hwqD281" name="cc4eb65">
@@ -2146,7 +2146,7 @@
       </notes>
       <segment>
         <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
-        <target>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</target>
+        <target>This construction can only be used once. It will be destroyed this evening, after the Horde's attack.</target>
       </segment>
     </unit>
     <unit id="ssWP4ro" name="Wenn ihr wollt, könnt irh sie morgen nochmal bauen.">
@@ -2155,7 +2155,7 @@
       </notes>
       <segment>
         <source>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</source>
-        <target>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</target>
+        <target>You can build it again tomorrow if you wish.</target>
       </segment>
     </unit>
     <unit id="ucYQb6D" name="Verbessert die Stadtverteidigung erheblich.">
@@ -2173,7 +2173,7 @@
       </notes>
       <segment>
         <source>Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</source>
-        <target>Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</target>
+        <target>Another upgrade for the Great Pit: fill it with water...</target>
       </segment>
     </unit>
     <unit id="7x7Oosl" name="8639fd4">
@@ -2182,7 +2182,7 @@
       </notes>
       <segment>
         <source>Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</source>
-        <target>Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</target>
+        <target>The Great Pit is a very effective defensive measure: a big hole surrounding the town. Also known as "the Brad", it is very practical in the long term, as it can be filled with all sorts of things to make it even more effective!</target>
       </segment>
     </unit>
     <unit id="OlGNj.x" name="e41ab16">
@@ -2200,7 +2200,7 @@
       </notes>
       <segment>
         <source>Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</source>
-        <target>Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</target>
+        <target>One way to improve the Great Pit: fill it with sharpened wooden spikes, commonly known as "Brad the Impaler"</target>
       </segment>
     </unit>
     <unit id="uqeZxiJ" name="533c76d">
@@ -2236,7 +2236,7 @@
       </notes>
       <segment>
         <source>Was ist besser als eine Mauer?... eine groooße Mauer.</source>
-        <target>Was ist besser als eine Mauer?... eine groooße Mauer.</target>
+        <target>What is better than a wall? ... A big wall.</target>
       </segment>
     </unit>
     <unit id="k9tIPH5" name="cc44880">
@@ -2254,7 +2254,7 @@
       </notes>
       <segment>
         <source>Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</source>
-        <target>Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</target>
+        <target>A third wall within the existing walls provides an additional layer of protection against the nocturnal hordes...</target>
       </segment>
     </unit>
     <unit id="Hsxeh9L" name="9c09495">
@@ -2317,7 +2317,7 @@
       </notes>
       <segment>
         <source>Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</source>
-        <target>Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</target>
+        <target>Wooden fences surrounding the town should - in theory - slow down the zombie hordes significantly during the attack...</target>
       </segment>
     </unit>
     <unit id="etVSYqn" name="3c8d90e">
@@ -2326,7 +2326,7 @@
       </notes>
       <segment>
         <source>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</source>
-        <target>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</target>
+        <target>A basic defensive device, but nonetheless one which youll be happy to have when your ex-neighbour Kevo tries to snack on your delicious frontal lobe this evening.</target>
       </segment>
     </unit>
     <unit id="Wv2Tkzm" name="df68e2a">
@@ -2335,7 +2335,7 @@
       </notes>
       <segment>
         <source>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</source>
-        <target>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</target>
+        <target>Its not particularly advanced, but it does the job: makes you less likely to die.</target>
       </segment>
     </unit>
     <unit id="wwPL56w" name="Simpel aber stabil: Was will man mehr?">
@@ -2344,7 +2344,7 @@
       </notes>
       <segment>
         <source>Simpel aber stabil: Was will man mehr?</source>
-        <target>Simpel aber stabil: Was will man mehr?</target>
+        <target>Basic, but thick. Cant ask for much more really.?</target>
       </segment>
     </unit>
     <unit id="K1vyfyY" name="d56c866">
@@ -2353,7 +2353,7 @@
       </notes>
       <segment>
         <source>Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</source>
-        <target>Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</target>
+        <target>Plywood. You only picked up the thing because you had nothing better to do. You know its useless, but you did it anyway. Lets go...</target>
       </segment>
     </unit>
     <unit id="eK_yqJ_" name="e8c4516">
@@ -2362,7 +2362,7 @@
       </notes>
       <segment>
         <source>Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</source>
-        <target>Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</target>
+        <target>It certainly wasnt a genius who came up with this construction project, but in the end everyone agreed that another big wall is never a bad thing.</target>
       </segment>
     </unit>
     <unit id="w95tNyR" name="a375ce9">
@@ -2371,7 +2371,7 @@
       </notes>
       <segment>
         <source>Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</source>
-        <target>Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</target>
+        <target>Why did nobody think of this before? Instead of wasting your time on personal hygiene, use your soap to make the town walls slippy. Combined with the zombie grater, its ideal, except for the "noise".</target>
       </segment>
     </unit>
     <unit id="Zz9vCXZ" name="ed3b85b">
@@ -2380,7 +2380,7 @@
       </notes>
       <segment>
         <source>Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</source>
-        <target>Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</target>
+        <target>Many choose to forget this, but zombies have brains of their own. Sometimes two, if theyre lucky. This is handy: the concentrate projected by this gun has an astonishing capacity for turning brains to sludge.</target>
       </segment>
     </unit>
     <unit id="5.RgfZ7" name="ace174e">
@@ -2389,7 +2389,7 @@
       </notes>
       <segment>
         <source>Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</source>
-        <target>Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</target>
+        <target>This certainly isn't going to improve the looks of the zombies at the gates.</target>
       </segment>
     </unit>
     <unit id="_CopYmu" name="d33f320">
@@ -2398,7 +2398,7 @@
       </notes>
       <segment>
         <source>Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</source>
-        <target>Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</target>
+        <target>A small hydraulic device designed to spray water vapour (and amusing chemicals too).</target>
       </segment>
     </unit>
     <unit id="Jm1gYDh" name="a1c0ce7">
@@ -2416,7 +2416,7 @@
       </notes>
       <segment>
         <source>Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</source>
-        <target>Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</target>
+        <target>Significantly increases the output of the purifier (high performance).</target>
       </segment>
     </unit>
     <unit id="0YWGkKC" name="Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.">
@@ -2425,7 +2425,7 @@
       </notes>
       <segment>
         <source>Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</source>
-        <target>Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</target>
+        <target>Converts water from Jerrycans found in the desert into drinkable water.</target>
       </segment>
     </unit>
     <unit id="22o71lr" name="Verbessert die Ausbeute des Gemüsebeets erheblich.">
@@ -2434,7 +2434,7 @@
       </notes>
       <segment>
         <source>Verbessert die Ausbeute des Gemüsebeets erheblich.</source>
-        <target>Verbessert die Ausbeute des Gemüsebeets erheblich.</target>
+        <target>Significantly increases the yield of the vegetable plot.</target>
       </segment>
     </unit>
     <unit id="9HvFFQs" name="e3bcae9">
@@ -2443,7 +2443,7 @@
       </notes>
       <segment>
         <source>Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</source>
-        <target>Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</target>
+        <target>This is a major scientific breakthrough: by planting sticks of dynamite and watering them carefully, you can grow grenades!</target>
       </segment>
     </unit>
     <unit id="KDZvWuv" name="db86465">
@@ -2452,7 +2452,7 @@
       </notes>
       <segment>
         <source>Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</source>
-        <target>Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</target>
+        <target>The vegetable plot can be used to grow vegetables that arent overly mouldy and fruit that starts to rot before it gets ripe. In short, basic rations, if were not being too fussy...</target>
       </segment>
     </unit>
     <unit id="p7IMr5R" name="b4dc0a9">
@@ -2461,7 +2461,7 @@
       </notes>
       <segment>
         <source>Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</source>
-        <target>Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</target>
+        <target>This is the last resort when there is no more water: rupture the water table with dynamite to extend the towns reserves.</target>
       </segment>
     </unit>
     <unit id="gPEBQqi" name="c805ad6">
@@ -2470,7 +2470,7 @@
       </notes>
       <segment>
         <source>Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</source>
-        <target>Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</target>
+        <target>A home made drilling rig which allows the well to be extended deeper into the ground, therefore significantly increasing available reserves...</target>
       </segment>
     </unit>
     <unit id="kXal3k5" name="877acbb">
@@ -2479,7 +2479,7 @@
       </notes>
       <segment>
         <source>Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.</source>
-        <target>Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.</target>
+        <target>This machine takes a negligible amount of clean water, and sprays it out as fine boiling vapour. Originally used to clean the towns streets, it is nonetheless ideal for melting your decomposing cohorts who come to visit every night.</target>
       </segment>
     </unit>
     <unit id="u79TGbV" name="d0d4cb9">
@@ -2488,7 +2488,7 @@
       </notes>
       <segment>
         <source>Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!</source>
-        <target>Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!</target>
+        <target>It is an imaginative and VERY effective system! Two huge slabs around the entrance way and a powerful piston system: when they are activated, they instantly crush anything in the way!</target>
       </segment>
     </unit>
     <unit id="RmsmLHq" name="bd568f7">
@@ -2497,7 +2497,7 @@
       </notes>
       <segment>
         <source>Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</source>
-        <target>Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</target>
+        <target>Traditionally used in a garden, they also serve as a deadly defence against the Hordes... They kill lots of zombies, but just be sure to store plenty of water beforehand..</target>
       </segment>
     </unit>
     <unit id=".VmOFiy" name="09b4520">
@@ -2506,7 +2506,7 @@
       </notes>
       <segment>
         <source>Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!</source>
-        <target>Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!</target>
+        <target>No, really, Im being serious now, that... that... smell is properly unbearable. Take a shower. Now.</target>
       </segment>
     </unit>
     <unit id="f9B1Tpl" name="ffd7391">
@@ -2533,7 +2533,7 @@
       </notes>
       <segment>
         <source>Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.</source>
-        <target>Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.</target>
+        <target>When it comes to water, every drop counts. This construction adds +2 rations to the well and can be rebuilt every day.</target>
       </segment>
     </unit>
     <unit id="cHuP35O" name="bec561f">
@@ -2542,7 +2542,7 @@
       </notes>
       <segment>
         <source>Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.</source>
-        <target>Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.</target>
+        <target>A nice fine mist to water the beds of zombies growing near the gates</target>
       </segment>
     </unit>
     <unit id="UZtDN8I" name="fdbbf18">
@@ -2551,7 +2551,7 @@
       </notes>
       <segment>
         <source>Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?</source>
-        <target>Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?</target>
+        <target>The towns waste water can still be used: all you need to do is to connect every citizens toilet to a cunning network of pipes and toboggans, and open the sluices at midnight. Just to check, everyone has their tent set up correctly, right?</target>
       </segment>
     </unit>
     <unit id="AADCadI" name="a05cc41">
@@ -2560,7 +2560,7 @@
       </notes>
       <segment>
         <source>Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.</source>
-        <target>Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.</target>
+        <target>At the start, this was supposed to be a decontamination system. Upon use, however, it was seen to be an effective weapon against our pestilential friends. By adding a squirt of coconut shower gel, you can even perfume the rotting corpses youre responsible for.</target>
       </segment>
     </unit>
     <unit id="nNjCoj9" name="d05b3e9">
@@ -2569,7 +2569,7 @@
       </notes>
       <segment>
         <source>Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</source>
-        <target>Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</target>
+        <target>A home-made rocket launcher fired into the ground: think about it! As the story goes, the inventor of this construction project was trying to invent the "rocket-jump". All he did was to re-invent "the crater". Nonetheless, this construction adds +60 water rations to the well.</target>
       </segment>
     </unit>
     <unit id="Fec.c3L" name="a4eaee8">
@@ -2578,7 +2578,7 @@
       </notes>
       <segment>
         <source>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</source>
-        <target>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</target>
+        <target>For once, cutting-edge technology does something other than knock off vast quantities of zombies... This construction adds +100 water rations to the well.</target>
       </segment>
     </unit>
     <unit id="gdi0Inc" name="abe7a12">
@@ -2587,7 +2587,7 @@
       </notes>
       <segment>
         <source>Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?</source>
-        <target>Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?</target>
+        <target>An apple tree which looks more like a half-dead scrawny shrub but produces beautiful blue apples. Euh, hang on.. What?</target>
       </segment>
     </unit>
     <unit id="oCXgsQA" name="91e1569">
@@ -2596,7 +2596,7 @@
       </notes>
       <segment>
         <source>Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</source>
-        <target>Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</target>
+        <target>The pump unlocks all the construction projects involving water. It also increases the wells underground reserves considerably.</target>
       </segment>
     </unit>
     <unit id="r37hY9W" name="e89a6d5">
@@ -2605,7 +2605,7 @@
       </notes>
       <segment>
         <source>Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...</source>
-        <target>Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...</target>
+        <target>OK, do we all know what a crematorium is? Do we all also know what a barbecue is? Well then, its easy to guess what purpose a Cremato-Cue serves. In any case, it means we dont die of starvation...well, some of us!</target>
       </segment>
     </unit>
     <unit id="R6QjXSF" name="7badb5d">
@@ -2614,7 +2614,7 @@
       </notes>
       <segment>
         <source>In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...</source>
-        <target>In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...</target>
+        <target>Here you can transform your little companions (dogs, cats, snakes...) into rations. Just think...some crazy people prefer beef!</target>
       </segment>
     </unit>
     <unit id="HgzUKh3" name="bdfe1b4">
@@ -2623,7 +2623,7 @@
       </notes>
       <segment>
         <source>Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!</source>
-        <target>Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!</target>
+        <target>Establishes an ingenious system for optimising the use of defensive materials (steel plate, etc.). This system increases the points value of each defensive object placed in the bank.</target>
       </segment>
     </unit>
     <unit id="kvBWijm" name="d6552a7">
@@ -2632,7 +2632,7 @@
       </notes>
       <segment>
         <source>Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!</source>
-        <target>Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!</target>
+        <target>An automatic turret which launches rocks towards the town gates at high velocity! It is activated at midnight and fires continuously for several minutes (if you were counting on sleeping in silence, youre going to be disappointed)!</target>
       </segment>
     </unit>
     <unit id="8xCv6SG" name="3fd7b5e">
@@ -2659,7 +2659,7 @@
       </notes>
       <segment>
         <source>Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.</source>
-        <target>Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.</target>
+        <target>A machine to die for, literally. It needs to be reloaded every day..</target>
       </segment>
     </unit>
     <unit id="g_53a10" name="805f6a4">
@@ -2668,7 +2668,7 @@
       </notes>
       <segment>
         <source>Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.</source>
-        <target>Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.</target>
+        <target>Multiple mounds of earth, reinforced with wooden beams. These are a pre-requisite for constructing powerful defence turrets....</target>
       </segment>
     </unit>
     <unit id="MSbz210" name="f0a8ba0">
@@ -2677,7 +2677,7 @@
       </notes>
       <segment>
         <source>Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.</source>
-        <target>Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.</target>
+        <target>Large wooden beams fixed to a rotating axle. It spins, really quickly.</target>
       </segment>
     </unit>
     <unit id="ITFNg6R" name="9d3a4f1">
@@ -2686,7 +2686,7 @@
       </notes>
       <segment>
         <source>Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.</source>
-        <target>Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.</target>
+        <target>This upgraded version of the workshop reduces the cost of all conversions carried out in the workshop by 1 AP.</target>
       </segment>
     </unit>
     <unit id="VM.FttJ" name="974345b">
@@ -2695,7 +2695,7 @@
       </notes>
       <segment>
         <source>Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...</source>
-        <target>Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...</target>
+        <target>Massive circular saws built outside which are activated by a clever system involving elastic bands and a cardboard tube... The noise made by the saws rotating is reminiscent of human screams...</target>
       </segment>
     </unit>
     <unit id="ivXmhsk" name="c7ab447">
@@ -2704,7 +2704,7 @@
       </notes>
       <segment>
         <source>Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.</source>
-        <target>Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.</target>
+        <target>When intelligent citizens meet in the evenings around the fire, great things are invented. Well, on the condition that theyve built an Architecture Study. This building gives the town a (common) construction blueprint every day.</target>
       </segment>
     </unit>
     <unit id="mAwbfLv" name="8ff718a">
@@ -2722,7 +2722,7 @@
       </notes>
       <segment>
         <source>An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...</source>
-        <target>An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...</target>
+        <target>A cracking gallows for hanging undesirable types when youd rather go a little further than just banishing them from the community... Please note: given the poor standard of construction, the gallows can only be used ONCE, for ONE hanging: they must be rebuilt before they can be used again.</target>
       </segment>
     </unit>
     <unit id="QOHJyKq" name="18da24e">
@@ -2731,7 +2731,7 @@
       </notes>
       <segment>
         <source>Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.</source>
-        <target>Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.</target>
+        <target>When its a long time until meal time... Theres nothing like a solid plank of wood and some stale bread.</target>
       </segment>
     </unit>
     <unit id="m6h2kn9" name="e266b9a">
@@ -2740,7 +2740,7 @@
       </notes>
       <segment>
         <source>Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.</source>
-        <target>Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.</target>
+        <target>Between two corpses, the one thats moving has the best chance of eating you, trick the enemy by catapulting your corpses into the carnivorous crowd of shuffling scum! Each body earns +20 defence points instead of +10.</target>
       </segment>
     </unit>
     <unit id="fawd4Ys" name="0c6b6bc">
@@ -2749,7 +2749,7 @@
       </notes>
       <segment>
         <source>Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.</source>
-        <target>Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.</target>
+        <target>Bring out your dead! For once, theyre going to be useful. Use them to summarily improve our defences. Each dead citizen brought to the cemetary gives +10 defence points to the town. Note: How and where the victim died makes no nevermind...</target>
       </segment>
     </unit>
     <unit id="M2PrKkr" name="e80708a">
@@ -2758,7 +2758,7 @@
       </notes>
       <segment>
         <source>Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.</source>
-        <target>Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.</target>
+        <target>If you forgot some time ago what a fried mushroom omelette with bacon and herbs tastes like, this building will be of no use to you. Well, on the plus side youll get some eggs. If you have your heart set on mushrooms, youd best go and talk to the zombies...</target>
       </segment>
     </unit>
     <unit id="5O7d2v1" name="665c5df">
@@ -2767,7 +2767,7 @@
       </notes>
       <segment>
         <source>Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.</source>
-        <target>Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.</target>
+        <target>An abattoir installed just in front of the town gates, and the entrance is facing the World Beyond. The problem generally lies in finding a volunteer every night to stand in it, waving their arms to entice the zombies in.</target>
       </segment>
     </unit>
     <unit id="ap6lTFg" name="0bc8f05">
@@ -2776,7 +2776,7 @@
       </notes>
       <segment>
         <source>Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).</source>
-        <target>Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).</target>
+        <target>A major re-structuring of our defences to get the very best out of them (total town defences are increased by +10%).</target>
       </segment>
     </unit>
     <unit id="wUlb_LB" name="8deafa9">
@@ -2785,7 +2785,7 @@
       </notes>
       <segment>
         <source>Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.</source>
-        <target>Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.</target>
+        <target>The canteen increases the production of "kitchens" built by your towns Heroes.</target>
       </segment>
     </unit>
     <unit id="9uClNg4" name="ef99b28">
@@ -2794,7 +2794,7 @@
       </notes>
       <segment>
         <source>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</source>
-        <target>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</target>
+        <target>This major building provides the means to build more advanced houses.</target>
       </segment>
     </unit>
     <unit id="rEndNN5" name="098dd57">
@@ -2803,7 +2803,7 @@
       </notes>
       <segment>
         <source>Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.</source>
-        <target>Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.</target>
+        <target>The goal of this ambitious urban project is to better incorporate the defences of citizens homes into the towns defences. With this construction, 80% of personal defences will count towards the towns total, instead of the usual 40%.</target>
       </segment>
     </unit>
     <unit id="HpECVh5" name="64be1a9">
@@ -2812,7 +2812,7 @@
       </notes>
       <segment>
         <source>Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.</source>
-        <target>Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.</target>
+        <target>In the event of minor accidents or major trauma, the infirmery will welcome you with open arms. Well, on the condition that youre able to carry out any procedures yourself, as the facility doesnt come with medical personnel.</target>
       </segment>
     </unit>
     <unit id="sUOSkcW" name="ca5d119">
@@ -2821,7 +2821,7 @@
       </notes>
       <segment>
         <source>Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.</source>
-        <target>Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.</target>
+        <target>The laboratory increases the production of "personal laboratories" built by your towns Heroes..</target>
       </segment>
     </unit>
     <unit id="1T56XSl" name="50934d1">
@@ -2830,7 +2830,7 @@
       </notes>
       <segment>
         <source>Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.</source>
-        <target>Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.</target>
+        <target>The advancement of a town depends on the construction of a shabby workshop full of nondescript clutter. It allows resources to be converted and is a pre-requisite for the construction of other more advanced buildings.</target>
       </segment>
     </unit>
     <unit id="L54jb5I" name="8eeff7f">
@@ -2839,7 +2839,7 @@
       </notes>
       <segment>
         <source>Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.</source>
-        <target>Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.</target>
+        <target>This homemade scanner, if used correctly, makes it twice as easy to obtain an estimation of the magnitude of the forthcoming attack (only requires half as many citizens to use it to obtain a solid estimate)! It is essential if the town is to be run efficiently.</target>
       </segment>
     </unit>
     <unit id="qBYmaFE" name="14af458">
@@ -2848,7 +2848,7 @@
       </notes>
       <segment>
         <source>Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...</source>
-        <target>Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...</target>
+        <target>This simple electronic gadget increases the level of detail visible on the map of the World Beyond: the exact number of zombies in each zone can be clearly seen. Invaluable if you dont want to wander mindlessly into feeding time at the zombie zoo....</target>
       </segment>
     </unit>
     <unit id="jSsbjK4" name="0efd242">
@@ -2857,7 +2857,7 @@
       </notes>
       <segment>
         <source>Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!</source>
-        <target>Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!</target>
+        <target>The predictor is a calculator of sorts, which estimates the magnitude of and works out details relating to the attack. In particular, it gives an estimation of TOMORROWS attack!</target>
       </segment>
     </unit>
     <unit id="Z1hrRZ7" name="0221142">
@@ -2866,7 +2866,7 @@
       </notes>
       <segment>
         <source>Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</source>
-        <target>Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</target>
+        <target>Each day, the search tower allows objects to be found in zones which were previously deemed "depleted". It detects unusual meteorological phenomena occurring outside and notes which area has been affected in the Chronicle.</target>
       </segment>
     </unit>
     <unit id="CSPllWH" name="48020ec">
@@ -2884,7 +2884,7 @@
       </notes>
       <segment>
         <source>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</source>
-        <target>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</target>
+        <target>In case of emergency, it is often possible to make it through one more night by patching up the town walls with wood plating.</target>
       </segment>
     </unit>
     <unit id="9lLB0c." name="a944414">
@@ -2902,7 +2902,7 @@
       </notes>
       <segment>
         <source>Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!</source>
-        <target>Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!</target>
+        <target>Once you have built a huge pile of rubbish, it is easy to cover it in skewers that are as rusty as they are deadly!</target>
       </segment>
     </unit>
     <unit id="Cyhcjbg" name="2085295">
@@ -2929,7 +2929,7 @@
       </notes>
       <segment>
         <source>Dynamit, Zombies, Blut.</source>
-        <target>Dynamit, Zombies, Blut.</target>
+        <target>Dynamite, Zombies, Blood.</target>
       </segment>
     </unit>
     <unit id="LrMuA3t" name="14e42e6">
@@ -2938,7 +2938,7 @@
       </notes>
       <segment>
         <source>Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.</source>
-        <target>Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.</target>
+        <target>If the situation gets really desperate, you can decide to scream and panic. The advantage of this is that if all the survivors do it, this will disorientate the zombies (who really don't need that kind of stress) and earns you sime virtual defence points... Yeah, its a load of nonsense..</target>
       </segment>
     </unit>
     <unit id="BiIqI4s" name="0f02c8f">
@@ -2947,7 +2947,7 @@
       </notes>
       <segment>
         <source>Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.</source>
-        <target>Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.</target>
+        <target>Partying is the best way to forget whats going on outside, thankfully the zombies are there to ensure that it doesnt get out of hand.</target>
       </segment>
     </unit>
     <unit id="hEXDYA." name="c4f6d39">
@@ -2956,7 +2956,7 @@
       </notes>
       <segment>
         <source>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</source>
-        <target>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</target>
+        <target>A ritualistic dance round a lit fire, to which only the shaman know the technique, creates a small cloud which floats up through the air, and causes a shower of holy water to rain down on the zombie horde.</target>
       </segment>
     </unit>
     <unit id="30PQngM" name="289e4b7">
@@ -2965,7 +2965,7 @@
       </notes>
       <segment>
         <source>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</source>
-        <target>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</target>
+        <target>An agglomeration of damp tissue of over two metres in length, criss-crossed with all sorts of wires and needles. In the powerful hands of the shaman, this XXL doll decimates several zombies before becoming a shapeless, inanimate mass once again..</target>
       </segment>
     </unit>
     <unit id="K1dTRCS" name="b50a4cc">
@@ -2983,7 +2983,7 @@
       </notes>
       <segment>
         <source>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</source>
-        <target>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</target>
+        <target>Using this wicked looking guillotine and crudely constructed mannequin, the shaman can cut off the head of a pack-leader zombie at a distance, causing those who follow it to turn and wander back into the desert.</target>
       </segment>
     </unit>
     <unit id="ThoJe4k" name="0d84ba4">
@@ -2992,7 +2992,7 @@
       </notes>
       <segment>
         <source>Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!</source>
-        <target>Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!</target>
+        <target>To prepare for any eventuality, it is sometimes necessary to build emergency defences which are not destined to last more than one attack. The Emergency Supplies system fulfils this need. Be sure not to waste resources hastily building temporary structures all over the camp!</target>
       </segment>
     </unit>
     <unit id="sAD0298" name="efbd1f1">
@@ -3001,7 +3001,7 @@
       </notes>
       <segment>
         <source>Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!</source>
-        <target>Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!</target>
+        <target>This upgrade improves the catapult by reducing the number of action points needed to launch items into the World Beyond.</target>
       </segment>
     </unit>
     <unit id="7mkk.J7" name="dc3ca31">
@@ -3010,7 +3010,7 @@
       </notes>
       <segment>
         <source>Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</source>
-        <target>Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</target>
+        <target>The catapult is a special machine which allows you fire all kinds of things into the World Beyond: very useful for preparing the ground for faraway expeditions!</target>
       </segment>
     </unit>
     <unit id="dObz6dO" name="88b9c10">
@@ -3019,7 +3019,7 @@
       </notes>
       <segment>
         <source>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</source>
-        <target>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</target>
+        <target>This armory is a genuine top trump for watchmen. By building it, every weapon used during the nights watcjh will have its effectiveness boosted by 20%!</target>
       </segment>
     </unit>
     <unit id="gpk5Kg3" name="f9257d7">
@@ -3028,7 +3028,7 @@
       </notes>
       <segment>
         <source>Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</source>
-        <target>Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</target>
+        <target>This small store allows all furniture being used on the nights watch to become 20% more effective. Ah the Swedes... DIY masters of the universe!</target>
       </segment>
     </unit>
     <unit id="sZyLLG6" name="2612909">
@@ -3037,7 +3037,7 @@
       </notes>
       <segment>
         <source>Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</source>
-        <target>Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</target>
+        <target>A fairground shooting alley, not the most mobile of affairs, it always goes down a storm on the ramparts, guaranteed to put a smile on a watchmans face. It gives a +20% bonus to all water weapons used in a nights watch.</target>
       </segment>
     </unit>
     <unit id="xm64u3P" name="bf83165">
@@ -3055,7 +3055,7 @@
       </notes>
       <segment>
         <source>Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.</source>
-        <target>Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.</target>
+        <target>Building a big, beautiful tower and walkway really makes Hero guardians happy. This construction gives +10 defence points per Guardian in town and allows them to earn even more defence points by exchanging them for AP.</target>
       </segment>
     </unit>
     <unit id="gh0Faud" name="27d8193">
@@ -3064,7 +3064,7 @@
       </notes>
       <segment>
         <source>Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).</source>
-        <target>Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).</target>
+        <target>Not so much a tower as a really really long pole of which scouts can climb to the top to discover a building in the World Beyond (Once per day, per Hero)..</target>
       </segment>
     </unit>
     <unit id="MERXXrk" name="1386d7f">
@@ -3073,7 +3073,7 @@
       </notes>
       <segment>
         <source>Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.</source>
-        <target>Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.</target>
+        <target>This tower, situated near the gates, gives an estimation of the magnitude of the forthcoming attack, allowing the citizens to be better prepared. It also unlocks all construction projects linked to emergency situations.</target>
       </segment>
     </unit>
     <unit id="nZ.t5Q9" name="7a4a1b6">
@@ -3082,7 +3082,7 @@
       </notes>
       <segment>
         <source>Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.</source>
-        <target>Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.</target>
+        <target>An extreme project which allows large quantities of water to be extracted from the deepest groundwater! This project adds +50 water rations to the well.</target>
       </segment>
     </unit>
     <unit id="QgRLsly" name="f51527c">
@@ -3091,7 +3091,7 @@
       </notes>
       <segment>
         <source>Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...</source>
-        <target>Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...</target>
+        <target>Its a well known fact that zombies are a bit simple. If you construct a false second town, some of the attacking horde will try to attack it...</target>
       </segment>
     </unit>
     <unit id="qfBgram" name="1dc4fe7">
@@ -3100,7 +3100,7 @@
       </notes>
       <segment>
         <source>Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</source>
-        <target>Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</target>
+        <target>Thanks to this small tap fixed to the well, any water wasted by the filtration system can be recovered (doesnt require any additional water to be taken from the well). You can use this water to refill all water-based weapons (bombs, pistol, etc...) for FREE !</target>
       </segment>
     </unit>
     <unit id="7YJsQ6A" name="d31d808">
@@ -3109,7 +3109,7 @@
       </notes>
       <segment>
         <source>Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!</source>
-        <target>Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!</target>
+        <target>This Extreme Project seeks to improve the towns defences by restructuring the entire town. Lock down the houses, block the roads, install turrets on all the roofs... Thats the Big Rebuild!</target>
       </segment>
     </unit>
     <unit id="m0pInPT" name="0625538">
@@ -3118,7 +3118,7 @@
       </notes>
       <segment>
         <source>Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.</source>
-        <target>Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.</target>
+        <target>This field of scarecrows would work even better with citizens clothing, but that would require turning your town into a nudist colony.</target>
       </segment>
     </unit>
     <unit id="TPZ2vxC" name="ccbd910">
@@ -3127,7 +3127,7 @@
       </notes>
       <segment>
         <source>Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.</source>
-        <target>Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.</target>
+        <target>Popular justice in all its glory! When a citizen is shunned they can be sent to the cage, which is judiciously located in plain sight, in front of the gates to the town. Their wailing and crying makes a great lure at midnight. Each shunned citizen sent to the cage earns temporary defence points for the town.</target>
       </segment>
     </unit>
     <unit id="yucPall" name="ce48f50">
@@ -3136,7 +3136,7 @@
       </notes>
       <segment>
         <source>Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.</source>
-        <target>Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.</target>
+        <target>Its a well known fact that Heroes are always correct. Furthermore, to further cement this truth, any complaints registered against other citizens will count twice.</target>
       </segment>
     </unit>
     <unit id="IgJAS.l" name="977e57c">
@@ -3145,7 +3145,7 @@
       </notes>
       <segment>
         <source>Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.</source>
-        <target>Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.</target>
+        <target>On the rare occasion a construction project benefits citizens directly, we wont complain. All citizens houses will gain +4 defence points.</target>
       </segment>
     </unit>
     <unit id="ALxyysT" name="Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.">
@@ -3154,7 +3154,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.</target>
+        <target>Allows the destruction of wood at the dump.</target>
       </segment>
     </unit>
     <unit id="SJI.xW8" name="Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.">
@@ -3163,7 +3163,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.</target>
+        <target>Allows the destruction of metal at the dump.</target>
       </segment>
     </unit>
     <unit id="sHFBkoO" name="Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.">
@@ -3172,7 +3172,7 @@
       </notes>
       <segment>
         <source>Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.</source>
-        <target>Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.</target>
+        <target>Allows the massacre of innocent animals at the dump.</target>
       </segment>
     </unit>
     <unit id="MNKa85." name="38beb6b">
@@ -3181,7 +3181,7 @@
       </notes>
       <segment>
         <source>Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...</source>
-        <target>Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...</target>
+        <target>Reduces the cost of using the dump to 0 AP. Make sure not to build this if you still have some potential scoundrels in town...</target>
       </segment>
     </unit>
     <unit id="eqmm5rZ" name="Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.">
@@ -3190,7 +3190,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.</target>
+        <target>Allows the destruction of weapons at the dump.</target>
       </segment>
     </unit>
     <unit id="7aQUPif" name="Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.">
@@ -3199,7 +3199,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.</source>
-        <target>Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.</target>
+        <target>Allows the destruction of food at the dump.Müllhalde.</target>
       </segment>
     </unit>
     <unit id="wzBonsR" name="Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.">
@@ -3208,7 +3208,7 @@
       </notes>
       <segment>
         <source>Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.</source>
-        <target>Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.</target>
+        <target>Increases the yield of any defensive objects thrown in the dump.</target>
       </segment>
     </unit>
     <unit id="ue373IC" name="c0a9d4e">
@@ -3217,7 +3217,7 @@
       </notes>
       <segment>
         <source>Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</source>
-        <target>Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</target>
+        <target>Increases the yield of any object thrown in the dump by +1 temporary defence point./target>
       </segment>
     </unit>
     <unit id="90cHzot" name="667eac4">
@@ -3226,7 +3226,7 @@
       </notes>
       <segment>
         <source>Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).</source>
-        <target>Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).</target>
+        <target>The cornerstone of every great town: a huge stinking dump all around the town. Admittedly, its not very aesthetically pleasing, but it allows you to convert everyday objects into effective temporary defences (for one night only).</target>
       </segment>
     </unit>
     <unit id="9z9QPLV" name="919640a">
@@ -3235,7 +3235,7 @@
       </notes>
       <segment>
         <source>Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.</source>
-        <target>Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.</target>
+        <target>This beautiful big lighthouse will illuminate those long winter nights (is it any good in the summer?). All citizens will see their chances of surviving a camping trip improve.</target>
       </segment>
     </unit>
     <unit id="vw29RKg" name="6ba9043">
@@ -3244,7 +3244,7 @@
       </notes>
       <segment>
         <source>Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.</source>
-        <target>Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.</target>
+        <target>Just because the Crow is good and just, this shrine in its honour liberates all citizens that have been shunned from the town.</target>
       </segment>
     </unit>
     <unit id="EP7MRzT" name="6e85048">
@@ -3253,7 +3253,7 @@
       </notes>
       <segment>
         <source>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>If theres one thing were not short of here, its sand. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.</target>
       </segment>
     </unit>
     <unit id="D_tzr7L" name="0872a56">
@@ -3262,7 +3262,7 @@
       </notes>
       <segment>
         <source>Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.</source>
-        <target>Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.</target>
+        <target>A large bonfire, set on the outskirts of the town to lead the zombies away from our flimsy houses.</target>
       </segment>
     </unit>
     <unit id="vY2elYU" name="b4472bd">
@@ -3271,7 +3271,7 @@
       </notes>
       <segment>
         <source>Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).</source>
-        <target>Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).</target>
+        <target>The Ministry for Slavers have stated that shunned citizens are allowed to work on construction projects. Furthermore, each AP they invest will contribute an additional 50% bonus to the construction site (eg: 6 AP invested by a shunned citizen, 9 AP are invested in the project).</target>
       </segment>
     </unit>
     <unit id="ruMYkQK" name="f5d70ef">
@@ -3280,7 +3280,7 @@
       </notes>
       <segment>
         <source>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</source>
-        <target>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</target>
+        <target>This terrifying building came from a soviet submarine and sends powerful bolts of electricity arcing around the town with a deafening crackle. The only "hitch" is that it has to be repaired daily. If it is destroyed, the town and its surroundings are instantly vaporized, wiping everything off the map (where youll be). The label reads: soviet design, assembled in « вшивый ».</target>
       </segment>
     </unit>
     <unit id="0XMhjon" name="d9d68d6">
@@ -3289,7 +3289,7 @@
       </notes>
       <segment>
         <source>Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.</source>
-        <target>Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.</target>
+        <target>It's a well known fact that zombies are a bit simple. So what better than a maze in front of the gates to lose a few of the horde during the attack? Its really effective, but from now on, any citizen wishing to enter the town will need 1 AP to do so..</target>
       </segment>
     </unit>
     <unit id="buC0.Q1" name="d20ea22">
@@ -3298,7 +3298,7 @@
       </notes>
       <segment>
         <source>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</source>
-        <target>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</target>
+        <target>Welcome to the last chance saloon! All objects in the bank will be destroyed and each one will provide 1 defence point..</target>
       </segment>
     </unit>
     <unit id="G1W3bpP" name="de36cba">
@@ -3307,7 +3307,7 @@
       </notes>
       <segment>
         <source>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>An frighteningly BRD on which the names of all the town residents are engraved. Pointing majestically towards the sky like... euh... A BRD. Nobody knows why, but someone has engraved, "Propriété de la Nuit Profonde" on the base. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town..</target>
       </segment>
     </unit>
     <unit id="qVqfrKN" name="965147a">
@@ -3316,7 +3316,7 @@
       </notes>
       <segment>
         <source>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>It is indeed a vast and beautiful creation, youve also sunk the best part of our resources into the damn thing, but for some reason youre proud of it. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.</target>
       </segment>
     </unit>
     <unit id="IakGX2Y" name="f02f3e0">
@@ -3325,7 +3325,7 @@
       </notes>
       <segment>
         <source>Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</source>
-        <target>Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</target>
+        <target>There's nothing quite like a solid firework display to pass the long nights in the desert. This miniature version basically involves pointing the firing tubes at the areas surrounding the town and launching fireworks into the horde at midnight..ing the firing tubes at the areas surrounding the town and launching fireworks into the horde at midnight.</target>
       </segment>
     </unit>
     <unit id="XkiAKmo" name="b3acd86">
@@ -3334,7 +3334,7 @@
       </notes>
       <segment>
         <source>Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Glory to the Crow! Glory be to their lenience and benevolence! Deliver us from spam and pardon our trolling as we forgive those who have trolled against us. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.</target>
       </segment>
     </unit>
     <unit id="cYlMU3f" name="191d84d">
@@ -3343,7 +3343,7 @@
       </notes>
       <segment>
         <source>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</source>
-        <target>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</target>
+        <target>They're showing Dawn of the Dead for the 636th time, you almost certainly missed the role played by one of the extras the last time you saw it, so watching it one more time wont hurt. With a little luck, it migth even make you laugh..</target>
       </segment>
     </unit>
     <unit id="GBviw9H" name="984e5b8">
@@ -3352,7 +3352,7 @@
       </notes>
       <segment>
         <source>Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.</source>
-        <target>Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.</target>
+        <target>Four magnificent rockets are launched at key targets around the town (north, south, east and west), killing all zombies found nearby in the World Beyond!.</target>
       </segment>
     </unit>
     <unit id="_qiinHX" name="fa9f4c1">
@@ -3361,7 +3361,7 @@
       </notes>
       <segment>
         <source>Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.</source>
-        <target>Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.</target>
+        <target>A large, round balloon floating in the sky, but just for as long as it takes for a "volunteer" citizen to take a note of everything he sees around the town. This building allows you to reveal everything hidden in the World Beyond..</target>
       </segment>
     </unit>
     <unit id="66lLcPR" name="d3d58a4">
@@ -3370,7 +3370,7 @@
       </notes>
       <segment>
         <source>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</source>
-        <target>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</target>
+        <target>Because the drilling rig obviously cannot break though all rocks, it is sometimes necessary to send small animals strapped with dynamite down the holes. This project adds +150 water rations to the well.</target>
       </segment>
     </unit>
     <unit id="ZGSZ8Y0" name="9c6c617">
@@ -3379,7 +3379,7 @@
       </notes>
       <segment>
         <source>Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).</source>
-        <target>Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).</target>
+        <target>Foundations allow "Extreme Projects" to be completed (projects which take a long time to complete, but which have very powerful results).</target>
       </segment>
     </unit>
     <unit id=".S8H9z4" name="4e90e01">
@@ -3397,7 +3397,7 @@
       </notes>
       <segment>
         <source>Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.</source>
-        <target>Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.</target>
+        <target>The gates close automatically at 22h59 instead of 22h30..</target>
       </segment>
     </unit>
     <unit id="qcnjh2a" name="b2840d8">
@@ -3406,7 +3406,7 @@
       </notes>
       <segment>
         <source>Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.</source>
-        <target>Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.</target>
+        <target>This system uses powerful motorised pistons to automatically close the gates and prevent them from opening again half an hour before the attack.</target>
       </segment>
     </unit>
     <unit id="7YLzXpN" name="278ff38">
@@ -3415,7 +3415,7 @@
       </notes>
       <segment>
         <source>Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!</source>
-        <target>Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!</target>
+        <target>This secret passage allows Heroes to enter and leave the town without using the gates!!</target>
       </segment>
     </unit>
     <unit id="uKVPWuT" name="13115fa">
@@ -3424,7 +3424,7 @@
       </notes>
       <segment>
         <source>Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.</source>
-        <target>Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.</target>
+        <target>A somewhat old-fashioned device which stops the gates being opened during the 20 minutes immediately before the attack. The gates still have to be closed manually.</target>
       </segment>
     </unit>
     <unit id="iU2EQdk" name="f7903b8">
@@ -3442,7 +3442,7 @@
       </notes>
       <segment>
         <source>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</source>
-        <target>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</target>
+        <target>Constructed and available for use — A place of relaxation and contemplation perfectly suited for the transition of lost souls to the other side.</target>
       </segment>
     </unit>
   </file>
