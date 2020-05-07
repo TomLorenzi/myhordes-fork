@@ -9,6 +9,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Town;
+use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
@@ -63,6 +64,7 @@ class MigrateCommand extends Command
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
+            ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
         ;
     }
 
@@ -182,6 +184,19 @@ class MigrateCommand extends Command
 
             return 0;
         }
+
+        if ($input->getOption('delete-legacy-logs')) {
+            /** @var TownLogEntry[] $log_entries */
+            $log_entries = $this->entity_manager->getRepository(TownLogEntry::class)->findAll();
+            foreach ($log_entries as $entry)
+                if ($entry->getLogEntryTemplate() === null)
+                $this->entity_manager->remove( $entry );
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
 
         return 1;
     }

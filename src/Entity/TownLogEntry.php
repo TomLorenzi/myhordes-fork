@@ -73,7 +73,7 @@ class TownLogEntry
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\LogEntryTemplate")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $logEntryTemplate;
 
