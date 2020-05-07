@@ -6,9 +6,9 @@
         <note>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</note>
         <note category="german">Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</source>
-        <target>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</target>
+        <target>texto dados 5</target>
       </segment>
     </unit>
     <unit id="yeqnW9g" name="15fb7cd">
@@ -16,9 +16,9 @@
         <note>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
         <note category="german">Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>texto dados 4</target>
       </segment>
     </unit>
     <unit id="rmGP8Al" name="15675e8">
@@ -26,9 +26,9 @@
         <note>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
         <note category="german">Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>texto dados 3</target>
       </segment>
     </unit>
     <unit id="Gk9gFU8" name="8a7fa90">
@@ -36,9 +36,9 @@
         <note>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
         <note category="german">Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>texto dados 2</target>
       </segment>
     </unit>
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
@@ -46,9 +46,9 @@
         <note>Nicht schlecht, du hast einen Pasch geworfen.</note>
         <note category="german">Nicht schlecht, du hast einen Pasch geworfen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nicht schlecht, du hast einen Pasch geworfen.</source>
-        <target>Nicht schlecht, du hast einen Pasch geworfen.</target>
+        <target>texto dados?</target>
       </segment>
     </unit>
     <unit id="oGFgAoX" name="Was für ein Spaß!">
@@ -56,9 +56,9 @@
         <note>Was für ein Spaß!</note>
         <note category="german">Was für ein Spaß!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Was für ein Spaß!</source>
-        <target>Was für ein Spaß!</target>
+        <target>texto dados 1</target>
       </segment>
     </unit>
     <unit id="zcpU78C" name="3649d62">
@@ -66,9 +66,9 @@
         <note>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</note>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</target>
+        <target>Lanzas una carta... ¡Y pegas un grito al descubrir que lleva tu nombre escrito con sangre! ¿Quién pudo hacerte esta broma de mal gusto?</target>
       </segment>
     </unit>
     <unit id="NcJ93EV" name="9ae05d1">
@@ -76,9 +76,9 @@
         <note>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</target>
+        <target>texto cartas 3</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -86,9 +86,9 @@
         <note>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</note>
         <note category="german">Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
-        <target>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</target>
+        <target>texto cartas 2</target>
       </segment>
     </unit>
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
@@ -96,9 +96,9 @@
         <note>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</note>
         <note category="german">Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
-        <target>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</target>
+        <target>texto cartas 1</target>
       </segment>
     </unit>
     <unit id="9tVy8rd" name="99bed0a">
@@ -106,9 +106,9 @@
         <note>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
         <note category="german">Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
-        <target>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</target>
+        <target>Una canción puede animar hasta un velorio... Tu talento le da {ap} puntos de acción a tus vecinos.</target>
       </segment>
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
@@ -116,9 +116,9 @@
         <note>Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
         <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
-        <target>Trotz intensiver Suche hast du nichts verwertbares gefunden...</target>
+        <target>Te echas a buscar y no encuentras nada. ¡Grrrr!...</target>
       </segment>
     </unit>
     <unit id="23PgQVZ" name="Ration Wasser">
@@ -178,7 +178,7 @@
       </notes>
       <segment state="translated">
         <source>Taser</source>
-        <target>Taser de autodefensa</target>
+        <target>Táser de autodefensa</target>
       </segment>
     </unit>
     <unit id="mhB5NC7" name="Aqua-Splash (leer)">
@@ -206,7 +206,7 @@
         <note>Kettensäge (geladen)</note>
         <note category="german">Kettensäge (geladen)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kettensäge (geladen)</source>
         <target>Sierra eléctrica (cargada)</target>
       </segment>
@@ -566,7 +566,7 @@
         <note>Undefinierbares Fleisch</note>
         <note category="german">Undefinierbares Fleisch</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Undefinierbares Fleisch</source>
         <target>Carne irreconocible</target>
       </segment>
@@ -646,7 +646,7 @@
         <note>Kanisterpumpe (zerlegt)</note>
         <note category="german">Kanisterpumpe (zerlegt)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kanisterpumpe (zerlegt)</source>
         <target>Bomba para cantimplora incompleta</target>
       </segment>
@@ -666,7 +666,7 @@
         <note>Grüne Bierflasche</note>
         <note category="german">Grüne Bierflasche</note>
       </notes>
-      <segment state="translated">
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Grüne Bierflasche</source>
         <target>Vodka Rosquetoff</target>
       </segment>
@@ -866,9 +866,9 @@
         <note>Mini Hi-Fi Anlage (an)</note>
         <note category="german">Mini Hi-Fi Anlage (an)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mini Hi-Fi Anlage (an)</source>
-        <target>Equipo de sonido</target>
+        <target>Pequeño equipo de sonido encendido</target>
       </segment>
     </unit>
     <unit id="Ly8qhtu" name="Pharmazeutische Substanz">
@@ -1046,7 +1046,7 @@
         <note>Aqua-Splash (3 Ladungen)</note>
         <note category="german">Aqua-Splash (3 Ladungen)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aqua-Splash (3 Ladungen)</source>
         <target>Rifle de agua (3 cargas)</target>
       </segment>
@@ -1056,7 +1056,7 @@
         <note>Aqua-Splash (2 Ladungen)</note>
         <note category="german">Aqua-Splash (2 Ladungen)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aqua-Splash (2 Ladungen)</source>
         <target>Rifle de agua (2 cargas)</target>
       </segment>
@@ -1066,7 +1066,7 @@
         <note>Aqua-Splash (1 Ladung)</note>
         <note category="german">Aqua-Splash (1 Ladung)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aqua-Splash (1 Ladung)</source>
         <target>Rifle de agua (1 carga)</target>
       </segment>
@@ -1078,7 +1078,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Handmixer (ohne Strom)</source>
-        <target>Handmixer (ohne Strom)</target>
+        <target>Batidora eléctrica (apagada)</target>
       </segment>
     </unit>
     <unit id="hEtEe9i" name="Kettensäge (ohne Strom)">
@@ -1086,9 +1086,9 @@
         <note>Kettensäge (ohne Strom)</note>
         <note category="german">Kettensäge (ohne Strom)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Kettensäge (ohne Strom)</source>
-        <target>Kettensäge (ohne Strom)</target>
+        <target>Sierra eléctrica (apagada)</target>
       </segment>
     </unit>
     <unit id="4yWesEi" name="Batteriewerfer 1-PDTG (entladen)">
@@ -1106,9 +1106,9 @@
         <note>Taser (ohne Strom)</note>
         <note category="german">Taser (ohne Strom)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Taser (ohne Strom)</source>
-        <target>Taser (ohne Strom)</target>
+        <target>Táser de autodefensa (apagado)</target>
       </segment>
     </unit>
     <unit id="Pv.PdId" name="Elektrischer Bauchmuskeltrainer (ohne Strom)">
@@ -1126,7 +1126,7 @@
         <note>Elektrischer Bauchmuskeltrainer (geladen)</note>
         <note category="german">Elektrischer Bauchmuskeltrainer (geladen)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Elektrischer Bauchmuskeltrainer (geladen)</source>
         <target>ElectroGym (cargado)</target>
       </segment>
@@ -1138,7 +1138,7 @@
       </notes>
       <segment state="translated">
         <source>Zerstörer (entladen)</source>
-        <target>Devastator (descargado)</target>
+        <target>Devastator (vacío)</target>
       </segment>
     </unit>
     <unit id="6JzGDe3" name="Zerstörer (geladen)">
@@ -1448,7 +1448,7 @@
       </notes>
       <segment state="translated">
         <source>Vibrator (entladen)</source>
-        <target>Pequeño vibrador (descargado)</target>
+        <target>Pequeño vibrador (apagado)</target>
       </segment>
     </unit>
     <unit id="PO8Wz9d" name="Knochen mit Fleisch">
@@ -1526,9 +1526,9 @@
         <note>Gut erhaltener Holzscheit</note>
         <note category="german">Gut erhaltener Holzscheit</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Gut erhaltener Holzscheit</source>
-        <target>Tronco en buen estado</target>
+        <target>Leña en buen estado</target>
       </segment>
     </unit>
     <unit id="JEMbD4T" name="Defektes Elektrogerät">
@@ -1768,7 +1768,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Aufgewelltes Blatt</source>
-        <target>Aufgewelltes Blatt</target>
+        <target>Hoja de papel embarrada</target>
       </segment>
     </unit>
     <unit id="9.sIwMj" name="Betriebsanleitung">
@@ -1806,7 +1806,7 @@
         <note>Blätterstapel</note>
         <note category="german">Blätterstapel</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Blätterstapel</source>
         <target>Pila de papeles</target>
       </segment>
@@ -1846,7 +1846,7 @@
         <note>Schrankkoffer</note>
         <note category="german">Schrankkoffer</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Schrankkoffer</source>
         <target>Baúl de metal</target>
       </segment>
@@ -1926,7 +1926,7 @@
         <note>Wasserpistole (1 Ladung)</note>
         <note category="german">Wasserpistole (1 Ladung)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Wasserpistole (1 Ladung)</source>
         <target>Pistola de agua (1 carga)</target>
       </segment>
@@ -1936,7 +1936,7 @@
         <note>Aqua-Splash (5 Ladungen)</note>
         <note category="german">Aqua-Splash (5 Ladungen)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aqua-Splash (5 Ladungen)</source>
         <target>Rifle de agua (5 cargas)</target>
       </segment>
@@ -1946,7 +1946,7 @@
         <note>Aqua-Splash (4 Ladungen)</note>
         <note category="german">Aqua-Splash (4 Ladungen)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aqua-Splash (4 Ladungen)</source>
         <target>Rifle de agua (4 cargas)</target>
       </segment>
@@ -2056,7 +2056,7 @@
         <note>Giftfläschchen</note>
         <note category="german">Giftfläschchen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Giftfläschchen</source>
         <target>Frasco de veneno</target>
       </segment>
@@ -2676,9 +2676,9 @@
         <note>Hotel-Bauplan (ungewöhnlich)</note>
         <note category="german">Hotel-Bauplan (ungewöhnlich)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hotel-Bauplan (ungewöhnlich)</source>
-        <target>Hotel-Bauplan (ungewöhnlich)</target>
+        <target>Plano de construcción de hotel (inusual)</target>
       </segment>
     </unit>
     <unit id="QVhzGbs" name="Hotel-Bauplan (selten)">
@@ -2686,9 +2686,9 @@
         <note>Hotel-Bauplan (selten)</note>
         <note category="german">Hotel-Bauplan (selten)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hotel-Bauplan (selten)</source>
-        <target>Hotel-Bauplan (selten)</target>
+        <target>Plano de construcción de hotel (raro)</target>
       </segment>
     </unit>
     <unit id="p2EcHS1" name="Hotel-Bauplan (sehr selten!)">
@@ -2696,9 +2696,9 @@
         <note>Hotel-Bauplan (sehr selten!)</note>
         <note category="german">Hotel-Bauplan (sehr selten!)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hotel-Bauplan (sehr selten!)</source>
-        <target>Hotel-Bauplan (sehr selten!)</target>
+        <target>Plano de construcción de hotel (¡muy raro!)</target>
       </segment>
     </unit>
     <unit id="sq2H4GP" name="Bunker-Bauplan (ungewöhnlich)">
@@ -2706,9 +2706,9 @@
         <note>Bunker-Bauplan (ungewöhnlich)</note>
         <note category="german">Bunker-Bauplan (ungewöhnlich)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bunker-Bauplan (ungewöhnlich)</source>
-        <target>Bunker-Bauplan (ungewöhnlich)</target>
+        <target>Plano de construcción de búnker (inusual)</target>
       </segment>
     </unit>
     <unit id="0v4ai6K" name="Bunker-Bauplan (selten)">
@@ -2716,9 +2716,9 @@
         <note>Bunker-Bauplan (selten)</note>
         <note category="german">Bunker-Bauplan (selten)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bunker-Bauplan (selten)</source>
-        <target>Bunker-Bauplan (selten)</target>
+        <target>Plano de construcción de búnker (raro)</target>
       </segment>
     </unit>
     <unit id="CwcMCMu" name="Bunker-Bauplan (sehr selten!)">
@@ -2726,9 +2726,9 @@
         <note>Bunker-Bauplan (sehr selten!)</note>
         <note category="german">Bunker-Bauplan (sehr selten!)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bunker-Bauplan (sehr selten!)</source>
-        <target>Bunker-Bauplan (sehr selten!)</target>
+        <target>Plano de construcción de búnker (¡muy raro!)</target>
       </segment>
     </unit>
     <unit id="n6ABeIO" name="Hospital-Bauplan (ungewöhnlich)">
@@ -2736,9 +2736,9 @@
         <note>Hospital-Bauplan (ungewöhnlich)</note>
         <note category="german">Hospital-Bauplan (ungewöhnlich)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hospital-Bauplan (ungewöhnlich)</source>
-        <target>Hospital-Bauplan (ungewöhnlich)</target>
+        <target>Plano de construcción de hospital (inusual)</target>
       </segment>
     </unit>
     <unit id="50BbdKV" name="Hospital-Bauplan (selten)">
@@ -2746,9 +2746,9 @@
         <note>Hospital-Bauplan (selten)</note>
         <note category="german">Hospital-Bauplan (selten)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hospital-Bauplan (selten)</source>
-        <target>Hospital-Bauplan (selten)</target>
+        <target>Plano de construcción de hospital (raro)</target>
       </segment>
     </unit>
     <unit id="EVSrLeF" name="Hospital-Bauplan (sehr selten!)">
@@ -2756,9 +2756,9 @@
         <note>Hospital-Bauplan (sehr selten!)</note>
         <note category="german">Hospital-Bauplan (sehr selten!)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hospital-Bauplan (sehr selten!)</source>
-        <target>Hospital-Bauplan (sehr selten!)</target>
+        <target>Plano de construcción de hospital (¡muy raro!)</target>
       </segment>
     </unit>
     <unit id="dy9JAOu" name="Verirrte Seele">
@@ -2766,7 +2766,7 @@
         <note>Verirrte Seele</note>
         <note category="german">Verirrte Seele</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verirrte Seele</source>
         <target>Alma errante</target>
       </segment>
@@ -2786,7 +2786,7 @@
         <note>Schwache Seele</note>
         <note category="german">Schwache Seele</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Schwache Seele</source>
         <target>Alma débil</target>
       </segment>
@@ -3028,7 +3028,7 @@
       </notes>
       <segment state="translated">
         <source>Starker Laserpointer (Leer)</source>
-        <target>Puntero láser potente descargado</target>
+        <target>Puntero láser potente (apagado)</target>
       </segment>
     </unit>
     <unit id="EJTnMeh" name="Teleskop">
@@ -3186,7 +3186,7 @@
         <note>Schrödingers Box</note>
         <note category="german">Schrödingers Box</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Schrödingers Box</source>
         <target>Caja de Schrödinger</target>
       </segment>
@@ -3258,7 +3258,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Ein Etikett</source>
-        <target>Hoja de papel embarrada</target>
+        <target>Una etiqueta</target>
       </segment>
     </unit>
     <unit id="J4KATtV" name="Bürgerbekleidung">
@@ -3436,9 +3436,9 @@
         <note>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</note>
         <note category="german">Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <target>No tienes nada para abrir eso...</target>
       </segment>
     </unit>
     <unit id="ohJAffK" name="Essen">
@@ -3506,9 +3506,9 @@
         <note>Laden</note>
         <note category="german">Laden</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Laden</source>
-        <target>Laden</target>
+        <target>Cargar</target>
       </segment>
     </unit>
     <unit id="VahlHoL" name="83909a7">
@@ -3676,9 +3676,9 @@
         <note>Reinigen</note>
         <note category="german">Reinigen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Reinigen</source>
-        <target>Reinigen</target>
+        <target>Limpiar</target>
       </segment>
     </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
@@ -3736,7 +3736,7 @@
         <note>Reparieren mit</note>
         <note category="german">Reparieren mit</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Reparieren mit</source>
         <target>Reparar con</target>
       </segment>
@@ -4516,9 +4516,9 @@
         <note>Du bist dir so gut wie sicher, dass man dieses weiche und glibbrige Etwas essen kann. Zumindest riecht es nicht sooo schlecht und es bewegt sich auch nicht.</note>
         <note category="german">Du bist dir so gut wie sicher, dass man dieses weiche und glibbrige Etwas essen kann. Zumindest riecht es nicht sooo schlecht und es bewegt sich auch nicht.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du bist dir so gut wie sicher, dass man dieses weiche und glibbrige Etwas essen kann. Zumindest riecht es nicht sooo schlecht und es bewegt sich auch nicht.</source>
-        <target>texto carne irreconocible</target>
+        <target>Estás casi seguro de que esa cosa amarillenta pegada a un hueso se puede comer. En todo caso no huele mal.</target>
       </segment>
     </unit>
     <unit id="dizGPrf" name="18ca296">
@@ -4548,7 +4548,7 @@
       </notes>
       <segment state="translated">
         <source>Der "Jerrycan" kann mehrere Rationen nicht-trinkbares Wasser aufnehmen. Sobald die Stadt über eine passende Filteranlage verfügt, kann dieses Wasser trinkbar gemacht werden.</source>
-        <target>Contiene varias raciones de agua no potable (sin purificar). Para eso es ecesario que el pueblo tenga un edificio de filtrado de agua.</target>
+        <target>Contiene varias raciones de agua no potable (sin purificar). Para eso es necesario que el pueblo tenga un edificio de filtrado de agua.</target>
       </segment>
     </unit>
     <unit id="y7KBW_u" name="Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...">
@@ -4806,9 +4806,9 @@
         <note>Gönn dir etwas Entspannung und höre dir ein bisschen Musik an. Hmmm... Ne Maxi-CD mit "Zombie Eaters" von Faith No More befindet sich noch im CD-Fach.</note>
         <note category="german">Gönn dir etwas Entspannung und höre dir ein bisschen Musik an. Hmmm... Ne Maxi-CD mit "Zombie Eaters" von Faith No More befindet sich noch im CD-Fach.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Gönn dir etwas Entspannung und höre dir ein bisschen Musik an. Hmmm... Ne Maxi-CD mit "Zombie Eaters" von Faith No More befindet sich noch im CD-Fach.</source>
-        <target>texto equipo de sonido</target>
+        <target>Relájate un poco escuchando los últimos "hits" del momento: "Zombie de mi corazón" o "El Baile del Zombie - Versión Remix".</target>
       </segment>
     </unit>
     <unit id="kYv2bY9" name="fb1bb65">
@@ -5387,9 +5387,9 @@
         <note>Ein schöner Holzscheit, den du als Hocker für deine Einrichtung verwenden kannst. Was willst du mehr? Ist doch besser als nichts.</note>
         <note category="german">Ein schöner Holzscheit, den du als Hocker für deine Einrichtung verwenden kannst. Was willst du mehr? Ist doch besser als nichts.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein schöner Holzscheit, den du als Hocker für deine Einrichtung verwenden kannst. Was willst du mehr? Ist doch besser als nichts.</source>
-        <target>texto tronco en buen estado</target>
+        <target>Un buen pedazo de madera que puede servir de taburete en tu casa. Después de todo, es mejor que nada.</target>
       </segment>
     </unit>
     <unit id="t.tvUKi" name="1554dba">
@@ -5687,9 +5687,9 @@
         <note>Dieser Schrankkoffer ist zwar schwer, aber äußerst praktisch, um daheim mal aufzuräumen.</note>
         <note category="german">Dieser Schrankkoffer ist zwar schwer, aber äußerst praktisch, um daheim mal aufzuräumen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dieser Schrankkoffer ist zwar schwer, aber äußerst praktisch, um daheim mal aufzuräumen.</source>
-        <target>texto baúl de metal</target>
+        <target>Pesado pero práctico para llevar a casa.</target>
       </segment>
     </unit>
     <unit id="ipkR8AF" name="0d4c21c">
@@ -5827,9 +5827,9 @@
         <note>Diese winzig kleine Dosis Gift reicht aus, um jeden deiner Mitbürger umzubringen. Wenn du es mit etwas Essen oder einer Droge vermischt, oder wenn du es in eine Trinkflasche kippst, ist dieses Gift eine tödliche Waffe.</note>
         <note category="german">Diese winzig kleine Dosis Gift reicht aus, um jeden deiner Mitbürger umzubringen. Wenn du es mit etwas Essen oder einer Droge vermischt, oder wenn du es in eine Trinkflasche kippst, ist dieses Gift eine tödliche Waffe.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Diese winzig kleine Dosis Gift reicht aus, um jeden deiner Mitbürger umzubringen. Wenn du es mit etwas Essen oder einer Droge vermischt, oder wenn du es in eine Trinkflasche kippst, ist dieses Gift eine tödliche Waffe.</source>
-        <target>texto veneno</target>
+        <target>Las pocas gotas que quedan entro mataría a cualquier compañero. Tiene un gran poder de contaminación ya sea en alimentos, estimulantes o una cantimplora...</target>
       </segment>
     </unit>
     <unit id="0kqolxN" name="9b56cbe">
@@ -5897,9 +5897,9 @@
         <note>Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</note>
         <note category="german">Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Die brennt bestimmt noch ein paar Stunden... Selbst damit kannst du dir die Zombies vom Leib halten.</source>
-        <target>texto antorcha</target>
+        <target>Debe poder quedar encendida unas horas... Servirá para alejar a los zombies. Además si la colocas en el suelo en el desierto, anulará la penalidad que impide realizar búsquedas de noche.</target>
       </segment>
     </unit>
     <unit id="OR0xUnc" name="42ec3aa">
@@ -6729,7 +6729,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)</source>
-        <target>texto hifi 2</target>
+        <target>texto hi fi 2</target>
       </segment>
     </unit>
     <unit id="g93.YNB" name="fd51afb">
@@ -6737,9 +6737,9 @@
         <note>Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</note>
         <note category="german">Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</source>
-        <target>texto caja de schrodinger</target>
+        <target>Es pesada y contiene seguramente algo valioso... Solo falta encontrar algo mejor que tus dientes para abrirla.</target>
       </segment>
     </unit>
     <unit id="xkCSr1b" name="6a0e5d7">
@@ -7207,9 +7207,9 @@
         <note>Zerlegen</note>
         <note category="german">Zerlegen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zerlegen</source>
-        <target>Zerlegen</target>
+        <target>Cortar</target>
       </segment>
     </unit>
     <unit id="1PXqODy" name="Baustoffe">
@@ -7538,7 +7538,7 @@
       <notes>
         <note category="german">Vodka Marinostov</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Vodka Marinostov</source>
         <target>Vodka Marinostov</target>
       </segment>
@@ -7547,7 +7547,7 @@
       <notes>
         <note category="german">Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
         <target>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</target>
       </segment>
@@ -7556,7 +7556,7 @@
       <notes>
         <note category="german">Mystischer Trank</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Mystischer Trank</source>
         <target>Mystischer Trank</target>
       </segment>
@@ -7565,7 +7565,7 @@
       <notes>
         <note category="german">Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
         <target>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</target>
       </segment>
@@ -7574,7 +7574,7 @@
       <notes>
         <note category="german">Herstellung eines Mystischern Trank</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Herstellung eines Mystischern Trank</source>
         <target>Herstellung eines Mystischern Trank</target>
       </segment>
@@ -7583,7 +7583,7 @@
       <notes>
         <note category="german">Nickerchen machen</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nickerchen machen</source>
         <target>Nickerchen machen</target>
       </segment>
@@ -7592,7 +7592,7 @@
       <notes>
         <note category="german">Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
         <target><![CDATA[Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>]]></target>
       </segment>
@@ -7601,7 +7601,7 @@
       <notes>
         <note category="german">Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
         <target>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
       </segment>
@@ -7610,7 +7610,7 @@
       <notes>
         <note category="german">Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
         <target>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</target>
       </segment>
@@ -7619,7 +7619,7 @@
       <notes>
         <note category="german">Angriff und Verteidigung</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Angriff und Verteidigung</source>
         <target>Angriff und Verteidigung</target>
       </segment>
@@ -7628,36 +7628,36 @@
       <notes>
         <note category="german">Kreuz</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kreuz</source>
-        <target>Kreuz</target>
+        <target>Tréboles</target>
       </segment>
     </unit>
     <unit id="XnWnfMP" name="Pik">
       <notes>
         <note category="german">Pik</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Pik</source>
-        <target>Pik</target>
+        <target>Picas</target>
       </segment>
     </unit>
     <unit id="Rduezfz" name="Herz">
       <notes>
         <note category="german">Herz</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Herz</source>
-        <target>Herz</target>
+        <target>Corazón</target>
       </segment>
     </unit>
     <unit id="2P.dMD0" name="Karo">
       <notes>
         <note category="german">Karo</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Karo</source>
-        <target>Karo</target>
+        <target>Diamantes</target>
       </segment>
     </unit>
     <unit id="cIg8Tyq" name="Bube">
@@ -7709,9 +7709,9 @@
       <notes>
         <note category="german">Pkte</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Pkte</source>
-        <target>Pkte</target>
+        <target>pts</target>
       </segment>
     </unit>
   </file>
