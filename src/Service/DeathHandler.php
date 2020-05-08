@@ -8,6 +8,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
+use App\Entity\Gazette;
 use App\Entity\PictoPrototype;
 use App\Entity\Soul;
 use Doctrine\ORM\EntityManagerInterface;
@@ -93,6 +94,10 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
+
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($citizen->getTown(), ($citizen->getTown()->getDay() + ($cod->getId() == CauseOfDeath::NightlyAttack ? 0 : 1)));
+        $gazette->addVictim($citizen);
+        $this->entity_manager->persist($gazette);
 
         // Give soul point
         $days = $citizen->getSurvivedDays();

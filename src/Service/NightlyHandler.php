@@ -10,6 +10,7 @@ use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
+use App\Entity\Gazette;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
@@ -77,6 +78,8 @@ class NightlyHandler
             $this->log->debug('The town has <comment>no</comment> living citizen!');
             return false;
         }
+
+        $this->town_handler->check_gazettes($town);
 
         return true;
     }
@@ -250,19 +253,27 @@ class NightlyHandler
 
         $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
+        // Day already advanced, let's get today's gazette!
+        /** @var Gazette $gazette */
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+
 	    $def  = $this->town_handler->calculate_town_def( $town );
 	    if($town->getDevastated())
 	        $def = 0;
 
+	    $gazette->setDefense($def);
+
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
-        $est->setDefense($def);
-        $this->entity_manager->persist($est);
         $zombies = $est ? $est->getZombies() : 0;
+
+        $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
         $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!");
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
+
+        $gazette->setInvasion($overflow);
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
@@ -305,6 +316,8 @@ class NightlyHandler
                     // Terror
                     $this->citizen_handler->inflictStatus($ctz, $status_terror);
                     $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+
+                    $gazette->setTerror($gazette->getTerror() + 1);
                 }
             }
 
@@ -314,6 +327,7 @@ class NightlyHandler
         }
 
         if ($overflow <= 0) {
+            $this->entity_manager->persist($gazette);
             return;
         }
 
@@ -366,11 +380,14 @@ class NightlyHandler
                 if (!$has_kino && $this->random->chance( 0.75 * ($force/max(1,$def)) )) {
                     $this->citizen_handler->inflictStatus( $target, $status_terror );
                     $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+
+                    $gazette->setTerror($gazette->getTerror() + 1);
                 }
             }
 
             $attacking -= $force;
         }
+        $this->entity_manager->persist($gazette);
     }
 
     private function stage3_status(Town &$town) {

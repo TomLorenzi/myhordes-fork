@@ -50,11 +50,6 @@ class ZombieEstimation
     private $offsetMax;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $defense = 0;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Citizen")
      */
     private $citizens;
@@ -125,18 +120,6 @@ class ZombieEstimation
     public function setOffsetMax(int $offsetMax): self
     {
         $this->offsetMax = $offsetMax;
-
-        return $this;
-    }
-
-    public function getDefense(): ?int
-    {
-        return $this->defense;
-    }
-
-    public function setDefense(int $defense): self
-    {
-        $this->defense = $defense;
 
         return $this;
     }
