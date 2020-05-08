@@ -63,18 +63,13 @@ class ZoneHandler
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
         $cp = 0;
-        $guide_present = false;
-        $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
+
         foreach ($zone->getCitizens() as $citizen) {
             $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $citizen );
             if ($timer && !$timer->getPassive() && $timer->getTimestamp() < $up_to)
                 $dig_timers[] = $timer;
             $cp += $this->citizen_handler->getCP( $citizen );
-            if($citizen->getRoles()->contains($roleGuide))
-                $guide_present = true;
         }
-        if($guide_present)
-            $cp += count($zone->getCitizens());
 
         if ($cp < $zone->getZombies()) {
 
@@ -293,17 +288,9 @@ class ZoneHandler
 
     public function check_cp(Zone $zone, ?int &$cp = null): bool {
         $cp = 0;
-        $guide_present = false;
-        $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
-        foreach ($zone->getCitizens() as $c){
-            if ($c->getAlive()){
+        foreach ($zone->getCitizens() as $c)
+            if ($c->getAlive())
                 $cp += $this->citizen_handler->getCP($c);
-            }
-            if($c->getRoles()->contains($roleGuide))
-                $guide_present = true;
-        }
-        if($guide_present)
-            $cp += count($zone->getCitizens());
 
         return $cp >= $zone->getZombies();
     }

@@ -300,6 +300,9 @@ class CitizenHandler
             ))) $base += 1;
         }
 
+        if ($citizen->hasRole('guide'))
+            $base += $citizen->getZone() ? $citizen->getZone()->getCitizens()->count() : 0;
+
         return $base;
     }
 

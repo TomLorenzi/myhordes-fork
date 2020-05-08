@@ -1196,8 +1196,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ((!$citizen->getProfession()->getHeroic() && !$citizen->getRoles()->contains($this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide")))
-            || $citizen->getBanished())
+        if ((!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide')) || $citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);

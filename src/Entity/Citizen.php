@@ -342,6 +342,12 @@ class Citizen
         return $this;
     }
 
+    public function hasRole(string $name): bool {
+        foreach ($this->getRoles() as $role)
+            if ($role->getName() === $name) return true;
+        return false;
+    }
+
     /**
      * @return Collection|CitizenVote[]
      */

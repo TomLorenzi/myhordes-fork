@@ -192,17 +192,9 @@ class ActionHandler
                 $cp = 0;
                 $current_zeds = $citizen->getZone() ? $citizen->getZone()->getZombies() : 0;
 
-                if ( $citizen->getZone() ) {
-                    $guide_present = false;
-                    $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
-                    foreach ( $citizen->getZone()->getCitizens() as $c ) {
+                if ( $citizen->getZone() )
+                    foreach ( $citizen->getZone()->getCitizens() as $c )
                         $cp += $this->citizen_handler->getCP( $c );
-                        if($c->getRoles()->contains($roleGuide))
-                            $guide_present = true;
-                    }
-                    if($guide_present)
-                        $cp += count($citizen->getZone()->getCitizens());
-                }
 
                 if ($zombie_condition->getMustBlock() !== null) {
 
