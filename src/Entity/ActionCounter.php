@@ -16,6 +16,7 @@ class ActionCounter
     const ActionTypeHomeKitchen = 2;
     const ActionTypeHomeLab = 3;
     const ActionTypeTrash = 4;
+    const ActionTypeComplaint = 5;
 
     /**
      * @ORM\Id()

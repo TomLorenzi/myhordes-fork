@@ -52,6 +52,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     const ErrorDoorAlreadyOpen   = ErrorHelper::BaseTownErrors + 5;
     const ErrorNotEnoughRes      = ErrorHelper::BaseTownErrors + 6;
     const ErrorAlreadyUpgraded   = ErrorHelper::BaseTownErrors + 7;
+    const ErrorComplaintLimitHit = ErrorHelper::BaseTownErrors + 8;
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $data = $data ?? [];
@@ -457,12 +458,18 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
         if (!$existing_complaint) {
+            $counter = $this->getActiveCitizen()->getSpecificActionCounter(ActionCounter::ActionTypeComplaint);
+            if ($counter->getCount() >= 4)
+                return AjaxResponse::error(self::ErrorComplaintLimitHit );
+
             $existing_complaint = (new Complaint())
                 ->setAutor( $author )
                 ->setCulprit( $culprit )
                 ->setSeverity( $severity )
                 ->setCount( ($author->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
             $culprit->addComplaint( $existing_complaint );
+            $counter->increment();
+            $this->entity_manager->persist($counter);
         } else $existing_complaint->setSeverity( $severity );
 
         try {
