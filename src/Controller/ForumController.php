@@ -311,8 +311,14 @@ class ForumController extends AbstractController
                 elseif (!isset( $cache['citizen'][$group] )) $cache['citizen'][$group] = null;
 
                 $valid = array_filter( $forum->getTown()->getCitizens()->getValues(), function(Citizen $c) use ($profession,$group,&$cache) {
-                    if (!$c->getAlive()) return false;
-                    if ($profession !== null && $c->getProfession()->getName() !== $profession) return false;
+                    if (!$c->getAlive() && ($profession !== 'dead')) return false;
+                    if ( $c->getAlive() && ($profession === 'dead')) return false;
+
+                    if ($profession !== null && $profession !== 'dead') {
+                        if ($profession === 'hero') {
+                            if (!$c->getProfession()->getHeroic()) return false;
+                        } elseif ($c->getProfession()->getName() !== $profession) return false;
+                    }
 
                     if ($group !== null) {
                         if ($cache['citizen'][$group] !== null && $c->getId() !== $cache['citizen'][$group]) return false;
