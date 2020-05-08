@@ -489,7 +489,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/actions.js.twig" %}{% endembed %}
+        {% embed "scripts/actions.js.twig" %}{% endembed %};
         {% if zone.x != 0 or zone.y != 0 %}
             {% embed "scripts/log.js.twig" %}{% endembed %}
         {% endif %}

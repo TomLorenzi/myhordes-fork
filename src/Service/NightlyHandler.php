@@ -50,7 +50,6 @@ class NightlyHandler
         $this->citizen_handler = $ch;
         $this->death_handler = $dh;
         $this->inventory_handler = $ih;
-        $this->citizen_handler->upgrade($dh);
         $this->random = $rg;
         $this->town_handler = $th;
         $this->zone_handler = $zh;

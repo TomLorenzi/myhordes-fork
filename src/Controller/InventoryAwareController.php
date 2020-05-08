@@ -73,7 +73,6 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
         $this->citizen_handler = $ch;
-        $this->citizen_handler->upgrade( $dh );
         $this->action_handler = $ah;
         $this->picto_handler = $ph;
         $this->translator = $translator;

@@ -22,16 +22,19 @@ use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class InventoryHandler
 {
+    private $container;
     private $entity_manager;
     private $item_factory;
 
-    public function __construct( EntityManagerInterface $em, ItemFactory $if)
+    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
+        $this->container = $c;
     }
 
     public function getSize( Inventory $inventory ): int {
@@ -382,14 +385,8 @@ class InventoryHandler
 
             $victim = $type_from === self::TransferTypeSteal ? $from->getHome()->getCitizen() : $to->getHome()->getCitizen();
             if ($victim->getAlive()) {
-                if (!$victim->getZone()) return self::ErrorStealBlocked;
-                if ($victim->getHome()->getPrototype()->getTheftProtection()) return self::ErrorStealBlocked;
-                if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
-                    $victim->getHome(),
-                    $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
-                    return self::ErrorStealBlocked;
-                if ($this->countSpecificItems( $victim->getHome()->getChest(), 'lock', true ) > 0)
-                    return self::ErrorStealBlocked;
+                $ch = $this->container->get(CitizenHandler::class);
+                if ($ch->houseIsProtected( $victim )) return self::ErrorStealBlocked;
                 if ($item->getPrototype() === $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("trapma_#00"))
                     return self::ErrorUnstealableItem;
             }
