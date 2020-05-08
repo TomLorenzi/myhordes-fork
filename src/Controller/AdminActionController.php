@@ -73,13 +73,7 @@ class AdminActionController extends AbstractController
         foreach ($postsList['post'] as $idx => $post) {
             if (in_array($idx, $alreadyCountedIndexes))               
                 continue;      
-
-            file_put_contents("../var/log/crowlog.log", "\n postId: ". strval($post->getId()), FILE_APPEND);    
-
             $keys = array_keys($postsList['post'], $post);
-
-            file_put_contents("../var/log/crowlog.log", "\n keys: ". implode(",", $keys), FILE_APPEND);
-
             $alreadyCountedIndexes = array_merge($alreadyCountedIndexes, $keys);
             $reportCount = count($keys);
             if ($reportCount > 1) {
