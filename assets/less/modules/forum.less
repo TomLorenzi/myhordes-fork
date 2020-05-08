@@ -83,6 +83,10 @@
     }
   }
 
+  &.forum-post-hidden>.forum-post-header, &.forum-post-hidden>.forum-post-header-crow, &.forum-post-hidden>.forum-post-header-dev {
+    background: #ff0000;
+  }
+
   &>.forum-post-content {
     padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/
     background-color: #4a261e; padding-right: 4px; word-break: break-word;
@@ -313,73 +317,6 @@
   div.rps      { background: url("../../img/forum/rps.png")     left center no-repeat, #3B3249 }
   div.coin     { background: url("../../img/forum/coin.png")    left center no-repeat, #3B3249 }
   div.card     { background: url("../../img/forum/card.png")    left center no-repeat, #3B3249 }
-}
-
-.forum-post-hidden {
-  background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
-  border: 1px solid #704328; margin-bottom: 10px;
-
-  &>.forum-post-header {
-    display: block; background: #f02400af; padding: 4px;
-    &>b { padding: 5px; }
-    &>i { float: right; font-size: 0.8em; }
-    &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &>.avatar { margin: 0 5px 0 10px; float: left }
-    &:before, &:after {content: " "; clear: both;}
-    &:before { display: table;}
-    &:after {display: block; height: 0;}
-  }
-
-  &>.forum-post-header-crow {
-    display: block; background: #773939; padding: 4px; min-height: 40px;
-    &>b { padding: 5px; }
-    &>i { float: right; font-size: 0.8em; }
-    &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &>.avatar { margin: 0 5px 0 10px; float: left }
-    &:before, &:after {content: " "; clear: right;}
-    &:before { display: table;}
-    &:after {display: block; height: 0;}
-  }
-
-  &>.forum-post-header-dev {
-    display: block; background: #006495; padding: 4px; min-height: 40px;
-    &>b { 
-      img {
-        position: absolute;
-        padding: 2px 2px 0px 5px;
-      }
-      padding: 5px;    
-    }
-    &>i { float: right; font-size: 0.8em; }
-    &>span { font-size: 0.8em; opacity: 0.5; float: right }
-    &>.avatar { margin: 0 5px 0 10px; float: left }
-    &:before, &:after {content: " "; clear: right;}
-    &:before { display: table;}
-    &:after {display: block; height: 0;}
-  }
-
-  &:hover >.forum-post-content {
-    display: block;
-  }
-
-  &>.forum-post-content {
-    padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/
-    background-color: #4a261e; display: none;
-  }
-  
-  &>.forum-post-footer {
-    padding-left: 5px; max-height: 750px; overflow: auto;
-    background-color: #4a261e;
-
-    .action-button {
-      float: right;
-      padding-left: 2px;
-      font-style: italic;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  }
-
 }
 
 .forum-editor {

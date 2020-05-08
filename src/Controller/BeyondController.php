@@ -763,10 +763,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     /**
      * @Route("api/beyond/desert/heroic", name="beyond_desert_heroic_controller")
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
-    public function heroic_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function heroic_desert_api(JSONRequestParser $parser): Response {
         $this->deferZoneUpdate();
         $zone = $this->getActiveCitizen()->getZone();
 

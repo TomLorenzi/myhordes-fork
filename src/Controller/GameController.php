@@ -115,34 +115,63 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         foreach ($town->getCitizens() as $citizen) {
             if($citizen->getAlive()) continue;
-            if($citizen->getSurvivedDays() >= $town->getDay() - 1)
-            if($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
-                $death_inside[] = $citizen;
-            } else {
-                $death_outside[] = $citizen;
+            if($citizen->getSurvivedDays() >= $town->getDay() - 1) {
+                if ($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
+                    $death_inside[] = $citizen;
+                } else {
+                    $death_outside[] = $citizen;
+                }
             }
         }
+
+        $text = "";
 
         $day = $town->getDay();
         $days = [
             'final' => $day % 5,
             'repeat' => floor($day / 5),
         ];
+
+        // FIXME: Do translation, get random funny text for each days
+        if($day == 1){
+            // Baguette text:
+            // Aucun article ce matin...
+            $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
+            if ($town->isOpen()){
+                $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+            } else {
+                // Serrez les fesses, citoyens, les zombies nous attaqueront ce soir à minuit !
+                $text .= "";
+            }
+        } else {
+            $text = "";
+        }
+        $textClass = "day$day";
         /** @var ZombieEstimation $estimation */
         $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
+        $attack = -1;
+        $defense = -1;
+        if($estimation != null){
+            $attack = $estimation->getZombies();
+            $defense = $estimation->getDefense();
+        }
+
         $gazette = [
             'season_version' => 0,
             'season_label' => "Betapropine FTW",
             'name' => $town->getName(),
+            'open' => $town->isOpen(),
             'day' => $day,
             'days' => $days,
             'devast' => $town->getDevastated(),
             'chaos' => $town->getChaos(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
-            'attack' => $estimation->getZombies(),
-            'defense' => $estimation->getDefense(),
+            'attack' => $attack,
+            'defense' => $defense,
             'deaths' => count($death_inside),
+            'text' => $text,
+            'textClass' => $textClass,
         ];
 
         return $this->render( 'ajax/game/newspaper.html.twig', [
