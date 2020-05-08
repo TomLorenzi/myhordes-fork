@@ -184,7 +184,7 @@ class AdminActionController extends AbstractController
     public function users_find(JSONRequestParser $parser, EntityManagerInterface $em): Response
     {
         $userRoles = $this->getUser()->getRoles();
-        if (!in_array("ROLE_ADMIN", $userRoles))
+        if (!in_array("ROLE_CROW", $userRoles))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$parser->has_all(['name'], true))
@@ -205,7 +205,7 @@ class AdminActionController extends AbstractController
     public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
     {
         $userRoles = $this->getUser()->getRoles();
-        if (!in_array("ROLE_ADMIN", $userRoles))
+        if (!in_array("ROLE_CROW", $userRoles))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$parser->has_all(['name'], true))

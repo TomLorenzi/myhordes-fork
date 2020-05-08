@@ -94,16 +94,14 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
-            {% if is_granted("ROLE_ADMIN") %}
+            {% if is_granted("ROLE_CROW") %}
                 <div id="crowpost" class="forum-checkbox">
-                    {# <span>{{ 'als '|trans({},'global') }}</span> #}
-                    {#<input class="forum-checkbox" type="radio" name="mod_answer" id="user_answer" checked="checked" />
-                    <label for="user_answer">{{ app.user.username }}</label> #}
                     <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                     <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
-                    <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                    {% endif %}
                     <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
-
                 </div>
             {% endif %}
             <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
@@ -422,7 +420,7 @@
                 ['bold', 'underline', 'italic', 'strike'],
                 ['removeFormat'],
                 ['outdent', 'indent', 'list'],
-                ['blockquote', 'link' {% if app.user.isAdmin %}, 'image'{% endif %}],
+                ['blockquote', 'link' {% if app.user.rightsElevation >= 4 %}, 'image'{% endif %}],
                 ['spoiler', 'glory'],
             ],
             // Insert options
@@ -431,25 +429,34 @@
         });
 
         // Post as crow toggle
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_CROW") %}
         function changeHandler(){
             switch (document.querySelector("input[name=post-type]:checked").value) {
                 case "USER":
                     document.getElementById("radio-crow").checked = true;
-                    document.getElementById("radio-dev").checked = false;
                     document.getElementById("radio-user").checked = false;
+                    {% if is_granted("ROLE_ADMIN") %}
+                        document.getElementById("radio-dev").checked = false;
+                    {% endif %}
                     document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
                     break;
                 case "CROW":
                     document.getElementById("radio-crow").checked = false;
-                    document.getElementById("radio-dev").checked = true;
-                    document.getElementById("radio-user").checked = false;
-                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    {% if is_granted("ROLE_ADMIN") %}
+                        document.getElementById("radio-user").checked = false;
+                        document.getElementById("radio-dev").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    {% else %}
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                    {% endif %}
                     break;
                 case "DEV":
                     document.getElementById("radio-crow").checked = false;
-                    document.getElementById("radio-dev").checked = false;
                     document.getElementById("radio-user").checked = true;
+                    {% if is_granted("ROLE_ADMIN") %}
+                        document.getElementById("radio-dev").checked = false;
+                    {% endif %}
                     document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
                     break;
             }
