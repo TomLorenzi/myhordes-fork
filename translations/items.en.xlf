@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</source>
-        <target>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</target>
+        <target>You rolled the following: {dc1}, {dc2} and {dc3}.</target>
       </segment>
     </unit>
     <unit id="yeqnW9g" name="15fb7cd">
@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>Wow, you rolled a triple. It was so much fun that you won 1AP!</target>
       </segment>
     </unit>
     <unit id="rmGP8Al" name="15675e8">
@@ -128,7 +128,7 @@
       </notes>
       <segment>
         <source>Ration Wasser</source>
-        <target>Ration Wasser</target>
+        <target>Water Ration</target>
       </segment>
     </unit>
     <unit id="Q3h9q1." name="Batterie">
@@ -138,7 +138,7 @@
       </notes>
       <segment>
         <source>Batterie</source>
-        <target>Batterie</target>
+        <target>Battery</target>
       </segment>
     </unit>
     <unit id="oDUEcJk" name="Konservendose">
@@ -148,7 +148,7 @@
       </notes>
       <segment>
         <source>Konservendose</source>
-        <target>Konservendose</target>
+        <target>Can</target>
       </segment>
     </unit>
     <unit id="hKs7t5v" name="Offene Konservendose">
@@ -158,7 +158,7 @@
       </notes>
       <segment>
         <source>Offene Konservendose</source>
-        <target>Offene Konservendose</target>
+        <target>Open Can</target>
       </segment>
     </unit>
     <unit id="4DdrCY0" name="Batteriewerfer 1-PDTG (geladen)">
@@ -168,7 +168,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer 1-PDTG (geladen)</source>
-        <target>Batteriewerfer 1-PDTG (geladen)</target>
+        <target>Battery Launcher 1-PDTG (loaded)</target>
       </segment>
     </unit>
     <unit id="qtZIobP" name="Taser">
@@ -188,7 +188,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (leer)</source>
-        <target>Aqua-Splash (vide)</target>
+        <target>Aqua-Splash (empty)</target>
       </segment>
     </unit>
     <unit id="itMAdqK" name="Handmixer (geladen)">
@@ -208,7 +208,7 @@
       </notes>
       <segment>
         <source>Kettensäge (geladen)</source>
-        <target>Kettensäge (geladen)</target>
+        <target>Chainsaw (loaded)</target>
       </segment>
     </unit>
     <unit id="n8CJG4q" name="Rasenmäher">
@@ -218,7 +218,7 @@
       </notes>
       <segment>
         <source>Rasenmäher</source>
-        <target>Rasenmäher</target>
+        <target>Lawnmower</target>
       </segment>
     </unit>
     <unit id="qlex14_" name="Verstellbarer Schraubenschlüssel">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>Verstellbarer Schraubenschlüssel</source>
-        <target>Verstellbarer Schraubenschlüssel</target>
+        <target>Adjustable Spanner</target>
       </segment>
     </unit>
     <unit id="xKt9A2O" name="Schraubenzieher">
@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>Schraubenzieher</source>
-        <target>Schraubenzieher</target>
+        <target>Screwdriver</target>
       </segment>
     </unit>
     <unit id="fiiM.Ie" name="Großer trockener Stock">
@@ -278,7 +278,7 @@
       </notes>
       <segment>
         <source>Lächerliches Taschenmesser</source>
-        <target>Lächerliches Taschenmesser</target>
+        <target>Pathetic Penknife</target>
       </segment>
     </unit>
     <unit id="lOiwfoy" name="Schweizer Taschenmesser">
@@ -288,7 +288,7 @@
       </notes>
       <segment>
         <source>Schweizer Taschenmesser</source>
-        <target>Schweizer Taschenmesser</target>
+        <target>Swiss Army Knife</target>
       </segment>
     </unit>
     <unit id="2IVF.rU" name="Teppichmesser">
@@ -298,7 +298,7 @@
       </notes>
       <segment>
         <source>Teppichmesser</source>
-        <target>Teppichmesser</target>
+        <target>Box Cutter</target>
       </segment>
     </unit>
     <unit id="8uv0wqA" name="Einkaufswagen">
@@ -308,7 +308,7 @@
       </notes>
       <segment>
         <source>Einkaufswagen</source>
-        <target>Einkaufswagen</target>
+        <target>Shopping Trolley</target>
       </segment>
     </unit>
     <unit id="zxoZN6U" name="Dosenöffner">
@@ -318,7 +318,7 @@
       </notes>
       <segment>
         <source>Dosenöffner</source>
-        <target>Dosenöffner</target>
+        <target>Can Opener</target>
       </segment>
     </unit>
     <unit id="kQgFRAM" name="Extra Tasche">
@@ -338,7 +338,7 @@
       </notes>
       <segment>
         <source>Streichholzschachtel</source>
-        <target>Streichholzschachtel</target>
+        <target>Box of Matches</target>
       </segment>
     </unit>
     <unit id="r4J3QHt" name="Beruhigungsspritze">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Schaukelstuhl</source>
-        <target>Schaukelstuhl</target>
+        <target>Rocking Chair</target>
       </segment>
     </unit>
     <unit id="3qVz1ua" name="Staubiges Buch">
@@ -378,7 +378,7 @@
       </notes>
       <segment>
         <source>Matratze</source>
-        <target>Matratze</target>
+        <target>Mattress</target>
       </segment>
     </unit>
     <unit id="uM_nEQ9" name="Ausgeschaltete Nachttischlampe">
@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>Ausgeschaltete Nachttischlampe</source>
-        <target>Ausgeschaltete Nachttischlampe</target>
+        <target>Bedside Lamp</target>
       </segment>
     </unit>
     <unit id="GW.Io.b" name="Perser">
@@ -408,7 +408,7 @@
       </notes>
       <segment>
         <source>Mini Hi-Fi Anlage (defekt)</source>
-        <target>Mini Hi-Fi Anlage (defekt)</target>
+        <target>Mini HI-Fi (Broken)</target>
       </segment>
     </unit>
     <unit id=".3ScCSJ" name="Kette + Vorhängeschloss">
@@ -418,7 +418,7 @@
       </notes>
       <segment>
         <source>Kette + Vorhängeschloss</source>
-        <target>Kette + Vorhängeschloss</target>
+        <target>Padlock and Chain</target>
       </segment>
     </unit>
     <unit id="qaikS7a" name="Fußabstreifer">
@@ -428,7 +428,7 @@
       </notes>
       <segment>
         <source>Fußabstreifer</source>
-        <target>Fußabstreifer</target>
+        <target>Doormat</target>
       </segment>
     </unit>
     <unit id="aXcoDsG" name="Ein paar Würfel">
@@ -438,7 +438,7 @@
       </notes>
       <segment>
         <source>Ein paar Würfel</source>
-        <target>Ein paar Würfel</target>
+        <target>Dice</target>
       </segment>
     </unit>
     <unit id="sloU8r6" name="Motor">
@@ -488,7 +488,7 @@
       </notes>
       <segment>
         <source>Übelriechendes Schwein</source>
-        <target>Übelriechendes Schwein</target>
+        <target>Stinking Pig</target>
       </segment>
     </unit>
     <unit id="cDtZwcd" name="Riesige Ratte">
@@ -498,7 +498,7 @@
       </notes>
       <segment>
         <source>Riesige Ratte</source>
-        <target>Riesige Ratte</target>
+        <target>Giant Rat</target>
       </segment>
     </unit>
     <unit id="DtLEpHf" name="Bissiger Hund">
@@ -508,7 +508,7 @@
       </notes>
       <segment>
         <source>Bissiger Hund</source>
-        <target>Bissiger Hund</target>
+        <target>Guard Dog</target>
       </segment>
     </unit>
     <unit id="_l2reKv" name="Großer knuddeliger Kater">
@@ -528,7 +528,7 @@
       </notes>
       <segment>
         <source>Zwei-Meter Schlange</source>
-        <target>Zwei-Meter Schlange</target>
+        <target>Huge Snake (Ophiophagus trouser)</target>
       </segment>
     </unit>
     <unit id="Ppiai36" name="Vibrator (geladen)">
@@ -548,7 +548,7 @@
       </notes>
       <segment>
         <source>Anaboles Steroid</source>
-        <target>Anaboles Steroid</target>
+        <target>Anabolic Steroids</target>
       </segment>
     </unit>
     <unit id="uOYBSQ_" name="Leckeres Steak">
@@ -598,7 +598,7 @@
       </notes>
       <segment>
         <source>Kanister</source>
-        <target>Kanister</target>
+        <target>Full Jerrycan</target>
       </segment>
     </unit>
     <unit id="kqvV5iC" name="Krummes Holzbrett">
@@ -648,7 +648,7 @@
       </notes>
       <segment>
         <source>Kanisterpumpe (zerlegt)</source>
-        <target>Kanisterpumpe (zerlegt)</target>
+        <target>Jerrycan Gun (unattached)</target>
       </segment>
     </unit>
     <unit id="N.o6HoG" name="Bandage">
@@ -678,7 +678,7 @@
       </notes>
       <segment>
         <source>Kanisterpumpe (leer)</source>
-        <target>Kanisterpumpe (leer)</target>
+        <target>Jerrycan Gun (empty)</target>
       </segment>
     </unit>
     <unit id=".v0f_Ta" name="Videoprojektor">
@@ -708,7 +708,7 @@
       </notes>
       <segment>
         <source>Menschenfleisch</source>
-        <target>Human Meat</target>
+        <target>Human Flesh</target>
       </segment>
     </unit>
     <unit id="3fPWnBg" name="Plastiktüte">
@@ -778,7 +778,7 @@
       </notes>
       <segment>
         <source>Zerlegter Rasenmäher</source>
-        <target>Zerlegter Rasenmäher</target>
+        <target>Dismantled Mower</target>
       </segment>
     </unit>
     <unit id="XS.tyY1" name="Kupferrohr">
@@ -798,7 +798,7 @@
       </notes>
       <segment>
         <source>Wackliger Einkaufswagen</source>
-        <target>Wackliger Einkaufswagen</target>
+        <target>Wonky Shopping Trolley</target>
       </segment>
     </unit>
     <unit id="m1.bLRa" name="Gürtel mit Tasche">
@@ -858,7 +858,7 @@
       </notes>
       <segment>
         <source>Nachttischlampe (an)</source>
-        <target>Nachttischlampe (an)</target>
+        <target>Bedside Lamp (on)</target>
       </segment>
     </unit>
     <unit id="bhfe9ps" name="Mini Hi-Fi Anlage (an)">
@@ -868,7 +868,7 @@
       </notes>
       <segment>
         <source>Mini Hi-Fi Anlage (an)</source>
-        <target>Mini Hi-Fi Anlage (an)</target>
+        <target>Mini Hi-Fi (on)</target>
       </segment>
     </unit>
     <unit id="Ly8qhtu" name="Pharmazeutische Substanz">
@@ -878,7 +878,7 @@
       </notes>
       <segment>
         <source>Pharmazeutische Substanz</source>
-        <target>Pharmaceutical Product</target>
+        <target>Pharmaceutical Products</target>
       </segment>
     </unit>
     <unit id="b9Bz03N" name="Unverarbeitete Blechplatten">
@@ -888,7 +888,7 @@
       </notes>
       <segment>
         <source>Unverarbeitete Blechplatten</source>
-        <target>Unverarbeitete Blechplatten</target>
+        <target>Sheet Metal (parts)</target>
       </segment>
     </unit>
     <unit id="ueb3oVd" name="'Wake The Dead'">
@@ -908,7 +908,7 @@
       </notes>
       <segment>
         <source>Heißer Kaffee</source>
-        <target>Heißer Kaffee</target>
+        <target>Bloody Hot Coffee</target>
       </segment>
     </unit>
     <unit id="GknQp7i" name="Kaffeekocher">
@@ -918,7 +918,7 @@
       </notes>
       <segment>
         <source>Kaffeekocher</source>
-        <target>Kaffeekocher</target>
+        <target>Cafetière</target>
       </segment>
     </unit>
     <unit id="MS.4Q1R" name="Unvollständiger Kaffeekocher">
@@ -928,7 +928,7 @@
       </notes>
       <segment>
         <source>Unvollständiger Kaffeekocher</source>
-        <target>Unvollständiger Kaffeekocher</target>
+        <target>Incomplete Cafetière</target>
       </segment>
     </unit>
     <unit id="W3yXIHZ" name="Elektronisches Bauteil">
@@ -958,7 +958,7 @@
       </notes>
       <segment>
         <source>Hydraton 100mg</source>
-        <target>Hydraton 100mg</target>
+        <target>Hydratone 100mg</target>
       </segment>
     </unit>
     <unit id="lOo2w0W" name="Kassettenradio (ohne Strom)">
@@ -968,7 +968,7 @@
       </notes>
       <segment>
         <source>Kassettenradio (ohne Strom)</source>
-        <target>Kassettenradio (ohne Strom)</target>
+        <target>Radio Cassette Player (no battery)</target>
       </segment>
     </unit>
     <unit id="z5_Zr48" name="Kassettenradio">
@@ -978,7 +978,7 @@
       </notes>
       <segment>
         <source>Kassettenradio</source>
-        <target>Kassettenradio</target>
+        <target>Radio Cassette Player</target>
       </segment>
     </unit>
     <unit id="pVtld9L" name="Zyanid">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Suicide by ingestion of cyanide</target>
+        <target>Cyanide</target>
       </segment>
     </unit>
     <unit id="TKW8Gi8" name="Alte Tür">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>Alte Tür</source>
-        <target>Alte Tür</target>
+        <target>Old Door</target>
       </segment>
     </unit>
     <unit id="f2f7XU." name="Verdächtiges Gemüse">
@@ -1008,7 +1008,7 @@
       </notes>
       <segment>
         <source>Verdächtiges Gemüse</source>
-        <target>Verdächtiges Gemüse</target>
+        <target>Suspicious-looking Vegetable</target>
       </segment>
     </unit>
     <unit id="Hm4Wet3" name="Reparaturset (kaputt)">
@@ -1018,7 +1018,7 @@
       </notes>
       <segment>
         <source>Reparaturset (kaputt)</source>
-        <target>Reparaturset (kaputt)</target>
+        <target>Repair Kit (damaged)</target>
       </segment>
     </unit>
     <unit id="jBFNQQG" name="Reparaturset">
@@ -1028,7 +1028,7 @@
       </notes>
       <segment>
         <source>Reparaturset</source>
-        <target>Reparaturset</target>
+        <target>Repair Kit</target>
       </segment>
     </unit>
     <unit id="1LjG807" name="Wasserpistole (leer)">
@@ -1038,7 +1038,7 @@
       </notes>
       <segment>
         <source>Wasserpistole (leer)</source>
-        <target>Wasserpistole (leer)</target>
+        <target>Water Pistol (empty)</target>
       </segment>
     </unit>
     <unit id="6p7Eyez" name="Aqua-Splash (3 Ladungen)">
@@ -1048,7 +1048,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (3 Ladungen)</source>
-        <target>Aqua-Splash (3 Ladungen)</target>
+        <target>Aqua-Splash (3 shots)</target>
       </segment>
     </unit>
     <unit id="SslDPfH" name="Aqua-Splash (2 Ladungen)">
@@ -1058,7 +1058,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (2 Ladungen)</source>
-        <target>Aqua-Splash (2 Ladungen)</target>
+        <target>Aqua-Splash (2 shots)</target>
       </segment>
     </unit>
     <unit id="UESHvBl" name="Aqua-Splash (1 Ladung)">
@@ -1068,7 +1068,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (1 Ladung)</source>
-        <target>Aqua-Splash (1 Ladung)</target>
+        <target>Aqua-Splash (1 shot)</target>
       </segment>
     </unit>
     <unit id="jJPD2VA" name="Handmixer (ohne Strom)">
@@ -1088,7 +1088,7 @@
       </notes>
       <segment>
         <source>Kettensäge (ohne Strom)</source>
-        <target>Kettensäge (ohne Strom)</target>
+        <target>Chainsaw (incomplete)</target>
       </segment>
     </unit>
     <unit id="4yWesEi" name="Batteriewerfer 1-PDTG (entladen)">
@@ -1098,7 +1098,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer 1-PDTG (entladen)</source>
-        <target>Batteriewerfer 1-PDTG (entladen)</target>
+        <target>Battery Launcher 1-PDTG (entladen)</target>
       </segment>
     </unit>
     <unit id="VjisjD7" name="Taser (ohne Strom)">
@@ -1108,7 +1108,7 @@
       </notes>
       <segment>
         <source>Taser (ohne Strom)</source>
-        <target>Taser (ohne Strom)</target>
+        <target>Taser (incomplete)</target>
       </segment>
     </unit>
     <unit id="Pv.PdId" name="Elektrischer Bauchmuskeltrainer (ohne Strom)">
@@ -1138,7 +1138,7 @@
       </notes>
       <segment>
         <source>Zerstörer (entladen)</source>
-        <target>Zerstörer (entladen)</target>
+        <target>Devastator (empty)</target>
       </segment>
     </unit>
     <unit id="6JzGDe3" name="Zerstörer (geladen)">
@@ -1148,7 +1148,7 @@
       </notes>
       <segment>
         <source>Zerstörer (geladen)</source>
-        <target>Zerstörer (geladen)</target>
+        <target>Zerstörer (loaded)</target>
       </segment>
     </unit>
     <unit id="NWwA1_1" name="Unvollständiger Zerstörer">
@@ -1158,7 +1158,7 @@
       </notes>
       <segment>
         <source>Unvollständiger Zerstörer</source>
-        <target>Unvollständiger Zerstörer</target>
+        <target>Devastator (incomplete)</target>
       </segment>
     </unit>
     <unit id=".NeFZzB" name="Zonenmarker 'Radius'">
@@ -1188,7 +1188,7 @@
       </notes>
       <segment>
         <source>Kanisterpumpe (einsatzbereit)</source>
-        <target>Kanisterpumpe (einsatzbereit)</target>
+        <target>Jerrycan Gun (ready)</target>
       </segment>
     </unit>
     <unit id="pWpcN5b" name="Ektorp-Gluten Stuhl">
@@ -1198,7 +1198,7 @@
       </notes>
       <segment>
         <source>Ektorp-Gluten Stuhl</source>
-        <target>Ektorp-Gluten Stuhl</target>
+        <target>Ektorp-Gluten Chair</target>
       </segment>
     </unit>
     <unit id="Sw3QJuK" name="Revolver (entladen)">
@@ -1208,7 +1208,7 @@
       </notes>
       <segment>
         <source>Revolver (entladen)</source>
-        <target>Revolver (entladen)</target>
+        <target>Revolver (loaded)</target>
       </segment>
     </unit>
     <unit id="y1obQuD" name="Sturmgewehr (entladen)">
@@ -1218,7 +1218,7 @@
       </notes>
       <segment>
         <source>Sturmgewehr (entladen)</source>
-        <target>Sturmgewehr (entladen)</target>
+        <target>Assault Rifle (loaded)</target>
       </segment>
     </unit>
     <unit id="UyQlEYn" name="Zünder">
@@ -1238,7 +1238,7 @@
       </notes>
       <segment>
         <source>Zementsack</source>
-        <target>Zementsack</target>
+        <target>Bag of Cement</target>
       </segment>
     </unit>
     <unit id="dwyq0AP" name="Unförmige Zementblöcke">
@@ -1248,7 +1248,7 @@
       </notes>
       <segment>
         <source>Unförmige Zementblöcke</source>
-        <target>Unförmige Zementblöcke</target>
+        <target>Unshaped Concrete Blocks</target>
       </segment>
     </unit>
     <unit id="0tVAPnt" name="Etikettenloses Medikament">
@@ -1258,7 +1258,7 @@
       </notes>
       <segment>
         <source>Etikettenloses Medikament</source>
-        <target>Etikettenloses Medikament</target>
+        <target>Unlabelled Drug</target>
       </segment>
     </unit>
     <unit id="dNMAng3" name="Paracetoid 7g">
@@ -1288,7 +1288,7 @@
       </notes>
       <segment>
         <source>Nahrungsmittelkiste</source>
-        <target>Nahrungsmittelkiste</target>
+        <target>Food Parcel</target>
       </segment>
     </unit>
     <unit id="D.ZgZ97" name="Doggybag">
@@ -1298,7 +1298,7 @@
       </notes>
       <segment>
         <source>Doggybag</source>
-        <target>Doggybag</target>
+        <target>Doggy Bag</target>
       </segment>
     </unit>
     <unit id="CQMPkHO" name="Tüte mit labbrigen Chips">
@@ -1308,7 +1308,7 @@
       </notes>
       <segment>
         <source>Tüte mit labbrigen Chips</source>
-        <target>Tüte mit labbrigen Chips</target>
+        <target>Packet of Soft Crisps</target>
       </segment>
     </unit>
     <unit id="eLF86FS" name="Verschimmelte Waffeln">
@@ -1318,7 +1318,7 @@
       </notes>
       <segment>
         <source>Verschimmelte Waffeln</source>
-        <target>Verschimmelte Waffeln</target>
+        <target>Mouldy Neapolitan</target>
       </segment>
     </unit>
     <unit id="cawv7Wu" name="Trockene Kaugummis">
@@ -1328,7 +1328,7 @@
       </notes>
       <segment>
         <source>Trockene Kaugummis</source>
-        <target>Trockene Kaugummis</target>
+        <target>Dried Chewing Gum</target>
       </segment>
     </unit>
     <unit id="vdCq1pu" name="Ranzige Butterkekse">
@@ -1338,7 +1338,7 @@
       </notes>
       <segment>
         <source>Ranzige Butterkekse</source>
-        <target>Ranzige Butterkekse</target>
+        <target>Rancid Jaffa Cakes</target>
       </segment>
     </unit>
     <unit id="XGZ8Sav" name="Angebissene Hähnchenflügel">
@@ -1348,7 +1348,7 @@
       </notes>
       <segment>
         <source>Angebissene Hähnchenflügel</source>
-        <target>Angebissene Hähnchenflügel</target>
+        <target>Half-eaten Chicken Wings</target>
       </segment>
     </unit>
     <unit id="EvcAYYI" name="Abgelaufene Pim's Kekse">
@@ -1358,7 +1358,7 @@
       </notes>
       <segment>
         <source>Abgelaufene Pim's Kekse</source>
-        <target>Abgelaufene Pim's Kekse</target>
+        <target>Out-of-Date Biscuits</target>
       </segment>
     </unit>
     <unit id="waXFemL" name="Fades Gebäck">
@@ -1368,7 +1368,7 @@
       </notes>
       <segment>
         <source>Fades Gebäck</source>
-        <target>Fades Gebäck</target>
+        <target>Stale Tart</target>
       </segment>
     </unit>
     <unit id="K5mq7cU" name="Verschimmelte Stulle">
@@ -1378,7 +1378,7 @@
       </notes>
       <segment>
         <source>Verschimmelte Stulle</source>
-        <target>Verschimmelte Stulle</target>
+        <target>Mouldy Ham Sandwich</target>
       </segment>
     </unit>
     <unit id="DgKxwGF" name="Chinesische Nudeln">
@@ -1388,7 +1388,7 @@
       </notes>
       <segment>
         <source>Chinesische Nudeln</source>
-        <target>Chinesische Nudeln</target>
+        <target>Chinese Noodles</target>
       </segment>
     </unit>
     <unit id="HVgdDzQ" name="Starke Gewürze">
@@ -1398,7 +1398,7 @@
       </notes>
       <segment>
         <source>Starke Gewürze</source>
-        <target>Starke Gewürze</target>
+        <target>Strong Spices</target>
       </segment>
     </unit>
     <unit id="CVAyh_q" name="Gewürzte chinesische Nudeln">
@@ -1408,7 +1408,7 @@
       </notes>
       <segment>
         <source>Gewürzte chinesische Nudeln</source>
-        <target>Gewürzte chinesische Nudeln</target>
+        <target>Spicy Chinese Noodles</target>
       </segment>
     </unit>
     <unit id="OCweNsQ" name="Unvollständiges Kartenspiel">
@@ -1418,7 +1418,7 @@
       </notes>
       <segment>
         <source>Unvollständiges Kartenspiel</source>
-        <target>Unvollständiges Kartenspiel</target>
+        <target>Incomplete Deck of Cards</target>
       </segment>
     </unit>
     <unit id="rkpAWb5" name="Gesellschaftsspiel">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (zerlegt)</source>
-        <target>Aqua-Splash (zerlegt)</target>
+        <target>Aqua-Splash (incomplete)</target>
       </segment>
     </unit>
     <unit id="st5DmJu" name="Vibrator (entladen)">
@@ -1448,7 +1448,7 @@
       </notes>
       <segment>
         <source>Vibrator (entladen)</source>
-        <target>Vibrator (entladen)</target>
+        <target>Pocket Vibrator (charged)</target>
       </segment>
     </unit>
     <unit id="PO8Wz9d" name="Knochen mit Fleisch">
@@ -1458,7 +1458,7 @@
       </notes>
       <segment>
         <source>Knochen mit Fleisch</source>
-        <target>Knochen mit Fleisch</target>
+        <target>Meaty Bone</target>
       </segment>
     </unit>
     <unit id="q2s5pwg" name="Angeknackster menschlicher Knochen">
@@ -1468,7 +1468,7 @@
       </notes>
       <segment>
         <source>Angeknackster menschlicher Knochen</source>
-        <target>Angeknackster menschlicher Knochen</target>
+        <target>Broken Human Bone</target>
       </segment>
     </unit>
     <unit id="JSbTMpA" name="Zusammengeschusterter Holzbalken">
@@ -1518,7 +1518,7 @@
       </notes>
       <segment>
         <source>Metallsäge</source>
-        <target>Metallsäge</target>
+        <target>Hacksaw</target>
       </segment>
     </unit>
     <unit id="2837wRf" name="Gut erhaltener Holzscheit">
@@ -1538,7 +1538,7 @@
       </notes>
       <segment>
         <source>Defektes Elektrogerät</source>
-        <target>Defektes Elektrogerät</target>
+        <target>Broken Electronic Device</target>
       </segment>
     </unit>
     <unit id="u9wBpM0" name="Möbelpackung">
@@ -1548,7 +1548,7 @@
       </notes>
       <segment>
         <source>Möbelpackung</source>
-        <target>Möbelpackung</target>
+        <target>Flatpacked Furniture</target>
       </segment>
     </unit>
     <unit id="a2W.7cU" name="Beschädigte Metallsäge">
@@ -1558,7 +1558,7 @@
       </notes>
       <segment>
         <source>Beschädigte Metallsäge</source>
-        <target>Beschädigte Metallsäge</target>
+        <target>Broken Hacksaw</target>
       </segment>
     </unit>
     <unit id="pCgdjBM" name="Getriebe">
@@ -1568,7 +1568,7 @@
       </notes>
       <segment>
         <source>Getriebe</source>
-        <target>Getriebe</target>
+        <target>Mechanism</target>
       </segment>
     </unit>
     <unit id="Mx8QtmO" name="Holzbock">
@@ -1578,7 +1578,7 @@
       </notes>
       <segment>
         <source>Holzbock</source>
-        <target>Holzbock</target>
+        <target>Trestle</target>
       </segment>
     </unit>
     <unit id="GKrE3iB" name="Järpen-Tisch">
@@ -1588,7 +1588,7 @@
       </notes>
       <segment>
         <source>Järpen-Tisch</source>
-        <target>Järpen-Tisch</target>
+        <target>Järpen Table</target>
       </segment>
     </unit>
     <unit id="PNLZ7WL" name="Micropur Brausetablette">
@@ -1598,7 +1598,7 @@
       </notes>
       <segment>
         <source>Micropur Brausetablette</source>
-        <target>Micropur Brausetablette</target>
+        <target>Water Purifying Tablets</target>
       </segment>
     </unit>
     <unit id="e8QsLCX" name="Darmmelone">
@@ -1608,7 +1608,7 @@
       </notes>
       <segment>
         <source>Darmmelone</source>
-        <target>Darmmelone</target>
+        <target>Intestine Melon</target>
       </segment>
     </unit>
     <unit id="5lKQGxL" name="Raketenpulver">
@@ -1638,7 +1638,7 @@
       </notes>
       <segment>
         <source>Teddybär</source>
-        <target>Teddybär</target>
+        <target>Teddy Bear</target>
       </segment>
     </unit>
     <unit id="1wOOrVV" name="Holzkistendeckel">
@@ -1648,7 +1648,7 @@
       </notes>
       <segment>
         <source>Holzkistendeckel</source>
-        <target>Holzkistendeckel</target>
+        <target>Crate Lid</target>
       </segment>
     </unit>
     <unit id="ALleEEO" name="Solide Holzplatte">
@@ -1658,7 +1658,7 @@
       </notes>
       <segment>
         <source>Solide Holzplatte</source>
-        <target>Solide Holzplatte</target>
+        <target>Solid Wooden Board</target>
       </segment>
     </unit>
     <unit id="ONUCqKb" name="Geldbündel">
@@ -1668,7 +1668,7 @@
       </notes>
       <segment>
         <source>Geldbündel</source>
-        <target>Geldbündel</target>
+        <target>Wad of Cash</target>
       </segment>
     </unit>
     <unit id="vi1Y.GI" name="Loses Werkzeug">
@@ -1678,7 +1678,7 @@
       </notes>
       <segment>
         <source>Loses Werkzeug</source>
-        <target>Loses Werkzeug</target>
+        <target>Tool Bag</target>
       </segment>
     </unit>
     <unit id="Qu3viNf" name="Radius Mark II (entladen)">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Reparatur Fix</source>
-        <target>Reparatur Fix</target>
+        <target>Repair Kit</target>
       </segment>
     </unit>
     <unit id="1homVRE" name="Unvollständiger Motor">
@@ -1718,7 +1718,7 @@
       </notes>
       <segment>
         <source>Unvollständiger Motor</source>
-        <target>Unvollständiger Motor</target>
+        <target>Engine (incomplete)</target>
       </segment>
     </unit>
     <unit id="qx9.KDV" name="Alte Waschmaschine">
@@ -1728,7 +1728,7 @@
       </notes>
       <segment>
         <source>Alte Waschmaschine</source>
-        <target>Alte Waschmaschine</target>
+        <target>Old Washing Machine</target>
       </segment>
     </unit>
     <unit id="pqPAanY" name="Krebserregender Ofen">
@@ -1738,7 +1738,7 @@
       </notes>
       <segment>
         <source>Krebserregender Ofen</source>
-        <target>Krebserregender Ofen</target>
+        <target>Carcinogenic Oven</target>
       </segment>
     </unit>
     <unit id="sfRw7Bh" name="Minibar">
@@ -1748,7 +1748,7 @@
       </notes>
       <segment>
         <source>Minibar</source>
-        <target>Minibar</target>
+        <target>Beer Fridge</target>
       </segment>
     </unit>
     <unit id="t9rX1Ix" name="Ein Brief ohne Adresse">
@@ -1758,7 +1758,7 @@
       </notes>
       <segment>
         <source>Ein Brief ohne Adresse</source>
-        <target>Ein Brief ohne Adresse</target>
+        <target>A letter with no address</target>
       </segment>
     </unit>
     <unit id="5MZoarU" name="Aufgewelltes Blatt">
@@ -1778,7 +1778,7 @@
       </notes>
       <segment>
         <source>Betriebsanleitung</source>
-        <target>Betriebsanleitung</target>
+        <target>Instruction Manual</target>
       </segment>
     </unit>
     <unit id="_qPfDwA" name="Unleserliches Notizbuch">
@@ -1788,7 +1788,7 @@
       </notes>
       <segment>
         <source>Unleserliches Notizbuch</source>
-        <target>Unleserliches Notizbuch</target>
+        <target>Illegible Notebook</target>
       </segment>
     </unit>
     <unit id="G40OxHQ" name="Fotoalbum">
@@ -1798,7 +1798,7 @@
       </notes>
       <segment>
         <source>Fotoalbum</source>
-        <target>Fotoalbum</target>
+        <target>Photo Album</target>
       </segment>
     </unit>
     <unit id="d99K37k" name="Blätterstapel">
@@ -1808,7 +1808,7 @@
       </notes>
       <segment>
         <source>Blätterstapel</source>
-        <target>Blätterstapel</target>
+        <target>Stack of Papers</target>
       </segment>
     </unit>
     <unit id="JB5ivlG" name="Große rostige Kette">
@@ -1828,7 +1828,7 @@
       </notes>
       <segment>
         <source>Verdächtige Speise</source>
-        <target>Verdächtige Speise</target>
+        <target>Dodgy Homemade Dish</target>
       </segment>
     </unit>
     <unit id="fPytc7G" name="Leckere Speise">
@@ -1838,7 +1838,7 @@
       </notes>
       <segment>
         <source>Leckere Speise</source>
-        <target>Leckere Speise</target>
+        <target>Tasty Homemade Dish</target>
       </segment>
     </unit>
     <unit id="p512E0m" name="Schrankkoffer">
@@ -1858,7 +1858,7 @@
       </notes>
       <segment>
         <source>Kartons</source>
-        <target>Kartons</target>
+        <target>Boxes</target>
       </segment>
     </unit>
     <unit id="qwrpOoz" name="Nagelbare Barrikade">
@@ -1878,7 +1878,7 @@
       </notes>
       <segment>
         <source>Ein Briefumschlag</source>
-        <target>Ein Briefumschlag</target>
+        <target>Envelope</target>
       </segment>
     </unit>
     <unit id="bolKfwN" name="Ein Paket">
@@ -1888,7 +1888,7 @@
       </notes>
       <segment>
         <source>Ein Paket</source>
-        <target>Ein Paket</target>
+        <target>Parcel</target>
       </segment>
     </unit>
     <unit id="yXOvAeJ" name="Maschendrahtzaunstück">
@@ -1908,7 +1908,7 @@
       </notes>
       <segment>
         <source>Wasserpistole (3 Ladungen)</source>
-        <target>Wasserpistole (3 Ladungen)</target>
+        <target>Water Pistol (3 shots)</target>
       </segment>
     </unit>
     <unit id="1hL22Tg" name="Wasserpistole (2 Ladungen)">
@@ -1918,7 +1918,7 @@
       </notes>
       <segment>
         <source>Wasserpistole (2 Ladungen)</source>
-        <target>Wasserpistole (2 Ladungen)</target>
+        <target>Water Pistol (2 shots)</target>
       </segment>
     </unit>
     <unit id="AAqFf0Z" name="Wasserpistole (1 Ladung)">
@@ -1928,7 +1928,7 @@
       </notes>
       <segment>
         <source>Wasserpistole (1 Ladung)</source>
-        <target>Wasserpistole (1 Ladung)</target>
+        <target>Water Pistol (1 shot)</target>
       </segment>
     </unit>
     <unit id="138nZNe" name="Aqua-Splash (5 Ladungen)">
@@ -1938,7 +1938,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (5 Ladungen)</source>
-        <target>Aqua-Splash (5 Ladungen)</target>
+        <target>Aqua-Splash (5 shots)</target>
       </segment>
     </unit>
     <unit id="ZS835lb" name="Aqua-Splash (4 Ladungen)">
@@ -1948,7 +1948,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (4 Ladungen)</source>
-        <target>Aqua-Splash (4 Ladungen)</target>
+        <target>Aqua-Splash (4 shots)</target>
       </segment>
     </unit>
     <unit id="utDsdSV" name="Angefangene Zigarettenschachtel">
@@ -1958,7 +1958,7 @@
       </notes>
       <segment>
         <source>Angefangene Zigarettenschachtel</source>
-        <target>Angefangene Zigarettenschachtel</target>
+        <target>Opened packet of Cigarettes</target>
       </segment>
     </unit>
     <unit id="BBIHHfq" name="Druckregler PDTT Mark II">
@@ -1968,7 +1968,7 @@
       </notes>
       <segment>
         <source>Druckregler PDTT Mark II</source>
-        <target>Druckregler PDTT Mark II</target>
+        <target>PUTA Mark II Calibrator</target>
       </segment>
     </unit>
     <unit id="sM.vO4L" name="Batteriewerfer Mark II (leer)">
@@ -1978,7 +1978,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer Mark II (leer)</source>
-        <target>Batteriewerfer Mark II (leer)</target>
+        <target>Battery Launcher Mk. II (empty)</target>
       </segment>
     </unit>
     <unit id="pSPwIaf" name="Batteriewerfer Mark II (geladen)">
@@ -1988,7 +1988,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer Mark II (geladen)</source>
-        <target>Batteriewerfer Mark II (geladen)</target>
+        <target>Battery Laucher Mk. II (loaded)</target>
       </segment>
     </unit>
     <unit id="DrdIvIa" name="Zerquetschte Batterie">
@@ -1998,7 +1998,7 @@
       </notes>
       <segment>
         <source>Zerquetschte Batterie</source>
-        <target>Zerquetschte Batterie</target>
+        <target>Crushed Battery</target>
       </segment>
     </unit>
     <unit id="hxmelON" name="Kiste mit Materialien (3)">
@@ -2008,7 +2008,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (3)</source>
-        <target>Kiste mit Materialien (3)</target>
+        <target>Construction Kit (3)</target>
       </segment>
     </unit>
     <unit id="_Ya0SdM" name="Kiste mit Materialien (2)">
@@ -2018,7 +2018,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (2)</source>
-        <target>Kiste mit Materialien (2)</target>
+        <target>Construction Kit (2)</target>
       </segment>
     </unit>
     <unit id="C60bLXY" name="Kiste mit Materialien (1)">
@@ -2028,7 +2028,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (1)</source>
-        <target>Kiste mit Materialien (1)</target>
+        <target>Construction Kit (1)</target>
       </segment>
     </unit>
     <unit id="TeBNdiF" name="Autotür">
@@ -2038,7 +2038,7 @@
       </notes>
       <segment>
         <source>Autotür</source>
-        <target>Autotür</target>
+        <target>Car Door</target>
       </segment>
     </unit>
     <unit id="2Xg3q.j" name="Beschädigte Autotür">
@@ -2048,7 +2048,7 @@
       </notes>
       <segment>
         <source>Beschädigte Autotür</source>
-        <target>Beschädigte Autotür</target>
+        <target>Car Door (incomplete)</target>
       </segment>
     </unit>
     <unit id="SLEpWnE" name="Giftfläschchen">
@@ -2058,7 +2058,7 @@
       </notes>
       <segment>
         <source>Giftfläschchen</source>
-        <target>Giftfläschchen</target>
+        <target>Vial of Poison</target>
       </segment>
     </unit>
     <unit id="cNhsjiq" name="Ätzmittel">
@@ -2098,7 +2098,7 @@
       </notes>
       <segment>
         <source>Lunch-Box</source>
-        <target>Lunch-Box</target>
+        <target>Armageddon Lunch Box</target>
       </segment>
     </unit>
     <unit id="UVBggyY" name="Eine Handvoll Bonbons">
@@ -2108,7 +2108,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Bonbons</source>
-        <target>Eine Handvoll Bonbons</target>
+        <target>Handful of Sweets</target>
       </segment>
     </unit>
     <unit id="yK9GDNM" name="Sperrholzstück">
@@ -2128,7 +2128,7 @@
       </notes>
       <segment>
         <source>Fackel</source>
-        <target>Fackel</target>
+        <target>Torch</target>
       </segment>
     </unit>
     <unit id="oAz7EXL" name="Verbrauchte Fackel">
@@ -2138,7 +2138,7 @@
       </notes>
       <segment>
         <source>Verbrauchte Fackel</source>
-        <target>Verbrauchte Fackel</target>
+        <target>Burnt out Torch</target>
       </segment>
     </unit>
     <unit id="9vWCENy" name="Getrocknete Marshmallows">
@@ -2148,7 +2148,7 @@
       </notes>
       <segment>
         <source>Getrocknete Marshmallows</source>
-        <target>Getrocknete Marshmallows</target>
+        <target>Dried Marshmallows</target>
       </segment>
     </unit>
     <unit id="g3eU0or" name="Geröstete Marshmallows">
@@ -2158,7 +2158,7 @@
       </notes>
       <segment>
         <source>Geröstete Marshmallows</source>
-        <target>Geröstete Marshmallows</target>
+        <target>Burnt Marshmallows</target>
       </segment>
     </unit>
     <unit id="f4_LJsB" name="PC-Gehäuse">
@@ -2168,7 +2168,7 @@
       </notes>
       <segment>
         <source>PC-Gehäuse</source>
-        <target>PC-Gehäuse</target>
+        <target>PC Base Unit</target>
       </segment>
     </unit>
     <unit id="T58Nq80" name="Safe">
@@ -2188,7 +2188,7 @@
       </notes>
       <segment>
         <source>Eine Enzyklopädie</source>
-        <target>Eine Enzyklopädie</target>
+        <target>Encyclopedia</target>
       </segment>
     </unit>
     <unit id="AHASEYQ" name="Wasserspender (leer)">
@@ -2238,7 +2238,7 @@
       </notes>
       <segment>
         <source>Abgelaufene Betapropin-Tablette 5mg</source>
-        <target>Abgelaufene Betapropin-Tablette 5mg</target>
+        <target>Betapropine 5mg (expired)</target>
       </segment>
     </unit>
     <unit id="U4wYZ3W" name="Betapropin-Tablette 5mg">
@@ -2248,7 +2248,7 @@
       </notes>
       <segment>
         <source>Betapropin-Tablette 5mg</source>
-        <target>Betapropin-Tablette 5mg</target>
+        <target>Betapropine 5mg</target>
       </segment>
     </unit>
     <unit id="05SJi6V" name="Aasbeeren">
@@ -2298,7 +2298,7 @@
       </notes>
       <segment>
         <source>Dickflüssige Substanz</source>
-        <target>Dickflüssige Substanz</target>
+        <target>Thich Solution</target>
       </segment>
     </unit>
     <unit id="n_Aw_Kk" name="Aasbeerenbrei">
@@ -2358,7 +2358,7 @@
       </notes>
       <segment>
         <source>Verfluchter Teddybär</source>
-        <target>Verfluchter Teddybär</target>
+        <target>Cursed Cuddly Toy</target>
       </segment>
     </unit>
     <unit id="exRnrLk" name="Sägemehlsteak">
@@ -2368,7 +2368,7 @@
       </notes>
       <segment>
         <source>Sägemehlsteak</source>
-        <target>Sägemehlsteak</target>
+        <target>Sawdust Steak</target>
       </segment>
     </unit>
     <unit id="lo_4TvW" name="Abgetragene rote Jacke">
@@ -2378,7 +2378,7 @@
       </notes>
       <segment>
         <source>Abgetragene rote Jacke</source>
-        <target>Abgetragene rote Jacke</target>
+        <target>Second-hand Red Coat</target>
       </segment>
     </unit>
     <unit id="4W9Uon4" name="Zerrissene rote Hose">
@@ -2388,7 +2388,7 @@
       </notes>
       <segment>
         <source>Zerrissene rote Hose</source>
-        <target>Zerrissene rote Hose</target>
+        <target>Ripped Red Trousers</target>
       </segment>
     </unit>
     <unit id="c8xWEv1" name="Schweißtriefende rote Mütze">
@@ -2398,7 +2398,7 @@
       </notes>
       <segment>
         <source>Schweißtriefende rote Mütze</source>
-        <target>Schweißtriefende rote Mütze</target>
+        <target>Foul-smelling Red Hat</target>
       </segment>
     </unit>
     <unit id="BQMFMHP" name="Übelriechender Anzug aus einer anderen Zeit">
@@ -2408,7 +2408,7 @@
       </notes>
       <segment>
         <source>Übelriechender Anzug aus einer anderen Zeit</source>
-        <target>Übelriechender Anzug aus einer anderen Zeit</target>
+        <target>Foul-smelling Vintage Suit</target>
       </segment>
     </unit>
     <unit id="0zCq8DA" name="Mobiltelefon">
@@ -2418,7 +2418,7 @@
       </notes>
       <segment>
         <source>Mobiltelefon</source>
-        <target>Mobiltelefon</target>
+        <target>Mobile Phone</target>
       </segment>
     </unit>
     <unit id="8E71ssC" name="Ekliger Hautfetzen">
@@ -2468,7 +2468,7 @@
       </notes>
       <segment>
         <source>Leiche eines Reisenden</source>
-        <target>Leiche eines Reisenden</target>
+        <target>Traveller's Corpse</target>
       </segment>
     </unit>
     <unit id="Q6uV4Fz" name="Angenagte Leiche">
@@ -2478,7 +2478,7 @@
       </notes>
       <segment>
         <source>Angenagte Leiche</source>
-        <target>Angenagte Leiche</target>
+        <target>Gnawed Corpse</target>
       </segment>
     </unit>
     <unit id="Bg371ce" name="Rauchgranate 'Tannenduft'">
@@ -2488,7 +2488,7 @@
       </notes>
       <segment>
         <source>Rauchgranate 'Tannenduft'</source>
-        <target>Rauchgranate 'Tannenduft'</target>
+        <target>« Pine Fresh » Smoke Bomb</target>
       </segment>
     </unit>
     <unit id="uhLatmB" name="Sandball">
@@ -2498,7 +2498,7 @@
       </notes>
       <segment>
         <source>Sandball</source>
-        <target>Sandball</target>
+        <target>Sand Ball</target>
       </segment>
     </unit>
     <unit id="2IKHbpa" name="Normaler Bauplan (gewöhnlich)">
@@ -2508,7 +2508,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (gewöhnlich)</source>
-        <target>Normaler Bauplan (gewöhnlich)</target>
+        <target>Normal Blueprint (common)</target>
       </segment>
     </unit>
     <unit id="fJiq7t3" name="Normaler Bauplan (ungewöhnlich)">
@@ -2518,7 +2518,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (ungewöhnlich)</source>
-        <target>Normaler Bauplan (ungewöhnlich)</target>
+        <target>Normal Blueprint (uncommon)</target>
       </segment>
     </unit>
     <unit id="GYPyEK." name="Normaler Bauplan (selten)">
@@ -2528,7 +2528,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (selten)</source>
-        <target>Normaler Bauplan (selten)</target>
+        <target>Normal Blueprint (rare)</target>
       </segment>
     </unit>
     <unit id="VZP1E4c" name="Normaler Bauplan (sehr selten!)">
@@ -2538,7 +2538,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (sehr selten!)</source>
-        <target>Normaler Bauplan (sehr selten!)</target>
+        <target>Normal Blueprint (very rare!)</target>
       </segment>
     </unit>
     <unit id="jQi8Ua2" name="Architektenkoffer">
@@ -2548,7 +2548,7 @@
       </notes>
       <segment>
         <source>Architektenkoffer</source>
-        <target>Architektenkoffer</target>
+        <target>Architect's Chest</target>
       </segment>
     </unit>
     <unit id="GxxfHXQ" name="Versiegelter Architektenkoffer">
@@ -2558,7 +2558,7 @@
       </notes>
       <segment>
         <source>Versiegelter Architektenkoffer</source>
-        <target>Versiegelter Architektenkoffer</target>
+        <target>Sealed Architect's Chest</target>
       </segment>
     </unit>
     <unit id="olL3rus" name="Ei">
@@ -2568,7 +2568,7 @@
       </notes>
       <segment>
         <source>Ei</source>
-        <target>Ei</target>
+        <target>Egg</target>
       </segment>
     </unit>
     <unit id="xV3PQxn" name="Apfel">
@@ -2578,7 +2578,7 @@
       </notes>
       <segment>
         <source>Apfel</source>
-        <target>Apfel</target>
+        <target>Apple</target>
       </segment>
     </unit>
     <unit id="HAetVwQ" name="Explosive Pampelmuse">
@@ -2588,7 +2588,7 @@
       </notes>
       <segment>
         <source>Explosive Pampelmuse</source>
-        <target>Explosive Pampelmuse</target>
+        <target>Exploding Grapefruit</target>
       </segment>
     </unit>
     <unit id="mxzzIXh" name="Abgenutzte Kuriertasche">
@@ -2598,7 +2598,7 @@
       </notes>
       <segment>
         <source>Abgenutzte Kuriertasche</source>
-        <target>Abgenutzte Kuriertasche</target>
+        <target>Worn Leather Bag</target>
       </segment>
     </unit>
     <unit id="LgOsoo6" name="Magnet-Schlüssel">
@@ -2678,7 +2678,7 @@
       </notes>
       <segment>
         <source>Hotel-Bauplan (ungewöhnlich)</source>
-        <target>Hotel-Bauplan (ungewöhnlich)</target>
+        <target>Hotel Blueprint (uncommon)</target>
       </segment>
     </unit>
     <unit id="QVhzGbs" name="Hotel-Bauplan (selten)">
@@ -2688,7 +2688,7 @@
       </notes>
       <segment>
         <source>Hotel-Bauplan (selten)</source>
-        <target>Hotel-Bauplan (selten)</target>
+        <target>Hotel Blueprint (rare)</target>
       </segment>
     </unit>
     <unit id="p2EcHS1" name="Hotel-Bauplan (sehr selten!)">
@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Hotel-Bauplan (sehr selten!)</source>
-        <target>Hotel-Bauplan (sehr selten!)</target>
+        <target>Hotel Blueprint (very rare!)</target>
       </segment>
     </unit>
     <unit id="sq2H4GP" name="Bunker-Bauplan (ungewöhnlich)">
@@ -2708,7 +2708,7 @@
       </notes>
       <segment>
         <source>Bunker-Bauplan (ungewöhnlich)</source>
-        <target>Bunker-Bauplan (ungewöhnlich)</target>
+        <target>Bunker Blueprint (uncommon)</target>
       </segment>
     </unit>
     <unit id="0v4ai6K" name="Bunker-Bauplan (selten)">
@@ -2718,7 +2718,7 @@
       </notes>
       <segment>
         <source>Bunker-Bauplan (selten)</source>
-        <target>Bunker-Bauplan (selten)</target>
+        <target>Bunker Blueprint (rare)</target>
       </segment>
     </unit>
     <unit id="CwcMCMu" name="Bunker-Bauplan (sehr selten!)">
@@ -2728,7 +2728,7 @@
       </notes>
       <segment>
         <source>Bunker-Bauplan (sehr selten!)</source>
-        <target>Bunker-Bauplan (sehr selten!)</target>
+        <target>Bunker Blueprint (very rare!)</target>
       </segment>
     </unit>
     <unit id="n6ABeIO" name="Hospital-Bauplan (ungewöhnlich)">
@@ -2738,7 +2738,7 @@
       </notes>
       <segment>
         <source>Hospital-Bauplan (ungewöhnlich)</source>
-        <target>Hospital-Bauplan (ungewöhnlich)</target>
+        <target>Hospital Blueprint (uncommon)</target>
       </segment>
     </unit>
     <unit id="50BbdKV" name="Hospital-Bauplan (selten)">
@@ -2748,7 +2748,7 @@
       </notes>
       <segment>
         <source>Hospital-Bauplan (selten)</source>
-        <target>Hospital-Bauplan (selten)</target>
+        <target>Hospital Blueprint (rare)</target>
       </segment>
     </unit>
     <unit id="EVSrLeF" name="Hospital-Bauplan (sehr selten!)">
@@ -2758,7 +2758,7 @@
       </notes>
       <segment>
         <source>Hospital-Bauplan (sehr selten!)</source>
-        <target>Hospital-Bauplan (sehr selten!)</target>
+        <target>Hospital Blueprint (very rare!)</target>
       </segment>
     </unit>
     <unit id="dy9JAOu" name="Verirrte Seele">
@@ -2768,7 +2768,7 @@
       </notes>
       <segment>
         <source>Verirrte Seele</source>
-        <target>Verirrte Seele</target>
+        <target>Lost Soul</target>
       </segment>
     </unit>
     <unit id="ddjrtHa" name="Starke Seele">
@@ -2788,7 +2788,7 @@
       </notes>
       <segment>
         <source>Schwache Seele</source>
-        <target>Schwache Seele</target>
+        <target>Weak Soul</target>
       </segment>
     </unit>
     <unit id="NzfKa_1" name="Bierkrug">
@@ -2838,7 +2838,7 @@
       </notes>
       <segment>
         <source>Kalaschni-Splash</source>
-        <target>Kalaschni-Splash</target>
+        <target>Kalashni-Splash</target>
       </segment>
     </unit>
     <unit id="oTHGFKi" name="Schnellgebauter Tisch">
@@ -2848,7 +2848,7 @@
       </notes>
       <segment>
         <source>Schnellgebauter Tisch</source>
-        <target>Schnellgebauter Tisch</target>
+        <target>Hastily-built desk</target>
       </segment>
     </unit>
     <unit id="yikN.Mw" name="Leerer Automat">
@@ -2868,7 +2868,7 @@
       </notes>
       <segment>
         <source>Santas Rentier</source>
-        <target>Santas Rentier</target>
+        <target>Santa's reindeer</target>
       </segment>
     </unit>
     <unit id="P24lo3J" name="Osterei">
@@ -2878,7 +2878,7 @@
       </notes>
       <segment>
         <source>Osterei</source>
-        <target>Osterei</target>
+        <target>Easter Egg</target>
       </segment>
     </unit>
     <unit id="AEI8mQM" name="ANZAC Badge">
@@ -2898,7 +2898,7 @@
       </notes>
       <segment>
         <source>Kalaschni-Splash (leer)</source>
-        <target>Kalaschni-Splash (leer)</target>
+        <target>Kalaschni-Splash (empty)</target>
       </segment>
     </unit>
     <unit id="7Qjcs1W" name="Drahtspule">
@@ -2928,7 +2928,7 @@
       </notes>
       <segment>
         <source>Konvexlinse</source>
-        <target>Convex lense</target>
+        <target>Convex Lens</target>
       </segment>
     </unit>
     <unit id="rKEzMvW" name="Wütende Mieze (halb verdaut)">
@@ -2938,7 +2938,7 @@
       </notes>
       <segment>
         <source>Wütende Mieze (halb verdaut)</source>
-        <target>Wütende Mieze (halb verdaut)</target>
+        <target>Furious Kitten (partially digested)</target>
       </segment>
     </unit>
     <unit id="F58KizF" name="Tretmine">
@@ -2968,7 +2968,7 @@
       </notes>
       <segment>
         <source>Selbstgebaute Gitarre</source>
-        <target>Selbstgebaute Gitarre</target>
+        <target>Makeshift Guitar</target>
       </segment>
     </unit>
     <unit id="lIXVQdW" name="LSD">
@@ -2988,7 +2988,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (4 Schuss)</source>
-        <target>Starker Laserpointer (4 Schuss)</target>
+        <target>Burning Laser Pointer (4 charges)</target>
       </segment>
     </unit>
     <unit id="jcenLlv" name="Starker Laserpointer (3 Schuss)">
@@ -2998,7 +2998,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (3 Schuss)</source>
-        <target>Starker Laserpointer (3 Schuss)</target>
+        <target>Burning Laser Pointer (3 charges)</target>
       </segment>
     </unit>
     <unit id="lhNcEq." name="Starker Laserpointer (2 Schuss)">
@@ -3008,7 +3008,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (2 Schuss)</source>
-        <target>Starker Laserpointer (2 Schuss)</target>
+        <target>Burning Laser Pointer (2 charges)</target>
       </segment>
     </unit>
     <unit id="jRYCf_g" name="Starker Laserpointer (1 Schuss)">
@@ -3018,7 +3018,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (1 Schuss)</source>
-        <target>Starker Laserpointer (1 Schuss)</target>
+        <target>Burning Laser Pointer (1 charge)</target>
       </segment>
     </unit>
     <unit id="mlUmSZt" name="Starker Laserpointer (Leer)">
@@ -3028,7 +3028,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (Leer)</source>
-        <target>Starker Laserpointer (Leer)</target>
+        <target>Burning Laser Pointer (Empty)</target>
       </segment>
     </unit>
     <unit id="EJTnMeh" name="Teleskop">
@@ -3038,7 +3038,7 @@
       </notes>
       <segment>
         <source>Teleskop</source>
-        <target>Teleskop</target>
+        <target>Telescope</target>
       </segment>
     </unit>
     <unit id="s2gWFEw" name="Unpersönliche Explodierende Fußmatte">
@@ -3048,7 +3048,7 @@
       </notes>
       <segment>
         <source>Unpersönliche Explodierende Fußmatte</source>
-        <target>Unpersönliche Explodierende Fußmatte</target>
+        <target>Impersonal Exploding Doormat</target>
       </segment>
     </unit>
     <unit id="6iTskUd" name="Chuck-Figur">
@@ -3058,7 +3058,7 @@
       </notes>
       <segment>
         <source>Chuck-Figur</source>
-        <target>Chuck-Figur</target>
+        <target>Chuck Figurine</target>
       </segment>
     </unit>
     <unit id="kjSjOPD" name="Kleine Zen-Fibel">
@@ -3088,7 +3088,7 @@
       </notes>
       <segment>
         <source>Mutterkorn</source>
-        <target>Mutterkorn</target>
+        <target>Ergot Fungus</target>
       </segment>
     </unit>
     <unit id="OPGDZvS" name="Korn-Bräu">
@@ -3108,7 +3108,7 @@
       </notes>
       <segment>
         <source>Verfluchte HiFi</source>
-        <target>Verfluchte HiFi</target>
+        <target>Cursed HiFi</target>
       </segment>
     </unit>
     <unit id="cG6nZVM" name="Phil Collins CD">
@@ -3178,7 +3178,7 @@
       </notes>
       <segment>
         <source>Verteidigende HiFi</source>
-        <target>Verteidigende HiFi</target>
+        <target>Anti-personnel HiFi</target>
       </segment>
     </unit>
     <unit id="ahj5_Qd" name="Schrödingers Box">
@@ -3188,7 +3188,7 @@
       </notes>
       <segment>
         <source>Schrödingers Box</source>
-        <target>Schrödingers Box</target>
+        <target>Schrödinger's Box</target>
       </segment>
     </unit>
     <unit id="jKvG1Xa" name="Geistiger Beistand">
@@ -3208,7 +3208,7 @@
       </notes>
       <segment>
         <source>Fette Python</source>
-        <target>Fette Python</target>
+        <target>Fat Serpent</target>
       </segment>
     </unit>
     <unit id="YE.6ZMc" name="Überraschungskiste (3 Geschenke)">
@@ -3248,7 +3248,7 @@
       </notes>
       <segment>
         <source>Verdächtiger Traubensaft</source>
-        <target>Verdächtiger Traubensaft</target>
+        <target>Suspicious looking plum juice</target>
       </segment>
     </unit>
     <unit id="6FjysGg" name="Ein Etikett">
@@ -3258,7 +3258,7 @@
       </notes>
       <segment>
         <source>Ein Etikett</source>
-        <target>Ein Etikett</target>
+        <target>Label</target>
       </segment>
     </unit>
     <unit id="J4KATtV" name="Bürgerbekleidung">
@@ -3278,7 +3278,7 @@
       </notes>
       <segment>
         <source>Dreckige Bürgerbekleidung</source>
-        <target>Dreckige Bürgerbekleidung</target>
+        <target>Dirty Uniform</target>
       </segment>
     </unit>
     <unit id="Ppxhgkz" name="Tarnanzug">
@@ -3288,7 +3288,7 @@
       </notes>
       <segment>
         <source>Tarnanzug</source>
-        <target>Tarnanzug</target>
+        <target>Camouflage Vest</target>
       </segment>
     </unit>
     <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
@@ -3298,7 +3298,7 @@
       </notes>
       <segment>
         <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <target>Camouflage Vest (not equipped!)</target>
       </segment>
     </unit>
     <unit id="zozlCDV" name="Kleine Schaufel">
@@ -3308,7 +3308,7 @@
       </notes>
       <segment>
         <source>Kleine Schaufel</source>
-        <target>Kleine Schaufel</target>
+        <target>Small Spade</target>
       </segment>
     </unit>
     <unit id="6nEfpGY" name="Dreibeiniger Malteser">
@@ -3318,7 +3318,7 @@
       </notes>
       <segment>
         <source>Dreibeiniger Malteser</source>
-        <target>Dreibeiniger Malteser</target>
+        <target>Three-legged Labradoodle</target>
       </segment>
     </unit>
     <unit id="DcZugEP" name="Dreibeiniger Malteser (gedopt)">
@@ -3328,7 +3328,7 @@
       </notes>
       <segment>
         <source>Dreibeiniger Malteser (gedopt)</source>
-        <target>Dreibeiniger Malteser (gedopt)</target>
+        <target>Three-legged Labradoodle (drugged)</target>
       </segment>
     </unit>
     <unit id="TpCsDff" name="Dreibeiniger Malteser (erschöpft)">
@@ -3338,7 +3338,7 @@
       </notes>
       <segment>
         <source>Dreibeiniger Malteser (erschöpft)</source>
-        <target>Dreibeiniger Malteser (erschöpft)</target>
+        <target>Three-legged Labradoodle (tired)</target>
       </segment>
     </unit>
     <unit id="iZtaOjI" name="Survivalbuch">
@@ -3348,7 +3348,7 @@
       </notes>
       <segment>
         <source>Survivalbuch</source>
-        <target>Survivalbuch</target>
+        <target>Survival Book</target>
       </segment>
     </unit>
     <unit id="y1Nwhhg" name="Schraubenschlüssel">
@@ -3358,7 +3358,7 @@
       </notes>
       <segment>
         <source>Schraubenschlüssel</source>
-        <target>Schraubenschlüssel</target>
+        <target>Handyman's Toolbelt</target>
       </segment>
     </unit>
     <unit id="ZnKlh2A" name="Schutzschild">
@@ -3368,7 +3368,7 @@
       </notes>
       <segment>
         <source>Schutzschild</source>
-        <target>Schutzschild</target>
+        <target>Riot Shield</target>
       </segment>
     </unit>
     <unit id="1F8QOk_" name="Voodoo-Maske">
@@ -3378,7 +3378,7 @@
       </notes>
       <segment>
         <source>Voodoo-Maske</source>
-        <target>Voodoo-Maske</target>
+        <target>Voodoo Mask</target>
       </segment>
     </unit>
     <unit id="u_g_Kg2" name="Trinken">
@@ -3568,7 +3568,7 @@
       </notes>
       <segment>
         <source>Lesen</source>
-        <target>Lesen</target>
+        <target>Read</target>
       </segment>
     </unit>
     <unit id="g7lA4hJ" name="75edd8c">
@@ -3588,7 +3588,7 @@
       </notes>
       <segment>
         <source>Werfen</source>
-        <target>Werfen</target>
+        <target>Throw</target>
       </segment>
     </unit>
     <unit id="UWEMZ3x" name="{casino}">
@@ -3618,7 +3618,7 @@
       </notes>
       <segment>
         <source>Spielen</source>
-        <target>Spielen</target>
+        <target>Play</target>
       </segment>
     </unit>
     <unit id="qz1Q.uu" name="Verwenden">
@@ -3628,7 +3628,7 @@
       </notes>
       <segment>
         <source>Verwenden</source>
-        <target>Verwenden</target>
+        <target>Use</target>
       </segment>
     </unit>
     <unit id="4BPa55x" name="60c8734">
@@ -3678,7 +3678,7 @@
       </notes>
       <segment>
         <source>Reinigen</source>
-        <target>Reinigen</target>
+        <target>Clean</target>
       </segment>
     </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
@@ -3818,7 +3818,7 @@
       </notes>
       <segment>
         <source>Knuddeln</source>
-        <target>Knuddeln</target>
+        <target>Cuddle</target>
       </segment>
     </unit>
     <unit id="Lbcs1jO" name="7c7d5a6">
@@ -3848,7 +3848,7 @@
       </notes>
       <segment>
         <source>Rauchen</source>
-        <target>Rauchen</target>
+        <target>Smoke</target>
       </segment>
     </unit>
     <unit id="4oX2an8" name="Hierfür brauchst du Streichhölzer...">
@@ -4008,7 +4008,7 @@
       </notes>
       <segment>
         <source>Fund</source>
-        <target>Fund</target>
+        <target>Seeker</target>
       </segment>
     </unit>
     <unit id="AAim.UY" name="Wildstyle Uppercut">
@@ -4018,7 +4018,7 @@
       </notes>
       <segment>
         <source>Wildstyle Uppercut</source>
-        <target>Wildstyle Uppercut</target>
+        <target>Vicious Uppercut</target>
       </segment>
     </unit>
     <unit id="zV1VWf6" name="Zweite Lunge">
@@ -4028,7 +4028,7 @@
       </notes>
       <segment>
         <source>Zweite Lunge</source>
-        <target>Zweite Lunge</target>
+        <target>Second Wind</target>
       </segment>
     </unit>
     <unit id="dIXELzM" name="Den Tod besiegen">
@@ -4038,7 +4038,7 @@
       </notes>
       <segment>
         <source>Den Tod besiegen</source>
-        <target>Den Tod besiegen</target>
+        <target>Cheat Death</target>
       </segment>
     </unit>
     <unit id="0A55k5c" name="Rettung">
@@ -4048,7 +4048,7 @@
       </notes>
       <segment>
         <source>Rettung</source>
-        <target>Rettung</target>
+        <target>Heroic Return</target>
       </segment>
     </unit>
     <unit id="VREDhkf" name="Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!">
@@ -4588,7 +4588,7 @@
       </notes>
       <segment>
         <source>Fast nichts ist besser als eine rostige Blechplatte, um die Zombies am Eindringen zu hindern... Anmerkung: Verteidigungsgegenstände zählen mehr Punkte, wenn sie in der Bank aufbewahrt werden anstatt daheim.</source>
-        <target>Fast nichts ist besser als eine rostige Blechplatte, um die Zombies am Eindringen zu hindern... Anmerkung: Verteidigungsgegenstände zählen mehr Punkte, wenn sie in der Bank aufbewahrt werden anstatt daheim.</target>
+        <target>There's nothing like a bit of rusty sheet metal to stop zombies from getting to you... Note: Defensive items give better bonuses if they are installed in town as opposed to in your home.</target>
       </segment>
     </unit>
     <unit id="gTDRDQA" name="97835c1">
@@ -4658,7 +4658,7 @@
       </notes>
       <segment>
         <source>Eine alte Plastiktüte aus dem Supermarkt. Wenn du sie mit Wasser füllst, verwandelt sie sich in eine gefürchtete Waffe...</source>
-        <target>Eine alte Plastiktüte aus dem Supermarkt. Wenn du sie mit Wasser füllst, verwandelt sie sich in eine gefürchtete Waffe...</target>
+        <target>An old plastic bag from the supermarket which can be transformed into a formidable weapon if you fill it with water...</target>
       </segment>
     </unit>
     <unit id="4O9j8jG" name="898d70f">
@@ -4678,7 +4678,7 @@
       </notes>
       <segment>
         <source>Eine Ladung Sprengstoff, die an eine Plastiktüte befestigt wurde - simpel und effektiv. Jetzt brauchst du nur noch Wasser...</source>
-        <target>Eine Ladung Sprengstoff, die an eine Plastiktüte befestigt wurde - simpel und effektiv. Jetzt brauchst du nur noch Wasser...</target>
+        <target>A plastic bag fitted with an explosive charge. It takes some doing, but is simple and effective. You just have to fill it up....</target>
       </segment>
     </unit>
     <unit id="yYQ_p8k" name="e342f2b">
@@ -4978,7 +4978,7 @@
       </notes>
       <segment>
         <source>Eine Wasserpistole ist gegen Zombies äußerst wirksam! Es sei denn sie ist leer.</source>
-        <target>Eine Wasserpistole ist gegen Zombies äußerst wirksam! Es sei denn sie ist leer.</target>
+        <target>A water pistol is really effective against zombies! Unless it's empty, like this one...</target>
       </segment>
     </unit>
     <unit id="NIIzgsI" name="3a3994c">
@@ -5438,7 +5438,7 @@
       </notes>
       <segment>
         <source>Ein relativ solider Holzbock, den du zweifelsohne für deine persönliche Verteidigung oder für die Stadtverteidigung gebrauchen kannst.</source>
-        <target>Ein relativ solider Holzbock, den du zweifelsohne für deine persönliche Verteidigung oder für die Stadtverteidigung gebrauchen kannst.</target>
+        <target>A pretty solid trestle which can be used to improve your home defences or those of the town.</target>
       </segment>
     </unit>
     <unit id="0XsFlk." name="84b7461">
@@ -7565,7 +7565,7 @@
       </notes>
       <segment>
         <source>Herstellung eines Mystischern Trank</source>
-        <target>Brew a Mystic Potion</target>
+        <target>Herstellung eines Mystischern Trank</target>
       </segment>
     </unit>
     <unit id="rQB150u" name="Nickerchen machen">
