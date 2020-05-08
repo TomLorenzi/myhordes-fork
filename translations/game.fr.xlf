@@ -1952,8 +1952,8 @@
       <segment>
         <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                       arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
-        <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                        arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+        <target><![CDATA[La ville a légalisé l'esclavage. Désormais vous pouvez vous rendre sur un chantier malgré votre bannissement
+                        travaillez et obtenez un bonus de 50% sur tout investissement de <div class="ap"></div>.]]></target>
       </segment>
     </unit>
     <unit id="ryRHkfD" name="Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.">
@@ -2008,7 +2008,7 @@
       </notes>
       <segment>
         <source>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</source>
-        <target>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</target>
+        <target>En raison de votre bannissement, vous pouvez prendre au maximum une ration d'eau par jour.</target>
       </segment>
     </unit>
     <unit id="6KUjC8g" name="Die Stadt verfügt über eine %pumpname%.">
@@ -2619,10 +2619,10 @@
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                              benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                              kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                              auffüllen.</target>
+        <target>Pour de nombreuses actions, comme explorer le monde extérieur ou travailler sur un chantier de construction,
+                            vous avez besoin de points d'action. Vos points d'action sont rechargés tous les soirs après l'attaque. 
+                            Vous pouvez également les recharger en utilisant certains articles et une fois par jour en mangeant 
+                            et en buvant.</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2838,7 +2838,7 @@
       </notes>
       <segment>
         <source>Immunisiert</source>
-        <target>Immunisé</target>
+        <target>Immunisé(e)</target>
       </segment>
     </unit>
     <unit id="dIXELzM" name="Den Tod besiegen">
@@ -3806,7 +3806,7 @@
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</target>
+        <target>Quelqu'un a-t-il entendu parler de %citizen% récemment? Il semble avoir disparu ...</target>
       </segment>
     </unit>
     <unit id="HNlT.7E" name="caf9c12">
@@ -3828,7 +3828,7 @@
       </notes>
       <segment>
         <source>Verrat! %citizen% ist gestorben: %cod%.</source>
-        <target>Verrat! %citizen% ist gestorben: %cod%.</target>
+        <target>Trahison! %citizen% est décédé: %cod%.</target>
       </segment>
     </unit>
     <unit id="EWgulaj" name="98f1530">
@@ -3839,7 +3839,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.</source>
-        <target>%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.</target>
+        <target>%citizen% a fait déborder le vase. La ville a décidé de sa mort: %cod%.</target>
       </segment>
     </unit>
     <unit id="VImW6PC" name="%citizen% hat seinen letzten Atemzug getan: %cod%!">
@@ -4004,7 +4004,7 @@
       </notes>
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
-        <target>%num% Zombies sind durch unsere Verteidigung gebrochen!</target>
+        <target>%num% Zombies ont percé nos défenses!</target>
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -4059,7 +4059,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% vernichtet.</source>
-        <target>%citizen% hat die Leiche von %disposed% vernichtet.</target>
+        <target>%citizen% a détruit le corps de %disposed%.</target>
       </segment>
     </unit>
     <unit id="oxUEe4_" name="HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!">
@@ -4092,7 +4092,7 @@
       </notes>
       <segment>
         <source>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
-        <target>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</target>
+        <target>%actor% est entré par effraction chez %victim% et a laissé %item%...</target>
       </segment>
     </unit>
     <unit id="Lzd32wL" name="Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -4320,7 +4320,7 @@
       </notes>
       <segment>
         <source>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</source>
-        <target>%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.</target>
+        <target>%citizen% a ajouté %num% rations d'eau au puits.</target>
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -7907,8 +7907,7 @@
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
-                        Verfügung.</target>
+        <target>Votre ville a décidé de vous bannir. Certaines actions ne sont plus disponibles pour vous.</target>
       </segment>
     </unit>
     <unit id="Qc.QL70" name="a2b0db7">
@@ -7919,8 +7918,8 @@
       <segment>
         <source>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.</source>
-        <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
-                dieser Stadt zur Verfügung.</target>
+        <target>Selon la profession que vous choisissez, différentes actions et styles de jeu sont disponibles
+                dans cette ville.</target>
       </segment>
     </unit>
     <unit id="kw2Iw8G" name="0a39755">
@@ -7942,8 +7941,8 @@
       <segment>
         <source>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</target>
+        <target>Si vous jouez en tant que %citizen%, vous ne consommez pas de jours de héros. Cependant,
+                si vous avez des jours de héros, vous pouvez passer à une profession de héros une fois par ville.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -7954,7 +7953,7 @@
       <segment>
         <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
-        <target><![CDATA[La ville a légalisé l'esclavage. Vous pouvez désormais travailler sur les chantiers malgré votre bannissement et y obtenir un bonus de 50%. <div class="ap"></div>.]]></target>
+        <target><![CDATA[La ville a légalisé l'esclavage. Désormais vous pouvez travailler sur un chantier malgré votre relégation et même obtenir un bonus de 50% pour chaque investissement de <div class="ap"></div>.]]></target>
       </segment>
     </unit>
     <unit id="QL.qpuP" name="d231db0">
@@ -7965,8 +7964,9 @@
       <segment>
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
-                    in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</target>
+        <target>Ici, vous pouvez planifier des itinéraires pour un voyage vers le monde extérieur. 
+                    Des itinéraires simples commencent et finissent toujours dans la ville. 
+                    Les itinéraires complexes peuvent commencer et se terminer à tout moment.</target>
       </segment>
     </unit>
     <unit id="32LY7bW" name="3f5fb3f">
@@ -8504,7 +8504,7 @@
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
-        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+        <target>Non loin de votre cachette actuelle, vous voyez une cachette encore meilleure ... Hmmm ... vous devriez peut-être déménager?</target>
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -8558,7 +8558,7 @@
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
-        <target>Dazu hast Du kein Recht.</target>
+        <target>Tu n'as pas le droit de faire ça.</target>
       </segment>
     </unit>
     <unit id="eLqiBhl" name="%username% wurde standrechtlich erschossen.">
@@ -8585,7 +8585,7 @@
       </notes>
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
-        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</target>
+        <target>Vous creusez depuis un certain temps et avez trouvé plusieurs objets: %items%</target>
       </segment>
     </unit>
     <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
@@ -8621,7 +8621,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
+        <target>Après quelques efforts, votre expédition a trouvé ce qui suit: %item%!</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -8891,7 +8891,7 @@
       </notes>
       <segment>
         <source>Du kannst keinen weiteren Bürger eskortieren.</source>
-        <target>Du kannst keinen weiteren Bürger eskortieren.</target>
+        <target>Vous ne pouvez pas escorter un autre citoyen.</target>
       </segment>
     </unit>
     <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">

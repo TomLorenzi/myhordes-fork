@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Hinweis</source>
-        <target>Hinweis</target>
+        <target>Remarque</target>
       </segment>
     </unit>
     <unit id="l.2Tpic" name="ca64199">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+        <target><![CDATA[Sans cela, vous ne pouvez pas utiliser d'applications externes. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.]]></target>
       </segment>
     </unit>
     <unit id="h0cXaFP" name="Sticky">
