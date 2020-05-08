@@ -62,8 +62,37 @@ class AdminActionController extends AbstractController
     public function reports(): Response
     {
         $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
+        // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
+        $postsList = array('post' => [], 'reporter' => []);
+        $postsList['post'] = array_map(function($report) { return $report->getPost(); }, $reports);
+        $postsList['reporter'] = array_map(function($report) { return $report->getSourceUser(); }, $reports);
+
+
+        $alreadyCountedIndexes = [];
+        $atLeastTwoReports = [];
+        foreach ($postsList['post'] as $idx => $post) {
+            if (in_array($idx, $alreadyCountedIndexes))               
+                continue;      
+
+            file_put_contents("../var/log/crowlog.log", "\n postId: ". strval($post->getId()), FILE_APPEND);    
+
+            $keys = array_keys($postsList['post'], $post);
+
+            file_put_contents("../var/log/crowlog.log", "\n keys: ". implode(",", $keys), FILE_APPEND);
+
+            $alreadyCountedIndexes = array_merge($alreadyCountedIndexes, $keys);
+            $reportCount = count($keys);
+            if ($reportCount > 1) {
+                $reporters = [];
+                foreach ($keys as $key){
+                    $reporters[] = $postsList['reporter'][$key];
+                }
+                $atLeastTwoReports[] = array('post' => $post, 'count' => $reportCount, 'reporters' => $reporters);
+            }
+        }
+
         return $this->render( 'admin_action/reports/reports.html.twig', [  
-            'reports' => $reports,        
+            'posts' => $atLeastTwoReports,        
         ]);      
     }
 
