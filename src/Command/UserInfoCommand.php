@@ -59,7 +59,7 @@ class UserInfoCommand extends Command
             $user = $this->entityManager->getRepository(User::class)->findOneById($userid);
 
             if (($modlv = $input->getOption('set-mod-level')) !== null) {
-                $user->setIsAdmin($modlv >= 2);
+                $user->setRightsElevation($modlv);
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($rpLang = $input->getOption('find-all-rps')) {
@@ -99,7 +99,7 @@ class UserInfoCommand extends Command
 
                 if ($input->getOption( 'validation-pending' ) && $user->getValidated()) return false;
                 if ($input->getOption( 'validated' ) && !$user->getValidated()) return false;
-                if ($input->getOption( 'mods' ) && !$user->getIsAdmin()) return false;
+                if ($input->getOption( 'mods' ) && !$user->getRightsElevation() >= User::ROLE_CROW) return false;
 
                 return true;
             } );
@@ -112,7 +112,7 @@ class UserInfoCommand extends Command
                 $pendingValidation = $user->getPendingValidation();
                 $table->addRow( [
                     $user->getId(), $user->getUsername(), $user->getEmail(), $user->getValidated() ? '1' : '0',
-                    $user->getIsAdmin() ? '1' : '0',
+                    $user->getRightsElevation() >= User::ROLE_CROW ? '1' : '0',
                     $activeCitizen ? $activeCitizen->getId() : '-',
                     $pendingValidation ? "{$pendingValidation->getPkey()} ({$pendingValidation->getType()})" : '-'
                 ] );

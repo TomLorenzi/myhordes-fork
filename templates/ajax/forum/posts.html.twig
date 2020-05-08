@@ -32,7 +32,7 @@
 {% endif %}
 <div class="forum-posts">
     {% for post in posts %}
-        {% if not post.hidden or is_granted("ROLE_ADMIN") %}
+        {% if not post.hidden or is_granted("ROLE_CROW") %}
             <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %}">
                 {% if post.owner.username == 'Der Rabe' %}
                     <div class="forum-post-header-crow">
@@ -89,7 +89,7 @@
                     </div>
                 {% endif %}
                 <div class="forum-post-footer right">
-                    {% if not is_granted("ROLE_ADMIN") %}
+                    {% if not is_granted("ROLE_CROW") %}
                         <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
                     {% else %}
                         <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
@@ -100,6 +100,7 @@
                                 {% endif %}
                             </ul>
                         </label>
+                    <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
                     {% endif %}
                 </div>
             </div>
@@ -108,13 +109,15 @@
 </div>
     <div class="row">
         <div class="cell padded rw-6 left">
-        {% if is_granted("ROLE_ADMIN")%}
+        {% if is_granted("ROLE_CROW")%}
             {% if not locked %}
                 <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
             {% endif %}
             {% if locked %}
                 <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
             {% endif %}
+        {% endif %}
+        {% if is_granted("ROLE_ADMIN")%}
             {% if not pinned %}
                 <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
             {% else %}
@@ -140,7 +143,7 @@
                     $.ajax.load(null, data.url, true);
                 } )
             })
-    {% if is_granted("ROLE_ADMIN")%}
+    {% if is_granted("ROLE_CROW") %}
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"');
         for (let i = 0; i < del_buttons.length; i++)
             del_buttons[i].addEventListener('click', function() {
@@ -162,7 +165,8 @@
                 $.ajax.no_history().load( null, '{{ url('forum_thread_unlock_controller', {fid: fid, tid: tid}) }}', false )
             })
         {% endif %}
-
+    {% endif %}
+    {% if is_granted("ROLE_ADMIN") %}
         {% if not pinned %}
             let pin_button = document.querySelector('[x-forum-moderator-action=pin]');
             pin_button.addEventListener('click', function() {
