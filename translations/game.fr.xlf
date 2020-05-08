@@ -1151,7 +1151,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Défense</target>
+        <target>Défenses</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -9714,6 +9714,15 @@
       <segment>
         <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
         <target>Vous ne pouvez plus déposer de plaintes aujourd'hui.</target>
+      </segment>
+    </unit>
+    <unit id="1tKXRRi" name="Der %rolename% der Stadt ist %username%">
+      <notes>
+        <note category="german">Der %rolename% der Stadt ist %username%</note>
+      </notes>
+      <segment>
+        <source>Der %rolename% der Stadt ist %username%</source>
+        <target>Le %rolename% de la ville est %username%</target>
       </segment>
     </unit>
   </file>

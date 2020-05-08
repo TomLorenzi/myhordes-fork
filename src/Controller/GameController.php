@@ -161,6 +161,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $attack = $gazette->getAttack();
         $defense = $gazette->getDefense();
 
+        $citizenWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
 
         $gazette_info = [
             'season_version' => 0,
@@ -185,6 +186,7 @@ class GameController extends AbstractController implements GameInterfaceControll
             'show_town_link'  => $in_town,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
+            'citizenWithRole' => $citizenWithRole,
         ] );
     }
 
