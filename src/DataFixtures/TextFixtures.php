@@ -4239,6 +4239,346 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "poem"
         ],
+        "acorr_es" => [
+            "title" => "Acorralado",
+            "author" => "GeneralCross",
+            "content" => [
+                '<p>Estoy arrinconado por los zombis, ellos avanzan a lentos pasos, los oigo venir.</p>
+                <p>Estoy refugiado tras unas rocas, más cuando lleguen me morderán, me devorarán y tras un insoportable dolor, me volveré uno de ellos.</p>
+                <p>Esta nota será lo único que darán cuenta de que existí, mi familia fue devorada hace mucho.</p>
+                <p>No hay nadie que pueda extrañarme, así que tomaré el bolígrafo y romperé mi garganta, será menos doloroso que ser devorado.</p>
+                <h1>Espero que encuentren esta nota, espero que sepan que existí.</h1>'
+            ],
+            "lang" => "es",
+            "background" => "carton",
+            "design" => "written"
+        ],
+        "adio_es" => [
+            "title" => "Adiós",
+            "author" => "Eragon96",
+            "content" => [
+                '<p>A lo largo de estos días he observado cosas horribles.
+                He visto amigos que se traicionan.
+                Ahora ni siquiera puedo confiar en mi sombra. </p>
+                <p>Si alguien quiere regresar a como era antes, está soñando, no pasará. Tienen que aceptar la realidad... </p>
+                <p>Solo nos queda sobrevivir.</p>
+                <p>Hoy salí y me quedé sin energía.</p>
+                <p>Les pediría ayuda pero ellos no tratarán de salvarme.</p>
+                <p>Tomaré cianuro, no quiero ser como ellos.</p>
+                <p>Espero que alguien lea esto:</p>
+                <h1>La unión hace la fuerza. No lo olviden.</h1>'
+            ],
+            "lang" => "es",
+            "background" => "carton",
+            "design" => "written"
+        ],
+        "bioz1_es" => [
+            "title" => "Biología de los Caminantes- Parte 1/4",
+            "author" => "Dr. Arthail Thredaral",
+            "content" => [
+                '<h1>Biología de los Caminantes: <br> Lt. Dr. Arthail Thredaral</h1>
+                <small>7 de Octubre de 2027</small>
+                <h2>Preámbulo:</h2>
+                <p>Este es el resumen sintético y breve realizado a partir de las notas y los informes de investigación del estudio de campo recuperado por el Departamento de Control de Enfermedades del Comité Especial de Emergencias Sanitarias de la ONU, realizado sobre especímenes afectados por el Síndrome de Postmortem o como se dice popularmente "Zombificados", antes y después de su defunción y reanimación.</p>
+                <p>Las pruebas no son concluyentes ya que no se conservan más registros con los que contrastar estos datos, sobre todo de carácter contextual al más que probable conflicto armado a escala mundial que tuvo lugar en algún momento entre el año 2012...</p>',
+                '<p>...y el 2015 y finalizó con un colapso de las principales organizaciones y gobiernos mundiales hacia el 2016.</p>
+                <p>Síntesis general de la anatomía del caminante:<br>
+                El Síndrome de PostMortem confiere ciertos trastornos anatómicos muy característicos en la raíz biológica de una víctima del mismo.<br>
+                A saber, los cambios sintomáticos más acuciantes nada más contraído el síndrome son la desorientación, un desorden hormonal grave acompañado de factores como el aumento de la temperatura rápidamente generando fiebres que llegan a ser incapacitantes, sudoración deshidratante a partir de las 5 horas en todos los casos, debilidad articular, mareos, vómitos, dolor generalizado en todo el sistema nervioso y aceleración del pulso por encima de lo médicamente posible.</p>'
+            ],
+            "lang" => "es",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "bioz3_es" => [
+            "title" => "Biología de los Caminantes- Parte 3/4",
+            "author" => "Dr. Arthail Thredaral",
+            "content" => [
+                '<h2>Parte 3:</h2>
+                <p>La más que conocida hostil agresividad de los caminantes por todo ser vivo, especialmente los humanos es imposible de analizar desde el campo de la psicología y parece responder a unos patrones inquisitivos más emparentados con las asociaciones básicas de un animal primitivo como el instinto de alimentación y territorialidad, según el cual, siempre que un ser humano sea captado por la atención de un caminante, este responderá con agresividad extrema y con una violencia total, intentando matar y devorar a todos los humanos que encuentre (en los estudios prácticos de campo, se ha demostrado además que los sujetos reanimados acaban con la vida de los ``voluntarios´´ de prueba en el 78% de los casos y estos son infectados por el agente activo del síndrome PostMortem en el 100% de los casos), el resto de este estudio pertenece a otro campo.</p>
+                <p>Síntesis general de la fisiología del caminante:<br>
+                La ciencia tiene difícil hallar una explicación racional a porque los sujetos con el Síndrome de PostMortem, tras su reanimación son tan susceptibles a la combustión espontánea si se les aplica una cantidad de H2O pura, lo que acaba por concluir en el deceso del sujeto (si es que el término óbito es aplicable).</p>
+                <p>Una explicación, que no exenta de cierta ironía encaja con la posibilidad de que este síndrome sea consecuencia y no causa de una Guerra Nuclear, es su coincidencia con ciertos factores ambientales que si aplicamos el contexto de una guerra Nuclear dan las condiciones necesarias.</p>'
+            ],
+            "lang" => "es",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "divv1_es" => [
+            "title" => "Diario de un Moribundo",
+            "author" => "Arkham Stranger",
+            "content" => [
+                '<p>La mayoría de veces prefiero ocultarme en aquel cuchitril que construí hace un día, con ayuda de unas cosas que tomé del almacén del pueblo, que estaba ya construido antes de los atroces eventos que desencadenarían el fin de nuestra miserable existencia.</p>
+                <p>Ya han pasado 4 días desde que pude ver a Joaquín, un buen amigo mío que vivía en la casa de al lado, mientras construía mi cuchitril vi que salía del pueblo, pero ahora dudo que siga con vida, me entristece no haber podido despedirme de él.</p>
+                <p>Somos tan sólo un puñado de hombres, no quiero morir, quiero tener una familia, casarme, poder tener nietos, la vida de una persona normal... Ahora dudo que eso sea posible, el objetivo típico de una persona se ha vuelto un sueño utópico.</p>',
+                '<p>Organicé las porquerías que hay en mi pequeña vivienda, espero salir en unas horas con un grupo de vecinos a buscar recursos en el desierto, ahora he escuchado que le llaman Ultramundo, qué desidia...</p>
+                <p>Tenía el reloj de un tipo muerto, deben ser las seis de la tarde. Encontrarás mi cuerpo sin vida, a medio devorar, fui un idiota, y tu morirás también, tu familia. ¡Todos morirán, no habrá nadie más!</p><br>
+                <p><small>-Arkham<strike>Stranger </strike></small></p><strike>
+                </strike>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "written"
+        ],
+        "d4deb_es" => [
+            "title" => "Día 4 tras la debacle",
+            "author" => "FurbyVikingo",
+            "content" => [
+                '<p>Después de despedirnos de los últimos habitantes que quedaban en el pueblo hemos decidido buscar el modo de salir de este condenado desierto sin apenas recursos.</p>
+                <p>Comienza a cundir un poco el pánico y algunos de los miembros de la expedición comienzan a tener náuseas y mareos por deshidratación. Hemos encontrado algunos zombies sueltos y hemos podido acabar con ellos, aunque nuestro líder ha resultado herido.</p>',
+                '<p>Tras varios días andando sin rumbo en el desierto, estoy convencida de que no hay escapatoria. Hemos podido huir de alguna turba de zombies, pero estamos sin agua no llegaremos muy lejos. Mirando cara a cara a algunos de esos zombies, ¡nos hemos dado cuenta de que eran antiguos miembros de nuestra expedición!</p>'
+            ],
+            "lang" => "es",
+            "background" => "stamp",
+            "design" => "typed"
+        ],
+        "dia_es" => [
+            "title" => "Día 7",
+            "author" => "maxidutre",
+            "content" => [
+                '<p>Estoy en una casa abandonada en el desierto, he visto una horda de zombis por el sur acercándose...</p>
+                <p>Por favor envíen refuerzos a esta ubicación, ¡háganlo rápido!, estoy escribiendo esta carta y no tengo tiempo de contar todo lo horrible que he visto hasta ahora, por favor ¡rápido envíen a alguien!</p>
+                <p>Díganle a mi vecina de la casa que yo siempre la... la... a.. am... mé... aaahhhh...</p>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "written"
+        ],
+        "gritdk_es" => [
+            "title" => "El último grito",
+            "author" => "Deck28-06",
+            "content" => [
+                '<p>Día 8: Estoy tan solo, la soledad me carcome por dentro, uno de mis compañeros se sacrificó por nosotros y terminó en un charco de sangre y vísceras, fue repugnante. El otro.. He tenido que ser drástico con él, su estado era crítico, sigo pensando que le hice un favor al acabar con su existencia.</p>
+                <p>Este es otro día que no quiero vivir, tan solo. Esta soledad apesta. He asesinado a 38 zombies pero hoy me miro y soy un monstruo como ellos.</p>
+                <p>Veo una luz, voy hacia ella, es hermosa, lo mas bello que he visto.  Este, este fue mi ultimo mensaje al mundo de los vivos, mi último grito.</p>'
+            ],
+            "lang" => "es",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "horos_es" => [
+            "title" => "Horóscopo",
+            "author" => "Corvicus",
+            "content" => [
+                '<p>No desmayes en tu misión, los astros te acompañarán en tu camino, en especial Júpiter, quien te dará una suerte extraordinaria, no desaproveches la ocasión de buscar lo que tanto anhelas.</p>
+                <p>Confía en quienes te hablan directo y sin miedo, desconfía de los que hablan menos, podrían estar tramando algo a tus espaldas.</p>
+                <p>Recuerda, la horca pude ser un juego divertido para algunos.</p>
+                <p>En el amor, sin novedad, tu físico y tu poca higiene no ayudan.</p>'
+            ],
+            "lang" => "es",
+            "background" => "carton",
+            "design" => "written"
+        ],
+        "slept_es" => [
+            "title" => "La agonía",
+            "author" => "Selene",
+            "content" => [
+                '<p>¡Qué se callen! Los gritos de los que mueren y de los que ven la muerte llegar... La agonía del cuerpo y de la razón...</p>
+                <p>A veces pienso que las noches y los ataques acabarán por traer la paz. ¡Ayer éramos dieciocho, hoy solo siete!</p>
+                <p>Estoy harta de caminar en charcos de sangre... de tropezarme con pedazos de gente...</p>
+                <p>¿Por qué los zombies se van cada noche? ¿Por qué no vienen a matarnos a todos de una sola y buena vez? ¿Para qué hacernos sufrir tanto? A pesar de las apariencias, cuando los veo, esos monstruos están más conscientes de lo que parecen... ¡Eso los hace más crueles y abominables!</p>
+                <p>Tengo miedo.</p>',
+                '<p>Carlos, mi mejor amigo... había desaparecido y le había dado por muerto. ¡Pero está vivo! Le encontré caminando en el pueblo... Pero tal vez hubiese sido mejor no verle de nuevo, no en ese estado...</p>
+                <p>Preparaba sus cosas para volver a salir al Ultramundo... La próxima vez que salga... yo me iré con él... Para siempre.</p>
+                <p><small>Autor: Selene</small></p>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "written"
+        ],
+        "grit1_es" => [
+            "title" => "La espera",
+            "author" => "Camarada Ndomo",
+            "content" => [
+                '<p>Hoy el sol ha aparecido de nuevo después de varios días nublados. Antes de salir a excavar, como todos los días, he limpiado un poco la casa y he tomado una ración de agua del pozo.
+                </p><p>Llevo ya aquí una semana, y aún no he sido herido en ninguna de mis salidas. Solo que la muerte ronda por aquí.</p>
+                <p>Nunca lo hubiera imaginado hace dos días, cuando regresé al pueblo después de haber encontrado en el desierto un plano poco común. Todos mis compañeros me felicitaron, en sus ojos brillaba la ilusión, y yo me sentí orgulloso de poder contribuir a lo que podría ser la salvación del pueblo.</p>',
+                '♠<p>Cuando se terminó la construcción, descubrimos que ese plano servía para crear un matadero con el que podríamos distraer a los zombies, a la vez que nos permitiría librarnos de los habitantes antisociales del pueblo. Estos, por venganza, me denunciaron, aunque entonces no le di importancia porque sabía que el resto de mis compañeros valoraba mi aportación y mi esfuerzo.</p>
+                <p>Pero hoy los zombies superarán nuestras defensas, y los constructores no tendrán tiempo de levantar otras nuevas antes del anochecer. Al salir de casa, mis camaradas evitaban mirarme a los ojos, y ni siquiera me he atrevido a despedirme. Tengo siete denuncias. Antes de que acabe el día, alguien no podrá resistirse al miedo y realizará la octava, la que me condenará a morir a las puertas del pueblo para que mis compañeros resistan al menos un día más.</p><br>
+                <p><small>-Camarada<strike>Ndomo </strike></small></p><strike>
+                </strike>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "written"
+        ],
+        "navid5_es" => [
+            "title" => "La noche cada vez más negra",
+            "author" => "moritubo",
+            "content" => [
+                '<p>Tengo que ser rápido, ya no me queda mucho tiempo.
+                Muchos de mis compañeros ya murieron en las garras de algo. No es un zombie normal, alguna vez fue humano y después fue un zombie cualquiera, ahora es, es... Es algo diferente. </p>
+                <p>Esta cosa, esta abominación, corre en cuatro patas como si fuera un animal y en cierto sentido, lo es.
+                Las armas no le afectan como si tuviera una armadura, es inteligente pues le colocó trampas a los desafortunados de mis camaradas que se dejaron caer.</p>
+                <p>Puede pasar junto a los heridos y moribundos pero no los toca, los escucha, los ve, los olfatea, pero no los toca, simplemente a él no les interesa.
+                Puede cortar los cuellos de un zarpazo pero no los come, él simplemente está jugando, él está cazando, ÉL NOS ESTÁ CAZANDO. </p>
+                <p>Ya me encontró, por fin se acabo esta pesadilla para mi... Ahora irá por otro pueblo.
+                ¿Acaso será el tuyo?</p>'
+            ],
+            "lang" => "es",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "poem1_es" => [
+            "title" => "Los Días en Zombinoia",
+            "author" => "Evolution",
+            "content" => [
+                '<p>No son noches como cualquiera,<br>
+                llenas de miedo y sospechas.<br>
+                Muchos morirán, otros rezarán,<br>
+                a salvo querrán estar,<br>
+                pero los zombies su dicha cumplirán.</p>
+                <p>Tú solo intenta sobresalir,<br>
+                y siempre a tu pueblo ayudar.<br>
+                En equipo, cooperando como hermanos,<br>
+                una vida vida más larga podrás vivir.</p>'
+            ],
+            "lang" => "es",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "malasu_es" => [
+            "title" => "Mala Suerte",
+            "author" => "Vladimir Vochesky",
+            "content" => [
+                '<p>Estoy de camino a una casa abandonada a unos cuantos kilómetros del pueblo, tengo frío, hambre y no he encontrado nada útil...</p>
+                <p>He visto a unos 3 zombies rondando por aquí, estoy herido y no tendré suficiente suerte para al menos matar a uno...</p>
+                <p>A lo mejor podré seguir hasta morir a un kilómetro más no quiero ser pesimista...</p>
+                <p>Ya está anocheciendo y nadie ha venido a ayudarme...</p>
+                <p>Sólo es cuestión de minutos para que mi dolorosa redención llegue...</p>
+                <p>Si alguien está leyendo esto quiero que sepas que...</p>
+                <p>Nada vale la pena en este mundo, probablemente ya sea un arañaparedes al salir el alba...</p>'
+            ],
+            "lang" => "es",
+            "background" => "printer",
+            "design" => "ad"
+        ],
+        "mens_es" => [
+            "title" => "Mensaje perdido",
+            "author" => "Fuego1798",
+            "content" => [
+                '<p>Mi amigo murió en el desierto, llevábamos días de marcha y el agua se acabó, nos dirigíamos a Fuego Corporation...</p>
+                <p>Estábamos tan débiles que no llegaríamos hasta la ciudad. No tuve más remedio que comerme a mi amigo. ¿No era mejor que al menos uno de nosotros llegara? Tan solo llevaba unas pocas horas muerto cuando decidí dar el primer paso, tras esa sabrosa dolorosa experiencia, logró llegar mi salvación estaba a tan solo cien metros, era una ciudad hermosa, e incluso de la emoción mi sed había desaparecido pero no mi hambre.</p>
+                <p>Cuando veas esta nota aléjate del cadáver donde está escrito, y avisa al pueblo, el peligro está cerca, y debes detenerme.</p>
+                <p>Si sientes que algo te observa en estos momentos entonces ríndete, piensa que no morirás en vano, servirás de advertencia a los próximos viajeros. </p>'
+            ],
+            "lang" => "es",
+            "background" => "secret",
+            "design" => "written"
+        ],
+        "minfec_es" => [
+            "title" => "Mi infección",
+            "author" => "Goku69",
+            "content" => [
+                '<p>Después de haber comido ese trozo de carne que encontré en el desierto he comenzado a sudar mucho por una extraña fiebre y siento algo de náuseas.</p>
+                <p>Lo mas extraño es que la carne de mi novia me esta comenzando a parecer algo apetitosa, lo cual me preocupa. Solo espero despertarme mañana y verla. Espero no cometer una locura.</p>'
+            ],
+            "lang" => "es",
+            "background" => "secret",
+            "design" => "small"
+        ],
+        "neul_es" => [
+            "title" => "Nota en la hoja de un libro",
+            "author" => "Leon-ex",
+            "content" => [
+                '<p>Hace dos días vine a esta vieja biblioteca alejada del pueblo, sin fuerzas para volver. Decidí quedarme a dormir, y ese fue el error que me costó la vida.</p>
+                <p>La biblioteca está rodeada por los zombies, pero estoy descubriendo que los zombies no son estúpidos, no intentan entrar, porque saben que dentro tengo ventaja estratégica, sino que esperan fuera a que me muera deshidratado, porque no quieren que cuente al mundo el misterio de los libros sobre ellos.</p>',
+                '<p>Antes de las películas de terror, en la edad media, incluso en el Antiguo Egipto, los libros guardan un secreto, que yo escribiré ahora en la nota, para que si la leéis, que sepáis su mayor debilidad, su origen, y principalmente nuestro mayor error...</p>
+                <p>(la nota ha sido partida, falta la otra parte...)</p>'
+            ],
+            "lang" => "es",
+            "background" => "stamp",
+            "design" => "typed"
+        ],
+        "papa_es" => [
+            "title" => "Papá, ¿entrarán esta noche?, ¿me dolerá?",
+            "author" => "Putonverbenero",
+            "content" => [
+                '<p>Contrariamente a lo que podría parecer, la mordedura no duele, es más, se deja de sentir todo dolor, el hambre, la sed...</p>
+                <p>El cerebro se embota hasta que se nublan tus sentidos y la razón...</p>
+                <p>¡Qué demonios, de tu razón no queda nada! </p>
+                <p>Entonces será cuando dejes de reconocer a tus amigos, cuando te dirijas inconscientemente a alimentarte de su carne caliente y fresca, cuando empieces a pudrirte por dentro... </p>'
+            ],
+            "lang" => "es",
+            "background" => "grid",
+            "design" => "written"
+        ],
+        "nightm_es" => [
+            "title" => "Una noche corta",
+            "author" => "Znarf",
+            "content" => [
+                '<p>Me desperté transpirando y con el corazón que se me quiere salir del pecho.</p>
+                <p>Logré dormirme contando ovejas para no pensar en lo que pasaría después. 1, 2, 3,... creo que llegué a 1977, el año de mi nacimiento. Creo que me desperté solo 15 minutos después, diciéndome: "Ya llegaron"."Es el fin". Y esto se repite noche tras noche. La mitad de mis compañeros ha muerto. Los primeros fueron los más valientes, quienes sí pensaron en salvarnos y se aventuraron a explorar el desierto para traer materiales, mientras que otros siguen vivos, roncando en la comodidad de sus casas. ¿Eso es justo?</p>
+                <p>El sol vuelve a levantarse, yo no he pegado un ojo, tengo hambre, sed, y muchas ganas de hacer que todo vuelva a ser como antes...</p>'
+            ],
+            "lang" => "es",
+            "background" => "grid",
+            "design" => "written"
+        ],
+        "vag1_es" => [
+            "title" => "Vagando",
+            "author" => "raul789456",
+            "content" => [
+                '<p>Vagando por el Ultramundo tratando de encontrar cosas útiles.</p>
+                <p>Me desterraron por cosas que encontré en el desierto y las escondí en mi casa.</p>
+                <p>Quizás tenga una mejor vida acampando lejos del pueblo solo yo y sin molestias.</p>'
+            ],
+            "lang" => "es",
+            "background" => "stamp",
+            "design" => "typed"
+        ],
+        "explut_es" => [
+            "title" => "Vaya suerte",
+            "author" => "Santi99",
+            "content" => [
+                '<p>Viendo que mucha gente iba y venía por ese extraño portal, decidí ir al exterior.<br>
+                Pasé por ahí y en un instante aparecí en un desolado Desierto.</p>
+                <p>Salí a explorar hacie el oeste. Buscando refugio, huyendo de las turbas, encontré algo. Algo que nunca me podrás creer.</p>
+                <p>"Eso" salvó a mi pueblo.</p>'
+            ],
+            "lang" => "es",
+            "background" => "postit",
+            "design" => "small"
+        ],
+        "cuidad_es" => [
+            "title" => "¡Cuidado!",
+            "author" => "Tydram",
+            "content" => [
+                '<p>Lo acabo de ver, uno de los habitantes mordió un trozo de carne y algo que sucedió, no se que fue pero de repente me miró de una manera que solo haría un zombie, seguía teniendo la misma apariencia de siempre pero era un zombie con conciencia.</p>
+                <p>Me intentó morder, logré escapar y llegué hasta una casa abandonada me encerré y bloqueé la única entrada.</p>',
+                '<p>Abandono toda esperanza de sobrevivir, mi corazón late muy fuerte, antes de que entre quiero avisarles que el "hombre zombie" está más cerca de lo que creen y no es nada más ni menos qu__<strike>.</strike></p><strike>'
+            ],
+            "lang" => "es",
+            "background" => "postit",
+            "design" => "small"
+        ],
+        "billie_es" => [
+            "title" => "¡Felicidad!",
+            "author" => "BillieJoe",
+            "content" => [
+                '<p>Me desespero, cada momento se vuelve intenso, nunca pensé sentirme tan afortunado. La lucha fue dura, las esperanzas mínimas.</p>
+                <h2>No tengo palabras:</h2>
+                <h1>¡Soy el único superviviente de mi pueblo!</h1>'
+            ],
+            "lang" => "es",
+            "background" => "postit",
+            "design" => "written"
+        ],
+        "aullid_es" => [
+            "title" => "¿Oyes eso?",
+            "author" => "Tonk",
+            "content" => [
+                '<p>Escucha esos gritos. ¿Por qué crees que son?</p>
+                <p>No lo sabes, yo te lo diré...</p>
+                <p>Son por el temor que causa estar ahí afuera, por saber que un día te llegará, por que sabes que no puedes escapar.</p>
+                <p>Y cuando por fin te das cuenta que te tocó la mano, te desmoronas y no hay más remedio que dejarse llevar por ese aullido. </p>
+                <p>Serás arrastrado sin compasión ni lastima.</p>
+                <h1>ESE EL AULLIDO DE LA MUERTE...</h1>'
+            ],
+            "lang" => "es",
+            "background" => "letter",
+            "design" => "written"
+        ],
     ];
 
     private $entityManager;

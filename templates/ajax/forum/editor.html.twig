@@ -232,7 +232,7 @@
             const parseEmotes = function(elem) {
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
-                    const regex_wrappers = /:(\w+?):/g;
+                    const regex_wrappers = /(?::(\w+?):)|([:;].)/g;
                     let current_offset = 0;
                     let blocks = [];
 
@@ -241,8 +241,19 @@
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
 
-                        const tag = match[0].toLowerCase();
-                        let ctrl = document.querySelector('[x-text-emote][x-text-insert-emote="' + tag + '"]');
+                        let tag = null;
+                        if (match[1])
+                            tag = match[0].toLowerCase();
+                        else if (match[2])
+                            switch (match[0]) {
+                                case ':)': tag = ':smile:';    break;
+                                case ':D': tag = ':lol:';      break;
+                                case ':(': tag = ':sad:';      break;
+                                case ';)': tag = ':smile:';    break;
+                                case ':O': tag = ':surprise:'; break;
+                            }
+
+                        let ctrl = tag ? document.querySelector('[x-text-emote][x-text-insert-emote="' + tag + '"]') : null;
                         if (ctrl)
                             blocks.push( [ '', 'img', null, ['src', ctrl.getAttribute('x-text-emote'), 'x-foxy-proxy', tag]] );
                         else blocks.push( match[0] );

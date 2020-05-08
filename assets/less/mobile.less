@@ -19,6 +19,65 @@
     &>b { display: block; position: relative; left: 0; top: 0; width: 100%; color: @myhordes-smalltext }
     &>span { position: relative; display: block; left: 0; top: 0; width: 100%; color: black; }
   }
+
+  #gazette {
+    perspective: 1000px;
+    width: 95%;
+    height: 0;
+    padding-bottom: 75%;
+
+    .newspage {
+      width: 90%;
+      height: 0;
+      margin: 0;
+      display: block;
+      vertical-align: top;
+      position: absolute;
+      padding-bottom: 75%;
+      background-size: cover;
+      transform-style: preserve-3d;
+      transition: all 1.0s linear;
+      backface-visibility: hidden;
+      left: 5%;
+      z-index: 0;
+
+      &#newspage-front {
+        margin-left: 0;
+
+        div#gazette-headline {
+          font-size: 4vw;
+        }
+
+        div#gazette-signature {
+          font-size: 2.5vw;
+        }
+
+        div#gazette-deaths {
+          font-size: 3vw;
+        }
+      }
+      &#newspage-back {
+        width: 90%;
+        margin-left: 0;
+        transform: rotateY(-180deg);
+        z-index: 1;
+      }
+    }
+  }
+  #gazette-switcher {
+    display: block;
+    margin: auto;
+    padding: 1rem;
+  }
+  #gazette-switch:checked + #gazette {
+    .newspage {
+      transform: rotateY(-180deg);
+
+      &#newspage-back {
+        transform: rotateY(-360deg);
+      }
+    }
+  }
 }
 @media (max-width: (@screen-large-threshold - 1)) and (min-width: @screen-small-threshold) {
   .row > .cell.town-addons {
