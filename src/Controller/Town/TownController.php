@@ -254,7 +254,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Getting delta time between now and the last action
         $time = time() - $lastActionTimestamp; 
-
         $time = abs($time); 
 
         if ($time > 10800) {
@@ -276,6 +275,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 }
             }
         }
+
+        $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
+            $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
+        ));
 
         $is_injured    = $this->citizen_handler->isWounded($c);
         $is_infected   = $this->citizen_handler->hasStatusEffect($c, 'infection');
@@ -309,6 +312,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
+            'hidden' => $hidden
         ]) );
     }
 
