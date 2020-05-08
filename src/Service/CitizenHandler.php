@@ -8,6 +8,8 @@ use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
@@ -20,6 +22,7 @@ use App\Entity\PictoPrototype;
 use App\Structures\ItemRequest;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class CitizenHandler
 {
@@ -29,14 +32,11 @@ class CitizenHandler
     private $random_generator;
     private $inventory_handler;
     private $picto_handler;
-    /**
-     * @var DeathHandler
-     */
-    private $death_handler;
     private $log;
+    private $container;
 
-    public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih, PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh)
+    public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
+                                PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -45,11 +45,7 @@ class CitizenHandler
         $this->picto_handler = $ph;
         $this->item_factory = $if;
         $this->log = $lh;
-    }
-
-    public function upgrade(DeathHandler $dh) {
-        if (!$this->death_handler)
-            $this->death_handler = $dh;
+        $this->container = $c;
     }
 
     /**
@@ -146,7 +142,7 @@ class CitizenHandler
         $lv1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst1');
 
         if ($citizen->getStatus()->contains( $lv2 )) {
-            $this->death_handler->kill($citizen, CauseOfDeath::Dehydration);
+            $this->container->get(DeathHandler::class)->kill($citizen, CauseOfDeath::Dehydration);
         } elseif ($citizen->getStatus()->contains( $lv1 )) {
             $this->removeStatus( $citizen, $lv1 );
             $this->inflictStatus( $citizen, $lv2 );
@@ -215,13 +211,13 @@ class CitizenHandler
         if ($kill) {
             $rem = [];
             if ($cage) {
-                $this->death_handler->kill( $citizen, CauseOfDeath::FleshCage, $rem );
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
             }
             elseif ($gallows) {
-                $this->death_handler->kill( $citizen, CauseOfDeath::Hanging, $rem );
-                $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
                 $this->picto_handler->give_picto($ac, $pictoPrototype);
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
@@ -613,7 +609,7 @@ class CitizenHandler
 
     /**
      * @param Citizen $citizen
-     * @param string|CitizenRole|string[]|CitizenRole[] $status
+     * @param string|CitizenRole|string[]|CitizenRole[] $role
      * @param bool $all
      * @return bool
      */
@@ -633,5 +629,18 @@ class CitizenHandler
                 if (in_array($r->getName(), $role)) return true;
         }
         return $all;
+    }
+
+    public function houseIsProtected(Citizen $c, bool $only_explicit_lock = false) {
+        if (!$c->getAlive()) return false;
+        if (!$c->getZone() && !$only_explicit_lock) return true;
+        if ($c->getHome()->getPrototype()->getTheftProtection()) return true;
+        if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+            $c->getHome(),
+            $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
+            return true;
+        if ($this->inventory_handler->countSpecificItems( $c->getHome()->getChest(), 'lock', true ) > 0)
+            return true;
+        return false;
     }
 }

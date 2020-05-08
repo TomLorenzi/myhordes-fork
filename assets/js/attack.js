@@ -2053,6 +2053,10 @@ require("latest-createjs");
 	}).prototype = p = new cjs.MovieClip();
 	p.nominalBounds = new cjs.Rectangle(-339.8,-87.6,1391.3,352.29999999999995);
 	// library properties:
+	const _CachedBmp = require('../img/flash/CachedBmp_19.png');
+	const _Canvas_atlas1 = require('../img/flash/attack_as3_HTML5 Canvas_atlas_.png');
+	const _Canvas_atlas2 = require('../img/flash/attack_as3_HTML5 Canvas_atlas_2.png');
+	const _Canvas_atlas3 = require('../img/flash/attack_as3_HTML5 Canvas_atlas_3.png');
 	lib.properties = {
 		id: '7AABF79FCD83E4468DF64867E8D1326A',
 		width: 440,
@@ -2061,10 +2065,10 @@ require("latest-createjs");
 		color: "#612D20",
 		opacity: 1.00,
 		manifest: [
-			{src:"/images/CachedBmp_19.png?1588198643707", id:"CachedBmp_19"},
-			{src:"/images/attack_as3_HTML5 Canvas_atlas_.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_"},
-			{src:"/images/attack_as3_HTML5 Canvas_atlas_2.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_2"},
-			{src:"/images/attack_as3_HTML5 Canvas_atlas_3.png?1588198643558", id:"attack_as3_HTML5 Canvas_atlas_3"}
+			{src:_CachedBmp, id:"CachedBmp_19"},
+			{src:_Canvas_atlas1, id:"attack_as3_HTML5 Canvas_atlas_"},
+			{src:_Canvas_atlas2, id:"attack_as3_HTML5 Canvas_atlas_2"},
+			{src:_Canvas_atlas3, id:"attack_as3_HTML5 Canvas_atlas_3"}
 		],
 		preloads: []
 	};

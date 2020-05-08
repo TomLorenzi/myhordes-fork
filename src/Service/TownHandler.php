@@ -11,6 +11,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\Gazette;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
@@ -385,6 +386,22 @@ class TownHandler
                     ->setOffsetMax( $off_max )
                 );
             }
+    }
 
+    public function check_gazettes(Town &$town) {
+        $gazette_old = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+        if (!$gazette_old) {
+            $town->addGazette((new Gazette())->setDay($town->getDay()));
+        }
+        $gazette_now = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 1);
+        if (!$gazette_now) {
+            $town->addGazette((new Gazette())->setDay($town->getDay() + 1));
+        }
+        $gazette_new = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 2);
+        if (!$gazette_new) {
+            $town->addGazette((new Gazette())->setDay($town->getDay() + 2));
+        }
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
     }
 }

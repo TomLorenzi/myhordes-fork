@@ -130,18 +130,22 @@
         </div>
         <div class="padded cell rw-6 citizen-chest">
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>
-            <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
-            {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items} %}
-                {% block class %}chest{% endblock %}
-                {% block title %}{% endblock %}
-            {% endembed %}
-            {% if already_stolen %}
-                <div class="notice">{{'Du kannst heute keinen weiteren Gegenstand stehlen.'|trans({},'game')}}</div>
-            {% elseif owner.alive %}
-                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
-                    {% block class %}rucksack{% endblock %}
-                    {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
+            {% if not hidden %}
+                <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
+                {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items} %}
+                    {% block class %}chest{% endblock %}
+                    {% block title %}{% endblock %}
                 {% endembed %}
+                {% if already_stolen %}
+                    <div class="notice">{{'Du kannst heute keinen weiteren Gegenstand stehlen.'|trans({},'game')}}</div>
+                {% elseif owner.alive %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
+                        {% block class %}rucksack{% endblock %}
+                        {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
+                    {% endembed %}
+                {% endif %}
+            {% else %}
+                <p>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</p>
             {% endif %}
         </div>
     </div>

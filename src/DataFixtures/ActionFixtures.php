@@ -291,7 +291,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'cyanide' => [ 'death' => [ CauseOfDeath::Cyanide ] ],
 
-            'hero_tamer_0' => [ 'item' => [ 'consume' => false, 'morph' => 'tamed_pet_off_#00' ] ],
             'hero_tamer_1' => [ 'custom' => [4] ],
             'hero_tamer_2' => [ 'custom' => [5] ],
             'hero_tamer_3' => [ 'item' => [ 'consume' => false, 'morph' => 'tamed_pet_drug_#00' ] ],
@@ -673,8 +672,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'clean_clothes' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes' ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ] ],
 
-            'hero_tamer_1'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_0', 'hero_tamer_1' ], 'message' => 'Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.' ],
-            'hero_tamer_2'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_0', 'hero_tamer_2' ], 'message' => 'Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.' ],
+            'hero_tamer_1'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
+            'hero_tamer_2'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_2' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_3'  => [ 'label' => 'Dopen', 'meta' => [ 'must_be_outside', 'must_have_drug' ], 'result' => [ 'consume_drug', 'hero_tamer_3' ], 'message' => 'Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!' ],
 
             'hero_surv_1' => [ 'label' => 'Wasser suchen', 'meta' => [ 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
@@ -2062,9 +2061,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t<comment>Create</comment> action <info>$action</info> ('<info>{$data['label']}</info>')", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $new_action->setName( $action )->setLabel( $data['label'] )->clearRequirements()->clearResults();
-            if (!empty($data['message'])) $new_action->setMessage( $data['message'] );
-            else $new_action->setMessage(null);
+            $new_action->setName( $action )->setLabel( $data['label'] )->clearRequirements()->clearResults()
+                ->setMessage( $data['message'] ?? null )
+                ->setConfirm( $data['confirm'] ?? false );
 
             if ($new_action->getTarget() && !isset($data['target'])) {
                 $manager->remove( $new_action->getTarget() );

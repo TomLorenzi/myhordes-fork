@@ -69,6 +69,11 @@ class ItemAction
      */
     private $keepsCover;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $confirm;
+
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
@@ -212,6 +217,18 @@ class ItemAction
     public function setKeepsCover(bool $keepsCover): self
     {
         $this->keepsCover = $keepsCover;
+
+        return $this;
+    }
+
+    public function getConfirm(): ?bool
+    {
+        return $this->confirm;
+    }
+
+    public function setConfirm(?bool $confirm): self
+    {
+        $this->confirm = $confirm;
 
         return $this;
     }

@@ -8317,5 +8317,14 @@
         <target>Angriff und Verteidigung</target>
       </segment>
     </unit>
+    <unit id="tNsmnxy" name="Trinken5">
+      <notes>
+        <note category="german">Trinken5</note>
+      </notes>
+      <segment>
+        <source>Trinken5</source>
+        <target>Trinken5</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

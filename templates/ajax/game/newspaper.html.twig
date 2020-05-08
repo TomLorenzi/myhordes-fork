@@ -82,14 +82,14 @@
                                 {{ 'Zombies'|trans({},'game') }}</div>
                             <div class="nightstat nightstat-defense"><span class="count">{{ gazette.defense }}</span>
                                 {{ 'Verteidigung'|trans({},'game') }}</div>
-                            <div class="nightstat nightstat-deaths">{% if gazette.deaths > 0 %}<span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans }}{% else %}<span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>{% endif %}</div>
+                            <div class="nightstat nightstat-deaths">{% if gazette.deaths > 0 %}<span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans({}, 'game') }}{% else %}<span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>{% endif %}</div>
                         </div>
                     {% else %}
                         <div id="gazette-empty"></div>
                     {% endif %}
                 </div>
             </div>
-            <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans }}</label></div>
+            <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans({}, 'game') }}</label></div>
 
             <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
             {% if show_register %}
