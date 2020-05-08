@@ -178,7 +178,7 @@
             const parseInsets = function(elem, listspace = false) {
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
-                    const regex_wrappers = /{([a-z,A-Z]+)}|{([a-z,A-Z]+),([\w]*)}|{([a-z,A-Z]+)(\d+)}/g;
+                    const regex_wrappers = /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
                     let current_offset = 0;
                     let blocks = [];
 
@@ -206,6 +206,12 @@
                             case 'pfc': case 'rps': case 'ssp': blocks.push( [ '???', 'div', 'rps'] ); break;
                             case 'flip': case 'coin': case 'ht': case 'pf': case 'mw': blocks.push( [ '???', 'div', 'coin'] ); break;
                             case 'carte': case 'card': case 'skat': case 'blatt': blocks.push( [ '???', 'div', 'card'] ); break;
+                            case 'citizen': case 'rnduser': case 'user': case 'spieler':
+                                let attribs = match[2] ? match[2].split(',') : [];
+                                if (!attribs[0]) attribs[0] = 'any';
+                                if (!attribs[1]) attribs[1] = '0';
+                                blocks.push( [ attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', ['x-a', attribs[0], 'x-b', attribs[1]]] );
+                                break;
                             default: blocks.push( match[0] ); break;
                         }
                         current_offset = (match[0].length + match_r.index);

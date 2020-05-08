@@ -190,7 +190,7 @@ class ForumController extends AbstractController
         'ol' => [],
         'li' => [],
         'p'  => [],
-        'div' => [ 'class' ],
+        'div' => [ 'class', 'x-a', 'x-b' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
     ];
@@ -204,7 +204,8 @@ class ForumController extends AbstractController
             'glory', 'spoiler',
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c',
-            'rps', 'coin', 'card'
+            'rps', 'coin', 'card',
+            'citizen'
         ]
     ];
 
@@ -274,6 +275,9 @@ class ForumController extends AbstractController
         if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0),$tx_len))
             return false;
 
+        $cache = [
+            'citizen' => [],
+        ];
         $handlers = [
             '//div[@class=\'dice-4\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,4); },
             '//div[@class=\'dice-6\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,6); },
@@ -292,6 +296,42 @@ class ForumController extends AbstractController
                 $value = mt_rand(1,12);
                 $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
                 $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
+            },
+            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$forum,&$cache) {
+                $profession = $d->attributes->getNamedItem('x-a') ? $d->attributes->getNamedItem('x-a')->nodeValue : null;
+                if ($profession === 'any') $profession = null;
+                $group      = is_numeric($d->attributes->getNamedItem('x-b')->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')->nodeValue : null;
+
+                if (!$forum->getTown()) {
+                    $d->nodeValue = '???';
+                    return;
+                }
+
+                if ($group === null || $group <= 0) $group = null;
+                elseif (!isset( $cache['citizen'][$group] )) $cache['citizen'][$group] = null;
+
+                $valid = array_filter( $forum->getTown()->getCitizens()->getValues(), function(Citizen $c) use ($profession,$group,&$cache) {
+                    if (!$c->getAlive()) return false;
+                    if ($profession !== null && $c->getProfession()->getName() !== $profession) return false;
+
+                    if ($group !== null) {
+                        if ($cache['citizen'][$group] !== null && $c->getId() !== $cache['citizen'][$group]) return false;
+                        if ($c->getId() === $cache['citizen'][$group]) return true;
+                        if (in_array($c->getId(),$cache['citizen'])) return false;
+                    }
+
+                    return true;
+                } );
+
+                if (!$valid) {
+                    $d->nodeValue = '???';
+                    return;
+                }
+
+                /** @var Citizen $cc */
+                $cc = $this->rand->pick($valid);
+                if ($group !== null) $cache['citizen'][$group] = $cc->getId();
+                $d->nodeValue = $cc->getUser()->getUsername();
             },
         ];
 

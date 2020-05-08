@@ -12,7 +12,7 @@
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forums/back.png') }}" /><div class="tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
                             <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forums/refresh.png') }}" /></div>
                             {% if is_granted("ROLE_BANNED") %}
-                                <div class="banned-button" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
+                                <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
                                 <div x-forum-action="new" class="forum-button" id="new-thread-button"><span>{{ 'Neues Thema'|trans({},'global') }}</span></div>
                             {% endif %}    

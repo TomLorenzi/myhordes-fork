@@ -7,40 +7,30 @@
         <div class="row">
             <div class="cell rw-12 padded center">
                 {% if current_page > 1 %}
-                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
-                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
+                    <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
+                    <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
                 {% else %}
-                    <div class="forum-header-button-disabled"><i class="fa fa-fast-backward"></i></div>
-                    <div class="forum-header-button-disabled"><i class="fa fa-backward"></i></div>
+                    <div class="forum-button-disabled"><i class="fa fa-fast-backward"></i></div>
+                    <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
                 {% endif %}
-                <div class="forum-header-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
+                <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
                 {% if current_page < pages %}
-                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
-                    <div class="forum-header-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                    <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
+                    <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
                 {% else %}
-                    <div class="forum-header-button-disabled"><i class="fa fa-forward"></i></div>
-                    <div class="forum-header-button-disabled"><i class="fa fa-fast-forward"></i></div>
+                    <div class="forum-button-disabled"><i class="fa fa-forward"></i></div>
+                    <div class="forum-button-disabled"><i class="fa fa-fast-forward"></i></div>
                 {% endif %}
             </div>
         </div>
     {% endif %}
 {% endblock %}
-{% if markedPost is defined %}
-    {% set postMarker = markedPost %}
-{% else %}
-    {% set postMarker = 0 %}  
-{% endif %}
+
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden or is_granted("ROLE_CROW") %}
             <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %}">
-                {% if post.owner.username == 'Der Rabe' %}
-                    <div class="forum-post-header-crow">
-                {% elseif post.type == "DEV" %}
-                    <div class="forum-post-header-dev">                        
-                {% else %}
-                    <div class="forum-post-header">
-                {% endif %}
+                <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
                             {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -79,15 +69,10 @@
                     </b>
                     {% if post.note is not null %}<div class="right post-note"><img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" /> <span>{{ post.note }}</span></div>{% endif %}
                 </div>
-                {% if post.id == postMarker %}
-                    <div class="forum-post-content-marked">
-                        {{ post.text|raw }}
-                    </div>
-                {% else %}
-                    <div class="forum-post-content">
-                        {{ post.text|raw }}
-                    </div>
-                {% endif %}
+                <div class="forum-post-content {% if markedPost is defined and post.id == markedPost %}marked{% endif %}">
+                    {{ post.text|raw }}
+                </div>
+
                 <div class="forum-post-footer right">
                     {% if not is_granted("ROLE_CROW") %}
                         <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
