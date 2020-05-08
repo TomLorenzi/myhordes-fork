@@ -9689,5 +9689,32 @@
         <target>Mort(s)</target>
       </segment>
     </unit>
+    <unit id="L0KmARN" name="Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.">
+      <notes>
+        <note category="german">Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</note>
+      </notes>
+      <segment>
+        <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
+        <target>Votre blessure à l'œil vous gêne énormément lors de vos fouilles.</target>
+      </segment>
+    </unit>
+    <unit id="gk3I32J" name="Deine Trunkenheit macht dir die Suche nicht gerade leichter.">
+      <notes>
+        <note category="german">Deine Trunkenheit macht dir die Suche nicht gerade leichter.</note>
+      </notes>
+      <segment>
+        <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
+        <target>Votre état d'ébriété n'arrange pas vraiment les choses. Pas facile de faire cela quand on n'y voit plus très clair...</target>
+      </segment>
+    </unit>
+    <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
+      <notes>
+        <note category="german">Du kannst heute keine weiteren Beschwerden vorbringen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
+        <target>Vous ne pouvez plus déposer de plaintes aujourd'hui.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -8326,5 +8326,14 @@
         <target>Trinken5</target>
       </segment>
     </unit>
+    <unit id="UGai_eX" name="9e17f97">
+      <notes>
+        <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
