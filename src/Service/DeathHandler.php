@@ -96,8 +96,10 @@ class DeathHandler
         $citizen->setAlive(false);
 
         $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($citizen->getTown(), ($citizen->getTown()->getDay() + ($cod->getId() == CauseOfDeath::NightlyAttack ? 0 : 1)));
-        $gazette->addVictim($citizen);
-        $this->entity_manager->persist($gazette);
+        if($gazette !== null){
+            $gazette->addVictim($citizen);
+            $this->entity_manager->persist($gazette);
+        }
 
         // Give soul point
         $days = $citizen->getSurvivedDays();
