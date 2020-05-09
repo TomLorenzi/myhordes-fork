@@ -2758,7 +2758,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Abgelegenes Haus</source>
-        <target>Maison d'un citoyen</target>
+        <target>Citizen's Home</target>
       </segment>
     </unit>
     <unit id="BuoM8x8" name="Albi Supermarkt">
@@ -2778,7 +2778,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alte Höhle</source>
-        <target>Caverne</target>
+        <target>Once-inhabited Cave</target>
       </segment>
     </unit>
     <unit id="7N1b8YP" name="Alte Hydraulikpumpe">
@@ -2788,7 +2788,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alte Hydraulikpumpe</source>
-        <target>Vieille Pompe Hydraulique</target>
+        <target>Old Hydraulic Pump</target>
       </segment>
     </unit>
     <unit id="S85DdXs" name="Alter Fahrradverleih">
@@ -2798,7 +2798,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alter Fahrradverleih</source>
-        <target>Alter Fahrradverleih</target>
+        <target>Old Bicycle Hire Shop</target>
       </segment>
     </unit>
     <unit id="swauljp" name="Alter Rangierbahnhof">
@@ -2818,7 +2818,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Altes Feldkrankenhaus</source>
-        <target>Altes Feldkrankenhaus</target>
+        <target>Old Field Hospital</target>
       </segment>
     </unit>
     <unit id="yKnc_Mp" name="Altes Flugfeld">
@@ -2838,7 +2838,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Altes Polizeipräsidium</source>
-        <target>Ancien commissariat</target>
+        <target>Old Police Station</target>
       </segment>
     </unit>
     <unit id="GRuqR5L" name="Atombunker">
@@ -2888,7 +2888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Bar der verlorenen Hoffnungen</source>
-        <target>Bar der verlorenen Hoffnungen</target>
+        <target>The 'Shattered Illusions' Bar</target>
       </segment>
     </unit>
     <unit id="zkW4TlC" name="Baumarkt">
@@ -2948,7 +2948,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eingestürzte Mine</source>
-        <target>Eingestürzte Mine</target>
+        <target>Collapsed Mineshaft</target>
       </segment>
     </unit>
     <unit id="qV.QEqb" name="Eingestürzter Steinbruch">
@@ -2958,7 +2958,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eingestürzter Steinbruch</source>
-        <target>Eingestürzter Steinbruch</target>
+        <target>Collapsed Quarry</target>
       </segment>
     </unit>
     <unit id="9jdPsSc" name="Ein seltsames kreisförmiges Gerät">
@@ -2968,7 +2968,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein seltsames kreisförmiges Gerät</source>
-        <target>Ein seltsames kreisförmiges Gerät</target>
+        <target>Strange Circular Device</target>
       </segment>
     </unit>
     <unit id="XbKWmCS" name="E-KEA">
@@ -3018,7 +3018,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gartenhaus</source>
-        <target>Gartenhaus</target>
+        <target>Garden Shed</target>
       </segment>
     </unit>
     <unit id=".BpYDum" name="Geplünderte Mall">
@@ -3038,7 +3038,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Höhle</source>
-        <target>Höhle</target>
+        <target>Cave</target>
       </segment>
     </unit>
     <unit id="9x03HdM" name="Indianerfriedhof">
@@ -3088,7 +3088,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kosmetiklabor</source>
-        <target>Kosmetiklabor</target>
+        <target>Cosmetics Lab</target>
       </segment>
     </unit>
     <unit id="XZBo0Eq" name="Krankenwagen">
@@ -3098,7 +3098,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Krankenwagen</source>
-        <target>Krankenwagen</target>
+        <target>Ambulance</target>
       </segment>
     </unit>
     <unit id="VGlWZjs" name="Lagerhalle">
@@ -3108,7 +3108,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Lagerhalle</source>
-        <target>Lagerhalle</target>
+        <target>Warehouse</target>
       </segment>
     </unit>
     <unit id="yAH2rE7" name="Leeres Parkhaus">
@@ -3118,7 +3118,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Leeres Parkhaus</source>
-        <target>Parking désaffecté</target>
+        <target>Disused Car Park</target>
       </segment>
     </unit>
     <unit id="PLyihQR" name="Liegengebliebener Kampfpanzer">
@@ -3128,7 +3128,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Liegengebliebener Kampfpanzer</source>
-        <target>Liegengebliebener Kampfpanzer</target>
+        <target>Broken-down Tank</target>
       </segment>
     </unit>
     <unit id="ECpLJti" name="Motel 'Dusk'">
@@ -3178,7 +3178,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Schützengraben</source>
-        <target>Schützengraben</target>
+        <target>Equipped Trench</target>
       </segment>
     </unit>
     <unit id="3XX2wLZ" name="Stadtbücherei">
@@ -3188,7 +3188,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadtbücherei</source>
-        <target>Stadtbücherei</target>
+        <target>Town Library</target>
       </segment>
     </unit>
     <unit id="mgQ86_P" name="Tante Emma Laden">
@@ -3218,7 +3218,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Umgekippter Laster</source>
-        <target>Umgekippter Laster</target>
+        <target>Wrecked Transporter</target>
       </segment>
     </unit>
     <unit id="_TTUt_P" name="Verbrannte Grundschule">
@@ -3228,7 +3228,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verbrannte Grundschule</source>
-        <target>Verbrannte Grundschule</target>
+        <target>Burnt School</target>
       </segment>
     </unit>
     <unit id="h5BzcKH" name="Verfallenes Bürogebäude">
@@ -3248,7 +3248,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verfallene Villa</source>
-        <target>Verfallene Villa</target>
+        <target>Derelict Villa</target>
       </segment>
     </unit>
     <unit id="kP_vzTg" name="Verlassene Baustelle">
@@ -3288,7 +3288,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Versperrte Straße</source>
-        <target>Versperrte Straße</target>
+        <target>Blocked Road</target>
       </segment>
     </unit>
     <unit id="12P6EOC" name="Verwilderter Park">
@@ -3298,7 +3298,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwilderter Park</source>
-        <target>Verwilderter Park</target>
+        <target>Abandoned Park</target>
       </segment>
     </unit>
     <unit id="u17l49g" name="Waffengeschäft Guns'n'Zombies">
@@ -3308,7 +3308,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Waffengeschäft Guns'n'Zombies</source>
-        <target>Waffengeschäft Guns'n'Zombies</target>
+        <target>Guns 'n' Zombies Armoury</target>
       </segment>
     </unit>
     <unit id="TcWj320" name="Warenlager">
@@ -3328,7 +3328,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zelt eines Bürgers</source>
-        <target>Zelt eines Bürgers</target>
+        <target>Citizen's Tent</target>
       </segment>
     </unit>
     <unit id="z04UYqm" name="Zerstörte Apotheke">
@@ -3338,7 +3338,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zerstörte Apotheke</source>
-        <target>Zerstörte Apotheke</target>
+        <target>Destroyed Pharmacy</target>
       </segment>
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
@@ -3348,7 +3348,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>ZomBIER Bar</source>
-        <target>ZomBIER Bar</target>
+        <target>Shady Barrikaden</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
@@ -3848,7 +3848,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nordosten</source>
-        <target>Nord-East</target>
+        <target>North-East</target>
       </segment>
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
@@ -3858,7 +3858,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nordwesten</source>
-        <target>The North-West</target>
+        <target>North-West</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3868,7 +3868,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Norden</source>
-        <target>The North</target>
+        <target>North</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3878,7 +3878,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Südosten</source>
-        <target>The South-East</target>
+        <target>South-East</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3888,7 +3888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Südwesten</source>
-        <target>The South-West</target>
+        <target>South-West</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3898,7 +3898,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Süden</source>
-        <target>The South</target>
+        <target>South</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3908,7 +3908,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Osten</source>
-        <target>The East</target>
+        <target>East</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3918,7 +3918,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Westen</source>
-        <target>The West</target>
+        <target>West</target>
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -3928,7 +3928,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Bitte wähle einen Bürger:</source>
-        <target>Bitte wähle einen Bürger:</target>
+        <target>Please select a citizen:</target>
       </segment>
     </unit>
     <unit id="MgtBTg_" name="Es ist kein Bürger in der Nähe...">
@@ -4380,7 +4380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Cyanide</target>
+        <target>Suicide by ingestion of Cyanide</target>
       </segment>
     </unit>
     <unit id="25.Fib." name="a5ebe5c">
@@ -4420,7 +4420,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Mord</target>
+        <target>Devoured by a ghoul!</target>
       </segment>
     </unit>
     <unit id="THDibIm" name="f6ab154">
@@ -4440,7 +4440,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Aggression</source>
-        <target>Ghoul killed</target>
+        <target>Your ghoulishness was killed during a fight!</target>
       </segment>
     </unit>
     <unit id="MC.0S7d" name="66d9279">
@@ -4460,7 +4460,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Erhängt</source>
-        <target>Hanged</target>
+        <target>Mob justice (death by hanging)!</target>
       </segment>
     </unit>
     <unit id="FfD0H9b" name="53d3eac">
@@ -4580,7 +4580,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</source>
-        <target>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</target>
+        <target>An old bicycle hire warehouse, littered with pieces of metal, tools and all kinds of debris.</target>
       </segment>
     </unit>
     <unit id="2.pUWsx" name="c669021">
@@ -4650,7 +4650,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</source>
-        <target>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</target>
+        <target>At one time, this would certainly have been one of the most trendy joints on the M25, with watered-down drinks, the aroma of stale piss and dead rats on the bar. You must be the first person to set foot in here in years.</target>
       </segment>
     </unit>
     <unit id="Q4yDNyf" name="f41f9c9">
