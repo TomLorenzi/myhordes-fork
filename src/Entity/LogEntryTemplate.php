@@ -22,12 +22,14 @@ class LogEntryTemplate
     const TypeNightly      =  9;
     const TypeHome         = 10;
     const TypeChat         = 11;
+    const TypeGazette      = 12;
 
     const ClassNone     = 0;
     const ClassWarning  = 1;
     const ClassCritical = 2;
     const ClassInfo     = 3;
     const ClassChat     = 4;
+    const ClassNews     = 5;
 
     /**
      * @ORM\Id()
