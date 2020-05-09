@@ -665,10 +665,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             // Set AP and increase walking distance counter
             $this->citizen_handler->setAP($mover, true, -1);
-            $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
-            if ($mover->getWalkingDistance() > 10) {
-                $this->citizen_handler->increaseThirstLevel( $mover );
-                $mover->setWalkingDistance( 0 );
+            if (!$citizen->hasRole('ghoul')) {
+                $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
+                if ($mover->getWalkingDistance() > 10) {
+                    $this->citizen_handler->increaseThirstLevel( $mover );
+                    $mover->setWalkingDistance( 0 );
+                }
             }
 
             if ($others_are_here || ($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );

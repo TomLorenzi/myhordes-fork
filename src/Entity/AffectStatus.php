@@ -48,6 +48,21 @@ class AffectStatus
      */
     private $counter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=CitizenRole::class)
+     */
+    private $role;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $roleAdd;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $citizenHunger;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,6 +124,42 @@ class AffectStatus
     public function setCounter(?int $counter): self
     {
         $this->counter = $counter;
+
+        return $this;
+    }
+
+    public function getRole(): ?CitizenRole
+    {
+        return $this->role;
+    }
+
+    public function setRole(?CitizenRole $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getRoleAdd(): ?bool
+    {
+        return $this->roleAdd;
+    }
+
+    public function setRoleAdd(?bool $roleAdd): self
+    {
+        $this->roleAdd = $roleAdd;
+
+        return $this;
+    }
+
+    public function getCitizenHunger(): ?int
+    {
+        return $this->citizenHunger;
+    }
+
+    public function setCitizenHunger(?int $citizenHunger): self
+    {
+        $this->citizenHunger = $citizenHunger;
 
         return $this;
     }

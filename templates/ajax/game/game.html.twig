@@ -102,7 +102,7 @@
                         {% if role.name == 'ghoul' %}
                             <div class="ghoul-hunger-container">
                                 <div class="ghoul-hunger-background"></div>
-                                <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ hunger }}%"></div>
+                                <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
                                 <div class="ghoul-hunger-indicator" style="left: 40%"></div>
                             </div>
                         {% endif %}

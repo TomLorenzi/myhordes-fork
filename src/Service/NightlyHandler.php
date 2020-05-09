@@ -177,7 +177,7 @@ class NightlyHandler
                 continue;
             }
 
-            if ($ghoul && $citizen->getGhulHunger() <= 40) {
+            if ($ghoul && $citizen->getGhulHunger() > 40) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> is a <info>hungry ghoul</info>." );
                 $this->kill_wrap( $citizen, $cod_ghoul, true, 0, false, $town->getDay()+1 );
                 continue;
@@ -885,7 +885,7 @@ class NightlyHandler
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
             if($winningCitizen !== null){
-                $winningCitizen->addRole($role);
+                $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
                 if($role->getName() == "shaman")
                     $this->citizen_handler->inflictStatus($winningCitizen, "tg_immune"); // Shaman is immune to red souls
