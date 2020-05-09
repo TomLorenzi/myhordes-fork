@@ -716,22 +716,17 @@ div.game-menu-area {
         color: @myhordes-smalltext; box-shadow: inset 0 0 4px rgba(0,0,0,0.9); border-radius: 4px;
         border: 1px solid rgba(0,0,0,0.3); height: 28px; float: right; font-size: .2rem;
         &>.text {
-          display: block;
-          position: absolute;
-          top: -1px;
-          left: 5px;
-          right: 0;
-          font-size: .7rem;
-          font-variant: small-caps;
+          display: block; position: absolute; top: -1px; left: 5px; right: 0; font-size: .7rem; font-variant: small-caps;
           margin-top: 0;
         }
         &:not(.ap):not(.bp):not(.pm) {
           &:not(.civil) { min-width: 64px };
           &>li:not(.text) {
-            height: 18px; width: 18px; margin-top: 6px; vertical-align: bottom;
+            height: 18px; margin-top: 6px; vertical-align: bottom;
             &.free,&.item {border: 1px dotted @myhordes-smalltext;}
             &.item { border-color: transparent; }
             &.item.broken { border: 1px dotted #ff0000; }
+            & + li { margin-left: 4px; }
           }
         }
 
@@ -993,8 +988,12 @@ div.daily-attack {
   }
 }
 
-.avatar {
-  border: 1px solid @myhordes-cell-header-background-color; outline: 1px solid @myhordes-button-color;
+.avatar, .avatarcrow {
+  &:not(.avatarcrow) {
+    border: 1px solid @myhordes-cell-header-background-color;
+    outline: 1px solid @myhordes-button-color;
+  }
+  .avatarcrow { border: 1px solid #773939; outline: 1px solid red; }
   display: inline-block; box-shadow: 0 0 5px rgba(0,0,0,0.7); position: relative;
   &:not(.small):not(.full)>img { max-width: 100px; max-height: 100px; }
   &.small>img { width: 90px; height: 30px; object-fit: cover }
@@ -1003,18 +1002,20 @@ div.daily-attack {
     width: 100%; height: 33.33333333333%; position: absolute; top: 0; left: 0;
     outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
   }
-&.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
+  &.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
 }
 
-.avatarcrow {
-  border: 1px solid #773939; outline: 1px solid red;
-  display: inline-block; box-shadow: 0 0 5px rgba(0,0,0,0.7); position: relative;
-  &:not(.small):not(.full)>img { max-width: 100px; max-height: 100px; }
-  &.small>img { width: 90px; height: 30px; object-fit: cover }
-  &.full>div.crop {
-    &>div { cursor: grab; position: absolute; top: 0; left: 0; right: 0; bottom: 0;  }
-    width: 100%; height: 33.33333333333%; position: absolute; top: 0; left: 0;
-    outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
+.ghoul-hunger-container {
+  width: 100px; display: inline-block; height: 0; overflow: visible; margin: 0 3px; position: relative;
+  &>.ghoul-hunger-background {
+    position: absolute; left: 0; right: 0; height: 4px; border-radius: 2px; top: -4px; background: black;
   }
-&.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
+  &>.ghoul-hunger-bar {
+    position: absolute; left: 0; height: 4px; border-radius: 2px; top: -4px; background: #5cff00;
+    &.warning { background: #ffda1d; }
+    box-shadow: 0 0 3px black;
+  }
+  &>.ghoul-hunger-indicator {
+    position: absolute; background: red; height: 8px; width: 3px; top: -5px;
+  }
 }

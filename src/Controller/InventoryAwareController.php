@@ -118,6 +118,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
         $data['username'] = $this->getUser()->getUsername();
         $data['is_shaman'] = $is_shaman;
+        $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
         return $data;
     }
 

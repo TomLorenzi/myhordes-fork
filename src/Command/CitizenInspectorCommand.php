@@ -5,6 +5,7 @@ namespace App\Command;
 
 
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Service\StatusFactory;
 use Doctrine\ORM\EntityManagerInterface;
@@ -37,9 +38,14 @@ class CitizenInspectorCommand extends Command
             ->addArgument('CitizenID', InputArgument::REQUIRED, 'The citizen ID')
 
             ->addOption('set-ap', 'ap',InputOption::VALUE_REQUIRED, 'Sets the current AP.', -1)
+
             ->addOption('add-status','sn',InputOption::VALUE_REQUIRED, 'Adds a new status.', '')
             ->addOption('remove-status',null,InputOption::VALUE_REQUIRED, 'Removes an existing status.', '')
-            ->addOption('set-banned', null, InputOption::VALUE_NONE, 'Bans a citizen')
+
+            ->addOption('add-role','sr',InputOption::VALUE_REQUIRED, 'Adds a new role.', '')
+            ->addOption('remove-role',null,InputOption::VALUE_REQUIRED, 'Removes an existing role.', '')
+
+            ->addOption('set-banned', null, InputOption::VALUE_OPTIONAL, 'Bans a citizen', '')
         ;
     }
 
@@ -48,7 +54,7 @@ class CitizenInspectorCommand extends Command
 
         $output->writeln('<comment>Citizen info</comment>');
         $table = new Table( $output );
-        $table->setHeaders( ['Active?', 'Alive?', 'Banished?', 'UID', 'TID', 'InvID', 'HomeID', 'HomeInvID', 'AP', 'Status'] );
+        $table->setHeaders( ['Active?', 'Alive?', 'Banished?', 'UID', 'TID', 'InvID', 'HomeID', 'HomeInvID', 'AP', 'Status', 'Roles'] );
 
         $table->addRow([
             (int)$citizen->getActive(),
@@ -60,7 +66,8 @@ class CitizenInspectorCommand extends Command
             (int)$citizen->getHome()->getId(),
             (int)$citizen->getHome()->getChest()->getId(),
             (int)$citizen->getAp(),
-            implode("\n", array_map( function(CitizenStatus $s): string { return $s->getLabel(); }, $citizen->getStatus()->getValues() ) )
+            implode("\n", array_map( function(CitizenStatus $s): string { return $s->getLabel(); }, $citizen->getStatus()->getValues() ) ),
+            implode("\n", array_map( function(CitizenRole $r): string { return $r->getLabel(); }, $citizen->getRoles()->getValues() ) )
         ]);
         $table->render();
 
@@ -85,8 +92,8 @@ class CitizenInspectorCommand extends Command
             $updated = true;
         }
 
-        if ($input->getOption('set-banned')) {
-            $citizen->setBanished(true);
+        if (($ban = $input->getOption('set-banned')) !== '') {
+            $citizen->setBanished($ban);
             $updated = true;
         }
 
@@ -114,6 +121,34 @@ class CitizenInspectorCommand extends Command
 
             $output->writeln( "Removing status '<info>{$status->getName()}</info>'.\n" );
             $citizen->removeStatus( $status );
+
+            $updated = true;
+        }
+
+        if ($new_role = $input->getOption('add-role')) {
+
+            $role = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $new_role );
+            if (!$role) {
+                $output->writeln("<error>The selected role could not be found.</error>");
+                return 1;
+            }
+
+            $output->writeln( "Adding role '<info>{$role->getName()}</info>'.\n" );
+            $citizen->addRole( $role );
+
+            $updated = true;
+        }
+
+        if ($rem_role = $input->getOption('remove-role')) {
+
+            $role = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $rem_role );
+            if (!$role) {
+                $output->writeln("<error>The selected role could not be found.</error>");
+                return 1;
+            }
+
+            $output->writeln( "Removing role '<info>{$role->getName()}</info>'.\n" );
+            $citizen->removeRole( $role );
 
             $updated = true;
         }

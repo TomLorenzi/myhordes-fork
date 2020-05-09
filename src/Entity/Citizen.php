@@ -210,6 +210,11 @@ class Citizen
      */
     private $citizenWatch;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ghulHunger = 0;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -902,6 +907,18 @@ class Citizen
     {
         if($this->citizenWatch->contains($citizenWatch))
         $this->citizenWatch->removeElement($citizenWatch);
+
+        return $this;
+    }
+
+    public function getGhulHunger(): ?int
+    {
+        return $this->ghulHunger;
+    }
+
+    public function setGhulHunger(int $ghulHunger): self
+    {
+        $this->ghulHunger = $ghulHunger;
 
         return $this;
     }

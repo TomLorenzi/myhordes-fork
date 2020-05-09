@@ -140,6 +140,7 @@ class NightlyHandler
         $cod_thirst = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Dehydration);
         $cod_addict = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Addiction);
         $cod_infect = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Infection);
+        $cod_ghoul  = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::GhulStarved);
 
         $status_infected  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
         $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hsurvive' );
@@ -151,12 +152,14 @@ class NightlyHandler
 
             if (!$citizen->getAlive()) continue;
 
+            $ghoul = $citizen->hasRole('ghoul');
+
             if ($citizen->getStatus()->contains( $status_survive )) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>protected</info> by <info>{$status_survive->getLabel()}</info>." );
                 continue;
             }
 
-            if ($citizen->getStatus()->contains( $status_thirst2 )) {
+            if ($citizen->getStatus()->contains( $status_thirst2 ) && !$ghoul) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_thirst2->getLabel()}</info>." );
                 $this->kill_wrap( $citizen, $cod_thirst, true, 0, false, $town->getDay()+1 );
                 continue;
@@ -168,9 +171,15 @@ class NightlyHandler
                 continue;
             }
 
-            if ($citizen->getStatus()->contains( $status_infected )) {
+            if ($citizen->getStatus()->contains( $status_infected ) && !$ghoul) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_infected->getLabel()}</info>." );
                 if ($this->random->chance($this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_INFECT_DEATH, 0.5 ))) $this->kill_wrap( $citizen, $cod_infect, true, 0, false, $town->getDay()+1 );
+                continue;
+            }
+
+            if ($ghoul && $citizen->getGhulHunger() <= 40) {
+                $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> is a <info>hungry ghoul</info>." );
+                $this->kill_wrap( $citizen, $cod_ghoul, true, 0, false, $town->getDay()+1 );
                 continue;
             }
         }
@@ -429,6 +438,11 @@ class NightlyHandler
                     $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>wounded</info>. Adding an <info>infection</info>.");
                     $this->citizen_handler->inflictStatus($citizen, $status_infection);
                 }
+            }
+
+            if ($citizen->hasRole('ghoul')) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is a <info>ghoul</info>. <info>Increasing</info> hunger.");
+                $citizen->setGhulHunger( $citizen->getGhulHunger() + (($town->getChaos() || $town->getDevastated()) ? 15 : 35));
             }
 
             $this->log->debug("Setting appropriate camping status for citizen <info>{$citizen->getUser()->getUsername()}</info> (who is <info>" . ($citizen->getZone() ? 'outside' : 'inside') . "</info> the town)...");
@@ -810,7 +824,7 @@ class NightlyHandler
 
     private function stage3_roles(Town &$town){
         $citizens = $town->getCitizens();
-        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
         $votes = array();
 
         foreach ($roles as $role) {

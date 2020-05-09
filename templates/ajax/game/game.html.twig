@@ -95,13 +95,22 @@
     {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
         <ul class="civil">
             {% for role in roles %}
-                {# @var stat \App\Entity\CitizenRole #}
-                <li class="status">
-                    <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
-                    <div class="tooltip temp-building">
-                    {{ 'Du bist der %rolename% dieser Stadt.'|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
-                    </div>
-                </li>
+                {# @var role \App\Entity\CitizenRole #}
+                {% if not role.hidden %}
+                    <li class="status">
+                        <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
+                        {% if role.name == 'ghoul' %}
+                            <div class="ghoul-hunger-container">
+                                <div class="ghoul-hunger-background"></div>
+                                <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ hunger }}%"></div>
+                                <div class="ghoul-hunger-indicator" style="left: 40%"></div>
+                            </div>
+                        {% endif %}
+                        <div class="tooltip">
+                            {{ (role.message ?? 'Du bist der %rolename% dieser Stadt.')|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
+                        </div>
+                    </li>
+                {% endif %}
             {% endfor %}
             {% if banished %}
             <li class="status"><img src="{{ asset('build/images/banished.gif') }}" alt="{{ 'Verbannt'|trans({},'game') }}">
