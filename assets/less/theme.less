@@ -378,9 +378,27 @@ img {
 
 footer {
   color: #fae3ce;
-  position: relative; margin: 24px auto; padding: 0; width: @myhordes-content-width; overflow: visible; font-size: 1.1rem;
-
-  strong { display: block; margin: 5px 0; text-align: center; font-size: 1.2rem; font-variant: small-caps }
+  position: relative;
+  margin: 24px auto;
+  padding: 0;
+  width: @myhordes-content-width;
+  overflow: visible;
+  font-size: 1.1rem;
+  .cell-small {
+    background: rgba(0,0,0,0.33);
+    margin-bottom: 5px;
+    strong {
+      &:first-child { background: rgba(0,0,0,0.5); }
+      display: block;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 1.2rem;
+      font-variant: small-caps;
+    }
+    .content {
+      padding: 5px;
+    }
+  }
 }
 
 .box(@color: @myhordes-cell-header-background-color) {
