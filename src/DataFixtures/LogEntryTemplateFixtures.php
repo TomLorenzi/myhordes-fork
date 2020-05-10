@@ -101,6 +101,9 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!', 'name'=>'citizenDeathOnWatch', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'])],
         ['text'=>'Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'name'=>'nightlyAttackWatchers', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"list",'name'=>'citizens','listType' =>'citizen'])],
 
+        ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %first_citizen% und %second_citizen% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.', 'name'=>'gazetteFun_001', 'type'=>LogEntryTemplate::TypeGazette, 'class'=>LogEntryTemplate::ClassNews, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'first_citizen'],['type'=>"citizen",'name'=>'second_citizen'])],
+        ['text'=>'Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem %first_citizen% zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von %second_citizen% dazu: "Der Anblick war nicht von schlechten Eltern."', 'name'=>'gazetteFun_002', 'type'=>LogEntryTemplate::TypeGazette, 'class'=>LogEntryTemplate::ClassNews, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'first_citizen'],['type'=>"citizen",'name'=>'second_citizen'])],
+
     ];
 
     private $entityManager;
