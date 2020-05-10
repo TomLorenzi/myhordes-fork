@@ -767,7 +767,7 @@ class ExternalController extends InventoryAwareController
                     'defense' => $item->getDefense(),
                     'temporary' => $item->getTemp(),
                     'max_level' => $item->getMaxLevel(),
-                    'parent_id' => $item->getParent(),
+                    'parent_id' => $item->getParent() ? $item->getParent()->getId() : null,
 
                 ],
                 'de' => [
