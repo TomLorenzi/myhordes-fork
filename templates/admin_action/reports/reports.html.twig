@@ -16,30 +16,32 @@
                     <span>{{ "gemeldet von" |trans({}, 'admin') }}</span>
                 </div>
             </div>
-            {% set posts = [] %}
-            {% for report in reports %}
-                {% if report.post.id not in posts %}
-                    {% set posts = posts|merge([report.post.id]) %}
-                    <div class="row">
-                        <div class="cell padded rw-3 rw-sm-12">
-                            <a href="#" x-ajax-href="{{ path('forum_viewer_jump_post_controller', {pid: report.post.id }) }}">{{ report.post.thread.forum.title }}</a>
-                        </div>
-                        <div class="cell padded rw-2 rw-sm-12">
-                            <span>{{ report.post.owner.username }}</span>
-                        </div>
-                        <div class="cell padded rw-2 rw-sm-12">
-                            <span>{{ report.post.adminReports.count }}</span>
-                        </div>
-                        <div class="cell padded rw-4 rw-sm-12">
-                            {% for thisReport in report.post.adminReports %}
-                                <span>{{ thisReport.sourceUser.username }}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="cell padded rw-1 rw-sm-12">
-                            <button x-report-action="clear-reports" x-post-id={{ report.post.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
-                        </div>
+            {% for post in posts %}
+                <div class="row">
+                    <div class="cell padded rw-3 rw-sm-12">
+                        <a href="#" x-ajax-href="{{ path('forum_viewer_jump_post_controller', {pid: post['post'].id }) }}">{{ post['post'].thread.forum.title }}</a>
                     </div>
-                {% endif %}
+                    <div class="cell padded rw-2 rw-sm-12">
+                        <span>{{ post['post'].owner.username }}</span>
+                    </div>
+                    <div class="cell padded rw-2 rw-sm-12">
+                        <span>{{ post['count'] }}</span>
+                    </div>
+                    <div class="cell padded rw-4 rw-sm-12">
+                        {% set iteration = 0 %}
+                        {% for reporter in post['reporters'] %}
+                            {% if iteration > 0 %}
+                                <span>{{ ", " ~ reporter.username }}</span>
+                            {% else %}
+                                <span>{{ reporter.username }}</span>
+                            {% endif %}
+                            {% set iteration = iteration + 1 %}
+                        {% endfor %}
+                    </div>
+                    <div class="cell padded rw-1 rw-sm-12">
+                        <button x-report-action="clear-reports" x-post-id={{ post['post'].id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>

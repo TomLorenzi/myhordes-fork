@@ -19,11 +19,9 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
-use App\Translation\T;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\Entity;
 use Exception;
 use Symfony\Component\Asset\Packages;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -140,7 +138,6 @@ class LogTemplateHandler
             }
             catch (Exception $e) {
                 $transParams['%'.$typeEntry['name'].'%'] = "null";
-                // $transParams['%'.$typeEntry['name'].'%'] = $e->getMessage();
             }
         }
         

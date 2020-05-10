@@ -6,6 +6,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
 use App\Entity\Gazette;
+use App\Entity\GazetteLogEntry;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -88,6 +89,24 @@ class GameController extends AbstractController implements GameInterfaceControll
         ] );
     }
 
+    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry) {
+        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
+    }
+
+    protected function parseLog( LogEntryTemplate $template, array $variables ): String {
+        $variableTypes = $template->getVariableTypes();
+        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables);
+
+        try {
+            $text = $this->translator->trans($template->getText(), $transParams, 'game');
+        }
+        catch (Exception $e) {
+            $text = "null";
+        }
+
+        return $text;
+    }
+
     /**
      * @Route("jx/game/landing", name="game_landing")
      * @return Response
@@ -134,13 +153,6 @@ class GameController extends AbstractController implements GameInterfaceControll
             }
         }
 
-        $text = "";
-
-        $days = [
-            'final' => $day % 5,
-            'repeat' => floor($day / 5),
-        ];
-
         // FIXME: Do translation, get random funny text for each days
         if($day == 1){
             // Baguette text:
@@ -153,14 +165,41 @@ class GameController extends AbstractController implements GameInterfaceControll
                 $text .= "";
             }
         } else {
-            $text = "";
+            $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
+
+            if (count($gazette_logs) == 0) {
+                $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findByType(LogEntryTemplate::TypeGazette);
+                shuffle($applicableEntryTemplates);
+                $citizens = $town->getCitizens()->toArray();
+                shuffle($citizens);
+                $variables = [
+                    'first_citizen' => (array_shift($citizens))->getId(),
+                    'second_citizen' => (array_shift($citizens))->getId(),
+                ];
+                $news = new GazetteLogEntry();
+                $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($applicableEntryTemplates[array_key_first($applicableEntryTemplates)])->setVariables($variables);
+                $this->entity_manager->persist($news);
+                $this->entity_manager->flush();
+
+                $text = $this->parseGazetteLog($news);
+            }
+            else {
+                $text = $this->parseGazetteLog(array_shift($gazette_logs));
+            }
         }
         $textClass = "day$day";
+
+        $days = [
+            'final' => $day % 5,
+            'repeat' => floor($day / 5),
+        ];
+
         $attack = -1;
         $defense = -1;
         $attack = $gazette->getAttack();
         $defense = $gazette->getDefense();
 
+        $citizenWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
 
         $gazette_info = [
             'season_version' => 0,
@@ -185,6 +224,7 @@ class GameController extends AbstractController implements GameInterfaceControll
             'show_town_link'  => $in_town,
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
+            'citizenWithRole' => $citizenWithRole,
         ] );
     }
 

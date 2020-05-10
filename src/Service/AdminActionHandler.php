@@ -29,6 +29,21 @@ class AdminActionHandler
     private $death_handler;
     private $translator;
     private $log;
+    private $requiredRole = [
+        'headshot' => 'ROLE_ADMIN',
+        'confirmDeath' => 'ROLE_ADMIN',
+        'pinThread' => 'ROLE_ADMIN',
+        'unpinThread' => 'ROLE_ADMIN',
+        'setDefaultRoleDev' => 'ROLE_ADMIN',
+
+        'crowPost' => 'ROLE_CROW',
+        'lockThread' => 'ROLE_CROW',
+        'unlockThread' => 'ROLE_CROW',
+        'liftAllBans' => 'ROLE_CROW',
+        'ban' => 'ROLE_CROW',
+        'hidePost' => 'ROLE_CROW',
+        'clearReports' => 'ROLE_CROW',
+    ];
 
     public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt)
     {
@@ -38,17 +53,17 @@ class AdminActionHandler
         $this->log = $lt;
     }
 
-    protected function hasRights(int $sourceUser)
+    protected function hasRights(int $sourceUser, string $desiredAction)
     {
         $userRoles = $this->entity_manager->getRepository(User::class)->find($sourceUser)->getRoles();
-        if (in_array("ROLE_ADMIN", $userRoles))
+        if (in_array($this->requiredRole[$desiredAction], $userRoles))
             return true;
         return false;
     }
 
     public function headshot(int $sourceUser, int $targetUserId): string
     {
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'headshot'))
             return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');        
         $user = $this->entity_manager->getRepository(User::class)->find($targetUserId);
         /**
@@ -70,7 +85,7 @@ class AdminActionHandler
 
     public function lockThread(int $sourceUser, int $forumId, int $threadId): bool
     {
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'lockThread'))
             return false;
         /**
         * @var Thread
@@ -85,7 +100,7 @@ class AdminActionHandler
 
     public function unlockThread(int $sourceUser, int $forumId, int $threadId): bool
     {
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'unlockThread'))
             return false;
         /**
         * @var Thread
@@ -99,7 +114,7 @@ class AdminActionHandler
     }
 
     public function pinThread(int $sourceUser, int $forumId, int $threadId): bool{
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'pinThread'))
             return false;
         /**
         * @var Thread
@@ -113,7 +128,7 @@ class AdminActionHandler
     }
 
     public function unpinThread(int $sourceUser, int $forumId, int $threadId): bool{
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'unpinThread'))
             return false;
         /**
         * @var Thread
@@ -128,7 +143,7 @@ class AdminActionHandler
 
     public function crowPost(int $sourceUser, Forum $forum, ?Thread $thread, string $text, ?string $title): ?Thread
     {
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'crowPost'))
             return null;
 
         $theCrow = $this->entity_manager->getRepository(User::class)->find(66);
@@ -157,7 +172,7 @@ class AdminActionHandler
 
     public function liftAllBans(int $sourceUser, int $targetUser): bool
     {
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'liftAllBans'))
             return false;
             
         $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
@@ -178,7 +193,7 @@ class AdminActionHandler
 
     public function ban(int $sourceUser, int $targetUser, string $reason, int $duration): bool
     {
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'ban'))
             return false;
             
 
@@ -208,7 +223,7 @@ class AdminActionHandler
     }
 
     public function confirmDeath(int $sourceUser, int $targetUser): bool {
-        if(!$this->hasRights($sourceUser))
+        if(!$this->hasRights($sourceUser, 'confirmDeath'))
             return false;
 
         $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUser);
@@ -234,7 +249,7 @@ class AdminActionHandler
     }
 
     public function hidePost(int $srcUser, int $postId, string $reason): bool {
-        if(!$this->hasRights($srcUser))
+        if(!$this->hasRights($srcUser, 'hidePost'))
             return false;
 
         $sourceUser = $this->entity_manager->getRepository(User::class)->find($srcUser);        
@@ -270,7 +285,7 @@ class AdminActionHandler
 
     public function clearReports(int $sourceUser, int $postId): bool {
 
-        if (!$this->hasRights($sourceUser))
+        if (!$this->hasRights($sourceUser, 'clearReports'))
             return false;
 
         $post = $this->entity_manager->getRepository(Post::class)->find($postId);
@@ -292,7 +307,7 @@ class AdminActionHandler
 
     public function setDefaultRoleDev(int $sourceUser, bool $asDev): bool {
 
-        if (!$this->hasRights($sourceUser))
+        if (!$this->hasRights($sourceUser, 'setDefaultRoleDev'))
             return false;
 
         $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);

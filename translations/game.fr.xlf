@@ -267,8 +267,6 @@
     </unit>
     <unit id="kWsuJms" name="b46b79f">
       <notes>
-        <note>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</note>
-        <note>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</note>
         <note category="german">%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</note>
       </notes>
       <segment>
@@ -276,21 +274,8 @@
         <target>%zombie% a ressucité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
       </segment>
     </unit>
-    <unit id="ByzkImj" name="8895c43">
-      <notes>
-        <note>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
-        <note>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
-        <note category="german">Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
-      </notes>
-      <segment>
-        <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
-      </segment>
-    </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
       <notes>
-        <note>%num% Zombies attackieren die Stadtbewohner!</note>
-        <note>%num% Zombies attackieren die Stadtbewohner!</note>
         <note category="german">%num% Zombies attackieren die Stadtbewohner!</note>
       </notes>
       <segment>
@@ -1151,7 +1136,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Défense</target>
+        <target>Défenses</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -9605,7 +9590,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
       </segment>
     </unit>
     <unit id="OVTYzwK" name="%sender%: %message%">
@@ -9687,6 +9672,42 @@
       <segment>
         <source>Opfer</source>
         <target>Mort(s)</target>
+      </segment>
+    </unit>
+    <unit id="L0KmARN" name="Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.">
+      <notes>
+        <note category="german">Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</note>
+      </notes>
+      <segment>
+        <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
+        <target>Votre blessure à l'œil vous gêne énormément lors de vos fouilles.</target>
+      </segment>
+    </unit>
+    <unit id="gk3I32J" name="Deine Trunkenheit macht dir die Suche nicht gerade leichter.">
+      <notes>
+        <note category="german">Deine Trunkenheit macht dir die Suche nicht gerade leichter.</note>
+      </notes>
+      <segment>
+        <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
+        <target>Votre état d'ébriété n'arrange pas vraiment les choses. Pas facile de faire cela quand on n'y voit plus très clair...</target>
+      </segment>
+    </unit>
+    <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
+      <notes>
+        <note category="german">Du kannst heute keine weiteren Beschwerden vorbringen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
+        <target>Vous ne pouvez plus déposer de plaintes aujourd'hui.</target>
+      </segment>
+    </unit>
+    <unit id="1tKXRRi" name="Der %rolename% der Stadt ist %username%">
+      <notes>
+        <note category="german">Der %rolename% der Stadt ist %username%</note>
+      </notes>
+      <segment>
+        <source>Der %rolename% der Stadt ist %username%</source>
+        <target>Le %rolename% de la ville est %username%</target>
       </segment>
     </unit>
   </file>

@@ -90,7 +90,15 @@
                 </div>
             </div>
             <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans({}, 'game') }}</label></div>
-
+            
+            <div id="gazette-role-list">
+            {% for citizenWithRole in citizenWithRole %}
+                {% for role in citizenWithRole.roles %}
+                    <p><img src="{{ asset('build/images/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.username ~ "</strong>"} , 'game')|raw }}</p>
+                {% endfor %}
+            {% endfor %}
+            </div>
+            
             <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
             {% if show_register %}
                 {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}

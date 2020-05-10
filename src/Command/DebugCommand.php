@@ -98,7 +98,7 @@ class DebugCommand extends Command
                     }                                       
                 }
 
-                if ($crow->getIsAdmin() || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
+                if ($crow->getRightsElevation() > User::ROLE_USER || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
                     $output->writeln('<error>User 66 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }

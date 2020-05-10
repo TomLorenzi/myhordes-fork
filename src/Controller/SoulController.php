@@ -676,7 +676,7 @@ class SoulController extends AbstractController
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
         $name = $user->getUsername();
-        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setIsAdmin(false);
+        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setRightsElevation(0);
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
             $user->setAvatar(null);

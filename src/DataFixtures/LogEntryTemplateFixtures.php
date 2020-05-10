@@ -109,6 +109,9 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!', 'name'=>'citizenBeyondGhoulAttack2', 'type'=> LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
         ['text'=>'Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?', 'name'=>'citizenDisposalGhoul', 'type'=> LogEntryTemplate::TypeHome, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=> LogEntryTemplate::TypeCitizens, 'variableTypes'=>array()],
 
+        ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %first_citizen% und %second_citizen% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.', 'name'=>'gazetteFun_001', 'type'=>LogEntryTemplate::TypeGazette, 'class'=>LogEntryTemplate::ClassNews, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'first_citizen'],['type'=>"citizen",'name'=>'second_citizen'])],
+        ['text'=>'Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem %first_citizen% zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von %second_citizen% dazu: "Der Anblick war nicht von schlechten Eltern."', 'name'=>'gazetteFun_002', 'type'=>LogEntryTemplate::TypeGazette, 'class'=>LogEntryTemplate::ClassNews, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'first_citizen'],['type'=>"citizen",'name'=>'second_citizen'])],
+
     ];
 
     private $entityManager;

@@ -41,7 +41,7 @@ security:
         - { path: ^/jx/public/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/jx/ghost/,  roles: ROLE_USER }
         - { path: ^/jx/soul/,   roles: ROLE_USER }
-        - { path: ^/jx/admin/,   roles: ROLE_ADMIN }
+        - { path: ^/jx/admin/,   roles: ROLE_CROW }
 
         # API Access
         - { path: ^/api/public/login,  roles: ROLE_REGISTERED }

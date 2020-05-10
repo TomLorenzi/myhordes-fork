@@ -18,6 +18,7 @@ use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\TownLogEntry;
+use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Structures\TownConf;
@@ -287,7 +288,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $is_addicted   = $this->citizen_handler->hasStatusEffect($c, 'addict');
         $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
         $has_job       = $c->getProfession()->getName() != 'none';
-        $is_admin      = $c->getUser()->getIsAdmin();
+        $is_admin      = $c->getUser()->getRightsElevation() >= User::ROLE_ADMIN;
         $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal');
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [

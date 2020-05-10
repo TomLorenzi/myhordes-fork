@@ -52,16 +52,14 @@
                 </div>
             </div>
         {% endif %}
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_CROW') %}
             <div id="modeCommand">
                 <h1><span>{{ 'Moderation'|trans({},'global') }}</span></h1>              
                 <div id="scrollMenu">
                     <ul>
                     {% for adminAction in adminActions %}
                         {# @var adminAction \App\Entity\AdminAction #}
-
                         <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a><br>
-
                     {% endfor %}
                     </ul>
                 </div>

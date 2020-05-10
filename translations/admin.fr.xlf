@@ -280,5 +280,14 @@
         <target>Commencez à entrer un pseudo, ceux correspondant s'afficheront :</target>
       </segment>
     </unit>
+    <unit id="UNGMFAu" name="Suche:">
+      <notes>
+        <note category="german">Suche:</note>
+      </notes>
+      <segment>
+        <source>Suche:</source>
+        <target>Suche:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

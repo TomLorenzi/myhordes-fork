@@ -55,6 +55,21 @@ class CitizenRepository extends ServiceEntityRepository
         }
     }
 
+    public function findCitizenWithRole(Town $town)
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->innerJoin('c.roles', 'r')
+                ->andWhere('c.town = :town')
+                ->andWhere('c.alive = 1')
+                ->setParameter('town', $town)
+                ->getQuery()
+                ->getResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
     // /**
     //  * @return Citizen[] Returns an array of Citizen objects
     //  */

@@ -214,7 +214,7 @@ class ForumController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->getIsAdmin())
+        if ($user->getRightsElevation() >= User::ROLE_CROW)
             $r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
 
         return ['nodes' => $r, 'attribs' => self::HTML_ATTRIB_ALLOWED];
@@ -404,7 +404,7 @@ class ForumController extends AbstractController
         $title = $parser->trimmed('title');
         $text  = $parser->trimmed('text');
 
-        if ($user->getIsAdmin()) {
+        if ($user->getRightsElevation() >= User::ROLE_CROW) {
             $type  = $parser->get('type');
         }
         else {
@@ -475,7 +475,7 @@ class ForumController extends AbstractController
         
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
-            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return AjaxResponse::error( self::ErrorForumNotFound );
             }      
         } 
@@ -488,7 +488,7 @@ class ForumController extends AbstractController
 
         $text = $parser->get('text');
         
-        if ($user->getIsAdmin()) {
+        if ($user->getRightsElevation() >= User::ROLE_CROW) {
             $type  = $parser->get('type');
         }
         else {
@@ -555,7 +555,7 @@ class ForumController extends AbstractController
 
         $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
         if (count($forums) !== 1){
-            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return new Response('');
             }      
         } 
@@ -563,7 +563,7 @@ class ForumController extends AbstractController
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
         
-        if ($user->getIsAdmin())
+        if ($user->getRightsElevation() >= User::ROLE_CROW)
             $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
         else
             $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
@@ -573,7 +573,7 @@ class ForumController extends AbstractController
         elseif (!$marker->getPost()) $page = 1;
         else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
 
-        if ($user->getIsAdmin())
+        if ($user->getRightsElevation() >= User::ROLE_CROW)
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
@@ -625,19 +625,19 @@ class ForumController extends AbstractController
 
         $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $forum->getId());
         if (count($forums) !== 1){
-            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return new Response('');
             }      
         } 
         
-        if ($user->getIsAdmin())
+        if ($user->getRightsElevation() >= User::ROLE_CROW)
             $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
         else
             $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
 
         $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jumpPost )) / $num_per_page));
 
-        if ($user->getIsAdmin())
+        if ($user->getRightsElevation() >= User::ROLE_CROW)
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
@@ -687,7 +687,7 @@ class ForumController extends AbstractController
 
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
-            if (!($user->getIsAdmin() && $thread->hasReportedPosts())){
+            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return new Response('');
             }      
         } 
