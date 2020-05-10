@@ -56,12 +56,6 @@ services:
         arguments:
             $env: '%kernel.environment%'
 
-    # BankAntiAbuseService prevent citizen to abuse and steal everything in bank
-    # This service need to be bypass on dev mode for debug purpose
-    App\Service\BankAntiAbuseService:
-        arguments:
-            $env: '%kernel.environment%'
-
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     App\Translation\DatabaseExtractor:

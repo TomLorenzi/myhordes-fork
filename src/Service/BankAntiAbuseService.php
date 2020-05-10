@@ -10,13 +10,11 @@ use Doctrine\ORM\EntityManagerInterface;
 class BankAntiAbuseService {
 
     private $em;
-    private $env;
     private $conf;
 
-    public function __construct(ConfMaster $conf, EntityManagerInterface $em, string $env)
+    public function __construct(ConfMaster $conf, EntityManagerInterface $em)
     {
         $this->em = $em;
-        $this->env = $env;
         $this->conf = $conf;
     }
 
@@ -48,19 +46,13 @@ class BankAntiAbuseService {
         $nbObjectMax = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_BANK_ABUSE_LIMIT);
         $bankAntiAbuse = $citizen->getBankAntiAbuse();
 
-        // Bypass check on devmod
-        if ($this->env === 'dev' || is_null($bankAntiAbuse))
-        {
-            return true;
-        }
-
         // In chaos mode you can take twice as many
         if ($town->getChaos())
         {
             $nbObjectMax = $nbObjectMax*2;
         }
 
-        if ($this->inRangeOfBan($bankAntiAbuse->getUpdated()) && $bankAntiAbuse->getNbItemTaken() >= $nbObjectMax) {
+        if ($bankAntiAbuse !== null && $this->inRangeOfBan($bankAntiAbuse->getUpdated()) && $bankAntiAbuse->getNbItemTaken() >= $nbObjectMax) {
             return false;
         }
 
