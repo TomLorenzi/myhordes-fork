@@ -111,8 +111,9 @@ class ActionHandler
                 if ($status->getProfession() !== null && $citizen->getProfession()->getId() !== $status->getProfession()->getId())
                     $current_state = min( $current_state, $this_state );
 
-                if ($status->getRole() !== null && !$citizen->getRoles()->contains($status->getRole())){
-                    $current_state = min( $current_state, $this_state );
+                if ($status->getRole() !== null && $status->getEnabled() !== null) {
+                    $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
+                    if ($role_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
                 }
             }
 
@@ -480,6 +481,21 @@ class ActionHandler
 
                 if ($status->getCounter() !== null)
                     $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
+
+                if ($status->getCitizenHunger())
+                    $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
+
+                if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
+                    if ($status->getRoleAdd()) {
+                        $this->citizen_handler->addRole( $citizen, $status->getRole() );
+                        $tags[] = 'role-up';
+                        $tags[] = "role-up-{$status->getRole()->getName()}";
+                    } else {
+                        $this->citizen_handler->removeRole( $citizen, $status->getRole() );
+                        $tags[] = 'role-down';
+                        $tags[] = "role-down-{$status->getRole()->getName()}";
+                    }
+                }
 
                 if ($status->getInitial() && $status->getResult()) {
                     if ($citizen->getStatus()->contains( $status->getInitial() )) {

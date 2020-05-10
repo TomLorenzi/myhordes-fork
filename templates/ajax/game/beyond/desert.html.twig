@@ -208,6 +208,7 @@
                     {% endif %}
 
                 {% endif %}
+
                 {% if allow_enter_town %}
                     <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
                         {% if zone.x == 0 and zone.y == 0 %}
@@ -222,6 +223,9 @@
                 {% endif %}
                 {% if show_ventilation %}
                     <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+                {% endif %}
+                {% if show_sneaky %}
+                    <button id="town-enter-sneak"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}</button>
                 {% endif %}
 
                 {% if zone.x != 0 or zone.y != 0 %}
@@ -292,23 +296,33 @@
                             </div>
                             <div class="padded cell rw-3">
                                 <ul class="status">
-                                    {% if not other_citizen.digging %}
-                                        <li class="status">
-                                            <img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
-                                            <div class="tooltip">
-                                                {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
-                                                <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
-                                            </div>
-                                        </li>
-                                    {% else %}
-                                        <li class="status">
-                                            <img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
-                                            <div class="tooltip">
-                                                <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
-                                                <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
-
-                                            </div>
-                                        </li>
+                                    {% if zone.x != 0 or zone.y != 0 %}
+                                        {% if not other_citizen.digging %}
+                                            {% if other_citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                                <li class="status">
+                                                    <img src="{{ asset('build/images/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                    <div class="tooltip">
+                                                        {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                                        <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
+                                                    </div>
+                                                </li>
+                                            {% elseif citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                                <li class="status">
+                                                    <img src="{{ asset('build/images/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                    <div class="tooltip">
+                                                        {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
+                                                    </div>
+                                                </li>
+                                            {% endif %}
+                                        {% else %}
+                                            <li class="status">
+                                                <img src="{{ asset('build/images/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                <div class="tooltip">
+                                                    <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
+                                                    <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
+                                                </div>
+                                            </li>
+                                        {% endif %}
                                     {% endif %}
                                     {% for stat in other_citizen.status %}
                                         {# @var stat \App\Entity\CitizenStatus #}
@@ -339,9 +353,12 @@
                                     <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/small_gather.gif') }}"></button>
                                 {% endif %}
 
+                                <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/fist.gif') }}" /></button>
+                                {% if can_devour_citizen %}
+                                    <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /></button>
+                                {% endif %}
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
 
-                                
                                 {% if escort_actions[other_citizen.id] is defined %}
                                 {% for escort_action in escort_actions[other_citizen.id] %}
                                     {# @var \App\Structures\EscortItemActionSet escort_action #}
@@ -427,7 +444,7 @@
                                         <li class="status">
                                             <img src="{{ asset('build/images/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">
                                             <div class="tooltip">
-                                                Ce citoyen est en train de suivre {{ other_citizen.escortSettings.leader.user.username }}
+                                                {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.user.username},'game') }}
                                             </div>
                                         </li>
                                     {% endif %}
@@ -435,6 +452,10 @@
                             </div>
                             <div class="padded cell rw-4 right">
                                 {% if other_citizen != citizen %}
+                                    <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/fist.gif') }}" /></button>
+                                    {% if can_devour_citizen %}
+                                        <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /></button>
+                                    {% endif %}
                                     {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
                                         <button {% if not citizen.profession.heroic %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/escort_in.gif') }}"></button>
                                     {% endif %}
@@ -580,7 +601,7 @@
 
         {% if zone_blocked and zone_escape < 0 and not active_scout_mode %}
         document.getElementById('escape-btn').addEventListener('click', function () {
-            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
                 function () {
@@ -588,7 +609,7 @@
                 } );
         });
         document.getElementById('attack-btn').addEventListener('click', function () {
-            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
                 function () {
@@ -675,7 +696,7 @@
 
         {% if allow_enter_town %}
             document.getElementById('town-enter').addEventListener('click', function() {
-                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
                     function () {
@@ -685,18 +706,48 @@
         {% endif %}
         {% if show_ventilation and allow_ventilation %}
             document.getElementById('town-enter-hero').addEventListener('click', function() {
-                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
-                $.ajax.easySend( '{{ path('beyond_desert_hero_exit_controller') }}', {},
+                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'hero'}) }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            });
+        {% endif %}
+        {% if show_sneaky %}
+            document.getElementById('town-enter-sneak').addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'sneak'}) }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
                     } );
             });
         {% endif %}
 
+        {% if can_attack_citizen %}
+            $.html.addEventListenerAll('[x-attack-citizen]', 'click', function(e,elem) {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+                $.ajax.easySend( elem.getAttribute('x-attack-citizen'), {},
+                    function () {
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    } );
+            });
+        {% endif %}
+
+        {% if can_devour_citizen and allow_devour_citizen %}
+        $.html.addEventListenerAll('[x-devour-citizen]', 'click', function(e,elem) {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            $.ajax.easySend( elem.getAttribute('x-devour-citizen'), {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
+        {% endif %}
+
         {% if is_shaman %}
-        document.getElementById('fall_rain').addEventListener('click', function() {
-                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+            document.getElementById('fall_rain').addEventListener('click', function() {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_shaman_rain') }}', {},
                     function () {

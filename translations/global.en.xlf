@@ -19,13 +19,13 @@
         <target>The selected forum doesn't exist or you are lacking the permission to view it.</target>
       </segment>
     </unit>
-    <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
+    <unit id="johChWe" name="Dein Text muss mindestens 2 Zeichen lang sein.">
       <notes>
-        <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
+        <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
       </notes>
       <segment>
-        <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
-        <target>Your text has to be at least 10 characters long.</target>
+        <source>Dein Text muss mindestens 2 Zeichen lang sein.</source>
+        <target>Your text has to be at least 2 characters long.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
@@ -733,7 +733,7 @@
     </unit>
     <unit id="aTN.bek" name="Vorschau">
       <notes>
-        <note category="german">Preview</note>
+        <note category="german">Vorschau</note>
       </notes>
       <segment>
         <source>Vorschau</source>

@@ -19,6 +19,8 @@ class TownConf extends Conf
     const CONF_DEFAULT_CHEST_ITEMS   = 'initial_chest';
     const CONF_DISTRIBUTION_DISTANCE = 'distribution_distance';
 
+    const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
+
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
     const CONF_MODIFIER_POISON_TRANS         = 'modifiers.poison.transgress';
     const CONF_MODIFIER_WT_THRESHOLD         = 'modifiers.watchtower_estimation_threshold';
@@ -27,6 +29,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_PRE_ASSEMBLY         = 'modifiers.preview_item_assemblage';
     const CONF_MODIFIER_INFECT_DEATH         = 'modifiers.infection_death_chance';
     const CONF_MODIFIER_WOUND_TERROR_PENALTY = 'modifiers.wound_terror_penalty';
+    const CONF_MODIFIER_ATTACK_PROTECT       = 'modifiers.attack_protection';
 
     const CONF_FEATURE_CAMPING        = 'features.camping';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';

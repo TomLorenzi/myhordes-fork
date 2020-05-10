@@ -110,6 +110,13 @@ class CitizenHandler
             return true;
         }
 
+        // Prevent thirst and infection for ghouls
+        if ((   $status->getName() === 'thirst1' ||
+                $status->getName() === 'thirst2' ||
+                $status->getName() === 'infection'
+            ) && $citizen->hasRole('ghoul'))
+            return false;
+
         // Prevent terror when holding a zen booklet
         if ($status->getName() === 'terror' && $this->inventory_handler->countSpecificItems(
                 $citizen->getInventory(),
@@ -137,6 +144,8 @@ class CitizenHandler
     }
 
     public function increaseThirstLevel( Citizen $citizen ) {
+
+        if ($citizen->hasRole('ghoul')) return;
 
         $lv2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst2');
         $lv1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst1');
@@ -225,6 +234,49 @@ class CitizenHandler
         }
 
         return $action;
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param CitizenRole|string $role
+     * @return bool
+     */
+    public function addRole(Citizen $citizen, $role): bool {
+
+        if (is_string($role)) $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName($role);
+        /** @var $role CitizenRole|null */
+        if (!$role) return false;
+
+        if (!$citizen->getRoles()->contains($role)) {
+            $citizen->addRole($role);
+
+            if ($role->getName() === 'ghoul') {
+                $this->removeStatus($citizen, 'thirst1');
+                $this->removeStatus($citizen, 'thirst2');
+                $this->removeStatus($citizen, 'infection');
+                $citizen->setWalkingDistance(0);
+            }
+
+            return true;
+
+        } else return true;
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param CitizenRole|string $role
+     * @return bool
+     */
+    public function removeRole(Citizen $citizen, $role): bool {
+
+        if (is_string($role)) $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName($role);
+        /** @var $role CitizenRole|null */
+        if (!$role) return false;
+
+        if ($citizen->getRoles()->contains($role)) {
+            $citizen->removeRole($role);
+            return true;
+        } else return true;
     }
 
     public function isTired(Citizen $citizen) {

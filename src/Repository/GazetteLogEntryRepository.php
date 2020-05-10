@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
+use App\Entity\TownLogEntry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -25,10 +26,11 @@ class GazetteLogEntryRepository extends ServiceEntityRepository
      * @param Gazette $gazette
      * @param int|int[],null $type
      * @param int|null $max
-     * @return void Returns an array of TownLogEntry objects
+     * @return TownLogEntry[] Returns an array of TownLogEntry objects
      */
     public function findByFilter(Gazette $gazette, $type = null, ?int $max = null)
     {
+        if (!$gazette->getId()) return [];
         $q = $this->createQueryBuilder('g')
             ->andWhere('g.gazette = :gazette')->setParameter('gazette', $gazette);
 

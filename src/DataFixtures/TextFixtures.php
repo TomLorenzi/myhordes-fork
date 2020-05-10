@@ -4290,6 +4290,22 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "written"
         ],
+        "bioz2_es" => [
+            "title" => "Biología de los Caminantes- Parte 2/4",
+            "author" => "Dr. Arthail Thredaral",
+            "content" => [
+                '<h2>Parte 2:</h2>
+                <p>Estas reacciones tan violentas suelen llegar a un punto critico a partir del cual van descendiendo y el sujeto pasa por un breve estado de lucidez (similar al del mal por radiación) en el cual recupera parte de la consciencia y el control, rápidamente acompañado de una necrosis acelerada, comenzando por los órganos internos hasta las extremidades y los órganos sensoriales.</p>
+                <p>A las 8 horas de contraer el síndrome, el 99,98% de los sujetos ha entrado en un coma irreversible y a muerto por necrosis cerebral e insuficiencia cardiorrespiratoria en menos de un minuto.</p>
+                <p>El proceso de reanimación se ha observado extraño y difícil de catalogar… En algún punto indeterminado, el agente activo del síndrome reacciona con la química de las neuronas motrices y sensoriales y las obliga a auto consumirse, generando calor y descargas eléctricas que despiertan el sistema nervioso motriz e hipotalámico.</p>',
+                '<p>La necrosis amaina repentinamente y el cadáver experimenta unos temblores violentos durante unos segundos de duración variable de caso a caso.</p>
+                <p>Al cabo de unos minutos el cadáver inexplicablemente recobra la consciencia y la autonomía motriz con acusada torpeza debido a la acelerada necrosis de los músculos y los huesos, con señaladas carencias de equilibrio y coordinación pero con un excelente y afinadísimo a la par que inexplicable sentido de la orientación, como si viera mejor a oscuras que con luz y todos sus sentidos estuvieran hipersensibilidades. </p>
+                <p><small>Autor: Dr. Arthail Thredaral </small></p>'
+            ],
+            "lang" => "es",
+            "background" => "old",
+            "design" => "written"
+        ],
         "bioz3_es" => [
             "title" => "Biología de los Caminantes- Parte 3/4",
             "author" => "Dr. Arthail Thredaral",
@@ -4299,6 +4315,21 @@ class TextFixtures extends Fixture
                 <p>Síntesis general de la fisiología del caminante:<br>
                 La ciencia tiene difícil hallar una explicación racional a porque los sujetos con el Síndrome de PostMortem, tras su reanimación son tan susceptibles a la combustión espontánea si se les aplica una cantidad de H2O pura, lo que acaba por concluir en el deceso del sujeto (si es que el término óbito es aplicable).</p>
                 <p>Una explicación, que no exenta de cierta ironía encaja con la posibilidad de que este síndrome sea consecuencia y no causa de una Guerra Nuclear, es su coincidencia con ciertos factores ambientales que si aplicamos el contexto de una guerra Nuclear dan las condiciones necesarias.</p>'
+            ],
+            "lang" => "es",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "bioz4_es" => [
+            "title" => "Biología de los Caminantes- Parte 4/4",
+            "author" => "Dr. Arthail Thredaral",
+            "content" => [
+                '<h2>Parte 4:</h2>
+                <p>La explicación a porque el agua es el catalizador más eficaz para cualquier reacción química contra la integridad de un caminante (acabar con ellos) es que su cuerpo- como consecuencia del subproducto radioactivo del agente del Síndrome Postmortem en el sistema nervioso, que también explica la rápida necrosis previa a la muerte del paciente- segrega pequeñas cantidades de compuestos similares a los metales alcalinos (Magnesio, Cesio, Sodio, etc.) que son altamente inflamables al contacto con el agua. </p>
+                <p>Pero el dato que nos parece más aproximado es la posibilidad de una cantidad inferior aun de Fr (Francio) mezclado con la grasa corporal del caminante como reacción ambiental con el aire y la degradación de los tejidos necrosados.</p>',
+                '<p>El francio es un metal alcalino altamente radioactivo y altamente reactivo con el agua, aunque este estudio comprende la teoría del francio en un ámbito estadístico, puesto que no se llegaron hacer pruebas químicas moleculares por imposibilidad material y personal, parece ser la prueba que explica el porqué los caminantes son destruidos con agua.</p>
+                <p>Estos datos concluyen el análisis biológico de los efectos del Síndrome de PostMortem en los pacientes afectados.</p>
+                <p><small>Dr. Arthail Thredaral - Jefe de Análisis de campo del DCE-CEES</small></p>'
             ],
             "lang" => "es",
             "background" => "old",
@@ -4578,6 +4609,470 @@ class TextFixtures extends Fixture
             "lang" => "es",
             "background" => "letter",
             "design" => "written"
+        ],
+        "navid4_es" => [
+            "title" => "Aquel día, ya no es hoy...",
+            "author" => "frangy",
+            "content" => [
+                '<p>Recuerdo aquellos días... Felices fiestas decían... Junto con tu familia y amigos, te divertías, te lo pasabas bien, y sonreías. </p>
+                <p>Pero es una pena, porque todo ya cambió, ya no podemos celebrarlo. Ahora, lo único por lo que te podré felicitar, es porque sigas con vida, porque no seas uno de ellos... Pero tranquila, algún día de estos, ya no te importará esto, porque irás con ellos, todos iremos con ellos. </p>
+                <p> Tu cuerpo se pudrirá, tu misión será devorar... Pero no te preocupes, porque tu alma seguirá viva, y es entonces, cuando podrás celebrarlo, cuando vuelvas a coincidir con tus seres queridos.</p>
+                <p>A mi mujer, Carol; Espero que sigas viva.</p>'
+            ],
+            "lang" => "es",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "arrep_es" => [
+            "title" => "Arrepentido",
+            "author" => "Mcdrack",
+            "content" => [
+                '<p><strong> Lunes </strong><br>
+                Ayer éramos 27 personas, hoy solo 12. Nuestras defensas son muy bajas y nos atacarán entre 80 y 110 zombies.</p>
+                <p><strong> Martes </strong><br>
+                El ataque ha terminado y fui uno de los 4 supervivientes.</p>
+                <p>Me había robado todas las defensas del pueblo para mi casa, los otros habitantes lo saben. Temo por mi vida...</p>
+                <p><strong> Miércoles </strong><br>
+                Hoy fui a buscar materiales en el Ultramundo, ¡y han cerrado el portal mientras yo estaba afuera!</p>
+                <p>Faltan 5 minutos para el ataque y ya puedo escuchar rugidos hambrientos de carne humana acercándose...</p>
+                <p>¡PERDÓN! ¡POR FAVOR, PERDÓN!</p>'
+            ],
+            "lang" => "es",
+            "background" => "old",
+            "design" => "poem"
+        ],
+        "avisc_es" => [
+            "title" => "Aviso a la colectividad",
+            "author" => "El Alcalde",
+            "content" => [
+                '<h1>Queridos conciudadanos</h1>
+                <p>Unos desadaptados han estado lanzando trozos de cadáveres a la gente en el pueblo durante el carnaval.
+                Esas bromas de mal gusto son inadmisibles. Somos un pueblo pobre pero digno.</p>
+                <p>Por respeto a las personas que fallecieron heróica o estúpidamente, exijo el cese de estos actos de salvajismo.
+                Los culpables serán sentenciados públicamente y haremos una barbacoa con sus restos. Porque con el hambre del pueblo, no se juega.</p>
+                <p></p>
+                <p>El Alcalde.</p>'
+            ],
+            "lang" => "es",
+            "background" => "white",
+            "design" => "typed"
+        ],
+        "gryl_es" => [
+            "title" => "Caos y falsa acusación",
+            "author" => "Gyrlander",
+            "content" => [
+                '<p>El pueblo ha caído en el caos... La poca gente que todavía sobrevive están corriendo de un lado para otro y, otros, ahorcándose.</p>
+                <p>Hay un héroe que está en todo el rato en su casa, con raciones de agua y comida ilimitadas. ¿No se da cuenta de que necesitamos su ayuda?</p>
+                <p>Ayer por la noche el héroe murió envenenado. ¿Quién hizo eso? ¿Quién pudo haberlo hecho?</p>
+                <p>Han pasado unas horas y todo el mundo me acusa, ¡yo no he hecho nada! ¡ Malditos séa.. a.. iiss..!</p>
+                <p>(Hay una cara sonriente hecha de sangre debajo de todo el texto).</p>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "written"
+        ],
+        "desesp_es" => [
+            "title" => "Desesperación en la noche",
+            "author" => "Empyre",
+            "content" => [
+                '<p>Día sexto en el diario de un superviviente.
+                En el pueblo se ha propagado la infección y ha empezado a notarse los primeros brotes de locura en los habitantes. Unos gritan barbaridades y otros las hacen.</p>
+                <p>La desesperación entra en el cuerpo de los pocos supervivientes a la infección. Algunos están encerrados en sus casas, esperando el momento de ser devorados. Mientras nosotros, aún con algo de espíritu aventurero, hemos decidido exiliarnos, y estamos acampando cerca de unas ruinas.</p>',
+                '<p>Pensamos iniciar la exploración en unas horas. Primero nos reunimos para coordinar nuestro plan y aprovechamos para abrazarnos fuerte entre todos por si es la última aventura que nos une...</p>
+                <p>Si alguna vez hemos sido dignos de tener suerte, esperamos que sea ahora.</p>'
+            ],
+            "lang" => "es",
+            "background" => "white",
+            "design" => "typed"
+        ],
+        "jps_es" => [
+            "title" => "Juntos por siempre",
+            "author" => "Zombie7",
+            "content" => [
+                '<p>Desde hace días la noto extraña, se que algo le pasa, pero ella no quiere decir nada. Hoy he decidido seguirla a escondidas.</p>
+                <p>Dios! No puedo creer lo que he visto, ella… ella… ha matado a nuestro vecino!</p>
+                <p>Ella no deja de llorar y entre lágrimas comenzó a devorar las entrañas de ese pobre viejo, mastica la carne con asco y sus manos se encuentran cubiertas de sangre… pero qué es lo que está pasando?</p>
+                <p>Ya ha pasado una semana y los rumores de que un “monstruo” está devorando a los habitantes se hacen más fuertes, justo el día de ayer ahorcamos a un desafortunado por encontrar carne humana en su casa, claro que yo me encargue de dejarla ahí, solo yo sé la verdad y nadie más debe saberla…</p>',
+                '<p>Hoy no queda ningún habitante en el pueblo más que yo, nadie lo hubiera entendido, ella no quería convertirse en eso. Ahora se encuentra dormida, parece un ángel, pero pronto despertará y necesitará alimentarse, cuando eso suceda… yo estaré aquí para ella, seré su último festín…</p>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "written"
+        ],
+        "wintk2_es" => [
+            "title" => "La suerte de z0rrox",
+            "author" => null,
+            "content" => [
+                '<p>Caminaba una noche, perdido por el Ultramundo un tal z0rrox. Harto de tragar arena y del ruido que hacían sus gastadas suelas al andar, se decide a hacer un alto. </p>
+                <p>Mira sus pies y despega un viejo papel que decía:</p>
+                <blockquote>
+                <p>Todos vamos al infierno.</p>
+                <p>Y yo voy conduciendo el autobús.</p>
+                </blockquote>
+                <p>Se trataba del mítico ticket mágico que le daba poderes de héroe. Sus ojos brillaron, una lágrima cayó, su fatiga desapareció... ¡Soy un héroe! gritó... ¡Soy un maldito héroe! Jajajajajajaaa...</p>
+                <p>Se tragó el papel y corrió al pueblo con las pocas fuerzas que le quedaban, había que salvarlo antes del ataque.</p>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "classic"
+        ],
+        "navid2_es" => [
+            "title" => "Masacre después de Navidad",
+            "author" => "Deadpool",
+            "content" => [
+                '<h2>Día 25 de Diciembre de 2013, 00:30 hs.</h2>
+                <p>En el pueblo estamos celebrando la navidad aterrorizados por el ataque que se acerca, 536 zombies están esperando para atacar. La gente le está dando armas a sus amigos como regalo de navidad, a mi me dieron un machete ensangrentado y una invitación para ser centinela esta noche. Acepté, pero me arrepentiré de eso luego cuando los vea a esos muertos vivientes.</p>
+                <p>Nuestras defensas son bajas, ni con los centinelas podremos vencer. Somos como 30 habitantes, 3 no vuelven todavía, estoy sospechando de Tommy por su adicción de querer lamer la piel de la gente y por el hecho de que fue con Juan a buscar tablas y regresó solo y sin ganas de comer. </p>',
+                '♠<p>La cantidad de botellas de alcohol que están en el piso podrán impedir a algunos zombies el paso, pero eso no ayudará mucho, los borrachos van a abrir y cerrar el portal todo el tiempo, es normal de ellos hacer eso, ya nos acostumbramos antes, pero como estamos ahora los mataremos a ellos si no se alejan de ahí.</p>
+                <p>Si, ésta es nuestra navidad, en vez de estar descansando y disfrutando con la familia y los amigos una deliciosa cena, tenemos que estar alertas todo el tiempo sin dormir. Nos gustaría saber quién fue el que empezó a revivir a los muertos para darle su "regalito de navidad" por acabar con el mundo como lo conocemos. Hay que ser un maldito para destruir al mundo y sentirse orgulloso de eso.</p>
+                <p>Les deseo una feliz navidad y una noche de supervivencia, como la de todos los días.</p>'
+            ],
+            "lang" => "es",
+            "background" => "notepad",
+            "design" => "written"
+        ],
+        "mvet_es" => [
+            "title" => "Mi vida te la entrego a ti...",
+            "author" => "Gummy",
+            "content" => [
+                '<p>Suelo preguntarme porque...</p>
+                <p>Intento salvar vidas todos los días y hoy no podré salvar mi propia vida. En mi pueblo me llaman héroe, pero no lo soy, soy simplemente una mano que ayuda a los que me necesitan.</p>
+                <p>Rodeado por la muerte y la inseguridad, temo por los que emanan rencor y envidia, por los cobardes de mi pueblo. Yo los vi crecer y actuar, pero no saben que espero lo mejor de ellos. Así que dando un último aliento, daré un último esfuerzo y derramaré mi sangre solo por salvar la vida de aquellos, para que algún día, ellos puedan ser los héroes de esta historia.</p>'
+            ],
+            "lang" => "es",
+            "background" => "stamp",
+            "design" => "typed"
+        ],
+        "miul_es" => [
+            "title" => "Mi último dia",
+            "author" => "Crisram09",
+            "content" => [
+                '<p>17 de Septiembre</p>
+                <p>Hoy es el día de mi cumpleaños y tal vez sea el último... ya hace varios años ( unos 5 o 6 ) que perdí a mis padres y a mis hermanos debido a ese maldito virus, lo que después terminó volviéndose una plaga de "muertos" por así decirlo.... Creo que fue el momento más impactante de mi vida.... cuando tuve que disparar a mis familiares y amigos para salvar mi propia vida... </p>
+                <p>En este momento me encuentro encerrado en un edificio, acorralado por centenares de Zombies, lo más probable es que solo me queden unas horas, mientras descubren cómo destruir la puerta que me protege en esta fría y húmeda habitación. Papá, Mamá... los extraño tanto...</p>
+                <p>Dejo plasmadas en este mísero trozo de cartón lo que seguramente fueron mis últimas palabras.</p>
+                <p>Atentamente: Alejandro</p>'
+            ],
+            "lang" => "es",
+            "background" => "carton",
+            "design" => "written"
+        ],
+        "lostck_es" => [
+            "title" => "Ticket perdedor",
+            "author" => null,
+            "content" => [
+                '<h1>OOOOOOOH... <br>Este ticket pudo hacerte ganar algo, pero no fue así :(...</h1>
+                <blockquote>
+                <p></p><center>¡Sigue probado suerte! <br> Fuma cigarrillos Macarena, son 27.3% más tóxicos ¡y te pintan los pulmones de azul!</center><p></p>
+                </blockquote>
+                <small>CERTIFICADO SANITARIO. Responsable: Doctor T. Mata. Registro G58-141254-A. 88950 difuntos felices lo confirman.</small>'
+            ],
+            "lang" => "es",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "dead1_en" => [
+            "title" => "Alfred's Epitaph",
+            "author" => "Planeshift",
+            "content" => [
+                '<small>[This bit of card must have been used as a tombstone epitaph ]</small>
+                <h1>Alfred (1948 - ??)</h1>
+                <p>Alfred might have been the last of the village idiots, but he was a man of good taste, I must say. he carefully decorated his house, making sure there was a place for everything and everything was in place, so that if you popped by at random, you at least knew you\'d be made to feel comfortable. Even in death, screaming for help as the zombies devoured him, he was careful not to fight back with that chair he had so artistically placed next to the half-rotten wood table. It goes without say that he didn\'t defend himself with the pistol mounted on the wall, despite it being loaded. A mystery which will remain that way is why a man of such taste would rather die than mess up his interior.</p>
+                <p>One more thing I will say though, is that for a man of such taste, he was genuinely delicious. Well-done Alfred...</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "written"
+        ],
+        "stval2_en" => [
+            "title" => "Alt. Valentines Day",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>Roses are red,<br><br>
+                Violets are blue,<br><br>
+                They don\'t think it be like it is<br><br>
+                But it do!<br><br><br><br>
+                Happy Valentine\'s Day!</center>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "ruoutt_en" => [
+            "title" => "Are you out there?",
+            "author" => "Sofl",
+            "content" => [
+                '<br>
+                <p>Hey Stella. You out there? It\'s me again. I\'ve been broadcasting this --<strong>bzzt</strong>-- same message every night since finding this old transmitter. Seems fitting - we\'ve dug up so many of these --<strong>zrrt</strong>-- stupid portable radios that I can hold out some hope that you\'ve found one too. Plastic bottles, wrecked cars, and old transistor radios - is this all that\'s left of what we once --<strong>shhzt</strong>-- were?</p>
+                <br>
+                <p>Where did they come from, Stella? Days of smoke, nights of fire, weeks of darkness, then --<strong>skrrt</strong>-- they began to shamble out of the darkness. Strangers, loved ones, grandparents, children... I think I saw mom, Stella. Half her face was gone. --<strong>ffrt</strong>--</p>',
+                '<br>
+                <p>Have you seen Franklin? He went missing two weeks ago. I hope he\'s still alive, because the th--<strong>zzt</strong>--ght of him out there, one of them, is too much to bear. --<strong>bzrrt</strong>--</p>
+                <p>Well, the batteries are running --<strong>zztt</strong>-- low again. I hope things will be quiet enough --<strong>skhh</strong>-- tonight to dream about how happy we were, our h--<strong>hsshh</strong>--ppy little family.</p>
+                <p>If you hear this --<strong>bzzt</strong>-- you can f--<strong>zzssk</strong>--nd us in the vall--<strong>skrkk</strong>-- near the --<strong>zztt</strong>-- just --<strong>zrrrkk</strong>-<strong>shh</strong>-- hope --<strong>ssss</strong>-- stupid piece of --<strong>hmmmn</strong>--</p>
+                <p>I miss --<strong>brzz</strong>-- you St--<strong>zsshh</strong>--lla... are you... --<strong>szzt</strong>-- are you out there? --<strong>sssssshhhhhhh</strong>--</p>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
+        ],
+        "stval3_en" => [
+            "title" => "D2N Valentines Day",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>Roses are red,<br><br>
+                I\'m pretty bored,<br><br>
+                But I\'d better look lively<br><br>
+                For the attack of the horde!<br><br><br><br>
+                Happy Valentine\'s Day!</center>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "rescl2_en" => [
+            "title" => "Day 3 - Part 2",
+            "author" => "LordRuthven",
+            "content" => [
+                '<p>...I heft the launcher and put in my backpack along with a spare battery and some twinoid - twinoid doesn’t stop the desert heat from frying your brain but it numbs your brain enough that you don’t care. What will stop your brain frying is water - a precious commodity nowadays. I go to the well, a hole in the ground desperately dug by long-dead landscapers. Come to think of it, this desert is a stupid place to build a town... it’s almost like they knew what would happen, like the whole thing’s just some government experiment to see how long we’ll last. Anyway, I haul the bucket up and fill my flask with the precious liquid.</p>
+                <p>Fully prepared I head out. My backpack’s full so I can’t keep anything I find on the way. I just haul it out into the desert sun and hope someone else will pick up the unlabelled drugs some soul dropped before the event. Next sector I find an arm... wonderful. I consider keeping it, meat is meat after all, but it isn’t worth the risk of infection. I’d rather starve than turn into one of them.</p>',
+                '<p></p>
+                <p>Before I reach the crest of the hill into sector 2/3 I crash out. I’m half-starved, exhausted and wherever I go I hear shuffling and moaning in the desert winds. Fuck it, it’s time for the twinoid. Maybe I can’t face reality but, hey, who needs reality when it looks like this? I put the pill in my mouth and swallow it with a sip of precious water. That’s better...</p>
+                <p>The colours of the desert look sharper, the heat feels more intense but more bearable - like a searing hot bath, at once too hot and satisfyingly cleansing. I can feel the blood pulsing in my head, like the beat of the nightclubs used to be before... before what? Before the blood and the death and the drugs and the sweet oblivion that spares us the pain of knowing genuine oblivion is just around the corner. I haul myself to my feet, get the battery launcher out of my bag and prepare to waste some of those monsters.</p>',
+                '<p></p>
+                <p>I crest the hill and I see the guy who called for help, Rob. I don’t know him well, I don’t know any of them well, but I’ve seen him around. Good guy, helped build the workshop, but if he’s out here in the desert alone he can’t be that bright. He’s fending off six zombies, desperately forcing them back with some old bit of pipe he found. The twinoid takes me and I... I start to dance to the beat. I’m dancing and singing and I can’t help it, the drug’s like a force driving my body to actions I never thought it would perform again... <strong>[contd...]</strong></p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "written"
+        ],
+        "swefae_en" => [
+            "title" => "Eulogy for an Empire",
+            "author" => "Soundwave",
+            "content" => [
+                '<p>That which has transpired takes no turn.
+                And so, we will vanish into the darkness
+                and fade away but utterly
+                until naught but silence remains.</p>
+                <br>
+                <p>No more will our voices be heard;
+                another light goes out in civilisation.
+                No more merriment, nary a laugh...
+                naught but silence remains.</p>
+                <br>
+                <p>No more sadness, no more joy,
+                an end to our folly, pride births shame,
+                a long walk into the desert
+                until none remembers our name.</p>
+                <br>
+                <p>We fought, we struggled and more
+                until lifeless hands tore us asunder.
+                We are now gone, we are no one,
+                none remembers our name.</p>',
+                '<br>
+                <p>Forty souls stood valiantly
+                against the undead thousand.
+                Think not poorly of us,
+                but gently breathe our names.</p>
+                <br>
+                <p>It is with joy that I put down this pen
+                for from it, hope springs anew
+                in you, my unknown friend
+                because now, you know us too...</p>
+                <br>
+                <br>
+                Soundwave - Oct 7, 2011'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "typed"
+        ],
+        "citya2_en" => [
+            "title" => "Happy Harry's Horoscope: 2",
+            "author" => "TheMentalist",
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Aries</h1>
+                <p>You\'re not as interesting as you think you are. Your shyness reads as arrogance. Your friends quip about your insecurities, which are obvious.</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "typed"
+        ],
+        "code1_en" => [
+            "title" => "Illegible Note",
+            "author" => null,
+            "content" => [
+                '<p><strong>-1</strong></p>
+                <p>oktr qhdm m drs rtq</p>
+                <p>st cnhr pthssdq kz uhkkd zt oktr uhsd</p>
+                <p>hkr rnms sntr cdudmtr entr hbh</p>
+                <p>qdsqntud lnh z kz uhdhkkd onlod gxcqztkhptd z bhmp gdtqdr</p>
+                <p>hk x z tmd lnsn bzbgdd kz azr</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
+        "stpat5_en" => [
+            "title" => "Irish Proverbs",
+            "author" => "Various",
+            "content" => [
+                '<br><br>
+                <p>Drink is the curse of the land. It makes you fight with your neighbor. It makes you shoot at your landlord, and it makes you miss him.</p><br>	
+                <p>Your feet will bring you where your heart is.</p><br>
+                <p>An Irishman is never drunk as long as he can hold onto one blade of grass and not fall off the face of the earth. </p><br>
+                <p>God is good, but never dance in a small boat.</p><br>',
+                '<br><br>
+                <p>It is better to be a coward for a minute than dead the rest of your life. </p><br>
+                <p>May misfortune follow you the rest of your life, but never catch up. </p><br>
+                <p>Here\'s to all of the women who have used me and abused me... and may they continue to do so! </p>
+                <br><br>
+                <p> - A selection of Irish sayings and proverbs</p>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
+        ],
+        "nwyrjk_en" => [
+            "title" => "January 1",
+            "author" => "JKudlick",
+            "content" => [
+                '<h1>January 1</h1>
+                <p>We had one hell of a celebration last night. One of the other citizens found some old fireworks while scavenging the desert yesterday. When he came back, we gave him the last bottle of “Wake the Dead” we pilfered from the Shady Bar. While he got sloshed, the rest of us went to work making additions to the wall.</p>
+                <br>
+                <p>The horde attacked at midnight. But this time, rather than cowering in our tents, we counted down until the attack. At midnight, we shot off the fireworks. Not into the sky, but into the horde. It turns out explosives work as well as water to kill the zeds. It’s fun watching them writhe around while their legs are a hundred feet away. Happy New Year.</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "letter"
+        ],
+        "nelly_en" => [
+            "title" => "Letter to Nelly",
+            "author" => "aera10",
+            "content" => [
+                '<p>Dear Nelly,</p>
+                <p>I am writing to you as I can\'t live in my town any longer.</p>
+                <p>There has been no electricity in town for days now, the Internet doesn\'t work, phone lines are down and there is no mobile signal. Worst of all, there are strange things happening. Some routes have been cut off by gigantic rocks which came out of nowhere.</p>
+                <p>Yesterday I saw a man, well, I\'m not all that sure if it was a man... it was a strange creature wrapped in a curtain, rummaging in the garbage. He limped along towards that crazy woman\'s apartment which was two buildings away. She was found torn to pieces this morning. I posted this letter from a neighbouring town. I\'m only sending you this to warn you of my arrival.</p>
+                <p>By the time you read this letter, I\'ll be well on my way. </p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
+        "mjtjrs_en" => [
+            "title" => "Miserable Junctions Journal",
+            "author" => "Rassalon",
+            "content" => [
+                '<br>
+                <h1>Day 21 since "The Event"</h1>
+                <p>Today marks the 21st day since the event that spawned the end of the world. We\'ll probably never know what actually happened, but I am proud to say we\'ve done our best.</p>
+                <p>We\'ve been unable to contact anyone else, so it looks like we are the last survivors of this disaster, though not for much longer. Looking out over the ramparts, I can see thousands of the undead gathering for their attack. Our defenses, which have stood so admirably and prevented a single zombie from entering the town will not be enough.</p>
+                <p>I wanted to be sure some record of our epic struggle survives, even if we don\'t. There are too many people to mention all by name, but I will name a few.</p>',
+                '<p>Our leader, HarryPot never let us lay still and never let us give up. It was his vision and direction that kept us focused, even when we disagreed.</p>
+                <p>Our zombie squad hunters: Raynor, Zombiehunter4 and Rich, who selflessly cleared the paths that help us gather much needed supplies.</p>
+                <p>Lastly, all the brave souls who ventured into the great beyond to gather the supplies and fortify the defenses.</p>
+                <p>I shall be proud to defend these people with my last breath.</p>
+                <p>-Rassalon</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "pcrsh1_en" => [
+            "title" => "Polycarbonate Riot Shield",
+            "author" => "Workshop",
+            "content" => [
+                '<h1>Polycarbonate Riot Shield</h1>
+                <h2>Series #0418SP, Model MT</h2>
+                <ul>
+                <li>Lightweight protection device</li> 
+                <li>Reinforced central area</li> 
+                <li>Ideal for all your desert security needs.</li> 
+                <li>Cup holder optional.</li>
+                <li>Easily washable - no blood on your hands!</li>
+                <li>6 months warranty (extendable).</li>
+                </ul>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "ad"
+        ],
+        "utpia1_en" => [
+            "title" => "Rough Draft",
+            "author" => null,
+            "content" => [
+                '<p>The guy was sure<strike>ly right</strike>. Coordinates (approx): <strike>210</strike>125 North 210 West. </p>
+                <p>To do:</p>
+                <ul>
+                <li>vehicle (search the parking lot in the north)</li>
+                <li>wa<strike>ter (15 litres)</strike></li>
+                <li>provisions (find Bretov\'s house; watch out for infection)</li>
+                <li>"Citadel" ? What is this ??</li>
+                </ul>
+                <p>Need to find the <strong>I-40</strong>...<strike>that IS</strike>the way.</p>
+                <p>the r<strike>av</strike>en???!? Who is the ra<strike>ve</strike>n ? <strike>find out who they are</strike>MUST KILL<strike></strike></p><strike>
+                <quote>Meeting @ 16h !!!</quote>
+                <p>find <strong>CITADEL</strong></p>
+                </strike>'
+            ],
+            "lang" => "en",
+            "background" => "secret",
+            "design" => "small"
+        ],
+        "stprd5_en" => [
+            "title" => "The 3rd Limerick",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>There once was an old man from Lyme,<br><br>
+                Who married three wives at a time,<br><br>
+                Whe asked, "Why a third?"<br><br>
+                He replied, "One\'s absurd!,<br><br>
+                and bigamy, sir, is a crime!"<br><br><br><br>
+                Happy St Patrick\'s Day!</center>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "recip1_en" => [
+            "title" => "Twinoid Label",
+            "author" => null,
+            "content" => [
+                '<h1>Twinoid 500mg</h1>
+                <table>
+                <tbody><tr><td>Anabolic Steroids</td><td>0.70 %</td></tr>
+                <tr><td>Allium Citrate</td><td>0.03 %</td></tr>
+                <tr><td>Nitroglycerine</td><td>3.0 %</td></tr>
+                <tr><td>Octanitrocubane</td><td>4.0 %</td></tr>
+                <tr><td>Mercury Fulminate</td><td>2.5 %</td></tr>
+                <tr><td>Perchlorate</td><td>0.02 %</td></tr>
+                <tr><td>Lead Acetate</td><td>3.00 %</td></tr>
+                <tr><td>RDX</td><td>0.02 %</td></tr>
+                <tr><td>Pomegranate Extract</td><td>86.73 %</td></tr>
+                </tbody></table>
+                <p><small>Warning: this medication contains certain active ingredients which may cause side effects including: acne, vomiting, convulsions, violent death and explosion. </small></p>
+                <p><small>Caution: Highly Inflammable.</small></p>'
+            ],
+            "lang" => "en",
+            "background" => "stamp",
+            "design" => "stamp"
+        ],
+        "bjhtcx_en" => [
+            "title" => "Unlucky this time...",
+            "author" => null,
+            "content" => [
+                '<h1>Unlucky, you didn\'t win this time...</h1>
+                <blockquote>
+                <p></p><center>But maybe you will win the next time you purchase any other classic Bill Jerone products!<br>Coming soon: Bill Jerone Bikini Line Chainsaws and Hadron Colliders .</center><p></p>
+                </blockquote>
+                <small>When you\'re short on time and cash, sometimes you gotta Bill Jerone!</small>
+                <small><strong>As always Bill accepts no responsibility for loss of life or limbs arising from use of this product</strong></small>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
         ],
     ];
 

@@ -104,7 +104,7 @@
       <notes>
         <note category="german">Hallo %name%!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hallo %name%!</source>
         <target>¡Hola %name%!</target>
       </segment>
@@ -122,7 +122,7 @@
       <notes>
         <note category="german">Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
         <target>Por favor ingresa el código de verificación que ha sido enviado a tu dirección de e-mail.</target>
       </segment>
@@ -140,7 +140,7 @@
       <notes>
         <note category="german">Prüfen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Prüfen</source>
         <target>Validar</target>
       </segment>
@@ -158,7 +158,7 @@
       <notes>
         <note category="german">Du hast noch keinen Account?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast noch keinen Account?</source>
         <target>¿Aún no tienes una cuenta?</target>
       </segment>
@@ -167,7 +167,7 @@
       <notes>
         <note category="german">Registrieren!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Registrieren!</source>
         <target>¡Regístrate!</target>
       </segment>
@@ -176,7 +176,7 @@
       <notes>
         <note category="german">Du hast deine E-Mail Adresse schon validiert?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast deine E-Mail Adresse schon validiert?</source>
         <target>¿Ya has validado tu dirección de e-mail?</target>
       </segment>
@@ -185,7 +185,7 @@
       <notes>
         <note category="german">Einloggen!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einloggen!</source>
         <target>¡Ingresa!</target>
       </segment>
@@ -203,7 +203,7 @@
       <notes>
         <note category="german">Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
         <target>Algunos campos no fueron completados correctamente. Por favor revisa lo ingresado.</target>
       </segment>
@@ -212,7 +212,7 @@
       <notes>
         <note category="german">Registrieren</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Registrieren</source>
         <target>Registrarse</target>
       </segment>
@@ -278,7 +278,7 @@
       <notes>
         <note category="german">Einloggen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einloggen</source>
         <target>Ingresar</target>
       </segment>
@@ -289,14 +289,14 @@
       </notes>
       <segment>
         <source>Bitte gib deinen Spielernamen und dein Passwort ein.</source>
-        <target>Por favor ingresa tu nombre de usuario y contraseña.</target>
+        <target>Por favor, ingresa tu nombre de usuario y contraseña.</target>
       </segment>
     </unit>
     <unit id="ku3di7g" name="Login fehlgeschlagen. Bitte prüfe deine Eingaben.">
       <notes>
         <note category="german">Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
         <target>El identificador o la contraseña no son válidos.</target>
       </segment>
@@ -307,7 +307,7 @@
       </notes>
       <segment>
         <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
-        <target><![CDATA[Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.]]></target>
+        <target><![CDATA[El nombre no puede contener espacios ni "$", "<" o ">".]]></target>
       </segment>
     </unit>
     <unit id="ZJtAei3" name="f062e66">
@@ -316,7 +316,7 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
-        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+        <target>Tu contraseña ha sido cambiada con éxito. Inicia sesión con tu nueva contraseña.</target>
       </segment>
     </unit>
     <unit id="U4wx4AP" name="13f0f8d">
@@ -325,7 +325,7 @@
       </notes>
       <segment>
         <source>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
-        <target>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</target>
+        <target>Adiós, %name%. Te echaremos de menos y esperamos que vuelvas de nuevo.</target>
       </segment>
     </unit>
     <unit id="e99uiXA" name="Aktuelles Passwort">
@@ -334,7 +334,7 @@
       </notes>
       <segment>
         <source>Aktuelles Passwort</source>
-        <target>Aktuelles Passwort</target>
+        <target>Contraseña actual</target>
       </segment>
     </unit>
     <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
@@ -343,7 +343,7 @@
       </notes>
       <segment>
         <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
-        <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
+        <target>He leído la política de privacidad y la acepto.</target>
       </segment>
     </unit>
     <unit id="eO_T4uw" name="Passwort vergessen?">
@@ -352,7 +352,7 @@
       </notes>
       <segment>
         <source>Passwort vergessen?</source>
-        <target>Passwort vergessen?</target>
+        <target>¿Has olvidado tu contraseña?</target>
       </segment>
     </unit>
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
@@ -361,7 +361,7 @@
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
-        <target>Passwort zurücksetzen</target>
+        <target>Restablecer contraseña</target>
       </segment>
     </unit>
     <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
@@ -370,7 +370,7 @@
       </notes>
       <segment>
         <source>Bitte gib ein neues Passwort ein.</source>
-        <target>Bitte gib ein neues Passwort ein.</target>
+        <target>Introduce tu nueva contraseña.</target>
       </segment>
     </unit>
     <unit id="lTbuIE7" name="Bitte gib deine E-Mail Adresse ein.">
@@ -379,7 +379,7 @@
       </notes>
       <segment>
         <source>Bitte gib deine E-Mail Adresse ein.</source>
-        <target>Bitte gib deine E-Mail Adresse ein.</target>
+        <target>Introduce tu dirección de email.</target>
       </segment>
     </unit>
     <unit id="9.8ReK8" name="Abbrechen">
@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>Abbrechen</source>
-        <target>Abbrechen</target>
+        <target>Cancelar</target>
       </segment>
     </unit>
   </file>

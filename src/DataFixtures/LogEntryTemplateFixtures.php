@@ -102,6 +102,13 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!', 'name'=>'citizenDeathOnWatch', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'])],
         ['text'=>'Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'name'=>'nightlyAttackWatchers', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"list",'name'=>'citizens','listType' =>'citizen'])],
 
+        ['text'=>'%attacker% hat %defender% gewalttätig angegriffen und verwundet!', 'name'=>'citizenAttackWounded', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'%attacker% hat %defender% gewalttätig angegriffen!', 'name'=>'citizenAttack', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+
+        ['text'=>'Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!', 'name'=>'citizenTownGhoulAttack', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?', 'name'=>'citizenBeyondGhoulAttack1', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=> null, 'variableTypes'=>array()],
+        ['text'=>'%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!', 'name'=>'citizenBeyondGhoulAttack2', 'type'=> LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?', 'name'=>'citizenDisposalGhoul', 'type'=> LogEntryTemplate::TypeHome, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=> LogEntryTemplate::TypeCitizens, 'variableTypes'=>array()],
 
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
@@ -441,7 +448,7 @@ class LogEntryTemplateFixtures extends Fixture
             ],
         ],
         ['text'=>'Was für ein Riesenschlamassel: %deaths% starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?',
-            'name'=>'gazetteTownMultiDeaths_008',
+            'name'=>'gazetteTownMultiDeaths_009',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteMultiDeaths,
             'secondaryType'=>GazetteLogEntry::RequiresDeaths,

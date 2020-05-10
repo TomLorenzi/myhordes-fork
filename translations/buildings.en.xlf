@@ -858,7 +858,7 @@
       </notes>
       <segment>
         <source>Bauhaus</source>
-        <target>Building Registry</target>
+        <target>Architect’s Study</target>
       </segment>
     </unit>
     <unit id="apLtnCI" name="be80c53">
@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>Baustellenbuch</source>
-        <target>Architect’s Study</target>
+        <target>Building Registry</target>
       </segment>
     </unit>
     <unit id="Cou_v9E" name="Galgen">
@@ -3443,6 +3443,24 @@
       <segment>
         <source>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</source>
         <target>Constructed and available for use — A place of relaxation and contemplation perfectly suited for the transition of lost souls to the other side.</target>
+      </segment>
+    </unit>
+    <unit id="R_OfhbT" name="Die Verteidigung der Stadt wird um 12% erhöht.">
+      <notes>
+        <note category="german">Die Verteidigung der Stadt wird um 12% erhöht.</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
+        <target>Die Verteidigung der Stadt wird um 12% erhöht.</target>
+      </segment>
+    </unit>
+    <unit id="ZSyuopW" name="Die Verteidigung der Stadt wird um 14% erhöht.">
+      <notes>
+        <note category="german">Die Verteidigung der Stadt wird um 14% erhöht.</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
+        <target>Die Verteidigung der Stadt wird um 14% erhöht.</target>
       </segment>
     </unit>
   </file>

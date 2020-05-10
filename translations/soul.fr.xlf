@@ -429,7 +429,7 @@
     </unit>
     <unit id="mUtATjH" name="1de0d19">
       <notes>
-        <note category="german">Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</note>
+        <note category="german">This password is incorrect. To delete your account, please enter your current password.</note>
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>

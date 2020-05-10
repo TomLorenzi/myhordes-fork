@@ -501,7 +501,7 @@
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
       <notes>
-        <note category="german">Rôle par défaut dans le forum</note>
+        <note category="german">Standardrolle im Forum</note>
       </notes>
       <segment>
         <source>Standardrolle im Forum</source>
@@ -510,7 +510,7 @@
     </unit>
     <unit id="uqXS6rA" name="Standardmäßig als dev posten">
       <notes>
-        <note category="german">Poster comme développeur par défaut</note>
+        <note category="german">Standardmäßig als dev posten</note>
       </notes>
       <segment>
         <source>Standardmäßig als dev posten</source>
@@ -564,7 +564,7 @@
     </unit>
     <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
       <notes>
-        <note category="german">There's still alive citizens in this town...</note>
+        <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
       </notes>
       <segment>
         <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>

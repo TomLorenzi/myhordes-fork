@@ -220,8 +220,8 @@ class ForumController extends AbstractController
         return ['nodes' => $r, 'attribs' => self::HTML_ATTRIB_ALLOWED];
     }
 
-    private function htmlValidator( array $allowedNodes, DOMNode $node, int &$text_length, int $depth = 0 ): bool {
-        if ($depth > 32) return false;
+    private function htmlValidator( array $allowedNodes, ?DOMNode $node, int &$text_length, int $depth = 0 ): bool {
+        if (!$node || $depth > 32) return false;
 
         if ($node->nodeType === XML_ELEMENT_NODE) {
 
@@ -368,7 +368,7 @@ class ForumController extends AbstractController
 
         $this->emote_cache = [];
         $repo = $this->entityManager->getRepository(Emotes::class);
-        foreach($repo->findAll() as $value)
+        foreach($repo->getDefaultEmotes() as $value)
             /** @var $value Emotes */
             $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
         return $this->emote_cache;
@@ -425,7 +425,7 @@ class ForumController extends AbstractController
             $type = "USER";
         }
 
-        if (mb_strlen($text) < 10 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+        if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
 
@@ -438,7 +438,7 @@ class ForumController extends AbstractController
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($tx_len < 10) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
         $thread->addPost($post)->setLastPost( $post->getDate() );
         $forum->addThread($thread);
 
@@ -504,8 +504,6 @@ class ForumController extends AbstractController
             $type = "USER";
         }
 
-        if (mb_strlen(strip_tags($text)) < 10 || mb_strlen(strip_tags($text)) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
-
         $post = (new Post())
             ->setOwner( $user )
             ->setText( $text )
@@ -515,7 +513,9 @@ class ForumController extends AbstractController
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        //if ($tx_len < 10) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
         $thread->addPost($post)->setLastPost( $post->getDate() );
         if ($forum->getTown()) {
             foreach ($forum->getTown()->getCitizens() as $citizen)

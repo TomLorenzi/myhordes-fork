@@ -43,9 +43,28 @@ class CitizenRole
      */
     private $icon;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $secret;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hidden;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $votable;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $message;
+
     public function __construct()
     {
-        $this->roleItems = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,6 +104,54 @@ class CitizenRole
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getSecret(): ?bool
+    {
+        return $this->secret;
+    }
+
+    public function setSecret(bool $secret): self
+    {
+        $this->secret = $secret;
+
+        return $this;
+    }
+
+    public function getHidden(): ?bool
+    {
+        return $this->hidden;
+    }
+
+    public function setHidden(bool $hidden): self
+    {
+        $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    public function getVotable(): ?bool
+    {
+        return $this->votable;
+    }
+
+    public function setVotable(bool $votable): self
+    {
+        $this->votable = $votable;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(?string $message): self
+    {
+        $this->message = $message;
 
         return $this;
     }

@@ -1,5 +1,6 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block content %}
+    {# @var citizen \App\Entity\Citizen #}
     {% set hour = "now"|date("G") %}
     <div class="row">
         <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
@@ -9,13 +10,13 @@
             <div class="tab-link" x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
         </li>
         {% if not citizen.town.chaos %}
-        {% for name,role in votesNeeded %}
-            {% if role %}
-            <li class="cell rw-3 tab">
-                <div class="tab-link" x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}"><img src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}</div>
-            </li>
-            {% endif %}
-        {% endfor %}
+            {% for name,role in votesNeeded %}
+                {% if role %}
+                <li class="cell rw-3 tab">
+                    <div class="tab-link" x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}"><img src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}</div>
+                </li>
+                {% endif %}
+            {% endfor %}
         {% endif %}
     </ul>
 
@@ -29,7 +30,7 @@
             {% set citizen = citizenInfo.citizen %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row pointer{% if citizen == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
-                <div class="cell-small rw-5 rw-lg-0" style="background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/empty_avatar.gif') }}') center/cover no-repeat; height: 33px;">
+                <div class="cell-small rw-5 rw-lg-0" style="background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/empty_avatar.gif') }}') center/cover no-repeat;">
 
                 </div>
 
@@ -64,7 +65,9 @@
                         <b class="citizen-name">{{ citizen.user.username }}</b>
                         {% if citizen.alive %}
                             {% for role in citizen.roles %}
-                                <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                {% if not role.secret and not role.hidden %}
+                                    <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                {% endif %}
                             {% endfor %}
                         {% endif %}
                     </div>

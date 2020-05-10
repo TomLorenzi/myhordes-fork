@@ -92,7 +92,9 @@
             <div id="gazette-role-list">
             {% for citizenWithRole in citizenWithRole %}
                 {% for role in citizenWithRole.roles %}
-                    <p><img src="{{ asset('build/images/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.username ~ "</strong>"} , 'game')|raw }}</p>
+                    {% if not role.secret and not role.hidden %}
+                        <p><img alt="" src="{{ asset('build/images/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.username ~ "</strong>"} , 'game')|raw }}</p>
+                    {% endif %}
                 {% endfor %}
             {% endfor %}
             </div>
