@@ -34,10 +34,15 @@ bin/console app:debug --fill-town <town.id>
 # Schedule an attack
 bin/console app:schedule --add "tomorrow"
 
-# Run the attack
-bin/console app:schedule --now
-# Or, to make the attack now
+# Schedule the attack now
 bin/console app:schedule --add "now"
+# Run the scheduled attack
+bin/console app:schedule --now
+# Add -vvv for verbose output
+bin/console app:schedule --now -vvv
+
+# Don't let debug users die
+bin/console app:debug everyone-drink <town.id>
 
 
 # Every commands
