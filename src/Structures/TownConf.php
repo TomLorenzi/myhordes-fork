@@ -19,6 +19,8 @@ class TownConf extends Conf
     const CONF_DEFAULT_CHEST_ITEMS   = 'initial_chest';
     const CONF_DISTRIBUTION_DISTANCE = 'distribution_distance';
 
+    const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
+
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
     const CONF_MODIFIER_POISON_TRANS         = 'modifiers.poison.transgress';
     const CONF_MODIFIER_WT_THRESHOLD         = 'modifiers.watchtower_estimation_threshold';

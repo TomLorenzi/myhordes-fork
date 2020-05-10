@@ -548,7 +548,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>You cannot take any more items out of the bank for a while.</target>
+        <target>This action is blocked for approximately 15 minutes (anti-abuse system).</target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
