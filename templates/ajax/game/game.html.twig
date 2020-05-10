@@ -23,7 +23,7 @@
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
             {% endfor %}
             {% if rucksack.items|length < rucksack_size %}
-                {% for i in range(0, rucksack_size - rucksack.items|length - 1) %}
+                {% for i in range(0, rucksack_size - rucksack.items|length - 1)%}
                     <li class="free"></li>
                 {% endfor %}
             {% endif %}
