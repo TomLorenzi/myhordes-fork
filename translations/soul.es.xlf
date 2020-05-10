@@ -95,135 +95,135 @@
       <notes>
         <note category="german">Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
-        <target>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</target>
+        <target>Este servidor no está configurado para procesar avatares.</target>
       </segment>
     </unit>
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
-        <target>Dieses Dateiformat wird nicht unterstützt.</target>
+        <target>Este formato no es compatible con los admitidos.</target>
       </segment>
     </unit>
     <unit id="W6NI6B_" name="Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.">
       <notes>
         <note category="german">Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
-        <target>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</target>
+        <target>El archivo seleccionado está dañado y no se puede procesar.</target>
       </segment>
     </unit>
     <unit id="WocA7cM" name="79a6053">
       <notes>
         <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
-        <target>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</target>
+        <target>El servidor no puede comprimir la imagen seleccionada al tamaño de archivo requerido.</target>
       </segment>
     </unit>
     <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
       <notes>
         <note category="german">Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
-        <target>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</target>
+        <target>Ha ocurrido un error interno al procesar la imagen.</target>
       </segment>
     </unit>
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Datei ist zu groß.</source>
-        <target>Die Datei ist zu groß.</target>
+        <target>El archivo es demasiado grande.</target>
       </segment>
     </unit>
     <unit id="WrQqCAs" name="Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.">
       <notes>
         <note category="german">Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
-        <target>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</target>
+        <target>La resolución de la imagen no es apta para usarla como avatar.</target>
       </segment>
     </unit>
     <unit id="EZLjPxc" name="f6fa7cb">
       <notes>
         <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
-        <target>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</target>
+        <target>La contraseña ingresada es incorrecta. Necesitas tu contraseña actual para editar tu cuenta.</target>
       </segment>
     </unit>
     <unit id="jhO4n0e" name="Dein Profil">
       <notes>
         <note category="german">Dein Profil</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dein Profil</source>
-        <target>Dein Profil</target>
+        <target>Tu perfil</target>
       </segment>
     </unit>
     <unit id="Mi9Pj.n" name="Normale Anzeige">
       <notes>
         <note category="german">Normale Anzeige</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Normale Anzeige</source>
-        <target>Normale Anzeige</target>
+        <target>Vista de avatar normal</target>
       </segment>
     </unit>
     <unit id="iiZH1u9" name="Komprimierte Anzeige">
       <notes>
         <note category="german">Komprimierte Anzeige</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Komprimierte Anzeige</source>
-        <target>Komprimierte Anzeige</target>
+        <target>Vista de avatar reducido</target>
       </segment>
     </unit>
     <unit id="d_VqAwc" name="9b2af61">
       <notes>
         <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
-        <target>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</target>
+        <target>Para que los demás jugadores puedan reconocerte más fácilmente, puede subir un avatar aquí.</target>
       </segment>
     </unit>
     <unit id="C.B17ya" name="Neues Profilbild hochladen">
       <notes>
         <note category="german">Neues Profilbild hochladen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neues Profilbild hochladen</source>
-        <target>Neues Profilbild hochladen</target>
+        <target>Subir avatar nuevo</target>
       </segment>
     </unit>
     <unit id="uBrCxGO" name="Profilbild löschen">
       <notes>
         <note category="german">Profilbild löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Profilbild löschen</source>
-        <target>Profilbild löschen</target>
+        <target>Eliminar avatar</target>
       </segment>
     </unit>
     <unit id="ZtpVK6q" name="Komprimierte Anzeige bearbeiten">
       <notes>
         <note category="german">Komprimierte Anzeige bearbeiten</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Komprimierte Anzeige bearbeiten</source>
-        <target>Komprimierte Anzeige bearbeiten</target>
+        <target>Editar vista de avatar reducido</target>
       </segment>
     </unit>
     <unit id="Af7eIx8" name="b0c95ed">
@@ -231,344 +231,344 @@
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+        <target>Elige qué parte de tu avatar se usa para el avatar reducido.
+                                    Mueve la sección con el ratón y amplíala o redúcela con la rueda del ratón</target>
       </segment>
     </unit>
     <unit id="37GuQ5_" name="Profilbild hochladen">
       <notes>
         <note category="german">Profilbild hochladen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Profilbild hochladen</source>
-        <target>Profilbild hochladen</target>
+        <target>Subir un avatar</target>
       </segment>
     </unit>
     <unit id="HaejtO6" name="Darstellung">
       <notes>
         <note category="german">Darstellung</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Darstellung</source>
-        <target>Darstellung</target>
+        <target>Presentación</target>
       </segment>
     </unit>
     <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
       <notes>
         <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
-        <target>Bevorzugt komprimierte Profilbilder anzeigen</target>
+        <target>Mostrar avatar reducido</target>
       </segment>
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
       <notes>
         <note category="german">Standardrolle im Forum</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Standardrolle im Forum</source>
-        <target>Standardrolle im Forum</target>
+        <target>Rol por defecto en el foro</target>
       </segment>
     </unit>
     <unit id="uqXS6rA" name="Standardmäßig als dev posten">
       <notes>
         <note category="german">Standardmäßig als dev posten</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Standardmäßig als dev posten</source>
-        <target>Standardmäßig als dev posten</target>
+        <target>Publicar por defecto como desarrollador</target>
       </segment>
     </unit>
     <unit id="mjphdzq" name="Login und Sicherheit">
       <notes>
         <note category="german">Login und Sicherheit</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Login und Sicherheit</source>
-        <target>Login und Sicherheit</target>
+        <target>Inicio de sesión y seguridad</target>
       </segment>
     </unit>
     <unit id="TabP5k8" name="Passwort ändern">
       <notes>
         <note category="german">Passwort ändern</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Passwort ändern</source>
-        <target>Passwort ändern</target>
+        <target>Cambiar contraseña</target>
       </segment>
     </unit>
     <unit id="iLulTXC" name="Neues Passwort">
       <notes>
         <note category="german">Neues Passwort</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neues Passwort</source>
-        <target>Neues Passwort</target>
+        <target>Nueva contraseña</target>
       </segment>
     </unit>
     <unit id="Icwc1Fo" name="Neues Passwort wiederholen">
       <notes>
         <note category="german">Neues Passwort wiederholen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neues Passwort wiederholen</source>
-        <target>Neues Passwort wiederholen</target>
+        <target>Repetir nueva contraseña</target>
       </segment>
     </unit>
     <unit id="e99uiXA" name="Aktuelles Passwort">
       <notes>
         <note category="german">Aktuelles Passwort</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Aktuelles Passwort</source>
-        <target>Aktuelles Passwort</target>
+        <target>Contraseña actual</target>
       </segment>
     </unit>
     <unit id="wIQ05bj" name="Passwort aktualisieren">
       <notes>
         <note category="german">Passwort aktualisieren</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Passwort aktualisieren</source>
-        <target>Passwort aktualisieren</target>
+        <target>Actualizar contraseña</target>
       </segment>
     </unit>
     <unit id="YDybxz8" name="Standardsprache">
       <notes>
         <note category="german">Standardsprache</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Standardsprache</source>
-        <target>Standardsprache</target>
+        <target>Idioma por defecto</target>
       </segment>
     </unit>
     <unit id="gBz_D6E" name="Deutsch">
       <notes>
         <note category="german">Deutsch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deutsch</source>
-        <target>Deutsch</target>
+        <target>Alemán</target>
       </segment>
     </unit>
     <unit id="vp_4VdN" name="Französisch">
       <notes>
         <note category="german">Französisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Französisch</source>
-        <target>Französisch</target>
+        <target>Francés</target>
       </segment>
     </unit>
     <unit id="mD6lfyI" name="Englisch">
       <notes>
         <note category="german">Englisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Englisch</source>
-        <target>Englisch</target>
+        <target>Inglés</target>
       </segment>
     </unit>
     <unit id="bjgV6Xr" name="Spanisch">
       <notes>
         <note category="german">Spanisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Spanisch</source>
-        <target>Spanisch</target>
+        <target>Español</target>
       </segment>
     </unit>
     <unit id="fuUze6t" name="Externe Anwendungen">
       <notes>
         <note category="german">Externe Anwendungen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Externe Anwendungen</source>
-        <target>Externe Anwendungen</target>
+        <target>Aplicaciones externas</target>
       </segment>
     </unit>
     <unit id="HbhZq4U" name="Account löschen">
       <notes>
         <note category="german">Account löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Account löschen</source>
-        <target>Account löschen</target>
+        <target>Eliminar cuenta</target>
       </segment>
     </unit>
     <unit id="q58CKHC" name="Meinen Account löschen">
       <notes>
         <note category="german">Meinen Account löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Meinen Account löschen</source>
-        <target>Meinen Account löschen</target>
+        <target>Eliminar mi cuenta</target>
       </segment>
     </unit>
     <unit id="LS.JtiE" name="c5a39bb">
       <notes>
         <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
-        <target>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</target>
+        <target>¿Estás seguro de querer eliminar tu cuenta? ¡Esta acción es irreversible!</target>
       </segment>
     </unit>
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bitte wähle nur eine einzige Datei aus.</source>
-        <target>Bitte wähle nur eine einzige Datei aus.</target>
+        <target>Por favor, selecciona un solo archivo.</target>
       </segment>
     </unit>
     <unit id="KJJicse" name="36b050a">
       <notes>
         <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</source>
-        <target>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</target>
+        <target>Este documento contiene varias páginas. Haz clic para pasar a la página siguiente...</target>
       </segment>
     </unit>
     <unit id="boYEw93" name="Vorherige Seite">
       <notes>
         <note category="german">Vorherige Seite</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Vorherige Seite</source>
-        <target>Vorherige Seite</target>
+        <target>Página anterior</target>
       </segment>
     </unit>
     <unit id="hc2Xbgb" name="Nächste Seite">
       <notes>
         <note category="german">Nächste Seite</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Nächste Seite</source>
-        <target>Nächste Seite</target>
+        <target>Página siguiente</target>
       </segment>
     </unit>
     <unit id="MCPpLdD" name="Redakteur:">
       <notes>
         <note category="german">Redakteur:</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Redakteur:</source>
-        <target>Redakteur:</target>
+        <target>Autor:</target>
       </segment>
     </unit>
     <unit id="EpWptWk" name="Schriften">
       <notes>
         <note category="german">Schriften</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schriften</source>
-        <target>Schriften</target>
+        <target>Escritos</target>
       </segment>
     </unit>
     <unit id="q.Y8zXe" name="787b8ea">
       <notes>
         <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
-        <target>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</target>
+        <target>La historia del mundo no es más que una serie de epopeyas...</target>
       </segment>
     </unit>
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Titel</source>
-        <target>Titel</target>
+        <target>Título</target>
       </segment>
     </unit>
     <unit id="PHUagJt" name="Entdeckt">
       <notes>
         <note category="german">Entdeckt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Entdeckt</source>
-        <target>Entdeckt</target>
+        <target>Descubierto</target>
       </segment>
     </unit>
     <unit id="fUgR4gE" name="Gefundene Texte: %count%">
       <notes>
         <note category="german">Gefundene Texte: %count%</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Gefundene Texte: %count%</source>
-        <target>Gefundene Texte: %count%</target>
+        <target>Textos descubiertos: %count%</target>
       </segment>
     </unit>
     <unit id="elfn6js" name="Einen Kommentar hinzufügen">
       <notes>
         <note category="german">Einen Kommentar hinzufügen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einen Kommentar hinzufügen</source>
-        <target>Einen Kommentar hinzufügen</target>
+        <target>Agregar un comentario</target>
       </segment>
     </unit>
     <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
       <notes>
         <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
-        <target>Es sind in dieser Stadt noch ein paar Bürger übrig...</target>
+        <target>Aún quedan supervivientes en este pueblo...</target>
       </segment>
     </unit>
     <unit id="GiaI_3b" name="Überlebte Tage">
       <notes>
         <note category="german">Überlebte Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Überlebte Tage</source>
-        <target>Überlebte Tage</target>
+        <target>Días sobrevividos</target>
       </segment>
     </unit>
     <unit id="zY4iz3Q" name="Ergebnis">
       <notes>
         <note category="german">Ergebnis</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ergebnis</source>
-        <target>Ergebnis</target>
+        <target>Score</target>
       </segment>
     </unit>
     <unit id="FlZntyi" name="Bürger">
       <notes>
         <note category="german">Bürger</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bürger</source>
-        <target>Bürger</target>
+        <target>Habitante</target>
       </segment>
     </unit>
     <unit id="7F000hR" name="Todesursache">
       <notes>
         <note category="german">Todesursache</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Todesursache</source>
-        <target>Todesursache</target>
+        <target>Muerte</target>
       </segment>
     </unit>
     <unit id="coQifWg" name="Kommentar">
       <notes>
         <note category="german">Kommentar</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kommentar</source>
-        <target>Kommentar</target>
+        <target>Comentario</target>
       </segment>
     </unit>
   </file>
