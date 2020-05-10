@@ -354,9 +354,11 @@
                                 {% endif %}
 
                                 <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/fist.gif') }}" /></button>
+                                {% if can_devour_citizen %}
+                                    <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /></button>
+                                {% endif %}
                                 <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/escort_off.gif') }}"></button>
 
-                                
                                 {% if escort_actions[other_citizen.id] is defined %}
                                 {% for escort_action in escort_actions[other_citizen.id] %}
                                     {# @var \App\Structures\EscortItemActionSet escort_action #}
@@ -451,6 +453,9 @@
                             <div class="padded cell rw-4 right">
                                 {% if other_citizen != citizen %}
                                     <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/fist.gif') }}" /></button>
+                                    {% if can_devour_citizen %}
+                                        <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /></button>
+                                    {% endif %}
                                     {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
                                         <button {% if not citizen.profession.heroic %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/escort_in.gif') }}"></button>
                                     {% endif %}
@@ -727,6 +732,17 @@
                         $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                     } );
             });
+        {% endif %}
+
+        {% if can_devour_citizen and allow_devour_citizen %}
+        $.html.addEventListenerAll('[x-devour-citizen]', 'click', function(e,elem) {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            $.ajax.easySend( elem.getAttribute('x-devour-citizen'), {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
         {% endif %}
 
         {% if is_shaman %}

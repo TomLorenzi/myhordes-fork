@@ -293,6 +293,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'home' => $home,
             'actions' => $this->getItemActions(),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
@@ -1349,5 +1351,24 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         return $this->generic_attack_api( $citizen, $c );
+    }
+
+    /**
+     * @Route("jx/town/visit/{id}/devour", name="visit_devour_citizen", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function visit_devour_citizen(int $id): Response
+    {
+        if ($id === $this->getActiveCitizen()->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        $citizen = $this->getActiveCitizen();
+        /** @var Citizen $c */
+        $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        return $this->generic_devour_api( $citizen, $c );
     }
 }

@@ -104,6 +104,11 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'%attacker% hat %defender% gewalttätig angegriffen und verwundet!', 'name'=>'citizenAttackWounded', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
         ['text'=>'%attacker% hat %defender% gewalttätig angegriffen!', 'name'=>'citizenAttack', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
 
+        ['text'=>'Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!', 'name'=>'citizenTownGhoulAttack', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?', 'name'=>'citizenBeyondGhoulAttack1', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=> null, 'variableTypes'=>array()],
+        ['text'=>'%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!', 'name'=>'citizenBeyondGhoulAttack2', 'type'=> LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?', 'name'=>'citizenDisposalGhoul', 'type'=> LogEntryTemplate::TypeHome, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=> LogEntryTemplate::TypeCitizens, 'variableTypes'=>array()],
+
     ];
 
     private $entityManager;

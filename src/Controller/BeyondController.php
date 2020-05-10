@@ -138,6 +138,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
             'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'zone_cp' => $cp,
             'zone'  =>  $zone,
             'allow_movement' => (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden,
@@ -1120,6 +1122,25 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         return $this->generic_attack_api( $citizen, $target_citizen );
+    }
+
+    /**
+     * @Route("api/beyond/desert/devour_citizen/{cid<\d+>}", name="beyond_desert_devour_citizen_controller")
+     * @param int $cid
+     * @return Response
+     */
+    public function desert_devour_api(int $cid): Response {
+
+        $this->deferZoneUpdate();
+        $citizen = $this->getActiveCitizen();
+
+        /** @var Citizen|null $target_citizen */
+        $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
+
+        if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        return $this->generic_devour_api( $citizen, $target_citizen );
     }
 
     /**

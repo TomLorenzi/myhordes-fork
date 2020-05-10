@@ -822,8 +822,12 @@ class LogTemplateHandler
             case 3:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId(), 
                     'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
-                        else { return array('id' => $e[0]->getId()); } ;}, $items ));
+                        else { return array('id' => $e[0]->getId()); } }, $items ));
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalCremato');
+                break;
+            case 4:
+                $variables = array();
+                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalGhoul');
                 break;
             default:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
@@ -831,14 +835,12 @@ class LogTemplateHandler
                 break;
         }
 
-        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
-
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
             ->setTown( $actor->getTown() )
             ->setDay( $actor->getTown()->getDay() )
-            ->setCitizen( $actor )
+            ->setCitizen( $action != 4 ? $actor : null )
             ->setSecondaryCitizen( $disposed )
             ->setTimestamp( new DateTime('now') );
     }
@@ -1055,5 +1057,33 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $attacker )
             ->setSecondaryCitizen( $defender );
+    }
+
+    public function citizenTownGhoulAttack( Citizen $attacker, Citizen $defender ): TownLogEntry {
+        $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenTownGhoulAttack');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $attacker->getTown() )
+            ->setDay( $attacker->getTown()->getDay() )
+            ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $attacker )
+            ->setSecondaryCitizen( $defender );
+    }
+
+    public function citizenBeyondGhoulAttack( Citizen $attacker, Citizen $defender, bool $ambient  ): TownLogEntry {
+        $variables = $ambient ? [] : array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName($ambient ? 'citizenBeyondGhoulAttack1' : 'citizenBeyondGhoulAttack2');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $attacker->getTown() )
+            ->setDay( $attacker->getTown()->getDay() )
+            ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') );
     }
 }

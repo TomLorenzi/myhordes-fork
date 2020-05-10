@@ -323,8 +323,97 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         return $final;
     }
 
+    public function generic_devour_api(Citizen $aggressor, Citizen $victim) {
+        if ($aggressor->getId() === $victim->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($aggressor->getZone()) {
+            if (!$victim->getZone() || $victim->getZone()->getId() !== $aggressor->getZone()->getId())
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        } else {
+            if ($victim->getZone())
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        }
+
+        if ($this->citizen_handler->hasStatusEffect($aggressor, 'tg_ghoul_eat'))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $notes = [];
+
+        if ($victim->getAlive()) {
+
+            if ($victim->hasRole('ghoul')) {
+
+                $this->addFlash('notice', $this->translator->trans('Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!', [], 'game'));
+                return AjaxResponse::success();
+
+            }
+
+            $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['%citizen' => $victim->getUser()->getUsername()], 'game' );
+            $notes[] = $this->translator->trans( 'Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!', [], 'game' );
+
+            if ($aggressor->getZone()) {
+
+                $this->entity_manager->persist($this->log->citizenBeyondGhoulAttack($aggressor, $victim, true));
+                $this->entity_manager->persist($this->log->citizenBeyondGhoulAttack($aggressor, $victim, false));
+
+            } else {
+
+                $cc = 0;
+                foreach ($aggressor->getTown()->getCitizens() as $c)
+                    if ($c->getAlive() && !$c->getZone() && $c->getId() !== $aggressor->getId() && $c->getId() !== $victim->getId()) $cc++;
+                $cc = (float)$cc / (float)$aggressor->getTown()->getPopulation(); // Completely arbitrary
+
+                if ($this->random_generator->chance($cc)) {
+
+                    $this->entity_manager->persist($this->log->citizenTownGhoulAttack($aggressor,$victim));
+                    $notes[] = $this->translator->trans( 'Gut gemacht!', [], 'game' );
+
+                } else $notes[] = $this->translator->trans( 'Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!', [], 'game' );
+            }
+
+            $ap = $this->citizen_handler->getMaxAP($aggressor) + ($victim->getProfession()->getHeroic() ? 2 : 1);
+            if ($aggressor->getAp() < $ap)
+                $this->citizen_handler->setAP($aggressor, false, $ap, null );
+            $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 50) );
+
+            $this->death_handler->kill($victim, CauseOfDeath::GhulEaten);
+            $this->entity_manager->persist($this->log->citizenDeath( $victim ) );
+
+
+        } else {
+
+            if ($aggressor->getZone() || !$victim->getHome()->getHoldsBody())
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+            $this->entity_manager->persist( $this->log->citizenDisposal($aggressor, $victim, 4) );
+
+            $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 10) );
+            $victim->getHome()->setHoldsBody(false);
+
+
+            $notes[] = $this->translator->trans('Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.', [], 'game');
+        }
+
+        $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_eat' );
+
+        if ($notes)
+            $this->addFlash('note', implode('<hr />', $notes));
+
+        $this->entity_manager->persist($aggressor);
+        $this->entity_manager->persist($victim);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
     public function generic_attack_api(Citizen $aggressor, Citizen $defender) {
-        if ($aggressor->getId() === $defender->getId())
+        if ($aggressor->getId() === $defender->getId() || !$defender->getAlive())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($aggressor->getZone()) {

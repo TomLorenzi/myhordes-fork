@@ -191,7 +191,7 @@ class Town
     }
 
     public function getCitizenCount(): int {
-        return count($this->getCitizens());
+        return $this->getCitizens()->count();
     }
 
     public function isOpen(): bool {
