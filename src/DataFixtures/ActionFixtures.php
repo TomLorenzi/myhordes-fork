@@ -791,10 +791,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'escort' => [
             'ex_drink' => [ 'icon' => 'drink', 'label' => 'Trinken', 'actions' => [
-                'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2', 'water_g',
-                'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2', 'watercan3_g',
-                'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2', 'watercan2_g',
-                'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2', 'watercan1_g'
+                'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2',
+                'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2',
+                'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2',
+                'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2'
             ]],
             'ex_eat'   => [ 'icon' => 'eat', 'label' => 'Essen', 'actions' => [
                 'eat_6ap', 'eat_7ap'
