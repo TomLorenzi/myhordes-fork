@@ -3,8 +3,6 @@
   <file id="game.fr">
     <unit id="rn1xaB2" name="c01099c">
       <notes>
-        <note>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
-        <note>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
         <note category="german">%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
       </notes>
       <segment>
@@ -14,8 +12,6 @@
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
       <notes>
-        <note>Mist, dein Einbruch bei %victim% ist aufgeflogen...</note>
-        <note>Mist, dein Einbruch bei %victim% ist aufgeflogen...</note>
         <note category="german">Mist, dein Einbruch bei %victim% ist aufgeflogen...</note>
       </notes>
       <segment>
@@ -36,8 +32,6 @@
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
       <notes>
-        <note>Deine Route wurde gespeichert.</note>
-        <note>Deine Route wurde gespeichert.</note>
         <note category="german">Deine Route wurde gespeichert.</note>
       </notes>
       <segment>
@@ -47,8 +41,6 @@
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
       <notes>
-        <note>Du hast deine Beschreibung geändert.</note>
-        <note>Du hast deine Beschreibung geändert.</note>
         <note category="german">Du hast deine Beschreibung geändert.</note>
       </notes>
       <segment>
@@ -58,8 +50,6 @@
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
       <notes>
-        <note>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</note>
-        <note>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</note>
         <note category="german">%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</note>
       </notes>
       <segment>
