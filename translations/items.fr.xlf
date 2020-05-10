@@ -7961,34 +7961,33 @@
         <target>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</target>
       </segment>
     </unit>
-    <unit id="ZM5U_5i" name="Heilen (5AP)">
+    <unit id="ZM5U_5i" name="Heilen">
       <notes>
-        <note>Heilen (5AP)</note>
-        <note category="german">Heilen (5AP)</note>
+        <note>Heilen</note>
+        <note category="german">Heilen</note>
       </notes>
       <segment>
-        <source>Heilen (5AP)</source>
-        <target>Se soigner (5AP)</target>
+        <source>Heilen</source>
+        <target>Se soigner</target>
       </segment>
     </unit>
-    <unit id="8.uDazR" name="Heilen (6AP)">
+    <unit id="8.uDazR" name="Heilen">
       <notes>
-        <note>Heilen (6AP)</note>
-        <note category="german">Heilen (6AP)</note>
+        <note>Heilen</note>
+        <note category="german">Heilen</note>
       </notes>
       <segment>
-        <source>Heilen (6AP)</source>
-        <target>Se soigner (6AP)</target>
+        <source>Heilen</source>
+        <target>Se soigner</target>
       </segment>
     </unit>
-    <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
+    <unit id="H0NWl9b" name="Verteidigung organisieren">
       <notes>
-        <note>Verteidigung organisieren (1 AP)</note>
-        <note category="german">Verteidigung organisieren (1 AP)</note>
+        <note category="german">Verteidigung organisieren</note>
       </notes>
       <segment>
-        <source>Verteidigung organisieren (1 AP)</source>
-        <target>Verteidigung organisieren (1 AP)</target>
+        <source>Verteidigung organisieren</source>
+        <target>Organiser les défenses</target>
       </segment>
     </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
