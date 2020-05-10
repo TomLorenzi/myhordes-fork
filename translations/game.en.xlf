@@ -588,7 +588,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ist ungültig.</source>
-        <target>Diese Aktion ist ungültig.</target>
+        <target>This action is invalid.</target>
       </segment>
     </unit>
     <unit id="RvTmYTp" name="Diese Aktion ist nicht verfügbar.">
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Verschüttete Ruine</source>
-        <target>Bâtiment non déterré</target>
+        <target>Buried building</target>
       </segment>
     </unit>
     <unit id="qKBuSla" name="Zone">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>aus</source>
-        <target>Requires</target>
+        <target>requires</target>
       </segment>
     </unit>
     <unit id="SQxs_a5" name="Kombinieren">
@@ -888,7 +888,7 @@
       </notes>
       <segment>
         <source>Morgiger Angriff :</source>
-        <target>Morgiger Angriff :</target>
+        <target>Tomorrow's Attack :</target>
       </segment>
     </unit>
     <unit id="ZI5NoYl" name="Tag %day%">
@@ -978,7 +978,7 @@
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n).</source>
-        <target>Vous avez reçu %num% plaintes anonymes.</target>
+        <target>You have received %num% anonymous complaints.</target>
       </segment>
     </unit>
     <unit id="0drragL" name="4a5cb7a">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target> The column on the left lists the actions associated with your objects. The one on the right shows the contents of your rucksack and your personal chest.</target>
+        <target>The column on the left lists the actions associated with your objects. The one on the right shows the contents of your rucksack and your personal chest.</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -1290,7 +1290,7 @@
       </notes>
       <segment>
         <source>Tot!</source>
-        <target>Mort!</target>
+        <target>Dead!</target>
       </segment>
     </unit>
     <unit id="fV5wxwj" name="In der Stadt">
@@ -2758,7 +2758,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Abgelegenes Haus</source>
-        <target>Maison d'un citoyen</target>
+        <target>Citizen's Home</target>
       </segment>
     </unit>
     <unit id="BuoM8x8" name="Albi Supermarkt">
@@ -2778,7 +2778,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alte Höhle</source>
-        <target>Caverne</target>
+        <target>Once-inhabited Cave</target>
       </segment>
     </unit>
     <unit id="7N1b8YP" name="Alte Hydraulikpumpe">
@@ -2788,7 +2788,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alte Hydraulikpumpe</source>
-        <target>Vieille Pompe Hydraulique</target>
+        <target>Old Hydraulic Pump</target>
       </segment>
     </unit>
     <unit id="S85DdXs" name="Alter Fahrradverleih">
@@ -2798,7 +2798,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Alter Fahrradverleih</source>
-        <target>Alter Fahrradverleih</target>
+        <target>Old Bicycle Hire Shop</target>
       </segment>
     </unit>
     <unit id="swauljp" name="Alter Rangierbahnhof">
@@ -2818,7 +2818,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Altes Feldkrankenhaus</source>
-        <target>Altes Feldkrankenhaus</target>
+        <target>Old Field Hospital</target>
       </segment>
     </unit>
     <unit id="yKnc_Mp" name="Altes Flugfeld">
@@ -2838,7 +2838,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Altes Polizeipräsidium</source>
-        <target>Ancien commissariat</target>
+        <target>Old Police Station</target>
       </segment>
     </unit>
     <unit id="GRuqR5L" name="Atombunker">
@@ -2888,7 +2888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Bar der verlorenen Hoffnungen</source>
-        <target>Bar der verlorenen Hoffnungen</target>
+        <target>The 'Shattered Illusions' Bar</target>
       </segment>
     </unit>
     <unit id="zkW4TlC" name="Baumarkt">
@@ -2948,7 +2948,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eingestürzte Mine</source>
-        <target>Eingestürzte Mine</target>
+        <target>Collapsed Mineshaft</target>
       </segment>
     </unit>
     <unit id="qV.QEqb" name="Eingestürzter Steinbruch">
@@ -2958,7 +2958,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eingestürzter Steinbruch</source>
-        <target>Eingestürzter Steinbruch</target>
+        <target>Collapsed Quarry</target>
       </segment>
     </unit>
     <unit id="9jdPsSc" name="Ein seltsames kreisförmiges Gerät">
@@ -2968,7 +2968,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein seltsames kreisförmiges Gerät</source>
-        <target>Ein seltsames kreisförmiges Gerät</target>
+        <target>Strange Circular Device</target>
       </segment>
     </unit>
     <unit id="XbKWmCS" name="E-KEA">
@@ -3018,7 +3018,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gartenhaus</source>
-        <target>Gartenhaus</target>
+        <target>Garden Shed</target>
       </segment>
     </unit>
     <unit id=".BpYDum" name="Geplünderte Mall">
@@ -3038,7 +3038,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Höhle</source>
-        <target>Höhle</target>
+        <target>Cave</target>
       </segment>
     </unit>
     <unit id="9x03HdM" name="Indianerfriedhof">
@@ -3088,7 +3088,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kosmetiklabor</source>
-        <target>Kosmetiklabor</target>
+        <target>Cosmetics Lab</target>
       </segment>
     </unit>
     <unit id="XZBo0Eq" name="Krankenwagen">
@@ -3098,7 +3098,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Krankenwagen</source>
-        <target>Krankenwagen</target>
+        <target>Ambulance</target>
       </segment>
     </unit>
     <unit id="VGlWZjs" name="Lagerhalle">
@@ -3108,7 +3108,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Lagerhalle</source>
-        <target>Lagerhalle</target>
+        <target>Warehouse</target>
       </segment>
     </unit>
     <unit id="yAH2rE7" name="Leeres Parkhaus">
@@ -3118,7 +3118,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Leeres Parkhaus</source>
-        <target>Parking désaffecté</target>
+        <target>Disused Car Park</target>
       </segment>
     </unit>
     <unit id="PLyihQR" name="Liegengebliebener Kampfpanzer">
@@ -3128,7 +3128,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Liegengebliebener Kampfpanzer</source>
-        <target>Liegengebliebener Kampfpanzer</target>
+        <target>Broken-down Tank</target>
       </segment>
     </unit>
     <unit id="ECpLJti" name="Motel 'Dusk'">
@@ -3178,7 +3178,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Schützengraben</source>
-        <target>Schützengraben</target>
+        <target>Equipped Trench</target>
       </segment>
     </unit>
     <unit id="3XX2wLZ" name="Stadtbücherei">
@@ -3188,7 +3188,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadtbücherei</source>
-        <target>Stadtbücherei</target>
+        <target>Town Library</target>
       </segment>
     </unit>
     <unit id="mgQ86_P" name="Tante Emma Laden">
@@ -3218,7 +3218,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Umgekippter Laster</source>
-        <target>Umgekippter Laster</target>
+        <target>Wrecked Transporter</target>
       </segment>
     </unit>
     <unit id="_TTUt_P" name="Verbrannte Grundschule">
@@ -3228,7 +3228,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verbrannte Grundschule</source>
-        <target>Verbrannte Grundschule</target>
+        <target>Burnt School</target>
       </segment>
     </unit>
     <unit id="h5BzcKH" name="Verfallenes Bürogebäude">
@@ -3248,7 +3248,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verfallene Villa</source>
-        <target>Verfallene Villa</target>
+        <target>Derelict Villa</target>
       </segment>
     </unit>
     <unit id="kP_vzTg" name="Verlassene Baustelle">
@@ -3288,7 +3288,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Versperrte Straße</source>
-        <target>Versperrte Straße</target>
+        <target>Blocked Road</target>
       </segment>
     </unit>
     <unit id="12P6EOC" name="Verwilderter Park">
@@ -3298,7 +3298,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwilderter Park</source>
-        <target>Verwilderter Park</target>
+        <target>Abandoned Park</target>
       </segment>
     </unit>
     <unit id="u17l49g" name="Waffengeschäft Guns'n'Zombies">
@@ -3308,7 +3308,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Waffengeschäft Guns'n'Zombies</source>
-        <target>Waffengeschäft Guns'n'Zombies</target>
+        <target>Guns 'n' Zombies Armoury</target>
       </segment>
     </unit>
     <unit id="TcWj320" name="Warenlager">
@@ -3328,7 +3328,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zelt eines Bürgers</source>
-        <target>Zelt eines Bürgers</target>
+        <target>Citizen's Tent</target>
       </segment>
     </unit>
     <unit id="z04UYqm" name="Zerstörte Apotheke">
@@ -3338,7 +3338,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zerstörte Apotheke</source>
-        <target>Zerstörte Apotheke</target>
+        <target>Destroyed Pharmacy</target>
       </segment>
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
@@ -3348,7 +3348,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>ZomBIER Bar</source>
-        <target>ZomBIER Bar</target>
+        <target>Shady Barrikaden</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
@@ -3848,7 +3848,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nordosten</source>
-        <target>Nord-East</target>
+        <target>North-East</target>
       </segment>
     </unit>
     <unit id="R9OI7Nm" name="Nordwesten">
@@ -3858,7 +3858,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nordwesten</source>
-        <target>The North-West</target>
+        <target>North-West</target>
       </segment>
     </unit>
     <unit id="dOCvO1b" name="Norden">
@@ -3868,7 +3868,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Norden</source>
-        <target>The North</target>
+        <target>North</target>
       </segment>
     </unit>
     <unit id="ac.6Rc5" name="Südosten">
@@ -3878,7 +3878,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Südosten</source>
-        <target>The South-East</target>
+        <target>South-East</target>
       </segment>
     </unit>
     <unit id="YE0v6eT" name="Südwesten">
@@ -3888,7 +3888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Südwesten</source>
-        <target>The South-West</target>
+        <target>South-West</target>
       </segment>
     </unit>
     <unit id="qxvJIc." name="Süden">
@@ -3898,7 +3898,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Süden</source>
-        <target>The South</target>
+        <target>South</target>
       </segment>
     </unit>
     <unit id="xMKWHhf" name="Osten">
@@ -3908,7 +3908,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Osten</source>
-        <target>The East</target>
+        <target>East</target>
       </segment>
     </unit>
     <unit id="jdRT5Z5" name="Westen">
@@ -3918,7 +3918,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Westen</source>
-        <target>The West</target>
+        <target>West</target>
       </segment>
     </unit>
     <unit id="rDzEZM3" name="Bitte wähle einen Bürger:">
@@ -3928,7 +3928,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Bitte wähle einen Bürger:</source>
-        <target>Bitte wähle einen Bürger:</target>
+        <target>Please select a citizen:</target>
       </segment>
     </unit>
     <unit id="MgtBTg_" name="Es ist kein Bürger in der Nähe...">
@@ -4250,7 +4250,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unbekannte Todesursache</source>
-        <target>Unbekannte Todesursache</target>
+        <target>Unknown cause of death</target>
       </segment>
     </unit>
     <unit id="e1Jo93z" name="003c848">
@@ -4260,7 +4260,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du weist nicht, was gerade geschehen ist... plötzlich warst du einfach nicht mehr am leben.</source>
-        <target>Du weist nicht, was gerade geschehen ist... plötzlich warst du einfach nicht mehr am leben.</target>
+        <target>You don't know what just happened ... suddenly you just weren't alive.</target>
       </segment>
     </unit>
     <unit id="kyvZ2nk" name="Zombieangriff">
@@ -4270,7 +4270,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zombieangriff</source>
-        <target>Zombieangriff</target>
+        <target>Lacerated... Devoured... during the night's attack !</target>
       </segment>
     </unit>
     <unit id="M2sMvSZ" name="f2733ef">
@@ -4280,7 +4280,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hattest dich daheim eingebunkert und dachtest so überleben zu können... Als sie vor deiner Türe grunzten und schnüffelten, warst du dann mucksmäuschenstill. Leider hattest du ein Fenster nicht ausreichend vernagelt, sodass sie schließlich in dein Wohnzimmer stolperten. Vor Angst erstarrt hast du dann keinen Ton mehr rausgebracht und musstest ansehen, wie sie dich ins Schlafzimmer zerrten, um sich an deinen inneren Organen zu laben und dich langsam zu verspeisen.</source>
-        <target>Du hattest dich daheim eingebunkert und dachtest so überleben zu können... Als sie vor deiner Türe grunzten und schnüffelten, warst du dann mucksmäuschenstill. Leider hattest du ein Fenster nicht ausreichend vernagelt, sodass sie schließlich in dein Wohnzimmer stolperten. Vor Angst erstarrt hast du dann keinen Ton mehr rausgebracht und musstest ansehen, wie sie dich ins Schlafzimmer zerrten, um sich an deinen inneren Organen zu laben und dich langsam zu verspeisen.</target>
+        <target>Barricaded in your house, you had hoped they would pass by... You heard them groaning, sniffing at your door... then, nothing. A nearby window shattered. Badly boarded up no doubt... You screamed as they pinned you against your bed and devoured you slowly. Nobody came to help you. Nobody.</target>
       </segment>
     </unit>
     <unit id="0ueYgnC" name="Außerhalb der Stadt verschwunden">
@@ -4290,7 +4290,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Außerhalb der Stadt verschwunden</source>
-        <target>Außerhalb der Stadt verschwunden</target>
+        <target>Disappeared in the World Beyond during the night !</target>
       </segment>
     </unit>
     <unit id="sYsJdGM" name="0616d18">
@@ -4300,7 +4300,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kurz nach Mitternacht wurde es unheimlich still... so, als ob jegliches Leben mit einem Schlag ausgelöscht worden wäre. Die Nacht kam dir noch eisiger als sonst vor... und plötzlich sahst du sie: Dutzende, hunderte, und alle schwankten auf dich zu! Ihre Hände reckten sich nach dir. Sie ergriffen, zogen und rissen dich auseinander... Dann haben sie dich mitgenommmen und sich an dir bis zum frühen Morgen gütlich getan.</source>
-        <target>Kurz nach Mitternacht wurde es unheimlich still... so, als ob jegliches Leben mit einem Schlag ausgelöscht worden wäre. Die Nacht kam dir noch eisiger als sonst vor... und plötzlich sahst du sie: Dutzende, hunderte, und alle schwankten auf dich zu! Ihre Hände reckten sich nach dir. Sie ergriffen, zogen und rissen dich auseinander... Dann haben sie dich mitgenommmen und sich an dir bis zum frühen Morgen gütlich getan.</target>
+        <target>A little after midnight, a deathly silence fell all around you, as if all life had suddenly come to a halt. The night was icy cold... Then you saw them, dozens of them... hundreds even, meandering towards you... Their hands grasp you, grab you, pull and claw at you... Then they drag you with them throughout the night, to be devoured in the small hours.</target>
       </segment>
     </unit>
     <unit id="p0U4FCN" name="Dehydration">
@@ -4310,7 +4310,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dehydration</source>
-        <target>Dehydration</target>
+        <target>Terminal dehydration</target>
       </segment>
     </unit>
     <unit id="5BGn6z4" name="e1facf0">
@@ -4320,7 +4320,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dehydratation ist wirklich was Übles. Muskelspasmen, Atemprobleme und unaushaltbare Gliederschmerzen treten in der finalen Phase auf. Du hast nach etwas Trinkbarem gesucht - überall.... Vergeblich. Deine Mitbürger behaupten sogar, dich dabei gesehen zu haben, wie du in den letzten Minuten schaufelweise Sand in dich geschüttet hättest... Herrje...</source>
-        <target>Dehydratation ist wirklich was Übles. Muskelspasmen, Atemprobleme und unaushaltbare Gliederschmerzen treten in der finalen Phase auf. Du hast nach etwas Trinkbarem gesucht - überall.... Vergeblich. Deine Mitbürger behaupten sogar, dich dabei gesehen zu haben, wie du in den letzten Minuten schaufelweise Sand in dich geschüttet hättest... Herrje...</target>
+        <target>Lack of water is something really rough. During your last hours, your skin began to dry out and crack, and your tongue was massively swollen. You tried to find anything at all to drink, to no avail. Some said they saw you shovelling sand into your mouth with both hands before you collapsed, stone dead.</target>
       </segment>
     </unit>
     <unit id="kc3u5NU" name="Verhungert">
@@ -4330,7 +4330,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verhungert</source>
-        <target>Verhungert</target>
+        <target>Ghoul died of starvation</target>
       </segment>
     </unit>
     <unit id="qyPgKPu" name="c255c4f">
@@ -4350,7 +4350,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Drogenabhängigkeit</source>
-        <target>Drogenabhängigkeit</target>
+        <target>Withdrawal</target>
       </segment>
     </unit>
     <unit id="Ms3Esea" name="38cf02a">
@@ -4360,7 +4360,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</source>
-        <target>Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</target>
+        <target>Drugs are fine when you've got some. When your stash runs out, it's a whole other ball game... You start shaking, then your body empties its contents every ten minutes. When your dependance gets worse, you end up losing your mind. That's when you see people swallowing pebbles, thinking they've found pills.</target>
       </segment>
     </unit>
     <unit id="Ds74xh4" name="7a0d865">
@@ -4370,7 +4370,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</source>
-        <target>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</target>
+        <target>Little by little, the illness spreads inside you... Quickly, the signs of the infection start to show on your body : wounds, bruising, decomposing flesh... Up until the final agony, which lasts several hours. Death is now almost a relief.</target>
       </segment>
     </unit>
     <unit id="pVtld9L" name="Zyanid">
@@ -4380,7 +4380,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Cyanide</target>
+        <target>Suicide by ingestion of Cyanide</target>
       </segment>
     </unit>
     <unit id="25.Fib." name="a5ebe5c">
@@ -4400,7 +4400,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ermordung durch Gift</source>
-        <target>Ermordung durch Gift</target>
+        <target>Injected with a poison !</target>
       </segment>
     </unit>
     <unit id="q6r0JuY" name="283aad7">
@@ -4410,7 +4410,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</source>
-        <target>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</target>
+        <target>You swallow the product without a second thought... It only took a few seconds for the poison contained within to hit your bloodstream, causing your blood vessels to dilate almost instantly. First, you collapse, then your whole body begins to spasm. Then your heart stops. You have been murdered! !</target>
       </segment>
     </unit>
     <unit id="b15cXr8" name="Mord">
@@ -4420,7 +4420,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Mord</target>
+        <target>Devoured by a ghoul!</target>
       </segment>
     </unit>
     <unit id="THDibIm" name="f6ab154">
@@ -4440,7 +4440,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Aggression</source>
-        <target>Aggression</target>
+        <target>Your ghoulishness was killed during a fight!</target>
       </segment>
     </unit>
     <unit id="MC.0S7d" name="66d9279">
@@ -4450,7 +4450,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</source>
-        <target>Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</target>
+        <target>You have been fatally wounded... Your constitution isn't what it used to be, and being a ghoul makes you extremely vulnerable. It's a shame, you could have gone far with this power (or curse)...</target>
       </segment>
     </unit>
     <unit id="jujqjyy" name="Erhängt">
@@ -4460,7 +4460,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Erhängt</source>
-        <target>Erhängt</target>
+        <target>Mob justice (death by hanging)!</target>
       </segment>
     </unit>
     <unit id="FfD0H9b" name="53d3eac">
@@ -4480,7 +4480,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Im Fleischkäfig geendet</source>
-        <target>Im Fleischkäfig geendet</target>
+        <target>Death by Meat Locker</target>
       </segment>
     </unit>
     <unit id="QnFjBo6" name="e86d9f3">
@@ -4490,7 +4490,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</source>
-        <target>Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.</target>
+        <target>Let's not beat about the bush. There are some people in town who don't like you... Several in fact, your neighbours, and even some of your friends helped drag you to the town gates... To the "meat locker". Without trial, they locked you inside, then someone suggested throwing stones at you for entertainment purposes. What a result for you! You were barely conscious when the zombie horde arrived...</target>
       </segment>
     </unit>
     <unit id="CT0T_bH" name="Strangulation">
@@ -4510,7 +4510,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
-        <target>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</target>
+        <target>Hello from Kitsune at 8AM the 08.05.2020, with his morning coffee :D !</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -4520,7 +4520,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Kopfschuss</target>
+        <target>Shot in the head</target>
       </segment>
     </unit>
     <unit id="._4eMx4" name="3e33d55">
@@ -4530,7 +4530,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</source>
-        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</target>
+        <target>You didn't expect that... Will you follow the rules next time?</target>
       </segment>
     </unit>
     <unit id="Pq_GOUr" name="3ed21ba">
@@ -4540,7 +4540,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</source>
-        <target>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</target>
+        <target>This was home to a citizen who decided to settle down outside the town, thinking they would survive for longer unaffected by the quarrels and betrayals inherent in town life. Half of their corpse is still in the living room.</target>
       </segment>
     </unit>
     <unit id="I0Djxyu" name="0f62850">
@@ -4560,7 +4560,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</source>
-        <target>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</target>
+        <target>Some actions cannot be forgiven. Take, for example, the case of the cavern : your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn't have to cry for long....</target>
       </segment>
     </unit>
     <unit id="bnTVKZv" name="e90b5fa">
@@ -4570,7 +4570,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</target>
+        <target>An old pump which is rusting away, but is nonetheless capable of drawing water in the desert... The only problem is that even if you manage to get it working, the water will gererally be undrinkable and will need to be purified in town with the appropriate equipment..</target>
       </segment>
     </unit>
     <unit id="7y4PXTQ" name="21761df">
@@ -4580,7 +4580,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</source>
-        <target>Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.</target>
+        <target>An old bicycle hire warehouse, littered with pieces of metal, tools and all kinds of debris.</target>
       </segment>
     </unit>
     <unit id="2.pUWsx" name="c669021">
@@ -4590,7 +4590,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</source>
-        <target>Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.</target>
+        <target>The turntable in the middle of this rail depot constantly dispatched and received merchandise from all over the world, 24 hours a day. Today, all that remains is a 150 metre long section, maybe a bit more if you include the remaining rails.</target>
       </segment>
     </unit>
     <unit id="KNKSRpW" name="dcd7dcc">
@@ -4600,7 +4600,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</source>
-        <target>Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?</target>
+        <target>The remains which litter the corridors of this improvised hospital must be what is left of the patients. It's difficult to say how many must have died here on the night of the attack... Maybe if you count the number of arms on the ground and divide by two ?</target>
       </segment>
     </unit>
     <unit id="Of9gthO" name="bac30b9">
@@ -4610,7 +4610,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</source>
-        <target>Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.</target>
+        <target>The only things taking off or landing at this crumbling aerodrome are the flies. Maybe if you forage around in the warehouses you will find something useful. Like, say, an A380 in working order.</target>
       </segment>
     </unit>
     <unit id="GY66Lzm" name="3431dd8">
@@ -4630,7 +4630,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.</source>
-        <target>Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.</target>
+        <target>The number has been partially worn away, but this was in all likelihood shelter number 14. Judging by the crumbling bodies inside, the airlock system couldn't have worked as expected. Shit happens.</target>
       </segment>
     </unit>
     <unit id="Jv.wD7x" name="cbe6a86">
@@ -4640,7 +4640,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!</source>
-        <target>Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!</target>
+        <target>The Atomic Cafe is (or was) the place to be : A faded poster invites you to come to the summer party on 2 May 2010: Hawaiian Theme, Prize for Best Dressed (Half Naked Girls + Guys) DJ Dave from 1pm, Free BBQ, Improved Look Beer Garden, Party Games, Live Football, Cocktails, £2 Bottled Beer, £2 Alcopop, £1 Tequila... Get Involved !</target>
       </segment>
     </unit>
     <unit id="gINGGfh" name="defa5f9">
@@ -4650,7 +4650,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</source>
-        <target>Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.</target>
+        <target>At one time, this would certainly have been one of the most trendy joints on the M25, with watered-down drinks, the aroma of stale piss and dead rats on the bar. You must be the first person to set foot in here in years.</target>
       </segment>
     </unit>
     <unit id="Q4yDNyf" name="f41f9c9">
@@ -4660,7 +4660,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</source>
-        <target>Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.</target>
+        <target>Looks like an altercation between a small van and a station wagon... This minor accident seems to have caused a substantial pile-up judging by the number of burnt corpses lying around.</target>
       </segment>
     </unit>
     <unit id="6pUg5Hf" name="9bd0725">
@@ -4670,7 +4670,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</source>
-        <target>Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.</target>
+        <target>This bar is hidden behind a small hill in such a location that you could easily have walked straight past it without realising. The interior is decorated with countless black and white portraits and photos. There is often a guy in the pictures wearing some striped pyjama-type outfit standing next to various other people.</target>
       </segment>
     </unit>
     <unit id="YM4htdV" name="7442888">
@@ -4680,7 +4680,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</target>
+        <target>A veritable Mecca for the DIY enthusiast. A paradise full of invaluable treasures for a world like ours... Their advertising slogan is even more appropriate nowadays : Pillage our store before someone else beats you to it !</target>
       </segment>
     </unit>
     <unit id="bhwk0Sz" name="63b8c04">
@@ -4700,7 +4700,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
+        <target>If you're a bit peckish, esurient or just plain hungry, whatever you do, don't stop here ! Here it's the chef that wants to eat... you... after he cuts off your head with a circular saw.</target>
       </segment>
     </unit>
     <unit id="Y107l78" name="4da0502">
@@ -4710,7 +4710,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</target>
+        <target>The home of a certain Duke R. Cooke, and if one is to believe the plaque on the door... a home for Heroes... this place is much bigger than a villa, it's a fully equipped fortress !</target>
       </segment>
     </unit>
     <unit id="q5V8SgZ" name="15a1891">
@@ -4720,7 +4720,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</source>
-        <target>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</target>
+        <target>The burnt remains of a small forest. It was probably a nice area beforehand... Now you're just hoping you won't have to spend the night here.</target>
       </segment>
     </unit>
     <unit id="U.L0F7x" name="8b76b77">
@@ -4730,7 +4730,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</source>
-        <target>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</target>
+        <target>An old mine which has not resisted the ravages of time well. God knows what caprice could have led people to look so deep underground to find something useful. Especially when you only just have to scratch the surface to find some delicious cockroaches to crunch on ! You start to feel hungry just thinking about it...</target>
       </segment>
     </unit>
     <unit id="aR2iiDZ" name="ca3fe4e">
@@ -4740,7 +4740,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</source>
-        <target>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</target>
+        <target>This mineral extraction zone bears all the hallmarks of a terrible accident : the hillside seems to have collapsed onto the workers, machins and buildings below.</target>
       </segment>
     </unit>
     <unit id=".cft5Zt" name="7d986ca">
@@ -4750,7 +4750,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</source>
-        <target>Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...</target>
+        <target>It looks like a large metal disk with what appears to be some kind of cockpit mounted on top. It could also be some type of high-tech combine harvester.</target>
       </segment>
     </unit>
     <unit id="7alcjvi" name="09fbd0c">
@@ -4760,7 +4760,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</source>
-        <target>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</target>
+        <target>PI-KEYA : These enormous stores used to be in every city (always rather annoyingly situated on the outskirts). They specialised in the manufacture and sale of cheap furniture, usually with one bolt / screw / fastener missing. It is said that the poor quality of their products was one of the reasons for society going to ruin...</target>
       </segment>
     </unit>
     <unit id="tcRgABK" name="8fcd3b6">
@@ -4770,7 +4770,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</source>
-        <target>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</target>
+        <target>A dilapidated family crypt. You can only just make out the entrance, as it's almost completely obscured by decaying vegetation. Apparently the bodies got up and left some time ago...</target>
       </segment>
     </unit>
     <unit id="jfKgTEc" name="ea47251">
@@ -4790,7 +4790,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</source>
-        <target>Dieser Langstreckenflieger ist mitten im nirgendwo abgestürzt... Da der Wüstensand das Wrack fast vollkommen eingegraben hat und sich der Zahn der Zeit in das Material gefressen hat, lässt sich nicht mehr sagen, was das Flugzeug transportierte. Du lässt deinen Blick schweifen, es sind jedoch weit und breit keine Leichen erkennbar...</target>
+        <target>This long-haul aircraft has crashed in the middle of nowhere... It's difficult to know what it was carrying, the desert sand has almost entirely eroded the fuselage. The presence of some seats suggests there were at least some passengers on board. There is no trace of the bodies though...</target>
       </segment>
     </unit>
     <unit id="DOlr_bI" name="c180f2e">
@@ -4800,7 +4800,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</source>
-        <target>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</target>
+        <target>In the middle of a completely derelict square, you find a sizeable garden shed. The door gives way easilty, revealing a vast space full of shelf units and all kinds of tools.</target>
       </segment>
     </unit>
     <unit id="pzQEC77" name="5941d98">
@@ -4810,7 +4810,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.</source>
-        <target>Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.</target>
+        <target>This hulking mass of metal and brisk was probably a large shopping centre, swarming with activity and illuminated by a thousand lights. Today nothing swarms except the vermin and other crawling filth... There's no doubt though that it contains lots of goodies...</target>
       </segment>
     </unit>
     <unit id="VsNvfPD" name="a2a669f">
@@ -4820,7 +4820,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</source>
-        <target>Eine Art Steinhöhle, die früher als Grabstätte oder Unterschlupf gedient haben muss... Schauen Sie sich das an. Im Inneren ist es absolut stockfinster, die Luft ist eisig und es riecht stark nach verfaulendem Fleisch...</target>
+        <target>Some kind of stone cavern which must previously have served as a burial place or shelter... Go and take a look. Inside, it is absolutely pitch black, the air is icy and there is a strong smell of rotting flesh...</target>
       </segment>
     </unit>
     <unit id="igWQAKU" name="af6794c">
@@ -4830,7 +4830,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</source>
-        <target>Ein altes indianisches Gräberfeld, das fast vollständig mit Sand und verrottender Vegetation bedeckt ist. Im Vergleich zum Rest der Welt fühlt man sich hier seltsam wohl...</target>
+        <target>An ancient Indian burial ground which is almost entirely covered in sand and decaying vegetation. In comparison with the rest of the world, you feel strangely at ease here...</target>
       </segment>
     </unit>
     <unit id="K.rB207" name="6763cec">
@@ -4840,7 +4840,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</source>
-        <target>Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.</target>
+        <target>Places like this are a godsend these days... You are guaranteed all the plastic toys you could want here... and maybe some other useful gadgets.</target>
       </segment>
     </unit>
     <unit id="Y0GOqx4" name="f9fa775">
@@ -4850,7 +4850,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</source>
-        <target>Eine alte Hütte, die seit Jahren unbewohnt ist. Fast vollständig im Sand begraben, aber man hört immer noch einige beunruhigende Stöhngeräusche aus dem, was der Keller sein muss...</target>
+        <target>An old shack which has been uninhabited for years. Almost completely buried in sand, but you can still hear some unsettling groaning noises coming from what must be the cellar...</target>
       </segment>
     </unit>
     <unit id="jCOLohr" name="3013905">
@@ -4860,7 +4860,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</source>
-        <target>Das Kraftwerk sammelt das benachbarte Grundwasser in einem Stauraum. Die Energie der Bewegung des fließenden Wassers wird auf eine Turbine übertragen, wodurch dieses in Drehbewegung mit hohem Drehmoment versetzt wird. Das Filtersystem scheint kaputt zu sein, aber das schmutzige Wasser kann trotzdem eingesammelt werden.</target>
+        <target>This plant collects groundwater from the surrounding area and transfers it into enormous concrete reservoirs. The filtration system seems to be broken, but you should be able to recover the contaminated water that is stored here...</target>
       </segment>
     </unit>
     <unit id="I8_.QXa" name="785a946">
@@ -4870,7 +4870,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</source>
-        <target>Dieses bedrückende Gebäude diente einst als Einrichtung für Tierversuche (Kaninchen in Zwischenprüfungen etc...). Es riecht nach Kampfer, Äther und verrottenden Kadavern. Und Sie sind noch nicht einmal hineingegangen...</target>
+        <target>This depressing building once served as an animal testing facility (rabbits doing mid-terms etc...). It smells of camphor, ether and rotting carcasses. And you've not even gone inside yet...</target>
       </segment>
     </unit>
     <unit id="O2YPsmI" name="6fa34b1">
@@ -4880,7 +4880,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</source>
-        <target>Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...</target>
+        <target>This ambulance has been abandoned in the middle of the road. The wheels are gone, as is the engine... There are no signs of a struggle, and no signs of an accident. There are no bodies either come to that...</target>
       </segment>
     </unit>
     <unit id="zMoz8Nc" name="fef4c41">
@@ -4900,7 +4900,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</source>
-        <target>Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...</target>
+        <target>An almost completely buried underground parking lot. An ideal venue to 'go quietly into the night' as long as nobody hears you...</target>
       </segment>
     </unit>
     <unit id="x6pd97C" name="06d14bd">
@@ -4910,7 +4910,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</source>
-        <target>Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...</target>
+        <target>This miltary vehicle is like the metaphorical food can. The soldier is inside, playing the role of a sardine, and a hundred zombies outside are playing the hungry citizen. The citizen wins...</target>
       </segment>
     </unit>
     <unit id="42b1Trj" name="d9255eb">
@@ -4920,7 +4920,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</source>
-        <target><![CDATA[Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.]]></target>
+        <target><![CDATA[You ask yourself what kind of person would enjoy spending a night in a shabby hole like this motel. No doubt some sleazy sales rep whose dodgy past will catch up with him sooner or later. I really must check out room 215, you think to yourself, without really knowing why'.]]></target>
       </segment>
     </unit>
     <unit id="sYaNvt8" name="6f0397f">
@@ -4930,7 +4930,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</source>
-        <target>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</target>
+        <target>The soldiers stationed here were prepared for anything : weapons, supplies, and a 150m security perimeter. Anything except their lieutenant eating them during the night. Joking aside, with a solid wall and a healthy dictatorship, (from a survival point of view) there's nothing like it !</target>
       </segment>
     </unit>
     <unit id=".bMEBv6" name="9af8819">
@@ -4940,7 +4940,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</source>
-        <target>Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...</target>
+        <target>This building seems to have resisted the ravages of time, a vestige of the postal service of years ago. It's unlikely that you'll find anything of great interest here, unless you like reading...</target>
       </segment>
     </unit>
     <unit id="91Rj1wr" name="18b06e6">
@@ -4950,7 +4950,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</source>
-        <target>Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...</target>
+        <target>A hole in the ground that has been somewhat concealed by some planks and some sand. It opens out into a large humid cavern filled with all kinds of debris, no doubt the result of pillaging by a neighbouring town. Who could say that your town wasn't built using ill-gotten gains from such pillaging ? Perhaps the first citizens were responsible for these attacks...</target>
       </segment>
     </unit>
     <unit id="alVUMDw" name="8e5b877">
@@ -4960,7 +4960,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</source>
-        <target>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</target>
+        <target>Numerous craters and splashes of dried blood lead you to think that a large - scale battle took place here. Most of the trenches are buried, but there are still some that are worth exploring...</target>
       </segment>
     </unit>
     <unit id="odvB3Fd" name="6178a4f">
@@ -5871,7 +5871,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Tod durch Radioaktivität</source>
-        <target>Tod durch Radioaktivität</target>
+        <target>Atomic deaths</target>
       </segment>
     </unit>
     <unit id="CupoGNI" name="771be3f">
@@ -5880,7 +5880,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.</source>
-        <target>Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.</target>
+        <target>Number of existences entirely vaporized by the all-powerful atom.</target>
       </segment>
     </unit>
     <unit id="cbZMBy4" name="Heldentaten">
@@ -5898,7 +5898,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl deiner wirklich außergewöhnlichen Heldentaten.</source>
-        <target>Anzahl deiner wirklich außergewöhnlichen Heldentaten.</target>
+        <target>Number of truly extraordinary things you've done.</target>
       </segment>
     </unit>
     <unit id="1lND7a9" name="Alkohol">
@@ -5916,7 +5916,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</source>
-        <target>Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</target>
+        <target>The number of litres of home-made alcoholic substances you have consumed.</target>
       </segment>
     </unit>
     <unit id="cqHpjId" name="Hausverbesserung">
@@ -5925,7 +5925,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hausverbesserung</source>
-        <target>Hausverbesserung</target>
+        <target>Home Improvements</target>
       </segment>
     </unit>
     <unit id="vvkmQ1Z" name="d4af217">
@@ -5934,7 +5934,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</source>
-        <target>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</target>
+        <target>Number of DIY projects successfully completed around the house.</target>
       </segment>
     </unit>
     <unit id="NXPKDs5" name="Handwerk">
@@ -5943,7 +5943,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Handwerk</source>
-        <target>Handwerk</target>
+        <target>Craftsman</target>
       </segment>
     </unit>
     <unit id="X2_RNih" name="b2a8e10">
@@ -5952,7 +5952,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</source>
-        <target>Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</target>
+        <target>The number of objects you have assembled or dismantled at the workshop.</target>
       </segment>
     </unit>
     <unit id="qxxe5aj" name="Leichenwäscher">
@@ -5961,7 +5961,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Leichenwäscher</source>
-        <target>Leichenwäscher</target>
+        <target>Sprinkler</target>
       </segment>
     </unit>
     <unit id="8S1_bLd" name="346ada5">
@@ -5970,7 +5970,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</source>
-        <target>Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</target>
+        <target>The number of ceremonial showers given to corpses of citizens to ensure their non-return.</target>
       </segment>
     </unit>
     <unit id="7Wc6Ben" name="Autarker Verbannter">
@@ -5979,7 +5979,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Autarker Verbannter</source>
-        <target>Autarker Verbannter</target>
+        <target>Emancipation of the Shunned</target>
       </segment>
     </unit>
     <unit id="2DaxIuu" name="2014a2c">
@@ -5988,7 +5988,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</source>
-        <target>Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</target>
+        <target>The number of lucky finds you have stumbled across while rummaging in the town's garbage.</target>
       </segment>
     </unit>
     <unit id="KqvNLEL" name="Verbannungen">
@@ -5997,7 +5997,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verbannungen</source>
-        <target>Verbannungen</target>
+        <target>Banishments</target>
       </segment>
     </unit>
     <unit id="wgg_HJR" name="Anzahl der Stadtverbannungen.">
@@ -6006,7 +6006,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Stadtverbannungen.</source>
-        <target>Anzahl der Stadtverbannungen.</target>
+        <target>The number of times you have been run out of town by a lynch mob.</target>
       </segment>
     </unit>
     <unit id="nVFqlRD" name="Schwere Verletzungen">
@@ -6015,7 +6015,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Schwere Verletzungen</source>
-        <target>Schwere Verletzungen</target>
+        <target>Injuries</target>
       </segment>
     </unit>
     <unit id="TBkqTrT" name="c7383c9">
@@ -6024,7 +6024,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</source>
-        <target>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</target>
+        <target>	Number of mutilations or dismemberments which didn't quite cost your life.</target>
       </segment>
     </unit>
     <unit id="sfHZK3y" name="Hausmannskost">
@@ -6033,7 +6033,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hausmannskost</source>
-        <target>Hausmannskost</target>
+        <target>Tasty Dishes</target>
       </segment>
     </unit>
     <unit id="5amCsNE" name="Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.">
@@ -6042,7 +6042,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</source>
-        <target>Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</target>
+        <target>The number of delicious meals you have prepaired from dubious ingredients.</target>
       </segment>
     </unit>
     <unit id="lFadGAX" name="Metzger">
@@ -6051,7 +6051,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Metzger</source>
-        <target>Metzger</target>
+        <target>Butcher</target>
       </segment>
     </unit>
     <unit id="j99sKU7" name="528c615">
@@ -6060,7 +6060,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</source>
-        <target>Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</target>
+        <target>The number of animals you have exterminated (by hand, with a mixer, with a saniflow macerator...).</target>
       </segment>
     </unit>
     <unit id="c4t38mo" name="Camper im Jenseits">
@@ -6069,7 +6069,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Camper im Jenseits</source>
-        <target>Camper im Jenseits</target>
+        <target>Zen Camper</target>
       </segment>
     </unit>
     <unit id="AJmB7Pi" name="4f2413f">
@@ -6078,7 +6078,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</source>
-        <target>Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</target>
+        <target>Number of nights survived after the town has been devastated!</target>
       </segment>
     </unit>
     <unit id="wV.yQpJ" name="Mutiger Camper">
@@ -6087,7 +6087,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Mutiger Camper</source>
-        <target>Mutiger Camper</target>
+        <target>Daredevil Camper</target>
       </segment>
     </unit>
     <unit id="qZ87cXc" name="Anzahl der Nächte, die du draußen geschlafen und überlebt hast.">
@@ -6096,7 +6096,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</source>
-        <target>Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</target>
+        <target>The number of nights you have spent in the World Beyond... and survived!</target>
       </segment>
     </unit>
     <unit id="g8yfOwR" name="Kannibalismus">
@@ -6105,7 +6105,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kannibalismus</source>
-        <target>Kannibalismus</target>
+        <target>Cannibalism</target>
       </segment>
     </unit>
     <unit id="DkOM_ae" name="Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...">
@@ -6114,7 +6114,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</source>
-        <target>Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</target>
+        <target>Number of times you have dined on human flesh...</target>
       </segment>
     </unit>
     <unit id="fl_VRZF" name="Wasserkanonen">
@@ -6141,7 +6141,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Glückspilz</source>
-        <target>Glückspilz</target>
+        <target>Luck</target>
       </segment>
     </unit>
     <unit id="2sqMJTk" name="Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.">
@@ -6150,7 +6150,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</source>
-        <target>Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</target>
+        <target>Number of large metal chests you have found in the World Beyond.</target>
       </segment>
     </unit>
     <unit id="4e.Kq3q" name="Baustellen">
@@ -6159,7 +6159,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Baustellen</source>
-        <target>Baustellen</target>
+        <target>Constructions</target>
       </segment>
     </unit>
     <unit id="Ad9kZzy" name="735b153">
@@ -6168,7 +6168,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</source>
-        <target>Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</target>
+        <target>The number of action / construction points you have invested in the construction projects in town.</target>
       </segment>
     </unit>
     <unit id="WH7we5M" name="79b5be7">
@@ -6177,7 +6177,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</source>
-        <target>Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</target>
+        <target>Your capacity to stay clean (take no drugs) during a lifetime.</target>
       </segment>
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
@@ -6186,7 +6186,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Kernsammler</target>
+        <target>Soul Collector</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
@@ -6195,7 +6195,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</target>
+        <target>The number of dead citizens' souls collected in the World Beyond</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">
@@ -6204,7 +6204,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kämpfe um Leben und Tod</source>
-        <target>Kämpfe um Leben und Tod</target>
+        <target>Fights of despair</target>
       </segment>
     </unit>
     <unit id="HViHyOD" name="Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!">
@@ -6213,7 +6213,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</source>
-        <target>Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</target>
+        <target>The number of zombies you have killed with your bare hands, using no weapons or special abilities. Wow!</target>
       </segment>
     </unit>
     <unit id="X.bgGgs" name="Wunderwerke">
@@ -6222,7 +6222,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wunderwerke</source>
-        <target>Wunderwerke</target>
+        <target>Wonder Constructions</target>
       </segment>
     </unit>
     <unit id="3tQwiq5" name="Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.">
@@ -6231,7 +6231,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</source>
-        <target>Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</target>
+        <target>The number of wonders you have constructed.</target>
       </segment>
     </unit>
     <unit id="18LG1hY" name="Grillmeister">
@@ -6258,7 +6258,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ausgrabungsarbeiten</source>
-        <target>Ausgrabungsarbeiten</target>
+        <target>Excavations</target>
       </segment>
     </unit>
     <unit id="X_yPmV2" name="cf5d4c4">
@@ -6267,7 +6267,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</source>
-        <target>Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</target>
+        <target>The number of action points you have invested in excavating ruins in the World Beyond.</target>
       </segment>
     </unit>
     <unit id="YpOmX81" name="Hauseinrichtung">
@@ -6276,7 +6276,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hauseinrichtung</source>
-        <target>Hauseinrichtung</target>
+        <target>Decoration</target>
       </segment>
     </unit>
     <unit id="Enu9Feh" name="4b674e5">
@@ -6285,7 +6285,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</source>
-        <target>Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</target>
+        <target>The number of decoration points you have taken the trouble to add to your dwelling place.</target>
       </segment>
     </unit>
     <unit id="sAt788p" name="Letzte Verteidigungslinie">
@@ -6294,7 +6294,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Letzte Verteidigungslinie</source>
-        <target>Letzte Verteidigungslinie</target>
+        <target>Last line of defence</target>
       </segment>
     </unit>
     <unit id="5vRd54n" name="ade071b">
@@ -6303,7 +6303,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</source>
-        <target>Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</target>
+        <target>You were one of the last people to see the Hordes descend on the town...</target>
       </segment>
     </unit>
     <unit id=".flbaw." name="Drogen">
@@ -6312,7 +6312,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Drogen</source>
-        <target>Drogen</target>
+        <target>Drugs</target>
       </segment>
     </unit>
     <unit id="vrHQtYb" name="a6f1dcd">
@@ -6321,7 +6321,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</source>
-        <target>Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</target>
+        <target>The number of funny little pills you have swallowed (or hidden elsewhere...)..</target>
       </segment>
     </unit>
     <unit id="eO92oF_" name="Drogenerfahrungen">
@@ -6330,7 +6330,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Drogenerfahrungen</source>
-        <target>Drogenerfahrungen</target>
+        <target>Drug Tests</target>
       </segment>
     </unit>
     <unit id="f0JFraG" name="Anzahl der gefährlichen Drogen, die du genommen hast.">
@@ -6339,7 +6339,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der gefährlichen Drogen, die du genommen hast.</source>
-        <target>Anzahl der gefährlichen Drogen, die du genommen hast.</target>
+        <target>The number of times you have tested dangerous drugs... on yourself.</target>
       </segment>
     </unit>
     <unit id="sSPf54f" name="Gebäude erkunden">
@@ -6348,7 +6348,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gebäude erkunden</source>
-        <target>Gebäude erkunden</target>
+        <target>Ruin Explorations</target>
       </segment>
     </unit>
     <unit id="jIah41g" name="Anzahl der verlassenen Gebäude, die du untersucht hast.">
@@ -6357,7 +6357,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der verlassenen Gebäude, die du untersucht hast.</source>
-        <target>Anzahl der verlassenen Gebäude, die du untersucht hast.</target>
+        <target>The number of times you've dared to go inside an abandoned ruin.</target>
       </segment>
     </unit>
     <unit id="CLMy7pI" name="Komplexe Expeditionen">
@@ -6384,7 +6384,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Expertenexpeditionen</source>
-        <target>Expertenexpeditionen</target>
+        <target>Expert Expeditions</target>
       </segment>
     </unit>
     <unit id="nukR2X5" name="Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.">
@@ -6393,7 +6393,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</source>
-        <target>Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</target>
+        <target>Number of buildings explored in EXTREMELY far away places.</target>
       </segment>
     </unit>
     <unit id="7Gh92iA" name="Großzügigkeit">
@@ -6420,7 +6420,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Spiritueller Führer</source>
-        <target>Spiritueller Führer</target>
+        <target>Spiritual Guide</target>
       </segment>
     </unit>
     <unit id="G37KPb9" name="5a11e64">
@@ -6429,7 +6429,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</source>
-        <target>Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</target>
+        <target>The number of days spent shepherding the noobs through the valleys of small maps and finding lost children.</target>
       </segment>
     </unit>
     <unit id="dj5AV6G" name="Laborant">
@@ -6438,7 +6438,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Laborant</source>
-        <target>Laborant</target>
+        <target>Lab Rat</target>
       </segment>
     </unit>
     <unit id="CC3N8jQ" name="Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.">
@@ -6447,7 +6447,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</source>
-        <target>Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</target>
+        <target>The number of little pills created in your personal laboratory.</target>
       </segment>
     </unit>
     <unit id="cue6a8_" name="Diebstähle">
@@ -6456,7 +6456,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diebstähle</source>
-        <target>Diebstähle</target>
+        <target>Thefts</target>
       </segment>
     </unit>
     <unit id="3MT_LNg" name="Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.">
@@ -6465,7 +6465,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</source>
-        <target>Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</target>
+        <target>Number of objects you have stole from your fellow residents (alive).</target>
       </segment>
     </unit>
     <unit id="gibtxxf" name="Schusseligkeiten">
@@ -6474,7 +6474,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Schusseligkeiten</source>
-        <target>Schusseligkeiten</target>
+        <target>Breakages</target>
       </segment>
     </unit>
     <unit id="ZEsIgrQ" name="d3696dd">
@@ -6483,7 +6483,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</source>
-        <target>Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</target>
+        <target>Number of objects you have broken through your own clumsiness.</target>
       </segment>
     </unit>
     <unit id="10t0DvM" name="Masochismus">
@@ -6492,7 +6492,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Masochismus</source>
-        <target>Masochismus</target>
+        <target>Masochism</target>
       </segment>
     </unit>
     <unit id="yBA7otl" name="Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.">
@@ -6501,7 +6501,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</source>
-        <target>Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</target>
+        <target>The number of joyous moments in all this suffering.</target>
       </segment>
     </unit>
     <unit id="dI2.ozd" name="Event-Auszeichnungen">
@@ -6510,7 +6510,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Event-Auszeichnungen</source>
-        <target>Event-Auszeichnungen</target>
+        <target>Community Awards</target>
       </segment>
     </unit>
     <unit id="nwDzN3Q" name="Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.">
@@ -6519,7 +6519,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</source>
-        <target>Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</target>
+        <target>Rewards earned through working with the community.</target>
       </segment>
     </unit>
     <unit id="uAqDBtW" name="Wunderwerk: Sandschloss">
@@ -6528,7 +6528,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wunderwerk: Sandschloss</source>
-        <target>Wunderwerk: Sandschloss</target>
+        <target>Wonder: Sandcastle</target>
       </segment>
     </unit>
     <unit id="jq1R02j" name="Das hast du nicht wirklich gebaut?">
@@ -6537,7 +6537,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das hast du nicht wirklich gebaut?</source>
-        <target>Das hast du nicht wirklich gebaut?</target>
+        <target>You really built that?</target>
       </segment>
     </unit>
     <unit id="On3ImiP" name="Wunderwerk: Riesiger KVF">
@@ -6546,7 +6546,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wunderwerk: Riesiger KVF</source>
-        <target>Wunderwerk: Riesiger KVF</target>
+        <target>Wonder: Giant BRD</target>
       </segment>
     </unit>
     <unit id="M4.ycbK" name="Huldigt den Riesigen KVF!">
@@ -6555,7 +6555,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Huldigt den Riesigen KVF!</source>
-        <target>Huldigt den Riesigen KVF!</target>
+        <target>BRDs for everyone! The people demand BRDs</target>
       </segment>
     </unit>
     <unit id="vRqc5Uq" name="Wunderwerk: Rad des Schreckens">
@@ -6564,7 +6564,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wunderwerk: Rad des Schreckens</source>
-        <target>Wunderwerk: Rad des Schreckens</target>
+        <target>Wonder: Fearfulness Wheel</target>
       </segment>
     </unit>
     <unit id="GVSWGjN" name="Sieh nur, man kann von da oben die Zombies sehen!">
@@ -6573,7 +6573,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Sieh nur, man kann von da oben die Zombies sehen!</source>
-        <target>Sieh nur, man kann von da oben die Zombies sehen!</target>
+        <target>Look, I can see the zeds from up here!</target>
       </segment>
     </unit>
     <unit id="7wxk0fW" name="Wunderwerk: Statue des Raben">
@@ -6582,7 +6582,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wunderwerk: Statue des Raben</source>
-        <target>Wunderwerk: Statue des Raben</target>
+        <target>Wonder: Statue of the Crow</target>
       </segment>
     </unit>
     <unit id="dQkqyKh" name="Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]">
@@ -6591,7 +6591,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</source>
-        <target>Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</target>
+        <target>The Crow is good, the Crow is all-powerful. [edited by the Crow]</target>
       </segment>
     </unit>
     <unit id="H9ZffoW" name="Nachrichten">
@@ -6609,7 +6609,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</source>
-        <target>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</target>
+        <target>The number of worthwhile (or otherwise) messages you have left on the town forums.</target>
       </segment>
     </unit>
     <unit id="Qw5Rx06" name="Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.">
@@ -6618,7 +6618,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</source>
-        <target>Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</target>
+        <target>Days spent as a Tamer, torturing Labradoodles.</target>
       </segment>
     </unit>
     <unit id="NyGp8KR" name="Anzahl der Tage, die du als Aufklärer gespielt hast.">
@@ -6627,7 +6627,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Aufklärer gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Aufklärer gespielt hast.</target>
+        <target>Days spent in the shadows as a Scout.</target>
       </segment>
     </unit>
     <unit id="XzMbfeG" name="Anzahl der Tage, die du als Einsiedler gespielt hast.">
@@ -6636,7 +6636,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Einsiedler gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Einsiedler gespielt hast.</target>
+        <target>Days spent as a survivalist, eating roots, worms and other such delicacies.</target>
       </segment>
     </unit>
     <unit id="tSnoLfe" name="Anzahl der Tage, die du als Buddler gespielt hast.">
@@ -6654,7 +6654,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Wächter gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Wächter gespielt hast.</target>
+        <target>Days spent shepherding the weak through the valleys of darkness and finding lost children!</target>
       </segment>
     </unit>
     <unit id="7nFBaX5" name="Anzahl der Tage, die du als Techniker gespielt hast.">
@@ -6663,7 +6663,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Techniker gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Techniker gespielt hast.</target>
+        <target>The number of days you've spent jiggling and fiddling with pointy tools.</target>
       </segment>
     </unit>
     <unit id="WgUNYZY" name="In deinem Bett gestorben">
@@ -6672,7 +6672,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>In deinem Bett gestorben</source>
-        <target>In deinem Bett gestorben</target>
+        <target>Dead in your bed</target>
       </segment>
     </unit>
     <unit id="XgMSDj1" name="Großmutter, was hast du für große Zähne... Grrrooooaaar!">
@@ -6681,7 +6681,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Großmutter, was hast du für große Zähne... Grrrooooaaar!</source>
-        <target>Großmutter, was hast du für große Zähne... Grrrooooaaar!</target>
+        <target>Grandma, what big teeth you have... GROAR !</target>
       </segment>
     </unit>
     <unit id="GmWG0wd" name="Dehydrationstode">
@@ -6690,7 +6690,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dehydrationstode</source>
-        <target>Dehydrationstode</target>
+        <target>Deaths by Dehydration</target>
       </segment>
     </unit>
     <unit id="FmgO.iY" name="82057de">
@@ -6699,7 +6699,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</source>
-        <target>Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</target>
+        <target>Number of times you have died from dehydration. Yes indeed, it turns out water is important.</target>
       </segment>
     </unit>
     <unit id="bhRI8Sg" name="Tödliche Infektionen">
@@ -6708,7 +6708,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Tödliche Infektionen</source>
-        <target>Tödliche Infektionen</target>
+        <target>Deaths by Infection</target>
       </segment>
     </unit>
     <unit id="WsBlA83" name="Anzahl der Infektionen, die dich das Leben gekostet haben.">
@@ -6717,7 +6717,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Infektionen, die dich das Leben gekostet haben.</source>
-        <target>Anzahl der Infektionen, die dich das Leben gekostet haben.</target>
+        <target>Number of deaths from generalised infection.</target>
       </segment>
     </unit>
     <unit id="Ph5uruX" name="Tod durch Entzug">
@@ -6744,7 +6744,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Letzter Toter</source>
-        <target>Letzter Toter</target>
+        <target>Last Man Standing</target>
       </segment>
     </unit>
     <unit id="mjHDbiJ" name="ae94e5e">
@@ -6753,7 +6753,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</source>
-        <target>Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</target>
+        <target>You were the last to die! Very few citizens have accomplished this feat!</target>
       </segment>
     </unit>
     <unit id="7CtY5hA" name="Letzter Toter in einer Pandämoniumstadt">
@@ -6780,7 +6780,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Mystic</source>
-        <target>Mystic</target>
+        <target>Mystic Points</target>
       </segment>
     </unit>
     <unit id="edsJJvH" name="Wie viele Seelen hat Ihre Stadt befreien können.">
@@ -6789,7 +6789,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wie viele Seelen hat Ihre Stadt befreien können.</source>
-        <target>Wie viele Seelen hat Ihre Stadt befreien können.</target>
+        <target>The number of souls your town has managed to recycle.</target>
       </segment>
     </unit>
     <unit id="faOzY5m" name="Wüstenausflüge">
@@ -6816,7 +6816,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Geöffnete Tür</source>
-        <target>Geöffnete Tür</target>
+        <target>Covert Concierge</target>
       </segment>
     </unit>
     <unit id="rtoHwdw" name="c693297">
@@ -6825,7 +6825,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</source>
-        <target>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</target>
+        <target>The number of doors you've unlocked while exploring ruins.</target>
       </segment>
     </unit>
     <unit id="vzg1Vou" name="Hängend">
@@ -6870,7 +6870,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Absurde Projekte</source>
-        <target>Absurde Projekte</target>
+        <target>Extreme Projects</target>
       </segment>
     </unit>
     <unit id="2MnOx8i" name="Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.">
@@ -6879,7 +6879,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</source>
-        <target>Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</target>
+        <target>The number of extreme projects you have carried out.</target>
       </segment>
     </unit>
     <unit id="6bjYKi6" name="Reparaturen">
@@ -6888,7 +6888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Reparaturen</source>
-        <target>Reparaturen</target>
+        <target>Repairs</target>
       </segment>
     </unit>
     <unit id="M68ujLN" name="Anzahl kaputter Gegenstände, die du wieder repariert hast.">
@@ -6897,7 +6897,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl kaputter Gegenstände, die du wieder repariert hast.</source>
-        <target>Anzahl kaputter Gegenstände, die du wieder repariert hast.</target>
+        <target>Number of broken items that you've repaired.</target>
       </segment>
     </unit>
     <unit id="J.XSCYh" name="Gebäudereparaturen">
@@ -6906,7 +6906,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gebäudereparaturen</source>
-        <target>Gebäudereparaturen</target>
+        <target>Building Repairs</target>
       </segment>
     </unit>
     <unit id="eVadw_d" name="Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.">
@@ -6915,7 +6915,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</source>
-        <target>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</target>
+        <target>Action Points invested ni the ongoing repairs of buildings.</target>
       </segment>
     </unit>
     <unit id="tRxlExf" name="Textsammler">
@@ -6924,7 +6924,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Textsammler</source>
-        <target>Textsammler</target>
+        <target>Roleplayer</target>
       </segment>
     </unit>
     <unit id="MnSJgts" name="Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.">
@@ -6933,7 +6933,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</source>
-        <target>Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</target>
+        <target>The number of documents and other uncovered 'roleplay' items.</target>
       </segment>
     </unit>
     <unit id="rcSA5Xd" name="Leichenentsorger">
@@ -6942,7 +6942,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Leichenentsorger</source>
-        <target>Leichenentsorger</target>
+        <target>Removals</target>
       </segment>
     </unit>
     <unit id="rFyYect" name="Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.">
@@ -6951,7 +6951,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</source>
-        <target>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</target>
+        <target>	The number of dead friends you've dragged out of town.</target>
       </segment>
     </unit>
     <unit id="tsZVejd" name="Batteriewerferfabrikant">
@@ -6960,7 +6960,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Batteriewerferfabrikant</source>
-        <target>Batteriewerferfabrikant</target>
+        <target>Battery Launcher Builder</target>
       </segment>
     </unit>
     <unit id="tpreu_F" name="Anzahl der Batteriewerfer, die du gebaut hast.">
@@ -6969,7 +6969,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Batteriewerfer, die du gebaut hast.</source>
-        <target>Anzahl der Batteriewerfer, die du gebaut hast.</target>
+        <target>The number of Battery launchers you have built.</target>
       </segment>
     </unit>
     <unit id="Ncfbww0" name="Überlebende der Hölle!">
@@ -7014,7 +7014,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kettensägen</source>
-        <target>Kettensägen</target>
+        <target>Chainsaws</target>
       </segment>
     </unit>
     <unit id="KXf9wDg" name="Anzahl an Kettensägen, die du gebaut hast.">
@@ -7023,7 +7023,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl an Kettensägen, die du gebaut hast.</source>
-        <target>Anzahl an Kettensägen, die du gebaut hast.</target>
+        <target>The number of chainsaws you have built.</target>
       </segment>
     </unit>
     <unit id="kdHo25R" name="Stadtwächter">
@@ -7050,7 +7050,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gerankte Stadt</source>
-        <target>Gerankte Stadt</target>
+        <target>Ranked Towns</target>
       </segment>
     </unit>
     <unit id="bjLGLtR" name="8e6bd99">
@@ -7059,7 +7059,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</source>
-        <target>Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</target>
+        <target>Number of towns which figured in last season's rankings.</target>
       </segment>
     </unit>
     <unit id="vkTwfZ7" name="Legendäre Stadt">
@@ -7068,7 +7068,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Legendäre Stadt</source>
-        <target>Legendäre Stadt</target>
+        <target>Legendary Towns!</target>
       </segment>
     </unit>
     <unit id="k1epE3V" name="e2cb47f">
@@ -7077,7 +7077,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</source>
-        <target>Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</target>
+        <target>Number of towns which made the number one spot from previous seasons.</target>
       </segment>
     </unit>
     <unit id="P87Mfm4" name="Teilnehmende Stadt">
@@ -7104,7 +7104,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Getötete Zombies</source>
-        <target>Getötete Zombies</target>
+        <target>Zombies eliminated</target>
       </segment>
     </unit>
     <unit id="2VXomcj" name="0cd9e5b">
@@ -7113,7 +7113,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</source>
-        <target>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</target>
+        <target>Total number of the living-dead you have sent back underground by whatever means.</target>
       </segment>
     </unit>
     <unit id="VEVB_Sc" name="Ehemaliger Beta-Tester">
@@ -7122,7 +7122,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ehemaliger Beta-Tester</source>
-        <target>Ehemaliger Beta-Tester</target>
+        <target>Ex BETA-Tester</target>
       </segment>
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
@@ -7131,7 +7131,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
-        <target>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</target>
+        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'MyHordes'.</target>
       </segment>
     </unit>
     <unit id="eAodZt." name="Sandbälle! Yeah!">
@@ -7140,7 +7140,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Sandbälle! Yeah!</source>
-        <target>Sandbälle! Yeah!</target>
+        <target>Sand balls!</target>
       </segment>
     </unit>
     <unit id="KhJ3UGm" name="8dca30b">
@@ -7149,7 +7149,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</source>
-        <target>Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</target>
+        <target>Number of sandballs successfully thrown at another citizen's chevy chase.</target>
       </segment>
     </unit>
     <unit id="ZfFBo_5" name="Kreuzigung">
@@ -7176,7 +7176,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Den Weihnachtsmann gibt es nicht</source>
-        <target>Den Weihnachtsmann gibt es nicht</target>
+        <target>Father Christmas is a little sh*t</target>
       </segment>
     </unit>
     <unit id="8JoH6DL" name="Anzahl der Geschenke, die du deinen Freunden geklaut hast.">
@@ -7185,7 +7185,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Geschenke, die du deinen Freunden geklaut hast.</source>
-        <target>Anzahl der Geschenke, die du deinen Freunden geklaut hast.</target>
+        <target>The number of presents you have stolen from your friends.</target>
       </segment>
     </unit>
     <unit id="Gf1_yUr" name="Tagelang wurde an den Seelen der Toten herumgepfuscht.">
@@ -7221,7 +7221,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stunde(n)</source>
-        <target>Stunde(n)</target>
+        <target>Hour(s)</target>
       </segment>
     </unit>
     <unit id="zV6ExPR" name="Minute(n)">
@@ -7230,7 +7230,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Minute(n)</source>
-        <target>Minute(n)</target>
+        <target>Minute(s)</target>
       </segment>
     </unit>
     <unit id="pJqC6wz" name="Sekunde(n)">
@@ -7239,7 +7239,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Sekunde(n)</source>
-        <target>Sekunde(n)</target>
+        <target>Second(s)</target>
       </segment>
     </unit>
     <unit id="q221mSN" name="am">
@@ -7248,7 +7248,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>am</source>
-        <target>am</target>
+        <target>the</target>
       </segment>
     </unit>
     <unit id="Iks0KLK" name="vor %time%">
@@ -7257,7 +7257,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>vor %time%</source>
-        <target>vor %time%</target>
+        <target>at %time%</target>
       </segment>
     </unit>
     <unit id="GyH7AP7" name="0b0fadd">
@@ -7383,7 +7383,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gereinigte Seelen</source>
-        <target>Gereinigte Seelen</target>
+        <target>Purified souls</target>
       </segment>
     </unit>
     <unit id="JATCrdR" name="0e9540e">

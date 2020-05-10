@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
-        <target>L'histoire d'un monde n'est que le reflet de multiples épopées individuelles...</target>
+        <target>The history of a given world is only a reflection of the many individual epics it has witnessed...</target>
       </segment>
     </unit>
     <unit id="fUgR4gE" name="Gefundene Texte: %count%">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>Redakteur:</source>
-        <target>Editor :</target>
+        <target>Author :</target>
       </segment>
     </unit>
     <unit id="KJJicse" name="36b050a">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
-        <target>Ce serveur n'est pas configuré pour supporter les avatars.</target>
+        <target>This server isn't configured to support avatars.</target>
       </segment>
     </unit>
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
-        <target>Ce format de fichier n'est pas pris en charge.</target>
+        <target>The file format isn't supported.</target>
       </segment>
     </unit>
     <unit id="W6NI6B_" name="Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
-        <target>Ce fichier est corrompu et ne peux pas être traité.</target>
+        <target>This file is corrupt and can't be processed.</target>
       </segment>
     </unit>
     <unit id="WocA7cM" name="79a6053">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
-        <target>Ce fichier est trop volumineux et le serveur n'as pas pu le compresser suffisament.</target>
+        <target>This file is too large and the server was unable to compress it enough.</target>
       </segment>
     </unit>
     <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
@@ -214,7 +214,7 @@
       </notes>
       <segment>
         <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
-        <target>Une erreur interne est survenue lors du traitement de l'image.</target>
+        <target>An internal error occured while processing the image.</target>
       </segment>
     </unit>
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
-        <target>Ce fichier est trop volumineux.</target>
+        <target>This file is too large.</target>
       </segment>
     </unit>
     <unit id="WrQqCAs" name="Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
-        <target>La résolution de cette image ne convient pas pour une image de profil.</target>
+        <target>Resolution of this image doesn't fit for a profile image.</target>
       </segment>
     </unit>
     <unit id="jhO4n0e" name="Dein Profil">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
-        <target>Vous avez la possibilité de choisir une image de profil afin d'être mieux reconnu des autres joueurs.</target>
+        <target>You have the possibility to set a profile image in order to be better recognized by other players.</target>
       </segment>
     </unit>
     <unit id="C.B17ya" name="Neues Profilbild hochladen">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Komprimierte Anzeige bearbeiten</source>
-        <target>Choix de la zone d'affichage compressée</target>
+        <target>Edit compressed display area</target>
       </segment>
     </unit>
     <unit id="Af7eIx8" name="b0c95ed">
@@ -306,8 +306,8 @@
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Choisissez quelle partie de votre image sera utilisée pour l'affichage compressé.
-                                    Déplacez la sélection avec la souris et redimensionnez la avec la molette.</target>
+        <target>Choose which part of your image will be used for the compressed display.
+                                    Move the selection witht the mouse, and resize it with the mousewheel.</target>
       </segment>
     </unit>
     <unit id="37GuQ5_" name="Profilbild hochladen">
@@ -334,7 +334,7 @@
       </notes>
       <segment>
         <source>Login und Sicherheit</source>
-        <target>Connexion et sécurité</target>
+        <target>Connection and security</target>
       </segment>
     </unit>
     <unit id="fuUze6t" name="Externe Anwendungen">
@@ -352,7 +352,7 @@
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
-        <target>Bitte wähle nur eine einzige Datei aus.</target>
+        <target>Please select only one file.</target>
       </segment>
     </unit>
     <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
@@ -361,7 +361,7 @@
       </notes>
       <segment>
         <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
-        <target>Préférer l'affichage compressé des avatars</target>
+        <target>Show compressed avatar</target>
       </segment>
     </unit>
     <unit id="elfn6js" name="Einen Kommentar hinzufügen">
@@ -424,7 +424,7 @@
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
-        <target>Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</target>
+        <target>This password is incorrect. To delete your account, please enter your current password.</target>
       </segment>
     </unit>
     <unit id="HbhZq4U" name="Account löschen">
@@ -451,7 +451,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
-        <target>Souhaitez vous réellement supprimer votre compte ? Cette action est irréversible.</target>
+        <target>Do you really want to delete your account ? This action is irreversible.</target>
       </segment>
     </unit>
     <unit id="TabP5k8" name="Passwort ändern">
@@ -505,7 +505,7 @@
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
-        <target>Votre mot de passe est incorrect. Vous devez saisir votre mot de passe actuel pour modifier votre compte.</target>
+        <target>Your password is incorrrect. You must enter your current password to modify your account.</target>
       </segment>
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
@@ -514,7 +514,7 @@
       </notes>
       <segment>
         <source>Standardrolle im Forum</source>
-        <target>Rôle par défaut dans le forum</target>
+        <target>Forum default role</target>
       </segment>
     </unit>
     <unit id="uqXS6rA" name="Standardmäßig als dev posten">
@@ -523,7 +523,7 @@
       </notes>
       <segment>
         <source>Standardmäßig als dev posten</source>
-        <target>Poster comme développeur par défaut</target>
+        <target>Post as a developer by default</target>
       </segment>
     </unit>
     <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
@@ -541,7 +541,7 @@
       </notes>
       <segment>
         <source>Standardsprache</source>
-        <target>Standardsprache</target>
+        <target>Default language</target>
       </segment>
     </unit>
     <unit id="gBz_D6E" name="Deutsch">
@@ -550,7 +550,7 @@
       </notes>
       <segment>
         <source>Deutsch</source>
-        <target>Deutsch</target>
+        <target>German</target>
       </segment>
     </unit>
     <unit id="vp_4VdN" name="Französisch">
@@ -559,7 +559,7 @@
       </notes>
       <segment>
         <source>Französisch</source>
-        <target>Französisch</target>
+        <target>French</target>
       </segment>
     </unit>
     <unit id="mD6lfyI" name="Englisch">
@@ -568,7 +568,7 @@
       </notes>
       <segment>
         <source>Englisch</source>
-        <target>Englisch</target>
+        <target>English</target>
       </segment>
     </unit>
     <unit id="bjgV6Xr" name="Spanisch">
@@ -577,7 +577,7 @@
       </notes>
       <segment>
         <source>Spanisch</source>
-        <target>Spanisch</target>
+        <target>Spanish</target>
       </segment>
     </unit>
   </file>

@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Verbannung</source>
-        <target>Verbannung</target>
+        <target>Banishment</target>
       </segment>
     </unit>
     <unit id="FlZntyi" name="Bürger">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Bürger</source>
-        <target>Bürger</target>
+        <target>Citizen</target>
       </segment>
     </unit>
     <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
-        <target>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</target>
+        <target>Start typing a name to see all matching users:</target>
       </segment>
     </unit>
     <unit id="kg5BPH1" name="Status">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Verbannt bis</source>
-        <target>Verbannt bis</target>
+        <target>Banned until</target>
       </segment>
     </unit>
     <unit id="bZx3MQe" name="Aufheben">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Aufheben</source>
-        <target>Aufheben</target>
+        <target>Cancel</target>
       </segment>
     </unit>
     <unit id="gswoKQz" name="Letzte Verbannung">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Letzte Verbannung</source>
-        <target>Letzte Verbannung</target>
+        <target>Last ban</target>
       </segment>
     </unit>
     <unit id="KqvNLEL" name="Verbannungen">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Verbannungen</source>
-        <target>Verbannungen</target>
+        <target>Banishments</target>
       </segment>
     </unit>
     <unit id="0.QpL14" name="Verbannen">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Verbannen</source>
-        <target>Verbannen</target>
+        <target>Banned</target>
       </segment>
     </unit>
     <unit id="Zoy_MWF" name="Dauer">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Dauer</source>
-        <target>Dauer</target>
+        <target>Duration</target>
       </segment>
     </unit>
     <unit id="1E2BbPr" name="1 Tag">
@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>1 Tag</source>
-        <target>1 Tag</target>
+        <target>1 Day</target>
       </segment>
     </unit>
     <unit id="JU_xNFX" name="3 Tage">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>3 Tage</source>
-        <target>3 Tage</target>
+        <target>3 Days</target>
       </segment>
     </unit>
     <unit id="84RJxpK" name="5 Tage">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>7 Tage</source>
-        <target>7 Tage</target>
+        <target>7 Days</target>
       </segment>
     </unit>
     <unit id="GtUIerm" name="15 Tage">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>15 Tage</source>
-        <target>15 Tage</target>
+        <target>15 Days</target>
       </segment>
     </unit>
     <unit id="WB_sVVK" name="30 Tage">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>30 Tage</source>
-        <target>30 Tage</target>
+        <target>30 Days</target>
       </segment>
     </unit>
     <unit id="tF9Axzf" name="Grund">
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Grund</source>
-        <target>Grund</target>
+        <target>Reason</target>
       </segment>
     </unit>
     <unit id="r8Abf9v" name="Derzeitiges Leben">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Derzeitiges Leben</source>
-        <target>Derzeitiges Leben</target>
+        <target>Current Life</target>
       </segment>
     </unit>
     <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>TOD NICHT BESTÄTIGT</source>
-        <target>TOD NICHT BESTÄTIGT</target>
+        <target>DEATH NOT CONFIRMED</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Kopfschuss</target>
+        <target>Headshot</target>
       </segment>
     </unit>
     <unit id="Kt_pe8F" name="Tod bestätigen">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>Tod bestätigen</source>
-        <target>Tod bestätigen</target>
+        <target>Confirm death</target>
       </segment>
     </unit>
     <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
-        <target>Das Leben dieses Bürgers sofort beenden?</target>
+        <target>End this citizen's life immediately?</target>
       </segment>
     </unit>
     <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>Tod dieses Bürgers zwangsweise bestätigen?</source>
-        <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
+        <target>Force confirmation of death of this citizen?</target>
       </segment>
     </unit>
     <unit id="Tae9Qqu" name="Forum">
@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>Autor</source>
-        <target>Autor</target>
+        <target>Author</target>
       </segment>
     </unit>
     <unit id="5qZlTRd" name="Meldungen">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Meldungen</source>
-        <target>Meldungen</target>
+        <target>Reports</target>
       </segment>
     </unit>
     <unit id="YlkNCJx" name="gemeldet von">
@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>gemeldet von</source>
-        <target>gemeldet von</target>
+        <target>reported by</target>
       </segment>
     </unit>
     <unit id="wbOHhHO" name="Gesehen">
@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Gesehen</source>
-        <target>Gesehen</target>
+        <target>Seen</target>
       </segment>
     </unit>
     <unit id="KANZ2Py" name="Diesen Bürger töten?">
@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Diesen Bürger töten?</source>
-        <target>Diesen Bürger töten?</target>
+        <target>Kill this citizen?</target>
       </segment>
     </unit>
   </file>
