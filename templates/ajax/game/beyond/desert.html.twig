@@ -208,6 +208,7 @@
                     {% endif %}
 
                 {% endif %}
+
                 {% if allow_enter_town %}
                     <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
                         {% if zone.x == 0 and zone.y == 0 %}
@@ -222,6 +223,9 @@
                 {% endif %}
                 {% if show_ventilation %}
                     <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
+                {% endif %}
+                {% if show_sneaky %}
+                    <button id="town-enter-sneak"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}</button>
                 {% endif %}
 
                 {% if zone.x != 0 or zone.y != 0 %}
@@ -687,7 +691,15 @@
             document.getElementById('town-enter-hero').addEventListener('click', function() {
                 if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
                     return;
-                $.ajax.easySend( '{{ path('beyond_desert_hero_exit_controller') }}', {},
+                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'hero'}) }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            });
+        {% endif %}
+        {% if show_sneaky %}
+            document.getElementById('town-enter-sneak').addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'sneak'}) }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
                     } );
@@ -695,7 +707,7 @@
         {% endif %}
 
         {% if is_shaman %}
-        document.getElementById('fall_rain').addEventListener('click', function() {
+            document.getElementById('fall_rain').addEventListener('click', function() {
                 if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_shaman_rain') }}', {},

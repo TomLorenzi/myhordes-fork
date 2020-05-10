@@ -1054,46 +1054,28 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     }
 
     /**
-     * @Route("api/town/door/exit", name="town_door_exit_controller")
-     * @param JSONRequestParser $parser
+     * @Route("api/town/door/exit/{special}", name="town_door_exit_controller")
+     * @param string $special
      * @return Response
      */
-    public function door_exit_api(JSONRequestParser $parser): Response {
-        if (!$this->getActiveCitizen()->getTown()->getDoor())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
+    public function door_exit_api(string $special = 'normal'): Response {
         $citizen = $this->getActiveCitizen();
-        $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), 0, 0);
-
-        if (!$zone)
-            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-
-        // Set the activity status
-        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
-
-        $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
-        $zone->addCitizen( $citizen );
-
-        try {
-            $this->entity_manager->persist($citizen);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        switch ($special) {
+            case 'normal':
+                if (!$citizen->getTown()->getDoor())
+                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+                break;
+            case 'sneak':
+                if (!$citizen->getTown()->getDoor() || !$citizen->hasRole('ghoul'))
+                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+                break;
+            case 'hero':
+                if (!$citizen->getProfession()->getHeroic())
+                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+                break;
+            default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/town/door/exit_hero", name="town_door_hero_exit_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function door_hero_exit_api(JSONRequestParser $parser): Response {
-        if (!$this->getActiveCitizen()->getProfession()->getHeroic())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $citizen = $this->getActiveCitizen();
         $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), 0, 0);
 
         if (!$zone)
@@ -1102,7 +1084,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
-        $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
+        if ($special !== 'sneak')
+            $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
         $zone->addCitizen( $citizen );
 
         try {
@@ -1146,6 +1129,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     	    'can_go_out' => $can_go_out,
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
+            'show_sneaky' => $this->getActiveCitizen()->hasRole('ghoul'),
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ], $this->get_map_blob())) );
