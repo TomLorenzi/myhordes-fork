@@ -42,7 +42,7 @@ const handleHeroicActions = function( actions, api_path, return_path ) {
             const do_confirm = this.getAttribute('x-action-confirm') === "1";
             let obj = { action: action_id };
             if (target_id) obj.target = target_id;
-            if (do_confirm && !confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+            if (do_confirm && !confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend( api_path, obj,
                 function () {
@@ -82,7 +82,7 @@ const handleActions = function( actions, api_path, return_path ) {
             const esc_c_id = this.getAttribute('x-citizen');
             const esc_m_id = this.getAttribute('x-escort-meta-action');
             const do_confirm = this.getAttribute('x-action-confirm') === "1";
-            if (do_confirm && !confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+            if (do_confirm && !confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             let obj = (esc_c_id && esc_m_id)
                 ? { item: item_id, action: action_id, citizen: esc_c_id, meta: esc_m_id }

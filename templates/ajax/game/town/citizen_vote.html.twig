@@ -68,7 +68,7 @@
     {{ parent() }}
     <script>
         const send_build_request = function(citizen_id) {
-            if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
 
             $.ajax.easySend( '{{ path('town_citizens_send_vote') }}', {voted_citizen_id: citizen_id, role_id: {{selectedRole.id}}},

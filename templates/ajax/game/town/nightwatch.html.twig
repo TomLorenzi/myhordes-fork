@@ -77,7 +77,7 @@
         const handleWatch = function(element, action) {
             if (!element) return;
             element.addEventListener('click', function() {
-                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('town_nightwatch_go_controller') }}', {
                         action: action

@@ -1041,4 +1041,19 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
     }
+
+    public function citizenAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
+        $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName($wounded ? 'citizenAttackWounded' : 'citizenAttack');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $attacker->getTown() )
+            ->setDay( $attacker->getTown()->getDay() )
+            ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $attacker )
+            ->setSecondaryCitizen( $defender );
+    }
 }

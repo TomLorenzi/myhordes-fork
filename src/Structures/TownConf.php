@@ -27,6 +27,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_PRE_ASSEMBLY         = 'modifiers.preview_item_assemblage';
     const CONF_MODIFIER_INFECT_DEATH         = 'modifiers.infection_death_chance';
     const CONF_MODIFIER_WOUND_TERROR_PENALTY = 'modifiers.wound_terror_penalty';
+    const CONF_MODIFIER_ATTACK_PROTECT       = 'modifiers.attack_protection';
 
     const CONF_FEATURE_CAMPING        = 'features.camping';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';

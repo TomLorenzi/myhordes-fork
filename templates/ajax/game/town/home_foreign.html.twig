@@ -85,6 +85,7 @@
                     {% if is_shaman and not banished %}
                         <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
                     {% endif %}
+                    <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/fist.gif') }}" />{{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">5</div>)</button>
                 {% endif %}
                 {% if owner.home.holdsBody %}
                     <button x-disposal-id="1">{{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">2</div>)</button>
@@ -196,14 +197,14 @@
         );
 
         {% if owner.alive %}
-        const complainButtons = document.querySelectorAll('[x-complaint-severity]');
-        for (let i = 0; i < complainButtons.length; i++)
-            complainButtons[i].addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity'))},
-                    function () {
-                        $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
-                    } );
-            })
+            const complainButtons = document.querySelectorAll('[x-complaint-severity]');
+            for (let i = 0; i < complainButtons.length; i++)
+                complainButtons[i].addEventListener('click', function() {
+                    $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity'))},
+                        function () {
+                            $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+                        } );
+                })
             {% if is_granted('ROLE_ADMIN') %}
                 const adminButtons = document.querySelectorAll('[x-admin-action]');
                 for (let i = 0; i < adminButtons.length; i++)
@@ -216,18 +217,28 @@
                 })
             {% endif %}
             {% if is_shaman and not banished %}
-	        const healButtons = document.querySelectorAll('[x-heal-citizen]');
-	        for (let i = 0; i < healButtons.length; i++) {
-	            healButtons[i].addEventListener('click', function() {
-	                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
-	                    return;
-	                $.ajax.easySend( '{{ path('visit_heal_citizen', {id: owner.id}) }}', {},
-	                    function () {
-	                        $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
-	                    } );
-	            });
-	        }
+	            const healButtons = document.querySelectorAll('[x-heal-citizen]');
+	            for (let i = 0; i < healButtons.length; i++) {
+	                healButtons[i].addEventListener('click', function() {
+                        if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+	                        return;
+	                    $.ajax.easySend( '{{ path('visit_heal_citizen', {id: owner.id}) }}', {},
+	                        function () {
+	                            $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+	                        } );
+	                });
+	            }
 	        {% endif %}
+            {% if can_attack %}
+                $.html.addEventListenerAll('[x-attack-citizen]', 'click', function() {
+                    if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        return;
+                    $.ajax.easySend( '{{ path('visit_attack_citizen', {id: owner.id}) }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+                        } );
+                });
+            {% endif %}
         {% endif %}
 
         {% if owner.home.holdsBody %}

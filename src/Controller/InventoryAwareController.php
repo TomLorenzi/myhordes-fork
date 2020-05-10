@@ -323,6 +323,76 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         return $final;
     }
 
+    public function generic_attack_api(Citizen $aggressor, Citizen $defender) {
+        if ($aggressor->getId() === $defender->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($aggressor->getZone()) {
+            if (!$defender->getZone() || $defender->getZone()->getId() !== $aggressor->getZone()->getId())
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        } else {
+            if ($defender->getZone())
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        }
+
+        if ($this->citizen_handler->isTired($aggressor) || $aggressor->getAp() < 5)
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false);
+        if ($attack_protect) {
+            foreach ($aggressor->getTown()->getCitizens() as $c)
+                if ($c->getAlive() && $c->hasRole('ghoul'))
+                    $attack_protect = false;
+        }
+
+        if ($defender->hasRole('ghoul')) {
+
+            $this->citizen_handler->setAP($aggressor, true, -5);
+            $this->addFlash('notice',
+                $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+                . "<hr />" .
+                $this->translator->trans('Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+            );
+            $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, true));
+            $this->death_handler->kill($defender, CauseOfDeath::GhulBeaten);
+            $this->entity_manager->persist($this->log->citizenDeath( $defender ) );
+        } elseif ($attack_protect) {
+
+            $this->addFlash('error', $this->translator->trans('Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M\'Kay?', [], 'game'));
+
+        } elseif ( $this->citizen_handler->isWounded( $defender ) ) {
+
+            $this->addFlash('error', $this->translator->trans('%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.', ['%citizen%' => $defender->getUser()->getUsername()], 'game'));
+
+        } else {
+
+            $this->citizen_handler->setAP( $aggressor, true, -5 );
+            $wound = $this->random_generator->chance( 0.5 );
+            $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, $wound));
+            if ($wound) {
+                $this->addFlash('notice',
+                    $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+                );
+                $this->citizen_handler->inflictWound($defender);
+
+            } else $this->addFlash('notice',
+                $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+            );
+
+        }
+
+        $this->entity_manager->persist($aggressor);
+        $this->entity_manager->persist($defender);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success( );
+    }
+
     public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler): Response {
         $item_id = (int)$parser->get('item', -1);
         $direction = $parser->get('direction', '');

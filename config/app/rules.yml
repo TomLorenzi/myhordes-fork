@@ -41,6 +41,7 @@ parameters:
         poison:
           stack_poisoned_items: false
           transgress: false
+        attack_protection: false
 
       features:
         camping: true
@@ -64,6 +65,7 @@ parameters:
 
       modifiers:
         watchtower_estimation_threshold: 0
+        attack_protection: true
 
       features:
         camping: false

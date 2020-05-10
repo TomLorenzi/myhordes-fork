@@ -83,7 +83,7 @@
         for (let i = 0; i < wellButtons.length; i++)
             wellButtons[i].addEventListener('click', function() {
                 if (this.getAttribute('x-well-confirm') === '1')
-                    if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                    if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                         return;
 
                 take_water( this.getAttribute('x-well-direction') );

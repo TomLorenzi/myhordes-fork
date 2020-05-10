@@ -137,6 +137,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
+            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
             'zone_cp' => $cp,
             'zone'  =>  $zone,
             'allow_movement' => (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden,
@@ -1103,6 +1104,25 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
+     * @Route("api/beyond/desert/attack_citizen/{cid<\d+>}", name="beyond_desert_attack_citizen_controller")
+     * @param int $cid
+     * @return Response
+     */
+    public function desert_attack_api(int $cid): Response {
+
+        $this->deferZoneUpdate();
+        $citizen = $this->getActiveCitizen();
+
+        /** @var Citizen|null $target_citizen */
+        $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
+
+        if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        return $this->generic_attack_api( $citizen, $target_citizen );
+    }
+
+    /**
      * @Route("api/beyond/desert/escort/self", name="beyond_desert_escort_self_controller")
      * @param JSONRequestParser $parser
      * @param ConfMaster $conf
@@ -1136,12 +1156,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($on)
             $citizen->getEscortSettings()->setAllowInventoryAccess($cf_ruc)->setForceDirectReturn($cf_ret);
 
-        //try {
+        try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
-        //} catch (Exception $e) {
-        //    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        //}
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
 
         return AjaxResponse::success();
     }

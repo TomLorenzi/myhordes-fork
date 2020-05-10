@@ -62,7 +62,7 @@
         const handleDoor = function(element, action) {
             if (!element) return;
             element.addEventListener('click', function() {
-                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('town_door_control_controller') }}', {
                         action: action
