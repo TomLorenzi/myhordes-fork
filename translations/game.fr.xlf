@@ -9958,7 +9958,7 @@
       </notes>
       <segment>
         <source>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
-        <target>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</target>
+        <target>Comme il y avait environ %attack% zombies aux portes la nuit dernière, nous aurions pu craindre le pire, mais pas un seul n'est arrivé : le bon temps ! Mais ne vous cassez pas le bras en vous tapotant l'épaule !</target>
       </segment>
     </unit>
     <unit id="DHLa_0B" name="55f668d">
