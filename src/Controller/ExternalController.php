@@ -700,6 +700,7 @@ class ExternalController extends InventoryAwareController
                     'id' => $item->getId(),
                     'icon' => $item->getIcon(),
                     'category' => $item->getCategory()->getName(),
+                    'parent_category' => $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getName() : null,
                     'heavy' => $item->getHeavy(),
                     'decoration' => $item->getDeco(),
                     'nightwatch' => $item->getWatchpoint(),
@@ -709,24 +710,28 @@ class ExternalController extends InventoryAwareController
                     'name' => $item->getLabel(),
                     'description' => $item->getDescription(),
                     'category' => $item->getCategory()->getLabel(),
+                    'parent_category' => $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getLabel() : null,
                 ],
                 'fr' => [
                     'name' => $this->translator->trans($item->getLabel(), [], 'items', 'fr'),
                     'description' => $this->translator->trans($item->getDescription(), [], 'items', 'fr'),
                     'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'fr'),
+                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'fr') : null,
                 ],
                 'en' => [
                     'name' => $this->translator->trans($item->getLabel(), [], 'items', 'en'),
                     'description' => $this->translator->trans($item->getDescription(), [], 'items', 'en'),
                     'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'en'),
+                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'en') : null,
                 ],
                 'es' => [
                     'name' => $this->translator->trans($item->getLabel(), [], 'items', 'es'),
                     'description' => $this->translator->trans($item->getDescription(), [], 'items', 'es'),
                     'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'es'),
+                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'es') : null,
                 ],
             ];
-            $data[] = $item_data;
+            $data[$item->getId()] = $item_data;
         }
 
         return $data ?? [];
