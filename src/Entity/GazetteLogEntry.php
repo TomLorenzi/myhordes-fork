@@ -9,9 +9,29 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class GazetteLogEntry
 {
-    const TypeGazette   = 12;
+    const TypeGazette       = 12;
+    const TypeGazetteTown   = 13;
+    const TypeGazetteBeyond = 14;
 
-    const ClassNews     = 5;
+    const ClassGazetteNews        =  5;
+    const ClassGazetteNoDeaths    =  6;
+    const ClassGazetteOneDeath    =  7;
+    const ClassGazetteTwoDeaths   =  8;
+    const ClassGazetteMultiDeaths =  9;
+
+    const RequiresNothing       =  0;
+    const RequiresOneCitizen    = 11;
+    const RequiresTwoCitizens   = 12;
+    const RequiresThreeCitizens = 13;
+    const RequiresOneCadaver    = 21;
+    const RequiresTwoCadavers   = 22;
+    const RequiresOneOfEach     = 31;
+    const RequiresTwoOfEach     = 32;
+    const RequiresAttack        = 40;
+    const RequiresDefense       = 41;
+    const RequiresDeaths        = 42;
+    const RequiresInvasion      = 43;
+    const RequiresAttackDeaths  = 44;
 
     /**
      * @ORM\Id()
