@@ -685,8 +685,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bomb_1'    => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' =>  40] ] ], 'message' => 'Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!' ],
             'bomb_2'    => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message' => 'Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!' ],
 
-            'eat_meat_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], ['item' => ['consume' => false, 'morph' => 'bone_#00'] ], ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
-            'eat_meat_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], ['item' => ['consume' => false, 'morph' => 'bone_#00'] ], ['status' => 'satisfy_ghoul_10' ] ], ],
+            'eat_fleshroom_1'  => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
+            'eat_fleshroom_2'  => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', 'consume_item', ['status' => 'satisfy_ghoul_10' ] ], ],
+
+            'eat_meat_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], 'consume_item', ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
+            'eat_meat_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], 'consume_item', ['status' => 'satisfy_ghoul_10' ] ], ],
 
             'eat_bone_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], ['item' => ['consume' => false, 'morph' => 'bone_#00'] ], ['group' => [ ['do_nothing', 9], [ 'infect', 9 ], ['become_ghoul_25', 2] ]] ] ],
             'eat_bone_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], ['item' => ['consume' => false, 'morph' => 'bone_#00'] ], ['status' => 'satisfy_ghoul_10' ] ], ],
@@ -811,7 +814,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'can_#00'             => [ 'can' ],
 
             'can_open_#00'        => [ 'eat_6ap'],
-            'fruit_#00'           => [ 'eat_6ap'],
             'bretz_#00'           => [ 'eat_6ap'],
             'undef_#00'           => [ 'eat_6ap'],
             'dish_#00'            => [ 'eat_6ap'],
@@ -825,6 +827,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'food_tarte_#00'      => [ 'eat_6ap'],
             'food_sandw_#00'      => [ 'eat_6ap'],
             'food_noodles_#00'    => [ 'eat_6ap'],
+            'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
             'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
             'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2' ],
             'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2', 'eat_cadaver_3'],
