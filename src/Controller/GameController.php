@@ -159,6 +159,10 @@ class GameController extends AbstractController implements GameInterfaceControll
             }
         }
 
+        if (count($death_inside) > $gazette->getDeaths()) {
+            $gazette->setDeaths(count($death_inside));
+        }
+
         $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
         $text = '';
         if (count($gazette_logs) == 0) {
