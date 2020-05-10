@@ -79,8 +79,8 @@
                             <div class="nightstat nightstat-attack"><span class="count">{{ gazette.attack }}</span>
                                 {{ 'Zombies'|trans({},'game') }}</div>
                             <div class="nightstat nightstat-defense"><span class="count">{{ gazette.defense }}</span>
-                                {{ 'Verteidigung'|trans({},'game') }}</div>
-                            <div class="nightstat nightstat-deaths">{% if gazette.deaths > 0 %}<span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans({}, 'game') }}{% else %}<span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>{% endif %}</div>
+                                {{ 'Verteidigung'|trans({},'game') }}{% if gazette.invasion > 0 %}<br><span class="invasion">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>{% endif %}</div>
+                            <div class="nightstat nightstat-deaths">{% if gazette.deaths > 0 %}<span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans({}, 'game') }}{% else %}<span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>{% endif %}{% if gazette.terror > 0 %}<br><span class="terror">{{ gazette.terror }} {{ 'terrorisiert'|trans({},'game') }}</span>{% endif %}</div>
                         </div>
                     {% else %}
                         <div id="gazette-empty"></div>

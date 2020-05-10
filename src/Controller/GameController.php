@@ -283,9 +283,11 @@ class GameController extends AbstractController implements GameInterfaceControll
             'chaos' => $town->getChaos(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
-            'attack' => $attack,
-            'defense' => $defense,
+            'attack' => $gazette->getAttack(),
+            'defense' => $gazette->getDefense(),
+            'invasion' => $gazette->getInvasion(),
             'deaths' => count($death_inside),
+            'terror' => $gazette->getTerror(),
             'text' => $text,
             'textClass' => $textClass,
         ];
