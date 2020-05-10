@@ -19,13 +19,13 @@
         <target>Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</target>
       </segment>
     </unit>
-    <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
+    <unit id="cLv91_L" name="Dein Text muss mindestens 2 Zeichen lang sein.">
       <notes>
-        <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
+        <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
       </notes>
       <segment>
-        <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
-        <target>Dein Text muss mindestens 10 Zeichen lang sein.</target>
+        <source>Dein Text muss mindestens 2 Zeichen lang sein.</source>
+        <target>Dein Text muss mindestens 2 Zeichen lang sein.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">

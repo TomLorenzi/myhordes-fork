@@ -19,13 +19,13 @@
         <target>El foro seleccionado no existe o no tienes permiso para verlo.</target>
       </segment>
     </unit>
-    <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
+    <unit id="cLv91_L" name="Dein Text muss mindestens 2 Zeichen lang sein.">
       <notes>
-        <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
+        <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
       </notes>
       <segment>
-        <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
-        <target>Tu texto debe tener al menos 10 caracteres de largo.</target>
+        <source>Dein Text muss mindestens 2 Zeichen lang sein.</source>
+        <target>Tu texto debe tener al menos 2 caracteres de largo.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
