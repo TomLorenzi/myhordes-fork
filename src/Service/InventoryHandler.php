@@ -29,12 +29,14 @@ class InventoryHandler
     private $container;
     private $entity_manager;
     private $item_factory;
+    private $bankAbuseService;
 
-    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if)
+    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
         $this->container = $c;
+        $this->bankAbuseService = $bankAntiAbuseService;
     }
 
     public function getSize( Inventory $inventory ): int {
@@ -331,7 +333,7 @@ class InventoryHandler
     const ModalityImpound = 2;
     const ModalityEnforcePlacement = 3;
 
-    public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone ): int {
+    public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone): int {
         // Block Transfer if citizen is hiding
         if ($actor->getZone() && $modality !== self::ModalityImpound && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
             return self::ErrorTransferBlocked;
@@ -371,9 +373,17 @@ class InventoryHandler
             if ($item->getEssential() || $item->getPrototype()->hasProperty('esc_fixed')) return self::ErrorEscortDropForbidden;
         }
 
-        //ToDo Check Bank lock
         if ($type_from === self::TransferTypeBank) {
             if ($actor->getBanished()) return self::ErrorBankBlocked;
+
+            //Bank Anti abuse system
+            if (!$this->bankAbuseService->allowedToTake($actor))
+            {
+                return InventoryHandler::ErrorBankLimitHit;
+            }
+
+            $this->bankAbuseService->increaseBankCount($actor);
+
         }
 
         if ( $type_to === self::TransferTypeSteal && !$to->getHome()->getCitizen()->getAlive())

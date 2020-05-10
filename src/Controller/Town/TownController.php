@@ -5,6 +5,7 @@ namespace App\Controller\Town;
 use App\Controller\InventoryAwareController;
 use App\Controller\TownInterfaceController;
 use App\Entity\ActionCounter;
+use App\Entity\BankAntiAbuse;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
@@ -21,6 +22,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Service\BankAntiAbuseService;
 use App\Structures\TownConf;
 use App\Translation\T;
 use App\Response\AjaxResponse;
@@ -669,11 +671,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @Route("api/town/bank/item", name="town_bank_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
+     * @param BankAntiAbuseService $bankAntiAbuseService
      * @return Response
      */
-    public function item_bank_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+    public function item_bank_api(JSONRequestParser $parser, InventoryHandler $handler, BankAntiAbuseService $bankAntiAbuseService): Response {
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getTown()->getBank();
+
         return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
     }
 

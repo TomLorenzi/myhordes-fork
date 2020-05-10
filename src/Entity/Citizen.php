@@ -211,9 +211,15 @@ class Citizen
     private $citizenWatch;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\BankAntiAbuse", mappedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $bankAntiAbuse;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $ghulHunger = 0;
+
 
     public function __construct()
     {
@@ -907,6 +913,19 @@ class Citizen
     {
         if($this->citizenWatch->contains($citizenWatch))
         $this->citizenWatch->removeElement($citizenWatch);
+
+        return $this;
+    }
+
+
+    public function getBankAntiAbuse(): ?BankAntiAbuse
+    {
+        return $this->bankAntiAbuse;
+    }
+
+    public function setBankAntiAbuse(?BankAntiAbuse $bankAntiAbuse): self
+    {
+        $this->bankAntiAbuse = $bankAntiAbuse;
 
         return $this;
     }
