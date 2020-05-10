@@ -68,8 +68,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh,
-        LogTemplateHandler $lth)
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -83,7 +82,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->conf = $conf;
         $this->zone_handler = $zh;
         $this->death_handler = $dh;
-        $this->logTemplateHandler = $lth;
+        $this->logTemplateHandler = $lt;
     }
 
     protected function getTownConf() {
