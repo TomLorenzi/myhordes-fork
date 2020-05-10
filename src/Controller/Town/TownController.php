@@ -567,9 +567,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @param ItemFactory $factory
+     * @param TownHandler $th
      * @return Response
      */
-    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, TownHandler $th): Response {
+    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, TownHandler $th, BankAntiAbuseService $ba): Response {
         $direction = $parser->get('direction', '');
 
         if (in_array($direction, ['up','down'])) {
@@ -597,10 +598,16 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $inv_source = null;
                 $item = $factory->createItem( 'water_#00' );
 
+                if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen ))
+                    return AjaxResponse::error( InventoryHandler::ErrorBankLimitHit );
+
                 if (($error = $handler->transferItem(
                     $citizen,
                     $item,$inv_source, $inv_target
                 )) === InventoryHandler::ErrorNone) {
+                    if ($counter->getCount() > 0)
+                        $ba->increaseBankCount( $citizen );
+
                     $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
                     $counter->increment();
                     $town->setWell( $town->getWell()-1 );
