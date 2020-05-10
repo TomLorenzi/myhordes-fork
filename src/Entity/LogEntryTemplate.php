@@ -3,9 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LogEntryTemplateRepository")
+ * @UniqueEntity("name")
+ * @Table(uniqueConstraints={
+ *     @UniqueConstraint(name="name_unique",columns={"name"})
+ * })
  */
 class LogEntryTemplate
 {

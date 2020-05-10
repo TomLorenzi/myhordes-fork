@@ -448,7 +448,7 @@ class LogEntryTemplateFixtures extends Fixture
             ],
         ],
         ['text'=>'Was für ein Riesenschlamassel: %deaths% starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?',
-            'name'=>'gazetteTownMultiDeaths_008',
+            'name'=>'gazetteTownMultiDeaths_009',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteMultiDeaths,
             'secondaryType'=>GazetteLogEntry::RequiresDeaths,

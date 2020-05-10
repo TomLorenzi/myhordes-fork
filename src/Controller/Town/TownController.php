@@ -170,7 +170,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
-        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
         $votes_needed = array();
         $has_voted = array();
         foreach ($roles as $role) {
