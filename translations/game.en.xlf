@@ -4920,7 +4920,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&amp;Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.</source>
-        <target><![CDATA[You ask yourself what kind of person would enjoy spending a night in a shabby hole like this motel. No doubt some sleazy sales rep whose dodgy past will catch up with him sooner or later. I really must check out room 215, you think to yourself, without really knowing why'.]]></target>
+        <target>You ask yourself what kind of person would enjoy spending a night in a shabby hole like this motel. No doubt some sleazy sales rep whose dodgy past will catch up with him sooner or later. I really must check out room 215, you think to yourself, without really knowing why'.</target>
       </segment>
     </unit>
     <unit id="sYaNvt8" name="6f0397f">
@@ -7667,7 +7667,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="rFh36Gr" name="Klassischer Editor">
       <notes>
-        <note category="german">Classic Editor</note>
+        <note category="german">Klassischer Editor</note>
       </notes>
       <segment>
         <source>Klassischer Editor</source>
@@ -7676,7 +7676,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="wkidHer" name="Grafischer Editor">
       <notes>
-        <note category="german">Graphic Editor</note>
+        <note category="german">Grafischer Editor</note>
       </notes>
       <segment>
         <source>Grafischer Editor</source>
@@ -7685,7 +7685,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="3eUF.n2" name="39c8b98">
       <notes>
-        <note category="german">You have reported this post from %username% to the raven. Who knows, maybe %username% will die tonight... caaaw caaaw!</note>
+        <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
       </notes>
       <segment>
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
@@ -7748,7 +7748,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="jqa.16L" name="da1981d">
       <notes>
-        <note category="german">You already searched this zone. The next search will not be available until tomorrow.</note>
+        <note category="german">Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
@@ -8566,6 +8566,888 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Was sagst du dazu?</source>
         <target>Was sagst du dazu?</target>
+      </segment>
+    </unit>
+    <unit id="qNbvdyn" name="Du hast dich in einen Ghul verwandelt!">
+      <notes>
+        <note category="german">Du hast dich in einen Ghul verwandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen Ghul verwandelt!</source>
+        <target>Du hast dich in einen Ghul verwandelt!</target>
+      </segment>
+    </unit>
+    <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
+      <notes>
+        <note category="german">%citizen% hat einen Bauplan für %plan% gefunden.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
+        <target>%citizen% hat einen Bauplan für %plan% gefunden.</target>
+      </segment>
+    </unit>
+    <unit id="2jSPgup" name="c7e40ad">
+      <notes>
+        <note category="german">%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
+        <target>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</target>
+      </segment>
+    </unit>
+    <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
+      <notes>
+        <note category="german">%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
+      </notes>
+      <segment>
+        <source>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
+        <target>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+      </segment>
+    </unit>
+    <unit id="mxKAfZX" name="%citizen% wurde von %num% Zombies zerfleischt!">
+      <notes>
+        <note category="german">%citizen% wurde von %num% Zombies zerfleischt!</note>
+      </notes>
+      <segment>
+        <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
+        <target>%citizen% wurde von %num% Zombies zerfleischt!</target>
+      </segment>
+    </unit>
+    <unit id="0OgA2rX" name="0505799">
+      <notes>
+        <note category="german">%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
+        <target>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+      </segment>
+    </unit>
+    <unit id="1c66H6u" name="85ec328">
+      <notes>
+        <note category="german">Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</note>
+      </notes>
+      <segment>
+        <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
+        <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
+      </segment>
+    </unit>
+    <unit id="vdpIvG7" name="6b9d94e">
+      <notes>
+        <note category="german">Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
+      </notes>
+      <segment>
+        <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
+        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+      </segment>
+    </unit>
+    <unit id="OVTYzwK" name="%sender%: %message%">
+      <notes>
+        <note category="german">%sender%: %message%</note>
+      </notes>
+      <segment>
+        <source>%sender%: %message%</source>
+        <target>%sender%: %message%</target>
+      </segment>
+    </unit>
+    <unit id="7KSNPZ_" name="%citizen% hat %target_citizen% überzeugt, ihm zu folgen.">
+      <notes>
+        <note category="german">%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</source>
+        <target>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="XTPqDbX" name="%citizen% hat %target_citizen% aus der Eskorte entlassen.">
+      <notes>
+        <note category="german">%citizen% hat %target_citizen% aus der Eskorte entlassen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %target_citizen% aus der Eskorte entlassen.</source>
+        <target>%citizen% hat %target_citizen% aus der Eskorte entlassen.</target>
+      </segment>
+    </unit>
+    <unit id="Eh4g78_" name="%attacker% hat %defender% gewalttätig angegriffen und verwundet!">
+      <notes>
+        <note category="german">%attacker% hat %defender% gewalttätig angegriffen und verwundet!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</source>
+        <target>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</target>
+      </segment>
+    </unit>
+    <unit id="HwOTRdd" name="%attacker% hat %defender% gewalttätig angegriffen!">
+      <notes>
+        <note category="german">%attacker% hat %defender% gewalttätig angegriffen!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% gewalttätig angegriffen!</source>
+        <target>%attacker% hat %defender% gewalttätig angegriffen!</target>
+      </segment>
+    </unit>
+    <unit id="0Y6YSyp" name="c4b3caa">
+      <notes>
+        <note category="german">Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</note>
+      </notes>
+      <segment>
+        <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
+        <target>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</target>
+      </segment>
+    </unit>
+    <unit id="8xZcKzq" name="65218d1">
+      <notes>
+        <note category="german">Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</note>
+      </notes>
+      <segment>
+        <source>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</source>
+        <target>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</target>
+      </segment>
+    </unit>
+    <unit id="o9GCPjs" name="c5c21d9">
+      <notes>
+        <note category="german">%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</note>
+      </notes>
+      <segment>
+        <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
+        <target>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</target>
+      </segment>
+    </unit>
+    <unit id="Qlh.l61" name="a9b83b9">
+      <notes>
+        <note category="german">Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+      </notes>
+      <segment>
+        <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+        <target>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</target>
+      </segment>
+    </unit>
+    <unit id=".vM_crK" name="7733da4">
+      <notes>
+        <note category="german">Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</note>
+      </notes>
+      <segment>
+        <source>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</source>
+        <target>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</target>
+      </segment>
+    </unit>
+    <unit id="HtB.MOi" name="0e485ea">
+      <notes>
+        <note category="german">Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem %citizen1% zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von %citizen2% dazu: "Der Anblick war nicht von schlechten Eltern."</note>
+      </notes>
+      <segment>
+        <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem %citizen1% zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von %citizen2% dazu: "Der Anblick war nicht von schlechten Eltern."</source>
+        <target>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem %citizen1% zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von %citizen2% dazu: "Der Anblick war nicht von schlechten Eltern."</target>
+      </segment>
+    </unit>
+    <unit id="oHxefYi" name="6fc4576">
+      <notes>
+        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
+        <target>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="ZV3brVh" name="7dd2cf8">
+      <notes>
+        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
+        <target>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</target>
+      </segment>
+    </unit>
+    <unit id="6iAHRm0" name="ba03d33">
+      <notes>
+        <note category="german">Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</note>
+      </notes>
+      <segment>
+        <source>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</source>
+        <target>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</target>
+      </segment>
+    </unit>
+    <unit id="86jQjTU" name="225efed">
+      <notes>
+        <note category="german">Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</note>
+      </notes>
+      <segment>
+        <source>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</source>
+        <target>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</target>
+      </segment>
+    </unit>
+    <unit id="qOMf2gJ" name="6aeff69">
+      <notes>
+        <note category="german">Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</note>
+      </notes>
+      <segment>
+        <source>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</source>
+        <target>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</target>
+      </segment>
+    </unit>
+    <unit id="gN4H5VR" name="786b2c6">
+      <notes>
+        <note category="german">Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</note>
+      </notes>
+      <segment>
+        <source>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</source>
+        <target>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</target>
+      </segment>
+    </unit>
+    <unit id="ra16zgk" name="cd7fba2">
+      <notes>
+        <note category="german">Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</note>
+      </notes>
+      <segment>
+        <source>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</source>
+        <target>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</target>
+      </segment>
+    </unit>
+    <unit id="pmixolq" name="78d1c25">
+      <notes>
+        <note category="german">Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</note>
+      </notes>
+      <segment>
+        <source>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</source>
+        <target>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</target>
+      </segment>
+    </unit>
+    <unit id="4Z_UnE1" name="6fad503">
+      <notes>
+        <note category="german">Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</note>
+      </notes>
+      <segment>
+        <source>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</source>
+        <target>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="xxw4YDd" name="e89d97d">
+      <notes>
+        <note category="german">Keine Todesopfer heute Abend. Alles ist in Ordnung. Ich garantiere Euch jedoch nur, dass die Zombies heute Nacht verhungern werden: Unsere morgigen Chancen sind..., naja, sagen wir, verbesserungswürdig.</note>
+      </notes>
+      <segment>
+        <source>Keine Todesopfer heute Abend. Alles ist in Ordnung. Ich garantiere Euch jedoch nur, dass die Zombies heute Nacht verhungern werden: Unsere morgigen Chancen sind..., naja, sagen wir, verbesserungswürdig.</source>
+        <target>Keine Todesopfer heute Abend. Alles ist in Ordnung. Ich garantiere Euch jedoch nur, dass die Zombies heute Nacht verhungern werden: Unsere morgigen Chancen sind..., naja, sagen wir, verbesserungswürdig.</target>
+      </segment>
+    </unit>
+    <unit id="t._G1SL" name="e5253d8">
+      <notes>
+        <note category="german">Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</note>
+      </notes>
+      <segment>
+        <source>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</source>
+        <target>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</target>
+      </segment>
+    </unit>
+    <unit id="i8FSlBg" name="425cdf4">
+      <notes>
+        <note category="german">Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</source>
+        <target>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</target>
+      </segment>
+    </unit>
+    <unit id="yz3M1Pn" name="11b317a">
+      <notes>
+        <note category="german">Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
+        <target>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</target>
+      </segment>
+    </unit>
+    <unit id="_KcsEZD" name="3b11391">
+      <notes>
+        <note category="german">Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</note>
+      </notes>
+      <segment>
+        <source>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</source>
+        <target>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</target>
+      </segment>
+    </unit>
+    <unit id="33A2X4_" name="2c8e055">
+      <notes>
+        <note category="german">Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</note>
+      </notes>
+      <segment>
+        <source>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</source>
+        <target>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</target>
+      </segment>
+    </unit>
+    <unit id="nzbV8IO" name="e986527">
+      <notes>
+        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
+      </notes>
+      <segment>
+        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
+        <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
+      </segment>
+    </unit>
+    <unit id=".ArUqcq" name="ed7befb">
+      <notes>
+        <note category="german">Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</note>
+      </notes>
+      <segment>
+        <source>Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</source>
+        <target>Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</target>
+      </segment>
+    </unit>
+    <unit id="8lLyo5W" name="78078af">
+      <notes>
+        <note category="german">Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</note>
+      </notes>
+      <segment>
+        <source>Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</source>
+        <target>Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</target>
+      </segment>
+    </unit>
+    <unit id="RRW1KXj" name="df3cfa4">
+      <notes>
+        <note category="german">Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</note>
+      </notes>
+      <segment>
+        <source>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</source>
+        <target>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</target>
+      </segment>
+    </unit>
+    <unit id="PZl940e" name="3a8fd01">
+      <notes>
+        <note category="german">Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</note>
+      </notes>
+      <segment>
+        <source>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
+        <target>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</target>
+      </segment>
+    </unit>
+    <unit id="DHLa_0B" name="55f668d">
+      <notes>
+        <note category="german">%cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</note>
+      </notes>
+      <segment>
+        <source>%cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
+        <target>%cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</target>
+      </segment>
+    </unit>
+    <unit id="x5dxpr6" name="69b9214">
+      <notes>
+        <note category="german">Alle scheinen sich still und leise über den Tod von %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
+      </notes>
+      <segment>
+        <source>Alle scheinen sich still und leise über den Tod von %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
+        <target>Alle scheinen sich still und leise über den Tod von %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</target>
+      </segment>
+    </unit>
+    <unit id="Mow3Zr1" name="50ae437">
+      <notes>
+        <note category="german">Jeder hörte %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
+      </notes>
+      <segment>
+        <source>Jeder hörte %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
+        <target>Jeder hörte %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</target>
+      </segment>
+    </unit>
+    <unit id=".sFRCVD" name="96acfcf">
+      <notes>
+        <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
+      </notes>
+      <segment>
+        <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
+        <target>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</target>
+      </segment>
+    </unit>
+    <unit id="DlvFZqE" name="074522b">
+      <notes>
+        <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
+        <target>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</target>
+      </segment>
+    </unit>
+    <unit id="70j37AW" name="68a1057">
+      <notes>
+        <note category="german">Einige sagen, daß der Tod von %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
+      </notes>
+      <segment>
+        <source>Einige sagen, daß der Tod von %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
+        <target>Einige sagen, daß der Tod von %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</target>
+      </segment>
+    </unit>
+    <unit id="b8ghZQk" name="ff38c46">
+      <notes>
+        <note category="german">Ausgangssperre gilt für alle. Auch für %cadaver1% und %cadaver2% – das haben sie nun davon.</note>
+      </notes>
+      <segment>
+        <source>Ausgangssperre gilt für alle. Auch für %cadaver1% und %cadaver2% – das haben sie nun davon.</source>
+        <target>Ausgangssperre gilt für alle. Auch für %cadaver1% und %cadaver2% – das haben sie nun davon.</target>
+      </segment>
+    </unit>
+    <unit id="3N_kP9." name="9f4f1a5">
+      <notes>
+        <note category="german">So richtig scheint keiner über den Tod von %cadaver1% und %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
+      </notes>
+      <segment>
+        <source>So richtig scheint keiner über den Tod von %cadaver1% und %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
+        <target>So richtig scheint keiner über den Tod von %cadaver1% und %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="ozYbUho" name="d41c7ea">
+      <notes>
+        <note category="german">Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten %deaths% unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</note>
+      </notes>
+      <segment>
+        <source>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten %deaths% unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</source>
+        <target>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten %deaths% unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</target>
+      </segment>
+    </unit>
+    <unit id="Ze_fOCp" name="1b4f27e">
+      <notes>
+        <note category="german">Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... %deaths% tot. Ende der Geschichte.</note>
+      </notes>
+      <segment>
+        <source>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... %deaths% tot. Ende der Geschichte.</source>
+        <target>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... %deaths% tot. Ende der Geschichte.</target>
+      </segment>
+    </unit>
+    <unit id="THY9ZW3" name="99077cf">
+      <notes>
+        <note category="german">Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der %deaths% Opfer des letzten Angriffs zu sein.</note>
+      </notes>
+      <segment>
+        <source>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der %deaths% Opfer des letzten Angriffs zu sein.</source>
+        <target>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der %deaths% Opfer des letzten Angriffs zu sein.</target>
+      </segment>
+    </unit>
+    <unit id="21ggXgm" name="e1334a6">
+      <notes>
+        <note category="german">Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind %deaths% Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</note>
+      </notes>
+      <segment>
+        <source>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind %deaths% Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</source>
+        <target>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind %deaths% Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</target>
+      </segment>
+    </unit>
+    <unit id="MwOt2NN" name="05e5ac7">
+      <notes>
+        <note category="german">Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</note>
+      </notes>
+      <segment>
+        <source>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</source>
+        <target>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</target>
+      </segment>
+    </unit>
+    <unit id="Zi60bF7" name="36fe124">
+      <notes>
+        <note category="german">Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</note>
+      </notes>
+      <segment>
+        <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</source>
+        <target>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</target>
+      </segment>
+    </unit>
+    <unit id="dXpzNiz" name="ffa5094">
+      <notes>
+        <note category="german">Die Verteidigungsanlagen waren gestern Abend unzureichend. %deaths% Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigungsanlagen waren gestern Abend unzureichend. %deaths% Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</source>
+        <target>Die Verteidigungsanlagen waren gestern Abend unzureichend. %deaths% Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</target>
+      </segment>
+    </unit>
+    <unit id="NwrPEV1" name="6abc9da">
+      <notes>
+        <note category="german">Letzte Nacht haben es %deaths% Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</note>
+      </notes>
+      <segment>
+        <source>Letzte Nacht haben es %deaths% Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</source>
+        <target>Letzte Nacht haben es %deaths% Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</target>
+      </segment>
+    </unit>
+    <unit id="anjAe5K" name="0d2c4d5">
+      <notes>
+        <note category="german">Was für ein Riesenschlamassel: %deaths% starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</note>
+      </notes>
+      <segment>
+        <source>Was für ein Riesenschlamassel: %deaths% starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</source>
+        <target>Was für ein Riesenschlamassel: %deaths% starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</target>
+      </segment>
+    </unit>
+    <unit id="bkMZ85E" name="Horizont">
+      <notes>
+        <note category="german">Horizont</note>
+      </notes>
+      <segment>
+        <source>Horizont</source>
+        <target>Horizont</target>
+      </segment>
+    </unit>
+    <unit id="fbPbjvi" name="a7ecbdc">
+      <notes>
+        <note category="german">Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</source>
+        <target>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</target>
+      </segment>
+    </unit>
+    <unit id="vX7Ir3N" name="4c875cf">
+      <notes>
+        <note category="german">Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</note>
+      </notes>
+      <segment>
+        <source>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</source>
+        <target>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</target>
+      </segment>
+    </unit>
+    <unit id="bGpi8xS" name="20f2e47">
+      <notes>
+        <note category="german">Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</note>
+      </notes>
+      <segment>
+        <source>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</source>
+        <target>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</target>
+      </segment>
+    </unit>
+    <unit id="wzmYlE_" name="Gut gemacht!">
+      <notes>
+        <note category="german">Gut gemacht!</note>
+      </notes>
+      <segment>
+        <source>Gut gemacht!</source>
+        <target>Gut gemacht!</target>
+      </segment>
+    </unit>
+    <unit id="RwOIyEr" name="Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!">
+      <notes>
+        <note category="german">Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</source>
+        <target>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</target>
+      </segment>
+    </unit>
+    <unit id="YYOxts0" name="ad6045f">
+      <notes>
+        <note category="german">Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</note>
+      </notes>
+      <segment>
+        <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
+        <target>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</target>
+      </segment>
+    </unit>
+    <unit id="VMYfBZH" name="c75511e">
+      <notes>
+        <note category="german">Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</note>
+      </notes>
+      <segment>
+        <source>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</source>
+        <target>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</target>
+      </segment>
+    </unit>
+    <unit id="ibp3W.L" name="2c77f85">
+      <notes>
+        <note category="german">Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!</note>
+      </notes>
+      <segment>
+        <source>Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!</source>
+        <target>Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!</target>
+      </segment>
+    </unit>
+    <unit id="9goEXWW" name="ba579b2">
+      <notes>
+        <note category="german">Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</note>
+      </notes>
+      <segment>
+        <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
+        <target>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</target>
+      </segment>
+    </unit>
+    <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
+      <notes>
+        <note category="german">%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</source>
+        <target>%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</target>
+      </segment>
+    </unit>
+    <unit id="krglp5j" name="e0a8162">
+      <notes>
+        <note category="german">Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</note>
+      </notes>
+      <segment>
+        <source>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</source>
+        <target>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</target>
+      </segment>
+    </unit>
+    <unit id="y09QGB5" name="08e53f6">
+      <notes>
+        <note category="german">Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</note>
+      </notes>
+      <segment>
+        <source>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</source>
+        <target>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</target>
+      </segment>
+    </unit>
+    <unit id="RTU8pgm" name="b4a7495">
+      <notes>
+        <note category="german">Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</note>
+      </notes>
+      <segment>
+        <source>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</source>
+        <target>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</target>
+      </segment>
+    </unit>
+    <unit id="yKYNmZu" name="356ee99">
+      <notes>
+        <note category="german">Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</note>
+      </notes>
+      <segment>
+        <source>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</source>
+        <target>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</target>
+      </segment>
+    </unit>
+    <unit id="8c5KAcV" name="8760dc7">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</source>
+        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</target>
+      </segment>
+    </unit>
+    <unit id="vU0kRt8" name="38c2470">
+      <notes>
+        <note category="german">Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</note>
+      </notes>
+      <segment>
+        <source>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</source>
+        <target>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</target>
+      </segment>
+    </unit>
+    <unit id="4ghkz8M" name="625a63d">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</source>
+        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</target>
+      </segment>
+    </unit>
+    <unit id="_GYzBvg" name="f2ccdc7">
+      <notes>
+        <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</note>
+      </notes>
+      <segment>
+        <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</source>
+        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</target>
+      </segment>
+    </unit>
+    <unit id="7K7nTLN" name="In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.">
+      <notes>
+        <note category="german">In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</note>
+      </notes>
+      <segment>
+        <source>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</source>
+        <target>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</target>
+      </segment>
+    </unit>
+    <unit id="owwwxrQ" name="4363ae3">
+      <notes>
+        <note category="german">Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
+        <target>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</target>
+      </segment>
+    </unit>
+    <unit id="L0KmARN" name="Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.">
+      <notes>
+        <note category="german">Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</note>
+      </notes>
+      <segment>
+        <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
+        <target>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</target>
+      </segment>
+    </unit>
+    <unit id="gk3I32J" name="Deine Trunkenheit macht dir die Suche nicht gerade leichter.">
+      <notes>
+        <note category="german">Deine Trunkenheit macht dir die Suche nicht gerade leichter.</note>
+      </notes>
+      <segment>
+        <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
+        <target>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</target>
+      </segment>
+    </unit>
+    <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
+      <notes>
+        <note category="german">Du kannst heute keine weiteren Beschwerden vorbringen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
+        <target>Du kannst heute keine weiteren Beschwerden vorbringen.</target>
+      </segment>
+    </unit>
+    <unit id="JYO69lS" name="Von diesem Gegenstand will sich der Bürger nicht trennen.">
+      <notes>
+        <note category="german">Von diesem Gegenstand will sich der Bürger nicht trennen.</note>
+      </notes>
+      <segment>
+        <source>Von diesem Gegenstand will sich der Bürger nicht trennen.</source>
+        <target>Von diesem Gegenstand will sich der Bürger nicht trennen.</target>
+      </segment>
+    </unit>
+    <unit id="TH1rJgR" name="Das kannst du mit einem Berufsgegenstand nicht tun.">
+      <notes>
+        <note category="german">Das kannst du mit einem Berufsgegenstand nicht tun.</note>
+      </notes>
+      <segment>
+        <source>Das kannst du mit einem Berufsgegenstand nicht tun.</source>
+        <target>Das kannst du mit einem Berufsgegenstand nicht tun.</target>
+      </segment>
+    </unit>
+    <unit id="dyUt3up" name="Aus der Stadt schleichen">
+      <notes>
+        <note category="german">Aus der Stadt schleichen</note>
+      </notes>
+      <segment>
+        <source>Aus der Stadt schleichen</source>
+        <target>Aus der Stadt schleichen</target>
+      </segment>
+    </unit>
+    <unit id="GulZlLD" name="Nutze deine heilenden Hände">
+      <notes>
+        <note category="german">Nutze deine heilenden Hände</note>
+      </notes>
+      <segment>
+        <source>Nutze deine heilenden Hände</source>
+        <target>Nutze deine heilenden Hände</target>
+      </segment>
+    </unit>
+    <unit id="22n2wdo" name="Diesen Bürger angreifen!">
+      <notes>
+        <note category="german">Diesen Bürger angreifen!</note>
+      </notes>
+      <segment>
+        <source>Diesen Bürger angreifen!</source>
+        <target>Diesen Bürger angreifen!</target>
+      </segment>
+    </unit>
+    <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
+      <notes>
+        <note category="german">Diesen Bürger verspeisen!</note>
+      </notes>
+      <segment>
+        <source>Diesen Bürger verspeisen!</source>
+        <target>Diesen Bürger verspeisen!</target>
+      </segment>
+    </unit>
+    <unit id="6IAuVw5" name="Die Leiche verspeisen!">
+      <notes>
+        <note category="german">Die Leiche verspeisen!</note>
+      </notes>
+      <segment>
+        <source>Die Leiche verspeisen!</source>
+        <target>Die Leiche verspeisen!</target>
+      </segment>
+    </unit>
+    <unit id="isIvO1g" name="In die Stadt schleichen">
+      <notes>
+        <note category="german">In die Stadt schleichen</note>
+      </notes>
+      <segment>
+        <source>In die Stadt schleichen</source>
+        <target>In die Stadt schleichen</target>
+      </segment>
+    </unit>
+    <unit id="Ztj0B29" name="e4b05e9">
+      <notes>
+        <note category="german">Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
+        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+      </segment>
+    </unit>
+    <unit id="r.ZcCRS" name="Dieser Bürger wird aktuell von %leader% eskortiert.">
+      <notes>
+        <note category="german">Dieser Bürger wird aktuell von %leader% eskortiert.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger wird aktuell von %leader% eskortiert.</source>
+        <target>Dieser Bürger wird aktuell von %leader% eskortiert.</target>
+      </segment>
+    </unit>
+    <unit id="8fTcb5D" name="Tote in der Stadt">
+      <notes>
+        <note category="german">Tote in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Tote in der Stadt</source>
+        <target>Tote in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="wvs954U" name="Niemand!">
+      <notes>
+        <note category="german">Niemand!</note>
+      </notes>
+      <segment>
+        <source>Niemand!</source>
+        <target>Niemand!</target>
+      </segment>
+    </unit>
+    <unit id="ooesDbN" name="Sonstige Opfer">
+      <notes>
+        <note category="german">Sonstige Opfer</note>
+      </notes>
+      <segment>
+        <source>Sonstige Opfer</source>
+        <target>Sonstige Opfer</target>
+      </segment>
+    </unit>
+    <unit id="kxeEpoF" name="Opfer">
+      <notes>
+        <note category="german">Opfer</note>
+      </notes>
+      <segment>
+        <source>Opfer</source>
+        <target>Opfer</target>
+      </segment>
+    </unit>
+    <unit id="w60IHjv" name="Keine Opfer">
+      <notes>
+        <note category="german">Keine Opfer</note>
+      </notes>
+      <segment>
+        <source>Keine Opfer</source>
+        <target>Keine Opfer</target>
+      </segment>
+    </unit>
+    <unit id="Tj4dAlQ" name="Umdrehen">
+      <notes>
+        <note category="german">Umdrehen</note>
+      </notes>
+      <segment>
+        <source>Umdrehen</source>
+        <target>Umdrehen</target>
+      </segment>
+    </unit>
+    <unit id="1tKXRRi" name="Der %rolename% der Stadt ist %username%">
+      <notes>
+        <note category="german">Der %rolename% der Stadt ist %username%</note>
+      </notes>
+      <segment>
+        <source>Der %rolename% der Stadt ist %username%</source>
+        <target>Der %rolename% der Stadt ist %username%</target>
+      </segment>
+    </unit>
+    <unit id="kg5BPH1" name="Status">
+      <notes>
+        <note category="german">Status</note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
       </segment>
     </unit>
   </file>

@@ -19,7 +19,7 @@
         <target>Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</target>
       </segment>
     </unit>
-    <unit id="cLv91_L" name="Dein Text muss mindestens 2 Zeichen lang sein.">
+    <unit id="johChWe" name="Dein Text muss mindestens 2 Zeichen lang sein.">
       <notes>
         <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
       </notes>
@@ -822,7 +822,7 @@
     </unit>
     <unit id="aTN.bek" name="Vorschau">
       <notes>
-        <note category="german">Preview</note>
+        <note category="german">Vorschau</note>
       </notes>
       <segment>
         <source>Vorschau</source>

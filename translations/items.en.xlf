@@ -4921,10 +4921,10 @@
         <target>An old transistor radio with a Belle and Sebastian cassette stuck in it. The radio itself is useless as it doesn't pick anything up these days... It's always better to be able to listen to some good music at home than to listen to your neighbours screams as they are devoured by zombies. Better crank it up!</target>
       </segment>
     </unit>
-    <unit id="xembRNS" name="63a0e11">
+    <unit id="ZRYosW7" name="e6be535">
       <notes>
         <note>Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
-        <note category="german">Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
+        <note category="german">When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</note>
       </notes>
       <segment>
         <source>Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
@@ -7701,6 +7701,24 @@
       <segment>
         <source>Pkte</source>
         <target>Pts</target>
+      </segment>
+    </unit>
+    <unit id="xembRNS" name="63a0e11">
+      <notes>
+        <note category="german"> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
+      </notes>
+      <segment>
+        <source> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
+        <target> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</target>
+      </segment>
+    </unit>
+    <unit id="UGai_eX" name="9e17f97">
+      <notes>
+        <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
   </file>

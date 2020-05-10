@@ -19,7 +19,7 @@
         <target>El foro seleccionado no existe o no tienes permiso para verlo.</target>
       </segment>
     </unit>
-    <unit id="cLv91_L" name="Dein Text muss mindestens 2 Zeichen lang sein.">
+    <unit id="johChWe" name="Dein Text muss mindestens 2 Zeichen lang sein.">
       <notes>
         <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
       </notes>
@@ -86,7 +86,7 @@
       <notes>
         <note category="german">Diese Aktion steht dir aktuell nicht zur Verfügung.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese Aktion steht dir aktuell nicht zur Verfügung.</source>
         <target>Esta acción no está disponible.</target>
       </segment>
@@ -122,7 +122,7 @@
       <notes>
         <note category="german">Neuer Post</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Neuer Post</source>
         <target>Nuevo mensaje</target>
       </segment>
@@ -176,7 +176,7 @@
       <notes>
         <note category="german">Themen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Themen</source>
         <target>Temas</target>
       </segment>
@@ -185,7 +185,7 @@
       <notes>
         <note category="german">Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</source>
         <target>Nadie ha escrito nada todavía. ¡Sé el primero!</target>
       </segment>
@@ -221,7 +221,7 @@
       <notes>
         <note category="german">Achte auf deine Rechtschreibung</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Achte auf deine Rechtschreibung</source>
         <target>Cuida tu ortografía</target>
       </segment>
@@ -230,7 +230,7 @@
       <notes>
         <note category="german">Bleibe höflich und freundlich</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bleibe höflich und freundlich</source>
         <target>Sé respetuoso y cordial</target>
       </segment>
@@ -248,7 +248,7 @@
       <notes>
         <note category="german">Heute um</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Heute um</source>
         <target>Hoy a las</target>
       </segment>
@@ -257,7 +257,7 @@
       <notes>
         <note category="german">Gestern um</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Gestern um</source>
         <target>Ayer a las</target>
       </segment>
@@ -347,7 +347,7 @@
       <notes>
         <note category="german">Forum</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Forum</source>
         <target>Foros</target>
       </segment>
@@ -356,7 +356,7 @@
       <notes>
         <note category="german">Deine Seele</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Deine Seele</source>
         <target>Tu alma</target>
       </segment>
@@ -374,7 +374,7 @@
       <notes>
         <note category="german">Zum Spiel</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zum Spiel</source>
         <target>Jugar</target>
       </segment>
@@ -536,7 +536,7 @@
       <notes>
         <note category="german">Es wurde keine Stadt gefunden...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Es wurde keine Stadt gefunden...</source>
         <target>No se ha encontrado ningún pueblo...</target>
       </segment>
@@ -545,7 +545,7 @@
       <notes>
         <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</source>
         <target>¡Atención! Este enlace te envía hacia un sitio no-oficial (creado por jugadores).</target>
       </segment>
@@ -554,7 +554,7 @@
       <notes>
         <note category="german">Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</source>
         <target>¡Nunca des tu contraseña de MyHordes en este sitio!</target>
       </segment>
@@ -563,7 +563,7 @@
       <notes>
         <note category="german">Auch dann nicht, wenn du dazu aufgefordert wirst!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Auch dann nicht, wenn du dazu aufgefordert wirst!</source>
         <target>¡Ni siquiera si te la piden!</target>
       </segment>
@@ -572,7 +572,7 @@
       <notes>
         <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</source>
         <target>Si tienes alguna duda o pregunta respecto a ese sitio, contacta con %contact%.</target>
       </segment>
@@ -581,7 +581,7 @@
       <notes>
         <note category="german">Weiter zu</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Weiter zu</source>
         <target>Continuar hacia</target>
       </segment>
@@ -590,7 +590,7 @@
       <notes>
         <note category="german">Du hast keine Externe ID.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast keine Externe ID.</source>
         <target>No tienes ID externo.</target>
       </segment>
@@ -599,16 +599,16 @@
       <notes>
         <note category="german">Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target>Sin esto no puedes usar aplicaciones externas. Para configurar un ID externo, ve a Tu alma &gt; Configuración y genera un ID.</target>
+        <target><![CDATA[Sin esto no puedes usar aplicaciones externas. Para configurar un ID externo, ve a Tu alma > Configuración y genera un ID.]]></target>
       </segment>
     </unit>
     <unit id="SddpDzy" name="Verzeichnis">
       <notes>
         <note category="german">Verzeichnis</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verzeichnis</source>
         <target>Anuario</target>
       </segment>
@@ -617,7 +617,7 @@
       <notes>
         <note category="german">Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</source>
         <target>Los siguientes enlaces dirigen hacia sitios web elaborados por la comunidad. Proponen información y herramientas complementarias al juego:</target>
       </segment>
@@ -626,7 +626,7 @@
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dazu hast Du kein Recht.</source>
         <target>No tienes derecho a hacer esto.</target>
       </segment>
@@ -635,7 +635,7 @@
       <notes>
         <note category="german">als Rabe</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>als Rabe</source>
         <target>como Cuervo</target>
       </segment>
@@ -644,7 +644,7 @@
       <notes>
         <note category="german">Öffnen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Öffnen</source>
         <target>Desbloquear</target>
       </segment>
@@ -653,7 +653,7 @@
       <notes>
         <note category="german">Moderation</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Moderation</source>
         <target>Moderación</target>
       </segment>
@@ -662,7 +662,7 @@
       <notes>
         <note category="german">Schere</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schere</source>
         <target>Tijera</target>
       </segment>
@@ -671,7 +671,7 @@
       <notes>
         <note category="german">Stein</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Stein</source>
         <target>Piedra</target>
       </segment>
@@ -680,7 +680,7 @@
       <notes>
         <note category="german">Papier</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Papier</source>
         <target>Papel</target>
       </segment>
@@ -689,7 +689,7 @@
       <notes>
         <note category="german">Kopf</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kopf</source>
         <target>Cara</target>
       </segment>
@@ -698,7 +698,7 @@
       <notes>
         <note category="german">Zahl</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zahl</source>
         <target>Cruz</target>
       </segment>
@@ -707,7 +707,7 @@
       <notes>
         <note category="german">{color} {value}</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>{color} {value}</source>
         <target>{value} de {color}</target>
       </segment>
@@ -716,7 +716,7 @@
       <notes>
         <note category="german">Users</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Users</source>
         <target>Usuarios</target>
       </segment>
@@ -734,7 +734,7 @@
       <notes>
         <note category="german">Du wurdest aus dem Forum verbannt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du wurdest aus dem Forum verbannt.</source>
         <target>Has sido baneado.</target>
       </segment>
@@ -752,7 +752,7 @@
       <notes>
         <note category="german">Vorschau</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Vorschau</source>
         <target>Vista previa</target>
       </segment>
@@ -761,7 +761,7 @@
       <notes>
         <note category="german">Dev</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dev</source>
         <target>Desarrollador</target>
       </segment>
@@ -770,7 +770,7 @@
       <notes>
         <note category="german">Rabe</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rabe</source>
         <target>Cuervo</target>
       </segment>
@@ -779,7 +779,7 @@
       <notes>
         <note category="german">Sticky</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sticky</source>
         <target>Destacado</target>
       </segment>
@@ -788,7 +788,7 @@
       <notes>
         <note category="german">Melden</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Melden</source>
         <target>Reportar</target>
       </segment>
@@ -797,7 +797,7 @@
       <notes>
         <note category="german">Löschen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Löschen</source>
         <target>Eliminar</target>
       </segment>
@@ -806,7 +806,7 @@
       <notes>
         <note category="german">Anpinnen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Anpinnen</source>
         <target>Destacar</target>
       </segment>
@@ -815,7 +815,7 @@
       <notes>
         <note category="german">Loslösen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Loslösen</source>
         <target>Desprender</target>
       </segment>
@@ -824,7 +824,7 @@
       <notes>
         <note category="german">Online</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Online</source>
         <target>On-line</target>
       </segment>
@@ -833,7 +833,7 @@
       <notes>
         <note category="german">Offline</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Offline</source>
         <target>Off-line</target>
       </segment>
