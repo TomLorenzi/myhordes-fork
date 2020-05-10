@@ -110,8 +110,11 @@ class CitizenHandler
             return true;
         }
 
-        // Prevent thirst for ghouls
-        if (($status->getName() === 'thirst1' || $status->getName() === 'thirst2') && $citizen->hasRole('ghoul'))
+        // Prevent thirst and infection for ghouls
+        if ((   $status->getName() === 'thirst1' ||
+                $status->getName() === 'thirst2' ||
+                $status->getName() === 'infection'
+            ) && $citizen->hasRole('ghoul'))
             return false;
 
         // Prevent terror when holding a zen booklet
@@ -250,6 +253,7 @@ class CitizenHandler
             if ($role->getName() === 'ghoul') {
                 $this->removeStatus($citizen, 'thirst1');
                 $this->removeStatus($citizen, 'thirst2');
+                $this->removeStatus($citizen, 'infection');
                 $citizen->setWalkingDistance(0);
             }
 
