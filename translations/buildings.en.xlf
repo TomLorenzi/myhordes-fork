@@ -3445,5 +3445,23 @@
         <target>Constructed and available for use — A place of relaxation and contemplation perfectly suited for the transition of lost souls to the other side.</target>
       </segment>
     </unit>
+    <unit id="R_OfhbT" name="Die Verteidigung der Stadt wird um 12% erhöht.">
+      <notes>
+        <note category="german">Die Verteidigung der Stadt wird um 12% erhöht.</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
+        <target>Die Verteidigung der Stadt wird um 12% erhöht.</target>
+      </segment>
+    </unit>
+    <unit id="ZSyuopW" name="Die Verteidigung der Stadt wird um 14% erhöht.">
+      <notes>
+        <note category="german">Die Verteidigung der Stadt wird um 14% erhöht.</note>
+      </notes>
+      <segment>
+        <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
+        <target>Die Verteidigung der Stadt wird um 14% erhöht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
