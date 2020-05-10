@@ -307,7 +307,7 @@
       </notes>
       <segment>
         <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
-        <target><![CDATA[Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.]]></target>
+        <target><![CDATA[Your name cannot contain spaces, "$", "<" und ">".]]></target>
       </segment>
     </unit>
     <unit id="ZJtAei3" name="f062e66">
@@ -316,7 +316,7 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
-        <target>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</target>
+        <target>Your password was successfully changed. Please login with your new password.</target>
       </segment>
     </unit>
     <unit id="U4wx4AP" name="13f0f8d">
@@ -325,7 +325,7 @@
       </notes>
       <segment>
         <source>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
-        <target>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</target>
+        <target>Goodbye, %name%. We'll miss you and hope that you'll come back again.</target>
       </segment>
     </unit>
     <unit id="e99uiXA" name="Aktuelles Passwort">
@@ -334,7 +334,7 @@
       </notes>
       <segment>
         <source>Aktuelles Passwort</source>
-        <target>Aktuelles Passwort</target>
+        <target>Current Password</target>
       </segment>
     </unit>
     <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
@@ -343,7 +343,7 @@
       </notes>
       <segment>
         <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
-        <target>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</target>
+        <target>I have read the Privacy Policy and accept them.</target>
       </segment>
     </unit>
     <unit id="eO_T4uw" name="Passwort vergessen?">
@@ -352,7 +352,7 @@
       </notes>
       <segment>
         <source>Passwort vergessen?</source>
-        <target>Passwort vergessen?</target>
+        <target>Forgot Password ?</target>
       </segment>
     </unit>
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
@@ -361,7 +361,7 @@
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
-        <target>Passwort zurücksetzen</target>
+        <target>Reset Password</target>
       </segment>
     </unit>
     <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
@@ -370,7 +370,7 @@
       </notes>
       <segment>
         <source>Bitte gib ein neues Passwort ein.</source>
-        <target>Bitte gib ein neues Passwort ein.</target>
+        <target>Please enter a new Password</target>
       </segment>
     </unit>
     <unit id="lTbuIE7" name="Bitte gib deine E-Mail Adresse ein.">
@@ -379,7 +379,7 @@
       </notes>
       <segment>
         <source>Bitte gib deine E-Mail Adresse ein.</source>
-        <target>Bitte gib deine E-Mail Adresse ein.</target>
+        <target>Please enter your email address.</target>
       </segment>
     </unit>
     <unit id="9.8ReK8" name="Abbrechen">
@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>Abbrechen</source>
-        <target>Abbrechen</target>
+        <target>Abort</target>
       </segment>
     </unit>
   </file>

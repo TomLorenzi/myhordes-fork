@@ -858,7 +858,7 @@
       </notes>
       <segment>
         <source>Bauhaus</source>
-        <target>Building Registry</target>
+        <target>Architect’s Study</target>
       </segment>
     </unit>
     <unit id="apLtnCI" name="be80c53">
@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>Baustellenbuch</source>
-        <target>Architect’s Study</target>
+        <target>Building Registry</target>
       </segment>
     </unit>
     <unit id="Cou_v9E" name="Galgen">
