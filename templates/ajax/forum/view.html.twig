@@ -5,9 +5,9 @@
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         <div class="row">
-            {% for meta_thread in list %}
-                {% set thread = meta_thread[0] %}
-                <div class="cell rw-12 {% if not meta_thread[1] %}forum-thread-unread{% endif%} forum-thread" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: fid, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
+            {% for thread in list %}
+                {# @var thread \App\Entity\Thread #}
+                <div class="cell rw-12 {% if not thread.new %}forum-thread-unread{% endif%} forum-thread" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: fid, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
                     {% if thread.locked %}
                         <img alt="" src="{{ asset('build/images/lock.gif') }}" />
                     {% endif %}

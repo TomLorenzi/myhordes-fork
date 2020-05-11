@@ -86,30 +86,26 @@ class ForumController extends AbstractController
         
         $threads = $em->getRepository(Thread::class)->findByForum($forums[0], $num_per_page, ($page-1)*$num_per_page);
 
-        $thread_list = [];
         foreach ($threads as $thread) {
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread_list[] = [$thread,true];
-            else $thread_list[] = [$thread,false];
+            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread->setNew();
         }
 
-        $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forums[0], $num_per_page, ($page-1)*$num_per_page);
+        $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forums[0], 20, 0);
 
-        $pinned_thread_list = [];
         foreach ($pinned_threads as $thread) {
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $pinned_thread_list[] = [$thread,true];
-            else $pinned_thread_list[] = [$thread,false];
+            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread->setNew();
         }
 
         return $this->render( 'ajax/forum/view.html.twig', [
             'forum' => $forums[0],
-            'threads' => $thread_list,
-            'pinned_threads' => $pinned_thread_list,
+            'threads' => $threads,
+            'pinned_threads' => $pinned_threads,
             'select' => $tid,
             'pages' => $pages,
             'current_page' => $page
@@ -583,7 +579,7 @@ class ForumController extends AbstractController
             $read_post = $posts[array_key_last($posts)];
             /** @var Post $last_read */
             $last_read = $marker->getPost();
-            if ($last_read && $read_post->getId() > $last_read->getId()) {
+            if ($last_read === null || $read_post->getId() > $last_read->getId()) {
                 $marker->setPost($read_post);
                 try {
                     $em->persist($marker);
