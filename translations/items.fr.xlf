@@ -3803,7 +3803,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Batterie.</source>
-        <target>Hierfür brauchst du eine Batterie.</target>
+        <target>Vous avez besoin d'une pile.</target>
       </segment>
     </unit>
     <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
@@ -3812,7 +3812,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Hierfür brauchst du einen Kanister.</target>
+        <target>Vous avez besoin d'un jerrycan.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
