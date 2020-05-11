@@ -127,7 +127,6 @@ class PublicController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($parser->has('pkey', true)) {
-
             if (!$parser->has_all( ['pass1','pass2'], true ))
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -170,12 +169,17 @@ class PublicController extends AbstractController
                 $error
             );
 
-            $this->entity_manager->persist($user);
-            try {
-                $this->entity_manager->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            if($error === UserFactory::ErrorNone) {
+                $this->entity_manager->persist($user);
+                try {
+                    $this->entity_manager->flush();
+                } catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
+            } else {
+                return AjaxResponse::error($error);
             }
+
 
             return AjaxResponse::success( 'validate' );
         }

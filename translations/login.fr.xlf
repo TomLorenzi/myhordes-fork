@@ -390,5 +390,32 @@
         <target>Mot de passe oublié?</target>
       </segment>
     </unit>
+    <unit id="axBQZ1o" name="d8a5e1e">
+      <notes>
+        <note category="german">Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</note>
+      </notes>
+      <segment>
+        <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
+        <target>Si l'adresse e-mail saisie est correcte, un lien de réinitialisation vous a été envoyé.</target>
+      </segment>
+    </unit>
+    <unit id="w6NXTHc" name="0e5133b">
+      <notes>
+        <note category="german">Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</note>
+      </notes>
+      <segment>
+        <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
+        <target>Votre mot de passe a été modifié. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="yr3nj09" name="Dieses Konto wartet bereits auf eine Passwortzurücksetzung.">
+      <notes>
+        <note category="german">Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</note>
+      </notes>
+      <segment>
+        <source>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</source>
+        <target>Ce compte est déjà en attente d'une réinitialisation du mot de passe.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
