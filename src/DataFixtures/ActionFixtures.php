@@ -830,7 +830,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
             'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
             'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2' ],
-            'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2', 'eat_cadaver_3'],
+            'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2'],
             'vagoul_#00'          => [ 'ghoul_serum'],
 
             'food_noodles_hot_#00'=> [ 'eat_7ap'],
