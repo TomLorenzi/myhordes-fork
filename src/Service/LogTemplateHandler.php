@@ -39,8 +39,8 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(string $obj): string {
-        return "<span>$obj</span>";
+    private function wrap(?string $obj): string {
+        return $obj ? "<span>$obj</span>" : '';
     }
 
     /**
@@ -74,7 +74,9 @@ class LogTemplateHandler
         return "";
     }
 
-    public function fetchVariableObject (string $type, int $key) {
+    public function fetchVariableObject (string $type, ?int $key) {
+        if ($key === null) return null;
+        $object = null;
         switch ($type) {
             case 'citizen':
                 $object = $this->entity_manager->getRepository(Citizen::class)->find($key);
@@ -489,6 +491,7 @@ class LogTemplateHandler
         } elseif ($d_east)   $str = 'Osten';
         elseif ($d_west)     $str = 'Westen';
 
+        // This breaks the sneak out capability of the ghoul. The caller of this function that would trigger this if statement is disabled.
         if ($is_zero_zone) 
         {
             $variables = array('citizen' => $citizen->getId(), 'direction' => $str);

@@ -34,7 +34,7 @@
                 <button id="door_exit_hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
             {% endif %}
             {% if show_sneaky %}
-                <button id="door_exit_sneak"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}Aus der Stadt schleichen{% endtrans %}</button>
+                <button id="door_exit_sneak" {% if not town.door %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}Aus der Stadt schleichen{% endtrans %}</button>
             {% endif %}
             <button id="door_exit" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/small_move.gif') }}" />{% trans from 'game' %}Stadt verlassen{% endtrans %}</button>
             <button x-ajax-href="{{ path('town_planner') }}"><img alt="" src="{{ asset('build/images/planner.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>

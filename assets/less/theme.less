@@ -1026,14 +1026,28 @@ div.daily-attack {
 .ghoul-hunger-container {
   width: 100px; display: inline-block; height: 0; overflow: visible; margin: 0 3px; position: relative;
   &>.ghoul-hunger-background {
-    position: absolute; left: 0; right: 0; height: 4px; border-radius: 2px; top: -4px; background: black;
+    position: absolute; left: 0; right: 0; height: 4px; top: -4px; background: black;
   }
   &>.ghoul-hunger-bar {
-    position: absolute; left: 0; height: 4px; border-radius: 2px; top: -4px; background: #5cff00;
-    &.warning { background: #ffda1d; }
+    position: absolute; left: 0; height: 4px; top: -4px; background: #696486;
+    &.warning { background: #bb6765; }
     box-shadow: 0 0 3px black;
   }
   &>.ghoul-hunger-indicator {
-    position: absolute; background: red; height: 8px; width: 3px; top: -5px;
+    position: absolute; background: red; height: 4px; width: 3px; top: -4px;
   }
+  &>.message {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    position: absolute;
+  }
+}
+
+select {
+  font-size: 1.2rem;
+  background-color: #965C36;
+  color: #f0d79e;
+  border: 1px solid #ddab76;
+  outline: 1px solid black;
+  cursor: pointer;
 }

@@ -98,7 +98,7 @@ class UserFactory
         $key = $new_validation->setTime(new DateTime())->setType(UserPendingValidation::ResetValidation)->generatePKey( );
         $user->setPendingValidation( $new_validation );
 
-        $url = $this->url->generate('public_reset', ['pkey' => $key]);
+        $url = $this->url->generate('public_reset', ['pkey' => $key], UrlGeneratorInterface::ABSOLUTE_URL);
 
         mail(
             $email,
