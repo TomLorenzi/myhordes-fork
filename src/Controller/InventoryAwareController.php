@@ -341,23 +341,22 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $notes = [];
 
         if ($victim->getAlive()) {
-
             if ($victim->hasRole('ghoul')) {
-
                 $this->addFlash('notice', $this->translator->trans('Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!', [], 'game'));
                 return AjaxResponse::success();
 
             }
 
-            $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['%citizen' => $victim->getUser()->getUsername()], 'game' );
+            $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['%citizen%' => $victim->getUser()->getUsername()], 'game' );
             $notes[] = $this->translator->trans( 'Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!', [], 'game' );
 
-            if ($aggressor->getZone()) {
+            $give_ap = 6;
 
+            if ($aggressor->getZone()) {
                 $this->entity_manager->persist($this->log->citizenBeyondGhoulAttack($aggressor, $victim, true));
                 $this->entity_manager->persist($this->log->citizenBeyondGhoulAttack($aggressor, $victim, false));
-
             } else {
+                $give_ap = 7;
 
                 $cc = 0;
                 foreach ($aggressor->getTown()->getCitizens() as $c)
@@ -372,9 +371,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 } else $notes[] = $this->translator->trans( 'Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!', [], 'game' );
             }
 
-            $ap = $this->citizen_handler->getMaxAP($aggressor) + ($victim->getProfession()->getHeroic() ? 2 : 1);
-            if ($aggressor->getAp() < $ap)
-                $this->citizen_handler->setAP($aggressor, false, $ap, null );
+            $this->citizen_handler->setAP($aggressor, false, $aggressor->getAp() + $give_ap, null );
+
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 50) );
 
             $this->death_handler->kill($victim, CauseOfDeath::GhulEaten);
