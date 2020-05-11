@@ -371,7 +371,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 } else $notes[] = $this->translator->trans( 'Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!', [], 'game' );
             }
 
-            $this->citizen_handler->setAP($aggressor, false, $aggressor->getAp() + $give_ap, null );
+            if ($give_ap > $aggressor->getAp())
+                $this->citizen_handler->setAP($aggressor, false, $give_ap, null );
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 50) );
 
