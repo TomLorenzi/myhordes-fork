@@ -815,8 +815,7 @@ class ActionHandler
                                 if ($target_item->getPrototype()->getHeavy())
                                     $heavy_break = true;
 
-                        if ($heavy_break && $item->getPrototype()->getName() === 'tamed_pet_#00') {
-                        	// If the dog is NOT drugged, it fails. Otherwise it should work
+                        if ($heavy_break) {
                             $tags[] = 'fail';
                         } else {
                             if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
