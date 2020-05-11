@@ -538,8 +538,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return AjaxResponse::success();
     }
 
-
-
     /**
      * @Route("api/beyond/desert/move", name="beyond_desert_move_controller")
      * @param JSONRequestParser $parser
@@ -1347,6 +1345,34 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         $this->addFlash('notice', implode("<hr />", $str));
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/desert/zone_marker", name="beyond_desert_change_zone_marker")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function beyond_change_zone_marker(JSONRequestParser $parser): Response {
+        $tag = $parser->get('tag', null);
+        if ($tag < 0 || $tag > Zone::TagLostSoul )
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $zone = $this->getActiveCitizen()->getZone();
+
+        if(!$zone){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $zone->setTag($tag);
+
+        try {
+            $this->entity_manager->persist( $zone );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
 
         return AjaxResponse::success();
     }

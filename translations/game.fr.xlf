@@ -10304,5 +10304,131 @@
         <target>Vous mourrez ce soir !</target>
       </segment>
     </unit>
+    <unit id=".JWT0sC" name="Zonenmarkierer">
+      <notes>
+        <note category="german">Zonenmarkierer</note>
+      </notes>
+      <segment>
+        <source>Zonenmarkierer</source>
+        <target>Marqueur de zone</target>
+      </segment>
+    </unit>
+    <unit id="m9ipH9g" name="[nights]">
+      <notes>
+        <note category="german">[nights]</note>
+      </notes>
+      <segment>
+        <source>[nights]</source>
+        <target>[ aucun ]</target>
+      </segment>
+    </unit>
+    <unit id="r_z_E60" name="Notruf">
+      <notes>
+        <note category="german">Notruf</note>
+      </notes>
+      <segment>
+        <source>Notruf</source>
+        <target>Appel à l'aide</target>
+      </segment>
+    </unit>
+    <unit id="BUwKVvO" name="Rohstoff am Boden (Holz, Metall...)">
+      <notes>
+        <note category="german">Rohstoff am Boden (Holz, Metall...)</note>
+      </notes>
+      <segment>
+        <source>Rohstoff am Boden (Holz, Metall...)</source>
+        <target>Ressources par terre (bois, métal...)</target>
+      </segment>
+    </unit>
+    <unit id="xsEeh5A" name="Verschiedene Gegenstände am Boden">
+      <notes>
+        <note category="german">Verschiedene Gegenstände am Boden</note>
+      </notes>
+      <segment>
+        <source>Verschiedene Gegenstände am Boden</source>
+        <target>Objets divers par terre</target>
+      </segment>
+    </unit>
+    <unit id="9mgcNx6" name="Wichtige(r) Gegenstand/-ände!">
+      <notes>
+        <note category="german">Wichtige(r) Gegenstand/-ände!</note>
+      </notes>
+      <segment>
+        <source>Wichtige(r) Gegenstand/-ände!</source>
+        <target>Objet(s) important(s) !</target>
+      </segment>
+    </unit>
+    <unit id="Zu.dPP1" name="Zone leer">
+      <notes>
+        <note category="german">Zone leer</note>
+      </notes>
+      <segment>
+        <source>Zone leer</source>
+        <target>Zone épuisée</target>
+      </segment>
+    </unit>
+    <unit id="0KEaBmR" name="Zone tempörar gesichert">
+      <notes>
+        <note category="german">Zone tempörar gesichert</note>
+      </notes>
+      <segment>
+        <source>Zone tempörar gesichert</source>
+        <target>Zone sécurisée temporairement</target>
+      </segment>
+    </unit>
+    <unit id="phjYDRS" name="Zone muss freigeräumt werden">
+      <notes>
+        <note category="german">Zone muss freigeräumt werden</note>
+      </notes>
+      <segment>
+        <source>Zone muss freigeräumt werden</source>
+        <target>Zone à déblayer</target>
+      </segment>
+    </unit>
+    <unit id="zUCrZ7p" name="Zwichen 5 und 8 Zombies">
+      <notes>
+        <note category="german">Zwichen 5 und 8 Zombies</note>
+      </notes>
+      <segment>
+        <source>Zwichen 5 und 8 Zombies</source>
+        <target>Entre 5 et 8 zombies</target>
+      </segment>
+    </unit>
+    <unit id="63m90pZ" name="9 oder mehr Zombies!">
+      <notes>
+        <note category="german">9 oder mehr Zombies!</note>
+      </notes>
+      <segment>
+        <source>9 oder mehr Zombies!</source>
+        <target>9 zombies ou plus !</target>
+      </segment>
+    </unit>
+    <unit id="RIRNP.t" name="Camping geplant">
+      <notes>
+        <note category="german">Camping geplant</note>
+      </notes>
+      <segment>
+        <source>Camping geplant</source>
+        <target>Campement prévu</target>
+      </segment>
+    </unit>
+    <unit id="t2sF_L3" name="Zu untersuchende Ruine">
+      <notes>
+        <note category="german">Zu untersuchende Ruine</note>
+      </notes>
+      <segment>
+        <source>Zu untersuchende Ruine</source>
+        <target>Ruine à explorer</target>
+      </segment>
+    </unit>
+    <unit id="k0fexBD" name="Verlorene Seele">
+      <notes>
+        <note category="german">Verlorene Seele</note>
+      </notes>
+      <segment>
+        <source>Verlorene Seele</source>
+        <target>Âme perdue</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
