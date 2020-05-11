@@ -479,7 +479,7 @@
                 // Replace proxies
                 let content_node = document.querySelector('[x-tab-id="classic"].selected')
                     ? document.getElementById('forum-editor-preview').cloneNode(true)
-                    : document.getElementById('suneditor_forum-suneditor-text').cloneNode(true);
+                    : document.querySelector('.sun-editor-editable').cloneNode(true);
 
                 let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
                 for (let j = 0; j < proxies.length; j++) {
