@@ -109,14 +109,12 @@ class PublicController extends AbstractController
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @param UserFactory $factory
-     * @param EntityManagerInterface $entityManager
      * @return Response
      */
     public function reset_api(
         JSONRequestParser $parser,
         TranslatorInterface $translator,
-        UserFactory $factory,
-        EntityManagerInterface $entityManager
+        UserFactory $factory
     ): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
@@ -169,17 +167,18 @@ class PublicController extends AbstractController
                 $error
             );
 
-            if($error === UserFactory::ErrorNone) {
-                $this->entity_manager->persist($user);
+            if($user && $error === UserFactory::ErrorNone) {
                 try {
+                    $this->entity_manager->persist($user);
                     $this->entity_manager->flush();
                 } catch (Exception $e) {
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
+            } elseif ($error === UserFactory::ErrorInvalidParams) {
+                return AjaxResponse::success( 'validate' );
             } else {
                 return AjaxResponse::error($error);
             }
-
 
             return AjaxResponse::success( 'validate' );
         }
