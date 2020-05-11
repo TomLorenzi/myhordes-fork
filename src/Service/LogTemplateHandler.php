@@ -39,8 +39,8 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(string $obj): string {
-        return "<span>$obj</span>";
+    private function wrap(?string $obj): string {
+        return $obj ? "<span>$obj</span>" : '';
     }
 
     /**
@@ -74,7 +74,9 @@ class LogTemplateHandler
         return "";
     }
 
-    public function fetchVariableObject (string $type, int $key) {
+    public function fetchVariableObject (string $type, ?int $key) {
+        if ($key === null) return null;
+        $object = null;
         switch ($type) {
             case 'citizen':
                 $object = $this->entity_manager->getRepository(Citizen::class)->find($key);
