@@ -574,6 +574,11 @@ class ForumController extends AbstractController
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
 
+        foreach ($posts as $post)
+            /** @var $post Post */
+            if ($marker->getPost() === null || $marker->getPost()->getId() < $post->getId())
+                $post->setNew();
+
         if (!empty($posts)) {
             /** @var Post $read_post */
             $read_post = $posts[array_key_last($posts)];
@@ -584,8 +589,7 @@ class ForumController extends AbstractController
                 try {
                     $em->persist($marker);
                     $em->flush();
-                } catch (Exception $e) {
-                }
+                } catch (Exception $e) {}
             }
         }
 
