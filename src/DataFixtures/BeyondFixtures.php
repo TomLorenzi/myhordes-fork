@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\ZonePrototype;
+use App\Entity\ZoneTag;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -713,6 +714,61 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         ], 'desc' => 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...'],
     ];
 
+    public static $zone_tags = array(
+        'none' => array(
+            'label' => '[nights]',
+            'icon' => '',
+            'ref' => ZoneTag::TagNone),
+        'help' => array(
+            'label' => 'Notruf',
+            'icon' => 'tag_1',
+            'ref' => ZoneTag::TagHelp),
+        'resources' => array(
+            'label' => 'Rohstoff am Boden (Holz, Metall...)',
+            'icon' => 'tag_2',
+            'ref' => ZoneTag::TagResource),
+        'items' => array(
+            'label' => 'Verschiedene Gegenstände am Boden',
+            'icon' => 'tag_3',
+            'ref' => ZoneTag::TagItems),
+        'impItem' => array(
+            'label' => 'Wichtige(r) Gegenstand/-ände!',
+            'icon' => 'tag_4',
+            'ref' => ZoneTag::TagImportantItems),
+        'depleted' => array(
+            'label' => 'Zone leer',
+            'icon' => 'tag_5',
+            'ref' => ZoneTag::TagDepleted),
+        'tempSecure' => array(
+            'label' => 'Zone tempörar gesichert',
+            'icon' => 'tag_6',
+            'ref' => ZoneTag::TagTempSecured),
+        'needDig' => array(
+            'label' => 'Zone muss freigeräumt werden',
+            'icon' => 'tag_7',
+            'ref' => ZoneTag::TagRuinDig),
+        '5to8zeds' => array(
+            'label' => 'Zwichen 5 und 8 Zombies',
+            'icon' => 'tag_8',
+            'ref' => ZoneTag::Tag5To8Zombies),
+        '9zeds' => array(
+            'label' => '9 oder mehr Zombies!',
+            'icon' => 'tag_9',
+            'ref' => ZoneTag::Tag9OrMoreZombies),
+        'camping' => array(
+            'label' => 'Camping geplant',
+            'icon' => 'tag_10',
+            'ref' => ZoneTag::TagCamping),
+        'exploreRuin' => array(
+            'label' => 'Zu untersuchende Ruine',
+            'icon' => 'tag_11',
+            'ref' => ZoneTag::TagExploreRuin),
+        'soul' => array(
+            'label' => 'Verlorene Seele',
+            'icon' => 'tag_12',
+            'ref' => ZoneTag::TagLostSoul),
+    );
+
     private $entityManager;
 
     public function __construct(EntityManagerInterface $em)
@@ -735,14 +791,43 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
 
             // Set property
             $entity
+            ->setLabel( $entry['label'] )
+            ->setDescription( $entry['desc'] )
+            ->setCampingLevel( $entry['camping'] )
+            ->setMinDistance( $entry['min_dist'] )
+            ->setMaxDistance( $entry['max_dist'] )
+            ->setChance( $entry['chance'] )
+            ->setIcon( $entry['icon'] )
+            ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
+            ;
+            $manager->persist( $entity );
+
+            // Set table entry
+            $progress->advance();
+        }
+
+        $manager->flush();
+        $progress->finish();
+    }
+
+    protected function insert_zone_tags(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>Zone tags: ' . count(static::$zone_tags) . ' fixture entries available.</comment>' );
+
+        // Set up console
+        $progress = new ProgressBar( $out->section() );
+        $progress->start( count(static::$zone_tags) );
+
+        // Iterate over all entries
+        foreach (static::$zone_tags as $name => $entry) {
+            // Get existing entry, or create new one
+            $entity = $this->entityManager->getRepository(ZoneTag::class)->findOneByName( $name );
+            if ($entity === null) $entity = (new ZoneTag())->setName($name);
+
+            // Set property
+            $entity
                 ->setLabel( $entry['label'] )
-                ->setDescription( $entry['desc'] )
-                ->setCampingLevel( $entry['camping'] )
-                ->setMinDistance( $entry['min_dist'] )
-                ->setMaxDistance( $entry['max_dist'] )
-                ->setChance( $entry['chance'] )
                 ->setIcon( $entry['icon'] )
-                ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
+                ->setRef( $entry['ref'] )
             ;
             $manager->persist( $entity );
 
@@ -761,6 +846,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         $output->writeln("");
 
         $this->insert_zone_prototypes( $manager, $output );
+        $this->insert_zone_tags( $manager, $output );
         $output->writeln("");
     }
 
