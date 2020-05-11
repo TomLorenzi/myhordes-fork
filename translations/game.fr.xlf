@@ -10295,5 +10295,14 @@
         <target>terrorisé</target>
       </segment>
     </unit>
+    <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
+      <notes>
+        <note category="german">Du wirst heute Nacht sterben!</note>
+      </notes>
+      <segment>
+        <source>Du wirst heute Nacht sterben!</source>
+        <target>Vous mourrez ce soir !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

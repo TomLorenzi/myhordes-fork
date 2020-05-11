@@ -7961,7 +7961,7 @@
         <target>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</target>
       </segment>
     </unit>
-    <unit id="ZM5U_5i" name="Heilen">
+    <unit id="tqLPvCK" name="Heilen">
       <notes>
         <note>Heilen</note>
         <note category="german">Heilen</note>
@@ -7971,17 +7971,7 @@
         <target>Se soigner</target>
       </segment>
     </unit>
-    <unit id="8.uDazR" name="Heilen">
-      <notes>
-        <note>Heilen</note>
-        <note category="german">Heilen</note>
-      </notes>
-      <segment>
-        <source>Heilen</source>
-        <target>Se soigner</target>
-      </segment>
-    </unit>
-    <unit id="H0NWl9b" name="Verteidigung organisieren">
+    <unit id="zEs55xR" name="Verteidigung organisieren">
       <notes>
         <note category="german">Verteidigung organisieren</note>
       </notes>
