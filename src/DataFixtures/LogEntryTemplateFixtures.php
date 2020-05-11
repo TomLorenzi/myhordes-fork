@@ -137,7 +137,7 @@ class LogEntryTemplateFixtures extends Fixture
             'name'=>'gazetteTownNoDeaths_001',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteNoDeaths,
-            'secondaryType'=>1,
+            'secondaryType'=>GazetteLogEntry::RequiresOneCitizen,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'citizen1'],
             ],
@@ -456,10 +456,6 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"num",'name'=>'deaths'],
             ],
         ],
-
-/*
-
-*/
     ];
 
     private $entityManager;

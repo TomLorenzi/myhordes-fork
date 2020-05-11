@@ -112,7 +112,22 @@
             {% for entry in special_action_list %}
                 <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" {% if entry.action.confirm %}x-action-confirm="1"{% endif %} {% else %}x-target-definition="{{ entry.id }}--special"{% endif %}>
                     <img src="{{ asset('build/images/actions/' ~ entry.icon ~ '.gif') }}" alt="">
-                    <span><b>{{ entry.action.label|trans({},'items') }}</b></span>
+                    <span>
+                        <b>
+                            {{ entry.action.label|trans({},'items') }}
+                            {% if entry.action.results|length > 0 %}
+                                {% set ap = 0 %}
+                                {% for result in entry.action.results %}
+                                    {% if not result.ap is null %}
+                                        {% set ap = ap + result.ap.ap|abs %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if ap > 0 %}
+                                    ({{ap}} <div class="ap"></div>)
+                                {% endif %}
+                            {% endif %}
+                        </b>
+                    </span>
                     {% if entry.targets is not null and not entry.crossed %}
                         {% if entry.target_mode == 2 %}
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--special', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}

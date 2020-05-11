@@ -24,6 +24,9 @@
                             {% endif %}
                                 <div class="icon"></div>
                                 <div class="overlay"></div>
+                                {% if zones[x][y].tag > 0 %}
+                                    <div class="tag tag-{{zones[x][y].tag}}"></div>
+                                {% endif %}
                                 {% if zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
                                     <div class="count">{% if zones[x][y].zombies > 0 %}{{ zones[x][y].zombies }}{% endif %}</div>
                                 {% endif %}

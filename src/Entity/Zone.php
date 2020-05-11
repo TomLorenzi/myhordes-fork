@@ -40,6 +40,20 @@ class Zone
     const BlueprintAvailable = 1;
     const BlueprintFound     = 2;
 
+    const TagNone           = 0;
+    const TagHelp           = 1;
+    const TagResource       = 2;
+    const TagItems          = 3;
+    const TagImportantItems = 4;
+    const TagDepleted       = 5;
+    const TagTempSecured    = 6;
+    const TagRuinDig        = 7;
+    const Tag5To8Zombies    = 8;
+    const Tag9OrMoreZombies = 9;
+    const TagCamping        = 10;
+    const TagExploreRuin    = 11;
+    const TagLostSoul       = 12;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -147,7 +161,12 @@ class Zone
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $blueprint = Zone::BluePrintNone;
+    private $blueprint = self::BluePrintNone;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tag = self::TagNone;
 
     public function __construct()
     {
@@ -548,5 +567,17 @@ class Zone
                 return true;
         }
         return false;
+    }
+
+    public function getTag(): ?int
+    {
+        return $this->tag;
+    }
+
+    public function setTag(int $tag): self
+    {
+        $this->tag = $tag;
+
+        return $this;
     }
 }

@@ -818,7 +818,7 @@ class ActionHandler
                         if ($heavy_break) {
                             $tags[] = 'fail';
                         } else {
-                            if ($item->getPrototype()->getId() === 'tamed_pet_#00' || $item->getPrototype()->getId() === 'tamed_pet_drug_#00' )
+                            if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
                                 $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_off_#00') );
                             foreach ( $citizen->getInventory()->getItems() as $target_item )
                                 $this->inventory_handler->transferItem($citizen,$target_item,$source,$bank, InventoryHandler::ModalityTamer);

@@ -51,10 +51,10 @@
             $.ajax.easySend( '{{ path('api_reset') }}', $.html.serializeForm(document.getElementById('recover-form')),
                 function (data) {
                     if (data.success === 'validate') {
-                        $.html.message('notice', '{{ 'Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.' }}')
+                        $.html.message('notice', '{{ 'Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.'|trans({}, 'login') }}')
                         $.ajax.load(null, '{{ path('public_welcome') }}', true);
                     } else {
-                        $.html.message('notice', '{{ 'Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.' }}')
+                        $.html.message('notice', '{{ 'Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.'|trans({}, 'login') }}')
                         $.ajax.load(null, '{{ path('public_login') }}', true);
                     }
                 }, {
