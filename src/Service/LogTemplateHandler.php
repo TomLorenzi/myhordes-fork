@@ -491,8 +491,8 @@ class LogTemplateHandler
         } elseif ($d_east)   $str = 'Osten';
         elseif ($d_west)     $str = 'Westen';
 
-        // This breaks the sneak out capability of the ghoul
-        /*if ($is_zero_zone) 
+        // This breaks the sneak out capability of the ghoul. The caller of this function that would trigger this if statement is disabled.
+        if ($is_zero_zone) 
         {
             $variables = array('citizen' => $citizen->getId(), 'direction' => $str);
             if ($depart) {               
@@ -503,7 +503,7 @@ class LogTemplateHandler
             }
         }
         else 
-        {*/
+        {
             $variables = array('citizen' => $citizen->getId(), 'direction' => $str, 'profession' => $citizen->getProfession()->getId());
             if ($depart) {               
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('outsideMoveLeave');
@@ -511,7 +511,7 @@ class LogTemplateHandler
             else {
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('outsideMoveEnter');
             }
-        //}
+        }
         
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
