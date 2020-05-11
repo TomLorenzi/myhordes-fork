@@ -9,7 +9,7 @@
   &:hover { border-color: @myhordes-smalltext; box-shadow: 0 0 10px rgba(0,0,0,0.8); }
 
   &:not(.forum-preview-town) {
-    background: linear-gradient(-45deg,  #7e4d2b 65%, #a73a1f 80%), url("../../img/forum.png") top center repeat-x; /* FF3.6-15 */
+    background: linear-gradient(45deg,  #7e4d2b 65%, #a73a1f 80%), url("../../img/forum.png") top center repeat-x; /* FF3.6-15 */
 
     &::after {
       content: ''; background: transparent url('../../img/globe.png') 50% / contain no-repeat;
@@ -133,6 +133,7 @@
   }
 
   &.forum-post-hidden>.forum-post-header { background: #ff0000; }
+  &.forum-post-new { border-left: 2px solid #ffdc00; margin-left: -2px; };
 
   &>.forum-post-content {
     padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/

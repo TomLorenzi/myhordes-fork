@@ -373,7 +373,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'heal_ghoul'   => [ 'role' => 'ghoul', 'enabled' => false, 'hunger' => -9999999 ],
                 'satisfy_ghoul_50' => [ 'hunger' => -50 ],
                 'satisfy_ghoul_30' => [ 'hunger' => -30 ],
-                'satisfy_ghoul_10' => [ 'hunger' => -10 ],
+                'satisfy_ghoul_10' => [ 'hunger' => -15 ],
             ],
             'item' => [],
 
@@ -687,7 +687,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bomb_2'    => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message' => 'Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!' ],
 
             'eat_fleshroom_1'  => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
-            'eat_fleshroom_2'  => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', 'consume_item', ['status' => 'satisfy_ghoul_10' ] ], ],
+            'eat_fleshroom_2'  => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', 'consume_item' ], ],
 
             'eat_meat_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], 'consume_item', ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
             'eat_meat_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], 'consume_item', ['status' => 'satisfy_ghoul_10' ] ], ],
@@ -696,8 +696,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'eat_bone_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'] ], ['item' => ['consume' => false, 'morph' => 'bone_#00'] ], ['status' => 'satisfy_ghoul_10' ] ], ],
 
             'eat_cadaver_1' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ ['do_nothing', 1], [ 'infect', 1 ], ['become_ghoul_5', 18] ]] ] ],
-            'eat_cadaver_2' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul', 'must_be_inside'  ], 'result' => [ 'eat_ap6', ['item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_10' ] ] ],
-            'eat_cadaver_3' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul', 'must_be_outside' ], 'result' => [ 'eat_ap6', ['item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ] ],
+            'eat_cadaver_2' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ] ],
 
             'ghoul_serum' => [ 'label' => 'Einnehmen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ] ],
 
@@ -831,7 +830,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
             'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
             'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2' ],
-            'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2', 'eat_cadaver_3'],
+            'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2'],
             'vagoul_#00'          => [ 'ghoul_serum'],
 
             'food_noodles_hot_#00'=> [ 'eat_7ap'],

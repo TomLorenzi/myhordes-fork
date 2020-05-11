@@ -77,7 +77,7 @@ class LogEntryTemplate
     private $variableTypes = [];
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=128)
      */
     private $name;
 
