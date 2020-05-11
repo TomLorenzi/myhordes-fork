@@ -456,10 +456,6 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"num",'name'=>'deaths'],
             ],
         ],
-
-/*
-
-*/
     ];
 
     private $entityManager;
