@@ -505,9 +505,9 @@ class LogEntryTemplateFixtures extends Fixture
 
         // Vanish and other Deaths
         ['text'=>'Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr † %cadaver1% gesehen.',
-            'name'=>'gazetteTownPoison_001',
+            'name'=>'gazetteTownVanished_001',
             'type'=>LogEntryTemplate::TypeGazetteTown,
-            'class'=>LogEntryTemplate::ClassGazettePoison,
+            'class'=>LogEntryTemplate::ClassGazetteVanished,
             'secondaryType'=>GazetteLogEntry::RequiresOneCadaver,
             'variableTypes'=>[
                 ['type'=>"citizen",'name'=>'cadaver1'],
