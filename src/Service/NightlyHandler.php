@@ -265,6 +265,8 @@ class NightlyHandler
         /** @var Gazette $gazette */
         $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
 
+        $gazette->setDoor($town->getDoor());
+
 	    $def  = $this->town_handler->calculate_town_def( $town );
 	    if($town->getDevastated())
 	        $def = 0;

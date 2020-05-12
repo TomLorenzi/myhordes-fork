@@ -637,7 +637,13 @@ div.town-banner {
       }
 
       #gazette-attack {
-        background-image: url('../../img/news/newsSchema_classic.gif');
+        &.opened {
+          background-image: url('../../img/news/newsSchema_door.gif');
+        }
+
+        &.closed {
+          background-image: url('../../img/news/newsSchema_classic.gif');
+        }
         top: 13%;
         width: 97%;
         height: 35%;
