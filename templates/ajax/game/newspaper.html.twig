@@ -84,10 +84,8 @@
                                     {{ 'Verteidigung'|trans({},'game') }}
                                 {% else %}
                                     <span class="invasion">{{ 'Tor ist offen!'|trans({},'game') }}</span>
-                                {% endif %}
-                                {% if gazette.invasion > 0 %}
-                                    <br><span class="invasion">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>
-                                {% endif %}
+                                {% endif %}#{{ gazette.invasion }}#
+
                             </div>
                             <div class="nightstat nightstat-deaths">
                                 {% if gazette.deaths > 0 %}
