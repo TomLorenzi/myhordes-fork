@@ -3376,9 +3376,9 @@
         <note>Voodoo-Maske</note>
         <note category="german">Voodoo-Maske</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Voodoo-Maske</source>
-        <target>Voodoo-Maske</target>
+        <target>Máscara de vudú</target>
       </segment>
     </unit>
     <unit id="u_g_Kg2" name="Trinken">
@@ -3616,7 +3616,7 @@
         <note>Spielen</note>
         <note category="german">Spielen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Spielen</source>
         <target>Jugar</target>
       </segment>
@@ -5927,9 +5927,9 @@
         <note>Eine Handvoll steinharter Marshmallows, die nach Rattengift riechen. Jetzt, da sie komplett geröstet sind, kannst du sie essen, und wenn du es dir genau überlegst, sind sie sogar richtig lecker...</note>
         <note category="german">Eine Handvoll steinharter Marshmallows, die nach Rattengift riechen. Jetzt, da sie komplett geröstet sind, kannst du sie essen, und wenn du es dir genau überlegst, sind sie sogar richtig lecker...</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Eine Handvoll steinharter Marshmallows, die nach Rattengift riechen. Jetzt, da sie komplett geröstet sind, kannst du sie essen, und wenn du es dir genau überlegst, sind sie sogar richtig lecker...</source>
-        <target>texto malvaviscos quemados</target>
+        <target>Estarán secos y quemados, pero hagamos cuenta de que aún son comestibles.</target>
       </segment>
     </unit>
     <unit id="l74gjsr" name="4e28f16">
@@ -6877,9 +6877,9 @@
         <note>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</note>
         <note category="german">Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</source>
-        <target>texto máscara de chamán</target>
+        <target>Esta máscara esconde el conocimiento y el poder miles de sacerdotes vudú. El chamán la puede usar para revelar dónde deambulan las almas de los habitantes muertos en el Ultramundo.</target>
      </segment>
     </unit>
     <unit id="cbZMBy4" name="Heldentaten">
@@ -7538,9 +7538,9 @@
       <notes>
         <note category="german">Vodka Marinostov</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Vodka Marinostov</source>
-        <target>Vodka Marinostov</target>
+        <target>Vodka Rosquetoff</target>
       </segment>
     </unit>
     <unit id="Xty7y8z" name="686a25e">
