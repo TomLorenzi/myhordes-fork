@@ -21,9 +21,9 @@
                     </div>
                     <div id="gazette-content" class="{{gazette.textClass}}">
                         {{gazette.text|raw}}
-                    </div>
-                    <div id="gazette-signature">
-                        - {{'Der Rabe'|trans({}, 'global')}}
+                        <div id="gazette-signature">
+                            - {{'Der Rabe'|trans({}, 'global')}}
+                        </div>
                     </div>
                     {% if gazette.day > 1 %}
                         <div id="gazette-deaths">
@@ -84,8 +84,10 @@
                                     {{ 'Verteidigung'|trans({},'game') }}
                                 {% else %}
                                     <span class="invasion">{{ 'Tor ist offen!'|trans({},'game') }}</span>
-                                {% endif %}#{{ gazette.invasion }}#
-
+                                {% endif %}
+                                {% if gazette.invasion > 0 %}
+                                    <br><span class="invasion">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>
+                                {% endif %}
                             </div>
                             <div class="nightstat nightstat-deaths">
                                 {% if gazette.deaths > 0 %}
