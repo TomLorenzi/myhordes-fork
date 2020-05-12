@@ -3803,7 +3803,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Batterie.</source>
-        <target>Hierfür brauchst du eine Batterie.</target>
+        <target>Vous avez besoin d'une pile.</target>
       </segment>
     </unit>
     <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
@@ -3812,7 +3812,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Hierfür brauchst du einen Kanister.</target>
+        <target>Vous avez besoin d'un jerrycan.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -7961,34 +7961,23 @@
         <target>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</target>
       </segment>
     </unit>
-    <unit id="ZM5U_5i" name="Heilen (5AP)">
+    <unit id="tqLPvCK" name="Heilen">
       <notes>
-        <note>Heilen (5AP)</note>
-        <note category="german">Heilen (5AP)</note>
+        <note>Heilen</note>
+        <note category="german">Heilen</note>
       </notes>
       <segment>
-        <source>Heilen (5AP)</source>
-        <target>Se soigner (5AP)</target>
+        <source>Heilen</source>
+        <target>Se soigner</target>
       </segment>
     </unit>
-    <unit id="8.uDazR" name="Heilen (6AP)">
+    <unit id="zEs55xR" name="Verteidigung organisieren">
       <notes>
-        <note>Heilen (6AP)</note>
-        <note category="german">Heilen (6AP)</note>
+        <note category="german">Verteidigung organisieren</note>
       </notes>
       <segment>
-        <source>Heilen (6AP)</source>
-        <target>Se soigner (6AP)</target>
-      </segment>
-    </unit>
-    <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
-      <notes>
-        <note>Verteidigung organisieren (1 AP)</note>
-        <note category="german">Verteidigung organisieren (1 AP)</note>
-      </notes>
-      <segment>
-        <source>Verteidigung organisieren (1 AP)</source>
-        <target>Verteidigung organisieren (1 AP)</target>
+        <source>Verteidigung organisieren</source>
+        <target>Organiser les défenses</target>
       </segment>
     </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">

@@ -3,8 +3,6 @@
   <file id="game.fr">
     <unit id="rn1xaB2" name="c01099c">
       <notes>
-        <note>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
-        <note>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
         <note category="german">%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
       </notes>
       <segment>
@@ -14,8 +12,6 @@
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
       <notes>
-        <note>Mist, dein Einbruch bei %victim% ist aufgeflogen...</note>
-        <note>Mist, dein Einbruch bei %victim% ist aufgeflogen...</note>
         <note category="german">Mist, dein Einbruch bei %victim% ist aufgeflogen...</note>
       </notes>
       <segment>
@@ -36,8 +32,6 @@
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
       <notes>
-        <note>Deine Route wurde gespeichert.</note>
-        <note>Deine Route wurde gespeichert.</note>
         <note category="german">Deine Route wurde gespeichert.</note>
       </notes>
       <segment>
@@ -47,8 +41,6 @@
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
       <notes>
-        <note>Du hast deine Beschreibung geändert.</note>
-        <note>Du hast deine Beschreibung geändert.</note>
         <note category="german">Du hast deine Beschreibung geändert.</note>
       </notes>
       <segment>
@@ -58,8 +50,6 @@
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
       <notes>
-        <note>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</note>
-        <note>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</note>
         <note category="german">%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</note>
       </notes>
       <segment>
@@ -2762,8 +2752,6 @@
     </unit>
     <unit id="FQORaiq" name="Tag">
       <notes>
-        <note>Tag</note>
-        <note>Tag</note>
         <note category="german">Tag</note>
       </notes>
       <segment>
@@ -2773,8 +2761,6 @@
     </unit>
     <unit id="UTfIdgy" name="Clean">
       <notes>
-        <note>Clean</note>
-        <note>Clean</note>
         <note category="german">Clean</note>
       </notes>
       <segment>
@@ -2784,13 +2770,11 @@
     </unit>
     <unit id="2rjbtHk" name="Getrunken">
       <notes>
-        <note>Getrunken</note>
-        <note>Getrunken</note>
         <note category="german">Getrunken</note>
       </notes>
       <segment>
         <source>Getrunken</source>
-        <target>Ivre</target>
+        <target>Désaltéré</target>
       </segment>
     </unit>
     <unit id="_akkbne" name="Satt">
@@ -2916,8 +2900,6 @@
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
       <notes>
-        <note>Trunkenheit</note>
-        <note>Trunkenheit</note>
         <note category="german">Trunkenheit</note>
       </notes>
       <segment>
@@ -9716,7 +9698,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>Du hast dich in einen Ghul verwandelt!</target>
+        <target>Vous avez été transformé en goule !</target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
@@ -9968,7 +9950,7 @@
       </notes>
       <segment>
         <source>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
-        <target>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</target>
+        <target>Comme il y avait environ %attack% zombies aux portes la nuit dernière, nous aurions pu craindre le pire, mais pas un seul n'est arrivé : le bon temps ! Mais ne vous cassez pas le bras en vous tapotant l'épaule !</target>
       </segment>
     </unit>
     <unit id="DHLa_0B" name="55f668d">
@@ -10229,7 +10211,7 @@
       </notes>
       <segment>
         <source>In die Stadt schleichen</source>
-        <target>In die Stadt schleichen</target>
+        <target>Entrer en ville furtivement</target>
       </segment>
     </unit>
     <unit id="Ztj0B29" name="e4b05e9">
@@ -10256,7 +10238,7 @@
       </notes>
       <segment>
         <source>Aus der Stadt schleichen</source>
-        <target>Aus der Stadt schleichen</target>
+        <target>Sortir discrètement</target>
       </segment>
     </unit>
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
@@ -10265,7 +10247,7 @@
       </notes>
       <segment>
         <source>Diesen Bürger angreifen!</source>
-        <target>Diesen Bürger angreifen!</target>
+        <target>Agresser ce citoyen !</target>
       </segment>
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
@@ -10274,7 +10256,7 @@
       </notes>
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Diesen Bürger verspeisen!</target>
+        <target>Dévorer ce citoyen !</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -10283,7 +10265,169 @@
       </notes>
       <segment>
         <source>Die Leiche verspeisen!</source>
-        <target>Die Leiche verspeisen!</target>
+        <target>Dévorer le cadavre !</target>
+      </segment>
+    </unit>
+    <unit id="dY6rVb6" name="Tor ist offen!">
+      <notes>
+        <note category="german">Tor ist offen!</note>
+      </notes>
+      <segment>
+        <source>Tor ist offen!</source>
+        <target>La porte est ouverte !</target>
+      </segment>
+    </unit>
+    <unit id="1cEye.o" name="Zombies sind eingedrungen.">
+      <notes>
+        <note category="german">Zombies sind eingedrungen.</note>
+      </notes>
+      <segment>
+        <source>Zombies sind eingedrungen.</source>
+        <target>Les zombies sont entrés.</target>
+      </segment>
+    </unit>
+    <unit id="MUX.0UN" name="terrorisiert">
+      <notes>
+        <note category="german">terrorisiert</note>
+      </notes>
+      <segment>
+        <source>terrorisiert</source>
+        <target>terrorisé</target>
+      </segment>
+    </unit>
+    <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
+      <notes>
+        <note category="german">Du wirst heute Nacht sterben!</note>
+      </notes>
+      <segment>
+        <source>Du wirst heute Nacht sterben!</source>
+        <target>Vous mourrez ce soir !</target>
+      </segment>
+    </unit>
+    <unit id=".JWT0sC" name="Zonenmarkierer">
+      <notes>
+        <note category="german">Zonenmarkierer</note>
+      </notes>
+      <segment>
+        <source>Zonenmarkierer</source>
+        <target>Marqueur de zone</target>
+      </segment>
+    </unit>
+    <unit id="m9ipH9g" name="[nights]">
+      <notes>
+        <note category="german">[nights]</note>
+      </notes>
+      <segment>
+        <source>[nights]</source>
+        <target>[ aucun ]</target>
+      </segment>
+    </unit>
+    <unit id="r_z_E60" name="Notruf">
+      <notes>
+        <note category="german">Notruf</note>
+      </notes>
+      <segment>
+        <source>Notruf</source>
+        <target>Appel à l'aide</target>
+      </segment>
+    </unit>
+    <unit id="BUwKVvO" name="Rohstoff am Boden (Holz, Metall...)">
+      <notes>
+        <note category="german">Rohstoff am Boden (Holz, Metall...)</note>
+      </notes>
+      <segment>
+        <source>Rohstoff am Boden (Holz, Metall...)</source>
+        <target>Ressources par terre (bois, métal...)</target>
+      </segment>
+    </unit>
+    <unit id="xsEeh5A" name="Verschiedene Gegenstände am Boden">
+      <notes>
+        <note category="german">Verschiedene Gegenstände am Boden</note>
+      </notes>
+      <segment>
+        <source>Verschiedene Gegenstände am Boden</source>
+        <target>Objets divers par terre</target>
+      </segment>
+    </unit>
+    <unit id="9mgcNx6" name="Wichtige(r) Gegenstand/-ände!">
+      <notes>
+        <note category="german">Wichtige(r) Gegenstand/-ände!</note>
+      </notes>
+      <segment>
+        <source>Wichtige(r) Gegenstand/-ände!</source>
+        <target>Objet(s) important(s) !</target>
+      </segment>
+    </unit>
+    <unit id="Zu.dPP1" name="Zone leer">
+      <notes>
+        <note category="german">Zone leer</note>
+      </notes>
+      <segment>
+        <source>Zone leer</source>
+        <target>Zone épuisée</target>
+      </segment>
+    </unit>
+    <unit id="0KEaBmR" name="Zone tempörar gesichert">
+      <notes>
+        <note category="german">Zone tempörar gesichert</note>
+      </notes>
+      <segment>
+        <source>Zone tempörar gesichert</source>
+        <target>Zone sécurisée temporairement</target>
+      </segment>
+    </unit>
+    <unit id="phjYDRS" name="Zone muss freigeräumt werden">
+      <notes>
+        <note category="german">Zone muss freigeräumt werden</note>
+      </notes>
+      <segment>
+        <source>Zone muss freigeräumt werden</source>
+        <target>Zone à déblayer</target>
+      </segment>
+    </unit>
+    <unit id="zUCrZ7p" name="Zwichen 5 und 8 Zombies">
+      <notes>
+        <note category="german">Zwichen 5 und 8 Zombies</note>
+      </notes>
+      <segment>
+        <source>Zwichen 5 und 8 Zombies</source>
+        <target>Entre 5 et 8 zombies</target>
+      </segment>
+    </unit>
+    <unit id="63m90pZ" name="9 oder mehr Zombies!">
+      <notes>
+        <note category="german">9 oder mehr Zombies!</note>
+      </notes>
+      <segment>
+        <source>9 oder mehr Zombies!</source>
+        <target>9 zombies ou plus !</target>
+      </segment>
+    </unit>
+    <unit id="RIRNP.t" name="Camping geplant">
+      <notes>
+        <note category="german">Camping geplant</note>
+      </notes>
+      <segment>
+        <source>Camping geplant</source>
+        <target>Campement prévu</target>
+      </segment>
+    </unit>
+    <unit id="t2sF_L3" name="Zu untersuchende Ruine">
+      <notes>
+        <note category="german">Zu untersuchende Ruine</note>
+      </notes>
+      <segment>
+        <source>Zu untersuchende Ruine</source>
+        <target>Ruine à explorer</target>
+      </segment>
+    </unit>
+    <unit id="k0fexBD" name="Verlorene Seele">
+      <notes>
+        <note category="german">Verlorene Seele</note>
+      </notes>
+      <segment>
+        <source>Verlorene Seele</source>
+        <target>Âme perdue</target>
       </segment>
     </unit>
   </file>

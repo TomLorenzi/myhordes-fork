@@ -65,6 +65,8 @@ class Post
      */
     private $adminReports;
 
+    private $new = false;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -208,6 +210,15 @@ class Post
             }
         }
 
+        return $this;
+    }
+
+    public function isNew(): bool {
+        return $this->new;
+    }
+
+    public function setNew(): self {
+        $this->new = true;
         return $this;
     }
 }

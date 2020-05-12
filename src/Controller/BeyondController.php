@@ -516,9 +516,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             // Produce log entries
             if ($special !== 'sneak') {
                 if ( $distance > 0 ) {
-                    $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
-                    if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $zero_zone, true ) );
-                    $this->entity_manager->persist( $this->log->outsideMove( $mover, $zero_zone, $zone, false ) );
+                    // $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
+                    // if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $zero_zone, true ) );
+                    // $this->entity_manager->persist( $this->log->outsideMove( $mover, $zero_zone, $zone, false ) );
                 }
                 $this->entity_manager->persist( $this->log->doorPass( $mover, true ) );
                 $this->entity_manager->persist($mover);
@@ -537,8 +537,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         return AjaxResponse::success();
     }
-
-
 
     /**
      * @Route("api/beyond/desert/move", name="beyond_desert_move_controller")
@@ -650,8 +648,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 }
             }
 
-            if ($others_are_here || ($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
-            $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
+            // This text is a newly added one, but it breaks the "Sneak out of town"
+            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
+            if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
 
             $this->entity_manager->persist($mover);
         }
@@ -1346,6 +1345,34 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         $this->addFlash('notice', implode("<hr />", $str));
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/desert/zone_marker", name="beyond_desert_change_zone_marker")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function beyond_change_zone_marker(JSONRequestParser $parser): Response {
+        $tag = $parser->get('tag', null);
+        if ($tag < 0 || $tag > Zone::TagLostSoul )
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $zone = $this->getActiveCitizen()->getZone();
+
+        if(!$zone){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $zone->setTag($tag);
+
+        try {
+            $this->entity_manager->persist( $zone );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
 
         return AjaxResponse::success();
     }
