@@ -606,8 +606,6 @@
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
       <notes>
-        <note>Diese Aktion ist ungültig.</note>
-        <note>Diese Aktion ist ungültig.</note>
         <note category="german">Diese Aktion ist ungültig.</note>
       </notes>
       <segment>
@@ -628,8 +626,6 @@
     </unit>
     <unit id="UK6Ie5i" name="Das kannst du zur Zeit nicht tun.">
       <notes>
-        <note>Das kannst du zur Zeit nicht tun.</note>
-        <note>Das kannst du zur Zeit nicht tun.</note>
         <note category="german">Das kannst du zur Zeit nicht tun.</note>
       </notes>
       <segment>
