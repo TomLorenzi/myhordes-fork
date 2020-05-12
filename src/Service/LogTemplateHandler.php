@@ -400,7 +400,7 @@ class LogTemplateHandler
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathCyanide');
                 break;
-            case CauseOfDeath::Posion: case CauseOfDeath::GhulEaten:
+            case CauseOfDeath::Poison: case CauseOfDeath::GhulEaten:
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathPoison');
                 break;

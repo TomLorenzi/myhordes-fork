@@ -297,7 +297,7 @@ class LogEntryTemplateFixtures extends Fixture
         ],
 
         // Gazette: One death in town.
-        ['text'=>'%cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...',
+        ['text'=>'† %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...',
             'name'=>'gazetteTownOneDeath_001',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteOneDeath,
@@ -306,7 +306,7 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
-        ['text'=>'Alle scheinen sich still und leise über den Tod von %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".',
+        ['text'=>'Alle scheinen sich still und leise über den Tod von † %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".',
             'name'=>'gazetteTownOneDeath_002',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteOneDeath,
@@ -316,7 +316,7 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'citizen1'],
             ],
         ],
-        ['text'=>'Jeder hörte %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?',
+        ['text'=>'Jeder hörte † %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?',
             'name'=>'gazetteTownOneDeath_003',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteOneDeath,
@@ -325,7 +325,7 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
-        ['text'=>'Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.',
+        ['text'=>'Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit † %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.',
             'name'=>'gazetteTownOneDeath_004',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteOneDeath,
@@ -334,7 +334,7 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
-        ['text'=>'Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!',
+        ['text'=>'Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für † %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!',
             'name'=>'gazetteTownOneDeath_005',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteOneDeath,
@@ -343,7 +343,7 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
-        ['text'=>'Einige sagen, daß der Tod von %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?',
+        ['text'=>'Einige sagen, daß der Tod von † %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?',
             'name'=>'gazetteTownOneDeath_006',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteOneDeath,
@@ -354,7 +354,7 @@ class LogEntryTemplateFixtures extends Fixture
         ],
 
         // Gazette: Two deaths in town
-        ['text'=>'Ausgangssperre gilt für alle. Auch für %cadaver1% und %cadaver2% – das haben sie nun davon.',
+        ['text'=>'Ausgangssperre gilt für alle. Auch für † %cadaver1% und † %cadaver2% – das haben sie nun davon.',
             'name'=>'gazetteTownTwoDeaths_001',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteTwoDeaths,
@@ -364,7 +364,7 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver2'],
             ],
         ],
-        ['text'=>'So richtig scheint keiner über den Tod von %cadaver1% und %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.',
+        ['text'=>'So richtig scheint keiner über den Tod von † %cadaver1% und † %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.',
             'name'=>'gazetteTownTwoDeaths_002',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteTwoDeaths,
@@ -454,6 +454,63 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresDeaths,
             'variableTypes'=>[
                 ['type'=>"num",'name'=>'deaths'],
+            ],
+        ],
+
+        // Suicide Death
+        ['text'=>'"Auf wiedersehen, du schnöde Welt...", dachte sich wohl † %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.',
+            'name'=>'gazetteTownSuicide_001',
+            'type'=>LogEntryTemplate::TypeGazetteTown,
+            'class'=>LogEntryTemplate::ClassGazetteSuicide,
+            'secondaryType'=>GazetteLogEntry::RequiresOneCadaver,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Addiction Death
+        ['text'=>'Ohne großes Bedauern starb † %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.',
+            'name'=>'gazetteTownAddiction_001',
+            'type'=>LogEntryTemplate::TypeGazetteTown,
+            'class'=>LogEntryTemplate::ClassGazetteAddiction,
+            'secondaryType'=>GazetteLogEntry::RequiresOneOfEach,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'citizen1'],
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Dehydration Death
+        ['text'=>'Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. † %cadaver1% ist das beste Beispiel, was ansonten passiert.',
+            'name'=>'gazetteTownDehydration_001',
+            'type'=>LogEntryTemplate::TypeGazetteTown,
+            'class'=>LogEntryTemplate::ClassGazetteDehydration,
+            'secondaryType'=>GazetteLogEntry::RequiresOneCadaver,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Poison Death
+        ['text'=>'Eindeutig! † %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.',
+            'name'=>'gazetteTownPoison_001',
+            'type'=>LogEntryTemplate::TypeGazetteTown,
+            'class'=>LogEntryTemplate::ClassGazettePoison,
+            'secondaryType'=>GazetteLogEntry::RequiresOneOfEach,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'citizen1'],
+                ['type'=>"citizen",'name'=>'cadaver1'],
+            ],
+        ],
+
+        // Vanish and other Deaths
+        ['text'=>'Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr † %cadaver1% gesehen.',
+            'name'=>'gazetteTownPoison_001',
+            'type'=>LogEntryTemplate::TypeGazetteTown,
+            'class'=>LogEntryTemplate::ClassGazettePoison,
+            'secondaryType'=>GazetteLogEntry::RequiresOneCadaver,
+            'variableTypes'=>[
+                ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
     ];
