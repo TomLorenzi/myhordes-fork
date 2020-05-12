@@ -590,6 +590,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                             $this->citizen_handler->inflictStatus( $citizen, 'terror' );
                             $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                         } elseif (($victim_home->getCitizen()->getAlive() && $this->random_generator->chance(0.5)) ||!$victim_home->getCitizen()->getAlive()) {
+                            //TODO: the text is different when looting a dead citizen's house, waiting for the text (should come quickly enough)
                             $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item, $steal_up ) );
                             $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                         } else {
