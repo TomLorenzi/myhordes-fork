@@ -36,9 +36,9 @@
         <note>Deine Route wurde gespeichert.</note>
         <note category="german">Deine Route wurde gespeichert.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deine Route wurde gespeichert.</source>
-        <target/>
+        <target>Tu ruta ha sido guardada.</target>
       </segment>
     </unit>
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
@@ -256,9 +256,9 @@
         <note>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
         <note category="german">Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target>¡Alerta, algunos compañeros han visto una turba de %num% zombies dirigiéndose hacia el pueblo!</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -496,9 +496,9 @@
         <note>Für dieses Gebäude fehlen Baumaterialien.</note>
         <note category="german">Für dieses Gebäude fehlen Baumaterialien.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Für dieses Gebäude fehlen Baumaterialien.</source>
-        <target>Für dieses Gebäude fehlen Baumaterialien.</target>
+        <target>Nos faltan recursos en el Almacén para iniciar las obras.</target>
       </segment>
     </unit>
     <unit id="P242oK2" name="Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.">
@@ -526,9 +526,9 @@
         <note>Du hast keinen Platz mehr für diesen Gegenstand!</note>
         <note category="german">Du hast keinen Platz mehr für diesen Gegenstand!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du hast keinen Platz mehr für diesen Gegenstand!</source>
-        <target>Du hast keinen Platz mehr für diesen Gegenstand!</target>
+        <target>No es posible coger este objeto, la mochila está llena.</target>
       </segment>
     </unit>
     <unit id="4lQ8bY." name="Du kannst keinen weiteren schweren Gegenstand tragen!">
@@ -536,9 +536,9 @@
         <note>Du kannst keinen weiteren schweren Gegenstand tragen!</note>
         <note category="german">Du kannst keinen weiteren schweren Gegenstand tragen!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du kannst keinen weiteren schweren Gegenstand tragen!</source>
-        <target>Du kannst keinen weiteren schweren Gegenstand tragen!</target>
+        <target>Solo puedes llevar contigo un objeto voluminoso y un contenedor a la vez.</target>
       </segment>
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
@@ -546,9 +546,9 @@
         <note>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
         <note category="german">Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</target>
+        <target>Esta acción está bloqueada durante un tiempo.</target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -626,9 +626,9 @@
         <note>Verschüttete Ruine</note>
         <note category="german">Verschüttete Ruine</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Verschüttete Ruine</source>
-        <target>Verschüttete Ruine</target>
+        <target>Sector inexplotable</target>
       </segment>
     </unit>
     <unit id="qKBuSla" name="Zone">
@@ -796,9 +796,9 @@
         <note>Stadt verlassen</note>
         <note category="german">Stadt verlassen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Stadt verlassen</source>
-        <target>Stadt verlassen</target>
+        <target>Salir al Ultramundo</target>
       </segment>
     </unit>
     <unit id="VHo.w1Y" name="Stadttor-Register">
@@ -926,9 +926,9 @@
         <note>Mein(e) %type%</note>
         <note category="german">Mein(e) %type%</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mein(e) %type%</source>
-        <target>Mein(e) %type%</target>
+        <target>Mi %type%</target>
       </segment>
     </unit>
     <unit id="lQhjNcE" name="Bauarbeiten">
@@ -1309,9 +1309,9 @@
         <note>Neue einfache Route</note>
         <note category="german">Neue einfache Route</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Neue einfache Route</source>
-        <target>Neue einfache Route</target>
+        <target>Nueva expedición simple</target>
       </segment>
     </unit>
     <unit id="v88wslY" name="Neue komplexe Route">
@@ -1319,9 +1319,9 @@
         <note>Neue komplexe Route</note>
         <note category="german">Neue komplexe Route</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Neue komplexe Route</source>
-        <target>Neue komplexe Route</target>
+        <target>Nueva expedición compleja</target>
       </segment>
     </unit>
     <unit id="fn_qM4v" name="Name der Route">
@@ -1382,9 +1382,9 @@
         <note>Tot</note>
         <note category="german">Tot</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tot</source>
-        <target>Tot</target>
+        <target>Muertos</target>
       </segment>
     </unit>
     <unit id="UJdq1Y9" name="Haus">
@@ -2592,9 +2592,9 @@
         <note>Angststarre</note>
         <note category="german">Angststarre</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Angststarre</source>
-        <target>Aterrado</target>
+        <target>Aterrorizado</target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2634,7 +2634,7 @@
       </notes>
       <segment state="translated">
         <source>Drogenabhängig</source>
-        <target>Dependencia</target>
+        <target>¡Adicto!</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2734,7 +2734,7 @@
       </notes>
       <segment state="translated">
         <source>Ghul</source>
-        <target>Mutante</target>
+        <target>¡Mutante!</target>
       </segment>
     </unit>
     <unit id="AdfvkQI" name="Bandagiert">
@@ -3932,9 +3932,9 @@
         <note>Durch die Lüftungsschächte klettern</note>
         <note category="german">Durch die Lüftungsschächte klettern</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Durch die Lüftungsschächte klettern</source>
-        <target/>
+        <target>texto conductos de ventilacion</target>
       </segment>
     </unit>
     <unit id="mwAKBpm" name="Meine objekte">
@@ -7664,7 +7664,7 @@
       <notes>
         <note category="german">Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
         <target>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
       </segment>
@@ -7673,7 +7673,7 @@
       <notes>
         <note category="german">Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
         <target>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
       </segment>
@@ -7682,7 +7682,7 @@
       <notes>
         <note category="german">Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
         <target>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
       </segment>
@@ -7691,7 +7691,7 @@
       <notes>
         <note category="german">Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
         <target>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
       </segment>
@@ -7700,7 +7700,7 @@
       <notes>
         <note category="german">Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
         <target>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
       </segment>
@@ -7709,7 +7709,7 @@
       <notes>
         <note category="german">Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
         <target>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
       </segment>
@@ -7718,7 +7718,7 @@
       <notes>
         <note category="german">Du bist der Schamane dieser Stadt.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist der Schamane dieser Stadt.</source>
         <target>Du bist der Schamane dieser Stadt.</target>
       </segment>
@@ -7727,7 +7727,7 @@
       <notes>
         <note category="german">Du bist der Reiseleiter in der Außenwelt dieser Stadt.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
         <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
       </segment>
@@ -7736,7 +7736,7 @@
       <notes>
         <note category="german">Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
         <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</target>
       </segment>
@@ -7745,7 +7745,7 @@
       <notes>
         <note category="german">Besessen von einer gequälten Seele</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Besessen von einer gequälten Seele</source>
         <target>Besessen von einer gequälten Seele</target>
       </segment>
@@ -7754,7 +7754,7 @@
       <notes>
         <note category="german">Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
         <target>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</target>
       </segment>
@@ -7763,7 +7763,7 @@
       <notes>
         <note category="german">Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
         <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
       </segment>
@@ -7772,7 +7772,7 @@
       <notes>
         <note category="german">Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
         <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
       </segment>
@@ -7781,7 +7781,7 @@
       <notes>
         <note category="german">Hier wurde bereits ein Bauplan gefunden.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
         <target>Hier wurde bereits ein Bauplan gefunden.</target>
       </segment>
@@ -7790,7 +7790,7 @@
       <notes>
         <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
         <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
       </segment>
@@ -7799,7 +7799,7 @@
       <notes>
         <note category="german">Die Tarnung von %name% ist aufgeflogen!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Die Tarnung von %name% ist aufgeflogen!</source>
         <target>Die Tarnung von %name% ist aufgeflogen!</target>
       </segment>
@@ -7808,7 +7808,7 @@
       <notes>
         <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
         <target>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</target>
       </segment>
@@ -7817,7 +7817,7 @@
       <notes>
         <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
         <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
       </segment>
@@ -7826,7 +7826,7 @@
       <notes>
         <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
         <target>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</target>
       </segment>
@@ -7835,7 +7835,7 @@
       <notes>
         <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
         <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
       </segment>
@@ -7844,7 +7844,7 @@
       <notes>
         <note category="german">Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</source>
         <target>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</target>
       </segment>
@@ -7853,7 +7853,7 @@
       <notes>
         <note category="german">Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</source>
         <target>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</target>
       </segment>
@@ -7862,7 +7862,7 @@
       <notes>
         <note category="german">Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
         <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
       </segment>
@@ -7871,7 +7871,7 @@
       <notes>
         <note category="german">Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</source>
         <target>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</target>
       </segment>
@@ -7880,7 +7880,7 @@
       <notes>
         <note category="german">Das ist keine gute Idee, das ist dir doch wohl klar!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
         <target>Das ist keine gute Idee, das ist dir doch wohl klar!</target>
       </segment>
@@ -7889,7 +7889,7 @@
       <notes>
         <note category="german">Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
         <target>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</target>
       </segment>
@@ -7898,7 +7898,7 @@
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
         <target>...der Mörder .. ist.. IST.. AAARGHhh..</target>
       </segment>
@@ -7907,7 +7907,7 @@
       <notes>
         <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</source>
         <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</target>
       </segment>
@@ -7916,7 +7916,7 @@
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Bank.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>In diesem Thread dreht sich alles um die Bank.</source>
         <target>In diesem Thread dreht sich alles um die Bank.</target>
       </segment>
@@ -7925,7 +7925,7 @@
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
         <target>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</target>
       </segment>
@@ -7934,7 +7934,7 @@
       <notes>
         <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
         <target>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</target>
       </segment>
@@ -7943,7 +7943,7 @@
       <notes>
         <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
         <target>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</target>
       </segment>
@@ -7952,7 +7952,7 @@
       <notes>
         <note category="german">%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
         <target>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</target>
       </segment>
@@ -7961,7 +7961,7 @@
       <notes>
         <note category="german">Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</source>
         <target>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</target>
       </segment>
@@ -7970,7 +7970,7 @@
       <notes>
         <note category="german">Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
         <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
       </segment>
@@ -7979,7 +7979,7 @@
       <notes>
         <note category="german">%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
         <target>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</target>
       </segment>
@@ -7988,7 +7988,7 @@
       <notes>
         <note category="german">%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
         <target>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</target>
       </segment>
@@ -7997,7 +7997,7 @@
       <notes>
         <note category="german">%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
         <target>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</target>
       </segment>
@@ -8006,7 +8006,7 @@
       <notes>
         <note category="german">%citizen% hat sich für heute Nacht ein Versteck gesucht ...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
         <target>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</target>
       </segment>
@@ -8015,7 +8015,7 @@
       <notes>
         <note category="german">%citizen% hat sein Versteck verlassen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% hat sein Versteck verlassen.</source>
         <target>%citizen% hat sein Versteck verlassen.</target>
       </segment>
@@ -8024,7 +8024,7 @@
       <notes>
         <note category="german">%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</source>
         <target>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</target>
       </segment>
@@ -8033,7 +8033,7 @@
       <notes>
         <note category="german">%citizen% hat beschlossen sich wieder allein fortzubewegen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% hat beschlossen sich wieder allein fortzubewegen.</source>
         <target>%citizen% hat beschlossen sich wieder allein fortzubewegen.</target>
       </segment>
@@ -8042,7 +8042,7 @@
       <notes>
         <note category="german">%citizen% a convaincu %target_citizen% de le suivre.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>%citizen% a convaincu %target_citizen% de le suivre.</source>
         <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
       </segment>
@@ -8051,7 +8051,7 @@
       <notes>
         <note category="german">Finalement, %citizen% a décidé de planter %target_citizen% là...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Finalement, %citizen% a décidé de planter %target_citizen% là...</source>
         <target>Finalement, %citizen% a décidé de planter %target_citizen% là...</target>
       </segment>
@@ -8060,7 +8060,7 @@
       <notes>
         <note category="german">Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
         <target>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</target>
       </segment>
@@ -8069,7 +8069,7 @@
       <notes>
         <note category="german">Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
         <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</target>
       </segment>
@@ -8078,7 +8078,7 @@
       <notes>
         <note category="german">Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
         <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
       </segment>
@@ -8087,7 +8087,7 @@
       <notes>
         <note category="german">Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
         <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
       </segment>
@@ -8096,7 +8096,7 @@
       <notes>
         <note category="german">Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
         <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
       </segment>
@@ -8105,7 +8105,7 @@
       <notes>
         <note category="german">Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
         <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
       </segment>
@@ -8114,7 +8114,7 @@
       <notes>
         <note category="german">Du kannst keinen weiteren Bürger eskortieren.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du kannst keinen weiteren Bürger eskortieren.</source>
         <target>Du kannst keinen weiteren Bürger eskortieren.</target>
       </segment>
@@ -8123,7 +8123,7 @@
       <notes>
         <note category="german">Dieser Bürger hat kein AP mehr.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Dieser Bürger hat kein AP mehr.</source>
         <target>Dieser Bürger hat kein AP mehr.</target>
       </segment>
@@ -8132,7 +8132,7 @@
       <notes>
         <note category="german">Klassischer Editor</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Klassischer Editor</source>
         <target>Klassischer Editor</target>
       </segment>
@@ -8141,7 +8141,7 @@
       <notes>
         <note category="german">Grafischer Editor</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Grafischer Editor</source>
         <target>Grafischer Editor</target>
       </segment>
@@ -8150,7 +8150,7 @@
       <notes>
         <note category="german">Position:</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Position:</source>
         <target>Position:</target>
       </segment>
@@ -8159,7 +8159,7 @@
       <notes>
         <note category="german">Zusammenbauen</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Zusammenbauen</source>
         <target>Zusammenbauen</target>
       </segment>
@@ -8168,7 +8168,7 @@
       <notes>
         <note category="german">Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
         <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
       </segment>
@@ -8177,7 +8177,7 @@
       <notes>
         <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
         <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
       </segment>
@@ -8186,7 +8186,7 @@
       <notes>
         <note category="german">Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</source>
         <target>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</target>
       </segment>
@@ -8195,7 +8195,7 @@
       <notes>
         <note category="german">Ich habe doch zu große Angst...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Ich habe doch zu große Angst...</source>
         <target>Ich habe doch zu große Angst...</target>
       </segment>
@@ -8204,7 +8204,7 @@
       <notes>
         <note category="german">Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
         <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
       </segment>
@@ -8213,7 +8213,7 @@
       <notes>
         <note category="german">Ich möchte Wächter werden!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Ich möchte Wächter werden!</source>
         <target>Ich möchte Wächter werden!</target>
       </segment>
@@ -8222,7 +8222,7 @@
       <notes>
         <note category="german">Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
         <target>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</target>
       </segment>
@@ -8231,7 +8231,7 @@
       <notes>
         <note category="german">Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
         <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</target>
       </segment>
@@ -8240,7 +8240,7 @@
       <notes>
         <note category="german">Benutzte Waffe</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Benutzte Waffe</source>
         <target>Benutzte Waffe</target>
       </segment>
@@ -8249,7 +8249,7 @@
       <notes>
         <note category="german">Wähle meine Waffen!</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Wähle meine Waffen!</source>
         <target>Wähle meine Waffen!</target>
       </segment>
@@ -8258,7 +8258,7 @@
       <notes>
         <note category="german">Gesamtzahl der Zombies, die heute Nacht sterben könnten:</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</source>
         <target>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</target>
       </segment>
@@ -8267,7 +8267,7 @@
       <notes>
         <note category="german">Dieser Bürger hat keine letzten Worte hinterlassen ...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
         <target>Dieser Bürger hat keine letzten Worte hinterlassen ...</target>
       </segment>
@@ -8276,7 +8276,7 @@
       <notes>
         <note category="german">Letzte Worte:</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Letzte Worte:</source>
         <target>Letzte Worte:</target>
       </segment>
@@ -8285,7 +8285,7 @@
       <notes>
         <note category="german">Was ist mit ihm geschehen?</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Was ist mit ihm geschehen?</source>
         <target>Was ist mit ihm geschehen?</target>
       </segment>
@@ -8294,7 +8294,7 @@
       <notes>
         <note category="german">Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
         <target>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</target>
       </segment>
@@ -8303,7 +8303,7 @@
       <notes>
         <note category="german">Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
         <target>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</target>
       </segment>
@@ -8312,7 +8312,7 @@
       <notes>
         <note category="german">Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
         <target>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</target>
       </segment>
@@ -8321,7 +8321,7 @@
       <notes>
         <note category="german">Klicke hier, um für diesen Bürger zu stimmen.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Klicke hier, um für diesen Bürger zu stimmen.</source>
         <target>Klicke hier, um für diesen Bürger zu stimmen.</target>
       </segment>
@@ -8330,7 +8330,7 @@
       <notes>
         <note category="german">Du hast für diesen Bürger gestimmt.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du hast für diesen Bürger gestimmt.</source>
         <target>Du hast für diesen Bürger gestimmt.</target>
       </segment>
@@ -8339,7 +8339,7 @@
       <notes>
         <note category="german">Stadt im %direction% in %km% Entfernung</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Stadt im %direction% in %km% Entfernung</source>
         <target>Stadt im %direction% in %km% Entfernung</target>
       </segment>
@@ -8348,7 +8348,7 @@
       <notes>
         <note category="german">Du folgst aktuell %citizen%.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du folgst aktuell %citizen%.</source>
         <target>Du folgst aktuell %citizen%.</target>
       </segment>
@@ -8358,7 +8358,7 @@
         <note category="german">Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
                     Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
                     Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
         <target>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
@@ -8369,7 +8369,7 @@
       <notes>
         <note category="german">Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
         <target>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
       </segment>
@@ -8378,7 +8378,7 @@
       <notes>
         <note category="german">Zone reinigen</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Zone reinigen</source>
         <target>Zone reinigen</target>
       </segment>
@@ -8387,7 +8387,7 @@
       <notes>
         <note category="german">Aktualisierung</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Aktualisierung</source>
         <target>Aktualisierung</target>
       </segment>
@@ -8396,7 +8396,7 @@
       <notes>
         <note category="german">Deine Eskorte</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Deine Eskorte</source>
         <target>Deine Eskorte</target>
       </segment>
@@ -8405,7 +8405,7 @@
       <notes>
         <note category="german">Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
         <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
       </segment>
@@ -8414,7 +8414,7 @@
       <notes>
         <note category="german">Gesamte Eskorte</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Gesamte Eskorte</source>
         <target>Gesamte Eskorte</target>
       </segment>
@@ -8423,7 +8423,7 @@
       <notes>
         <note category="german">Bürger in dieser Zone</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Bürger in dieser Zone</source>
         <target>Bürger in dieser Zone</target>
       </segment>
@@ -8432,7 +8432,7 @@
       <notes>
         <note category="german">Camping</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Camping</source>
         <target>Camping</target>
       </segment>
@@ -8441,7 +8441,7 @@
       <notes>
         <note category="german">Eskorte</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Eskorte</source>
         <target>Eskorte</target>
       </segment>
@@ -8450,7 +8450,7 @@
       <notes>
         <note category="german">Eskorte aktivieren</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Eskorte aktivieren</source>
         <target>Eskorte aktivieren</target>
       </segment>
@@ -8459,7 +8459,7 @@
       <notes>
         <note category="german">Ich will auf direktem Weg zurück zur Stadt</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Ich will auf direktem Weg zurück zur Stadt</source>
         <target>Ich will auf direktem Weg zurück zur Stadt</target>
       </segment>
@@ -8468,7 +8468,7 @@
       <notes>
         <note category="german">Zugriff auf meinen Rucksack zulassen</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Zugriff auf meinen Rucksack zulassen</source>
         <target>Zugriff auf meinen Rucksack zulassen</target>
       </segment>
@@ -8477,7 +8477,7 @@
       <notes>
         <note category="german">Eskorte deaktivieren</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Eskorte deaktivieren</source>
         <target>Eskorte deaktivieren</target>
       </segment>
@@ -8486,7 +8486,7 @@
       <notes>
         <note category="german">Send</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Senden</source>
         <target>Senden</target>
       </segment>
@@ -8495,7 +8495,7 @@
       <notes>
         <note category="german">Deine letzten Worte:</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Deine letzten Worte:</source>
         <target>Deine letzten Worte:</target>
       </segment>
@@ -8504,7 +8504,7 @@
       <notes>
         <note category="german">Mystic-Punkte</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Mystic-Punkte</source>
         <target>Mystic-Punkte</target>
       </segment>
@@ -8513,7 +8513,7 @@
       <notes>
         <note category="german">Diese Punkte sind exklusiv für den Schamanen reserviert.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
         <target>Diese Punkte sind exklusiv für den Schamanen reserviert.</target>
       </segment>
@@ -8522,7 +8522,7 @@
       <notes>
         <note category="german">Du bist der %rolename% dieser Stadt.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Du bist der %rolename% dieser Stadt.</source>
         <target>Du bist der %rolename% dieser Stadt.</target>
       </segment>
@@ -8531,7 +8531,7 @@
       <notes>
         <note category="german">Akteneinsicht wird beantragt...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Akteneinsicht wird beantragt...</source>
         <target>Akteneinsicht wird beantragt...</target>
       </segment>
@@ -8540,7 +8540,7 @@
       <notes>
         <note category="german">Protokolle werden analysiert...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Protokolle werden analysiert...</source>
         <target>Protokolle werden analysiert...</target>
       </segment>
@@ -8549,7 +8549,7 @@
       <notes>
         <note category="german">Überwachungsapparat wird ausgewertet...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Überwachungsapparat wird ausgewertet...</source>
         <target>Überwachungsapparat wird ausgewertet...</target>
       </segment>
@@ -8558,7 +8558,7 @@
       <notes>
         <note category="german">Belastende Beweise werden übermittelt...</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Belastende Beweise werden übermittelt...</source>
         <target>Belastende Beweise werden übermittelt...</target>
       </segment>
@@ -8567,7 +8567,7 @@
       <notes>
         <note category="german">Was sagst du dazu?</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Was sagst du dazu?</source>
         <target>Was sagst du dazu?</target>
       </segment>

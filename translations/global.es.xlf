@@ -500,9 +500,9 @@
       <notes>
         <note category="german">Aktuelles Leben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Aktuelles Leben</source>
-        <target>Vida actual</target>
+        <target>Pueblo actual</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
@@ -743,9 +743,9 @@
       <notes>
         <note category="german">Hierfür fehlen dir notwendige Gegenstände.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hierfür fehlen dir notwendige Gegenstände.</source>
-        <target>Hierfür fehlen dir notwendige Gegenstände.</target>
+        <target>Necesitas los objetos necesarios para esto.</target>
       </segment>
     </unit>
     <unit id="aTN.bek" name="Vorschau">

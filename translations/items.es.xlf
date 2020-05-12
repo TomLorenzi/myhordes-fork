@@ -2156,7 +2156,7 @@
         <note>Geröstete Marshmallows</note>
         <note category="german">Geröstete Marshmallows</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Geröstete Marshmallows</source>
         <target>Malvaviscos quemados</target>
       </segment>
@@ -2656,7 +2656,7 @@
         <note>Abdruck vom Dosenöffner</note>
         <note category="german">Abdruck vom Dosenöffner</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Abdruck vom Dosenöffner</source>
         <target>Molde para abrebotellas</target>
       </segment>
@@ -3286,9 +3286,9 @@
         <note>Tarnanzug</note>
         <note category="german">Tarnanzug</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tarnanzug</source>
-        <target>Tarnanzug</target>
+        <target>Camuflaje</target>
       </segment>
     </unit>
     <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
@@ -3296,9 +3296,9 @@
         <note>Tarnanzug (abgelegt)</note>
         <note category="german">Tarnanzug (abgelegt)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <target>Camuflaje</target>
       </segment>
     </unit>
     <unit id="zozlCDV" name="Kleine Schaufel">
@@ -5947,9 +5947,9 @@
         <note>Toll... und wie findest du jetzt raus, was da drin ist? Ohne die Geheimkombination dürfte das etwas schwierig werden.</note>
         <note category="german">Toll... und wie findest du jetzt raus, was da drin ist? Ohne die Geheimkombination dürfte das etwas schwierig werden.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Toll... und wie findest du jetzt raus, was da drin ist? Ohne die Geheimkombination dürfte das etwas schwierig werden.</source>
-        <target>texto caja fuerte</target>
+        <target>¿Qué tendrá dentro? Ah, claro, necesitas conocer la clave secreta para averiguarlo.</target>
       </segment>
     </unit>
     <unit id="VwE0Fh5" name="8172b71">
@@ -6817,9 +6817,9 @@
         <note>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</note>
         <note category="german">Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</source>
-        <target>texto capa de explorador</target>
+        <target>Este traje te permite avanzar en el desierto sin temer ser visto por los zombies. Pero cuidado, puede no ser tan eficaz si atraviesas una zona controlada por numerosos muertos vivientes.</target>
       </segment>
     </unit>
     <unit id="IU3Z1xk" name="c85cf59">
