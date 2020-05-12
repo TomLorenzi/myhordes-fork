@@ -3895,7 +3895,7 @@
       </notes>
       <segment>
         <source>Verwenden</source>
-        <target>Verwenden</target>
+        <target>Utiliser</target>
       </segment>
     </unit>
     <unit id="4BPa55x" name="60c8734">
@@ -3944,7 +3944,7 @@
       </notes>
       <segment>
         <source>Reinigen</source>
-        <target>Nettoyer</target>
+        <target>Purifier</target>
       </segment>
     </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
@@ -3966,7 +3966,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Micropur Brausetablette.</source>
-        <target>Hierfür brauchst du eine Micropur Brausetablette.</target>
+        <target>Pour cela, vous avez besoin d'un Micropur effervescent.</target>
       </segment>
     </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
@@ -4033,7 +4033,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} vergiftet!</source>
-        <target>Du hast {target} mit {item} vergiftet!</target>
+        <target>Vous avez empoisonné {target} avec {item}!</target>
       </segment>
     </unit>
     <unit id="6qvzljH" name="Mithilfe des {item} hast du die Umgebung gescannt.">
@@ -4066,7 +4066,7 @@
       </notes>
       <segment>
         <source>Das kannst du nicht tun während du umzingelt bist...</source>
-        <target>Das kannst du nicht tun während du umzingelt bist...</target>
+        <target>Vous ne pouvez pas faire ça pendant que vous êtes entouré...</target>
       </segment>
     </unit>
     <unit id="L22kxoh" name="f3e008d">
@@ -4088,7 +4088,7 @@
       </notes>
       <segment>
         <source>Knuddeln</source>
-        <target>Knuddeln</target>
+        <target>Étreindre</target>
       </segment>
     </unit>
     <unit id="Lbcs1jO" name="7c7d5a6">
@@ -4099,7 +4099,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>]]></target>
+        <target><![CDATA[Vous appuyez {item} près de votre poitrine... <t-stat-down-terror>Des larmes coulent sur vos joues en pensant à l'enfer dans lequel vous vivez. Après quelques minutes, vous vous sentirez mieux!</t-stat-down-terror><nt-stat-down-terror>Mais rien ne se passe!</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z" name="ba451af">
@@ -4110,7 +4110,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</source>
-        <target><![CDATA[Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>]]></target>
+        <target><![CDATA[Vous appuyez {item} près de votre poitrine... <t-stat-up-terror>La panique surgit en vous!</t-stat-up-terror><nt-stat-up-terror>Mais rien ne se passe!</nt-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="kp6Ik3m" name="Rauchen">
@@ -4121,7 +4121,7 @@
       </notes>
       <segment>
         <source>Rauchen</source>
-        <target>Rauchen</target>
+        <target>Fumer</target>
       </segment>
     </unit>
     <unit id="4oX2an8" name="Hierfür brauchst du Streichhölzer...">
@@ -4196,7 +4196,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Wasser suchen</target>
+        <target>Chercher de l'eau</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -4207,7 +4207,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Essen suchen</target>
+        <target>Vous cherchez de la nourriture</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
@@ -4240,7 +4240,7 @@
       </notes>
       <segment>
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>
-        <target>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</target>
+        <target>Extrêmement rafraîchissant, et même avec une légère touche de choléra.</target>
       </segment>
     </unit>
     <unit id=".jOYrxS" name="Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....">
@@ -4251,7 +4251,7 @@
       </notes>
       <segment>
         <source>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</source>
-        <target>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</target>
+        <target>Encore mieux que ce que les cuisiniers préparent en ville...</target>
       </segment>
     </unit>
     <unit id="Kl2AzsC" name="Du ziehst eine Karte... es ist: {color} {value}.">
@@ -4262,7 +4262,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Vous tirez une carte... vous obtenez: {color} {value}.</target>
+        <target>Vous tirez une carte : {color} {value}.</target>
       </segment>
     </unit>
     <unit id="m5CJEyF" name="Die Rückkehr des Helden">
@@ -7394,7 +7394,7 @@
       </notes>
       <segment>
         <source>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.</source>
-        <target>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.</target>
+        <target>Il vous suit partout, sent le poil mouillé, claudique et bave abondamment. Et il jappe également. Souvent. Vous pouvez lui demander, une fois par jour, de ramener le contenu de votre sac à dos en ville, depuis n'importe quel coin du désert.</target>
       </segment>
     </unit>
     <unit id="1AGCtVy" name="c84c963">
@@ -7788,7 +7788,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck erheblich verbessert.</source>
-        <target>Du hast das hiesige Versteck erheblich verbessert.</target>
+        <target>Vous avez considérablement amélioré la cachette.</target>
       </segment>
     </unit>
     <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
@@ -7854,7 +7854,7 @@
       </notes>
       <segment>
         <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
-        <target>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</target>
+        <target>Vous avez creusé votre propre tombe. Oh quelle ironie!</target>
       </segment>
     </unit>
     <unit id="nv.FYHK" name="Versteck verlassen">
@@ -7918,7 +7918,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</target>
+        <target>Le boucher a bien pris soin de {item}... Vous avez maintenant reçu {items_spawn} pour cela. Au revoir, mon ami!</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -7987,7 +7987,7 @@
       </notes>
       <segment>
         <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
-        <target>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</target>
+        <target>Vous avez pris un certain temps pour aider à défendre la ville.</target>
       </segment>
     </unit>
     <unit id="V1W3ATr" name="Nach Ruinen Ausschau halten">
@@ -8007,7 +8007,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>Du hast eine neue Ruine auf {zone} entdeckt!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>Vous avez découvert une nouvelle ruine sur {zone}!</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -8294,7 +8294,7 @@
       </notes>
       <segment>
         <source>Kompass</source>
-        <target>Kompass</target>
+        <target>Boussole</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
@@ -8303,7 +8303,7 @@
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
-        <target>Angriff und Verteidigung</target>
+        <target>Attaque et défense</target>
       </segment>
     </unit>
     <unit id="tNsmnxy" name="Trinken5">

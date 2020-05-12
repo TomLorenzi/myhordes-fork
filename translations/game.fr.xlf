@@ -3784,7 +3784,7 @@
       </notes>
       <segment>
         <source>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</source>
-        <target>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</target>
+        <target>%citizen% n'a plus résisté à la pression et a mis fin à ses jours: %cod%.</target>
       </segment>
     </unit>
     <unit id="1DaM5oy" name="Verrat! %citizen% ist gestorben: %cod%.">
@@ -3839,7 +3839,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% est arrivé dans la ville depuis %direction%.</target>
+        <target>%citizen% est de retour en ville depuis %direction%.</target>
       </segment>
     </unit>
     <unit id="PFgh04I" name="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
@@ -9167,7 +9167,7 @@
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Vous avez déjà fouiller ce secteur aujourd'hui, une prochaine fouille sera possible demain.</target>
+        <target>Vous avez déjà fouillé ce secteur aujourd'hui, une prochaine fouille sera possible demain.</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
@@ -9356,7 +9356,7 @@
       </notes>
       <segment>
         <source>Du bist der Schamane dieser Stadt.</source>
-        <target>Du bist der Schamane dieser Stadt.</target>
+        <target>Tu es le Chaman de cette ville.</target>
       </segment>
     </unit>
     <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
@@ -9365,7 +9365,7 @@
       </notes>
       <segment>
         <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
-        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
+        <target>Vous êtes le Guide de l'Outre-Monde de cette ville.</target>
       </segment>
     </unit>
     <unit id="GulZlLD" name="Nutze deine heilenden Hände">
@@ -9725,7 +9725,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</target>
+        <target>%attacker% a violemment attaqué et blessé %defender%!</target>
       </segment>
     </unit>
     <unit id="HwOTRdd" name="%attacker% hat %defender% gewalttätig angegriffen!">
@@ -9734,7 +9734,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen!</target>
+        <target>%attacker% a violemment attaqué %defender%!</target>
       </segment>
     </unit>
     <unit id="0Y6YSyp" name="c4b3caa">
@@ -9743,7 +9743,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</target>
+        <target>Un crime odieux s'est produit: %attacker% a dévoré %defender% chez lui!</target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -9833,7 +9833,7 @@
       </notes>
       <segment>
         <source>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</source>
-        <target>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</target>
+        <target>Il semble que nous ayons tout fait correctement car aucun zombie n'a percé les murs la nuit dernière.</target>
       </segment>
     </unit>
     <unit id="pmixolq" name="78d1c25">
@@ -9887,7 +9887,7 @@
       </notes>
       <segment>
         <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
-        <target>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</target>
+        <target>Certains citoyens ont commencé à transpirer la nuit dernière. Une vague d'environ %attack% de monstres a tenté de détruire notre ville, mais en vain.</target>
       </segment>
     </unit>
     <unit id="_KcsEZD" name="3b11391">
