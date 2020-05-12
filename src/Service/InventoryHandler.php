@@ -241,17 +241,17 @@ class InventoryHandler
         }
     }
 
-    const TransferTypeUnknown = 0;
-    const TransferTypeSpawn = 1;
-    const TransferTypeConsume = 2;
+    const TransferTypeUnknown  = 0;
+    const TransferTypeSpawn    = 1;
+    const TransferTypeConsume  = 2;
     const TransferTypeRucksack = 3;
-    const TransferTypeBank = 4;
-    const TransferTypeHome = 5;
-    const TransferTypeSteal = 6;
-    const TransferTypeLocal = 7;
-    const TransferTypeEscort = 8;
-    const TransferTypeTamer = 9;
-    const TransferTypeImpound = 10;
+    const TransferTypeBank     = 4;
+    const TransferTypeHome     = 5;
+    const TransferTypeSteal    = 6;
+    const TransferTypeLocal    = 7;
+    const TransferTypeEscort   = 8;
+    const TransferTypeTamer    = 9;
+    const TransferTypeImpound  = 10;
 
     protected function validateTransferTypes( Item &$item, int $target, int $source ): bool {
         $valid_types = [
@@ -315,22 +315,22 @@ class InventoryHandler
     }
 
     const ErrorNone = 0;
-    const ErrorInvalidTransfer = ErrorHelper::BaseInventoryErrors + 1;
-    const ErrorInventoryFull   = ErrorHelper::BaseInventoryErrors + 2;
-    const ErrorHeavyLimitHit   = ErrorHelper::BaseInventoryErrors + 3;
-    const ErrorBankLimitHit    = ErrorHelper::BaseInventoryErrors + 4;
-    const ErrorStealLimitHit   = ErrorHelper::BaseInventoryErrors + 5;
-    const ErrorStealBlocked    = ErrorHelper::BaseInventoryErrors + 6;
-    const ErrorBankBlocked     = ErrorHelper::BaseInventoryErrors + 7;
-    const ErrorExpandBlocked   = ErrorHelper::BaseInventoryErrors + 8;
-    const ErrorTransferBlocked   = ErrorHelper::BaseInventoryErrors + 9;
-    const ErrorUnstealableItem   = ErrorHelper::BaseInventoryErrors + 10;
+    const ErrorInvalidTransfer      = ErrorHelper::BaseInventoryErrors + 1;
+    const ErrorInventoryFull        = ErrorHelper::BaseInventoryErrors + 2;
+    const ErrorHeavyLimitHit        = ErrorHelper::BaseInventoryErrors + 3;
+    const ErrorBankLimitHit         = ErrorHelper::BaseInventoryErrors + 4;
+    const ErrorStealLimitHit        = ErrorHelper::BaseInventoryErrors + 5;
+    const ErrorStealBlocked         = ErrorHelper::BaseInventoryErrors + 6;
+    const ErrorBankBlocked          = ErrorHelper::BaseInventoryErrors + 7;
+    const ErrorExpandBlocked        = ErrorHelper::BaseInventoryErrors + 8;
+    const ErrorTransferBlocked      = ErrorHelper::BaseInventoryErrors + 9;
+    const ErrorUnstealableItem      = ErrorHelper::BaseInventoryErrors + 10;
     const ErrorEscortDropForbidden  = ErrorHelper::BaseInventoryErrors + 11;
     const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
 
-    const ModalityNone    = 0;
-    const ModalityTamer   = 1;
-    const ModalityImpound = 2;
+    const ModalityNone             = 0;
+    const ModalityTamer            = 1;
+    const ModalityImpound          = 2;
     const ModalityEnforcePlacement = 3;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone): int {

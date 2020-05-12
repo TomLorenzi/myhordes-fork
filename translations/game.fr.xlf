@@ -561,8 +561,6 @@
     </unit>
     <unit id="4lQ8bY." name="Du kannst keinen weiteren schweren Gegenstand tragen!">
       <notes>
-        <note>Du kannst keinen weiteren schweren Gegenstand tragen!</note>
-        <note>Du kannst keinen weiteren schweren Gegenstand tragen!</note>
         <note category="german">Du kannst keinen weiteren schweren Gegenstand tragen!</note>
       </notes>
       <segment>
@@ -572,8 +570,6 @@
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
       <notes>
-        <note>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
-        <note>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
         <note category="german">Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
       </notes>
       <segment>
@@ -583,8 +579,6 @@
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
       <notes>
-        <note>Du kannst heute keinen weiteren Gegenstand stehlen.</note>
-        <note>Du kannst heute keinen weiteren Gegenstand stehlen.</note>
         <note category="german">Du kannst heute keinen weiteren Gegenstand stehlen.</note>
       </notes>
       <segment>
@@ -594,8 +588,6 @@
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
       <notes>
-        <note>Du siehst keine Möglichkeit, hier einzubrechen ...</note>
-        <note>Du siehst keine Möglichkeit, hier einzubrechen ...</note>
         <note category="german">Du siehst keine Möglichkeit, hier einzubrechen ...</note>
       </notes>
       <segment>
@@ -605,8 +597,6 @@
     </unit>
     <unit id="zGsgAe0" name="Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.">
       <notes>
-        <note>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</note>
-        <note>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</note>
         <note category="german">Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</note>
       </notes>
       <segment>
