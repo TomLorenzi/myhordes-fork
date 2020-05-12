@@ -9824,7 +9824,7 @@
       </notes>
       <segment>
         <source>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</source>
-        <target>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</target>
+        <target>Disette chez la Horde : aucun des %attack% zombies n'a eu quoi que ce soit à se mettre sous la dent hier soir en ville, nos défenses ont bien tenu.</target>
       </segment>
     </unit>
     <unit id="ra16zgk" name="cd7fba2">
