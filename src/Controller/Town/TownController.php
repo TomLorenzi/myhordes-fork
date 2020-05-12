@@ -518,7 +518,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        $up_inv   = $ac->getInventory();
+        $up_inv   = $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
         return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
     }

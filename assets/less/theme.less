@@ -741,11 +741,29 @@ div.game-menu-area {
           &:not(.civil) { min-width: 64px };
           &>li:not(.text) {
             height: 18px; margin-top: 6px; vertical-align: bottom;
-            &.free,&.item {border: 1px dotted @myhordes-smalltext; width: 18px;}
+            &.free,&.item {border: 1px solid @myhordes-smalltext; width: 18px;}
             &.item { border-color: transparent; }
             &.item.broken { border: 1px dotted #ff0000; }
-            & + li { margin-left: 4px; }
+            & + li { margin-right: 1px; }
           }
+        }
+
+        &.rucksack {
+        	width: 195px;
+        	overflow: hidden;
+        	.more {
+        		width: 18px;
+        		position: absolute;
+        		top: 7px;
+        		right: 0px;
+        	}
+        	&:hover {
+        		overflow: visible;
+        		.more {
+        			display: none;
+        		}
+        	}
+
         }
 
         /*&.rucksack:before*/
