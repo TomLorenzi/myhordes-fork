@@ -19,6 +19,7 @@ use App\Entity\TownClass;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Entity\ZoneTag;
 use App\Structures\TownConf;
 use App\Structures\BetweenFilter;
 use Doctrine\ORM\EntityManagerInterface;
@@ -180,6 +181,8 @@ class GameFactory
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
 
+        $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef(0);
+
         $map_resolution = $this->getDefaultZoneResolution( $conf, $ox, $oy );
         for ($x = 0; $x < $map_resolution; $x++)
             for ($y = 0; $y < $map_resolution; $y++) {
@@ -192,6 +195,7 @@ class GameFactory
                     ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )
                     ->setZombies( 0 )
                     ->setInitialZombies( 0 )
+                    ->setTag($defaultTag)
                 ;
                 $town->addZone( $zone );
             }
