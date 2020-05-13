@@ -647,8 +647,7 @@ class NightlyHandler
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
 
         $this->log->debug("Processing <info>souls</info> mutations.");
-        foreach ($town->getZones() as $zone) {
-            if(!$zone->hasSoul()) continue;
+        foreach ($this->zone_handler->getSoulZones($town) as $zone) {
             foreach ($zone->getFloor()->getItems() as $item) {
                 if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
                 if($this->random->Chance(0.1)){
