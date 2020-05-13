@@ -10596,5 +10596,14 @@
         <target>%citizen% a réparé le chantier %plan% et a dépensé %ap%.</target>
       </segment>
     </unit>
+    <unit id="g3N1gTc" name="Du kannst nicht mehr als eine Seele tragen.">
+      <notes>
+        <note category="german">Du kannst nicht mehr als eine Seele tragen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht mehr als eine Seele tragen.</source>
+        <target>Vous ne pouvez pas porter plus d'une âme.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -30,7 +30,6 @@ class InventoryHandler
     private $entity_manager;
     private $item_factory;
     private $bankAbuseService;
-
     public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService)
     {
         $this->entity_manager = $em;
@@ -327,6 +326,7 @@ class InventoryHandler
     const ErrorUnstealableItem      = ErrorHelper::BaseInventoryErrors + 10;
     const ErrorEscortDropForbidden  = ErrorHelper::BaseInventoryErrors + 11;
     const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
+    const ErrorTooManySouls         = ErrorHelper::BaseInventoryErrors + 13;
 
     const ModalityNone             = 0;
     const ModalityTamer            = 1;
@@ -367,6 +367,14 @@ class InventoryHandler
             ($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
             $this->countHeavyItems($to)
         ) return self::ErrorHeavyLimitHit;
+
+        // Check Soul limit
+        $soul_name = array("soul_blue_#00", "soul_blue_#01");
+        if(in_array($item->getPrototype()->getName(), $soul_name) &&
+            !$actor->hasRole("shaman") && 
+            $this->countSpecificItems($to, $item->getPrototype()) > 0){
+            return self::ErrorTooManySouls;
+        }
 
         if ($type_from === self::TransferTypeEscort) {
             // Prevent undroppable items

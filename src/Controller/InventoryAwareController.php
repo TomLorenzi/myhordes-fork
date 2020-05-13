@@ -541,6 +541,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         return AjaxResponse::success();
                     }
                 }
+
                 if (($error = $handler->transferItem(
                         $citizen,
                         $current_item, $inv_source, $inv_target

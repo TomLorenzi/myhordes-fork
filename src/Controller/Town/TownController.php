@@ -943,9 +943,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
         } else {
-            $building->setHp($building->getHp() + $ap_effect * 2);
+            $newHp = min($building->getPrototype()->getHp(), $building->getHp() + $ap_effect * 2);
+            $building->setHp($newHp);
             if($building->getPrototype()->getDefense() > 0) {
-                $newDef = $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp();
+                $newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
                 $building->setDefense($newDef);
             }
         }
