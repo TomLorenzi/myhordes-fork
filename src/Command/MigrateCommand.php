@@ -4,6 +4,7 @@
 namespace App\Command;
 
 
+use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\HeroicActionPrototype;
@@ -68,6 +69,7 @@ class MigrateCommand extends Command
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
+            ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
         ;
     }
 
@@ -207,6 +209,20 @@ class MigrateCommand extends Command
             foreach ($zones as $entry)
                 if ($entry->getTag() === null){
                     $entry->setTag($defaultTag);
+                    $this->entity_manager->persist($entry);
+                }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('assign-building-hp')) {
+            /** @var Building[] $buildings */
+            $building = $this->entity_manager->getRepository(Building::class)->findAll();
+            foreach ($building as $entry)
+                if ($entry->getHp() !== null || $entry->getPrototype()->getHp()){
+                    $entry->setHp($entry->getPrototype()->getHp());
                     $this->entity_manager->persist($entry);
                 }
             $this->entity_manager->flush();

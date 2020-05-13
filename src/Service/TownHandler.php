@@ -404,4 +404,14 @@ class TownHandler
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
     }
+
+    public function get_alive_citizen(Town &$town){
+        $citizens = [];
+        foreach ($town->getCitizens() as $citizen) {
+            if($citizen->getAlive())
+                $citizens[] = $citizen;
+        }
+
+        return $citizens;
+    }
 }

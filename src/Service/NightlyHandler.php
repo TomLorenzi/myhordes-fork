@@ -193,6 +193,24 @@ class NightlyHandler
         }
     }
 
+    private function stage2_pre_attack_buildings(Town &$town){
+        $this->log->info('Inflicting damages to buildings before the attack');
+
+        $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00', true);
+        if($fireworks){
+            $fireworks->setHp(max(0, $fireworks->getHp() - 20));
+            if($fireworks->getHp() <= 0) {
+                // It is destroyed, let's do this !
+                $fireworks->setComplete(false)->setAp(0);
+                foreach ($town->getCitizen() as $citizen) {
+                    if(!$citizen->getAlive()) continue;
+                    
+                }
+            }
+            $this->entity_manager->persist($fireworks);
+        }
+    }
+
     private function stage2_surprise_attack(Town &$town) {
         $this->log->info('<info>Awakening the dead</info> ...');
         /** @var Citizen[] $houses */
@@ -399,6 +417,10 @@ class NightlyHandler
             $attacking -= $force;
         }
         $this->entity_manager->persist($gazette);
+    }
+
+    private function stage2_post_attack_buildings(Town &$town){
+        $this->log->info('Inflicting damages to buildings after the attack');
     }
 
     private function stage3_status(Town &$town) {
@@ -920,9 +942,11 @@ class NightlyHandler
 
         $town->setDay( $town->getDay() + 1);
         $this->log->info('Entering <comment>Phase 2</comment> - The Attack');
+        $this->stage2_pre_attack_buildings($town);
         $this->stage2_day($town);
         $this->stage2_surprise_attack($town);
         $this->stage2_attack($town);
+        $this->stage2_post_attack_buildings($town);
 
         $this->log->info('Entering <comment>Phase 3</comment> - Dawn of a New Day');
         $this->stage3_buildings($town);

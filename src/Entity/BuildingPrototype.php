@@ -95,6 +95,11 @@ class BuildingPrototype
      */
     private $orderBy = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $hp;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -288,6 +293,18 @@ class BuildingPrototype
     public function setOrderBy(int $orderBy): self
     {
         $this->orderBy = $orderBy;
+
+        return $this;
+    }
+
+    public function getHp(): ?int
+    {
+        return $this->hp;
+    }
+
+    public function setHp(int $hp): self
+    {
+        $this->hp = $hp;
 
         return $this;
     }

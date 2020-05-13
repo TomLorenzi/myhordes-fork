@@ -26,6 +26,19 @@ Stats :
 * Die Nachtwächter haben mutig die Stadt verteidigt.
 * The watchmen courageously defended the town!
 
+# Building damages 
+1) Degats for the reactor each day : Between 50 and 125HP
+2) Degats for the fireworks each day : 20 HP
+3) Some buildings take damages in panda, between 1% and 70% of HP
+    -> What are the odds
+4) In panda, zeds damages and daily damages are cumulated
+    -> Reactor, then zeds, then fireworks
+5) FDA gets zeds damage before daily damages, Reactor gets daily damage before zeds damages
+    a. Thus, if the zeds destroy the fireworks, no infection at all
+    b. if the fireworks explodes from daily damages, 50% citizens gets infection + zeds around the town are killed
+6) CA / CAS count : 5 / 2
+7) Fireworks explosion infects 50% of the citizens, kills zombies around the town AND lower the attack for 2-3 days
+
 # Council vote for roles
 
 Here is the French RP text :
