@@ -241,17 +241,17 @@ class InventoryHandler
         }
     }
 
-    const TransferTypeUnknown = 0;
-    const TransferTypeSpawn = 1;
-    const TransferTypeConsume = 2;
+    const TransferTypeUnknown  = 0;
+    const TransferTypeSpawn    = 1;
+    const TransferTypeConsume  = 2;
     const TransferTypeRucksack = 3;
-    const TransferTypeBank = 4;
-    const TransferTypeHome = 5;
-    const TransferTypeSteal = 6;
-    const TransferTypeLocal = 7;
-    const TransferTypeEscort = 8;
-    const TransferTypeTamer = 9;
-    const TransferTypeImpound = 10;
+    const TransferTypeBank     = 4;
+    const TransferTypeHome     = 5;
+    const TransferTypeSteal    = 6;
+    const TransferTypeLocal    = 7;
+    const TransferTypeEscort   = 8;
+    const TransferTypeTamer    = 9;
+    const TransferTypeImpound  = 10;
 
     protected function validateTransferTypes( Item &$item, int $target, int $source ): bool {
         $valid_types = [
@@ -259,7 +259,7 @@ class InventoryHandler
             self::TransferTypeRucksack => [ self::TransferTypeBank, self::TransferTypeLocal, self::TransferTypeHome, self::TransferTypeConsume, self::TransferTypeSteal, self::TransferTypeTamer ],
             self::TransferTypeBank => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
             self::TransferTypeHome => [ self::TransferTypeRucksack, self::TransferTypeConsume ],
-            self::TransferTypeSteal => [ self::TransferTypeRucksack ],
+            self::TransferTypeSteal => [ self::TransferTypeRucksack, self::TransferTypeHome ],
             self::TransferTypeLocal => [ self::TransferTypeRucksack, self::TransferTypeEscort, self::TransferTypeConsume ],
             self::TransferTypeEscort => [ self::TransferTypeLocal, self::TransferTypeConsume ],
             self::TransferTypeImpound => [ self::TransferTypeTamer ],
@@ -315,22 +315,22 @@ class InventoryHandler
     }
 
     const ErrorNone = 0;
-    const ErrorInvalidTransfer = ErrorHelper::BaseInventoryErrors + 1;
-    const ErrorInventoryFull   = ErrorHelper::BaseInventoryErrors + 2;
-    const ErrorHeavyLimitHit   = ErrorHelper::BaseInventoryErrors + 3;
-    const ErrorBankLimitHit    = ErrorHelper::BaseInventoryErrors + 4;
-    const ErrorStealLimitHit   = ErrorHelper::BaseInventoryErrors + 5;
-    const ErrorStealBlocked    = ErrorHelper::BaseInventoryErrors + 6;
-    const ErrorBankBlocked     = ErrorHelper::BaseInventoryErrors + 7;
-    const ErrorExpandBlocked   = ErrorHelper::BaseInventoryErrors + 8;
-    const ErrorTransferBlocked   = ErrorHelper::BaseInventoryErrors + 9;
-    const ErrorUnstealableItem   = ErrorHelper::BaseInventoryErrors + 10;
+    const ErrorInvalidTransfer      = ErrorHelper::BaseInventoryErrors + 1;
+    const ErrorInventoryFull        = ErrorHelper::BaseInventoryErrors + 2;
+    const ErrorHeavyLimitHit        = ErrorHelper::BaseInventoryErrors + 3;
+    const ErrorBankLimitHit         = ErrorHelper::BaseInventoryErrors + 4;
+    const ErrorStealLimitHit        = ErrorHelper::BaseInventoryErrors + 5;
+    const ErrorStealBlocked         = ErrorHelper::BaseInventoryErrors + 6;
+    const ErrorBankBlocked          = ErrorHelper::BaseInventoryErrors + 7;
+    const ErrorExpandBlocked        = ErrorHelper::BaseInventoryErrors + 8;
+    const ErrorTransferBlocked      = ErrorHelper::BaseInventoryErrors + 9;
+    const ErrorUnstealableItem      = ErrorHelper::BaseInventoryErrors + 10;
     const ErrorEscortDropForbidden  = ErrorHelper::BaseInventoryErrors + 11;
     const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
 
-    const ModalityNone    = 0;
-    const ModalityTamer   = 1;
-    const ModalityImpound = 2;
+    const ModalityNone             = 0;
+    const ModalityTamer            = 1;
+    const ModalityImpound          = 2;
     const ModalityEnforcePlacement = 3;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone): int {
@@ -343,14 +343,14 @@ class InventoryHandler
         if ($item->getInventory() && ( !$from || $from->getId() !== $item->getInventory()->getId() ) )
             return self::ErrorInvalidTransfer;
 
-        if (!$this->transferType( $item,$actor, $to, $from, $type_to, $type_from ))
+        if (!$this->transferType($item, $actor, $to, $from, $type_to, $type_from ))
             return $item->getEssential() ? self::ErrorEssentialItemBlocked : self::ErrorInvalidTransfer;
 
         // Check inventory size
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
-      /* This snippet restores original Hordes functionality, but was intentionally left out.
+        /* This snippet restores original Hordes functionality, but was intentionally left out.
         if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
           (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
           (
@@ -360,7 +360,7 @@ class InventoryHandler
           ))) {
           return self::ErrorExpandBlocked;
         }
-      */
+        */
 
         // Check Heavy item limit
         if ($item->getPrototype()->getHeavy() &&

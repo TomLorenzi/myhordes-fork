@@ -21,9 +21,9 @@
                     </div>
                     <div id="gazette-content" class="{{gazette.textClass}}">
                         {{gazette.text|raw}}
-                    </div>
-                    <div id="gazette-signature">
-                        - {{'Der Rabe'|trans({}, 'global')}}
+                        <div id="gazette-signature">
+                            - {{'Der Rabe'|trans({}, 'global')}}
+                        </div>
                     </div>
                     {% if gazette.day > 1 %}
                         <div id="gazette-deaths">
@@ -75,12 +75,30 @@
                 </div>
                 <div id="newspage-back" class="newspage">
                     {% if gazette.day > 1 %}
-                        <div id="gazette-attack" class="row {% if gazette.devast %}devast{% endif %}">
+                        <div id="gazette-attack" class="row {% if gazette.devast %}devast{% endif %} {% if gazette.door %}opened{% else %}closed{% endif %}">
                             <div class="nightstat nightstat-attack"><span class="count">{{ gazette.attack }}</span>
                                 {{ 'Zombies'|trans({},'game') }}</div>
-                            <div class="nightstat nightstat-defense">{% if gazette.door and gazette.chaos != 1 and gazette.devast != 1 %}<span class="count">{{ gazette.defense }}</span>
-                                    {{ 'Verteidigung'|trans({},'game') }}{% else %}<span class="invasion">{{ 'Tor ist offen!'|trans({},'game') }}</span>{% endif %}{% if gazette.invasion > 0 %}<br><span class="invasion">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>{% endif %}</div>
-                            <div class="nightstat nightstat-deaths">{% if gazette.deaths > 0 %}<span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans({}, 'game') }}{% else %}<span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>{% endif %}{% if gazette.terror > 0 %}<br><span class="terror">{{ gazette.terror }} {{ 'terrorisiert'|trans({},'game') }}</span>{% endif %}</div>
+                            <div class="nightstat nightstat-defense">
+                                {% if not gazette.door %}
+                                    <span class="count">{{ gazette.defense }}</span>
+                                    {{ 'Verteidigung'|trans({},'game') }}
+                                {% else %}
+                                    <span class="invasion">{{ 'Tor ist offen!'|trans({},'game') }}</span>
+                                {% endif %}
+                                {% if gazette.invasion > 0 %}
+                                    <br><span class="invasion">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="nightstat nightstat-deaths">
+                                {% if gazette.deaths > 0 %}
+                                    <span class="count">{{ gazette.deaths }}</span> {{ 'Opfer'|trans({}, 'game') }}
+                                {% else %}
+                                    <span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>
+                                {% endif %}
+                                {% if gazette.terror > 0 %}
+                                    <br><span class="terror">{{ gazette.terror }} {{ 'vor Angst erstarrt'|trans({},'game') }}</span>
+                                {% endif %}
+                            </div>
                         </div>
                     {% else %}
                         <div id="gazette-empty"></div>

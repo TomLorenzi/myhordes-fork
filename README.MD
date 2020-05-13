@@ -42,7 +42,7 @@ bin/console app:schedule --now
 bin/console app:schedule --now -vvv
 
 # Don't let debug users die
-bin/console app:debug everyone-drink <town.id>
+bin/console app:debug --everyone-drink <town.id>
 
 
 # Every commands

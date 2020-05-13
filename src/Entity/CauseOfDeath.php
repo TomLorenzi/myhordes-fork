@@ -24,7 +24,7 @@ class CauseOfDeath
     const Addiction = 6;
     const Infection = 7;
     const Cyanide = 8;
-    const Posion = 9;
+    const Poison = 9;
     const GhulEaten = 10;
     const GhulBeaten = 11;
     const Hanging = 12;

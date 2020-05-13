@@ -561,8 +561,6 @@
     </unit>
     <unit id="4lQ8bY." name="Du kannst keinen weiteren schweren Gegenstand tragen!">
       <notes>
-        <note>Du kannst keinen weiteren schweren Gegenstand tragen!</note>
-        <note>Du kannst keinen weiteren schweren Gegenstand tragen!</note>
         <note category="german">Du kannst keinen weiteren schweren Gegenstand tragen!</note>
       </notes>
       <segment>
@@ -572,8 +570,6 @@
     </unit>
     <unit id="QRxC8ol" name="Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.">
       <notes>
-        <note>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
-        <note>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
         <note category="german">Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</note>
       </notes>
       <segment>
@@ -583,8 +579,6 @@
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
       <notes>
-        <note>Du kannst heute keinen weiteren Gegenstand stehlen.</note>
-        <note>Du kannst heute keinen weiteren Gegenstand stehlen.</note>
         <note category="german">Du kannst heute keinen weiteren Gegenstand stehlen.</note>
       </notes>
       <segment>
@@ -594,8 +588,6 @@
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
       <notes>
-        <note>Du siehst keine Möglichkeit, hier einzubrechen ...</note>
-        <note>Du siehst keine Möglichkeit, hier einzubrechen ...</note>
         <note category="german">Du siehst keine Möglichkeit, hier einzubrechen ...</note>
       </notes>
       <segment>
@@ -605,8 +597,6 @@
     </unit>
     <unit id="zGsgAe0" name="Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.">
       <notes>
-        <note>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</note>
-        <note>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</note>
         <note category="german">Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</note>
       </notes>
       <segment>
@@ -616,8 +606,6 @@
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
       <notes>
-        <note>Diese Aktion ist ungültig.</note>
-        <note>Diese Aktion ist ungültig.</note>
         <note category="german">Diese Aktion ist ungültig.</note>
       </notes>
       <segment>
@@ -638,8 +626,6 @@
     </unit>
     <unit id="UK6Ie5i" name="Das kannst du zur Zeit nicht tun.">
       <notes>
-        <note>Das kannst du zur Zeit nicht tun.</note>
-        <note>Das kannst du zur Zeit nicht tun.</note>
         <note category="german">Das kannst du zur Zeit nicht tun.</note>
       </notes>
       <segment>
@@ -6067,7 +6053,7 @@
       </notes>
       <segment>
         <source>Ein Vorhang blockiert die Sicht ...</source>
-        <target>Un rideau bloque la vue ...</target>
+        <target>Le contenu de cette habitation est caché par des rideaux aux fenêtres ...</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -9824,7 +9810,7 @@
       </notes>
       <segment>
         <source>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</source>
-        <target>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</target>
+        <target>Disette chez la Horde : aucun des %attack% zombies n'a eu quoi que ce soit à se mettre sous la dent hier soir en ville, nos défenses ont bien tenu.</target>
       </segment>
     </unit>
     <unit id="ra16zgk" name="cd7fba2">
@@ -10349,7 +10335,7 @@
         <target>Objets divers par terre</target>
       </segment>
     </unit>
-    <unit id="9mgcNx6" name="Wichtige(r) Gegenstand/-ände!">
+    <unit id="KVObx2I" name="Wichtige(r) Gegenstand/-ände!">
       <notes>
         <note category="german">Wichtige(r) Gegenstand/-ände!</note>
       </notes>
@@ -10428,6 +10414,186 @@
       <segment>
         <source>Verlorene Seele</source>
         <target>Âme perdue</target>
+      </segment>
+    </unit>
+    <unit id="7aJRY_e" name="Zeuge von Harmagedon">
+      <notes>
+        <note category="german">Zeuge von Harmagedon</note>
+      </notes>
+      <segment>
+        <source>Zeuge von Harmagedon</source>
+        <target>Témoin de l'Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="VdVwoAS" name="76effd8">
+      <notes>
+        <note category="german">Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</note>
+      </notes>
+      <segment>
+        <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
+        <target>Marque rarissime réservée aux âmes qui ont vécu le grand Armageddon de l'univers de Hordes !</target>
+      </segment>
+    </unit>
+    <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
+      <notes>
+        <note category="german">Zeuge der großen Verseuchung</note>
+      </notes>
+      <segment>
+        <source>Zeuge der großen Verseuchung</source>
+        <target>Témoin de la Grande Contamination</target>
+      </segment>
+    </unit>
+    <unit id="rcOyjHS" name="9573217">
+      <notes>
+        <note category="german">Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</note>
+      </notes>
+      <segment>
+        <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
+        <target>Marque rarissime réservée aux âmes qui ont vécu la Grande Contamination Hordienne !</target>
+      </segment>
+    </unit>
+    <unit id="d4bvAjk" name="9011ac1">
+      <notes>
+        <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</note>
+      </notes>
+      <segment>
+        <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
+        <target><![CDATA[<i class="dagger">†</i> %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...]]></target>
+      </segment>
+    </unit>
+    <unit id="9Sqg4cw" name="953d15e">
+      <notes>
+        <note category="german">Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
+      </notes>
+      <segment>
+        <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
+        <target><![CDATA[Alle scheinen sich still und leise über den Tod von <i class="dagger">†</i> %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".]]></target>
+      </segment>
+    </unit>
+    <unit id="IshvSDg" name="3920ab5">
+      <notes>
+        <note category="german">Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
+      </notes>
+      <segment>
+        <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
+        <target><![CDATA[Jeder hörte <i class="dagger">†</i> %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?]]></target>
+      </segment>
+    </unit>
+    <unit id="Ad1Ruao" name="7f96ed2">
+      <notes>
+        <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
+      </notes>
+      <segment>
+        <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
+        <target><![CDATA[Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit <i class="dagger">†</i> %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.]]></target>
+      </segment>
+    </unit>
+    <unit id="DhrsCwD" name="26dc6d1">
+      <notes>
+        <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
+        <target><![CDATA[Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für <i class="dagger">†</i> %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!]]></target>
+      </segment>
+    </unit>
+    <unit id="VXaNsva" name="dc8e234">
+      <notes>
+        <note category="german">Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
+      </notes>
+      <segment>
+        <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
+        <target><![CDATA[Einige sagen, daß der Tod von <i class="dagger">†</i> %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?]]></target>
+      </segment>
+    </unit>
+    <unit id="kwKjT1z" name="d9930bb">
+      <notes>
+        <note category="german">Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% – das haben sie nun davon.</note>
+      </notes>
+      <segment>
+        <source>Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% – das haben sie nun davon.</source>
+        <target><![CDATA[Ausgangssperre gilt für alle. Auch für <i class="dagger">†</i> %cadaver1% und <i class="dagger">†</i> %cadaver2% – das haben sie nun davon.]]></target>
+      </segment>
+    </unit>
+    <unit id="UKe5tzs" name="b4586ac">
+      <notes>
+        <note category="german">So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
+      </notes>
+      <segment>
+        <source>So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
+        <target><![CDATA[So richtig scheint keiner über den Tod von <i class="dagger">†</i> %cadaver1% und <i class="dagger">†</i> %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.]]></target>
+      </segment>
+    </unit>
+    <unit id="RrBPp.5" name="743000a">
+      <notes>
+        <note category="german">"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</note>
+      </notes>
+      <segment>
+        <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
+        <target><![CDATA["Auf wiedersehen, du schnöde Welt...", dachte sich wohl <i class="dagger">†</i> %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.]]></target>
+      </segment>
+    </unit>
+    <unit id="5DETBHl" name="4bd29fa">
+      <notes>
+        <note category="german">Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.</note>
+      </notes>
+      <segment>
+        <source>Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.</source>
+        <target><![CDATA[Ohne großes Bedauern starb <i class="dagger">†</i> %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.]]></target>
+      </segment>
+    </unit>
+    <unit id="dQZOzs8" name="47bef63">
+      <notes>
+        <note category="german">Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</note>
+      </notes>
+      <segment>
+        <source>Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</source>
+        <target><![CDATA[Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. <i class="dagger">†</i> %cadaver1% ist das beste Beispiel, was ansonten passiert.]]></target>
+      </segment>
+    </unit>
+    <unit id="AGvRvLT" name="324662a">
+      <notes>
+        <note category="german">Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.</note>
+      </notes>
+      <segment>
+        <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.</source>
+        <target><![CDATA[Eindeutig! <i class="dagger">†</i> %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.]]></target>
+      </segment>
+    </unit>
+    <unit id="hlbd5tY" name="d1f9ede">
+      <notes>
+        <note category="german">Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gesehen.</note>
+      </notes>
+      <segment>
+        <source>Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gesehen.</source>
+        <target><![CDATA[Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> %cadaver1% gesehen.]]></target>
+      </segment>
+    </unit>
+    <unit id="ojehKlj" name="vor Angst erstarrt">
+      <notes>
+        <note category="german">vor Angst erstarrt</note>
+      </notes>
+      <segment>
+        <source>vor Angst erstarrt</source>
+        <target>Terrorisés</target>
+      </segment>
+    </unit>
+    <unit id="rwDppIW" name="9bd8c94">
+      <notes>
+        <note category="german">Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</note>
+      </notes>
+      <segment>
+        <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</source>
+        <target>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</target>
+      </segment>
+    </unit>
+    <unit id="n5cNvq4" name="%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.">
+      <notes>
+        <note category="german">%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</source>
+        <target>%citizen% a réparé le chantier %plan% et a dépensé %ap%.</target>
       </segment>
     </unit>
   </file>

@@ -24,6 +24,12 @@ div.buildings {
     padding: 2px 8px;
   }
 
+  .ap-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+    overflow: hidden;
+    &>.bar { background: linear-gradient(180deg, #fffb58 0%, #f2c94d 100%); height: 100% }
+  }
+
   &>.row {
     .b-table();
     &.root > div.cell:first-child>span { font-weight: bold }
@@ -40,16 +46,13 @@ div.buildings {
     &.complete {
       background: @myhordes-building-complete-row-color; &>.cell { background: @myhordes-building-complete-row-color; }
       &> div.cell:first-child:before { background: @myhordes-building-complete-header-color; }
+      .bar {
+        background: linear-gradient(180deg, #fb4648 0%, #bf2f31 100%);;
+      }
     }
 
     &.locked { opacity: 0.5}
     .lv_list(6);
-  }
-
-  .ap-bar {
-    position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-    border-radius: 2px; overflow: hidden;
-    &>.bar { background: linear-gradient(180deg, #fffb58 0%, #f2c94d 100%); height: 100% }
   }
 
   .build-req {
