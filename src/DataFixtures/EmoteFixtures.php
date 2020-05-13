@@ -89,17 +89,18 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':prosham:', 'path'=>'build/images/emotes/prosham.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':psoul:', 'path'=>'build/images/emotes/psoul.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':alc:', 'path'=>'build/images/emotes/alc.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':chain:', 'path'=>'build/images/emotes/chain.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':batgun:', 'path'=>'build/images/emotes/batgun.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':watergun:', 'path'=>'build/images/emotes/watergun.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':brd:', 'path'=>'build/images/emotes/brd.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':castle:', 'path'=>'build/images/emotes/castle.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':crow:', 'path'=>'build/images/emotes/crow.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':wheel:', 'path'=>'build/images/emotes/wheel.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':butcher:', 'path'=>'build/images/emotes/butcher.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':camper:', 'path'=>'build/images/emotes/camper.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':cannibal:', 'path'=>'build/images/emotes/cannibal.gif', 'isactive'=> true, 'requiresunlock'=> true],
-        ['tag'=>':castle:', 'path'=>'build/images/emotes/castle.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':chest:', 'path'=>'build/images/emotes/chest.gif', 'isactive'=> true, 'requiresunlock'=> true],
-        ['tag'=>':chain:', 'path'=>'build/images/emotes/chain.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':collect:', 'path'=>'build/images/emotes/collect.gif', 'isactive'=> true, 'requiresunlock'=> true],
-        ['tag'=>':crow:', 'path'=>'build/images/emotes/crow.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':explo:', 'path'=>'build/images/emotes/explo.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':dexplo:', 'path'=>'build/images/emotes/dexplo.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':drag:', 'path'=>'build/images/emotes/drag.gif', 'isactive'=> true, 'requiresunlock'=> true],
@@ -109,6 +110,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':hero:', 'path'=>'build/images/emotes/hero.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':lms:', 'path'=>'build/images/emotes/lms.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':hclms:', 'path'=>'build/images/emotes/hclms.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':zen:', 'path'=>'build/images/emotes/zen.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':infect:', 'path'=>'build/images/emotes/infect.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':lab:', 'path'=>'build/images/emotes/lab.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':lock:', 'path'=>'build/images/emotes/lock.gif', 'isactive'=> true, 'requiresunlock'=> true],
@@ -123,9 +125,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':rep:', 'path'=>'build/images/emotes/rep.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':santa:', 'path'=>'build/images/emotes/santa.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':trash:', 'path'=>'build/images/emotes/trash.gif', 'isactive'=> true, 'requiresunlock'=> true],
-        ['tag'=>':watch:', 'path'=>'build/images/emotes/watch.gif', 'isactive'=> true, 'requiresunlock'=> true],
-        ['tag'=>':wheel:', 'path'=>'build/images/emotes/wheel.gif', 'isactive'=> true, 'requiresunlock'=> true],
-        ['tag'=>':zen:', 'path'=>'build/images/emotes/zen.gif', 'isactive'=> true, 'requiresunlock'=> true]
+        ['tag'=>':watch:', 'path'=>'build/images/emotes/watch.gif', 'isactive'=> true, 'requiresunlock'=> true]
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {
