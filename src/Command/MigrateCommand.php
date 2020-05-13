@@ -11,6 +11,8 @@ use App\Entity\Item;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
+use App\Entity\Zone;
+use App\Entity\ZoneTag;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
@@ -65,6 +67,7 @@ class MigrateCommand extends Command
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
+            ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
         ;
     }
 
@@ -191,6 +194,21 @@ class MigrateCommand extends Command
             foreach ($log_entries as $entry)
                 if ($entry->getLogEntryTemplate() === null)
                 $this->entity_manager->remove( $entry );
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('set-default-zonetag')) {
+            /** @var Zone[] $zones */
+            $zones = $this->entity_manager->getRepository(Zone::class)->findAll();
+            $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef(0);
+            foreach ($zones as $entry)
+                if ($entry->getTag() === null){
+                    $entry->setTag($defaultTag);
+                    $this->entity_manager->persist($entry);
+                }
             $this->entity_manager->flush();
             $output->writeln('OK!');
 

@@ -151,9 +151,8 @@ class Zone
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ZoneTag")
-     * @ORM\JoinColumn(nullable=true)
      */
-    private $tag = NULL;
+    private $tag;
 
     public function __construct()
     {
