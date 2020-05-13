@@ -151,7 +151,8 @@ class ZoneHandler
                             $this->entity_manager->persist( $timer->getZone()->getFloor() );
                         }
                     } else {
-                       $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
+                        //TODO: Persist log only if it is an automatic search
+                        $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
                     }
 
                     $zone->setDigs( max(($item_prototype || $zone->getDigs() <= 0) ? 0 : 1, $zone->getDigs() - 1) );
