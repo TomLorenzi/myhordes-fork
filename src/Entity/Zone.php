@@ -75,7 +75,7 @@ class Zone
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="LAZY")
      */
     private $citizens;
 
@@ -260,13 +260,12 @@ class Zone
     }
 
     public function getCampers() {
-        $citizens = $this->getCitizens();
         // No citizens = no campers.
-        if (!count($citizens)) {
+        if ($this->citizens->isEmpty()) {
             return [];
         }
         $campers = [];
-        foreach ($citizens as $citizen) {
+        foreach ($this->citizens as $citizen) {
             if ($citizen->getCampingTimestamp() > 0) {
                 $campers[$citizen->getCampingTimestamp()] = $citizen;
             }
@@ -544,15 +543,6 @@ class Zone
         $this->blueprint = $blueprint;
 
         return $this;
-    }
-
-    public function hasSoul(): bool
-    {
-        foreach ($this->getFloor()->getItems() as $item) {
-            if($item->getPrototype()->getName() == "soul_blue_#00" || $item->getPrototype()->getName() == "soul_blue_#01" || $item->getPrototype()->getName() == "soul_red_#00")
-                return true;
-        }
-        return false;
     }
 
     public function getTag(): ?ZoneTag
