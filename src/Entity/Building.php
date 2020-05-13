@@ -73,7 +73,7 @@ class Building
     /**
      * @ORM\Column(type="integer")
      */
-    private $hp;
+    private $hp = 0;
 
     public function __construct()
     {

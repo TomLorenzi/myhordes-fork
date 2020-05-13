@@ -221,7 +221,7 @@ class MigrateCommand extends Command
             /** @var Building[] $buildings */
             $building = $this->entity_manager->getRepository(Building::class)->findAll();
             foreach ($building as $entry)
-                if ($entry->getHp() !== null || $entry->getPrototype()->getHp()){
+                if ($entry->getHp() !== null || $entry->getPrototype()->getHp() && $entry->getComplete()){
                     $entry->setHp($entry->getPrototype()->getHp());
                     $this->entity_manager->persist($entry);
                 }
