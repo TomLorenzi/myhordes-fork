@@ -106,6 +106,8 @@ class TownHandler
 
         $pictos = [];
 
+        $building->setHp($building->getPrototype()->getHp());
+
         $town->setWell( $town->getWell() + $well );
         if ($well > 0)
             $this->entity_manager->persist( $this->log->constructionsBuildingCompleteWell( $building, $well ) );
@@ -405,7 +407,7 @@ class TownHandler
         $this->entity_manager->flush();
     }
 
-    public function get_alive_citizen(Town &$town){
+    public function get_alive_citizens(Town &$town){
         $citizens = [];
         foreach ($town->getCitizens() as $citizen) {
             if($citizen->getAlive())
