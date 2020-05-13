@@ -209,6 +209,7 @@ class NightlyHandler
 
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
+                $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
                 $reactor->setComplete(false)->setAp(0);
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
@@ -219,6 +220,8 @@ class NightlyHandler
                 foreach ($citizens as $citizen) {
                     $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
                 }
+            } else {
+                $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
             }
         }
     }
@@ -444,6 +447,8 @@ class NightlyHandler
             $fireworks->setDefense($newDef);
             if($fireworks->getHp() <= 0) {
                 // It is destroyed, let's do this !
+                $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
+
                 $fireworks->setComplete(false)->setHp(0);
 
                 $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
@@ -463,6 +468,8 @@ class NightlyHandler
                 for ($i=0; $i < count($toInfect) / 2; $i++) { 
                     $this->citizen_handler->inflictStatus($toInfect[$i], "infection");
                 }
+            } else {
+                $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), $damages ));
             }
             $this->entity_manager->persist($fireworks);
         }
