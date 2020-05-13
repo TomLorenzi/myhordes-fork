@@ -78,7 +78,7 @@ class Building
     /**
      * @ORM\Column(type="integer")
      */
-    private $defense;
+    private $defense = 0;
 
     public function __construct()
     {
