@@ -75,7 +75,7 @@ class Zone
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone")
+     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="LAZY")
      */
     private $citizens;
 
@@ -260,13 +260,12 @@ class Zone
     }
 
     public function getCampers() {
-        $citizens = $this->getCitizens();
         // No citizens = no campers.
-        if (!count($citizens)) {
+        if ($this->citizens->isEmpty()) {
             return [];
         }
         $campers = [];
-        foreach ($citizens as $citizen) {
+        foreach ($this->citizens as $citizen) {
             if ($citizen->getCampingTimestamp() > 0) {
                 $campers[$citizen->getCampingTimestamp()] = $citizen;
             }
