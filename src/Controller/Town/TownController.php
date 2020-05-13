@@ -858,7 +858,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         $workshopBonus = 1;
-
+        $hpToAp = 2;
         if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
             $level = $workshop->getLevel();
             switch($level){
@@ -873,9 +873,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     break;
                 case 4:
                     $workshopBonus = 0.76;
+                    $hpToAp = 3;
                     break;
                 case 5:
                     $workshopBonus = 0.70;
+                    $hpToAp = 4;
                     break;
             }
         }
@@ -888,7 +890,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
             $ap = max(0,min( $ap, $missing_ap ) );
         } else {
-            $neededApForFullHp = ($building->getPrototype()->getHp() - $building->getHp()) * 2;
+            $neededApForFullHp = ($building->getPrototype()->getHp() - $building->getHp()) * $hpToAp;
             $missing_ap = ceil( (round($neededApForFullHp) * ( $slave_bonus ? (2.0/3.0) : 1 ))) ;
             $ap = max(0,min( $ap, $missing_ap ) );
         }
@@ -943,7 +945,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
         } else {
-            $newHp = min($building->getPrototype()->getHp(), $building->getHp() + $ap_effect * 2);
+            $newHp = min($building->getPrototype()->getHp(), $building->getHp() + $ap_effect * $hpToAp);
             $building->setHp($newHp);
             if($building->getPrototype()->getDefense() > 0) {
                 $newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
@@ -986,6 +988,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $buildings = $town->getBuildings();
 
         $workshopBonus = 1;
+        $hpToAp = 2;
 
         if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
             $level = $workshop->getLevel();
@@ -1001,9 +1004,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     break;
                 case 4:
                     $workshopBonus = 0.76;
+                    $hpToAp = 3;
                     break;
                 case 5:
                     $workshopBonus = 0.70;
+                    $hpToAp = 4;
                     break;
             }
         }
@@ -1031,6 +1036,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'bank' => $items,
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
             'workshopBonus' => $workshopBonus,
+            'hpToAp' => $hpToAp,
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeConstruction, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );

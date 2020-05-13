@@ -10623,5 +10623,41 @@
         <target>Le bâtiment %plan% a subi %damage% points de dégâts et a été totalement dévasté par les zombies !.</target>
       </segment>
     </unit>
+    <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
+      <notes>
+        <note category="german">Beschädigte Verteidigung: %defense% / %max%</note>
+      </notes>
+      <segment>
+        <source>Beschädigte Verteidigung: %defense% / %max%</source>
+        <target>Défenses endommagées : %defense% / %max%</target>
+      </segment>
+    </unit>
+    <unit id="1EzQJxv" name="Zustand:">
+      <notes>
+        <note category="german">Zustand:</note>
+      </notes>
+      <segment>
+        <source>Zustand:</source>
+        <target>Statut :</target>
+      </segment>
+    </unit>
+    <unit id="Ev2Gt9Y" name="4f4737e">
+      <notes>
+        <note category="german">Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</note>
+      </notes>
+      <segment>
+        <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
+        <target>Chaque 1 %divap% investi en réparation réparera %hprepair% points de dégâts sur ce chantier.</target>
+      </segment>
+    </unit>
+    <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
+      <notes>
+        <note category="german">Die Reparatur verbraucht keine Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>Die Reparatur verbraucht keine Ressourcen.</source>
+        <target>Les réparations ne consomment pas de ressources.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
