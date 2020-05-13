@@ -10587,5 +10587,14 @@
         <target>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</target>
       </segment>
     </unit>
+    <unit id="n5cNvq4" name="%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.">
+      <notes>
+        <note category="german">%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</source>
+        <target>%citizen% a réparé le chantier %plan% et a dépensé %ap%.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

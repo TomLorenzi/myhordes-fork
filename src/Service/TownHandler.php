@@ -107,6 +107,8 @@ class TownHandler
         $pictos = [];
 
         $building->setHp($building->getPrototype()->getHp());
+        
+        $building->setDefense($building->getPrototype()->getDefense());
 
         $town->setWell( $town->getWell() + $well );
         if ($well > 0)
@@ -263,16 +265,16 @@ class TownHandler
 
             if ($town->getWell() >= $n[ $building->getLevel() ])
                 $d += $building->getDefenseBonus();
-            $d += $building->getPrototype()->getDefense();
+            $d += $building->getDefense();
 
         } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00' || $building->getPrototype()->getName() === 'small_coffin_#00') {
 
             $c = 0;
             foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
-            $d += ( 10*$c + $building->getDefenseBonus() + $building->getPrototype()->getDefense() );
+            $d += ( 10*$c + $building->getDefenseBonus() + $building->getDefense() );
 
         }
-        else $d += ( $building->getDefenseBonus() + $building->getPrototype()->getDefense() );
+        else $d += ( $building->getDefenseBonus() + $building->getDefense() );
         $d += $building->getTempDefenseBonus();
 
         return $d;

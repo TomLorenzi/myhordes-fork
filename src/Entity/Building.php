@@ -75,6 +75,11 @@ class Building
      */
     private $hp = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $defense;
+
     public function __construct()
     {
         $this->dailyUpgradeVotes = new ArrayCollection();
@@ -220,6 +225,18 @@ class Building
     public function setHp(int $hp): self
     {
         $this->hp = $hp;
+
+        return $this;
+    }
+
+    public function getDefense(): ?int
+    {
+        return $this->defense;
+    }
+
+    public function setDefense(int $defense): self
+    {
+        $this->defense = $defense;
 
         return $this;
     }

@@ -70,6 +70,7 @@ class MigrateCommand extends Command
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
+            ->addOption('assign-building-defense', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
         ;
     }
 
@@ -221,8 +222,22 @@ class MigrateCommand extends Command
             /** @var Building[] $buildings */
             $building = $this->entity_manager->getRepository(Building::class)->findAll();
             foreach ($building as $entry)
-                if ($entry->getHp() !== null || $entry->getPrototype()->getHp() && $entry->getComplete()){
+                if ($entry->getComplete()){
                     $entry->setHp($entry->getPrototype()->getHp());
+                    $this->entity_manager->persist($entry);
+                }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('assign-building-defense')) {
+            /** @var Building[] $buildings */
+            $building = $this->entity_manager->getRepository(Building::class)->findAll();
+            foreach ($building as $entry)
+                if ($entry->getComplete()){
+                    $entry->setDefense($entry->getPrototype()->getDefense());
                     $this->entity_manager->persist($entry);
                 }
             $this->entity_manager->flush();

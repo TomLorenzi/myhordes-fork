@@ -196,18 +196,30 @@ class NightlyHandler
     private function stage2_pre_attack_buildings(Town &$town){
         $this->log->info('Inflicting damages to buildings before the attack');
 
-        $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00', true);
-        if($fireworks){
-            $fireworks->setHp(max(0, $fireworks->getHp() - 20));
-            if($fireworks->getHp() <= 0) {
-                // It is destroyed, let's do this !
-                $fireworks->setComplete(false)->setAp(0);
-                foreach ($town->getCitizen() as $citizen) {
-                    if(!$citizen->getAlive()) continue;
-                    
+        $reactor = $this->town_handler->getBuilding($town, 'small_arma_#00', true);
+        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Radiations);
+
+        if($reactor){
+            $damages = mt_rand(50, 125);
+            $reactor->setHp($reactor->getHp() - $damages);
+
+            $newDef = $reactor->getPrototype()->getDefense() * $reactor->getHp() / $reactor->getPrototype()->getHp();
+
+            $this->log->debug("The <info>reactor</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
+
+            $reactor->setDefense($newDef);
+            if($reactor->getHp() <= 0){
+                $reactor->setComplete(false)->setAp(0);
+
+                $this->log->debug("The reactor is destroyed. Everybody dies !");
+
+                // It is destroyed, let's kill everyone with the good cause of death
+                $citizens = $this->town_handler->get_alive_citizens($town);
+
+                foreach ($citizens as $citizen) {
+                    $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
                 }
             }
-            $this->entity_manager->persist($fireworks);
         }
     }
 
@@ -421,6 +433,39 @@ class NightlyHandler
 
     private function stage2_post_attack_buildings(Town &$town){
         $this->log->info('Inflicting damages to buildings after the attack');
+        $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00', true);
+        if($fireworks){
+            $fireworks->setHp(max(0, $fireworks->getHp() - 20));
+            $this->log->debug("The <info>fireworks</info> has taken <info>20</info> damages...");
+            $newDef = $fireworks->getPrototype()->getDefense() * $fireworks->getHp() / $fireworks->getPrototype()->getHp();
+
+            $this->log->debug("The <info>fireworks</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
+
+            $fireworks->setDefense($newDef);
+            if($fireworks->getHp() <= 0) {
+                // It is destroyed, let's do this !
+                $fireworks->setComplete(false)->setHp(0);
+
+                $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
+
+                // Fetching alive citizens
+                $citizens = $this->town_handler->get_alive_citizens($town);
+                $toInfect = [];
+                // Keeping citizens in town
+                foreach ($citizens as $citizen) {
+                    if(!$citizen->getZone()) continue;
+                    $toInfect[] = $citizen;
+                }
+
+                // Randomness
+                shuffle($toInfect);
+                // We infect the first half of the list
+                for ($i=0; $i < count($toInfect) / 2; $i++) { 
+                    $this->citizen_handler->inflictStatus($toInfect[$i], "infection");
+                }
+            }
+            $this->entity_manager->persist($fireworks);
+        }
     }
 
     private function stage3_status(Town &$town) {
@@ -887,7 +932,7 @@ class NightlyHandler
                 if(!$voted) {
                     // He has not voted, let's give his vote to someone who has votes
                     $vote_for_id = $this->random->pick(array_keys($votes[$role->getId()]), 1);
-                    $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($vote_for_id);
+                    $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id);
 
                     if(isset($votes[$role->getId()][$vote_for_id]))
                         $votes[$role->getId()][$vote_for_id]++;
@@ -908,7 +953,7 @@ class NightlyHandler
             }
 
             // We give him the related status
-            $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($citizenWinnerId);
+            $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->find($citizenWinnerId);
             if($winningCitizen !== null){
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
@@ -946,7 +991,7 @@ class NightlyHandler
         $this->stage2_day($town);
         $this->stage2_surprise_attack($town);
         $this->stage2_attack($town);
-        $this->stage2_post_attack_buildings($town);
+        //$this->stage2_post_attack_buildings($town);
 
         $this->log->info('Entering <comment>Phase 3</comment> - Dawn of a New Day');
         $this->stage3_buildings($town);

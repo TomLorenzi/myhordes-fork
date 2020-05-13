@@ -141,7 +141,7 @@ class DebugCommand extends Command
                 $this->entity_manager->persist( $citizen );
             }
             $this->entity_manager->flush();
-            $output->writeln("All citizen from selected town are full of water now.");
+            $output->writeln("All citizen from <info>{$town->getName()}</info> are full of water now.");
         }
 
         if ($tid = $input->getOption('fill-town')) {

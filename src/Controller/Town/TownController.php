@@ -880,9 +880,18 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        // Remember if the building has already been completed (i.e. this is a repair action)
+        $was_completed = $building->getComplete();
+
         // Check out how much AP is missing to complete the building; restrict invested AP to not exceed this
-        $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
-        $ap = max(0,min( $ap, $missing_ap ) );
+        if(!$was_completed) {
+            $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
+            $ap = max(0,min( $ap, $missing_ap ) );
+        } else {
+            $neededApForFullHp = ($building->getPrototype()->getHp() - $building->getHp()) * 2;
+            $missing_ap = ceil( (round($neededApForFullHp) * ( $slave_bonus ? (2.0/3.0) : 1 ))) ;
+            $ap = max(0,min( $ap, $missing_ap ) );
+        }
 
         // If the citizen has not enough AP, fail
         if ($ap > 0 && ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ))
@@ -902,12 +911,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if (empty($items)) return AjaxResponse::error( self::ErrorNotEnoughRes );
         }
 
-        // Remember if the building has already been completed (i.e. this is a repair action)
-        $was_completed = $building->getComplete();
-
         // Create a log entry
-        if ($th->getBuilding($town, 'item_rp_book2_#00', true))
-            $this->entity_manager->persist( $this->log->constructionsInvestAP( $citizen, $building->getPrototype(), $ap ) );
+        if ($th->getBuilding($town, 'item_rp_book2_#00', true)) {
+            if (!$was_completed)
+                $this->entity_manager->persist( $this->log->constructionsInvestAP( $citizen, $building->getPrototype(), $ap ) );
+            else
+                $this->entity_manager->persist( $this->log->constructionsInvestRepairAP( $citizen, $building->getPrototype(), $ap ) );
+        }
+
 
         // Calculate the amount of AP that will be invested in the construction
         $ap_effect = floor( $ap * ( $slave_bonus ? 1.5 : 1 ) );
@@ -931,14 +942,23 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
+        } else {
+            $building->setHp($building->getHp() + $ap_effect * 2);
+            if($building->getPrototype()->getDefense() > 0) {
+                $newDef = $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp();
+                $building->setDefense($newDef);
+            }
         }
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
-
         // Give picto to the citizen
-        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+        if(!$was_completed){
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+        } else {
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_brep_#00");
+        }
         $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
 
         // Persist

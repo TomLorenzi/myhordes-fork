@@ -235,6 +235,18 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function constructionsInvestRepairAP( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId(), 'ap' => $ap);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('constructionsInvestRepairAP');
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function constructionsNewSite( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
         if ($proto->getParent()){
             $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId(), 'parent' => $proto->getParent()->getId());
