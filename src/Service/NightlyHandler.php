@@ -521,6 +521,10 @@ class NightlyHandler
                 for ($i=0; $i < count($toInfect) / 2; $i++) { 
                     $this->citizen_handler->inflictStatus($toInfect[$i], "infection");
                 }
+
+                //TODO: Kill zombies around the town
+                //TODO: Lower the attack for 2-3 days
+
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
             }
