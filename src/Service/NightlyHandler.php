@@ -997,7 +997,7 @@ class NightlyHandler
         $this->stage2_day($town);
         $this->stage2_surprise_attack($town);
         $this->stage2_attack($town);
-        //$this->stage2_post_attack_buildings($town);
+        $this->stage2_post_attack_buildings($town);
 
         $this->log->info('Entering <comment>Phase 3</comment> - Dawn of a New Day');
         $this->stage3_buildings($town);

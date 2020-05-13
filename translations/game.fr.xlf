@@ -10605,5 +10605,23 @@
         <target>Vous ne pouvez pas porter plus d'une âme.</target>
       </segment>
     </unit>
+    <unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
+        <target>Le bâtiment %plan% a subi %damage% points de dégâts.</target>
+      </segment>
+    </unit>
+    <unit id="nlQ1fJZ" name="919f19a">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
+        <target>Le bâtiment %plan% a subi %damage% points de dégâts et a été totalement dévasté par les zombies !.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
