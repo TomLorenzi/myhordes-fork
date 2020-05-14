@@ -333,7 +333,7 @@ class InventoryHandler
     const ModalityImpound          = 2;
     const ModalityEnforcePlacement = 3;
 
-    public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone): int {
+    public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone, $allow_extra_bag = false): int {
         // Block Transfer if citizen is hiding
         if ($actor->getZone() && $modality !== self::ModalityImpound && ($actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) || $actor->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' )))) {
             return self::ErrorTransferBlocked;
@@ -350,17 +350,19 @@ class InventoryHandler
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
-        /* This snippet restores original Hordes functionality, but was intentionally left out.
-        if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
-          (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
-          (
-            !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
-            !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bag_#00' ) ] )) ||
-            !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'cart_#00' ) ] ))
-          ))) {
-          return self::ErrorExpandBlocked;
+        // This snippet restores original Hordes functionality, but was intentionally left out.
+
+        if(!$allow_extra_bag){
+            if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
+              (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
+              (
+                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
+                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'bag_#00' ) ] )) ||
+                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'cart_#00' ) ] ))
+              ))) {
+              return self::ErrorExpandBlocked;
+            }
         }
-        */
 
         // Check Heavy item limit
         if ($item->getPrototype()->getHeavy() &&
