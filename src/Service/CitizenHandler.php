@@ -698,4 +698,14 @@ class CitizenHandler
             return true;
         return false;
     }
+
+    public function hasNewMessage(Citizen $c){
+        foreach ($c->getPrivateMessageThreads() as $thread) {
+            if($thread->getArchived()) continue;
+            if($thread->getNew())
+                return true;
+        }
+
+        return false;
+    }
 }

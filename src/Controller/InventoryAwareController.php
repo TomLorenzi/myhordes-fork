@@ -44,6 +44,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -62,6 +63,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $conf;
     protected $zone_handler;
     protected $logTemplateHandler;
+    protected $asset;
 
     protected $cache_active_citizen = null;
 
@@ -69,7 +71,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh)
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh, Packages $a)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -84,6 +86,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->zone_handler = $zh;
         $this->death_handler = $dh;
         $this->logTemplateHandler = $lt;
+        $this->asset = $a;
     }
 
     protected function getTownConf() {

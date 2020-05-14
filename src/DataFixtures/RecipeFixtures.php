@@ -119,7 +119,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Kremato-Cue",'desc' => 'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...', "temporary" => 0,"img" => "item_hmeat","vp" => 0,"ap" => 45, "hp" => 45,"bp" => 2,"rsc" => ["wood_beam_#00" => 8,"metal_beam_#00" => 1,], "orderby" => 0],
         ]],
 
-        // TODO: Upgrade effect
         ["name" => "Werkstatt","maxLevel" => 5,'desc' => 'Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.', "temporary" => 0,"img" => "small_refine","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 0,"rsc" => ["wood2_#00" => 10,"metal_#00" => 8,], "orderby" => 3,
             "upgradeTexts" => [
                 'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.',

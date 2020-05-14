@@ -112,6 +112,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
             $data['votesNeeded'] = $votesNeeded;
         }
+        $data["new_message"] = $this->citizen_handler->hasNewMessage($this->getActiveCitizen());
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
