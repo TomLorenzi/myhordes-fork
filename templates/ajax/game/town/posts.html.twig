@@ -52,4 +52,25 @@
         </div>
     {% endfor %}
 
+    <div class="row">
+        <div class="cell padded rw-12">
+            <textarea id="pmanswer"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell padded rw-12">
+            <button id="pmsendanswer">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
+        </div>
+    </div>
 </div>
+
+<script>
+    let sendbtn = document.getElementById("pmsendanswer");
+    if(sendbtn) sendbtn.addEventListener('click', function(e){
+        e.preventDefault();
+        $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, 'content': document.getElementById("pmanswer").value, 'tid': {{ tid }}},
+            function () {
+                $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+            } );
+    });
+</script>

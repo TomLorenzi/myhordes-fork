@@ -856,7 +856,7 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        $sender = $this->getActiveCitizen();
+        $sender = $this->getUser()->getActiveCitizen();
 
         if($global && !$sender->getProfession()->getHeroic()){
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
@@ -888,7 +888,7 @@ class MessageController extends AbstractController
             } else {
                 foreach ($sender->getTown()->getCitizens() as $citizen) {
                     if(!$citizen->getAlive()) continue;
-                    if($citizen == $this->getActiveCitizen()) continue;
+                    if($citizen == $sender) continue;
                     $thread = new PrivateMessageThread();
                     $thread->setSender($sender)
                         ->setTitle($title)

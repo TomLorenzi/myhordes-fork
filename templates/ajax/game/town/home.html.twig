@@ -152,7 +152,7 @@
         <div x-tab-group="home-messages" x-tab-id="write" x-tab-target>
             <h5>{% trans from 'game'%}Neue Nachright{% endtrans %}</h5>
             <div class="row">
-                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Empfänger{% endtrans %}</span></div>
+                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Empfänger:{% endtrans %}</span></div>
                 <div class="cell padded rw-6">
                     <input type="text" id="pmrecipient" disabled />
                     <input type="hidden" id="pmidrecipient" />
@@ -177,12 +177,46 @@
                 </div>
             </div>
             <div class="row">
-                <span class="small link"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
+                <div class="cell padded">
+                    <span class="small link"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Betreff:{% endtrans %}</span></div>
+                <div class="cell padded rw-6">
+                    <input type="text" id="pmtitle" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <textarea id="pmtext"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <button id="pmsend">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
+                </div>
             </div>
         </div>
         {% if can_send_global_pm %}
         <div x-tab-group="home-messages" x-tab-id="write-to-all" x-tab-target>
             <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
+            <div class="row">
+                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Betreff:{% endtrans %}</span></div>
+                <div class="cell padded rw-6">
+                    <input type="text" id="pmglobaltitle" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <textarea id="pmglobaltext"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <button id="pmglobalsend">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
+                </div>
+            </div>
         </div>
         {% endif %}
     </div>
@@ -493,6 +527,24 @@
         if(closebtn) closebtn.addEventListener('click', function(e){
             e.preventDefault();
             document.getElementById("recipient_list").style.display = "none";
+        });
+
+        let sendbtn = document.getElementById("pmsend");
+        if(sendbtn) sendbtn.addEventListener('click', function(e){
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, title: document.getElementById('pmtitle').value, 'content': document.getElementById("pmtext").value, recipient: document.getElementById('pmidrecipient').value},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
+
+        let sendglobalbtn = document.getElementById("pmglobalsend");
+        if(sendglobalbtn) sendglobalbtn.addEventListener('click', function(e){
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: true, title: document.getElementById('pmglobaltitle').value, 'content': document.getElementById("pmglobaltext").value},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
         });
 
         let thread_buttons = document.querySelectorAll('[x-thread-id]');
