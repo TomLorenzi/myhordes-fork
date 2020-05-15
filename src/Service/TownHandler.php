@@ -254,6 +254,18 @@ class TownHandler
             $this->inventory_handler->resolveItemProperties( 'defence' )
         );
 
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_blue_#00'
+        ) * 2;
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_blue_#01'
+        ) * 2;
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_red_#00'
+        ) * 2;
+
         return $summary->sum();
     }
 

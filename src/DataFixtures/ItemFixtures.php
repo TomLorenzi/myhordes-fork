@@ -869,7 +869,7 @@ class ItemFixtures extends Fixture
         'rp_letter_#00' => [ 'esc_fixed' ],
         'rp_manual_#00' => [ 'esc_fixed' ],
         'lilboo_#00'    => [ 'esc_fixed' ],
-        'rp_twin_#00'   => [ 'esc_fixed' ],
+        'rp_twin_#00'   => [ 'esc_fixed' ]
     ];
 
     public static $item_groups = [
