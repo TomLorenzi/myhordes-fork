@@ -10794,5 +10794,14 @@
         <target>Vous avez trébuché à cause de votre blessure. Un tel problème...</target>
       </segment>
     </unit>
+    <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
+      <notes>
+        <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
+      </notes>
+      <segment>
+        <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
+        <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
