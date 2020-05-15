@@ -137,7 +137,6 @@ class TownHomeController extends TownController
             'nonArchivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($citizen),
             'archivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findArchived($citizen),
             'possible_dests' => $possible_dests,
-            'emotes' => $this->get_emotes(true),
         ]) );
     }
 
@@ -148,23 +147,6 @@ class TownHomeController extends TownController
      */
     public function log_house_api(JSONRequestParser $parser): Response {
         return $this->renderLog((int)$parser->get('day', -1), $this->getActiveCitizen(), false, null, null);
-    }
-
-    private $emote_cache = null;
-    private function get_emotes(bool $url_only = false): array {
-        if ($this->emote_cache !== null) return $this->emote_cache;
-
-        $this->emote_cache = [];
-        $repo = $this->entity_manager->getRepository(Emotes::class);
-        foreach($repo->getDefaultEmotes() as $value)
-            /** @var $value Emotes */
-            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
-        return $this->emote_cache;
-    }
-
-    private function prepareEmotes(string $str): string {
-        $emotes = $this->get_emotes();
-        return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
     }
 
     /**
@@ -389,137 +371,5 @@ class TownHomeController extends TownController
         }
 
         return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @param Translator $t
-     * @return Response
-     */
-    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
-        $global    = $parser->get('global', false);
-        $recipient = $parser->get('recipient', '');
-        $title     = $parser->get('title', '');
-        $content   = $parser->get('content', '');
-        $items     = $parser->get('items', '');
-        $tid       = $parser->get('tid', -1);
-
-        if(!$global && empty($recipient) && $tid == -1) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
-
-        if(($tid == -1 && empty($title)) || empty($content)) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
-
-        $sender = $this->getActiveCitizen();
-
-        if($global && !$sender->getProfession()->getHeroic()){
-            return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
-        }
-
-        if ($tid == -1) {
-            // New thread
-            if(!$global){
-                $recipient = $em->getRepository(Citizen::class)->find($recipient);
-                if($recipient->getTown() !== $sender->getTown()){
-                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-                }
-                $thread = new PrivateMessageThread();
-                $thread->setSender($sender)
-                    ->setTitle($title)
-                    ->setNew(true)
-                    ->setLastMessage(new DateTime('now'))
-                    ->setRecipient($recipient);
-                ;
-
-                $post = new PrivateMessage();
-                $post->setDate(new DateTime('now'))
-                    ->setText($content)
-                    ->setPrivateMessageThread($thread)
-                    ->setOwner($sender);
-
-                $em->persist($thread);
-                $em->persist($post);
-            } else {
-                foreach ($sender->getTown()->getCitizens() as $citizen) {
-                    if(!$citizen->getAlive()) continue;
-                    if($citizen == $this->getActiveCitizen()) continue;
-                    $thread = new PrivateMessageThread();
-                    $thread->setSender($sender)
-                        ->setTitle($title)
-                        ->setNew(true)
-                        ->setLastMessage(new DateTime('now'))
-                        ->setRecipient($citizen);
-                    ;
-
-                    $post = new PrivateMessage();
-                    $post->setDate(new DateTime('now'))
-                        ->setText($content)
-                        ->setPrivateMessageThread($thread)
-                        ->setOwner($sender);
-
-                    $em->persist($thread);
-                    $em->persist($post);
-                }
-            }
-        } else {
-            // Answer
-            $thread = $em->getRepository(PrivateMessageThread::class)->find($tid);
-            if($thread === null){
-                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-            }
-
-            $post = new PrivateMessage();
-            $post->setDate(new DateTime('now'))
-                ->setText($content)
-                ->setPrivateMessageThread($thread)
-                ->setOwner($sender);
-
-            $thread->setLastMessage($post->getDate());
-            $thread->setNew(true);
-
-            $em->persist($thread);
-            $em->persist($post);
-        }
-
-        $em->flush();
-
-        // Show confirmation
-        $this->addFlash( 'notice', $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game') );
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/town/house/pm/{tid<\d+>}/view", name="home_view_thread_controller")
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function viewer_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
-        /** @var Citizen $citizen */
-        $citizen = $this->getActiveCitizen();
-
-        /** @var PrivateMessageThread $thread */
-        $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
-        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
-
-        $thread->setNew(false);
-
-        $em->persist($thread);
-        $em->flush();
-
-        $posts = $thread->getMessages();
-
-        foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
-        return $this->render( 'ajax/game/town/posts.html.twig', [
-            'thread' => $thread,
-            'posts' => $posts,
-            'tid' => $tid,
-            'emotes' => $this->get_emotes(true),
-        ] );
     }
 }

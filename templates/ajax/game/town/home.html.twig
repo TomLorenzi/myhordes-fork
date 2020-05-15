@@ -179,21 +179,10 @@
             <div class="row">
                 <span class="small link"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
             </div>
-
-            {% embed "ajax/game/town/editor.html.twig" with {
-            'tid': -1,
-            'emotes': emotes,
-            'global': false
-            } %}{% endembed %}
         </div>
         {% if can_send_global_pm %}
         <div x-tab-group="home-messages" x-tab-id="write-to-all" x-tab-target>
             <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
-            {% embed "ajax/game/town/editor.html.twig" with {
-            'tid': -1,
-            'emotes': emotes,
-            'global': true
-            } %}{% endembed %}
         </div>
         {% endif %}
     </div>
