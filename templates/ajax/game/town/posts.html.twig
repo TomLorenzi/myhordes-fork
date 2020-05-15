@@ -57,7 +57,7 @@
     {% endfor %}
 
     {% if not thread.archived and not thread.locked %}
-        <button id="replybtn">reply</button>
+        <button id="replybtn">{{ 'Antworten'|trans({},'global') }}</button>
         <div id="forum-editor"></div>
     {% endif %}
 </div>
