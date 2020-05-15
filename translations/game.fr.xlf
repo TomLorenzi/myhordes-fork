@@ -10785,5 +10785,14 @@
         <target>Nouveau message global</target>
       </segment>
     </unit>
+    <unit id="DZRfvZb" name="Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...">
+      <notes>
+        <note category="german">Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</note>
+      </notes>
+      <segment>
+        <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
+        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
