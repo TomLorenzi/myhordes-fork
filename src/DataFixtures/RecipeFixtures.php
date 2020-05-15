@@ -56,7 +56,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ]],
             ["name" => "Zombiereibe",'desc' => 'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.', "temporary" => 0,"img" => "small_grater","vp" => 55,"ap" => 60, "hp" => 60,"bp" => 1,"rsc" => ["meca_parts_#00" => 3,"metal_#00" => 20,"plate_#00" => 3,], "orderby" => 6],
             ["name" => "Fallgruben",'desc' => 'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.', "temporary" => 0,"img" => "small_gather","vp" => 35,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["wood2_#00" => 10,], "orderby" => 7],
-            ["name" => "Zaun", 'desc' => 'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.',"temporary" => 0,"img" => "small_fence","vp" => 30,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["wood_beam_#00" => 5,], "orderby" => 8],
+            ["name" => "Zaun (Baustellen)", 'desc' => 'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.',"temporary" => 0,"img" => "small_fence","vp" => 30,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["wood_beam_#00" => 5,], "orderby" => 8],
             ["name" => "Holzzaun", 'desc' => 'Verbessert die Stadtverteidigung erheblich.',"temporary" => 0,"img" => "small_fence","vp" => 45,"ap" => 50, "hp" => 50,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"wood2_#00" => 20,"wood_beam_#00" => 5,], "orderby" => 9],
             ["name" => "Einseifer", 'desc' => 'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?', "temporary" => 0,"img" => "small_wallimprove","vp" => 60,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["water_#00" => 10,"pharma_#00" => 5,"concrete_wall_#00" => 1,], "orderby" => 10],
             ["name" => "Zerstäuber", 'desc' => 'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).',"temporary" => 0,"img" => "small_waterspray","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 2,], "orderby" => 11, "children" => [
@@ -124,8 +124,8 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.',
                 'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.',
                 'Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.',
-                'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.',
-                'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.',
+                'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.',
+                'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.',
             ], "children" => [
             ["name" => "Verteidigungsanlage","maxLevel" => 5,'desc' => 'Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!', "temporary" => 0,"img" => "item_meca_parts","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 0,"rsc" => ["meca_parts_#00" => 4,"wood_beam_#00" => 8,"metal_beam_#00" => 8,], "orderby" => 0,
                 "upgradeTexts" => [

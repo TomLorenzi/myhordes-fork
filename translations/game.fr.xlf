@@ -10710,7 +10710,7 @@
       </notes>
       <segment>
         <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</source>
-        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</target>
+        <target>Vous n'avez pas reçu de nouveau message privé. Vous trouverez la liste des citoyens dans l'annuaire de la ville.</target>
       </segment>
     </unit>
     <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
@@ -10719,7 +10719,7 @@
       </notes>
       <segment>
         <source>Keine Nachricht gespeichert.</source>
-        <target>Keine Nachricht gespeichert.</target>
+        <target> Aucun message archivé.</target>
       </segment>
     </unit>
     <unit id="wo3L_zx" name="Neue Nachright">
@@ -10746,7 +10746,7 @@
       </notes>
       <segment>
         <source>Bürgerverzeichnis anszeigen</source>
-        <target>Bürgerverzeichnis anszeigen</target>
+        <target>Afficher la liste des citoyens</target>
       </segment>
     </unit>
     <unit id="yTzI33f" name="Dieser Nachricht Gegenstände beifügen">
@@ -10755,7 +10755,7 @@
       </notes>
       <segment>
         <source>Dieser Nachricht Gegenstände beifügen</source>
-        <target>Dieser Nachricht Gegenstände beifügen</target>
+        <target>Donner des objets</target>
       </segment>
     </unit>
     <unit id="xcRoAOS" name="Betreff:">
@@ -10764,7 +10764,7 @@
       </notes>
       <segment>
         <source>Betreff:</source>
-        <target>Titre :</target>
+        <target>Sujet :</target>
       </segment>
     </unit>
     <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
@@ -10773,7 +10773,7 @@
       </notes>
       <segment>
         <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>Je CONFIRME mon message</target>
+        <target>J'ai RELU mon message et je VALIDE</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -10785,15 +10785,6 @@
         <target>Nouveau message global</target>
       </segment>
     </unit>
-    <unit id="DZRfvZb" name="Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...">
-      <notes>
-        <note category="german">Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</note>
-      </notes>
-      <segment>
-        <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>Vous avez trébuché à cause de votre blessure. Un tel problème...</target>
-      </segment>
-    </unit>
     <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
       <notes>
         <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
@@ -10801,6 +10792,15 @@
       <segment>
         <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
         <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
+      </segment>
+    </unit>
+    <unit id="SKbA9D2" name="2a20efa">
+      <notes>
+        <note category="german">Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</note>
+      </notes>
+      <segment>
+        <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
+        <target>En commençant à marcher, une douleur très vive s'empare de votre jambe. Vous tombez à terre en gémissant. Vous perdez une action...</target>
       </segment>
     </unit>
   </file>

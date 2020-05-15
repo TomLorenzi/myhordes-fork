@@ -139,7 +139,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [ 'name' => 'lock', 'label' => 'Türschloss', 'desc' => 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.', 'levels' => [
             1 => [ 6, ['chain_#00' => 1] ]
         ] ],
-        [ 'name' => 'fence', 'label' => 'Zaun', 'desc' => 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.', 'levels' => [
+        [ 'name' => 'fence', 'label' => 'Zaun (Haus)', 'desc' => 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.', 'levels' => [
             1 => [ 3, ['chain_#00' => 1, 'metal_beam_#00' => 1] ]
         ] ],
         [ 'name' => 'chest', 'label' => 'Stauraum', 'desc' => 'Deine persönliche Truhe vergrößert sich. ', 'levels' => [
