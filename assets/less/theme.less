@@ -131,6 +131,64 @@ x-message {
   transition: opacity 0.2s ease-in-out; opacity: 1;
   &[x-stack="0"] { opacity: 0; pointer-events: none; }
 }
+#modal-backdrop {
+  position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 99999;
+  background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,1) 100%);
+  display: flex; align-items: center; justify-content: center;
+  &>div#modal {
+    color: wheat; min-width: 320px; width: auto; max-width: 80%;
+    min-height: 100px;
+    background-color: #804d2f;
+    outline: 1px solid wheat;
+    position: relative;
+
+    div#modal-close {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      color: #333;
+      top: 4px;
+      right: 4px;
+      cursor: pointer;
+      transition: 200ms color;
+
+      &:hover {
+        color: #c00;
+      }
+    }
+
+    div#modal-content {
+      min-height: 50px;
+      margin-top: 30px;
+    }
+
+    div#modal-actions {
+      height: 30px;
+      background-color: rgba(0,0,0,.25);
+      text-align: right;
+
+      div.modal-button {
+        line-height: 24px;
+        margin: 3px 9px;
+        background-color: rgba(0,0,0,.25);
+        cursor: pointer;
+        display: inline-block;
+        width: auto;
+        font-size: 1.2rem;
+        padding: 0 6px;
+        transition: 200ms background-color;
+
+        &#modal-button-ok:hover { background-color: #0c0; }
+        &#modal-button-no:hover { background-color: #c00; }
+      }
+    }
+  }
+  transition: opacity 0.2s ease-in-out; opacity: 1;
+
+}
 
 #wrapper {
   position: relative; margin: 0 auto; padding: 0; width: @myhordes-content-width; overflow: visible;
