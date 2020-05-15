@@ -377,6 +377,26 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 50) );
 
+            $stat_down = false;
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'drugged' );
+            }
+
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'addict') && $this->citizen_handler->hasStatusEffect($victim, 'addict')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'addict' );
+            }
+
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drunk') && $this->citizen_handler->hasStatusEffect($victim, 'drunk')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'drunk' );
+                $this->citizen_handler->inflictStatus( $aggressor, 'tg_no_hangover' );
+            }
+
+            if ($stat_down)
+                $notes[] = $this->translator->trans( 'Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...', [], 'game' );
+
             $this->death_handler->kill($victim, CauseOfDeath::GhulEaten);
             $this->entity_manager->persist($this->log->citizenDeath( $victim ) );
 

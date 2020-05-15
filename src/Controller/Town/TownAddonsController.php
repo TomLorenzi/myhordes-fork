@@ -464,7 +464,7 @@ class TownAddonsController extends TownController
                             'deathImpact' => 4
                         );
                         break;
-                    case 'hangover':
+                    case 'hungover':
                         $watchers[$watcher->getId()]['status'][] = array(
                             'icon' => $status->getIcon(),
                             'label' => $status->getLabel(),

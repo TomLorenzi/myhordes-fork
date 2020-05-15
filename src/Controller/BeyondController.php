@@ -577,7 +577,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
         if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
-            $this->addFlash('notice', 'Votre blessure à la jambe vous fait tomber, c\'est con');
+            $this->addFlash('notice', $this->translator->trans('Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...', [], 'game'));
             $this->citizen_handler->setAP( $citizen, true, -1 );
             $this->entity_manager->persist($citizen);
             $this->entity_manager->flush();
