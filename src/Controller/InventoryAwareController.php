@@ -541,9 +541,10 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         return AjaxResponse::success();
                     }
                 }
+
                 if (($error = $handler->transferItem(
                         $citizen,
-                        $current_item, $inv_source, $inv_target
+                        $current_item, $inv_source, $inv_target, InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
                     )) === InventoryHandler::ErrorNone) {
 
                     if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item, !$bank_up ) );

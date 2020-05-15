@@ -1,0 +1,76 @@
+{% set today = date() %}
+{% set yesterday = date('-1days') %}
+<div class="row">
+    <div class="cell padded rw-3"><button><img src="{{ asset("build/images/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
+    <div class="cell padded rw-3"><button><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Archivieren{% endtrans %}</button></div>
+</div>
+
+<div class="row-table messages-list">
+    <h5>{{thread.title}}</h5>
+
+    {% for post in posts %}
+        <div class="forum-post">
+            <div class="forum-post-header {% if post.owner.user.username == 'Der Rabe' %}header-variant-crow{% endif %}">
+                <i>
+                    {% if post.date.format('Ymd') == today|date("Ymd") %}
+                        {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                    {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
+                        {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                    {% else %}
+                        {{ post.date|format_datetime('medium', 'short') }}
+                    {% endif %}
+                </i>
+                {% if (post.owner.user.avatar) %}
+                    {% if app.user.preferSmallAvatars %}
+                        {% if post.owner.user.username == 'Der Rabe' %}
+                            <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% else %}
+                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% endif %}
+                    {% else %}
+                        {% if post.owner.user.username == 'Der Rabe' %}
+                            <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% else %}
+                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
+                {% endif %}
+                <b>
+                    {% if post.owner.user.username == 'Der Rabe' %}
+                        {{ 'Der Rabe'|trans({},'global') }}
+                    {% else %}
+                        {{ post.owner.user.username }}
+                    {% endif %}
+                </b>
+            </div>
+            <div class="forum-post-content">
+                {{ post.text|raw }}
+            </div>
+            <div class="forum-post-footer right"></div>
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="cell padded rw-12">
+            <textarea id="pmanswer"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell padded rw-12">
+            <button id="pmsendanswer">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let sendbtn = document.getElementById("pmsendanswer");
+    if(sendbtn) sendbtn.addEventListener('click', function(e){
+        e.preventDefault();
+        $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, 'content': document.getElementById("pmanswer").value, 'tid': {{ tid }}},
+            function () {
+                $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+            } );
+    });
+</script>

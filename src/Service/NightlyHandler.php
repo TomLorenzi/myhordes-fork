@@ -201,15 +201,16 @@ class NightlyHandler
 
         if($reactor){
             $damages = mt_rand(50, 125);
-            $reactor->setHp($reactor->getHp() - $damages);
+            $reactor->setHp(max(0, $reactor->getHp() - $damages));
 
-            $newDef = $reactor->getPrototype()->getDefense() * $reactor->getHp() / $reactor->getPrototype()->getHp();
+            $newDef = round(max(0, $reactor->getPrototype()->getDefense() * $reactor->getHp() / $reactor->getPrototype()->getHp()));
 
             $this->log->debug("The <info>reactor</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
 
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
-                $reactor->setComplete(false)->setAp(0);
+                $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
+                $reactor->setComplete(false)->setAp(0)->setDefense(0);
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
 
@@ -219,6 +220,8 @@ class NightlyHandler
                 foreach ($citizens as $citizen) {
                     $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
                 }
+            } else {
+                $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
             }
         }
     }
@@ -335,8 +338,12 @@ class NightlyHandler
 
         $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town");
 
+        $defWatchers = 0;
+
         foreach ($watchers as $watcher) {
             $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) : $zeds_each_watcher;
+
+            $defWatchers += $def;
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen());
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
@@ -364,6 +371,66 @@ class NightlyHandler
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
 
             $overflow -= $def;
+        }
+
+        if ($town->getType()->getName() == "panda") {
+            // In panda, built buildings get damaged everynight
+            $damageInflicted = $zombies;
+            if($overflow > 0)
+                $damageInflicted -= $defWatchers;
+
+            $this->log->debug("Inflicting <info>$damageInflicted</info> to the buildings in town...");
+            // Only 10% of the attack is inflicted to buildings
+            $damageInflicted = round($damageInflicted * 0.1, 0);
+
+            $targets = [];
+
+            foreach ($town->getBuildings() as $building) {
+                // Only built buildings AND buildings with HP can get damaged
+                if(!$building->getComplete() || $building->getPrototype()->getHp() == 0) continue;
+                $targets[] = $building;
+            }
+
+            shuffle($targets);
+
+            while($damageInflicted > 0 && count($targets) > 0){
+                $target = $targets[0];
+
+                $damages = min($damageInflicted, min($target->getHp(), mt_rand(0, $target->getPrototype()->getHp() * 0.7)));
+
+                if ($damages == 0) continue;
+
+                $this->log->debug("The <info>{$target->getPrototype()->getLabel()}</info> has taken <info>$damages</info> damages.");
+                $target->setHp(max(0, $target->getHp() - $damages));
+
+                if($target->getPrototype()->getDefense() > 0){
+                    $newDef = round(max(0, $target->getPrototype()->getDefense() * $target->getHp() / $target->getPrototype()->getHp()));
+                    $this->log->debug("It now has <info>$newDef</info> defense...");
+                    $target->setDefense($newDef);
+                }
+
+                if($target->getHp() <= 0){
+                    $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $damages ));
+                    $target->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+                    // The target is destroy, we must destroy all its children
+                    foreach ($target->getPrototype()->getChildren() as $childBuilding) {
+                        $childBuilt = $this->town_handler->getBuilding($town, $childBuilding->getName(), true);
+                        if (!$childBuilt) continue;
+                        // We remove it from potential targeting by the zeds
+                        if (($key = array_search($childBuilt, $targets)) !== false) {
+                            unset($targets[$key]);
+                        }
+                        $this->log->debug("The <info>{$childBuilding->getLabel()}</info> gets destroyed because its parent has been destroyed.");
+                        $childBuilt->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+                        $this->entity_manager->persist($childBuilt);
+                    }
+                } else {
+                    $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $damages ));
+                }
+
+                $damageInflicted -= $damages;
+                array_shift($targets);
+            }
         }
 
         if ($overflow <= 0) {
@@ -436,15 +503,18 @@ class NightlyHandler
         $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00', true);
         if($fireworks){
             $fireworks->setHp(max(0, $fireworks->getHp() - 20));
-            $this->log->debug("The <info>fireworks</info> has taken <info>20</info> damages...");
-            $newDef = $fireworks->getPrototype()->getDefense() * $fireworks->getHp() / $fireworks->getPrototype()->getHp();
 
-            $this->log->debug("The <info>fireworks</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
+            $this->log->debug("The <info>fireworks</info> has taken <info>20</info> damages...");
+            $newDef = round(max(0, $fireworks->getPrototype()->getDefense() * $fireworks->getHp() / $fireworks->getPrototype()->getHp()));
+
+            $this->log->debug("It now has $newDef defense...");
 
             $fireworks->setDefense($newDef);
             if($fireworks->getHp() <= 0) {
                 // It is destroyed, let's do this !
-                $fireworks->setComplete(false)->setHp(0);
+                $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $fireworks->getPrototype(), 20 ));
+
+                $fireworks->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
 
                 $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
 
@@ -463,6 +533,12 @@ class NightlyHandler
                 for ($i=0; $i < count($toInfect) / 2; $i++) { 
                     $this->citizen_handler->inflictStatus($toInfect[$i], "infection");
                 }
+
+                //TODO: Kill zombies around the town
+                //TODO: Lower the attack for 2-3 days
+
+            } else {
+                $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
             }
             $this->entity_manager->persist($fireworks);
         }
@@ -990,7 +1066,7 @@ class NightlyHandler
         $this->stage2_day($town);
         $this->stage2_surprise_attack($town);
         $this->stage2_attack($town);
-        //$this->stage2_post_attack_buildings($town);
+        $this->stage2_post_attack_buildings($town);
 
         $this->log->info('Entering <comment>Phase 3</comment> - Dawn of a New Day');
         $this->stage3_buildings($town);

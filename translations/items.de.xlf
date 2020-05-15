@@ -7730,5 +7730,23 @@
         <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
+    <unit id="tqLPvCK" name="Heilen">
+      <notes>
+        <note category="german">Heilen</note>
+      </notes>
+      <segment>
+        <source>Heilen</source>
+        <target>Heilen</target>
+      </segment>
+    </unit>
+    <unit id="zEs55xR" name="Verteidigung organisieren">
+      <notes>
+        <note category="german">Verteidigung organisieren</note>
+      </notes>
+      <segment>
+        <source>Verteidigung organisieren</source>
+        <target>Verteidigung organisieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
