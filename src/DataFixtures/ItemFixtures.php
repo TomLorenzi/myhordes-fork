@@ -1011,7 +1011,7 @@ class ItemFixtures extends Fixture
             array('item' => 'cinema_#00','count' => '53'),
             array('item' => 'maglite_off_#00','count' => '24'),
             array('item' => 'vodka_de_#00','count' => '6'),
-            array('item' => 'vodka_#00','count' => '6'),
+            array('item' => 'vodka_#00','count' => '18'),
         ),
         'christmas_dig' => [
             array('item' => 'renne_#00','count' => '14'),
