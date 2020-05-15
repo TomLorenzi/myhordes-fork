@@ -3936,17 +3936,6 @@
         <target>Verbinden</target>
       </segment>
     </unit>
-    <unit id="j6UDssn" name="Reinigen">
-      <notes>
-        <note>Reinigen</note>
-        <note>Reinigen</note>
-        <note category="german">Reinigen</note>
-      </notes>
-      <segment>
-        <source>Reinigen</source>
-        <target>Purifier</target>
-      </segment>
-    </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
       <notes>
         <note>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</note>
@@ -8322,6 +8311,24 @@
       <segment>
         <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
         <target><![CDATA[<t-fail>{item} ne peut pas transporter d'objets lourds...</t-fail><nt-fail>Vous avez envoyé {item} avec vos objets en ville.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="brwfS0V" name="Reinigen (Wasser)">
+      <notes>
+        <note category="german">Reinigen (Wasser)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Wasser)</source>
+        <target>Purifier</target>
+      </segment>
+    </unit>
+    <unit id="F9ufT7F" name="Reinigen (Kleidung)">
+      <notes>
+        <note category="german">Reinigen (Kleidung)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Kleidung)</source>
+        <target>Nettoyer</target>
       </segment>
     </unit>
   </file>
