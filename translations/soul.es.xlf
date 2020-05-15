@@ -3,7 +3,7 @@
   <file id="soul.es">
     <unit id="BNcLxkK" name="Deine Seele">
       <notes>
-        <note category="german">Your soul</note>
+        <note category="german">Deine Seele</note>
       </notes>
       <segment>
         <source>Deine Seele</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="wvl2WtX" name="E-Mail-Adresse">
       <notes>
-        <note category="german">Email address</note>
+        <note category="german">E-Mail-Adresse</note>
       </notes>
       <segment>
         <source>E-Mail-Adresse</source>
@@ -21,7 +21,7 @@
     </unit>
     <unit id="1fRghxK" name="Externe ID für Apps">
       <notes>
-        <note category="german">External ID for apps</note>
+        <note category="german">Externe ID für Apps</note>
       </notes>
       <segment>
         <source>Externe ID für Apps</source>
@@ -30,7 +30,7 @@
     </unit>
     <unit id="44idCpa" name="Neue ID generieren">
       <notes>
-        <note category="german">Generate a new ID</note>
+        <note category="german">Neue ID generieren</note>
       </notes>
       <segment>
         <source>Neue ID generieren</source>
@@ -39,7 +39,7 @@
     </unit>
     <unit id="E1Sq9FV" name="ID löschen">
       <notes>
-        <note category="german">Delete ID</note>
+        <note category="german">ID löschen</note>
       </notes>
       <segment>
         <source>ID löschen</source>
@@ -48,7 +48,7 @@
     </unit>
     <unit id="Jh3UFwC" name="df31751">
       <notes>
-        <note category="german">By deleting the ID, you prevent external apps to access your data.</note>
+        <note category="german">Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
       </notes>
       <segment>
         <source>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</source>
@@ -57,7 +57,7 @@
     </unit>
     <unit id="2.gcbi0" name="Seele">
       <notes>
-        <note category="german">Soul</note>
+        <note category="german">Seele</note>
       </notes>
       <segment>
         <source>Seele</source>
@@ -75,7 +75,7 @@
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
       <notes>
-        <note category="german">Settings</note>
+        <note category="german">Einstellungen</note>
       </notes>
       <segment>
         <source>Einstellungen</source>
@@ -93,7 +93,7 @@
     </unit>
     <unit id="JW9VP2K" name="Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.">
       <notes>
-        <note category="german">This server isn't configured to support avatars.</note>
+        <note category="german">Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</note>
       </notes>
       <segment>
         <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
@@ -102,7 +102,7 @@
     </unit>
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
-        <note category="german">The file format isn't supported.</note>
+        <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
@@ -111,7 +111,7 @@
     </unit>
     <unit id="W6NI6B_" name="Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.">
       <notes>
-        <note category="german">This file is corrupt and can't be processed.</note>
+        <note category="german">Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</note>
       </notes>
       <segment>
         <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
@@ -120,7 +120,7 @@
     </unit>
     <unit id="WocA7cM" name="79a6053">
       <notes>
-        <note category="german">This file is too large and the server was unable to compress it enough.</note>
+        <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
       </notes>
       <segment>
         <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
@@ -129,7 +129,7 @@
     </unit>
     <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
       <notes>
-        <note category="german">An internal error occured while processing the image.</note>
+        <note category="german">Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</note>
       </notes>
       <segment>
         <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
@@ -138,7 +138,7 @@
     </unit>
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
-        <note category="german">This file is too large.</note>
+        <note category="german">Die Datei ist zu groß.</note>
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
@@ -147,7 +147,7 @@
     </unit>
     <unit id="WrQqCAs" name="Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.">
       <notes>
-        <note category="german">Resolution of this image doesn't fit for a profile image.</note>
+        <note category="german">Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</note>
       </notes>
       <segment>
         <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
@@ -156,7 +156,7 @@
     </unit>
     <unit id="EZLjPxc" name="f6fa7cb">
       <notes>
-        <note category="german">Your password is incorrrect. You must enter your current password to modify your account.</note>
+        <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
@@ -165,7 +165,7 @@
     </unit>
     <unit id="jhO4n0e" name="Dein Profil">
       <notes>
-        <note category="german">Your Profile</note>
+        <note category="german">Dein Profil</note>
       </notes>
       <segment>
         <source>Dein Profil</source>
@@ -174,7 +174,7 @@
     </unit>
     <unit id="Mi9Pj.n" name="Normale Anzeige">
       <notes>
-        <note category="german">Normal display</note>
+        <note category="german">Normale Anzeige</note>
       </notes>
       <segment>
         <source>Normale Anzeige</source>
@@ -183,7 +183,7 @@
     </unit>
     <unit id="iiZH1u9" name="Komprimierte Anzeige">
       <notes>
-        <note category="german">Compressed display</note>
+        <note category="german">Komprimierte Anzeige</note>
       </notes>
       <segment>
         <source>Komprimierte Anzeige</source>
@@ -192,7 +192,7 @@
     </unit>
     <unit id="d_VqAwc" name="9b2af61">
       <notes>
-        <note category="german">You have the possibility to set a profile image in order to be better recognized by other players.</note>
+        <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
       </notes>
       <segment>
         <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
@@ -201,7 +201,7 @@
     </unit>
     <unit id="C.B17ya" name="Neues Profilbild hochladen">
       <notes>
-        <note category="german">Send a new profile avatar</note>
+        <note category="german">Neues Profilbild hochladen</note>
       </notes>
       <segment>
         <source>Neues Profilbild hochladen</source>
@@ -210,7 +210,7 @@
     </unit>
     <unit id="uBrCxGO" name="Profilbild löschen">
       <notes>
-        <note category="german">Delete profile avatar</note>
+        <note category="german">Profilbild löschen</note>
       </notes>
       <segment>
         <source>Profilbild löschen</source>
@@ -219,7 +219,7 @@
     </unit>
     <unit id="ZtpVK6q" name="Komprimierte Anzeige bearbeiten">
       <notes>
-        <note category="german">Edit compressed display area</note>
+        <note category="german">Komprimierte Anzeige bearbeiten</note>
       </notes>
       <segment>
         <source>Komprimierte Anzeige bearbeiten</source>
@@ -228,8 +228,8 @@
     </unit>
     <unit id="Af7eIx8" name="b0c95ed">
       <notes>
-        <note category="german">Choose which part of your image will be used for the compressed display.
-                                    Move the selection witht the mouse, and resize it with the mousewheel.</note>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
       </notes>
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
@@ -240,7 +240,7 @@
     </unit>
     <unit id="37GuQ5_" name="Profilbild hochladen">
       <notes>
-        <note category="german">Send a profile avatar</note>
+        <note category="german">Profilbild hochladen</note>
       </notes>
       <segment>
         <source>Profilbild hochladen</source>
@@ -249,7 +249,7 @@
     </unit>
     <unit id="HaejtO6" name="Darstellung">
       <notes>
-        <note category="german">Display</note>
+        <note category="german">Darstellung</note>
       </notes>
       <segment>
         <source>Darstellung</source>
@@ -258,7 +258,7 @@
     </unit>
     <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
       <notes>
-        <note category="german">Show compressed avatar</note>
+        <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
       </notes>
       <segment>
         <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
@@ -267,7 +267,7 @@
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
       <notes>
-        <note category="german">Forum default role</note>
+        <note category="german">Standardrolle im Forum</note>
       </notes>
       <segment>
         <source>Standardrolle im Forum</source>
@@ -276,7 +276,7 @@
     </unit>
     <unit id="uqXS6rA" name="Standardmäßig als dev posten">
       <notes>
-        <note category="german">Post as a developer by default</note>
+        <note category="german">Standardmäßig als dev posten</note>
       </notes>
       <segment>
         <source>Standardmäßig als dev posten</source>
@@ -285,7 +285,7 @@
     </unit>
     <unit id="mjphdzq" name="Login und Sicherheit">
       <notes>
-        <note category="german">Connection and security</note>
+        <note category="german">Login und Sicherheit</note>
       </notes>
       <segment>
         <source>Login und Sicherheit</source>
@@ -294,7 +294,7 @@
     </unit>
     <unit id="TabP5k8" name="Passwort ändern">
       <notes>
-        <note category="german">Change password</note>
+        <note category="german">Passwort ändern</note>
       </notes>
       <segment>
         <source>Passwort ändern</source>
@@ -303,7 +303,7 @@
     </unit>
     <unit id="iLulTXC" name="Neues Passwort">
       <notes>
-        <note category="german">New password</note>
+        <note category="german">Neues Passwort</note>
       </notes>
       <segment>
         <source>Neues Passwort</source>
@@ -312,7 +312,7 @@
     </unit>
     <unit id="Icwc1Fo" name="Neues Passwort wiederholen">
       <notes>
-        <note category="german">Confirm new password</note>
+        <note category="german">Neues Passwort wiederholen</note>
       </notes>
       <segment>
         <source>Neues Passwort wiederholen</source>
@@ -321,7 +321,7 @@
     </unit>
     <unit id="e99uiXA" name="Aktuelles Passwort">
       <notes>
-        <note category="german">Current password</note>
+        <note category="german">Aktuelles Passwort</note>
       </notes>
       <segment>
         <source>Aktuelles Passwort</source>
@@ -330,7 +330,7 @@
     </unit>
     <unit id="wIQ05bj" name="Passwort aktualisieren">
       <notes>
-        <note category="german">Update password</note>
+        <note category="german">Passwort aktualisieren</note>
       </notes>
       <segment>
         <source>Passwort aktualisieren</source>
@@ -339,7 +339,7 @@
     </unit>
     <unit id="YDybxz8" name="Standardsprache">
       <notes>
-        <note category="german">Default language</note>
+        <note category="german">Standardsprache</note>
       </notes>
       <segment>
         <source>Standardsprache</source>
@@ -348,7 +348,7 @@
     </unit>
     <unit id="gBz_D6E" name="Deutsch">
       <notes>
-        <note category="german">German</note>
+        <note category="german">Deutsch</note>
       </notes>
       <segment>
         <source>Deutsch</source>
@@ -357,7 +357,7 @@
     </unit>
     <unit id="vp_4VdN" name="Französisch">
       <notes>
-        <note category="german">French</note>
+        <note category="german">Französisch</note>
       </notes>
       <segment>
         <source>Französisch</source>
@@ -366,7 +366,7 @@
     </unit>
     <unit id="mD6lfyI" name="Englisch">
       <notes>
-        <note category="german">English</note>
+        <note category="german">Englisch</note>
       </notes>
       <segment>
         <source>Englisch</source>
@@ -375,7 +375,7 @@
     </unit>
     <unit id="bjgV6Xr" name="Spanisch">
       <notes>
-        <note category="german">Spanish</note>
+        <note category="german">Spanisch</note>
       </notes>
       <segment>
         <source>Spanisch</source>
@@ -384,7 +384,7 @@
     </unit>
     <unit id="fuUze6t" name="Externe Anwendungen">
       <notes>
-        <note category="german">External Applications</note>
+        <note category="german">Externe Anwendungen</note>
       </notes>
       <segment>
         <source>Externe Anwendungen</source>
@@ -393,7 +393,7 @@
     </unit>
     <unit id="HbhZq4U" name="Account löschen">
       <notes>
-        <note category="german">Account deletion</note>
+        <note category="german">Account löschen</note>
       </notes>
       <segment>
         <source>Account löschen</source>
@@ -402,7 +402,7 @@
     </unit>
     <unit id="q58CKHC" name="Meinen Account löschen">
       <notes>
-        <note category="german">Delete my account</note>
+        <note category="german">Meinen Account löschen</note>
       </notes>
       <segment>
         <source>Meinen Account löschen</source>
@@ -411,7 +411,7 @@
     </unit>
     <unit id="LS.JtiE" name="c5a39bb">
       <notes>
-        <note category="german">Do you really want to delete your account ? This action is irreversible.</note>
+        <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
@@ -420,7 +420,7 @@
     </unit>
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
-        <note category="german">Please select only one file.</note>
+        <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
@@ -429,7 +429,7 @@
     </unit>
     <unit id="KJJicse" name="36b050a">
       <notes>
-        <note category="german">This document contain many pages. Click here to go to the next page...</note>
+        <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
       </notes>
       <segment>
         <source>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</source>
@@ -438,7 +438,7 @@
     </unit>
     <unit id="boYEw93" name="Vorherige Seite">
       <notes>
-        <note category="german">Previous page</note>
+        <note category="german">Vorherige Seite</note>
       </notes>
       <segment>
         <source>Vorherige Seite</source>
@@ -447,7 +447,7 @@
     </unit>
     <unit id="hc2Xbgb" name="Nächste Seite">
       <notes>
-        <note category="german">Next page</note>
+        <note category="german">Nächste Seite</note>
       </notes>
       <segment>
         <source>Nächste Seite</source>
@@ -456,7 +456,7 @@
     </unit>
     <unit id="MCPpLdD" name="Redakteur:">
       <notes>
-        <note category="german">Author :</note>
+        <note category="german">Redakteur:</note>
       </notes>
       <segment>
         <source>Redakteur:</source>
@@ -465,7 +465,7 @@
     </unit>
     <unit id="EpWptWk" name="Schriften">
       <notes>
-        <note category="german">Texts</note>
+        <note category="german">Schriften</note>
       </notes>
       <segment>
         <source>Schriften</source>
@@ -474,7 +474,7 @@
     </unit>
     <unit id="q.Y8zXe" name="787b8ea">
       <notes>
-        <note category="german">The history of a given world is only a reflection of the many individual epics it has witnessed...</note>
+        <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
       </notes>
       <segment>
         <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
@@ -483,7 +483,7 @@
     </unit>
     <unit id="q8r8gtq" name="Titel">
       <notes>
-        <note category="german">Title</note>
+        <note category="german">Titel</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -492,7 +492,7 @@
     </unit>
     <unit id="PHUagJt" name="Entdeckt">
       <notes>
-        <note category="german">Discovered</note>
+        <note category="german">Entdeckt</note>
       </notes>
       <segment>
         <source>Entdeckt</source>
@@ -501,7 +501,7 @@
     </unit>
     <unit id="fUgR4gE" name="Gefundene Texte: %count%">
       <notes>
-        <note category="german">Texts discovered : %count%</note>
+        <note category="german">Gefundene Texte: %count%</note>
       </notes>
       <segment>
         <source>Gefundene Texte: %count%</source>
@@ -510,7 +510,7 @@
     </unit>
     <unit id="elfn6js" name="Einen Kommentar hinzufügen">
       <notes>
-        <note category="german">Add a comment</note>
+        <note category="german">Einen Kommentar hinzufügen</note>
       </notes>
       <segment>
         <source>Einen Kommentar hinzufügen</source>
@@ -519,7 +519,7 @@
     </unit>
     <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
       <notes>
-        <note category="german">There's still alive citizens in this town...</note>
+        <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
       </notes>
       <segment>
         <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
@@ -528,7 +528,7 @@
     </unit>
     <unit id="GiaI_3b" name="Überlebte Tage">
       <notes>
-        <note category="german">Days survived</note>
+        <note category="german">Überlebte Tage</note>
       </notes>
       <segment>
         <source>Überlebte Tage</source>
@@ -537,7 +537,7 @@
     </unit>
     <unit id="zY4iz3Q" name="Ergebnis">
       <notes>
-        <note category="german">Score</note>
+        <note category="german">Ergebnis</note>
       </notes>
       <segment>
         <source>Ergebnis</source>
@@ -546,7 +546,7 @@
     </unit>
     <unit id="FlZntyi" name="Bürger">
       <notes>
-        <note category="german">Citizen</note>
+        <note category="german">Bürger</note>
       </notes>
       <segment>
         <source>Bürger</source>
@@ -555,7 +555,7 @@
     </unit>
     <unit id="7F000hR" name="Todesursache">
       <notes>
-        <note category="german">Cause of death</note>
+        <note category="german">Todesursache</note>
       </notes>
       <segment>
         <source>Todesursache</source>
@@ -564,7 +564,7 @@
     </unit>
     <unit id="coQifWg" name="Kommentar">
       <notes>
-        <note category="german">Comment</note>
+        <note category="german">Kommentar</note>
       </notes>
       <segment>
         <source>Kommentar</source>

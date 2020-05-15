@@ -220,6 +220,10 @@ class Citizen
      */
     private $ghulHunger = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PrivateMessageThread::class, mappedBy="recipient", orphanRemoval=true)
+     */
+    private $privateMessageThreads;
 
     public function __construct()
     {
@@ -234,6 +238,7 @@ class Citizen
         $this->leadingEscorts = new ArrayCollection();
         $this->disposedBy = new ArrayCollection();
         $this->citizenWatch = new ArrayCollection();
+        $this->privateMessageThreads = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -938,6 +943,37 @@ class Citizen
     public function setGhulHunger(int $ghulHunger): self
     {
         $this->ghulHunger = $ghulHunger;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PrivateMessageThread[]
+     */
+    public function getPrivateMessageThreads(): Collection
+    {
+        return $this->privateMessageThreads;
+    }
+
+    public function addPrivateMessageThread(PrivateMessageThread $privateMessageThread): self
+    {
+        if (!$this->privateMessageThreads->contains($privateMessageThread)) {
+            $this->privateMessageThreads[] = $privateMessageThread;
+            $privateMessageThread->setRecipient($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrivateMessageThread(PrivateMessageThread $privateMessageThread): self
+    {
+        if ($this->privateMessageThreads->contains($privateMessageThread)) {
+            $this->privateMessageThreads->removeElement($privateMessageThread);
+            // set the owning side to null (unless already changed)
+            if ($privateMessageThread->getRecipient() === $this) {
+                $privateMessageThread->setRecipient(null);
+            }
+        }
 
         return $this;
     }

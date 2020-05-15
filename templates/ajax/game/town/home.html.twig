@@ -11,6 +11,7 @@
 
     <ul class="tabs" x-tab-group="home-main" x-tab-control x-tab-default="{{ tab }}">
         <li x-tab-id="dash">{% trans from 'game' %}Truhe und Aktionen{% endtrans %}</li>
+        <li x-tab-id="messages">{% if new_message %}<img src="{{ asset('build/images/anim_icon_mail.gif') }}" /> {% endif %}{% trans from 'game' %}Nachrichten{% endtrans %}</li>
         <li x-tab-id="values">{% trans with {'%type%': home.prototype.label|trans({},'buildings')} from 'game' %}Mein(e) %type%{% endtrans %}</li>
         <li x-tab-id="build">{% trans from 'game' %}Bauarbeiten{% endtrans %}</li>
     </ul>
@@ -81,6 +82,143 @@
                 {% endembed %}
             </div>
         </div>
+    </div>
+
+    <div x-tab-group="home-main" x-tab-id="messages" x-tab-target>
+        <ul class="tabs" x-tab-group="home-messages" x-tab-control x-tab-default="{{ subtab }}">
+            <li x-tab-id="received">{% trans from 'game' %}Erhaltene Nachrichten{% endtrans %}</li>
+            <li x-tab-id="archives"><img src="{{ asset("build/images/small_archive.gif") }}" alt="" />{% trans from 'game' %}Archiv{% endtrans %}</li>
+            <li x-tab-id="write"><img src="{{ asset("build/images/small_mail.gif") }}" alt="" /> {% trans from 'game' %}Eine Nachricht schreiben{% endtrans %}</li>
+            {% if can_send_global_pm %}
+            <li x-tab-id="write-to-all"><img src="{{ asset("build/images/star.gif") }}" alt="" /> {% trans from 'game' %}Schreiben Sie an alle{% endtrans %}</li>
+            {% endif %}
+        </ul>
+        <div x-tab-group="home-messages" x-tab-id="received" x-tab-target>
+            <div id="nonArchivedContent">
+            {% if nonArchivedMessages|length == 0 %}
+                <div class="help link" x-ajax-href="{{ path('town_citizens') }}">
+                {% trans from 'game' %}
+                    Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.
+                {% endtrans %}
+                </div>
+            {% else %}
+                <div class="row-table messages-list">
+                    <div class="row header">
+                        <div class="padded cell rw-6">{{ 'Titel'|trans({},'global') }}</div>
+                        <div class="padded cell rw-2">{{ 'Autor'|trans({},'global') }}</div>
+                        <div class="padded cell rw-1">#</div>
+                        <div class="padded cell rw-3">{{ 'Datum'|trans({},'global') }}</div>
+                    </div>
+                    {% for thread in nonArchivedMessages %}
+                        <div class="row small link {% if thread.new %}new{% endif %}" x-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
+                            <div class="padded cell rw-6">{{ thread.title }}</div>
+                            <div class="padded cell rw-2">{{ thread.sender.user.username }}</div>
+                            <div class="padded cell rw-1">{{ thread.messages|length }}</div>
+                            <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+        <div x-tab-group="home-messages" x-tab-id="archives" x-tab-target>
+            <div id="archivedContent">
+            {% if archivedMessages|length == 0 %}
+                <div class="help">
+                {% trans from 'game' %}
+                     Keine Nachricht gespeichert.
+                {% endtrans %}
+                </div>
+            {% else %}
+                <div class="row-table messages-list">
+                    <div class="row header">
+                        <div class="padded cell rw-6">{{ 'Titel'|trans({},'global') }}</div>
+                        <div class="padded cell rw-2">{{ 'Autor'|trans({},'global') }}</div>
+                        <div class="padded cell rw-1">#</div>
+                        <div class="padded cell rw-3">{{ 'Datum'|trans({},'global') }}</div>
+                    </div>
+                    {% for thread in archivedMessages %}
+                        <div class="row small link {% if thread.new %}new{% endif %}" x-archived-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
+                            <div class="padded cell rw-6">{{ thread.title }}</div>
+                            <div class="padded cell rw-2">{{ thread.sender.user.username }}</div>
+                            <div class="padded cell rw-1">{{ thread.messages|length }}</div>
+                            <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+        <div x-tab-group="home-messages" x-tab-id="write" x-tab-target>
+            <h5>{% trans from 'game'%}Neue Nachright{% endtrans %}</h5>
+            <div class="row">
+                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Empfänger:{% endtrans %}</span></div>
+                <div class="cell padded rw-6">
+                    <input type="text" id="pmrecipient" disabled />
+                    <input type="hidden" id="pmidrecipient" />
+                </div>
+                <div class="cell padded rw-1">
+                    <span class="link">
+                        <img src="{{ asset('build/images/small_human.gif') }}" id="show_list" />
+                        <div class="tooltip">
+                            {% trans from 'game'%}
+                                Bürgerverzeichnis anszeigen
+                            {% endtrans %}
+                        </div>
+                    </span>
+                    <div id="recipient_list">
+                        <div class="list">
+                            {% for citizen in possible_dests %}
+                                <span class="recipient small link" x-citizen-id="{{citizen.id}}">{{citizen.user.username}}</span>
+                            {% endfor %}
+                        </div>
+                        <button id="close_list">{% trans from 'global'%}Abbrechen{% endtrans %}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded">
+                    <span class="small link"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Betreff:{% endtrans %}</span></div>
+                <div class="cell padded rw-6">
+                    <input type="text" id="pmtitle" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <textarea id="pmtext"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <button id="pmsend">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
+                </div>
+            </div>
+        </div>
+        {% if can_send_global_pm %}
+        <div x-tab-group="home-messages" x-tab-id="write-to-all" x-tab-target>
+            <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
+            <div class="row">
+                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Betreff:{% endtrans %}</span></div>
+                <div class="cell padded rw-6">
+                    <input type="text" id="pmglobaltitle" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <textarea id="pmglobaltext"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <button id="pmglobalsend">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
 
     <div x-tab-group="home-main" x-tab-id="values" x-tab-target>
@@ -365,6 +503,68 @@
                 function () {
                     $.ajax.load(null, '{{ path('town_house') }}', true);
                 } );
-        })
+        });
+
+        let listbtn = document.getElementById("show_list");
+        if(listbtn) listbtn.addEventListener("click", function(e){
+            e.preventDefault();
+            document.getElementById("recipient_list").style.display = "block";
+        });
+
+        let citizenbtn = document.querySelectorAll("#recipient_list .recipient");
+        if(citizenbtn){
+            for (var i = 0; i < citizenbtn.length; i++) {
+                citizenbtn[i].addEventListener("click", function(e){
+                    e.preventDefault();
+                    document.getElementById("pmrecipient").value = this.innerText;
+                    document.getElementById("pmidrecipient").value = this.attributes["x-citizen-id"].value;
+                    document.getElementById("recipient_list").style.display = "none";
+                });
+            }
+        }
+
+        let closebtn = document.getElementById("close_list");
+        if(closebtn) closebtn.addEventListener('click', function(e){
+            e.preventDefault();
+            document.getElementById("recipient_list").style.display = "none";
+        });
+
+        let sendbtn = document.getElementById("pmsend");
+        if(sendbtn) sendbtn.addEventListener('click', function(e){
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, title: document.getElementById('pmtitle').value, 'content': document.getElementById("pmtext").value, recipient: document.getElementById('pmidrecipient').value},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
+
+        let sendglobalbtn = document.getElementById("pmglobalsend");
+        if(sendglobalbtn) sendglobalbtn.addEventListener('click', function(e){
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: true, title: document.getElementById('pmglobaltitle').value, 'content': document.getElementById("pmglobaltext").value},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
+
+        let thread_buttons = document.querySelectorAll('[x-thread-id]');
+        for (let i = 0; i < thread_buttons.length; i++){
+            thread_buttons[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                $.ajax.no_history().load( document.getElementById('nonArchivedContent'), this.getAttribute('x-pm-source'), false )
+            });
+        }
+
+        let archived_thread_buttons = document.querySelectorAll('[x-archived-thread-id]');
+        for (let i = 0; i < archived_thread_buttons.length; i++){
+            archived_thread_buttons[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                $.ajax.no_history().load( document.getElementById('archivedContent'), this.getAttribute('x-pm-source'), false )
+            });
+        }
     </script>
 {% endblock %}

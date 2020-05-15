@@ -829,5 +829,50 @@
         <target>Vorschau</target>
       </segment>
     </unit>
+    <unit id="MCyZNHk" name="62c3512">
+      <notes>
+        <note category="german">Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</note>
+      </notes>
+      <segment>
+        <source>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</source>
+        <target>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</target>
+      </segment>
+    </unit>
+    <unit id="BygLauq" name="Autor">
+      <notes>
+        <note category="german">Autor</note>
+      </notes>
+      <segment>
+        <source>Autor</source>
+        <target>Autor</target>
+      </segment>
+    </unit>
+    <unit id="kTWILTI" name="Datum">
+      <notes>
+        <note category="german">Datum</note>
+      </notes>
+      <segment>
+        <source>Datum</source>
+        <target>Datum</target>
+      </segment>
+    </unit>
+    <unit id="BGGdaRH" name="Züruck">
+      <notes>
+        <note category="german">Züruck</note>
+      </notes>
+      <segment>
+        <source>Züruck</source>
+        <target>Züruck</target>
+      </segment>
+    </unit>
+    <unit id="pUyN66u" name="Archivieren">
+      <notes>
+        <note category="german">Archivieren</note>
+      </notes>
+      <segment>
+        <source>Archivieren</source>
+        <target>Archivieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

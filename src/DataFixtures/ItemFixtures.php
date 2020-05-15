@@ -869,7 +869,7 @@ class ItemFixtures extends Fixture
         'rp_letter_#00' => [ 'esc_fixed' ],
         'rp_manual_#00' => [ 'esc_fixed' ],
         'lilboo_#00'    => [ 'esc_fixed' ],
-        'rp_twin_#00'   => [ 'esc_fixed' ],
+        'rp_twin_#00'   => [ 'esc_fixed' ]
     ];
 
     public static $item_groups = [
@@ -1011,7 +1011,7 @@ class ItemFixtures extends Fixture
             array('item' => 'cinema_#00','count' => '53'),
             array('item' => 'maglite_off_#00','count' => '24'),
             array('item' => 'vodka_de_#00','count' => '6'),
-            array('item' => 'vodka_#00','count' => '6'),
+            array('item' => 'vodka_#00','count' => '18'),
         ),
         'christmas_dig' => [
             array('item' => 'renne_#00','count' => '14'),

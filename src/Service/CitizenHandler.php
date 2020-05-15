@@ -599,7 +599,7 @@ class CitizenHandler
         if($this->hasStatusEffect($citizen, "drunk")) {
             $chances -= 0.04;
         }
-        if($this->hasStatusEffect($citizen, "hangover")) {
+        if($this->hasStatusEffect($citizen, "hungover")) {
             $chances += 0.05;
         }
         if($this->hasStatusEffect($citizen, "terror")) {
@@ -617,7 +617,7 @@ class CitizenHandler
         if($this->hasStatusEffect($citizen, "infection")) {
             $chances += 0.20;
         }
-        if($this->hasStatusEffect($citizen, "ghul")) {
+        if($citizen->hasRole('ghoul')) {
             $chances -= 0.05;
         }
 
@@ -631,7 +631,7 @@ class CitizenHandler
         if($this->hasStatusEffect($citizen, 'drunk')) {
             $def += 20;
         }
-        if($this->hasStatusEffect($citizen, 'hangover')) {
+        if($this->hasStatusEffect($citizen, 'hungover')) {
             $def -= 15;
         }
         if($this->hasStatusEffect($citizen, 'terror')) {
@@ -696,6 +696,16 @@ class CitizenHandler
             return true;
         if ($this->inventory_handler->countSpecificItems( $c->getHome()->getChest(), 'lock', true ) > 0)
             return true;
+        return false;
+    }
+
+    public function hasNewMessage(Citizen $c){
+        foreach ($c->getPrivateMessageThreads() as $thread) {
+            if($thread->getArchived()) continue;
+            if($thread->getNew())
+                return true;
+        }
+
         return false;
     }
 }

@@ -26,6 +26,13 @@ Stats :
 * Die Nachtwächter haben mutig die Stadt verteidigt.
 * The watchmen courageously defended the town!
 
+# Building damages 
+-> Fireworks explosion infects 50% of the citizens, kills zombies around the town AND lower the attack for 2-3 days. How much ? I've seen around 13%
+
+-> Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.
+-> Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.
+https://cdn.discordapp.com/attachments/705114846554751017/709940339997409330/unknown.png
+https://cdn.discordapp.com/attachments/153546092707840001/710133701832605816/Annotation_2020-05-13_161735.png
 # Council vote for roles
 
 Here is the French RP text :

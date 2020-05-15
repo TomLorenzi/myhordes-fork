@@ -7,6 +7,8 @@ use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
+use App\Entity\Inventory;
+use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
@@ -151,7 +153,8 @@ class ZoneHandler
                             $this->entity_manager->persist( $timer->getZone()->getFloor() );
                         }
                     } else {
-                       $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
+                        //TODO: Persist log only if it is an automatic search
+                        $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
                     }
 
                     $zone->setDigs( max(($item_prototype || $zone->getDigs() <= 0) ? 0 : 1, $zone->getDigs() - 1) );
@@ -324,12 +327,45 @@ class ZoneHandler
 
     }
 
-    public function getZoneClasses(Zone $zone, ?Citizen $citizen = null) {
+    public function getSoulZones( Town $town ) {
+        // Get all zone inventory IDs
+        // We're just getting IDs, because we don't want to actually hydrate the inventory instances
+        $zone_invs = array_column($this->entity_manager->createQueryBuilder()
+            ->select('i.id')
+            ->from(Inventory::class, 'i')
+            ->join("i.zone", "z")
+            ->andWhere('z.id IN (:zones)')->setParameter('zones', $town->getZones())
+            ->getQuery()
+            ->getScalarResult(), 'id');
+
+        // Get all soul items within these inventories
+        $soul_items = $this->entity_manager->createQueryBuilder()
+            ->select('i')
+            ->from(Item::class, 'i')
+            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $zone_invs)
+            ->andWhere('i.prototype IN (:protos)')->setParameter('protos', [
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_blue_#00'),
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_blue_#01'),
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_red_#00')
+            ])
+            ->getQuery()
+            ->getResult();
+
+        $cache = [];
+        /** @var Item $item */
+        foreach ($soul_items as $item)
+            if (!isset($cache[$item->getInventory()->getId()]))
+                $cache[$item->getInventory()->getId()] = $item->getInventory()->getZone();
+        return array_values($cache);
+    }
+
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false) {
         $attributes = ['zone'];
+
         if ($zone->getX() == 0 && $zone->getY() == 0) {
             $attributes[] = 'town';
         }
-        if ($zone->getX() == 0 && $zone->getY() == 0 && $zone->getTown()->getDevastated()) {
+        if ($zone->getX() == 0 && $zone->getY() == 0 && $town->getDevastated()) {
             $attributes[] = 'devast';
         }
         if ($citizen && $zone === $citizen->getZone()) {
@@ -364,7 +400,7 @@ class ZoneHandler
             }
         }
 
-        if($zone->hasSoul() && $citizen != null && ($this->citizen_handler->hasRole($citizen, 'shaman') || $citizen->getProfession()->getName() == 'shaman'))
+        if($soul)
             $attributes[] = "soul";
 
         return $attributes;
