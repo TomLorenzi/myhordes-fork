@@ -599,7 +599,7 @@ class CitizenHandler
         if($this->hasStatusEffect($citizen, "drunk")) {
             $chances -= 0.04;
         }
-        if($this->hasStatusEffect($citizen, "hangover")) {
+        if($this->hasStatusEffect($citizen, "hungover")) {
             $chances += 0.05;
         }
         if($this->hasStatusEffect($citizen, "terror")) {
@@ -631,7 +631,7 @@ class CitizenHandler
         if($this->hasStatusEffect($citizen, 'drunk')) {
             $def += 20;
         }
-        if($this->hasStatusEffect($citizen, 'hangover')) {
+        if($this->hasStatusEffect($citizen, 'hungover')) {
             $def -= 15;
         }
         if($this->hasStatusEffect($citizen, 'terror')) {
