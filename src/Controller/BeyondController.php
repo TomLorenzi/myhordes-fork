@@ -576,6 +576,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
+        if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
+            $this->addFlash('notice', 'Votre blessure à la jambe vous fait tomber, c\'est con');
+            $this->citizen_handler->setAP( $citizen, true, -1 );
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+            return AjaxResponse::success();
+        }
+
         $movers = [];
         foreach ($citizen->getValidLeadingEscorts() as $escort)
             $movers[] = $escort->getCitizen();
