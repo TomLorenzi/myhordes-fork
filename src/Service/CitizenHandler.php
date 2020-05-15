@@ -617,7 +617,7 @@ class CitizenHandler
         if($this->hasStatusEffect($citizen, "infection")) {
             $chances += 0.20;
         }
-        if($this->hasStatusEffect($citizen, "ghul")) {
+        if($citizen->hasRole('ghoul')) {
             $chances -= 0.05;
         }
 

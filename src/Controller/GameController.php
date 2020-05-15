@@ -392,6 +392,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
+            'day' => $town->getDay(),
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizenWithRole' => $citizenWithRole,

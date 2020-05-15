@@ -203,7 +203,7 @@ class NightlyHandler
             $damages = mt_rand(50, 125);
             $reactor->setHp(max(0, $reactor->getHp() - $damages));
 
-            $newDef = max(0, $reactor->getPrototype()->getDefense() * $reactor->getHp() / $reactor->getPrototype()->getHp());
+            $newDef = round(max(0, $reactor->getPrototype()->getDefense() * $reactor->getHp() / $reactor->getPrototype()->getHp()));
 
             $this->log->debug("The <info>reactor</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
 
@@ -404,7 +404,7 @@ class NightlyHandler
                 $target->setHp(max(0, $target->getHp() - $damages));
 
                 if($target->getPrototype()->getDefense() > 0){
-                    $newDef = $target->getPrototype()->getDefense() * $target->getHp() / $target->getPrototype()->getHp();
+                    $newDef = round(max(0, $target->getPrototype()->getDefense() * $target->getHp() / $target->getPrototype()->getHp()));
                     $this->log->debug("It now has <info>$newDef</info> defense...");
                     $target->setDefense($newDef);
                 }
@@ -412,6 +412,18 @@ class NightlyHandler
                 if($target->getHp() <= 0){
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $damages ));
                     $target->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+                    // The target is destroy, we must destroy all its children
+                    foreach ($target->getPrototype()->getChildren() as $childBuilding) {
+                        $childBuilt = $this->town_handler->getBuilding($town, $childBuilding->getName(), true);
+                        if (!$childBuilt) continue;
+                        // We remove it from potential targeting by the zeds
+                        if (($key = array_search($childBuilt, $targets)) !== false) {
+                            unset($targets[$key]);
+                        }
+                        $this->log->debug("The <info>{$childBuilding->getLabel()}</info> gets destroyed because its parent has been destroyed.");
+                        $childBuilt->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+                        $this->entity_manager->persist($childBuilt);
+                    }
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $damages ));
                 }
@@ -493,7 +505,7 @@ class NightlyHandler
             $fireworks->setHp(max(0, $fireworks->getHp() - 20));
 
             $this->log->debug("The <info>fireworks</info> has taken <info>20</info> damages...");
-            $newDef = max(0, $fireworks->getPrototype()->getDefense() * $fireworks->getHp() / $fireworks->getPrototype()->getHp());
+            $newDef = round(max(0, $fireworks->getPrototype()->getDefense() * $fireworks->getHp() / $fireworks->getPrototype()->getHp()));
 
             $this->log->debug("It now has $newDef defense...");
 

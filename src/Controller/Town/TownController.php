@@ -892,7 +892,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $ap = max(0,min( $ap, $missing_ap ) );
         } else {
             $neededApForFullHp = ($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp;
-
             $missing_ap = ceil( (round($neededApForFullHp) * ( $slave_bonus ? (2.0/3.0) : 1 ))) ;
             $ap = max(0,min( $ap, $missing_ap ) );
         }
@@ -930,7 +929,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Deduct AP and increase completion of the building
         $this->citizen_handler->deductAPBP( $citizen, $ap );
 
-        if($missing_ap <= 0){
+        if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
             $building->setAp($building->getPrototype()->getAp());
         } else {
@@ -939,6 +938,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // If the building was not previously completed but reached 100%, complete the building and trigger the completion handler
         $building->setComplete( $building->getComplete() || $building->getAp() >= $building->getPrototype()->getAp() );
+
         if (!$was_completed && $building->getComplete()) {
             // Remove resources, create a log entry, trigger
             foreach ($items as $item)
