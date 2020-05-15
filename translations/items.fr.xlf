@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
-        <target>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</target>
+        <target>Ça doit être un signe! Il n'y a pas de place pour la moralité dans ce monde ... vous obtenez 1PA.</target>
       </segment>
     </unit>
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
@@ -117,7 +117,7 @@
       </notes>
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
-        <target>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</target>
+        <target>Vous avez secoué la ville avec votre guitare! Les citoyens ont reçu {ap} PA.</target>
       </segment>
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
@@ -7958,7 +7958,7 @@
       </notes>
       <segment>
         <source>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</source>
-        <target>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</target>
+        <target>Vous sautez sous la douche maison sans y penser. L'eau glacée vous fait peur, mais vous restez sous le jet d'eau faible pendant quelques instants. En l'absence de savon, vous vous frottez avec une pierre lisse et essayez de laver la boue et les taches de sang. Vous essayez de vous convaincre que cela fait du bien.</target>
       </segment>
     </unit>
     <unit id="tqLPvCK" name="Heilen">
@@ -8321,7 +8321,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail>{item} ne peut pas transporter d'objets lourds...</t-fail><nt-fail>Vous avez envoyé {item} avec vos objets en ville.</nt-fail>]]></target>
       </segment>
     </unit>
   </file>
