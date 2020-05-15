@@ -90,12 +90,12 @@ class Picto
         return $this;
     }
 
-    public function getTown(): Town
+    public function getTown(): ?Town
     {
         return $this->town;
     }
 
-    public function setTown(Town $town): self
+    public function setTown(?Town $town): self
     {
         $this->town = $town;
 

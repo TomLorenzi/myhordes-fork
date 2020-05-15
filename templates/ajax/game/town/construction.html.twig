@@ -48,8 +48,8 @@
                         </div>
                     </span>
                 {% endif %}
-                {% if building.prototype.defense > 0 %}
-                    <div class="float-right defense">{{ building.prototype.defense }}</div>
+                {% if building.defense > 0 %}
+                    <div class="float-right defense{% if building.defense != building.prototype.defense %}-broken{% endif %}">{{ building.defense }}</div>
                 {% endif %}
                 {% if building.prototype.description %}
                 <div class="tooltip">
@@ -59,16 +59,25 @@
             </div>
             <div class="padded cell rw-6 rw-lg-10 rw-sm-12 no-ws">
                 {% set res_ok = true %}
-
-                {% if building.ap > 0 and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) %}
+                {# initial test: building.ap > 0 and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) #}
+                {% if building.ap > 0 and not building.complete %}
                     <div class="ap-bar">
                         <div class="bar" style="width: {{ 100*(building.ap/((building.prototype.ap * workshopBonus)|round)) }}%"></div>
+                    </div>
+                {% elseif building.complete and building.hp < building.prototype.hp %}
+                    <div class="ap-bar">
+                        <div class="bar" style="width: {{ 100*(building.hp/((building.prototype.hp * workshopBonus)|round)) }}%"></div>
+                        <div class="tooltip">{{building.hp}}/{{building.prototype.hp}}</div>
                     </div>
                 {% endif %}
 
                 {% if building.ap < ((building.prototype.ap * workshopBonus)|round) %}
                     <div class="build-req">
                         <div class="ap">{{ ((building.prototype.ap * workshopBonus)|round) - building.ap }}</div>
+                    </div>
+                {% elseif (building.complete and building.hp < building.prototype.hp) %}
+                    <div class="build-req">
+                        <div class="ap">{{ ((building.prototype.hp - building.hp)/2)|round }}</div>
                     </div>
                 {% endif %}
                 {% if not building.complete and building.prototype.resources is not null and buildable %}
@@ -87,7 +96,7 @@
                 {% endif %}
             </div>
             <div class="padded cell rw-1 rw-lg-2 rw-sm-12 right">
-                {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) %}
+                {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) or (building.complete and building.hp < building.prototype.hp) %}
                     <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}><i class="fa {% if building.complete %}fa-wrench{% else %}fa-plus{% endif %}"></i></button>
                 {% endif %}
             </div>

@@ -73,7 +73,8 @@ class DebugCommand extends Command
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.')
             ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.')
-            ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.');
+            ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.')
+        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -140,7 +141,7 @@ class DebugCommand extends Command
                 $this->entity_manager->persist( $citizen );
             }
             $this->entity_manager->flush();
-            $output->writeln("All citizen from selected town are full of water now.");
+            $output->writeln("All citizen from <info>{$town->getName()}</info> are full of water now.");
         }
 
         if ($tid = $input->getOption('fill-town')) {

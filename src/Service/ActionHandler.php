@@ -791,6 +791,10 @@ class ActionHandler
                             $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
                             if ($target_citizen->getZone()) 
                                 continue;
+
+                            // Don't give AP if already full
+                            if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen))
+                                continue;
                             else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
                                 $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;
@@ -973,7 +977,7 @@ class ActionHandler
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
-            $this->death_handler->kill( $citizen, CauseOfDeath::Posion, $r );
+            $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
             foreach ($r as $r_entry) $remove[] = $r_entry;
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }
