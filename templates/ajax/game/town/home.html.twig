@@ -219,6 +219,9 @@
             </div>
         </div>
         {% endif %}
+        <div id="forum-content">
+            
+        </div>
     </div>
 
     <div x-tab-group="home-main" x-tab-id="values" x-tab-target>
@@ -553,7 +556,8 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                $.ajax.no_history().load( document.getElementById('nonArchivedContent'), this.getAttribute('x-pm-source'), false )
+                $.ajax.no_history().load( document.getElementById('forum-content'), this.getAttribute('x-pm-source'), false )
+                document.getElementById("nonArchivedContent").style.display = "none";
             });
         }
 
@@ -563,7 +567,8 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                $.ajax.no_history().load( document.getElementById('archivedContent'), this.getAttribute('x-pm-source'), false )
+                $.ajax.no_history().load( document.getElementById('forum-content'), this.getAttribute('x-pm-source'), false )
+                document.getElementById("archivedContent").style.display = "none";
             });
         }
     </script>
