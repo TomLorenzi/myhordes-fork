@@ -10773,7 +10773,7 @@
       </notes>
       <segment>
         <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>Ich BESTÄTIGE meine Nachricht</target>
+        <target>Je CONFIRME mon message</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -10791,7 +10791,7 @@
       </notes>
       <segment>
         <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
+        <target>Vous avez trébuché à cause de votre blessure. Un tel problème...</target>
       </segment>
     </unit>
   </file>
