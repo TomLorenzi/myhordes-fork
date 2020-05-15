@@ -372,7 +372,7 @@ class InventoryHandler
 
         // Check Soul limit
         $soul_name = array("soul_blue_#00", "soul_blue_#01");
-        if(in_array($item->getPrototype()->getName(), $soul_name) &&
+        if($type_to === self::TransferTypeRucksack && in_array($item->getPrototype()->getName(), $soul_name) &&
             !$actor->hasRole("shaman") && 
             $this->countSpecificItems($to, $item->getPrototype()) > 0){
             return self::ErrorTooManySouls;
