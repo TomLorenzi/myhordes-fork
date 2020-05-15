@@ -3944,7 +3944,7 @@
       </notes>
       <segment>
         <source>Reinigen</source>
-        <target>Purifier</target>
+        <target>Nettoyer</target>
       </segment>
     </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
