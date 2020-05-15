@@ -56,11 +56,13 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/reports", name="admin_reports")
+     * @Route("jx/admin/action/reports/{opt}", name="admin_reports")
      * @return Response
      */
-    public function reports(): Response
+    public function reports(string $opt = ''): Response
     {
+        $show_all = $opt === 'all';
+
         $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
         // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
         $postsList = array('post' => [], 'reporter' => []);
@@ -69,29 +71,30 @@ class AdminActionController extends AbstractController
 
 
         $alreadyCountedIndexes = [];
-        $atLeastTwoReports = [];
+        $selectedReports = [];
         foreach ($postsList['post'] as $idx => $post) {
             if (in_array($idx, $alreadyCountedIndexes))               
                 continue;      
             $keys = array_keys($postsList['post'], $post);
             $alreadyCountedIndexes = array_merge($alreadyCountedIndexes, $keys);
             $reportCount = count($keys);
-            if ($reportCount > 1) {
+            if ($reportCount > ($show_all ? 0 : 1)) {
                 $reporters = [];
                 foreach ($keys as $key){
                     $reporters[] = $postsList['reporter'][$key];
                 }
-                $atLeastTwoReports[] = array('post' => $post, 'count' => $reportCount, 'reporters' => $reporters);
+                $selectedReports[] = array('post' => $post, 'count' => $reportCount, 'reporters' => $reporters);
             }
         }
 
         return $this->render( 'admin_action/reports/reports.html.twig', [  
-            'posts' => $atLeastTwoReports,        
+            'posts' => $selectedReports,
+            'all_shown' => $show_all
         ]);      
     }
 
     /**
-     * @Route("jx/admin/action/reports/clear", name="admin_reports_clear")
+     * @Route("api/admin/action/reports/clear", name="admin_reports_clear")
      * @return Response
      */
     public function reports_clear(JSONRequestParser $parser, AdminActionHandler $admh): Response
@@ -145,7 +148,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
+     * @Route("api/admin/action/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
      * @return Response
      */
     public function users_ban(int $id, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response
@@ -166,7 +169,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
+     * @Route("api/admin/action/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
      * @return Response
      */
     public function users_ban_lift(int $id, AdminActionHandler $admh): Response
@@ -178,7 +181,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/users/find", name="admin_users_find")
+     * @Route("api/admin/action/users/find", name="admin_users_find")
      * @return Response
      */
     public function users_find(JSONRequestParser $parser, EntityManagerInterface $em): Response
@@ -268,7 +271,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
+     * @Route("api/admin/action/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
      * @return Response
      */
     public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
@@ -280,7 +283,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
+     * @Route("api/admin/action/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
      * @return Response
      */
     public function users_citizen_confirm_death(int $id, AdminActionHandler $admh): Response
