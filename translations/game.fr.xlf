@@ -369,7 +369,7 @@
       </notes>
       <segment>
         <source>Zombies blockieren deine Zone!</source>
-        <target>Les zombie sont en surnombre !</target>
+        <target>Les zombies sont en surnombre !</target>
       </segment>
     </unit>
     <unit id="eDXR6Le" name="a506be7">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</target>
+        <target>En tant qu'exilé, vous ne pouvez retirer aucun article de la banque.</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -3770,7 +3770,7 @@
       </notes>
       <segment>
         <source>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</source>
-        <target>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</target>
+        <target>%citizen% n'a plus résisté à la pression et a mis fin à ses jours: %cod%.</target>
       </segment>
     </unit>
     <unit id="1DaM5oy" name="Verrat! %citizen% ist gestorben: %cod%.">
@@ -3825,7 +3825,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% est arrivé dans la ville depuis %direction%.</target>
+        <target>%citizen% est de retour en ville depuis %direction%.</target>
       </segment>
     </unit>
     <unit id="PFgh04I" name="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
@@ -4416,7 +4416,7 @@
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Projet</target>
+        <target>Les évolutions du jour</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -9153,7 +9153,7 @@
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Vous avez déjà fouiller ce secteur aujourd'hui, une prochaine fouille sera possible demain.</target>
+        <target>Vous avez déjà fouillé ce secteur aujourd'hui, une prochaine fouille sera possible demain.</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
@@ -9342,7 +9342,7 @@
       </notes>
       <segment>
         <source>Du bist der Schamane dieser Stadt.</source>
-        <target>Du bist der Schamane dieser Stadt.</target>
+        <target>Tu es le Chaman de cette ville.</target>
       </segment>
     </unit>
     <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
@@ -9351,7 +9351,7 @@
       </notes>
       <segment>
         <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
-        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
+        <target>Vous êtes le Guide de l'Outre-Monde de cette ville.</target>
       </segment>
     </unit>
     <unit id="GulZlLD" name="Nutze deine heilenden Hände">
@@ -9504,7 +9504,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden.</target>
+        <target>%citizen% a trouvé un plan pour %plan%.</target>
       </segment>
     </unit>
     <unit id="2jSPgup" name="c7e40ad">
@@ -9513,7 +9513,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</target>
+        <target>%citizen% a trouvé un plan pour %plan%. Le projet de construction %parent% est nécessaire pour cela.</target>
       </segment>
     </unit>
     <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -9522,7 +9522,7 @@
       </notes>
       <segment>
         <source>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+        <target>%num% zombies ont tenté sans succès d'entrer dans la maison de %citizen%.</target>
       </segment>
     </unit>
     <unit id="mxKAfZX" name="%citizen% wurde von %num% Zombies zerfleischt!">
@@ -9531,7 +9531,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% wurde von %num% Zombies zerfleischt!</target>
+        <target>%citizen% a été mutilé par %num% zombies!</target>
       </segment>
     </unit>
     <unit id="0OgA2rX" name="0505799">
@@ -9540,7 +9540,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+        <target>%citizen% a fait ce qui suit: %list2%; les éléments suivants ont été utilisés: %list1%.</target>
       </segment>
     </unit>
     <unit id="1c66H6u" name="85ec328">
@@ -9711,7 +9711,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</target>
+        <target>%attacker% a violemment attaqué et blessé %defender%!</target>
       </segment>
     </unit>
     <unit id="HwOTRdd" name="%attacker% hat %defender% gewalttätig angegriffen!">
@@ -9720,7 +9720,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen!</target>
+        <target>%attacker% a violemment attaqué %defender%!</target>
       </segment>
     </unit>
     <unit id="0Y6YSyp" name="c4b3caa">
@@ -9729,7 +9729,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</target>
+        <target>Un crime odieux s'est produit: %attacker% a dévoré %defender% chez lui!</target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -9783,7 +9783,7 @@
       </notes>
       <segment>
         <source>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</source>
-        <target>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</target>
+        <target>Une super soirée pour des célébrations bien méritées. Aucun décès dans la ville à la suite de l'attaque! Une horde considérable attaquait de l'Est.</target>
       </segment>
     </unit>
     <unit id="86jQjTU" name="225efed">
@@ -9792,7 +9792,7 @@
       </notes>
       <segment>
         <source>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</source>
-        <target>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</target>
+        <target>Une nuit paisible dans la ville. La horde de %attack% zombies qui est venue la nuit dernière a frappé assez durement certaines parties de la ville, mais il n'y a rien de remarquable à signaler.</target>
       </segment>
     </unit>
     <unit id="qOMf2gJ" name="6aeff69">
@@ -9801,7 +9801,7 @@
       </notes>
       <segment>
         <source>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</source>
-        <target>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</target>
+        <target>A part ça, c'est bien que personne ne soit mort la nuit dernière. Une horde de presque %attack% zombies a hurlé dehors toute la nuit, mais aucun d'eux n'a réussi à percer nos défenses.</target>
       </segment>
     </unit>
     <unit id="gN4H5VR" name="786b2c6">
@@ -9819,7 +9819,7 @@
       </notes>
       <segment>
         <source>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</source>
-        <target>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</target>
+        <target>Il semble que nous ayons tout fait correctement car aucun zombie n'a percé les murs la nuit dernière.</target>
       </segment>
     </unit>
     <unit id="pmixolq" name="78d1c25">
@@ -9837,7 +9837,7 @@
       </notes>
       <segment>
         <source>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</source>
-        <target>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</target>
+        <target>Aucune victime à signaler la nuit dernière. On pourrait même dire que la communauté a (enfin) compris comment s'organiser pour ne pas être anéantie.</target>
       </segment>
     </unit>
     <unit id="xxw4YDd" name="e89d97d">
@@ -9855,7 +9855,7 @@
       </notes>
       <segment>
         <source>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</source>
-        <target>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</target>
+        <target>Après l'attaque, il n'y a eu aucun blessé à signaler (du moins aucun dans la ville). "Oui, mais je pense que nous mourrons tous demain soir!", a déclaré %citizen1%, un citoyen sceptique.</target>
       </segment>
     </unit>
     <unit id="i8FSlBg" name="425cdf4">
@@ -9873,7 +9873,7 @@
       </notes>
       <segment>
         <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
-        <target>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</target>
+        <target>Certains citoyens ont commencé à transpirer la nuit dernière. Une vague d'environ %attack% de monstres a tenté de détruire notre ville, mais en vain.</target>
       </segment>
     </unit>
     <unit id="_KcsEZD" name="3b11391">
@@ -9945,7 +9945,7 @@
       </notes>
       <segment>
         <source>%cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target>%cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</target>
+        <target>%cadaver1% n'a pas eu de chance la nuit dernière. A part ça, c'était une nuit tranquille en ville ...</target>
       </segment>
     </unit>
     <unit id="x5dxpr6" name="69b9214">
@@ -10125,7 +10125,7 @@
       </notes>
       <segment>
         <source>Gut gemacht!</source>
-        <target>Gut gemacht!</target>
+        <target>Bien joué!</target>
       </segment>
     </unit>
     <unit id="RwOIyEr" name="Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!">
@@ -10143,7 +10143,7 @@
       </notes>
       <segment>
         <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
-        <target>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</target>
+        <target>Pas aussi appétissante que la chair humaine fraîche, mais elle satisfera toujours votre faim ... au moins un peu. Au moins, la viande était encore raisonnablement tendre.</target>
       </segment>
     </unit>
     <unit id="VMYfBZH" name="c75511e">
@@ -10152,7 +10152,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</source>
-        <target>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</target>
+        <target>De toutes vos forces, vous attaquez %citizen% ! Vous avez l'élément de surprise de votre côté et à la fin %citizen% est gravement blessé.</target>
       </segment>
     </unit>
     <unit id="ibp3W.L" name="2c77f85">
@@ -10179,7 +10179,7 @@
       </notes>
       <segment>
         <source>%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</source>
-        <target>%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</target>
+        <target>%citizen% est déjà blessé; l'attaquer à nouveau ne vous fera aucun bien.</target>
       </segment>
     </unit>
     <unit id="krglp5j" name="e0a8162">
@@ -10188,7 +10188,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</source>
-        <target>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</target>
+        <target>De toutes vos forces, vous attaquez %citizen%! Vous échangez des coups pendant un certain temps, jusqu'à ce que vous vous sépariez enfin en grande partie indemne.</target>
       </segment>
     </unit>
     <unit id="isIvO1g" name="In die Stadt schleichen">
@@ -10206,7 +10206,7 @@
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+        <target>Ce citoyen a creusé ici récemment. La prochaine fouille ne sera possible que demain.</target>
       </segment>
     </unit>
     <unit id="r.ZcCRS" name="Dieser Bürger wird aktuell von %leader% eskortiert.">
@@ -10215,7 +10215,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger wird aktuell von %leader% eskortiert.</source>
-        <target>Dieser Bürger wird aktuell von %leader% eskortiert.</target>
+        <target>Ce citoyen est actuellement escorté par %leader%.</target>
       </segment>
     </unit>
     <unit id="dyUt3up" name="Aus der Stadt schleichen">
@@ -10458,7 +10458,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target><![CDATA[<i class="dagger">†</i> %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> %cadaver1% n'a pas eu de chance la nuit dernière. A part ça, c'était une nuit tranquille en ville...]]></target>
       </segment>
     </unit>
     <unit id="9Sqg4cw" name="953d15e">
@@ -10467,7 +10467,7 @@
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Alle scheinen sich still und leise über den Tod von <i class="dagger">†</i> %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".]]></target>
+        <target><![CDATA[Tout le monde semble tranquillement heureux de la mort de <i class="dagger">†</i> %cadaver1% hier soir ... Cependant, personne n'a expliqué pourquoi. %citizen1% a commenté: "Sa mère était un hamster et son père sentait le sureau".]]></target>
       </segment>
     </unit>
     <unit id="IshvSDg" name="3920ab5">
@@ -10476,7 +10476,7 @@
       </notes>
       <segment>
         <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target><![CDATA[Jeder hörte <i class="dagger">†</i> %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?]]></target>
+        <target><![CDATA[Tout le monde a entendu <i class="dagger">†</i> %cadaver1% hurler quand les zombies les ont déchirés. De toute évidence, personne n'essayait d'aider. L'instinct de survie. Serez-vous capable de dormir la nuit maintenant?]]></target>
       </segment>
     </unit>
     <unit id="Ad1Ruao" name="7f96ed2">
@@ -10494,7 +10494,7 @@
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für <i class="dagger">†</i> %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!]]></target>
+        <target><![CDATA[Certains citoyens ont été témoins d'un étrange incident ... On pourrait dire que les zombies sont venus hier soir uniquement pour <i class="dagger">†</i> %cadaver1% Ils ont transporté le corps jusqu'au chantier de construction avant le début du démembrement!]]></target>
       </segment>
     </unit>
     <unit id="VXaNsva" name="dc8e234">
@@ -10503,7 +10503,7 @@
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Einige sagen, daß der Tod von <i class="dagger">†</i> %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?]]></target>
+        <target><![CDATA[Certains disent que la mort de <i class="dagger">†</i> %cadaver1% n'est pas due à la chance ... la seule victime hier soir ... Quelqu'un parmi nous aurait-il pu provoquer sa mort?]]></target>
       </segment>
     </unit>
     <unit id="kwKjT1z" name="d9930bb">
@@ -10512,7 +10512,7 @@
       </notes>
       <segment>
         <source>Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% – das haben sie nun davon.</source>
-        <target><![CDATA[Ausgangssperre gilt für alle. Auch für <i class="dagger">†</i> %cadaver1% und <i class="dagger">†</i> %cadaver2% – das haben sie nun davon.]]></target>
+        <target><![CDATA[Le couvre-feu s'applique à tout le monde. Aussi pour <i class="dagger">†</i> %cadaver1% et <i class="dagger">†</i> %cadaver2% - c'est ce que vous obtenez maintenant.]]></target>
       </segment>
     </unit>
     <unit id="UKe5tzs" name="b4586ac">
@@ -10521,7 +10521,7 @@
       </notes>
       <segment>
         <source>So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target><![CDATA[So richtig scheint keiner über den Tod von <i class="dagger">†</i> %cadaver1% und <i class="dagger">†</i> %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.]]></target>
+        <target><![CDATA[Personne ne semble vraiment pleurer la mort de <i class="dagger">†</i> %cadaver1% et <i class="dagger">†</i> %cadaver2%.Ils n'étaient probablement pas les plus populaires de la ville.]]></target>
       </segment>
     </unit>
     <unit id="RrBPp.5" name="743000a">
@@ -10530,7 +10530,7 @@
       </notes>
       <segment>
         <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
-        <target><![CDATA["Auf wiedersehen, du schnöde Welt...", dachte sich wohl <i class="dagger">†</i> %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.]]></target>
+        <target><![CDATA["Au revoir, monde ennuyeux ...", pensait probablement <i class="dagger">†</i> %cadaver1%. En tout cas, il a fait le travail des zombies et s'est suicidé.]]></target>
       </segment>
     </unit>
     <unit id="5DETBHl" name="4bd29fa">
@@ -10539,7 +10539,7 @@
       </notes>
       <segment>
         <source>Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.</source>
-        <target><![CDATA[Ohne großes Bedauern starb <i class="dagger">†</i> %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.]]></target>
+        <target><![CDATA[Avec peu de regret, <i class="dagger">†</i> %cadaver1% est décédé ce soir des suites de sa dépendance. "Honnêtement, ce n'est pas une grosse perte", a commenté %citizen1%.]]></target>
       </segment>
     </unit>
     <unit id="dQZOzs8" name="47bef63">
@@ -10566,7 +10566,7 @@
       </notes>
       <segment>
         <source>Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gesehen.</source>
-        <target><![CDATA[Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> %cadaver1% gesehen.]]></target>
+        <target><![CDATA[On ne sait rien de précis, en tout cas personne n'a vu <i class="dagger">†</i> %cadaver1% depuis un certain temps.]]></target>
       </segment>
     </unit>
     <unit id="ojehKlj" name="vor Angst erstarrt">
@@ -10584,7 +10584,7 @@
       </notes>
       <segment>
         <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</source>
-        <target>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</target>
+        <target>Marque extrêmement rare réservée aux âmes qui ont connu la Grande Contamination de Hordes !!</target>
       </segment>
     </unit>
     <unit id="n5cNvq4" name="%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.">
@@ -10773,7 +10773,7 @@
       </notes>
       <segment>
         <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>Ich BESTÄTIGE meine Nachricht</target>
+        <target>Je CONFIRME mon message</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -10791,7 +10791,7 @@
       </notes>
       <segment>
         <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
+        <target>Vous avez trébuché à cause de votre blessure. Un tel problème...</target>
       </segment>
     </unit>
   </file>
