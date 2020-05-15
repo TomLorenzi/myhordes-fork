@@ -10659,5 +10659,131 @@
         <target>Les réparations ne consomment pas de ressources.</target>
       </segment>
     </unit>
+    <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
+      <notes>
+        <note category="german">Deine Nachricht wurde korrekt übermittelt!</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde korrekt übermittelt!</source>
+        <target>Votre message a bien été envoyé !</target>
+      </segment>
+    </unit>
+    <unit id="BjwWH4y" name="Erhaltene Nachrichten">
+      <notes>
+        <note category="german">Erhaltene Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Erhaltene Nachrichten</source>
+        <target>Messages reçus</target>
+      </segment>
+    </unit>
+    <unit id="JyB0OZM" name="Archiv">
+      <notes>
+        <note category="german">Archiv</note>
+      </notes>
+      <segment>
+        <source>Archiv</source>
+        <target>Archives</target>
+      </segment>
+    </unit>
+    <unit id="Yy0zB8." name="Eine Nachricht schreiben">
+      <notes>
+        <note category="german">Eine Nachricht schreiben</note>
+      </notes>
+      <segment>
+        <source>Eine Nachricht schreiben</source>
+        <target>Échanges</target>
+      </segment>
+    </unit>
+    <unit id="kKXLpSQ" name="Schreiben Sie an alle">
+      <notes>
+        <note category="german">Schreiben Sie an alle</note>
+      </notes>
+      <segment>
+        <source>Schreiben Sie an alle</source>
+        <target>Écrire à tout le monde</target>
+      </segment>
+    </unit>
+    <unit id="aUj3MMh" name="7d87462">
+      <notes>
+        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</source>
+        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
+      <notes>
+        <note category="german">Keine Nachricht gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Keine Nachricht gespeichert.</source>
+        <target>Keine Nachricht gespeichert.</target>
+      </segment>
+    </unit>
+    <unit id="wo3L_zx" name="Neue Nachright">
+      <notes>
+        <note category="german">Neue Nachright</note>
+      </notes>
+      <segment>
+        <source>Neue Nachright</source>
+        <target>Nouveau message</target>
+      </segment>
+    </unit>
+    <unit id="47O8Zzm" name="Empfänger:">
+      <notes>
+        <note category="german">Empfänger:</note>
+      </notes>
+      <segment>
+        <source>Empfänger:</source>
+        <target>Citoyen :</target>
+      </segment>
+    </unit>
+    <unit id="Z14T1QO" name="Bürgerverzeichnis anszeigen">
+      <notes>
+        <note category="german">Bürgerverzeichnis anszeigen</note>
+      </notes>
+      <segment>
+        <source>Bürgerverzeichnis anszeigen</source>
+        <target>Bürgerverzeichnis anszeigen</target>
+      </segment>
+    </unit>
+    <unit id="yTzI33f" name="Dieser Nachricht Gegenstände beifügen">
+      <notes>
+        <note category="german">Dieser Nachricht Gegenstände beifügen</note>
+      </notes>
+      <segment>
+        <source>Dieser Nachricht Gegenstände beifügen</source>
+        <target>Dieser Nachricht Gegenstände beifügen</target>
+      </segment>
+    </unit>
+    <unit id="xcRoAOS" name="Betreff:">
+      <notes>
+        <note category="german">Betreff:</note>
+      </notes>
+      <segment>
+        <source>Betreff:</source>
+        <target>Titre :</target>
+      </segment>
+    </unit>
+    <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
+      <notes>
+        <note category="german">Ich BESTÄTIGE meine Nachricht</note>
+      </notes>
+      <segment>
+        <source>Ich BESTÄTIGE meine Nachricht</source>
+        <target>Ich BESTÄTIGE meine Nachricht</target>
+      </segment>
+    </unit>
+    <unit id="iZeG0XJ" name="Neue globale Nachricht">
+      <notes>
+        <note category="german">Neue globale Nachricht</note>
+      </notes>
+      <segment>
+        <source>Neue globale Nachricht</source>
+        <target>Nouveau message global</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
