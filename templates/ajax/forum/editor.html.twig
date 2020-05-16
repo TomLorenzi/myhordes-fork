@@ -39,7 +39,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
@@ -143,7 +143,7 @@
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
                     const str = elem.textContent;
-                    const regex_wrappers = !secondary ? /\[(.*?)]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
+                    const regex_wrappers = !secondary ? /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
                     let current_offset = 0;
                     let blocks = [];
 
@@ -153,9 +153,12 @@
 
                         const tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
-                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); changed = true; break;
-                            case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); changed = true; break;
-                            case 'quote': blocks.push( [ match[2], 'blockquote', null] ); changed = true; break;
+                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[3], tag, null] ); changed = true; break;
+                            case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
+                            case 'quote': blocks.push( [ match[3], 'blockquote', null] ); changed = true; break;
+                            case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
+                            case 'link': blocks.push( [ match[3], 'a', tag, [ 'href', match[2], 'target','_blank' ]] ); changed = true; break;
+                            case 'image': blocks.push( [ '', 'img', tag, [ 'src', match[2], 'alt', match[3] ]] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
                             case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
@@ -297,7 +300,8 @@
 
         let closeModal = function() {
             document.getElementById('modal-backdrop').classList.remove('active');
-            document.getElementById('modal-form').remove();
+            let form = document.getElementById('modal-form');
+            form.parentNode.removeChild(form);
         };
 
         document.getElementById('modal-close').addEventListener('click', closeModal);
@@ -311,10 +315,15 @@
             const content = node_transfer_source.value;
             const s_start = node_transfer_source.selectionStart;
             const s_end = node_transfer_source.selectionEnd;
-            let title, form, label1, label2, input1, input2;
+            let title, form, formType, label1, label2, input1, input2;
 
             form = document.createElement('div');
+            form.setAttribute('id', 'modal-form');
             form.classList.add('modal-form');
+            formType = document.createElement('input');
+            formType.setAttribute('id', 'form-type');
+            formType.setAttribute('type', 'hidden');
+            formType.value = tag;
 
             if (tag === 'link') {
                 title = "{{ 'Link einfügen'|trans({},'global') }}";
@@ -327,7 +336,7 @@
                 input1.value = content.substr( s_start, s_end - s_start );
 
                 label2 = document.createElement('label');
-                label2.setAttribute('for', 'link-text');
+                label2.setAttribute('for', 'link-link');
                 label2.innerText = "{{ 'Link-URL'|trans({},'global') }}";
                 input2 = document.createElement('input');
                 input2.setAttribute('id', 'link-link');
@@ -336,25 +345,58 @@
             }
             else if (tag === 'image') {
                 title = "{{ 'Bild einfügen'|trans({},'global') }}";
+                label1 = document.createElement('label');
+                label1.setAttribute('for', 'image-text');
+                label1.innerText = "{{ 'Bildtitel'|trans({},'global') }}";
+                input1 = document.createElement('input');
+                input1.setAttribute('id', 'image-text');
+                input1.setAttribute('type', 'text');
+                input1.value = content.substr( s_start, s_end - s_start );
+
+                label2 = document.createElement('label');
+                label2.setAttribute('for', 'image-link');
+                label2.innerText = "{{ 'Bild-URL'|trans({},'global') }}";
+                input2 = document.createElement('input');
+                input2.setAttribute('id', 'image-link');
+                input2.setAttribute('type', 'text');
             }
 
-            form.append(label1, input1, label2, input2);
+            form.append(formType, label1, input1, label2, input2);
 
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-content').append(form);
             document.getElementById('modal-backdrop').classList.add('active');
             document.getElementById('modal-backdrop').classList.add('tag'+tag);
 
-            node_transfer_source.value =
-                content.substr( 0, s_start ) +
-                '[' + tag + ']' +
-                content.substr( s_start, s_end - s_start ) +
-                '[/' + tag + ']' +
-                content.substr( s_end );
+            document.getElementById('modal-button-ok').addEventListener('click', function processModal() {
+                console.log('YAY!');
+                document.getElementById('modal-backdrop').classList.remove('active');
+                let submitted = document.getElementById('modal-form');
+                const type = document.getElementById('form-type');
+                let inputs = submitted.getElementsByTagName('input');
+                var tagText, tagUrl;
+                for (let i = 0; i < inputs.length; i++) {
+                    console.log(inputs[i].id);
+                    if (inputs[i].id === type.value + '-text') {
+                        tagText = escape(inputs[i].value);
+                    }
+                    else if (inputs[i].id === type.value + '-link') {
+                        tagUrl = encodeURI(inputs[i].value.replace('http:', '').replace('https:', ''));
+                    }
+                }
 
-            node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
-            transfer_to_preview();
+                submitted.parentNode.removeChild(submitted);
+
+                node_transfer_source.value =
+                    content.substr( 0, s_start ) +
+                    '[' + tag + '=' + tagUrl + ']' +
+                    tagText + '[/' + tag + ']' +
+                    content.substr( s_end );
+
+                node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
+                window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+                transfer_to_preview();
+            }, { once : true });
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
             e.preventDefault();
