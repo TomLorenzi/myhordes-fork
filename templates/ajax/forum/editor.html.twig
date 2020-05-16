@@ -146,6 +146,25 @@
                     const regex_wrappers = !secondary ? /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
                     let current_offset = 0;
                     let blocks = [];
+/*
+Blocks structure
+1 - text content,
+2 - HTML tag (wrapping element),
+3 - element class name,
+4 - element attributes (array, optional)
+
+Attributes structure
+1 - attribute name
+2 - attribute value
+... repeat if necessary
+
+Examples:
+blocks.push( [ 'my text', 'p', null] )
+=> <p>my text</p>
+
+blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
+=> <a class="external" href="https://myhordes.net">my text</a>
+ */
 
                     for (const match of str.matchAll( regex_wrappers )) {
                         if (current_offset < match.index )
