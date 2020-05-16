@@ -19,13 +19,13 @@
         <target>El foro seleccionado no existe o no tienes permiso para verlo.</target>
       </segment>
     </unit>
-    <unit id="johChWe" name="Dein Text muss mindestens 2 Zeichen lang sein.">
+    <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
       <notes>
-        <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
+        <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
       </notes>
       <segment>
-        <source>Dein Text muss mindestens 2 Zeichen lang sein.</source>
-        <target>Tu texto debe tener al menos 2 caracteres de largo.</target>
+        <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
+        <target>Tu texto debe tener al menos 10 caracteres de largo.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
@@ -86,7 +86,7 @@
       <notes>
         <note category="german">Diese Aktion steht dir aktuell nicht zur Verfügung.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Diese Aktion steht dir aktuell nicht zur Verfügung.</source>
         <target>Esta acción no está disponible.</target>
       </segment>
@@ -122,7 +122,7 @@
       <notes>
         <note category="german">Neuer Post</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neuer Post</source>
         <target>Nuevo mensaje</target>
       </segment>
@@ -176,7 +176,7 @@
       <notes>
         <note category="german">Themen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Themen</source>
         <target>Temas</target>
       </segment>
@@ -185,7 +185,7 @@
       <notes>
         <note category="german">Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</source>
         <target>Nadie ha escrito nada todavía. ¡Sé el primero!</target>
       </segment>
@@ -221,7 +221,7 @@
       <notes>
         <note category="german">Achte auf deine Rechtschreibung</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Achte auf deine Rechtschreibung</source>
         <target>Cuida tu ortografía</target>
       </segment>
@@ -230,7 +230,7 @@
       <notes>
         <note category="german">Bleibe höflich und freundlich</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bleibe höflich und freundlich</source>
         <target>Sé respetuoso y cordial</target>
       </segment>
@@ -248,7 +248,7 @@
       <notes>
         <note category="german">Heute um</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Heute um</source>
         <target>Hoy a las</target>
       </segment>
@@ -257,7 +257,7 @@
       <notes>
         <note category="german">Gestern um</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Gestern um</source>
         <target>Ayer a las</target>
       </segment>
@@ -347,7 +347,7 @@
       <notes>
         <note category="german">Forum</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Forum</source>
         <target>Foros</target>
       </segment>
@@ -356,7 +356,7 @@
       <notes>
         <note category="german">Deine Seele</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deine Seele</source>
         <target>Tu alma</target>
       </segment>
@@ -374,7 +374,7 @@
       <notes>
         <note category="german">Zum Spiel</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zum Spiel</source>
         <target>Jugar</target>
       </segment>
@@ -500,7 +500,7 @@
       <notes>
         <note category="german">Aktuelles Leben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Aktuelles Leben</source>
         <target>Pueblo actual</target>
       </segment>
@@ -536,7 +536,7 @@
       <notes>
         <note category="german">Es wurde keine Stadt gefunden...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Es wurde keine Stadt gefunden...</source>
         <target>No se ha encontrado ningún pueblo...</target>
       </segment>
@@ -545,7 +545,7 @@
       <notes>
         <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</source>
         <target>¡Atención! Este enlace te envía hacia un sitio no-oficial (creado por jugadores).</target>
       </segment>
@@ -554,7 +554,7 @@
       <notes>
         <note category="german">Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</source>
         <target>¡Nunca des tu contraseña de MyHordes en este sitio!</target>
       </segment>
@@ -563,7 +563,7 @@
       <notes>
         <note category="german">Auch dann nicht, wenn du dazu aufgefordert wirst!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Auch dann nicht, wenn du dazu aufgefordert wirst!</source>
         <target>¡Ni siquiera si te la piden!</target>
       </segment>
@@ -572,7 +572,7 @@
       <notes>
         <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</source>
         <target>Si tienes alguna duda o pregunta respecto a ese sitio, contacta con %contact%.</target>
       </segment>
@@ -581,7 +581,7 @@
       <notes>
         <note category="german">Weiter zu</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Weiter zu</source>
         <target>Continuar hacia</target>
       </segment>
@@ -590,7 +590,7 @@
       <notes>
         <note category="german">Du hast keine Externe ID.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du hast keine Externe ID.</source>
         <target>No tienes ID externo.</target>
       </segment>
@@ -599,16 +599,16 @@
       <notes>
         <note category="german">Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Sin esto no puedes usar aplicaciones externas. Para configurar un ID externo, ve a Tu alma > Configuración y genera un ID.]]></target>
+        <target>Sin esto no puedes usar aplicaciones externas. Para configurar un ID externo, ve a Tu alma &gt; Configuración y genera un ID.</target>
       </segment>
     </unit>
     <unit id="SddpDzy" name="Verzeichnis">
       <notes>
         <note category="german">Verzeichnis</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verzeichnis</source>
         <target>Anuario</target>
       </segment>
@@ -617,7 +617,7 @@
       <notes>
         <note category="german">Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</source>
         <target>Los siguientes enlaces dirigen hacia sitios web elaborados por la comunidad. Proponen información y herramientas complementarias al juego:</target>
       </segment>
@@ -626,7 +626,7 @@
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dazu hast Du kein Recht.</source>
         <target>No tienes derecho a hacer esto.</target>
       </segment>
@@ -635,7 +635,7 @@
       <notes>
         <note category="german">als Rabe</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>als Rabe</source>
         <target>como Cuervo</target>
       </segment>
@@ -644,7 +644,7 @@
       <notes>
         <note category="german">Öffnen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Öffnen</source>
         <target>Desbloquear</target>
       </segment>
@@ -653,7 +653,7 @@
       <notes>
         <note category="german">Moderation</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Moderation</source>
         <target>Moderación</target>
       </segment>
@@ -662,7 +662,7 @@
       <notes>
         <note category="german">Schere</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schere</source>
         <target>Tijera</target>
       </segment>
@@ -671,7 +671,7 @@
       <notes>
         <note category="german">Stein</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Stein</source>
         <target>Piedra</target>
       </segment>
@@ -680,7 +680,7 @@
       <notes>
         <note category="german">Papier</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Papier</source>
         <target>Papel</target>
       </segment>
@@ -689,7 +689,7 @@
       <notes>
         <note category="german">Kopf</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kopf</source>
         <target>Cara</target>
       </segment>
@@ -698,7 +698,7 @@
       <notes>
         <note category="german">Zahl</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zahl</source>
         <target>Cruz</target>
       </segment>
@@ -707,7 +707,7 @@
       <notes>
         <note category="german">{color} {value}</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>{color} {value}</source>
         <target>{value} de {color}</target>
       </segment>
@@ -716,7 +716,7 @@
       <notes>
         <note category="german">Users</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Users</source>
         <target>Usuarios</target>
       </segment>
@@ -734,7 +734,7 @@
       <notes>
         <note category="german">Du wurdest aus dem Forum verbannt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du wurdest aus dem Forum verbannt.</source>
         <target>Has sido baneado.</target>
       </segment>
@@ -743,7 +743,7 @@
       <notes>
         <note category="german">Hierfür fehlen dir notwendige Gegenstände.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hierfür fehlen dir notwendige Gegenstände.</source>
         <target>Necesitas los objetos necesarios para esto.</target>
       </segment>
@@ -752,7 +752,7 @@
       <notes>
         <note category="german">Vorschau</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Vorschau</source>
         <target>Vista previa</target>
       </segment>
@@ -761,7 +761,7 @@
       <notes>
         <note category="german">Dev</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dev</source>
         <target>Desarrollador</target>
       </segment>
@@ -770,7 +770,7 @@
       <notes>
         <note category="german">Rabe</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rabe</source>
         <target>Cuervo</target>
       </segment>
@@ -779,7 +779,7 @@
       <notes>
         <note category="german">Sticky</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Sticky</source>
         <target>Destacado</target>
       </segment>
@@ -788,7 +788,7 @@
       <notes>
         <note category="german">Melden</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Melden</source>
         <target>Reportar</target>
       </segment>
@@ -797,7 +797,7 @@
       <notes>
         <note category="german">Löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Löschen</source>
         <target>Eliminar</target>
       </segment>
@@ -806,7 +806,7 @@
       <notes>
         <note category="german">Anpinnen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Anpinnen</source>
         <target>Destacar</target>
       </segment>
@@ -815,7 +815,7 @@
       <notes>
         <note category="german">Loslösen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Loslösen</source>
         <target>Desprender</target>
       </segment>
@@ -824,7 +824,7 @@
       <notes>
         <note category="german">Online</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Online</source>
         <target>On-line</target>
       </segment>
@@ -833,162 +833,9 @@
       <notes>
         <note category="german">Offline</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Offline</source>
         <target>Off-line</target>
-      </segment>
-    </unit>
-    <unit id="MCyZNHk" name="62c3512">
-      <notes>
-        <note category="german">Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</note>
-      </notes>
-      <segment>
-        <source>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</source>
-        <target>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</target>
-      </segment>
-    </unit>
-    <unit id="BygLauq" name="Autor">
-      <notes>
-        <note category="german">Autor</note>
-      </notes>
-      <segment>
-        <source>Autor</source>
-        <target>Autor</target>
-      </segment>
-    </unit>
-    <unit id="kTWILTI" name="Datum">
-      <notes>
-        <note category="german">Datum</note>
-      </notes>
-      <segment>
-        <source>Datum</source>
-        <target>Datum</target>
-      </segment>
-    </unit>
-    <unit id="BGGdaRH" name="Züruck">
-      <notes>
-        <note category="german">Züruck</note>
-      </notes>
-      <segment>
-        <source>Züruck</source>
-        <target>Züruck</target>
-      </segment>
-    </unit>
-    <unit id="pUyN66u" name="Archivieren">
-      <notes>
-        <note category="german">Archivieren</note>
-      </notes>
-      <segment>
-        <source>Archivieren</source>
-        <target>Archivieren</target>
-      </segment>
-    </unit>
-    <unit id="_J8vap3" name="Fett">
-      <notes>
-        <note category="german">Fett</note>
-      </notes>
-      <segment>
-        <source>Fett</source>
-        <target>Fett</target>
-      </segment>
-    </unit>
-    <unit id="6XYRB0Q" name="Kursiv">
-      <notes>
-        <note category="german">Kursiv</note>
-      </notes>
-      <segment>
-        <source>Kursiv</source>
-        <target>Kursiv</target>
-      </segment>
-    </unit>
-    <unit id="RuL1D2i" name="Unterstreichen">
-      <notes>
-        <note category="german">Unterstreichen</note>
-      </notes>
-      <segment>
-        <source>Unterstreichen</source>
-        <target>Unterstreichen</target>
-      </segment>
-    </unit>
-    <unit id="AsD_uy4" name="Durchstreichen">
-      <notes>
-        <note category="german">Durchstreichen</note>
-      </notes>
-      <segment>
-        <source>Durchstreichen</source>
-        <target>Durchstreichen</target>
-      </segment>
-    </unit>
-    <unit id="aZc6vxf" name="Einfache Liste">
-      <notes>
-        <note category="german">Einfache Liste</note>
-      </notes>
-      <segment>
-        <source>Einfache Liste</source>
-        <target>Einfache Liste</target>
-      </segment>
-    </unit>
-    <unit id="1CuRrf_" name="Nummerierte Liste">
-      <notes>
-        <note category="german">Nummerierte Liste</note>
-      </notes>
-      <segment>
-        <source>Nummerierte Liste</source>
-        <target>Nummerierte Liste</target>
-      </segment>
-    </unit>
-    <unit id="Sk04seo" name="Listenpunkt">
-      <notes>
-        <note category="german">Listenpunkt</note>
-      </notes>
-      <segment>
-        <source>Listenpunkt</source>
-        <target>Listenpunkt</target>
-      </segment>
-    </unit>
-    <unit id="jlAJmOo" name="Spoiler">
-      <notes>
-        <note category="german">Spoiler</note>
-      </notes>
-      <segment>
-        <source>Spoiler</source>
-        <target>Spoiler</target>
-      </segment>
-    </unit>
-    <unit id="VfBD_n6" name="Zitat">
-      <notes>
-        <note category="german">Zitat</note>
-      </notes>
-      <segment>
-        <source>Zitat</source>
-        <target>Zitat</target>
-      </segment>
-    </unit>
-    <unit id="Fxoqglo" name="Ruhm">
-      <notes>
-        <note category="german">Ruhm</note>
-      </notes>
-      <segment>
-        <source>Ruhm</source>
-        <target>Ruhm</target>
-      </segment>
-    </unit>
-    <unit id="0OPnj4A" name="Linie">
-      <notes>
-        <note category="german">Linie</note>
-      </notes>
-      <segment>
-        <source>Linie</source>
-        <target>Linie</target>
-      </segment>
-    </unit>
-    <unit id="7WQ2SM6" name="Entstauben">
-      <notes>
-        <note category="german">Entstauben</note>
-      </notes>
-      <segment>
-        <source>Entstauben</source>
-        <target>Entstauben</target>
       </segment>
     </unit>
   </file>
