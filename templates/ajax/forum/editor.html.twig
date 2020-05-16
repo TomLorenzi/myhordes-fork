@@ -38,7 +38,8 @@
                     <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="modal" x-text-wrap-node="a" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
@@ -294,6 +295,67 @@
 
         node_transfer_source.addEventListener('input', transfer_to_preview);
 
+        let closeModal = function() {
+            document.getElementById('modal-backdrop').classList.remove('active');
+            document.getElementById('modal-form').remove();
+        };
+
+        document.getElementById('modal-close').addEventListener('click', closeModal);
+        document.getElementById('modal-button-no').addEventListener('click', closeModal);
+
+        $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const tag = elem.getAttribute('x-text-modal-node');
+            const content = node_transfer_source.value;
+            const s_start = node_transfer_source.selectionStart;
+            const s_end = node_transfer_source.selectionEnd;
+            let title, form, label1, label2, input1, input2;
+
+            form = document.createElement('div');
+            form.classList.add('modal-form');
+
+            if (tag === 'link') {
+                title = "{{ 'Link einfügen'|trans({},'global') }}";
+                label1 = document.createElement('label');
+                label1.setAttribute('for', 'link-text');
+                label1.innerText = "{{ 'Link-Text'|trans({},'global') }}";
+                input1 = document.createElement('input');
+                input1.setAttribute('id', 'link-text');
+                input1.setAttribute('type', 'text');
+                input1.value = content.substr( s_start, s_end - s_start );
+
+                label2 = document.createElement('label');
+                label2.setAttribute('for', 'link-text');
+                label2.innerText = "{{ 'Link-URL'|trans({},'global') }}";
+                input2 = document.createElement('input');
+                input2.setAttribute('id', 'link-link');
+                input2.setAttribute('type', 'text');
+
+            }
+            else if (tag === 'image') {
+                title = "{{ 'Bild einfügen'|trans({},'global') }}";
+            }
+
+            form.append(label1, input1, label2, input2);
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-content').append(form);
+            document.getElementById('modal-backdrop').classList.add('active');
+            document.getElementById('modal-backdrop').classList.add('tag'+tag);
+
+            node_transfer_source.value =
+                content.substr( 0, s_start ) +
+                '[' + tag + ']' +
+                content.substr( s_start, s_end - s_start ) +
+                '[/' + tag + ']' +
+                content.substr( s_end );
+
+            node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
+            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            transfer_to_preview();
+        } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
             e.preventDefault();
             e.stopPropagation();
