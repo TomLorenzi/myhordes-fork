@@ -7714,5 +7714,50 @@
         <target>pts</target>
       </segment>
     </unit>
+    <unit id="UGai_eX" name="9e17f97">
+      <notes>
+        <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="tqLPvCK" name="Heilen">
+      <notes>
+        <note category="german">Heilen</note>
+      </notes>
+      <segment>
+        <source>Heilen</source>
+        <target>Heilen</target>
+      </segment>
+    </unit>
+    <unit id="zEs55xR" name="Verteidigung organisieren">
+      <notes>
+        <note category="german">Verteidigung organisieren</note>
+      </notes>
+      <segment>
+        <source>Verteidigung organisieren</source>
+        <target>Verteidigung organisieren</target>
+      </segment>
+    </unit>
+    <unit id="brwfS0V" name="Reinigen (Wasser)">
+      <notes>
+        <note category="german">Reinigen (Wasser)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Wasser)</source>
+        <target>Reinigen (Wasser)</target>
+      </segment>
+    </unit>
+    <unit id="F9ufT7F" name="Reinigen (Kleidung)">
+      <notes>
+        <note category="german">Reinigen (Kleidung)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Kleidung)</source>
+        <target>Reinigen (Kleidung)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
