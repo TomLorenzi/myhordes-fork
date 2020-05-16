@@ -1,12 +1,16 @@
 {% set today = date() %}
 {% set yesterday = date('-1days') %}
 <div class="row">
-    <div class="cell padded rw-3"><button><img src="{{ asset("build/images/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
-    <div class="cell padded rw-3"><button><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Archivieren{% endtrans %}</button></div>
+    <div class="cell padded rw-3"><button id="backbtn"><img src="{{ asset("build/images/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
+    {% if thread.archived %}
+    <div class="cell padded rw-3"><button id="unarchivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Entstauben{% endtrans %}</button></div>
+    {% else %}
+    <div class="cell padded rw-3"><button id="archivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Archivieren{% endtrans %}</button></div>
+    {% endif %}
 </div>
 
 <div class="row-table messages-list">
-    <h5>{{thread.title}}</h5>
+    <h5>{% trans from 'game'%}Betreff:{% endtrans %} {{thread.title}}</h5>
 
     {% for post in posts %}
         <div class="forum-post">
@@ -52,25 +56,51 @@
         </div>
     {% endfor %}
 
-    <div class="row">
-        <div class="cell padded rw-12">
-            <textarea id="pmanswer"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="cell padded rw-12">
-            <button id="pmsendanswer">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
-        </div>
-    </div>
+    {% if not thread.archived and not thread.locked %}
+        <button id="replybtn">{{ 'Antworten'|trans({},'global') }}</button>
+        <div id="forum-editor"></div>
+    {% endif %}
 </div>
 
 <script>
     let sendbtn = document.getElementById("pmsendanswer");
     if(sendbtn) sendbtn.addEventListener('click', function(e){
         e.preventDefault();
-        $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, 'content': document.getElementById("pmanswer").value, 'tid': {{ tid }}},
+        $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, 'content': document.getElementById("pmanswer").value, 'tid': {{ thread.id }}},
             function () {
                 $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
             } );
+    });
+
+    let backbtn = document.getElementById("backbtn");
+    if(backbtn) backbtn.addEventListener('click', function(e){
+        e.preventDefault();
+        var dest = "{% if thread.archived %}{{ path('town_house', {'tab': 'messages', 'subtab': 'archived'}) }}{% else %}{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}{% endif %}";
+        $.ajax.load(null, dest, true);
+    });
+
+    let archivebtn = document.getElementById("archivebtn");
+    if(archivebtn) archivebtn.addEventListener('click', function(e){
+        e.preventDefault();
+        $.ajax.easySend( '{{ path('home_archive_pm_controller', {'tid': thread.id }) }}', {},
+        function () {
+            $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+        } );
+    });
+
+    let unarchivebtn = document.getElementById("unarchivebtn");
+    if(unarchivebtn) unarchivebtn.addEventListener('click', function(e){
+        e.preventDefault();
+        $.ajax.easySend( '{{ path('home_unarchive_pm_controller', {'tid': thread.id }) }}', {},
+        function () {
+            $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'archives'}) }}', true);
+        } );
+    });
+
+    let replybtn = document.getElementById("replybtn");
+    if(replybtn) replybtn.addEventListener('click', function(e){
+        e.preventDefault();
+        replybtn.style.display = "none";
+        $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_post_editor_controller', {tid: thread.id}) }}', false )
     });
 </script>

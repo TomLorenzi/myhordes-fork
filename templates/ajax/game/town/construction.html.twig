@@ -48,10 +48,14 @@
                         </div>
                     </span>
                 {% endif %}
-                {% if building.defense > 0 %}
-                    <div class="float-right defense{% if building.defense != building.prototype.defense %}-broken{% endif %}">
-                        {{ building.defense }}
-                        {% if building.defense != building.prototype.defense %}
+                {% if (building.complete and building.defense > 0) or (not building.complete and building.prototype.defense > 0) %}
+                    <div class="float-right defense{% if building.complete and building.defense != building.prototype.defense %}-broken{% endif %}">
+                    	{% if (building.complete and building.defense > 0) %}
+                        	{{ building.defense }}
+                        {% elseif not building.complete%}
+                        	{{ building.prototype.defense }}
+                        {% endif %}
+                        {% if building.complete and building.defense != building.prototype.defense %}
                             <div class="tooltip">
                                 {{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}
                             </div>

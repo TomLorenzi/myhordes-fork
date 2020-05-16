@@ -261,16 +261,6 @@
         <target>Oubliettes</target>
       </segment>
     </unit>
-    <unit id="rCdMakD" name="Zaun">
-      <notes>
-        <note>Zaun</note>
-        <note category="german">Zaun</note>
-      </notes>
-      <segment>
-        <source>Zaun</source>
-        <target>Clôtures</target>
-      </segment>
-    </unit>
     <unit id="1VFjm8C" name="Holzzaun">
       <notes>
         <note>Holzzaun</note>
@@ -1059,26 +1049,6 @@
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
         <target>Le coût en PA de tous les chantiers est réduit de 15%.</target>
-      </segment>
-    </unit>
-    <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
-      <notes>
-        <note>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
-      </notes>
-      <segment>
-        <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>Le coût en PA de tous les chantiers est réduit de 20%.</target>
-      </segment>
-    </unit>
-    <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
-      <notes>
-        <note>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
-      </notes>
-      <segment>
-        <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>Le coût en PA de tous les chantiers est réduit de 25%.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">
@@ -3473,6 +3443,42 @@
       <segment>
         <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
         <target>L'organisation de la défense atteint sont niveau maximum, le gain de la défense total de la ville passe à 14%.</target>
+      </segment>
+    </unit>
+    <unit id="K_1scXO" name="Zaun (Baustellen)">
+      <notes>
+        <note category="german">Zaun (Baustellen)</note>
+      </notes>
+      <segment>
+        <source>Zaun (Baustellen)</source>
+        <target>Barrières</target>
+      </segment>
+    </unit>
+    <unit id="R.TLWup" name="aed3fec">
+      <notes>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
+      </notes>
+      <segment>
+        <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
+        <target>Le coût en PA de tous les chantiers est réduit de 20%. Augmente le rendement de réparation de un point.</target>
+      </segment>
+    </unit>
+    <unit id="JLugykh" name="124a889">
+      <notes>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
+      </notes>
+      <segment>
+        <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
+        <target>Le coût en PA de tous les chantiers est réduit de 25%. Augmente le rendement de réparation de deux points.</target>
+      </segment>
+    </unit>
+    <unit id="OK7fp_k" name="Zaun (Haus)">
+      <notes>
+        <note category="german">Zaun (Haus)</note>
+      </notes>
+      <segment>
+        <source>Zaun (Haus)</source>
+        <target>Clôture</target>
       </segment>
     </unit>
   </file>

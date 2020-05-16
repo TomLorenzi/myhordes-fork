@@ -772,7 +772,7 @@ class MessageController extends AbstractController
             return AjaxResponse::success( );
     }
 
-        /**
+    /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
@@ -812,6 +812,7 @@ class MessageController extends AbstractController
                 $thread->setSender($sender)
                     ->setTitle($title)
                     ->setNew(true)
+                    ->steLocked(false)
                     ->setLastMessage(new DateTime('now'))
                     ->setRecipient($recipient);
                 ;
@@ -870,7 +871,7 @@ class MessageController extends AbstractController
 
         // Show confirmation
         $this->addFlash( 'notice', $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game') );
-        return AjaxResponse::success();
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
     }
 
     /**
@@ -899,8 +900,75 @@ class MessageController extends AbstractController
         return $this->render( 'ajax/game/town/posts.html.twig', [
             'thread' => $thread,
             'posts' => $posts,
-            'tid' => $tid,
             'emotes' => $this->get_emotes(true),
+        ] );
+    }
+
+    /**
+     * @Route("api/town/house/pm/{tid<\d+>}/archive", name="home_archive_pm_controller")
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pm_archive_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+        /** @var Citizen $citizen */
+        $citizen = $this->getUser()->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
+        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+
+        $thread->setArchived(true);
+
+        $em->persist($thread);
+        $em->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/{tid<\d+>}/unarchive", name="home_unarchive_pm_controller")
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pm_unarchive_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+        /** @var Citizen $citizen */
+        $citizen = $this->getUser()->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
+        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+
+        $thread->setArchived(false);
+
+        $em->persist($thread);
+        $em->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_post_editor_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function home_editor_post_api(int $tid, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
+        if ($thread === null) return new Response('testcase');
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => $tid,
+            'pid' => null,
+            'emotes' => $this->get_emotes(true),
+            'pm' => true
         ] );
     }
 }
