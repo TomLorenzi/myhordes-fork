@@ -263,7 +263,7 @@ class MessageController extends AbstractController
         else return false;
     }
 
-    private function preparePost(User $user, Forum $forum, Thread $thread, Post &$post, int &$tx_len): bool {
+    private function preparePost(User $user, ?Forum $forum, &$post, int &$tx_len): bool {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
@@ -300,7 +300,7 @@ class MessageController extends AbstractController
                 if ($profession === 'any') $profession = null;
                 $group      = is_numeric($d->attributes->getNamedItem('x-b')->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')->nodeValue : null;
 
-                if (!$forum->getTown()) {
+                if ($forum === null || !$forum->getTown()) {
                     $d->nodeValue = '???';
                     return;
                 }
@@ -348,7 +348,7 @@ class MessageController extends AbstractController
             $tmp_str .= $dom->saveHTML($child);
 
         $post->setText( $tmp_str );
-        if ($forum->getTown()) {
+        if ($forum !== null && $forum->getTown()) {
             foreach ( $forum->getTown()->getCitizens() as $citizen )
                 if ($citizen->getUser()->getId() === $user->getId()) {
                     if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
@@ -434,7 +434,7 @@ class MessageController extends AbstractController
             ->setType($type);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
+        if (!$this->preparePost($user,$forum,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
         $thread->addPost($post)->setLastPost( $post->getDate() );
@@ -509,7 +509,7 @@ class MessageController extends AbstractController
             ->setType($type);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
+        if (!$this->preparePost($user,$forum,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -671,6 +671,7 @@ class MessageController extends AbstractController
             'pid' => null,
             'emotes' => $this->get_emotes(true),
             'username' => $this->getUser()->getUsername(),
+            'pm' => false,
         ] );
     }
 
@@ -699,6 +700,7 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->get_emotes(true),
+            'pm' => false,
         ] );
     }
 
@@ -823,6 +825,12 @@ class MessageController extends AbstractController
                     ->setPrivateMessageThread($thread)
                     ->setOwner($sender);
 
+                $tx_len = 0;
+                    if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                    $thread->addMessage($post);
+
                 $em->persist($thread);
                 $em->persist($post);
             } else {
@@ -843,6 +851,12 @@ class MessageController extends AbstractController
                         ->setPrivateMessageThread($thread)
                         ->setOwner($sender);
 
+                    $tx_len = 0;
+                    if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                    $thread->addMessage($post);
+
                     $em->persist($thread);
                     $em->persist($post);
                 }
@@ -860,8 +874,13 @@ class MessageController extends AbstractController
                 ->setPrivateMessageThread($thread)
                 ->setOwner($sender);
 
+            $tx_len = 0;
+            if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
             $thread->setLastMessage($post->getDate());
             $thread->setNew(true);
+            $thread->addMessage($post);
 
             $em->persist($thread);
             $em->persist($post);
