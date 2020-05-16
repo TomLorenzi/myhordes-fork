@@ -107,4 +107,19 @@ class PictoHandler
         }
         $this->entity_manager->flush();
     }
+
+    public function has_picto(Citizen $citizen, $pictoPrototype){
+        if(is_string($pictoPrototype)){
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoPrototype);
+            if($pictoPrototype === null)
+                return false;
+        }
+
+        foreach ($citizen->getUser()->getPictos() as $picto) {
+            if($picto->getPrototype() === $pictoPrototype)
+                return true;
+        }
+
+        return false;
+    }
 }

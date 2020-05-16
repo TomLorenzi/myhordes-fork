@@ -21,6 +21,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
+use App\Entity\ZoneTag;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
 use Symfony\Component\Translation\MessageCatalogue;
@@ -150,6 +151,12 @@ class DatabaseExtractor implements ExtractorInterface
 
             if ($zone->getDescription())
                 $this->insert( $c, $zone->getDescription(), 'game' );
+        }
+
+        foreach ($this->em->getRepository(ZoneTag::class)->findAll() as $zone) {
+            /** @var $zone ZonePrototype */
+            if ($zone->getLabel())
+                $this->insert( $c, $zone->getLabel(), 'game' );
         }
 
         foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)

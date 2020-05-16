@@ -3288,7 +3288,7 @@
       </notes>
       <segment>
         <source>Tarnanzug</source>
-        <target>Tarnanzug</target>
+        <target>Camuflaje</target>
       </segment>
     </unit>
     <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
@@ -3298,7 +3298,7 @@
       </notes>
       <segment>
         <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <target>Camuflaje eliminado</target>
       </segment>
     </unit>
     <unit id="zozlCDV" name="Kleine Schaufel">
@@ -3378,7 +3378,7 @@
       </notes>
       <segment>
         <source>Voodoo-Maske</source>
-        <target>Voodoo-Maske</target>
+        <target>Máscara de vudú</target>
       </segment>
     </unit>
     <unit id="u_g_Kg2" name="Trinken">
@@ -4078,7 +4078,7 @@
       </notes>
       <segment>
         <source>Heldentaten</source>
-        <target>Heldentaten</target>
+        <target>Acciones heroicas</target>
       </segment>
     </unit>
     <unit id="mXiqRuJ" name="a4c1519">
@@ -4388,7 +4388,7 @@
       </notes>
       <segment>
         <source>Du trittst mal ausnahmsweise nicht auf Leichen rum. Ein gutes Gefühl.</source>
-        <target>texto felpudo</target>
+        <target>Siempre es bueno limpiarse los zapatos antes de entrar, díselo a los zombies cuando vengan a visitarte.</target>
       </segment>
     </unit>
     <unit id="bf_Jebl" name="Spiele ne Runde mit den anderen Losern.">
@@ -5929,7 +5929,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll steinharter Marshmallows, die nach Rattengift riechen. Jetzt, da sie komplett geröstet sind, kannst du sie essen, und wenn du es dir genau überlegst, sind sie sogar richtig lecker...</source>
-        <target>texto malvaviscos quemados</target>
+        <target>Estarán secos y quemados, pero hagamos cuenta de que aún son comestibles.</target>
       </segment>
     </unit>
     <unit id="l74gjsr" name="4e28f16">
@@ -5949,7 +5949,7 @@
       </notes>
       <segment>
         <source>Toll... und wie findest du jetzt raus, was da drin ist? Ohne die Geheimkombination dürfte das etwas schwierig werden.</source>
-        <target>texto caja fuerte</target>
+        <target>¿Qué tendrá dentro? Ah, claro, necesitas conocer la clave secreta para averiguarlo.</target>
       </segment>
     </unit>
     <unit id="VwE0Fh5" name="8172b71">
@@ -6339,7 +6339,7 @@
       </notes>
       <segment>
         <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</source>
-        <target>texto molde para abrebotellas/llave de percusión</target>
+        <target>Como no tienes cervezas que abrir, mejor usas este abrebotellas para abrir puertas en busca de objetos útiles. Con este molde podrás hacer uno.</target>
       </segment>
     </unit>
     <unit id="1gt825t" name="2c41683">
@@ -6819,7 +6819,7 @@
       </notes>
       <segment>
         <source>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</source>
-        <target>texto capa de explorador</target>
+        <target>Este traje te permite avanzar en el desierto sin temer ser visto por los zombies. Pero cuidado, puede no ser tan eficaz si atraviesas una zona controlada por numerosos muertos vivientes.</target>
       </segment>
     </unit>
     <unit id="IU3Z1xk" name="c85cf59">
@@ -6879,7 +6879,7 @@
       </notes>
       <segment>
         <source>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</source>
-        <target>texto máscara de chamán</target>
+        <target>Esta máscara esconde el conocimiento y el poder miles de sacerdotes vudú. El chamán la puede usar para revelar dónde deambulan las almas de los habitantes muertos en el Ultramundo.</target>
       </segment>
     </unit>
     <unit id="wESWf2D" name="Berufsgegenstand">
@@ -7530,7 +7530,7 @@
       </notes>
       <segment>
         <source>Vodka Marinostov</source>
-        <target>Vodka Marinostov</target>
+        <target>Vodka Rosquetoff</target>
       </segment>
     </unit>
     <unit id="Xty7y8z" name="686a25e">
@@ -7548,7 +7548,7 @@
       </notes>
       <segment>
         <source>Mystischer Trank</source>
-        <target>Mystischer Trank</target>
+        <target>Poción chamánica</target>
       </segment>
     </unit>
     <unit id="6IZOpuK" name="29848f3">
@@ -7711,6 +7711,42 @@
       <segment>
         <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
         <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="tqLPvCK" name="Heilen">
+      <notes>
+        <note category="german">Heilen</note>
+      </notes>
+      <segment>
+        <source>Heilen</source>
+        <target>Heilen</target>
+      </segment>
+    </unit>
+    <unit id="zEs55xR" name="Verteidigung organisieren">
+      <notes>
+        <note category="german">Verteidigung organisieren</note>
+      </notes>
+      <segment>
+        <source>Verteidigung organisieren</source>
+        <target>Verteidigung organisieren</target>
+      </segment>
+    </unit>
+    <unit id="brwfS0V" name="Reinigen (Wasser)">
+      <notes>
+        <note category="german">Reinigen (Wasser)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Wasser)</source>
+        <target>Reinigen (Wasser)</target>
+      </segment>
+    </unit>
+    <unit id="F9ufT7F" name="Reinigen (Kleidung)">
+      <notes>
+        <note category="german">Reinigen (Kleidung)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Kleidung)</source>
+        <target>Reinigen (Kleidung)</target>
       </segment>
     </unit>
   </file>

@@ -482,6 +482,18 @@ class PictoFixtures extends Fixture
             'icon' => 'r_chaman',
             'rare' => true
         ],
+        [
+            'label' => 'Zeuge von Harmagedon',
+            'description' => 'Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!',
+            'icon' => 'r_armag',
+            'rare' => true
+        ],
+        [
+            'label' => 'Zeuge der großen Verseuchung',
+            'description' => 'Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!',
+            'icon' => 'r_ginfec',
+            'rare' => true
+        ],
     ];
 
     private $entityManager;

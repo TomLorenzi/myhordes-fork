@@ -36,7 +36,7 @@ class PictoRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByUserAndTownAndPrototype(User $user, Town $town, PictoPrototype $prototype)
+    public function findByUserAndTownAndPrototype(User $user, ?Town $town, PictoPrototype $prototype)
     {
         try {
             return $this->createQueryBuilder('i')

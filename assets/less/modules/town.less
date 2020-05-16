@@ -221,7 +221,8 @@ div.town-banner {
   }
 }
 
-.citizens-list {
+.citizens-list,
+.messages-list {
   .row.header {
     font-weight: bold;
     background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
@@ -235,6 +236,11 @@ div.town-banner {
 
   .row.me {
     background-color: #423f54 !important;
+  }
+
+  .row.new {
+    font-weight: bold;
+    color: @myhordes-cell-header-text-color;
   }
 }
 
@@ -525,15 +531,19 @@ div.town-banner {
             text-transform: uppercase;
             font-size: 120%;
           }
+
+          i.dagger {
+            font-family: serif;
+            font-style: normal;
+          }
         }
       }
 
       div#gazette-signature {
-        top: 45%;
-        left: 75%;
-        font-size: 80%;
+        font-size: 100%;
         font-style: italic;
         color: #5a5132;
+        text-align: right;
       }
 
       div#gazette-deaths {
@@ -637,7 +647,13 @@ div.town-banner {
       }
 
       #gazette-attack {
-        background-image: url('../../img/news/newsSchema_classic.gif');
+        &.opened {
+          background-image: url('../../img/news/newsSchema_door.gif');
+        }
+
+        &.closed {
+          background-image: url('../../img/news/newsSchema_classic.gif');
+        }
         top: 13%;
         width: 97%;
         height: 35%;
@@ -709,5 +725,19 @@ div.town-banner {
     strong {
       color: white;
     }
+  }
+}
+
+#recipient_list {
+  position: absolute;
+  padding: 5px;
+  background-color: #3b3249;
+  border: 1px solid #ddab76;
+  outline: 1px solid #5c2b20;
+  z-index: 999;
+  display: none;
+  .list {
+    overflow-y: scroll;
+    max-height: 200px;
   }
 }

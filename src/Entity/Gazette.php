@@ -64,6 +64,11 @@ class Gazette
      */
     private $victims;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $door;
+
     public function __construct()
     {
         $this->victims = new ArrayCollection();
@@ -180,6 +185,18 @@ class Gazette
         if ($this->victims->contains($victim)) {
             $this->victims->removeElement($victim);
         }
+
+        return $this;
+    }
+
+    public function getDoor(): ?bool
+    {
+        return $this->door;
+    }
+
+    public function setDoor(?bool $door): self
+    {
+        $this->door = $door;
 
         return $this;
     }

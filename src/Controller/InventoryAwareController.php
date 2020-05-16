@@ -21,6 +21,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
+use App\Entity\Zone;
 use App\Interfaces\RandomGroup;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -376,6 +377,26 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 50) );
 
+            $stat_down = false;
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'drugged' );
+            }
+
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'addict') && $this->citizen_handler->hasStatusEffect($victim, 'addict')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'addict' );
+            }
+
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drunk') && $this->citizen_handler->hasStatusEffect($victim, 'drunk')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'drunk' );
+                $this->citizen_handler->inflictStatus( $aggressor, 'tg_no_hangover' );
+            }
+
+            if ($stat_down)
+                $notes[] = $this->translator->trans( 'Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...', [], 'game' );
+
             $this->death_handler->kill($victim, CauseOfDeath::GhulEaten);
             $this->entity_manager->persist($this->log->citizenDeath( $victim ) );
 
@@ -540,9 +561,10 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         return AjaxResponse::success();
                     }
                 }
+
                 if (($error = $handler->transferItem(
                         $citizen,
-                        $current_item, $inv_source, $inv_target
+                        $current_item, $inv_source, $inv_target, InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
                     )) === InventoryHandler::ErrorNone) {
 
                     if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item, !$bank_up ) );
@@ -554,6 +576,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
                         // Give picto steal
                         $pictoName = "r_theft_#00";
+                        if(!$victim_home->getCitizen()->getAlive())
+                            $pictoName = "r_plundr_#00";
+
                         $santaClothes = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("christmas_suit_full_#00");
                         $isSanta = false;
                         $explodingDoormat = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("trapma_#00");
@@ -586,7 +611,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                             $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item, $steal_up ) );
                             $this->citizen_handler->inflictStatus( $citizen, 'terror' );
                             $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
-                        } elseif ($this->random_generator->chance(0.5)) {
+                        } elseif (($victim_home->getCitizen()->getAlive() && $this->random_generator->chance(0.5)) ||!$victim_home->getCitizen()->getAlive()) {
+                            //TODO: the text is different when looting a dead citizen's house, waiting for the text (should come quickly enough)
                             $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item, $steal_up ) );
                             $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                         } else {
@@ -647,6 +673,15 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     public function get_map_blob(): array {
         $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
         $zones_classes = [];
+
+        $citizen_is_shaman =
+            ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman')
+                || $this->getActiveCitizen()->getProfession()->getName() == 'shaman');
+
+        $soul_zones_ids = $citizen_is_shaman
+            ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $this->getActiveCitizen()->getTown() ) )
+            : [];
+
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -657,8 +692,15 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if (!isset($zones[$x])) $zones[$x] = [];
             $zones[$x][$y] = $zone;
 
+
+
             if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
-            $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses($zone, $this->getActiveCitizen());
+            $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses(
+                $this->getActiveCitizen()->getTown(),
+                $zone,
+                $this->getActiveCitizen(),
+                in_array($zone->getId(), $soul_zones_ids)
+            );
         }
 
         return [

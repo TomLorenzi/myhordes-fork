@@ -46,8 +46,8 @@
                     <div class="forum-control">
                         <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
                         <div class="forum-button-bar">
-                            <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forums/back.png') }}" /><div class="tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
-                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forums/refresh.png') }}" /></div>
+                            <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
+                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /></div>
                             {% if is_granted("ROLE_BANNED") %}
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
@@ -92,7 +92,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        let thread_buttons = document.querySelectorAll('[x-thread-id');
+
         {% if not is_granted("ROLE_BANNED") %}
             let new_post_btns = document.querySelectorAll('[x-forum-action=new]');
             for (let i = 0; i < new_post_btns.length; i++)
@@ -104,6 +104,7 @@
                 })            
         {% endif %}
 
+        let thread_buttons = document.querySelectorAll('[x-thread-id');
         for (let i = 0; i < thread_buttons.length; i++)
             thread_buttons[i].addEventListener('click', function() {
                 for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');

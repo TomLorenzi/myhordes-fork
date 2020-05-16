@@ -19,6 +19,7 @@ use App\Entity\Recipe;
 use App\Entity\ScoutVisit;
 use App\Entity\Town;
 use App\Entity\Zone;
+use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -295,6 +296,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
         }
 
+        $zone_tags = [];
+        if(!$is_on_zero) {
+            $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
+        }
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
@@ -322,6 +328,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping_blueprint' => $camping_blueprint ?? '',
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
+            'zone_tags' => $zone_tags ?? [],
         ]) );
     }
 
@@ -568,6 +575,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         /** @var Zone $new_zone */
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
+
+        if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
+            $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
+            $this->citizen_handler->setAP( $citizen, true, -1 );
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+            return AjaxResponse::success();
+        }
 
         $movers = [];
         foreach ($citizen->getValidLeadingEscorts() as $escort)
@@ -1355,8 +1370,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function beyond_change_zone_marker(JSONRequestParser $parser): Response {
-        $tag = $parser->get('tag', null);
-        if ($tag < 0 || $tag > Zone::TagLostSoul )
+        $tagRef = $parser->get('tag', null);
+        if ($tagRef < 0 || !is_numeric($tagRef) )
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $zone = $this->getActiveCitizen()->getZone();
@@ -1365,10 +1380,16 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 
+        $tag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef($tagRef);
+
+        if(!$tag){
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
         $zone->setTag($tag);
 
         try {
-            $this->entity_manager->persist( $zone );
+            $this->entity_manager->persist($zone);
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );

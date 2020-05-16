@@ -269,23 +269,13 @@
 
                 {% if zone.x != 0 or zone.y != 0 %}
                 <h5>{{"Zonenmarkierer"|trans({}, 'game')}}</h5>
-                {% if zone.tag > 0 %}
-                    <img src="{{ asset("build/images/tags/tag_" ~ zone.tag ~ ".gif") }}" />
+                {% if not zone.tag is null and zone.tag.ref > 0 %}
+                    <img src="{{ asset("build/images/tags/" ~ zone.tag.icon ~ ".gif") }}" />
                 {% endif %}
                 <select id="zone-marker">
-                    <option value="{{ constant('App\\Entity\\Zone::TagNone') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagNone') %}selected{% endif %}>{{"[nights]"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagHelp') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagHelp') %}selected{% endif %}>{{"Notruf"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagResource') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagResource') %}selected{% endif %}>{{"Rohstoff am Boden (Holz, Metall...)"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagItems') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagItems') %}selected{% endif %}>{{"Verschiedene Gegenstände am Boden"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagImportantItems') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagImportantItems') %}selected{% endif %}>{{"Wichtige(r) Gegenstand/-ände!"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagDepleted') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagDepleted') %}selected{% endif %}>{{"Zone leer"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagTempSecured') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagTempSecured') %}selected{% endif %}>{{"Zone tempörar gesichert"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagRuinDig') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagRuinDig') %}selected{% endif %}>{{"Zone muss freigeräumt werden"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::Tag5To8Zombies') }}" {% if zone.tag == constant('App\\Entity\\Zone::Tag5To8Zombies') %}selected{% endif %}>{{"Zwichen 5 und 8 Zombies"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::Tag9OrMoreZombies') }}" {% if zone.tag == constant('App\\Entity\\Zone::Tag9OrMoreZombies') %}selected{% endif %}>{{"9 oder mehr Zombies!"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagCamping') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagCamping') %}selected{% endif %}>{{"Camping geplant"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagExploreRuin') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagExploreRuin') %}selected{% endif %}>{{"Zu untersuchende Ruine"|trans({}, 'game')}}</option>
-                    <option value="{{ constant('App\\Entity\\Zone::TagLostSoul') }}" {% if zone.tag == constant('App\\Entity\\Zone::TagLostSoul') %}selected{% endif %}>{{"Verlorene Seele"|trans({}, 'game')}}</option>
+                    {% for tag in zone_tags %}
+                        <option value="{{tag.ref}}" {% if tag == zone.tag %}selected{% endif %}>{{tag.label|trans({}, 'game')}}</option>
+                    {% endfor %}
                 </select>
                 {% endif %}
             </div>
@@ -785,6 +775,6 @@
                         $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                     } );
             });
-        {% endif %}        
+        {% endif %}
     </script>
 {% endblock %}

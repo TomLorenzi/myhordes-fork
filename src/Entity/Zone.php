@@ -40,20 +40,6 @@ class Zone
     const BlueprintAvailable = 1;
     const BlueprintFound     = 2;
 
-    const TagNone           = 0;
-    const TagHelp           = 1;
-    const TagResource       = 2;
-    const TagItems          = 3;
-    const TagImportantItems = 4;
-    const TagDepleted       = 5;
-    const TagTempSecured    = 6;
-    const TagRuinDig        = 7;
-    const Tag5To8Zombies    = 8;
-    const Tag9OrMoreZombies = 9;
-    const TagCamping        = 10;
-    const TagExploreRuin    = 11;
-    const TagLostSoul       = 12;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -89,7 +75,7 @@ class Zone
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="LAZY")
      */
     private $citizens;
 
@@ -164,9 +150,9 @@ class Zone
     private $blueprint = self::BluePrintNone;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\ZoneTag")
      */
-    private $tag = self::TagNone;
+    private $tag;
 
     public function __construct()
     {
@@ -274,13 +260,12 @@ class Zone
     }
 
     public function getCampers() {
-        $citizens = $this->getCitizens();
         // No citizens = no campers.
-        if (!count($citizens)) {
+        if ($this->citizens->isEmpty()) {
             return [];
         }
         $campers = [];
-        foreach ($citizens as $citizen) {
+        foreach ($this->citizens as $citizen) {
             if ($citizen->getCampingTimestamp() > 0) {
                 $campers[$citizen->getCampingTimestamp()] = $citizen;
             }
@@ -560,21 +545,12 @@ class Zone
         return $this;
     }
 
-    public function hasSoul(): bool
-    {
-        foreach ($this->getFloor()->getItems() as $item) {
-            if($item->getPrototype()->getName() == "soul_blue_#00" || $item->getPrototype()->getName() == "soul_blue_#01" || $item->getPrototype()->getName() == "soul_red_#00")
-                return true;
-        }
-        return false;
-    }
-
-    public function getTag(): ?int
+    public function getTag(): ?ZoneTag
     {
         return $this->tag;
     }
 
-    public function setTag(int $tag): self
+    public function setTag(?ZoneTag $tag): self
     {
         $this->tag = $tag;
 

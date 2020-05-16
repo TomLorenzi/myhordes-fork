@@ -18,6 +18,11 @@ class GazetteLogEntry
     const ClassGazetteOneDeath    =  7;
     const ClassGazetteTwoDeaths   =  8;
     const ClassGazetteMultiDeaths =  9;
+    const ClassGazetteSuicide     = 10;
+    const ClassGazetteAddiction   = 11;
+    const ClassGazetteDehydration = 12;
+    const ClassGazettePoison      = 13;
+    const ClassGazetteVanished    = 14;
 
     const RequiresNothing       =  0;
     const RequiresOneCitizen    = 11;

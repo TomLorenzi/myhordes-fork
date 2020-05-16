@@ -791,6 +791,10 @@ class ActionHandler
                             $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
                             if ($target_citizen->getZone()) 
                                 continue;
+
+                            // Don't give AP if already full
+                            if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen))
+                                continue;
                             else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
                                 $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;
@@ -836,9 +840,13 @@ class ActionHandler
 
                             if ($drink) $citizen->setWalkingDistance(0);
 
-                            if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'thirst2')) {
-                                $this->citizen_handler->removeStatus($citizen, 'thirst2');
-                                $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                            if ($drink) {
+                                if($citizen->hasRole('ghoul')){
+                                    $this->citizen_handler->inflictWound($citizen);
+                                } else if($this->citizen_handler->hasStatusEffect($citizen, 'thirst2')){
+                                    $this->citizen_handler->removeStatus($citizen, 'thirst2');
+                                    $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                                }
                             } else {
                                 if (!$drink || !$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
                                     $old_ap = $citizen->getAp();
@@ -850,6 +858,7 @@ class ActionHandler
                                 $this->citizen_handler->inflictStatus($citizen, $drink ? 'hasdrunk' : 'haseaten');
 
                             }
+
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
@@ -973,7 +982,7 @@ class ActionHandler
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
-            $this->death_handler->kill( $citizen, CauseOfDeath::Posion, $r );
+            $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
             foreach ($r as $r_entry) $remove[] = $r_entry;
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }

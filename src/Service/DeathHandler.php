@@ -173,7 +173,7 @@ class DeathHandler
                 $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
                 break;
             case CauseOfDeath::Radiations:
-                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dnucl_#00");
                 $pictoDeath2 = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dinfec_#00");
                 break;
         }

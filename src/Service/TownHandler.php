@@ -106,6 +106,10 @@ class TownHandler
 
         $pictos = [];
 
+        $building->setHp($building->getPrototype()->getHp());
+        
+        $building->setDefense($building->getPrototype()->getDefense());
+
         $town->setWell( $town->getWell() + $well );
         if ($well > 0)
             $this->entity_manager->persist( $this->log->constructionsBuildingCompleteWell( $building, $well ) );
@@ -230,25 +234,50 @@ class TownHandler
 
         $summary->house_defense = $home->getPrototype()->getDefense();
 
-
         if ($home->getCitizen()->getProfession()->getHeroic())
             $summary->job_defense += 2;
 
         if ($this->getBuilding($town, 'small_city_up_#00', true))
             $summary->house_defense += 4;
 
+        $summary->upgrades_defense = $home->getAdditionalDefense();
+
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
             $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
                 $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'defense' )
             );
-            $summary->upgrades_defense = ($n ? $n->getLevel() : 0) + $home->getAdditionalDefense();
-        } else $summary->upgrades_defense = $home->getAdditionalDefense();
+
+            if($n) {
+                if($n->getLevel() <= 6)
+                    $summary->upgrades_defense += $n->getLevel();
+                else {
+                    $summary->upgrades_defense += 6 + 2 * ($n->getLevel() - 6);
+                }
+            }
+
+            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
+                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'fence' )
+            );
+            $summary->upgrades_defense += ($n ? 3 : 0);
+        }
 
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
             $this->inventory_handler->resolveItemProperties( 'defence' )
         );
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_blue_#00'
+        ) * 2;
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_blue_#01'
+        ) * 2;
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_red_#00'
+        ) * 2;
 
         return $summary->sum();
     }
@@ -261,16 +290,16 @@ class TownHandler
 
             if ($town->getWell() >= $n[ $building->getLevel() ])
                 $d += $building->getDefenseBonus();
-            $d += $building->getPrototype()->getDefense();
+            $d += $building->getDefense();
 
         } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00' || $building->getPrototype()->getName() === 'small_coffin_#00') {
 
             $c = 0;
             foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
-            $d += ( 10*$c + $building->getDefenseBonus() + $building->getPrototype()->getDefense() );
+            $d += ( 10*$c + $building->getDefenseBonus() + $building->getDefense() );
 
         }
-        else $d += ( $building->getDefenseBonus() + $building->getPrototype()->getDefense() );
+        else $d += ( $building->getDefenseBonus() + $building->getDefense() );
         $d += $building->getTempDefenseBonus();
 
         return $d;
@@ -403,5 +432,15 @@ class TownHandler
         }
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
+    }
+
+    public function get_alive_citizens(Town &$town){
+        $citizens = [];
+        foreach ($town->getCitizens() as $citizen) {
+            if($citizen->getAlive())
+                $citizens[] = $citizen;
+        }
+
+        return $citizens;
     }
 }

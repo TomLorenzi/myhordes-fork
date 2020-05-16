@@ -148,6 +148,8 @@ class GameController extends AbstractController implements GameInterfaceControll
             $survivors[] = $citizen;
         }
 
+
+
         foreach ($gazette->getVictims() as $citizen) {
             if($citizen->getAlive()) continue;
             if($citizen->getSurvivedDays() >= $town->getDay() - 1) {
@@ -184,15 +186,17 @@ class GameController extends AbstractController implements GameInterfaceControll
                     'type'  => LogEntryTemplate::TypeGazetteTown,
                     'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
                 ];
+
                 $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
                 /** @var LogEntryTemplate $townTemplate */
                 $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
                 $requirements = $townTemplate->getSecondaryType();
+                $variables = [];
                 if ($requirements == GazetteLogEntry::RequiresNothing) {
                     $variables = [];
                 }
-                elseif (floor($requirements / 10) == 1) {
+                elseif (floor($requirements / 10) === 1) {
                     $citizens = $survivors;
                     shuffle($citizens);
                     $variables = [];
@@ -200,7 +204,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                         $variables['citizen' . $i] = (array_shift($citizens))->getId();
                     }
                 }
-                elseif (floor($requirements / 10) == 2) {
+                elseif (floor($requirements / 10) === 2) {
                     $cadavers = $death_inside;
                     shuffle($cadavers);
                     $variables = [];
@@ -208,7 +212,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                         $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
                     }
                 }
-                elseif (floor($requirements / 10) == 3) {
+                elseif (floor($requirements / 10) === 3) {
                     $citizens = $survivors;
                     shuffle($citizens);
                     $cadavers = $death_inside;
@@ -243,6 +247,98 @@ class GameController extends AbstractController implements GameInterfaceControll
 
                 // TODO: Add more texts.
                 // 2. INDIVIDUAL DEATHS
+                if (count($death_outside) > 0) {
+                    $other_deaths = $death_outside;
+                    shuffle($other_deaths);
+                    /** @var Citizen $featured_cadaver */
+                    $featured_cadaver = $other_deaths[array_key_first($other_deaths)];
+                    switch ($featured_cadaver->getCauseOfDeath()->getId()) {
+                        case CauseOfDeath::Cyanide:
+                        case CauseOfDeath::Strangulation:
+                            $class = LogEntryTemplate::ClassGazetteSuicide;
+                            break;
+
+                        case CauseOfDeath::Addiction:
+                            $class = LogEntryTemplate::ClassGazetteAddiction;
+                            break;
+
+                        case CauseOfDeath::Dehydration:
+                            $class = LogEntryTemplate::ClassGazetteDehydration;
+                            break;
+
+                        case CauseOfDeath::Poison:
+                            $class = LogEntryTemplate::ClassGazettePoison;
+                            break;
+
+                        case CauseOfDeath::Vanished:
+                        default:
+                            $class = LogEntryTemplate::ClassGazetteVanished;
+                            break;
+
+                    }
+                    $criteria = [
+                        'type' => LogEntryTemplate::TypeGazetteTown,
+                        'class' => $class,
+                    ];
+                    $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                    shuffle($applicableEntryTemplates);
+                    /** @var LogEntryTemplate $townTemplate */
+                    $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
+                    $requirements = $townTemplate->getSecondaryType();
+                    // TODO: Needs refactoring!
+                    if ($requirements == GazetteLogEntry::RequiresNothing) {
+                        $variables = [];
+                    }
+                    elseif (floor($requirements / 10) == 1) {
+                        $citizens = $survivors;
+                        shuffle($citizens);
+                        $variables = [];
+                        for ($i = 1; $i <= $requirements - 10; $i++) {
+                            $variables['citizen' . $i] = (array_shift($citizens))->getId();
+                        }
+                    }
+                    elseif (floor($requirements / 10) == 2) {
+                        $cadavers = $death_outside;
+                        shuffle($cadavers);
+                        $variables = [];
+                        for ($i = 1; $i <= $requirements - 20; $i++) {
+                            $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+                        }
+                    }
+                    elseif (floor($requirements / 10) == 3) {
+                        $citizens = $survivors;
+                        shuffle($citizens);
+                        $cadavers = $death_outside;
+                        shuffle($cadavers);
+                        $variables = [];
+                        for ($i = 1; $i <= $requirements - 30; $i++) {
+                            $variables['citizen' . $i] = (array_shift($citizens))->getId();
+                        }
+                        for ($i = 1; $i <= $requirements - 30; $i++) {
+                            $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+                        }
+                    }
+                    elseif ($requirements == GazetteLogEntry::RequiresAttack) {
+                        $variables = [];
+                        $attack = $gazette->getAttack();
+                        $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
+                    }
+                    elseif ($requirements == GazetteLogEntry::RequiresDefense) {
+                        $variables = [];
+                        $defense = $gazette->getDefense();
+                        $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
+                    }
+                    elseif ($requirements == GazetteLogEntry::RequiresDeaths) {
+                        $variables = [];
+                        $variables['deaths'] = $gazette->getDeaths();
+                    }
+
+                    $news = new GazetteLogEntry();
+                    $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                    $this->entity_manager->persist($news);
+                    $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
+                }
+
                 // 3. TOWN DEVASTATION
                 // 4. FLAVOURS
                 // 5. ELECTION
@@ -281,7 +377,7 @@ class GameController extends AbstractController implements GameInterfaceControll
             'days' => $days,
             'devast' => $town->getDevastated(),
             'chaos' => $town->getChaos(),
-            'door' => $town->getDoor(),
+            'door' => $gazette->getDoor(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
             'attack' => $gazette->getAttack(),
@@ -296,6 +392,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
+            'day' => $town->getDay(),
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizenWithRole' => $citizenWithRole,
@@ -440,7 +537,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $last_words = $parser->get('lastwords');
 
         $active->setActive(false);
-        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Posion)
+        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison)
             $active->setLastWords($last_words);
         else
             $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));

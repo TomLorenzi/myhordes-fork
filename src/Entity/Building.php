@@ -70,6 +70,16 @@ class Building
      */
     private $position = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $hp = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $defense = 0;
+
     public function __construct()
     {
         $this->dailyUpgradeVotes = new ArrayCollection();
@@ -203,6 +213,30 @@ class Building
     public function setPosition(int $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getHp(): ?int
+    {
+        return $this->hp;
+    }
+
+    public function setHp(int $hp): self
+    {
+        $this->hp = $hp;
+
+        return $this;
+    }
+
+    public function getDefense(): ?int
+    {
+        return $this->defense;
+    }
+
+    public function setDefense(int $defense): self
+    {
+        $this->defense = $defense;
 
         return $this;
     }

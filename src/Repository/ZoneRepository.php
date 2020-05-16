@@ -21,6 +21,22 @@ class ZoneRepository extends ServiceEntityRepository
         parent::__construct($registry, Zone::class);
     }
 
+    /**
+     * @param Town $town
+     * @return Zone[]
+     */
+    public function findByTown(Town $town)
+    {
+        try {
+            return $this->createQueryBuilder('z')
+                ->andWhere('z.town = :t')->setParameter('t', $town)
+                ->getQuery()
+                ->getResult();
+        } catch (\Exception $e) {
+            return [];
+        }
+    }
+
     public function findOneByPosition(Town $town, int $x, int $y): ?Zone
     {
         try {

@@ -741,11 +741,29 @@ div.game-menu-area {
           &:not(.civil) { min-width: 64px };
           &>li:not(.text) {
             height: 18px; margin-top: 6px; vertical-align: bottom;
-            &.free,&.item {border: 1px dotted @myhordes-smalltext; width: 18px;}
+            &.free,&.item {border: 1px solid @myhordes-smalltext; width: 18px;}
             &.item { border-color: transparent; }
             &.item.broken { border: 1px dotted #ff0000; }
-            & + li { margin-left: 4px; }
+            & + li { margin-right: 1px; }
           }
+        }
+
+        &.rucksack {
+        	width: 195px;
+        	overflow: hidden;
+        	.more {
+        		width: 18px;
+        		position: absolute;
+        		top: 7px;
+        		right: 0px;
+        	}
+        	&:hover {
+        		overflow: visible;
+        		.more {
+        			display: none;
+        		}
+        	}
+
         }
 
         /*&.rucksack:before*/
@@ -773,7 +791,8 @@ div.game-menu-area {
 div.ap      { .icon_div("../img/ap_small.gif", middle, 0); color: white; }
 div.bp      { .icon_div("../img/bp_small.gif", middle, 0); }
 div.pm      { .icon_div("../img/pm_small.gif", middle, 0); color: white; }
-div.defense { .icon_div("../img/small_def.gif", baseline, 2px); }
+div.defense { .icon_div("../img/small_def.gif", middle, 2px);font-weight: bold; }
+div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); color:#f18766;font-weight: bold; }
 
 ul.tabs {
   padding: 0; list-style: none; border-bottom: 2px solid @myhordes-smalltext;

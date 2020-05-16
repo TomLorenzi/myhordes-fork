@@ -112,6 +112,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
             $data['votesNeeded'] = $votesNeeded;
         }
+        $data["new_message"] = $this->citizen_handler->hasNewMessage($this->getActiveCitizen());
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -453,12 +454,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         // Check permission: dummy accounts may not complain against non-dummy accounts (dummy is any account which email ends on @localhost)
-        $authorRoles = $author->getUser()->getRoles();
-        $culpritRoles = $culprit->getUser()->getRoles();
-        if (!in_array("ROLE_DUMMY", $culpritRoles)){
-            if (in_array("ROLE_DUMMY", $authorRoles))
-                return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
-        }
+        if ($this->isGranted('ROLE_DUMMY', $author) && !$this->isGranted('ROLE_DUMMY', $culprit))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
 
         $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
@@ -518,7 +515,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        $up_inv   = $ac->getInventory();
+        $up_inv   = $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
         return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
     }
@@ -858,7 +855,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         $workshopBonus = 1;
-
+        $hpToAp = 2;
         if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
             $level = $workshop->getLevel();
             switch($level){
@@ -873,16 +870,27 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     break;
                 case 4:
                     $workshopBonus = 0.76;
+                    $hpToAp = 3;
                     break;
                 case 5:
                     $workshopBonus = 0.70;
+                    $hpToAp = 4;
                     break;
             }
         }
 
+        // Remember if the building has already been completed (i.e. this is a repair action)
+        $was_completed = $building->getComplete();
+
         // Check out how much AP is missing to complete the building; restrict invested AP to not exceed this
-        $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
-        $ap = max(0,min( $ap, $missing_ap ) );
+        if(!$was_completed) {
+            $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
+            $ap = max(0,min( $ap, $missing_ap ) );
+        } else {
+            $neededApForFullHp = ($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp;
+            $missing_ap = ceil( (round($neededApForFullHp) * ( $slave_bonus ? (2.0/3.0) : 1 ))) ;
+            $ap = max(0,min( $ap, $missing_ap ) );
+        }
 
         // If the citizen has not enough AP, fail
         if ($ap > 0 && ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ))
@@ -902,12 +910,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if (empty($items)) return AjaxResponse::error( self::ErrorNotEnoughRes );
         }
 
-        // Remember if the building has already been completed (i.e. this is a repair action)
-        $was_completed = $building->getComplete();
-
         // Create a log entry
-        if ($th->getBuilding($town, 'item_rp_book2_#00', true))
-            $this->entity_manager->persist( $this->log->constructionsInvestAP( $citizen, $building->getPrototype(), $ap ) );
+        if ($th->getBuilding($town, 'item_rp_book2_#00', true)) {
+            if (!$was_completed)
+                $this->entity_manager->persist( $this->log->constructionsInvestAP( $citizen, $building->getPrototype(), $ap ) );
+            else
+                $this->entity_manager->persist( $this->log->constructionsInvestRepairAP( $citizen, $building->getPrototype(), $ap ) );
+        }
+
 
         // Calculate the amount of AP that will be invested in the construction
         $ap_effect = floor( $ap * ( $slave_bonus ? 1.5 : 1 ) );
@@ -915,7 +925,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Deduct AP and increase completion of the building
         $this->citizen_handler->deductAPBP( $citizen, $ap );
 
-        if($missing_ap <= 0){
+        if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
             $building->setAp($building->getPrototype()->getAp());
         } else {
@@ -924,6 +934,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // If the building was not previously completed but reached 100%, complete the building and trigger the completion handler
         $building->setComplete( $building->getComplete() || $building->getAp() >= $building->getPrototype()->getAp() );
+
         if (!$was_completed && $building->getComplete()) {
             // Remove resources, create a log entry, trigger
             foreach ($items as $item)
@@ -931,14 +942,24 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
+        } else {
+            $newHp = min($building->getPrototype()->getHp(), $building->getHp() + $ap_effect * $hpToAp);
+            $building->setHp($newHp);
+            if($building->getPrototype()->getDefense() > 0) {
+                $newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
+                $building->setDefense($newDef);
+            }
         }
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
-
         // Give picto to the citizen
-        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+        if(!$was_completed){
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+        } else {
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_brep_#00");
+        }
         $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
 
         // Persist
@@ -965,6 +986,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $buildings = $town->getBuildings();
 
         $workshopBonus = 1;
+        $hpToAp = 2;
 
         if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
             $level = $workshop->getLevel();
@@ -980,9 +1002,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     break;
                 case 4:
                     $workshopBonus = 0.76;
+                    $hpToAp = 3;
                     break;
                 case 5:
                     $workshopBonus = 0.70;
+                    $hpToAp = 4;
                     break;
             }
         }
@@ -1010,6 +1034,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'bank' => $items,
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
             'workshopBonus' => $workshopBonus,
+            'hpToAp' => $hpToAp,
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeConstruction, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
@@ -1361,6 +1386,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        if ($this->citizen_handler->isWounded($citizen)) {
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded);
+        }
 
         return $this->generic_attack_api( $citizen, $c );
     }

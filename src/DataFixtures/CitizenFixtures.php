@@ -85,6 +85,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_immune' ],
         ['name' => 'tg_shaman_heal' ],
         ['name' => 'tg_ghoul_eat' ],
+        ['name' => 'tg_no_hangover' ],
     ];
 
     public static $causes_of_death = [
@@ -96,7 +97,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [ 'ref' => CauseOfDeath::Addiction    , 'label' => 'Drogenabhängigkeit', 'icon' => 'addicted', 'desc' => 'Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht\'s schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.' ],
         [ 'ref' => CauseOfDeath::Infection    , 'label' => 'Infektion', 'icon' => 'infection', 'desc' => 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.' ],
         [ 'ref' => CauseOfDeath::Cyanide      , 'label' => 'Zyanid', 'icon' => 'cyanide', 'desc' => 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll\'s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...' ],
-        [ 'ref' => CauseOfDeath::Posion       , 'label' => 'Ermordung durch Gift', 'icon' => 'poison', 'desc' => 'Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!' ],
+        [ 'ref' => CauseOfDeath::Poison       , 'label' => 'Ermordung durch Gift', 'icon' => 'poison', 'desc' => 'Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!' ],
         [ 'ref' => CauseOfDeath::GhulEaten    , 'label' => 'Mord', 'icon' => 'eaten', 'desc' => 'Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?' ],
         [ 'ref' => CauseOfDeath::GhulBeaten   , 'label' => 'Aggression', 'icon' => 'beaten', 'desc' => 'Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...' ],
         [ 'ref' => CauseOfDeath::Hanging      , 'label' => 'Erhängt', 'icon' => 'hanged', 'desc' => 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zu einer Baustelle geschleppt und dir einen Strick um den Hals gelegt. Das ganze ging ruck zuck. Innerhalb weniger Sekunden bist du einen Meter über den Boden geschwebt. Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.' ],
@@ -138,7 +139,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [ 'name' => 'lock', 'label' => 'Türschloss', 'desc' => 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.', 'levels' => [
             1 => [ 6, ['chain_#00' => 1] ]
         ] ],
-        [ 'name' => 'fence', 'label' => 'Zaun', 'desc' => 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.', 'levels' => [
+        [ 'name' => 'fence', 'label' => 'Zaun (Haus)', 'desc' => 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.', 'levels' => [
             1 => [ 3, ['chain_#00' => 1, 'metal_beam_#00' => 1] ]
         ] ],
         [ 'name' => 'chest', 'label' => 'Stauraum', 'desc' => 'Deine persönliche Truhe vergrößert sich. ', 'levels' => [
