@@ -454,12 +454,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         // Check permission: dummy accounts may not complain against non-dummy accounts (dummy is any account which email ends on @localhost)
-        $authorRoles = $author->getUser()->getRoles();
-        $culpritRoles = $culprit->getUser()->getRoles();
-        if (!in_array("ROLE_DUMMY", $culpritRoles)){
-            if (in_array("ROLE_DUMMY", $authorRoles))
-                return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
-        }
+        if ($this->isGranted('ROLE_DUMMY', $author) && !$this->isGranted('ROLE_DUMMY', $culprit))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
 
         $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;

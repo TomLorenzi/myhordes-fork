@@ -59,7 +59,7 @@ class UserFactory
             return null;
         }
 
-        if ($pending->getUser() === null || !$user->isEqualTo( $pending->getUser() )) {
+        if ($pending->getUser() === null || $user->getId() !== $pending->getUser()->getId()) {
             $error = self::ErrorInvalidParams;
             return null;
         }
@@ -87,31 +87,31 @@ class UserFactory
             return null;
         }
 
-        if ($this->entity_manager
+        /** @var UserPendingValidation $existing_val */
+        if ($existing_val = $this->entity_manager
             ->getRepository(UserPendingValidation::class)
-            ->findOneByUserAndType($user, UserPendingValidation::ResetValidation)) {
+            ->findOneByUserAndType($user, UserPendingValidation::ResetValidation) &&
+            (time() - $existing_val->getTime()->getTimestamp() < 3600)
+        ) {
             $error = self::ErrorValidationExists;
             return null;
         }
 
-        $new_validation = new UserPendingValidation();
-        $key = $new_validation->setTime(new DateTime())->setType(UserPendingValidation::ResetValidation)->generatePKey( );
-        $user->setPendingValidation( $new_validation );
-
-        $url = $this->url->generate('public_reset', ['pkey' => $key], UrlGeneratorInterface::ABSOLUTE_URL);
-
-        mail(
-            $email,
-            'MyHordes - Password reset',
-            "Please visit this link to reset your password: <a href='$url'>$url</a>!",
-            [
-                'MIME-Version' => '1.0',
-                'Content-type' => 'text/html; charset=UTF-8',
-                'From' => 'The Undead Mailman <mailzombie@' . $_SERVER['SERVER_NAME'] . '>'
-            ]
-        );
-
+        if (!$this->announceValidationToken( $this->ensureValidation( $user, UserPendingValidation::ResetValidation ) )) return null;
         return $user;
+    }
+
+    public function ensureValidation(User $user, int $validationType, bool $regenerate = false): UserPendingValidation {
+        /** @var UserPendingValidation $validation */
+        $validation = null;
+        if ($user->getId() !== null)
+            $validation = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,$validationType);
+        if ($validation === null) {
+            $validation = new UserPendingValidation();
+            $validation->setTime(new DateTime())->setType($validationType)->generatePKey( );
+            $user->setPendingValidation( $validation );
+        } elseif ($regenerate) $validation->generatePKey();
+        return $validation;
     }
 
     public function createUser( string $name, string $email, string $password, bool $validated, ?int &$error ): ?User {
@@ -138,22 +138,8 @@ class UserFactory
             return null;
         }
 
-        if (!$validated) {
-            $new_validation = new UserPendingValidation();
-            $key = $new_validation->setTime(new DateTime())->generatePKey( );
-            $new_user->setPendingValidation( $new_validation );
-
-            mail(
-                $email,
-                'MyHordes - Account Validation',
-                "Your validation code is <b>$key</b>. Thank you for playing MyHordes!",
-                [
-                    'MIME-Version' => '1.0',
-                    'Content-type' => 'text/html; charset=UTF-8',
-                    'From' => 'The Undead Mailman <mailzombie@' . $_SERVER['SERVER_NAME'] . '>'
-                ]
-            );
-        }
+        if (!$validated)
+            $this->announceValidationToken( $this->ensureValidation( $new_user, UserPendingValidation::EMailValidation ) );
 
         return $new_user;
     }
@@ -187,5 +173,37 @@ class UserFactory
             $error = self::ErrorDatabaseException;
             return false;
         }
+    }
+
+    public function announceValidationToken(UserPendingValidation $token): bool {
+
+        if (!$token->getUser() || !$token->getPkey()) return false;
+
+        $headline = null;
+        $message = null;
+        switch ($token->getType()) {
+
+            case UserPendingValidation::EMailValidation:
+                $headline = 'MyHordes - Account Validation';
+                $message = "Your validation code is <b>{$token->getPkey()}</b>. Thank you for playing MyHordes!";
+                break;
+            case UserPendingValidation::ResetValidation:
+                $url = $this->url->generate('public_reset', ['pkey' => $token->getPkey()], UrlGeneratorInterface::ABSOLUTE_URL);
+                $headline = 'MyHordes - Password Reset';
+                $message = "Please visit this link to reset your password: <a href='$url'>$url</a>!";
+                break;
+            default: break;
+        }
+
+        if ($message === null || $headline === null) return false;
+        return mail(
+            $token->getUser()->getEmail(),
+            $headline, $message,
+            [
+                'MIME-Version' => '1.0',
+                'Content-type' => 'text/html; charset=UTF-8',
+                'From' => 'The Undead Mailman <mailzombie@' . $_SERVER['SERVER_NAME'] . '>'
+            ]
+        );
     }
 }

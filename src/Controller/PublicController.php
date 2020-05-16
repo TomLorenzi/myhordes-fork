@@ -277,6 +277,18 @@ class PublicController extends AbstractController
         $user = $this->getUser();
         if (!$user)
             return new AjaxResponse( ['success' => false ] );
+
+        // If there is an open password reset validation, a successful login closes it
+        $reset_validation = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user, UserPendingValidation::ResetValidation);
+        if ($reset_validation) try {
+
+            $this->entity_manager->remove($reset_validation);
+            $user->setPendingValidation(null);
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+        } catch(Exception $e) {}
+
         if (!$user->getValidated())
             return new AjaxResponse( ['success' => true, 'require_validation' => true ] );
         else return new AjaxResponse( ['success' => true, 'require_validation' => false ] );
