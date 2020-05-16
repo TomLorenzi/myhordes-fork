@@ -911,5 +911,113 @@
         <target>Archivieren</target>
       </segment>
     </unit>
+    <unit id="_J8vap3" name="Fett">
+      <notes>
+        <note category="german">Fett</note>
+      </notes>
+      <segment>
+        <source>Fett</source>
+        <target>Fett</target>
+      </segment>
+    </unit>
+    <unit id="6XYRB0Q" name="Kursiv">
+      <notes>
+        <note category="german">Kursiv</note>
+      </notes>
+      <segment>
+        <source>Kursiv</source>
+        <target>Kursiv</target>
+      </segment>
+    </unit>
+    <unit id="RuL1D2i" name="Unterstreichen">
+      <notes>
+        <note category="german">Unterstreichen</note>
+      </notes>
+      <segment>
+        <source>Unterstreichen</source>
+        <target>Unterstreichen</target>
+      </segment>
+    </unit>
+    <unit id="AsD_uy4" name="Durchstreichen">
+      <notes>
+        <note category="german">Durchstreichen</note>
+      </notes>
+      <segment>
+        <source>Durchstreichen</source>
+        <target>Durchstreichen</target>
+      </segment>
+    </unit>
+    <unit id="aZc6vxf" name="Einfache Liste">
+      <notes>
+        <note category="german">Einfache Liste</note>
+      </notes>
+      <segment>
+        <source>Einfache Liste</source>
+        <target>Einfache Liste</target>
+      </segment>
+    </unit>
+    <unit id="1CuRrf_" name="Nummerierte Liste">
+      <notes>
+        <note category="german">Nummerierte Liste</note>
+      </notes>
+      <segment>
+        <source>Nummerierte Liste</source>
+        <target>Nummerierte Liste</target>
+      </segment>
+    </unit>
+    <unit id="Sk04seo" name="Listenpunkt">
+      <notes>
+        <note category="german">Listenpunkt</note>
+      </notes>
+      <segment>
+        <source>Listenpunkt</source>
+        <target>Listenpunkt</target>
+      </segment>
+    </unit>
+    <unit id="jlAJmOo" name="Spoiler">
+      <notes>
+        <note category="german">Spoiler</note>
+      </notes>
+      <segment>
+        <source>Spoiler</source>
+        <target>Spoiler</target>
+      </segment>
+    </unit>
+    <unit id="VfBD_n6" name="Zitat">
+      <notes>
+        <note category="german">Zitat</note>
+      </notes>
+      <segment>
+        <source>Zitat</source>
+        <target>Zitat</target>
+      </segment>
+    </unit>
+    <unit id="Fxoqglo" name="Ruhm">
+      <notes>
+        <note category="german">Ruhm</note>
+      </notes>
+      <segment>
+        <source>Ruhm</source>
+        <target>Ruhm</target>
+      </segment>
+    </unit>
+    <unit id="0OPnj4A" name="Linie">
+      <notes>
+        <note category="german">Linie</note>
+      </notes>
+      <segment>
+        <source>Linie</source>
+        <target>Linie</target>
+      </segment>
+    </unit>
+    <unit id="7WQ2SM6" name="Entstauben">
+      <notes>
+        <note category="german">Entstauben</note>
+      </notes>
+      <segment>
+        <source>Entstauben</source>
+        <target>Entstauben</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

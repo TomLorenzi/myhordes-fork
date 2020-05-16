@@ -228,7 +228,41 @@
   }
 }
 
-.forum-button-bar { margin: 5px 0; padding: 0 5px; }
+.forum-button-bar {
+  margin: 5px 0; padding: 0 5px;
+
+  .forum-button {
+    position: relative;
+    &>span.forum-button-tooltip {
+      display: none;
+    }
+    &:hover>span.forum-button-tooltip {
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -2.5rem;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 2px 8px;
+      border-radius: 8px;
+      white-space: nowrap;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -6px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.75) transparent transparent;
+        border-width: 6px 6px 0 6px;
+      }
+    }
+  }
+}
 
 .forum-checkbox {
   display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-button-color;

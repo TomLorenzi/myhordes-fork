@@ -7739,5 +7739,23 @@
         <target>Verteidigung organisieren</target>
       </segment>
     </unit>
+    <unit id="brwfS0V" name="Reinigen (Wasser)">
+      <notes>
+        <note category="german">Reinigen (Wasser)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Wasser)</source>
+        <target>Reinigen (Wasser)</target>
+      </segment>
+    </unit>
+    <unit id="F9ufT7F" name="Reinigen (Kleidung)">
+      <notes>
+        <note category="german">Reinigen (Kleidung)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Kleidung)</source>
+        <target>Reinigen (Kleidung)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

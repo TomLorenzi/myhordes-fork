@@ -1,0 +1,12 @@
+{% extends "mail/framework.html.twig" %}
+{% block body %}
+    {# @var user \App\Entity\User #}
+    <p><b>{{ 'Hallo %user%! Willkommen bei MyHordes!'|trans({ '%user%': user.username },'mail') }}</b></p>
+    <p>{{ 'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:'|trans({},'mail') }}</p>
+    {# @var token \App\Entity\UserPendingValidation #}
+    <p><b>{{ token.pkey }}</b></p>
+    <p><i>{% trans from 'mail' %}
+        Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
+        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.
+    {% endtrans %}</i></p>
+{% endblock %}

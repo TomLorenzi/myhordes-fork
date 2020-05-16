@@ -4,6 +4,9 @@
             {{ user.username }}
         </h4>
     </div>
+    <div class="cell rw-2 tab{% if admin_tab == "admin_users_account" %} selected{% endif %}">
+        <div class="tab-link" x-ajax-href="{{ path('admin_users_account_view', { 'id': user.Id }) }}">{% trans from 'admin' %}Account{% endtrans %}</div>
+    </div>
     <div class="cell rw-2 tab{% if admin_tab == "admin_users_ban" %} selected{% endif %}">
         <div class="tab-link" x-ajax-href="{{ path('admin_users_ban_view', { 'id': user.Id }) }}">{% trans from 'admin' %}Verbannung{% endtrans %}</div>
     </div>

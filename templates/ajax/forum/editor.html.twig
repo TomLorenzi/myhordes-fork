@@ -34,17 +34,17 @@
                 <br />
                 <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
                 <div class="forum-button-bar">
-                    <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i></div>
-                    <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i></div>
-                    <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i></div>
+                    <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                 </div>
 
                 <textarea id="forum-editor-text"></textarea>
