@@ -608,7 +608,7 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("api/forum/{pid<\d+>}/jump", name="forum_viewer_jump_post_controller")
+     * @Route("api/forum/jump/{pid<\d+>}", name="forum_viewer_jump_post_controller")
      * @param int $pid
      * @param EntityManagerInterface $em
      * @return Response
@@ -702,87 +702,27 @@ class MessageController extends AbstractController
         ] );
     }
 
-     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/lock", name="forum_thread_lock_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function lock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->lockThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-    }
-
-     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unlock", name="forum_thread_unlock_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function unlock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->unlockThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-
-    }
-
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/pin", name="forum_thread_pin_controller")
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/moderate/{mod}", name="forum_thread_mod_controller")
      * @param int $fid
      * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
+     * @param string $mod
+     * @param AdminActionHandler $admh
      * @return Response
      */
-    public function pin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->pinThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-    }
-
-     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unpin", name="forum_thread_unpin_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function unpin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->unpinThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-
-    }
-
-    /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/delete", name="forum_delete_post_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function delete_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh): Response {
-        if (!$parser->has('postId')){
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    public function lock_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        $success = false;
+        $uid = $this->getUser()->getId();
+        switch ($mod) {
+            case 'lock':   $success = $admh->lockThread($uid, $fid, $tid); break;
+            case 'unlock': $success = $admh->unlockThread($uid, $fid, $tid); break;
+            case 'pin':    $success = $admh->pinThread($uid, $fid, $tid); break;
+            case 'unpin':  $success = $admh->unpinThread($uid, $fid, $tid); break;
+            case 'delete': $success = $admh->hidePost($uid, (int)$parser->get('postId'), $parser->get( 'reason', '' ) ); break;
+            default: break;
         }
 
-        if ($parser->has('reason'))
-            $reason = $parser->get('reason');     
-        else 
-            $reason = "";
-        
-        /** @var User $user */
-        $user = $this->getUser();
-        $postId = $parser->get('postId');
-        
-        if ($admh->hidePost($user->getId(), $postId, $reason ))
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
-
-            
-        return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        return $success ? AjaxResponse::success() : AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
     }
 
     /**
@@ -791,9 +731,10 @@ class MessageController extends AbstractController
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
         if (!$parser->has('postId')){
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
@@ -807,15 +748,13 @@ class MessageController extends AbstractController
         if ($targetUser->getUsername() === "Der Rabe" ) {
             $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');
             $this->addFlash('notice', $message);
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            return AjaxResponse::success();
         }
 
         $reports = $post->getAdminReports();
-        foreach ($reports as $report) {
-            if ($report->getSourceUser() == $user) {
-                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
-            }
-        }
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
 
         $newReport = (new AdminReport())
             ->setSourceUser($user)
@@ -830,7 +769,7 @@ class MessageController extends AbstractController
             }
             $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
             $this->addFlash('notice', $message);
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            return AjaxResponse::success( );
     }
 
         /**
