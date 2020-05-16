@@ -18,6 +18,8 @@ use Exception;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Validation;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Twig\Environment;
 
 class UserFactory
 {
@@ -25,6 +27,8 @@ class UserFactory
     private $encoder;
     private $locksmith;
     private $url;
+    private $twig;
+    private $trans;
 
     const ErrorNone = 0;
     const ErrorUserExists        = ErrorHelper::BaseUserErrors + 1;
@@ -33,12 +37,15 @@ class UserFactory
     const ErrorDatabaseException = ErrorHelper::BaseUserErrors + 4;
     const ErrorValidationExists  = ErrorHelper::BaseUserErrors + 5;
 
-    public function __construct( EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, Locksmith $l, UrlGeneratorInterface $url)
+    public function __construct( EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder,
+                                 Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t)
     {
         $this->entity_manager = $em;
         $this->encoder = $passwordEncoder;
         $this->locksmith = $l;
         $this->url = $url;
+        $this->twig = $e;
+        $this->trans = $t;
     }
 
     public function resetUserPassword( string $email, string $validation_key, string $password, ?int &$error ): ?User {
@@ -184,13 +191,21 @@ class UserFactory
         switch ($token->getType()) {
 
             case UserPendingValidation::EMailValidation:
-                $headline = 'MyHordes - Account Validation';
-                $message = "Your validation code is <b>{$token->getPkey()}</b>. Thank you for playing MyHordes!";
+                $headline = $this->trans->trans('Account validieren', [], 'mail');
+                $message = $this->twig->render( 'mail/validation.html.twig', [
+                    'title' => $headline,
+                    'user' => $token->getUser(),
+                    'token' => $token
+                ] );
                 break;
             case UserPendingValidation::ResetValidation:
-                $url = $this->url->generate('public_reset', ['pkey' => $token->getPkey()], UrlGeneratorInterface::ABSOLUTE_URL);
-                $headline = 'MyHordes - Password Reset';
-                $message = "Please visit this link to reset your password: <a href='$url'>$url</a>!";
+                $headline = $this->trans->trans('Passwort zurücksetzen', [], 'mail');
+                $message = $this->twig->render( 'mail/passreset.html.twig', [
+                    'title' => $headline,
+                    'user' => $token->getUser(),
+                    'token' => $token,
+                    'url' => $this->url->generate('public_reset', ['pkey' => $token->getPkey()], UrlGeneratorInterface::ABSOLUTE_URL)
+                ] );
                 break;
             default: break;
         }
@@ -198,7 +213,7 @@ class UserFactory
         if ($message === null || $headline === null) return false;
         return mail(
             $token->getUser()->getEmail(),
-            $headline, $message,
+            "MyHordes - {$headline}", $message,
             [
                 'MIME-Version' => '1.0',
                 'Content-type' => 'text/html; charset=UTF-8',

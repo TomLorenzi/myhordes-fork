@@ -280,5 +280,248 @@
         <target>Suche:</target>
       </segment>
     </unit>
+    <unit id="fhsNVkH" name="Account">
+      <notes>
+        <note category="german">Account</note>
+      </notes>
+      <segment>
+        <source>Account</source>
+        <target>Account</target>
+      </segment>
+    </unit>
+    <unit id=".DCeMNu" name="Benutzername">
+      <notes>
+        <note category="german">Benutzername</note>
+      </notes>
+      <segment>
+        <source>Benutzername</source>
+        <target>Benutzername</target>
+      </segment>
+    </unit>
+    <unit id="L65vsws" name="E-Mail">
+      <notes>
+        <note category="german">E-Mail</note>
+      </notes>
+      <segment>
+        <source>E-Mail</source>
+        <target>E-Mail</target>
+      </segment>
+    </unit>
+    <unit id=".Dfg1PE" name="Validiert">
+      <notes>
+        <note category="german">Validiert</note>
+      </notes>
+      <segment>
+        <source>Validiert</source>
+        <target>Validiert</target>
+      </segment>
+    </unit>
+    <unit id="zenlipp" name="Ja">
+      <notes>
+        <note category="german">Ja</note>
+      </notes>
+      <segment>
+        <source>Ja</source>
+        <target>Ja</target>
+      </segment>
+    </unit>
+    <unit id="kOvBveb" name="Nein">
+      <notes>
+        <note category="german">Nein</note>
+      </notes>
+      <segment>
+        <source>Nein</source>
+        <target>Nein</target>
+      </segment>
+    </unit>
+    <unit id="yhpV6j2" name="Berechtigungsstufe">
+      <notes>
+        <note category="german">Berechtigungsstufe</note>
+      </notes>
+      <segment>
+        <source>Berechtigungsstufe</source>
+        <target>Berechtigungsstufe</target>
+      </segment>
+    </unit>
+    <unit id="9DAxndj" name="Spieler">
+      <notes>
+        <note category="german">Spieler</note>
+      </notes>
+      <segment>
+        <source>Spieler</source>
+        <target>Spieler</target>
+      </segment>
+    </unit>
+    <unit id="mP_cZCA" name="Krähe">
+      <notes>
+        <note category="german">Krähe</note>
+      </notes>
+      <segment>
+        <source>Krähe</source>
+        <target>Krähe</target>
+      </segment>
+    </unit>
+    <unit id="wcIksDz" name="Admin">
+      <notes>
+        <note category="german">Admin</note>
+      </notes>
+      <segment>
+        <source>Admin</source>
+        <target>Admin</target>
+      </segment>
+    </unit>
+    <unit id=".ZDDrus" name="Validierungstokens">
+      <notes>
+        <note category="german">Validierungstokens</note>
+      </notes>
+      <segment>
+        <source>Validierungstokens</source>
+        <target>Validierungstokens</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <notes>
+        <note category="german">Keine</note>
+      </notes>
+      <segment>
+        <source>Keine</source>
+        <target>Keine</target>
+      </segment>
+    </unit>
+    <unit id="89Qjza1" name="User administrieren">
+      <notes>
+        <note category="german">User administrieren</note>
+      </notes>
+      <segment>
+        <source>User administrieren</source>
+        <target>User administrieren</target>
+      </segment>
+    </unit>
+    <unit id="1L8hv8q" name="Validierung">
+      <notes>
+        <note category="german">Validierung</note>
+      </notes>
+      <segment>
+        <source>Validierung</source>
+        <target>Validierung</target>
+      </segment>
+    </unit>
+    <unit id="fMUMZY4" name="Erneute Validierung erzwingen">
+      <notes>
+        <note category="german">Erneute Validierung erzwingen</note>
+      </notes>
+      <segment>
+        <source>Erneute Validierung erzwingen</source>
+        <target>Erneute Validierung erzwingen</target>
+      </segment>
+    </unit>
+    <unit id="1oFUORm" name="Manuell validieren">
+      <notes>
+        <note category="german">Manuell validieren</note>
+      </notes>
+      <segment>
+        <source>Manuell validieren</source>
+        <target>Manuell validieren</target>
+      </segment>
+    </unit>
+    <unit id="TkGKlfl" name="Offene Token erneut ankündigen">
+      <notes>
+        <note category="german">Offene Token erneut ankündigen</note>
+      </notes>
+      <segment>
+        <source>Offene Token erneut ankündigen</source>
+        <target>Offene Token erneut ankündigen</target>
+      </segment>
+    </unit>
+    <unit id="2EfsA22" name="Offene Token regenerieren">
+      <notes>
+        <note category="german">Offene Token regenerieren</note>
+      </notes>
+      <segment>
+        <source>Offene Token regenerieren</source>
+        <target>Offene Token regenerieren</target>
+      </segment>
+    </unit>
+    <unit id="RHTHUmC" name="Sicherheit">
+      <notes>
+        <note category="german">Sicherheit</note>
+      </notes>
+      <segment>
+        <source>Sicherheit</source>
+        <target>Sicherheit</target>
+      </segment>
+    </unit>
+    <unit id="gJTkU2W" name="Passwort-Reset auslösen">
+      <notes>
+        <note category="german">Passwort-Reset auslösen</note>
+      </notes>
+      <segment>
+        <source>Passwort-Reset auslösen</source>
+        <target>Passwort-Reset auslösen</target>
+      </segment>
+    </unit>
+    <unit id="GdwECmm" name="Passwort-Reset erzwingen">
+      <notes>
+        <note category="german">Passwort-Reset erzwingen</note>
+      </notes>
+      <segment>
+        <source>Passwort-Reset erzwingen</source>
+        <target>Passwort-Reset erzwingen</target>
+      </segment>
+    </unit>
+    <unit id="6KnH3XO" name="Ausführen">
+      <notes>
+        <note category="german">Ausführen</note>
+      </notes>
+      <segment>
+        <source>Ausführen</source>
+        <target>Ausführen</target>
+      </segment>
+    </unit>
+    <unit id="TSuzaPk" name="Übersicht">
+      <notes>
+        <note category="german">Übersicht</note>
+      </notes>
+      <segment>
+        <source>Übersicht</source>
+        <target>Übersicht</target>
+      </segment>
+    </unit>
+    <unit id="gw9T6N6" name="Gewähltes Forum">
+      <notes>
+        <note category="german">Gewähltes Forum</note>
+      </notes>
+      <segment>
+        <source>Gewähltes Forum</source>
+        <target>Gewähltes Forum</target>
+      </segment>
+    </unit>
+    <unit id="zTivRKG" name="Posts mit nur einer Meldung werden ausgeblendet.">
+      <notes>
+        <note category="german">Posts mit nur einer Meldung werden ausgeblendet.</note>
+      </notes>
+      <segment>
+        <source>Posts mit nur einer Meldung werden ausgeblendet.</source>
+        <target>Posts mit nur einer Meldung werden ausgeblendet.</target>
+      </segment>
+    </unit>
+    <unit id="2GEnVsN" name="Alle anzeigen">
+      <notes>
+        <note category="german">Alle anzeigen</note>
+      </notes>
+      <segment>
+        <source>Alle anzeigen</source>
+        <target>Alle anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="lb_oeKi" name="Du hast kein Forum ausgewählt.">
+      <notes>
+        <note category="german">Du hast kein Forum ausgewählt.</note>
+      </notes>
+      <segment>
+        <source>Du hast kein Forum ausgewählt.</source>
+        <target>Du hast kein Forum ausgewählt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

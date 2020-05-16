@@ -3463,5 +3463,41 @@
         <target>Die Verteidigung der Stadt wird um 14% erhöht.</target>
       </segment>
     </unit>
+    <unit id="K_1scXO" name="Zaun (Baustellen)">
+      <notes>
+        <note category="german">Zaun (Baustellen)</note>
+      </notes>
+      <segment>
+        <source>Zaun (Baustellen)</source>
+        <target>Zaun (Baustellen)</target>
+      </segment>
+    </unit>
+    <unit id="R.TLWup" name="aed3fec">
+      <notes>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
+      </notes>
+      <segment>
+        <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
+        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</target>
+      </segment>
+    </unit>
+    <unit id="JLugykh" name="124a889">
+      <notes>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
+      </notes>
+      <segment>
+        <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
+        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
+      </segment>
+    </unit>
+    <unit id="OK7fp_k" name="Zaun (Haus)">
+      <notes>
+        <note category="german">Zaun (Haus)</note>
+      </notes>
+      <segment>
+        <source>Zaun (Haus)</source>
+        <target>Zaun (Haus)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
