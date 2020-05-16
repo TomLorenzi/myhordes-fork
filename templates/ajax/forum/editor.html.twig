@@ -388,8 +388,6 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
             document.getElementById('modal-backdrop').classList.add('tag'+tag);
 
             document.getElementById('modal-button-ok').addEventListener('click', function processModal() {
-                console.log('YAY!');
-                document.getElementById('modal-backdrop').classList.remove('active');
                 let submitted = document.getElementById('modal-form');
                 const type = document.getElementById('form-type');
                 let inputs = submitted.getElementsByTagName('input');
@@ -404,18 +402,32 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
                     }
                 }
 
-                submitted.parentNode.removeChild(submitted);
+                if (tagUrl.substr(0,2) !== '//') {
+                    // Apparently not an Url.
+                    // TODO: Add error message to Url field.
+                    document.getElementById(type.value + '-link').classList.add('error');
+                    document.getElementById(type.value + '-text').classList.add('error');
+                }
+                else {
+                    document.getElementById(type.value + '-link').classList.remove('error');
+                    document.getElementById(type.value + '-text').classList.remove('error');
+                    document.getElementById('modal-backdrop').classList.remove('active');
+                    document.getElementById('modal-button-ok').removeEventListener('click', processModal);
+                    submitted.parentNode.removeChild(submitted);
 
-                node_transfer_source.value =
-                    content.substr( 0, s_start ) +
-                    '[' + tag + '=' + tagUrl + ']' +
-                    tagText + '[/' + tag + ']' +
-                    content.substr( s_end );
+                    node_transfer_source.value =
+                        content.substr(0, s_start) +
+                        '[' + tag + '=' + tagUrl + ']' +
+                        tagText + '[/' + tag + ']' +
+                        content.substr(s_end);
 
-                node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-                window.setTimeout( function() {node_transfer_source.focus()}, 10 )
-                transfer_to_preview();
-            }, { once : true });
+                    node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
+                    window.setTimeout(function () {
+                        node_transfer_source.focus()
+                    }, 10)
+                    transfer_to_preview();
+                }
+            });
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
             e.preventDefault();

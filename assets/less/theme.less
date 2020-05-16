@@ -181,8 +181,18 @@ x-message {
       .modal-form {
         padding: 1rem;
 
+        label {
+          &.error {
+            color: #c00;
+          }
+        }
+
         input {
           margin-bottom: 1rem;
+
+          &.error {
+            outline: 2px solid #c00;
+          }
         }
       }
     }
