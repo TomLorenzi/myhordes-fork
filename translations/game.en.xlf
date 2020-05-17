@@ -2868,7 +2868,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Autobahnraststätte</source>
-        <target>Blocked Road</target>
+        <target>Motorway Services</target>
       </segment>
     </unit>
     <unit id="wuZIxTk" name="Autowracks">

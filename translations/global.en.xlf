@@ -881,7 +881,7 @@
       </notes>
       <segment>
         <source>Autor</source>
-        <target>Autor</target>
+        <target>Author</target>
       </segment>
     </unit>
     <unit id="kTWILTI" name="Datum">
@@ -890,7 +890,7 @@
       </notes>
       <segment>
         <source>Datum</source>
-        <target>Datum</target>
+        <target>Date</target>
       </segment>
     </unit>
     <unit id="BGGdaRH" name="Züruck">
@@ -899,7 +899,7 @@
       </notes>
       <segment>
         <source>Züruck</source>
-        <target>Züruck</target>
+        <target>Back</target>
       </segment>
     </unit>
     <unit id="pUyN66u" name="Archivieren">
@@ -917,7 +917,7 @@
       </notes>
       <segment>
         <source>Fett</source>
-        <target>Fett</target>
+        <target>Bold</target>
       </segment>
     </unit>
     <unit id="6XYRB0Q" name="Kursiv">
@@ -926,7 +926,7 @@
       </notes>
       <segment>
         <source>Kursiv</source>
-        <target>Kursiv</target>
+        <target>Italic</target>
       </segment>
     </unit>
     <unit id="RuL1D2i" name="Unterstreichen">
@@ -935,7 +935,7 @@
       </notes>
       <segment>
         <source>Unterstreichen</source>
-        <target>Unterstreichen</target>
+        <target>Underline</target>
       </segment>
     </unit>
     <unit id="AsD_uy4" name="Durchstreichen">
@@ -944,7 +944,7 @@
       </notes>
       <segment>
         <source>Durchstreichen</source>
-        <target>Durchstreichen</target>
+        <target>Strike</target>
       </segment>
     </unit>
     <unit id="aZc6vxf" name="Einfache Liste">
@@ -953,7 +953,7 @@
       </notes>
       <segment>
         <source>Einfache Liste</source>
-        <target>Einfache Liste</target>
+        <target>Simple List</target>
       </segment>
     </unit>
     <unit id="1CuRrf_" name="Nummerierte Liste">
@@ -962,7 +962,7 @@
       </notes>
       <segment>
         <source>Nummerierte Liste</source>
-        <target>Nummerierte Liste</target>
+        <target>Numbered List</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -989,7 +989,7 @@
       </notes>
       <segment>
         <source>Zitat</source>
-        <target>Zitat</target>
+        <target>Quote</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Glory</target>
       </segment>
     </unit>
     <unit id="0OPnj4A" name="Linie">
@@ -1007,7 +1007,7 @@
       </notes>
       <segment>
         <source>Linie</source>
-        <target>Linie</target>
+        <target>Line</target>
       </segment>
     </unit>
     <unit id="7WQ2SM6" name="Entstauben">
