@@ -32,8 +32,6 @@ class TownHandler
     private $citizen_handler;
     private $picto_handler;
 
-    private $building_cache = null;
-
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph)
     {
@@ -213,8 +211,6 @@ class TownHandler
     }
 
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
-        //if (isset($this->building_cache[]))
-
         if (is_string($prototype))
             $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
 
