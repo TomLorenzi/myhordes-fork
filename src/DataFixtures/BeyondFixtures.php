@@ -730,7 +730,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'distri_#00','count' => 17),
             array('item' => 'bed_#00','count' => 16),
             array('item' => 'deco_box_#00','count' => 13),
-            array('item' => 'chest_food_de_#00','count' => 10),
+            array('item' => 'chest_food_#00','count' => 10),
             array('item' => 'rlaunch_#00','count' => 17),
             array('item' => 'water_poisoned_#00','count' => 17),
             array('item' => 'bureau_#00','count' => 17),
