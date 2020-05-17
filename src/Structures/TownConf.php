@@ -13,6 +13,7 @@ class TownConf extends Conf
     const CONF_POPULATION_MIN  = 'population.min';
     const CONF_POPULATION_MAX  = 'population.max';
     const CONF_NUM_RUINS = 'ruins';
+    const CONF_NUM_EXPLORABLE_RUINS = 'explorable_ruins';
     const CONF_BUILDINGS_CONSTRUCTED = 'initial_buildings';
     const CONF_BUILDINGS_UNLOCKED    = 'unlocked_buildings';
     const CONF_DISTRIBUTED_ITEMS     = 'distribute_items';
