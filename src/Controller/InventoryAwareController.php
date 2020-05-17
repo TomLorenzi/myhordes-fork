@@ -336,12 +336,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         }
 
-        if ($this->citizen_handler->hasStatusEffect($aggressor, 'tg_ghoul_eat'))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
         $notes = [];
 
         if ($victim->getAlive()) {
+
+            if ($this->citizen_handler->hasStatusEffect($aggressor, 'tg_ghoul_eat'))
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
             if ($victim->hasRole('ghoul')) {
                 $this->addFlash('notice', $this->translator->trans('Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!', [], 'game'));
                 return AjaxResponse::success();
@@ -397,11 +398,15 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if ($stat_down)
                 $notes[] = $this->translator->trans( 'Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...', [], 'game' );
 
+            $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_eat' );
+
             $this->death_handler->kill($victim, CauseOfDeath::GhulEaten);
             $this->entity_manager->persist($this->log->citizenDeath( $victim ) );
 
-
         } else {
+
+            if ($this->citizen_handler->hasStatusEffect($aggressor, 'tg_ghoul_corpse'))
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
             if ($aggressor->getZone() || !$victim->getHome()->getHoldsBody())
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -411,11 +416,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 10) );
             $victim->getHome()->setHoldsBody(false);
 
-
             $notes[] = $this->translator->trans('Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.', [], 'game');
+            $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_corpse' );
         }
-
-        $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_eat' );
 
         if ($notes)
             $this->addFlash('note', implode('<hr />', $notes));
