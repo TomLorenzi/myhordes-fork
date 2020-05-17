@@ -3900,7 +3900,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</target>
+        <target>%zombie% est ressuscité des morts et a écrit des messages incorrects sur le tableau des héros!</target>
       </segment>
     </unit>
     <unit id="ToXb7Kr" name="%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!">
@@ -5217,7 +5217,7 @@
       </notes>
       <segment>
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
-        <target>Salutations de Shaïtan du passé, qui est assis devant son PC le 08/04/2020 et traduit ce texte.</target>
+        <target>Salutations de Brainbox du passé, qui s'assoit devant son PC le 22 février 2020 et écrit ce texte.</target>
       </segment>
     </unit>
     <unit id="GWsFaiN" name="Katapult">
@@ -8185,7 +8185,7 @@
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
-        <target>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
+        <target>"Un pas de plus ...", disait-il sur le paillasson de %victim%s. Votre explosion vous a laissé une impression durable. Si vous pouvez encore marcher, mieux vaut trouver un médecin.</target>
       </segment>
     </unit>
     <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
@@ -8500,7 +8500,7 @@
       </notes>
       <segment>
         <source>Die Tarnung von %name% ist aufgeflogen!</source>
-        <target>Die Tarnung von %name% ist aufgeflogen!</target>
+        <target>Le camouflage de %name% a été détruit !</target>
       </segment>
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
@@ -8527,7 +8527,7 @@
       </notes>
       <segment>
         <source>%username% gehört keiner Stadt an.</source>
-        <target>%username% gehört keiner Stadt an.</target>
+        <target>%username% n'appartient pas à une ville.</target>
       </segment>
     </unit>
     <unit id="J2aR_r9" name="ed375df">
@@ -8806,7 +8806,7 @@
       </notes>
       <segment>
         <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
-        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</target>
+        <target>Vous ne vous attendiez probablement pas à ça... Et la prochaine fois, vous respecterez les règles?</target>
       </segment>
     </unit>
     <unit id="BGnSZ4j" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.">
@@ -8980,7 +8980,7 @@
       </notes>
       <segment>
         <source>%citizen% hat beschlossen %target_citizen% hier zurückzulassen...</source>
-        <target>%citizen% hat beschlossen %target_citizen% hier zurückzulassen...</target>
+        <target>%citizen% a décidé de laisser %target_citizen% ici...</target>
       </segment>
     </unit>
     <unit id="2MBbf8L" name="416726b">
@@ -9745,7 +9745,7 @@
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</target>
+        <target>%attacker% a sauté à la gorge de %defender% et l'a mangé sans battre une paupière!</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">
@@ -9754,7 +9754,7 @@
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</target>
+        <target>Qu'est-il arrivé au corps? Le corps sans vie a disparu sans laisser de trace ... Il se trouve probablement quelque part devant la ville et pourrit ... Peut-être qu'il viendra vous rendre visite la nuit?</target>
       </segment>
     </unit>
     <unit id="oHxefYi" name="6fc4576">
@@ -9772,7 +9772,7 @@
       </notes>
       <segment>
         <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</target>
+        <target>%citizen1% et %citizen2% ont été sauvés à la dernière minute lorsqu'ils se sont préparés à se pendre dans leurs maisons hier soir. Commentaire: "Je pensais qu'ils me mangeraient vivant et je ne voulais plus en faire l'expérience". Rétrospectivement, ce fut une mauvaise décision car aucun zombie n'est entré dans la ville la nuit dernière.</target>
       </segment>
     </unit>
     <unit id="6iAHRm0" name="ba03d33">
@@ -9880,7 +9880,7 @@
       </notes>
       <segment>
         <source>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</source>
-        <target>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</target>
+        <target>Les zombies de la nuit dernière n'avaient que nos chiffons pour se mettre les dents et quelques carcasses d'animaux ... Notre défense a bien résisté.</target>
       </segment>
     </unit>
     <unit id="33A2X4_" name="2c8e055">
@@ -9907,7 +9907,7 @@
       </notes>
       <segment>
         <source>Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</source>
-        <target>Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</target>
+        <target>Nous avons dit au revoir avec amour au vieux chien qui vivait dans le village ... Les aboiements incessants qui agaçaient tout le monde dans le quartier ont cessé pour toujours depuis l'attaque de la nuit dernière. Pauvre chose ... La bonne nouvelle est qu'il n'y a pas eu de victimes importantes dans la ville.</target>
       </segment>
     </unit>
     <unit id="8lLyo5W" name="78078af">
@@ -9916,7 +9916,7 @@
       </notes>
       <segment>
         <source>Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</source>
-        <target>Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</target>
+        <target>Nous avions tout ce dont nous avions besoin près de la zone ouest pour éloigner les corps traînants de la nuit dernière, c'est sûr. Zéro perte - à part quelques maisons qu'ils ont touchées.</target>
       </segment>
     </unit>
     <unit id="RRW1KXj" name="df3cfa4">
@@ -10006,7 +10006,7 @@
       </notes>
       <segment>
         <source>So richtig scheint keiner über den Tod von %cadaver1% und %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target>So richtig scheint keiner über den Tod von %cadaver1% und %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</target>
+        <target>Personne ne semble vraiment pleurer la mort de %cadaver1% et %cadaver2%. Ils n'étaient probablement pas les plus populaires de la ville.</target>
       </segment>
     </unit>
     <unit id="ozYbUho" name="d41c7ea">
@@ -10024,7 +10024,7 @@
       </notes>
       <segment>
         <source>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... %deaths% tot. Ende der Geschichte.</source>
-        <target>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... %deaths% tot. Ende der Geschichte.</target>
+        <target>Les zombies ont trouvé une faiblesse dans notre défense sur le mur nord hier soir ... Certaines maisons ont résisté à l'attaque. D'autres non ... ... %deaths% morts. Fin de l'histoire.</target>
       </segment>
     </unit>
     <unit id="THY9ZW3" name="99077cf">
@@ -10033,7 +10033,7 @@
       </notes>
       <segment>
         <source>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der %deaths% Opfer des letzten Angriffs zu sein.</source>
-        <target>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der %deaths% Opfer des letzten Angriffs zu sein.</target>
+        <target>Certains résidents sont en larmes ce matin à cause des victimes. Des larmes de joie pour ne pas faire partie des %deaths% victimes de la dernière attaque.</target>
       </segment>
     </unit>
     <unit id="21ggXgm" name="e1334a6">
@@ -10042,7 +10042,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind %deaths% Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</source>
-        <target>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind %deaths% Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</target>
+        <target>Une poignée de zombies ont percé nos défenses près du quartier nord, nous ne savons pas comment ... Par chance, %deaths% citoyens sont morts, mais vous avez étrangement survécu. ... cela ne semble-t-il pas un peu suspect?</target>
       </segment>
     </unit>
     <unit id="MwOt2NN" name="05e5ac7">
@@ -10051,7 +10051,7 @@
       </notes>
       <segment>
         <source>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</source>
-        <target>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</target>
+        <target>Un raz de marée de zombies s'est écrasé contre notre ville la nuit dernière! Les citoyens ont été dévorés chez eux ou traînés dans le désert ... Une autre nuit et nous ne serons pas là pour en parler.</target>
       </segment>
     </unit>
     <unit id="Zi60bF7" name="36fe124">
@@ -10060,7 +10060,7 @@
       </notes>
       <segment>
         <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</source>
-        <target>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</target>
+        <target>Nous sommes pressés; notre incapacité à construire des défenses satisfaisantes a coûté la vie à %deaths% citoyens la nuit dernière. Pour votre information: La nuit dernière, la ville a été attaquée par %attack% zombies.</target>
       </segment>
     </unit>
     <unit id="dXpzNiz" name="ffa5094">
@@ -10069,7 +10069,7 @@
       </notes>
       <segment>
         <source>Die Verteidigungsanlagen waren gestern Abend unzureichend. %deaths% Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</source>
-        <target>Die Verteidigungsanlagen waren gestern Abend unzureichend. %deaths% Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</target>
+        <target>Les défenses étaient insuffisantes la nuit dernière. %deaths% citoyens ont payé leur manque d'organisation de leur vie.</target>
       </segment>
     </unit>
     <unit id="NwrPEV1" name="6abc9da">
@@ -10078,7 +10078,7 @@
       </notes>
       <segment>
         <source>Letzte Nacht haben es %deaths% Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</source>
-        <target>Letzte Nacht haben es %deaths% Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</target>
+        <target>La nuit dernière, %deaths% citoyens ne sont pas rentrés chez eux à temps. Certaines parties ont été trouvées près du quartier ouest. Des témoins oculaires rapportent que les résidents ont crié "Courez, Forrest, courez!" Avant d'éclater de rire et de courir dans leur maison.</target>
       </segment>
     </unit>
     <unit id="anjAe5K" name="0d2c4d5">
@@ -10096,7 +10096,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</source>
-        <target>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</target>
+        <target>Vous ne pouvez pas attaquer ce citoyen ... il ne sent pas comme les autres. Attendez ... ce citoyen est une goule, tout comme vous !</target>
       </segment>
     </unit>
     <unit id="vX7Ir3N" name="4c875cf">

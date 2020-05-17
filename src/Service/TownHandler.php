@@ -32,8 +32,6 @@ class TownHandler
     private $citizen_handler;
     private $picto_handler;
 
-    private $building_cache = null;
-
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph)
     {
@@ -213,8 +211,6 @@ class TownHandler
     }
 
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
-        //if (isset($this->building_cache[]))
-
         if (is_string($prototype))
             $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
 
@@ -363,8 +359,13 @@ class TownHandler
 
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
 
+        $has_shooting_gallery = (bool)$this->getBuilding($town, 'small_tourello_#00', true);
+        $has_trebuchet        = (bool)$this->getBuilding($town, 'small_catapult3_#00', true);
+        $has_ikea             = (bool)$this->getBuilding($town, 'small_ikea_#00', true);
+        $has_armory           = (bool)$this->getBuilding($town, 'small_armor_#00', true);
+
         foreach ($watchers as $watcher) {
-            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
+            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
                 if($item->getPrototype()->getName() == 'chkspk_#00') {
                     $has_counsel = true;

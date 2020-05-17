@@ -99,7 +99,7 @@
                         <button x-disposal-id="3"><img alt="" src="{{ asset('build/images/item/item_hmeat.gif') }}" />{{ 'Leiche grillen'|trans({},'game') }}</button>
                     {% endif %}
                     {% if can_devour %}
-                        <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Die Leiche verspeisen!'|trans({},'game') }}</button>
+                        <button x-devour-citizen {% if not allow_devour_corpse %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Die Leiche verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
                 {% endif %}
             {% else %}
@@ -249,7 +249,7 @@
             {% endif %}
         {% endif %}
 
-        {% if can_devour and allow_devour %}
+        {% if can_devour and (allow_devour or allow_devour_corpse) %}
             $.html.addEventListenerAll('[x-devour-citizen]', 'click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
