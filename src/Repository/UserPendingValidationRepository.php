@@ -57,6 +57,19 @@ class UserPendingValidationRepository extends ServiceEntityRepository
         } catch (NonUniqueResultException $e) { return null; }
     }
 
+    /**
+     * @param User $user
+     * @return UserPendingValidation[] Returns an array of UserPendingValidation objects
+     */
+    public function findByUser(User $user)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return UserPendingValidation[] Returns an array of UserPendingValidation objects
     //  */

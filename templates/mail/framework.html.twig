@@ -1,0 +1,16 @@
+<html lang="{{ app.request.locale|e('html_attr') }}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8" />
+    <title>{{ title }}</title>
+</head>
+<body style="background: #1b1b1b">
+    <h1 style="color: #d08443; text-align: center; border-bottom: 1px solid #d08443">MyHordes</h1>
+    <div style="margin: 5px 30px; border: 1px solid black; padding: 10px; border-radius: 5px; background: linear-gradient(0deg, rgba(255,238,214,1) 0%, rgba(255,249,243,1) 100%); box-shadow: 0 0 10px black;">
+        <h2>{{ title }}</h2>
+        <div>
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

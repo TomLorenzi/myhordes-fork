@@ -1412,7 +1412,7 @@
       </notes>
       <segment>
         <source>Todesursache</source>
-        <target>Cause du décès</target>
+        <target>Cause of death</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -1422,7 +1422,7 @@
       </notes>
       <segment>
         <source>Letzte Worte</source>
-        <target>Last words :</target>
+        <target>Last words</target>
       </segment>
     </unit>
     <unit id="tTFjSe8" name="Gemeinschaft">
@@ -1452,7 +1452,7 @@
       </notes>
       <segment>
         <source>Verbannung</source>
-        <target>un bannissement</target>
+        <target>Shunning</target>
       </segment>
     </unit>
     <unit id="utVVlIc" name="Todesstrafe">
@@ -1462,7 +1462,7 @@
       </notes>
       <segment>
         <source>Todesstrafe</source>
-        <target>la peine de mort</target>
+        <target>Death penalty</target>
       </segment>
     </unit>
     <unit id="VfVtXGi" name="Eine davon stammt von dir. Du hast %punishment% gefordert.">
@@ -1472,7 +1472,7 @@
       </notes>
       <segment>
         <source>Eine davon stammt von dir. Du hast %punishment% gefordert.</source>
-        <target>L'une d'entre elle est la vôtre. Vous avez demandé %punishment%.</target>
+        <target>One of them is yours. You asked for %punishment%.</target>
       </segment>
     </unit>
     <unit id="MAnMgpF" name="Anzeige erstatten">
@@ -1502,7 +1502,7 @@
       </notes>
       <segment>
         <source>Anzeige: Todesstrafe fordern</source>
-        <target>Plainte : Exiger la peine de mort</target>
+        <target>Complaint : Call for Death penalty</target>
       </segment>
     </unit>
     <unit id="WwHdsjz" name="Anzeige: Verbannung fordern">
@@ -1512,7 +1512,7 @@
       </notes>
       <segment>
         <source>Anzeige: Verbannung fordern</source>
-        <target>Plainte : Demander un bannissement</target>
+        <target>Complaint : Call for Shunning</target>
       </segment>
     </unit>
     <unit id="ZU0JC0f" name="%citizen%s Register">
@@ -1563,7 +1563,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target>Vous avez été banni et ne pouvez plus voter pour les projets.</target>
+        <target>You have been shunned from this town and cannot vote for its projects.</target>
       </segment>
     </unit>
     <unit id="_LKq1VW" name="Du hast bereits für folgendes Projekt abgestimmt:">
@@ -2086,7 +2086,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hilfe rufen!</source>
-        <target>Demander de l'aide !</target>
+        <target>Ask for help !</target>
       </segment>
     </unit>
     <unit id="9IuEojL" name="Die Flucht wagen!">
@@ -2096,7 +2096,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Flucht wagen!</source>
-        <target>Prendre la fuite !</target>
+        <target>Flee !</target>
       </segment>
     </unit>
     <unit id="vTDaFPO" name="Gegen einen Zombie kämpfen!">
@@ -2106,7 +2106,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>Attaquer un zombie !</target>
+        <target>Fight a Zombie !</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
@@ -2256,7 +2256,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zonenchat</source>
-        <target>Zonenchat</target>
+        <target>Zone Chat</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -2276,7 +2276,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das Stadtregister steht nicht zur Verfügung.</source>
-        <target>Das Stadtregister steht nicht zur Verfügung.</target>
+        <target>The Great Town Register (where the actions of all the players are recorded) cannot be accessed when you are in the World Beyond...</target>
       </segment>
     </unit>
     <unit id="V3rm2Ma" name="Herzlichen Glückwunsch, du bist TOT!">
@@ -2296,7 +2296,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast %sp% Seelenpunkte gewonnen!</source>
-        <target>Vous avez gagné %sp% points d'âme !</target>
+        <target>You have earned %sp% soul points !</target>
       </segment>
     </unit>
     <unit id="wD7XaTz" name="Du hast folgende Auszeichnungen verliehen bekommen:">
@@ -2346,7 +2346,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wiedergeboren werden</source>
-        <target>Valider la mort</target>
+        <target>Confirm death</target>
       </segment>
     </unit>
     <unit id=".1viyI2" name="Zeitung">
@@ -2392,7 +2392,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Baupunkte</source>
-        <target>Baupunkte</target>
+        <target>Construction points</target>
       </segment>
     </unit>
     <unit id="cycrpjD" name="fba1e38">
@@ -2538,7 +2538,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Getrunken</source>
-        <target>Getrunken</target>
+        <target>Refreshed</target>
       </segment>
     </unit>
     <unit id="_akkbne" name="Satt">
@@ -2548,7 +2548,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Satt</source>
-        <target>Satt</target>
+        <target>Fed</target>
       </segment>
     </unit>
     <unit id="LQhKsMz" name="Umsichtiger Camper">
@@ -2578,7 +2578,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Den Tod besiegen</source>
-        <target>Den Tod besiegen</target>
+        <target>Cheat Death</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -2598,7 +2598,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Angststarre</source>
-        <target>Angststarre</target>
+        <target>Terrified</target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2608,7 +2608,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Durst</source>
-        <target>Durst</target>
+        <target>Thirsty</target>
       </segment>
     </unit>
     <unit id="csu4Gzn" name="Dehydriert">
@@ -2638,7 +2638,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Drogenabhängig</source>
-        <target>Drogenabhängig</target>
+        <target>Hooked</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2908,7 +2908,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Baustellencontainer</source>
-        <target>Baustellencontainer</target>
+        <target>Construction Site Shelter</target>
       </segment>
     </unit>
     <unit id="4P7trch" name="Dönerbude Utsel-Brutzel">
@@ -2918,7 +2918,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dönerbude Utsel-Brutzel</source>
-        <target>Dönerbude Utsel-Brutzel</target>
+        <target>Fraser D's Kebab-ish</target>
       </segment>
     </unit>
     <unit id="JNOFU3C" name="Dukes Villa">
@@ -2938,7 +2938,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dunkler Hain</source>
-        <target>Dunkler Hain</target>
+        <target>Dark Woods</target>
       </segment>
     </unit>
     <unit id="tRFSLoD" name="Eingestürzte Mine">
@@ -3378,7 +3378,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
-        <target>%citizen% a déposé : %item%.</target>
+        <target>%citizen% has dropped the %item%.</target>
       </segment>
     </unit>
     <unit id="6zpuvqo" name="%citizen% hat diesen Gegenstand mitgenommen: %item%">
@@ -3388,7 +3388,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
-        <target>%citizen% a ramassé %item% qui traînait là...</target>
+        <target>%citizen% has picked up the %item% which was lying around...</target>
       </segment>
     </unit>
     <unit id="Msm_smP" name="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
@@ -3538,7 +3538,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat ein(e,n) %item% ausgegraben!</source>
-        <target>%citizen% a trouvé %item%.</target>
+        <target>%citizen% has found %item%.</target>
       </segment>
     </unit>
     <unit id="nHE1X2F" name="%citizen% hat hier durch Graben nichts gefunden...">
@@ -3548,7 +3548,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
-        <target>Après des recherches épuisantes, %citizen% n'a rien trouvé d'autre que la vacuité de ces moments perdus...</target>
+        <target>%citizen% found nothing during their last search...</target>
       </segment>
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
@@ -4180,7 +4180,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
-        <target>Les nuits sont glaciales dans le désert... Une brume de poussière épaisse enveloppe tout et vous entendez des grincements lugubres tout autour de vous. Parfois, vous apercevez une forme indistincte qui se déplace dans les ombres. Pourvu que ce soit votre imagination...</target>
+        <target>The nights are freezing cold in the desert... A thick dust cloud engulfs everything and you can hear mournful groaning all around you. Occasionally you make out an indistinct figure moving in the shadows. Let's hope that it's just your imagination...</target>
       </segment>
     </unit>
     <unit id="is0j5bp" name="Die Zone untersuchen">
@@ -5817,7 +5817,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>@citizens Bürger</source>
-        <target>@citizens Bürger</target>
+        <target>@citizens Citizens</target>
       </segment>
     </unit>
     <unit id="bULZzW5" name="97ff2c6">
@@ -6366,7 +6366,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Komplexe Expeditionen</source>
-        <target>Komplexe Expeditionen</target>
+        <target>Distant Discoveries</target>
       </segment>
     </unit>
     <unit id="U.4cHE6" name="Anzahl der entfernten Gebäude, die von dir erkundet wurden.">
@@ -6375,7 +6375,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</source>
-        <target>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</target>
+        <target>Number of buildings you have explored in far-flung zones.</target>
       </segment>
     </unit>
     <unit id="IzudVAk" name="Expertenexpeditionen">
@@ -6402,7 +6402,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Großzügigkeit</source>
-        <target>Großzügigkeit</target>
+        <target>Generosity</target>
       </segment>
     </unit>
     <unit id="LSlayka" name="Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.">
@@ -6411,7 +6411,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</source>
-        <target>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</target>
+        <target>The number of Hero days that you have given to another citizen in need.</target>
       </segment>
     </unit>
     <unit id="yMz03.8" name="Spiritueller Führer">
@@ -7986,7 +7986,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
-        <target>...der Mörder .. ist.. IST.. AAARGHhh..</target>
+        <target>...the murderer .. was.. WAS.. AAARGHhh..</target>
       </segment>
     </unit>
     <unit id="IMXvDT6" name="6f93cd3">
@@ -8220,7 +8220,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zusammenbauen</source>
-        <target>Zusammenbauen</target>
+        <target>Assemble</target>
       </segment>
     </unit>
     <unit id="EV3WmmI" name="712ee4f">
@@ -9952,6 +9952,42 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Du wirst heute Nacht sterben!</source>
         <target>Du wirst heute Nacht sterben!</target>
+      </segment>
+    </unit>
+    <unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
+        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</target>
+      </segment>
+    </unit>
+    <unit id="nlQ1fJZ" name="919f19a">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
+        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</target>
+      </segment>
+    </unit>
+    <unit id="SKbA9D2" name="2a20efa">
+      <notes>
+        <note category="german">Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</note>
+      </notes>
+      <segment>
+        <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
+        <target>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</target>
+      </segment>
+    </unit>
+    <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
+      <notes>
+        <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
+      </notes>
+      <segment>
+        <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
+        <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
       </segment>
     </unit>
   </file>

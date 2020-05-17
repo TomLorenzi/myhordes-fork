@@ -96,7 +96,7 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
-            {% if is_granted("ROLE_CROW") %}
+            {% if not pm is defined or not pm and is_granted("ROLE_CROW") %}
                 <div id="crowpost" class="forum-checkbox">
                     <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                     <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
@@ -571,7 +571,7 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
         });
 
         // Post as crow toggle
-        {% if is_granted("ROLE_CROW") %}
+        {% if is_granted("ROLE_CROW") and not pm %}
         function changeHandler(){
             switch (document.querySelector("input[name=post-type]:checked").value) {
                 case "USER":
@@ -610,7 +610,11 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
-                let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
+                {% if pm %}
+                    let type = null;
+                {% else %}
+                    let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
+                {% endif %}
 
                 // Replace proxies
                 let content_node = document.querySelector('[x-tab-id="classic"].selected')
@@ -624,19 +628,27 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
                     proxies[j].parentNode.removeChild(proxies[j]);
                 }
 
-                {% if tid is null %}
-                target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
-                target_payload = {
-                    title: document.getElementById('forum-editor-title').value,
-                    text: content_node.innerHTML,
-                    type: type
-                };
+                {% if pm is defined and pm %}
+                    target_url = '{{ path('town_house_send_pm_controller') }}';
+                    target_payload = {
+                        'content': content_node.innerHTML, 
+                        'tid': {{ tid }}
+                    };
                 {% else %}
-                target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
-                target_payload = {
-                    text: content_node.innerHTML,
-                    type: type,
-                };
+                    {% if tid is null %}
+                    target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
+                    target_payload = {
+                        title: document.getElementById('forum-editor-title').value,
+                        text: content_node.innerHTML,
+                        type: type
+                    };
+                    {% else %}
+                    target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
+                    target_payload = {
+                        text: content_node.innerHTML,
+                        type: type,
+                    };
+                    {% endif %}
                 {% endif %}
                 $.ajax.easySend( target_url, target_payload,
                     function (data) {
