@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Account validieren</source>
-        <target>Account validieren</target>
+        <target>Valider le compte</target>
       </segment>
     </unit>
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
-        <target>Passwort zurücksetzen</target>
+        <target>Réinitialiser le mot de passe</target>
       </segment>
     </unit>
     <unit id="Yf9Z7KC" name="Hallo %user%! Willkommen bei MyHordes!">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Hallo %user%! Willkommen bei MyHordes!</source>
-        <target>Hallo %user%! Willkommen bei MyHordes!</target>
+        <target>Bonjour %user%! Bienvenue sur MyHordes!</target>
       </segment>
     </unit>
     <unit id="_WvOCkO" name="Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</source>
-        <target>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</target>
+        <target>Pour terminer votre inscription, vous avez besoin du code de validation suivant:</target>
       </segment>
     </unit>
     <unit id="AevPeyo" name="365f8ca">
@@ -45,8 +45,8 @@
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</source>
-        <target>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
-        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</target>
+        <target>Vous recevrez cet e-mail parce que vous (ou quelqu'un d'autre) avez fourni votre adresse e-mail lors de votre inscription.
+        Si vous ne vous êtes pas inscrit sur MyHordes, ignorez ce message.</target>
       </segment>
     </unit>
     <unit id="DKEI.Ty" name="Hallo %user%!">
@@ -55,7 +55,7 @@
       </notes>
       <segment>
         <source>Hallo %user%!</source>
-        <target>Hallo %user%!</target>
+        <target>Bonjour %user%!</target>
       </segment>
     </unit>
     <unit id="SWaK66s" name="Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :">
@@ -64,7 +64,7 @@
       </notes>
       <segment>
         <source>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</source>
-        <target>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</target>
+        <target>Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant :</target>
       </segment>
     </unit>
     <unit id="WdF_yfy" name="6d2f95b">
@@ -77,9 +77,9 @@
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
         Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
         durch das Anklicken des oben genannten Links änderst.</source>
-        <target>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
-        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
-        durch das Anklicken des oben genannten Links änderst.</target>
+        <target>Vous avez reçu cet e-mail parce que vous (ou quelqu'un d'autre) avez entré votre adresse e-mail dans la fonction de réinitialisation du mot de passe.
+        Si vous ne souhaitez pas réinitialiser votre mot de passe, ignorez cet e-mail. Votre ancien mot de passe reste valide si vous ne le faites pas
+        en cliquant sur le lien ci-dessus.</target>
       </segment>
     </unit>
   </file>

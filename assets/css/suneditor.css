@@ -1730,16 +1730,19 @@
 .sun-editor-editable strong {
     color: #afb3cf;
     text-transform: initial;
+    opacity: .8;
 }
 
 .sun-editor-editable i,
 .sun-editor-editable em {
     color: #f0d79e;
+    opacity: .7;
 }
 
 .sun-editor-editable del,
 .sun-editor-editable strike {
     color: #cc3300;
+    opacity: .8;
 }
 
 .sun-editor-editable a {
