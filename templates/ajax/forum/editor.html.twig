@@ -96,7 +96,7 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
-            {% if not pm is defined or not pm and is_granted("ROLE_CROW") %}
+            {% if not pm and is_granted("ROLE_CROW") %}
                 <div id="crowpost" class="forum-checkbox">
                     <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                     <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
@@ -628,7 +628,7 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
                     proxies[j].parentNode.removeChild(proxies[j]);
                 }
 
-                {% if pm is defined and pm %}
+                {% if pm %}
                     target_url = '{{ path('town_house_send_pm_controller') }}';
                     target_payload = {
                         'content': content_node.innerHTML, 
