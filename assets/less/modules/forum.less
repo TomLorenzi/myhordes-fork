@@ -24,9 +24,9 @@
 @myhordes-forum-disabled-button-border: grey;
 
 .forum-content-format() {
-  b, strong { color: #afb3cf; text-transform: initial; }
-  i, em { color: #f0d79e; }
-  s, strike, del { color: #cc3300; }
+  b, strong { color: #afb3cf; text-transform: initial; opacity: .8; }
+  i, em { color: #f0d79e; opacity: .7; }
+  s, strike, del { color: #cc3300; opacity: .8; }
 
   hr { border-color: @myhordes-smalltext }
 
@@ -38,11 +38,11 @@
   }
 
   .spoiler {
-    background-image: linear-gradient(45deg, #0006 25%, #fff0 25%, #fff0 50%, #0006 50%, #0006 75%, #fff0 75%, #fff0 100%);
-    background-size: 22.63px 22.63px;
+    background-image: linear-gradient(-45deg, #0006 25%, #fff0 25%, #fff0 50%, #0006 50%, #0006 75%, #fff0 75%, #fff0 100%);
+    background-size: 12.63px 12.63px;
     &:not(:hover) { color: transparent; &>* { visibility: hidden; } }
     &:hover {
-      background-image: linear-gradient(45deg, #0003 25%, #fff0 25%, #fff0 50%, #0003 50%, #0003 75%, #fff0 75%, #fff0 100%);
+      background-image: linear-gradient(-45deg, #0003 25%, #fff0 25%, #fff0 50%, #0003 50%, #0003 75%, #fff0 75%, #fff0 100%);
       &>* { visibility: visible; }
     }
   }
@@ -121,13 +121,13 @@
     padding: 4px;
     min-height: 40px;
     &>b { padding: 5px; &>img { vertical-align: revert; } }
-    &>i { float: right; font-size: 0.8em; }
+    &>i { float: right; font-size: 0.7em; opacity: 0.5; }
     &>div.post-note { font-size: 0.8em; span { opacity: 0.5; } }
     &>.avatar { margin: 0 5px 0 10px; float: left }
     &:before, &:after {content: " "; clear: right;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
-    background: #804d2f;
+    background: linear-gradient(to top, #784a2b, 50%, #965c36);
     &.header-variant-crow { background: #773939; }
     &.header-variant-dev { background: #006495; }
   }
@@ -155,7 +155,8 @@
     font-style: italic;
     color: rgba(0,0,0,0.2);
 
-    .action-button { padding-left: 2px;  text-decoration: underline; cursor: pointer; line-height: 16px }
+    .action-button { padding-left: 2px;  text-decoration: underline; cursor: pointer; line-height: 16px; opacity: 0.3; }
+    .action-button:hover { opacity: 1; color: #ffffff; }
 
     .mod-submenu {
       display: inline-block; position: relative; width: 16px; height: 16px; line-height: 16px;

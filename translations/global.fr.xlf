@@ -926,7 +926,7 @@
       </notes>
       <segment>
         <source>Fett</source>
-        <target>Fett</target>
+        <target>Gras</target>
       </segment>
     </unit>
     <unit id="6XYRB0Q" name="Kursiv">
@@ -935,7 +935,7 @@
       </notes>
       <segment>
         <source>Kursiv</source>
-        <target>Kursiv</target>
+        <target>Italique</target>
       </segment>
     </unit>
     <unit id="RuL1D2i" name="Unterstreichen">
@@ -944,7 +944,7 @@
       </notes>
       <segment>
         <source>Unterstreichen</source>
-        <target>Unterstreichen</target>
+        <target>Souligner</target>
       </segment>
     </unit>
     <unit id="AsD_uy4" name="Durchstreichen">
@@ -953,7 +953,7 @@
       </notes>
       <segment>
         <source>Durchstreichen</source>
-        <target>Durchstreichen</target>
+        <target>Barrer</target>
       </segment>
     </unit>
     <unit id="aZc6vxf" name="Einfache Liste">
@@ -962,7 +962,7 @@
       </notes>
       <segment>
         <source>Einfache Liste</source>
-        <target>Einfache Liste</target>
+        <target>Liste simple</target>
       </segment>
     </unit>
     <unit id="1CuRrf_" name="Nummerierte Liste">
@@ -971,7 +971,7 @@
       </notes>
       <segment>
         <source>Nummerierte Liste</source>
-        <target>Nummerierte Liste</target>
+        <target>Liste numérotée</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -980,7 +980,7 @@
       </notes>
       <segment>
         <source>Listenpunkt</source>
-        <target>Listenpunkt</target>
+        <target>Élément de liste</target>
       </segment>
     </unit>
     <unit id="jlAJmOo" name="Spoiler">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>Zitat</source>
-        <target>Zitat</target>
+        <target>Citation</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -1007,7 +1007,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Balise Glorieuse</target>
       </segment>
     </unit>
     <unit id="0OPnj4A" name="Linie">
@@ -1016,7 +1016,7 @@
       </notes>
       <segment>
         <source>Linie</source>
-        <target>Linie</target>
+        <target>Ligne</target>
       </segment>
     </unit>
     <unit id="7WQ2SM6" name="Entstauben">
@@ -1025,7 +1025,7 @@
       </notes>
       <segment>
         <source>Entstauben</source>
-        <target>Entstauben</target>
+        <target>Dépoussiérage</target>
       </segment>
     </unit>
   </file>
