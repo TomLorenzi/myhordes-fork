@@ -438,16 +438,17 @@ class TownAddonsController extends TownController
         $is_watcher = false;
         $has_counsel = false;
         $total_def = 0;
+        /** @var CitizenWatch $watcher */
         foreach ($citizenWatch as $watcher) {
-            if($watcher->getCitizen() == $this->getActiveCitizen()){
+            if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
-            }
 
-            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
+            $citizen_def = $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
+            $total_def += $citizen_def;
             
             $watchers[$watcher->getId()] = array(
                 'citizen' => $watcher->getCitizen(),
-                'def' => $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()),
+                'def' => $citizen_def,
                 'bonusDef' => $this->citizen_handler->getNightwatchProfessionDefenseBonus($watcher->getCitizen()),
                 'bonusSurvival' => $this->citizen_handler->getNightwatchProfessionSurvivalBonus($watcher->getCitizen()),
                 'status' => array(),
@@ -525,14 +526,6 @@ class TownAddonsController extends TownController
                             'deathImpact' => 20
                         );
                         break;
-                    case 'ghul':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => 0,
-                            'deathImpact' => -5
-                        );
-                        break;
                     case 'thirst2':
                         $watchers[$watcher->getId()]['status'][] = array(
                             'icon' => $status->getIcon(),
@@ -542,6 +535,13 @@ class TownAddonsController extends TownController
                         );
                         break;
                 }
+
+                if ($watcher->getCitizen()->hasRole('ghoul')) $watchers[$watcher->getId()]['status'][] = array(
+                    'icon' => 'ghoul',
+                    'label' => 'Ghul',
+                    'defImpact' => 0,
+                    'deathImpact' => -5
+                );
             }
 
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {

@@ -58,7 +58,6 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'wound4', 'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'wound5', 'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'ghul', 'label' => 'Ghul', 'description' => 'Endlich kannst du deine Schwiegermutter loswerden!'],
         ['name' => 'healed', 'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
 
         ['name' => 'tg_dice' ],
