@@ -225,7 +225,7 @@ class ExternalController extends InventoryAwareController
     private function generateData(User $user): array
     {
         try {
-            $now = new DateTime('now', new DateTimeZone('America/New_York'));
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
@@ -248,28 +248,22 @@ class ExternalController extends InventoryAwareController
 
         // Base data.
         $data = [
-            'hordes' => [
-                'headers' => [
-                    'attributes' => [
-                        'link' => $this->request->getRequestUri(),
-                        'iconurl' => '',
-                        'avatarurl' => '',
-                        'secure' => 0,
-                        'author' => 'MyHordes',
-                        'language' => $town->getLanguage(),
-                        'version' => '0.1',
-                        'generator' => 'symfony',
-                    ],
-                    'game' => [
-                        'attributes' => [
-                            'days' => $town->getDay(),
-                            'quarantine' => $town->getDevastated(),
-                            'datetime' => $now->format('Y-m-d H:i:s'),
-                            'id' => $town->getId(),
-                        ],
-                    ],
-                ],
-                'data' => [
+            'headers' => [
+                'link' => $this->request->getRequestUri(),
+                'iconurl' => '',
+                'avatarurl' => '',
+                'author' => 'MyHordes',
+                'language' => $town->getLanguage(),
+                'version' => '0.1',
+                'generator' => 'symfony',
+            ],
+            'game' => [
+                'days' => $town->getDay(),
+                'quarantine' => $town->getDevastated(),
+                'datetime' => $now->format('Y-m-d H:i:s'),
+                'id' => $town->getId(),
+            ],
+            'data' => [
                     'attributes' => [
                         'cache-date' => $now->format('Y-m-d H:i:s'),
                         'cache-fast' => 0,
@@ -332,7 +326,6 @@ class ExternalController extends InventoryAwareController
                         ],
                     ],
                 ],
-            ],
         ];
 
         // Add zones.
