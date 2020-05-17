@@ -2304,13 +2304,11 @@
     </unit>
     <unit id="tJrpqeH" name="Ruine">
       <notes>
-        <note>Ruine</note>
-        <note>Ruine</note>
         <note category="german">Ruine</note>
       </notes>
       <segment>
         <source>Ruine</source>
-        <target>Ruine</target>
+        <target>Bâtiment</target>
       </segment>
     </unit>
     <unit id="UKXXzW6" name="b23ec99">

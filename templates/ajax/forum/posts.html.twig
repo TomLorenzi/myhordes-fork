@@ -102,7 +102,7 @@
                 <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
             {% endif %}
         {% endif %}
-        {% if is_granted("ROLE_ADMIN")%}
+        {% if is_granted("ROLE_ADMIN") %}
             {% if not pinned %}
                 <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
             {% else %}
