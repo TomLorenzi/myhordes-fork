@@ -177,15 +177,23 @@
                             </div>
                         {% endif %}
                         {% if zone.prototype %}
-                            <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
-                                {% if (zone_blocked and active_scout_mode) %}
-                                    <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
-                                {% endif %}
-                                <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
-                                {% set ruin_label = zone.prototype.label|trans({},'game') %}
-                                {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
-                                {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
-                            </button>
+                            {% if zone.prototype.explorable %}
+                                <button id="enter_ruin_button"  >
+                                    <img class="icon left" alt="" src="{{ asset('build/images/planner.gif') }}" />
+                                    {% set ruin_label = zone.prototype.label|trans({},'game') %}
+                                    {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% betreten{% endtrans %}
+                                </button>
+                            {% else %}
+                                <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
+                                    {% if (zone_blocked and active_scout_mode) %}
+                                        <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
+                                    {% endif %}
+                                    <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
+                                    {% set ruin_label = zone.prototype.label|trans({},'game') %}
+                                    {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
+                                    {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
+                                </button>
+                            {% endif %}
                             {% if zone.buryCount > 0 %}
                                 <button id="uncover_ruin_button">
                                     {% if (zone_blocked and active_scout_mode) %}
