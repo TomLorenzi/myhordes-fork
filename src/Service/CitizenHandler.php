@@ -584,42 +584,31 @@ class CitizenHandler
         $baseChance = 0.05;
         $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
 
-        $town = $citizen->getTown();
-
         $chances = $baseChance;
         for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
             if($previousWatches === null) {
-                $chances = max($baseChance, $chances -= 0.05);
+                $chances = max($baseChance, $chances - 0.05);
             } else {
-                $chances = min(1, $chances += 0.1);
+                $chances = min(1, $chances + 0.1);
             }
         }
 
-        if($this->hasStatusEffect($citizen, "drunk")) {
-            $chances -= 0.04;
-        }
-        if($this->hasStatusEffect($citizen, "hungover")) {
-            $chances += 0.05;
-        }
-        if($this->hasStatusEffect($citizen, "terror")) {
-            $chances += 0.45;
-        }
-        if($this->hasStatusEffect($citizen, "addict")) {
-            $chances += 0.1;
-        }
-        if($this->isWounded($citizen)) {
-            $chances += 0.20;
-        }
-        if($this->hasStatusEffect($citizen, "healed")) {
-            $chances += 0.10;
-        }
-        if($this->hasStatusEffect($citizen, "infection")) {
-            $chances += 0.20;
-        }
-        if($citizen->hasRole('ghoul')) {
-            $chances -= 0.05;
-        }
+        $status_effect_list = [
+            'drunk'     => -0.04,
+            'hungover'  =>  0.05,
+            'terror'    =>  0.45,
+            'addict'    =>  0.01,
+            'healed'    =>  0.10,
+            'infection' =>  0.20
+        ];
+
+        foreach ($status_effect_list as $status => $value)
+            if ($this->hasStatusEffect($citizen, $status))
+                $chances += $value;
+
+        if($this->isWounded($citizen)) $chances += 0.20;
+        if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
         return $chances;
     }
@@ -628,34 +617,24 @@ class CitizenHandler
         $def = 10;
         $def += $this->getNightwatchProfessionDefenseBonus($citizen);
 
-        if($this->hasStatusEffect($citizen, 'drunk')) {
-            $def += 20;
-        }
-        if($this->hasStatusEffect($citizen, 'hungover')) {
-            $def -= 15;
-        }
-        if($this->hasStatusEffect($citizen, 'terror')) {
-            $def -= 30;
-        }
-        if($this->hasStatusEffect($citizen, 'drugged')) {
-            $def += 10;
-        }
-        if($this->hasStatusEffect($citizen, 'addict')) {
-            $def += 15;
-        }
-        if($this->isWounded($citizen)) {
-            $def -= 20;
-        }
-        if($this->hasStatusEffect($citizen, 'healed')) {
-            $def -= 10;
-        }
-        if($this->hasStatusEffect($citizen, 'infection')) {
-            $def -= 15;
-        }
-        if($this->hasStatusEffect($citizen, 'thirst2')) {
-            $def -= 10;
-        }
-        foreach ($citizen->getInventory()->getItems() as $item) {
+        $status_effect_list = [
+            'drunk'     =>  20,
+            'hungover'  => -15,
+            'terror'    => -30,
+            'drugged'   =>  10,
+            'addict'    =>  15,
+            'healed'    => -10,
+            'infection' => -15,
+            'thirst2'   => -10,
+        ];
+
+        foreach ($status_effect_list as $status => $value)
+            if ($this->hasStatusEffect($citizen, $status))
+                $def += $value;
+
+        if($this->isWounded($citizen)) $def -= 20;
+
+        foreach ($citizen->getInventory()->getItems() as $item) if (!$item->getBroken()) {
             $itemWatchPoints = $item->getPrototype()->getWatchpoint();
             $def += $itemWatchPoints;
         }
