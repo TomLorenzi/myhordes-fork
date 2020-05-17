@@ -433,17 +433,28 @@ class TownAddonsController extends TownController
         if (!$th->getBuilding($town, 'small_round_path_#00', true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
+        $has_shooting_gallery = (bool)$th->getBuilding($town, 'small_tourello_#00', true);
+        $has_trebuchet        = (bool)$th->getBuilding($town, 'small_catapult3_#00', true);
+        $has_ikea             = (bool)$th->getBuilding($town, 'small_ikea_#00', true);
+        $has_armory           = (bool)$th->getBuilding($town, 'small_armor_#00', true);
+
         $citizenWatch = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
         $watchers = [];
         $is_watcher = false;
         $has_counsel = false;
         $total_def = 0;
+
+        $has_shooting_gallery = (bool)$th->getBuilding($town, 'small_tourello_#00', true);
+        $has_trebuchet        = (bool)$th->getBuilding($town, 'small_catapult3_#00', true);
+        $has_ikea             = (bool)$th->getBuilding($town, 'small_ikea_#00', true);
+        $has_armory           = (bool)$th->getBuilding($town, 'small_armor_#00', true);
+
         /** @var CitizenWatch $watcher */
         foreach ($citizenWatch as $watcher) {
             if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
 
-            $citizen_def = $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
+            $citizen_def = $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
             $total_def += $citizen_def;
             
             $watchers[$watcher->getId()] = array(
@@ -535,14 +546,14 @@ class TownAddonsController extends TownController
                         );
                         break;
                 }
-
-                if ($watcher->getCitizen()->hasRole('ghoul')) $watchers[$watcher->getId()]['status'][] = array(
-                    'icon' => 'ghoul',
-                    'label' => 'Ghul',
-                    'defImpact' => 0,
-                    'deathImpact' => -5
-                );
             }
+
+            if ($watcher->getCitizen()->hasRole('ghoul')) $watchers[$watcher->getId()]['status'][] = array(
+                'icon' => 'ghoul',
+                'label' => 'Ghul',
+                'defImpact' => 0,
+                'deathImpact' => -5
+            );
 
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
                 if($item->getPrototype()->getName() == 'chkspk_#00')
@@ -553,7 +564,7 @@ class TownAddonsController extends TownController
             	$watchers[$watcher->getId()]['items'][] = array(
                     'icon' => $item->getPrototype()->getIcon(),
                     'label' => $item->getPrototype()->getLabel(),
-                    'defImpact' => $item->getPrototype()->getWatchpoint()
+                    'defImpact' => $this->citizen_handler->getNightWatchItemDefense($item, $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory)
                 );
             }
         }

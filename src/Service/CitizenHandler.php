@@ -613,7 +613,17 @@ class CitizenHandler
         return $chances;
     }
 
-    public function getNightWatchDefense(Citizen $citizen): int {
+    public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {
+        if ($item->getBroken()) return 0;
+        $bonus = 1.0;
+        if ($shooting_gallery && $item->getPrototype()->hasProperty('nw_shooting'))  $bonus += 0.2;
+        if ($trebuchet        && $item->getPrototype()->hasProperty('nw_trebuchet')) $bonus += 0.2;
+        if ($ikea             && $item->getPrototype()->hasProperty('nw_ikea'))      $bonus += 0.2;
+        if ($armory           && $item->getPrototype()->hasProperty('nw_armory'))    $bonus += 0.2;
+        return floor( $item->getPrototype()->getWatchpoint() * $bonus );
+    }
+
+    public function getNightWatchDefense(Citizen $citizen, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory): int {
         $def = 10;
         $def += $this->getNightwatchProfessionDefenseBonus($citizen);
 
@@ -634,10 +644,9 @@ class CitizenHandler
 
         if($this->isWounded($citizen)) $def -= 20;
 
-        foreach ($citizen->getInventory()->getItems() as $item) if (!$item->getBroken()) {
-            $itemWatchPoints = $item->getPrototype()->getWatchpoint();
-            $def += $itemWatchPoints;
-        }
+        foreach ($citizen->getInventory()->getItems() as $item)
+            $def += $this->getNightWatchItemDefense($item, $shooting_gallery, $trebuchet, $ikea, $armory);
+
         return $def;
     }
 
