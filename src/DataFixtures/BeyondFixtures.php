@@ -827,6 +827,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setChance( $entry['chance'] )
             ->setIcon( $entry['icon'] )
             ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
+            ->setExplorable( $entry['explorable'] ?? 0 )
             ;
             $manager->persist( $entity );
 
