@@ -14,7 +14,7 @@
       <notes>
         <note category="german">Bürger</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bürger</source>
         <target>Habitantes</target>
       </segment>
@@ -95,7 +95,7 @@
       <notes>
         <note category="german">1 Tag</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>1 Tag</source>
         <target>1 día</target>
       </segment>
@@ -104,7 +104,7 @@
       <notes>
         <note category="german">3 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>3 Tage</source>
         <target>3 días</target>
       </segment>
@@ -113,7 +113,7 @@
       <notes>
         <note category="german">5 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>5 Tage</source>
         <target>5 días</target>
       </segment>
@@ -122,7 +122,7 @@
       <notes>
         <note category="german">7 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>7 Tage</source>
         <target>7 días</target>
       </segment>
@@ -131,7 +131,7 @@
       <notes>
         <note category="german">15 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>15 Tage</source>
         <target>15 días</target>
       </segment>
@@ -140,7 +140,7 @@
       <notes>
         <note category="german">30 Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>30 Tage</source>
         <target>30 días</target>
       </segment>
@@ -149,7 +149,7 @@
       <notes>
         <note category="german">Grund</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Grund</source>
         <target>Razón</target>
       </segment>
@@ -212,7 +212,7 @@
       <notes>
         <note category="german">Forum</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Forum</source>
         <target>Foro</target>
       </segment>

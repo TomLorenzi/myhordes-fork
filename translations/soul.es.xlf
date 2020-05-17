@@ -14,7 +14,7 @@
       <notes>
         <note category="german">E-Mail-Adresse</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>E-Mail-Adresse</source>
         <target>Dirección de e-mail</target>
       </segment>
@@ -23,7 +23,7 @@
       <notes>
         <note category="german">Externe ID für Apps</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Externe ID für Apps</source>
         <target>ID externo para aplicaciones</target>
       </segment>
@@ -32,7 +32,7 @@
       <notes>
         <note category="german">Neue ID generieren</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neue ID generieren</source>
         <target>Generar nuevo ID</target>
       </segment>
@@ -41,7 +41,7 @@
       <notes>
         <note category="german">ID löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>ID löschen</source>
         <target>Eliminar ID</target>
       </segment>
@@ -50,7 +50,7 @@
       <notes>
         <note category="german">Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</source>
         <target>Eliminar el ID evita que las aplicaciones externas tengan acceso a tus datos.</target>
       </segment>
@@ -59,7 +59,7 @@
       <notes>
         <note category="german">Seele</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Seele</source>
         <target>Alma</target>
       </segment>
@@ -68,7 +68,7 @@
       <notes>
         <note category="german">News</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>News</source>
         <target>Noticias</target>
       </segment>
@@ -77,7 +77,7 @@
       <notes>
         <note category="german">Einstellungen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einstellungen</source>
         <target>Configuración</target>
       </segment>
@@ -86,7 +86,7 @@
       <notes>
         <note category="german">Logout</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Logout</source>
         <target>Desconexión</target>
       </segment>
@@ -95,7 +95,7 @@
       <notes>
         <note category="german">Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
         <target>Este servidor no está configurado para procesar avatares.</target>
       </segment>
@@ -104,7 +104,7 @@
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
         <target>Este formato no es compatible con los admitidos.</target>
       </segment>
@@ -113,7 +113,7 @@
       <notes>
         <note category="german">Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
         <target>El archivo seleccionado está dañado y no se puede procesar.</target>
       </segment>
@@ -122,7 +122,7 @@
       <notes>
         <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
         <target>El servidor no puede comprimir la imagen seleccionada al tamaño de archivo requerido.</target>
       </segment>
@@ -131,7 +131,7 @@
       <notes>
         <note category="german">Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
         <target>Ha ocurrido un error interno al procesar la imagen.</target>
       </segment>
@@ -140,7 +140,7 @@
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Datei ist zu groß.</source>
         <target>El archivo es demasiado grande.</target>
       </segment>
@@ -149,7 +149,7 @@
       <notes>
         <note category="german">Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
         <target>La resolución de la imagen no es apta para usarla como avatar.</target>
       </segment>
@@ -158,7 +158,7 @@
       <notes>
         <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
         <target>La contraseña ingresada es incorrecta. Necesitas tu contraseña actual para editar tu cuenta.</target>
       </segment>
@@ -167,7 +167,7 @@
       <notes>
         <note category="german">Dein Profil</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dein Profil</source>
         <target>Tu perfil</target>
       </segment>
@@ -176,7 +176,7 @@
       <notes>
         <note category="german">Normale Anzeige</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Normale Anzeige</source>
         <target>Vista de avatar normal</target>
       </segment>
@@ -185,7 +185,7 @@
       <notes>
         <note category="german">Komprimierte Anzeige</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Komprimierte Anzeige</source>
         <target>Vista de avatar reducido</target>
       </segment>
@@ -194,7 +194,7 @@
       <notes>
         <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
         <target>Para que los demás jugadores puedan reconocerte más fácilmente, puede subir un avatar aquí.</target>
       </segment>
@@ -203,7 +203,7 @@
       <notes>
         <note category="german">Neues Profilbild hochladen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neues Profilbild hochladen</source>
         <target>Subir avatar nuevo</target>
       </segment>
@@ -212,7 +212,7 @@
       <notes>
         <note category="german">Profilbild löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Profilbild löschen</source>
         <target>Eliminar avatar</target>
       </segment>
@@ -221,7 +221,7 @@
       <notes>
         <note category="german">Komprimierte Anzeige bearbeiten</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Komprimierte Anzeige bearbeiten</source>
         <target>Editar vista de avatar reducido</target>
       </segment>
@@ -231,7 +231,7 @@
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
         <target>Elige qué parte de tu avatar se usa para el avatar reducido.
@@ -242,7 +242,7 @@
       <notes>
         <note category="german">Profilbild hochladen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Profilbild hochladen</source>
         <target>Subir un avatar</target>
       </segment>
@@ -251,7 +251,7 @@
       <notes>
         <note category="german">Darstellung</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Darstellung</source>
         <target>Presentación</target>
       </segment>
@@ -260,7 +260,7 @@
       <notes>
         <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
         <target>Mostrar avatar reducido</target>
       </segment>
@@ -269,7 +269,7 @@
       <notes>
         <note category="german">Standardrolle im Forum</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Standardrolle im Forum</source>
         <target>Rol por defecto en el foro</target>
       </segment>
@@ -278,7 +278,7 @@
       <notes>
         <note category="german">Standardmäßig als dev posten</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Standardmäßig als dev posten</source>
         <target>Publicar por defecto como desarrollador</target>
       </segment>
@@ -287,7 +287,7 @@
       <notes>
         <note category="german">Login und Sicherheit</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Login und Sicherheit</source>
         <target>Inicio de sesión y seguridad</target>
       </segment>
@@ -296,7 +296,7 @@
       <notes>
         <note category="german">Passwort ändern</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Passwort ändern</source>
         <target>Cambiar contraseña</target>
       </segment>
@@ -305,7 +305,7 @@
       <notes>
         <note category="german">Neues Passwort</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neues Passwort</source>
         <target>Nueva contraseña</target>
       </segment>
@@ -314,7 +314,7 @@
       <notes>
         <note category="german">Neues Passwort wiederholen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Neues Passwort wiederholen</source>
         <target>Repetir nueva contraseña</target>
       </segment>
@@ -323,7 +323,7 @@
       <notes>
         <note category="german">Aktuelles Passwort</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Aktuelles Passwort</source>
         <target>Contraseña actual</target>
       </segment>
@@ -332,7 +332,7 @@
       <notes>
         <note category="german">Passwort aktualisieren</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Passwort aktualisieren</source>
         <target>Actualizar contraseña</target>
       </segment>
@@ -341,7 +341,7 @@
       <notes>
         <note category="german">Standardsprache</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Standardsprache</source>
         <target>Idioma por defecto</target>
       </segment>
@@ -350,7 +350,7 @@
       <notes>
         <note category="german">Deutsch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Deutsch</source>
         <target>Alemán</target>
       </segment>
@@ -359,7 +359,7 @@
       <notes>
         <note category="german">Französisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Französisch</source>
         <target>Francés</target>
       </segment>
@@ -368,7 +368,7 @@
       <notes>
         <note category="german">Englisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Englisch</source>
         <target>Inglés</target>
       </segment>
@@ -377,7 +377,7 @@
       <notes>
         <note category="german">Spanisch</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Spanisch</source>
         <target>Español</target>
       </segment>
@@ -386,7 +386,7 @@
       <notes>
         <note category="german">Externe Anwendungen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Externe Anwendungen</source>
         <target>Aplicaciones externas</target>
       </segment>
@@ -395,7 +395,7 @@
       <notes>
         <note category="german">Account löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Account löschen</source>
         <target>Eliminar cuenta</target>
       </segment>
@@ -404,7 +404,7 @@
       <notes>
         <note category="german">Meinen Account löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Meinen Account löschen</source>
         <target>Eliminar mi cuenta</target>
       </segment>
@@ -413,7 +413,7 @@
       <notes>
         <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
         <target>¿Estás seguro de querer eliminar tu cuenta? ¡Esta acción es irreversible!</target>
       </segment>
@@ -422,7 +422,7 @@
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bitte wähle nur eine einzige Datei aus.</source>
         <target>Por favor, selecciona un solo archivo.</target>
       </segment>
@@ -431,7 +431,7 @@
       <notes>
         <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</source>
         <target>Este documento contiene varias páginas. Haz clic para pasar a la página siguiente...</target>
       </segment>
@@ -440,7 +440,7 @@
       <notes>
         <note category="german">Vorherige Seite</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Vorherige Seite</source>
         <target>Página anterior</target>
       </segment>
@@ -449,7 +449,7 @@
       <notes>
         <note category="german">Nächste Seite</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Nächste Seite</source>
         <target>Página siguiente</target>
       </segment>
@@ -458,7 +458,7 @@
       <notes>
         <note category="german">Redakteur:</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Redakteur:</source>
         <target>Autor:</target>
       </segment>
@@ -467,7 +467,7 @@
       <notes>
         <note category="german">Schriften</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schriften</source>
         <target>Escritos</target>
       </segment>
@@ -476,7 +476,7 @@
       <notes>
         <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
         <target>La historia del mundo no es más que una serie de epopeyas...</target>
       </segment>
@@ -485,7 +485,7 @@
       <notes>
         <note category="german">Titel</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Titel</source>
         <target>Título</target>
       </segment>
@@ -494,7 +494,7 @@
       <notes>
         <note category="german">Entdeckt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Entdeckt</source>
         <target>Descubierto</target>
       </segment>
@@ -503,7 +503,7 @@
       <notes>
         <note category="german">Gefundene Texte: %count%</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Gefundene Texte: %count%</source>
         <target>Textos descubiertos: %count%</target>
       </segment>
@@ -512,7 +512,7 @@
       <notes>
         <note category="german">Einen Kommentar hinzufügen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einen Kommentar hinzufügen</source>
         <target>Agregar un comentario</target>
       </segment>
@@ -521,7 +521,7 @@
       <notes>
         <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
         <target>Aún quedan supervivientes en este pueblo...</target>
       </segment>
@@ -530,7 +530,7 @@
       <notes>
         <note category="german">Überlebte Tage</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Überlebte Tage</source>
         <target>Días sobrevividos</target>
       </segment>
@@ -539,7 +539,7 @@
       <notes>
         <note category="german">Ergebnis</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ergebnis</source>
         <target>Score</target>
       </segment>
@@ -548,7 +548,7 @@
       <notes>
         <note category="german">Bürger</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bürger</source>
         <target>Habitante</target>
       </segment>
@@ -557,7 +557,7 @@
       <notes>
         <note category="german">Todesursache</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Todesursache</source>
         <target>Muerte</target>
       </segment>
@@ -566,7 +566,7 @@
       <notes>
         <note category="german">Kommentar</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kommentar</source>
         <target>Comentario</target>
       </segment>
