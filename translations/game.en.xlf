@@ -2036,7 +2036,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% zombies contrôlent cette zone !</target>
+        <target>%z% control the zone!</target>
       </segment>
     </unit>
     <unit id="5GwqUxA" name="d4294d0">
@@ -2076,7 +2076,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</source>
-        <target>Vous avez été surpris et maintenant vous êtes entouré de zombies ! Si vous ne faites rien, vous allez mourir ici ce soir...</target>
+        <target>You have been surrounded by zombies and are now trapped! If you don't do something, and if nobody comes to save you, you're definitely going to Die2Nite!</target>
       </segment>
     </unit>
     <unit id="EV7eyTa" name="Hilfe rufen!">
@@ -2086,7 +2086,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hilfe rufen!</source>
-        <target>Ask for help !</target>
+        <target>Call for help!</target>
       </segment>
     </unit>
     <unit id="9IuEojL" name="Die Flucht wagen!">
@@ -2096,7 +2096,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Flucht wagen!</source>
-        <target>Flee !</target>
+        <target>Try to escape!</target>
       </segment>
     </unit>
     <unit id="vTDaFPO" name="Gegen einen Zombie kämpfen!">
@@ -2106,7 +2106,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>Fight a Zombie !</target>
+        <target>Fight a zombie</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
@@ -2226,7 +2226,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Müll durchwühlen</source>
-        <target>Fouiller les poubelles</target>
+        <target>Search the refuse</target>
       </segment>
     </unit>
     <unit id="s5pZm5S" name="Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!">
@@ -2306,7 +2306,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Vous avez gagné les distinctions suivantes :</target>
+        <target>You have earned the following distinctions :</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -2678,7 +2678,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Kopf</source>
-        <target>Blessure - Head</target>
+        <target>Wounded - Head</target>
       </segment>
     </unit>
     <unit id="yI0ueHI" name="Verwundung - Hände">
@@ -2688,7 +2688,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Hände</source>
-        <target>Blessure - Hand</target>
+        <target>Wounded - Hand</target>
       </segment>
     </unit>
     <unit id="lfaLaVU" name="Verwundung - Arme">
@@ -2698,7 +2698,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Arme</source>
-        <target>Blessure - Arm</target>
+        <target>Wounded - Arm</target>
       </segment>
     </unit>
     <unit id="KRP.Csa" name="Verwundung - Bein">
@@ -2708,7 +2708,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Bein</source>
-        <target>Blessure - Leg</target>
+        <target>Wounded - Leg</target>
       </segment>
     </unit>
     <unit id="15_YwON" name="Verwundung - Auge">
@@ -2718,7 +2718,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Auge</source>
-        <target>Blessure - Eye</target>
+        <target>Wounded - Eye</target>
       </segment>
     </unit>
     <unit id="iU.tgTh" name="Verwundung - Fuß">
@@ -2728,7 +2728,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Fuß</source>
-        <target>Blessure - Foot</target>
+        <target>Wounded - Foot</target>
       </segment>
     </unit>
     <unit id="72h0.SN" name="Ghul">
@@ -2868,7 +2868,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Autobahnraststätte</source>
-        <target>Blocked Road</target>
+        <target>Motorway Services</target>
       </segment>
     </unit>
     <unit id="wuZIxTk" name="Autowracks">
@@ -7401,7 +7401,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
-        <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
+        <target>You cannot dig while zombies control the zone.</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -9321,7 +9321,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nutze deine heilenden Hände</source>
-        <target>Nutze deine heilenden Hände</target>
+        <target>Use your healing hands</target>
       </segment>
     </unit>
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
@@ -9330,7 +9330,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diesen Bürger angreifen!</source>
-        <target>Diesen Bürger angreifen!</target>
+        <target>Attack this citizen!</target>
       </segment>
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
@@ -9339,7 +9339,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Diesen Bürger verspeisen!</target>
+        <target>Eat this citizen!</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -9393,7 +9393,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Niemand!</source>
-        <target>Niemand!</target>
+        <target>Nobody!</target>
       </segment>
     </unit>
     <unit id="ooesDbN" name="Sonstige Opfer">
@@ -9420,7 +9420,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Keine Opfer</source>
-        <target>Keine Opfer</target>
+        <target>No Victims</target>
       </segment>
     </unit>
     <unit id="Tj4dAlQ" name="Umdrehen">
@@ -9438,7 +9438,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der %rolename% der Stadt ist %username%</source>
-        <target>Der %rolename% der Stadt ist %username%</target>
+        <target>The %rolename% of the town is %username%</target>
       </segment>
     </unit>
     <unit id="kg5BPH1" name="Status">
@@ -9450,22 +9450,22 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Status</target>
       </segment>
     </unit>
-    <unit id="m9ipH9g" name="[nights]">
-      <notes>
-        <note category="german">[nights]</note>
-      </notes>
-      <segment>
-        <source>[nights]</source>
-        <target>[nights]</target>
-      </segment>
-    </unit>
+	     <unit id="m9ipH9g" name="[nights]">
+	      <notes>
+	        <note category="german">[nights]</note>
+	      </notes>
+	      <segment>
+	        <source>[nights]</source>
+	        <target>[ nothing ]</target>
+	      </segment>
+	    </unit>
     <unit id="r_z_E60" name="Notruf">
       <notes>
         <note category="german">Notruf</note>
       </notes>
       <segment>
         <source>Notruf</source>
-        <target>Notruf</target>
+        <target>Call for help</target>
       </segment>
     </unit>
     <unit id="BUwKVvO" name="Rohstoff am Boden (Holz, Metall...)">
@@ -9474,7 +9474,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Rohstoff am Boden (Holz, Metall...)</source>
-        <target>Rohstoff am Boden (Holz, Metall...)</target>
+        <target>Ressource(s) (wood, metal...)</target>
       </segment>
     </unit>
     <unit id="xsEeh5A" name="Verschiedene Gegenstände am Boden">
@@ -9483,7 +9483,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verschiedene Gegenstände am Boden</source>
-        <target>Verschiedene Gegenstände am Boden</target>
+        <target>Items</target>
       </segment>
     </unit>
     <unit id="KVObx2I" name="Wichtige(r) Gegenstand/-ände!">
@@ -9492,7 +9492,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wichtige(r) Gegenstand/-ände!</source>
-        <target>Wichtige(r) Gegenstand/-ände!</target>
+        <target>Important object(s)!</target>
       </segment>
     </unit>
     <unit id="Zu.dPP1" name="Zone leer">
@@ -9501,7 +9501,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zone leer</source>
-        <target>Zone leer</target>
+        <target>Depleted zone</target>
       </segment>
     </unit>
     <unit id="0KEaBmR" name="Zone tempörar gesichert">
@@ -9510,7 +9510,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zone tempörar gesichert</source>
-        <target>Zone tempörar gesichert</target>
+        <target>Temporarily secured zone</target>
       </segment>
     </unit>
     <unit id="phjYDRS" name="Zone muss freigeräumt werden">
@@ -9519,7 +9519,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zone muss freigeräumt werden</source>
-        <target>Zone muss freigeräumt werden</target>
+        <target>Uncleared zone</target>
       </segment>
     </unit>
     <unit id="zUCrZ7p" name="Zwichen 5 und 8 Zombies">
@@ -9528,7 +9528,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zwichen 5 und 8 Zombies</source>
-        <target>Zwichen 5 und 8 Zombies</target>
+        <target>Between 5 and 8 Zombies</target>
       </segment>
     </unit>
     <unit id="63m90pZ" name="9 oder mehr Zombies!">
@@ -9537,7 +9537,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>9 oder mehr Zombies!</source>
-        <target>9 oder mehr Zombies!</target>
+        <target>9 Zombies or more!</target>
       </segment>
     </unit>
     <unit id="RIRNP.t" name="Camping geplant">
@@ -9546,7 +9546,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Camping geplant</source>
-        <target>Camping geplant</target>
+        <target>Likely campsite</target>
       </segment>
     </unit>
     <unit id="t2sF_L3" name="Zu untersuchende Ruine">
@@ -9555,7 +9555,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zu untersuchende Ruine</source>
-        <target>Zu untersuchende Ruine</target>
+        <target>A ruin to explore</target>
       </segment>
     </unit>
     <unit id="k0fexBD" name="Verlorene Seele">
@@ -9564,7 +9564,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verlorene Seele</source>
-        <target>Verlorene Seele</target>
+        <target>Lost soul</target>
       </segment>
     </unit>
     <unit id="7aJRY_e" name="Zeuge von Harmagedon">
@@ -9573,7 +9573,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zeuge von Harmagedon</source>
-        <target>Zeuge von Harmagedon</target>
+        <target>Witness of Armageddon</target>
       </segment>
     </unit>
     <unit id="VdVwoAS" name="76effd8">
@@ -9591,7 +9591,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zeuge der großen Verseuchung</source>
-        <target>Zeuge der großen Verseuchung</target>
+        <target>Witness to the Great Contamination</target>
       </segment>
     </unit>
     <unit id="rcOyjHS" name="9573217">
@@ -9600,7 +9600,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
-        <target>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</target>
+        <target>Extremely rare brand reserved for souls who have experienced the Great Contamination of Die2Nite!</target>
       </segment>
     </unit>
     <unit id="d4bvAjk" name="9011ac1">
@@ -9753,7 +9753,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du kannst nicht mehr als eine Seele tragen.</source>
-        <target>Du kannst nicht mehr als eine Seele tragen.</target>
+        <target>You cannot carry more than one soul.</target>
       </segment>
     </unit>
     <unit id="BjwWH4y" name="Erhaltene Nachrichten">
@@ -9762,7 +9762,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Erhaltene Nachrichten</source>
-        <target>Erhaltene Nachrichten</target>
+        <target>Messages received</target>
       </segment>
     </unit>
     <unit id="JyB0OZM" name="Archiv">
@@ -9771,7 +9771,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Archiv</source>
-        <target>Archiv</target>
+        <target>Archive</target>
       </segment>
     </unit>
     <unit id="Yy0zB8." name="Eine Nachricht schreiben">
@@ -9780,7 +9780,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eine Nachricht schreiben</source>
-        <target>Eine Nachricht schreiben</target>
+        <target>Write a message</target>
       </segment>
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
@@ -9789,7 +9789,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Schreiben Sie an alle</source>
-        <target>Schreiben Sie an alle</target>
+        <target>Write to everyone</target>
       </segment>
     </unit>
     <unit id="aUj3MMh" name="7d87462">
@@ -9807,7 +9807,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Keine Nachricht gespeichert.</source>
-        <target>Keine Nachricht gespeichert.</target>
+        <target>No message saved.</target>
       </segment>
     </unit>
     <unit id="wo3L_zx" name="Neue Nachright">
@@ -9816,7 +9816,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Neue Nachright</source>
-        <target>Neue Nachright</target>
+        <target>New message</target>
       </segment>
     </unit>
     <unit id="47O8Zzm" name="Empfänger:">
@@ -9825,7 +9825,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Empfänger:</source>
-        <target>Empfänger:</target>
+        <target>Recipient:</target>
       </segment>
     </unit>
     <unit id="Z14T1QO" name="Bürgerverzeichnis anszeigen">
@@ -9834,7 +9834,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Bürgerverzeichnis anszeigen</source>
-        <target>Bürgerverzeichnis anszeigen</target>
+        <target>Show citizen directory</target>
       </segment>
     </unit>
     <unit id="yTzI33f" name="Dieser Nachricht Gegenstände beifügen">
@@ -9843,7 +9843,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser Nachricht Gegenstände beifügen</source>
-        <target>Dieser Nachricht Gegenstände beifügen</target>
+        <target>Include items in this message</target>
       </segment>
     </unit>
     <unit id="xcRoAOS" name="Betreff:">
@@ -9852,7 +9852,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Betreff:</source>
-        <target>Betreff:</target>
+        <target>Subject:</target>
       </segment>
     </unit>
     <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
@@ -9861,7 +9861,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>Ich BESTÄTIGE meine Nachricht</target>
+        <target>I CONFIRM my message</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -9870,7 +9870,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Neue globale Nachricht</source>
-        <target>Neue globale Nachricht</target>
+        <target>New global message</target>
       </segment>
     </unit>
     <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
@@ -9879,7 +9879,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Beschädigte Verteidigung: %defense% / %max%</source>
-        <target>Beschädigte Verteidigung: %defense% / %max%</target>
+        <target>Damaged Defense: %defense% / %max%</target>
       </segment>
     </unit>
     <unit id="1EzQJxv" name="Zustand:">
@@ -9888,7 +9888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zustand:</source>
-        <target>Zustand:</target>
+        <target>Status:</target>
       </segment>
     </unit>
     <unit id="Ev2Gt9Y" name="4f4737e">
@@ -9906,7 +9906,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Reparatur verbraucht keine Ressourcen.</source>
-        <target>Die Reparatur verbraucht keine Ressourcen.</target>
+        <target>The repair does not consume any resources.</target>
       </segment>
     </unit>
     <unit id=".JWT0sC" name="Zonenmarkierer">
@@ -9915,7 +9915,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zonenmarkierer</source>
-        <target>Zonenmarkierer</target>
+        <target>Zone marker</target>
       </segment>
     </unit>
     <unit id="dY6rVb6" name="Tor ist offen!">
@@ -9924,7 +9924,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Tor ist offen!</source>
-        <target>Tor ist offen!</target>
+        <target>Gate is open!</target>
       </segment>
     </unit>
     <unit id="1cEye.o" name="Zombies sind eingedrungen.">
@@ -9933,7 +9933,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
-        <target>Zombies sind eingedrungen.</target>
+        <target>Zombies have invaded.</target>
       </segment>
     </unit>
     <unit id="ojehKlj" name="vor Angst erstarrt">
@@ -9951,7 +9951,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du wirst heute Nacht sterben!</source>
-        <target>Du wirst heute Nacht sterben!</target>
+        <target>You will die tonight!</target>
       </segment>
     </unit>
     <unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
@@ -9990,5 +9990,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
       </segment>
     </unit>
+
   </file>
 </xliff>
