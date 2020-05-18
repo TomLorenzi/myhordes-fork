@@ -478,4 +478,16 @@ class ZoneHandler
 */
         return null;
     }
+
+    public function getZonesWithExplorableRuin($zones): array {
+        $explorable_zones = [];
+        foreach ($zones as $zone) {
+            /** @var Zone $zone */
+            if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+                $explorable_zones[] = $zone;
+            }
+        }
+
+        return $explorable_zones;
+    }
 }
