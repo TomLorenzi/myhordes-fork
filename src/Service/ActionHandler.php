@@ -432,7 +432,7 @@ class ActionHandler
      * @param array|null $remove
      * @return int
      */
-    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove ): int {
+    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false ): int {
 
         $remove = [];
         $tags = [];
@@ -442,14 +442,16 @@ class ActionHandler
 
         $town_conf = $this->conf->getTownConfiguration( $citizen->getTown() );
 
-        $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
-        if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
-        if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
-        if ($mode <= self::ActionValidityAllow) {
-            $message = $tx;
-            return self::ErrorActionForbidden;
+        if (!$force) {
+            $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
+            if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
+            if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
+            if ($mode <= self::ActionValidityAllow) {
+                $message = $tx;
+                return self::ErrorActionForbidden;
+            }
+            if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
         }
-        if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
 
         $target_item_prototype = null;
         if ($target && is_a( $target, Item::class )) $target_item_prototype = $target->getPrototype();
