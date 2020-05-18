@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Repository;
+
+use App\Entity\ItemCategory;
+use App\Entity\RuinZonePrototype;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\NonUniqueResultException;
+
+/**
+ * @method RuinZonePrototype|null find($id, $lockMode = null, $lockVersion = null)
+ * @method RuinZonePrototype|null findOneBy(array $criteria, array $orderBy = null)
+ * @method RuinZonePrototype[]    findAll()
+ * @method RuinZonePrototype[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class RuinZonePrototypeRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, RuinZonePrototype::class);
+    }
+
+    public function findOneByLabel(string $value): ?RuinZonePrototype
+    {
+        try {
+            return $this->createQueryBuilder('z')
+                ->andWhere('z.label = :val')
+                ->setParameter('val', $value)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    /**
+     * @param int $distance
+     * @return RuinZonePrototype[] Returns an array of ZonePrototype objects
+     */
+    public function findByDistance(int $distance)
+    {
+        return $this->createQueryBuilder('z')
+            ->andWhere('z.minDistance <= :dist')
+            ->andWhere('z.maxDistance >= :dist')
+            ->setParameter('dist', $distance)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return RuinZonePrototype[] Returns an array of RuinZonePrototype objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('z')
+            ->andWhere('z.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('z.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?RuinZonePrototype
+    {
+        return $this->createQueryBuilder('z')
+            ->andWhere('z.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
+}
