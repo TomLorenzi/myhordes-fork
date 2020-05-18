@@ -10720,12 +10720,12 @@
         <target> Aucun message archivé.</target>
       </segment>
     </unit>
-    <unit id="wo3L_zx" name="Neue Nachright">
+    <unit id="wo3L_zx" name="Neue Nachricht">
       <notes>
-        <note category="german">Neue Nachright</note>
+        <note category="german">Neue Nachricht</note>
       </notes>
       <segment>
-        <source>Neue Nachright</source>
+        <source>Neue Nachricht</source>
         <target>Nouveau message</target>
       </segment>
     </unit>
