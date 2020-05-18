@@ -909,9 +909,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             if ($generator->chance( 0.1 )) {
                 $zone->setZombies( $zone->getZombies() - 1 );
                 $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
-                // Add the picto Heroic Action
+                // Add the picto Bare hands
 	            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wrestl_#00");
-	            $this->picto_handler->give_picto($citizen, $picto);
+                $this->picto_handler->give_picto($citizen, $picto);
+                // Add the picto zed kill
+                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_killz_#00");
+                $this->picto_handler->give_picto($citizen, $picto);
             }
 
             try {
