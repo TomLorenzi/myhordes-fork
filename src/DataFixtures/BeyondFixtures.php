@@ -773,19 +773,19 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
     public static $room_prototypes = [
         [
             "label" => "Offene Tür",
-            "lock" => RuinZonePrototype::LOCKTYPE_NONE,
+            "lock_type" => RuinZonePrototype::LOCKTYPE_NONE,
         ],
         [
             "label" => "Verschlossene Tür (Flaschenöffner)",
-            "lock" => RuinZonePrototype::LOCKTYPE_BOTTLE,
+            "lock_type" => RuinZonePrototype::LOCKTYPE_BOTTLE,
         ],
         [
             "label" => "Verschlossene Tür (Schlagschlüssel)",
-            "lock" => RuinZonePrototype::LOCKTYPE_BUMP,
+            "lock_type" => RuinZonePrototype::LOCKTYPE_BUMP,
         ],
         [
             "label" => "Verschlossene Tür (Magnetschlüssel)",
-            "lock" => RuinZonePrototype::LOCKTYPE_MAGNET,
+            "lock_type" => RuinZonePrototype::LOCKTYPE_MAGNET,
         ],
     ];
 
@@ -902,7 +902,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             // Set property
             $entity
                 ->setLabel( $entry['label'] )
-                ->setLock($entry['lock'])
+                ->setLockType($entry['lock_type'])
             ;
             $manager->persist( $entity );
 

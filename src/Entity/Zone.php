@@ -154,6 +154,11 @@ class Zone
      */
     private $tag;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RuinZone", mappedBy="zone", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $ruin_zones;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -553,6 +558,37 @@ class Zone
     public function setTag(?ZoneTag $tag): self
     {
         $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RuinZone[]
+     */
+    public function getRuinZones(): Collection
+    {
+        return $this->ruin_zones;
+    }
+
+    public function addRuinZone(RuinZone $ruin_zone): self
+    {
+        if (!$this->ruin_zones->contains($ruin_zone)) {
+            $this->ruin_zones[] = $ruin_zone;
+            $ruin_zone->setTown($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRuinZone(RuinZone $ruin_zone): self
+    {
+        if ($this->ruin_zones->contains($ruin_zone)) {
+            $this->ruin_zones->removeElement($ruin_zone);
+            // set the owning side to null (unless already changed)
+            if ($ruin_zone->getZone() === $this) {
+                $ruin_zone->setZone(null);
+            }
+        }
 
         return $this;
     }

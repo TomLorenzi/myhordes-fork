@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Interfaces\RandomEntry;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,7 +29,7 @@ class RuinZonePrototype
     /**
      * @ORM\Column(type="integer")
      */
-    private $lock;
+    private $lock_type;
 
 
     public function getId(): ?int
@@ -50,14 +49,14 @@ class RuinZonePrototype
         return $this;
     }
 
-    public function getLock(): ?int
+    public function getLockType(): ?int
     {
-        return $this->lock;
+        return $this->lock_type;
     }
 
-    public function setLock(int $lock): self
+    public function setLockType(int $lock_type): self
     {
-        $this->lock = $lock;
+        $this->lock_type = $lock_type;
 
         return $this;
     }
