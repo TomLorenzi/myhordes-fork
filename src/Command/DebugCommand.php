@@ -159,7 +159,12 @@ class DebugCommand extends Command
                     $user_name = 'user_' . str_pad($u, 3, '0', STR_PAD_LEFT);
                     $user = $this->entity_manager->getRepository(User::class)->findOneByName( $user_name );
                     if (!$user) continue;
+                    /** @var Citizen $citizen */
                     $citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user );
+                    if ($citizen && !$citizen->getAlive()) {
+                        $citizen->setActive(false);
+                        $citizen = null;
+                    }
                     if (!$citizen)
                         $citizen = $this->game_factory->createCitizen($town,$user,$error);
                     else continue;

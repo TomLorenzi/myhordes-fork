@@ -41,10 +41,11 @@ class NightlyHandler
     private $item_factory;
     private $logTemplates;
     private $conf;
+    private $action_handler;
 
   public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
-                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf)
+                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -58,6 +59,7 @@ class NightlyHandler
         $this->log = $log;
         $this->logTemplates = $lh;
         $this->conf = $conf;
+        $this->action_handler = $ah;
     }
 
     private function check_town(Town &$town): bool {
@@ -345,6 +347,7 @@ class NightlyHandler
         $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
         $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
+        /** @var CitizenWatch[] $watchers */
         foreach ($watchers as $watcher) {
             $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
 
@@ -374,6 +377,14 @@ class NightlyHandler
             }
 
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
+
+            $null = null;
+            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
+                if ($item->getPrototype()->getNightWatchAction()) {
+                    $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
+                    $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
+                    foreach ($r as $rr) $this->entity_manager->remove($rr);
+                }
 
             $overflow -= $def;
         }
