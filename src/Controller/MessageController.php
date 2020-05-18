@@ -782,54 +782,61 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
-        $global    = $parser->get('global', false);
+        $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
         $items     = $parser->get('items', '');
         $tid       = $parser->get('tid', -1);
 
-        if(!$global && empty($recipient) && $tid == -1) {
+        $allowed_types = ['pm', 'global'];
+
+        if(!in_array($type, $allowed_types)) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        if(($tid == -1 && empty($title)) || empty($content)) {
+        if($type === 'pm' && empty($recipient))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if(($tid === -1 && empty($title)) || empty($content)) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
         $sender = $this->getUser()->getActiveCitizen();
 
-        if($global && !$sender->getProfession()->getHeroic()){
+        if($type === "global" && !$sender->getProfession()->getHeroic()){
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
         }
 
         if ($tid == -1) {
             // New thread
-            if(!$global){
+            if($type === 'pm'){
                 $recipient = $em->getRepository(Citizen::class)->find($recipient);
                 if($recipient->getTown() !== $sender->getTown()){
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 }
+
                 $thread = new PrivateMessageThread();
                 $thread->setSender($sender)
                     ->setTitle($title)
-                    ->setNew(true)
-                    ->steLocked(false)
+                    ->setLocked(false)
                     ->setLastMessage(new DateTime('now'))
-                    ->setRecipient($recipient);
+                    ->setRecipient($recipient)
+                    ->setNew(true)
                 ;
 
                 $post = new PrivateMessage();
                 $post->setDate(new DateTime('now'))
                     ->setText($content)
                     ->setPrivateMessageThread($thread)
-                    ->setOwner($sender);
+                    ->setOwner($sender)
+                ;
 
                 $tx_len = 0;
-                    if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
-                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                    $thread->addMessage($post);
+                $thread->addMessage($post);
 
                 $em->persist($thread);
                 $em->persist($post);
@@ -841,6 +848,7 @@ class MessageController extends AbstractController
                     $thread->setSender($sender)
                         ->setTitle($title)
                         ->setNew(true)
+                        ->setLocked(false)
                         ->setLastMessage(new DateTime('now'))
                         ->setRecipient($citizen);
                     ;
@@ -970,13 +978,13 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_post_editor_controller")
+     * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_answer_post_editor_controller")
      * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function home_editor_post_api(int $tid, EntityManagerInterface $em): Response {
+    public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
@@ -987,7 +995,31 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->get_emotes(true),
-            'pm' => true
+            'pm' => true,
+            'type' => 'pm'
+        ] );
+    }
+
+    /**
+     * @Route("api/town/house/pm/{type}/editor", name="home_new_post_editor_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function home_new_editor_post_api(string $type, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        $allowed_types = ['pm', 'global'];
+        if(!in_array($type, $allowed_types)) return new Response('');
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => null,
+            'pid' => null,
+            'emotes' => $this->get_emotes(true),
+            'pm' => true,
+            'type' => $type
         ] );
     }
 }

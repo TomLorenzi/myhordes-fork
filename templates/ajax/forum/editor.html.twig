@@ -612,9 +612,7 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
-                {% if pm %}
-                    let type = null;
-                {% else %}
+                {% if not pm %}
                     let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
                 {% endif %}
 
@@ -633,9 +631,21 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
                 {% if pm %}
                     target_url = '{{ path('town_house_send_pm_controller') }}';
                     target_payload = {
-                        'content': content_node.innerHTML, 
-                        'tid': {{ tid }}
+                        'content': content_node.innerHTML,
+                        'type': "{{ type }}",
                     };
+                    {% if tid is not null %}
+                        target_payload.tid = {{ tid }};
+                    {% else %}
+                        target_payload.title = document.getElementById('forum-editor-title').value;
+                        {% if type == 'pm' %}
+                            target_payload.recipient = document.getElementById('pmidrecipient').value;
+                        {% endif %}
+                    {% endif %}
+
+
+                    console.log("Sending request to " + target_url + " with payload: ");
+                    console.log(target_payload);
                 {% else %}
                     {% if tid is null %}
                     target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
@@ -652,10 +662,12 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
                     };
                     {% endif %}
                 {% endif %}
+                
                 $.ajax.easySend( target_url, target_payload,
                     function (data) {
                         $.ajax.load( null, data.url, true );
-                    } );
+                    }
+                );
             });
         }
     })();

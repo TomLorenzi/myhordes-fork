@@ -86,11 +86,11 @@
 
     <div x-tab-group="home-main" x-tab-id="messages" x-tab-target>
         <ul class="tabs" x-tab-group="home-messages" x-tab-control x-tab-default="{{ subtab }}">
-            <li x-tab-id="received">{% trans from 'game' %}Erhaltene Nachrichten{% endtrans %}</li>
-            <li x-tab-id="archives"><img src="{{ asset("build/images/small_archive.gif") }}" alt="" />{% trans from 'game' %}Archiv{% endtrans %}</li>
-            <li x-tab-id="write"><img src="{{ asset("build/images/small_mail.gif") }}" alt="" /> {% trans from 'game' %}Eine Nachricht schreiben{% endtrans %}</li>
+            <li x-tab-id="received" id='received_tab'>{% trans from 'game' %}Erhaltene Nachrichten{% endtrans %}</li>
+            <li x-tab-id="archives" id='archives_tab'><img src="{{ asset("build/images/small_archive.gif") }}" alt="" />{% trans from 'game' %}Archiv{% endtrans %}</li>
+            <li x-tab-id="write" id="new_pm_tab"><img src="{{ asset("build/images/small_mail.gif") }}" alt="" /> {% trans from 'game' %}Eine Nachricht schreiben{% endtrans %}</li>
             {% if can_send_global_pm %}
-            <li x-tab-id="write-to-all"><img src="{{ asset("build/images/star.gif") }}" alt="" /> {% trans from 'game' %}Schreiben Sie an alle{% endtrans %}</li>
+            <li x-tab-id="write-to-all" id="new_global_pm_tab"><img src="{{ asset("build/images/star.gif") }}" alt="" /> {% trans from 'game' %}Schreiben Sie an alle{% endtrans %}</li>
             {% endif %}
         </ul>
         <div x-tab-group="home-messages" x-tab-id="received" x-tab-target>
@@ -181,42 +181,10 @@
                     <span class="small link"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
                 </div>
             </div>
-            <div class="row">
-                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Betreff:{% endtrans %}</span></div>
-                <div class="cell padded rw-6">
-                    <input type="text" id="pmtitle" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell padded rw-12">
-                    <textarea id="pmtext"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell padded rw-12">
-                    <button id="pmsend">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
-                </div>
-            </div>
         </div>
         {% if can_send_global_pm %}
         <div x-tab-group="home-messages" x-tab-id="write-to-all" x-tab-target>
             <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
-            <div class="row">
-                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Betreff:{% endtrans %}</span></div>
-                <div class="cell padded rw-6">
-                    <input type="text" id="pmglobaltitle" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell padded rw-12">
-                    <textarea id="pmglobaltext"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell padded rw-12">
-                    <button id="pmglobalsend">{% trans from 'game'%}Ich BESTÄTIGE meine Nachricht{% endtrans %}</button>
-                </div>
-            </div>
         </div>
         {% endif %}
         <div id="forum-content">
@@ -571,5 +539,31 @@
                 document.getElementById("archivedContent").style.display = "none";
             });
         }
+
+        let received_tab = document.getElementById('received_tab');
+        if(received_tab) received_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+        	document.getElementById("nonArchivedContent").style.display = "";
+        });
+
+        let archives_tab = document.getElementById('archives_tab');
+        if(archives_tab) archives_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+        	document.getElementById("archivedContent").style.display = "";
+        });
+
+        let new_pm_tab = document.getElementById('new_pm_tab');
+        if(new_pm_tab) new_pm_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
+        });
+
+        {% if can_send_global_pm %}
+        let new_global_pm_tab = document.getElementById('new_global_pm_tab');
+        if(new_global_pm_tab) new_global_pm_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'global'}) }}', false )
+        });
+        {% endif %}
     </script>
 {% endblock %}

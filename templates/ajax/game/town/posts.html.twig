@@ -101,6 +101,6 @@
     if(replybtn) replybtn.addEventListener('click', function(e){
         e.preventDefault();
         replybtn.style.display = "none";
-        $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_post_editor_controller', {tid: thread.id}) }}', false )
+        $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_answer_post_editor_controller', {tid: thread.id}) }}', false )
     });
 </script>
