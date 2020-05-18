@@ -261,8 +261,7 @@ class GameFactory
                     ->setY(0)
                     ->setX(0)
                     ->setZombies(0)
-                    ->setFloor( new Inventory() )
-                ;
+                    ->setFloor(new Inventory());
                 $spawn_zone->addRuinZone($entry);
                 for ($x = -7; $x <= 5; $x++) {
                     for ($y = 1; $y <= 13; $y++) {
@@ -272,13 +271,30 @@ class GameFactory
                             ->setY($y)
                             ->setX($x)
                             ->setZombies(0)
-                            ->setFloor( new Inventory() )
-                        ;
+                            ->setFloor(new Inventory());
                         $spawn_zone->addRuinZone($ruin_zone);
                     }
                 }
-                $ruin_zones = $spawn_zone->getRuinZones();
                 // TODO: Maze generator
+                $stack = [];
+                $compass = [
+                    RuinZone::CORRIDOR_E => ['x' =>  1, 'y' =>  0],
+                    RuinZone::CORRIDOR_N => ['x' =>  0, 'y' => -1],
+                    RuinZone::CORRIDOR_S => ['x' =>  0, 'y' =>  1],
+                    RuinZone::CORRIDOR_W => ['x' => -1, 'y' =>  0],
+                ];
+                /** @var RuinZone $seed */
+                $seed = $this->entity_manager->getRepository(RuinZone::class)->findBy(['zone' => $spawn_zone, 'x' => 0, 'y' => 1]);
+                $chance = .5;
+                foreach ($compass as $corridor => $direction) {
+                    if ($this->random_generator->chance($chance)) {
+                        $seed->addCorridor($corridor);
+                        $stack[] = $this->entity_manager->getRepository(RuinZone::class)->findBy(['zone' => $spawn_zone, 'x' => $seed->getX() + $direction['x'], 'y' => $seed->getY() + $direction['y']]);
+                    }
+                    else {
+                        $chance += .25;
+                    }
+                }
             }
         }
 

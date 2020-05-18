@@ -134,6 +134,36 @@ class RuinZone
         return $this;
     }
 
+    public function hasCorridor(int $corridor): self
+    {
+        $check = [
+            self::CORRIDOR_W => 1,
+            self::CORRIDOR_S => 2,
+            self::CORRIDOR_N => 3,
+            self::CORRIDOR_E => 4,
+        ];
+        $bin = sprintf( "%05b", decbin( $this->corridor ));
+        return $bin[$check[$corridor]];
+    }
+
+    public function addCorridor(int $corridor): self
+    {
+        if (!$this->hasCorridor($corridor)) {
+            $this->corridor += $corridor;
+        }
+
+        return $this;
+    }
+
+    public function removeCorridor(int $corridor): self
+    {
+        if ($this->hasCorridor($corridor)) {
+            $this->corridor -= $corridor;
+        }
+
+        return $this;
+    }
+
     public function getZombies(): ?int
     {
         return $this->zombies;
