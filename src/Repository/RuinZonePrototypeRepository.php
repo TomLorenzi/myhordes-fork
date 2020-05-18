@@ -21,34 +21,6 @@ class RuinZonePrototypeRepository extends ServiceEntityRepository
         parent::__construct($registry, RuinZonePrototype::class);
     }
 
-    public function findOneByLabel(string $value): ?RuinZonePrototype
-    {
-        try {
-            return $this->createQueryBuilder('z')
-                ->andWhere('z.label = :val')
-                ->setParameter('val', $value)
-                ->getQuery()
-                ->getOneOrNullResult();
-        } catch (NonUniqueResultException $e) {
-            return null;
-        }
-    }
-
-    /**
-     * @param int $distance
-     * @return RuinZonePrototype[] Returns an array of ZonePrototype objects
-     */
-    public function findByDistance(int $distance)
-    {
-        return $this->createQueryBuilder('z')
-            ->andWhere('z.minDistance <= :dist')
-            ->andWhere('z.maxDistance >= :dist')
-            ->setParameter('dist', $distance)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-
     // /**
     //  * @return RuinZonePrototype[] Returns an array of RuinZonePrototype objects
     //  */

@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Town;
+use App\Entity\Zone;
 use App\Entity\RuinZone;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -22,14 +22,14 @@ class RuinZoneRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param Town $town
+     * @param Zone $zone
      * @return RuinZone[]
      */
-    public function findByTown(Town $town)
+    public function findByZone(Zone $zone)
     {
         try {
-            return $this->createQueryBuilder('z')
-                ->andWhere('z.town = :t')->setParameter('t', $town)
+            return $this->createQueryBuilder('rz')
+                ->andWhere('rz.zone = :z')->setParameter('z', $zone)
                 ->getQuery()
                 ->getResult();
         } catch (\Exception $e) {
@@ -37,13 +37,13 @@ class RuinZoneRepository extends ServiceEntityRepository
         }
     }
 
-    public function findOneByPosition(Town $town, int $x, int $y): ?RuinZone
+    public function findOneByPosition(Zone $zone, int $x, int $y): ?RuinZone
     {
         try {
-            return $this->createQueryBuilder('z')
-                ->andWhere('z.town = :t')->setParameter('t', $town)
-                ->andWhere('z.x = :px')->setParameter('px', $x)
-                ->andWhere('z.y = :py')->setParameter('py', $y)
+            return $this->createQueryBuilder('rz')
+                ->andWhere('rz.zone = :z')->setParameter('z', $zone)
+                ->andWhere('rz.x = :px')->setParameter('px', $x)
+                ->andWhere('rz.y = :py')->setParameter('py', $y)
                 ->getQuery()
                 ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {
@@ -52,15 +52,15 @@ class RuinZoneRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Zone[] Returns an array of Zone objects
+    //  * @return RuinZone[] Returns an array of RuinZone objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('z')
-            ->andWhere('z.exampleField = :val')
+        return $this->createQueryBuilder('rz')
+            ->andWhere('rz.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('z.id', 'ASC')
+            ->orderBy('rz.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -71,8 +71,8 @@ class RuinZoneRepository extends ServiceEntityRepository
     /*
     public function findOneBySomeField($value): ?Zone
     {
-        return $this->createQueryBuilder('z')
-            ->andWhere('z.exampleField = :val')
+        return $this->createQueryBuilder('rz')
+            ->andWhere('rz.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

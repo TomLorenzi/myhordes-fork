@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\RuinZonePrototype;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -766,32 +767,26 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'dish_#00','count' => 17),
             array('item' => 'food_sandw_#00','count' => 17),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [
-            array('item' => 'food_pims_#00','count' => 76),
-            array('item' => 'food_chick_#00','count' => 60),
-            array('item' => 'food_noodles_#00','count' => 60),
-            array('item' => 'food_bag_#00','count' => 60),
-            array('item' => 'mbplan_u_#00','count' => 26),
-            array('item' => 'mbplan_r_#00','count' => 26),
-            array('item' => 'mbplan_e_#00','count' => 26),
-            array('item' => 'chair_basic_#00','count' => 20),
-            array('item' => 'can_#00','count' => 17),
-            array('item' => 'bag_#00','count' => 17),
-            array('item' => 'table_#00','count' => 17),
-            array('item' => 'distri_#00','count' => 17),
-            array('item' => 'bed_#00','count' => 16),
-            array('item' => 'deco_box_#00','count' => 13),
-            array('item' => 'chest_food_#00','count' => 10),
-            array('item' => 'rlaunc_#00','count' => 17),
-            array('item' => 'bureau_#00','count' => 17),
-            array('item' => 'spices_#00','count' => 17),
-            array('item' => 'food_bar1_#00','count' => 17),
-            array('item' => 'food_bar2_#00','count' => 17),
-            array('item' => 'food_bar3_#00','count' => 17),
-            array('item' => 'concrete_wall_#00','count' => 17),
-            array('item' => 'dish_#00','count' => 17),
-            array('item' => 'food_sandw_#00','count' => 17),
-        ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
+        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
+    ];
+
+    public static $room_prototypes = [
+        [
+            "label" => "Offene Tür",
+            "lock" => RuinZonePrototype::LOCKTYPE_NONE,
+        ],
+        [
+            "label" => "Verschlossene Tür (Flaschenöffner)",
+            "lock" => RuinZonePrototype::LOCKTYPE_BOTTLE,
+        ],
+        [
+            "label" => "Verschlossene Tür (Schlagschlüssel)",
+            "lock" => RuinZonePrototype::LOCKTYPE_BUMP,
+        ],
+        [
+            "label" => "Verschlossene Tür (Magnetschlüssel)",
+            "lock" => RuinZonePrototype::LOCKTYPE_MAGNET,
+        ],
     ];
 
     public static $zone_tags = array(
@@ -891,6 +886,34 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         $progress->finish();
     }
 
+    protected function insert_ruin_zone_prototypes(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>RuinZone prototypes: ' . count(static::$room_prototypes) . ' fixture entries available.</comment>' );
+
+        // Set up console
+        $progress = new ProgressBar( $out->section() );
+        $progress->start( count(static::$room_prototypes) );
+
+        // Iterate over all entries
+        foreach (static::$room_prototypes as $entry) {
+            // Get existing entry, or create new one
+            $entity = $this->entityManager->getRepository(RuinZonePrototype::class)->findOneByLabel( $entry['label'] );
+            if ($entity === null) $entity = new RuinZonePrototype();
+
+            // Set property
+            $entity
+                ->setLabel( $entry['label'] )
+                ->setLock($entry['lock'])
+            ;
+            $manager->persist( $entity );
+
+            // Set table entry
+            $progress->advance();
+        }
+
+        $manager->flush();
+        $progress->finish();
+    }
+
     protected function insert_zone_tags(ObjectManager $manager, ConsoleOutputInterface $out) {
         $out->writeln( '<comment>Zone tags: ' . count(static::$zone_tags) . ' fixture entries available.</comment>' );
 
@@ -927,6 +950,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         $output->writeln("");
 
         $this->insert_zone_prototypes( $manager, $output );
+        $this->insert_ruin_zone_prototypes( $manager, $output );
         $this->insert_zone_tags( $manager, $output );
         $output->writeln("");
     }

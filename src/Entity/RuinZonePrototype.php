@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RuinZonePrototypeRepository")
  */
-class RuinZonePrototype implements RandomEntry
+class RuinZonePrototype
 {
     const LOCKTYPE_NONE     = 0;
     const LOCKTYPE_BOTTLE   = 1;
