@@ -254,6 +254,7 @@ class GameFactory
             if ($spawn_zone) {
                 $spawn_zone->setPrototype($spawning_ruin);
 
+                $maze = [];
                 // Add ruin zones
                 $entry = new RuinZone();
                 $entry
@@ -263,6 +264,8 @@ class GameFactory
                     ->setZombies(0)
                     ->setFloor(new Inventory());
                 $spawn_zone->addRuinZone($entry);
+                $maze['x0y0'] = $entry;
+
                 for ($x = -7; $x <= 5; $x++) {
                     for ($y = 1; $y <= 13; $y++) {
                         $ruin_zone = new RuinZone();
@@ -273,26 +276,6 @@ class GameFactory
                             ->setZombies(0)
                             ->setFloor(new Inventory());
                         $spawn_zone->addRuinZone($ruin_zone);
-                    }
-                }
-                // TODO: Maze generator
-                $stack = [];
-                $compass = [
-                    RuinZone::CORRIDOR_E => ['x' =>  1, 'y' =>  0],
-                    RuinZone::CORRIDOR_N => ['x' =>  0, 'y' => -1],
-                    RuinZone::CORRIDOR_S => ['x' =>  0, 'y' =>  1],
-                    RuinZone::CORRIDOR_W => ['x' => -1, 'y' =>  0],
-                ];
-                /** @var RuinZone $seed */
-                $seed = $this->entity_manager->getRepository(RuinZone::class)->findBy(['zone' => $spawn_zone, 'x' => 0, 'y' => 1]);
-                $chance = .5;
-                foreach ($compass as $corridor => $direction) {
-                    if ($this->random_generator->chance($chance)) {
-                        $seed->addCorridor($corridor);
-                        $stack[] = $this->entity_manager->getRepository(RuinZone::class)->findBy(['zone' => $spawn_zone, 'x' => $seed->getX() + $direction['x'], 'y' => $seed->getY() + $direction['y']]);
-                    }
-                    else {
-                        $chance += .25;
                     }
                 }
             }
@@ -377,6 +360,90 @@ class GameFactory
         $town->getForum()->addThread($threadBuilding);
 
         return $town;
+    }
+
+    public function createExplorableMaze( Town &$town ) {
+        $spawn_zones = $this->zone_handler->getZonesWithExplorableRuin($town->getZones());
+        foreach ($spawn_zones as $spawn_zone) {
+            // START MAZE
+            // TODO: Maze generator
+            $stack = [];
+            $compass = [
+                RuinZone::CORRIDOR_E => ['x' => 1, 'y' => 0, 'opposite' => RuinZone::CORRIDOR_W],
+                RuinZone::CORRIDOR_N => ['x' => 0, 'y' => -1, 'opposite' => RuinZone::CORRIDOR_S],
+                RuinZone::CORRIDOR_S => ['x' => 0, 'y' => 1, 'opposite' => RuinZone::CORRIDOR_N],
+                RuinZone::CORRIDOR_W => ['x' => -1, 'y' => 0, 'opposite' => RuinZone::CORRIDOR_E],
+            ];
+            shuffle($compass);
+            /** @var RuinZone $seed */
+            $seed = $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $spawn_zone, 'x' => 0, 'y' => 1]);
+            $chance = .5;
+            foreach ($compass as $corridor => $direction) {
+                if ($corridor === RuinZone::CORRIDOR_N) {
+                    continue;
+                }
+                if ($this->random_generator->chance($chance)) {
+                    $seed->addCorridor($corridor);
+                    /** @var RuinZone $neighbour */
+                    $neighbour = $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $spawn_zone, 'x' => $seed->getX() + $direction['x'], 'y' => $seed->getY() + $direction['y']]);
+                    $neighbour->addCorridor($corridor)->addCorridor($direction['opposite']);
+                    $maze['x' . $neighbour->getX() . 'y' . $neighbour->getY()] = $neighbour;
+                    $stack[] = $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $spawn_zone, 'x' => $seed->getX() + 2 * $direction['x'], 'y' => $seed->getY() + 2 * $direction['y']]);
+                } else {
+                    $chance += .25;
+                }
+            }
+            $maze['x' . $seed->getX() . 'y' . $seed->getY()] = $seed;
+
+            while (count($stack) > 0) {
+                shuffle($stack);
+                /** @var RuinZone $ruin_zone */
+                $ruin_zone = array_shift($stack);
+                if (!$ruin_zone) {
+                    continue;
+                }
+                $maze['x' . $ruin_zone->getX() . 'y' . $ruin_zone->getY()] = $ruin_zone;
+                $neighbours = [];
+                shuffle($compass);
+                foreach ($compass as $corridor => $direction) {
+                    $chance = .25;
+                    /** @var RuinZone $neighbour */
+                    $neighbour = $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $spawn_zone, 'x' => $ruin_zone->getX() + $direction['x'], 'y' => $ruin_zone->getY() + $direction['y']]);
+                    if ($neighbour && array_key_exists('x' . $neighbour->getX() . 'y' . $neighbour->getY(), $maze)) {
+                        $ruin_zone->addCorridor($corridor);
+                    } else {
+                        if ($this->random_generator->chance($chance)) {
+                            $ruin_zone->addCorridor($corridor);
+                            if ($neighbour) {
+                                $maze['x' . $neighbour->getX() . 'y' . $neighbour->getY()] = $ruin_zone;
+                                $neighbour->addCorridor($direction['opposite']);
+                                /** @var RuinZone $double_neighbour */
+                                $double_neighbour = $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $spawn_zone, 'x' => $ruin_zone->getX() + 2 * $direction['x'], 'y' => $ruin_zone->getY() + 2 * $direction['y']]);
+                                if ($double_neighbour) {
+                                    $neighbour->addCorridor($corridor);
+                                    if ($this->random_generator->chance(.33)) {
+                                        $maze['x' . $double_neighbour->getX() . 'y' . $double_neighbour->getY()] = $ruin_zone;
+                                        $double_neighbour->addCorridor($direction['opposite']);
+                                        shuffle($compass);
+                                        $random_direction = $compass[array_key_first($compass)];
+                                        $triple_neighbour = $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $spawn_zone, 'x' => $double_neighbour->getX() + $random_direction['x'], 'y' => $double_neighbour->getY() + $random_direction['y']]);
+                                        if ($triple_neighbour) {
+                                            $stack[] = $triple_neighbour;
+                                        }
+                                    }
+                                    $stack[] = $double_neighbour;
+                                }
+                            }
+                        } else {
+                            $chance += .25;
+                        }
+                    }
+                }
+            } // end while loop
+            // END MAZE
+            $this->entity_manager->persist( $spawn_zone );
+            $this->entity_manager->flush();
+        }
     }
 
     public function createCitizen( Town &$town, User &$user, ?int &$error ): ?Citizen {

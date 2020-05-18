@@ -134,16 +134,22 @@ class RuinZone
         return $this;
     }
 
-    public function hasCorridor(int $corridor): self
+    public function hasCorridor(int $corridor): bool
     {
+        if ($corridor == self::CORRIDOR_NONE) {
+            return false;
+        }
         $check = [
             self::CORRIDOR_W => 1,
             self::CORRIDOR_S => 2,
             self::CORRIDOR_N => 3,
             self::CORRIDOR_E => 4,
         ];
-        $bin = sprintf( "%05b", decbin( $this->corridor ));
-        return $bin[$check[$corridor]];
+        if (!array_key_exists($corridor, $check)) {
+            return false;
+        }
+        $bin = sprintf( "%05d", decbin( $this->corridor ));
+        return $bin[$check[$corridor]] == 1;
     }
 
     public function addCorridor(int $corridor): self

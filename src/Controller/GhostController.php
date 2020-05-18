@@ -105,6 +105,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
                         $em->flush();
+                        $factory->createExplorableMaze($newTown);
                     }
                 }
             }
