@@ -157,7 +157,7 @@ class Zone
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\RuinZone", mappedBy="zone", orphanRemoval=true, cascade={"persist", "remove"})
      */
-    private $ruin_zones;
+    private $ruinZones;
 
     public function __construct()
     {
@@ -567,26 +567,29 @@ class Zone
      */
     public function getRuinZones(): Collection
     {
-        return $this->ruin_zones;
+        return $this->ruinZones;
     }
 
-    public function addRuinZone(RuinZone $ruin_zone): self
+    public function addRuinZone(RuinZone $ruinZone): self
     {
-        if (!$this->ruin_zones->contains($ruin_zone)) {
-            $this->ruin_zones[] = $ruin_zone;
-            $ruin_zone->setTown($this);
+        if (!$this->ruinZones) {
+            $this->ruinZones = new ArrayCollection();
+        }
+        if (!$this->ruinZones->contains($ruinZone)) {
+            $this->ruinZones[] = $ruinZone;
+            $ruinZone->setZone($this);
         }
 
         return $this;
     }
 
-    public function removeRuinZone(RuinZone $ruin_zone): self
+    public function removeRuinZone(RuinZone $ruinZone): self
     {
-        if ($this->ruin_zones->contains($ruin_zone)) {
-            $this->ruin_zones->removeElement($ruin_zone);
+        if ($this->ruinZones->contains($ruinZone)) {
+            $this->ruinZones->removeElement($ruinZone);
             // set the owning side to null (unless already changed)
-            if ($ruin_zone->getZone() === $this) {
-                $ruin_zone->setZone(null);
+            if ($ruinZone->getZone() === $this) {
+                $ruinZone->setZone(null);
             }
         }
 

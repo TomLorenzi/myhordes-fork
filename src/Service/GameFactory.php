@@ -13,6 +13,7 @@ use App\Entity\Forum;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Post;
+use App\Entity\RuinZone;
 use App\Entity\Thread;
 use App\Entity\Town;
 use App\Entity\TownClass;
@@ -252,6 +253,32 @@ class GameFactory
 
             if ($spawn_zone) {
                 $spawn_zone->setPrototype($spawning_ruin);
+
+                // Add ruin zones
+                $entry = new RuinZone();
+                $entry
+                    ->setCorridor(RuinZone::CORRIDOR_S)
+                    ->setY(0)
+                    ->setX(0)
+                    ->setZombies(0)
+                    ->setFloor( new Inventory() )
+                ;
+                $spawn_zone->addRuinZone($entry);
+                for ($x = -7; $x <= 5; $x++) {
+                    for ($y = 1; $y <= 13; $y++) {
+                        $ruin_zone = new RuinZone();
+                        $ruin_zone
+                            ->setCorridor(($x === 0 && $y === 1) ? RuinZone::CORRIDOR_N : RuinZone::CORRIDOR_NONE)
+                            ->setY($y)
+                            ->setX($x)
+                            ->setZombies(0)
+                            ->setFloor( new Inventory() )
+                        ;
+                        $spawn_zone->addRuinZone($ruin_zone);
+                    }
+                }
+                $ruin_zones = $spawn_zone->getRuinZones();
+                // TODO: Maze generator
             }
         }
 

@@ -59,7 +59,7 @@ class RuinZone
     /**
      * @ORM\Column(type="integer")
      */
-    private $corridor;
+    private $corridor = 0;
 
     /**
      * @ORM\Column(type="integer")
@@ -73,7 +73,7 @@ class RuinZone
     private $floor;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Zone", inversedBy="ruin_zones")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Zone", inversedBy="ruinZones")
      * @ORM\JoinColumn(nullable=false)
      */
     private $zone;
