@@ -29,6 +29,14 @@
                         {% endif %}
 
                     </div>
+
+                    {% if exploration %}
+                        <div class="exploration">
+                            {% for rz in exploration %}
+                                <div class="rz rz-{{ rz.c }}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;"></div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 {% else %}
                     <p class="beyond-rp">
                         <img alt="" src="{{ asset('build/images/small_rp.gif') }}" />
