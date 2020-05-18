@@ -537,7 +537,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $last_words = $parser->get('lastwords');
 
         $active->setActive(false);
-        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison)
+        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison && $active->getCauseOfDeath()->getRef() != CauseOfDeath::GhulEaten)
             $active->setLastWords($last_words);
         else
             $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));

@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="rebirth padded rw-12 cell row">
-                    {% if citizen.causeOfDeath.ref != constant('App\\Entity\\CauseOfDeath::Poison')  %}
+                    {% if citizen.causeOfDeath.ref != constant('App\\Entity\\CauseOfDeath::Poison') and citizen.causeOfDeath.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten')  %}
                     <div class="cell rw-4 rebirth_label">
                         <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
                     </div>
