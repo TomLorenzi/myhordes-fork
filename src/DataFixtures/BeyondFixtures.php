@@ -716,7 +716,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
 
     public static $zone_tags = array(
         'none' => array(
-            'label' => '[nights]',
+            'label' => '[nichts]',
             'icon' => '',
             'ref' => ZoneTag::TagNone),
         'help' => array(

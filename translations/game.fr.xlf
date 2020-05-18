@@ -10297,12 +10297,12 @@
         <target>Marqueur de zone</target>
       </segment>
     </unit>
-    <unit id="m9ipH9g" name="[nights]">
+    <unit id="m9ipH9g" name="[nichts]">
       <notes>
-        <note category="german">[nights]</note>
+        <note category="german">[nichts]</note>
       </notes>
       <segment>
-        <source>[nights]</source>
+        <source>[nichts]</source>
         <target>[ aucun ]</target>
       </segment>
     </unit>
