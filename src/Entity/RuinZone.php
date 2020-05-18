@@ -18,6 +18,27 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class RuinZone
 {
+    const CORRIDOR_NONE =  0;
+
+    const CORRIDOR_E    =  1;
+    const CORRIDOR_N    =  2;
+    const CORRIDOR_S    =  4;
+    const CORRIDOR_W    =  8;
+
+    const CORRIDOR_EN   =  3;
+    const CORRIDOR_ES   =  5;
+    const CORRIDOR_EW   =  9;
+    const CORRIDOR_NS   =  6;
+    const CORRIDOR_NW   = 10;
+    const CORRIDOR_SW   = 12;
+
+    const CORRIDOR_ENS  =  7;
+    const CORRIDOR_ENW  = 11;
+    const CORRIDOR_ESW  = 13;
+    const CORRIDOR_NSW  = 14;
+
+    const CORRIDOR_ENSW = 15;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -34,6 +55,11 @@ class RuinZone
      * @ORM\Column(type="integer")
      */
     private $y;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $corridor;
 
     /**
      * @ORM\Column(type="integer")
@@ -96,6 +122,18 @@ class RuinZone
         return $this;
     }
 
+    public function getCorridor(): ?int
+    {
+        return $this->corridor;
+    }
+
+    public function setCorridor(int $corridor): self
+    {
+        $this->corridor = $corridor;
+
+        return $this;
+    }
+
     public function getZombies(): ?int
     {
         return $this->zombies;
@@ -132,37 +170,6 @@ class RuinZone
         return $this;
     }
 
-    /**
-     * @return Collection|Citizen[]
-     */
-    public function getCitizens(): Collection
-    {
-        return $this->citizens;
-    }
-
-    public function addCitizen(Citizen $citizen): self
-    {
-        if (!$this->citizens->contains($citizen)) {
-            $this->citizens[] = $citizen;
-            $citizen->setZone($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCitizen(Citizen $citizen): self
-    {
-        if ($this->citizens->contains($citizen)) {
-            $this->citizens->removeElement($citizen);
-            // set the owning side to null (unless already changed)
-            if ($citizen->getZone() === $this) {
-                $citizen->setZone(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getPrototype(): ?RuinZonePrototype
     {
         return $this->prototype;
@@ -183,253 +190,6 @@ class RuinZone
     public function setDigs(int $digs): self
     {
         $this->digs = $digs;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|DigTimer[]
-     */
-    public function getDigTimers(): Collection
-    {
-        return $this->digTimers;
-    }
-
-    public function addDigTimer(DigTimer $digTimer): self
-    {
-        if (!$this->digTimers->contains($digTimer)) {
-            $this->digTimers[] = $digTimer;
-            $digTimer->setZone($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDigTimer(DigTimer $digTimer): self
-    {
-        if ($this->digTimers->contains($digTimer)) {
-            $this->digTimers->removeElement($digTimer);
-            // set the owning side to null (unless already changed)
-            if ($digTimer->getZone() === $this) {
-                $digTimer->setZone(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|EscapeTimer[]
-     */
-    public function getEscapeTimers(): Collection
-    {
-        return $this->escapeTimers;
-    }
-
-    public function addEscapeTimer(EscapeTimer $escapeTimer): self
-    {
-        if (!$this->escapeTimers->contains($escapeTimer)) {
-            $this->escapeTimers[] = $escapeTimer;
-            $escapeTimer->setZone($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEscapeTimer(EscapeTimer $escapeTimer): self
-    {
-        if ($this->escapeTimers->contains($escapeTimer)) {
-            $this->escapeTimers->removeElement($escapeTimer);
-            // set the owning side to null (unless already changed)
-            if ($escapeTimer->getZone() === $this) {
-                $escapeTimer->setZone(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|DigRuinMarker[]
-     */
-    public function getDigRuinMarkers(): Collection
-    {
-        return $this->digRuinMarkers;
-    }
-
-    public function addDigRuinMarker(DigRuinMarker $digRuinMarker): self
-    {
-        if (!$this->digRuinMarkers->contains($digRuinMarker)) {
-            $this->digRuinMarkers[] = $digRuinMarker;
-            $digRuinMarker->setZone($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDigRuinMarker(DigRuinMarker $digRuinMarker): self
-    {
-        if ($this->digRuinMarkers->contains($digRuinMarker)) {
-            $this->digRuinMarkers->removeElement($digRuinMarker);
-            // set the owning side to null (unless already changed)
-            if ($digRuinMarker->getZone() === $this) {
-                $digRuinMarker->setZone(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function getRuinDigs(): ?int
-    {
-        return $this->ruinDigs;
-    }
-
-    public function setRuinDigs(int $ruinDigs): self
-    {
-        $this->ruinDigs = $ruinDigs;
-
-        return $this;
-    }
-
-    public function getDiscoveryStatus(): ?int
-    {
-        return $this->discoveryStatus;
-    }
-
-    public function setDiscoveryStatus(int $discoveryStatus): self
-    {
-        $this->discoveryStatus = $discoveryStatus;
-
-        return $this;
-    }
-
-    public function getZombieStatus(): ?int
-    {
-        return $this->zombieStatus;
-    }
-
-    public function setZombieStatus(int $zombieStatus): self
-    {
-        $this->zombieStatus = $zombieStatus;
-
-        return $this;
-    }
-
-    public function getDirection(): int {
-
-        if ($this->getX() === 0 && $this->getY() === 0) return self::DirectionCenter;
-        elseif ($this->getX() != 0 && $this->getY() != 0 && (abs(abs($this->getX())-abs($this->getY())) < min(abs($this->getX()),abs($this->getY())))) {
-            if ($this->getX() < 0 && $this->getY() < 0) return self::DirectionSouthWest;
-            if ($this->getX() < 0 && $this->getY() > 0) return self::DirectionNorthWest;
-            if ($this->getX() > 0 && $this->getY() < 0) return self::DirectionSouthEast;
-            if ($this->getX() > 0 && $this->getY() > 0) return self::DirectionNorthEast;
-        } else {
-            if (abs($this->getX()) > abs($this->getY()) && $this->getX() < 0) return self::DirectionWest;
-            if (abs($this->getX()) > abs($this->getY()) && $this->getX() > 0) return self::DirectionEast;
-            if (abs($this->getX()) < abs($this->getY()) && $this->getY() < 0) return self::DirectionSouth;
-            if (abs($this->getX()) < abs($this->getY()) && $this->getY() > 0) return self::DirectionNorth;
-        }
-
-    }
-
-    public function getBuryCount(): ?int
-    {
-        return $this->buryCount;
-    }
-
-    public function setBuryCount(int $buryCount): self
-    {
-        $this->buryCount = $buryCount;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|ScoutVisit[]
-     */
-    public function getScoutVisits(): Collection
-    {
-        return $this->scoutVisits;
-    }
-
-    public function addScoutVisit(ScoutVisit $scoutVisit): self
-    {
-        if (!$this->scoutVisits->contains($scoutVisit)) {
-            $this->scoutVisits[] = $scoutVisit;
-            $scoutVisit->setZone($this);
-        }
-
-        return $this;
-    }
-
-    public function removeScoutVisit(ScoutVisit $scoutVisit): self
-    {
-        if ($this->scoutVisits->contains($scoutVisit)) {
-            $this->scoutVisits->removeElement($scoutVisit);
-            // set the owning side to null (unless already changed)
-            if ($scoutVisit->getZone() === $this) {
-                $scoutVisit->setZone(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function getScoutLevel(): int
-    {
-        return max(0,$this->getScoutVisits()->count() - 1);
-    }
-
-    public function getScoutEstimationOffset(): ?int
-    {
-        return $this->scoutEstimationOffset;
-    }
-
-    public function getPersonalScoutEstimation(Citizen $c): ?int
-    {
-        return ($this->getZombies() === 0) ? 0 : max(0, $this->getZombies() + (($c->getId() + $this->scoutEstimationOffset) % 5) - 2);
-    }
-
-    public function setScoutEstimationOffset(int $scoutEstimationOffset): self
-    {
-        $this->scoutEstimationOffset = $scoutEstimationOffset;
-
-        return $this;
-    }
-
-    public function getImprovementLevel(): ?float
-    {
-      return $this->improvementLevel;
-    }
-
-    public function setImprovementLevel(float $improvementLevel): self
-    {
-      $this->improvementLevel = $improvementLevel;
-
-      return $this;
-    }
-
-    public function getBlueprint(): ?int
-    {
-        return $this->blueprint;
-    }
-
-    public function setBlueprint(int $blueprint): self
-    {
-        $this->blueprint = $blueprint;
-
-        return $this;
-    }
-
-    public function getTag(): ?ZoneTag
-    {
-        return $this->tag;
-    }
-
-    public function setTag(?ZoneTag $tag): self
-    {
-        $this->tag = $tag;
 
         return $this;
     }
