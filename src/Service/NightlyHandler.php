@@ -340,8 +340,13 @@ class NightlyHandler
 
         $defWatchers = 0;
 
+        $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
+        $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
+        $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
+        $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
+
         foreach ($watchers as $watcher) {
-            $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) : $zeds_each_watcher;
+            $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
 
             $defWatchers += $def;
 

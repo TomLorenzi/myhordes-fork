@@ -418,6 +418,8 @@ class ZoneHandler
                     'name' => T::__("Ein nicht freigeschaufeltes Gebäude.", "game"),
                     'type' => -1,
                     'dig' => $zone->getBuryCount(),
+                    'empty' => ($zone->getRuinDigs() == 0),
+                    'blueprint' => $zone->getBlueprint(),
                 ];
             }
             else {
@@ -425,6 +427,8 @@ class ZoneHandler
                     'name' => T::__($zone->getPrototype()->getLabel(), "game"),
                     'type' => $zone->getPrototype()->getId(),
                     'dig' => 0,
+                    'empty' => ($zone->getRuinDigs() == 0),
+                    'blueprint' => $zone->getBlueprint(),
                 ];
             }
         }
