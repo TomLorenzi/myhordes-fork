@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <div x-tab-group="home-main" x-tab-id="messages" x-tab-target>
+    <div x-tab-group="home-main" x-tab-id="messages" x-tab-target class="messages">
         <ul class="tabs" x-tab-group="home-messages" x-tab-control x-tab-default="{{ subtab }}">
             <li x-tab-id="received" id='received_tab'>{% trans from 'game' %}Erhaltene Nachrichten{% endtrans %}</li>
             <li x-tab-id="archives" id='archives_tab'><img src="{{ asset("build/images/small_archive.gif") }}" alt="" />{% trans from 'game' %}Archiv{% endtrans %}</li>
@@ -149,7 +149,6 @@
             {% endif %}
             </div>
         </div>
-
         <div x-tab-group="home-messages" x-tab-id="write" x-tab-target>
             <h5>{% trans from 'game'%}Neue Nachricht{% endtrans %}</h5>
             <div class="row">

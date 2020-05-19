@@ -670,6 +670,8 @@ class NightlyHandler
         $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
         $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);
 
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+
         if ($watchtower) switch ($watchtower->getLevel()) {
             case 0: $discover_range  = 0;  break;
             case 1: $discover_range  = 3;  break;
@@ -691,6 +693,11 @@ class NightlyHandler
         $this->log->debug('Processing individual zones ...');
         $this->log->debug('Modifiers - <info>Search Tower</info>: <info>' . ($research_tower ? $research_tower->getLevel() : 'No') . '</info>, <info>Watch Tower</info>: <info>' . ($watchtower ? $watchtower->getLevel() : 'No') . '</info>' );
         $this->log->debug("Wind Direction is <info>{$wind}</info>." );
+
+        if ($research_tower)
+            $gazette->setWindDirection($wind);
+
+        $this->entity_manager->persist($gazette);
 
         $reco_counter = [0,0];
         foreach ($town->getZones() as $zone) {
