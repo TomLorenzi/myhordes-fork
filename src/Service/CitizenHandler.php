@@ -227,7 +227,7 @@ class CitizenHandler
             elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
                 $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
-                $this->picto_handler->give_picto($ac, $pictoPrototype);
+                $this->picto_handler->give_picto($citizen, $pictoPrototype);
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
