@@ -944,7 +944,7 @@
       </notes>
       <segment>
         <source>Unterstreichen</source>
-        <target>Souligner</target>
+        <target>Souligné</target>
       </segment>
     </unit>
     <unit id="AsD_uy4" name="Durchstreichen">
@@ -953,7 +953,7 @@
       </notes>
       <segment>
         <source>Durchstreichen</source>
-        <target>Barrer</target>
+        <target>Barré</target>
       </segment>
     </unit>
     <unit id="aZc6vxf" name="Einfache Liste">
@@ -1026,6 +1026,69 @@
       <segment>
         <source>Entstauben</source>
         <target>Désarchiver</target>
+      </segment>
+    </unit>
+    <unit id="siULJza" name="Link einfügen">
+      <notes>
+        <note category="german">Link einfügen</note>
+      </notes>
+      <segment>
+        <source>Link einfügen</source>
+        <target>Insérer un lien</target>
+      </segment>
+    </unit>
+    <unit id="HqBDmKX" name="Bild einfügen">
+      <notes>
+        <note category="german">Bild einfügen</note>
+      </notes>
+      <segment>
+        <source>Bild einfügen</source>
+        <target>Insérer une image</target>
+      </segment>
+    </unit>
+    <unit id="9H7C4W9" name="Link-Text">
+      <notes>
+        <note category="german">Link-Text</note>
+      </notes>
+      <segment>
+        <source>Link-Text</source>
+        <target>Texte du lien</target>
+      </segment>
+    </unit>
+    <unit id="nE4T9Ox" name="Link-URL">
+      <notes>
+        <note category="german">Link-URL</note>
+      </notes>
+      <segment>
+        <source>Link-URL</source>
+        <target>URL du lien</target>
+      </segment>
+    </unit>
+    <unit id="d1AmbOG" name="Bildtitel">
+      <notes>
+        <note category="german">Bildtitel</note>
+      </notes>
+      <segment>
+        <source>Bildtitel</source>
+        <target>Titre de l'image</target>
+      </segment>
+    </unit>
+    <unit id="Q0tlYyY" name="Bild-URL">
+      <notes>
+        <note category="german">Bild-URL</note>
+      </notes>
+      <segment>
+        <source>Bild-URL</source>
+        <target>URL de l'image</target>
+      </segment>
+    </unit>
+    <unit id="lqB1Bvf" name="Einfügen">
+      <notes>
+        <note category="german">Einfügen</note>
+      </notes>
+      <segment>
+        <source>Einfügen</source>
+        <target>Valider</target>
       </segment>
     </unit>
   </file>

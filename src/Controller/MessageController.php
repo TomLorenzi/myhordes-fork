@@ -795,7 +795,7 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        if($type === 'pm' && empty($recipient))
+        if($type === 'pm' && (empty($recipient) && $tid === -1))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if(($tid === -1 && empty($title)) || empty($content)) {
@@ -822,7 +822,6 @@ class MessageController extends AbstractController
                     ->setLocked(false)
                     ->setLastMessage(new DateTime('now'))
                     ->setRecipient($recipient)
-                    ->setNew(true)
                 ;
 
                 $post = new PrivateMessage();
@@ -830,6 +829,8 @@ class MessageController extends AbstractController
                     ->setText($content)
                     ->setPrivateMessageThread($thread)
                     ->setOwner($sender)
+                    ->setNew(true)
+                    ->setRecipient($recipient)
                 ;
 
                 $tx_len = 0;
@@ -847,7 +848,6 @@ class MessageController extends AbstractController
                     $thread = new PrivateMessageThread();
                     $thread->setSender($sender)
                         ->setTitle($title)
-                        ->setNew(true)
                         ->setLocked(false)
                         ->setLastMessage(new DateTime('now'))
                         ->setRecipient($citizen);
@@ -857,7 +857,10 @@ class MessageController extends AbstractController
                     $post->setDate(new DateTime('now'))
                         ->setText($content)
                         ->setPrivateMessageThread($thread)
-                        ->setOwner($sender);
+                        ->setOwner($sender)
+                        ->setNew(true)
+                        ->setRecipient($citizen);
+                    ;
 
                     $tx_len = 0;
                     if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
@@ -876,18 +879,25 @@ class MessageController extends AbstractController
                 return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
             }
 
+            if($sender == $thread->getRecipient())
+                $recipient = $thread->getSender();
+            else
+                $recipient = $thread->getRecipient();
+
             $post = new PrivateMessage();
             $post->setDate(new DateTime('now'))
                 ->setText($content)
                 ->setPrivateMessageThread($thread)
-                ->setOwner($sender);
+                ->setOwner($sender)
+                ->setNew(true)
+                ->setRecipient($recipient)
+            ;
 
             $tx_len = 0;
             if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread->setLastMessage($post->getDate());
-            $thread->setNew(true);
             $thread->addMessage($post);
 
             $em->persist($thread);
@@ -914,14 +924,30 @@ class MessageController extends AbstractController
 
         /** @var PrivateMessageThread $thread */
         $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
-        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+        if (!$thread) return new Response('');
+
+        $valid = false;
+        foreach ($thread->getMessages() as $message) {
+            if($message->getRecipient() === $citizen)
+                $valid = true;
+        }
+
+        if(!$valid) return new Response('');
 
         $thread->setNew(false);
+
+        $posts = $thread->getMessages();
+
+        foreach ($posts as $message) {
+            if($message->getRecipient() === $citizen) {
+                $message->setNew(false);
+                $em->persist($message);
+            }
+        }
 
         $em->persist($thread);
         $em->flush();
 
-        $posts = $thread->getMessages();
 
         foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/game/town/posts.html.twig', [

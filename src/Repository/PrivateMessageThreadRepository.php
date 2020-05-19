@@ -26,7 +26,8 @@ class PrivateMessageThreadRepository extends ServiceEntityRepository
     public function findNonArchived(Citizen $citizen)
     {
         return $this->createQueryBuilder('pmt')
-            ->andWhere('pmt.recipient = :citizen')
+            ->innerJoin('pmt.messages', 'm')
+            ->andWhere('m.recipient = :citizen')
             ->andWhere('pmt.archived = 0')
             ->setParameter('citizen', $citizen)
             ->orderBy('pmt.lastMessage', 'DESC')
@@ -41,7 +42,8 @@ class PrivateMessageThreadRepository extends ServiceEntityRepository
     public function findArchived(Citizen $citizen)
     {
         return $this->createQueryBuilder('pmt')
-            ->andWhere('pmt.recipient = :citizen')
+            ->innerJoin('pmt.messages', 'm')
+            ->andWhere('m.recipient = :citizen')
             ->andWhere('pmt.archived = 1')
             ->setParameter('citizen', $citizen)
             ->orderBy('pmt.lastMessage', 'DESC')

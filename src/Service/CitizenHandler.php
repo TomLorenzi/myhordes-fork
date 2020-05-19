@@ -19,6 +19,7 @@ use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessageThread;
 use App\Structures\ItemRequest;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -688,10 +689,13 @@ class CitizenHandler
     }
 
     public function hasNewMessage(Citizen $c){
-        foreach ($c->getPrivateMessageThreads() as $thread) {
+        $threads = $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($c);
+        foreach ($threads as $thread) {
             if($thread->getArchived()) continue;
-            if($thread->getNew())
-                return true;
+            foreach ($thread->getMessages() as $message) {
+                if($message->getRecipient() == $c && $message->getNew())
+                    return true;
+            }
         }
 
         return false;

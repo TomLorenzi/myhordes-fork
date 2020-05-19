@@ -149,14 +149,16 @@
             {% endif %}
             </div>
         </div>
+
         <div x-tab-group="home-messages" x-tab-id="write" x-tab-target>
             <h5>{% trans from 'game'%}Neue Nachricht{% endtrans %}</h5>
             <div class="row">
                 <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Empfänger:{% endtrans %}</span></div>
                 <div class="cell padded rw-6">
-                    <input type="text" id="pmrecipient" disabled />
-                    <input type="hidden" id="pmidrecipient" />
+                    <input type="text" id="pmrecipient" disabled {% if dest_citizen is not null %}value="{{dest_citizen.user.username}}"{% endif %} />
+                    <input type="hidden" id="pmidrecipient" {% if dest_citizen is not null %}value="{{dest_citizen.id}}"{% endif %}/>
                 </div>
+                {% if dest_citizen is null %}
                 <div class="cell padded rw-1">
                     <span class="link">
                         <img src="{{ asset('build/images/small_human.gif') }}" id="show_list" />
@@ -175,6 +177,7 @@
                         <button id="close_list">{% trans from 'global'%}Abbrechen{% endtrans %}</button>
                     </div>
                 </div>
+                {% endif %}
             </div>
             <div class="row">
                 <div class="cell padded">
@@ -564,6 +567,11 @@
         	document.getElementById("forum-content").innerHTML = "";
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'global'}) }}', false )
         });
+        {% endif %}
+
+        {% if dest_citizen is not null %}
+        document.getElementById("forum-content").innerHTML = "";
+        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
         {% endif %}
     </script>
 {% endblock %}

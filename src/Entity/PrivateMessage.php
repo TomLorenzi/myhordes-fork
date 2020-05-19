@@ -46,6 +46,17 @@ class PrivateMessage
      */
     private $owner;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $new;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Citizen::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $recipient;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -126,6 +137,30 @@ class PrivateMessage
     public function setOwner(?Citizen $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getNew(): ?bool
+    {
+        return $this->new;
+    }
+
+    public function setNew(bool $new): self
+    {
+        $this->new = $new;
+
+        return $this;
+    }
+
+    public function getRecipient(): ?Citizen
+    {
+        return $this->recipient;
+    }
+
+    public function setRecipient(?Citizen $recipient): self
+    {
+        $this->recipient = $recipient;
 
         return $this;
     }
