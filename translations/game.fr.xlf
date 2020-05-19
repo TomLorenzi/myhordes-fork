@@ -10867,5 +10867,41 @@
         <target>Laisser un mot sur la porte</target>
       </segment>
     </unit>
+    <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
+      <notes>
+        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
+      </notes>
+      <segment>
+        <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
+        <target>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</target>
+      </segment>
+    </unit>
+    <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
+      <notes>
+        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
+      </notes>
+      <segment>
+        <source>Folgende Gegenstände werden mitgesendet:</source>
+        <target>Folgende Gegenstände werden mitgesendet:</target>
+      </segment>
+    </unit>
+    <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
+      <notes>
+        <note category="german">Kein Gegenstand beigefügt...</note>
+      </notes>
+      <segment>
+        <source>Kein Gegenstand beigefügt...</source>
+        <target>Kein Gegenstand beigefügt...</target>
+      </segment>
+    </unit>
+    <unit id="Qg_Rwo3" name="c7efaf6">
+      <notes>
+        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
+      </notes>
+      <segment>
+        <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
+        <target>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
