@@ -715,7 +715,7 @@ class NightlyHandler
                 $zone->setZombieStatus( Zone::ZombieStateUnknown );
             }
 
-            if ($zone->getDirection() === $wind && round($distance) > 2) {
+            if ($zone->getDirection() === $wind && (round($distance) > 2) || $town->getType()->getName() == 'small') {
                 $reco_counter[1]++;
                 if ($this->random->chance( $recovery_chance )) {
                     $digs = mt_rand(5, 10);
