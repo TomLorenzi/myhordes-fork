@@ -19,6 +19,8 @@ use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\TownLogEntry;
+use App\Entity\PrivateMessage;
+use App\Entity\PrivateMessageThread;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -518,7 +520,34 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $up_inv   = $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
-        return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
+        $result = $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
+        if($result == AjaxResponse::success() && $c->getAlive()){
+            /*
+            //TODO: Find a way to create PM from the Crow
+            $thread = new PrivateMessageThread($crow);
+            $thread->setSender(null)
+                ->setTitle("Raub!")
+                ->setLocked(true)
+                ->setLastMessage(new \DateTime('now'))
+                ->setRecipient($c)
+            ;
+
+            $post = new PrivateMessage();
+            $post->setDate(new \DateTime('now'))
+                ->setText("Quelqu'un s'est introduit chez vous pour vous voler un item !")
+                ->setPrivateMessageThread($thread)
+                ->setOwner(null)
+                ->setNew(true)
+                ->setRecipient($c)
+            ;
+
+            $thread->addMessage($post);
+
+            $em->persist($thread);
+            $em->persist($post);
+            $em->flush();*/
+        }
+        return $result;
     }
 
     /**
