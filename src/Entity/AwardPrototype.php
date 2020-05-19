@@ -50,6 +50,12 @@ class AwardPrototype {
      */
     private $iconPath;
 
+    /**
+     * This is the text that displays when the mouse hovers over the title, I.E. "Thefts x10"
+     * @ORM\Column(type="string", length=65)
+     */
+    private $titleHoverText;
+
     public function __construct() {
     }
 
@@ -77,6 +83,10 @@ class AwardPrototype {
         return $this->iconPath;
     }
 
+    public function getTitleHoverText(): ?string {
+        return $this->titleHoverText;
+    }
+
     public function setTitle(string $value) {
         $this->title = $value;
     }
@@ -89,12 +99,16 @@ class AwardPrototype {
         $this->associatedTag = $value;
     }
 
-    public function setAssociatedPicto(string  $value) {
+    public function setAssociatedPicto(string $value) {
         $this->associatedPicto = $value;
     }
 
-    public function setIconPath(string  $value) {
+    public function setIconPath(string $value) {
         $this->iconPath = $value;
+    }
+
+    public function setTitleHoverText(string $value) {
+        $this->titleHoverText = $value;
     }
 
 }

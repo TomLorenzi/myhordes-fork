@@ -129,7 +129,7 @@ class EmoteFixtures extends Fixture {
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $out->writeln('<comment>Item categories: ' . count(static::$emote_data) . ' fixture entries available.</comment>');
+        $out->writeln('<comment>Emotes: ' . count(static::$emote_data) . ' fixture entries available.</comment>');
 
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$emote_data) );
