@@ -831,8 +831,6 @@ class MessageController extends AbstractController
             }
         }
 
-        file_put_contents("/tmp/dump.txt", "We are sending " . count($linked_items) . " items to our fellow citizen");
-
         if ($tid == -1) {
             // New thread
             if($type === 'pm'){
