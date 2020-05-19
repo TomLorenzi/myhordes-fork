@@ -6,6 +6,7 @@ use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
+use App\Entity\Item;
 use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
@@ -20,6 +21,7 @@ use App\Service\JSONRequestParser;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
+use App\Service\InventoryHandler;
 use App\Response\AjaxResponse;
 use DateTime;
 use Doctrine\ORM\EntityManager;
@@ -54,13 +56,15 @@ class MessageController extends AbstractController
     private $asset;
     private $trans;
     private $entityManager;
+    private $inventory_handler;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih)
     {
         $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
         $this->entityManager = $em;
+        $this->inventory_handler = $ih;
     }
 
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
@@ -808,6 +812,27 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
         }
 
+        $linked_items = array();
+
+        if(is_array($items)){
+            foreach ($items as $item_id) {
+                $valid = false;
+                $item = $em->getRepository(Item::class)->find($item_id);
+                if($item->getInventory()->getHome() !== null && $item->getInventory()->getHome()->getCitizen() === $sender){
+                    // This is an item from a chest
+                    $valid = true;
+                } else if($item->getInventory()->getCitizen() === $sender){
+                    // This is an item from the rucksack
+                    $valid = true;
+                }
+
+                if($valid)
+                    $linked_items[] = $item;
+            }
+        }
+
+        file_put_contents("/tmp/dump.txt", "We are sending " . count($linked_items) . " items to our fellow citizen");
+
         if ($tid == -1) {
             // New thread
             if($type === 'pm'){
@@ -832,6 +857,11 @@ class MessageController extends AbstractController
                     ->setNew(true)
                     ->setRecipient($recipient)
                 ;
+
+                foreach ($linked_items as $item) {
+                    $post->addItem($item);
+                    $this->inventory_handler->forceMoveItem($recipient->getHome()->getChest(), $item);
+                }
 
                 $tx_len = 0;
                 if (!$this->preparePost($this->getUser(),null,$post,$tx_len))

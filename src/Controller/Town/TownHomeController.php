@@ -125,6 +125,18 @@ class TownHomeController extends TownController
             }
         }
 
+        $sendable_items = [];
+
+        foreach ($citizen->getInventory()->getItems() as $item) {
+            if($item->getEssential()) continue;
+            $sendable_items[] = $item;
+        }
+
+        foreach ($home->getChest()->getItems() as $item) {
+            if($item->getEssential()) continue;
+            $sendable_items[] = $item;
+        }
+
         // Render
         return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
             'home' => $home,
@@ -153,7 +165,8 @@ class TownHomeController extends TownController
             'nonArchivedMessages' => $nonArchivedMessages,
             'archivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findArchived($citizen),
             'possible_dests' => $possible_dests,
-            'dest_citizen' => $destCitizen
+            'dest_citizen' => $destCitizen,
+            'sendable_items' => $sendable_items,
         ]) );
     }
 

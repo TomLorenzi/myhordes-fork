@@ -111,7 +111,7 @@
                     </div>
                     {% for thread in nonArchivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
-                            <div class="padded cell rw-6">{{ thread.title }}</div>
+                            <div class="padded cell rw-6">{% if thread.hasItems %}<img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
                             <div class="padded cell rw-2">{{ thread.sender.user.username }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
@@ -139,7 +139,7 @@
                     </div>
                     {% for thread in archivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-archived-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
-                            <div class="padded cell rw-6">{{ thread.title }}</div>
+                            <div class="padded cell rw-6">{% if thread.hasItems %}<img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
                             <div class="padded cell rw-2">{{ thread.sender.user.username }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
@@ -181,7 +181,33 @@
             </div>
             <div class="row">
                 <div class="cell padded">
-                    <span class="small link"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
+                    <span class="small link" id="send-item-btn"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
+                </div>
+            </div>
+            <div id="rows-send">
+                <div class="row">
+                    <div class="cell padded rw-6">
+                        <div class="help">
+                            {% trans from 'game'%}Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:{% endtrans %}
+                        </div>
+                    </div>
+                    <div class="cell padded rw-6">
+                        <div class="help">
+                            {% trans from 'game'%}Folgende Gegenstände werden mitgesendet:{% endtrans %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="cell padded rw-6">
+                        {% embed "ajax/game/inventory.html.twig" with {'size': sendable_items|length, 'items': sendable_items} %}
+                            {% block class %}sendable-items{% endblock %}
+                        {% endembed %}
+                    </div>
+                    <div class="cell padded rw-6">
+                        <ul class="inventory" id="sent-items">
+                            <li class="category">{% trans from 'game'%}Kein Gegenstand beigefügt...{% endtrans %}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -573,5 +599,34 @@
         document.getElementById("forum-content").innerHTML = "";
         $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
         {% endif %}
+
+        let send_item_btn = document.getElementById("send-item-btn");
+        if(send_item_btn) send_item_btn.addEventListener('click', function(){
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+
+            this.parentElement.parentElement.style.display = "none";
+
+            document.getElementById("rows-send").style.display = "block";
+
+            var items = document.querySelectorAll("#rows-send .item");
+            var sent = document.getElementById("sent-items");
+            var keep = document.querySelector(".sendable-items");
+            for (var i = 0; i < items.length; i++) {
+                items[i].addEventListener('click', function(){
+                    if(this.parentElement.classList.contains('sendable-items'))
+                        sent.appendChild(this);
+                    else
+                        keep.appendChild(this)
+                    document.getElementById('tooltip_container').innerHTML = "";;
+                    if(sent.childElementCount > 1)
+                        document.querySelector("#sent-items .category").style.display = "none";
+                    else
+                        document.querySelector("#sent-items .category").style.display = "";
+                });
+            }
+        });
+
+
     </script>
 {% endblock %}
