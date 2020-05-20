@@ -218,10 +218,10 @@ class DebugCommand extends Command
             foreach ($count as $townLang => $array) {
                 foreach ($array as $townClass => $openCount) {
                     if($openCount < 1){
-                        $newTown = $factory->createTown(null, $townLang, null, $townClass);
-                        $em->persist($newTown);
-                        $em->flush();
-                        $factory->createExplorableMaze($newTown);
+                        $newTown = $this->game_factory->createTown(null, $townLang, null, $townClass);
+                        $this->entity_manager->persist($newTown);
+                        $this->entity_manager->flush();
+                        $this->game_factory->createExplorableMaze($newTown);
                     }
                 }
             }
