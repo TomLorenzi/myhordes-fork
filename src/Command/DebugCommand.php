@@ -185,6 +185,46 @@ class DebugCommand extends Command
                     $output->writeln("<comment>{$user_name}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
                     break;
                 }
+
+            // Ensure we still have an open town after filling it with dumb users
+
+            $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
+            $count = array(
+                "fr" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+                "de" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+                "en" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+                "es" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+            );
+            foreach ($openTowns as $openTown) {
+                $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
+            }
+
+            foreach ($count as $townLang => $array) {
+                foreach ($array as $townClass => $openCount) {
+                    if($openCount < 1){
+                        $newTown = $factory->createTown(null, $townLang, null, $townClass);
+                        $em->persist($newTown);
+                        $em->flush();
+                        $factory->createExplorableMaze($newTown);
+                    }
+                }
+            }
         }
 
         if ($tid = $input->getOption('fill-bank')) {
