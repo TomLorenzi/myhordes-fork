@@ -550,7 +550,12 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus($toInfect[$i], "infection");
                 }
 
-                //TODO: Kill zombies around the town
+                // Kill zombies around the town (all at 1km, none beyond 10km)
+                foreach ($town->getZones() as $zone) {
+                    $factor = max(0, (11 - $this->zone_handler->getZoneKm($zone)) / 10);
+                    $zone->setZombies($zone->getZombies() * $factor);
+                }
+                
                 //TODO: Lower the attack for 2-3 days
 
             } else {
