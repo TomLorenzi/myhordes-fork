@@ -52,7 +52,6 @@
     </div>
 
     {% if citizen.escortSettings is not null and citizen.escortSettings.leader is not null %}
-
         <div class="help">
             <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.username}, 'game') }}</b>
             <p>
@@ -62,6 +61,7 @@
                 {% endtrans %}
             </p>
         </div>
+        <div class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</div>
 
     {% else %}
         {% if (zone.x != 0 or zone.y != 0) and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CAMPING'),false) %}
@@ -732,7 +732,8 @@
         );
 
         {% if allow_enter_town %}
-            document.getElementById('town-enter').addEventListener('click', function() {
+            let townEnterBtn = document.getElementById('town-enter');
+            if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
@@ -742,7 +743,8 @@
             });
         {% endif %}
         {% if show_ventilation and allow_ventilation %}
-            document.getElementById('town-enter-hero').addEventListener('click', function() {
+            let townEnterVentBtn = document.getElementById('town-enter-hero');
+            if(townEnterVentBtn) townEnterVentBtn.addEventListener('click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'hero'}) }}', {},
@@ -752,7 +754,8 @@
             });
         {% endif %}
         {% if show_sneaky %}
-            document.getElementById('town-enter-sneak').addEventListener('click', function() {
+            let townEnterSneakBtn = document.getElementById('town-enter-sneak');
+            if(townEnterSneakBtn) townEnterSneakBtn.addEventListener('click', function() {
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'sneak'}) }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
@@ -783,7 +786,8 @@
         {% endif %}
 
         {% if is_shaman %}
-            document.getElementById('fall_rain').addEventListener('click', function() {
+            let fallRainBtn = document.getElementById('fall_rain');
+            if(fallRainBtn) fallRainBtn.addEventListener('click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_shaman_rain') }}', {},

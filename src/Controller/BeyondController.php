@@ -497,6 +497,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($special === 'normal')
             foreach ($citizen->getValidLeadingEscorts() as $escort)
                 $movers[] = $escort->getCitizen();
+        else
+            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                $escort->getCitizen()->getEscortSettings()->setLeader(null);
 
         $movers[] = $citizen;
         $others_are_here = $zone->getCitizens()->count() > count($movers);
