@@ -189,7 +189,7 @@ class PrivateMessageThread
     public function hasItems(): bool
     {
         foreach ($this->getMessages() as $message) {
-            if(count($message->getItems()) > 0)
+            if($message->getItems() != null && count($message->getItems()) > 0)
                 return true;
         }
 

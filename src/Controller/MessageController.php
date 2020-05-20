@@ -7,6 +7,7 @@ use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
 use App\Entity\Item;
+use App\Entity\ItemPrototype;
 use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
@@ -834,10 +835,16 @@ class MessageController extends AbstractController
         if ($tid == -1) {
             // New thread
             if($type === 'pm'){
+            	// Check inventory size
+
                 $recipient = $em->getRepository(Citizen::class)->find($recipient);
                 if($recipient->getTown() !== $sender->getTown()){
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 }
+
+                $max_size = $this->inventory_handler->getSize($recipient->getHome()->getChest());
+
+        		if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) >= $max_size) return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
 
                 $thread = new PrivateMessageThread();
                 $thread->setSender($sender)
@@ -856,10 +863,14 @@ class MessageController extends AbstractController
                     ->setRecipient($recipient)
                 ;
 
+                $items_prototype = [];
+
                 foreach ($linked_items as $item) {
-                    $post->addItem($item);
+                	$items_prototype[] = $item->getPrototype()->getId();
                     $this->inventory_handler->forceMoveItem($recipient->getHome()->getChest(), $item);
                 }
+
+                $post->setItems($items_prototype);
 
                 $tx_len = 0;
                 if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
@@ -919,6 +930,7 @@ class MessageController extends AbstractController
                 ->setOwner($sender)
                 ->setNew(true)
                 ->setRecipient($recipient)
+                ->setItems(null)
             ;
 
             $tx_len = 0;
@@ -975,12 +987,20 @@ class MessageController extends AbstractController
 
         $em->persist($thread);
         $em->flush();
-
-
-        foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+        $items = [];
+        foreach ($posts as &$post) {
+        	if($post->getItems() !== null && count($post->getItems()) > 0) {
+        		$items[$post->getId()] = [];
+        		foreach ($post->getItems() as $proto_id) {
+        			$items[$post->getId()][] = $em->getRepository(ItemPrototype::class)->find($proto_id);
+        		}
+        	}
+        	$post->setText($this->prepareEmotes($post->getText()));
+        }
         return $this->render( 'ajax/game/town/posts.html.twig', [
             'thread' => $thread,
             'posts' => $posts,
+            'items' => $items,
             'emotes' => $this->get_emotes(true),
         ] );
     }

@@ -36,11 +36,6 @@ class PrivateMessage
     private $privateMessageThread;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Item::class)
-     */
-    private $items;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Citizen::class)
      * @ORM\JoinColumn(nullable=false)
      */
@@ -56,6 +51,11 @@ class PrivateMessage
      * @ORM\JoinColumn(nullable=false)
      */
     private $recipient;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $items = [];
 
     public function __construct()
     {
@@ -103,32 +103,6 @@ class PrivateMessage
         return $this;
     }
 
-    /**
-     * @return Collection|Item[]
-     */
-    public function getItems(): Collection
-    {
-        return $this->items;
-    }
-
-    public function addItem(Item $item): self
-    {
-        if (!$this->items->contains($item)) {
-            $this->items[] = $item;
-        }
-
-        return $this;
-    }
-
-    public function removeItem(Item $item): self
-    {
-        if ($this->items->contains($item)) {
-            $this->items->removeElement($item);
-        }
-
-        return $this;
-    }
-
     public function getOwner(): ?Citizen
     {
         return $this->owner;
@@ -161,6 +135,18 @@ class PrivateMessage
     public function setRecipient(?Citizen $recipient): self
     {
         $this->recipient = $recipient;
+
+        return $this;
+    }
+
+    public function getItems(): ?array
+    {
+        return $this->items;
+    }
+
+    public function setItems(?array $items): self
+    {
+        $this->items = $items;
 
         return $this;
     }

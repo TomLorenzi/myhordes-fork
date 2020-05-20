@@ -10903,5 +10903,14 @@
         <target>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</target>
       </segment>
     </unit>
+    <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
+      <notes>
+        <note category="german">Meine Nachrichten lesen.</note>
+      </notes>
+      <segment>
+        <source>Meine Nachrichten lesen.</source>
+        <target>Lire mesmessages.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

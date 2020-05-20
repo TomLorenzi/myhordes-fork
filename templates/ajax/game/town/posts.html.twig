@@ -51,13 +51,13 @@
             </div>
             <div class="forum-post-content">
                 {{ post.text|raw }}
-                {% if post.items|length > 0 %}
+                {% if items[post.id] is defined and items[post.id]|length > 0 %}
                     <hr />
                     <div class="help">
                         {% trans from 'game' %}Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).{% endtrans %}
                         <ul class="linked-items">
-                        {% for item in post.items %}
-                            <li><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item.prototype.label|trans({},'items') }}"> {{ item.prototype.label|trans({},'items') }} <span class="broken">{% if item.broken %}({{ 'Kaputt'|trans({},'items') }})</span>{% endif %}</li>
+                        {% for item in items[post.id] %}
+                            <li><img src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" alt="{{ item.label|trans({},'items') }}"> {{ item.label|trans({},'items') }}</li>
                         {% endfor %}
                         </ul>
                     </div>
