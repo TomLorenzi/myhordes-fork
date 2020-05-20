@@ -609,7 +609,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                                 '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );
                         } elseif ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                             $victim_home,
-                            $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ))
+                            $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim_home->getCitizen()->getAlive())
                         {
                             $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item, $steal_up ) );
                             $this->citizen_handler->inflictStatus( $citizen, 'terror' );
