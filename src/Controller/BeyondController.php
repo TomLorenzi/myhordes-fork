@@ -660,10 +660,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $new_zone_lv = $new_zone->getScoutLevel();
                     $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
 
-                    if ($this->random_generator->chance( $factor ) && $this->uncoverHunter($mover))
+                    if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
                         if ($mover->getId() === $citizen->getId())
                             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!', [], 'game' ));
-                        else $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                        else 
+                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                    }
                 }
             }
 

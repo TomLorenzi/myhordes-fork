@@ -637,7 +637,8 @@
         {% endif %}
 
         {% if zone_blocked and zone_escape < 0 and not active_scout_mode %}
-        document.getElementById('escape-btn').addEventListener('click', function () {
+        let escapeBtn = document.getElementById('escape-btn');
+        if(escapeBtn) escapeBtn.addEventListener('click', function () {
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
@@ -645,7 +646,8 @@
                     $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                 } );
         });
-        document.getElementById('attack-btn').addEventListener('click', function () {
+        let attackBtn = document.getElementById('attack-btn');
+        if(attackBtn) attackBtn.addEventListener('click', function () {
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},

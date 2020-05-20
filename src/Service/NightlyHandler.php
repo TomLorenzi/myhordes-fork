@@ -742,10 +742,20 @@ class NightlyHandler
         foreach ($this->zone_handler->getSoulZones($town) as $zone) {
             foreach ($zone->getFloor()->getItems() as $item) {
                 if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
-                if($this->random->Chance(0.1)){
+                if($this->random->chance(0.5)){
+                    $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
                     $this->inventory_handler->forceRemoveItem($item);
                     $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
                 }
+            }
+        }
+
+        foreach ($town->getBank()->getItems() as $item) {
+            if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
+            if($this->random->chance(0.25)){
+                $this->log->debug("Mutating soul in bank.");
+                $this->inventory_handler->forceRemoveItem($item);
+                $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
             }
         }
     }
@@ -984,6 +994,12 @@ class NightlyHandler
     }
 
     private function stage3_roles(Town &$town){
+        if($town->getChaos()) {
+            $this->log->info( "Town is in <info>Chaos</info>, no more votes." );
+            return;
+        }
+
+        $this->log->info( "Processing elections..." );
         $citizens = $town->getCitizens();
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
         $votes = array();
@@ -1045,6 +1061,7 @@ class NightlyHandler
 
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->find($citizenWinnerId);
+            $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
             if($winningCitizen !== null){
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));

@@ -153,9 +153,10 @@ class DeathHandler
             // Decoration picto
             // Calculate decoration
 	        $deco = 0;
-	        foreach ($home->getChest()->getItems() as $item)
+	        foreach ($citizen->getHome()->getChest()->getItems() as $item)
 	            $deco += $item->getPrototype()->getDeco();
-	        $this->picto_handler->give_validated_picto($citizen, "r_deco_#00", $deco);
+            if($deco > 0)
+	           $this->picto_handler->give_validated_picto($citizen, "r_deco_#00", $deco);
         }
 
         $pictoDeath = null;
