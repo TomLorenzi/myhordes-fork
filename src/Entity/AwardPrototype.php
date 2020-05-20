@@ -12,6 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity("title")
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="title_unique",columns={"title"})
+ *     })
  */
 class AwardPrototype {
 

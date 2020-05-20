@@ -36,7 +36,7 @@ class AwardPrototypeRepository extends ServiceEntityRepository {
                 ->andWhere('a.unlockQuantity = :amount')
                 ->setParameter('amount', $amount)
                 ->getQuery()
-                ->getResult();
+                ->getOneOrNullResult();
         } catch(NonUniqueResultException $e) {
             return null;
         }
