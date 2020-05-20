@@ -391,5 +391,32 @@
         <target>Abort</target>
       </segment>
     </unit>
+    <unit id="yr3nj09" name="Dieses Konto wartet bereits auf eine Passwortzurücksetzung.">
+      <notes>
+        <note category="german">Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</note>
+      </notes>
+      <segment>
+        <source>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</source>
+        <target>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</target>
+      </segment>
+    </unit>
+    <unit id="axBQZ1o" name="d8a5e1e">
+      <notes>
+        <note category="german">Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</note>
+      </notes>
+      <segment>
+        <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
+        <target>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</target>
+      </segment>
+    </unit>
+    <unit id="w6NXTHc" name="0e5133b">
+      <notes>
+        <note category="german">Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</note>
+      </notes>
+      <segment>
+        <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
+        <target>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

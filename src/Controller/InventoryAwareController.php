@@ -336,12 +336,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         }
 
-        if ($this->citizen_handler->hasStatusEffect($aggressor, 'tg_ghoul_eat'))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
         $notes = [];
 
         if ($victim->getAlive()) {
+
+            if ($this->citizen_handler->hasStatusEffect($aggressor, 'tg_ghoul_eat'))
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
             if ($victim->hasRole('ghoul')) {
                 $this->addFlash('notice', $this->translator->trans('Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!', [], 'game'));
                 return AjaxResponse::success();
@@ -377,11 +378,35 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 50) );
 
+            $stat_down = false;
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'drugged' );
+            }
+
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'addict') && $this->citizen_handler->hasStatusEffect($victim, 'addict')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'addict' );
+            }
+
+            if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drunk') && $this->citizen_handler->hasStatusEffect($victim, 'drunk')) {
+                $stat_down = true;
+                $this->citizen_handler->inflictStatus( $aggressor, 'drunk' );
+                $this->citizen_handler->inflictStatus( $aggressor, 'tg_no_hangover' );
+            }
+
+            if ($stat_down)
+                $notes[] = $this->translator->trans( 'Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...', [], 'game' );
+
+            $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_eat' );
+
             $this->death_handler->kill($victim, CauseOfDeath::GhulEaten);
             $this->entity_manager->persist($this->log->citizenDeath( $victim ) );
 
-
         } else {
+
+            if ($this->citizen_handler->hasStatusEffect($aggressor, 'tg_ghoul_corpse'))
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
             if ($aggressor->getZone() || !$victim->getHome()->getHoldsBody())
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -391,11 +416,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 10) );
             $victim->getHome()->setHoldsBody(false);
 
-
             $notes[] = $this->translator->trans('Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.', [], 'game');
+            $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_corpse' );
         }
-
-        $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_eat' );
 
         if ($notes)
             $this->addFlash('note', implode('<hr />', $notes));
@@ -541,9 +564,10 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         return AjaxResponse::success();
                     }
                 }
+
                 if (($error = $handler->transferItem(
                         $citizen,
-                        $current_item, $inv_source, $inv_target
+                        $current_item, $inv_source, $inv_target, InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
                     )) === InventoryHandler::ErrorNone) {
 
                     if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item, !$bank_up ) );

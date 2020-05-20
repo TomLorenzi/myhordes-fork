@@ -432,7 +432,7 @@ class ActionHandler
      * @param array|null $remove
      * @return int
      */
-    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove ): int {
+    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false ): int {
 
         $remove = [];
         $tags = [];
@@ -442,14 +442,16 @@ class ActionHandler
 
         $town_conf = $this->conf->getTownConfiguration( $citizen->getTown() );
 
-        $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
-        if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
-        if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
-        if ($mode <= self::ActionValidityAllow) {
-            $message = $tx;
-            return self::ErrorActionForbidden;
+        if (!$force) {
+            $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
+            if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
+            if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
+            if ($mode <= self::ActionValidityAllow) {
+                $message = $tx;
+                return self::ErrorActionForbidden;
+            }
+            if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
         }
-        if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
 
         $target_item_prototype = null;
         if ($target && is_a( $target, Item::class )) $target_item_prototype = $target->getPrototype();
@@ -840,9 +842,13 @@ class ActionHandler
 
                             if ($drink) $citizen->setWalkingDistance(0);
 
-                            if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'thirst2')) {
-                                $this->citizen_handler->removeStatus($citizen, 'thirst2');
-                                $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                            if ($drink) {
+                                if($citizen->hasRole('ghoul')){
+                                    $this->citizen_handler->inflictWound($citizen);
+                                } else if($this->citizen_handler->hasStatusEffect($citizen, 'thirst2')){
+                                    $this->citizen_handler->removeStatus($citizen, 'thirst2');
+                                    $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                                }
                             } else {
                                 if (!$drink || !$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
                                     $old_ap = $citizen->getAp();
@@ -854,6 +860,7 @@ class ActionHandler
                                 $this->citizen_handler->inflictStatus($citizen, $drink ? 'hasdrunk' : 'haseaten');
 
                             }
+
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');

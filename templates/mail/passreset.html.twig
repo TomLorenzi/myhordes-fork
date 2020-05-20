@@ -1,0 +1,13 @@
+{% extends "mail/framework.html.twig" %}
+{% block body %}
+    {# @var user \App\Entity\User #}
+    <p><b>{{ 'Hallo %user%!'|trans({ '%user%': user.username },'mail') }}</b></p>
+    <p>{{ 'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :'|trans({},'mail') }}</p>
+    {# @var token \App\Entity\UserPendingValidation #}
+    <p><a href="{{ url }}">{{ url }}</a></p>
+    <p><i>{% trans from 'mail' %}
+        Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
+        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
+        durch das Anklicken des oben genannten Links änderst.
+    {% endtrans %}</i></p>
+{% endblock %}

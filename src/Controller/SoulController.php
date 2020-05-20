@@ -636,7 +636,7 @@ class SoulController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if (in_array('ROLE_DUMMY', $user->getRoles()))
+        if ($this->isGranted('ROLE_DUMMY'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $new_pw = $parser->trimmed('pw_new', '');
@@ -669,7 +669,7 @@ class SoulController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if (in_array('ROLE_DUMMY', $user->getRoles()))
+        if ($this->isGranted('ROLE_DUMMY'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))

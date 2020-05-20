@@ -131,6 +131,96 @@ x-message {
   transition: opacity 0.2s ease-in-out; opacity: 1;
   &[x-stack="0"] { opacity: 0; pointer-events: none; }
 }
+#modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 99999;
+  background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,1) 100%);
+  display: flex; align-items: center; justify-content: center;
+  &.active {
+    opacity: 1; pointer-events: initial;
+  }
+  &>div#modal {
+    color: wheat; min-width: 320px; width: auto; max-width: 80%;
+    min-height: 100px;
+    background-color: #804d2f;
+    border: 1px solid wheat;
+    outline: 1px solid black;
+    position: relative;
+
+    div#modal-close {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      font-size: 2rem;
+      line-height: 3rem;
+      text-align: center;
+      color: #333;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      transition: 200ms color;
+
+      &:hover {
+        color: #c00;
+      }
+    }
+
+    div#modal-title {
+      height: 3rem;
+      line-height: 3rem;
+      background-color: rgba(0,0,0,.25);
+      font-weight: bold;
+      font-size: 1.8rem;
+      padding: 0 4rem 0 1rem;
+    }
+
+    div#modal-content {
+      min-height: 5rem;
+
+      .modal-form {
+        padding: 1rem;
+
+        label {
+          &.error {
+            color: #c00;
+          }
+        }
+
+        input {
+          margin-bottom: 1rem;
+
+          &.error {
+            outline: 2px solid #c00;
+          }
+        }
+      }
+    }
+
+    div#modal-actions {
+      height: 3rem;
+      background-color: rgba(0,0,0,.25);
+      text-align: center;
+
+      div.modal-button {
+        line-height: 2.4rem;
+        margin: .3rem .5rem;
+        background-color: rgba(0,0,0,.25);
+        cursor: pointer;
+        display: inline-block;
+        width: auto;
+        font-size: 1.2rem;
+        padding: 0 .6rem;
+        transition: 200ms background-color;
+
+        &#modal-button-ok:hover { background-color: #0c0; }
+        &#modal-button-no:hover { background-color: #c00; }
+      }
+    }
+  }
+  transition: opacity 0.2s ease-in-out;
+
+}
 
 #wrapper {
   position: relative; margin: 0 auto; padding: 0; width: @myhordes-content-width; overflow: visible;
@@ -792,7 +882,7 @@ div.ap      { .icon_div("../img/ap_small.gif", middle, 0); color: white; }
 div.bp      { .icon_div("../img/bp_small.gif", middle, 0); }
 div.pm      { .icon_div("../img/pm_small.gif", middle, 0); color: white; }
 div.defense { .icon_div("../img/small_def.gif", middle, 2px);font-weight: bold; }
-div.defense-broken { .icon_div("../img/small_def.gif", middle, 2px); color:#f18766;font-weight: bold; }
+div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); color:#f18766;font-weight: bold; }
 
 ul.tabs {
   padding: 0; list-style: none; border-bottom: 2px solid @myhordes-smalltext;
@@ -1026,11 +1116,8 @@ div.daily-attack {
 }
 
 .avatar, .avatarcrow {
-  &:not(.avatarcrow) {
-    border: 1px solid @myhordes-cell-header-background-color;
-    outline: 1px solid @myhordes-button-color;
-  }
-  .avatarcrow { border: 1px solid #773939; outline: 1px solid red; }
+  &:not(.avatarcrow) { border: 1px solid @myhordes-cell-header-background-color; }
+  .avatarcrow { border: 1px solid #cc3300; }
   display: inline-block; box-shadow: 0 0 5px rgba(0,0,0,0.7); position: relative;
   &:not(.small):not(.full)>img { max-width: 100px; max-height: 100px; }
   &.small>img { width: 90px; height: 30px; object-fit: cover }

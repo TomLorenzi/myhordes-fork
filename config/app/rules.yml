@@ -44,6 +44,7 @@ parameters:
           stack_poisoned_items: false
           transgress: false
         attack_protection: false
+        carry_extra_bag: false
 
       features:
         camping: true

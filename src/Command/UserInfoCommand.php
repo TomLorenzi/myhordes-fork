@@ -45,7 +45,7 @@ class UserInfoCommand extends Command
             ->addOption('validated', 'v1', InputOption::VALUE_NONE, 'Only list validated users.')
             ->addOption('mods', 'm', InputOption::VALUE_NONE, 'Only list users with elevated permissions.')
 
-            ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', 'auto')
+            ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', null)
 
             ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
             ->addOption('give-all-pictos', null, InputOption::VALUE_OPTIONAL, 'Gives all pictos once to a user')

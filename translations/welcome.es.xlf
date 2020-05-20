@@ -3,7 +3,7 @@
   <file id="welcome.es">
     <unit id="7VfCrWl" name="Foren">
       <notes>
-        <note category="german">Forums</note>
+        <note category="german">Foren</note>
       </notes>
       <segment>
         <source>Foren</source>
@@ -12,19 +12,19 @@
     </unit>
     <unit id="a66OWC." name="Willkommen bei MyHordes">
       <notes>
-        <note category="german">Welcome to MyHordes</note>
+        <note category="german">Willkommen bei MyHordes</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Willkommen bei MyHordes</source>
         <target>Bienvenido a MyHordes</target>
       </segment>
     </unit>
     <unit id="Sq5rAhc" name="99de2c1">
       <notes>
-        <note category="german">MyHordes is an open implementation of the browser game "Die2Nite"
-          by %motiontwin% and developed by the community.</note>
+        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
+                    "Die Verdammten" von %motiontwin%.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</source>
         <target>MyHordes es una implementación abierta del juego de navegador "Zombinoia" de %motiontwin%,
@@ -33,11 +33,11 @@
     </unit>
     <unit id="yIFGZLw" name="2fac8f1">
       <notes>
-        <note category="german">The aim of this project is to create a version of "Die2Nite", that will
-          not only work after the removal of Flash support in common browsers,
-          but will also be developed beyond the original and receive new content.</note>
+        <note category="german">Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
+                    Inhalten versorgt werden kann.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
@@ -48,7 +48,7 @@
     </unit>
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
-        <note category="german">Game</note>
+        <note category="german">Zum Spiel</note>
       </notes>
       <segment>
         <source>Zum Spiel</source>
@@ -57,7 +57,7 @@
     </unit>
     <unit id="M_25pDW" name="Account validieren">
       <notes>
-        <note category="german">Validate account</note>
+        <note category="german">Account validieren</note>
       </notes>
       <segment>
         <source>Account validieren</source>
@@ -66,16 +66,17 @@
     </unit>
     <unit id="vMG7P9w" name="Zum Login">
       <notes>
-        <note category="german">Login</note>
+        <note category="german">Zum Login</note>
       </notes>
       <segment>
         <source>Zum Login</source>
-        <target>Ingresar</target>
+        <target>Ingresar</target> 
       </segment>
     </unit>
     <unit id="RVQn34R" name="dfabf06">
       <notes>
-        <note category="german">All graphical assets are taken from Die2Nite if not stated otherwise and therefore are property of %motiontwin%.</note>
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+                    damit Eigentum von %motiontwin%.</note>
       </notes>
       <segment>
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
@@ -85,27 +86,27 @@
     </unit>
     <unit id="lHIUXzm" name="Bürger gestorben">
       <notes>
-        <note category="german">Citizens killed</note>
+        <note category="german">Bürger gestorben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bürger gestorben</source>
         <target>Habitantes muertos</target>
       </segment>
     </unit>
     <unit id="5bHzvXH" name="Zombies gekillt">
       <notes>
-        <note category="german">Zombies exterminated</note>
+        <note category="german">Zombies gekillt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zombies gekillt</source>
         <target>Zombies exterminados</target>
       </segment>
     </unit>
     <unit id="YlMROjW" name="Akte von Kannibalismus">
       <notes>
-        <note category="german">Acts of cannibalism</note>
+        <note category="german">Akte von Kannibalismus</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Akte von Kannibalismus</source>
         <target>Actos de canibalismo</target>
       </segment>
@@ -114,7 +115,7 @@
       <notes>
         <note category="german">Und das wird kaum besser werden...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Und das wird kaum besser werden...</source>
         <target>Y eso no es todo...</target>
       </segment>

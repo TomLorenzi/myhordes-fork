@@ -506,11 +506,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drug_7ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'just_ap7', 'consume_item' ] ],
             'drug_8ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap8', 'consume_item' ] ],
             'drug_8ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'just_ap8', 'consume_item' ] ],
-            'drug_hyd_0' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'never_cross', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ ] ],
-            'drug_hyd_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'drink_tl1' ], 'result' => [ 'reset_thirst_counter', 'drug_any', 'drink_ap_2', 'consume_item' ] ],
-            'drug_hyd_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'drink_tl1' ], 'result' => [ 'reset_thirst_counter', 'drug_addict', 'drink_ap_2', 'consume_item' ] ],
-            'drug_hyd_3' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'drink_tl2' ], 'result' => [ 'reset_thirst_counter', 'drug_any', 'drink_no_ap', 'consume_item' ] ],
-            'drug_hyd_4' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'drink_tl2' ], 'result' => [ 'reset_thirst_counter', 'drug_addict', 'drink_no_ap', 'consume_item' ] ],
+            'drug_hyd_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'reset_thirst_counter', 'drug_any', 'drink_ap_2', 'consume_item' ] ],
+            'drug_hyd_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'reset_thirst_counter', 'drug_addict', 'drink_ap_2', 'consume_item' ] ],
             'drug_beta'  => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ ['ap' => [ 'max' => true,  'num' => 993 ]] ] ],
             'cyanide'    => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'cyanide', 'consume_item' ] ],
 
@@ -661,10 +658,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'vibrator' => [ 'label' => 'Verwenden', 'meta' => [ 'must_be_inside', 'must_be_terrorized' ], 'result' => [ 'unterrorize', ['item' => ['morph' => 'vibr_empty_#00', 'consume' => false]], ['picto' => ['r_maso_#00']] ], 'message' => 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.' ],
 
-            'watercup_1' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_inside',  'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ 'water_cup_#00' ] ] ], 'message' => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.' ],
-            'watercup_2' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_outside', 'must_have_micropur' ],                                                   'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ 'water_cup_#00' ] ] ], 'message' => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.' ],
+            'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ 'water_cup_#00' ] ] ], 'message' => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.' ],
+            'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside', 'must_have_micropur' ],                                                   'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ 'water_cup_#00' ] ] ], 'message' => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.' ],
             'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 2, 'max' => 2 ] ] ], 'message' => 'Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.' ],
-            'jerrycan_1' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_inside', 'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
+            'jerrycan_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
                 [ [ ['spawn' => [ ['water_#00', 2] ] ] ], 1 ],
                 [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
             ]] ], 'message' => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.' ],
@@ -703,7 +700,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_be_terrorized', [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_teddy' ] ]] ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_teddy' ], 'group' => [ ['do_nothing', 1], ['unterrorize', 1] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ],
             'cuddle_teddy_2' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_not_be_terrorized' ], 'result' => [ 'terrorize' ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>' ],
 
-            'clean_clothes' => [ 'label' => 'Reinigen', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes' ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ] ],
+            'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes' ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ] ],
 
             'hero_tamer_1'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_2'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_2' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
@@ -769,6 +766,25 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'home_rest_1'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v1', 'not_yet_rested', 'no_full_ap' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap', 100], [ 'do_nothing', 0 ] ] ] ], 'message' => 'Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>' ],
             'home_rest_2'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v2', 'not_yet_rested', 'no_full_ap' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap', 100], [ 'do_nothing', 0 ] ] ] ], 'message' => 'Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>' ],
             'home_rest_3'     => [ 'label' => 'Nickerchen machen', 'meta' => [ 'must_be_inside', 'must_have_home_rest_v3', 'not_yet_rested', 'no_full_ap' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_rested' ], 'group' => [ ['plus_2ap', 100], [ 'do_nothing', 0 ] ] ] ], 'message' => 'Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>' ],
+
+            'nw_break'   => [ 'label' => '', 'meta' => [], 'result' => [ 'break_item' ] ],
+            'nw_destroy' => [ 'label' => '', 'meta' => [], 'result' => [ 'consume_item' ] ],
+            'nw_empty_big_pgun'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'big_pgun_empty_#00',      'consume' => false]] ] ],
+            'nw_empty_pilegun_up'   => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'pilegun_up_empty_#00',    'consume' => false]] ] ],
+            'nw_empty_pilegun'      => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'pilegun_empty_#00',       'consume' => false]] ] ],
+            'nw_empty_taser'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'taser_empty_#00',         'consume' => false]] ] ],
+            'nw_empty_mixergun'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'mixergun_empty_#00',      'consume' => false]] ] ],
+            'nw_empty_chainsaw'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'chainsaw_empty_#00',      'consume' => false]] ] ],
+            'nw_empty_phone'        => [ 'label' => '', 'meta' => [], 'result' => [ 'consume_item', ['spawn' => 'phone'] ] ],
+            'nw_empty_watergun'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'watergun_empty_#00',      'consume' => false]] ] ],
+            'nw_empty_watergun_opt' => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'watergun_opt_empty_#00',  'consume' => false]] ] ],
+            'nw_empty_torch'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'torch_off_#00',           'consume' => false]] ] ],
+            'nw_empty_staff'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'staff2_#00',              'consume' => false]] ] ],
+            'nw_empty_dildo'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'vibr_empty_#00',          'consume' => false]] ] ],
+            'nw_empty_watercan'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'water_can_empty_#00',     'consume' => false]] ] ],
+            'nw_empty_kalach'       => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'kalach_#01',              'consume' => false]] ] ],
+            'nw_meat'               => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'undef_#00',               'consume' => false]] ] ],
+            'nw_meat_tasty'         => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'meat_#00',                'consume' => false]] ] ],
         ],
 
         'heroics' => [
@@ -850,7 +866,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'beta_drug_bad_#00'   => [ 'drug_rand_1', 'drug_rand_2' ],
             'beta_drug_#00'       => [ 'drug_beta' ],
             'xanax_#00'           => [ 'drug_xana1', 'drug_xana2' ],
-            'drug_water_#00'      => [ 'drug_hyd_0', 'drug_hyd_1', 'drug_hyd_2', 'drug_hyd_3', 'drug_hyd_4' ],
+            'drug_water_#00'      => [ 'drug_hyd_1', 'drug_hyd_2' ],
 
             'food_bag_#00'        => [ 'open_doggybag' ],
             'food_armag_#00'      => [ 'open_lunchbag' ],
@@ -1041,8 +1057,94 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'soul_blue_#00' => ["purify_soul"],
             'soul_red_#00' => ["purify_soul"],
             'soul_blue_#01' => ['purify_soul']
-        ]
+        ],
 
+        'items_nw' => [
+            'can_open_#00'       => 'nw_destroy',
+            'pilegun_#00'        => 'nw_empty_pilegun',
+            'taser_#00'          => 'nw_empty_taser',
+            'mixergun_#00'       => 'nw_empty_mixergun',
+            'chainsaw_#00'       => 'nw_empty_chainsaw',
+            'lawn_#00'           => 'nw_break',
+            'wrench_#00'         => 'nw_break',
+            'screw_#00'          => 'nw_break',
+            'staff_#00'          => 'nw_empty_staff',
+            'knife_#00'          => 'nw_break',
+            'cutcut_#00'         => 'nw_break',
+            'small_knife_#00'    => 'nw_break',
+            'swiss_knife_#00'    => 'nw_break',
+            'cutter_#00'         => 'nw_break',
+            'cart_#00'           => 'nw_destroy',
+            'can_opener_#00'     => 'nw_break',
+            'chair_#00'          => 'nw_destroy',
+            'bed_#00'            => 'nw_destroy',
+            'lamp_#00'           => 'nw_destroy',
+            'carpet_#00'         => 'nw_destroy',
+            'engine_#00'         => 'nw_destroy',
+            'pet_chick_#00'      => 'nw_meat',
+            'pet_pig_#00'        => 'nw_meat',
+            'pet_rat_#00'        => 'nw_meat',
+            'pet_cat_#00'        => 'nw_meat_tasty',
+            'pet_snake_#00'      => 'nw_meat_tasty',
+            'vibr_#00'           => 'nw_empty_dildo',
+            'meat_#00'           => 'nw_destroy',
+            'undef_#00'          => 'nw_destroy',
+            'sheet_#00'          => 'nw_destroy',
+            'grenade_#00'        => 'nw_destroy',
+            'hmeat_#00'          => 'nw_destroy',
+            'bgrenade_#00'       => 'nw_destroy',
+            'chest_#00'          => 'nw_destroy',
+            'chest_xl_#00'       => 'nw_destroy',
+            'chest_tools_#00'    => 'nw_destroy',
+            'lamp_on_#00'        => 'nw_destroy',
+            'music_#00'          => 'nw_destroy',
+            'radio_on_#00'       => 'nw_destroy',
+            'door_#00'           => 'nw_destroy',
+            'watergun_opt_3_#00' => 'nw_empty_watergun_opt',
+            'watergun_opt_2_#00' => 'nw_empty_watergun_opt',
+            'watergun_opt_1_#00' => 'nw_empty_watergun_opt',
+            'big_pgun_#00'       => 'nw_empty_big_pgun',
+            'flare_#00'          => 'nw_destroy',
+            'chair_basic_#00'    => 'nw_break',
+            'bone_meat_#00'      => 'nw_destroy',
+            'bone_#00'           => 'nw_break',
+            'deco_box_#00'       => 'nw_destroy',
+            'trestle_#00'        => 'nw_destroy',
+            'table_#00'          => 'nw_destroy',
+            'machine_1_#00'      => 'nw_break',
+            'machine_2_#00'      => 'nw_break',
+            'machine_3_#00'      => 'nw_break',
+            'chain_#00'          => 'nw_break',
+            'dish_#00'           => 'nw_destroy',
+            'dish_tasty_#00'     => 'nw_destroy',
+            'home_box_xl_#00'    => 'nw_destroy',
+            'home_box_#00'       => 'nw_destroy',
+            'watergun_3_#00'     => 'nw_empty_watergun',
+            'watergun_2_#00'     => 'nw_empty_watergun',
+            'watergun_1_#00'     => 'nw_empty_watergun',
+            'watergun_opt_5_#00' => 'nw_empty_watergun_opt',
+            'watergun_opt_4_#00' => 'nw_empty_watergun_opt',
+            'pilegun_up_#00'     => 'nw_empty_pilegun_up',
+            'car_door_#00'       => 'nw_destroy',
+            'torch_#00'          => 'nw_empty_torch',
+            'torch_off_#00'      => 'nw_break',
+            'pc_#00'             => 'nw_break',
+            'water_can_1_#00'    => 'nw_empty_watercan',
+            'water_can_2_#00'    => 'nw_empty_watercan',
+            'water_can_3_#00'    => 'nw_empty_watercan',
+            'iphone_#00'         => 'nw_empty_phone',
+            'boomfruit_#00'      => 'nw_break',
+            'rlaunc_#00'         => 'nw_destroy',
+            'kalach_#00'         => 'nw_empty_kalach',
+            'bureau_#00'         => 'nw_destroy',
+            'distri_#00'         => 'nw_destroy',
+            'renne_#00'          => 'nw_destroy',
+            'paques_#00'         => 'nw_destroy',
+            'badge_#00'          => 'nw_destroy',
+            'claymo_#00'         => 'nw_destroy',
+            'guitar_#00'         => 'nw_break',
+
+        ]
     ];
 
     private $entityManager;
@@ -2225,6 +2327,34 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $escort_proto );
         }
+
+        /** @var ItemPrototype[] $all_prototypes */
+        $all_prototypes = $this->entityManager->getRepository(ItemPrototype::class)->findAll();
+        foreach ($all_prototypes as $prototype) {
+            if ($prototype->getWatchpoint() === 0) continue;
+
+            if (!isset(static::$item_actions['items_nw'][$prototype->getName()]))
+                $out->writeln("<error>Item prototype '{$prototype->getName()}' ({$prototype->getLabel()}) has {$prototype->getWatchpoint()} watch points, but no night watch action!</error>");
+            else {
+                $prototype->setNightWatchAction( $this->generate_action( $manager, $out, static::$item_actions['items_nw'][$prototype->getName()], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+                $this->entityManager->persist($prototype);
+            }
+        }
+
+        foreach (static::$item_actions['items'] as $item_name => $actions) {
+
+            $item = $manager->getRepository(ItemPrototype::class)->findOneByName( $item_name );
+            if (!$item) throw new Exception('Item prototype not found: ' . $item_name);
+
+            $item->getActions()->clear();
+            $out->writeln( "Compiling action set for item <info>{$item->getLabel()}</info>...", OutputInterface::VERBOSITY_DEBUG );
+
+            foreach ($actions as $action)
+                $item->addAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+
+            $manager->persist( $item );
+        }
+
         $manager->flush();
     }
 

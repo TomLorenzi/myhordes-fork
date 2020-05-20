@@ -7,6 +7,8 @@ use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
 use App\Entity\Post;
+use App\Entity\PrivateMessage;
+use App\Entity\PrivateMessageThread;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\User;
@@ -42,7 +44,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @IsGranted("ROLE_USER")
  */
-class ForumController extends AbstractController
+class MessageController extends AbstractController
 {
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
@@ -261,7 +263,7 @@ class ForumController extends AbstractController
         else return false;
     }
 
-    private function preparePost(User $user, Forum $forum, Thread $thread, Post &$post, int &$tx_len): bool {
+    private function preparePost(User $user, ?Forum $forum, &$post, int &$tx_len): bool {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
@@ -298,7 +300,7 @@ class ForumController extends AbstractController
                 if ($profession === 'any') $profession = null;
                 $group      = is_numeric($d->attributes->getNamedItem('x-b')->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')->nodeValue : null;
 
-                if (!$forum->getTown()) {
+                if ($forum === null || !$forum->getTown()) {
                     $d->nodeValue = '???';
                     return;
                 }
@@ -346,7 +348,7 @@ class ForumController extends AbstractController
             $tmp_str .= $dom->saveHTML($child);
 
         $post->setText( $tmp_str );
-        if ($forum->getTown()) {
+        if ($forum !== null && $forum->getTown()) {
             foreach ( $forum->getTown()->getCitizens() as $citizen )
                 if ($citizen->getUser()->getId() === $user->getId()) {
                     if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
@@ -432,7 +434,7 @@ class ForumController extends AbstractController
             ->setType($type);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
+        if (!$this->preparePost($user,$forum,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
         $thread->addPost($post)->setLastPost( $post->getDate() );
@@ -507,7 +509,7 @@ class ForumController extends AbstractController
             ->setType($type);
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$thread,$post,$tx_len))
+        if (!$this->preparePost($user,$forum,$post,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
@@ -606,7 +608,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     * @Route("api/forum/{pid<\d+>}/jump", name="forum_viewer_jump_post_controller")
+     * @Route("api/forum/jump/{pid<\d+>}", name="forum_viewer_jump_post_controller")
      * @param int $pid
      * @param EntityManagerInterface $em
      * @return Response
@@ -669,6 +671,7 @@ class ForumController extends AbstractController
             'pid' => null,
             'emotes' => $this->get_emotes(true),
             'username' => $this->getUser()->getUsername(),
+            'pm' => false,
         ] );
     }
 
@@ -697,90 +700,31 @@ class ForumController extends AbstractController
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->get_emotes(true),
+            'pm' => false,
         ] );
     }
 
-     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/lock", name="forum_thread_lock_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function lock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->lockThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-    }
-
-     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unlock", name="forum_thread_unlock_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function unlock_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->unlockThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-
-    }
-
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/pin", name="forum_thread_pin_controller")
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/moderate/{mod}", name="forum_thread_mod_controller")
      * @param int $fid
      * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
+     * @param string $mod
+     * @param AdminActionHandler $admh
      * @return Response
      */
-    public function pin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->pinThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-    }
-
-     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unpin", name="forum_thread_unpin_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function unpin_thread_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch, AdminActionHandler $admh): Response {
-        $admh->unpinThread($this->getUser()->getId(), $fid, $tid);
-        return $this->default_forum_renderer($fid, $tid, $em, $parser, $ch);
-
-    }
-
-    /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/post/delete", name="forum_delete_post_controller")
-     * @param int $fid
-     * @param int $tid
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function delete_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh): Response {
-        if (!$parser->has('postId')){
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    public function lock_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        $success = false;
+        $uid = $this->getUser()->getId();
+        switch ($mod) {
+            case 'lock':   $success = $admh->lockThread($uid, $fid, $tid); break;
+            case 'unlock': $success = $admh->unlockThread($uid, $fid, $tid); break;
+            case 'pin':    $success = $admh->pinThread($uid, $fid, $tid); break;
+            case 'unpin':  $success = $admh->unpinThread($uid, $fid, $tid); break;
+            case 'delete': $success = $admh->hidePost($uid, (int)$parser->get('postId'), $parser->get( 'reason', '' ) ); break;
+            default: break;
         }
 
-        if ($parser->has('reason'))
-            $reason = $parser->get('reason');     
-        else 
-            $reason = "";
-        
-        /** @var User $user */
-        $user = $this->getUser();
-        $postId = $parser->get('postId');
-        
-        if ($admh->hidePost($user->getId(), $postId, $reason ))
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
-
-            
-        return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        return $success ? AjaxResponse::success() : AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
     }
 
     /**
@@ -789,9 +733,10 @@ class ForumController extends AbstractController
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, AdminActionHandler $admh, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
         if (!$parser->has('postId')){
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
@@ -805,15 +750,13 @@ class ForumController extends AbstractController
         if ($targetUser->getUsername() === "Der Rabe" ) {
             $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');
             $this->addFlash('notice', $message);
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            return AjaxResponse::success();
         }
 
         $reports = $post->getAdminReports();
-        foreach ($reports as $report) {
-            if ($report->getSourceUser() == $user) {
-                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
-            }
-        }
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
 
         $newReport = (new AdminReport())
             ->setSourceUser($user)
@@ -828,6 +771,223 @@ class ForumController extends AbstractController
             }
             $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
             $this->addFlash('notice', $message);
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+            return AjaxResponse::success( );
+    }
+
+    /**
+     * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @param Translator $t
+     * @return Response
+     */
+    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+        $global    = $parser->get('global', false);
+        $recipient = $parser->get('recipient', '');
+        $title     = $parser->get('title', '');
+        $content   = $parser->get('content', '');
+        $items     = $parser->get('items', '');
+        $tid       = $parser->get('tid', -1);
+
+        if(!$global && empty($recipient) && $tid == -1) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        if(($tid == -1 && empty($title)) || empty($content)) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $sender = $this->getUser()->getActiveCitizen();
+
+        if($global && !$sender->getProfession()->getHeroic()){
+            return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
+        }
+
+        if ($tid == -1) {
+            // New thread
+            if(!$global){
+                $recipient = $em->getRepository(Citizen::class)->find($recipient);
+                if($recipient->getTown() !== $sender->getTown()){
+                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+                }
+                $thread = new PrivateMessageThread();
+                $thread->setSender($sender)
+                    ->setTitle($title)
+                    ->setNew(true)
+                    ->steLocked(false)
+                    ->setLastMessage(new DateTime('now'))
+                    ->setRecipient($recipient);
+                ;
+
+                $post = new PrivateMessage();
+                $post->setDate(new DateTime('now'))
+                    ->setText($content)
+                    ->setPrivateMessageThread($thread)
+                    ->setOwner($sender);
+
+                $tx_len = 0;
+                    if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                    $thread->addMessage($post);
+
+                $em->persist($thread);
+                $em->persist($post);
+            } else {
+                foreach ($sender->getTown()->getCitizens() as $citizen) {
+                    if(!$citizen->getAlive()) continue;
+                    if($citizen == $sender) continue;
+                    $thread = new PrivateMessageThread();
+                    $thread->setSender($sender)
+                        ->setTitle($title)
+                        ->setNew(true)
+                        ->setLastMessage(new DateTime('now'))
+                        ->setRecipient($citizen);
+                    ;
+
+                    $post = new PrivateMessage();
+                    $post->setDate(new DateTime('now'))
+                        ->setText($content)
+                        ->setPrivateMessageThread($thread)
+                        ->setOwner($sender);
+
+                    $tx_len = 0;
+                    if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                    $thread->addMessage($post);
+
+                    $em->persist($thread);
+                    $em->persist($post);
+                }
+            }
+        } else {
+            // Answer
+            $thread = $em->getRepository(PrivateMessageThread::class)->find($tid);
+            if($thread === null){
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            }
+
+            $post = new PrivateMessage();
+            $post->setDate(new DateTime('now'))
+                ->setText($content)
+                ->setPrivateMessageThread($thread)
+                ->setOwner($sender);
+
+            $tx_len = 0;
+            if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $thread->setLastMessage($post->getDate());
+            $thread->setNew(true);
+            $thread->addMessage($post);
+
+            $em->persist($thread);
+            $em->persist($post);
+        }
+
+        $em->flush();
+
+        // Show confirmation
+        $this->addFlash( 'notice', $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game') );
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+    }
+
+    /**
+     * @Route("api/town/house/pm/{tid<\d+>}/view", name="home_view_thread_controller")
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pm_viewer_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+        /** @var Citizen $citizen */
+        $citizen = $this->getUser()->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
+        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+
+        $thread->setNew(false);
+
+        $em->persist($thread);
+        $em->flush();
+
+        $posts = $thread->getMessages();
+
+        foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+        return $this->render( 'ajax/game/town/posts.html.twig', [
+            'thread' => $thread,
+            'posts' => $posts,
+            'emotes' => $this->get_emotes(true),
+        ] );
+    }
+
+    /**
+     * @Route("api/town/house/pm/{tid<\d+>}/archive", name="home_archive_pm_controller")
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pm_archive_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+        /** @var Citizen $citizen */
+        $citizen = $this->getUser()->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
+        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+
+        $thread->setArchived(true);
+
+        $em->persist($thread);
+        $em->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/{tid<\d+>}/unarchive", name="home_unarchive_pm_controller")
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pm_unarchive_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+        /** @var Citizen $citizen */
+        $citizen = $this->getUser()->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
+        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+
+        $thread->setArchived(false);
+
+        $em->persist($thread);
+        $em->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_post_editor_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function home_editor_post_api(int $tid, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
+        if ($thread === null) return new Response('testcase');
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => $tid,
+            'pid' => null,
+            'emotes' => $this->get_emotes(true),
+            'pm' => true
+        ] );
     }
 }

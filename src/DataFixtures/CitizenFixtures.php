@@ -58,7 +58,6 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'wound4', 'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'wound5', 'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'ghul', 'label' => 'Ghul', 'description' => 'Endlich kannst du deine Schwiegermutter loswerden!'],
         ['name' => 'healed', 'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
 
         ['name' => 'tg_dice' ],
@@ -85,6 +84,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_immune' ],
         ['name' => 'tg_shaman_heal' ],
         ['name' => 'tg_ghoul_eat' ],
+        ['name' => 'tg_no_hangover' ],
+        ['name' => 'tg_ghoul_corpse' ],
     ];
 
     public static $causes_of_death = [
@@ -138,7 +139,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [ 'name' => 'lock', 'label' => 'Türschloss', 'desc' => 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.', 'levels' => [
             1 => [ 6, ['chain_#00' => 1] ]
         ] ],
-        [ 'name' => 'fence', 'label' => 'Zaun', 'desc' => 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.', 'levels' => [
+        [ 'name' => 'fence', 'label' => 'Zaun (Haus)', 'desc' => 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.', 'levels' => [
             1 => [ 3, ['chain_#00' => 1, 'metal_beam_#00' => 1] ]
         ] ],
         [ 'name' => 'chest', 'label' => 'Stauraum', 'desc' => 'Deine persönliche Truhe vergrößert sich. ', 'levels' => [

@@ -1412,7 +1412,7 @@
       </notes>
       <segment>
         <source>Todesursache</source>
-        <target>Cause du décès</target>
+        <target>Cause of death</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -1422,7 +1422,7 @@
       </notes>
       <segment>
         <source>Letzte Worte</source>
-        <target>Last words :</target>
+        <target>Last words</target>
       </segment>
     </unit>
     <unit id="tTFjSe8" name="Gemeinschaft">
@@ -1452,7 +1452,7 @@
       </notes>
       <segment>
         <source>Verbannung</source>
-        <target>un bannissement</target>
+        <target>Shunning</target>
       </segment>
     </unit>
     <unit id="utVVlIc" name="Todesstrafe">
@@ -1462,7 +1462,7 @@
       </notes>
       <segment>
         <source>Todesstrafe</source>
-        <target>la peine de mort</target>
+        <target>Death penalty</target>
       </segment>
     </unit>
     <unit id="VfVtXGi" name="Eine davon stammt von dir. Du hast %punishment% gefordert.">
@@ -1472,7 +1472,7 @@
       </notes>
       <segment>
         <source>Eine davon stammt von dir. Du hast %punishment% gefordert.</source>
-        <target>L'une d'entre elle est la vôtre. Vous avez demandé %punishment%.</target>
+        <target>One of them is yours. You asked for %punishment%.</target>
       </segment>
     </unit>
     <unit id="MAnMgpF" name="Anzeige erstatten">
@@ -1502,7 +1502,7 @@
       </notes>
       <segment>
         <source>Anzeige: Todesstrafe fordern</source>
-        <target>Plainte : Exiger la peine de mort</target>
+        <target>Complaint : Call for Death penalty</target>
       </segment>
     </unit>
     <unit id="WwHdsjz" name="Anzeige: Verbannung fordern">
@@ -1512,7 +1512,7 @@
       </notes>
       <segment>
         <source>Anzeige: Verbannung fordern</source>
-        <target>Plainte : Demander un bannissement</target>
+        <target>Complaint : Call for Shunning</target>
       </segment>
     </unit>
     <unit id="ZU0JC0f" name="%citizen%s Register">
@@ -1563,7 +1563,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target>Vous avez été banni et ne pouvez plus voter pour les projets.</target>
+        <target>You have been shunned from this town and cannot vote for its projects.</target>
       </segment>
     </unit>
     <unit id="_LKq1VW" name="Du hast bereits für folgendes Projekt abgestimmt:">
@@ -2036,7 +2036,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% zombies contrôlent cette zone !</target>
+        <target>%z% control the zone!</target>
       </segment>
     </unit>
     <unit id="5GwqUxA" name="d4294d0">
@@ -2076,7 +2076,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</source>
-        <target>Vous avez été surpris et maintenant vous êtes entouré de zombies ! Si vous ne faites rien, vous allez mourir ici ce soir...</target>
+        <target>You have been surrounded by zombies and are now trapped! If you don't do something, and if nobody comes to save you, you're definitely going to Die2Nite!</target>
       </segment>
     </unit>
     <unit id="EV7eyTa" name="Hilfe rufen!">
@@ -2086,7 +2086,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hilfe rufen!</source>
-        <target>Demander de l'aide !</target>
+        <target>Call for help!</target>
       </segment>
     </unit>
     <unit id="9IuEojL" name="Die Flucht wagen!">
@@ -2096,7 +2096,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Flucht wagen!</source>
-        <target>Prendre la fuite !</target>
+        <target>Try to escape!</target>
       </segment>
     </unit>
     <unit id="vTDaFPO" name="Gegen einen Zombie kämpfen!">
@@ -2106,7 +2106,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>Attaquer un zombie !</target>
+        <target>Fight a zombie</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
@@ -2226,7 +2226,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Müll durchwühlen</source>
-        <target>Fouiller les poubelles</target>
+        <target>Search the refuse</target>
       </segment>
     </unit>
     <unit id="s5pZm5S" name="Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!">
@@ -2256,7 +2256,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zonenchat</source>
-        <target>Zonenchat</target>
+        <target>Zone Chat</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -2276,7 +2276,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das Stadtregister steht nicht zur Verfügung.</source>
-        <target>Das Stadtregister steht nicht zur Verfügung.</target>
+        <target>The Great Town Register (where the actions of all the players are recorded) cannot be accessed when you are in the World Beyond...</target>
       </segment>
     </unit>
     <unit id="V3rm2Ma" name="Herzlichen Glückwunsch, du bist TOT!">
@@ -2296,7 +2296,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast %sp% Seelenpunkte gewonnen!</source>
-        <target>Vous avez gagné %sp% points d'âme !</target>
+        <target>You have earned %sp% soul points !</target>
       </segment>
     </unit>
     <unit id="wD7XaTz" name="Du hast folgende Auszeichnungen verliehen bekommen:">
@@ -2306,7 +2306,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Vous avez gagné les distinctions suivantes :</target>
+        <target>You have earned the following distinctions :</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -2346,7 +2346,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wiedergeboren werden</source>
-        <target>Valider la mort</target>
+        <target>Confirm death</target>
       </segment>
     </unit>
     <unit id=".1viyI2" name="Zeitung">
@@ -2392,7 +2392,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Baupunkte</source>
-        <target>Baupunkte</target>
+        <target>Construction points</target>
       </segment>
     </unit>
     <unit id="cycrpjD" name="fba1e38">
@@ -2538,7 +2538,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Getrunken</source>
-        <target>Getrunken</target>
+        <target>Refreshed</target>
       </segment>
     </unit>
     <unit id="_akkbne" name="Satt">
@@ -2548,7 +2548,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Satt</source>
-        <target>Satt</target>
+        <target>Fed</target>
       </segment>
     </unit>
     <unit id="LQhKsMz" name="Umsichtiger Camper">
@@ -2578,7 +2578,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Den Tod besiegen</source>
-        <target>Den Tod besiegen</target>
+        <target>Cheat Death</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -2598,7 +2598,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Angststarre</source>
-        <target>Angststarre</target>
+        <target>Terrified</target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2608,7 +2608,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Durst</source>
-        <target>Durst</target>
+        <target>Thirsty</target>
       </segment>
     </unit>
     <unit id="csu4Gzn" name="Dehydriert">
@@ -2638,7 +2638,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Drogenabhängig</source>
-        <target>Drogenabhängig</target>
+        <target>Hooked</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2678,7 +2678,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Kopf</source>
-        <target>Blessure - Head</target>
+        <target>Wounded - Head</target>
       </segment>
     </unit>
     <unit id="yI0ueHI" name="Verwundung - Hände">
@@ -2688,7 +2688,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Hände</source>
-        <target>Blessure - Hand</target>
+        <target>Wounded - Hand</target>
       </segment>
     </unit>
     <unit id="lfaLaVU" name="Verwundung - Arme">
@@ -2698,7 +2698,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Arme</source>
-        <target>Blessure - Arm</target>
+        <target>Wounded - Arm</target>
       </segment>
     </unit>
     <unit id="KRP.Csa" name="Verwundung - Bein">
@@ -2708,7 +2708,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Bein</source>
-        <target>Blessure - Leg</target>
+        <target>Wounded - Leg</target>
       </segment>
     </unit>
     <unit id="15_YwON" name="Verwundung - Auge">
@@ -2718,7 +2718,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Auge</source>
-        <target>Blessure - Eye</target>
+        <target>Wounded - Eye</target>
       </segment>
     </unit>
     <unit id="iU.tgTh" name="Verwundung - Fuß">
@@ -2728,7 +2728,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Verwundung - Fuß</source>
-        <target>Blessure - Foot</target>
+        <target>Wounded - Foot</target>
       </segment>
     </unit>
     <unit id="72h0.SN" name="Ghul">
@@ -2868,7 +2868,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Autobahnraststätte</source>
-        <target>Blocked Road</target>
+        <target>Motorway Services</target>
       </segment>
     </unit>
     <unit id="wuZIxTk" name="Autowracks">
@@ -2908,7 +2908,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Baustellencontainer</source>
-        <target>Baustellencontainer</target>
+        <target>Construction Site Shelter</target>
       </segment>
     </unit>
     <unit id="4P7trch" name="Dönerbude Utsel-Brutzel">
@@ -2918,7 +2918,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dönerbude Utsel-Brutzel</source>
-        <target>Dönerbude Utsel-Brutzel</target>
+        <target>Fraser D's Kebab-ish</target>
       </segment>
     </unit>
     <unit id="JNOFU3C" name="Dukes Villa">
@@ -2938,7 +2938,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dunkler Hain</source>
-        <target>Dunkler Hain</target>
+        <target>Dark Woods</target>
       </segment>
     </unit>
     <unit id="tRFSLoD" name="Eingestürzte Mine">
@@ -3378,7 +3378,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand hier abgelegt: %item%</source>
-        <target>%citizen% a déposé : %item%.</target>
+        <target>%citizen% has dropped the %item%.</target>
       </segment>
     </unit>
     <unit id="6zpuvqo" name="%citizen% hat diesen Gegenstand mitgenommen: %item%">
@@ -3388,7 +3388,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat diesen Gegenstand mitgenommen: %item%</source>
-        <target>%citizen% a ramassé %item% qui traînait là...</target>
+        <target>%citizen% has picked up the %item% which was lying around...</target>
       </segment>
     </unit>
     <unit id="Msm_smP" name="%citizen% hat mehr Wasser genommen, als erlaubt ist...">
@@ -3538,7 +3538,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat ein(e,n) %item% ausgegraben!</source>
-        <target>%citizen% a trouvé %item%.</target>
+        <target>%citizen% has found %item%.</target>
       </segment>
     </unit>
     <unit id="nHE1X2F" name="%citizen% hat hier durch Graben nichts gefunden...">
@@ -3548,7 +3548,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
-        <target>Après des recherches épuisantes, %citizen% n'a rien trouvé d'autre que la vacuité de ces moments perdus...</target>
+        <target>%citizen% found nothing during their last search...</target>
       </segment>
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
@@ -4180,7 +4180,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
-        <target>Les nuits sont glaciales dans le désert... Une brume de poussière épaisse enveloppe tout et vous entendez des grincements lugubres tout autour de vous. Parfois, vous apercevez une forme indistincte qui se déplace dans les ombres. Pourvu que ce soit votre imagination...</target>
+        <target>The nights are freezing cold in the desert... A thick dust cloud engulfs everything and you can hear mournful groaning all around you. Occasionally you make out an indistinct figure moving in the shadows. Let's hope that it's just your imagination...</target>
       </segment>
     </unit>
     <unit id="is0j5bp" name="Die Zone untersuchen">
@@ -5817,7 +5817,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>@citizens Bürger</source>
-        <target>@citizens Bürger</target>
+        <target>@citizens Citizens</target>
       </segment>
     </unit>
     <unit id="bULZzW5" name="97ff2c6">
@@ -6366,7 +6366,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Komplexe Expeditionen</source>
-        <target>Komplexe Expeditionen</target>
+        <target>Distant Discoveries</target>
       </segment>
     </unit>
     <unit id="U.4cHE6" name="Anzahl der entfernten Gebäude, die von dir erkundet wurden.">
@@ -6375,7 +6375,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</source>
-        <target>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</target>
+        <target>Number of buildings you have explored in far-flung zones.</target>
       </segment>
     </unit>
     <unit id="IzudVAk" name="Expertenexpeditionen">
@@ -6402,7 +6402,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Großzügigkeit</source>
-        <target>Großzügigkeit</target>
+        <target>Generosity</target>
       </segment>
     </unit>
     <unit id="LSlayka" name="Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.">
@@ -6411,7 +6411,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</source>
-        <target>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</target>
+        <target>The number of Hero days that you have given to another citizen in need.</target>
       </segment>
     </unit>
     <unit id="yMz03.8" name="Spiritueller Führer">
@@ -7401,7 +7401,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
-        <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
+        <target>You cannot dig while zombies control the zone.</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -7986,7 +7986,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
-        <target>...der Mörder .. ist.. IST.. AAARGHhh..</target>
+        <target>...the murderer .. was.. WAS.. AAARGHhh..</target>
       </segment>
     </unit>
     <unit id="IMXvDT6" name="6f93cd3">
@@ -8220,7 +8220,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zusammenbauen</source>
-        <target>Zusammenbauen</target>
+        <target>Assemble</target>
       </segment>
     </unit>
     <unit id="EV3WmmI" name="712ee4f">
@@ -9321,7 +9321,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nutze deine heilenden Hände</source>
-        <target>Nutze deine heilenden Hände</target>
+        <target>Use your healing hands</target>
       </segment>
     </unit>
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
@@ -9330,7 +9330,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diesen Bürger angreifen!</source>
-        <target>Diesen Bürger angreifen!</target>
+        <target>Attack this citizen!</target>
       </segment>
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
@@ -9339,7 +9339,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Diesen Bürger verspeisen!</target>
+        <target>Eat this citizen!</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -9393,7 +9393,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Niemand!</source>
-        <target>Niemand!</target>
+        <target>Nobody!</target>
       </segment>
     </unit>
     <unit id="ooesDbN" name="Sonstige Opfer">
@@ -9420,7 +9420,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Keine Opfer</source>
-        <target>Keine Opfer</target>
+        <target>No Victims</target>
       </segment>
     </unit>
     <unit id="Tj4dAlQ" name="Umdrehen">
@@ -9438,7 +9438,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der %rolename% der Stadt ist %username%</source>
-        <target>Der %rolename% der Stadt ist %username%</target>
+        <target>The %rolename% of the town is %username%</target>
       </segment>
     </unit>
     <unit id="kg5BPH1" name="Status">
@@ -9450,5 +9450,546 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Status</target>
       </segment>
     </unit>
+	     <unit id="m9ipH9g" name="[nights]">
+	      <notes>
+	        <note category="german">[nights]</note>
+	      </notes>
+	      <segment>
+	        <source>[nights]</source>
+	        <target>[ nothing ]</target>
+	      </segment>
+	    </unit>
+    <unit id="r_z_E60" name="Notruf">
+      <notes>
+        <note category="german">Notruf</note>
+      </notes>
+      <segment>
+        <source>Notruf</source>
+        <target>Call for help</target>
+      </segment>
+    </unit>
+    <unit id="BUwKVvO" name="Rohstoff am Boden (Holz, Metall...)">
+      <notes>
+        <note category="german">Rohstoff am Boden (Holz, Metall...)</note>
+      </notes>
+      <segment>
+        <source>Rohstoff am Boden (Holz, Metall...)</source>
+        <target>Ressource(s) (wood, metal...)</target>
+      </segment>
+    </unit>
+    <unit id="xsEeh5A" name="Verschiedene Gegenstände am Boden">
+      <notes>
+        <note category="german">Verschiedene Gegenstände am Boden</note>
+      </notes>
+      <segment>
+        <source>Verschiedene Gegenstände am Boden</source>
+        <target>Items</target>
+      </segment>
+    </unit>
+    <unit id="KVObx2I" name="Wichtige(r) Gegenstand/-ände!">
+      <notes>
+        <note category="german">Wichtige(r) Gegenstand/-ände!</note>
+      </notes>
+      <segment>
+        <source>Wichtige(r) Gegenstand/-ände!</source>
+        <target>Important object(s)!</target>
+      </segment>
+    </unit>
+    <unit id="Zu.dPP1" name="Zone leer">
+      <notes>
+        <note category="german">Zone leer</note>
+      </notes>
+      <segment>
+        <source>Zone leer</source>
+        <target>Depleted zone</target>
+      </segment>
+    </unit>
+    <unit id="0KEaBmR" name="Zone tempörar gesichert">
+      <notes>
+        <note category="german">Zone tempörar gesichert</note>
+      </notes>
+      <segment>
+        <source>Zone tempörar gesichert</source>
+        <target>Temporarily secured zone</target>
+      </segment>
+    </unit>
+    <unit id="phjYDRS" name="Zone muss freigeräumt werden">
+      <notes>
+        <note category="german">Zone muss freigeräumt werden</note>
+      </notes>
+      <segment>
+        <source>Zone muss freigeräumt werden</source>
+        <target>Uncleared zone</target>
+      </segment>
+    </unit>
+    <unit id="zUCrZ7p" name="Zwichen 5 und 8 Zombies">
+      <notes>
+        <note category="german">Zwichen 5 und 8 Zombies</note>
+      </notes>
+      <segment>
+        <source>Zwichen 5 und 8 Zombies</source>
+        <target>Between 5 and 8 Zombies</target>
+      </segment>
+    </unit>
+    <unit id="63m90pZ" name="9 oder mehr Zombies!">
+      <notes>
+        <note category="german">9 oder mehr Zombies!</note>
+      </notes>
+      <segment>
+        <source>9 oder mehr Zombies!</source>
+        <target>9 Zombies or more!</target>
+      </segment>
+    </unit>
+    <unit id="RIRNP.t" name="Camping geplant">
+      <notes>
+        <note category="german">Camping geplant</note>
+      </notes>
+      <segment>
+        <source>Camping geplant</source>
+        <target>Likely campsite</target>
+      </segment>
+    </unit>
+    <unit id="t2sF_L3" name="Zu untersuchende Ruine">
+      <notes>
+        <note category="german">Zu untersuchende Ruine</note>
+      </notes>
+      <segment>
+        <source>Zu untersuchende Ruine</source>
+        <target>A ruin to explore</target>
+      </segment>
+    </unit>
+    <unit id="k0fexBD" name="Verlorene Seele">
+      <notes>
+        <note category="german">Verlorene Seele</note>
+      </notes>
+      <segment>
+        <source>Verlorene Seele</source>
+        <target>Lost soul</target>
+      </segment>
+    </unit>
+    <unit id="7aJRY_e" name="Zeuge von Harmagedon">
+      <notes>
+        <note category="german">Zeuge von Harmagedon</note>
+      </notes>
+      <segment>
+        <source>Zeuge von Harmagedon</source>
+        <target>Witness of Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="VdVwoAS" name="76effd8">
+      <notes>
+        <note category="german">Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</note>
+      </notes>
+      <segment>
+        <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
+        <target>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</target>
+      </segment>
+    </unit>
+    <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
+      <notes>
+        <note category="german">Zeuge der großen Verseuchung</note>
+      </notes>
+      <segment>
+        <source>Zeuge der großen Verseuchung</source>
+        <target>Witness to the Great Contamination</target>
+      </segment>
+    </unit>
+    <unit id="rcOyjHS" name="9573217">
+      <notes>
+        <note category="german">Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</note>
+      </notes>
+      <segment>
+        <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
+        <target>Extremely rare brand reserved for souls who have experienced the Great Contamination of Die2Nite!</target>
+      </segment>
+    </unit>
+    <unit id="d4bvAjk" name="9011ac1">
+      <notes>
+        <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</note>
+      </notes>
+      <segment>
+        <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
+        <target><![CDATA[<i class="dagger">†</i> %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...]]></target>
+      </segment>
+    </unit>
+    <unit id="9Sqg4cw" name="953d15e">
+      <notes>
+        <note category="german">Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</note>
+      </notes>
+      <segment>
+        <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
+        <target><![CDATA[Alle scheinen sich still und leise über den Tod von <i class="dagger">†</i> %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".]]></target>
+      </segment>
+    </unit>
+    <unit id="IshvSDg" name="3920ab5">
+      <notes>
+        <note category="german">Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</note>
+      </notes>
+      <segment>
+        <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
+        <target><![CDATA[Jeder hörte <i class="dagger">†</i> %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?]]></target>
+      </segment>
+    </unit>
+    <unit id="Ad1Ruao" name="7f96ed2">
+      <notes>
+        <note category="german">Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</note>
+      </notes>
+      <segment>
+        <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
+        <target><![CDATA[Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit <i class="dagger">†</i> %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.]]></target>
+      </segment>
+    </unit>
+    <unit id="DhrsCwD" name="26dc6d1">
+      <notes>
+        <note category="german">Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</note>
+      </notes>
+      <segment>
+        <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
+        <target><![CDATA[Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für <i class="dagger">†</i> %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!]]></target>
+      </segment>
+    </unit>
+    <unit id="VXaNsva" name="dc8e234">
+      <notes>
+        <note category="german">Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</note>
+      </notes>
+      <segment>
+        <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
+        <target><![CDATA[Einige sagen, daß der Tod von <i class="dagger">†</i> %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?]]></target>
+      </segment>
+    </unit>
+    <unit id="kwKjT1z" name="d9930bb">
+      <notes>
+        <note category="german">Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% – das haben sie nun davon.</note>
+      </notes>
+      <segment>
+        <source>Ausgangssperre gilt für alle. Auch für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% – das haben sie nun davon.</source>
+        <target><![CDATA[Ausgangssperre gilt für alle. Auch für <i class="dagger">†</i> %cadaver1% und <i class="dagger">†</i> %cadaver2% – das haben sie nun davon.]]></target>
+      </segment>
+    </unit>
+    <unit id="UKe5tzs" name="b4586ac">
+      <notes>
+        <note category="german">So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
+      </notes>
+      <segment>
+        <source>So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% und &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
+        <target><![CDATA[So richtig scheint keiner über den Tod von <i class="dagger">†</i> %cadaver1% und <i class="dagger">†</i> %cadaver2% zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.]]></target>
+      </segment>
+    </unit>
+    <unit id="n5cNvq4" name="%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.">
+      <notes>
+        <note category="german">%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</source>
+        <target>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</target>
+      </segment>
+    </unit>
+    <unit id="RrBPp.5" name="743000a">
+      <notes>
+        <note category="german">"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</note>
+      </notes>
+      <segment>
+        <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
+        <target><![CDATA["Auf wiedersehen, du schnöde Welt...", dachte sich wohl <i class="dagger">†</i> %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.]]></target>
+      </segment>
+    </unit>
+    <unit id="5DETBHl" name="4bd29fa">
+      <notes>
+        <note category="german">Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.</note>
+      </notes>
+      <segment>
+        <source>Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.</source>
+        <target><![CDATA[Ohne großes Bedauern starb <i class="dagger">†</i> %cadaver1% heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte %citizen1%.]]></target>
+      </segment>
+    </unit>
+    <unit id="dQZOzs8" name="47bef63">
+      <notes>
+        <note category="german">Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</note>
+      </notes>
+      <segment>
+        <source>Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</source>
+        <target><![CDATA[Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. <i class="dagger">†</i> %cadaver1% ist das beste Beispiel, was ansonten passiert.]]></target>
+      </segment>
+    </unit>
+    <unit id="AGvRvLT" name="324662a">
+      <notes>
+        <note category="german">Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.</note>
+      </notes>
+      <segment>
+        <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.</source>
+        <target><![CDATA[Eindeutig! <i class="dagger">†</i> %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.]]></target>
+      </segment>
+    </unit>
+    <unit id="hlbd5tY" name="d1f9ede">
+      <notes>
+        <note category="german">Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gesehen.</note>
+      </notes>
+      <segment>
+        <source>Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gesehen.</source>
+        <target><![CDATA[Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> %cadaver1% gesehen.]]></target>
+      </segment>
+    </unit>
+    <unit id="DZRfvZb" name="Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...">
+      <notes>
+        <note category="german">Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</note>
+      </notes>
+      <segment>
+        <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
+        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
+      </segment>
+    </unit>
+    <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
+      <notes>
+        <note category="german">Deine Nachricht wurde korrekt übermittelt!</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde korrekt übermittelt!</source>
+        <target>Deine Nachricht wurde korrekt übermittelt!</target>
+      </segment>
+    </unit>
+    <unit id="g3N1gTc" name="Du kannst nicht mehr als eine Seele tragen.">
+      <notes>
+        <note category="german">Du kannst nicht mehr als eine Seele tragen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht mehr als eine Seele tragen.</source>
+        <target>You cannot carry more than one soul.</target>
+      </segment>
+    </unit>
+    <unit id="BjwWH4y" name="Erhaltene Nachrichten">
+      <notes>
+        <note category="german">Erhaltene Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Erhaltene Nachrichten</source>
+        <target>Messages received</target>
+      </segment>
+    </unit>
+    <unit id="JyB0OZM" name="Archiv">
+      <notes>
+        <note category="german">Archiv</note>
+      </notes>
+      <segment>
+        <source>Archiv</source>
+        <target>Archive</target>
+      </segment>
+    </unit>
+    <unit id="Yy0zB8." name="Eine Nachricht schreiben">
+      <notes>
+        <note category="german">Eine Nachricht schreiben</note>
+      </notes>
+      <segment>
+        <source>Eine Nachricht schreiben</source>
+        <target>Write a message</target>
+      </segment>
+    </unit>
+    <unit id="kKXLpSQ" name="Schreiben Sie an alle">
+      <notes>
+        <note category="german">Schreiben Sie an alle</note>
+      </notes>
+      <segment>
+        <source>Schreiben Sie an alle</source>
+        <target>Write to everyone</target>
+      </segment>
+    </unit>
+    <unit id="aUj3MMh" name="7d87462">
+      <notes>
+        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</source>
+        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
+      <notes>
+        <note category="german">Keine Nachricht gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Keine Nachricht gespeichert.</source>
+        <target>No message saved.</target>
+      </segment>
+    </unit>
+    <unit id="wo3L_zx" name="Neue Nachright">
+      <notes>
+        <note category="german">Neue Nachright</note>
+      </notes>
+      <segment>
+        <source>Neue Nachright</source>
+        <target>New message</target>
+      </segment>
+    </unit>
+    <unit id="47O8Zzm" name="Empfänger:">
+      <notes>
+        <note category="german">Empfänger:</note>
+      </notes>
+      <segment>
+        <source>Empfänger:</source>
+        <target>Recipient:</target>
+      </segment>
+    </unit>
+    <unit id="Z14T1QO" name="Bürgerverzeichnis anszeigen">
+      <notes>
+        <note category="german">Bürgerverzeichnis anszeigen</note>
+      </notes>
+      <segment>
+        <source>Bürgerverzeichnis anszeigen</source>
+        <target>Show citizen directory</target>
+      </segment>
+    </unit>
+    <unit id="yTzI33f" name="Dieser Nachricht Gegenstände beifügen">
+      <notes>
+        <note category="german">Dieser Nachricht Gegenstände beifügen</note>
+      </notes>
+      <segment>
+        <source>Dieser Nachricht Gegenstände beifügen</source>
+        <target>Include items in this message</target>
+      </segment>
+    </unit>
+    <unit id="xcRoAOS" name="Betreff:">
+      <notes>
+        <note category="german">Betreff:</note>
+      </notes>
+      <segment>
+        <source>Betreff:</source>
+        <target>Subject:</target>
+      </segment>
+    </unit>
+    <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
+      <notes>
+        <note category="german">Ich BESTÄTIGE meine Nachricht</note>
+      </notes>
+      <segment>
+        <source>Ich BESTÄTIGE meine Nachricht</source>
+        <target>I CONFIRM my message</target>
+      </segment>
+    </unit>
+    <unit id="iZeG0XJ" name="Neue globale Nachricht">
+      <notes>
+        <note category="german">Neue globale Nachricht</note>
+      </notes>
+      <segment>
+        <source>Neue globale Nachricht</source>
+        <target>New global message</target>
+      </segment>
+    </unit>
+    <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
+      <notes>
+        <note category="german">Beschädigte Verteidigung: %defense% / %max%</note>
+      </notes>
+      <segment>
+        <source>Beschädigte Verteidigung: %defense% / %max%</source>
+        <target>Damaged Defense: %defense% / %max%</target>
+      </segment>
+    </unit>
+    <unit id="1EzQJxv" name="Zustand:">
+      <notes>
+        <note category="german">Zustand:</note>
+      </notes>
+      <segment>
+        <source>Zustand:</source>
+        <target>Status:</target>
+      </segment>
+    </unit>
+    <unit id="Ev2Gt9Y" name="4f4737e">
+      <notes>
+        <note category="german">Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</note>
+      </notes>
+      <segment>
+        <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
+        <target>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</target>
+      </segment>
+    </unit>
+    <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
+      <notes>
+        <note category="german">Die Reparatur verbraucht keine Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>Die Reparatur verbraucht keine Ressourcen.</source>
+        <target>The repair does not consume any resources.</target>
+      </segment>
+    </unit>
+    <unit id=".JWT0sC" name="Zonenmarkierer">
+      <notes>
+        <note category="german">Zonenmarkierer</note>
+      </notes>
+      <segment>
+        <source>Zonenmarkierer</source>
+        <target>Zone marker</target>
+      </segment>
+    </unit>
+    <unit id="dY6rVb6" name="Tor ist offen!">
+      <notes>
+        <note category="german">Tor ist offen!</note>
+      </notes>
+      <segment>
+        <source>Tor ist offen!</source>
+        <target>Gate is open!</target>
+      </segment>
+    </unit>
+    <unit id="1cEye.o" name="Zombies sind eingedrungen.">
+      <notes>
+        <note category="german">Zombies sind eingedrungen.</note>
+      </notes>
+      <segment>
+        <source>Zombies sind eingedrungen.</source>
+        <target>Zombies have invaded.</target>
+      </segment>
+    </unit>
+    <unit id="ojehKlj" name="vor Angst erstarrt">
+      <notes>
+        <note category="german">vor Angst erstarrt</note>
+      </notes>
+      <segment>
+        <source>vor Angst erstarrt</source>
+        <target>vor Angst erstarrt</target>
+      </segment>
+    </unit>
+    <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
+      <notes>
+        <note category="german">Du wirst heute Nacht sterben!</note>
+      </notes>
+      <segment>
+        <source>Du wirst heute Nacht sterben!</source>
+        <target>You will die tonight!</target>
+      </segment>
+    </unit>
+    <unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
+        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</target>
+      </segment>
+    </unit>
+    <unit id="nlQ1fJZ" name="919f19a">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
+        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</target>
+      </segment>
+    </unit>
+    <unit id="SKbA9D2" name="2a20efa">
+      <notes>
+        <note category="german">Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</note>
+      </notes>
+      <segment>
+        <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
+        <target>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</target>
+      </segment>
+    </unit>
+    <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
+      <notes>
+        <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
+      </notes>
+      <segment>
+        <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
+        <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
+      </segment>
+    </unit>
+
   </file>
 </xliff>

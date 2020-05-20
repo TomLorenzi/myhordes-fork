@@ -76,6 +76,11 @@ class ItemPrototype
      */
     private $watchpoint = 0;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ItemAction::class)
+     */
+    private $nightWatchAction;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -237,6 +242,18 @@ class ItemPrototype
     public function setWatchpoint(int $watchpoint): self
     {
         $this->watchpoint = $watchpoint;
+
+        return $this;
+    }
+
+    public function getNightWatchAction(): ?ItemAction
+    {
+        return $this->nightWatchAction;
+    }
+
+    public function setNightWatchAction(?ItemAction $nightWatchAction): self
+    {
+        $this->nightWatchAction = $nightWatchAction;
 
         return $this;
     }

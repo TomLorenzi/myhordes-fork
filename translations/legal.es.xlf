@@ -5,7 +5,7 @@
       <notes>
         <note category="german">Datenschutzerklärung</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Datenschutzerklärung</source>
         <target>Política de privacidad</target>
       </segment>

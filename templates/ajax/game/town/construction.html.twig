@@ -29,7 +29,7 @@
     {% endif %}
 
 
-    {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus) %}
+    {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp) %}
         {# @var building \App\Entity\Building #}
         <div class="row {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
             <div class="padded cell rw-5 rw-lg-12">
@@ -48,8 +48,19 @@
                         </div>
                     </span>
                 {% endif %}
-                {% if building.defense > 0 %}
-                    <div class="float-right defense{% if building.defense != building.prototype.defense %}-broken{% endif %}">{{ building.defense }}</div>
+                {% if (building.complete and building.defense > 0) or (not building.complete and building.prototype.defense > 0) %}
+                    <div class="float-right defense{% if building.complete and building.defense != building.prototype.defense %}-broken{% endif %}">
+                    	{% if (building.complete and building.defense > 0) %}
+                        	{{ building.defense }}
+                        {% elseif not building.complete%}
+                        	{{ building.prototype.defense }}
+                        {% endif %}
+                        {% if building.complete and building.defense != building.prototype.defense %}
+                            <div class="tooltip">
+                                {{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endif %}
                 {% if building.prototype.description %}
                 <div class="tooltip">
@@ -66,8 +77,11 @@
                     </div>
                 {% elseif building.complete and building.hp < building.prototype.hp %}
                     <div class="ap-bar">
-                        <div class="bar" style="width: {{ 100*(building.hp/((building.prototype.hp * workshopBonus)|round)) }}%"></div>
-                        <div class="tooltip">{{building.hp}}/{{building.prototype.hp}}</div>
+                        <div class="bar" style="width: {{ 100*(building.hp/((building.prototype.hp)|round)) }}%"></div>
+                        <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{building.hp}}/{{building.prototype.hp}}<br />
+                            {{"Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk."|trans({"%divap%": "<div class='ap'></div>", "%hprepair%": "<b>" ~ hpToAp ~ "</b>"}, "game")|raw}}<br /><br />
+                            {{"Die Reparatur verbraucht keine Ressourcen."|trans({}, 'game')}}
+                        </div>
                     </div>
                 {% endif %}
 
@@ -77,7 +91,7 @@
                     </div>
                 {% elseif (building.complete and building.hp < building.prototype.hp) %}
                     <div class="build-req">
-                        <div class="ap">{{ ((building.prototype.hp - building.hp)/2)|round }}</div>
+                        <div class="ap">{{ ((building.prototype.hp - building.hp)/hpToAp)|round }}</div>
                     </div>
                 {% endif %}
                 {% if not building.complete and building.prototype.resources is not null and buildable %}
@@ -97,20 +111,20 @@
             </div>
             <div class="padded cell rw-1 rw-lg-2 rw-sm-12 right">
                 {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) or (building.complete and building.hp < building.prototype.hp) %}
-                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}><i class="fa {% if building.complete %}fa-wrench{% else %}fa-plus{% endif %}"></i></button>
+                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>{% if not building.complete %}<i class="fa fa-plus"></i>{% else %}<img src="{{ asset('build/images/small_refine.gif') }}" />{% endif %}</button>
                 {% endif %}
             </div>
         </div>
         {% if n < 20 and dict[building.prototype.id] is not empty %}
             {% for sub_building in dict[building.prototype.id] %}
-                {{ _self.building_entry(sub_building, buildable and building.complete, n+1, dict, items, disable_all, workshopBonus) }}
+                {{ _self.building_entry(sub_building, buildable and building.complete, n+1, dict, items, disable_all, workshopBonus, hpToAp) }}
             {% endfor %}
         {% endif %}
     {% endmacro %}
 
     {# @var root_cats \App\Entity\Building[] #}
     {% for building in root_cats %}
-        <div class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus) }}</div>
+        <div class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp) }}</div>
     {% endfor %}
 
     <div class="row">
