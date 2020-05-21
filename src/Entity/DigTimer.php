@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DigTimerRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="assoc_unique",columns={"citizen_id","zone_id"})
+ *     @UniqueConstraint(name="dig_timer_assoc_unique",columns={"citizen_id","zone_id"})
  * })
  */
 class DigTimer

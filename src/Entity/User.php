@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
  *     @UniqueConstraint(name="email_unique",columns={"email"}),
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="user_name_unique",columns={"name"})
  * })
  */
 class User implements UserInterface, EquatableInterface

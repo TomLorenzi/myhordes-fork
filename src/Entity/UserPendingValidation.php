@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserPendingValidationRepository")
  * @UniqueEntity("pkey")
- * @Table(uniqueConstraints={@UniqueConstraint(name="pkey_unique",columns={"pkey"}),@UniqueConstraint(name="assoc_unique",columns={"user_id","type"})})
+ * @Table(uniqueConstraints={@UniqueConstraint(name="pkey_unique",columns={"pkey"}),@UniqueConstraint(name="user_pending_validation_assoc_unique",columns={"user_id","type"})})
  */
 class UserPendingValidation
 {

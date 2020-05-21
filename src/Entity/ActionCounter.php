@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActionCounterRepository")
- * @Table(uniqueConstraints={@UniqueConstraint(name="assoc_unique",columns={"citizen_id","type"})})
+ * @Table(uniqueConstraints={@UniqueConstraint(name="action_counter_assoc_unique",columns={"citizen_id","type"})})
  */
 class ActionCounter
 {
