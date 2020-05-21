@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="Controller" pattern="file[MyHordes]:src/Controller//*" />
-</component>
