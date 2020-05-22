@@ -117,12 +117,18 @@ class User implements UserInterface, EquatableInterface
      */
     private $rightsElevation = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $pastLifes;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
         $this->foundTexts = new ArrayCollection();
         $this->pictos = new ArrayCollection();
         $this->bannings = new ArrayCollection();
+        $this->pastLifes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -469,6 +475,37 @@ class User implements UserInterface, EquatableInterface
     public function setRightsElevation(int $rightsElevation): self
     {
         $this->rightsElevation = $rightsElevation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CitizenRankingProxy[]
+     */
+    public function getPastLifes(): Collection
+    {
+        return $this->pastLifes;
+    }
+
+    public function addPastLife(CitizenRankingProxy $pastLife): self
+    {
+        if (!$this->pastLifes->contains($pastLife)) {
+            $this->pastLifes[] = $pastLife;
+            $pastLife->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePastLife(CitizenRankingProxy $pastLife): self
+    {
+        if ($this->pastLifes->contains($pastLife)) {
+            $this->pastLifes->removeElement($pastLife);
+            // set the owning side to null (unless already changed)
+            if ($pastLife->getUser() === $this) {
+                $pastLife->setUser(null);
+            }
+        }
 
         return $this;
     }

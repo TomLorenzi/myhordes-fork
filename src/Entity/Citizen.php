@@ -5,10 +5,13 @@ namespace App\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\ORMException;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CitizenRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Citizen
 {
@@ -224,6 +227,11 @@ class Citizen
      * @ORM\OneToMany(targetEntity=PrivateMessageThread::class, mappedBy="recipient", orphanRemoval=true)
      */
     private $privateMessageThreads;
+
+    /**
+     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, inversedBy="citizen", cascade={"persist"})
+     */
+    private $rankingEntry;
 
     public function __construct()
     {
@@ -976,5 +984,27 @@ class Citizen
         }
 
         return $this;
+    }
+
+    public function getRankingEntry(): ?CitizenRankingProxy
+    {
+        return $this->rankingEntry;
+    }
+
+    public function setRankingEntry(?CitizenRankingProxy $rankingEntry): self
+    {
+        $this->rankingEntry = $rankingEntry;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args) {
+        $args->getEntityManager()->persist( CitizenRankingProxy::fromCitizen($this) );
+        $args->getEntityManager()->flush();
     }
 }

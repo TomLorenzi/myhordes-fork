@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
+use Doctrine\ORM\ORMException;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TownRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Town
 {
@@ -127,6 +131,11 @@ class Town
      * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="town", orphanRemoval=true)
      */
     private $citizenWatches;
+
+    /**
+     * @ORM\OneToOne(targetEntity=TownRankingProxy::class, inversedBy="town", cascade={"persist"})
+     */
+    private $rankingEntry;
 
     public function __construct()
     {
@@ -530,6 +539,28 @@ class Town
         }
 
         return $this;
+    }
+
+    public function getRankingEntry(): ?TownRankingProxy
+    {
+        return $this->rankingEntry;
+    }
+
+    public function setRankingEntry(?TownRankingProxy $rankingEntry): self
+    {
+        $this->rankingEntry = $rankingEntry;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_createTownRankingProxy(LifecycleEventArgs $args) {
+        $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
+        $args->getEntityManager()->flush();
     }
 
 }

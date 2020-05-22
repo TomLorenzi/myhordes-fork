@@ -27,7 +27,7 @@
                             {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
                         </div>
                         {% else %}
-                        <div class"list">
+                        <div class="list">
                             {% for picto in pictos %}
                                 <div class="picto{% if picto.rare %} rare{% endif %}">
                                     <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
@@ -50,14 +50,12 @@
                 <div class="cell padded rw-7 rw-sm-12">
 
                     <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': user.soulPoints}, 'global') }}</strong></div>
-
-                    {% for incarnations in user.citizens %}
-                        {% if incarnations.alive %}
+                    {# @var user \App\Entity\User #}
+                    {% for incarnation in user.pastLifes %}
+                        {% if incarnation.end is null %}
                             <div class="current">
-                                <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ incarnations.town.name }}</strong> ({{ 'Tag %day%'|trans({'%day%':incarnations.town.day}, 'game') }})
+                                <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ incarnation.town.name }}</strong> ({{ 'Tag %day%'|trans({'%day%':incarnation.town.days}, 'game') }})
                             </div>
-                        {% set days = incarnations.survivedDays %}
-                        {% set nbSoulPoints = days * ( days + 1 ) / 2 %}
                         {% endif %}
                     {% endfor %}
 
@@ -77,37 +75,33 @@
                             </div>
                         </div>
                         <div class="town-container">
-                            {% for incarnation in app.user.citizens|filter(incarnation => not incarnation.alive)|sort((a,b) => a.survivedDays < b.survivedDays) %}
+                            {% for incarnation in user.pastLifes|filter(incarnation => incarnation.end is not null)|sort((a,b) => a.day < b.day) %}
                                 <div class="row{% if incarnation.town.type.name == 'panda' %} hardcore{% endif %}">
-                                {% if not incarnation.alive %}
-                                    {% set days = incarnation.survivedDays %}
-                                    {% set nbSoulPoints = days * ( days + 1 ) / 2 %}
-                                        <div class="cell padded rw-2 center">
-                                            {% if incarnation.town.season == null %}
-                                            --
-                                            {% else %}
-                                                {{ incarnation.town.season.number }}
-                                            {% endif %}
-                                        </div>
-                                        <div class="cell padded rw-6 center town-name">
-                                            <div x-ajax-href="{{ path('soul_view_town_foreign', {id: user.id, idtown: incarnation.town.id}) }}">{% if incarnation.town.type.name == 'panda' %}<img src="{{ asset('build/images/soul/r_cannib.gif') }}" alt="" /> {% endif %}{{ incarnation.town.name }}</div>
-                                        </div>
-                                        <div class="cell padded rw-2 center town-days bold">
-                                            {{ incarnation.survivedDays }}
-                                            {% if incarnation.town.hasAliveCitizen %}
-                                                <span>
-                                                    <img src="{{asset('build/images/small_new.gif')}}" />
-                                                    <div class="tooltip">
-                                                        {{ 'Es sind in dieser Stadt noch ein paar Bürger übrig...'|trans({}, 'soul') }}
-                                                    </div>
-                                                </span>
-                                            {% endif %}
-                                        </div>
-                                        <div class="cell padded rw-2 center town-points bold">
-                                            +{{nbSoulPoints}}
-                                        </div>
+                                    <div class="cell padded rw-2 center">
+                                        {% if incarnation.town.season is null %}
+                                        --
+                                        {% else %}
+                                            {{ incarnation.town.season.number }}
+                                        {% endif %}
+                                    </div>
+                                    <div class="cell padded rw-6 center town-name">
+                                        <div x-ajax-href="{{ path('soul_view_town_foreign', {id: user.id, idtown: incarnation.town.id}) }}">{% if incarnation.town.type.name == 'panda' %}<img src="{{ asset('build/images/soul/r_cannib.gif') }}" alt="" /> {% endif %}{{ incarnation.town.name }}</div>
+                                    </div>
+                                    <div class="cell padded rw-2 center town-days bold">
+                                        {{ incarnation.day }}
+                                        {% if incarnation.town.town is not null and incarnation.town.town.hasAliveCitizen %}
+                                            <span>
+                                                <img alt="" src="{{asset('build/images/small_new.gif')}}" />
+                                                <div class="tooltip">
+                                                    {{ 'Es sind in dieser Stadt noch ein paar Bürger übrig...'|trans({}, 'soul') }}
+                                                </div>
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="cell padded rw-2 center town-points bold">
+                                        +{{ incarnation.points }}
+                                    </div>
                                 </div>
-                                {% endif %}
                             {% else %}
                                 <div class="row">
                                     <div class="empty">
@@ -124,26 +118,4 @@
 {% endblock %}
 {% block js %}
     {{parent()}}
-    <script>
-        const send_build_request = function(id) {
-            let comment = null;
-            let valid = false;
-            comment = window.prompt("{{ 'Was sagst du dazu?'|trans({},'game')|e('js') }}", "");
-            if (comment === null) valid = false;
-            else {
-                valid = !(comment === "")
-            }
-
-            if (!valid) return;
-
-            $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment: comment},
-                function () {
-                    $.ajax.load(null, '{{ path('soul_me') }}', true);
-            } );
-        };
-
-        let buttons = document.querySelectorAll('[x-town-id]');
-        for (let i = 0; i < buttons.length; i++)
-            buttons[i].addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); send_build_request( this.getAttribute('x-town-id') ); })
-    </script>
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
 use App\Entity\Item;
@@ -541,15 +542,20 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1
+        /** @var Picto[] $pendingPictosOfUser */
         $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
         foreach ($pendingPictosOfUser as $pendingPicto) {
             if($pendingPicto->getPersisted() == 0)
                 $this->entity_manager->remove($pendingPicto);
             else {
-                $pendingPicto->setPersisted(2);
+                $pendingPicto
+                    ->setPersisted(2)
+                    ->setTownEntry( ($pendingPicto->getTown() && $pendingPicto->getTown()->getRankingEntry()) ? $pendingPicto->getTown()->getRankingEntry() : null );
                 $this->entity_manager->persist($pendingPicto);
             }
         }
+
+        CitizenRankingProxy::fromCitizen( $active );
 
         $this->entity_manager->persist( $active );
         $this->entity_manager->flush();

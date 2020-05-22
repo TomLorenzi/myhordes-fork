@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
 use App\Entity\FoundRolePlayText;
@@ -120,7 +122,7 @@ class SoulController extends AbstractController
      */
     public function soul_view_rp(int $id, int $page): Response
     {
-        $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->findOneById($id);
+        $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->find($id);
         if($rp === null || !$this->getUser()->getFoundTexts()->contains($rp)){
             return $this->redirect($this->generateUrl('soul_rps'));
         }
@@ -143,7 +145,7 @@ class SoulController extends AbstractController
      */
     public function soul_view_town(int $id): Response
     {
-        $town = $this->entity_manager->getRepository(Town::class)->findOneById($id);
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if($town === null){
             return $this->redirect($this->generateUrl('soul_me'));
         }
@@ -155,20 +157,22 @@ class SoulController extends AbstractController
 
     /**
      * @Route("jx/soul/town/add_comment", name="soul_add_comment")
+     * @param JSONRequestParser $parser
      * @return Response
      */
     public function soul_add_comment(JSONRequestParser $parser): Response
     {
         $id = $parser->get("id");
-        $citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($id);
-        if($citizen === null || $citizen->getUser() !== $this->getUser()){
+        /** @var CitizenRankingProxy $citizenProxy */
+        $citizenProxy = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($id);
+        if ($citizenProxy === null || $citizenProxy->getUser() !== $this->getUser() )
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-        }
 
         $comment = $parser->get("comment");
-        $citizen->setComment($comment);
+        $citizenProxy->setComment($comment);
+        if ($citizenProxy->getCitizen()) $citizenProxy->getCitizen()->setComment($comment);
 
-        $this->entity_manager->persist($citizen);
+        $this->entity_manager->persist($citizenProxy);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
@@ -547,17 +551,17 @@ class SoulController extends AbstractController
 
     /**
      * @Route("jx/soul/{id}/town/{idtown}", name="soul_view_town_foreign", requirements={"id"="\d+", "idtown"="\d+"})
+     * @param int $id
+     * @param int $idtown
      * @return Response
      */
     public function soul_view_town_foreign(int $id, int $idtown): Response
     {
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
-    	if($user === null)
-    		return $this->redirect($this->generateUrl('soul_me'));
-        $town = $this->entity_manager->getRepository(Town::class)->find($idtown);
-        if($town === null){
+    	if ($user === null) return $this->redirect($this->generateUrl('soul_me'));
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
+        if($town === null)
             return $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
-        }
 
         return $this->render( 'ajax/soul/view_town_foreign.html.twig', $this->addDefaultTwigArgs("soul_visit", array(
         	'user' => $user,

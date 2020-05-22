@@ -7,10 +7,13 @@ namespace App\Command;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
+use App\Entity\Picto;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
@@ -71,6 +74,7 @@ class MigrateCommand extends Command
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
             ->addOption('assign-building-defense', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
+            ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
         ;
     }
 
@@ -242,6 +246,32 @@ class MigrateCommand extends Command
                 }
             $this->entity_manager->flush();
             $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('update-ranking-entries')) {
+            /** @var Town[] $towns */
+            $towns = $this->entity_manager->getRepository(Town::class)->findAll();
+            foreach ($towns as $town)
+                $this->entity_manager->persist( TownRankingProxy::fromTown( $town, true ));
+            $this->entity_manager->flush();
+            $output->writeln('Towns updated!');
+
+            /** @var Citizen[] $citizens */
+            $citizens = $this->entity_manager->getRepository(Citizen::class)->findAll();
+            foreach ($citizens as $citizen)
+                $this->entity_manager->persist( CitizenRankingProxy::fromCitizen( $citizen, true ));
+            $this->entity_manager->flush();
+            $output->writeln('Citizens updated!');
+
+            /** @var Picto[] $pictos */
+            $pictos = $this->entity_manager->getRepository(Picto::class)->findAll();
+            foreach ($pictos as $picto)
+                if ($picto->getPersisted() === 2 && $picto->getTownEntry() === null && $picto->getTown() && $picto->getTown()->getRankingEntry())
+                    $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
+            $this->entity_manager->flush();
+            $output->writeln('Pictos updated!');
 
             return 0;
         }

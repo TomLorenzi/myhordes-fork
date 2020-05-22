@@ -275,7 +275,7 @@ bin/console app:users
 Find your user ID in the displayed results.
 
 ```bash
-bin/console app:user <id> --set-mod-level 2
+bin/console app:user <id> --set-mod-level 4
 ```
 
 Replace `<id>` with the ID you found during the previous steps. You can also use the value 1 for a simple moderator.

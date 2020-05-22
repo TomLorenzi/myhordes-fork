@@ -44,9 +44,15 @@ class TownClass
      */
     private $towns;
 
+    /**
+     * @ORM\OneToMany(targetEntity=TownRankingProxy::class, mappedBy="type", orphanRemoval=true)
+     */
+    private $rankedTowns;
+
     public function __construct()
     {
         $this->towns = new ArrayCollection();
+        $this->rankedTowns = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -103,6 +109,37 @@ class TownClass
             // set the owning side to null (unless already changed)
             if ($town->getType() === $this) {
                 $town->setType(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TownRankingProxy[]
+     */
+    public function getRankedTowns(): Collection
+    {
+        return $this->rankedTowns;
+    }
+
+    public function addRankedTown(TownRankingProxy $rankedTown): self
+    {
+        if (!$this->rankedTowns->contains($rankedTown)) {
+            $this->rankedTowns[] = $rankedTown;
+            $rankedTown->setType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRankedTown(TownRankingProxy $rankedTown): self
+    {
+        if ($this->rankedTowns->contains($rankedTown)) {
+            $this->rankedTowns->removeElement($rankedTown);
+            // set the owning side to null (unless already changed)
+            if ($rankedTown->getType() === $this) {
+                $rankedTown->setType(null);
             }
         }
 
