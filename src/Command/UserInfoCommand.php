@@ -50,7 +50,7 @@ class UserInfoCommand extends Command
             ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
             ->addOption('give-all-pictos', null, InputOption::VALUE_OPTIONAL, 'Gives all pictos once to a user')
 
-            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 1 = mod, 2 = admin');
+            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 3 = mod, 4 = admin');
 
     }
 
