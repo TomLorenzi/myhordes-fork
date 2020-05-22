@@ -20,6 +20,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Translation\TranslatorBagInterface;
 use Symfony\Contracts\Translation\LocaleAwareInterface;
@@ -69,7 +70,13 @@ class SchedulerCommand extends Command
                 sleep( (int)$input->getOption('delay') );
             $output->writeln( 'Beginning <info>execution</info>...' );
 
-            foreach ( $this->entityManager->getRepository(Town::class)->findAll() as $town ) {
+            $towns = $this->entityManager->getRepository(Town::class)->findAll();
+
+            // Set up console
+            $progress = new ProgressBar( $output->section() );
+            $progress->start( count($towns) );
+
+            foreach ( $towns as $town ) {
                 $this->trans->setLocale($town->getLanguage() ?? 'de');
 
                 /** @var Town $town */
@@ -77,10 +84,13 @@ class SchedulerCommand extends Command
                     foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
                     $this->entityManager->persist($town);
                 }
+                $progress->advance();
             }
 
             $s->setCompleted( true );
             $this->entityManager->persist($s);
+            $progress->finish();
+
             return true;
         } else return false;
     }

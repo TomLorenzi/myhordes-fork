@@ -69,6 +69,11 @@ class Gazette
      */
     private $door;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $windDirection = 0;
+
     public function __construct()
     {
         $this->victims = new ArrayCollection();
@@ -197,6 +202,18 @@ class Gazette
     public function setDoor(?bool $door): self
     {
         $this->door = $door;
+
+        return $this;
+    }
+
+    public function getWindDirection(): ?int
+    {
+        return $this->windDirection;
+    }
+
+    public function setWindDirection(?int $windDirection): self
+    {
+        $this->windDirection = $windDirection;
 
         return $this;
     }

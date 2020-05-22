@@ -301,6 +301,16 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
         }
 
+        $exploration = [];
+        $rz = $zone->getRuinZones();
+        foreach ($rz as $r) {
+            $exploration[] = [
+                'x' => $r->getX(),
+                'y' => $r->getY(),
+                'c' => $r->getCorridor(),
+            ];
+        }
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
@@ -329,6 +339,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
+            'exploration' => $exploration,
         ]) );
     }
 
@@ -483,11 +494,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         $movers = [];
+        $movers[] = $citizen;
         if ($special === 'normal')
             foreach ($citizen->getValidLeadingEscorts() as $escort)
                 $movers[] = $escort->getCitizen();
+        else
+            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                $escort->getCitizen()->getEscortSettings()->setLeader(null);
 
-        $movers[] = $citizen;
         $others_are_here = $zone->getCitizens()->count() > count($movers);
 
         $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && $special === 'normal' && $th->getBuilding($town, 'small_labyrinth_#00',  true));
@@ -646,10 +660,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $new_zone_lv = $new_zone->getScoutLevel();
                     $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
 
-                    if ($this->random_generator->chance( $factor ) && $this->uncoverHunter($mover))
+                    if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
                         if ($mover->getId() === $citizen->getId())
                             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!', [], 'game' ));
-                        else $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                        else 
+                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                    }
                 }
             }
 
@@ -909,9 +925,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             if ($generator->chance( 0.1 )) {
                 $zone->setZombies( $zone->getZombies() - 1 );
                 $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
-                // Add the picto Heroic Action
+                // Add the picto Bare hands
 	            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wrestl_#00");
-	            $this->picto_handler->give_picto($citizen, $picto);
+                $this->picto_handler->give_picto($citizen, $picto);
+                // Add the picto zed kill
+                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_killz_#00");
+                $this->picto_handler->give_picto($citizen, $picto);
             }
 
             try {

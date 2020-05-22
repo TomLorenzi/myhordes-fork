@@ -48,6 +48,7 @@ class LogEntryTemplate
     const ClassGazetteDehydration = 12;
     const ClassGazettePoison      = 13;
     const ClassGazetteVanished    = 14;
+    const ClassGazetteWind        = 15;
 
     /**
      * @ORM\Id()

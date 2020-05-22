@@ -7,6 +7,7 @@ parameters:
       map:        { min: 25, max:  27 }
       population: { min: 40, max:  40 }
       ruins: 20
+      explorable_ruins: 1
 
       initial_buildings:  []
       unlocked_buildings: []
@@ -56,6 +57,7 @@ parameters:
     small:
       map:  { min: 12, max: 14 }
       ruins: 10
+      explorable_ruins: 0
 
       initial_buildings:  ['small_refine_#00','small_door_closed_#00','item_tagger_#00']
       unlocked_buildings: ['small_gather_#02']
@@ -81,6 +83,7 @@ parameters:
       modifiers:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
+      explorable_ruins: 2
 
     custom:
       allow_local_conf: true

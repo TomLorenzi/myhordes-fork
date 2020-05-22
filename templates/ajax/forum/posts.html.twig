@@ -67,7 +67,7 @@
                             {{ post.owner.username }}
                         {% endif %}
                     </b>
-                    {% if post.note is not null %}<div class="right post-note"><img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" /> <span>{{ post.note }}</span></div>{% endif %}
+                    {% if post.note is not null %}<div class="right post-note"><img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" /> <img src="{{ asset('build/images/item_map.gif') }}" /> <span>{{ post.note }}</span></div>{% endif %}
                 </div>
                 <div class="forum-post-content">
                     {{ post.text|raw }}

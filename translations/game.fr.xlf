@@ -4397,8 +4397,6 @@
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
-        <note>Wachturm</note>
-        <note>Wachturm</note>
         <note category="german">Wachturm</note>
       </notes>
       <segment>
@@ -4408,19 +4406,15 @@
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
-        <note>Verbesserung des Tages</note>
-        <note>Verbesserung des Tages</note>
         <note category="german">Verbesserung des Tages</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Les évolutions du jour</target>
+        <target>Votes</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
       <notes>
-        <note>Werkstatt</note>
-        <note>Werkstatt</note>
         <note category="german">Werkstatt</note>
       </notes>
       <segment>
@@ -10297,12 +10291,12 @@
         <target>Marqueur de zone</target>
       </segment>
     </unit>
-    <unit id="m9ipH9g" name="[nights]">
+    <unit id="rGmg51l" name="[nichts]">
       <notes>
-        <note category="german">[nights]</note>
+        <note category="german">[nichts]</note>
       </notes>
       <segment>
-        <source>[nights]</source>
+        <source>[nichts]</source>
         <target>[ aucun ]</target>
       </segment>
     </unit>
@@ -10720,12 +10714,12 @@
         <target> Aucun message archivé.</target>
       </segment>
     </unit>
-    <unit id="wo3L_zx" name="Neue Nachright">
+    <unit id="6KKKVfb" name="Neue Nachricht">
       <notes>
-        <note category="german">Neue Nachright</note>
+        <note category="german">Neue Nachricht</note>
       </notes>
       <segment>
-        <source>Neue Nachright</source>
+        <source>Neue Nachricht</source>
         <target>Nouveau message</target>
       </segment>
     </unit>
@@ -10799,6 +10793,150 @@
       <segment>
         <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
         <target>En commençant à marcher, une douleur très vive s'empare de votre jambe. Vous tombez à terre en gémissant. Vous perdez une action...</target>
+      </segment>
+    </unit>
+    <unit id="4gAjVQX" name="Verlassener Bunker">
+      <notes>
+        <note category="german">Verlassener Bunker</note>
+      </notes>
+      <segment>
+        <source>Verlassener Bunker</source>
+        <target>Verlassener Bunker</target>
+      </segment>
+    </unit>
+    <unit id="BRZGIi8" name="8183632">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+      </segment>
+    </unit>
+    <unit id="oxlDhWv" name="Verlassenes Hotel">
+      <notes>
+        <note category="german">Verlassenes Hotel</note>
+      </notes>
+      <segment>
+        <source>Verlassenes Hotel</source>
+        <target>Verlassenes Hotel</target>
+      </segment>
+    </unit>
+    <unit id="hP.60KS" name="150bce3">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+      </segment>
+    </unit>
+    <unit id="rnmrpxG" name="Verlassenes Hospital">
+      <notes>
+        <note category="german">Verlassenes Hospital</note>
+      </notes>
+      <segment>
+        <source>Verlassenes Hospital</source>
+        <target>Verlassenes Hospital</target>
+      </segment>
+    </unit>
+    <unit id="PAKqkOM" name="1a6b1bb">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+      </segment>
+    </unit>
+    <unit id="Ijn0xpZ" name="%ruin% betreten">
+      <notes>
+        <note category="german">%ruin% betreten</note>
+      </notes>
+      <segment>
+        <source>%ruin% betreten</source>
+        <target>Entrer dans %ruin%</target>
+      </segment>
+    </unit>
+    <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
+      <notes>
+        <note category="german">Eine Nachricht hinterlassen</note>
+      </notes>
+      <segment>
+        <source>Eine Nachricht hinterlassen</source>
+        <target>Laisser un mot sur la porte</target>
+      </segment>
+    </unit>
+    <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
+      <notes>
+        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
+      </notes>
+      <segment>
+        <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
+        <target>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</target>
+      </segment>
+    </unit>
+    <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
+      <notes>
+        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
+      </notes>
+      <segment>
+        <source>Folgende Gegenstände werden mitgesendet:</source>
+        <target>Folgende Gegenstände werden mitgesendet:</target>
+      </segment>
+    </unit>
+    <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
+      <notes>
+        <note category="german">Kein Gegenstand beigefügt...</note>
+      </notes>
+      <segment>
+        <source>Kein Gegenstand beigefügt...</source>
+        <target>Kein Gegenstand beigefügt...</target>
+      </segment>
+    </unit>
+    <unit id="Qg_Rwo3" name="c7efaf6">
+      <notes>
+        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
+      </notes>
+      <segment>
+        <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
+        <target>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</target>
+      </segment>
+    </unit>
+    <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
+      <notes>
+        <note category="german">Meine Nachrichten lesen.</note>
+      </notes>
+      <segment>
+        <source>Meine Nachrichten lesen.</source>
+        <target>Lire mes messages.</target>
+      </segment>
+    </unit>
+    <unit id="bYjLN7a" name="Draußen">
+      <notes>
+        <note category="german">Draußen</note>
+      </notes>
+      <segment>
+        <source>Draußen</source>
+        <target>Dehors</target>
+      </segment>
+    </unit>
+    <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
+      <notes>
+        <note category="german">in der Stadt oder am Stadttor</note>
+      </notes>
+      <segment>
+        <source>in der Stadt oder am Stadttor</source>
+        <target>En ville ou aux portes</target>
+      </segment>
+    </unit>
+    <unit id="fICCxje" name="Seine Seele ansehen">
+      <notes>
+        <note category="german">Seine Seele ansehen</note>
+      </notes>
+      <segment>
+        <source>Seine Seele ansehen</source>
+        <target>Voir son âme</target>
       </segment>
     </unit>
   </file>

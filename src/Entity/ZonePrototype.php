@@ -58,6 +58,11 @@ class ZonePrototype implements RandomEntry
      */
     private $icon;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $explorable = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -155,6 +160,18 @@ class ZonePrototype implements RandomEntry
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getExplorable(): ?bool
+    {
+        return $this->explorable;
+    }
+
+    public function setExplorable(bool $explorable): self
+    {
+        $this->explorable = $explorable;
 
         return $this;
     }

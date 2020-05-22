@@ -73,7 +73,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         ["name" => "Pumpe",'desc' => 'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.', "maxLevel" => 5,"temporary" => 0,"img" => "small_water","vp" => 0,"ap" => 25, "hp" => 0,"bp" => 0,"rsc" => ["metal_#00" => 8,"tube_#00" => 1,], "orderby" => 1,
             "upgradeTexts" => [
-                'Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt',
                 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt',
                 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt',
                 'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt',

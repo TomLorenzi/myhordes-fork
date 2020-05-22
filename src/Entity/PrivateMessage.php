@@ -36,19 +36,29 @@ class PrivateMessage
     private $privateMessageThread;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Item::class)
-     */
-    private $items;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Citizen::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $owner;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $new;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Citizen::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $recipient;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $items = [];
+
     public function __construct()
     {
-        $this->items = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,32 +102,6 @@ class PrivateMessage
         return $this;
     }
 
-    /**
-     * @return Collection|Item[]
-     */
-    public function getItems(): Collection
-    {
-        return $this->items;
-    }
-
-    public function addItem(Item $item): self
-    {
-        if (!$this->items->contains($item)) {
-            $this->items[] = $item;
-        }
-
-        return $this;
-    }
-
-    public function removeItem(Item $item): self
-    {
-        if ($this->items->contains($item)) {
-            $this->items->removeElement($item);
-        }
-
-        return $this;
-    }
-
     public function getOwner(): ?Citizen
     {
         return $this->owner;
@@ -126,6 +110,42 @@ class PrivateMessage
     public function setOwner(?Citizen $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getNew(): ?bool
+    {
+        return $this->new;
+    }
+
+    public function setNew(bool $new): self
+    {
+        $this->new = $new;
+
+        return $this;
+    }
+
+    public function getRecipient(): ?Citizen
+    {
+        return $this->recipient;
+    }
+
+    public function setRecipient(?Citizen $recipient): self
+    {
+        $this->recipient = $recipient;
+
+        return $this;
+    }
+
+    public function getItems(): ?array
+    {
+        return $this->items;
+    }
+
+    public function setItems(?array $items): self
+    {
+        $this->items = $items;
 
         return $this;
     }

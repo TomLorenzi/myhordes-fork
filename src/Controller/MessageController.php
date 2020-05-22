@@ -6,6 +6,8 @@ use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
+use App\Entity\Item;
+use App\Entity\ItemPrototype;
 use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
@@ -20,6 +22,7 @@ use App\Service\JSONRequestParser;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
+use App\Service\InventoryHandler;
 use App\Response\AjaxResponse;
 use DateTime;
 use Doctrine\ORM\EntityManager;
@@ -54,13 +57,15 @@ class MessageController extends AbstractController
     private $asset;
     private $trans;
     private $entityManager;
+    private $inventory_handler;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih)
     {
         $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
         $this->entityManager = $em;
+        $this->inventory_handler = $ih;
     }
 
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
@@ -351,8 +356,17 @@ class MessageController extends AbstractController
         if ($forum !== null && $forum->getTown()) {
             foreach ( $forum->getTown()->getCitizens() as $citizen )
                 if ($citizen->getUser()->getId() === $user->getId()) {
-                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
-                    else $post->setNote("[{$citizen->getTown()->getName()}]");
+                    if ($citizen->getZone() && ($citizen->getZone()->getX() > 0 || $citizen->getZone()->getY() > 0))  {
+                        if($citizen->getTown()->getChaos()){
+                            $post->setNote($this->trans->trans('Draußen', [], 'game'));
+                        } else {
+                            $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
+                        }
+                    }
+                    else {
+                        //$post->setNote("[{$citizen->getTown()->getName()}]");
+                        $post->setNote($this->trans->trans('in der Stadt oder am Stadttor', [], 'game'));
+                    }
 
                 }
         }
@@ -782,54 +796,109 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
-        $global    = $parser->get('global', false);
+        $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
         $items     = $parser->get('items', '');
         $tid       = $parser->get('tid', -1);
 
-        if(!$global && empty($recipient) && $tid == -1) {
+        $allowed_types = ['pm', 'global'];
+
+        if(!in_array($type, $allowed_types)) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        if(($tid == -1 && empty($title)) || empty($content)) {
+        if($type === 'pm' && (empty($recipient) && $tid === -1))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if(($tid === -1 && empty($title)) || empty($content)) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
         $sender = $this->getUser()->getActiveCitizen();
 
-        if($global && !$sender->getProfession()->getHeroic()){
+        if($type === "global" && !$sender->getProfession()->getHeroic()){
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
+        }
+
+        $linked_items = array();
+
+        if(is_array($items)){
+            foreach ($items as $item_id) {
+                $valid = false;
+                $item = $em->getRepository(Item::class)->find($item_id);
+                if($item->getInventory()->getHome() !== null && $item->getInventory()->getHome()->getCitizen() === $sender){
+                    // This is an item from a chest
+                    $valid = true;
+                } else if($item->getInventory()->getCitizen() === $sender){
+                    // This is an item from the rucksack
+                    $valid = true;
+                }
+
+                if($valid)
+                    $linked_items[] = $item;
+            }
         }
 
         if ($tid == -1) {
             // New thread
-            if(!$global){
+            if($type === 'pm'){
                 $recipient = $em->getRepository(Citizen::class)->find($recipient);
-                if($recipient->getTown() !== $sender->getTown()){
+                if($recipient->getTown() !== $sender->getTown() || !$recipient->getAlive()){
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 }
+
+                if(count($linked_items) > 0){
+                    if ($recipient->getIsBanned() != $sender->getIsBanned())
+                        return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);   
+                    if ($sender->getTown()->getChaos()){
+                        if($recipient->getZone())
+                            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);   
+                        else
+                            //TODO: add 3 items limit per day
+                            ;
+                    }
+                }
+
+
+
+            	// Check inventory size
+                $max_size = $this->inventory_handler->getSize($recipient->getHome()->getChest());
+
+        		if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) >= $max_size) return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
+
                 $thread = new PrivateMessageThread();
                 $thread->setSender($sender)
                     ->setTitle($title)
-                    ->setNew(true)
-                    ->steLocked(false)
+                    ->setLocked(false)
                     ->setLastMessage(new DateTime('now'))
-                    ->setRecipient($recipient);
+                    ->setRecipient($recipient)
                 ;
 
                 $post = new PrivateMessage();
                 $post->setDate(new DateTime('now'))
                     ->setText($content)
                     ->setPrivateMessageThread($thread)
-                    ->setOwner($sender);
+                    ->setOwner($sender)
+                    ->setNew(true)
+                    ->setRecipient($recipient)
+                ;
+
+                $items_prototype = [];
+
+                foreach ($linked_items as $item) {
+                	$items_prototype[] = $item->getPrototype()->getId();
+                    $this->inventory_handler->forceMoveItem($recipient->getHome()->getChest(), $item);
+                }
+
+                $post->setItems($items_prototype);
 
                 $tx_len = 0;
-                    if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
-                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                    $thread->addMessage($post);
+                $thread->addMessage($post);
 
                 $em->persist($thread);
                 $em->persist($post);
@@ -840,7 +909,7 @@ class MessageController extends AbstractController
                     $thread = new PrivateMessageThread();
                     $thread->setSender($sender)
                         ->setTitle($title)
-                        ->setNew(true)
+                        ->setLocked(false)
                         ->setLastMessage(new DateTime('now'))
                         ->setRecipient($citizen);
                     ;
@@ -849,7 +918,10 @@ class MessageController extends AbstractController
                     $post->setDate(new DateTime('now'))
                         ->setText($content)
                         ->setPrivateMessageThread($thread)
-                        ->setOwner($sender);
+                        ->setOwner($sender)
+                        ->setNew(true)
+                        ->setRecipient($citizen);
+                    ;
 
                     $tx_len = 0;
                     if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
@@ -868,18 +940,29 @@ class MessageController extends AbstractController
                 return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
             }
 
+            if($sender == $thread->getRecipient())
+                $recipient = $thread->getSender();
+            else
+                $recipient = $thread->getRecipient();
+
+            if($recipient->getTown() !== $sender->getTown() || !$recipient->getAlive()){
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            }
+
             $post = new PrivateMessage();
             $post->setDate(new DateTime('now'))
                 ->setText($content)
                 ->setPrivateMessageThread($thread)
-                ->setOwner($sender);
+                ->setOwner($sender)
+                ->setNew(true)
+                ->setRecipient($recipient)
+            ;
 
             $tx_len = 0;
             if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread->setLastMessage($post->getDate());
-            $thread->setNew(true);
             $thread->addMessage($post);
 
             $em->persist($thread);
@@ -906,19 +989,43 @@ class MessageController extends AbstractController
 
         /** @var PrivateMessageThread $thread */
         $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
-        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+        if (!$thread) return new Response('');
+
+        $valid = false;
+        foreach ($thread->getMessages() as $message) {
+            if($message->getRecipient() === $citizen)
+                $valid = true;
+        }
+
+        if(!$valid) return new Response('');
 
         $thread->setNew(false);
 
-        $em->persist($thread);
-        $em->flush();
-
         $posts = $thread->getMessages();
 
-        foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+        foreach ($posts as $message) {
+            if($message->getRecipient() === $citizen) {
+                $message->setNew(false);
+                $em->persist($message);
+            }
+        }
+
+        $em->persist($thread);
+        $em->flush();
+        $items = [];
+        foreach ($posts as &$post) {
+        	if($post->getItems() !== null && count($post->getItems()) > 0) {
+        		$items[$post->getId()] = [];
+        		foreach ($post->getItems() as $proto_id) {
+        			$items[$post->getId()][] = $em->getRepository(ItemPrototype::class)->find($proto_id);
+        		}
+        	}
+        	$post->setText($this->prepareEmotes($post->getText()));
+        }
         return $this->render( 'ajax/game/town/posts.html.twig', [
             'thread' => $thread,
             'posts' => $posts,
+            'items' => $items,
             'emotes' => $this->get_emotes(true),
         ] );
     }
@@ -970,13 +1077,13 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_post_editor_controller")
+     * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_answer_post_editor_controller")
      * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function home_editor_post_api(int $tid, EntityManagerInterface $em): Response {
+    public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
@@ -987,7 +1094,31 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->get_emotes(true),
-            'pm' => true
+            'pm' => true,
+            'type' => 'pm'
+        ] );
+    }
+
+    /**
+     * @Route("api/town/house/pm/{type}/editor", name="home_new_post_editor_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function home_new_editor_post_api(string $type, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        $allowed_types = ['pm', 'global'];
+        if(!in_array($type, $allowed_types)) return new Response('');
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => null,
+            'pid' => null,
+            'emotes' => $this->get_emotes(true),
+            'pm' => true,
+            'type' => $type
         ] );
     }
 }

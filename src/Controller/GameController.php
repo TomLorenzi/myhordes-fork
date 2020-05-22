@@ -171,8 +171,6 @@ class GameController extends AbstractController implements GameInterfaceControll
             // No Gazette texts! Let's generate some...
             if ($day == 1) {
                 // TODO: Turn into LogEntryTemplate
-                // Baguette text:
-                // Aucun article ce matin...
                 $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
                 if ($town->isOpen()){
                     $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
@@ -343,9 +341,8 @@ class GameController extends AbstractController implements GameInterfaceControll
                 // 4. FLAVOURS
                 // 5. ELECTION
                 // 6. SEARCH TOWER
-
+                
                 $this->entity_manager->flush();
-
             }
         }
         else {
@@ -537,7 +534,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $last_words = $parser->get('lastwords');
 
         $active->setActive(false);
-        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison)
+        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison && $active->getCauseOfDeath()->getRef() != CauseOfDeath::GhulEaten)
             $active->setLastWords($last_words);
         else
             $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));

@@ -76,6 +76,8 @@
                             {% endif %}
                         </div>
                     {% endif %}
+                    <button x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}"><img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="" />{{'Seine Seele ansehen'|trans({}, 'game')}}</button>
+                    <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
                     {% if not citizen.banished %}
                         {% if complaint is null or complaint.severity == 0 %}<button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>{% endif %}
                         {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
@@ -86,9 +88,9 @@
                         <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
                     {% endif %}
                     {% if not owner.zone %}
-                        <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/fist.gif') }}" />{{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">5</div>)</button>
+                        <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">5</div>)</button>
                         {% if can_devour %}
-                            <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
+                            <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                         {% endif %}
                     {% endif %}
                 {% endif %}

@@ -29,6 +29,14 @@
                         {% endif %}
 
                     </div>
+
+                    {% if exploration %}
+                        <div class="exploration">
+                            {% for rz in exploration %}
+                                <div class="rz rz-{{ rz.c }}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;"></div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 {% else %}
                     <p class="beyond-rp">
                         <img alt="" src="{{ asset('build/images/small_rp.gif') }}" />
@@ -44,7 +52,6 @@
     </div>
 
     {% if citizen.escortSettings is not null and citizen.escortSettings.leader is not null %}
-
         <div class="help">
             <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.username}, 'game') }}</b>
             <p>
@@ -54,6 +61,7 @@
                 {% endtrans %}
             </p>
         </div>
+        <div class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</div>
 
     {% else %}
         {% if (zone.x != 0 or zone.y != 0) and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CAMPING'),false) %}
@@ -177,15 +185,23 @@
                             </div>
                         {% endif %}
                         {% if zone.prototype %}
-                            <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
-                                {% if (zone_blocked and active_scout_mode) %}
-                                    <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
-                                {% endif %}
-                                <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
-                                {% set ruin_label = zone.prototype.label|trans({},'game') %}
-                                {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
-                                {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
-                            </button>
+                            {% if zone.prototype.explorable %}
+                                <button id="enter_ruin_button"  >
+                                    <img class="icon left" alt="" src="{{ asset('build/images/planner.gif') }}" />
+                                    {% set ruin_label = zone.prototype.label|trans({},'game') %}
+                                    {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% betreten{% endtrans %}
+                                </button>
+                            {% else %}
+                                <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
+                                    {% if (zone_blocked and active_scout_mode) %}
+                                        <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
+                                    {% endif %}
+                                    <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
+                                    {% set ruin_label = zone.prototype.label|trans({},'game') %}
+                                    {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
+                                    {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
+                                </button>
+                            {% endif %}
                             {% if zone.buryCount > 0 %}
                                 <button id="uncover_ruin_button">
                                     {% if (zone_blocked and active_scout_mode) %}
@@ -621,7 +637,8 @@
         {% endif %}
 
         {% if zone_blocked and zone_escape < 0 and not active_scout_mode %}
-        document.getElementById('escape-btn').addEventListener('click', function () {
+        let escapeBtn = document.getElementById('escape-btn');
+        if(escapeBtn) escapeBtn.addEventListener('click', function () {
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
@@ -629,7 +646,8 @@
                     $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                 } );
         });
-        document.getElementById('attack-btn').addEventListener('click', function () {
+        let attackBtn = document.getElementById('attack-btn');
+        if(attackBtn) attackBtn.addEventListener('click', function () {
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
@@ -716,7 +734,8 @@
         );
 
         {% if allow_enter_town %}
-            document.getElementById('town-enter').addEventListener('click', function() {
+            let townEnterBtn = document.getElementById('town-enter');
+            if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
@@ -726,7 +745,8 @@
             });
         {% endif %}
         {% if show_ventilation and allow_ventilation %}
-            document.getElementById('town-enter-hero').addEventListener('click', function() {
+            let townEnterVentBtn = document.getElementById('town-enter-hero');
+            if(townEnterVentBtn) townEnterVentBtn.addEventListener('click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'hero'}) }}', {},
@@ -736,7 +756,8 @@
             });
         {% endif %}
         {% if show_sneaky %}
-            document.getElementById('town-enter-sneak').addEventListener('click', function() {
+            let townEnterSneakBtn = document.getElementById('town-enter-sneak');
+            if(townEnterSneakBtn) townEnterSneakBtn.addEventListener('click', function() {
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'sneak'}) }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
@@ -767,7 +788,8 @@
         {% endif %}
 
         {% if is_shaman %}
-            document.getElementById('fall_rain').addEventListener('click', function() {
+            let fallRainBtn = document.getElementById('fall_rain');
+            if(fallRainBtn) fallRainBtn.addEventListener('click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_shaman_rain') }}', {},

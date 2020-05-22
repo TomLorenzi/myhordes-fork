@@ -42,6 +42,11 @@ div.town-banner {
     background: url("../../img/city.jpg") center/cover no-repeat;
     &.night { background: url("../../img/night_city.jpg") center/cover no-repeat; }
   }
+
+  &.town-banner-workshop {
+    background: url("../../img/agora.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_agora.jpg") center/cover no-repeat; }
+  }
 }
 
 .town-menu {
@@ -230,8 +235,11 @@ div.town-banner {
     border-bottom: 2px solid #ddab76;
   }
 
-  .row:not(.header):hover {
-    outline: 1px solid #EFDBAB;
+  .row:not(.header) {
+    &:hover {
+      outline: 1px solid #EFDBAB;
+    }
+    font-style: italic;
   }
 
   .row.me {
@@ -239,9 +247,18 @@ div.town-banner {
   }
 
   .row.new {
-    font-weight: bold;
-    color: @myhordes-cell-header-text-color;
+    color: white;
+    font-style: normal;
   }
+}
+
+#rows-send {
+  display: none;
+}
+
+.linked-items {
+  list-style-type: none;
+  padding-left: 10px;
 }
 
 .nightwatch {

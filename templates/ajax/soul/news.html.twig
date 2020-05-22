@@ -1,9 +1,6 @@
 {% extends "ajax/soul/shell.html.twig" %}
 {% block menu_text %}
     {{ parent() }}
-    {% if app.user and not app.user.activeCitizen %}
-        <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
-    {% endif %}
 {% endblock %}
 {% block soul_content %}
     <div class="row">
