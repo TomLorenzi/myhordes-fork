@@ -33,6 +33,4 @@ config/packages/dev/app/*.yml
 # Misc
 .DS_Store
 .vscode/
-symfony.lock
-composer.lock
 .idea/
