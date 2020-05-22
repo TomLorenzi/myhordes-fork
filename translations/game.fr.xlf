@@ -9460,7 +9460,7 @@
       </notes>
       <segment>
         <source>Status</source>
-        <target>Status</target>
+        <target>États</target>
       </segment>
     </unit>
     <unit id="8fTcb5D" name="Tote in der Stadt">
@@ -10801,7 +10801,7 @@
       </notes>
       <segment>
         <source>Verlassener Bunker</source>
-        <target>Verlassener Bunker</target>
+        <target>Bunker abandonné</target>
       </segment>
     </unit>
     <unit id="BRZGIi8" name="8183632">
@@ -10810,7 +10810,7 @@
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Ce bâtiment délabré semble avoir été un bunker. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
       </segment>
     </unit>
     <unit id="oxlDhWv" name="Verlassenes Hotel">
@@ -10819,7 +10819,7 @@
       </notes>
       <segment>
         <source>Verlassenes Hotel</source>
-        <target>Verlassenes Hotel</target>
+        <target>Hôtel abandonné</target>
       </segment>
     </unit>
     <unit id="hP.60KS" name="150bce3">
@@ -10828,7 +10828,7 @@
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
       </segment>
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
@@ -10837,7 +10837,7 @@
       </notes>
       <segment>
         <source>Verlassenes Hospital</source>
-        <target>Verlassenes Hospital</target>
+        <target>Hôpital abandonné</target>
       </segment>
     </unit>
     <unit id="PAKqkOM" name="1a6b1bb">
@@ -10846,7 +10846,7 @@
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
       </segment>
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
@@ -10873,7 +10873,7 @@
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
-        <target>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</target>
+        <target>Cliquez sur les éléments que vous souhaitez joindre à ce message:</target>
       </segment>
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
@@ -10882,7 +10882,7 @@
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
-        <target>Folgende Gegenstände werden mitgesendet:</target>
+        <target>Les éléments suivants sont inclus:</target>
       </segment>
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
@@ -10891,7 +10891,7 @@
       </notes>
       <segment>
         <source>Kein Gegenstand beigefügt...</source>
-        <target>Kein Gegenstand beigefügt...</target>
+        <target>Aucun élément attaché...</target>
       </segment>
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
@@ -10900,7 +10900,7 @@
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
-        <target>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</target>
+        <target>Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</target>
       </segment>
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
