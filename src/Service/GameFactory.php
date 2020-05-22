@@ -17,6 +17,7 @@ use App\Entity\RuinZone;
 use App\Entity\Thread;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
@@ -305,7 +306,7 @@ class GameFactory
 
         $town->setForum((new Forum())->setTitle($town->getName()));
 
-        $ownerUser = $this->entity_manager->getRepository(User::class)->findOneById(66);
+        $ownerUser = $this->entity_manager->getRepository(User::class)->find(66);
 
         $threadBank = new Thread();
         $threadBank->setTitle($this->translator->trans('Bank', [], 'game'));

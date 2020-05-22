@@ -59,7 +59,7 @@ class UserInfoCommand extends Command
         if ($userid = $input->getArgument('UserID')) {
             $userid = (int)$userid;
             /** @var User $user */
-            $user = $this->entityManager->getRepository(User::class)->findOneById($userid);
+            $user = $this->entityManager->getRepository(User::class)->find($userid);
 
             if (($modlv = $input->getOption('set-mod-level')) !== null) {
                 $user->setRightsElevation($modlv);
@@ -90,6 +90,7 @@ class UserInfoCommand extends Command
                     $picto->setPrototype($pictoPrototype)
                         ->setPersisted(2)
                         ->setTown(null)
+                        ->setTownEntry(null)
                         ->setUser($user)
                         ->setCount($picto->getCount()+1);
 

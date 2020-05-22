@@ -780,7 +780,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return $this->redirect($this->generateUrl('town_citizens'));
         }
 
-        $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneById($roleId);
+        $role = $this->entity_manager->getRepository(CitizenRole::class)->find($roleId);
 
         if($role === null) {
             return $this->redirect($this->generateUrl('town_citizens'));
@@ -818,8 +818,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Check if both citizen & role exists, and if voted citizen is in our town and alive
         // and, of course, if you voted for yourself
         // and if town is not in chaos
-        $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneById($role_id);
-        $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($voted_citizen_id);
+        $role = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+        $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->find($voted_citizen_id);
         if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen == $voted_citizen || $town->getChaos()) {
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }

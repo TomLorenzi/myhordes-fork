@@ -6,11 +6,13 @@ namespace App\Service;
 
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
 use App\Entity\PictoPrototype;
 use App\Entity\Soul;
+use App\Entity\TownRankingProxy;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Structures\BetweenFilter;
 
@@ -199,6 +201,9 @@ class DeathHandler
         $this->picto_handler->validate_picto($citizen);
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
+
+        CitizenRankingProxy::fromCitizen( $citizen );
+        TownRankingProxy::fromTown( $citizen->getTown() );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
 
