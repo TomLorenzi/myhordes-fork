@@ -829,7 +829,7 @@ class MessageController extends AbstractController
                 $valid = false;
                 $item = $em->getRepository(Item::class)->find($item_id);
 
-                if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00']) {
+                if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00'])) {
                     // We cannot send bag expansion
                     continue;
                 }
@@ -866,8 +866,6 @@ class MessageController extends AbstractController
                             ;
                     }
                 }
-
-
 
             	// Check inventory size
                 $max_size = $this->inventory_handler->getSize($recipient->getHome()->getChest());
