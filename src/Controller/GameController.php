@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenRankingProxy;
+use App\Entity\Gazette;
+use App\Entity\GazetteLogEntry;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -87,6 +90,24 @@ class GameController extends AbstractController implements GameInterfaceControll
         ] );
     }
 
+    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry) {
+        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
+    }
+
+    protected function parseLog( LogEntryTemplate $template, array $variables ): String {
+        $variableTypes = $template->getVariableTypes();
+        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables, true);
+
+        try {
+            $text = $this->translator->trans($template->getText(), $transParams, 'game');
+        }
+        catch (Exception $e) {
+            $text = "null";
+        }
+
+        return $text;
+    }
+
     /**
      * @Route("jx/game/landing", name="game_landing")
      * @return Response
@@ -111,9 +132,26 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
         $town = $this->getActiveCitizen()->getTown();
+        $day = $town->getDay();
         $death_outside = $death_inside = [];
 
+        /** @var Gazette $gazette */
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $day);
+        if (!$gazette) {
+            $gazette = new Gazette();
+            $gazette->setTown($town)->setDay($town->getDay());
+            $town->addGazette($gazette);
+        }
+
+        $survivors = [];
         foreach ($town->getCitizens() as $citizen) {
+            if(!$citizen->getAlive()) continue;
+            $survivors[] = $citizen;
+        }
+
+
+
+        foreach ($gazette->getVictims() as $citizen) {
             if($citizen->getAlive()) continue;
             if($citizen->getSurvivedDays() >= $town->getDay() - 1) {
                 if ($citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack && $citizen->getDisposed() == 0) {
@@ -124,39 +162,211 @@ class GameController extends AbstractController implements GameInterfaceControll
             }
         }
 
-        $text = "";
+        if (count($death_inside) > $gazette->getDeaths()) {
+            $gazette->setDeaths(count($death_inside));
+        }
 
-        $day = $town->getDay();
+        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
+        $text = '';
+        if (count($gazette_logs) == 0) {
+            // No Gazette texts! Let's generate some...
+            if ($day == 1) {
+                // TODO: Turn into LogEntryTemplate
+                $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
+                if ($town->isOpen()){
+                    $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+                } else {
+                    // Serrez les fesses, citoyens, les zombies nous attaqueront ce soir à minuit !
+                    $text .= "";
+                }
+            } else {
+                // 1. TOWN
+                $criteria = [
+                    'type'  => LogEntryTemplate::TypeGazetteTown,
+                    'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
+                ];
+
+                $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                shuffle($applicableEntryTemplates);
+                /** @var LogEntryTemplate $townTemplate */
+                $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
+                $requirements = $townTemplate->getSecondaryType();
+                $variables = [];
+                if ($requirements == GazetteLogEntry::RequiresNothing) {
+                    $variables = [];
+                }
+                elseif (floor($requirements / 10) === 1) {
+                    $citizens = $survivors;
+                    shuffle($citizens);
+                    $variables = [];
+                    for ($i = 1; $i <= $requirements - 10; $i++) {
+                        $variables['citizen' . $i] = (array_shift($citizens))->getId();
+                    }
+                }
+                elseif (floor($requirements / 10) === 2) {
+                    $cadavers = $death_inside;
+                    shuffle($cadavers);
+                    $variables = [];
+                    for ($i = 1; $i <= $requirements - 20; $i++) {
+                        $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+                    }
+                }
+                elseif (floor($requirements / 10) === 3) {
+                    $citizens = $survivors;
+                    shuffle($citizens);
+                    $cadavers = $death_inside;
+                    shuffle($cadavers);
+                    $variables = [];
+                    for ($i = 1; $i <= $requirements - 30; $i++) {
+                        $variables['citizen' . $i] = (array_shift($citizens))->getId();
+                    }
+                    for ($i = 1; $i <= $requirements - 30; $i++) {
+                        $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+                    }
+                }
+                elseif ($requirements == GazetteLogEntry::RequiresAttack) {
+                    $variables = [];
+                    $attack = $gazette->getAttack();
+                    $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
+                }
+                elseif ($requirements == GazetteLogEntry::RequiresDefense) {
+                    $variables = [];
+                    $defense = $gazette->getDefense();
+                    $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
+                }
+                elseif ($requirements == GazetteLogEntry::RequiresDeaths) {
+                    $variables = [];
+                    $variables['deaths'] = $gazette->getDeaths();
+                }
+
+                $news = new GazetteLogEntry();
+                $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                $this->entity_manager->persist($news);
+                $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
+
+                // TODO: Add more texts.
+                // 2. INDIVIDUAL DEATHS
+                if (count($death_outside) > 0) {
+                    $other_deaths = $death_outside;
+                    shuffle($other_deaths);
+                    /** @var Citizen $featured_cadaver */
+                    $featured_cadaver = $other_deaths[array_key_first($other_deaths)];
+                    switch ($featured_cadaver->getCauseOfDeath()->getId()) {
+                        case CauseOfDeath::Cyanide:
+                        case CauseOfDeath::Strangulation:
+                            $class = LogEntryTemplate::ClassGazetteSuicide;
+                            break;
+
+                        case CauseOfDeath::Addiction:
+                            $class = LogEntryTemplate::ClassGazetteAddiction;
+                            break;
+
+                        case CauseOfDeath::Dehydration:
+                            $class = LogEntryTemplate::ClassGazetteDehydration;
+                            break;
+
+                        case CauseOfDeath::Poison:
+                            $class = LogEntryTemplate::ClassGazettePoison;
+                            break;
+
+                        case CauseOfDeath::Vanished:
+                        default:
+                            $class = LogEntryTemplate::ClassGazetteVanished;
+                            break;
+
+                    }
+                    $criteria = [
+                        'type' => LogEntryTemplate::TypeGazetteTown,
+                        'class' => $class,
+                    ];
+                    $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                    shuffle($applicableEntryTemplates);
+                    /** @var LogEntryTemplate $townTemplate */
+                    $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
+                    $requirements = $townTemplate->getSecondaryType();
+                    // TODO: Needs refactoring!
+                    if ($requirements == GazetteLogEntry::RequiresNothing) {
+                        $variables = [];
+                    }
+                    elseif (floor($requirements / 10) == 1) {
+                        $citizens = $survivors;
+                        shuffle($citizens);
+                        $variables = [];
+                        for ($i = 1; $i <= $requirements - 10; $i++) {
+                            $variables['citizen' . $i] = (array_shift($citizens))->getId();
+                        }
+                    }
+                    elseif (floor($requirements / 10) == 2) {
+                        $cadavers = $death_outside;
+                        shuffle($cadavers);
+                        $variables = [];
+                        for ($i = 1; $i <= $requirements - 20; $i++) {
+                            $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+                        }
+                    }
+                    elseif (floor($requirements / 10) == 3) {
+                        $citizens = $survivors;
+                        shuffle($citizens);
+                        $cadavers = $death_outside;
+                        shuffle($cadavers);
+                        $variables = [];
+                        for ($i = 1; $i <= $requirements - 30; $i++) {
+                            $variables['citizen' . $i] = (array_shift($citizens))->getId();
+                        }
+                        for ($i = 1; $i <= $requirements - 30; $i++) {
+                            $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
+                        }
+                    }
+                    elseif ($requirements == GazetteLogEntry::RequiresAttack) {
+                        $variables = [];
+                        $attack = $gazette->getAttack();
+                        $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
+                    }
+                    elseif ($requirements == GazetteLogEntry::RequiresDefense) {
+                        $variables = [];
+                        $defense = $gazette->getDefense();
+                        $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
+                    }
+                    elseif ($requirements == GazetteLogEntry::RequiresDeaths) {
+                        $variables = [];
+                        $variables['deaths'] = $gazette->getDeaths();
+                    }
+
+                    $news = new GazetteLogEntry();
+                    $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                    $this->entity_manager->persist($news);
+                    $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
+                }
+
+                // 3. TOWN DEVASTATION
+                // 4. FLAVOURS
+                // 5. ELECTION
+                // 6. SEARCH TOWER
+                
+                $this->entity_manager->flush();
+            }
+        }
+        else {
+            while (count($gazette_logs) > 0) {
+                $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+            }
+
+        }
+        $textClass = "day$day";
+
         $days = [
             'final' => $day % 5,
             'repeat' => floor($day / 5),
         ];
 
-        // FIXME: Do translation, get random funny text for each days
-        if($day == 1){
-            // Baguette text:
-            // Aucun article ce matin...
-            $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
-            if ($town->isOpen()){
-                $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
-            } else {
-                // Serrez les fesses, citoyens, les zombies nous attaqueront ce soir à minuit !
-                $text .= "";
-            }
-        } else {
-            $text = "";
-        }
-        $textClass = "day$day";
-        /** @var ZombieEstimation $estimation */
-        $estimation = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$day - 1);
         $attack = -1;
         $defense = -1;
-        if($estimation != null){
-            $attack = $estimation->getZombies();
-            $defense = $estimation->getDefense();
-        }
+        $attack = $gazette->getAttack();
+        $defense = $gazette->getDefense();
 
-        $gazette = [
+        $citizenWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
+
+        $gazette_info = [
             'season_version' => 0,
             'season_label' => "Betapropine FTW",
             'name' => $town->getName(),
@@ -165,11 +375,14 @@ class GameController extends AbstractController implements GameInterfaceControll
             'days' => $days,
             'devast' => $town->getDevastated(),
             'chaos' => $town->getChaos(),
+            'door' => $gazette->getDoor(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
-            'attack' => $attack,
-            'defense' => $defense,
+            'attack' => $gazette->getAttack(),
+            'defense' => $gazette->getDefense(),
+            'invasion' => $gazette->getInvasion(),
             'deaths' => count($death_inside),
+            'terror' => $gazette->getTerror(),
             'text' => $text,
             'textClass' => $textClass,
         ];
@@ -177,8 +390,10 @@ class GameController extends AbstractController implements GameInterfaceControll
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $in_town,
             'show_town_link'  => $in_town,
+            'day' => $town->getDay(),
             'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
-            'gazette' => $gazette,
+            'gazette' => $gazette_info,
+            'citizenWithRole' => $citizenWithRole,
         ] );
     }
 
@@ -320,22 +535,27 @@ class GameController extends AbstractController implements GameInterfaceControll
         $last_words = $parser->get('lastwords');
 
         $active->setActive(false);
-        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Posion)
+        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison && $active->getCauseOfDeath()->getRef() != CauseOfDeath::GhulEaten)
             $active->setLastWords($last_words);
         else
             $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));
 
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1
+        /** @var Picto[] $pendingPictosOfUser */
         $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
         foreach ($pendingPictosOfUser as $pendingPicto) {
             if($pendingPicto->getPersisted() == 0)
                 $this->entity_manager->remove($pendingPicto);
             else {
-                $pendingPicto->setPersisted(2);
+                $pendingPicto
+                    ->setPersisted(2)
+                    ->setTownEntry( ($pendingPicto->getTown() && $pendingPicto->getTown()->getRankingEntry()) ? $pendingPicto->getTown()->getRankingEntry() : null );
                 $this->entity_manager->persist($pendingPicto);
             }
         }
+
+        CitizenRankingProxy::fromCitizen( $active );
 
         $this->entity_manager->persist( $active );
         $this->entity_manager->flush();

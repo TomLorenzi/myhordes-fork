@@ -8,6 +8,8 @@ use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
@@ -17,9 +19,11 @@ use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessageThread;
 use App\Structures\ItemRequest;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class CitizenHandler
 {
@@ -29,14 +33,11 @@ class CitizenHandler
     private $random_generator;
     private $inventory_handler;
     private $picto_handler;
-    /**
-     * @var DeathHandler
-     */
-    private $death_handler;
     private $log;
+    private $container;
 
-    public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih, PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh)
+    public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
+                                PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -45,11 +46,7 @@ class CitizenHandler
         $this->picto_handler = $ph;
         $this->item_factory = $if;
         $this->log = $lh;
-    }
-
-    public function upgrade(DeathHandler $dh) {
-        if (!$this->death_handler)
-            $this->death_handler = $dh;
+        $this->container = $c;
     }
 
     /**
@@ -114,6 +111,13 @@ class CitizenHandler
             return true;
         }
 
+        // Prevent thirst and infection for ghouls
+        if ((   $status->getName() === 'thirst1' ||
+                $status->getName() === 'thirst2' ||
+                $status->getName() === 'infection'
+            ) && $citizen->hasRole('ghoul'))
+            return false;
+
         // Prevent terror when holding a zen booklet
         if ($status->getName() === 'terror' && $this->inventory_handler->countSpecificItems(
                 $citizen->getInventory(),
@@ -142,11 +146,13 @@ class CitizenHandler
 
     public function increaseThirstLevel( Citizen $citizen ) {
 
+        if ($citizen->hasRole('ghoul')) return;
+
         $lv2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst2');
         $lv1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst1');
 
         if ($citizen->getStatus()->contains( $lv2 )) {
-            $this->death_handler->kill($citizen, CauseOfDeath::Dehydration);
+            $this->container->get(DeathHandler::class)->kill($citizen, CauseOfDeath::Dehydration);
         } elseif ($citizen->getStatus()->contains( $lv1 )) {
             $this->removeStatus( $citizen, $lv1 );
             $this->inflictStatus( $citizen, $lv2 );
@@ -215,20 +221,63 @@ class CitizenHandler
         if ($kill) {
             $rem = [];
             if ($cage) {
-                $this->death_handler->kill( $citizen, CauseOfDeath::FleshCage, $rem );
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
             }
             elseif ($gallows) {
-                $this->death_handler->kill( $citizen, CauseOfDeath::Hanging, $rem );
-                $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
-                $this->picto_handler->give_picto($ac, $pictoPrototype);
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
+                $this->picto_handler->give_picto($citizen, $pictoPrototype);
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
         }
 
         return $action;
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param CitizenRole|string $role
+     * @return bool
+     */
+    public function addRole(Citizen $citizen, $role): bool {
+
+        if (is_string($role)) $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName($role);
+        /** @var $role CitizenRole|null */
+        if (!$role) return false;
+
+        if (!$citizen->getRoles()->contains($role)) {
+            $citizen->addRole($role);
+
+            if ($role->getName() === 'ghoul') {
+                $this->removeStatus($citizen, 'thirst1');
+                $this->removeStatus($citizen, 'thirst2');
+                $this->removeStatus($citizen, 'infection');
+                $citizen->setWalkingDistance(0);
+            }
+
+            return true;
+
+        } else return true;
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param CitizenRole|string $role
+     * @return bool
+     */
+    public function removeRole(Citizen $citizen, $role): bool {
+
+        if (is_string($role)) $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName($role);
+        /** @var $role CitizenRole|null */
+        if (!$role) return false;
+
+        if ($citizen->getRoles()->contains($role)) {
+            $citizen->removeRole($role);
+            return true;
+        } else return true;
     }
 
     public function isTired(Citizen $citizen) {
@@ -303,6 +352,9 @@ class CitizenHandler
                 $citizen->getInventory(), [new ItemRequest( 'car_door_#00' )]
             ))) $base += 1;
         }
+
+        if ($citizen->hasRole('guide'))
+            $base += $citizen->getZone() ? $citizen->getZone()->getCitizens()->count() : 0;
 
         return $base;
     }
@@ -533,87 +585,75 @@ class CitizenHandler
         $baseChance = 0.05;
         $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
 
-        $town = $citizen->getTown();
-
         $chances = $baseChance;
         for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
             if($previousWatches === null) {
-                $chances = max($baseChance, $chances -= 0.05);
+                $chances = max($baseChance, $chances - 0.05);
             } else {
-                $chances = min(1, $chances += 0.1);
+                $chances = min(1, $chances + 0.1);
             }
         }
 
-        if($this->hasStatusEffect($citizen, "drunk")) {
-            $chances -= 0.04;
-        }
-        if($this->hasStatusEffect($citizen, "hangover")) {
-            $chances += 0.05;
-        }
-        if($this->hasStatusEffect($citizen, "terror")) {
-            $chances += 0.45;
-        }
-        if($this->hasStatusEffect($citizen, "addict")) {
-            $chances += 0.1;
-        }
-        if($this->isWounded($citizen)) {
-            $chances += 0.20;
-        }
-        if($this->hasStatusEffect($citizen, "healed")) {
-            $chances += 0.10;
-        }
-        if($this->hasStatusEffect($citizen, "infection")) {
-            $chances += 0.20;
-        }
-        if($this->hasStatusEffect($citizen, "ghul")) {
-            $chances -= 0.05;
-        }
+        $status_effect_list = [
+            'drunk'     => -0.04,
+            'hungover'  =>  0.05,
+            'terror'    =>  0.45,
+            'addict'    =>  0.01,
+            'healed'    =>  0.10,
+            'infection' =>  0.20
+        ];
+
+        foreach ($status_effect_list as $status => $value)
+            if ($this->hasStatusEffect($citizen, $status))
+                $chances += $value;
+
+        if($this->isWounded($citizen)) $chances += 0.20;
+        if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
         return $chances;
     }
 
-    public function getNightWatchDefense(Citizen $citizen): int {
+    public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {
+        if ($item->getBroken()) return 0;
+        $bonus = 1.0;
+        if ($shooting_gallery && $item->getPrototype()->hasProperty('nw_shooting'))  $bonus += 0.2;
+        if ($trebuchet        && $item->getPrototype()->hasProperty('nw_trebuchet')) $bonus += 0.2;
+        if ($ikea             && $item->getPrototype()->hasProperty('nw_ikea'))      $bonus += 0.2;
+        if ($armory           && $item->getPrototype()->hasProperty('nw_armory'))    $bonus += 0.2;
+        return floor( $item->getPrototype()->getWatchpoint() * $bonus );
+    }
+
+    public function getNightWatchDefense(Citizen $citizen, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory): int {
         $def = 10;
         $def += $this->getNightwatchProfessionDefenseBonus($citizen);
 
-        if($this->hasStatusEffect($citizen, 'drunk')) {
-            $def += 20;
-        }
-        if($this->hasStatusEffect($citizen, 'hangover')) {
-            $def -= 15;
-        }
-        if($this->hasStatusEffect($citizen, 'terror')) {
-            $def -= 30;
-        }
-        if($this->hasStatusEffect($citizen, 'drugged')) {
-            $def += 10;
-        }
-        if($this->hasStatusEffect($citizen, 'addict')) {
-            $def += 15;
-        }
-        if($this->isWounded($citizen)) {
-            $def -= 20;
-        }
-        if($this->hasStatusEffect($citizen, 'healed')) {
-            $def -= 10;
-        }
-        if($this->hasStatusEffect($citizen, 'infection')) {
-            $def -= 15;
-        }
-        if($this->hasStatusEffect($citizen, 'thirst2')) {
-            $def -= 10;
-        }
-        foreach ($citizen->getInventory()->getItems() as $item) {
-            $itemWatchPoints = $item->getPrototype()->getWatchpoint();
-            $def += $itemWatchPoints;
-        }
+        $status_effect_list = [
+            'drunk'     =>  20,
+            'hungover'  => -15,
+            'terror'    => -30,
+            'drugged'   =>  10,
+            'addict'    =>  15,
+            'healed'    => -10,
+            'infection' => -15,
+            'thirst2'   => -10,
+        ];
+
+        foreach ($status_effect_list as $status => $value)
+            if ($this->hasStatusEffect($citizen, $status))
+                $def += $value;
+
+        if($this->isWounded($citizen)) $def -= 20;
+
+        foreach ($citizen->getInventory()->getItems() as $item)
+            $def += $this->getNightWatchItemDefense($item, $shooting_gallery, $trebuchet, $ikea, $armory);
+
         return $def;
     }
 
     /**
      * @param Citizen $citizen
-     * @param string|CitizenRole|string[]|CitizenRole[] $status
+     * @param string|CitizenRole|string[]|CitizenRole[] $role
      * @param bool $all
      * @return bool
      */
@@ -633,5 +673,31 @@ class CitizenHandler
                 if (in_array($r->getName(), $role)) return true;
         }
         return $all;
+    }
+
+    public function houseIsProtected(Citizen $c, bool $only_explicit_lock = false) {
+        if (!$c->getAlive()) return false;
+        if (!$c->getZone() && !$only_explicit_lock) return true;
+        if ($c->getHome()->getPrototype()->getTheftProtection()) return true;
+        if ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
+            $c->getHome(),
+            $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
+            return true;
+        if ($this->inventory_handler->countSpecificItems( $c->getHome()->getChest(), 'lock', true ) > 0)
+            return true;
+        return false;
+    }
+
+    public function hasNewMessage(Citizen $c){
+        $threads = $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($c);
+        foreach ($threads as $thread) {
+            if($thread->getArchived()) continue;
+            foreach ($thread->getMessages() as $message) {
+                if($message->getRecipient() == $c && $message->getNew())
+                    return true;
+            }
+        }
+
+        return false;
     }
 }

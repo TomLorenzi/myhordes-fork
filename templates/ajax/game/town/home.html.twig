@@ -11,12 +11,12 @@
 
     <ul class="tabs" x-tab-group="home-main" x-tab-control x-tab-default="{{ tab }}">
         <li x-tab-id="dash">{% trans from 'game' %}Truhe und Aktionen{% endtrans %}</li>
+        <li x-tab-id="messages">{% if new_message %}<img src="{{ asset('build/images/anim_icon_mail.gif') }}" /> {% endif %}{% trans from 'game' %}Nachrichten{% endtrans %}</li>
         <li x-tab-id="values">{% trans with {'%type%': home.prototype.label|trans({},'buildings')} from 'game' %}Mein(e) %type%{% endtrans %}</li>
         <li x-tab-id="build">{% trans from 'game' %}Bauarbeiten{% endtrans %}</li>
     </ul>
 
     <div x-tab-group="home-main" x-tab-id="dash" x-tab-target>
-
         <div class="dashboard">
             <div class="row">
                 <div class="padded cell rw-4 rw-lg-6 center">
@@ -84,8 +84,143 @@
         </div>
     </div>
 
-    <div x-tab-group="home-main" x-tab-id="values" x-tab-target>
+    <div x-tab-group="home-main" x-tab-id="messages" x-tab-target class="messages">
+        <ul class="tabs" x-tab-group="home-messages" x-tab-control x-tab-default="{{ subtab }}">
+            <li x-tab-id="received" id='received_tab'>{% trans from 'game' %}Erhaltene Nachrichten{% endtrans %}</li>
+            <li x-tab-id="archives" id='archives_tab'><img src="{{ asset("build/images/small_archive.gif") }}" alt="" />{% trans from 'game' %}Archiv{% endtrans %}</li>
+            <li x-tab-id="write" id="new_pm_tab"><img src="{{ asset("build/images/small_mail.gif") }}" alt="" /> {% trans from 'game' %}Eine Nachricht schreiben{% endtrans %}</li>
+            {% if can_send_global_pm %}
+            <li x-tab-id="write-to-all" id="new_global_pm_tab"><img src="{{ asset("build/images/star.gif") }}" alt="" /> {% trans from 'game' %}Schreiben Sie an alle{% endtrans %}</li>
+            {% endif %}
+        </ul>
+        <div x-tab-group="home-messages" x-tab-id="received" x-tab-target>
+            <div id="nonArchivedContent">
+            {% if nonArchivedMessages|length == 0 %}
+                <div class="help link" x-ajax-href="{{ path('town_citizens') }}">
+                {% trans from 'game' %}
+                    Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.
+                {% endtrans %}
+                </div>
+            {% else %}
+                <div class="row-table messages-list">
+                    <div class="row header">
+                        <div class="padded cell rw-6">{{ 'Titel'|trans({},'global') }}</div>
+                        <div class="padded cell rw-2">{{ 'Autor'|trans({},'global') }}</div>
+                        <div class="padded cell rw-1">#</div>
+                        <div class="padded cell rw-3">{{ 'Datum'|trans({},'global') }}</div>
+                    </div>
+                    {% for thread in nonArchivedMessages %}
+                        <div class="row small link {% if thread.new %}new{% endif %}" x-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
+                            <div class="padded cell rw-6">{% if thread.new %}<img src="{{ asset("build/images/small_new.gif") }}" alt="" /> {% endif %}{% if thread.hasItems %}<img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
+                            <div class="padded cell rw-2">{{ thread.sender.user.username }}</div>
+                            <div class="padded cell rw-1">{{ thread.messages|length }}</div>
+                            <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+        <div x-tab-group="home-messages" x-tab-id="archives" x-tab-target>
+            <div id="archivedContent">
+            {% if archivedMessages|length == 0 %}
+                <div class="help">
+                {% trans from 'game' %}
+                     Keine Nachricht gespeichert.
+                {% endtrans %}
+                </div>
+            {% else %}
+                <div class="row-table messages-list">
+                    <div class="row header">
+                        <div class="padded cell rw-6">{{ 'Titel'|trans({},'global') }}</div>
+                        <div class="padded cell rw-2">{{ 'Autor'|trans({},'global') }}</div>
+                        <div class="padded cell rw-1">#</div>
+                        <div class="padded cell rw-3">{{ 'Datum'|trans({},'global') }}</div>
+                    </div>
+                    {% for thread in archivedMessages %}
+                        <div class="row small link {% if thread.new %}new{% endif %}" x-archived-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
+                            <div class="padded cell rw-6">{% if thread.hasItems %}<img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
+                            <div class="padded cell rw-2">{{ thread.sender.user.username }}</div>
+                            <div class="padded cell rw-1">{{ thread.messages|length }}</div>
+                            <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+        <div x-tab-group="home-messages" x-tab-id="write" x-tab-target>
+            <h5>{% trans from 'game'%}Neue Nachricht{% endtrans %}</h5>
+            <div class="row">
+                <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Empfänger:{% endtrans %}</span></div>
+                <div class="cell padded rw-6">
+                    <input type="text" id="pmrecipient" disabled {% if dest_citizen is not null %}value="{{dest_citizen.user.username}}"{% endif %} />
+                    <input type="hidden" id="pmidrecipient" {% if dest_citizen is not null %}value="{{dest_citizen.id}}"{% endif %}/>
+                </div>
+                {% if dest_citizen is null %}
+                <div class="cell padded rw-1">
+                    <span class="link">
+                        <img src="{{ asset('build/images/small_human.gif') }}" id="show_list" />
+                        <div class="tooltip">
+                            {% trans from 'game'%}
+                                Bürgerverzeichnis anszeigen
+                            {% endtrans %}
+                        </div>
+                    </span>
+                    <div id="recipient_list">
+                        <div class="list">
+                            {% for citizen in possible_dests %}
+                                <span class="recipient small link" x-citizen-id="{{citizen.id}}">{{citizen.user.username}}</span>
+                            {% endfor %}
+                        </div>
+                        <button id="close_list">{% trans from 'global'%}Abbrechen{% endtrans %}</button>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="cell padded">
+                    <span class="small link" id="send-item-btn"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
+                </div>
+            </div>
+            <div id="rows-send">
+                <div class="row">
+                    <div class="cell padded rw-6">
+                        <div class="help">
+                            {% trans from 'game'%}Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:{% endtrans %}
+                        </div>
+                    </div>
+                    <div class="cell padded rw-6">
+                        <div class="help">
+                            {% trans from 'game'%}Folgende Gegenstände werden mitgesendet:{% endtrans %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="cell padded rw-6">
+                        {% embed "ajax/game/inventory.html.twig" with {'size': sendable_items|length, 'items': sendable_items} %}
+                            {% block class %}sendable-items{% endblock %}
+                        {% endembed %}
+                    </div>
+                    <div class="cell padded rw-6">
+                        <ul class="inventory" id="sent-items">
+                            <li class="category">{% trans from 'game'%}Kein Gegenstand beigefügt...{% endtrans %}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if can_send_global_pm %}
+        <div x-tab-group="home-messages" x-tab-id="write-to-all" x-tab-target>
+            <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
+        </div>
+        {% endif %}
+        <div id="forum-content">
+            
+        </div>
+    </div>
 
+    <div x-tab-group="home-main" x-tab-id="values" x-tab-target>
         <h5>{% trans from 'game' %}Verteidigung und Dekoration{% endtrans %}</h5>
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
@@ -173,7 +308,6 @@
                 {% endfor %}
             </div>
         {% endif %}
-
     </div>
 
     <div x-tab-group="home-main" x-tab-id="build" x-tab-target>
@@ -290,7 +424,6 @@
                 {% endfor %}
             </div>
         {% endif %}
-
     </div>
 
 {% endblock %}
@@ -369,6 +502,130 @@
                 function () {
                     $.ajax.load(null, '{{ path('town_house') }}', true);
                 } );
-        })
+        });
+
+        let listbtn = document.getElementById("show_list");
+        if(listbtn) listbtn.addEventListener("click", function(e){
+            e.preventDefault();
+            document.getElementById("recipient_list").style.display = "block";
+        });
+
+        let citizenbtn = document.querySelectorAll("#recipient_list .recipient");
+        if(citizenbtn){
+            for (var i = 0; i < citizenbtn.length; i++) {
+                citizenbtn[i].addEventListener("click", function(e){
+                    e.preventDefault();
+                    document.getElementById("pmrecipient").value = this.innerText;
+                    document.getElementById("pmidrecipient").value = this.attributes["x-citizen-id"].value;
+                    document.getElementById("recipient_list").style.display = "none";
+                });
+            }
+        }
+
+        let closebtn = document.getElementById("close_list");
+        if(closebtn) closebtn.addEventListener('click', function(e){
+            e.preventDefault();
+            document.getElementById("recipient_list").style.display = "none";
+        });
+
+        let sendbtn = document.getElementById("pmsend");
+        if(sendbtn) sendbtn.addEventListener('click', function(e){
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, title: document.getElementById('pmtitle').value, 'content': document.getElementById("pmtext").value, recipient: document.getElementById('pmidrecipient').value},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
+
+        let sendglobalbtn = document.getElementById("pmglobalsend");
+        if(sendglobalbtn) sendglobalbtn.addEventListener('click', function(e){
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: true, title: document.getElementById('pmglobaltitle').value, 'content': document.getElementById("pmglobaltext").value},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
+
+        let thread_buttons = document.querySelectorAll('[x-thread-id]');
+        for (let i = 0; i < thread_buttons.length; i++){
+            thread_buttons[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                $.ajax.no_history().load( document.getElementById('forum-content'), this.getAttribute('x-pm-source'), false )
+                document.getElementById("nonArchivedContent").style.display = "none";
+            });
+        }
+
+        let archived_thread_buttons = document.querySelectorAll('[x-archived-thread-id]');
+        for (let i = 0; i < archived_thread_buttons.length; i++){
+            archived_thread_buttons[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                $.ajax.no_history().load( document.getElementById('forum-content'), this.getAttribute('x-pm-source'), false )
+                document.getElementById("archivedContent").style.display = "none";
+            });
+        }
+
+        let received_tab = document.getElementById('received_tab');
+        if(received_tab) received_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+        	document.getElementById("nonArchivedContent").style.display = "";
+        });
+
+        let archives_tab = document.getElementById('archives_tab');
+        if(archives_tab) archives_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+        	document.getElementById("archivedContent").style.display = "";
+        });
+
+        let new_pm_tab = document.getElementById('new_pm_tab');
+        if(new_pm_tab) new_pm_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
+        });
+
+        {% if can_send_global_pm %}
+        let new_global_pm_tab = document.getElementById('new_global_pm_tab');
+        if(new_global_pm_tab) new_global_pm_tab.addEventListener('click', function(e) {
+        	document.getElementById("forum-content").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'global'}) }}', false )
+        });
+        {% endif %}
+
+        {% if dest_citizen is not null %}
+        document.getElementById("forum-content").innerHTML = "";
+        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
+        {% endif %}
+
+        let send_item_btn = document.getElementById("send-item-btn");
+        if(send_item_btn) send_item_btn.addEventListener('click', function(){
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+
+            this.parentElement.parentElement.style.display = "none";
+
+            document.getElementById("rows-send").style.display = "block";
+
+            var items = document.querySelectorAll("#rows-send .item");
+            var sent = document.getElementById("sent-items");
+            var keep = document.querySelector(".sendable-items");
+            for (var i = 0; i < items.length; i++) {
+                items[i].addEventListener('click', function(){
+                    if(this.parentElement.classList.contains('sendable-items'))
+                        sent.appendChild(this);
+                    else
+                        keep.appendChild(this)
+                    document.getElementById('tooltip_container').innerHTML = "";;
+                    if(sent.childElementCount > 1)
+                        document.querySelector("#sent-items .category").style.display = "none";
+                    else
+                        document.querySelector("#sent-items .category").style.display = "";
+                });
+            }
+        });
+
+
     </script>
 {% endblock %}

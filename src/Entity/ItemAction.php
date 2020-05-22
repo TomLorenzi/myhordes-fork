@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\ItemActionRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="item_action_name_unique",columns={"name"})
  * })
  */
 class ItemAction
@@ -68,6 +68,11 @@ class ItemAction
      * @ORM\Column(type="boolean")
      */
     private $keepsCover;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $confirm;
 
     public function __construct()
     {
@@ -212,6 +217,18 @@ class ItemAction
     public function setKeepsCover(bool $keepsCover): self
     {
         $this->keepsCover = $keepsCover;
+
+        return $this;
+    }
+
+    public function getConfirm(): ?bool
+    {
+        return $this->confirm;
+    }
+
+    public function setConfirm(?bool $confirm): self
+    {
+        $this->confirm = $confirm;
 
         return $this;
     }

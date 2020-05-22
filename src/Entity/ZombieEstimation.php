@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ZombieEstimationRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="town_day_unique",columns={"town_id","day"})
+ *     @UniqueConstraint(name="zombie_estimation_town_day_unique",columns={"town_id","day"})
  * })
  */
 class ZombieEstimation
@@ -48,11 +48,6 @@ class ZombieEstimation
      * @ORM\Column(type="integer")
      */
     private $offsetMax;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $defense = 0;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Citizen")
@@ -125,18 +120,6 @@ class ZombieEstimation
     public function setOffsetMax(int $offsetMax): self
     {
         $this->offsetMax = $offsetMax;
-
-        return $this;
-    }
-
-    public function getDefense(): ?int
-    {
-        return $this->defense;
-    }
-
-    public function setDefense(int $defense): self
-    {
-        $this->defense = $defense;
 
         return $this;
     }

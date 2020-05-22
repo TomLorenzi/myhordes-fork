@@ -33,9 +33,15 @@ class Season
      */
     private $towns;
 
+    /**
+     * @ORM\OneToMany(targetEntity=TownRankingProxy::class, mappedBy="season")
+     */
+    private $rankedTowns;
+
     public function __construct()
     {
         $this->towns = new ArrayCollection();
+        $this->rankedTowns = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,6 +98,37 @@ class Season
             // set the owning side to null (unless already changed)
             if ($town->getSeason() === $this) {
                 $town->setSeason(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TownRankingProxy[]
+     */
+    public function getRankedTowns(): Collection
+    {
+        return $this->rankedTowns;
+    }
+
+    public function addRankedTown(TownRankingProxy $rankedTown): self
+    {
+        if (!$this->rankedTowns->contains($rankedTown)) {
+            $this->rankedTowns[] = $rankedTown;
+            $rankedTown->setSeason($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRankedTown(TownRankingProxy $rankedTown): self
+    {
+        if ($this->rankedTowns->contains($rankedTown)) {
+            $this->rankedTowns->removeElement($rankedTown);
+            // set the owning side to null (unless already changed)
+            if ($rankedTown->getSeason() === $this) {
+                $rankedTown->setSeason(null);
             }
         }
 

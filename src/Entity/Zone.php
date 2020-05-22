@@ -75,7 +75,7 @@ class Zone
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="zone", fetch="LAZY")
      */
     private $citizens;
 
@@ -147,7 +147,17 @@ class Zone
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $blueprint = Zone::BluePrintNone;
+    private $blueprint = self::BluePrintNone;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ZoneTag")
+     */
+    private $tag;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RuinZone", mappedBy="zone", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $ruinZones;
 
     public function __construct()
     {
@@ -255,13 +265,12 @@ class Zone
     }
 
     public function getCampers() {
-        $citizens = $this->getCitizens();
         // No citizens = no campers.
-        if (!count($citizens)) {
+        if ($this->citizens->isEmpty()) {
             return [];
         }
         $campers = [];
-        foreach ($citizens as $citizen) {
+        foreach ($this->citizens as $citizen) {
             if ($citizen->getCampingTimestamp() > 0) {
                 $campers[$citizen->getCampingTimestamp()] = $citizen;
             }
@@ -541,12 +550,49 @@ class Zone
         return $this;
     }
 
-    public function hasSoul(): bool
+    public function getTag(): ?ZoneTag
     {
-        foreach ($this->getFloor()->getItems() as $item) {
-            if($item->getPrototype()->getName() == "soul_blue_#00" || $item->getPrototype()->getName() == "soul_blue_#01" || $item->getPrototype()->getName() == "soul_red_#00")
-                return true;
+        return $this->tag;
+    }
+
+    public function setTag(?ZoneTag $tag): self
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RuinZone[]
+     */
+    public function getRuinZones(): Collection
+    {
+        return $this->ruinZones;
+    }
+
+    public function addRuinZone(RuinZone $ruinZone): self
+    {
+        if (!$this->ruinZones) {
+            $this->ruinZones = new ArrayCollection();
         }
-        return false;
+        if (!$this->ruinZones->contains($ruinZone)) {
+            $this->ruinZones[] = $ruinZone;
+            $ruinZone->setZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRuinZone(RuinZone $ruinZone): self
+    {
+        if ($this->ruinZones->contains($ruinZone)) {
+            $this->ruinZones->removeElement($ruinZone);
+            // set the owning side to null (unless already changed)
+            if ($ruinZone->getZone() === $this) {
+                $ruinZone->setZone(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -1053,7 +1053,7 @@ require("latest-createjs");
 		this.timeline.addTween(cjs.Tween.get(this.instance).wait(4));
 
 		// Layer_3
-		this.text = new cjs.Text("REC", "15px 'Calibri'", "#CCCCCC");
+		this.text = new cjs.Text("REC", "15px 'OCR A Extended'", "#CCCCCC");
 		this.text.lineHeight = 18;
 		this.text.lineWidth = 143;
 		this.text.parent = this;
@@ -1064,12 +1064,12 @@ require("latest-createjs");
 
 		// Layer_4
 		var today = new Date();
-		this.h = new cjs.Text(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(), "15px 'Calibri'", "#CCCCCC");
+		this.h = new cjs.Text(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(), "15px 'OCR A Extended'", "#CCCCCC");
 		this.h.name = "h";
 		this.h.lineHeight = 18;
 		this.h.lineWidth = 182;
 		this.h.parent = this;
-		this.h.setTransform(370,90);
+		this.h.setTransform(350,90);
 		this.h.shadow = new cjs.Shadow("rgba(51,51,51,1)",0,0,5);
 
 		this.timeline.addTween(cjs.Tween.get(this.h).wait(4));
@@ -2053,6 +2053,10 @@ require("latest-createjs");
 	}).prototype = p = new cjs.MovieClip();
 	p.nominalBounds = new cjs.Rectangle(-339.8,-87.6,1391.3,352.29999999999995);
 	// library properties:
+	const _CachedBmp = require('../img/flash/CachedBmp_19.png');
+	const _Canvas_atlas1 = require('../img/flash/attack_as3_HTML5 Canvas_atlas_.png');
+	const _Canvas_atlas2 = require('../img/flash/attack_as3_HTML5 Canvas_atlas_2.png');
+	const _Canvas_atlas3 = require('../img/flash/attack_as3_HTML5 Canvas_atlas_3.png');
 	lib.properties = {
 		id: '7AABF79FCD83E4468DF64867E8D1326A',
 		width: 440,
@@ -2061,10 +2065,10 @@ require("latest-createjs");
 		color: "#612D20",
 		opacity: 1.00,
 		manifest: [
-			{src:"/images/CachedBmp_19.png?1588198643707", id:"CachedBmp_19"},
-			{src:"/images/attack_as3_HTML5 Canvas_atlas_.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_"},
-			{src:"/images/attack_as3_HTML5 Canvas_atlas_2.png?1588198643557", id:"attack_as3_HTML5 Canvas_atlas_2"},
-			{src:"/images/attack_as3_HTML5 Canvas_atlas_3.png?1588198643558", id:"attack_as3_HTML5 Canvas_atlas_3"}
+			{src:_CachedBmp, id:"CachedBmp_19"},
+			{src:_Canvas_atlas1, id:"attack_as3_HTML5 Canvas_atlas_"},
+			{src:_Canvas_atlas2, id:"attack_as3_HTML5 Canvas_atlas_2"},
+			{src:_Canvas_atlas3, id:"attack_as3_HTML5 Canvas_atlas_3"}
 		],
 		preloads: []
 	};

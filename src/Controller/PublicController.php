@@ -109,14 +109,12 @@ class PublicController extends AbstractController
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $translator
      * @param UserFactory $factory
-     * @param EntityManagerInterface $entityManager
      * @return Response
      */
     public function reset_api(
         JSONRequestParser $parser,
         TranslatorInterface $translator,
-        UserFactory $factory,
-        EntityManagerInterface $entityManager
+        UserFactory $factory
     ): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
@@ -127,7 +125,6 @@ class PublicController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($parser->has('pkey', true)) {
-
             if (!$parser->has_all( ['pass1','pass2'], true ))
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -170,11 +167,17 @@ class PublicController extends AbstractController
                 $error
             );
 
-            $this->entity_manager->persist($user);
-            try {
-                $this->entity_manager->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            if($user && $error === UserFactory::ErrorNone) {
+                try {
+                    $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
+                } catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
+            } elseif ($error === UserFactory::ErrorInvalidParams) {
+                return AjaxResponse::success( 'validate' );
+            } else {
+                return AjaxResponse::error($error);
             }
 
             return AjaxResponse::success( 'validate' );
@@ -223,7 +226,7 @@ class PublicController extends AbstractController
                 ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
-            'privacy' => new Constraints\IsTrue(),
+            //'privacy' => new Constraints\IsTrue(),
         ]) );
 
         if ($violations->count() === 0) {
@@ -274,6 +277,18 @@ class PublicController extends AbstractController
         $user = $this->getUser();
         if (!$user)
             return new AjaxResponse( ['success' => false ] );
+
+        // If there is an open password reset validation, a successful login closes it
+        $reset_validation = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user, UserPendingValidation::ResetValidation);
+        if ($reset_validation) try {
+
+            $this->entity_manager->remove($reset_validation);
+            $user->setPendingValidation(null);
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+        } catch(Exception $e) {}
+
         if (!$user->getValidated())
             return new AjaxResponse( ['success' => true, 'require_validation' => true ] );
         else return new AjaxResponse( ['success' => true, 'require_validation' => false ] );

@@ -28,7 +28,8 @@ security:
 
     role_hierarchy:
         ROLE_USER:  ROLE_REGISTERED
-        ROLE_ADMIN: ROLE_USER
+        ROLE_CROW:  ROLE_USER
+        ROLE_ADMIN: ROLE_CROW
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
@@ -41,12 +42,13 @@ security:
         - { path: ^/jx/public/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/jx/ghost/,  roles: ROLE_USER }
         - { path: ^/jx/soul/,   roles: ROLE_USER }
-        - { path: ^/jx/admin/,   roles: ROLE_ADMIN }
+        - { path: ^/jx/admin/,  roles: ROLE_CROW }
 
         # API Access
         - { path: ^/api/public/login,  roles: ROLE_REGISTERED }
         - { path: ^/api/public/logout, roles: ROLE_REGISTERED }
-        - { path: ^/api/soul/, roles: ROLE_USER }
-        - { path: ^/api/public/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/soul/,         roles: ROLE_USER }
+        - { path: ^/api/public/,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/admin/,        roles: ROLE_CROW }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

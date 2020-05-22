@@ -1,6 +1,7 @@
-{{ constant('App\\Service\\UserFactory::ErrorInvalidParams') }}:  '{{'Der angegebene Validierungscode ist nicht gültig.'|trans({},'login')|e('js')}}',
-{{ constant('App\\Service\\UserFactory::ErrorUserExists') }}:     '{{'Der angegebene Name existiert bereits im Spiel.'|trans({},'login')|e('js')}}',
-{{ constant('App\\Service\\UserFactory::ErrorMailExists') }}:     '{{'Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorInvalidParams') }}:    '{{'Der angegebene Validierungscode ist nicht gültig.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorUserExists') }}:       '{{'Der angegebene Name existiert bereits im Spiel.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorMailExists') }}:       '{{'Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorValidationExists') }}: '{{'Dieses Konto wartet bereits auf eine Passwortzurücksetzung.'|trans({},'login')|e('js')}}',
 
 {{ constant('App\\Controller\\SoulController::ErrorAvatarBackendUnavailable') }}:     '{{'Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.'|trans({},'soul')|e('js')}}',
 {{ constant('App\\Controller\\SoulController::ErrorAvatarFormatUnsupported') }}:      '{{'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul')|e('js')}}',

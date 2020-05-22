@@ -7,6 +7,8 @@ use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
+use App\Entity\Inventory;
+use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
@@ -63,18 +65,13 @@ class ZoneHandler
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
         $cp = 0;
-        $guide_present = false;
-        $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
+
         foreach ($zone->getCitizens() as $citizen) {
             $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $citizen );
             if ($timer && !$timer->getPassive() && $timer->getTimestamp() < $up_to)
                 $dig_timers[] = $timer;
             $cp += $this->citizen_handler->getCP( $citizen );
-            if($citizen->getRoles()->contains($roleGuide))
-                $guide_present = true;
         }
-        if($guide_present)
-            $cp += count($zone->getCitizens());
 
         if ($cp < $zone->getZombies()) {
 
@@ -115,10 +112,11 @@ class ZoneHandler
                     $current_citizen = $timer->getCitizen();
 
                     $factor = 1.0;
-                    if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.2;
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.2;
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.4; // Totally arbitrary
-                    $item_prototype = $this->random_generator->chance($factor * ($zone->getDigs() > 0 ? 0.40 : 0.25))
+                    if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.3;
+                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
+                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
+                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
+                    $item_prototype = $this->random_generator->chance(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )))
                         ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
                         : null;
 
@@ -155,7 +153,8 @@ class ZoneHandler
                             $this->entity_manager->persist( $timer->getZone()->getFloor() );
                         }
                     } else {
-                       $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
+                        //TODO: Persist log only if it is an automatic search
+                        $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
                     }
 
                     $zone->setDigs( max(($item_prototype || $zone->getDigs() <= 0) ? 0 : 1, $zone->getDigs() - 1) );
@@ -187,8 +186,10 @@ class ZoneHandler
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){
                 if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' ))
-                    array_unshift($ret_str, $this->trans->trans( 'Votre blessure à l\'oeil vous gêne énormément lors de vos fouilles', [], 'game'));
-                
+                    array_unshift($ret_str, $this->trans->trans( 'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.', [], 'game'));
+                if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk' ))
+                    array_unshift($ret_str, $this->trans->trans( 'Deine Trunkenheit macht dir die Suche nicht gerade leichter.', [], 'game'));
+
                 array_unshift($ret_str, $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
             elseif (count($found_by_player) === 1)
@@ -293,17 +294,9 @@ class ZoneHandler
 
     public function check_cp(Zone $zone, ?int &$cp = null): bool {
         $cp = 0;
-        $guide_present = false;
-        $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
-        foreach ($zone->getCitizens() as $c){
-            if ($c->getAlive()){
+        foreach ($zone->getCitizens() as $c)
+            if ($c->getAlive())
                 $cp += $this->citizen_handler->getCP($c);
-            }
-            if($c->getRoles()->contains($roleGuide))
-                $guide_present = true;
-        }
-        if($guide_present)
-            $cp += count($zone->getCitizens());
 
         return $cp >= $zone->getZombies();
     }
@@ -334,12 +327,45 @@ class ZoneHandler
 
     }
 
-    public function getZoneClasses(Zone $zone, ?Citizen $citizen = null) {
+    public function getSoulZones( Town $town ) {
+        // Get all zone inventory IDs
+        // We're just getting IDs, because we don't want to actually hydrate the inventory instances
+        $zone_invs = array_column($this->entity_manager->createQueryBuilder()
+            ->select('i.id')
+            ->from(Inventory::class, 'i')
+            ->join("i.zone", "z")
+            ->andWhere('z.id IN (:zones)')->setParameter('zones', $town->getZones())
+            ->getQuery()
+            ->getScalarResult(), 'id');
+
+        // Get all soul items within these inventories
+        $soul_items = $this->entity_manager->createQueryBuilder()
+            ->select('i')
+            ->from(Item::class, 'i')
+            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $zone_invs)
+            ->andWhere('i.prototype IN (:protos)')->setParameter('protos', [
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_blue_#00'),
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_blue_#01'),
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_red_#00')
+            ])
+            ->getQuery()
+            ->getResult();
+
+        $cache = [];
+        /** @var Item $item */
+        foreach ($soul_items as $item)
+            if (!isset($cache[$item->getInventory()->getId()]))
+                $cache[$item->getInventory()->getId()] = $item->getInventory()->getZone();
+        return array_values($cache);
+    }
+
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false) {
         $attributes = ['zone'];
+
         if ($zone->getX() == 0 && $zone->getY() == 0) {
             $attributes[] = 'town';
         }
-        if ($zone->getX() == 0 && $zone->getY() == 0 && $zone->getTown()->getDevastated()) {
+        if ($zone->getX() == 0 && $zone->getY() == 0 && $town->getDevastated()) {
             $attributes[] = 'devast';
         }
         if ($citizen && $zone === $citizen->getZone()) {
@@ -374,7 +400,7 @@ class ZoneHandler
             }
         }
 
-        if($zone->hasSoul() && $citizen != null && ($this->citizen_handler->hasRole($citizen, 'shaman') || $citizen->getProfession()->getName() == 'shaman'))
+        if($soul)
             $attributes[] = "soul";
 
         return $attributes;
@@ -392,6 +418,8 @@ class ZoneHandler
                     'name' => T::__("Ein nicht freigeschaufeltes Gebäude.", "game"),
                     'type' => -1,
                     'dig' => $zone->getBuryCount(),
+                    'empty' => ($zone->getRuinDigs() == 0),
+                    'blueprint' => $zone->getBlueprint(),
                 ];
             }
             else {
@@ -399,6 +427,8 @@ class ZoneHandler
                     'name' => T::__($zone->getPrototype()->getLabel(), "game"),
                     'type' => $zone->getPrototype()->getId(),
                     'dig' => 0,
+                    'empty' => ($zone->getRuinDigs() == 0),
+                    'blueprint' => $zone->getBlueprint(),
                 ];
             }
         }
@@ -447,5 +477,17 @@ class ZoneHandler
             return 'christmas_dig';
 */
         return null;
+    }
+
+    public function getZonesWithExplorableRuin($zones): array {
+        $explorable_zones = [];
+        foreach ($zones as $zone) {
+            /** @var Zone $zone */
+            if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+                $explorable_zones[] = $zone;
+            }
+        }
+
+        return $explorable_zones;
     }
 }

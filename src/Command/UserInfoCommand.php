@@ -8,6 +8,8 @@ use App\Entity\Citizen;
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayText;
 use App\Entity\User;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -43,9 +45,10 @@ class UserInfoCommand extends Command
             ->addOption('validated', 'v1', InputOption::VALUE_NONE, 'Only list validated users.')
             ->addOption('mods', 'm', InputOption::VALUE_NONE, 'Only list users with elevated permissions.')
 
-            ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', 'auto')
+            ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', null)
 
             ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
+            ->addOption('give-all-pictos', null, InputOption::VALUE_OPTIONAL, 'Gives all pictos once to a user')
 
             ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 1 = mod, 2 = admin');
 
@@ -56,10 +59,10 @@ class UserInfoCommand extends Command
         if ($userid = $input->getArgument('UserID')) {
             $userid = (int)$userid;
             /** @var User $user */
-            $user = $this->entityManager->getRepository(User::class)->findOneById($userid);
+            $user = $this->entityManager->getRepository(User::class)->find($userid);
 
             if (($modlv = $input->getOption('set-mod-level')) !== null) {
-                $user->setIsAdmin($modlv >= 2);
+                $user->setRightsElevation($modlv);
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($rpLang = $input->getOption('find-all-rps')) {
@@ -79,8 +82,25 @@ class UserInfoCommand extends Command
                 echo "Added $count RPs to user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-            } elseif ($newpw = $input->getOption('set-password')) {
+            } elseif ($count = $input->getOption('give-all-pictos')) {
+                $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
+                foreach ($pictoPrototypes as $pictoPrototype) {
+                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                    if($picto === null) $picto = new Picto();
+                    $picto->setPrototype($pictoPrototype)
+                        ->setPersisted(2)
+                        ->setTown(null)
+                        ->setTownEntry(null)
+                        ->setUser($user)
+                        ->setCount($picto->getCount()+1);
 
+                    $this->entityManager->persist($picto);
+                }
+                echo "Added pictos to user {$user->getUsername()}\n";
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+
+            } elseif ($newpw = $input->getOption('set-password')) {
                 if ($newpw === 'auto') {
                     $newpw = '';
                     $source = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789-_$';
@@ -99,7 +119,7 @@ class UserInfoCommand extends Command
 
                 if ($input->getOption( 'validation-pending' ) && $user->getValidated()) return false;
                 if ($input->getOption( 'validated' ) && !$user->getValidated()) return false;
-                if ($input->getOption( 'mods' ) && !$user->getIsAdmin()) return false;
+                if ($input->getOption( 'mods' ) && !$user->getRightsElevation() >= User::ROLE_CROW) return false;
 
                 return true;
             } );
@@ -112,7 +132,7 @@ class UserInfoCommand extends Command
                 $pendingValidation = $user->getPendingValidation();
                 $table->addRow( [
                     $user->getId(), $user->getUsername(), $user->getEmail(), $user->getValidated() ? '1' : '0',
-                    $user->getIsAdmin() ? '1' : '0',
+                    $user->getRightsElevation() >= User::ROLE_CROW ? '1' : '0',
                     $activeCitizen ? $activeCitizen->getId() : '-',
                     $pendingValidation ? "{$pendingValidation->getPkey()} ({$pendingValidation->getType()})" : '-'
                 ] );

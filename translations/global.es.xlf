@@ -19,13 +19,13 @@
         <target>El foro seleccionado no existe o no tienes permiso para verlo.</target>
       </segment>
     </unit>
-    <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
+    <unit id="johChWe" name="Dein Text muss mindestens 2 Zeichen lang sein.">
       <notes>
-        <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
+        <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
       </notes>
       <segment>
-        <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
-        <target>Tu texto debe tener al menos 10 caracteres de largo.</target>
+        <source>Dein Text muss mindestens 2 Zeichen lang sein.</source>
+        <target>Tu texto debe tener al menos 2 caracteres de largo.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
@@ -223,16 +223,16 @@
       </notes>
       <segment state="translated">
         <source>Achte auf deine Rechtschreibung</source>
-        <target>Revisa tu ortografía</target>
+        <target>Cuida tu ortografía</target>
       </segment>
     </unit>
     <unit id="htYR3Qp" name="Bleibe höflich und freundlich">
       <notes>
         <note category="german">Bleibe höflich und freundlich</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bleibe höflich und freundlich</source>
-        <target>Sé cortés y amigable</target>
+        <target>Sé respetuoso y cordial</target>
       </segment>
     </unit>
     <unit id="fS360q." name="Werbung ist verboten (Links etc.)">
@@ -500,9 +500,9 @@
       <notes>
         <note category="german">Aktuelles Leben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Aktuelles Leben</source>
-        <target>Vida actual</target>
+        <target>Pueblo actual</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
@@ -662,63 +662,63 @@
       <notes>
         <note category="german">Schere</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Schere</source>
-        <target>Schere</target>
+        <target>Tijera</target>
       </segment>
     </unit>
     <unit id="eVtWA3U" name="Stein">
       <notes>
         <note category="german">Stein</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Stein</source>
-        <target>Stein</target>
+        <target>Piedra</target>
       </segment>
     </unit>
     <unit id="vXPlKOG" name="Papier">
       <notes>
         <note category="german">Papier</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Papier</source>
-        <target>Papier</target>
+        <target>Papel</target>
       </segment>
     </unit>
     <unit id="l2sp7PJ" name="Kopf">
       <notes>
         <note category="german">Kopf</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Kopf</source>
-        <target>Kopf</target>
+        <target>Cara</target>
       </segment>
     </unit>
     <unit id="ZU60wKO" name="Zahl">
       <notes>
         <note category="german">Zahl</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zahl</source>
-        <target>Zahl</target>
+        <target>Cruz</target>
       </segment>
     </unit>
     <unit id="ysTRqQl" name="{color} {value}">
       <notes>
         <note category="german">{color} {value}</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>{color} {value}</source>
-        <target>{color} {value}</target>
+        <target>{value} de {color}</target>
       </segment>
     </unit>
     <unit id="awzJBNC" name="Users">
       <notes>
         <note category="german">Users</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Users</source>
-        <target>Users</target>
+        <target>Usuarios</target>
       </segment>
     </unit>
     <unit id="5qZlTRd" name="Meldungen">
@@ -734,108 +734,261 @@
       <notes>
         <note category="german">Du wurdest aus dem Forum verbannt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du wurdest aus dem Forum verbannt.</source>
-        <target>Du wurdest aus dem Forum verbannt.</target>
+        <target>Has sido baneado.</target>
       </segment>
     </unit>
     <unit id="KlavWsd" name="Hierfür fehlen dir notwendige Gegenstände.">
       <notes>
         <note category="german">Hierfür fehlen dir notwendige Gegenstände.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hierfür fehlen dir notwendige Gegenstände.</source>
-        <target>Hierfür fehlen dir notwendige Gegenstände.</target>
+        <target>Necesitas los objetos necesarios para esto.</target>
       </segment>
     </unit>
     <unit id="aTN.bek" name="Vorschau">
       <notes>
         <note category="german">Vorschau</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Vorschau</source>
-        <target>Vorschau</target>
+        <target>Vista previa</target>
       </segment>
     </unit>
     <unit id="nCT0Wn6" name="Dev">
       <notes>
         <note category="german">Dev</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dev</source>
-        <target>Dev</target>
+        <target>Desarrollador</target>
       </segment>
     </unit>
     <unit id="8WE8vgC" name="Rabe">
       <notes>
         <note category="german">Rabe</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Rabe</source>
-        <target>Rabe</target>
+        <target>Cuervo</target>
       </segment>
     </unit>
     <unit id="h0cXaFP" name="Sticky">
       <notes>
         <note category="german">Sticky</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Sticky</source>
-        <target>Sticky</target>
+        <target>Destacado</target>
       </segment>
     </unit>
     <unit id="oR9GFiR" name="Melden">
       <notes>
         <note category="german">Melden</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Melden</source>
-        <target>Melden</target>
+        <target>Reportar</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
       <notes>
         <note category="german">Löschen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Löschen</source>
-        <target>Löschen</target>
+        <target>Eliminar</target>
       </segment>
     </unit>
     <unit id="_zZCBE9" name="Anpinnen">
       <notes>
         <note category="german">Anpinnen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Anpinnen</source>
-        <target>Anpinnen</target>
+        <target>Destacar</target>
       </segment>
     </unit>
     <unit id="Bw5vcAl" name="Loslösen">
       <notes>
         <note category="german">Loslösen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Loslösen</source>
-        <target>Loslösen</target>
+        <target>Desprender</target>
       </segment>
     </unit>
     <unit id="DSG9UgI" name="Online">
       <notes>
         <note category="german">Online</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Online</source>
-        <target>Online</target>
+        <target>On-line</target>
       </segment>
     </unit>
     <unit id="oXlHg6q" name="Offline">
       <notes>
         <note category="german">Offline</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Offline</source>
-        <target>Offline</target>
+        <target>Off-line</target>
+      </segment>
+    </unit>
+    <unit id="MCyZNHk" name="62c3512">
+      <notes>
+        <note category="german">Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</note>
+      </notes>
+      <segment>
+        <source>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</source>
+        <target>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</target>
+      </segment>
+    </unit>
+    <unit id="BygLauq" name="Autor">
+      <notes>
+        <note category="german">Autor</note>
+      </notes>
+      <segment>
+        <source>Autor</source>
+        <target>Autor</target>
+      </segment>
+    </unit>
+    <unit id="kTWILTI" name="Datum">
+      <notes>
+        <note category="german">Datum</note>
+      </notes>
+      <segment>
+        <source>Datum</source>
+        <target>Datum</target>
+      </segment>
+    </unit>
+    <unit id="BGGdaRH" name="Züruck">
+      <notes>
+        <note category="german">Züruck</note>
+      </notes>
+      <segment>
+        <source>Züruck</source>
+        <target>Züruck</target>
+      </segment>
+    </unit>
+    <unit id="pUyN66u" name="Archivieren">
+      <notes>
+        <note category="german">Archivieren</note>
+      </notes>
+      <segment>
+        <source>Archivieren</source>
+        <target>Archivieren</target>
+      </segment>
+    </unit>
+    <unit id="_J8vap3" name="Fett">
+      <notes>
+        <note category="german">Fett</note>
+      </notes>
+      <segment>
+        <source>Fett</source>
+        <target>Fett</target>
+      </segment>
+    </unit>
+    <unit id="6XYRB0Q" name="Kursiv">
+      <notes>
+        <note category="german">Kursiv</note>
+      </notes>
+      <segment>
+        <source>Kursiv</source>
+        <target>Kursiv</target>
+      </segment>
+    </unit>
+    <unit id="RuL1D2i" name="Unterstreichen">
+      <notes>
+        <note category="german">Unterstreichen</note>
+      </notes>
+      <segment>
+        <source>Unterstreichen</source>
+        <target>Unterstreichen</target>
+      </segment>
+    </unit>
+    <unit id="AsD_uy4" name="Durchstreichen">
+      <notes>
+        <note category="german">Durchstreichen</note>
+      </notes>
+      <segment>
+        <source>Durchstreichen</source>
+        <target>Durchstreichen</target>
+      </segment>
+    </unit>
+    <unit id="aZc6vxf" name="Einfache Liste">
+      <notes>
+        <note category="german">Einfache Liste</note>
+      </notes>
+      <segment>
+        <source>Einfache Liste</source>
+        <target>Einfache Liste</target>
+      </segment>
+    </unit>
+    <unit id="1CuRrf_" name="Nummerierte Liste">
+      <notes>
+        <note category="german">Nummerierte Liste</note>
+      </notes>
+      <segment>
+        <source>Nummerierte Liste</source>
+        <target>Nummerierte Liste</target>
+      </segment>
+    </unit>
+    <unit id="Sk04seo" name="Listenpunkt">
+      <notes>
+        <note category="german">Listenpunkt</note>
+      </notes>
+      <segment>
+        <source>Listenpunkt</source>
+        <target>Listenpunkt</target>
+      </segment>
+    </unit>
+    <unit id="jlAJmOo" name="Spoiler">
+      <notes>
+        <note category="german">Spoiler</note>
+      </notes>
+      <segment>
+        <source>Spoiler</source>
+        <target>Spoiler</target>
+      </segment>
+    </unit>
+    <unit id="VfBD_n6" name="Zitat">
+      <notes>
+        <note category="german">Zitat</note>
+      </notes>
+      <segment>
+        <source>Zitat</source>
+        <target>Zitat</target>
+      </segment>
+    </unit>
+    <unit id="Fxoqglo" name="Ruhm">
+      <notes>
+        <note category="german">Ruhm</note>
+      </notes>
+      <segment>
+        <source>Ruhm</source>
+        <target>Ruhm</target>
+      </segment>
+    </unit>
+    <unit id="0OPnj4A" name="Linie">
+      <notes>
+        <note category="german">Linie</note>
+      </notes>
+      <segment>
+        <source>Linie</source>
+        <target>Linie</target>
+      </segment>
+    </unit>
+    <unit id="7WQ2SM6" name="Entstauben">
+      <notes>
+        <note category="german">Entstauben</note>
+      </notes>
+      <segment>
+        <source>Entstauben</source>
+        <target>Entstauben</target>
       </segment>
     </unit>
   </file>

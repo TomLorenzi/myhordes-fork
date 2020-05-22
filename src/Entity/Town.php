@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
+use Doctrine\ORM\ORMException;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TownRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Town
 {
@@ -99,6 +103,11 @@ class Town
     private $zombieEstimations;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Gazette", mappedBy="town", orphanRemoval=true, cascade={"persist"})
+     */
+    private $gazettes;
+
+    /**
      * @ORM\OneToOne(targetEntity="App\Entity\Forum", mappedBy="town", cascade={"persist", "remove"})
      */
     private $forum;
@@ -122,6 +131,11 @@ class Town
      * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="town", orphanRemoval=true)
      */
     private $citizenWatches;
+
+    /**
+     * @ORM\OneToOne(targetEntity=TownRankingProxy::class, inversedBy="town", cascade={"persist"})
+     */
+    private $rankingEntry;
 
     public function __construct()
     {
@@ -186,7 +200,7 @@ class Town
     }
 
     public function getCitizenCount(): int {
-        return count($this->getCitizens());
+        return $this->getCitizens()->count();
     }
 
     public function isOpen(): bool {
@@ -420,6 +434,37 @@ class Town
         return $this;
     }
 
+    /**
+     * @return Collection|Gazette[]
+     */
+    public function getGazettes(): Collection
+    {
+        return $this->gazettes;
+    }
+
+    public function addGazette(Gazette $gazette): self
+    {
+        if (!$this->gazettes->contains($gazette)) {
+            $this->gazettes[] = $gazette;
+            $gazette->setTown($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGazette(Gazette $gazette): self
+    {
+        if ($this->gazettes->contains($gazette)) {
+            $this->gazettes->removeElement($gazette);
+            // set the owning side to null (unless already changed)
+            if ($gazette->getTown() === $this) {
+                $gazette->setTown(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function getConf(): ?array
     {
         return $this->conf;
@@ -494,6 +539,28 @@ class Town
         }
 
         return $this;
+    }
+
+    public function getRankingEntry(): ?TownRankingProxy
+    {
+        return $this->rankingEntry;
+    }
+
+    public function setRankingEntry(?TownRankingProxy $rankingEntry): self
+    {
+        $this->rankingEntry = $rankingEntry;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_createTownRankingProxy(LifecycleEventArgs $args) {
+        $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
+        $args->getEntityManager()->flush();
     }
 
 }

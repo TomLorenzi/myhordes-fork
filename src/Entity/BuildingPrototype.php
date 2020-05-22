@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\BuildingPrototypeRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="building_prototype_name_unique",columns={"name"})
  * })
  */
 class BuildingPrototype
@@ -94,6 +94,11 @@ class BuildingPrototype
      * @ORM\Column(type="integer")
      */
     private $orderBy = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $hp;
 
     public function __construct()
     {
@@ -288,6 +293,18 @@ class BuildingPrototype
     public function setOrderBy(int $orderBy): self
     {
         $this->orderBy = $orderBy;
+
+        return $this;
+    }
+
+    public function getHp(): ?int
+    {
+        return $this->hp;
+    }
+
+    public function setHp(int $hp): self
+    {
+        $this->hp = $hp;
 
         return $this;
     }

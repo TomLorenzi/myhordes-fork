@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\ItemPrototypeRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="item_prototype_name_unique",columns={"name"})
  * })
  */
 class ItemPrototype
@@ -75,6 +75,11 @@ class ItemPrototype
      * @ORM\Column(type="integer")
      */
     private $watchpoint = 0;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ItemAction::class)
+     */
+    private $nightWatchAction;
 
     public function __construct()
     {
@@ -237,6 +242,18 @@ class ItemPrototype
     public function setWatchpoint(int $watchpoint): self
     {
         $this->watchpoint = $watchpoint;
+
+        return $this;
+    }
+
+    public function getNightWatchAction(): ?ItemAction
+    {
+        return $this->nightWatchAction;
+    }
+
+    public function setNightWatchAction(?ItemAction $nightWatchAction): self
+    {
+        $this->nightWatchAction = $nightWatchAction;
 
         return $this;
     }

@@ -20,7 +20,7 @@ class ErrorHelper
 
     const BaseForumErrors         = 1100;
     
-    const ErrorBannedFromFroum    = 1201;
+    const ErrorBannedFromForum    = 1201;
 
     const BaseAvatarErrors        = 1300;
 
@@ -29,8 +29,9 @@ class ErrorHelper
     const ErrorInternalError     = 3;
     const ErrorPermissionError   = 4;
 
-    const ErrorNoAP               = 51;
-    const ErrorActionNotAvailable = 52;
-    const ErrorItemsMissing       = 53;
-    const ErrorMustBeHero         = 54;
+    const ErrorNoAP                      = 51;
+    const ErrorActionNotAvailable        = 52;
+    const ErrorItemsMissing              = 53;
+    const ErrorMustBeHero                = 54;
+    const ErrorActionNotAvailableWounded = 55;
 }

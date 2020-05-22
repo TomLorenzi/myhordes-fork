@@ -54,6 +54,8 @@ class Thread
      */
     private $lastPost;
 
+    private $new = false;
+
     /**
      * @ORM\Column(type="boolean")
      */
@@ -200,5 +202,14 @@ class Thread
         }
 
         return false;
+    }
+
+    public function isNew(): bool {
+        return $this->new;
+    }
+
+    public function setNew(): self {
+        $this->new = true;
+        return $this;
     }
 }

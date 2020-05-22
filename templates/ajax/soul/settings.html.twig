@@ -206,7 +206,7 @@
 
         let del_btn = document.getElementById('avatar_del')
         if (del_btn) del_btn.addEventListener('click', function() {
-            if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 $.ajax.easySend( '{{ path('api_soul_avatar') }}', {up: 0},
                     function () {
                         $.ajax.load(null, '{{ path('soul_settings') }}', true);

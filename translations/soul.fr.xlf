@@ -77,7 +77,7 @@
       </notes>
       <segment>
         <source>News</source>
-        <target>News</target>
+        <target>Évolutions</target>
       </segment>
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
@@ -361,7 +361,7 @@
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
-        <target>Bitte wähle nur eine einzige Datei aus.</target>
+        <target>Veuillez sélectionner un seul fichier.</target>
       </segment>
     </unit>
     <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
@@ -429,7 +429,7 @@
     </unit>
     <unit id="mUtATjH" name="1de0d19">
       <notes>
-        <note category="german">Ce mot de passe est incorrect. Pour supprimer votre compte, merci d'entrer votre mot de passe actuel.</note>
+        <note category="german">This password is incorrect. To delete your account, please enter your current password.</note>
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
@@ -550,7 +550,7 @@
       </notes>
       <segment>
         <source>Standardsprache</source>
-        <target>Standardsprache</target>
+        <target>Langue par défaut</target>
       </segment>
     </unit>
     <unit id="gBz_D6E" name="Deutsch">
@@ -559,7 +559,7 @@
       </notes>
       <segment>
         <source>Deutsch</source>
-        <target>Deutsch</target>
+        <target>Allemand</target>
       </segment>
     </unit>
     <unit id="vp_4VdN" name="Französisch">
@@ -568,7 +568,7 @@
       </notes>
       <segment>
         <source>Französisch</source>
-        <target>Französisch</target>
+        <target>Français</target>
       </segment>
     </unit>
     <unit id="mD6lfyI" name="Englisch">
@@ -577,7 +577,7 @@
       </notes>
       <segment>
         <source>Englisch</source>
-        <target>Englisch</target>
+        <target>Anglais</target>
       </segment>
     </unit>
     <unit id="bjgV6Xr" name="Spanisch">
@@ -586,7 +586,7 @@
       </notes>
       <segment>
         <source>Spanisch</source>
-        <target>Spanisch</target>
+        <target>Espagnol</target>
       </segment>
     </unit>
   </file>

@@ -15,13 +15,21 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity("email")
  * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="email_unique",columns={"email"}),
- *     @UniqueConstraint(name="name_unique",columns={"name"})
- * })
+ * @Table(
+ *     name="`user`",
+ *     uniqueConstraints={
+ *         @UniqueConstraint(name="email_unique",columns={"email"}),
+ *         @UniqueConstraint(name="user_name_unique",columns={"name"})
+ *     }
+ * )
  */
 class User implements UserInterface, EquatableInterface
 {
+
+    const ROLE_USER      =  0;
+    const ROLE_CROW      =  3;
+    const ROLE_ADMIN     =  4;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -85,11 +93,6 @@ class User implements UserInterface, EquatableInterface
     private $externalId = '';
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isAdmin = 0;
-
-    /**
      * @ORM\OneToOne(targetEntity="App\Entity\Avatar", cascade={"persist", "remove"})
      */
     private $avatar;
@@ -109,12 +112,23 @@ class User implements UserInterface, EquatableInterface
      */
     private $language = "de";
 
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $rightsElevation = 0;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $pastLifes;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
         $this->foundTexts = new ArrayCollection();
         $this->pictos = new ArrayCollection();
         $this->bannings = new ArrayCollection();
+        $this->pastLifes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -195,7 +209,8 @@ class User implements UserInterface, EquatableInterface
     {
         $roles = [];
         if ($this->pass === null) return $roles;
-        if ($this->isAdmin) $roles[] = 'ROLE_ADMIN';
+        if ($this->rightsElevation >= 4) $roles[] = 'ROLE_ADMIN';
+        if ($this->rightsElevation >= 3) $roles[] = 'ROLE_CROW';
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
@@ -231,7 +246,7 @@ class User implements UserInterface, EquatableInterface
             $this->getRoles() === $user->getRoles();
         if ($user instanceof User) {
             return $b1 &&
-                $this->getIsAdmin() === $user->getIsAdmin();
+                $this->getRightsElevation() === $user->getRightsElevation();
         } else return $b1;
     }
 
@@ -404,18 +419,6 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function getIsAdmin(): ?bool
-    {
-        return $this->isAdmin;
-    }
-
-    public function setIsAdmin(bool $isAdmin): self
-    {
-        $this->isAdmin = $isAdmin;
-
-        return $this;
-    }
-
     public function getAvatar(): ?Avatar
     {
         return $this->avatar;
@@ -460,6 +463,49 @@ class User implements UserInterface, EquatableInterface
     public function setLanguage(string $language): self
     {
         $this->language = $language;
+
+        return $this;
+    }
+
+    public function getRightsElevation(): ?int
+    {
+        return $this->rightsElevation;
+    }
+
+    public function setRightsElevation(int $rightsElevation): self
+    {
+        $this->rightsElevation = $rightsElevation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CitizenRankingProxy[]
+     */
+    public function getPastLifes(): Collection
+    {
+        return $this->pastLifes;
+    }
+
+    public function addPastLife(CitizenRankingProxy $pastLife): self
+    {
+        if (!$this->pastLifes->contains($pastLife)) {
+            $this->pastLifes[] = $pastLife;
+            $pastLife->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePastLife(CitizenRankingProxy $pastLife): self
+    {
+        if ($this->pastLifes->contains($pastLife)) {
+            $this->pastLifes->removeElement($pastLife);
+            // set the owning side to null (unless already changed)
+            if ($pastLife->getUser() === $this) {
+                $pastLife->setUser(null);
+            }
+        }
 
         return $this;
     }

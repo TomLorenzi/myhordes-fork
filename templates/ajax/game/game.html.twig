@@ -23,12 +23,18 @@
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
             {% endfor %}
             {% if rucksack.items|length < rucksack_size %}
-                {% for i in range(0, rucksack_size - rucksack.items|length - 1) %}
+                {% for i in range(0, rucksack_size - rucksack.items|length - 1)%}
                     <li class="free"></li>
                 {% endfor %}
             {% endif %}
+            {% if rucksack_size > 7 %}
+                <li class="more">
+                    <img src="{{ asset("build/images/small_more2.gif") }}" alt="" />
+                </li>
+            {% endif %}
         </ul>
     {% endif %}
+
     {% if status is defined %}
         <ul class="status">
             <li class="text">{{'Status'|trans({}, 'game')}}</li>
@@ -95,13 +101,25 @@
     {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
         <ul class="civil">
             {% for role in roles %}
-                {# @var stat \App\Entity\CitizenRole #}
-                <li class="status">
-                    <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
-                    <div class="tooltip temp-building">
-                    {{ 'Du bist der %rolename% dieser Stadt.'|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
-                    </div>
-                </li>
+                {# @var role \App\Entity\CitizenRole #}
+                {% if not role.hidden %}
+                    <li class="status">
+                        <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
+                        {% if role.name == 'ghoul' %}
+                            <div class="ghoul-hunger-container">
+                                <div class="ghoul-hunger-background"></div>
+                                <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
+                                <div class="ghoul-hunger-indicator" style="left: 40%"></div>
+                                {% if hunger > 40 %}
+                                    <span class="message">{{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</span>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        <div class="tooltip">
+                            {{ (role.message ?? 'Du bist der %rolename% dieser Stadt.')|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
+                        </div>
+                    </li>
+                {% endif %}
             {% endfor %}
             {% if banished %}
             <li class="status"><img src="{{ asset('build/images/banished.gif') }}" alt="{{ 'Verbannt'|trans({},'game') }}">

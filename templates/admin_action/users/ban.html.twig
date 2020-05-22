@@ -8,7 +8,7 @@
                     {{ 'Status'|trans({}, 'admin') }}
                 </div>
                 <div class="cell padded rw-5 rw-sm-12">
-                    <input disabled value="{% if banned %}{{ 'Verbannt bis '|trans({}, 'admin') }}{{ activeBan.banEnd|date('d.m.Y h:i:s') }}{% else %}{{ "--" }}{% endif %}" />
+                    <input disabled style="width: 25em;" value="{% if banned %}{{ 'Verbannt bis '|trans({}, 'admin') }}{{ activeBan.banEnd|date('d.m.Y h:i:s') }}{% else %}{{ "--" }}{% endif %}" />
                 </div>
                 {% if banned %}
                 <div class="cell padded rw-2 rw-sm-12">
@@ -21,7 +21,7 @@
                     {{ 'Letzte Verbannung'|trans({}, 'admin') }}
                 </div>
                 <div class="cell padded rw-5 rw-sm-12">
-                    <input disabled value="{% if banCount > 0 %}{{ lastBan.banStart|date('d.m.Y') }} -- {{ 'Verbannungen'|trans({}, 'admin') }}: {{ banCount }}{% else %}{{ "--" }}{% endif %}" />
+                    <input disabled style="width: 25em;" value="{% if banCount > 0 %}{{ lastBan.banStart|date('d.m.Y') }} -- {{ 'Verbannungen'|trans({}, 'admin') }}: {{ banCount }}{% else %}{{ "--" }}{% endif %}" />
                 </div>
             </div>
             <div class="row">
@@ -55,7 +55,8 @@
                 </div>
             </div>
         </div>
-{% embed "admin_action/footer.html.twig" %}{% endembed %}
+    </div>
+    {% embed "admin_action/footer.html.twig" %}{% endembed %}
 {% endblock %}
 {% block js %}
     {{ parent() }}

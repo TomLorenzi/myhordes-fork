@@ -5,10 +5,13 @@ namespace App\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\ORMException;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CitizenRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Citizen
 {
@@ -210,6 +213,26 @@ class Citizen
      */
     private $citizenWatch;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\BankAntiAbuse", mappedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $bankAntiAbuse;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ghulHunger = 0;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PrivateMessageThread::class, mappedBy="recipient", orphanRemoval=true)
+     */
+    private $privateMessageThreads;
+
+    /**
+     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, inversedBy="citizen", cascade={"persist"})
+     */
+    private $rankingEntry;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -223,6 +246,7 @@ class Citizen
         $this->leadingEscorts = new ArrayCollection();
         $this->disposedBy = new ArrayCollection();
         $this->citizenWatch = new ArrayCollection();
+        $this->privateMessageThreads = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -340,6 +364,12 @@ class Citizen
         }
 
         return $this;
+    }
+
+    public function hasRole(string $name): bool {
+        foreach ($this->getRoles() as $role)
+            if ($role->getName() === $name) return true;
+        return false;
     }
 
     /**
@@ -898,5 +928,83 @@ class Citizen
         $this->citizenWatch->removeElement($citizenWatch);
 
         return $this;
+    }
+
+
+    public function getBankAntiAbuse(): ?BankAntiAbuse
+    {
+        return $this->bankAntiAbuse;
+    }
+
+    public function setBankAntiAbuse(?BankAntiAbuse $bankAntiAbuse): self
+    {
+        $this->bankAntiAbuse = $bankAntiAbuse;
+
+        return $this;
+    }
+
+    public function getGhulHunger(): ?int
+    {
+        return $this->ghulHunger;
+    }
+
+    public function setGhulHunger(int $ghulHunger): self
+    {
+        $this->ghulHunger = $ghulHunger;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PrivateMessageThread[]
+     */
+    public function getPrivateMessageThreads(): Collection
+    {
+        return $this->privateMessageThreads;
+    }
+
+    public function addPrivateMessageThread(PrivateMessageThread $privateMessageThread): self
+    {
+        if (!$this->privateMessageThreads->contains($privateMessageThread)) {
+            $this->privateMessageThreads[] = $privateMessageThread;
+            $privateMessageThread->setRecipient($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrivateMessageThread(PrivateMessageThread $privateMessageThread): self
+    {
+        if ($this->privateMessageThreads->contains($privateMessageThread)) {
+            $this->privateMessageThreads->removeElement($privateMessageThread);
+            // set the owning side to null (unless already changed)
+            if ($privateMessageThread->getRecipient() === $this) {
+                $privateMessageThread->setRecipient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRankingEntry(): ?CitizenRankingProxy
+    {
+        return $this->rankingEntry;
+    }
+
+    public function setRankingEntry(?CitizenRankingProxy $rankingEntry): self
+    {
+        $this->rankingEntry = $rankingEntry;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args) {
+        $args->getEntityManager()->persist( CitizenRankingProxy::fromCitizen($this) );
+        $args->getEntityManager()->flush();
     }
 }

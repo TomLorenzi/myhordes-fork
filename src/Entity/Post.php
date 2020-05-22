@@ -65,6 +65,8 @@ class Post
      */
     private $adminReports;
 
+    private $new = false;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -174,9 +176,18 @@ class Post
     /**
      * @return Collection|AdminReport[]
      */
-    public function getAdminReports(): Collection
+    public function getAdminReports(?bool $unseen = false): Collection
     {
-        return $this->adminReports;
+        if ($unseen) {
+            $reports = $this->adminReports;
+            foreach ($this->adminReports as $idx => $report) {
+                if ($report->getSeen())
+                    $reports->remove($idx);
+            }
+            return $reports;
+        }
+        else 
+            return $this->adminReports;
     }
 
     public function addAdminReport(AdminReport $adminReport): self
@@ -199,6 +210,15 @@ class Post
             }
         }
 
+        return $this;
+    }
+
+    public function isNew(): bool {
+        return $this->new;
+    }
+
+    public function setNew(): self {
+        $this->new = true;
         return $this;
     }
 }

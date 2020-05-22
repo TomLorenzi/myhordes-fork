@@ -88,36 +88,36 @@
       <notes>
         <note category="german">Bürger gestorben</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bürger gestorben</source>
-        <target>Bürger gestorben</target>
+        <target>Habitantes muertos</target>
       </segment>
     </unit>
     <unit id="5bHzvXH" name="Zombies gekillt">
       <notes>
         <note category="german">Zombies gekillt</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zombies gekillt</source>
-        <target>Zombies gekillt</target>
+        <target>Zombies exterminados</target>
       </segment>
     </unit>
     <unit id="YlMROjW" name="Akte von Kannibalismus">
       <notes>
         <note category="german">Akte von Kannibalismus</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Akte von Kannibalismus</source>
-        <target>Akte von Kannibalismus</target>
+        <target>Actos de canibalismo</target>
       </segment>
     </unit>
     <unit id="ad6M6Yb" name="Und das wird kaum besser werden...">
       <notes>
         <note category="german">Und das wird kaum besser werden...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Und das wird kaum besser werden...</source>
-        <target>Und das wird kaum besser werden...</target>
+        <target>Y eso no es todo...</target>
       </segment>
     </unit>
   </file>

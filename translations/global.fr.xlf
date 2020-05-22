@@ -19,13 +19,13 @@
         <target>Le forum sélectionné n'existe pas ou vous n'avez pas l'autorisation d'y accéder.</target>
       </segment>
     </unit>
-    <unit id="cLv91_L" name="Dein Text muss mindestens 10 Zeichen lang sein.">
+    <unit id="johChWe" name="Dein Text muss mindestens 2 Zeichen lang sein.">
       <notes>
-        <note category="german">Dein Text muss mindestens 10 Zeichen lang sein.</note>
+        <note category="german">Dein Text muss mindestens 2 Zeichen lang sein.</note>
       </notes>
       <segment>
-        <source>Dein Text muss mindestens 10 Zeichen lang sein.</source>
-        <target>Votre texte doit contenir au moins 10 charactères.</target>
+        <source>Dein Text muss mindestens 2 Zeichen lang sein.</source>
+        <target>Votre texte doit contenir au moins 2 charactères.</target>
       </segment>
     </unit>
     <unit id="1rA34oT" name="Dein Titel muss zwischen 3 und 64 Zeichen lang sein.">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Zum Spiel</source>
-        <target>Retour au jeu</target>
+        <target>Retour</target>
       </segment>
     </unit>
     <unit id="tkZocIU" name="Ausloggen">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Hinweis</source>
-        <target>Hinweis</target>
+        <target>Remarque</target>
       </segment>
     </unit>
     <unit id="l.2Tpic" name="ca64199">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+        <target><![CDATA[Sans cela, vous ne pouvez pas utiliser d'applications externes. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.]]></target>
       </segment>
     </unit>
     <unit id="h0cXaFP" name="Sticky">
@@ -873,6 +873,222 @@
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
         <target>Utilisez ce sujet pour discuter autour des chantiers à construire...</target>
+      </segment>
+    </unit>
+    <unit id="BygLauq" name="Autor">
+      <notes>
+        <note category="german">Autor</note>
+      </notes>
+      <segment>
+        <source>Autor</source>
+        <target>Auteur</target>
+      </segment>
+    </unit>
+    <unit id="kTWILTI" name="Datum">
+      <notes>
+        <note category="german">Datum</note>
+      </notes>
+      <segment>
+        <source>Datum</source>
+        <target>Date</target>
+      </segment>
+    </unit>
+    <unit id="BGGdaRH" name="Züruck">
+      <notes>
+        <note category="german">Züruck</note>
+      </notes>
+      <segment>
+        <source>Züruck</source>
+        <target>Retour</target>
+      </segment>
+    </unit>
+    <unit id="pUyN66u" name="Archivieren">
+      <notes>
+        <note category="german">Archivieren</note>
+      </notes>
+      <segment>
+        <source>Archivieren</source>
+        <target>Archiver</target>
+      </segment>
+    </unit>
+    <unit id="MCyZNHk" name="62c3512">
+      <notes>
+        <note category="german">Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</note>
+      </notes>
+      <segment>
+        <source>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</source>
+        <target>Au moment de passer à l'action, votre blessure vous arrache un hurlement et vous arrête net. Soignez-vous avant de pouvoir faire ça...</target>
+      </segment>
+    </unit>
+    <unit id="_J8vap3" name="Fett">
+      <notes>
+        <note category="german">Fett</note>
+      </notes>
+      <segment>
+        <source>Fett</source>
+        <target>Gras</target>
+      </segment>
+    </unit>
+    <unit id="6XYRB0Q" name="Kursiv">
+      <notes>
+        <note category="german">Kursiv</note>
+      </notes>
+      <segment>
+        <source>Kursiv</source>
+        <target>Italique</target>
+      </segment>
+    </unit>
+    <unit id="RuL1D2i" name="Unterstreichen">
+      <notes>
+        <note category="german">Unterstreichen</note>
+      </notes>
+      <segment>
+        <source>Unterstreichen</source>
+        <target>Souligné</target>
+      </segment>
+    </unit>
+    <unit id="AsD_uy4" name="Durchstreichen">
+      <notes>
+        <note category="german">Durchstreichen</note>
+      </notes>
+      <segment>
+        <source>Durchstreichen</source>
+        <target>Barré</target>
+      </segment>
+    </unit>
+    <unit id="aZc6vxf" name="Einfache Liste">
+      <notes>
+        <note category="german">Einfache Liste</note>
+      </notes>
+      <segment>
+        <source>Einfache Liste</source>
+        <target>Liste simple</target>
+      </segment>
+    </unit>
+    <unit id="1CuRrf_" name="Nummerierte Liste">
+      <notes>
+        <note category="german">Nummerierte Liste</note>
+      </notes>
+      <segment>
+        <source>Nummerierte Liste</source>
+        <target>Liste numérotée</target>
+      </segment>
+    </unit>
+    <unit id="Sk04seo" name="Listenpunkt">
+      <notes>
+        <note category="german">Listenpunkt</note>
+      </notes>
+      <segment>
+        <source>Listenpunkt</source>
+        <target>Élément de liste</target>
+      </segment>
+    </unit>
+    <unit id="jlAJmOo" name="Spoiler">
+      <notes>
+        <note category="german">Spoiler</note>
+      </notes>
+      <segment>
+        <source>Spoiler</source>
+        <target>Spoiler</target>
+      </segment>
+    </unit>
+    <unit id="VfBD_n6" name="Zitat">
+      <notes>
+        <note category="german">Zitat</note>
+      </notes>
+      <segment>
+        <source>Zitat</source>
+        <target>Citation</target>
+      </segment>
+    </unit>
+    <unit id="Fxoqglo" name="Ruhm">
+      <notes>
+        <note category="german">Ruhm</note>
+      </notes>
+      <segment>
+        <source>Ruhm</source>
+        <target>Balise Glorieuse</target>
+      </segment>
+    </unit>
+    <unit id="0OPnj4A" name="Linie">
+      <notes>
+        <note category="german">Linie</note>
+      </notes>
+      <segment>
+        <source>Linie</source>
+        <target>Ligne</target>
+      </segment>
+    </unit>
+    <unit id="7WQ2SM6" name="Entstauben">
+      <notes>
+        <note category="german">Entstauben</note>
+      </notes>
+      <segment>
+        <source>Entstauben</source>
+        <target>Désarchiver</target>
+      </segment>
+    </unit>
+    <unit id="siULJza" name="Link einfügen">
+      <notes>
+        <note category="german">Link einfügen</note>
+      </notes>
+      <segment>
+        <source>Link einfügen</source>
+        <target>Insérer un lien</target>
+      </segment>
+    </unit>
+    <unit id="HqBDmKX" name="Bild einfügen">
+      <notes>
+        <note category="german">Bild einfügen</note>
+      </notes>
+      <segment>
+        <source>Bild einfügen</source>
+        <target>Insérer une image</target>
+      </segment>
+    </unit>
+    <unit id="9H7C4W9" name="Link-Text">
+      <notes>
+        <note category="german">Link-Text</note>
+      </notes>
+      <segment>
+        <source>Link-Text</source>
+        <target>Texte du lien</target>
+      </segment>
+    </unit>
+    <unit id="nE4T9Ox" name="Link-URL">
+      <notes>
+        <note category="german">Link-URL</note>
+      </notes>
+      <segment>
+        <source>Link-URL</source>
+        <target>URL du lien</target>
+      </segment>
+    </unit>
+    <unit id="d1AmbOG" name="Bildtitel">
+      <notes>
+        <note category="german">Bildtitel</note>
+      </notes>
+      <segment>
+        <source>Bildtitel</source>
+        <target>Titre de l'image</target>
+      </segment>
+    </unit>
+    <unit id="Q0tlYyY" name="Bild-URL">
+      <notes>
+        <note category="german">Bild-URL</note>
+      </notes>
+      <segment>
+        <source>Bild-URL</source>
+        <target>URL de l'image</target>
+      </segment>
+    </unit>
+    <unit id="lqB1Bvf" name="Einfügen">
+      <notes>
+        <note category="german">Einfügen</note>
+      </notes>
+      <segment>
+        <source>Einfügen</source>
+        <target>Valider</target>
       </segment>
     </unit>
   </file>

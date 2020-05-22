@@ -53,11 +53,12 @@ class TownInfoCommand extends Command
             : $this->entityManager->getRepository(TownClass::class)->findOneByName( $type )->getTowns();
 
         $table = new Table( $output );
-        $table->setHeaders( ['ID', 'Open?', 'Name', 'Population', 'Type', 'Day'] );
+        $table->setHeaders( ['ID', 'Open?', 'Lang', 'Name', 'Population', 'Type', 'Day'] );
         foreach ($towns as $town) {
             $table->addRow([
                 $town->getId(),
                 $town->isOpen(),
+                $town->getLanguage(),
                 $town->getName(),
                 $town->getCitizenCount() . '/' . $town->getPopulation(),
                 $town->getType()->getLabel(),

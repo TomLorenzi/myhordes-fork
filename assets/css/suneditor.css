@@ -1710,32 +1710,6 @@
     left: 6px;
     top: -10px;
 }
-.sun-editor-editable .__se__format__glory {
-    margin: 30px 30px 15px;
-    padding: 10px;
-    background-color: #301a22;
-    border: 1px solid #fe7d00;
-    border-top-color: #feb500;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 1px #000, 0 0 2px #000;
-    position: relative;
-}
-.sun-editor-editable .__se__format__glory p {
-    margin: 0
-}
-.sun-editor-editable .__se__format__glory::before {
-    content: '';
-    display: block;
-    background-image: url('../img/gloryhordes.png');
-    background-size: 100% 22px;
-    background-position: 50% 0;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: -22px;
-    left: 0;
-    width: 100%;
-    height: 22px;
-}
 
 .sun-editor-editable span {
     display: inline;
@@ -1756,16 +1730,19 @@
 .sun-editor-editable strong {
     color: #afb3cf;
     text-transform: initial;
+    opacity: .8;
 }
 
 .sun-editor-editable i,
 .sun-editor-editable em {
     color: #f0d79e;
+    opacity: .7;
 }
 
 .sun-editor-editable del,
 .sun-editor-editable strike {
     color: #cc3300;
+    opacity: .8;
 }
 
 .sun-editor-editable a {

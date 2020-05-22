@@ -11,10 +11,13 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
+use App\Entity\Emotes;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessage;
+use App\Entity\PrivateMessageThread;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
@@ -27,7 +30,9 @@ use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\EntityManagerInterface;
+use DateTime;
 use Exception;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\Translator;
@@ -38,15 +43,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class TownHomeController extends TownController
 {
+
     /**
-     * @Route("jx/town/house/{tab?}", name="town_house")
+     * @Route("jx/town/house/{tab?}/{subtab?}", name="town_house")
      * @param string|null $tab
      * @param EntityManagerInterface $em
      * @param TownHandler $th
      * @return Response
      */
-    public function house(?string $tab, EntityManagerInterface $em, TownHandler $th): Response
+    public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th, Request $request): Response
     {
+
         // Get citizen, town and home objects
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -94,10 +101,47 @@ class TownHomeController extends TownController
         foreach ($home->getChest()->getItems() as $item)
             $deco += $item->getPrototype()->getDeco();
 
+        $can_send_global_pm = $citizen->getProfession()->getHeroic();
+
+        $possible_dests = [];
+        foreach ($town->getCitizens() as $dest) {
+            if(!$dest->getAlive()) continue;
+            if($dest == $this->getActiveCitizen()) continue;
+            $possible_dests[] = $dest;
+        }
+
+        $dest_id = $request->query->get('dest');
+        $destCitizen = null;
+
+        if($dest_id !== null){
+            $destCitizen = $this->entity_manager->getRepository(Citizen::class)->find($dest_id);
+        }
+
+        $nonArchivedMessages = $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($citizen);
+        foreach ($nonArchivedMessages as $thread) {
+            foreach ($thread->getMessages() as $message) {
+                if($message->getRecipient() == $this->getActiveCitizen() && $message->getNew())
+                    $thread->setNew(true);
+            }
+        }
+
+        $sendable_items = [];
+
+        foreach ($citizen->getInventory()->getItems() as $item) {
+            if($item->getEssential()) continue;
+            $sendable_items[] = $item;
+        }
+
+        foreach ($home->getChest()->getItems() as $item) {
+            if($item->getEssential()) continue;
+            $sendable_items[] = $item;
+        }
+
         // Render
         return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
             'home' => $home,
             'tab' => $tab,
+            'subtab' => $subtab,
             'heroics' => $this->getHeroicActions(),
             'special_actions' => $this->getHomeActions(),
             'actions' => $this->getItemActions(),
@@ -115,7 +159,14 @@ class TownHomeController extends TownController
             'deco' => $deco,
 
             'log' => $this->renderLog( -1, $citizen, false, null, 10 )->getContent(),
-            'day' => $town->getDay()
+            'day' => $town->getDay(),
+
+            'can_send_global_pm' => $can_send_global_pm,
+            'nonArchivedMessages' => $nonArchivedMessages,
+            'archivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findArchived($citizen),
+            'possible_dests' => $possible_dests,
+            'dest_citizen' => $destCitizen,
+            'sendable_items' => $sendable_items,
         ]) );
     }
 

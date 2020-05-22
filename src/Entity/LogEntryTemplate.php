@@ -3,31 +3,52 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LogEntryTemplateRepository")
+ * @UniqueEntity("name")
+ * @Table(uniqueConstraints={
+ *     @UniqueConstraint(name="log_entry_template_name_unique",columns={"name"})
+ * })
  */
 class LogEntryTemplate
 {
 
-    const TypeVarious      =  0;
-    const TypeCrimes       =  1;
-    const TypeBank         =  2;
-    const TypeDump         =  3;
-    const TypeConstruction =  4;
-    const TypeWorkshop     =  5;
-    const TypeDoor         =  6;
-    const TypeWell         =  7;
-    const TypeCitizens     =  8;
-    const TypeNightly      =  9;
-    const TypeHome         = 10;
-    const TypeChat         = 11;
+    const TypeVarious       =  0;
+    const TypeCrimes        =  1;
+    const TypeBank          =  2;
+    const TypeDump          =  3;
+    const TypeConstruction  =  4;
+    const TypeWorkshop      =  5;
+    const TypeDoor          =  6;
+    const TypeWell          =  7;
+    const TypeCitizens      =  8;
+    const TypeNightly       =  9;
+    const TypeHome          = 10;
+    const TypeChat          = 11;
+    const TypeGazette       = 12;
+    const TypeGazetteTown   = 13;
+    const TypeGazetteBeyond = 14;
 
     const ClassNone     = 0;
     const ClassWarning  = 1;
     const ClassCritical = 2;
     const ClassInfo     = 3;
     const ClassChat     = 4;
+    const ClassGazetteNews        =  5;
+    const ClassGazetteNoDeaths    =  6;
+    const ClassGazetteOneDeath    =  7;
+    const ClassGazetteTwoDeaths   =  8;
+    const ClassGazetteMultiDeaths =  9;
+    const ClassGazetteSuicide     = 10;
+    const ClassGazetteAddiction   = 11;
+    const ClassGazetteDehydration = 12;
+    const ClassGazettePoison      = 13;
+    const ClassGazetteVanished    = 14;
+    const ClassGazetteWind        = 15;
 
     /**
      * @ORM\Id()
@@ -62,7 +83,7 @@ class LogEntryTemplate
     private $variableTypes = [];
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=128)
      */
     private $name;
 

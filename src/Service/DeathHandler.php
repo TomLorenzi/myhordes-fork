@@ -6,10 +6,13 @@ namespace App\Service;
 
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
+use App\Entity\Gazette;
 use App\Entity\PictoPrototype;
 use App\Entity\Soul;
+use App\Entity\TownRankingProxy;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Structures\BetweenFilter;
 
@@ -94,6 +97,12 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($citizen->getTown(), ($citizen->getTown()->getDay() + ($cod->getId() == CauseOfDeath::NightlyAttack ? 0 : 1)));
+        if($gazette !== null){
+            $gazette->addVictim($citizen);
+            $this->entity_manager->persist($gazette);
+        }
+
         // Give soul point
         $days = $citizen->getSurvivedDays();
         $nbSoulPoints = $days * ( $days + 1 ) / 2;
@@ -142,6 +151,14 @@ class DeathHandler
                 // We need to do the day 5 / day 8 rule calculation for the last day
                 $this->picto_handler->give_picto($citizen, $pictoPrototype, round(pow($citizen->getSurvivedDays(), 1.5), 0) - round(pow($citizen->getSurvivedDays() - 1, 1.5), 0));
             }
+
+            // Decoration picto
+            // Calculate decoration
+	        $deco = 0;
+	        foreach ($citizen->getHome()->getChest()->getItems() as $item)
+	            $deco += $item->getPrototype()->getDeco();
+            if($deco > 0)
+	           $this->picto_handler->give_validated_picto($citizen, "r_deco_#00", $deco);
         }
 
         $pictoDeath = null;
@@ -166,7 +183,7 @@ class DeathHandler
                 $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
                 break;
             case CauseOfDeath::Radiations:
-                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dhang_#00");
+                $pictoDeath = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dnucl_#00");
                 $pictoDeath2 = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_dinfec_#00");
                 break;
         }
@@ -184,6 +201,9 @@ class DeathHandler
         $this->picto_handler->validate_picto($citizen);
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
+
+        CitizenRankingProxy::fromCitizen( $citizen );
+        TownRankingProxy::fromTown( $citizen->getTown() );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
 

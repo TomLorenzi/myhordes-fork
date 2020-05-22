@@ -52,16 +52,14 @@
                 </div>
             </div>
         {% endif %}
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_CROW') %}
             <div id="modeCommand">
                 <h1><span>{{ 'Moderation'|trans({},'global') }}</span></h1>              
                 <div id="scrollMenu">
                     <ul>
                     {% for adminAction in adminActions %}
                         {# @var adminAction \App\Entity\AdminAction #}
-
                         <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a><br>
-
                     {% endfor %}
                     </ul>
                 </div>
@@ -97,22 +95,39 @@
     <div><i class="fa fa-spin fa-cog fa-3x"></i></div>
     <div><i class="fa fa-spin fa-cog fa-3x"></i></div>
 </div>
+<div id="modal-backdrop">
+    <div id="modal">
+        <div id="modal-close" class="modal-cancel"><i class="far fa-window-close"></i></div>
+        <div id="modal-title"></div>
+        <div id="modal-content">
+        </div>
+        <div id="modal-actions">
+            <div class="modal-button" id="modal-button-ok">{{ 'Einfügen'|trans({},'global') }}</div>
+            <div class="modal-button modal-cancel" id="modal-button-no">{{ 'Abbrechen'|trans({},'global') }}</div>
+        </div>
+    </div>
+</div>
+
 </body>
 <footer>
     {% block footer %}
         <div class="row">
             <div class="cell-small rw-11 rw-sm-24 justify">
                 <strong>MyHordes</strong>
-                This is a fan project for the games <a href="http://dieverdammten.de">Die Verdammten</a>, <a href="http://die2nite.com/">Die2Nite</a> and <a href="http://hordes.fr/">Hordes</a> by <b>MotionTwin</b>.
-                Unless otherwise expressly stated, all graphics in MyHordes are taken from these games and are therefore the property of <b>MotionTwin</b>.
+                <div class="content">This is a fan project for the games <a href="http://dieverdammten.de">Die Verdammten</a>, <a href="http://die2nite.com/">Die2Nite</a> and <a href="http://hordes.fr/">Hordes</a> by <b>MotionTwin</b>.
+                Unless otherwise expressly stated, all graphics in MyHordes are taken from these games and are therefore the property of <b>MotionTwin</b>.</div>
             </div>
             <div class="cell-small ro-5 rw-8 ro-sm-0 rw-sm-24 center">
                 <strong>Programming</strong>
+                <div class="content">
                 {% for dev in devs %}
                     <div>{{ dev|raw }}</div>
                 {% endfor %}
+            	</div>
                 <strong>Thanks to</strong>
+                <div class="content">
                 <i>MisterD</i>, <i>Mondi</i>
+            	</div>
             </div>
         </div>
     {% endblock %}

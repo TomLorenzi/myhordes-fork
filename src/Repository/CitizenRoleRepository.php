@@ -38,6 +38,19 @@ class CitizenRoleRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param bool $votable
+     * @return CitizenRole[]
+     */
+    public function findVotable(bool $votable = true)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.votable = :val')->setParameter('val', $votable)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return CitizenRole[] Returns an array of CitizenRole objects
     //  */

@@ -1,0 +1,117 @@
+{% set today = date() %}
+{% set yesterday = date('-1days') %}
+<div class="row">
+    <div class="cell padded rw-3"><button id="backbtn"><img src="{{ asset("build/images/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
+    {% if thread.archived %}
+    <div class="cell padded rw-3"><button id="unarchivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Entstauben{% endtrans %}</button></div>
+    {% else %}
+    <div class="cell padded rw-3"><button id="archivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Archivieren{% endtrans %}</button></div>
+    {% endif %}
+</div>
+
+<div class="row-table messages-list">
+    <h5>{% trans from 'game'%}Betreff:{% endtrans %} {{thread.title}}</h5>
+
+    {% for post in posts %}
+        <div class="forum-post">
+            <div class="forum-post-header {% if post.owner.user.username == 'Der Rabe' %}header-variant-crow{% endif %}">
+                <i>
+                    {% if post.date.format('Ymd') == today|date("Ymd") %}
+                        {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                    {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
+                        {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                    {% else %}
+                        {{ post.date|format_datetime('medium', 'short') }}
+                    {% endif %}
+                </i>
+                {% if (post.owner.user.avatar) %}
+                    {% if app.user.preferSmallAvatars %}
+                        {% if post.owner.user.username == 'Der Rabe' %}
+                            <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% else %}
+                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% endif %}
+                    {% else %}
+                        {% if post.owner.user.username == 'Der Rabe' %}
+                            <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% else %}
+                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
+                {% endif %}
+                <b>
+                    {% if post.owner.user.username == 'Der Rabe' %}
+                        {{ 'Der Rabe'|trans({},'global') }}
+                    {% else %}
+                        {{ post.owner.user.username }}
+                    {% endif %}
+                </b>
+            </div>
+            <div class="forum-post-content">
+                {{ post.text|raw }}
+                {% if items[post.id] is defined and items[post.id]|length > 0 %}
+                    <hr />
+                    <div class="help">
+                        {% trans from 'game' %}Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).{% endtrans %}
+                        <ul class="linked-items">
+                        {% for item in items[post.id] %}
+                            <li><img src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" alt="{{ item.label|trans({},'items') }}"> {{ item.label|trans({},'items') }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="forum-post-footer right"></div>
+        </div>
+    {% endfor %}
+
+    {% if not thread.archived and not thread.locked %}
+        <button id="replybtn">{{ 'Antworten'|trans({},'global') }}</button>
+        <div id="forum-editor"></div>
+    {% endif %}
+</div>
+
+<script>
+    let sendbtn = document.getElementById("pmsendanswer");
+    if(sendbtn) sendbtn.addEventListener('click', function(e){
+        e.preventDefault();
+        $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, 'content': document.getElementById("pmanswer").value, 'tid': {{ thread.id }}},
+            function () {
+                $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+            } );
+    });
+
+    let backbtn = document.getElementById("backbtn");
+    if(backbtn) backbtn.addEventListener('click', function(e){
+        e.preventDefault();
+        var dest = "{% if thread.archived %}{{ path('town_house', {'tab': 'messages', 'subtab': 'archived'}) }}{% else %}{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}{% endif %}";
+        $.ajax.load(null, dest, true);
+    });
+
+    let archivebtn = document.getElementById("archivebtn");
+    if(archivebtn) archivebtn.addEventListener('click', function(e){
+        e.preventDefault();
+        $.ajax.easySend( '{{ path('home_archive_pm_controller', {'tid': thread.id }) }}', {},
+        function () {
+            $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+        } );
+    });
+
+    let unarchivebtn = document.getElementById("unarchivebtn");
+    if(unarchivebtn) unarchivebtn.addEventListener('click', function(e){
+        e.preventDefault();
+        $.ajax.easySend( '{{ path('home_unarchive_pm_controller', {'tid': thread.id }) }}', {},
+        function () {
+            $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'archives'}) }}', true);
+        } );
+    });
+
+    let replybtn = document.getElementById("replybtn");
+    if(replybtn) replybtn.addEventListener('click', function(e){
+        e.preventDefault();
+        replybtn.style.display = "none";
+        $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_answer_post_editor_controller', {tid: thread.id}) }}', false )
+    });
+</script>

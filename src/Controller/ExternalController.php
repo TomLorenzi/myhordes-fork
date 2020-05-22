@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\ExternalApp;
 use App\Entity\ItemPrototype;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -155,6 +157,14 @@ class ExternalController extends InventoryAwareController
             case 'items':
                 $data = $this->getItemsData();
                 break;
+
+            case 'constructions':
+                $data = $this->getConstructionsData();
+                break;
+
+            case 'ruins':
+                $data = $this->getRuinsData();
+                break;
         }
         return $this->json( $data );
     }
@@ -215,7 +225,7 @@ class ExternalController extends InventoryAwareController
     private function generateData(User $user): array
     {
         try {
-            $now = new DateTime('now', new DateTimeZone('America/New_York'));
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
@@ -238,28 +248,22 @@ class ExternalController extends InventoryAwareController
 
         // Base data.
         $data = [
-            'hordes' => [
-                'headers' => [
-                    'attributes' => [
-                        'link' => $this->request->getRequestUri(),
-                        'iconurl' => '',
-                        'avatarurl' => '',
-                        'secure' => 0,
-                        'author' => 'MyHordes',
-                        'language' => $town->getLanguage(),
-                        'version' => '0.1',
-                        'generator' => 'symfony',
-                    ],
-                    'game' => [
-                        'attributes' => [
-                            'days' => $town->getDay(),
-                            'quarantine' => $town->getDevastated(),
-                            'datetime' => $now->format('Y-m-d H:i:s'),
-                            'id' => $town->getId(),
-                        ],
-                    ],
-                ],
-                'data' => [
+            'headers' => [
+                'link' => $this->request->getRequestUri(),
+                'iconurl' => '',
+                'avatarurl' => '',
+                'author' => 'MyHordes',
+                'language' => $town->getLanguage(),
+                'version' => '0.1',
+                'generator' => 'symfony',
+            ],
+            'game' => [
+                'days' => $town->getDay(),
+                'quarantine' => $town->getDevastated(),
+                'datetime' => $now->format('Y-m-d H:i:s'),
+                'id' => $town->getId(),
+            ],
+            'data' => [
                     'attributes' => [
                         'cache-date' => $now->format('Y-m-d H:i:s'),
                         'cache-fast' => 0,
@@ -322,7 +326,6 @@ class ExternalController extends InventoryAwareController
                         ],
                     ],
                 ],
-            ],
         ];
 
         // Add zones.
@@ -698,35 +701,126 @@ class ExternalController extends InventoryAwareController
             $item_data = [
                 'all' => [
                     'id' => $item->getId(),
+                    'name' => $item->getName(),
                     'icon' => $item->getIcon(),
                     'category' => $item->getCategory()->getName(),
+                    'parent_category' => $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getName() : null,
                     'heavy' => $item->getHeavy(),
                     'decoration' => $item->getDeco(),
                     'nightwatch' => $item->getWatchpoint(),
 
                 ],
                 'de' => [
-                    'name' => $item->getLabel(),
+                    'label' => $item->getLabel(),
                     'description' => $item->getDescription(),
                     'category' => $item->getCategory()->getLabel(),
+                    'parent_category' => $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getLabel() : null,
                 ],
                 'fr' => [
-                    'name' => $this->translator->trans($item->getLabel(), [], 'items', 'fr'),
+                    'label' => $this->translator->trans($item->getLabel(), [], 'items', 'fr'),
                     'description' => $this->translator->trans($item->getDescription(), [], 'items', 'fr'),
                     'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'fr'),
+                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'fr') : null,
                 ],
                 'en' => [
-                    'name' => $this->translator->trans($item->getLabel(), [], 'items', 'en'),
+                    'label' => $this->translator->trans($item->getLabel(), [], 'items', 'en'),
                     'description' => $this->translator->trans($item->getDescription(), [], 'items', 'en'),
                     'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'en'),
+                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'en') : null,
                 ],
                 'es' => [
-                    'name' => $this->translator->trans($item->getLabel(), [], 'items', 'es'),
+                    'label' => $this->translator->trans($item->getLabel(), [], 'items', 'es'),
                     'description' => $this->translator->trans($item->getDescription(), [], 'items', 'es'),
                     'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'es'),
+                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'es') : null,
                 ],
             ];
-            $data[] = $item_data;
+            $data[$item->getId()] = $item_data;
+        }
+
+        return $data ?? [];
+    }
+
+    private function getConstructionsData(): array
+    {
+        // Base data.
+        $data = [];
+
+        // Add constructions.
+        $constructions = $this->entity_manager->getRepository(BuildingPrototype::class)->findAll();
+        /** @var BuildingPrototype $item */
+        foreach ( $constructions as $item ) {
+            $item_data = [
+                'all' => [
+                    'id' => $item->getId(),
+                    'name' => $item->getName(),
+                    'icon' => $item->getIcon(),
+                    'blueprint' => $item->getBlueprint(),
+                    'ap' => $item->getAp(),
+                    'defense' => $item->getDefense(),
+                    'temporary' => $item->getTemp(),
+                    'max_level' => $item->getMaxLevel(),
+                    'parent_id' => $item->getParent() ? $item->getParent()->getId() : null,
+
+                ],
+                'de' => [
+                    'label' => $item->getLabel(),
+                    'description' => $item->getDescription(),
+                ],
+                'fr' => [
+                    'label' => $this->translator->trans($item->getLabel(), [], 'buildings', 'fr'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'buildings', 'fr'),
+                ],
+                'en' => [
+                    'label' => $this->translator->trans($item->getLabel(), [], 'buildings', 'en'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'buildings', 'en'),
+                ],
+                'es' => [
+                    'label' => $this->translator->trans($item->getLabel(), [], 'buildings', 'es'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'buildings', 'es'),
+                ],
+            ];
+            $data[$item->getId()] = $item_data;
+        }
+
+        return $data ?? [];
+    }
+
+    private function getRuinsData(): array
+    {
+        // Base data.
+        $data = [];
+
+        // Add ruins.
+        $ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
+        /** @var ZonePrototype $item */
+        foreach ( $ruins as $item ) {
+            $item_data = [
+                'all' => [
+                    'id' => $item->getId(),
+                    'icon' => $item->getIcon(),
+                    'camping_level' => $item->getCampingLevel(),
+                    'min_distance' => $item->getMinDistance(),
+                    'max_distance' => $item->getMaxDistance(),
+                ],
+                'de' => [
+                    'label' => $item->getLabel(),
+                    'description' => $item->getDescription(),
+                ],
+                'fr' => [
+                    'label' => $this->translator->trans($item->getLabel(), [], 'game', 'fr'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'game', 'fr'),
+                ],
+                'en' => [
+                    'label' => $this->translator->trans($item->getLabel(), [], 'game', 'en'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'game', 'en'),
+                ],
+                'es' => [
+                    'label' => $this->translator->trans($item->getLabel(), [], 'game', 'es'),
+                    'description' => $this->translator->trans($item->getDescription(), [], 'game', 'es'),
+                ],
+            ];
+            $data[$item->getId()] = $item_data;
         }
 
         return $data ?? [];

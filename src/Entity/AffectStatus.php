@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\AffectStatusRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="affect_status_name_unique",columns={"name"})
  * })
  */
 class AffectStatus
@@ -47,6 +47,21 @@ class AffectStatus
      * @ORM\Column(type="integer", nullable=true)
      */
     private $counter;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CitizenRole::class)
+     */
+    private $role;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $roleAdd;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $citizenHunger;
 
     public function getId(): ?int
     {
@@ -109,6 +124,42 @@ class AffectStatus
     public function setCounter(?int $counter): self
     {
         $this->counter = $counter;
+
+        return $this;
+    }
+
+    public function getRole(): ?CitizenRole
+    {
+        return $this->role;
+    }
+
+    public function setRole(?CitizenRole $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getRoleAdd(): ?bool
+    {
+        return $this->roleAdd;
+    }
+
+    public function setRoleAdd(?bool $roleAdd): self
+    {
+        $this->roleAdd = $roleAdd;
+
+        return $this;
+    }
+
+    public function getCitizenHunger(): ?int
+    {
+        return $this->citizenHunger;
+    }
+
+    public function setCitizenHunger(?int $citizenHunger): self
+    {
+        $this->citizenHunger = $citizenHunger;
 
         return $this;
     }

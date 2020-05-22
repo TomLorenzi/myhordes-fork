@@ -11,6 +11,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\Gazette;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
@@ -30,8 +31,6 @@ class TownHandler
     private $timeKeeper;
     private $citizen_handler;
     private $picto_handler;
-
-    private $building_cache = null;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph)
@@ -104,6 +103,10 @@ class TownHandler
             $well += $water_db[$building->getPrototype()->getName()];
 
         $pictos = [];
+
+        $building->setHp($building->getPrototype()->getHp());
+        
+        $building->setDefense($building->getPrototype()->getDefense());
 
         $town->setWell( $town->getWell() + $well );
         if ($well > 0)
@@ -208,8 +211,6 @@ class TownHandler
     }
 
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
-        //if (isset($this->building_cache[]))
-
         if (is_string($prototype))
             $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
 
@@ -229,25 +230,50 @@ class TownHandler
 
         $summary->house_defense = $home->getPrototype()->getDefense();
 
-
         if ($home->getCitizen()->getProfession()->getHeroic())
             $summary->job_defense += 2;
 
         if ($this->getBuilding($town, 'small_city_up_#00', true))
             $summary->house_defense += 4;
 
+        $summary->upgrades_defense = $home->getAdditionalDefense();
+
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
             $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
                 $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'defense' )
             );
-            $summary->upgrades_defense = ($n ? $n->getLevel() : 0) + $home->getAdditionalDefense();
-        } else $summary->upgrades_defense = $home->getAdditionalDefense();
+
+            if($n) {
+                if($n->getLevel() <= 6)
+                    $summary->upgrades_defense += $n->getLevel();
+                else {
+                    $summary->upgrades_defense += 6 + 2 * ($n->getLevel() - 6);
+                }
+            }
+
+            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
+                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'fence' )
+            );
+            $summary->upgrades_defense += ($n ? 3 : 0);
+        }
 
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
             $this->inventory_handler->resolveItemProperties( 'defence' )
         );
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_blue_#00'
+        ) * 2;
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_blue_#01'
+        ) * 2;
+
+        $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
+            'soul_red_#00'
+        ) * 2;
 
         return $summary->sum();
     }
@@ -260,16 +286,16 @@ class TownHandler
 
             if ($town->getWell() >= $n[ $building->getLevel() ])
                 $d += $building->getDefenseBonus();
-            $d += $building->getPrototype()->getDefense();
+            $d += $building->getDefense();
 
         } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00' || $building->getPrototype()->getName() === 'small_coffin_#00') {
 
             $c = 0;
             foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
-            $d += ( 10*$c + $building->getDefenseBonus() + $building->getPrototype()->getDefense() );
+            $d += ( 10*$c + $building->getDefenseBonus() + $building->getDefense() );
 
         }
-        else $d += ( $building->getDefenseBonus() + $building->getPrototype()->getDefense() );
+        else $d += ( $building->getDefenseBonus() + $building->getDefense() );
         $d += $building->getTempDefenseBonus();
 
         return $d;
@@ -333,8 +359,13 @@ class TownHandler
 
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
 
+        $has_shooting_gallery = (bool)$this->getBuilding($town, 'small_tourello_#00', true);
+        $has_trebuchet        = (bool)$this->getBuilding($town, 'small_catapult3_#00', true);
+        $has_ikea             = (bool)$this->getBuilding($town, 'small_ikea_#00', true);
+        $has_armory           = (bool)$this->getBuilding($town, 'small_armor_#00', true);
+
         foreach ($watchers as $watcher) {
-            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
+            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
                 if($item->getPrototype()->getName() == 'chkspk_#00') {
                     $has_counsel = true;
@@ -385,6 +416,32 @@ class TownHandler
                     ->setOffsetMax( $off_max )
                 );
             }
+    }
 
+    public function check_gazettes(Town &$town) {
+        $gazette_old = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+        if (!$gazette_old) {
+            $town->addGazette((new Gazette())->setDay($town->getDay()));
+        }
+        $gazette_now = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 1);
+        if (!$gazette_now) {
+            $town->addGazette((new Gazette())->setDay($town->getDay() + 1));
+        }
+        $gazette_new = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 2);
+        if (!$gazette_new) {
+            $town->addGazette((new Gazette())->setDay($town->getDay() + 2));
+        }
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+    }
+
+    public function get_alive_citizens(Town &$town){
+        $citizens = [];
+        foreach ($town->getCitizens() as $citizen) {
+            if($citizen->getAlive())
+                $citizens[] = $citizen;
+        }
+
+        return $citizens;
     }
 }

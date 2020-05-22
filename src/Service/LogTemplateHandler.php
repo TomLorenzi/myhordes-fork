@@ -19,11 +19,9 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
-use App\Translation\T;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\Entity;
 use Exception;
 use Symfony\Component\Asset\Packages;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -41,8 +39,8 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(string $obj): string {
-        return "<span>$obj</span>";
+    private function wrap(?string $obj): string {
+        return $obj ? "<span>$obj</span>" : '';
     }
 
     /**
@@ -76,7 +74,9 @@ class LogTemplateHandler
         return "";
     }
 
-    public function fetchVariableObject (string $type, int $key) {
+    public function fetchVariableObject (string $type, ?int $key) {
+        if ($key === null) return null;
+        $object = null;
         switch ($type) {
             case 'citizen':
                 $object = $this->entity_manager->getRepository(Citizen::class)->find($key);
@@ -140,7 +140,6 @@ class LogTemplateHandler
             }
             catch (Exception $e) {
                 $transParams['%'.$typeEntry['name'].'%'] = "null";
-                // $transParams['%'.$typeEntry['name'].'%'] = $e->getMessage();
             }
         }
         
@@ -234,6 +233,42 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
+    }
+
+    public function constructionsInvestRepairAP( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId(), 'ap' => $ap);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('constructionsInvestRepairAP');
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function constructionsDamage( Town $town, BuildingPrototype $proto, int $damage ): TownLogEntry {
+        $variables = array('plan' => $proto->getId(), 'damage' => $damage);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('constructionsDamage');
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( null );
+    }
+
+    public function constructionsDestroy( Town $town, BuildingPrototype $proto, int $damage ): TownLogEntry {
+        $variables = array('plan' => $proto->getId(), 'damage' => $damage);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('constructionsDestroy');
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( null );
     }
 
     public function constructionsNewSite( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
@@ -401,7 +436,7 @@ class LogTemplateHandler
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathCyanide');
                 break;
-            case CauseOfDeath::Posion: case CauseOfDeath::GhulEaten:
+            case CauseOfDeath::Poison: case CauseOfDeath::GhulEaten:
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDeathPoison');
                 break;
@@ -492,6 +527,7 @@ class LogTemplateHandler
         } elseif ($d_east)   $str = 'Osten';
         elseif ($d_west)     $str = 'Westen';
 
+        // This breaks the sneak out capability of the ghoul. The caller of this function that would trigger this if statement is disabled.
         if ($is_zero_zone) 
         {
             $variables = array('citizen' => $citizen->getId(), 'direction' => $str);
@@ -822,8 +858,12 @@ class LogTemplateHandler
             case 3:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId(), 
                     'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
-                        else { return array('id' => $e[0]->getId()); } ;}, $items ));
+                        else { return array('id' => $e[0]->getId()); } }, $items ));
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalCremato');
+                break;
+            case 4:
+                $variables = array();
+                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenDisposalGhoul');
                 break;
             default:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
@@ -831,14 +871,12 @@ class LogTemplateHandler
                 break;
         }
 
-        $items = array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $items );
-
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
             ->setTown( $actor->getTown() )
             ->setDay( $actor->getTown()->getDay() )
-            ->setCitizen( $actor )
+            ->setCitizen( $action != 4 ? $actor : null )
             ->setSecondaryCitizen( $disposed )
             ->setTimestamp( new DateTime('now') );
     }
@@ -1040,5 +1078,48 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
+    }
+
+    public function citizenAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
+        $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName($wounded ? 'citizenAttackWounded' : 'citizenAttack');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $attacker->getTown() )
+            ->setDay( $attacker->getTown()->getDay() )
+            ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $attacker )
+            ->setSecondaryCitizen( $defender );
+    }
+
+    public function citizenTownGhoulAttack( Citizen $attacker, Citizen $defender ): TownLogEntry {
+        $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('citizenTownGhoulAttack');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $attacker->getTown() )
+            ->setDay( $attacker->getTown()->getDay() )
+            ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $attacker )
+            ->setSecondaryCitizen( $defender );
+    }
+
+    public function citizenBeyondGhoulAttack( Citizen $attacker, Citizen $defender, bool $ambient  ): TownLogEntry {
+        $variables = $ambient ? [] : array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName($ambient ? 'citizenBeyondGhoulAttack1' : 'citizenBeyondGhoulAttack2');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $attacker->getTown() )
+            ->setDay( $attacker->getTown()->getDay() )
+            ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') );
     }
 }

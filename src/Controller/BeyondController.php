@@ -19,6 +19,7 @@ use App\Entity\Recipe;
 use App\Entity\ScoutVisit;
 use App\Entity\Town;
 use App\Entity\Zone;
+use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -137,6 +138,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
+            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'zone_cp' => $cp,
             'zone'  =>  $zone,
             'allow_movement' => (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden,
@@ -292,12 +296,28 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
         }
 
+        $zone_tags = [];
+        if(!$is_on_zero) {
+            $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
+        }
+
+        $exploration = [];
+        $rz = $zone->getRuinZones();
+        foreach ($rz as $r) {
+            $exploration[] = [
+                'x' => $r->getX(),
+                'y' => $r->getY(),
+                'c' => $r->getCorridor(),
+            ];
+        }
+
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
             'doors_open' => $town->getDoor(),
             'show_ventilation'  => $is_on_zero && $th->getBuilding($town, 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
+            'show_sneaky' => $is_on_zero && $this->getActiveCitizen()->hasRole('ghoul'),
             'enter_costs_ap' => $require_ap,
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ),
@@ -318,6 +338,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping_blueprint' => $camping_blueprint ?? '',
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
+            'zone_tags' => $zone_tags ?? [],
+            'exploration' => $exploration,
         ]) );
     }
 
@@ -427,57 +449,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return AjaxResponse::success();
     }
 
-
     /**
-     * @Route("api/beyond/desert/hero_exit", name="beyond_desert_hero_exit_controller")
+     * @Route("api/beyond/desert/exit/{special}", name="beyond_desert_exit_controller")
+     * @param string $special
      * @param TownHandler $th
      * @return Response
      */
-    public function desert_exit_hero_api(TownHandler $th): Response {
-        $this->deferZoneUpdate();
-
-        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $citizen = $this->getActiveCitizen();
-        $zone = $citizen->getZone();
-        $town = $citizen->getTown();
-
-        if (!$th->getBuilding($town, 'small_ventilation_#00',  true))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        if (!$citizen->getProfession()->getHeroic())
-            return AjaxResponse::error( ErrorHelper::ErrorMustBeHero );
-
-        $cp_ok = $this->zone_handler->check_cp( $zone );
-        $citizen->setZone( null );
-        $zone->removeCitizen( $citizen );
-
-        // Disable the escort
-        if ($citizen->getEscortSettings()) {
-            $remove[] = $citizen->getEscortSettings();
-            $citizen->setEscortSettings(null);
-        }
-
-        $this->entity_manager->persist( $this->log->doorPass( $citizen, true ) );
-        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
-
-        try {
-            $this->entity_manager->persist($citizen);
-            $this->entity_manager->persist($zone);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/beyond/desert/exit", name="beyond_desert_exit_controller")
-     * @param TownHandler $th
-     * @return Response
-     */
-    public function desert_exit_api(TownHandler $th): Response {
+    public function desert_exit_api(TownHandler $th, string $special = 'normal'): Response {
         $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -487,7 +465,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $town = $citizen->getTown();
 
         $watchtower = $th->getBuilding($town, 'item_tagger_#00',  true);
-        if ($watchtower) switch ($watchtower->getLevel()) {
+        if ($watchtower && $special === 'normal') switch ($watchtower->getLevel()) {
             case 4: $port_distance = 1;  break;
             case 5: $port_distance = 2;  break;
             default:$port_distance = 0; break;
@@ -497,18 +475,36 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($distance > $port_distance)
             return AjaxResponse::error( self::ErrorNoReturnFromHere );
 
-        if (!$town->getDoor())
-            return AjaxResponse::error( self::ErrorDoorClosed );
+        switch ($special) {
+            case 'normal':
+                if (!$citizen->getTown()->getDoor())
+                    return AjaxResponse::error( self::ErrorDoorClosed );
+                break;
+            case 'sneak':
+                if (!$citizen->hasRole('ghoul'))
+                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+                if (!$citizen->getTown()->getDoor())
+                    return AjaxResponse::error( self::ErrorDoorClosed );
+                break;
+            case 'hero':
+                if (!$citizen->getProfession()->getHeroic())
+                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+                break;
+            default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        }
 
         $movers = [];
-        foreach ($citizen->getValidLeadingEscorts() as $escort)
-            $movers[] = $escort->getCitizen();
-
         $movers[] = $citizen;
+        if ($special === 'normal')
+            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                $movers[] = $escort->getCitizen();
+        else
+            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                $escort->getCitizen()->getEscortSettings()->setLeader(null);
+
         $others_are_here = $zone->getCitizens()->count() > count($movers);
 
-        $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && $th->getBuilding($town, 'small_labyrinth_#00',  true));
-
+        $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && $special === 'normal' && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
         foreach ($movers as $mover){
             // Check if the labyrinth is built and the user enters from 0/0
@@ -539,13 +535,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $zone->removeCitizen( $mover );
 
             // Produce log entries
-            if ( $distance > 0 ) {
-                $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
-                if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $zero_zone, true ) );
-                $this->entity_manager->persist( $this->log->outsideMove( $mover, $zero_zone, $zone, false ) );
+            if ($special !== 'sneak') {
+                if ( $distance > 0 ) {
+                    // $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
+                    // if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $zero_zone, true ) );
+                    // $this->entity_manager->persist( $this->log->outsideMove( $mover, $zero_zone, $zone, false ) );
+                }
+                $this->entity_manager->persist( $this->log->doorPass( $mover, true ) );
+                $this->entity_manager->persist($mover);
             }
-            $this->entity_manager->persist( $this->log->doorPass( $mover, true ) );
-            $this->entity_manager->persist($mover);
         }
 
         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
@@ -560,8 +558,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         return AjaxResponse::success();
     }
-
-
 
     /**
      * @Route("api/beyond/desert/move", name="beyond_desert_move_controller")
@@ -593,6 +589,14 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         /** @var Zone $new_zone */
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
+
+        if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
+            $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
+            $this->citizen_handler->setAP( $citizen, true, -1 );
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+            return AjaxResponse::success();
+        }
 
         $movers = [];
         foreach ($citizen->getValidLeadingEscorts() as $escort)
@@ -656,23 +660,28 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $new_zone_lv = $new_zone->getScoutLevel();
                     $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
 
-                    if ($this->random_generator->chance( $factor ) && $this->uncoverHunter($mover))
+                    if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
                         if ($mover->getId() === $citizen->getId())
                             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!', [], 'game' ));
-                        else $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                        else 
+                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                    }
                 }
             }
 
             // Set AP and increase walking distance counter
             $this->citizen_handler->setAP($mover, true, -1);
-            $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
-            if ($mover->getWalkingDistance() > 10) {
-                $this->citizen_handler->increaseThirstLevel( $mover );
-                $mover->setWalkingDistance( 0 );
+            if (!$citizen->hasRole('ghoul')) {
+                $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
+                if ($mover->getWalkingDistance() > 10) {
+                    $this->citizen_handler->increaseThirstLevel( $mover );
+                    $mover->setWalkingDistance( 0 );
+                }
             }
 
-            if ($others_are_here || ($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
-            $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
+            // This text is a newly added one, but it breaks the "Sneak out of town"
+            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
+            if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
 
             $this->entity_manager->persist($mover);
         }
@@ -916,9 +925,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             if ($generator->chance( 0.1 )) {
                 $zone->setZombies( $zone->getZombies() - 1 );
                 $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
-                // Add the picto Heroic Action
+                // Add the picto Bare hands
 	            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wrestl_#00");
-	            $this->picto_handler->give_picto($citizen, $picto);
+                $this->picto_handler->give_picto($citizen, $picto);
+                // Add the picto zed kill
+                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_killz_#00");
+                $this->picto_handler->give_picto($citizen, $picto);
             }
 
             try {
@@ -1127,6 +1139,44 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
+     * @Route("api/beyond/desert/attack_citizen/{cid<\d+>}", name="beyond_desert_attack_citizen_controller")
+     * @param int $cid
+     * @return Response
+     */
+    public function desert_attack_api(int $cid): Response {
+
+        $this->deferZoneUpdate();
+        $citizen = $this->getActiveCitizen();
+
+        /** @var Citizen|null $target_citizen */
+        $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
+
+        if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        return $this->generic_attack_api( $citizen, $target_citizen );
+    }
+
+    /**
+     * @Route("api/beyond/desert/devour_citizen/{cid<\d+>}", name="beyond_desert_devour_citizen_controller")
+     * @param int $cid
+     * @return Response
+     */
+    public function desert_devour_api(int $cid): Response {
+
+        $this->deferZoneUpdate();
+        $citizen = $this->getActiveCitizen();
+
+        /** @var Citizen|null $target_citizen */
+        $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
+
+        if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        return $this->generic_devour_api( $citizen, $target_citizen );
+    }
+
+    /**
      * @Route("api/beyond/desert/escort/self", name="beyond_desert_escort_self_controller")
      * @param JSONRequestParser $parser
      * @param ConfMaster $conf
@@ -1160,12 +1210,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($on)
             $citizen->getEscortSettings()->setAllowInventoryAccess($cf_ruc)->setForceDirectReturn($cf_ret);
 
-        //try {
+        try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
-        //} catch (Exception $e) {
-        //    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        //}
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
 
         return AjaxResponse::success();
     }
@@ -1196,8 +1246,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ((!$citizen->getProfession()->getHeroic() && !$citizen->getRoles()->contains($this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide")))
-            || $citizen->getBanished())
+        if ((!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide')) || $citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);
@@ -1330,6 +1379,40 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         $this->addFlash('notice', implode("<hr />", $str));
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/desert/zone_marker", name="beyond_desert_change_zone_marker")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function beyond_change_zone_marker(JSONRequestParser $parser): Response {
+        $tagRef = $parser->get('tag', null);
+        if ($tagRef < 0 || !is_numeric($tagRef) )
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $zone = $this->getActiveCitizen()->getZone();
+
+        if(!$zone){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $tag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef($tagRef);
+
+        if(!$tag){
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $zone->setTag($tag);
+
+        try {
+            $this->entity_manager->persist($zone);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
 
         return AjaxResponse::success();
     }

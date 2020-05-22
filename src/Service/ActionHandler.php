@@ -111,8 +111,9 @@ class ActionHandler
                 if ($status->getProfession() !== null && $citizen->getProfession()->getId() !== $status->getProfession()->getId())
                     $current_state = min( $current_state, $this_state );
 
-                if ($status->getRole() !== null && !$citizen->getRoles()->contains($status->getRole())){
-                    $current_state = min( $current_state, $this_state );
+                if ($status->getRole() !== null && $status->getEnabled() !== null) {
+                    $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
+                    if ($role_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
                 }
             }
 
@@ -192,17 +193,9 @@ class ActionHandler
                 $cp = 0;
                 $current_zeds = $citizen->getZone() ? $citizen->getZone()->getZombies() : 0;
 
-                if ( $citizen->getZone() ) {
-                    $guide_present = false;
-                    $roleGuide = $this->entity_manager->getRepository(CitizenRole::class)->findOneByName("guide");
-                    foreach ( $citizen->getZone()->getCitizens() as $c ) {
+                if ( $citizen->getZone() )
+                    foreach ( $citizen->getZone()->getCitizens() as $c )
                         $cp += $this->citizen_handler->getCP( $c );
-                        if($c->getRoles()->contains($roleGuide))
-                            $guide_present = true;
-                    }
-                    if($guide_present)
-                        $cp += count($citizen->getZone()->getCitizens());
-                }
 
                 if ($zombie_condition->getMustBlock() !== null) {
 
@@ -439,7 +432,7 @@ class ActionHandler
      * @param array|null $remove
      * @return int
      */
-    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove ): int {
+    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false ): int {
 
         $remove = [];
         $tags = [];
@@ -449,14 +442,16 @@ class ActionHandler
 
         $town_conf = $this->conf->getTownConfiguration( $citizen->getTown() );
 
-        $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
-        if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
-        if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
-        if ($mode <= self::ActionValidityAllow) {
-            $message = $tx;
-            return self::ErrorActionForbidden;
+        if (!$force) {
+            $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
+            if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
+            if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
+            if ($mode <= self::ActionValidityAllow) {
+                $message = $tx;
+                return self::ErrorActionForbidden;
+            }
+            if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
         }
-        if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
 
         $target_item_prototype = null;
         if ($target && is_a( $target, Item::class )) $target_item_prototype = $target->getPrototype();
@@ -488,6 +483,21 @@ class ActionHandler
 
                 if ($status->getCounter() !== null)
                     $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
+
+                if ($status->getCitizenHunger())
+                    $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
+
+                if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
+                    if ($status->getRoleAdd()) {
+                        $this->citizen_handler->addRole( $citizen, $status->getRole() );
+                        $tags[] = 'role-up';
+                        $tags[] = "role-up-{$status->getRole()->getName()}";
+                    } else {
+                        $this->citizen_handler->removeRole( $citizen, $status->getRole() );
+                        $tags[] = 'role-down';
+                        $tags[] = "role-down-{$status->getRole()->getName()}";
+                    }
+                }
 
                 if ($status->getInitial() && $status->getResult()) {
                     if ($citizen->getStatus()->contains( $status->getInitial() )) {
@@ -783,6 +793,10 @@ class ActionHandler
                             $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
                             if ($target_citizen->getZone()) 
                                 continue;
+
+                            // Don't give AP if already full
+                            if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen))
+                                continue;
                             else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk','drugged'], false)) {
                                 $this->citizen_handler->setAP($target_citizen, true, 2, 0);
                                 $count+=2;
@@ -801,9 +815,20 @@ class ActionHandler
                         $source = $citizen->getInventory();
                         $bank = $citizen->getTown()->getBank();
 
-                        foreach ( $citizen->getInventory()->getItems() as &$target_item )
-                            if ($heavy || !$target_item->getPrototype()->getHeavy())
+                        $heavy_break = false;
+                        if (!$heavy)
+                            foreach ( $citizen->getInventory()->getItems() as $target_item )
+                                if ($target_item->getPrototype()->getHeavy())
+                                    $heavy_break = true;
+
+                        if ($heavy_break) {
+                            $tags[] = 'fail';
+                        } else {
+                            if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
+                                $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_off_#00') );
+                            foreach ( $citizen->getInventory()->getItems() as $target_item )
                                 $this->inventory_handler->transferItem($citizen,$target_item,$source,$bank, InventoryHandler::ModalityTamer);
+                        }
 
                         break;
                     }
@@ -817,9 +842,13 @@ class ActionHandler
 
                             if ($drink) $citizen->setWalkingDistance(0);
 
-                            if ($drink && $this->citizen_handler->hasStatusEffect($citizen, 'thirst2')) {
-                                $this->citizen_handler->removeStatus($citizen, 'thirst2');
-                                $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                            if ($drink) {
+                                if($citizen->hasRole('ghoul')){
+                                    $this->citizen_handler->inflictWound($citizen);
+                                } else if($this->citizen_handler->hasStatusEffect($citizen, 'thirst2')){
+                                    $this->citizen_handler->removeStatus($citizen, 'thirst2');
+                                    $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                                }
                             } else {
                                 if (!$drink || !$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
                                     $old_ap = $citizen->getAp();
@@ -831,6 +860,7 @@ class ActionHandler
                                 $this->citizen_handler->inflictStatus($citizen, $drink ? 'hasdrunk' : 'haseaten');
 
                             }
+
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
@@ -954,7 +984,7 @@ class ActionHandler
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
-            $this->death_handler->kill( $citizen, CauseOfDeath::Posion, $r );
+            $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
             foreach ($r as $r_entry) $remove[] = $r_entry;
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }

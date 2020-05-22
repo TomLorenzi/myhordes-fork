@@ -33,6 +33,9 @@
             {% if show_ventilation %}
                 <button id="door_exit_hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
             {% endif %}
+            {% if show_sneaky %}
+                <button id="door_exit_sneak" {% if not town.door %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}Aus der Stadt schleichen{% endtrans %}</button>
+            {% endif %}
             <button id="door_exit" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/small_move.gif') }}" />{% trans from 'game' %}Stadt verlassen{% endtrans %}</button>
             <button x-ajax-href="{{ path('town_planner') }}"><img alt="" src="{{ asset('build/images/planner.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>
         </div>
@@ -59,7 +62,7 @@
         const handleDoor = function(element, action) {
             if (!element) return;
             element.addEventListener('click', function() {
-                if (!confirm( '{% trans from 'global' %}Bestätigen?{% endtrans %}' ))
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('town_door_control_controller') }}', {
                         action: action
@@ -81,12 +84,21 @@
         });
 
         {% if show_ventilation and allow_ventilation %}
-        document.getElementById('door_exit_hero').addEventListener('click', function() {
-            $.ajax.easySend( '{{ path('town_door_hero_exit_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('game_landing') }}', true);
-                } );
-        });
+            document.getElementById('door_exit_hero').addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'hero'}) }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            });
+        {% endif %}
+
+        {% if show_sneaky %}
+            document.getElementById('door_exit_sneak').addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'sneak'}) }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            });
         {% endif %}
     </script>
 {% endblock %}

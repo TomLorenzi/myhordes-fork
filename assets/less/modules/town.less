@@ -42,6 +42,11 @@ div.town-banner {
     background: url("../../img/city.jpg") center/cover no-repeat;
     &.night { background: url("../../img/night_city.jpg") center/cover no-repeat; }
   }
+
+  &.town-banner-workshop {
+    background: url("../../img/agora.jpg") center/cover no-repeat;
+    &.night { background: url("../../img/night_agora.jpg") center/cover no-repeat; }
+  }
 }
 
 .town-menu {
@@ -221,7 +226,8 @@ div.town-banner {
   }
 }
 
-.citizens-list {
+.citizens-list,
+.messages-list {
   .row.header {
     font-weight: bold;
     background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
@@ -229,13 +235,30 @@ div.town-banner {
     border-bottom: 2px solid #ddab76;
   }
 
-  .row:not(.header):hover {
-    outline: 1px solid #EFDBAB;
+  .row:not(.header) {
+    &:hover {
+      outline: 1px solid #EFDBAB;
+    }
+    font-style: italic;
   }
 
   .row.me {
     background-color: #423f54 !important;
   }
+
+  .row.new {
+    color: white;
+    font-style: normal;
+  }
+}
+
+#rows-send {
+  display: none;
+}
+
+.linked-items {
+  list-style-type: none;
+  padding-left: 10px;
 }
 
 .nightwatch {
@@ -525,15 +548,19 @@ div.town-banner {
             text-transform: uppercase;
             font-size: 120%;
           }
+
+          i.dagger {
+            font-family: serif;
+            font-style: normal;
+          }
         }
       }
 
       div#gazette-signature {
-        top: 45%;
-        left: 75%;
-        font-size: 80%;
+        font-size: 100%;
         font-style: italic;
         color: #5a5132;
+        text-align: right;
       }
 
       div#gazette-deaths {
@@ -599,6 +626,23 @@ div.town-banner {
         }
       }
 
+      div#gazette-content {
+        font-size: 80%;
+        width: 80%;
+        top: 20%;
+        left: 7%;
+
+        p {
+          letter-spacing: -0.1em;
+
+          span {
+            font-weight: bold;
+            text-decoration: underline;
+          }
+        }
+
+      }
+
     }
 
     &#newspage-back {
@@ -616,10 +660,17 @@ div.town-banner {
         background-size: contain;
         background-position: 50% 0%;
         background-repeat: no-repeat;
+        pointer-events: none;
       }
 
       #gazette-attack {
-        background-image: url('../../img/news/newsSchema_classic.gif');
+        &.opened {
+          background-image: url('../../img/news/newsSchema_door.gif');
+        }
+
+        &.closed {
+          background-image: url('../../img/news/newsSchema_classic.gif');
+        }
         top: 13%;
         width: 97%;
         height: 35%;
@@ -656,6 +707,13 @@ div.town-banner {
             font-weight: bold;
           }
         }
+
+        .invasion, .terror {
+          font-size: 80%;
+          display: inline-block;
+          margin-top: .5em;
+          color: #600;
+        }
       }
 
       #gazette-empty {
@@ -668,6 +726,35 @@ div.town-banner {
     }
   }
 }
+
 #gazette-switcher, #gazette-switch {
   display: none;
+}
+
+#gazette-role-list {
+  background: @myhordes-cell-header-background-color;
+  border: 1px solid @myhordes-input-border;
+  padding: 4px;
+  font-size: 1.2rem;
+  color: #ffe3bf;
+  p {
+    margin: 0;
+    strong {
+      color: white;
+    }
+  }
+}
+
+#recipient_list {
+  position: absolute;
+  padding: 5px;
+  background-color: #3b3249;
+  border: 1px solid #ddab76;
+  outline: 1px solid #5c2b20;
+  z-index: 999;
+  display: none;
+  .list {
+    overflow-y: scroll;
+    max-height: 200px;
+  }
 }

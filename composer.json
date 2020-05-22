@@ -6,8 +6,10 @@
         "ext-ctype": "*",
         "ext-dom": "*",
         "ext-iconv": "*",
+        "ext-intl": "*",
         "ext-json": "*",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "gedmo/doctrine-extensions": "^2.4",
         "laminas/laminas-code": "^3.4",
         "sensio/framework-extra-bundle": "^5.5",
         "shivas/versioning-bundle": "^3.2",
@@ -35,7 +37,8 @@
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
         "symfony/webpack-encore-bundle": "^1.7",
-        "symfony/yaml": "5.0.*"
+        "symfony/yaml": "5.0.*",
+        "twig/intl-extra": "^3.0"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
