@@ -10909,7 +10909,34 @@
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
-        <target>Lire mesmessages.</target>
+        <target>Lire mes messages.</target>
+      </segment>
+    </unit>
+    <unit id="bYjLN7a" name="Draußen">
+      <notes>
+        <note category="german">Draußen</note>
+      </notes>
+      <segment>
+        <source>Draußen</source>
+        <target>Dehors</target>
+      </segment>
+    </unit>
+    <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
+      <notes>
+        <note category="german">in der Stadt oder am Stadttor</note>
+      </notes>
+      <segment>
+        <source>in der Stadt oder am Stadttor</source>
+        <target>En ville ou aux portes</target>
+      </segment>
+    </unit>
+    <unit id="fICCxje" name="Seine Seele ansehen">
+      <notes>
+        <note category="german">Seine Seele ansehen</note>
+      </notes>
+      <segment>
+        <source>Seine Seele ansehen</source>
+        <target>Voir son âme</target>
       </segment>
     </unit>
   </file>

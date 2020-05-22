@@ -844,13 +844,26 @@ class MessageController extends AbstractController
         if ($tid == -1) {
             // New thread
             if($type === 'pm'){
-            	// Check inventory size
-
                 $recipient = $em->getRepository(Citizen::class)->find($recipient);
-                if($recipient->getTown() !== $sender->getTown()){
+                if($recipient->getTown() !== $sender->getTown() || !$recipient->getAlive()){
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 }
 
+                if(count($linked_items) > 0){
+                    if ($recipient->getIsBanned() != $sender->getIsBanned())
+                        return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);   
+                    if ($sender->getTown()->getChaos()){
+                        if($recipient->getZone())
+                            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);   
+                        else
+                            //TODO: add 3 items limit per day
+                            ;
+                    }
+                }
+
+
+
+            	// Check inventory size
                 $max_size = $this->inventory_handler->getSize($recipient->getHome()->getChest());
 
         		if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) >= $max_size) return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
@@ -932,6 +945,10 @@ class MessageController extends AbstractController
             else
                 $recipient = $thread->getRecipient();
 
+            if($recipient->getTown() !== $sender->getTown() || !$recipient->getAlive()){
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            }
+
             $post = new PrivateMessage();
             $post->setDate(new DateTime('now'))
                 ->setText($content)
@@ -939,7 +956,6 @@ class MessageController extends AbstractController
                 ->setOwner($sender)
                 ->setNew(true)
                 ->setRecipient($recipient)
-                ->setItems(null)
             ;
 
             $tx_len = 0;

@@ -59,7 +59,6 @@ class PrivateMessage
 
     public function __construct()
     {
-        $this->items = new ArrayCollection();
     }
 
     public function getId(): ?int
