@@ -356,8 +356,17 @@ class MessageController extends AbstractController
         if ($forum !== null && $forum->getTown()) {
             foreach ( $forum->getTown()->getCitizens() as $citizen )
                 if ($citizen->getUser()->getId() === $user->getId()) {
-                    if ($citizen->getZone()) $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
-                    else $post->setNote("[{$citizen->getTown()->getName()}]");
+                    if ($citizen->getZone() && ($citizen->getZone()->getX() > 0 || $citizen->getZone()->getY() > 0))  {
+                        if($citizen->getTown()->getChaos()){
+                            $post->setNote($this->trans->trans('Draußen', [], 'game'));
+                        } else {
+                            $post->setNote("[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]");
+                        }
+                    }
+                    else {
+                        //$post->setNote("[{$citizen->getTown()->getName()}]");
+                        $post->setNote($this->trans->trans('in der Stadt oder am Stadttor', [], 'game'));
+                    }
 
                 }
         }
