@@ -15,10 +15,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity("email")
  * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="email_unique",columns={"email"}),
- *     @UniqueConstraint(name="name_unique",columns={"name"})
- * })
+ * @Table(
+ *     name="`user`",
+ *     uniqueConstraints={
+ *         @UniqueConstraint(name="email_unique",columns={"email"}),
+ *         @UniqueConstraint(name="user_name_unique",columns={"name"})
+ *     }
+ * )
  */
 class User implements UserInterface, EquatableInterface
 {

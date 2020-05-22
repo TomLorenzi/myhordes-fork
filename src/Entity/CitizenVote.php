@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CitizenVoteRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="assoc_unique",columns={"autor_id","voted_citizen_id", "role_id"})
+ *     @UniqueConstraint(name="citizen_vote_assoc_unique",columns={"autor_id","voted_citizen_id", "role_id"})
  * })
  */
 class CitizenVote

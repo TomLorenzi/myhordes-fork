@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</target>
+        <target>You have drawn a card... You scream as you discover your name is written on the card in blood ! You don't care who is behind this evil joke... You are now terrorised !</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -588,7 +588,7 @@
       </notes>
       <segment>
         <source>Superpraktischer Rucksack</source>
-        <target>Superpraktischer Rucksack</target>
+        <target>Ultra-Rucksack</target>
       </segment>
     </unit>
     <unit id="5GyHUf3" name="Kanister">
@@ -948,7 +948,7 @@
       </notes>
       <segment>
         <source>Habseligkeiten eines Bürgers</source>
-        <target>Habseligkeiten eines Bürgers</target>
+        <target>Citizen's Welcome Pack</target>
       </segment>
     </unit>
     <unit id="amQyoPc" name="Hydraton 100mg">
@@ -1148,7 +1148,7 @@
       </notes>
       <segment>
         <source>Zerstörer (geladen)</source>
-        <target>Zerstörer (loaded)</target>
+        <target>Devastator (loaded)</target>
       </segment>
     </unit>
     <unit id="NWwA1_1" name="Unvollständiger Zerstörer">
@@ -1178,7 +1178,7 @@
       </notes>
       <segment>
         <source>Leuchtrakete</source>
-        <target>Leuchtrakete</target>
+        <target>Spy Flare</target>
       </segment>
     </unit>
     <unit id="TNcHwKw" name="Kanisterpumpe (einsatzbereit)">
@@ -1768,7 +1768,7 @@
       </notes>
       <segment>
         <source>Aufgewelltes Blatt</source>
-        <target>Aufgewelltes Blatt</target>
+        <target>Scroll</target>
       </segment>
     </unit>
     <unit id="9.sIwMj" name="Betriebsanleitung">
@@ -1818,7 +1818,7 @@
       </notes>
       <segment>
         <source>Große rostige Kette</source>
-        <target>Große rostige Kette</target>
+        <target>Rusty Chain</target>
       </segment>
     </unit>
     <unit id="mRVfEiv" name="Verdächtige Speise">
@@ -1868,7 +1868,7 @@
       </notes>
       <segment>
         <source>Nagelbare Barrikade</source>
-        <target>Nagelbare Barrikade</target>
+        <target>Makeshift Barricade</target>
       </segment>
     </unit>
     <unit id="PaCdCNf" name="Ein Briefumschlag">
@@ -2088,7 +2088,7 @@
       </notes>
       <segment>
         <source>Postpaket</source>
-        <target>Postpaket</target>
+        <target>Gift Parcel</target>
       </segment>
     </unit>
     <unit id="kiXYPyy" name="Lunch-Box">
@@ -2258,7 +2258,7 @@
       </notes>
       <segment>
         <source>Aasbeeren</source>
-        <target>Aasbeeren</target>
+        <target>Fleshrooms</target>
       </segment>
     </unit>
     <unit id="Ts1kvBr" name="Schleimige Kugel">
@@ -2268,7 +2268,7 @@
       </notes>
       <segment>
         <source>Schleimige Kugel</source>
-        <target>Schleimige Kugel</target>
+        <target>Sticky Pastry Ball</target>
       </segment>
     </unit>
     <unit id="n2b6vg0" name="Fleischfetzen">
@@ -2278,7 +2278,7 @@
       </notes>
       <segment>
         <source>Fleischfetzen</source>
-        <target>Fleischfetzen</target>
+        <target>Pound of Flesh</target>
       </segment>
     </unit>
     <unit id="YbU6RJg" name="Makabre Bombe">
@@ -2308,7 +2308,7 @@
       </notes>
       <segment>
         <source>Aasbeerenbrei</source>
-        <target>Aasbeerenbrei</target>
+        <target>Fleshroom Puree</target>
       </segment>
     </unit>
     <unit id="cbLBQdq" name="Eisengefäß mit modrigem Wasser">
@@ -2318,7 +2318,7 @@
       </notes>
       <segment>
         <source>Eisengefäß mit modrigem Wasser</source>
-        <target>Eisengefäß mit modrigem Wasser</target>
+        <target>Stagnant Water Can</target>
       </segment>
     </unit>
     <unit id="_YIwmCU" name="Gereinigtes modriges Wasser">
@@ -2328,7 +2328,7 @@
       </notes>
       <segment>
         <source>Gereinigtes modriges Wasser</source>
-        <target>Gereinigtes modriges Wasser</target>
+        <target>Purified Stagnant Water</target>
       </segment>
     </unit>
     <unit id="u9xpwxV" name="Notizzettel eines Verbannten">
@@ -2348,7 +2348,7 @@
       </notes>
       <segment>
         <source>Blutdurchtränkter Verband</source>
-        <target>Blutdurchtränkter Verband</target>
+        <target>Bloody Dressing</target>
       </segment>
     </unit>
     <unit id="3KOSs2o" name="Verfluchter Teddybär">
@@ -2668,7 +2668,7 @@
       </notes>
       <segment>
         <source>Ghul-Serum</source>
-        <target>Ghul-Serum</target>
+        <target>Ghoul Vaccine</target>
       </segment>
     </unit>
     <unit id="BeyHLoR" name="Hotel-Bauplan (ungewöhnlich)">
@@ -2778,7 +2778,7 @@
       </notes>
       <segment>
         <source>Starke Seele</source>
-        <target>Starke Seele</target>
+        <target>Powerful Soul</target>
       </segment>
     </unit>
     <unit id="qERZioI" name="Schwache Seele">
@@ -2798,7 +2798,7 @@
       </notes>
       <segment>
         <source>Bierkrug</source>
-        <target>Bierkrug</target>
+        <target>Beer mug</target>
       </segment>
     </unit>
     <unit id="GNoTm5X" name="Brezel">
@@ -2898,7 +2898,7 @@
       </notes>
       <segment>
         <source>Kalaschni-Splash (leer)</source>
-        <target>Kalaschni-Splash (empty)</target>
+        <target>Kalashni-Splash (empty)</target>
       </segment>
     </unit>
     <unit id="7Qjcs1W" name="Drahtspule">
@@ -3068,7 +3068,7 @@
       </notes>
       <segment>
         <source>Kleine Zen-Fibel</source>
-        <target>Kleine Zen-Fibel</target>
+        <target>Little Book of Calm</target>
       </segment>
     </unit>
     <unit id="02YzXu0" name="Trockene Kräuter">
@@ -3418,7 +3418,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Hierfür brauchst du eine Ration Wasser.</target>
+        <target>You need a Water Ration for this.</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -3528,7 +3528,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Batterie.</source>
-        <target>Hierfür brauchst du eine Batterie.</target>
+        <target>You need a Battery for this.</target>
       </segment>
     </unit>
     <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
@@ -3738,7 +3738,7 @@
       </notes>
       <segment>
         <source>Reparieren mit</source>
-        <target>Reparieren mit</target>
+        <target>Repair with</target>
       </segment>
     </unit>
     <unit id="SKEGJd1" name="8534543">
@@ -3888,7 +3888,7 @@
       </notes>
       <segment>
         <source>Dopen</source>
-        <target>Dopen</target>
+        <target>Dope</target>
       </segment>
     </unit>
     <unit id="ok9rcgr" name="Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!">
@@ -3918,7 +3918,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Wasser suchen</target>
+        <target>Seek Water</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -3928,7 +3928,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Essen suchen</target>
+        <target>Seek Food</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
@@ -3988,7 +3988,7 @@
       </notes>
       <segment>
         <source>Die Rückkehr des Helden</source>
-        <target>Die Rückkehr des Helden</target>
+        <target>Heroic Return</target>
       </segment>
     </unit>
     <unit id="AfDbNyS" name="Hierfür bist du zu weit von der Stadt entfernt ...">
@@ -3998,7 +3998,7 @@
       </notes>
       <segment>
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>Hierfür bist du zu weit von der Stadt entfernt ...</target>
+        <target>You are too far from the city for this ...</target>
       </segment>
     </unit>
     <unit id="9XqTW0w" name="Fund">
@@ -4048,7 +4048,7 @@
       </notes>
       <segment>
         <source>Rettung</source>
-        <target>Heroic Return</target>
+        <target>Rescue</target>
       </segment>
     </unit>
     <unit id="VREDhkf" name="Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!">
@@ -4078,7 +4078,7 @@
       </notes>
       <segment>
         <source>Heldentaten</source>
-        <target>Heldentaten</target>
+        <target>Heroic Actions</target>
       </segment>
     </unit>
     <unit id="mXiqRuJ" name="a4c1519">
@@ -6818,7 +6818,7 @@
       </notes>
       <segment>
         <source>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</source>
-        <target>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</target>
+        <target>This allows you to move freely through zombie-infested areas in the desert. Always be careful though, as there is a chance you could be spotted if you're trying to cross an area that's crawling with the undead....</target>
       </segment>
     </unit>
     <unit id="IU3Z1xk" name="c85cf59">
@@ -6828,7 +6828,7 @@
       </notes>
       <segment>
         <source>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</source>
-        <target>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</target>
+        <target>The standard tool of the Scavenger. The small shovel automatically reduces searching time in the desert... The chances of finding an object are also significantly increased.</target>
       </segment>
     </unit>
     <unit id="mpUAH1U" name="b687353">
@@ -6838,7 +6838,7 @@
       </notes>
       <segment>
         <source>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.</source>
-        <target>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.</target>
+        <target>He follows you everywhere, smelling of wet dog and drooling constantly. And he yaps. Often. Once a day though, you can ask him to take the contents of your rucksack back to the town from anywhere in the desert.</target>
       </segment>
     </unit>
     <unit id="1AGCtVy" name="c84c963">
@@ -6848,7 +6848,7 @@
       </notes>
       <segment>
         <source>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</source>
-        <target>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</target>
+        <target>Your precious book entitled "Junior Woodchuck's Scouting Manual". Even though it may look like a children's book, it contains a wealth of useful information for anyone looking to survive in the great outdoors. It even shows you how to find food easily.</target>
       </segment>
     </unit>
     <unit id="zNdPJiM" name="b1076bd">
@@ -6858,7 +6858,7 @@
       </notes>
       <segment>
         <source>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</source>
-        <target>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</target>
+        <target>This comprehensive tool kit, which includes a top-of-the-line adjustable wrench, allows the technician to build more easily. Thanks to the array of tools in the kit, the tech can also take an impression of a lock in a secured door.</target>
       </segment>
     </unit>
     <unit id="jwGWTvk" name="affc55c">
@@ -6868,7 +6868,7 @@
       </notes>
       <segment>
         <source> Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</source>
-        <target> Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</target>
+        <target> It's big and it's zombie-proof. In this world who could ask for more... It allows you to face 2 additional zombies in the desert..</target>
       </segment>
     </unit>
     <unit id="Z1OLvdq" name="af1cd74">
@@ -6878,7 +6878,7 @@
       </notes>
       <segment>
         <source>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</source>
-        <target>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</target>
+        <target>This antique mask, which has been used by ancient voodoo sorcerors for thousands of years, allows the Shaman to know exactly where the souls of freshly-deceased citizens are located in the World Beyond.</target>
       </segment>
     </unit>
     <unit id="wESWf2D" name="Berufsgegenstand">
@@ -7088,7 +7088,7 @@
       </notes>
       <segment>
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+        <target>Improve the campsite (permanent small bonus, 1AP)</target>
       </segment>
     </unit>
     <unit id="D632ww5" name="Du hast das hiesige Versteck verbessert.">
@@ -7098,7 +7098,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck verbessert.</source>
-        <target>Du hast das hiesige Versteck verbessert.</target>
+        <target>You spent considerable time upgrading your hiding place with everything that came to hand...</target>
       </segment>
     </unit>
     <unit id="I4OeVwm" name="Sich verstecken und die Nacht hier schlafen!">
@@ -7108,7 +7108,7 @@
       </notes>
       <segment>
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>Sich verstecken und die Nacht hier schlafen!</target>
+        <target>Hide here for the night!</target>
       </segment>
     </unit>
     <unit id="VsRU9Va" name="Du hast Dich notdürftig versteckt.">
@@ -7128,7 +7128,7 @@
       </notes>
       <segment>
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+        <target>Look for a "tomb" (temporary medium bonus, 1PA )</target>
       </segment>
     </unit>
     <unit id="P15D.zw" name="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
@@ -7138,7 +7138,7 @@
       </notes>
       <segment>
         <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
-        <target>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</target>
+        <target>You have dug your own tomb. Oh what irony!</target>
       </segment>
     </unit>
     <unit id="nv.FYHK" name="Versteck verlassen">
@@ -7148,7 +7148,7 @@
       </notes>
       <segment>
         <source>Versteck verlassen</source>
-        <target>Versteck verlassen</target>
+        <target>Leave your hiding place</target>
       </segment>
     </unit>
     <unit id="DLyYjGK" name="Du hast Dein Versteck verlassen.">
@@ -7168,7 +7168,7 @@
       </notes>
       <segment>
         <source>Grab verlassen</source>
-        <target>Grab verlassen</target>
+        <target>Leave tomb</target>
       </segment>
     </unit>
     <unit id="fz7VoYN" name="Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!">
@@ -7487,7 +7487,7 @@
       </notes>
       <segment>
         <source>Kochen</source>
-        <target>Kochen</target>
+        <target>Cook</target>
       </segment>
     </unit>
     <unit id="h20eY91" name="In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.">
@@ -7514,7 +7514,7 @@
       </notes>
       <segment>
         <source>Kompass</source>
-        <target>Kompass</target>
+        <target>Compass</target>
       </segment>
     </unit>
     <unit id="47DEQpj" name="">
@@ -7565,7 +7565,7 @@
       </notes>
       <segment>
         <source>Herstellung eines Mystischern Trank</source>
-        <target>Herstellung eines Mystischern Trank</target>
+        <target>Brew a Mystic Potion</target>
       </segment>
     </unit>
     <unit id="rQB150u" name="Nickerchen machen">
@@ -7619,7 +7619,7 @@
       </notes>
       <segment>
         <source>Kreuz</source>
-        <target>Kreuz</target>
+        <target>Club</target>
       </segment>
     </unit>
     <unit id="XnWnfMP" name="Pik">
@@ -7628,7 +7628,7 @@
       </notes>
       <segment>
         <source>Pik</source>
-        <target>Spades</target>
+        <target>Spade</target>
       </segment>
     </unit>
     <unit id="Rduezfz" name="Herz">
@@ -7646,7 +7646,7 @@
       </notes>
       <segment>
         <source>Karo</source>
-        <target>Diamonds</target>
+        <target>Diamond</target>
       </segment>
     </unit>
     <unit id="cIg8Tyq" name="Bube">
@@ -7727,7 +7727,7 @@
       </notes>
       <segment>
         <source>Heilen</source>
-        <target>Heilen</target>
+        <target>Heal</target>
       </segment>
     </unit>
     <unit id="zEs55xR" name="Verteidigung organisieren">

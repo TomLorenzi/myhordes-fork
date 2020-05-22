@@ -2286,7 +2286,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist TOT!</source>
-        <target>Bravo, vous êtes mort !</target>
+        <target>Congratulations, you are DEAD!</target>
       </segment>
     </unit>
     <unit id="AEDztPF" name="Du hast %sp% Seelenpunkte gewonnen!">
@@ -2296,7 +2296,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast %sp% Seelenpunkte gewonnen!</source>
-        <target>You have earned %sp% soul points !</target>
+        <target>You have earned %sp% points!</target>
       </segment>
     </unit>
     <unit id="wD7XaTz" name="Du hast folgende Auszeichnungen verliehen bekommen:">
@@ -2316,7 +2316,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Begrüße den Tod wie es sich gehört...</source>
-        <target>Accueillez la mort comme il se doit...</target>
+        <target>WELCOME YOUR DEATH AS YOU SHOULD...</target>
       </segment>
     </unit>
     <unit id="uFR9Aa." name="Der Tod in &quot;MyHordes&quot; ist nicht weiter schlimm!">
@@ -2326,7 +2326,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Tod in "MyHordes" ist nicht weiter schlimm!</source>
-        <target>La mort dans "MyHordes" n'est pas grave !</target>
+        <target>Dying in "MyHordes" isn't serious !</target>
       </segment>
     </unit>
     <unit id="mkPbtI8" name="ff55b29">
@@ -2336,7 +2336,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!</source>
-        <target>Vous pouvez renaître dans une nouvelle ville aussi souvent que vous le souhaitez. Soyez inventif, essayez différentes options et trouvez votre propre style de jeu !</target>
+        <target>You can be reincarnated in a new town as often as you like. Play in your own style, experiment, be imaginative!</target>
       </segment>
     </unit>
     <unit id="em6PCOi" name="Wiedergeboren werden">
@@ -3798,7 +3798,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Kleine Stadt</source>
-        <target>Non-distant region</target>
+        <target>Small Town</target>
       </segment>
     </unit>
     <unit id="bElrYkF" name="Entfernte Regionen">
@@ -3808,7 +3808,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Entfernte Regionen</source>
-        <target>Entfernte Regionen</target>
+        <target>Distant Region</target>
       </segment>
     </unit>
     <unit id="7H7gGH1" name="Pandämonium">
@@ -3818,7 +3818,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Pandämonium</source>
-        <target>Pandämonium</target>
+        <target>Pandemonium</target>
       </segment>
     </unit>
     <unit id="2ZxNAfn" name="Private Stadt">
@@ -3828,7 +3828,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Private Stadt</source>
-        <target>Private Stadt</target>
+        <target>Private Town</target>
       </segment>
     </unit>
     <unit id="GOlt3k3" name="%citizen% hat dem Brunnen %num% Rationen Wasser hinzugefügt.">
@@ -3958,7 +3958,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gammler</source>
-        <target>Gammler</target>
+        <target>Undecided</target>
       </segment>
     </unit>
     <unit id="sBbkqrg" name="Buddler">
@@ -4220,7 +4220,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
-        <target>Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite.</target>
+        <target>You reckon your chances of surviving here are hee haw... Might as well take some cyanide now.</target>
       </segment>
     </unit>
     <unit id="VGRstc7" name="Rucksack auf dem Boden ausleeren">
@@ -7761,7 +7761,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>You are injured on your Head! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="yuk5yk0" name="e612e0a">
@@ -7770,7 +7770,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>You are injured on your Hand! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="U1wN7M9" name="15166e5">
@@ -7779,7 +7779,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>You are injured on your Arm!  You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="y0CRLzz" name="383cf44">
@@ -7788,7 +7788,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>Du bist an deinen Beinen verletzt! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="04Y3sHe" name="c3919ad">
@@ -7797,7 +7797,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>Du bist an den Augen verletzt! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="lUN_NCt" name="520ae66">
@@ -7806,7 +7806,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>Du bist am Fuß verletzt! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
@@ -8337,7 +8337,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Letzte Worte:</source>
-        <target>Letzte Worte:</target>
+        <target>Last Words:</target>
       </segment>
     </unit>
     <unit id="sK.fJbP" name="Was ist mit ihm geschehen?">
@@ -8346,7 +8346,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Was ist mit ihm geschehen?</source>
-        <target>Was ist mit ihm geschehen?</target>
+        <target>What happened to him?</target>
       </segment>
     </unit>
     <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
@@ -8382,7 +8382,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Klicke hier, um für diesen Bürger zu stimmen.</source>
-        <target>Klicke hier, um für diesen Bürger zu stimmen.</target>
+        <target>Click here to vote for this citizen.</target>
       </segment>
     </unit>
     <unit id="xp8ndxu" name="Du hast für diesen Bürger gestimmt.">
@@ -8391,7 +8391,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast für diesen Bürger gestimmt.</source>
-        <target>Du hast für diesen Bürger gestimmt.</target>
+        <target>You voted for this citizen.</target>
       </segment>
     </unit>
     <unit id="Q4Q3RlC" name="Du folgst aktuell %citizen%.">
@@ -8400,7 +8400,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du folgst aktuell %citizen%.</source>
-        <target>Du folgst aktuell %citizen%.</target>
+        <target>You are currently following %citizen%.</target>
       </segment>
     </unit>
     <unit id="tNPDkbr" name="6eb9def">
@@ -8421,7 +8421,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zone reinigen</source>
-        <target>Zone reinigen</target>
+        <target>Clean the zone</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -8430,7 +8430,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Deine Eskorte</source>
-        <target>Deine Eskorte</target>
+        <target>Your escort</target>
       </segment>
     </unit>
     <unit id="GSKpJCY" name="32bd220">
@@ -8439,7 +8439,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+        <target>This citizen has dug here recently. The next excavation is possible in:</target>
       </segment>
     </unit>
     <unit id="_s1Oex0" name="Gesamte Eskorte">
@@ -9357,7 +9357,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>In die Stadt schleichen</source>
-        <target>In die Stadt schleichen</target>
+        <target>Sneak into the town</target>
       </segment>
     </unit>
     <unit id="Ztj0B29" name="e4b05e9">
@@ -9600,7 +9600,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
-        <target>Extremely rare brand reserved for souls who have experienced the Great Contamination of Die2Nite!</target>
+        <target>Extremely rare distinction reserved for souls who have experienced the Great Contamination of Die2Nite!</target>
       </segment>
     </unit>
     <unit id="d4bvAjk" name="9011ac1">
