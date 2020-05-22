@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Zum Spiel</source>
-        <target>Retour au jeu</target>
+        <target>Retour</target>
       </segment>
     </unit>
     <unit id="tkZocIU" name="Ausloggen">

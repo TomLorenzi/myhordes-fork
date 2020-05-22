@@ -739,9 +739,9 @@ div.game-menu-area {
   }
 
   &>div.game-bar {
-    width: 100%; height: 35px; background: url("../img/bg_menu.jpg");
+    width: 100%; height: 62px; background: url("../img/bg_menu.jpg");
     box-shadow: 0 0 5px black; position: relative; z-index: 20;
-    border-top: 1px solid black; border-bottom: 1px solid black;
+    border-top: 0 solid #0000; border-bottom: 0 solid #0000;
 
     &>div.header-stats {
         position: absolute;
@@ -777,6 +777,46 @@ div.game-menu-area {
           box-shadow: inset 0 0 4px rgba(0,0,0,0.6); border-radius: 4px; border: 1px solid rgba(0,0,0,0.3);
           cursor: pointer;
           &:hover {color: white}
+        .forum {
+            background: url("../img/forum2.png") transparent; filter: brightness(90%);
+            border: 0px solid transparent; border-radius: 0px; box-shadow: inset 0 0 0 #00000000;
+            height: 62px; width: 84px;
+            padding-left: 21px; padding-top: 46px;
+            text-transform:uppercase; font-size: 1.0rem; font-weight: bold; color: #FFFFCA;
+        }
+        .town-dash {
+            background: url("../img/play.png") transparent; filter: brightness(90%);
+            border: 0px solid transparent; border-radius: 0px; box-shadow: inset 0 0 0 #00000000;
+            height: 62px; width: 63px;
+            padding-left: 15px; padding-top: 48px;
+            text-transform:uppercase; font-size: 0.7rem; font-weight: bold; color: #FFFFCA;
+        }
+        .town-news {
+            background: url("../img/gazette.png") transparent; filter: brightness(90%);
+            border: 0px solid transparent; border-radius: 0px; box-shadow: inset 0 0 0 #00000000;
+            height: 62px; width: 84px;
+            padding-left: 19px; padding-top: 46px;
+            text-transform:uppercase; font-size: 0.9rem; font-weight: bold; color: #FFFFCA;
+        }
+        .soul {
+            background: url("../img/soul.png") transparent; filter: brightness(90%);
+            border: 0px solid transparent; border-radius: 0px; box-shadow: inset 0 0 0 #00000000;
+            height: 62px; width: 62px;
+            padding-left: 5px; padding-top: 47px;
+            text-transform:uppercase; font-size: 0.79rem; font-weight: bold; color: #FFFFCA;
+        }
+        .help {
+            background: url("../img/help.png") transparent; filter: brightness(90%);
+            border: 0px solid transparent; border-radius: 0px; box-shadow: inset 0 0 0 #00000000;
+            height: 62px; width: 41px;
+            padding-left: 8px; padding-top: 47.5px;
+            text-transform:uppercase; font-size: 0.7rem; font-weight: bold; color: #FFFFCA;
+        }
+        .forum:hover { filter: brightness(110%); color: #FFFFCA; }
+        .town-dash:hover { filter: brightness(110%); color: #FFFFCA; }
+        .town-news:hover { filter: brightness(110%); color: #FFFFCA; }
+        .soul:hover { filter: brightness(110%); color: #FFFFCA; }
+        .help:hover { filter: brightness(110%); color: #FFFFCA; }
         }
       }
 
