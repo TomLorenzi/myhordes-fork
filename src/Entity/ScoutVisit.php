@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ScoutVisitRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="assoc_unique",columns={"scout_id","zone_id"})
+ *     @UniqueConstraint(name="scout_visit_assoc_unique",columns={"scout_id","zone_id"})
  * })
  */
 class ScoutVisit
