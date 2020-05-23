@@ -10957,5 +10957,32 @@
         <target>Lire la dernière gazette</target>
       </segment>
     </unit>
+    <unit id="YuJzi8m" name="Basisverteidigung">
+      <notes>
+        <note category="german">Basisverteidigung</note>
+      </notes>
+      <segment>
+        <source>Basisverteidigung</source>
+        <target>Défense de base</target>
+      </segment>
+    </unit>
+    <unit id="D3XPl3x" name="Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!">
+      <notes>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</note>
+      </notes>
+      <segment>
+        <source>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</source>
+        <target>Cet objet cassera après votre veille !</target>
+      </segment>
+    </unit>
+    <unit id="8qoI_l9" name="Es besteht die Chance das Objekt während des Angriffs zu verlieren!">
+      <notes>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu verlieren!</note>
+      </notes>
+      <segment>
+        <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
+        <target>Cet objet disparaîtra après votre veille !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
