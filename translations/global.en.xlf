@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>Titel</source>
-        <target>Title</target>
+        <target>Subject</target>
       </segment>
     </unit>
     <unit id="P6NlaF8" name="Deine Nachricht">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
-        <target>This player didn't win any prizes yet...</target>
+        <target>This player didn't win any distinctions yet...</target>
       </segment>
     </unit>
     <unit id="ZyZ8Dxn" name="Seelenpunktzahl">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Es wurde keine Stadt gefunden...</source>
-        <target>No city was found...</target>
+        <target>No town was found...</target>
       </segment>
     </unit>
     <unit id="l.2Tpic" name="ca64199">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</source>
-        <target>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</target>
+        <target>YOU MUST NEVER GIVE YOUR MYHORDES PASSWORD</target>
       </segment>
     </unit>
     <unit id="RVk3Tvz" name="Auch dann nicht, wenn du dazu aufgefordert wirst!">
@@ -565,7 +565,7 @@
       </notes>
       <segment>
         <source>Auch dann nicht, wenn du dazu aufgefordert wirst!</source>
-        <target>Auch dann nicht, wenn du dazu aufgefordert wirst!</target>
+        <target>even if they ask you nicely!</target>
       </segment>
     </unit>
     <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Du hast keine Externe ID.</source>
-        <target>Du hast keine Externe ID.</target>
+        <target>You do not have an external ID.</target>
       </segment>
     </unit>
     <unit id="Y1oTzsk" name="ee8b5a5">
@@ -935,7 +935,7 @@
       </notes>
       <segment>
         <source>Unterstreichen</source>
-        <target>Underline</target>
+        <target>Underlined</target>
       </segment>
     </unit>
     <unit id="AsD_uy4" name="Durchstreichen">
@@ -944,7 +944,7 @@
       </notes>
       <segment>
         <source>Durchstreichen</source>
-        <target>Strike</target>
+        <target>Striked</target>
       </segment>
     </unit>
     <unit id="aZc6vxf" name="Einfache Liste">
@@ -971,7 +971,7 @@
       </notes>
       <segment>
         <source>Listenpunkt</source>
-        <target>Listenpunkt</target>
+        <target>Element list</target>
       </segment>
     </unit>
     <unit id="jlAJmOo" name="Spoiler">
@@ -1016,9 +1016,71 @@
       </notes>
       <segment>
         <source>Entstauben</source>
-        <target>Entstauben</target>
+        <target>Unarchive</target>
       </segment>
     </unit>
-
+ <unit id="siULJza" name="Link einfügen">
+      <notes>
+        <note category="german">Link einfügen</note>
+      </notes>
+      <segment>
+        <source>Link einfügen</source>
+        <target>Insert a link</target>
+      </segment>
+    </unit>
+    <unit id="HqBDmKX" name="Bild einfügen">
+      <notes>
+        <note category="german">Bild einfügen</note>
+      </notes>
+      <segment>
+        <source>Bild einfügen</source>
+        <target>Insert an image</target>
+      </segment>
+    </unit>
+    <unit id="9H7C4W9" name="Link-Text">
+      <notes>
+        <note category="german">Link-Text</note>
+      </notes>
+      <segment>
+        <source>Link-Text</source>
+        <target>Link text</target>
+      </segment>
+    </unit>
+    <unit id="nE4T9Ox" name="Link-URL">
+      <notes>
+        <note category="german">Link-URL</note>
+      </notes>
+      <segment>
+        <source>Link-URL</source>
+        <target>Link URL</target>
+      </segment>
+    </unit>
+    <unit id="d1AmbOG" name="Bildtitel">
+      <notes>
+        <note category="german">Bildtitel</note>
+      </notes>
+      <segment>
+        <source>Bildtitel</source>
+        <target>Image title</target>
+      </segment>
+    </unit>
+    <unit id="Q0tlYyY" name="Bild-URL">
+      <notes>
+        <note category="german">Bild-URL</note>
+      </notes>
+      <segment>
+        <source>Bild-URL</source>
+        <target>Image URL</target>
+      </segment>
+    </unit>
+    <unit id="lqB1Bvf" name="Einfügen">
+      <notes>
+        <note category="german">Einfügen</note>
+      </notes>
+      <segment>
+        <source>Einfügen</source>
+        <target>Confirm</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
