@@ -10939,5 +10939,14 @@
         <target>Voir son âme</target>
       </segment>
     </unit>
+    <unit id="9NwZjWy" name="Teilnehmen">
+      <notes>
+        <note category="german">Teilnehmen</note>
+      </notes>
+      <segment>
+        <source>Teilnehmen</source>
+        <target>Participer</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
