@@ -84,8 +84,8 @@
                         </div>
                     </div>
                 {% endif %}
-
-                {% if building.ap < ((building.prototype.ap * workshopBonus)|round) %}
+                
+                {% if buildable and building.ap < ((building.prototype.ap * workshopBonus)|round) %}
                     <div class="build-req">
                         <div class="ap">{{ ((building.prototype.ap * workshopBonus)|round) - building.ap }}</div>
                     </div>
