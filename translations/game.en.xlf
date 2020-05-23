@@ -138,7 +138,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% has %action% town.</target>
+        <target>%citizen% has %action% the town.</target>
       </segment>
     </unit>
     <unit id="RvCIvJN" name="betreten">
@@ -3368,7 +3368,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% has taken %item% from the bank!</target>
+        <target>%citizen% has taken the %item% from the bank!</target>
       </segment>
     </unit>
     <unit id="R43wWvR" name="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
