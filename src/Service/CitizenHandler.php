@@ -438,6 +438,8 @@ class CitizenHandler
     }
 
     public function getCampingValues(Citizen $citizen): array {
+        // Based on https://docs.google.com/spreadsheets/d/1uxSAGoNUIhSPGY7fj_3yPzJEri9ktEXLj9Wt7x_B9Ig/edit#gid=555313428
+        // and on   http://www.camping-predict.nadazone.fr/
         $camping_values = [];
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
