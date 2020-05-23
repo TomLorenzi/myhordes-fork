@@ -58,7 +58,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target>%citizen% poured %item% into the well and it added %num% water rations.</target>
+        <target>%citizen% poured %item% into the well and it added %num% water ration(s).</target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -5540,7 +5540,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nachtwächter</source>
-        <target>Nachtwächter</target>
+        <target>Watchmen</target>
       </segment>
     </unit>
     <unit id="CoBxwRL" name="f08a2f6">
@@ -8247,7 +8247,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</source>
-        <target>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</target>
+        <target>Ah! So in the end you're too scared to go through with it? Well, don't let us hold you back:</target>
       </segment>
     </unit>
     <unit id="sSdGp03" name="Ich habe doch zu große Angst...">
@@ -8256,7 +8256,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ich habe doch zu große Angst...</source>
-        <target>Ich habe doch zu große Angst...</target>
+        <target>I can't do it, I'm too scared...</target>
       </segment>
     </unit>
     <unit id="_xMXxrI" name="e0dcb5d">
@@ -8265,7 +8265,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+        <target>You, too, can defend the town tonight! Join the Watchmen! Do you want to join the the most suicid... erm... brave citizens? Well then, don't wait any longer:</target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
@@ -8274,7 +8274,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ich möchte Wächter werden!</source>
-        <target>Ich möchte Wächter werden!</target>
+        <target>I want to become a watchman!</target>
       </segment>
     </unit>
     <unit id="ANSfsJY" name="0e97f6c">
@@ -8283,7 +8283,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
-        <target>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</target>
+        <target>Oh and by the way, it seemed like a good idea to us to let you know that you have %deathChance%% chance of dying tonight and %woundAndTerrorChance%% of being wounded during this watch.</target>
       </segment>
     </unit>
     <unit id="vuWaICz" name="87f59f6">
@@ -8301,7 +8301,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Benutzte Waffe</source>
-        <target>Benutzte Waffe</target>
+        <target>Weapon(s) equipped</target>
       </segment>
     </unit>
     <unit id="WEf5fsd" name="Wähle meine Waffen!">
@@ -8310,7 +8310,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wähle meine Waffen!</source>
-        <target>Wähle meine Waffen!</target>
+        <target>Choose your weapons!</target>
       </segment>
     </unit>
     <unit id="xi60kHY" name="Gesamtzahl der Zombies, die heute Nacht sterben könnten:">
@@ -8319,7 +8319,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</source>
-        <target>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</target>
+        <target>Total number of Zombies who may die tonight:</target>
       </segment>
     </unit>
     <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
