@@ -1073,7 +1073,7 @@ class NightlyHandler
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
                 if($role->getName() == "shaman")
-                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_immune"); // Shaman is immune to red souls
+                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_shaman_immune"); // Shaman is immune to red souls
                 $this->entity_manager->persist($winningCitizen);
             }
 

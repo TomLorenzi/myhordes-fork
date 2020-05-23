@@ -552,7 +552,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
-                    if(!$this->citizen_handler->hasStatusEffect($citizen, "tg_immune")) {
+                    if(!$this->citizen_handler->hasStatusEffect($citizen, "tg_shaman_immune")) {
                         // He is not immune, he dies.
                         $rem = [];
                         $this->death_handler->kill( $citizen, CauseOfDeath::Haunted, $rem );

@@ -105,8 +105,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_yet_home_heal_2'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_heal_2' ] ]],
             'not_yet_home_defbuff'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_defbuff' ] ]],
             'not_yet_rested'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_rested' ]  ]],
-            'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_immune' ]  ]],
-            'immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_immune' ]  ]],
+            'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_shaman_immune' ]  ]],
+            'immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_shaman_immune' ]  ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -255,7 +255,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'infect'       => [ 'status' => 'add_infection' ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
-            'give_immune'  => [ 'status' => 'immune'],
+            'give_immune'  => [ 'status' => 'shaman_immune'],
 
             'minus_1ap'    => [ 'ap' => 'minus_1' ],
             'minus_5ap'    => [ 'ap' => 'minus_5' ],
@@ -362,7 +362,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'inflict_wound' => [ 'from' => null, 'to' => 'tg_meta_wound' ],
                 'heal_wound'    => [ 'from' => 'tg_meta_wound', 'to' => null ],
                 'add_bandage'   => [ 'from' => null, 'to' => 'healed' ],
-                'immune'   => [ 'from' => null, 'to' => 'tg_immune' ],
+                'shaman_immune'   => [ 'from' => null, 'to' => 'tg_shaman_immune' ],
 
                 'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
                 'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
