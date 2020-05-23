@@ -441,6 +441,7 @@ class CitizenHandler
         $camping_values = [];
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
+        $has_pro_camper = $citizen->getProfession()->getHeroic();
 
         // Town type: Pandemonium gets malus of 14, all other types are neutral.
         $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
@@ -475,7 +476,8 @@ class CitizenHandler
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
         // Zombies in zone. Factor -1.4, for CamperPro it will -0.6.
-        $camping_values['zombies'] = -1.4 * $zone->getZombies();
+        $factor = $has_pro_camper ? -0.6 : -1.4;
+        $camping_values['zombies'] = $factor * $zone->getZombies();
 
         // Zone improvement level.
         $camping_values['improvement'] = $zone->getImprovementLevel();
@@ -483,28 +485,66 @@ class CitizenHandler
         // Previous camping count.
         $campings_map = [
             'normal' => [
-                0 => 0,
-                1 => -4,
-                2 => -9,
-                3 => -13,
-                4 => -16,
-                5 => -26,
-                6 => -36,
+                'nonpro' => [
+                    0 => 0,
+                    1 => -4,
+                    2 => -9,
+                    3 => -13,
+                    4 => -16,
+                    5 => -26,
+                    6 => -36,
+                    7 => -50,
+                    8 => -65, // Totally arbitrary
+                ],
+                'pro' => [
+                    0 => 0,
+                    1 => -2,
+                    2 => -4,
+                    3 => -8,
+                    4 => -10,
+                    5 => -12,
+                    6 => -16,
+                    7 => -26,
+                    8 => -36,
+                ]
             ],
             'hard' => [
-                0 => 0,
-                1 => -4,
-                2 => -6,
-                3 => -8,
-                4 => -10,
+                'nonpro' => [
+                    0 => 0,
+                    1 => -4,
+                    2 => -6,
+                    3 => -8,
+                    4 => -10,
+                    5 => -20,
+                    6 => -36,
+                    7 => -50, // Totally arbitrary
+                    8 => -70, // Totally arbitrary
+                ],
+                'pro' => [
+                    0 => 0,
+                    1 => -1,
+                    2 => -2,
+                    3 => -4,
+                    4 => -6,
+                    5 => -8,
+                    6 => -10,
+                    7 => -20,
+                    8 => -36,
+                ]
             ],
         ];
         $previous_campings = $citizen->getCampingCounter();
         if ($town->getType()->getId() == 3) {
-            $camping_values['campings'] = $campings_map['hard'][$previous_campings];
+            if($has_pro_camper)
+                $camping_values['campings'] = $campings_map['hard']['pro'][$previous_campings];
+            else
+                $camping_values['campings'] = $campings_map['hard']['nonpro'][$previous_campings];
         }
         else {
-            $camping_values['campings'] = $campings_map['normal'][$previous_campings];
+            if($has_pro_camper)
+                $camping_values['campings'] = $campings_map['normal']['pro'][$previous_campings];
+            else
+                $camping_values['campings'] = $campings_map['normal']['nonpro'][$previous_campings];
         }
 
         // Campers that are already hidden.
@@ -512,9 +552,12 @@ class CitizenHandler
             0 => 0,
             1 => 0,
             2 => -2,
-            3 => -5,
+            3 => -6,
             4 => -10,
+            5 => -14,
+            6 => -20
         ];
+
         $previous_campers = 0;
         $zone_campers = $zone->getCampers();
         foreach ($zone_campers as $camper) {
@@ -525,8 +568,8 @@ class CitizenHandler
                 break;
             }
         }
-        if ($previous_campers >= 5) {
-            $camping_values['campers'] = -14;
+        if ($previous_campers >= 7) {
+            $camping_values['campers'] = -20;
         }
         else {
             $camping_values['campers'] = $campers_map[$previous_campers];
@@ -556,7 +599,7 @@ class CitizenHandler
         // Leuchtturm
         $camping_values['lighthouse'] = 0;
         if ($town->getBuildings()->contains( $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( 'small_lighthouse_#00' )) ) {
-            $camping_values['lighthouse'] = 5;
+            $camping_values['lighthouse'] = 25;
         }
 
         // Devastated town.
