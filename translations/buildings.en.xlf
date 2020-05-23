@@ -3469,7 +3469,7 @@
       </notes>
       <segment>
         <source>Zaun (Baustellen)</source>
-        <target>Zaun (Baustellen)</target>
+        <target>Wooden Fencing</target>
       </segment>
     </unit>
     <unit id="R.TLWup" name="aed3fec">
@@ -3496,7 +3496,7 @@
       </notes>
       <segment>
         <source>Zaun (Haus)</source>
-        <target>Zaun (Haus)</target>
+        <target>Fence</target>
       </segment>
     </unit>
   </file>

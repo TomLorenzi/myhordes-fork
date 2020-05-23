@@ -6928,7 +6928,7 @@
       </notes>
       <segment>
         <source>Waffe</source>
-        <target>Waffe</target>
+        <target>Weapon</target>
       </segment>
     </unit>
     <unit id="MqglA5l" name="Super-Flaum-Pulver">
@@ -7442,7 +7442,7 @@
       </notes>
       <segment>
         <source>Läutern</source>
-        <target>Läutern</target>
+        <target>Purify</target>
       </segment>
     </unit>
     <unit id="fJtXB6T" name="Du hast die Seele gereinigt und sie friedlich gemacht.">
@@ -7619,7 +7619,7 @@
       </notes>
       <segment>
         <source>Kreuz</source>
-        <target>Club</target>
+        <target>♣</target>
       </segment>
     </unit>
     <unit id="XnWnfMP" name="Pik">
@@ -7628,7 +7628,7 @@
       </notes>
       <segment>
         <source>Pik</source>
-        <target>Spade</target>
+        <target>♠</target>
       </segment>
     </unit>
     <unit id="Rduezfz" name="Herz">
@@ -7637,7 +7637,7 @@
       </notes>
       <segment>
         <source>Herz</source>
-        <target>Heart</target>
+        <target>♥</target>
       </segment>
     </unit>
     <unit id="2P.dMD0" name="Karo">
@@ -7646,7 +7646,7 @@
       </notes>
       <segment>
         <source>Karo</source>
-        <target>Diamond</target>
+        <target>♦</target>
       </segment>
     </unit>
     <unit id="cIg8Tyq" name="Bube">
@@ -7691,7 +7691,7 @@
       </notes>
       <segment>
         <source>Nachtwache-Waffen</source>
-        <target>Night-watch weapons</target>
+        <target>Guard weapon</target>
       </segment>
     </unit>
     <unit id="47LA9aV" name="Pkte">

@@ -908,7 +908,7 @@
       </notes>
       <segment>
         <source>Rucksack</source>
-        <target>Rucksack</target>
+        <target>Inventory</target>
       </segment>
     </unit>
     <unit id="n__v7g9" name="Truhe">
@@ -1058,7 +1058,7 @@
       </notes>
       <segment>
         <source>durch Haus</source>
-        <target>Habitations</target>
+        <target>House</target>
       </segment>
     </unit>
     <unit id="bhU20pv" name="durch Beruf">
@@ -1068,7 +1068,7 @@
       </notes>
       <segment>
         <source>durch Beruf</source>
-        <target>Heros Bonus</target>
+        <target>Heros Bonuses</target>
       </segment>
     </unit>
     <unit id="d5El4_h" name="durch Ausbauten">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>durch Ausbauten</source>
-        <target>Travaux</target>
+        <target>Improvements</target>
       </segment>
     </unit>
     <unit id="0Rphz24" name="durch Gegenstände">
@@ -1240,7 +1240,7 @@
       </notes>
       <segment>
         <source>Erfordert</source>
-        <target>Nécessite</target>
+        <target>Cost</target>
       </segment>
     </unit>
     <unit id="MzBikVy" name="Einbauen">
@@ -1310,7 +1310,7 @@
       </notes>
       <segment>
         <source>Am Stadttor</source>
-        <target>Am Stadttor</target>
+        <target>At Gates</target>
       </segment>
     </unit>
     <unit id="Voc3Ntu" name="Neue einfache Route">
@@ -1836,7 +1836,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die Stadt verfügt über eine %pumpname%.</source>
-        <target>La ville dispose d'une Pompe pour le Puits.</target>
+        <target>The town has a pump for the Well.</target>
       </segment>
     </unit>
     <unit id="syHx5ID" name="Deine Ration Wasser erhalten">
@@ -1846,7 +1846,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Deine Ration Wasser erhalten</source>
-        <target>Obtain your water ration!</target>
+        <target>Obtain your Water Ration!</target>
       </segment>
     </unit>
     <unit id="unhSN_Y" name="Eine weitere Ration erhalten">
@@ -2136,7 +2136,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ruine</source>
-        <target>Ruine</target>
+        <target>Ruin</target>
       </segment>
     </unit>
     <unit id="UKXXzW6" name="b23ec99">
@@ -2206,7 +2206,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%ruin% durchsuchen</source>
-        <target>Fouiller %ruin%</target>
+        <target>Search %ruin%</target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -5170,7 +5170,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wächt</source>
-        <target>Wächt</target>
+        <target>W-Men</target>
       </segment>
     </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
@@ -6024,7 +6024,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</source>
-        <target>	Number of mutilations or dismemberments which didn't quite cost your life.</target>
+        <target>  Number of mutilations or dismemberments which didn't quite cost your life.</target>
       </segment>
     </unit>
     <unit id="sfHZK3y" name="Hausmannskost">
@@ -6600,7 +6600,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>News</target>
+        <target>Private Messages</target>
       </segment>
     </unit>
     <unit id="Gp8QV9S" name="11324ce">
@@ -6951,7 +6951,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</source>
-        <target>	The number of dead friends you've dragged out of town.</target>
+        <target>  The number of dead friends you've dragged out of town.</target>
       </segment>
     </unit>
     <unit id="tsZVejd" name="Batteriewerferfabrikant">
@@ -7833,7 +7833,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
-        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</target>
+        <target>You probably didn't expect that ... How about next time you stick to the rules?</target>
       </segment>
     </unit>
     <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
@@ -9450,15 +9450,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Status</target>
       </segment>
     </unit>
-	     <unit id="m9ipH9g" name="[nights]">
-	      <notes>
-	        <note category="german">[nights]</note>
-	      </notes>
-	      <segment>
-	        <source>[nights]</source>
-	        <target>[ nothing ]</target>
-	      </segment>
-	    </unit>
+       <unit id="m9ipH9g" name="[nights]">
+        <notes>
+          <note category="german">[nichts]</note>
+        </notes>
+        <segment>
+          <source>[nichts]</source>
+          <target>[ nothing ]</target>
+        </segment>
+      </unit>
     <unit id="r_z_E60" name="Notruf">
       <notes>
         <note category="german">Notruf</note>
@@ -9756,13 +9756,76 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>You cannot carry more than one soul.</target>
       </segment>
     </unit>
+<unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
+        <target>Le bâtiment %plan% a subi %damage% points de dégâts.</target>
+      </segment>
+    </unit>
+    <unit id="nlQ1fJZ" name="919f19a">
+      <notes>
+        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</note>
+      </notes>
+      <segment>
+        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
+        <target>Le bâtiment %plan% a subi %damage% points de dégâts et a été totalement dévasté par les zombies !.</target>
+      </segment>
+    </unit>
+    <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
+      <notes>
+        <note category="german">Beschädigte Verteidigung: %defense% / %max%</note>
+      </notes>
+      <segment>
+        <source>Beschädigte Verteidigung: %defense% / %max%</source>
+        <target>Défenses endommagées : %defense% / %max%</target>
+      </segment>
+    </unit>
+    <unit id="1EzQJxv" name="Zustand:">
+      <notes>
+        <note category="german">Zustand:</note>
+      </notes>
+      <segment>
+        <source>Zustand:</source>
+        <target>Statut :</target>
+      </segment>
+    </unit>
+    <unit id="Ev2Gt9Y" name="4f4737e">
+      <notes>
+        <note category="german">Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</note>
+      </notes>
+      <segment>
+        <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
+        <target>Chaque 1 %divap% investi en réparation réparera %hprepair% points de dégâts sur ce chantier.</target>
+      </segment>
+    </unit>
+    <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
+      <notes>
+        <note category="german">Die Reparatur verbraucht keine Ressourcen.</note>
+      </notes>
+      <segment>
+        <source>Die Reparatur verbraucht keine Ressourcen.</source>
+        <target>Les réparations ne consomment pas de ressources.</target>
+      </segment>
+    </unit>
+    <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
+      <notes>
+        <note category="german">Deine Nachricht wurde korrekt übermittelt!</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde korrekt übermittelt!</source>
+        <target>Votre message a bien été envoyé !</target>
+      </segment>
+    </unit>
     <unit id="BjwWH4y" name="Erhaltene Nachrichten">
       <notes>
         <note category="german">Erhaltene Nachrichten</note>
       </notes>
       <segment>
         <source>Erhaltene Nachrichten</source>
-        <target>Messages received</target>
+        <target>Received messages</target>
       </segment>
     </unit>
     <unit id="JyB0OZM" name="Archiv">
@@ -9771,7 +9834,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Archiv</source>
-        <target>Archive</target>
+        <target>Archives</target>
       </segment>
     </unit>
     <unit id="Yy0zB8." name="Eine Nachricht schreiben">
@@ -9780,7 +9843,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Eine Nachricht schreiben</source>
-        <target>Write a message</target>
+        <target>Write something</target>
       </segment>
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
@@ -9798,7 +9861,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</source>
-        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</target>
+        <target>You have not received any new private messages. You can find the list of citizens in the town directory.</target>
       </segment>
     </unit>
     <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
@@ -9807,15 +9870,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Keine Nachricht gespeichert.</source>
-        <target>No message saved.</target>
+        <target>No archived messages.</target>
       </segment>
     </unit>
-    <unit id="wo3L_zx" name="Neue Nachright">
+    <unit id="6KKKVfb" name="Neue Nachricht">
       <notes>
-        <note category="german">Neue Nachright</note>
+        <note category="german">Neue Nachricht</note>
       </notes>
       <segment>
-        <source>Neue Nachright</source>
+        <source>Neue Nachricht</source>
         <target>New message</target>
       </segment>
     </unit>
@@ -9825,7 +9888,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Empfänger:</source>
-        <target>Recipient:</target>
+        <target>Write to :</target>
       </segment>
     </unit>
     <unit id="Z14T1QO" name="Bürgerverzeichnis anszeigen">
@@ -9834,7 +9897,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Bürgerverzeichnis anszeigen</source>
-        <target>Show citizen directory</target>
+        <target>Show list of citizens</target>
       </segment>
     </unit>
     <unit id="yTzI33f" name="Dieser Nachricht Gegenstände beifügen">
@@ -9843,7 +9906,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser Nachricht Gegenstände beifügen</source>
-        <target>Include items in this message</target>
+        <target>Send gifts!</target>
       </segment>
     </unit>
     <unit id="xcRoAOS" name="Betreff:">
@@ -9861,7 +9924,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>I CONFIRM my message</target>
+        <target>J'ai RELU mon message et je VALIDE</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -9873,103 +9936,13 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>New global message</target>
       </segment>
     </unit>
-    <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
+    <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
       <notes>
-        <note category="german">Beschädigte Verteidigung: %defense% / %max%</note>
+        <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
       </notes>
       <segment>
-        <source>Beschädigte Verteidigung: %defense% / %max%</source>
-        <target>Damaged Defense: %defense% / %max%</target>
-      </segment>
-    </unit>
-    <unit id="1EzQJxv" name="Zustand:">
-      <notes>
-        <note category="german">Zustand:</note>
-      </notes>
-      <segment>
-        <source>Zustand:</source>
-        <target>Status:</target>
-      </segment>
-    </unit>
-    <unit id="Ev2Gt9Y" name="4f4737e">
-      <notes>
-        <note category="german">Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</note>
-      </notes>
-      <segment>
-        <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
-        <target>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</target>
-      </segment>
-    </unit>
-    <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
-      <notes>
-        <note category="german">Die Reparatur verbraucht keine Ressourcen.</note>
-      </notes>
-      <segment>
-        <source>Die Reparatur verbraucht keine Ressourcen.</source>
-        <target>The repair does not consume any resources.</target>
-      </segment>
-    </unit>
-    <unit id=".JWT0sC" name="Zonenmarkierer">
-      <notes>
-        <note category="german">Zonenmarkierer</note>
-      </notes>
-      <segment>
-        <source>Zonenmarkierer</source>
-        <target>Zone marker</target>
-      </segment>
-    </unit>
-    <unit id="dY6rVb6" name="Tor ist offen!">
-      <notes>
-        <note category="german">Tor ist offen!</note>
-      </notes>
-      <segment>
-        <source>Tor ist offen!</source>
-        <target>Gate is open!</target>
-      </segment>
-    </unit>
-    <unit id="1cEye.o" name="Zombies sind eingedrungen.">
-      <notes>
-        <note category="german">Zombies sind eingedrungen.</note>
-      </notes>
-      <segment>
-        <source>Zombies sind eingedrungen.</source>
-        <target>Zombies have invaded.</target>
-      </segment>
-    </unit>
-    <unit id="ojehKlj" name="vor Angst erstarrt">
-      <notes>
-        <note category="german">vor Angst erstarrt</note>
-      </notes>
-      <segment>
-        <source>vor Angst erstarrt</source>
-        <target>vor Angst erstarrt</target>
-      </segment>
-    </unit>
-    <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
-      <notes>
-        <note category="german">Du wirst heute Nacht sterben!</note>
-      </notes>
-      <segment>
-        <source>Du wirst heute Nacht sterben!</source>
-        <target>You will die tonight!</target>
-      </segment>
-    </unit>
-    <unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
-      <notes>
-        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</note>
-      </notes>
-      <segment>
-        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
-        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</target>
-      </segment>
-    </unit>
-    <unit id="nlQ1fJZ" name="919f19a">
-      <notes>
-        <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</note>
-      </notes>
-      <segment>
-        <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
-        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</target>
+        <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
+        <target>Some of your victim's health issues have passed to you ...</target>
       </segment>
     </unit>
     <unit id="SKbA9D2" name="2a20efa">
@@ -9978,18 +9951,161 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
-        <target>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</target>
+        <target>En commençant à marcher, une douleur très vive s'empare de votre jambe. Vous tombez à terre en gémissant. Vous perdez une action...</target>
       </segment>
     </unit>
-    <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
+    <unit id="4gAjVQX" name="Verlassener Bunker">
       <notes>
-        <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
+        <note category="german">Verlassener Bunker</note>
       </notes>
       <segment>
-        <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
-        <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
+        <source>Verlassener Bunker</source>
+        <target>Abandonned Bunker</target>
       </segment>
     </unit>
-
+    <unit id="BRZGIi8" name="8183632">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Ce bâtiment délabré semble avoir été un bunker. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+      </segment>
+    </unit>
+    <unit id="oxlDhWv" name="Verlassenes Hotel">
+      <notes>
+        <note category="german">Verlassenes Hotel</note>
+      </notes>
+      <segment>
+        <source>Verlassenes Hotel</source>
+        <target>Abandonned Hotel</target>
+      </segment>
+    </unit>
+    <unit id="hP.60KS" name="150bce3">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+      </segment>
+    </unit>
+    <unit id="rnmrpxG" name="Verlassenes Hospital">
+      <notes>
+        <note category="german">Verlassenes Hospital</note>
+      </notes>
+      <segment>
+        <source>Verlassenes Hospital</source>
+        <target>Abandonned Hospital</target>
+      </segment>
+    </unit>
+    <unit id="PAKqkOM" name="1a6b1bb">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+      </segment>
+    </unit>
+    <unit id="Ijn0xpZ" name="%ruin% betreten">
+      <notes>
+        <note category="german">%ruin% betreten</note>
+      </notes>
+      <segment>
+        <source>%ruin% betreten</source>
+        <target>Enter in %ruin%</target>
+      </segment>
+    </unit>
+    <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
+      <notes>
+        <note category="german">Eine Nachricht hinterlassen</note>
+      </notes>
+      <segment>
+        <source>Eine Nachricht hinterlassen</source>
+        <target>Leave a note on their door</target>
+      </segment>
+    </unit>
+    <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
+      <notes>
+        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
+      </notes>
+      <segment>
+        <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
+        <target>Click on the objects you wish to send with this message:</target>
+      </segment>
+    </unit>
+    <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
+      <notes>
+        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
+      </notes>
+      <segment>
+        <source>Folgende Gegenstände werden mitgesendet:</source>
+        <target>The following objects will be sent:</target>
+      </segment>
+    </unit>
+    <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
+      <notes>
+        <note category="german">Kein Gegenstand beigefügt...</note>
+      </notes>
+      <segment>
+        <source>Kein Gegenstand beigefügt...</source>
+        <target>No objects attached...</target>
+      </segment>
+    </unit>
+    <unit id="Qg_Rwo3" name="c7efaf6">
+      <notes>
+        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
+      </notes>
+      <segment>
+        <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
+        <target>Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</target>
+      </segment>
+    </unit>
+    <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
+      <notes>
+        <note category="german">Meine Nachrichten lesen.</note>
+      </notes>
+      <segment>
+        <source>Meine Nachrichten lesen.</source>
+        <target>Read my messages.</target>
+      </segment>
+    </unit>
+    <unit id="bYjLN7a" name="Draußen">
+      <notes>
+        <note category="german">Draußen</note>
+      </notes>
+      <segment>
+        <source>Draußen</source>
+        <target>Outside</target>
+      </segment>
+    </unit>
+    <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
+      <notes>
+        <note category="german">in der Stadt oder am Stadttor</note>
+      </notes>
+      <segment>
+        <source>in der Stadt oder am Stadttor</source>
+        <target>in town or at the gates</target>
+      </segment>
+    </unit>
+    <unit id="fICCxje" name="Seine Seele ansehen">
+      <notes>
+        <note category="german">Seine Seele ansehen</note>
+      </notes>
+      <segment>
+        <source>Seine Seele ansehen</source>
+        <target>See their soul</target>
+      </segment>
+    </unit>
+        <unit id=".JWT0sC" name="Zonenmarkierer">
+      <notes>
+        <note category="german">Zonenmarkierer</note>
+      </notes>
+      <segment>
+        <source>Zonenmarkierer</source>
+        <target>Zone marker</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

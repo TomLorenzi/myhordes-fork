@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Verbannungen</source>
-        <target>Banishments</target>
+        <target>Total bans</target>
       </segment>
     </unit>
     <unit id="0.QpL14" name="Verbannen">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Verbannen</source>
-        <target>Banned</target>
+        <target>Ban</target>
       </segment>
     </unit>
     <unit id="Zoy_MWF" name="Dauer">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Suche:</source>
-        <target>Suche:</target>
+        <target>Search:</target>
       </segment>
     </unit>
     <unit id="fhsNVkH" name="Account">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Benutzername</source>
-        <target>Benutzername</target>
+        <target>Username</target>
       </segment>
     </unit>
     <unit id="L65vsws" name="E-Mail">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>E-Mail</source>
-        <target>E-Mail</target>
+        <target>Email</target>
       </segment>
     </unit>
     <unit id=".Dfg1PE" name="Validiert">
@@ -304,7 +304,7 @@
       </notes>
       <segment>
         <source>Validiert</source>
-        <target>Validiert</target>
+        <target>Validated</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -313,7 +313,7 @@
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Yes</target>
       </segment>
     </unit>
     <unit id="kOvBveb" name="Nein">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Nein</source>
-        <target>Nein</target>
+        <target>No</target>
       </segment>
     </unit>
     <unit id="yhpV6j2" name="Berechtigungsstufe">
@@ -331,7 +331,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe</source>
-        <target>Berechtigungsstufe</target>
+        <target>Authorization level</target>
       </segment>
     </unit>
     <unit id="9DAxndj" name="Spieler">
@@ -340,7 +340,7 @@
       </notes>
       <segment>
         <source>Spieler</source>
-        <target>Spieler</target>
+        <target>Player</target>
       </segment>
     </unit>
     <unit id="mP_cZCA" name="Krähe">
@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Krähe</source>
-        <target>Krähe</target>
+        <target>Crow</target>
       </segment>
     </unit>
     <unit id="wcIksDz" name="Admin">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>Validierungstokens</source>
-        <target>Validierungstokens</target>
+        <target>Validation token</target>
       </segment>
     </unit>
     <unit id="ilcgFcS" name="Keine">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Keine</source>
-        <target>Keine</target>
+        <target>None</target>
       </segment>
     </unit>
     <unit id="89Qjza1" name="User administrieren">
@@ -385,7 +385,7 @@
       </notes>
       <segment>
         <source>User administrieren</source>
-        <target>User administrieren</target>
+        <target>User administration</target>
       </segment>
     </unit>
     <unit id="1L8hv8q" name="Validierung">
@@ -394,7 +394,7 @@
       </notes>
       <segment>
         <source>Validierung</source>
-        <target>Validierung</target>
+        <target>Validation</target>
       </segment>
     </unit>
     <unit id="fMUMZY4" name="Erneute Validierung erzwingen">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Erneute Validierung erzwingen</source>
-        <target>Erneute Validierung erzwingen</target>
+        <target>Force revalidation</target>
       </segment>
     </unit>
     <unit id="1oFUORm" name="Manuell validieren">
@@ -412,7 +412,7 @@
       </notes>
       <segment>
         <source>Manuell validieren</source>
-        <target>Manuell validieren</target>
+        <target>Manual validation</target>
       </segment>
     </unit>
     <unit id="TkGKlfl" name="Offene Token erneut ankündigen">
@@ -439,7 +439,7 @@
       </notes>
       <segment>
         <source>Sicherheit</source>
-        <target>Sicherheit</target>
+        <target>Security</target>
       </segment>
     </unit>
     <unit id="gJTkU2W" name="Passwort-Reset auslösen">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset auslösen</source>
-        <target>Passwort-Reset auslösen</target>
+        <target>Initiate password reset</target>
       </segment>
     </unit>
     <unit id="GdwECmm" name="Passwort-Reset erzwingen">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset erzwingen</source>
-        <target>Passwort-Reset erzwingen</target>
+        <target>Force password reset</target>
       </segment>
     </unit>
     <unit id="6KnH3XO" name="Ausführen">
@@ -466,7 +466,7 @@
       </notes>
       <segment>
         <source>Ausführen</source>
-        <target>Ausführen</target>
+        <target>Execute</target>
       </segment>
     </unit>
     <unit id="TSuzaPk" name="Übersicht">
@@ -475,7 +475,7 @@
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Übersicht</target>
+        <target>Overview</target>
       </segment>
     </unit>
     <unit id="gw9T6N6" name="Gewähltes Forum">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Gewähltes Forum</source>
-        <target>Gewähltes Forum</target>
+        <target>Selected Forum</target>
       </segment>
     </unit>
     <unit id="zTivRKG" name="Posts mit nur einer Meldung werden ausgeblendet.">
@@ -493,7 +493,7 @@
       </notes>
       <segment>
         <source>Posts mit nur einer Meldung werden ausgeblendet.</source>
-        <target>Posts mit nur einer Meldung werden ausgeblendet.</target>
+        <target>Posts with only one message are hidden.</target>
       </segment>
     </unit>
     <unit id="2GEnVsN" name="Alle anzeigen">
@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Alle anzeigen</source>
-        <target>Alle anzeigen</target>
+        <target>View all</target>
       </segment>
     </unit>
     <unit id="lb_oeKi" name="Du hast kein Forum ausgewählt.">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Du hast kein Forum ausgewählt.</source>
-        <target>Du hast kein Forum ausgewählt.</target>
+        <target>You have not selected a forum.</target>
       </segment>
     </unit>
   </file>
