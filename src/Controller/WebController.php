@@ -56,6 +56,7 @@ class WebController extends AbstractController
             'Paul "<i>CountCount</i>" Bruhn',
             'Adrien "<i>Adri</i>" Boitelle',
             'Niklas "<i>Choreas</i>" Kosanke',
+            'Christopher "<i>Vander</i>" Chalfant',
         ];
         shuffle($devs);
 

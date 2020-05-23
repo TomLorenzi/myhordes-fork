@@ -79,6 +79,11 @@ class CitizenRankingProxy
      */
     private $lastWords;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $confirmed;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -220,6 +225,7 @@ class CitizenRankingProxy
             ->setCitizen( $citizen )
             ->setComment( $citizen->getComment() )
             ->setLastWords( $citizen->getLastWords() )
+            ->setConfirmed( !$citizen->getActive() )
             ->setPoints( $citizen->getSurvivedDays() * ( $citizen->getSurvivedDays() + 1 ) / 2 );
 
         if ($obj->getBegin() === null) $obj->setBegin( new \DateTime('now') );
@@ -237,6 +243,18 @@ class CitizenRankingProxy
     public function setLastWords(?string $lastWords): self
     {
         $this->lastWords = $lastWords;
+
+        return $this;
+    }
+
+    public function getConfirmed(): ?bool
+    {
+        return $this->confirmed;
+    }
+
+    public function setConfirmed(bool $confirmed): self
+    {
+        $this->confirmed = $confirmed;
 
         return $this;
     }

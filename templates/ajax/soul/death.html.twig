@@ -1,12 +1,12 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
-    {# @var citizen \App\Entity\Citizen #}
+    {# @var citizen \App\Entity\CitizenRankingProxy #}
 
     <div class="row">
         <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
             <div class="death_header">
                 <div>{{ 'Herzlichen Glückwunsch, du bist TOT!'|trans({},'game') }}</div>
-                <div>{{ citizen.causeOfDeath.label|trans({},'game') }}</div>
+                <div>{{ citizen.cod.label|trans({},'game') }}</div>
             </div>
             <div class="death_footer">
                 {{ 'Du hast %sp% Seelenpunkte gewonnen!'|trans({'%sp%':sp},'game') }}
@@ -16,8 +16,9 @@
 
             <div class="row">
                 <div class="cell rw-6 rw-sm-12">
-                    <img class="fit" alt="" src="{{ asset('build/images/death/' ~ citizen.causeOfDeath.icon ~ '.jpg') }}" />
-                    <div class="small-note">{{ citizen.causeOfDeath.description|trans({},'game') }}</div>
+                    <img class="fit" alt="" src="{{ asset('build/images/death/' ~ citizen.cod.icon ~ '.jpg') }}" />
+                    <div class="small-note">{{ citizen.cod.description|trans({},'game') }}</div>
+                    <button x-ajax-href="{{ path('game_newspaper') }}" {% if not gazette %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
                 </div>
                 <div class="cell rw-6 rw-sm-12">
                     <div class="death_list">
@@ -26,12 +27,12 @@
                         {% for picto in pictos %}
                             <li {% if picto.prototype.rare %}class="rare"{% endif %}>
                                 <div>
-                                    <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
+                                    <img alt="" src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
                                 </div>
                                 {{picto.prototype.label|trans({}, 'game')}} <span class="count">+ {{picto.count}}</span>
                                 <div class="tooltip">
                                     <h1>{{ picto.prototype.label|trans({}, 'game') }}</h1>
-                                    {{ picto.prototype.description|trans({}, 'game')}}</em>
+                                    {{ picto.prototype.description|trans({}, 'game')}}
                                 </div>
                             </li>
                         {% endfor %}
@@ -68,7 +69,7 @@
                     </div>
                 </div>
                 <div class="rebirth padded rw-12 cell row">
-                    {% if citizen.causeOfDeath.ref != constant('App\\Entity\\CauseOfDeath::Poison') and citizen.causeOfDeath.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten')  %}
+                    {% if citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Poison') and citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten')  %}
                     <div class="cell rw-4 rebirth_label">
                         <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
                     </div>

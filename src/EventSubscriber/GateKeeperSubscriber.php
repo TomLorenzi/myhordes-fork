@@ -63,14 +63,8 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         /** @var User $user */
         $user = $this->security->getUser();
 
-        if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage()) {
+        if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
-            // throw new DynamicAjaxResetException($event->getRequest());
-        }
-        // elseif ($user && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown()->getLanguage() &&$event->getRequest()->getLocale() !== $user->getActiveCitizen()->getTown()->getLanguage()) {
-        //     $event->getRequest()->getSession()->set('_town_lang', $user->getActiveCitizen()->getTown()->getLanguage());
-        //     throw new DynamicAjaxResetException($event->getRequest());
-        // }
 
         if ($controller instanceof GhostInterfaceController) {
             // This is a ghost controller; it is not available to players in a game

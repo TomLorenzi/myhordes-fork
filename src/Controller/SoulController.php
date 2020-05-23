@@ -26,6 +26,7 @@ use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -567,5 +568,92 @@ class SoulController extends AbstractController
         	'user' => $user,
             'town' => $town,
         )));
+    }
+
+    /**
+     * @Route("api/soul/unsubscribe", name="api_unsubscribe")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param SessionInterface $session
+     * @param TranslatorInterface $trans
+     * @return Response
+     */
+    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session, TranslatorInterface $trans): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var User|null $user */
+        $active = $nextDeath->getCitizen();
+
+        if ($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison && $active->getCauseOfDeath()->getRef() != CauseOfDeath::GhulEaten)
+            $last_words = $parser->get('lastwords');
+        else $last_words = $trans->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
+
+        // Here, we delete picto with persisted = 0,
+        // and definitively validate picto with persisted = 1
+        /** @var Picto[] $pendingPictosOfUser */
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            if($pendingPicto->getPersisted() == 0)
+                $this->entity_manager->remove($pendingPicto);
+            else {
+                $pendingPicto->setPersisted(2);
+                $this->entity_manager->persist($pendingPicto);
+            }
+        }
+
+        if ($active) {
+            $active->setActive(false);
+            $active->setLastWords($last_words);
+            $nextDeath = CitizenRankingProxy::fromCitizen( $active );
+            $this->entity_manager->persist( $active );
+        } else
+            $nextDeath->setConfirmed(true)->setLastWords( $last_words );
+
+        $this->entity_manager->persist( $nextDeath );
+        $this->entity_manager->flush();
+
+        if ($session->has('_town_lang')) {
+            $session->remove('_town_lang');
+            return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
+        } else return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/soul/death", name="soul_death")
+     * @return Response
+     */
+    public function soul_deathpage(): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
+            return $this->redirect($this->generateUrl('initial_landing'));
+
+        $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($user, $nextDeath->getTown());
+        $pictosWonDuringTown = [];
+        $pictosNotWonDuringTown = [];
+
+        foreach ($pictosDuringTown as $picto)
+            if ($picto->getPersisted() > 0)
+                $pictosWonDuringTown[] = $picto;
+            else
+                $pictosNotWonDuringTown[] = $picto;
+
+        return $this->render( 'ajax/soul/death.html.twig', [
+            'citizen' => $nextDeath,
+            'sp' => $nextDeath->getPoints(),
+            'pictos' => $pictosWonDuringTown,
+            'gazette' => $nextDeath->getTown() !== null,
+            'denied_pictos' => $pictosNotWonDuringTown
+        ] );
     }
 }
