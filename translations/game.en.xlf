@@ -1018,7 +1018,7 @@
       </notes>
       <segment>
         <source>Rucksack ausleeren</source>
-        <target>Empty your rucksack into your chest</target>
+        <target>Empty rucksack into your chest</target>
       </segment>
     </unit>
     <unit id="bd_whxO" name="Mein Register">
@@ -7275,7 +7275,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</source>
-        <target>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</target>
+        <target>If you had survived an extra night, you could have won the following distinctions:</target>
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -9780,7 +9780,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Beschädigte Verteidigung: %defense% / %max%</source>
-        <target>Défenses endommagées : %defense% / %max%</target>
+        <target>Damaged defences : %defense% / %max%</target>
       </segment>
     </unit>
     <unit id="1EzQJxv" name="Zustand:">
@@ -9789,7 +9789,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Zustand:</source>
-        <target>Statut :</target>
+        <target>Status:</target>
       </segment>
     </unit>
     <unit id="Ev2Gt9Y" name="4f4737e">

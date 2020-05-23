@@ -791,7 +791,7 @@
       </notes>
       <segment>
         <source>{color} {value}</source>
-        <target>{color} {value}</target>
+        <target>{value} of {color}</target>
       </segment>
     </unit>
     <unit id="awzJBNC" name="Users">

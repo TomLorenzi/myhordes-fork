@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</source>
-        <target>You rolled the following: {dc1}, {dc2} and {dc3}.</target>
+        <target>You roll the dice, you get a {dc1}, a {dc2} and a {dc3}.</target>
       </segment>
     </unit>
     <unit id="yeqnW9g" name="15fb7cd">
@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, you rolled a triple. It was so much fun that you won 1AP!</target>
+        <target>Nicely done, you got three of a kind! This is a great game! You're enjoying it so much that you have gained 1AP!</target>
       </segment>
     </unit>
     <unit id="rmGP8Al" name="15675e8">
@@ -28,7 +28,7 @@
       </notes>
       <segment>
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>You have rolled a straight ! That always raises the spirits. You're enjoying it so much that you have gained 1AP!</target>
       </segment>
     </unit>
     <unit id="Gk9gFU8" name="8a7fa90">
@@ -38,7 +38,7 @@
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</target>
+        <target>You got a 421 on your first shot... not bad. Furthermore, this has raised your morale so much that you have gained 1AP!</target>
       </segment>
     </unit>
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
@@ -48,7 +48,7 @@
       </notes>
       <segment>
         <source>Nicht schlecht, du hast einen Pasch geworfen.</source>
-        <target>Nicht schlecht, du hast einen Pasch geworfen.</target>
+        <target>You rolled a double! Check you out! (no AP bonus)</target>
       </segment>
     </unit>
     <unit id="oGFgAoX" name="Was für ein Spaß!">
@@ -7619,7 +7619,7 @@
       </notes>
       <segment>
         <source>Kreuz</source>
-        <target>♣</target>
+        <target>Club</target>
       </segment>
     </unit>
     <unit id="XnWnfMP" name="Pik">
@@ -7628,7 +7628,7 @@
       </notes>
       <segment>
         <source>Pik</source>
-        <target>♠</target>
+        <target>Spade</target>
       </segment>
     </unit>
     <unit id="Rduezfz" name="Herz">
@@ -7637,7 +7637,7 @@
       </notes>
       <segment>
         <source>Herz</source>
-        <target>♥</target>
+        <target>Heart</target>
       </segment>
     </unit>
     <unit id="2P.dMD0" name="Karo">
@@ -7646,7 +7646,7 @@
       </notes>
       <segment>
         <source>Karo</source>
-        <target>♦</target>
+        <target>Diamond</target>
       </segment>
     </unit>
     <unit id="cIg8Tyq" name="Bube">
