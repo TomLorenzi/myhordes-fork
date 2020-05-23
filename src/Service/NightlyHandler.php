@@ -554,7 +554,10 @@ class NightlyHandler
 
                 // Kill zombies around the town (all at 1km, none beyond 10km)
                 foreach ($town->getZones() as $zone) {
-                    $factor = max(0, (11 - $this->zone_handler->getZoneKm($zone)) / 10);
+                	$km = $this->zone_handler->getZoneKm($zone);
+                	if($km > 10) continue;
+
+                    $factor = 1 - max(0, (11 - $km) / 10);
                     $zone->setZombies($zone->getZombies() * $factor);
                 }
                 
