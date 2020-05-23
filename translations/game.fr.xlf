@@ -10984,5 +10984,23 @@
         <target>Cet objet disparaîtra après votre veille !</target>
       </segment>
     </unit>
+    <unit id="6kQh7Rd" name="Stadtverteidigung">
+      <notes>
+        <note category="german">Stadtverteidigung</note>
+      </notes>
+      <segment>
+        <source>Stadtverteidigung</source>
+        <target>Défenses de la ville</target>
+      </segment>
+    </unit>
+    <unit id="75J9B.d" name="Details ansehen">
+      <notes>
+        <note category="german">Details ansehen</note>
+      </notes>
+      <segment>
+        <source>Details ansehen</source>
+        <target>Voir les détails</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
