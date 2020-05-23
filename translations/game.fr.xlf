@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% a ressucité et a dévoré %victim% !</target>
+        <target>%zombie% a ressuscité et a dévoré %victim% !</target>
       </segment>
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
@@ -252,7 +252,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% a ressucité et le bâtiment %building% a été détruit !</target>
+        <target>%zombie% a ressuscité et le bâtiment %building% a été détruit !</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -261,7 +261,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% a ressucité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
+        <target>%zombie% a ressuscité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -3900,7 +3900,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
-        <target>%zombie% est ressuscité des morts et a écrit des messages incorrects sur le tableau des héros!</target>
+        <target>%zombie% a ressuscité et a écrit des messages incorrects sur le tableau des héros!</target>
       </segment>
     </unit>
     <unit id="ToXb7Kr" name="%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!">
@@ -3911,7 +3911,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</target>
+        <target>%zombie% a ressuscité et se recouche!</target>
       </segment>
     </unit>
     <unit id="vw6w67." name="%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!">
@@ -3922,7 +3922,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</source>
-        <target>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</target>
+        <target>%zombie% a ressuscité et veut du café!</target>
       </segment>
     </unit>
     <unit id="vlEPrgk" name="b2b2ccc">
@@ -3933,7 +3933,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</target>
+        <target>%zombie% a ressuscité et a fait un tour sur la place du village!</target>
       </segment>
     </unit>
     <unit id="GtC0MNC" name="... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!">
@@ -5211,7 +5211,7 @@
       </notes>
       <segment>
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
-        <target>Salutations de Brainbox du passé, qui s'assoit devant son PC le 22 février 2020 et écrit ce texte.</target>
+        <target>Salutations de Brainbox, Shaïtan, Kitsune et Dylan du passé qui sont devant leur PC en Février 2020 et Mai 2020 et qui ont écrit ce texte.</target>
       </segment>
     </unit>
     <unit id="GWsFaiN" name="Katapult">
@@ -6122,7 +6122,7 @@
       </notes>
       <segment>
         <source>Wie viele Gegenstände möchtest du auf den Müll werfen?</source>
-        <target>Wie viele Gegenstände möchtest du auf den Müll werfen?</target>
+        <target>Combien d'objets voulez-vous jeter à la poubelle?</target>
       </segment>
     </unit>
     <unit id="6Ds9C1i" name="Du kannst keine Aktionen ausführen, während du dich versteckst.">
@@ -7922,8 +7922,8 @@
       <segment>
         <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</source>
-        <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</target>
+        <target>Les mises à niveau ne sont disponibles que pour les héros. Tant que vous n'êtes qu'un résident normal, vos extensions
+                        ne fonctionneront pas.</target>
       </segment>
     </unit>
     <unit id="5NecEOg" name="28b7953">
@@ -8323,7 +8323,7 @@
       </notes>
       <segment>
         <source>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</source>
-        <target>Vous êtes sous l'effet d'un alcool fort… Vous ne pouvez plus consommer d'autres alcools pour le moment.</target>
+        <target>Vous êtes sous l'effet d'un alcool fort... Vous ne pouvez plus consommer d'autres alcools pour le moment.</target>
       </segment>
     </unit>
     <unit id="n2cxTOK" name="63e4f16">
@@ -8782,7 +8782,7 @@
       </notes>
       <segment>
         <source>Belastende Beweise werden übermittelt...</source>
-        <target>Belastende Beweise werden übermittelt...</target>
+        <target>Des preuves sont transmises...</target>
       </segment>
     </unit>
     <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
@@ -10937,6 +10937,15 @@
       <segment>
         <source>Seine Seele ansehen</source>
         <target>Voir son âme</target>
+      </segment>
+    </unit>
+    <unit id="9NwZjWy" name="Teilnehmen">
+      <notes>
+        <note category="german">Teilnehmen</note>
+      </notes>
+      <segment>
+        <source>Teilnehmen</source>
+        <target>Participer</target>
       </segment>
     </unit>
   </file>

@@ -3,7 +3,7 @@
     {# @var user \App\Entity\User#}
     <div class="row soul">
         <div class="cell padded header rw-12">
-            {% embed "admin_action/tabs.html.twig" %}{% endembed %}
+            {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
                     <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>
@@ -87,7 +87,7 @@
             </div>
         </div>
     </div>
-    {% embed "admin_action/footer.html.twig" %}{% endembed %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
 {% endblock %}
 {% block js %}
     {{ parent() }}

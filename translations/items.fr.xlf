@@ -8271,12 +8271,6 @@
         <target>Pts</target>
       </segment>
     </unit>
-    <unit id="47DEQpj" name="">
-      <segment>
-        <source></source>
-        <target></target>
-      </segment>
-    </unit>
     <unit id="R2RcDum" name="Kompass">
       <notes>
         <note category="german">Kompass</note>
@@ -8293,15 +8287,6 @@
       <segment>
         <source>Angriff und Verteidigung</source>
         <target>Attaque et défense</target>
-      </segment>
-    </unit>
-    <unit id="tNsmnxy" name="Trinken5">
-      <notes>
-        <note category="german">Trinken5</note>
-      </notes>
-      <segment>
-        <source>Trinken5</source>
-        <target>Trinken5</target>
       </segment>
     </unit>
     <unit id="UGai_eX" name="9e17f97">

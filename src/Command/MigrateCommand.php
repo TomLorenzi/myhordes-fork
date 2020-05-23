@@ -268,7 +268,7 @@ class MigrateCommand extends Command
             /** @var Picto[] $pictos */
             $pictos = $this->entity_manager->getRepository(Picto::class)->findAll();
             foreach ($pictos as $picto)
-                if ($picto->getPersisted() === 2 && $picto->getTownEntry() === null && $picto->getTown() && $picto->getTown()->getRankingEntry())
+                if ($picto->getTownEntry() === null && $picto->getTown() && $picto->getTown()->getRankingEntry())
                     $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
             $this->entity_manager->flush();
             $output->writeln('Pictos updated!');

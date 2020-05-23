@@ -124,7 +124,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'wire_#00','count' => 6),
             array('item' => 'bagxl_#00','count' => 5),
         ], 'desc' => 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.'],
-        ["label" => "Atombunker",'icon' => 'bunker',"camping" => 15,"min_dist" => 10, "max_dist" => 19, "chance" => 499, "drops" => [
+        ["label" => "Atombunker",'icon' => 'bunker',"camping" => 15,"min_dist" => 10, "max_dist" => 13, "chance" => 499, "drops" => [
             array('item' => 'drug_hero_#00','count' => 127),
             array('item' => 'tagger_#00','count' => 66),
             array('item' => 'chest_#00','count' => 60),

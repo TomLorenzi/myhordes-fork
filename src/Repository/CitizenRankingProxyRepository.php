@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\CitizenRankingProxy;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 
 /**
  * @method CitizenRankingProxy|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +20,20 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, CitizenRankingProxy::class);
+    }
+
+    public function findNextUnconfirmedDeath(User $user): ?CitizenRankingProxy
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->andWhere('c.confirmed = false')->andWhere('c.end is not NULL')
+                ->andWhere('c.user = :user')->setParameter('user', $user)
+                ->setMaxResults(1)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (Exception $e) {
+            return null;
+        }
     }
 
     // /**
