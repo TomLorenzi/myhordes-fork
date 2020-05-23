@@ -1,0 +1,44 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded rw-12">
+            <h5>{{ 'Liste aller Städte'|trans({},'admin') }}</h5>
+            <div class="row-table">
+                <div class="row header">
+                    <div class="cell padded rw-1">{{ 'ID'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-5">{{ 'Stadtname'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1">{{ 'Tag'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-2">{{ 'Pop.'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-3 right">{{ 'Aktionen'|trans({},'admin') }}</div>
+                </div>
+                {# @var towns \App\Entity\Town[] #}
+                {% for town in towns %}
+                    <div class="row">
+                        <div class="cell padded rw-1">
+                            {{ town.id }}<br />
+                            {% if town.language is not empty %}
+                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
+                            {% endif %}
+                        </div>
+                        <div class="cell padded rw-5">
+                            {{ town.name }}<br />
+                            <span class="small">{% if town.open %}<i class="fa fa-door-open"></i> {% endif %}{{ town.type.label|trans({},'game') }}</span>
+                        </div>
+                        <div class="cell padded rw-1">{{ town.day }}</div>
+                        <div class="cell padded rw-2">
+                            {{ town.citizenCount }} / {{ town.population }}<br />
+                            <span title="{{ 'Tot'|trans({},'admin') }}" class="small"><i class="fa fa-skull"></i> {{ town.citizenCount - town.aliveCitizenCount }}</span> <span title="{{ 'Getrennt'|trans({},'admin') }}" class="small"><i class="fa fa-user-slash"></i> {{ town.citizenCount - town.activeCitizenCount }}</span>
+                        </div>
+                        <div class="cell padded rw-3 right">
+                            <button x-ajax-href="{{ path('admin_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+    </script>
+{% endblock %}
