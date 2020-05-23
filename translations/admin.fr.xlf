@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Offene Token erneut ankündigen</source>
-        <target>Offene Token erneut ankündigen</target>
+        <target>Annoncer à nouveau les jetons ouverts</target>
       </segment>
     </unit>
     <unit id="2EfsA22" name="Offene Token regenerieren">
@@ -493,7 +493,7 @@
       </notes>
       <segment>
         <source>Offene Token regenerieren</source>
-        <target>Offene Token regenerieren</target>
+        <target>Régénérez les jetons ouverts</target>
       </segment>
     </unit>
     <unit id="RHTHUmC" name="Sicherheit">
