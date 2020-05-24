@@ -7188,7 +7188,7 @@
       </notes>
       <segment>
         <source>Wandeln</source>
-        <target>Wandeln</target>
+        <target>Transform</target>
       </segment>
     </unit>
     <unit id="9fNbzu." name="Zerlegen">
@@ -7198,7 +7198,7 @@
       </notes>
       <segment>
         <source>Zerlegen</source>
-        <target>Zerlegen</target>
+        <target>Dismantle</target>
       </segment>
     </unit>
     <unit id="1PXqODy" name="Baustoffe">
@@ -7433,7 +7433,7 @@
       </notes>
       <segment>
         <source>Ins Kino gehen</source>
-        <target>Ins Kino gehen</target>
+        <target>Go to the Cinema</target>
       </segment>
     </unit>
     <unit id="poR1ekb" name="Läutern">

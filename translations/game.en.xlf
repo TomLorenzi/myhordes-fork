@@ -1048,7 +1048,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Home Defences</target>
+        <target>Defences</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -1382,7 +1382,7 @@
       </notes>
       <segment>
         <source>%citizen%s Truhe</source>
-        <target>%citizen%s Truhe</target>
+        <target>%citizen%'s Chest</target>
       </segment>
     </unit>
     <unit id="ygfGVvY" name="Tot">
@@ -1663,7 +1663,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Chaque transformation coûte %ap%</target>
+        <target>Each transformation cost %ap%</target>
       </segment>
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
@@ -5180,7 +5180,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Müllhalde</source>
-        <target>Müllhalde</target>
+        <target>Dump</target>
       </segment>
     </unit>
     <unit id="GWsFaiN" name="Katapult">
@@ -5190,7 +5190,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Katapult</source>
-        <target>Katapult</target>
+        <target>Catap</target>
       </segment>
     </unit>
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -5300,7 +5300,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Unsere Verteidigung :</source>
-        <target>Our defences :</target>
+        <target>Our defences:</target>
       </segment>
     </unit>
     <unit id="fCsY_QS" name="Geschätzter Angriff :">
@@ -5310,7 +5310,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Geschätzter Angriff :</source>
-        <target>Attack estimation:</target>
+        <target>Estimated Attack:</target>
       </segment>
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
@@ -5410,7 +5410,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Heldentafel</source>
-        <target>Heldentafel</target>
+        <target>Hero board</target>
       </segment>
     </unit>
     <unit id="eeHEERB" name="Unsere Situation">
@@ -5560,7 +5560,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</source>
-        <target>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</target>
+        <target>On the garbage dump, you can use items from the bank to temporarily improve the city's defense.</target>
       </segment>
     </unit>
     <unit id="u3C29q0" name="Jeder so zerstörte Gegenstand kostet dich %ap%.">
@@ -5570,7 +5570,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Jeder so zerstörte Gegenstand kostet dich %ap%.</source>
-        <target>Jeder so zerstörte Gegenstand kostet dich %ap%.</target>
+        <target>Each item destroyed this way will cost you %ap%.</target>
       </segment>
     </unit>
     <unit id="2MX9W.G" name="Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.">
@@ -5590,7 +5590,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gesamt: %def%</source>
-        <target>Gesamt: %def%</target>
+        <target>Total: %def%</target>
       </segment>
     </unit>
     <unit id="cuLzNYJ" name="Gegenstand">
@@ -5600,7 +5600,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gegenstand</source>
-        <target>Gegenstand</target>
+        <target>Object</target>
       </segment>
     </unit>
     <unit id="9WgEJfS" name="Installieren">
@@ -5610,7 +5610,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Installieren</source>
-        <target>Installieren</target>
+        <target>Install</target>
       </segment>
     </unit>
     <unit id="RNyztpO" name="Wie viele Gegenstände möchtest du auf den Müll werfen?">
@@ -7266,7 +7266,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</source>
-        <target>Der Weihnachtsmann wurde dabei beobachtet, wie er %item% von %victim% gestohlen hat</target>
+        <target>Santa was seen stealing %item% from %victim%</target>
       </segment>
     </unit>
     <unit id="jeBATzG" name="94edcd7">
@@ -7284,7 +7284,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Mein Rucksack</source>
-        <target>Mein Rucksack</target>
+        <target>My Inventory</target>
       </segment>
     </unit>
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
@@ -7293,7 +7293,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>Dieser Bürger wurde noch nie gesehen...</target>
+        <target>This citizen has never been seen ...</target>
       </segment>
     </unit>
     <unit id="n3JcKxK" name="Der Bürger wurde zuletzt %time% gesehen.">
@@ -7302,7 +7302,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt %time% gesehen.</source>
-        <target>Der Bürger wurde zuletzt %time% gesehen.</target>
+        <target>The citizen was last seen on %time%.</target>
       </segment>
     </unit>
     <unit id="y2ljklH" name="Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.">
@@ -9450,15 +9450,15 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>Status</target>
       </segment>
     </unit>
-       <unit id="m9ipH9g" name="[nights]">
-        <notes>
-          <note category="german">[nichts]</note>
-        </notes>
-        <segment>
-          <source>[nichts]</source>
-          <target>[ nothing ]</target>
-        </segment>
-      </unit>
+    <unit id="rGmg51l" name="[nichts]">
+      <notes>
+        <note category="german">[ nothing ]</note>
+      </notes>
+      <segment>
+        <source>[nichts]</source>
+        <target>[ nothing ]</target>
+      </segment>
+    </unit>
     <unit id="r_z_E60" name="Notruf">
       <notes>
         <note category="german">Notruf</note>
@@ -9744,7 +9744,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Deine Nachricht wurde korrekt übermittelt!</source>
-        <target>Deine Nachricht wurde korrekt übermittelt!</target>
+        <target>Votre message a bien été envoyé !</target>
       </segment>
     </unit>
     <unit id="g3N1gTc" name="Du kannst nicht mehr als eine Seele tragen.">
@@ -9756,7 +9756,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
         <target>You cannot carry more than one soul.</target>
       </segment>
     </unit>
-<unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
+    <unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
       <notes>
         <note category="german">Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</note>
       </notes>
@@ -9808,15 +9808,6 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       <segment>
         <source>Die Reparatur verbraucht keine Ressourcen.</source>
         <target>Les réparations ne consomment pas de ressources.</target>
-      </segment>
-    </unit>
-    <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
-      <notes>
-        <note category="german">Deine Nachricht wurde korrekt übermittelt!</note>
-      </notes>
-      <segment>
-        <source>Deine Nachricht wurde korrekt übermittelt!</source>
-        <target>Votre message a bien été envoyé !</target>
       </segment>
     </unit>
     <unit id="BjwWH4y" name="Erhaltene Nachrichten">
@@ -9875,7 +9866,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
       <notes>
-        <note category="german">Neue Nachricht</note>
+        <note category="german">New message</note>
       </notes>
       <segment>
         <source>Neue Nachricht</source>
@@ -9956,7 +9947,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="4gAjVQX" name="Verlassener Bunker">
       <notes>
-        <note category="german">Verlassener Bunker</note>
+        <note category="german">Abandonned Bunker</note>
       </notes>
       <segment>
         <source>Verlassener Bunker</source>
@@ -9965,7 +9956,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="BRZGIi8" name="8183632">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un bunker. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -9974,7 +9965,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="oxlDhWv" name="Verlassenes Hotel">
       <notes>
-        <note category="german">Verlassenes Hotel</note>
+        <note category="german">Abandonned Hotel</note>
       </notes>
       <segment>
         <source>Verlassenes Hotel</source>
@@ -9983,7 +9974,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="hP.60KS" name="150bce3">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -9992,7 +9983,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
       <notes>
-        <note category="german">Verlassenes Hospital</note>
+        <note category="german">Abandonned Hospital</note>
       </notes>
       <segment>
         <source>Verlassenes Hospital</source>
@@ -10001,7 +9992,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="PAKqkOM" name="1a6b1bb">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10010,7 +10001,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
       <notes>
-        <note category="german">%ruin% betreten</note>
+        <note category="german">Enter in %ruin%</note>
       </notes>
       <segment>
         <source>%ruin% betreten</source>
@@ -10019,7 +10010,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
       <notes>
-        <note category="german">Eine Nachricht hinterlassen</note>
+        <note category="german">Leave a note on their door</note>
       </notes>
       <segment>
         <source>Eine Nachricht hinterlassen</source>
@@ -10028,7 +10019,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
       <notes>
-        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
+        <note category="german">Click on the objects you wish to send with this message:</note>
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
@@ -10037,7 +10028,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
       <notes>
-        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
+        <note category="german">The following objects will be sent:</note>
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
@@ -10046,7 +10037,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
       <notes>
-        <note category="german">Kein Gegenstand beigefügt...</note>
+        <note category="german">No objects attached...</note>
       </notes>
       <segment>
         <source>Kein Gegenstand beigefügt...</source>
@@ -10055,7 +10046,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
       <notes>
-        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
+        <note category="german">Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</note>
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
@@ -10064,7 +10055,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
       <notes>
-        <note category="german">Meine Nachrichten lesen.</note>
+        <note category="german">Read my messages.</note>
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
@@ -10073,7 +10064,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="bYjLN7a" name="Draußen">
       <notes>
-        <note category="german">Draußen</note>
+        <note category="german">Outside</note>
       </notes>
       <segment>
         <source>Draußen</source>
@@ -10082,7 +10073,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
       <notes>
-        <note category="german">in der Stadt oder am Stadttor</note>
+        <note category="german">in town or at the gates</note>
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
@@ -10091,20 +10082,74 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
-        <note category="german">Seine Seele ansehen</note>
+        <note category="german">See their soul</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
         <target>See their soul</target>
       </segment>
     </unit>
-        <unit id=".JWT0sC" name="Zonenmarkierer">
+    <unit id=".JWT0sC" name="Zonenmarkierer">
       <notes>
         <note category="german">Zonenmarkierer</note>
       </notes>
       <segment>
         <source>Zonenmarkierer</source>
         <target>Zone marker</target>
+      </segment>
+    </unit>
+    <unit id="dY6rVb6" name="Tor ist offen!">
+      <notes>
+        <note category="german">Tor ist offen!</note>
+      </notes>
+      <segment>
+        <source>Tor ist offen!</source>
+        <target>Gates are open!</target>
+      </segment>
+    </unit>
+    <unit id="1cEye.o" name="Zombies sind eingedrungen.">
+      <notes>
+        <note category="german">Zombies sind eingedrungen.</note>
+      </notes>
+      <segment>
+        <source>Zombies sind eingedrungen.</source>
+        <target>Zombies have invaded.</target>
+      </segment>
+    </unit>
+    <unit id="ojehKlj" name="vor Angst erstarrt">
+      <notes>
+        <note category="german">vor Angst erstarrt</note>
+      </notes>
+      <segment>
+        <source>vor Angst erstarrt</source>
+        <target>frozen with fear</target>
+      </segment>
+    </unit>
+    <unit id="9NwZjWy" name="Teilnehmen">
+      <notes>
+        <note category="german">Teilnehmen</note>
+      </notes>
+      <segment>
+        <source>Teilnehmen</source>
+        <target>Help out!</target>
+      </segment>
+    </unit>
+    <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
+      <notes>
+        <note category="german">Du wirst heute Nacht sterben!</note>
+      </notes>
+      <segment>
+        <source>Du wirst heute Nacht sterben!</source>
+        <target>You will die2nite!</target>
+      </segment>
+    </unit>
+    <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
+      <notes>
+        <note category="german">Die letzte Zeitung lesen</note>
+      </notes>
+      <segment>
+        <source>Die letzte Zeitung lesen</source>
+        <target>Read the last gazette</target>
       </segment>
     </unit>
   </file>
