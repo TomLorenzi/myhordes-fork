@@ -1027,7 +1027,7 @@ class ActionHandler
 
         if(!empty($execute_info_cache['message'])) {
             if(!empty($message)) $message .= "<hr />";
-            $message .= $execute_info_cache['message'];
+            $message .= $this->translator->trans($execute_info_cache['message'], [], 'items');
         }
 
 
