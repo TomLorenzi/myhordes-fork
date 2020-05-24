@@ -90,7 +90,6 @@ class RuinZone
 
     public function __construct()
     {
-        $this->citizens = new ArrayCollection();
     }
 
     public function getId(): ?int
