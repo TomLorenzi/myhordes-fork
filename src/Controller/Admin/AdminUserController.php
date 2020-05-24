@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\AdminReport;
 use App\Entity\User;
@@ -18,110 +18,20 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class AdminActionController extends AbstractController
+class AdminUserController extends AdminActionController
 {
-
-    protected $entity_manager;
-
-    public function __construct(EntityManagerInterface $em)
-    {
-        $this->entity_manager = $em;
-
-    }
-
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
-        $data = $data ?? [];
-
-        $data["admin_tab"] = $section;
-
-        return $data;
-    }
     /**
-     * @Route("jx/admin/action/{id}", name="admin_action", requirements={"id"="\d+"})
-     * @param int $id
-     * @return Response
-     */
-    public function index(int $id): Response
-    {
-        switch ($id)
-        {
-            case 1: 
-                return $this->redirect($this->generateUrl('admin_users'));             
-                break;
-            case 2:
-                return $this->redirect($this->generateUrl('admin_reports'));   
-                break;
-            default: break;
-        }
-        return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-    }
-
-    /**
-     * @Route("jx/admin/action/reports/{opt}", name="admin_reports")
-     * @return Response
-     */
-    public function reports(string $opt = ''): Response
-    {
-        $show_all = $opt === 'all';
-
-        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
-        // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
-        $postsList = array('post' => [], 'reporter' => []);
-        $postsList['post'] = array_map(function($report) { return $report->getPost(); }, $reports);
-        $postsList['reporter'] = array_map(function($report) { return $report->getSourceUser(); }, $reports);
-
-
-        $alreadyCountedIndexes = [];
-        $selectedReports = [];
-        foreach ($postsList['post'] as $idx => $post) {
-            if (in_array($idx, $alreadyCountedIndexes))               
-                continue;      
-            $keys = array_keys($postsList['post'], $post);
-            $alreadyCountedIndexes = array_merge($alreadyCountedIndexes, $keys);
-            $reportCount = count($keys);
-            if ($reportCount > ($show_all ? 0 : 1)) {
-                $reporters = [];
-                foreach ($keys as $key){
-                    $reporters[] = $postsList['reporter'][$key];
-                }
-                $selectedReports[] = array('post' => $post, 'count' => $reportCount, 'reporters' => $reporters);
-            }
-        }
-
-        return $this->render( 'admin_action/reports/reports.html.twig', [  
-            'posts' => $selectedReports,
-            'all_shown' => $show_all
-        ]);      
-    }
-
-    /**
-     * @Route("api/admin/action/reports/clear", name="admin_reports_clear")
-     * @return Response
-     */
-    public function reports_clear(JSONRequestParser $parser, AdminActionHandler $admh): Response
-    {
-        if (!$parser->has_all(['postId'], true))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $user = $this->getUser();
-        $postId = $parser->get('postId');
-        if ($admh->clearReports($user->getId(), $postId))
-            return AjaxResponse::success();
-        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-    }
-
-    /**
-     * @Route("jx/admin/action/users", name="admin_users")
+     * @Route("jx/admin/users", name="admin_users")
      * @return Response
      */
     public function users(): Response
     {
-        return $this->render( 'admin_action/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
+        return $this->render( 'ajax/admin/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
         ]));      
     }
 
     /**
-     * @Route("jx/admin/action/users/{id}/account/view", name="admin_users_account_view", requirements={"id"="\d+"})
+     * @Route("jx/admin/users/{id}/account/view", name="admin_users_account_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
@@ -133,14 +43,14 @@ class AdminActionController extends AbstractController
 
         $validations = $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) : [];
 
-        return $this->render( 'admin_action/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
+        return $this->render( 'ajax/admin/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
             'user' => $user,
             'validations' => $validations,
         ]));
     }
 
     /**
-     * @Route("api/admin/action/users/{id}/account/do/{action}", name="admin_users_account_manage", requirements={"id"="\d+", "sid"="\d+"})
+     * @Route("api/admin/users/{id}/account/do/{action}", name="admin_users_account_manage", requirements={"id"="\d+", "sid"="\d+"})
      * @param int $id
      * @param string $action
      * @param JSONRequestParser $parser
@@ -210,7 +120,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/users/{id}/ban/view", name="admin_users_ban_view", requirements={"id"="\d+"})
+     * @Route("jx/admin/users/{id}/ban/view", name="admin_users_ban_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
@@ -228,7 +138,7 @@ class AdminActionController extends AbstractController
             $lastBan = $bannings[$banCount - 1];
         else $lastBan = $bannings[0];
 
-        return $this->render( 'admin_action/users/ban.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
+        return $this->render( 'ajax/admin/users/ban.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
             'user' => $user,
             'banned' => $banned,
             'activeBan' => $longestActiveBan,
@@ -239,7 +149,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("api/admin/action/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
      * @param int $id
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
@@ -264,7 +174,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("api/admin/action/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/ban/lift", name="admin_users_ban_lift", requirements={"id"="\d+"})
      * @return Response
      */
     public function users_ban_lift(int $id, AdminActionHandler $admh): Response
@@ -276,7 +186,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("api/admin/action/users/find", name="admin_users_find")
+     * @Route("api/admin/users/find", name="admin_users_find")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return Response
@@ -295,7 +205,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("jx/admin/action/users/fuzzyfind", name="admin_users_fuzzyfind")
+     * @Route("jx/admin/users/fuzzyfind", name="admin_users_fuzzyfind")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return Response
@@ -307,13 +217,13 @@ class AdminActionController extends AbstractController
         $searchName = $parser->get('name');
         $users = $em->getRepository(User::class)->findByNameContains($searchName);
 
-        return $this->render( 'admin_action/users/list.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
+        return $this->render( 'ajax/admin/users/list.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
             'users' => $users,
         ]));
     }
 
     /**
-     * @Route("jx/admin/action/users/{id}/citizen/view", name="admin_users_citizen_view", requirements={"id"="\d+"})
+     * @Route("jx/admin/users/{id}/citizen/view", name="admin_users_citizen_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
      */
@@ -338,7 +248,7 @@ class AdminActionController extends AbstractController
             $town = null;
         }
         
-        return $this->render( 'admin_action/users/citizen.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
+        return $this->render( 'ajax/admin/users/citizen.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
             'town' => $town,
             'active' => $active,
             'alive' => $alive,
@@ -347,7 +257,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("api/admin/action/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
      * @return Response
      */
     public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
@@ -359,7 +269,7 @@ class AdminActionController extends AbstractController
     }
 
     /**
-     * @Route("api/admin/action/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
      * @return Response
      */
     public function users_citizen_confirm_death(int $id, AdminActionHandler $admh): Response

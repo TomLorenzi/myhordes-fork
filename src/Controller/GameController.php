@@ -115,7 +115,7 @@ class GameController extends AbstractController implements GameInterfaceControll
     public function landing(): Response
     {
         if (!$this->getActiveCitizen()->getAlive())
-            return $this->redirect($this->generateUrl('game_death'));
+            return $this->redirect($this->generateUrl('soul_death'));
         elseif ($this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_jobs'));
         elseif ($this->getActiveCitizen()->getZone()) return $this->redirect($this->generateUrl('beyond_dashboard'));
@@ -127,7 +127,7 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @return Response
      */
     public function newspaper(): Response {
-        if (!$this->getActiveCitizen()->getAlive() || $this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
+        if ($this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
@@ -387,11 +387,13 @@ class GameController extends AbstractController implements GameInterfaceControll
             'textClass' => $textClass,
         ];
 
+        $show_register = $in_town && $this->getActiveCitizen()->getAlive();
+
         return $this->render( 'ajax/game/newspaper.html.twig', [
-            'show_register'  => $in_town,
+            'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
-            'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
+            'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizenWithRole' => $citizenWithRole,
         ] );
@@ -433,36 +435,6 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return $this->render( 'ajax/game/jobs.html.twig', [
             'professions' => $this->entity_manager->getRepository(CitizenProfession::class)->findSelectable()
-        ] );
-    }
-
-    /**
-     * @Route("jx/game/death", name="game_death")
-     * @param CitizenHandler $ch
-     * @return Response
-     */
-    public function death(CitizenHandler $ch): Response
-    {
-        if ($this->getActiveCitizen()->getAlive())
-            return $this->redirect($this->generateUrl('game_landing'));
-
-        $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($this->getUser(), $this->getActiveCitizen()->getTown());
-        $pictosWonDuringTown = array();
-        $pictosNotWonDuringTown = array();
-
-        foreach ($pictosDuringTown as $picto) {
-            if($picto->getPersisted() > 0) {
-                $pictosWonDuringTown[] = $picto;
-            } else {
-                $pictosNotWonDuringTown[] = $picto;
-            }
-        }
-
-        return $this->render( 'ajax/game/death.html.twig', [
-            'citizen' => $this->getActiveCitizen(),
-            'sp' => $ch->getSoulpoints($this->getActiveCitizen()),
-            'pictos' => $pictosWonDuringTown,
-            'denied_pictos' => $pictosNotWonDuringTown
         ] );
     }
 
@@ -515,55 +487,4 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return AjaxResponse::success();
     }
-
-    /**
-     * @Route("api/game/unsubscribe", name="api_unsubscribe")
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session): Response {
-        if ($this->getActiveCitizen()->getAlive())
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var User|null $user */
-        $user = $this->getUser();
-        $active = $em->getRepository(Citizen::class)->findActiveByUser($user);
-
-        if (!$active || $active->getId() !== $this->getActiveCitizen()->getId())
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $last_words = $parser->get('lastwords');
-
-        $active->setActive(false);
-        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison && $active->getCauseOfDeath()->getRef() != CauseOfDeath::GhulEaten)
-            $active->setLastWords($last_words);
-        else
-            $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));
-
-        // Here, we delete picto with persisted = 0,
-        // and definitively validate picto with persisted = 1
-        /** @var Picto[] $pendingPictosOfUser */
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
-        foreach ($pendingPictosOfUser as $pendingPicto) {
-            if($pendingPicto->getPersisted() == 0)
-                $this->entity_manager->remove($pendingPicto);
-            else {
-                $pendingPicto
-                    ->setPersisted(2)
-                    ->setTownEntry( ($pendingPicto->getTown() && $pendingPicto->getTown()->getRankingEntry()) ? $pendingPicto->getTown()->getRankingEntry() : null );
-                $this->entity_manager->persist($pendingPicto);
-            }
-        }
-
-        CitizenRankingProxy::fromCitizen( $active );
-
-        $this->entity_manager->persist( $active );
-        $this->entity_manager->flush();
-
-        if ($session->has('_town_lang')) {
-            $session->remove('_town_lang');
-            return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
-        } else return AjaxResponse::success();
-    }
-
 }

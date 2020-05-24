@@ -18,7 +18,7 @@
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}
 
-            <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack in der Bank ausleeren{% endtrans %}</button>
+            <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_bag.gif') }}"> {% trans from 'game' %}Rucksack in der Bank ausleeren{% endtrans %}</button>
         </div>
     </div>
     <div class="row">

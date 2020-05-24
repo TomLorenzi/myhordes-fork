@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten?</source>
-        <target>Do you wish to enter the terrible world of the damned as an inhabitant of the town %town_name%?</target>
+        <target>Do you wish to enter the terrible world of MyHordes as an inhabitant of the town %town_name%?</target>
       </segment>
     </unit>
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
@@ -180,10 +180,10 @@
                     Was tust du, solange der Angriff tobt?               
                     &lt;/p&gt;</source>
         <target><![CDATA[<p>
-                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...
+                    Hordes of zombies are <strong>attacking</strong> your town! They are everywhere, you hear citizens <strong>screaming</strong> in the night, the attackers clashing noisily against sheet metal... Hungry <strong>groaning</strong> from the starving masses... What's going to become of it?!
                     </p>
                     <p>
-                    Was tust du, solange der Angriff tobt?               
+                    Are you going to <strong>die2nite</strong>?!              
                     </p>]]></target>
       </segment>
     </unit>
@@ -193,7 +193,7 @@
       </notes>
       <segment>
         <source>Was hat das zu bedeuten?</source>
-        <target>Was hat das zu bedeuten?</target>
+        <target>What does it mean?</target>
       </segment>
     </unit>
     <unit id="ePJ.g5_" name="070fa24">

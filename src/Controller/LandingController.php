@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\User;
 use App\Service\TimeKeeperService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -31,6 +32,8 @@ class LandingController extends AbstractController
             return $this->redirect($this->generateUrl('public_welcome'));
         elseif (!$user->getValidated())
             return $this->redirect($this->generateUrl('public_validate'));
+        elseif ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return $this->redirect($this->generateUrl('soul_death'));
         elseif ($em->getRepository(Citizen::class)->findActiveByUser($user))
             return $this->redirect($this->generateUrl('game_landing'));
         else

@@ -60,11 +60,7 @@ class Picto
      */
     private $townEntry;
 
-    public function __construct()
-    {
-        $this->town = new ArrayCollection();
-        $this->user = new ArrayCollection();
-    }
+    public function __construct() {}
 
     public function getId(): ?int
     {
@@ -103,6 +99,7 @@ class Picto
     public function setTown(?Town $town): self
     {
         $this->town = $town;
+        $this->setTownEntry($town ? $town->getRankingEntry() : null);
 
         return $this;
     }

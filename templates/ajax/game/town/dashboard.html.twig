@@ -28,6 +28,7 @@
                         {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/small_zombie.gif') }}" />
                     </span>
                 {% endif %}
+                {% if has_watchtower and not has_estimated %}<br /><span class="help">[ <span class="link" x-ajax-href="{{ path('town_watchtower') }}">{{ 'Teilnehmen'|trans({}, 'game') }}</span> ] </span>{% endif %}
             </div>
             <div class="padded cell rw-4 rw-md-12 center">
                 {% if (zeds_today[3] >= wtt) and zeds_today[0] %}

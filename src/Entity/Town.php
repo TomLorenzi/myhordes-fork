@@ -203,6 +203,20 @@ class Town
         return $this->getCitizens()->count();
     }
 
+    public function getAliveCitizenCount(): int {
+        $cc = 0;
+        foreach ($this->getCitizens() as $c)
+            if ($c->getAlive()) $cc++;
+            return $cc;
+    }
+
+    public function getActiveCitizenCount(): int {
+        $cc = 0;
+        foreach ($this->getCitizens() as $c)
+            if ($c->getActive()) $cc++;
+        return $cc;
+    }
+
     public function isOpen(): bool {
         return $this->getDay() === 1 && $this->getCitizenCount() < $this->getPopulation();
     }

@@ -228,7 +228,7 @@
                 {% if allow_enter_town %}
                     <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
                         {% if zone.x == 0 and zone.y == 0 %}
-                            {% trans from 'game' %}Stadt betreten{% endtrans %}
+                            <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}"> {% trans from 'game' %}Stadt betreten{% endtrans %}
                         {% else %}
                             <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
                         {% endif %}
