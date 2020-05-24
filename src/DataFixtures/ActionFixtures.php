@@ -105,8 +105,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_yet_home_heal_2'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_heal_2' ] ]],
             'not_yet_home_defbuff'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_defbuff' ] ]],
             'not_yet_rested'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_rested' ]  ]],
-            'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_immune' ]  ]],
-            'immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_immune' ]  ]],
+            'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_shaman_immune' ]  ]],
+            'immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_shaman_immune' ]  ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -255,7 +255,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'infect'       => [ 'status' => 'add_infection' ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
-            'give_immune'  => [ 'status' => 'immune'],
+            'immune'       => [ 'status' => 'add_immune' ],
+            'give_shaman_immune'  => [ 'status' => 'shaman_immune'],
 
             'minus_1ap'    => [ 'ap' => 'minus_1' ],
             'minus_5ap'    => [ 'ap' => 'minus_5' ],
@@ -350,6 +351,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
                 'add_infection'   => [ 'from' => null, 'to' => 'infection' ],
                 'remove_infection'=> [ 'from' => 'infection', 'to' => null ],
+                'add_immune'      => [ 'from' => null, 'to' => 'immune'],
 
                 'add_drunk' => [ 'from' => null, 'to' => 'drunk' ],
 
@@ -362,7 +364,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'inflict_wound' => [ 'from' => null, 'to' => 'tg_meta_wound' ],
                 'heal_wound'    => [ 'from' => 'tg_meta_wound', 'to' => null ],
                 'add_bandage'   => [ 'from' => null, 'to' => 'healed' ],
-                'immune'   => [ 'from' => null, 'to' => 'tg_immune' ],
+                'shaman_immune'   => [ 'from' => null, 'to' => 'tg_shaman_immune' ],
 
                 'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
                 'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
@@ -427,7 +429,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_kill_1z_85' => [[['do_nothing'], 15], [['kill_1_zombie'], 85]],
 
                 'g_kill_2z_80' => [[['do_nothing'], 20], [['kill_2_zombie'], 80]],
-                'g_immune_90' => [[['do_nothing'], 10], [['give_immune'], 90]],
+                'g_immune_90' => [[['do_nothing'], 10], [['give_shaman_immune'], 90]],
 
                 'g_empty_jerrygun'  => [[['do_nothing'], 85], [['empty_jerrygun'], 15]],
             ],
@@ -498,8 +500,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'drug_xana1' => [ 'label' => 'Einsetzen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'unterrorize', 'consume_item' ] ],
             'drug_xana2' => [ 'label' => 'Einsetzen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'unterrorize', 'consume_item' ] ],
-            'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'disinfect', 'consume_item' ] ],
-            'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'disinfect', 'consume_item' ] ],
+            'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'disinfect', 'immune', 'consume_item' ] ],
+            'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'disinfect', 'immune', 'consume_item' ] ],
             'drug_6ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap6', 'consume_item' ] ],
             'drug_6ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'just_ap6', 'consume_item' ] ],
             'drug_7ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap7', 'consume_item' ] ],
@@ -700,7 +702,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_be_terrorized', [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_teddy' ] ]] ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_teddy' ], 'group' => [ ['do_nothing', 1], ['unterrorize', 1] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ],
             'cuddle_teddy_2' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_not_be_terrorized' ], 'result' => [ 'terrorize' ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>' ],
 
-            'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes' ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ] ],
+            'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes' ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],
 
             'hero_tamer_1'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_2'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_2' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],

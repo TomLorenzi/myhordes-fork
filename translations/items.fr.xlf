@@ -3689,7 +3689,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</source>
-        <target>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</target>
+        <target>Vous avez rempli un {items_consume} dans votre {item_from} et reçu {item_to}!</target>
       </segment>
     </unit>
     <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
@@ -3774,7 +3774,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...</nt-spawned><t-spawned>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert le {item} et y avez trouvé {items_spawn}!</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -3794,7 +3794,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
-        <target>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</target>
+        <target>Vous avez inséré une {items_consume} dans votre {item_from} et reçu {item_to}!</target>
       </segment>
     </unit>
     <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
@@ -3915,7 +3915,7 @@
       </notes>
       <segment>
         <source>Das brauchst du gerade nicht ...</source>
-        <target>Das brauchst du gerade nicht ...</target>
+        <target>Vous n'avez pas besoin de ça maintenant ...</target>
       </segment>
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
@@ -3933,7 +3933,7 @@
       </notes>
       <segment>
         <source>Verbinden</source>
-        <target>Verbinden</target>
+        <target>Soigner</target>
       </segment>
     </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
@@ -3944,7 +3944,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</source>
-        <target>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</target>
+        <target>Vous avez nettoyé le contenu de {item} et reçu {items_spawn}.</target>
       </segment>
     </unit>
     <unit id="MAqdFU1" name="Hierfür brauchst du eine Micropur Brausetablette.">
@@ -3973,7 +3973,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
-        <target>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</target>
+        <target>Vous avez versé le contenu de {item} dans le puits. Le puits a été rempli de {well} rations d'eau..</target>
       </segment>
     </unit>
     <unit id="m2_GRND" name="7d11094">
@@ -4011,7 +4011,7 @@
       </notes>
       <segment>
         <source>Vergiften mit</source>
-        <target>Vergiften mit</target>
+        <target>Empoisonner avec</target>
       </segment>
     </unit>
     <unit id="6wfIVGg" name="Du hast {target} mit {item} vergiftet!">
@@ -4033,7 +4033,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
-        <target>Mithilfe des {item} hast du die Umgebung gescannt.</target>
+        <target>À l'aide de {item}, vous avez numérisé la zone.</target>
       </segment>
     </unit>
     <unit id="2lPNuwg" name="Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.">
@@ -4044,7 +4044,7 @@
       </notes>
       <segment>
         <source>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</source>
-        <target>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</target>
+        <target>Vous avez utilisé {item} pour découvrir une partie du bâtiment.</target>
       </segment>
     </unit>
     <unit id="ufBL9cN" name="Das kannst du nicht tun während du umzingelt bist...">
@@ -4066,7 +4066,7 @@
       </notes>
       <segment>
         <source>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</source>
-        <target>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</target>
+        <target>Avec le {item} vous vous êtes acheté du temps ... vous devriez quitter cet endroit rapidement!</target>
       </segment>
     </unit>
     <unit id="InvhyVo" name="Knuddeln">
@@ -4141,7 +4141,7 @@
       </notes>
       <segment>
         <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
-        <target>Vous avez renvoyé {item} mit deinen Gegenständen in die Stadt geschickt.</target>
+        <target>Vous avez renvoyé {item} avec vos objets dans la Ville.</target>
       </segment>
     </unit>
     <unit id="AYQyaTb" name="Dopen">
@@ -4163,7 +4163,7 @@
       </notes>
       <segment>
         <source>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</source>
-        <target>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</target>
+        <target>Vous donnez {items_consume} à {item} qui n'en fait qu'une bouchée. Il ne faut que quelques minutes à la drogue pour faire effet : votre bichon a maintenant l'oeil vif, le poil brillant et la queue qui frétille.</target>
       </segment>
     </unit>
     <unit id="Gn7WeIB" name="Hierfür brauchst du ein Steroid.">
@@ -8314,6 +8314,21 @@
       <segment>
         <source>Reinigen (Kleidung)</source>
         <target>Nettoyer</target>
+      </segment>
+    </unit>
+    <unit id="5v3eyG." name="9caf33d">
+      <notes>
+        <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
+      </notes>
+      <segment>
+        <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
+        <target>Vous prenez quelques minutes pour nettoyer votre {item}. Vous faites de votre mieux pour retirer les taches de sang qui le parsèment puis vous rafistolez les quelques trous.</target>
+      </segment>
+    </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
       </segment>
     </unit>
   </file>

@@ -202,8 +202,8 @@ class DeathHandler
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 
-        CitizenRankingProxy::fromCitizen( $citizen );
-        TownRankingProxy::fromTown( $citizen->getTown() );
+        CitizenRankingProxy::fromCitizen( $citizen, true );
+        TownRankingProxy::fromTown( $citizen->getTown(), true );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
 

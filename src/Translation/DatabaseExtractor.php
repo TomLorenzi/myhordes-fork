@@ -62,7 +62,7 @@ class DatabaseExtractor implements ExtractorInterface
         foreach ($this->em->getRepository(ItemAction::class)->findAll() as $action) {
             /** @var ItemAction $action */
             $this->insert($c, $action->getLabel(), 'items');
-            if ($action->getMessage())
+            if (!empty($action->getMessage()))
                 $this->insert($c, $action->getMessage(), 'items');
             foreach ($action->getRequirements() as $requirement) {
                 if ($requirement->getFailureText())
