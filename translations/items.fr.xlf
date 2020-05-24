@@ -8316,5 +8316,20 @@
         <target>Nettoyer</target>
       </segment>
     </unit>
+    <unit id="5v3eyG." name="9caf33d">
+      <notes>
+        <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
+      </notes>
+      <segment>
+        <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
+        <target>Vous prenez quelques minutes pour nettoyer votre {item}. Vous faites de votre mieux pour retirer les taches de sang qui le parsèment puis vous rafistolez les quelques trous.</target>
+      </segment>
+    </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
