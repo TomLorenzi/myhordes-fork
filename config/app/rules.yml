@@ -13,6 +13,7 @@ parameters:
       explorable_ruin_params:
         complexity: 0.6
         convolution: 0.1
+        cruelty: 0.06
 
       initial_buildings:  []
       unlocked_buildings: []

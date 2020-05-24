@@ -22,6 +22,7 @@ class TownConf extends Conf
 
     const CONF_EXPLORABLES_COMPLEXITY  = 'explorable_ruin_params.complexity';
     const CONF_EXPLORABLES_CONVOLUTION = 'explorable_ruin_params.convolution';
+    const CONF_EXPLORABLES_CRUELTY     = 'explorable_ruin_params.cruelty';
 
     const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
 

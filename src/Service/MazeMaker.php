@@ -3,27 +3,15 @@
 
 namespace App\Service;
 
-use App\Entity\AdminBan;
-use App\Entity\AdminDeletion;
-use App\Entity\AdminReport;
-use App\Entity\Citizen;
-use App\Entity\CauseOfDeath;
-use App\Entity\CitizenRankingProxy;
-use App\Entity\Forum;
 use App\Entity\Inventory;
-use App\Entity\Picto;
-use App\Entity\Post;
 use App\Entity\RuinZone;
-use App\Entity\Thread;
-use App\Entity\User;
 use App\Entity\Zone;
-use App\Service\DeathHandler;
 use App\Structures\TownConf;
-use DateInterval;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
-use Symfony\Contracts\Translation\TranslatorInterface;
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+use Graphp\Algorithms\ConnectedComponents;
+use Graphp\Algorithms\MinimumSpanningTree\Kruskal;
 
 class MazeMaker
 {
@@ -56,6 +44,41 @@ class MazeMaker
                     ->setZombies(0)
                     ->setFloor(new Inventory())
                 );
+    }
+
+    private function graphyfy(array $use_binary, ?array &$nodes, ?array &$flat_nodes): Graph {
+        $graph = new Graph();
+        /** @var Vertex[][] $nodes */
+        $nodes = $flat_nodes = [];
+
+        // Returns true if the given coordinates point to an existing zone
+        $exists = function(int $x, int $y) use (&$use_binary): bool {
+            return (isset($use_binary[$x]) && isset($use_binary[$x][$y]));
+        };
+
+        // Returns true if the given coordinates point to an existing zone and the zone is already marked as a corridor
+        $corridor = function(int $x, int $y) use (&$use_binary,&$exists): bool {
+            return $exists($x,$y) && $use_binary[$x][$y];
+        };
+
+        foreach ($use_binary as $x => $bin_line)
+            foreach ($bin_line as $y => $active)
+                if ($active) {
+                    if (!isset($nodes[$x])) $nodes[$x] = [];
+                    if (!isset($nodes[$x][$y])) $nodes[$x][$y] = $graph->createVertex("$x/$y");
+                    $nodes[$x][$y]->setAttribute('pos', [$x,$y]);
+                    $flat_nodes[] = $nodes[$x][$y];
+                }
+
+            foreach ($nodes as $x => $nodes_line)
+                foreach ($nodes_line as $y => $node) {
+                    if ($corridor($x+1,$y)) $node->createEdgeTo( $nodes[$x+1][$y] );
+                    if ($corridor($x-1,$y)) $node->createEdgeTo( $nodes[$x-1][$y] );
+                    if ($corridor($x,$y+1)) $node->createEdgeTo( $nodes[$x][$y+1] );
+                    if ($corridor($x,$y-1)) $node->createEdgeTo( $nodes[$x][$y-1] );
+                }
+
+        return $graph;
     }
 
     public function generateMaze( Zone $base ) {
@@ -96,7 +119,7 @@ class MazeMaker
                 (!$corridor($x-1,$y) || !$corridor($x,$y-1) || !$corridor($x-1,$y-1)) &&
                 (!$corridor($x+1,$y) || !$corridor($x,$y-1) || !$corridor($x+1,$y-1)) &&
                 (!$corridor($x-1,$y) || !$corridor($x,$y+1) || !$corridor($x-1,$y+1)) &&
-                (!$corridor($x+1,$y) || !$corridor($x,$y+1) || !$corridor($x-1,$y+1));
+                (!$corridor($x+1,$y) || !$corridor($x,$y+1) || !$corridor($x+1,$y+1));
         };
 
         // Returns true if the given coordinates point to an existing zone that is a corridor and can spawn additional
@@ -131,6 +154,7 @@ class MazeMaker
         $conf =  $this->conf->getTownConfiguration( $base->getTown() );
         $complexity = $conf->get(TownConf::CONF_EXPLORABLES_COMPLEXITY, 0.5);
         $convolution = $conf->get(TownConf::CONF_EXPLORABLES_CONVOLUTION, 0.75);
+        $cruelty     = $conf->get(TownConf::CONF_EXPLORABLES_CRUELTY, 0.06);
 
         $c_left = ceil( $n * $complexity );
 
@@ -161,6 +185,46 @@ class MazeMaker
                 $add($x,$y);
                 $mark_intersection($x,$y);
             }
+        }
+
+        // Post-processing - remove corridors to make the layout more challenging
+        $remove_nodes = floor( $n * $cruelty );
+        $tries = 0;
+
+        /** @var Vertex[] $list */
+        $graph = $this->graphyfy($binary, $nodes, $list);
+
+        // While we still have nodes to remove
+        while ($remove_nodes > 0 && $tries < 200) {
+            $tries++;
+
+            // Create a working copy of the current graph
+            $temp  = $graph->createGraphClone();
+
+            // Select a random node that is not 0/0 and attempt to remove it
+            $nid = array_rand($list);
+            if ($list[$nid]->getId() === '0/0') continue;
+            list($x,$y) = $list[$nid]->getAttribute('pos');
+            $temp->getVertex( $list[$nid]->getId() )->destroy();
+
+            // Create a connected component graph with all nodes accessible from 0/0
+            $cc = new ConnectedComponents($temp);
+            $subgraph = $cc->createGraphComponentVertex( $temp->getVertex("0/0") );
+
+            // If the connected component graph is identical to the source graph, it is still fully traversable
+            if ($subgraph->getVertices()->count() == $temp->getVertices()->count()) {
+                // Remove the associated corridor
+                $binary[$x][$y] = false;
+
+                // Remove the vertex
+                unset( $list[$nid] );
+
+                // Update the graph
+                $graph = $temp;
+
+                // Count down removed nodes
+                $remove_nodes--;
+            };
         }
 
         // Build the actual map
