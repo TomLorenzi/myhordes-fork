@@ -980,7 +980,25 @@ class ActionHandler
             }
 
             if($result->getMessage()){
-                $execute_info_cache['message'] = $result->getMessage()->getText();
+                if(!isset($execute_info_cache['message'])) $execute_info_cache['message'] = array();
+                $execute_info_cache['message'][] = $this->translator->trans( $result->getMessage()->getText(), [
+                    '{ap}'        => $execute_info_cache['ap'],
+                    '{minus_ap}'  => -$execute_info_cache['ap'],
+                    '{well}'      => $execute_info_cache['well'],
+                    '{item}'      => $this->wrap($execute_info_cache['item']),
+                    '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
+                    '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
+                    '{item_from}' => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
+                    '{item_to}'   => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
+                    '{target_from}' => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
+                    '{target_to}'   => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
+                    '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
+                    '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
+                    '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
+                    '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
+                    '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
+                    '{casino}'        => $execute_info_cache['casino'],
+                ], 'items' );
             }
         };
 
@@ -1026,8 +1044,8 @@ class ActionHandler
         }
 
         if(!empty($execute_info_cache['message'])) {
-            if(!empty($message)) $message .= "<hr />";
-            $message .= $this->translator->trans($execute_info_cache['message'], [], 'items');
+            if(!empty($message)) $message = '<hr />' . $message;
+            $message = implode('<hr />', $execute_info_cache['message']) . $message;
         }
 
 

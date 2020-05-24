@@ -8325,19 +8325,31 @@
         <target>Vous prenez quelques minutes pour nettoyer votre {item}. Vous faites de votre mieux pour retirer les taches de sang qui le parsèment puis vous rafistolez les quelques trous.</target>
       </segment>
     </unit>
-    <unit id="47DEQpj" name="">
-      <segment>
-        <source></source>
-        <target></target>
-      </segment>
-    </unit>
     <unit id="5BXo9Uy" name="b1cbb28">
       <notes>
         <note category="german">Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</note>
       </notes>
       <segment>
         <source>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</source>
-	<target>Mauvaise nouvelle ! Vous devenez par la même occasion dépendant(e) ! Vous devrez dorénavant consommer au moins une drogue par jour ou mourir !</target>
+        <target>Mauvaise nouvelle ! Vous devenez par la même occasion dépendant(e) ! Vous devrez dorénavant consommer au moins une drogue par jour ou mourir !</target>
+      </segment>
+    </unit>
+    <unit id="NEVAuft" name="0671c26">
+      <notes>
+        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
+      </notes>
+      <segment>
+        <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
+        <target>Ce médicament a renforcé votre organisme : vous ne subirez ni infection, ni ne serez transformé(e) en Goule. Cet effet se dissipera après l'attaque de ce soir. Note : cet effet ne protège pas des infections provoquées par une blessure non-traitée à minuit.</target>
+      </segment>
+    </unit>
+    <unit id="HgUvBW6" name="267bdee">
+      <notes>
+        <note category="german">Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</note>
+      </notes>
+      <segment>
+        <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
+        <target>Vous utilisez {item}, mais ce produit ne semble avoir aucun effet immédiat notable... Peut-être n'en aviez vous pas vraiment besoin ?</target>
       </segment>
     </unit>
   </file>
