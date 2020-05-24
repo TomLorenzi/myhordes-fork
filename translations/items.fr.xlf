@@ -3933,7 +3933,7 @@
       </notes>
       <segment>
         <source>Verbinden</source>
-        <target>Verbinden</target>
+        <target>Soigner</target>
       </segment>
     </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
