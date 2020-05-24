@@ -166,6 +166,7 @@ class Zone
         $this->escapeTimers = new ArrayCollection();
         $this->digRuinMarkers = new ArrayCollection();
         $this->scoutVisits = new ArrayCollection();
+        $this->ruinZones = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -572,9 +573,6 @@ class Zone
 
     public function addRuinZone(RuinZone $ruinZone): self
     {
-        if (!$this->ruinZones) {
-            $this->ruinZones = new ArrayCollection();
-        }
         if (!$this->ruinZones->contains($ruinZone)) {
             $this->ruinZones[] = $ruinZone;
             $ruinZone->setZone($this);

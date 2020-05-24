@@ -45,6 +45,11 @@ class Inventory
      */
     private $zone;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\RuinZone", mappedBy="floor", cascade={"persist", "remove"})
+     */
+    private $ruinZone;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -145,6 +150,23 @@ class Inventory
     public function setZone(Zone $zone): self
     {
         $this->zone = $zone;
+
+        // set the owning side of the relation if necessary
+        if ($zone->getFloor() !== $this) {
+            $zone->setFloor($this);
+        }
+
+        return $this;
+    }
+
+    public function getRuinZone(): ?RuinZone
+    {
+        return $this->ruinZone;
+    }
+
+    public function setRuinZone(RuinZone $zone): self
+    {
+        $this->ruinZone = $zone;
 
         // set the owning side of the relation if necessary
         if ($zone->getFloor() !== $this) {

@@ -20,6 +20,9 @@ class TownConf extends Conf
     const CONF_DEFAULT_CHEST_ITEMS   = 'initial_chest';
     const CONF_DISTRIBUTION_DISTANCE = 'distribution_distance';
 
+    const CONF_EXPLORABLES_COMPLEXITY  = 'explorable_ruin_params.complexity';
+    const CONF_EXPLORABLES_CONVOLUTION = 'explorable_ruin_params.convolution';
+
     const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
 
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';

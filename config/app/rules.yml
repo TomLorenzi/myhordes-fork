@@ -6,8 +6,13 @@ parameters:
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27 }
       population: { min: 40, max:  40 }
+
       ruins: 20
       explorable_ruins: 1
+
+      explorable_ruin_params:
+        complexity: 0.6
+        convolution: 0.1
 
       initial_buildings:  []
       unlocked_buildings: []

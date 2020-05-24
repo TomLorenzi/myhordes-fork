@@ -67,7 +67,7 @@ class RuinZone
     private $zombies;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="zone", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="ruinZone", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $floor;
@@ -147,7 +147,7 @@ class RuinZone
         if (!array_key_exists($corridor, $check)) {
             return false;
         }
-        $bin = sprintf( "%05d", decbin( $this->corridor ));
+        $bin = sprintf( "%'05d", decbin( $this->corridor ));
         return $bin[$check[$corridor]] == 1;
     }
 
