@@ -243,7 +243,7 @@ class AdminActionHandler
             $this->entity_manager->remove($pendingPicto);
         }
 
-        CitizenRankingProxy::fromCitizen( $activeCitizen );
+        CitizenRankingProxy::fromCitizen( $activeCitizen, true );
 
         $this->entity_manager->persist( $activeCitizen );
         $this->entity_manager->flush();
