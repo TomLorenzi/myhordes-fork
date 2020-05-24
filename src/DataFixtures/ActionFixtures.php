@@ -9,6 +9,7 @@ use App\Entity\AffectDeath;
 use App\Entity\AffectHome;
 use App\Entity\AffectItemConsume;
 use App\Entity\AffectItemSpawn;
+use App\Entity\AffectMessage;
 use App\Entity\AffectOriginalItem;
 use App\Entity\AffectPicto;
 use App\Entity\AffectPM;
@@ -249,7 +250,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
 
             'drug_any'   => [ 'status' => 'add_is_drugged', 'picto' => ['r_drug_#00'] ],
-            'drug_addict'  => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'] ],
+            'drug_addict'  => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'], 'message' => ['Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!'] ],
             'terrorize'    => [ 'status' => 'add_terror' ],
             'unterrorize'  => [ 'status' => 'remove_terror' ],
 
@@ -443,7 +444,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'kill_all_z' => [ 'num' => 999999 ],
             ],
 
-            'well' => []
+            'well' => [],
         ],
 
         'actions' => [
@@ -1669,6 +1670,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'picto':
                         $result->setPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
+                    case 'message':
+                        $result->setMessage( $this->process_message_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
+                        break;
                     case 'town':
                         $result->setTown( $this->process_town_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
@@ -2155,6 +2159,33 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result->setName( $id )->setPrototype(  $manager->getRepository(PictoPrototype::class)->findOneByName($data[0]));
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return AffectMessage
+     */
+    private function process_message_effect(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): AffectMessage
+    {
+        if (!isset($cache[$id])) {
+            $result = $manager->getRepository(AffectMessage::class)->findOneByName( $id );
+            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>message/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $result = new AffectMessage();
+                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>message/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $result->setName( $id )->setText($data[0]);
+            $manager->persist( $cache[$id] = $result );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>message/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

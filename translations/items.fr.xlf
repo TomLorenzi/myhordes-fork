@@ -8331,5 +8331,14 @@
         <target></target>
       </segment>
     </unit>
+    <unit id="5BXo9Uy" name="b1cbb28">
+      <notes>
+        <note category="german">Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</source>
+	<target>Mauvaise nouvelle ! Vous devenez par la même occasion dépendant(e) ! Vous devrez dorénavant consommer au moins une drogue par jour ou mourir !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

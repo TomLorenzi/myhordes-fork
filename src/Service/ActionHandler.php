@@ -978,6 +978,10 @@ class ActionHandler
                 $r = $this->random_generator->pickResultsFromGroup( $result_group );
                 foreach ($r as &$sub_result) $execute_result( $sub_result );
             }
+
+            if($result->getMessage()){
+                $execute_info_cache['message'] = $result->getMessage()->getText();
+            }
         };
 
         foreach ($action->getResults() as &$result) $execute_result( $result );
@@ -1019,6 +1023,11 @@ class ActionHandler
                     return !in_array( $tag, $tags ) ? $text : '';
                 }, $message, -1, $d);
             } while ($c > 0 || $d > 0);
+        }
+
+        if(!empty($execute_info_cache['message'])) {
+            if(!empty($message)) $message .= "<hr />";
+            $message .= $execute_info_cache['message'];
         }
 
 
