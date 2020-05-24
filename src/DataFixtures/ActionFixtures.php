@@ -255,7 +255,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'infect'       => [ 'status' => 'add_infection' ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
-            'give_immune'  => [ 'status' => 'shaman_immune'],
+            'immune'       => [ 'status' => 'add_immune' ],
+            'give_shaman_immune'  => [ 'status' => 'shaman_immune'],
 
             'minus_1ap'    => [ 'ap' => 'minus_1' ],
             'minus_5ap'    => [ 'ap' => 'minus_5' ],
@@ -350,6 +351,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
                 'add_infection'   => [ 'from' => null, 'to' => 'infection' ],
                 'remove_infection'=> [ 'from' => 'infection', 'to' => null ],
+                'add_immune'      => [ 'from' => null, 'to' => 'immune'],
 
                 'add_drunk' => [ 'from' => null, 'to' => 'drunk' ],
 
@@ -427,7 +429,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_kill_1z_85' => [[['do_nothing'], 15], [['kill_1_zombie'], 85]],
 
                 'g_kill_2z_80' => [[['do_nothing'], 20], [['kill_2_zombie'], 80]],
-                'g_immune_90' => [[['do_nothing'], 10], [['give_immune'], 90]],
+                'g_immune_90' => [[['do_nothing'], 10], [['give_shaman_immune'], 90]],
 
                 'g_empty_jerrygun'  => [[['do_nothing'], 85], [['empty_jerrygun'], 15]],
             ],
@@ -498,8 +500,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'drug_xana1' => [ 'label' => 'Einsetzen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'unterrorize', 'consume_item' ] ],
             'drug_xana2' => [ 'label' => 'Einsetzen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'unterrorize', 'consume_item' ] ],
-            'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'disinfect', 'consume_item' ] ],
-            'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'disinfect', 'consume_item' ] ],
+            'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'disinfect', 'immune', 'consume_item' ] ],
+            'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'disinfect', 'immune', 'consume_item' ] ],
             'drug_6ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap6', 'consume_item' ] ],
             'drug_6ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'just_ap6', 'consume_item' ] ],
             'drug_7ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap7', 'consume_item' ] ],
