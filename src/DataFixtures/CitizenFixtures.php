@@ -81,7 +81,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_home_heal_2'],
         ['name' => 'tg_home_defbuff'],
         ['name' => 'tg_rested' ],
-        ['name' => 'tg_immune' ],
+        ['name' => 'tg_shaman_immune' ],
         ['name' => 'tg_shaman_heal' ],
         ['name' => 'tg_ghoul_eat' ],
         ['name' => 'tg_no_hangover' ],

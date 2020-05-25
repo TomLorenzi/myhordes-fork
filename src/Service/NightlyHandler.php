@@ -554,7 +554,10 @@ class NightlyHandler
 
                 // Kill zombies around the town (all at 1km, none beyond 10km)
                 foreach ($town->getZones() as $zone) {
-                    $factor = max(0, (11 - $this->zone_handler->getZoneKm($zone)) / 10);
+                	$km = $this->zone_handler->getZoneKm($zone);
+                	if($km > 10) continue;
+
+                    $factor = 1 - max(0, (11 - $km) / 10);
                     $zone->setZombies($zone->getZombies() * $factor);
                 }
                 
@@ -1073,7 +1076,7 @@ class NightlyHandler
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
                 if($role->getName() == "shaman")
-                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_immune"); // Shaman is immune to red souls
+                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_shaman_immune"); // Shaman is immune to red souls
                 $this->entity_manager->persist($winningCitizen);
             }
 
@@ -1116,8 +1119,8 @@ class NightlyHandler
         $this->stage3_items($town);
         $this->stage3_pictos($town);
 
-        TownRankingProxy::fromTown( $town );
-        foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen );
+        TownRankingProxy::fromTown( $town, true );
+        foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );
 
         $c = count($this->cleanup);
         $this->log->info("It is now <comment>Day {$town->getDay()}</comment> in <info>{$town->getName()}</info>.");

@@ -587,10 +587,9 @@ class SoulController extends AbstractController
         if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        /** @var User|null $user */
-        $active = $nextDeath->getCitizen();
 
-        if ($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison && $active->getCauseOfDeath()->getRef() != CauseOfDeath::GhulEaten)
+
+        if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
             $last_words = $parser->get('lastwords');
         else $last_words = $trans->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
 
@@ -607,10 +606,11 @@ class SoulController extends AbstractController
             }
         }
 
-        if ($active) {
+          /** @var User|null $user */
+        if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
             $active->setLastWords($last_words);
-            $nextDeath = CitizenRankingProxy::fromCitizen( $active );
+            $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
             $this->entity_manager->persist( $active );
         } else
             $nextDeath->setConfirmed(true)->setLastWords( $last_words );

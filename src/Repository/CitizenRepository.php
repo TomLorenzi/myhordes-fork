@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
+use App\Entity\CitizenStatus;
 use App\Entity\Town;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -63,6 +64,20 @@ class CitizenRepository extends ServiceEntityRepository
                 ->andWhere('c.town = :town')
                 ->andWhere('c.alive = 1')
                 ->setParameter('town', $town)
+                ->getQuery()
+                ->getResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function findCitizensWithStatus(CitizenStatus $status)
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->innerJoin('c.status', 's')
+                ->andWhere('s = :status')
+                ->setParameter('status', $status)
                 ->getQuery()
                 ->getResult();
         } catch (NonUniqueResultException $e) {

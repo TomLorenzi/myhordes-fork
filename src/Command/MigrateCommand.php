@@ -4,10 +4,12 @@
 namespace App\Command;
 
 
+use App\Entity\AffectStatus;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\CitizenStatus;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
@@ -74,7 +76,8 @@ class MigrateCommand extends Command
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
             ->addOption('assign-building-defense', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
-            ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
+            ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
+            ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
         ;
     }
 
@@ -272,6 +275,59 @@ class MigrateCommand extends Command
                     $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
             $this->entity_manager->flush();
             $output->writeln('Pictos updated!');
+
+            return 0;
+        }
+
+        if ($input->getOption('update-shaman-immune')) {
+            /** @var Town[] $towns */
+            $old_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_immune");
+            $new_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+
+            if($old_immune_status === null){
+                $output->writeln("Old tg_immune status has been already migrated !");
+                return 0;
+            }
+
+            $citizens = $this->entity_manager->getRepository(Citizen::class)->findCitizensWithStatus($old_immune_status);
+
+            $output->writeln(count($citizens) . " citizens to update");
+
+            foreach ($citizens as $citizen) {
+                $citizen->removeStatus($old_immune_status);
+                $citizen->addStatus($new_immune_status);
+                $this->entity_manager->persist($citizen);
+            }
+
+            $output->writeln('Citizens status updated!');
+
+            $affectStatuses = $this->entity_manager->getRepository(AffectStatus::class)->findByResult($old_immune_status);
+
+            $output->writeln(count($affectStatuses) . " AffectStatuses' results to update");
+
+            foreach ($affectStatuses as $affectStatus) {
+                $affectStatus->setResult($new_immune_status);
+                $this->entity_manager->persist($affectStatus);
+            }
+
+            $output->writeln('AffectStatuses\' results updated!');
+
+            $affectStatuses = $this->entity_manager->getRepository(AffectStatus::class)->findByInitial($old_immune_status);
+
+            $output->writeln(count($affectStatuses) . " AffectStatuses' initial to update");
+
+            foreach ($affectStatuses as $affectStatus) {
+                $affectStatus->setInitial($new_immune_status);
+                $this->entity_manager->persist($affectStatus);
+            }
+
+            $output->writeln('AffectStatuses\' initial updated!');
+
+            $this->entity_manager->remove($old_immune_status);
+
+            $output->writeln('Old tg_immune status removed!');
+
+            $this->entity_manager->flush();
 
             return 0;
         }

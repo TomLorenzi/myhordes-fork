@@ -683,12 +683,23 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @Route("jx/town/bank", name="town_bank")
      * @return Response
      */
-    public function bank(): Response
+    public function bank(TownHandler $th): Response
     {
+        $town = $this->getActiveCitizen()->getTown();
+        $item_def_factor = 1;
+        
+        $building = $th->getBuilding($town, 'item_meca_parts_#00', true);
+        if ($building) {
+            $item_def_factor += (1+$building->getLevel()) * 0.5;
+        }
         return $this->render( 'ajax/game/town/bank.html.twig', $this->addDefaultTwigArgs('bank', [
-            'bank' => $this->renderInventoryAsBank( $this->getActiveCitizen()->getTown()->getBank() ),
+            'def' => $th->calculate_town_def($town, $defSummary),
+            'item_defense' => $defSummary->item_defense,
+            'item_def_factor' => $item_def_factor,
+            'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' )),
+            'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeBank, 10 )->getContent(),
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'day' => $town->getDay()
         ]) );
     }
 
