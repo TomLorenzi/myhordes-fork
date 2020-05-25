@@ -983,7 +983,11 @@ class ActionHandler
             }
 
             if($result->getMessage()){
-                $execute_info_cache['message'][] = $result->getMessage()->getText();
+            	$index = $result->getMessage()->getOrdering();
+            	while(isset($execute_info_cache['message'][$index]) && !empty($execute_info_cache['message'][$index])) {
+            		$index++;
+            	}
+                $execute_info_cache['message'][$index] = $result->getMessage()->getText();
             }
         };
 
@@ -1001,7 +1005,9 @@ class ActionHandler
         }
 
         if(!empty($execute_info_cache['message'])) {
+        	ksort($execute_info_cache['message']);
         	$addedContent = [];
+        	file_put_contents("/tmp/dump.txt", print_r(array_filter($execute_info_cache['message']), true));
         	foreach ($execute_info_cache['message'] as $contentMessage) {
         		$contentMessage = $this->translator->trans( $contentMessage, [
 	                '{ap}'        => $execute_info_cache['ap'],

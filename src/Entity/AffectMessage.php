@@ -27,6 +27,11 @@ class AffectMessage
      */
     private $text;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ordering = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class AffectMessage
     public function setText(string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getOrdering(): ?int
+    {
+        return $this->ordering;
+    }
+
+    public function setOrdering(int $ordering): self
+    {
+        $this->ordering = $ordering;
 
         return $this;
     }
