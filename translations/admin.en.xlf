@@ -516,7 +516,7 @@
     </unit>
     <unit id="8KPM2IV" name="Admin-Wachturm">
       <notes>
-        <note category="german">Admin-Wachturm</note>
+        <note category="german">Admin Watchtower</note>
       </notes>
       <segment>
         <source>Admin-Wachturm</source>
@@ -534,7 +534,7 @@
     </unit>
     <unit id="Bfb7kn4" name="Stadtname">
       <notes>
-        <note category="german">Stadtname</note>
+        <note category="german">Town's name</note>
       </notes>
       <segment>
         <source>Stadtname</source>
@@ -543,7 +543,7 @@
     </unit>
     <unit id="8qHMcfp" name="Sprache">
       <notes>
-        <note category="german">Sprache</note>
+        <note category="german">Language</note>
       </notes>
       <segment>
         <source>Sprache</source>
@@ -552,7 +552,7 @@
     </unit>
     <unit id="GwJBg8s" name="Typ">
       <notes>
-        <note category="german">Typ</note>
+        <note category="german">Type</note>
       </notes>
       <segment>
         <source>Typ</source>
@@ -579,7 +579,7 @@
     </unit>
     <unit id="FQORaiq" name="Tag">
       <notes>
-        <note category="german">Tag</note>
+        <note category="german">Day</note>
       </notes>
       <segment>
         <source>Tag</source>
@@ -588,7 +588,7 @@
     </unit>
     <unit id="ZFCeGvS" name="Offen">
       <notes>
-        <note category="german">Offen</note>
+        <note category="german">Joinable</note>
       </notes>
       <segment>
         <source>Offen</source>
@@ -606,7 +606,7 @@
     </unit>
     <unit id="QO.RSCl" name="Zerstört">
       <notes>
-        <note category="german">Zerstört</note>
+        <note category="german">Devasted</note>
       </notes>
       <segment>
         <source>Zerstört</source>
@@ -615,7 +615,7 @@
     </unit>
     <unit id="vZWh3VH" name="Tor offen">
       <notes>
-        <note category="german">Tor offen</note>
+        <note category="german">Gates opened</note>
       </notes>
       <segment>
         <source>Tor offen</source>
@@ -624,7 +624,7 @@
     </unit>
     <unit id="lQNhv.P" name="Brunnen">
       <notes>
-        <note category="german">Brunnen</note>
+        <note category="german">Well rations</note>
       </notes>
       <segment>
         <source>Brunnen</source>
@@ -633,7 +633,7 @@
     </unit>
     <unit id="DNyzXO8" name="Angriff">
       <notes>
-        <note category="german">Angriff</note>
+        <note category="german">Attack</note>
       </notes>
       <segment>
         <source>Angriff</source>
@@ -642,7 +642,7 @@
     </unit>
     <unit id="ROsRjPo" name="Bereich Min">
       <notes>
-        <note category="german">Bereich Min</note>
+        <note category="german">Minimum</note>
       </notes>
       <segment>
         <source>Bereich Min</source>
@@ -651,7 +651,7 @@
     </unit>
     <unit id="nwAUKAU" name="Bereich Max">
       <notes>
-        <note category="german">Bereich Max</note>
+        <note category="german">Maximum</note>
       </notes>
       <segment>
         <source>Bereich Max</source>
@@ -660,7 +660,7 @@
     </unit>
     <unit id="kc92YAV" name="Stadtübersicht">
       <notes>
-        <note category="german">Stadtübersicht</note>
+        <note category="german">Towns Overview</note>
       </notes>
       <segment>
         <source>Stadtübersicht</source>
@@ -669,7 +669,7 @@
     </unit>
     <unit id="4Gs3q79" name="Liste aller Städte">
       <notes>
-        <note category="german">Liste aller Städte</note>
+        <note category="german">Towns List</note>
       </notes>
       <segment>
         <source>Liste aller Städte</source>
@@ -687,7 +687,7 @@
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
-        <note category="german">Aktionen</note>
+        <note category="german">Actions</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -696,7 +696,7 @@
     </unit>
     <unit id="ygfGVvY" name="Tot">
       <notes>
-        <note category="german">Tot</note>
+        <note category="german">Deaths</note>
       </notes>
       <segment>
         <source>Tot</source>
@@ -705,7 +705,7 @@
     </unit>
     <unit id="sMr3P0Z" name="Getrennt">
       <notes>
-        <note category="german">Getrennt</note>
+        <note category="german">Headshoted</note>
       </notes>
       <segment>
         <source>Getrennt</source>

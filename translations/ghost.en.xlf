@@ -202,7 +202,7 @@
       </notes>
       <segment>
         <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
-        <target>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</target>
+        <target>MyHordes is currently overrun by zombies! This happens every day!</target>
       </segment>
     </unit>
     <unit id="6YlCau0" name="5a5d604">
@@ -211,7 +211,7 @@
       </notes>
       <segment>
         <source>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</source>
-        <target>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</target>
+        <target>It is impossible to login or even register... The site should be available again in a short while.</target>
       </segment>
     </unit>
     <unit id="QfY5rKB" name="Und ja, es wird Tote geben...">
@@ -220,7 +220,7 @@
       </notes>
       <segment>
         <source>Und ja, es wird Tote geben...</source>
-        <target>Und ja, es wird Tote geben...</target>
+        <target>There'll be some dead bodies too...</target>
       </segment>
     </unit>
   </file>

@@ -10127,7 +10127,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
-        <note category="german">Teilnehmen</note>
+        <note category="german">Help out!</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -10145,11 +10145,56 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
       <notes>
-        <note category="german">Die letzte Zeitung lesen</note>
+        <note category="german">Read the last gazette</note>
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
         <target>Read the last gazette</target>
+      </segment>
+    </unit>
+    <unit id="6kQh7Rd" name="Stadtverteidigung">
+      <notes>
+        <note category="german">Stadtverteidigung</note>
+      </notes>
+      <segment>
+        <source>Stadtverteidigung</source>
+        <target>Defence points</target>
+      </segment>
+    </unit>
+    <unit id="75J9B.d" name="Details ansehen">
+      <notes>
+        <note category="german">Details ansehen</note>
+      </notes>
+      <segment>
+        <source>Details ansehen</source>
+        <target>Details infos</target>
+      </segment>
+    </unit>
+    <unit id="YuJzi8m" name="Basisverteidigung">
+      <notes>
+        <note category="german">Basisverteidigung</note>
+      </notes>
+      <segment>
+        <source>Basisverteidigung</source>
+        <target>Basisverteidigung</target>
+      </segment>
+    </unit>
+    <unit id="D3XPl3x" name="Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!">
+      <notes>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</note>
+      </notes>
+      <segment>
+        <source>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</source>
+        <target>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</target>
+      </segment>
+    </unit>
+    <unit id="8qoI_l9" name="Es besteht die Chance das Objekt während des Angriffs zu verlieren!">
+      <notes>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu verlieren!</note>
+      </notes>
+      <segment>
+        <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
+        <target>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</target>
       </segment>
     </unit>
   </file>
