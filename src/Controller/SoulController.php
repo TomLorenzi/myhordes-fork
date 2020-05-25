@@ -6,7 +6,6 @@ use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
@@ -146,7 +145,7 @@ class SoulController extends AbstractController
      */
     public function soul_view_town(int $id): Response
     {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         if($town === null){
             return $this->redirect($this->generateUrl('soul_me'));
         }
