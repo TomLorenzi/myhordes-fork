@@ -250,7 +250,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
 
             'drug_any'   => [ 'status' => 'add_is_drugged', 'picto' => ['r_drug_#00'] ],
-            'drug_addict'  => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'], 'message' => ['Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!'] ],
+            'drug_addict'  => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'], 'message' => ['<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>'] ],
             'terrorize'    => [ 'status' => 'add_terror' ],
             'unterrorize'  => [ 'status' => 'remove_terror' ],
 
