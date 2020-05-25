@@ -452,7 +452,7 @@ class TownHandler
 
         $this->entity_manager->persist($building);
 
-        foreach ($target->getPrototype()->getChildren() as $childBuilding) {
+        foreach ($building->getPrototype()->getChildren() as $childBuilding) {
             $this->destroy_building($town, $childBuilding);
         }
         
