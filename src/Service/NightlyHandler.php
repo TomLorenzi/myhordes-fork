@@ -1119,8 +1119,8 @@ class NightlyHandler
         $this->stage3_items($town);
         $this->stage3_pictos($town);
 
-        TownRankingProxy::fromTown( $town );
-        foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen );
+        TownRankingProxy::fromTown( $town, true );
+        foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );
 
         $c = count($this->cleanup);
         $this->log->info("It is now <comment>Day {$town->getDay()}</comment> in <info>{$town->getName()}</info>.");
