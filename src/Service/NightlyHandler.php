@@ -214,7 +214,7 @@ class NightlyHandler
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
-                $reactor->setComplete(false)->setAp(0)->setDefense(0);
+                $this->town_handler->destroy_building($town, $reactor);
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
 
@@ -532,7 +532,7 @@ class NightlyHandler
                 // It is destroyed, let's do this !
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $fireworks->getPrototype(), 20 ));
 
-                $fireworks->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+                $this->town_handler->destroy_building($town, $fireworks);
 
                 $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
 
