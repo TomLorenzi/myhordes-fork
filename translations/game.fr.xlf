@@ -10896,7 +10896,7 @@
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
       <notes>
-        <note category="german">Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</note>
+        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
@@ -10905,7 +10905,7 @@
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
       <notes>
-        <note category="german">Read my messages.</note>
+        <note category="german">Meine Nachrichten lesen.</note>
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
