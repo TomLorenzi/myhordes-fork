@@ -612,8 +612,9 @@ class SoulController extends AbstractController
             $active->setLastWords($last_words);
             $nextDeath = CitizenRankingProxy::fromCitizen( $active );
             $this->entity_manager->persist( $active );
-        } else
-            $nextDeath->setConfirmed(true)->setLastWords( $last_words );
+        }
+        
+        $nextDeath->setConfirmed(true)->setLastWords( $last_words );
 
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();

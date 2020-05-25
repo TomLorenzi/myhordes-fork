@@ -370,11 +370,13 @@ class NightlyHandler
                     $this->citizen_handler->inflictWound($ctz);
                     $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
                 } else {
-                    // Terror
-                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
-                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                	if(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
+	                    // Terror
+	                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
+	                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                    $gazette->setTerror($gazette->getTerror() + 1);
+	                    $gazette->setTerror($gazette->getTerror() + 1);
+                	}
                 }
             }
 
@@ -429,18 +431,16 @@ class NightlyHandler
 
                 if($target->getHp() <= 0){
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $damages ));
-                    $target->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+
+                    $this->town_handler->destroy_building($town, $target);
                     // The target is destroy, we must destroy all its children
                     foreach ($target->getPrototype()->getChildren() as $childBuilding) {
                         $childBuilt = $this->town_handler->getBuilding($town, $childBuilding->getName(), true);
                         if (!$childBuilt) continue;
-                        // We remove it from potential targeting by the zeds
+                        // We remove it from potential targeting by the zeds (as it is destroyed)
                         if (($key = array_search($childBuilt, $targets)) !== false) {
                             unset($targets[$key]);
                         }
-                        $this->log->debug("The <info>{$childBuilding->getLabel()}</info> gets destroyed because its parent has been destroyed.");
-                        $childBuilt->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
-                        $this->entity_manager->persist($childBuilt);
                     }
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $damages ));

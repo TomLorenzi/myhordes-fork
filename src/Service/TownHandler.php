@@ -444,4 +444,18 @@ class TownHandler
 
         return $citizens;
     }
+
+    public function destroy_building(Town &$town, Building $building, ?callable $trigger_after = null){
+        if(!$building->getComplete()) return;
+
+        $building->setComplete(false)->setAp(0)->setDefense(0);
+
+        $this->entity_manager->persist($building);
+
+        foreach ($target->getPrototype()->getChildren() as $childBuilding) {
+            $this->destroy_building($town, $childBuilding);
+        }
+        
+        if($trigger_after) $trigger_after();
+    }
 }
