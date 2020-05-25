@@ -54,7 +54,7 @@ div.town-banner {
   color: @myhordes-cell-header-text-color;
   font-variant: small-caps;
   &>.cell {
-    &>div:first-child { width: 100%; padding-top: 55.1724138% }
+    &>div:first-child { width: 100%; padding-top: 55.1724138%; border: 1px solid black; }
     &>div:last-child {
       font-size: 1.1rem; padding: 1px 4px; background: @myhordes-cell-header-background-color; height: 20px;
       &>img { vertical-align: bottom };
@@ -65,8 +65,8 @@ div.town-banner {
       outline: 1px solid @myhordes-input-border;
     }
     &.selected {
-      &>div:first-child { filter: contrast( 120% ) brightness( 120% ); }
-      &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%);color: @myhordes-input-border; };
+      &>div:first-child { background-color: #965C36 !important; }
+      &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%); color: @myhordes-input-border; border: 1px solid #693e29; text-decoration: underline; };
     }
   }
   &:not(.night)>.town-menu-house>div:first-child { background: url("../../img/menu_home.gif") center/cover no-repeat }
@@ -101,7 +101,7 @@ div.town-banner {
     }
 
     &:not(.selected):not(.town-addon-empty):hover > div {
-      filter: brightness(120%);
+      border:1px solid @myhordes-input-border;
       cursor: pointer;
     }
 
@@ -441,7 +441,7 @@ div.town-banner {
 .defense-detail {
   em {
     font-size: 1.2rem;
-    color: @myhordes-smalltext;
+    color: #f0d79e;
   }
 }
 
