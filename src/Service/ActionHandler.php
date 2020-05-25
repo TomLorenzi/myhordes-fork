@@ -472,7 +472,9 @@ class ActionHandler
             'casino' => '',
             'zone' => null,
             'well' => 0,
-            'message' => [],
+            'message' => [
+            	$action->getMessage()
+            ],
         ];
 
         $item_in_chest = $item && $item->getInventory() && $item->getInventory()->getId() === $citizen->getHome()->getChest()->getId();
@@ -985,7 +987,7 @@ class ActionHandler
             }
         };
 
-        foreach ($action->getResults() as &$result) $execute_result( $result );
+        foreach ($action->getResults() as &$result) $execute_result( $result ); // Here, we process AffectMessages AND $kill_by_poison var
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
@@ -994,8 +996,8 @@ class ActionHandler
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }
 
-        if ($action->getMessage() && !$kill_by_poison) {
-            $execute_info_cache['message'][] = $action->getMessage();
+        if ($kill_by_poison) {
+            $execute_info_cache['message'] = [];
         }
 
         if(!empty($execute_info_cache['message'])) {
