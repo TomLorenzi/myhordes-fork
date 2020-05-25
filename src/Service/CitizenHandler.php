@@ -646,7 +646,7 @@ class CitizenHandler
             'terror'    =>  0.45,
             'addict'    =>  0.01,
             'healed'    =>  0.10,
-            'infection' =>  0.20
+            'infection' =>  0.20,
         ];
 
         foreach ($status_effect_list as $status => $value)
