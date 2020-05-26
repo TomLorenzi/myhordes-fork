@@ -173,11 +173,13 @@ class CitizenHandler
         if ($gallows || $cage) {
             $complaintNeeded = 8;
             // If the citizen is already shunned, we need 6 more complains to hang him
-            if($citizen->getBanished())
+            if($citizen->getBanished() && $gallows)
                 $complaintNeeded = 6;
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
+
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen/*, Complaint::SeverityKill*/) >= $complaintNeeded)
                 $action = $kill = true;
         }
+
 
         if ($action) {
             if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
@@ -220,15 +222,15 @@ class CitizenHandler
 
         if ($kill) {
             $rem = [];
-            if ($cage) {
-                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
-                $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
-                $this->entity_manager->persist( $cage );
-            }
-            elseif ($gallows) {
+            // The gallow is used before the cage
+            if ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
                 $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);
+            } elseif ($cage) {
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
+                $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
+                $this->entity_manager->persist( $cage );
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
