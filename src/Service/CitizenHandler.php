@@ -227,6 +227,9 @@ class CitizenHandler
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
                 $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);
+
+                // The gallow gets destroyed
+                $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
             } elseif ($cage) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
