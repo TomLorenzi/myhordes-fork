@@ -502,8 +502,7 @@ footer {
   background: @color; border: 1px solid @myhordes-input-border;
 }
 
-div.town-header,
-div.town-header-hardcore {
+div.town-header {
   &:before {
     position: absolute;
     left: -10px;
@@ -521,13 +520,13 @@ div.town-header {
   &:before {
     background: url("../img/sign_header.jpg") center/cover no-repeat;
   }
-}
-
-div.town-header-hardcore {
-  &:before {
-    background: url("../img/sign_header.jpg") center/cover no-repeat;
+  &.hardcore {
+    &:before {
+      background: url("../img/sign_header.jpg") center/cover no-repeat;
+    }
   }
 }
+
 
 div.note {
   .box(); padding: 5px; font-size: 1.2rem; margin: 5px 0;

@@ -2,7 +2,7 @@
 {% block content %}
     {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
 
-    <div class="town-header{% if town.type.name == 'panda' %}-hardcore{% endif %}">
+    <div class="town-header{% if town.type.name == 'panda' %} hardcore{% endif %}">
         <b>{{ town.name }}</b><br />
         <span>{{ 'Tag %day%'|trans({'%day%':town.day},'game') }}</span>
     </div>
