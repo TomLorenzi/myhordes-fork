@@ -5630,7 +5630,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du kannst keine Aktionen ausführen, während du dich versteckst.</source>
-        <target>Du kannst keine Aktionen ausführen, während du dich versteckst.</target>
+        <target>All actions which are usually available outside the town are deactivated when you are hiding.</target>
       </segment>
     </unit>
     <unit id="e19N5sC" name="81beebc">
@@ -5710,7 +5710,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</target>
+        <target>You reckon your chances of surviving here are poor. Difficult to say.</target>
       </segment>
     </unit>
     <unit id="rlIeIKM" name="c23c4df">
@@ -5720,7 +5720,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</target>
+        <target>You reckon your chances of surviving here are limited, but tempting. However, accidents happen...</target>
       </segment>
     </unit>
     <unit id="o1L6EkI" name="f00374e">
@@ -5770,7 +5770,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du kannst dich nicht fortbewegen während du versteckt bist.</source>
-        <target>Du kannst dich nicht fortbewegen während du versteckt bist.</target>
+        <target>You cannot move while you are hidden.</target>
       </segment>
     </unit>
     <unit id="q9a_zyp" name="Du kannst das nicht tun während du dich versteckst.">
@@ -5780,7 +5780,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du kannst das nicht tun während du dich versteckst.</source>
-        <target>Du kannst das nicht tun während du dich versteckst.</target>
+        <target>You cannot do this while hiding.</target>
       </segment>
     </unit>
     <unit id="jpuNBoV" name="Du kannst helfen und dich der heutigen Nachtwache anschließen!">
@@ -5808,7 +5808,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Gefahr</source>
-        <target>__Gefahr</target>
+        <target>Danger</target>
       </segment>
     </unit>
     <unit id="S103XG1" name="@citizens Bürger">
