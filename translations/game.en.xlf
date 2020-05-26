@@ -4200,7 +4200,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schaust dir die Gegend etwas genauer an...</source>
-        <target>Inspect the area...</target>
+        <target>You inspect the surroundings...</target>
       </segment>
     </unit>
     <unit id="BsmmJg2" name="6089085">
@@ -4210,7 +4210,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
-        <target>Dormir dans un endroit pareil revient à se suicider, purement et simplement. A vous de voir.</target>
+        <target>Sleeping somewhere like this is basically a form of suicide, it's that simple. You'll see...</target>
       </segment>
     </unit>
     <unit id="u.HzZ0w" name="bdd1b72">
