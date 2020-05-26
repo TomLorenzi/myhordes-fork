@@ -10990,7 +10990,7 @@
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
-        <target>Défenses de la ville</target>
+        <target>Défenses ville</target>
       </segment>
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
@@ -11027,6 +11027,24 @@
       <segment>
         <source>Stadttor geschlossen</source>
         <target>Portes fermées</target>
+      </segment>
+    </unit>
+    <unit id="_DKPL9S" name="Wer ist draußen?">
+      <notes>
+        <note category="german">Wer ist draußen?</note>
+      </notes>
+      <segment>
+        <source>Wer ist draußen?</source>
+        <target>Qui est dehors ?</target>
+      </segment>
+    </unit>
+    <unit id="KVApIB1" name="Lage">
+      <notes>
+        <note category="german">Lage</note>
+      </notes>
+      <segment>
+        <source>Lage</source>
+        <target>État</target>
       </segment>
     </unit>
   </file>
