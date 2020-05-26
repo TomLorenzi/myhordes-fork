@@ -11011,5 +11011,23 @@
         <target>%citizen% a fait tomber la pluie et a tué %kills% zombies.</target>
       </segment>
     </unit>
+    <unit id="0jW7cq9" name="Stadttor geöffnet">
+      <notes>
+        <note category="german">Stadttor geöffnet</note>
+      </notes>
+      <segment>
+        <source>Stadttor geöffnet</source>
+        <target>Portes ouvertes</target>
+      </segment>
+    </unit>
+    <unit id="rRAcec3" name="Stadttor geschlossen">
+      <notes>
+        <note category="german">Stadttor geschlossen</note>
+      </notes>
+      <segment>
+        <source>Stadttor geschlossen</source>
+        <target>Portes fermées</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
