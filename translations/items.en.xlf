@@ -248,7 +248,7 @@
       </notes>
       <segment>
         <source>Großer trockener Stock</source>
-        <target>Großer trockener Stock</target>
+        <target>Staff</target>
       </segment>
     </unit>
     <unit id="DJ1c6UW" name="Jagdmesser">
@@ -258,7 +258,7 @@
       </notes>
       <segment>
         <source>Jagdmesser</source>
-        <target>Jagdmesser</target>
+        <target>Serrated Knife</target>
       </segment>
     </unit>
     <unit id="rdcUdHR" name="Machete">
@@ -518,7 +518,7 @@
       </notes>
       <segment>
         <source>Großer knuddeliger Kater</source>
-        <target>Großer knuddeliger Kater</target>
+        <target>Fat Cat</target>
       </segment>
     </unit>
     <unit id="IditZFc" name="Zwei-Meter Schlange">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Vibrator (geladen)</source>
-        <target>Vibrator (charged)</target>
+        <target>Pocket Vibrator (charged)</target>
       </segment>
     </unit>
     <unit id="4S_8T7g" name="Anaboles Steroid">
@@ -1118,7 +1118,7 @@
       </notes>
       <segment>
         <source>Elektrischer Bauchmuskeltrainer (ohne Strom)</source>
-        <target>Elektrischer Bauchmuskeltrainer (ohne Strom)</target>
+        <target>EMS System (incomplete)</target>
       </segment>
     </unit>
     <unit id="OI3OQ.V" name="Elektrischer Bauchmuskeltrainer (geladen)">
@@ -1128,7 +1128,7 @@
       </notes>
       <segment>
         <source>Elektrischer Bauchmuskeltrainer (geladen)</source>
-        <target>Elektrischer Bauchmuskeltrainer (geladen)</target>
+        <target>EMS System (charged)</target>
       </segment>
     </unit>
     <unit id="bZVhk3Y" name="Zerstörer (entladen)">
@@ -1428,7 +1428,7 @@
       </notes>
       <segment>
         <source>Gesellschaftsspiel</source>
-        <target>Gesellschaftsspiel</target>
+        <target>Box of Games</target>
       </segment>
     </unit>
     <unit id="t1E42CN" name="Aqua-Splash (zerlegt)">
@@ -1448,7 +1448,7 @@
       </notes>
       <segment>
         <source>Vibrator (entladen)</source>
-        <target>Pocket Vibrator (charged)</target>
+        <target>Pocket Vibrator (incomplete)</target>
       </segment>
     </unit>
     <unit id="PO8Wz9d" name="Knochen mit Fleisch">
@@ -2298,7 +2298,7 @@
       </notes>
       <segment>
         <source>Dickflüssige Substanz</source>
-        <target>Thich Solution</target>
+        <target>Thick Solution</target>
       </segment>
     </unit>
     <unit id="n_Aw_Kk" name="Aasbeerenbrei">
@@ -2828,7 +2828,7 @@
       </notes>
       <segment>
         <source>Pfahlwerfer</source>
-        <target>Pfahlwerfer</target>
+        <target>Stake Launcher</target>
       </segment>
     </unit>
     <unit id="xTAAzNO" name="Kalaschni-Splash">
@@ -3218,7 +3218,7 @@
       </notes>
       <segment>
         <source>Überraschungskiste (3 Geschenke)</source>
-        <target>Überraschungskiste (3 Geschenke)</target>
+        <target>Christmas Present (3)</target>
       </segment>
     </unit>
     <unit id="4j7NxyH" name="Überraschungskiste (2 Geschenke)">
@@ -3228,7 +3228,7 @@
       </notes>
       <segment>
         <source>Überraschungskiste (2 Geschenke)</source>
-        <target>Überraschungskiste (2 Geschenke)</target>
+        <target>Christmas Present (2)</target>
       </segment>
     </unit>
     <unit id="4MUuUVQ" name="Überraschungskiste (1 Geschenk)">
@@ -3238,7 +3238,7 @@
       </notes>
       <segment>
         <source>Überraschungskiste (1 Geschenk)</source>
-        <target>Überraschungskiste (1 Geschenk)</target>
+        <target>Christmas Present (1)</target>
       </segment>
     </unit>
     <unit id="aav5osX" name="Verdächtiger Traubensaft">
@@ -3638,7 +3638,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</target>
+        <target>It vibrates, tickles and titillates you and even makes you forget all your worries for a short while. (Requires 1 battery).</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -4128,7 +4128,7 @@
       </notes>
       <segment>
         <source>Der Batteriewerfer 1-PDTG (geladen) wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.</source>
-        <target>Der Batteriewerfer 1-PDTG (geladen) wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.</target>
+        <target>A little creative recycling of the resources at hand enables the Battery Launcher 1-ITF to use batteries as piercing projectiles.</target>
       </segment>
     </unit>
     <unit id="ngS5oQ6" name="2ba7eab">
@@ -6788,7 +6788,7 @@
       </notes>
       <segment>
         <source>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</source>
-        <target>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</target>
+        <target>A label from a bottle of something... Hang on, there's something written on the back !</target>
       </segment>
     </unit>
     <unit id="liDUE4L" name="811ca45">
@@ -6808,7 +6808,7 @@
       </notes>
       <segment>
         <source>Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</source>
-        <target>Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</target>
+        <target>Your uniform : torn, dirty and covered in splashes of God-knows-what... You should really think about washing it when you get back to the town.</target>
       </segment>
     </unit>
     <unit id="PnRAHcb" name="3c6105a">
@@ -7538,7 +7538,7 @@
       </notes>
       <segment>
         <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
-        <target>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</target>
+        <target>A pretty violent way to overcome tiredness (and regain your action points)... 85% proof, with random, vaguely organic things floating in it. Cheers !</target>
       </segment>
     </unit>
     <unit id="QwC3IQO" name="Mystischer Trank">
@@ -7547,7 +7547,7 @@
       </notes>
       <segment>
         <source>Mystischer Trank</source>
-        <target>Mystischer Trank</target>
+        <target>Mystic Potion</target>
       </segment>
     </unit>
     <unit id="6IZOpuK" name="29848f3">
@@ -7556,7 +7556,7 @@
       </notes>
       <segment>
         <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
-        <target>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</target>
+        <target>This special batch of water, "holy water" if you will, should allow you to interact with tortured souls without fear... Hopefully...</target>
       </segment>
     </unit>
     <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
