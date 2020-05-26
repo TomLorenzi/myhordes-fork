@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
+use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\TownRankingProxy;
@@ -92,7 +93,10 @@ class SoulController extends AbstractController
      */
     public function soul_news(): Response
     {
-        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", null) );
+        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($this->getUser()->getLanguage());
+        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
+            'news' => $news
+        ]) );
     }
 
     /**

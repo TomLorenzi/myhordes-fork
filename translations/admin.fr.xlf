@@ -757,5 +757,14 @@
         <target>Villes</target>
       </segment>
     </unit>
+    <unit id="jA6UdTz" name="Zukunft">
+      <notes>
+        <note category="german">Zukunft</note>
+      </notes>
+      <segment>
+        <source>Zukunft</source>
+        <target>Évolutions</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
