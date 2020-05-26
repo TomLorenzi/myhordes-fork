@@ -5150,7 +5150,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</source>
-        <target>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</target>
+        <target>The large number of zombies roaming around is definitely not an advantage ...</target>
       </segment>
     </unit>
     <unit id="Lm_z2Dh" name="Deine Tarnung ist aufgeflogen!">
@@ -5640,7 +5640,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</source>
-        <target>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</target>
+        <target>There's a distinct shortage of shelter here. You feel a little bit exposed.</target>
       </segment>
     </unit>
     <unit id="fftPup_" name="e5ccfe7">
@@ -5650,7 +5650,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</source>
-        <target>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</target>
+        <target>This zone offers nothing more than minimal "natural" protection. You'll just need to make do with what comes to hand.</target>
       </segment>
     </unit>
     <unit id="YFhoAPq" name="d9a9e80">
@@ -5660,7 +5660,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</source>
-        <target>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</target>
+        <target>After a quick look around, it looks like you could find a good hiding place here.</target>
       </segment>
     </unit>
     <unit id="i9FQpcu" name="4c4bb46">
@@ -5670,7 +5670,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</source>
-        <target>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</target>
+        <target>For those looking to spend the night, there are a few hideouts in this zone...</target>
       </segment>
     </unit>
     <unit id="YrPIELu" name="In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.">
@@ -5680,7 +5680,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</source>
-        <target>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</target>
+        <target>If required, there are some top-notch hideouts here...</target>
       </segment>
     </unit>
     <unit id="Be5ZaAS" name="c1ea3a3">
@@ -5690,7 +5690,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</source>
-        <target>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</target>
+        <target>This seems like the ideal place to spend the night, as it looks like there is no shortage of hiding places.</target>
       </segment>
     </unit>
     <unit id="UFJR0VM" name="8577666">
@@ -5700,7 +5700,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</target>
+        <target>You reckon your chances of surviving here are really poor. Maybe you should play heads or tails?</target>
       </segment>
     </unit>
     <unit id="7OnKd2K" name="c72bf07">
@@ -5730,7 +5730,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</target>
+        <target>You reckon your chances of surviving here are largely satisfactory, as long as nothing unforeseen happens.</target>
       </segment>
     </unit>
     <unit id="v2oSIjv" name="25e2513">
@@ -5740,7 +5740,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</target>
+        <target>You reckon your chances of surviving here are decent : you just have to hope for the best!</target>
       </segment>
     </unit>
     <unit id="kqluhpf" name="effb08c">
@@ -5750,7 +5750,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</target>
+        <target>You reckon your chances of surviving here are good, you should be able to spend the night here.</target>
       </segment>
     </unit>
     <unit id="1JwyDRE" name="cfe905b">
@@ -5760,7 +5760,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</target>
+        <target>You reckon your chances of surviving here are optimal. Nobody would see you, even if they were looking straight at you.</target>
       </segment>
     </unit>
     <unit id="rSInXr8" name="Du kannst dich nicht fortbewegen während du versteckt bist.">
@@ -7788,7 +7788,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist an deinen Beinen verletzt! You will restore 1AP less whenever you drink, eat or rest.</target>
+        <target>You are injured on your Leg! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="04Y3sHe" name="c3919ad">
@@ -7797,7 +7797,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist an den Augen verletzt! You will restore 1AP less whenever you drink, eat or rest.</target>
+        <target>You are injured on your Eyes! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="lUN_NCt" name="520ae66">
@@ -7806,7 +7806,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du bist am Fuß verletzt! You will restore 1AP less whenever you drink, eat or rest.</target>
+        <target>You are injured on your Foot! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
@@ -7815,7 +7815,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist der Schamane dieser Stadt.</source>
-        <target>Du bist der Schamane dieser Stadt.</target>
+        <target>You are the Shaman of this Town.</target>
       </segment>
     </unit>
     <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
@@ -7824,7 +7824,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
-        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
+        <target>You are the Guide of the World Beyond of this town.</target>
       </segment>
     </unit>
     <unit id="AaXbNC4" name="431e5d7">
@@ -7869,7 +7869,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</target>
+        <target>You will receive a blueprint if you camp this building.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7878,7 +7878,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target>Hier wurde bereits ein Bauplan gefunden.</target>
+        <target>Someone has already studied this building so it is no longer possible to obtain the construction blueprint here...</target>
       </segment>
     </unit>
     <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
