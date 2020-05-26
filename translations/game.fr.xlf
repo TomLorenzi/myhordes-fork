@@ -9202,15 +9202,6 @@
         <target>Choisir des armes !</target>
       </segment>
     </unit>
-    <unit id="dGfxw4F" name="2242ddb">
-      <notes>
-        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
-      </notes>
-      <segment>
-        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
-      </segment>
-    </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
       <notes>
         <note category="german">Benutzte Waffe</note>
@@ -11045,6 +11036,15 @@
       <segment>
         <source>Lage</source>
         <target>État</target>
+      </segment>
+    </unit>
+    <unit id="A7ZG3D1" name="2d5f077">
+      <notes>
+        <note category="german">Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
+        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
       </segment>
     </unit>
   </file>
