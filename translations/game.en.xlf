@@ -8538,7 +8538,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Protokolle werden analysiert...</source>
-        <target>Protokolle werden analysiert...</target>
+        <target>Logs are being analyzed ...</target>
       </segment>
     </unit>
     <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
@@ -8565,7 +8565,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Was sagst du dazu?</source>
-        <target>Was sagst du dazu?</target>
+        <target>What do you say?</target>
       </segment>
     </unit>
     <unit id="qNbvdyn" name="Du hast dich in einen Ghul verwandelt!">
@@ -8574,7 +8574,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>Du hast dich in einen Ghul verwandelt!</target>
+        <target>You have been transformed into a Ghoul!</target>
       </segment>
     </unit>
     <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">

@@ -2778,7 +2778,7 @@
       </notes>
       <segment>
         <source>Starke Seele</source>
-        <target>Tortured Soul</target>
+        <target>Powerful Soul</target>
       </segment>
     </unit>
     <unit id="qERZioI" name="Schwache Seele">
@@ -3198,7 +3198,7 @@
       </notes>
       <segment>
         <source>Geistiger Beistand</source>
-        <target>Geistiger Beistand</target>
+        <target>Psychadelic Spiritual Counsel</target>
       </segment>
     </unit>
     <unit id="y7Kt8H7" name="Fette Python">
@@ -4924,7 +4924,7 @@
     <unit id="ZRYosW7" name="e6be535">
       <notes>
         <note>Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
-        <note category="german">When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</note>
+        <note category="german">Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
       </notes>
       <segment>
         <source>Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
@@ -6348,7 +6348,7 @@
       </notes>
       <segment>
         <source>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</source>
-        <target>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</target>
+        <target>This extremely rare serum has been developed from the DNA of an almost immune specimen that has withstood an infectious bite for more than 3 days. It allows a ghoul to return to its normal human state.</target>
       </segment>
     </unit>
     <unit id="tea5si." name="d9a4611">
@@ -6768,7 +6768,7 @@
       </notes>
       <segment>
         <source>Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</source>
-        <target>Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</target>
+        <target>It seems that a neighbour has left a small box with your name on it in front of your house... What could be inside ?</target>
       </segment>
     </unit>
     <unit id="0NzivMi" name="4e62797">
@@ -7709,7 +7709,7 @@
       </notes>
       <segment>
         <source> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
-        <target> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</target>
+        <target> When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</target>
       </segment>
     </unit>
     <unit id="UGai_eX" name="9e17f97">
