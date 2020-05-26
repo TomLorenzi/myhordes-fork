@@ -1351,7 +1351,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
-        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
+        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getZone())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         $healableStatus = [

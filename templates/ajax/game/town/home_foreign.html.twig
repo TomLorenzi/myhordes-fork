@@ -84,14 +84,14 @@
                         {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
                         {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
                     {% endif %}
-                    {% if is_shaman and not banished %}
-                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
-                    {% endif %}
                     {% if not owner.zone %}
                         <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">5</div>)</button>
                         {% if can_devour %}
                             <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                         {% endif %}
+	                    {% if is_shaman and not banished %}
+	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
+	                    {% endif %}
                     {% endif %}
                 {% endif %}
                 {% if owner.home.holdsBody %}
