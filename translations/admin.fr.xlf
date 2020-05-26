@@ -766,5 +766,32 @@
         <target>Évolutions</target>
       </segment>
     </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <notes>
+        <note category="german">Titel</note>
+      </notes>
+      <segment>
+        <source>Titel</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="gvEcbOu" name="Neue Update">
+      <notes>
+        <note category="german">Neue Update</note>
+      </notes>
+      <segment>
+        <source>Neue Update</source>
+        <target>Neue Update</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
