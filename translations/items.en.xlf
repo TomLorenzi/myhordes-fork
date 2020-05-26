@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</target>
+        <target>You have drawn the... You scream as you discover your name is written on the card in blood ! You don't care who is behind this evil joke... You are now terrorised !</target>
       </segment>
     </unit>
     <unit id="NcJ93EV" name="9ae05d1">
@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>You have drawn a card... You scream as you discover your name is written on the card in blood ! You don't care who is behind this evil joke... You are now terrorised !</target>
+        <target>You draw a card ... and find that you have drawn the card with the rules of the game! This amuses you so much that you win 1AP.</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -3778,7 +3778,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
-        <target>Mithilfe des {item} hast du die Umgebung gescannt.</target>
+        <target>You scanned the area using the {item}.</target>
       </segment>
     </unit>
     <unit id="2lPNuwg" name="Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.">
@@ -3978,7 +3978,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Du ziehst eine Karte... es ist: {color} {value}.</target>
+        <target>You draw a card ... it is a: {value} of {color}.</target>
       </segment>
     </unit>
     <unit id="m5CJEyF" name="Die Rückkehr des Helden">

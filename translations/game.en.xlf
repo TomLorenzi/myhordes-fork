@@ -1522,7 +1522,7 @@
       </notes>
       <segment>
         <source>%citizen%s Register</source>
-        <target>%citizen%s Register</target>
+        <target>%citizen%'s Register</target>
       </segment>
     </unit>
     <unit id="oYgU.Rg" name="c9fdaab">
@@ -2146,7 +2146,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
-        <target>La zone est épuisée. Vous ne trouverez plus d'objet de valeur ici.</target>
+        <target>The zone is depleted.</target>
       </segment>
     </unit>
     <unit id="M8h1dhU" name="Stadt betreten">
