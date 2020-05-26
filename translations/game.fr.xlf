@@ -10293,7 +10293,7 @@
     </unit>
     <unit id="rGmg51l" name="[nichts]">
       <notes>
-        <note category="german">[nichts]</note>
+        <note category="german">[ nothing ]</note>
       </notes>
       <segment>
         <source>[nichts]</source>
@@ -10716,7 +10716,7 @@
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
       <notes>
-        <note category="german">Neue Nachricht</note>
+        <note category="german">New message</note>
       </notes>
       <segment>
         <source>Neue Nachricht</source>
@@ -10797,7 +10797,7 @@
     </unit>
     <unit id="4gAjVQX" name="Verlassener Bunker">
       <notes>
-        <note category="german">Verlassener Bunker</note>
+        <note category="german">Abandonned Bunker</note>
       </notes>
       <segment>
         <source>Verlassener Bunker</source>
@@ -10806,7 +10806,7 @@
     </unit>
     <unit id="BRZGIi8" name="8183632">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un bunker. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10815,7 +10815,7 @@
     </unit>
     <unit id="oxlDhWv" name="Verlassenes Hotel">
       <notes>
-        <note category="german">Verlassenes Hotel</note>
+        <note category="german">Abandonned Hotel</note>
       </notes>
       <segment>
         <source>Verlassenes Hotel</source>
@@ -10824,7 +10824,7 @@
     </unit>
     <unit id="hP.60KS" name="150bce3">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10833,7 +10833,7 @@
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
       <notes>
-        <note category="german">Verlassenes Hospital</note>
+        <note category="german">Abandonned Hospital</note>
       </notes>
       <segment>
         <source>Verlassenes Hospital</source>
@@ -10842,7 +10842,7 @@
     </unit>
     <unit id="PAKqkOM" name="1a6b1bb">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10851,7 +10851,7 @@
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
       <notes>
-        <note category="german">%ruin% betreten</note>
+        <note category="german">Enter in %ruin%</note>
       </notes>
       <segment>
         <source>%ruin% betreten</source>
@@ -10860,7 +10860,7 @@
     </unit>
     <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
       <notes>
-        <note category="german">Eine Nachricht hinterlassen</note>
+        <note category="german">Leave a note on their door</note>
       </notes>
       <segment>
         <source>Eine Nachricht hinterlassen</source>
@@ -10869,7 +10869,7 @@
     </unit>
     <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
       <notes>
-        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
+        <note category="german">Click on the objects you wish to send with this message:</note>
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
@@ -10878,7 +10878,7 @@
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
       <notes>
-        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
+        <note category="german">The following objects will be sent:</note>
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
@@ -10887,7 +10887,7 @@
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
       <notes>
-        <note category="german">Kein Gegenstand beigefügt...</note>
+        <note category="german">No objects attached...</note>
       </notes>
       <segment>
         <source>Kein Gegenstand beigefügt...</source>
@@ -10896,7 +10896,7 @@
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
       <notes>
-        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
+        <note category="german">Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</note>
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
@@ -10905,7 +10905,7 @@
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
       <notes>
-        <note category="german">Meine Nachrichten lesen.</note>
+        <note category="german">Read my messages.</note>
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
@@ -10914,7 +10914,7 @@
     </unit>
     <unit id="bYjLN7a" name="Draußen">
       <notes>
-        <note category="german">Draußen</note>
+        <note category="german">Outside</note>
       </notes>
       <segment>
         <source>Draußen</source>
@@ -10923,7 +10923,7 @@
     </unit>
     <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
       <notes>
-        <note category="german">in der Stadt oder am Stadttor</note>
+        <note category="german">in town or at the gates</note>
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
@@ -10932,7 +10932,7 @@
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
-        <note category="german">Seine Seele ansehen</note>
+        <note category="german">See their soul</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -10941,7 +10941,7 @@
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
-        <note category="german">Teilnehmen</note>
+        <note category="german">Help out!</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -10950,7 +10950,7 @@
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
       <notes>
-        <note category="german">Die letzte Zeitung lesen</note>
+        <note category="german">Read the last gazette</note>
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
@@ -10986,7 +10986,7 @@
     </unit>
     <unit id="6kQh7Rd" name="Stadtverteidigung">
       <notes>
-        <note category="german">Stadtverteidigung</note>
+        <note category="german">Defence points</note>
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
@@ -10995,7 +10995,7 @@
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
       <notes>
-        <note category="german">Details ansehen</note>
+        <note category="german">Details infos</note>
       </notes>
       <segment>
         <source>Details ansehen</source>

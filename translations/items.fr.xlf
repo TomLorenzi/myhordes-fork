@@ -8352,5 +8352,11 @@
         <target><![CDATA[<t-stat-up-addict>Mauvaise nouvelle ! Vous devenez par la même occasion dépendant(e) ! Vous devrez dorénavant consommer au moins une drogue par jour ou mourir !</t-stat-up-addict>]]></target>
       </segment>
     </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
