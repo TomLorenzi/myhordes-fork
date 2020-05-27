@@ -823,6 +823,7 @@ class ItemFixtures extends Fixture
         'water_can_1_#00'  => [ 'can_poison', 'esc_fixed' ],
         'cyanure_#00'      => [ 'can_poison' ],
         'lock_#00'         => [ 'lock' ],
+        'dfhifi_#01'       => [ 'lock' ],
         'pile_#00'       => [ 'hero_find' ],
         'food_bag_#00'   => [ 'hero_find' ],
         'rsc_pack_2_#00' => [ 'hero_find' ],
