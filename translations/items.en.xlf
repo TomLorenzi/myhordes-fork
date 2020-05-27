@@ -7451,7 +7451,7 @@
       </notes>
       <segment>
         <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
-        <target>Du hast die Seele gereinigt und sie friedlich gemacht.</target>
+        <target>You have purified a lost soul. It evaporates leaving you with an aftertaste of peace and serenity...</target>
       </segment>
     </unit>
     <unit id="YTSbJ8." name="Droge herstellen">
@@ -7592,7 +7592,7 @@
       </notes>
       <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+        <target>You just drank a shamanic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
       </segment>
     </unit>
     <unit id="qpQMEHf" name="5f07d6b">
@@ -7601,7 +7601,7 @@
       </notes>
       <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
-        <target>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</target>
+        <target>The townsfolk can smell the confidence on you... As you were in fact, already protected.</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
@@ -7736,7 +7736,7 @@
       </notes>
       <segment>
         <source>Verteidigung organisieren</source>
-        <target>Verteidigung organisieren</target>
+        <target>Organize defence</target>
       </segment>
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
@@ -7754,7 +7754,7 @@
       </notes>
       <segment>
         <source>Reinigen (Kleidung)</source>
-        <target>Reinigen (Kleidung)</target>
+        <target>Clean</target>
       </segment>
     </unit>
     <unit id="5v3eyG." name="9caf33d">
@@ -7763,7 +7763,7 @@
       </notes>
       <segment>
         <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
-        <target>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</target>
+        <target>You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</target>
       </segment>
     </unit>
   </file>

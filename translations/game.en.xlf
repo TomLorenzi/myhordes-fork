@@ -818,7 +818,7 @@
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici.</target>
+        <target>The construction of a Watchtower in town allows the magnitude of the night's attack to be estimated. The quality of the estimation depends directly on the number of citizens who take the time to come and look.</target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -1552,8 +1552,8 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'évolution du jour.
-Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</target>
+        <target>Once per day, certain construction sites can be upgraded free of charge (without AP or resources) : this is called the project of the day.
+Each upgrade brings various advantages (defence, water, special skills...).It's up to you to choose the project of the day by voting for what you think is the most appropriate.</target>
       </segment>
     </unit>
     <unit id="PhutSSq" name="667676b">
@@ -1643,7 +1643,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
-        <target>L'atelier permet la fabrication de matériaux de constructions avancés, nécessaires pour certains chantiers en ville. Les objets à transformer sont à placer directement dans la Banque de la ville. Chaque transformation coûte 3PA de base (certains objets peuvent réduire ce coût).</target>
+        <target>The workshop lets you manufacture advanced construction materials, which are necessary for certain construction sites. Objects to be transformed should be placed in the Bank. Each transformation has a basic cost : 3AP (certain objects can reduce this cost).</target>
       </segment>
     </unit>
     <unit id="pOcBXgj" name="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
@@ -2006,7 +2006,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>Stadt in %km% Entfernung</source>
-        <target>Ville à %km%</target>
+        <target>Town is at %km%</target>
       </segment>
     </unit>
     <unit id="AW6aLpM" name="Am Boden">
@@ -3518,7 +3518,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) est parti vers le %direction%.</target>
+        <target>%citizen% (%profession%) has left to the %direction%.</target>
       </segment>
     </unit>
     <unit id="07sRf7u" name="%citizen% (%profession%) ist aus dem %direction% angekommen.">
@@ -3528,7 +3528,7 @@ Chaque amélioration apporte des avantages divers (défense, eau, capacités sp�
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist aus dem %direction% angekommen.</source>
-        <target>%citizen% (%profession%) has arrived from %direction%.</target>
+        <target>%citizen% (%profession%) has arrived from the %direction%.</target>
       </segment>
     </unit>
     <unit id="pCkOgOT" name="%citizen% hat ein(e,n) %item% ausgegraben!">
