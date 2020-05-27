@@ -358,8 +358,8 @@ class ItemFixtures extends Fixture
         ['label' =>'Kaputter Stock','icon'=>'staff2','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // -- ---
         ['label' =>'Britney Spears CD','icon'=>'cdbrit','category'=>'furniture','deco'=>3,'heavy'=>false, 'watchpoint' => 0],                                   // -- ---
         ['label' =>'Best of The King CD','icon'=>'cdelvi','category'=>'furniture','deco'=>7,'heavy'=>false, 'watchpoint' => 0],                                 // -- ---
-        ['label' =>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                     // -- ---
-        ['label' =>'Verteidigende HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                   // -- ---
+        ['label' =>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                     // -- ---
+        ['label' =>'Verteidigende HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                   // -- ---
         ['label' =>'Schrödingers Box','icon'=>'catbox','category'=>'box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                          // In Out
         ['label' =>'Geistiger Beistand','icon'=>'chkspk','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // -- ---
         ['label' =>'Fette Python','icon'=>'pet_snake2','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                          // -- ---
