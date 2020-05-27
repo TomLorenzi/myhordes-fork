@@ -752,7 +752,7 @@ class NightlyHandler
         foreach ($this->zone_handler->getSoulZones($town) as $zone) {
             foreach ($zone->getFloor()->getItems() as $item) {
                 if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                if($this->random->chance(0.5)){
+                if($this->random->chance(0.25)){
                     $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
                     $this->inventory_handler->forceRemoveItem($item);
                     $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
@@ -763,8 +763,8 @@ class NightlyHandler
         }
 
         foreach ($town->getBank()->getItems() as $item) {
-            if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
-            if($this->random->chance(0.25)){
+            if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+            if($this->random->chance(0.1)){
                 $this->log->debug("Mutating soul in bank.");
                 $this->inventory_handler->forceRemoveItem($item);
                 $this->inventory_handler->forceMoveItem($town->getBank(), $this->item_factory->createItem('soul_red_#00'));
