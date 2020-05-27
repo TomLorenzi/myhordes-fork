@@ -51,7 +51,6 @@ class LogTemplateHandler
     private function iconize($obj, bool $small = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj['item'], $small) . ' x ' . $obj['count'];
 
-        file_put_contents("/tmp/dump.txt", gettype($obj), FILE_APPEND);
         if ($obj instanceof Item) {
             $str = $this->iconize( $obj->getPrototype(), $small );
             if($obj->getBroken())
