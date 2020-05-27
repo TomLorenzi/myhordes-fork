@@ -213,6 +213,8 @@ class NightlyHandler
 
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
+                $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
                 $this->town_handler->destroy_building($town, $reactor);
 
@@ -222,8 +224,11 @@ class NightlyHandler
                 $citizens = $this->town_handler->get_alive_citizens($town);
 
                 foreach ($citizens as $citizen) {
+                    $gazette->setDeaths($gazette->getDeaths() + 1);
                     $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
                 }
+                
+                $this->entity_manager->persist($gazette);
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
             }
