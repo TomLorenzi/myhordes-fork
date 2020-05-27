@@ -319,6 +319,15 @@ class NightlyHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
+        $redSoulCount = $this->town_handler->get_red_soul_count($town);
+
+        $soulFactor += 1 + (0.04 * $redSoulsCount);
+
+        if($town->getType()->getName() !== 'panda')
+            $soulFactor = min($soulFactor, 1.2);
+
+        $zombies *= $soulFactor;
+
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
