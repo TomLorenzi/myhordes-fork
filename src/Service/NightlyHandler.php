@@ -227,7 +227,7 @@ class NightlyHandler
                     $gazette->setDeaths($gazette->getDeaths() + 1);
                     $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
                 }
-                
+
                 $this->entity_manager->persist($gazette);
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
@@ -773,6 +773,18 @@ class NightlyHandler
                 $this->log->debug("Mutating soul in bank.");
                 $this->inventory_handler->forceRemoveItem($item);
                 $this->inventory_handler->forceMoveItem($town->getBank(), $this->item_factory->createItem('soul_red_#00'));
+            }
+        }
+
+        foreach ($town->getCitizens() as $citizen) {
+            foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                if($this->random->chance(0.1)){
+                    $this->log->debug("Mutating soul in chest of citizen <info>{$citizen->getUser()->getUsername()}</info>");
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
+                    $this->entity_manager->persist($citizen->getHome()->getChest());
+                }
             }
         }
     }

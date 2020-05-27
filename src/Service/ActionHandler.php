@@ -662,7 +662,7 @@ class ActionHandler
             }
 
             if($town_set = $result->getTown()){
-                $citizen->getTown()->setSoulDefense($town_set->getAdditionalDefense());
+                $citizen->getTown()->setSoulDefense($citizen->getTown()->getSoulDefense() + $town_set->getAdditionalDefense());
             }
 
             if (($zoneEffect = $result->getZone()) && $base_zone = $citizen->getZone()) {
