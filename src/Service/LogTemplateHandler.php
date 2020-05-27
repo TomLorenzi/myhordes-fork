@@ -51,6 +51,7 @@ class LogTemplateHandler
     private function iconize($obj, bool $small = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj['item'], $small) . ' x ' . $obj['count'];
 
+        file_put_contents("/tmp/dump.txt", gettype($obj), FILE_APPEND);
         if ($obj instanceof Item) {
             $str = $this->iconize( $obj->getPrototype(), $small );
             if($obj->getBroken())
@@ -83,6 +84,9 @@ class LogTemplateHandler
                 break;
             case 'item':
                 $object = $this->entity_manager->getRepository(Item::class)->find($key);
+                break;
+            case 'itemprototype':
+                $object = $this->entity_manager->getRepository(ItemPrototype::class)->find($key);
                 break;
             case 'itemGroup':
                 $object = $this->entity_manager->getRepository(ItemGroup::class)->find($key);
@@ -983,7 +987,7 @@ class LogTemplateHandler
     }
 
     public function beyondCampingItemImprovement( Citizen $citizen, Item $item ): TownLogEntry {
-        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId());
+        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getPrototype()->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('beyondCampingItemImprovement');
 
         return (new TownLogEntry())
