@@ -11047,5 +11047,23 @@
         <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
       </segment>
     </unit>
+    <unit id="9cNHWGl" name="Seelenpunkte">
+      <notes>
+        <note category="german">Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte</source>
+        <target>Valeur de l'âme</target>
+      </segment>
+    </unit>
+    <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
+      <notes>
+        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
+        <target>Nombres de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

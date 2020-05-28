@@ -125,7 +125,7 @@ class PictoHandler
 
             shuffle($keepPictos);
 
-            for($i = ceil(count($keepPictos) / 3), $i < count($keepPictos); $i++){
+            for($i = ceil(count($keepPictos) / 3); $i < count($keepPictos); $i++){
                 $this->entity_manager->remove($keepPictos[$i]);
             }
         }
