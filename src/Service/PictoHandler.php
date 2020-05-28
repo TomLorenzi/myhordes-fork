@@ -105,6 +105,27 @@ class PictoHandler
 	            $this->entity_manager->remove($pendingPicto);
 	        }
         }
+
+        // In private towns, we get only 1/3 of all pictos and no rare
+        if($citizen->getTown()->getType()->getName == "custom"){
+            $pictos = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
+            $keepPictos = [];
+            foreach ($pictos as $picto) {
+                if($picto->getRare()){
+                    $this->entity_manager->remove($picto);
+                    continue;
+                }
+
+                $keepPictos[] = $picto;
+            }
+
+            shuffle($keepPictos);
+
+            for($i = ceil(count($keepPictos) / 3), $i < count($keepPictos); $i++){
+                $this->entity_manager->remove($keepPictos[$i]);
+            }
+        }
+
         $this->entity_manager->flush();
     }
 
