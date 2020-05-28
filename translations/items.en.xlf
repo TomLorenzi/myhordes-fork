@@ -3538,7 +3538,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Hierfür brauchst du einen Kanister.</target>
+        <target>You need a Jerrycan for this.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3548,7 +3548,7 @@
       </notes>
       <segment>
         <source>Waffe einsetzen</source>
-        <target>Waffe einsetzen</target>
+        <target>Attack</target>
       </segment>
     </unit>
     <unit id="LNBNFk1" name="Zum Glück sind hier keine Zombies...">
@@ -3658,7 +3658,7 @@
       </notes>
       <segment>
         <source>Aufstellen</source>
-        <target>Aufstellen</target>
+        <target>Install</target>
       </segment>
     </unit>
     <unit id="Du_7vOz" name="Verbinden">
@@ -3668,7 +3668,7 @@
       </notes>
       <segment>
         <source>Verbinden</source>
-        <target>Verbinden</target>
+        <target>Heal</target>
       </segment>
     </unit>
     <unit id="j6UDssn" name="Reinigen">
@@ -3708,7 +3708,7 @@
       </notes>
       <segment>
         <source>In den Brunnen schütten</source>
-        <target>In den Brunnen schütten</target>
+        <target>Pour into the Well</target>
       </segment>
     </unit>
     <unit id="UbJNeAP" name="34970f4">
@@ -3868,7 +3868,7 @@
       </notes>
       <segment>
         <source>Losschicken</source>
-        <target>Losschicken</target>
+        <target>Send back</target>
       </segment>
     </unit>
     <unit id="l2NsvcD" name="Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.">
@@ -7316,7 +7316,7 @@
       </notes>
       <segment>
         <source>Ausweiden</source>
-        <target>Ausweiden</target>
+        <target>Cut</target>
       </segment>
     </unit>
     <unit id="24l83Eh" name="7fe00d0">
@@ -7343,7 +7343,7 @@
       </notes>
       <segment>
         <source>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</source>
-        <target>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</target>
+        <target>You pick up the rubbish that's lying around, tidy up your few remaining possessions and generally try to make the place you call home a little less squalid...</target>
       </segment>
     </unit>
     <unit id="k1XRUwI" name="Duschen">
