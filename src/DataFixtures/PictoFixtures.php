@@ -494,6 +494,12 @@ class PictoFixtures extends Fixture
             'icon' => 'r_ginfec',
             'rare' => true
         ],
+        [
+            'label' => 'Seelenpunkte',
+            'description' => 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.',
+            'icon' => 'r_ptame',
+            'rare' => true
+        ],
     ];
 
     private $entityManager;

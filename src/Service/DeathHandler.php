@@ -196,6 +196,8 @@ class DeathHandler
             $this->picto_handler->give_validated_picto($citizen, $pictoDeath2);
         }
 
+        $this->picto_handler->give_validated_picto($citizen, "r_ptame_#00", $this->citizen_handler->getSoulpoints($citizen));
+
         // Now that we are dead, we set persisted = 1 to pictos with persisted = 0
         // according to the day 5 / 8 rule
         $this->picto_handler->validate_picto($citizen);

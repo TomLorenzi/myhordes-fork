@@ -111,12 +111,16 @@ class PictoHandler
             $pictos = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
             $keepPictos = [];
             foreach ($pictos as $picto) {
-                if($picto->getRare()){
+                if($picto->getRare() && $picto->getPrototype()->getName() !== "r_ptame_#00"){
                     $this->entity_manager->remove($picto);
                     continue;
                 }
-
-                $keepPictos[] = $picto;
+                if($picto->getPrototype()->getName() !== "r_ptame_#00")
+                    $keepPictos[] = $picto;
+                else {
+                    $picto->setCount(ceil($picto->getCount() / 3));
+                    $this->entity_manager->persist($picto);
+                }
             }
 
             shuffle($keepPictos);
