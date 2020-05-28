@@ -41,7 +41,6 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':human:', 'path'=>'build/images/emotes/human.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':heal:', 'path'=>'build/images/emotes/heal.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':drug:', 'path'=>'build/images/emotes/drug.gif', 'isactive'=> true, 'requiresunlock'=> false],
-        ['tag'=>':buried:', 'path'=>'build/images/emotes/buried.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':death:', 'path'=>'build/images/emotes/death.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':bone:', 'path'=>'build/images/emotes/bone.gif', 'isactive'=> true, 'requiresunlock'=> false],
         ['tag'=>':bag:', 'path'=>'build/images/emotes/bag.gif', 'isactive'=> true, 'requiresunlock'=> false],
@@ -76,6 +75,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':wonder:', 'path'=>'build/images/emotes/wonder.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':tasty:', 'path'=>'build/images/emotes/tasty.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':deco:', 'path'=>'build/images/emotes/deco.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':buried:', 'path'=>'build/images/emotes/buried.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':rptext:', 'path'=>'build/images/emotes/rptext.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':ban:', 'path'=>'build/images/emotes/ban.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':extreme:', 'path'=>'build/images/emotes/extreme.gif', 'isactive'=> true, 'requiresunlock'=> true],
@@ -101,6 +101,8 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':cannibal:', 'path'=>'build/images/emotes/cannibal.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':chest:', 'path'=>'build/images/emotes/chest.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':collect:', 'path'=>'build/images/emotes/collect.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':night:', 'path'=>'build/images/emotes/night.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':ruin:', 'path'=>'build/images/emotes/ruin.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':explo:', 'path'=>'build/images/emotes/explo.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':dexplo:', 'path'=>'build/images/emotes/dexplo.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':drag:', 'path'=>'build/images/emotes/drag.gif', 'isactive'=> true, 'requiresunlock'=> true],
@@ -129,7 +131,7 @@ class EmoteFixtures extends Fixture {
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $out->writeln('<comment>Item categories: ' . count(static::$emote_data) . ' fixture entries available.</comment>');
+        $out->writeln('<comment>Emotes: ' . count(static::$emote_data) . ' fixture entries available.</comment>');
 
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$emote_data) );
