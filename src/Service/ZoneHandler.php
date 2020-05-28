@@ -359,6 +359,18 @@ class ZoneHandler
         return array_values($cache);
     }
 
+    public function hasHiddenItem(Zone $zone){
+        // get hidden item count
+        $query = $this->entity_manager->createQueryBuilder()
+            ->select('SUM(i.count)')
+            ->from(Item::class, 'i')
+            ->andWhere('i.inventory = :invs')->setParameter('invs', $zone->getFloor())
+            ->andWhere('i.hidden = true')
+            ->getQuery();
+
+        return $query->getSingleScalarResult() > 0;
+    }
+
     public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false) {
         $attributes = ['zone'];
 

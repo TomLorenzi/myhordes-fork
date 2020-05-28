@@ -428,6 +428,39 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
+     * @Route("api/beyond/bury_rucksack", name="beyond_bury_rucksack_controller", condition="")
+     * @param JSONRequestParser $parser
+     * @param InventoryHandler $handler
+     * @param ItemFactory $factory
+     * @param PictoHandler $picto_handler
+     * @return Response
+     */
+    public function bury_rucksack_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
+
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $citizen = $this->getActiveCitizen();
+        $down_inv = $citizen->getZone()->getFloor();
+        $up_inv   = $citizen->getInventory();
+        $town = $citizen->getTown();
+        if ((!$town->getChaos() || !$citizen->getBanished()) && $citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($citizen->getAp() <= 2 || $this->citizen_handler->isTired( $citizen ))
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        $hide_items = true;
+        foreach ($citizen->getZone()->getCitizens() as $fellow_citizen) {
+            if(!$fellow_citizen->getBanished()) // If there's a non-banished citizen on the zone, the items are not hidden
+                $hide_items = false;
+        }
+
+        $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items);
+    }
+
+    /**
      * @Route("api/beyond/desert/chat", name="beyond_desert_chat_controller")
      * @param JSONRequestParser $parser
      * @return Response
@@ -663,6 +696,17 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!', [], 'game' ));
                         else 
                             $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                    }
+                }
+            }
+
+            // Banished citizen's stach check
+            if($this->zone_handler->hasHiddenItem($new_zone) && $this->random_generator->chance(1)){
+                $this->entity_manager->persist($this->log->outsideFoundHiddenItems($citizen, $zone->getFloor()->getItems()));
+                foreach ($zone->getFloor()->getItems() as $item) {
+                    if($item->getHidden()){
+                        $item->setHidden(false);
+                        $this->entity_manager->persist($item);
                     }
                 }
             }
