@@ -162,6 +162,11 @@ class CitizenInspectorCommand extends Command
             $output->writeln( "Removing role '<info>{$role->getName()}</info>'.\n" );
             $citizen->removeRole( $role );
 
+            if($rem_role === 'shaman') {
+                $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+                $citizen->removeStatus( $status );
+            }
+
             $updated = true;
         }
 
