@@ -94,6 +94,10 @@ class DeathHandler
             $this->zone_handler->handleCitizenCountUpdate( $zone, $ok );
         }
 
+        if($citizen->getBanished()){
+            $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('banned_note_#00'), [$citizen->getHome()->getChest()], true);
+        }
+
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
