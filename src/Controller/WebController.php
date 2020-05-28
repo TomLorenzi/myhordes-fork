@@ -62,9 +62,10 @@ class WebController extends AbstractController
 
         $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
         $adminActions = [
-            ['name' => 'Users', 'id' => 1],
-            ['name' => 'Meldungen', 'id' => 2],
-            ['name' => 'Städte', 'id' => 3]
+            ['name' => T::__('Users', 'admin'), 'id' => 1],
+            ['name' => T::__('Meldungen', 'admin'), 'id' => 2],
+            ['name' => T::__('Städte', 'admin'), 'id' => 3],
+            ['name' => T::__('Zukunft', 'admin'), 'id' => 4],
         ];
 
         return $this->render( 'web/framework.html.twig', [

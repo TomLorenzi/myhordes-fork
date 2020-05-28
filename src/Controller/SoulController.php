@@ -4,9 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
+use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
@@ -93,7 +93,10 @@ class SoulController extends AbstractController
      */
     public function soul_news(): Response
     {
-        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", null) );
+        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($this->getUser()->getLanguage());
+        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
+            'news' => $news
+        ]) );
     }
 
     /**
@@ -146,7 +149,7 @@ class SoulController extends AbstractController
      */
     public function soul_view_town(int $id): Response
     {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         if($town === null){
             return $this->redirect($this->generateUrl('soul_me'));
         }
@@ -612,8 +615,9 @@ class SoulController extends AbstractController
             $active->setLastWords($last_words);
             $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
             $this->entity_manager->persist( $active );
-        } else
-            $nextDeath->setConfirmed(true)->setLastWords( $last_words );
+        }
+        
+        $nextDeath->setConfirmed(true)->setLastWords( $last_words );
 
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();

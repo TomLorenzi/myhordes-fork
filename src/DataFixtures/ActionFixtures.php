@@ -9,6 +9,7 @@ use App\Entity\AffectDeath;
 use App\Entity\AffectHome;
 use App\Entity\AffectItemConsume;
 use App\Entity\AffectItemSpawn;
+use App\Entity\AffectMessage;
 use App\Entity\AffectOriginalItem;
 use App\Entity\AffectPicto;
 use App\Entity\AffectPM;
@@ -106,7 +107,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_yet_home_defbuff'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_defbuff' ] ]],
             'not_yet_rested'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_rested' ]  ]],
             'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_shaman_immune' ]  ]],
-            'immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_shaman_immune' ]  ]],
+            'immune'           => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_shaman_immune' ]  ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -150,11 +151,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_be_terrorized'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
             'must_not_be_terrorized' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
 
-            'must_be_outside' => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
-            'must_be_inside' =>  [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
-            'must_be_at_buried_ruin' => [ 'type' => Requirement::CrossOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
-            'must_be_outside_3km'  => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ 'min' => 3 ] ]],
-            'must_be_outside_within_11km' => [ 'type' => Requirement::MessageOnFail,  'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Hierfür bist du zu weit von der Stadt entfernt ...'],
+			'must_be_outside'              => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
+			'must_be_inside'               => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
+			'must_be_at_buried_ruin'       => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
+			'must_be_outside_not_at_doors' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 1 ] ] ],
+			'must_be_outside_3km'          => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 3 ] ] ],
+			'must_be_outside_within_11km'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Hierfür bist du zu weit von der Stadt entfernt ...'],
 
             'must_have_zombies'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => null  ] ], 'text' => 'Zum Glück sind hier keine Zombies...'],
             'must_be_blocked'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => true ] ], 'text' => 'Das kannst du nicht tun während du umzingelt bist...'],
@@ -249,7 +251,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
 
             'drug_any'   => [ 'status' => 'add_is_drugged', 'picto' => ['r_drug_#00'] ],
-            'drug_addict'  => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'] ],
+            'drug_addict'  => [ 'status' => 'add_addicted', 'picto' => ['r_drug_#00'], 'message' => ['text' => '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>', 'ordering' => 1000] ],
             'terrorize'    => [ 'status' => 'add_terror' ],
             'unterrorize'  => [ 'status' => 'remove_terror' ],
 
@@ -443,7 +445,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'kill_all_z' => [ 'num' => 999999 ],
             ],
 
-            'well' => []
+            'well' => [],
         ],
 
         'actions' => [
@@ -500,8 +502,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'drug_xana1' => [ 'label' => 'Einsetzen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'unterrorize', 'consume_item' ] ],
             'drug_xana2' => [ 'label' => 'Einsetzen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'unterrorize', 'consume_item' ] ],
-            'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'disinfect', 'immune', 'consume_item' ] ],
-            'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'disinfect', 'immune', 'consume_item' ] ],
+            'drug_par_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'is_not_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'drug_any', 'immune', 'consume_item' ], 'message' => 'Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?' ],
+            'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_not_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'drug_addict', 'immune', 'consume_item' ], 'message' => 'Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?' ],
+            'drug_par_3' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'is_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'drug_any', 'disinfect', 'immune', 'consume_item' ], 'message' => 'Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.' ],
+            'drug_par_4' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'drug_addict', 'disinfect', 'immune', 'consume_item' ], 'message' => 'Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.' ],
             'drug_6ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap6', 'consume_item' ] ],
             'drug_6ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'just_ap6', 'consume_item' ] ],
             'drug_7ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap7', 'consume_item' ] ],
@@ -587,9 +591,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fill_watercan1' => [ 'label' => 'Befüllen', 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
             'fill_watercan2' => [ 'label' => 'Befüllen', 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan3' ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
 
-            'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'zombies' => 'kill_maybe_1z' ] ] ],
-            'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ],  8], [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2] ], 'zombies' => 'kill_1z' ] ] ],
-            'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  5], [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 5], [[ ['spawn' => 'battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 90] ], 'zombies' => 'kill_2z' ] ] ],
+            'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'zombies' => 'kill_maybe_1z' ] ] ],
+            'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 8], [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2] ], 'zombies' => 'kill_1z' ] ] ],
+            'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  5], [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 2], [[ ['spawn' => 'battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 8] ], 'zombies' => 'kill_2z' ] ] ],
             'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [[ [                            'item' => ['morph' => 'mixergun_empty_#00',   'consume' => false]] ], 4] ], 'zombies' => 'kill_1z' ] ] ],
             'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [[ [                            'item' => ['morph' => 'chainsaw_empty_#00',   'consume' => false]] ], 3] ], 'zombies' => 'kill_3z' ] ] ],
             'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  2], [[ [                            'item' => ['morph' => 'taser_empty_#00',      'consume' => false]] ], 8] ], 'zombies' => 'kill_maybe_1z' ] ] ],
@@ -721,13 +725,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
 
-            'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable' ], 'result' => [ 'consume_item', [ 'zone' => ['improve' =>  1.8] ] ], 'message' => 'Du hast das hiesige Versteck erheblich verbessert.' ],
+            'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors' ], 'result' => [ 'minus_1ap', 'consume_item', [ 'zone' => ['improve' =>  1.8] ] ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ],
 
             'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed', 'zone_is_improvable' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  1] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
-            'campsite_hide' => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
-            'campsite_tomb' => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb', ['custom' => [10]] ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
-            'campsite_unhide' => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
-            'campsite_untomb' => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
+            'campsite_hide'    => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
+            'campsite_tomb'    => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb', ['custom' => [10]] ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
+            'campsite_unhide'  => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
+            'campsite_untomb'  => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
 
             'home_clean'     => [ 'label' => 'Haus aufräumen und putzen', 'meta' => [ 'must_be_inside', 'not_yet_home_cleaned' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_clean' ] ] ], 'message' => 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn\'s ne Bruchbude ist, es ist DEIN Zuhause...' ],
             'home_shower'    => [ 'label' => 'Duschen', 'meta' => [ 'must_be_inside', 'must_have_shower', 'not_yet_home_showered' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_shower' ] ] ], 'message' => 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.' ],
@@ -925,16 +929,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bgrenade_#00'     => [ 'throw_exgrenade'],
             'boomfruit_#00'    => [ 'throw_boomfruit'],
 
-            'pilegun_#00'      => [ 'fire_pilegun'  ],
-            'pilegun_up_#00'   => [ 'fire_pilegun2' ],
-            'big_pgun_#00'     => [ 'fire_pilegun3' ],
-            'mixergun_#00'     => [ 'fire_mixergun' ],
-            'chainsaw_#00'     => [ 'fire_chainsaw' ],
-            'taser_#00'        => [ 'fire_taser' ],
-            'lpoint4_#00'       => [ 'fire_lpointer4' ],
-            'lpoint3_#00'       => [ 'fire_lpointer3' ],
-            'lpoint2_#00'       => [ 'fire_lpointer2' ],
-            'lpoint1_#00'       => [ 'fire_lpointer1' ],
+            'pilegun_#00'    => [ 'fire_pilegun'  ],
+            'pilegun_up_#00' => [ 'fire_pilegun2' ],
+            'big_pgun_#00'   => [ 'fire_pilegun3' ],
+            'mixergun_#00'   => [ 'fire_mixergun' ],
+            'chainsaw_#00'   => [ 'fire_chainsaw' ],
+            'taser_#00'      => [ 'fire_taser' ],
+            'lpoint4_#00'    => [ 'fire_lpointer4' ],
+            'lpoint3_#00'    => [ 'fire_lpointer3' ],
+            'lpoint2_#00'    => [ 'fire_lpointer2' ],
+            'lpoint1_#00'    => [ 'fire_lpointer1' ],
 
             'watergun_opt_5_#00' => [ 'fire_asplash5' ],
             'watergun_opt_4_#00' => [ 'fire_asplash4' ],
@@ -976,10 +980,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'wrench_#00'        => ['throw_b_wrench'       ],
             'iphone_#00'        => ['throw_phone'          ],
 
-            'bplan_c_#00' => [ 'bp_generic_1' ],
-            'bplan_u_#00' => [ 'bp_generic_2' ],
-            'bplan_r_#00' => [ 'bp_generic_3' ],
-            'bplan_e_#00' => [ 'bp_generic_4' ],
+            'bplan_c_#00'  => [ 'bp_generic_1' ],
+            'bplan_u_#00'  => [ 'bp_generic_2' ],
+            'bplan_r_#00'  => [ 'bp_generic_3' ],
+            'bplan_e_#00'  => [ 'bp_generic_4' ],
             'hbplan_u_#00' => [ 'bp_hotel_2' ],
             'hbplan_r_#00' => [ 'bp_hotel_3' ],
             'hbplan_e_#00' => [ 'bp_hotel_4' ],
@@ -990,16 +994,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'mbplan_r_#00' => [ 'bp_hospital_3' ],
             'mbplan_e_#00' => [ 'bp_hospital_4' ],
 
-            'rp_book_#00'  => ['read_rp'],
-            'rp_book_#01'  => ['read_rp'],
-            'rp_book2_#00' => ['read_rp'],
+            'rp_book_#00'   => ['read_rp'],
+            'rp_book_#01'   => ['read_rp'],
+            'rp_book2_#00'  => ['read_rp'],
             'rp_scroll_#00' => ['read_rp'],
             'rp_scroll_#01' => ['read_rp'],
             'rp_sheets_#00' => ['read_rp'],
             'rp_letter_#00' => ['read_rp'],
             'rp_manual_#00' => ['read_rp'],
-            'lilboo_#00' => ['read_rp'],
-            'rp_twin_#00' => ['read_rp'],
+            'lilboo_#00'    => ['read_rp'],
+            'rp_twin_#00'   => ['read_rp'],
 
             'dice_#00'   => ['special_dice'],
             'cards_#00'  => ['special_card'],
@@ -1013,12 +1017,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'coffee_#00'   => ['coffee'],
             'vibr_#00'     => ['vibrator'],
 
-            'home_def_#00'     => ['home_def_plus'],
-            'home_box_#00'  => ['home_store_plus'],
-            'home_box_xl_#00'  => ['home_store_plus2'],
+            'home_def_#00'    => ['home_def_plus'],
+            'home_box_#00'    => ['home_store_plus'],
+            'home_box_xl_#00' => ['home_store_plus2'],
 
-            'bandage_#00'  => ['bandage'],
-            'sport_elec_#00'  => ['emt'],
+            'bandage_#00'    => ['bandage'],
+            'sport_elec_#00' => ['emt'],
 
             'jerrycan_#00'       => ['jerrycan_1', 'jerrycan_2', 'jerrycan_3'],
             'water_cup_part_#00' => ['watercup_1', 'watercup_2', 'watercup_3'],
@@ -1049,12 +1053,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'vest_off_#00' => [ 'hero_hunter_1', 'hero_hunter_2' ],
 
-            'door_#00' => [ 'improve' ],
-            'plate_#00' => [ 'improve' ],
-            'trestle_#00' => [ 'improve' ],
-            'bed_#00' => [ 'improve' ],
+            'door_#00'       => [ 'improve' ],
+            'plate_#00'      => [ 'improve' ],
+            'trestle_#00'    => [ 'improve' ],
+            'bed_#00'        => [ 'improve' ],
             'wood_plate_#00' => [ 'improve' ],
-            'out_def_#00' => [ 'improve' ],
+            'out_def_#00'    => [ 'improve' ],
 
             'soul_blue_#00' => ["purify_soul"],
             'soul_red_#00' => ["purify_soul"],
@@ -1669,6 +1673,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'picto':
                         $result->setPicto( $this->process_picto_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
+                    case 'message':
+                        $result->setMessage( $this->process_message_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
+                        break;
                     case 'town':
                         $result->setTown( $this->process_town_effect($manager,$out, $sub_cache[$sub_id], $sub_res, $sub_data) );
                         break;
@@ -2155,6 +2162,35 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result->setName( $id )->setPrototype(  $manager->getRepository(PictoPrototype::class)->findOneByName($data[0]));
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return AffectMessage
+     */
+    private function process_message_effect(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): AffectMessage
+    {
+        if (!isset($cache[$id])) {
+            $result = $manager->getRepository(AffectMessage::class)->findOneByName( $id );
+            if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>message/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $result = new AffectMessage();
+                $out->writeln( "\t\t\t<comment>Create</comment> effect <info>message/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $result->setName( $id )->setText($data['text']);
+            if(isset($data['ordering']))
+                  $result->setOrdering($data['ordering']);
+            $manager->persist( $cache[$id] = $result );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>message/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

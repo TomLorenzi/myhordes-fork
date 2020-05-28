@@ -37,7 +37,7 @@
         <div class="row">
             <div class="padded cell rw-12 center small">
             {% if z0[4] < 100 %}
-                <button {% if not z0_av %}disabled{% endif%} x-predict-attack="0">{{ 'Abschätzung verbessern'|trans({},'game') }}</button>
+                <button {% if not z0_av %}disabled{% endif%} x-predict-attack="0"><img src="{{ asset('build/images/soul/r_explor.gif') }}" /> {{ 'Abschätzung verbessern'|trans({},'game') }}</button>
             {% endif %}
             </div>
         </div>
@@ -71,7 +71,7 @@
             </div>
             <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
-                    <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1">{{ 'Abschätzung verbessern'|trans({},'game') }}</button>
+                    <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1"><img src="{{ asset('build/images/soul/r_explor.gif') }}" /> {{ 'Abschätzung verbessern'|trans({},'game') }}</button>
                 {% endif %}
             </div>
             {% else %}
@@ -79,7 +79,7 @@
                     {{'Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.'|trans({}, 'game')}}
                 </div>
                 <div class="padded cell rw-12 center">
-                    <button disabled>{{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
+                    <button disabled><img src="{{ asset('build/images/building/item_electro.gif') }}" /> {{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
                 </div>
             {% endif %}
         </div>

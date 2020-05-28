@@ -7625,12 +7625,6 @@
         <target>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</target>
       </segment>
     </unit>
-    <unit id="47DEQpj" name="">
-      <segment>
-        <source></source>
-        <target></target>
-      </segment>
-    </unit>
     <unit id="s1_qYeB" name="Kreuz">
       <notes>
         <note category="german">Kreuz</note>

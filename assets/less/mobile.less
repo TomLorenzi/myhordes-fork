@@ -15,6 +15,9 @@
 
   div.town-header {
     &:before { display: none; }
+    &.hardcore {
+      &:before { display: none; }
+    }
     position: relative; margin-bottom: 5px; padding-bottom: 5px; border-bottom: 2px solid rgba(0,0,0,0.25);
     &>b { display: block; position: relative; left: 0; top: 0; width: 100%; color: @myhordes-smalltext }
     &>span { position: relative; display: block; left: 0; top: 0; width: 100%; color: black; }

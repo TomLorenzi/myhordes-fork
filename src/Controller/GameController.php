@@ -387,7 +387,7 @@ class GameController extends AbstractController implements GameInterfaceControll
             'textClass' => $textClass,
         ];
 
-        $show_register = $in_town && $this->getActiveCitizen()->getAlive();
+        $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
 
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $show_register,

@@ -38,6 +38,7 @@ class CitizenInspectorCommand extends Command
             ->addArgument('CitizenID', InputArgument::REQUIRED, 'The citizen ID')
 
             ->addOption('set-ap', 'ap',InputOption::VALUE_REQUIRED, 'Sets the current AP.', -1)
+            ->addOption('set-pm', 'pm',InputOption::VALUE_REQUIRED, 'Sets the current PM.', -1)
 
             ->addOption('add-status','sn',InputOption::VALUE_REQUIRED, 'Adds a new status.', '')
             ->addOption('remove-status',null,InputOption::VALUE_REQUIRED, 'Removes an existing status.', '')
@@ -89,6 +90,12 @@ class CitizenInspectorCommand extends Command
         $set_ap = $input->getOption('set-ap');
         if ($set_ap >= 0) {
             $citizen->setAp( $set_ap );
+            $updated = true;
+        }
+
+        $set_pm = $input->getOption('set-pm');
+        if ($set_pm >= 0 && $citizen->hasRole('shaman')) {
+            $citizen->setPm( $set_pm );
             $updated = true;
         }
 

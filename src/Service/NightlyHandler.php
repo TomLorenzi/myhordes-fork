@@ -213,8 +213,10 @@ class NightlyHandler
 
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
+                $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
-                $reactor->setComplete(false)->setAp(0)->setDefense(0);
+                $this->town_handler->destroy_building($town, $reactor);
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
 
@@ -222,8 +224,11 @@ class NightlyHandler
                 $citizens = $this->town_handler->get_alive_citizens($town);
 
                 foreach ($citizens as $citizen) {
+                    $gazette->setDeaths($gazette->getDeaths() + 1);
                     $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
                 }
+
+                $this->entity_manager->persist($gazette);
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
             }
@@ -314,6 +319,15 @@ class NightlyHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
+        $redSoulCount = $this->town_handler->get_red_soul_count($town);
+
+        $soulFactor += 1 + (0.04 * $redSoulsCount);
+
+        if($town->getType()->getName() !== 'panda')
+            $soulFactor = min($soulFactor, 1.2);
+
+        $zombies *= $soulFactor;
+
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
@@ -370,11 +384,13 @@ class NightlyHandler
                     $this->citizen_handler->inflictWound($ctz);
                     $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
                 } else {
-                    // Terror
-                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
-                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                	if(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
+	                    // Terror
+	                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
+	                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                    $gazette->setTerror($gazette->getTerror() + 1);
+	                    $gazette->setTerror($gazette->getTerror() + 1);
+                	}
                 }
             }
 
@@ -429,18 +445,16 @@ class NightlyHandler
 
                 if($target->getHp() <= 0){
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $damages ));
-                    $target->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+
+                    $this->town_handler->destroy_building($town, $target);
                     // The target is destroy, we must destroy all its children
                     foreach ($target->getPrototype()->getChildren() as $childBuilding) {
                         $childBuilt = $this->town_handler->getBuilding($town, $childBuilding->getName(), true);
                         if (!$childBuilt) continue;
-                        // We remove it from potential targeting by the zeds
+                        // We remove it from potential targeting by the zeds (as it is destroyed)
                         if (($key = array_search($childBuilt, $targets)) !== false) {
                             unset($targets[$key]);
                         }
-                        $this->log->debug("The <info>{$childBuilding->getLabel()}</info> gets destroyed because its parent has been destroyed.");
-                        $childBuilt->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
-                        $this->entity_manager->persist($childBuilt);
                     }
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $damages ));
@@ -532,7 +546,7 @@ class NightlyHandler
                 // It is destroyed, let's do this !
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $fireworks->getPrototype(), 20 ));
 
-                $fireworks->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+                $this->town_handler->destroy_building($town, $fireworks);
 
                 $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
 
@@ -751,21 +765,47 @@ class NightlyHandler
         $this->log->debug("Processing <info>souls</info> mutations.");
         foreach ($this->zone_handler->getSoulZones($town) as $zone) {
             foreach ($zone->getFloor()->getItems() as $item) {
-                if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
-                if($this->random->chance(0.5)){
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                if($this->random->chance(0.25)){
                     $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
                     $this->inventory_handler->forceRemoveItem($item);
                     $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
+                    $this->entity_manager->persist($zone);
+
                 }
             }
         }
 
         foreach ($town->getBank()->getItems() as $item) {
-            if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
-            if($this->random->chance(0.25)){
-                $this->log->debug("Mutating soul in bank.");
-                $this->inventory_handler->forceRemoveItem($item);
-                $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
+            if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+            // In the bank, the count is > 1, we must loop through each soul
+            for($i = 0 ; $i < $item->getCount() ; $i++) {
+                if($this->random->chance(0.1)){
+                    $this->log->debug("Mutating soul in bank.");
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($town->getBank(), $this->item_factory->createItem('soul_red_#00'));
+                }
+            }
+        }
+
+        foreach ($town->getCitizens() as $citizen) {
+            foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                if($this->random->chance(0.1)){
+                    $this->log->debug("Mutating soul in chest of citizen <info>{$citizen->getUser()->getUsername()}</info>");
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
+                    $this->entity_manager->persist($citizen->getHome()->getChest());
+                }
+            }
+            foreach ($citizen->getInventory()->getItems() as $item) {
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                if($this->random->chance(0.1)){
+                    $this->log->debug("Mutating soul in rucksack of citizen <info>{$citizen->getUser()->getUsername()}</info>");
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
+                    $this->entity_manager->persist($citizen->getHome()->getChest());
+                }
             }
         }
     }

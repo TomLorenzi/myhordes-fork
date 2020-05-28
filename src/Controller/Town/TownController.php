@@ -1204,15 +1204,18 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $door_locked = $this->door_is_locked($th);
         $can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
 
+        $town = $this->getActiveCitizen()->getTown();
+
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
-            'town'  =>  $this->getActiveCitizen()->getTown(),
-    	    'door_locked' => $door_locked,
-    	    'can_go_out' => $can_go_out,
+            'def'               => $th->calculate_town_def($town, $defSummary),
+            'town'              =>  $town,
+            'door_locked'       => $door_locked,
+            'can_go_out'        => $can_go_out,
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'show_sneaky' => $this->getActiveCitizen()->hasRole('ghoul'),
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
-            'day' => $this->getActiveCitizen()->getTown()->getDay(),
+            'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
+            'log'               => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
+            'day'               => $this->getActiveCitizen()->getTown()->getDay(),
         ], $this->get_map_blob())) );
     }
 
@@ -1348,7 +1351,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
-        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
+        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getZone())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         $healableStatus = [

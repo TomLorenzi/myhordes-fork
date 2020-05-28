@@ -4606,7 +4606,7 @@
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Vue d'ensemble</target>
+        <target>Vue d'ensemble de la ville</target>
       </segment>
     </unit>
     <unit id="0.KJY95" name="Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.">
@@ -9202,15 +9202,6 @@
         <target>Choisir des armes !</target>
       </segment>
     </unit>
-    <unit id="dGfxw4F" name="2242ddb">
-      <notes>
-        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
-      </notes>
-      <segment>
-        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
-      </segment>
-    </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
       <notes>
         <note category="german">Benutzte Waffe</note>
@@ -10941,7 +10932,7 @@
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
-        <note category="german">Teilnehmen</note>
+        <note category="german">Help out!</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -10950,7 +10941,7 @@
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
       <notes>
-        <note category="german">Die letzte Zeitung lesen</note>
+        <note category="german">Read the last gazette</note>
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
@@ -10986,20 +10977,74 @@
     </unit>
     <unit id="6kQh7Rd" name="Stadtverteidigung">
       <notes>
-        <note category="german">Stadtverteidigung</note>
+        <note category="german">Defence points</note>
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
-        <target>Défenses de la ville</target>
+        <target>Défenses ville</target>
       </segment>
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
       <notes>
-        <note category="german">Details ansehen</note>
+        <note category="german">Details infos</note>
       </notes>
       <segment>
         <source>Details ansehen</source>
         <target>Voir les détails</target>
+      </segment>
+    </unit>
+    <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
+      <notes>
+        <note category="german">%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
+        <target>%citizen% a fait tomber la pluie et a tué %kills% zombies.</target>
+      </segment>
+    </unit>
+    <unit id="0jW7cq9" name="Stadttor geöffnet">
+      <notes>
+        <note category="german">Stadttor geöffnet</note>
+      </notes>
+      <segment>
+        <source>Stadttor geöffnet</source>
+        <target>Portes ouvertes</target>
+      </segment>
+    </unit>
+    <unit id="rRAcec3" name="Stadttor geschlossen">
+      <notes>
+        <note category="german">Stadttor geschlossen</note>
+      </notes>
+      <segment>
+        <source>Stadttor geschlossen</source>
+        <target>Portes fermées</target>
+      </segment>
+    </unit>
+    <unit id="_DKPL9S" name="Wer ist draußen?">
+      <notes>
+        <note category="german">Wer ist draußen?</note>
+      </notes>
+      <segment>
+        <source>Wer ist draußen?</source>
+        <target>Qui est dehors ?</target>
+      </segment>
+    </unit>
+    <unit id="KVApIB1" name="Lage">
+      <notes>
+        <note category="german">Lage</note>
+      </notes>
+      <segment>
+        <source>Lage</source>
+        <target>État</target>
+      </segment>
+    </unit>
+    <unit id="A7ZG3D1" name="2d5f077">
+      <notes>
+        <note category="german">Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
+        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
       </segment>
     </unit>
   </file>

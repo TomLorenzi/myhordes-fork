@@ -110,8 +110,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
         $citizen_hidden = !$this->activeCitizenIsNotCamping();
 
-
-
         $scavenger_sense = $this->getActiveCitizen()->getProfession()->getName() === 'collec';
         $scout_level = null;
         $scout_sense = false;
@@ -845,18 +843,21 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get('escort', null);
+        $citizen = $this->getActiveCitizen();
+
         if ($escort !== null) {
             /** @var Citizen $c */
             $c = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
-            if ($c && ($es = $c->getEscortSettings()) && $es->getLeader() &&
-                $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess())
+            if ($c && ($es = $c->getEscortSettings()) && $es->getLeader() && $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess()) {
                 $up_inv   = $c->getInventory();
+                $citizen  = $c;
+            }
             else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         } else $up_inv   = $this->getActiveCitizen()->getInventory();
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen);
     }
 
     /**
@@ -1323,13 +1324,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
-        $is_shaman = false;
-        foreach ($citizen->getRoles() as $role) {
-            if($role->getName() == "shaman") {
-                $is_shaman = true;
-                break;
-            }
-        }
+        $is_shaman = $citizen->hasRole('shaman');
 
         // Forbidden if not shaman
         if(!$is_shaman){

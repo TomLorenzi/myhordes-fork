@@ -55,6 +55,9 @@ class AdminActionController extends AbstractController
             case 3:
                 return $this->redirect($this->generateUrl('admin_town_list'));
                 break;
+            case 4:
+                return $this->redirect($this->generateUrl('admin_changelogs'));
+                break;
             default:
                 break;
         }

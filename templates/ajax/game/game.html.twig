@@ -44,7 +44,7 @@
                     <li class="status">
                     	<img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
                     	{% if stat.description %}
-                    	<div class="tooltip temp-building">
+                    	<div class="tooltip normal">
                             <h1>{{ stat.label|trans({}, 'game') }}</h1>
                         {{ stat.description|trans({}, 'game')}}
                     	</div>
@@ -59,14 +59,14 @@
             <ul class="ap">
                 <li>{{ ap }}<em>/{{ max_ap }}</em></li>
             </ul>
-            <div class="tooltip">
-                <b>{{ 'Aktionspunkte'|trans({},'game') }}</b><br />
-                {% trans from 'game' %}
+            <div class="tooltip help">
+                <h1>{{ 'Aktionspunkte'|trans({},'game') }}</h1>
+                <em>{% trans from 'game' %}
                     Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.
-                {% endtrans %}
+                {% endtrans %}</em>
             </div>
         </div>
     {% endif %}
@@ -75,13 +75,13 @@
             <ul class="bp">
                 <li>{{ bp }}<em>/{{ max_bp }}</em></li>
             </ul>
-            <div class="tooltip">
-                <b>{{ 'Baupunkte'|trans({},'game') }}</b><br />
-                {% trans from 'game' %}
+            <div class="tooltip help">
+                <h1>{{ 'Baupunkte'|trans({},'game') }}</h1>
+                <em>{% trans from 'game' %}
                     Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!
-                {% endtrans %}
+                {% endtrans %}</em>
             </div>
         </div>
     {% endif %}
@@ -90,11 +90,11 @@
             <ul class="pm">
                 <li>{{ pm }}<em>/{{ max_pm }}</em></li>
             </ul>
-            <div class="tooltip">
-                <b>{{ 'Mystic-Punkte'|trans({},'game') }}</b><br />
-                {% trans from 'game' %}
+            <div class="tooltip help">
+                <h1>{{ 'Mystic-Punkte'|trans({},'game') }}</h1>
+                <em>{% trans from 'game' %}
                     Diese Punkte sind exklusiv für den Schamanen reserviert.
-                {% endtrans %}
+                {% endtrans %}</em>
             </div>
         </div>
     {% endif %}
@@ -123,7 +123,7 @@
             {% endfor %}
             {% if banished %}
             <li class="status"><img src="{{ asset('build/images/banished.gif') }}" alt="{{ 'Verbannt'|trans({},'game') }}">
-                <div class="tooltip">
+                <div class="tooltip normal">
                     <b>{{ 'Verbannt'|trans({},'game') }}</b><br />
                     {% trans from 'game' %}
                         Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur

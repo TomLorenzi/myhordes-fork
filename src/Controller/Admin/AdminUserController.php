@@ -26,7 +26,7 @@ class AdminUserController extends AdminActionController
      */
     public function users(): Response
     {
-        return $this->render( 'ajax/admin/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
+        return $this->render( 'ajax/admin/users/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
         ]));      
     }
 

@@ -8325,10 +8325,46 @@
         <target>Vous prenez quelques minutes pour nettoyer votre {item}. Vous faites de votre mieux pour retirer les taches de sang qui le parsèment puis vous rafistolez les quelques trous.</target>
       </segment>
     </unit>
+    <unit id="NEVAuft" name="0671c26">
+      <notes>
+        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
+      </notes>
+      <segment>
+        <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
+        <target>Ce médicament a renforcé votre organisme : vous ne subirez ni infection, ni ne serez transformé(e) en Goule. Cet effet se dissipera après l'attaque de ce soir. Note : cet effet ne protège pas des infections provoquées par une blessure non-traitée à minuit.</target>
+      </segment>
+    </unit>
+    <unit id="HgUvBW6" name="267bdee">
+      <notes>
+        <note category="german">Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</note>
+      </notes>
+      <segment>
+        <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
+        <target>Vous utilisez {item}, mais ce produit ne semble avoir aucun effet immédiat notable... Peut-être n'en aviez vous pas vraiment besoin ?</target>
+      </segment>
+    </unit>
+    <unit id="hkUU8xN" name="ebaac76">
+      <notes>
+        <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
+        <target><![CDATA[<t-stat-up-addict>Mauvaise nouvelle ! Vous devenez par la même occasion dépendant(e) ! Vous devrez dorénavant consommer au moins une drogue par jour ou mourir !</t-stat-up-addict>]]></target>
+      </segment>
+    </unit>
     <unit id="47DEQpj" name="">
       <segment>
         <source></source>
         <target></target>
+      </segment>
+    </unit>
+    <unit id="OXWKuXW" name="b549796">
+      <notes>
+        <note category="german">Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
+        <target>Vous installez solidement {item} puis placez dessus quelques débris et branches séchées pour camoufler le tout. Voilà qui devrait améliorer vos chances de vous cacher ici cette nuit. Vous avez utilisé 1 point(s) d'action.</target>
       </segment>
     </unit>
   </file>

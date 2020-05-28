@@ -472,6 +472,9 @@ class ActionHandler
             'casino' => '',
             'zone' => null,
             'well' => 0,
+            'message' => [
+            	$action->getMessage()
+            ],
         ];
 
         $item_in_chest = $item && $item->getInventory() && $item->getInventory()->getId() === $citizen->getHome()->getChest()->getId();
@@ -615,7 +618,7 @@ class ActionHandler
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
                             $citizen->getZone()
-                                ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [ $citizen->getInventory(), $citizen->getZone()->getFloor() ] : [$citizen->getInventory()])
+                                ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [ $citizen->getZone()->getFloor() ] : [$citizen->getInventory()])
                                 : ( $item_in_chest ? [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ] : [ $citizen->getInventory(), $citizen->getHome()->getChest(), $citizen->getTown()->getBank() ])
                         , true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
@@ -656,6 +659,10 @@ class ActionHandler
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
 
+            }
+
+            if($town_set = $result->getTown()){
+                $citizen->getTown()->setSoulDefense($citizen->getTown()->getSoulDefense() + $town_set->getAdditionalDefense());
             }
 
             if (($zoneEffect = $result->getZone()) && $base_zone = $citizen->getZone()) {
@@ -978,9 +985,17 @@ class ActionHandler
                 $r = $this->random_generator->pickResultsFromGroup( $result_group );
                 foreach ($r as &$sub_result) $execute_result( $sub_result );
             }
+
+            if($result->getMessage()){
+            	$index = $result->getMessage()->getOrdering();
+            	while(isset($execute_info_cache['message'][$index]) && !empty($execute_info_cache['message'][$index])) {
+            		$index++;
+            	}
+                $execute_info_cache['message'][$index] = $result->getMessage()->getText();
+            }
         };
 
-        foreach ($action->getResults() as &$result) $execute_result( $result );
+        foreach ($action->getResults() as &$result) $execute_result( $result ); // Here, we process AffectMessages AND $kill_by_poison var
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
@@ -989,36 +1004,51 @@ class ActionHandler
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }
 
-        if ($action->getMessage() && !$kill_by_poison) {
-            $message = $this->translator->trans( $action->getMessage(), [
-                '{ap}'        => $execute_info_cache['ap'],
-                '{minus_ap}'  => -$execute_info_cache['ap'],
-                '{well}'      => $execute_info_cache['well'],
-                '{item}'      => $this->wrap($execute_info_cache['item']),
-                '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
-                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
-                '{item_from}' => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
-                '{item_to}'   => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
-                '{target_from}' => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
-                '{target_to}'   => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
-                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
-                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
-                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
-                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
-                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
-                '{casino}'        => $execute_info_cache['casino'],
-            ], 'items' );
+        if ($kill_by_poison) {
+            $execute_info_cache['message'] = [];
+        }
 
-            do {
-                $message = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
-                    [, $tag, $text] = $m;
-                    return in_array( $tag, $tags ) ? $text : '';
-                }, $message, -1, $c);
-                $message = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($tags): string {
-                    [, $tag, $text] = $m;
-                    return !in_array( $tag, $tags ) ? $text : '';
-                }, $message, -1, $d);
-            } while ($c > 0 || $d > 0);
+        if(!empty($execute_info_cache['message'])) {
+        	// We order the messages
+        	ksort($execute_info_cache['message']);
+
+        	// We translate & replace placeholders in each messages
+        	$addedContent = [];
+        	foreach ($execute_info_cache['message'] as $contentMessage) {
+        		$contentMessage = $this->translator->trans( $contentMessage, [
+	                '{ap}'        => $execute_info_cache['ap'],
+	                '{minus_ap}'  => -$execute_info_cache['ap'],
+	                '{well}'      => $execute_info_cache['well'],
+	                '{item}'      => $this->wrap($execute_info_cache['item']),
+	                '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
+	                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
+	                '{item_from}' => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
+	                '{item_to}'   => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
+	                '{target_from}' => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
+	                '{target_to}'   => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
+	                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
+	                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
+	                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
+	                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
+	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
+	                '{casino}'        => $execute_info_cache['casino'],
+	            ], 'items' );
+	        	do {
+	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
+	                    [, $tag, $text] = $m;
+	                    return in_array( $tag, $tags ) ? $text : '';
+	                }, $contentMessage, -1, $c);
+	                $contentMessage = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($tags): string {
+	                    [, $tag, $text] = $m;
+	                    return !in_array( $tag, $tags ) ? $text : '';
+	                }, $contentMessage, -1, $d);
+	            } while ($c > 0 || $d > 0);
+	            $addedContent[] = $contentMessage;
+        	}
+        	
+        	// We remove empty elements
+        	$addedContent = array_filter($addedContent);
+            $message = implode('<hr />', $addedContent);
         }
 
 
