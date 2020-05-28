@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Städte</source>
-        <target>Städte</target>
+        <target>Towns</target>
       </segment>
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
@@ -745,7 +745,7 @@
       </notes>
       <segment>
         <source>Zukunft</source>
-        <target>Zukunft</target>
+        <target>Future</target>
       </segment>
     </unit>
     <unit id="q8r8gtq" name="Titel">
@@ -754,7 +754,7 @@
       </notes>
       <segment>
         <source>Titel</source>
-        <target>Titel</target>
+        <target>Title</target>
       </segment>
     </unit>
     <unit id="3RZ5Bd4" name="Version">
@@ -772,7 +772,7 @@
       </notes>
       <segment>
         <source>Neue Update</source>
-        <target>Neue Update</target>
+        <target>New Update</target>
       </segment>
     </unit>
   </file>
