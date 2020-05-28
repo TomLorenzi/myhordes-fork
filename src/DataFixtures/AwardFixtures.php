@@ -271,7 +271,7 @@ class AwardFixtures extends Fixture {
 
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
-        $output->writeln( '<info>Installing fixtures: Emotes Database</info>' );
+        $output->writeln( '<info>Installing fixtures: AwardPrototype Database</info>' );
         $output->writeln("");
 
         $this->insertAwards($manager, $output);
