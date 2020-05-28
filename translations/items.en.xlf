@@ -4924,7 +4924,7 @@
     <unit id="ZRYosW7" name="e6be535">
       <notes>
         <note>Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
-        <note category="german">Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
+        <note category="german">When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</note>
       </notes>
       <segment>
         <source>Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
@@ -7370,7 +7370,7 @@
       </notes>
       <segment>
         <source>Heilen (5AP)</source>
-        <target>Heilen (5AP)</target>
+        <target>Heal (5AP)</target>
       </segment>
     </unit>
     <unit id="8.uDazR" name="Heilen (6AP)">
@@ -7379,7 +7379,7 @@
       </notes>
       <segment>
         <source>Heilen (6AP)</source>
-        <target>Heilen (6AP)</target>
+        <target>Heal (6AP)</target>
       </segment>
     </unit>
     <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
@@ -7388,7 +7388,7 @@
       </notes>
       <segment>
         <source>Verteidigung organisieren (1 AP)</source>
-        <target>Verteidigung organisieren (1 AP)</target>
+        <target>Organize defences (1 AP)</target>
       </segment>
     </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
@@ -7397,7 +7397,7 @@
       </notes>
       <segment>
         <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
-        <target>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</target>
+        <target>You take a walk round the town to check for weaknesses and kick some dodgy-looking repairs to test their worth.</target>
       </segment>
     </unit>
     <unit id="V1W3ATr" name="Nach Ruinen Ausschau halten">
@@ -7460,7 +7460,7 @@
       </notes>
       <segment>
         <source>Droge herstellen</source>
-        <target>Droge herstellen</target>
+        <target>Manufacture drug</target>
       </segment>
     </unit>
     <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
@@ -7517,6 +7517,12 @@
         <target>Compass</target>
       </segment>
     </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="txP7Qji" name="Vodka Marinostov">
       <notes>
         <note category="german">Vodka Marinostov</note>
@@ -7568,7 +7574,7 @@
       </notes>
       <segment>
         <source>Nickerchen machen</source>
-        <target>Nickerchen machen</target>
+        <target>Take a nap</target>
       </segment>
     </unit>
     <unit id="bFugpqQ" name="7f96c6f">
@@ -7739,7 +7745,7 @@
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
-        <target>Reinigen (Wasser)</target>
+        <target>Clean</target>
       </segment>
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
@@ -7753,11 +7759,47 @@
     </unit>
     <unit id="5v3eyG." name="9caf33d">
       <notes>
-        <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
+        <note category="german">You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</note>
       </notes>
       <segment>
         <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
         <target>You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</target>
+      </segment>
+    </unit>
+    <unit id="HgUvBW6" name="267bdee">
+      <notes>
+        <note category="german">Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</note>
+      </notes>
+      <segment>
+        <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
+        <target>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</target>
+      </segment>
+    </unit>
+    <unit id="OXWKuXW" name="b549796">
+      <notes>
+        <note category="german">Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
+        <target>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="NEVAuft" name="0671c26">
+      <notes>
+        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
+      </notes>
+      <segment>
+        <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
+        <target>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</target>
+      </segment>
+    </unit>
+    <unit id="hkUU8xN" name="ebaac76">
+      <notes>
+        <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
+        <target><![CDATA[<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>]]></target>
       </segment>
     </unit>
   </file>

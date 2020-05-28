@@ -3518,7 +3518,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) has left to the %direction%.</target>
+        <target>%citizen% (%profession%) has set out towards the %direction%.</target>
       </segment>
     </unit>
     <unit id="07sRf7u" name="%citizen% (%profession%) ist aus dem %direction% angekommen.">
@@ -10154,7 +10154,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="6kQh7Rd" name="Stadtverteidigung">
       <notes>
-        <note category="german">Stadtverteidigung</note>
+        <note category="german">Defence points</note>
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
@@ -10163,7 +10163,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
       <notes>
-        <note category="german">Details ansehen</note>
+        <note category="german">Details infos</note>
       </notes>
       <segment>
         <source>Details ansehen</source>
@@ -10195,6 +10195,60 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
         <target>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</target>
+      </segment>
+    </unit>
+    <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
+      <notes>
+        <note category="german">%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
+        <target>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</target>
+      </segment>
+    </unit>
+    <unit id="KVApIB1" name="Lage">
+      <notes>
+        <note category="german">Lage</note>
+      </notes>
+      <segment>
+        <source>Lage</source>
+        <target>Lage</target>
+      </segment>
+    </unit>
+    <unit id="0jW7cq9" name="Stadttor geöffnet">
+      <notes>
+        <note category="german">Stadttor geöffnet</note>
+      </notes>
+      <segment>
+        <source>Stadttor geöffnet</source>
+        <target>Stadttor geöffnet</target>
+      </segment>
+    </unit>
+    <unit id="_DKPL9S" name="Wer ist draußen?">
+      <notes>
+        <note category="german">Wer ist draußen?</note>
+      </notes>
+      <segment>
+        <source>Wer ist draußen?</source>
+        <target>Wer ist draußen?</target>
+      </segment>
+    </unit>
+    <unit id="rRAcec3" name="Stadttor geschlossen">
+      <notes>
+        <note category="german">Stadttor geschlossen</note>
+      </notes>
+      <segment>
+        <source>Stadttor geschlossen</source>
+        <target>Stadttor geschlossen</target>
+      </segment>
+    </unit>
+    <unit id="A7ZG3D1" name="2d5f077">
+      <notes>
+        <note category="german">Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
+        <target>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</target>
       </segment>
     </unit>
   </file>
