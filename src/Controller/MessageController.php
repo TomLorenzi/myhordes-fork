@@ -200,6 +200,7 @@ class MessageController extends AbstractController
 
     private const HTML_ALLOWED_ADMIN = [
         'img' => [ 'alt', 'src', 'title'],
+        'admannounce',
     ];
 
     private const HTML_ATTRIB_ALLOWED = [
