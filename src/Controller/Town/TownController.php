@@ -350,9 +350,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param int $id
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param TownHandler $th
+     * @param ItemFactory $if
      * @return Response
      */
-    public function dispose_visit_api(int $id, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function dispose_visit_api(int $id, EntityManagerInterface $em, JSONRequestParser $parser, TownHandler $th, ItemFactory $if): Response {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
@@ -373,6 +375,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $message = "";
         switch ($action) {
             case 1:
+                // Thrown outside
                 if ($ac->getAp() <= 2 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
                 $this->citizen_handler->setAP($ac, true, -2);
@@ -382,6 +385,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->addDisposedBy($ac);
                 break;
             case 2:
+                // Watered
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
                 $this->inventory_handler->forceRemoveItem( $items[0] );
@@ -391,6 +395,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->addDisposedBy($ac);
                 break;
             case 3:
+                // Cooked
                 $town = $ac->getTown();
                 if (!$th->getBuilding($town, 'item_hmeat_#00', true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -403,8 +408,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         foreach ($spawn_items as $item_spec)
-            for ($i = 0; $i < $item_spec['count']; $i++)
-                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $if->createItem( $item_spec['item'] )  );
+            for ($i = 0; $i < $item_spec['count']; $i++) {
+                $new_item = $if->createItem( $item_spec['item'] );
+                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $new_item  );
+            }
+
         $em->persist( $this->log->citizenDisposal( $ac, $c, $action, $spawn_items ) );
         $c->getHome()->setHoldsBody( false );
 
