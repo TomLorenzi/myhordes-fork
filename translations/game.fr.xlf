@@ -2319,7 +2319,7 @@
       </notes>
       <segment>
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
-        <target>La zone est épuisée. Vous ne trouverez plus d'objet de valeur ici.</target>
+        <target>La zone est épuisée, on ne pourra plus y trouver que des ressources de mauvaise qualité...</target>
       </segment>
     </unit>
     <unit id="M8h1dhU" name="Stadt betreten">
@@ -8992,7 +8992,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : %ruin% !</target>
+        <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : %ruin%  ! Vous avez utilisé 1 point(s) d'action.</target>
       </segment>
     </unit>
     <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
