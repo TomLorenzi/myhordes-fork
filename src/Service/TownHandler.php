@@ -180,6 +180,13 @@ class TownHandler
                 $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcrow_#00");
                 $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
                 break;
+            case "item_electro_#00":
+                $zones = $town->getZones();
+                foreach ($zones as $zone) {
+                    $zone->setZombieStatus(Zone::ZombieStateExact);
+                    $this->entity_manager->persist($zone);
+                }
+                break;
             default: break;
         }
 
