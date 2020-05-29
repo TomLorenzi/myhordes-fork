@@ -583,11 +583,17 @@ class MessageController extends AbstractController
 
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
+
+        $firstpost = null;
+        if($parser->has('firstpost')) {
+            $firstpost = $parser->get('firstpost');
+            $page = 1;
+        }
         
         if ($user->getRightsElevation() >= User::ROLE_CROW)
-            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
+            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread, $firstpost)-1) / $num_per_page) + 1;
         else
-            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
+            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread, $firstpost)-1) / $num_per_page) + 1;
 
         if ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
@@ -595,14 +601,23 @@ class MessageController extends AbstractController
         else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
 
         if ($user->getRightsElevation() >= User::ROLE_CROW)
-            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page, $firstpost);
         else
-            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page, $firstpost);
 
-        foreach ($posts as $post)
+        $announces = [
+            'admin' => [],
+            'oracle' => []
+        ];
+
+        $announces['admin'] = $em->getRepository(Post::class)->findAdminAnnounces($thread);
+        $announces['oracle'] = $em->getRepository(Post::class)->findOracleAnnounces($thread);
+
+        foreach ($posts as $post){
             /** @var $post Post */
             if ($marker->getPost() === null || $marker->getPost()->getId() < $post->getId())
                 $post->setNew();
+        }
 
         if (!empty($posts)) {
             /** @var Post $read_post */
@@ -627,6 +642,8 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'current_page' => $page,
             'pages' => $pages,
+            'announces' => $announces,
+            'firstpost' => $firstpost ?? 0
         ] );
     }
 

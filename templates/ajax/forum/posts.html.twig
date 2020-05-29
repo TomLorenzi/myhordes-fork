@@ -26,6 +26,38 @@
     {% endif %}
 {% endblock %}
 
+
+{% if announces.admin|length > 0 %}
+    <div class="row">
+        <div class="cell padded rw-8 ro-2">
+            <div class="adminAnnounces announces">
+                <span class="announce">{{'Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"%count%": announces.admin|length}, 'global')}}</span>
+                <ul>
+                {% for adminannounce in announces.admin %}
+                    <li x-post-id="{{adminannounce.id}}">[{{adminannounce.date|format_datetime('medium', 'none')}}] {{adminannounce.text|striptags|slice(0, 50)}}[...]</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if announces.oracle|length > 0 %}
+    <div class="row">
+        <div class="row">
+        <div class="cell padded rw-8 ro-2">
+            <div class="oracleAnnounces announces">
+                <span class="announce">{{'Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:'|trans({"%count%": announces.oracle|length}, 'global')}}</span>
+                <ul>
+                {% for oracleannounce in announces.oracle %}
+                    <li x-post-id="{{oracleannounce.id}}">[{{oracleannounce.date|format_datetime('medium', 'none')}}] {{oracleannounce.text|striptags|slice(0, 50)}}[...]</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endif %}
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden or is_granted("ROLE_CROW") %}
@@ -121,7 +153,7 @@
 {{ block('pagenav') }}
 <script>
     const loadPage = function(page) {
-        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
+        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page, firstpost: {{firstpost}} } );
     };
     const reloadPage = function() { loadPage( {{ current_page }} ); };
 
@@ -163,6 +195,12 @@
             })
         {% endif %}
     {% endif %}
+
+    let announces = document.querySelectorAll(".announces li");
+    for (let i = 0; i < announces.length; i++)
+        announces[i].addEventListener('click', function() {
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page:1, firstpost: this.getAttribute('x-post-id') } );
+        })
     
     let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
     for (let i = 0; i < new_post_btns.length; i++)
@@ -177,7 +215,7 @@
             {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
             {% endif %}
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') )} );
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ), firstpost: {{firstpost}} } );
             window.scrollTo(window.top);
         })
     {% if pages == current_page %}

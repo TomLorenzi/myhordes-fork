@@ -329,3 +329,41 @@
     }
   }
 }
+
+.adminAnnounces, .oracleAnnounces {
+  font-size: 1rem;
+  padding: 3px;
+  padding-left: 25px;
+  color: white;
+  box-shadow: 0px 0px 2px black;
+  background-repeat: no-repeat;
+  background-position: 3px 3px;
+  border-radius: 3px;
+  &.adminAnnounces {
+    background-image: url("../../img/forum/adminAnnounce.png");
+    background-color: #553C53;
+    border: 1px solid #feb500;
+  }
+
+  &.oracleAnnounces {
+    background-image: url("../../img/forum/announce.png");
+    background-color: #3b4151;
+    border: 1px solid #4e5162;
+  }
+
+  .announce  {
+    font-size: 1.25rem;
+  }
+  ul {
+    list-style-image: url('../../img/forum/view.png');
+    padding-left: 20px;
+    color: #feb500;
+    li {
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

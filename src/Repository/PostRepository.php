@@ -23,26 +23,29 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    public function countByThread( Thread $thread ): int {
+    public function countByThread( Thread $thread , $fromPostId = null): int {
         try {
-            return $this->createQueryBuilder('p')
+            $q = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
-                ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
-                ->getQuery()
+                ->andWhere('p.thread = :thread')->setParameter('thread', $thread);
+
+            if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
+            return $q->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;
         }
     }
 
-    public function countUnhiddenByThread( Thread $thread ): int {
+    public function countUnhiddenByThread( Thread $thread , $fromPostId = null): int {
         try {
-            return $this->createQueryBuilder('p')
+             $q = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
                 ->andWhere('p.thread = :thread')
                 ->andWhere('p.hidden = false')
-                ->setParameter('thread', $thread)
-                ->getQuery()
+                ->setParameter('thread', $thread);
+            if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
+            return $q->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;
@@ -62,11 +65,12 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByThread(Thread $thread, $number = null, $offset = null)
+    public function findByThread(Thread $thread, $number = null, $offset = null, $fromPostId = null)
     {
         $q = $this->createQueryBuilder('p')
             ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
             ->orderBy('p.date', 'ASC');
+        if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
         return $q
@@ -75,15 +79,46 @@ class PostRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findUnhiddenByThread(Thread $thread, $number = null, $offset = null)
+    public function findUnhiddenByThread(Thread $thread, $number = null, $offset = null, $fromPostId = null)
     {
         $q = $this->createQueryBuilder('p')
             ->andWhere('p.thread = :thread')
             ->andWhere('p.hidden = false')
             ->setParameter('thread', $thread)
             ->orderBy('p.date', 'ASC');
+        if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
+        return $q
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findAdminAnnounces(Thread $thread)
+    {
+        $q = $this->createQueryBuilder('p')
+            ->andWhere('p.thread = :thread')
+            ->andWhere('p.hidden = false')
+            ->andWhere('p.text LIKE :markup')
+            ->setParameter('thread', $thread)
+            ->setParameter('markup', "%oracleAnnounce%")
+            ->orderBy('p.date', 'ASC');
+        return $q
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findOracleAnnounces(Thread $thread)
+    {
+        $q = $this->createQueryBuilder('p')
+            ->andWhere('p.thread = :thread')
+            ->andWhere('p.hidden = false')
+            ->andWhere('p.text LIKE :markup')
+            ->setParameter('thread', $thread)
+            ->setParameter('markup', "%oracleAnnounce%")
+            ->orderBy('p.date', 'ASC');
         return $q
             ->getQuery()
             ->getResult()
