@@ -8367,7 +8367,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
-        <target><![CDATA[Vous lisez {item} avec la plus grande attention.<t-bannote_ok>Cette note appartenait à un citoyen banni... La seule chose que vous pouvez lire est "{zone}"... Étrange... Vous détruisez la page juste pour être sûr que personne ne la lise...</t-bannote_ok><t-bannote_fail>Pas de chance, le contenu de cette note manuscrite est totalement illisible.</t-bannote_fail>]]></target>
+        <target><![CDATA[Vous lisez {item} avec la plus grande attention. <t-bannote_ok>Cette note appartenait à un citoyen banni... La seule chose que vous pouvez lire est "{zone}"... Étrange... Vous détruisez la page juste pour être sûr que personne ne la lise...</t-bannote_ok><t-bannote_fail>Pas de chance, le contenu de cette note manuscrite est totalement illisible.</t-bannote_fail>]]></target>
       </segment>
     </unit>
   </file>
