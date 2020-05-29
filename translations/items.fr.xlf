@@ -3756,7 +3756,7 @@
       </notes>
       <segment>
         <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>Vous avez ouvert {item} et avez obtenu {items_spawn} !</target>
+        <target>Vous avez ouvert {item} , vous trouvez : {items_spawn} à l'intérieur.</target>
       </segment>
     </unit>
     <unit id="v4TehoJ" name="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
@@ -3765,7 +3765,7 @@
       </notes>
       <segment>
         <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Vous avez ouvert {item} et avez obtenu {items_spawn} !</target>
+        <target>Vous avez ouvert {item} , vous trouvez : {items_spawn} à l'intérieur.</target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -3774,7 +3774,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert le {item} et y avez trouvé {items_spawn}!</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert {item} , vous trouvez : {items_spawn} à l'intérieur.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -4185,7 +4185,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Chercher de l'eau</target>
+        <target>En fouillant les environs vous découvrez une petite flaque d'eau croupie. Comme vous n'avez guère le choix, vous vous empressez de boire son contenu (ainsi que tout ce qui flotte dedans)... Vous avez récupéré tous vos PA.</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -4196,7 +4196,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Vous cherchez de la nourriture</target>
+        <target>Vous partez en quête de nourriture dans les environs...Après plusieurs longues minutes de recherche, vous finissez par mettre la main sur une poignée de gros vers visqueux qui se tortillent. Néanmoins, votre manuel est formel à leur sujet : ils sont comestibles ! Vous les avalez sans attendre avant qu'ils ne vous échappent. Vous avez récupéré tous vos PA.</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
@@ -4251,7 +4251,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Vous tirez une carte : {color} {value}.</target>
+        <target>Vous tirez la carte {value} de {color}.</target>
       </segment>
     </unit>
     <unit id="m5CJEyF" name="Die Rückkehr des Helden">
