@@ -976,7 +976,12 @@ class MessageController extends AbstractController
         $em->flush();
 
         // Show confirmation
-        $this->addFlash( 'notice', $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game') );
+        if(count($linked_items) > 0)
+            $message = $t->trans("Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.", [], 'game');
+        else
+            $message = $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game');
+        
+        $this->addFlash( 'notice',  $message);
         return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
     }
 

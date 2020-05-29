@@ -8370,5 +8370,11 @@
         <target><![CDATA[Vous lisez {item} avec la plus grande attention. <t-bannote_ok>Cette note appartenait à un citoyen banni... La seule chose que vous pouvez lire est "{zone}"... Étrange... Vous détruisez la page juste pour être sûr que personne ne la lise...</t-bannote_ok><t-bannote_fail>Pas de chance, le contenu de cette note manuscrite est totalement illisible.</t-bannote_fail>]]></target>
       </segment>
     </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
