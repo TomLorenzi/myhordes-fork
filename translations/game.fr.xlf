@@ -11065,5 +11065,41 @@
         <target>Nombres de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
       </segment>
     </unit>
+    <unit id="k9H0y76" name="d772640">
+      <notes>
+        <note category="german">Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
+        <target>Le citoyen %citizen% a découvert une cache d'objets (probablement celle d'un banni) ! Elle contenait : %items%.</target>
+      </segment>
+    </unit>
+    <unit id="UWWvoug" name="e164c18">
+      <notes>
+        <note category="german">Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
+        <target>Vous passez un peu de temps à cacher les objets que vous avez dans votre sac... Ha Ha... Vous avez utilisé 2 points d'action.</target>
+      </segment>
+    </unit>
+    <unit id="29AAorN" name="Rucksack verstecken">
+      <notes>
+        <note category="german">Rucksack verstecken</note>
+      </notes>
+      <segment>
+        <source>Rucksack verstecken</source>
+        <target>Enterrer son sac</target>
+      </segment>
+    </unit>
+    <unit id="F71fElc" name="f8178fb">
+      <notes>
+        <note category="german">Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+      </notes>
+      <segment>
+        <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Alors que vous commenciez votre fouille, vous avez remarqué une sorte de... cache contenant : %items% ! Hmmm... Ça a probablement été dissimulé là par un **citoyen banni**...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

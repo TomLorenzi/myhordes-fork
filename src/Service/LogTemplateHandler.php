@@ -605,8 +605,13 @@ class LogTemplateHandler
     }
 
     public function outsideFoundHiddenItems( Citizen $citizen, $items ): TownLogEntry {
-        $variables = array('citizen' => $citizen->getId(), 'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
-              else { return array('id' => $e[0]->getId()); } ;}, $items->toArray() ));
+        $variables = array('citizen' => $citizen->getId(), 'items' => array_map( function($e) {
+            if(array_key_exists('count', $e)) {
+                return array('id' => $e['item']->getId(),'count' => $e['count']);
+            } else {
+                return array('id' => $e->getId()); 
+            }
+            }, $items ));
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('outsideFoundHiddenItems');
 
         return (new TownLogEntry())
@@ -973,7 +978,7 @@ class LogTemplateHandler
     }
 
     public function beyondChat( Citizen $sender, string $message ): TownLogEntry {
-        $variables = array('sender' => $sender->getId(), 'message' => ': ' . htmlentities( $message ));
+        $variables = array('sender' => $sender->getId(), 'message' => htmlentities( $message ));
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('beyondChat');
 
         return (new TownLogEntry())

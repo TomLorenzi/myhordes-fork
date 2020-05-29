@@ -154,7 +154,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 }
                 catch (Exception $e) {
                     $entries[$idx]['text'] = "null";
-                }                          
+                }
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,

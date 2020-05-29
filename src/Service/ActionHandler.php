@@ -843,9 +843,10 @@ class ActionHandler
                     // Survivalist
                     case 6:case 7: {
                         $drink = $result->getCustom() === 6;
-                        $can_fail = $citizen->getTown()->getDay() > 4;
+                        $chances = max(0.1, 1 - ($citizen->getTown()->getDay() * 0.025));
+                        if($town->getDevastated()) $chances = max(0.1, $chances - 0.2);
 
-                        if (!$can_fail || $this->random_generator->chance(0.85)) {
+                        if ($this->random_generator->chance($chances)) {
 
                             if ($drink) $citizen->setWalkingDistance(0);
 
@@ -968,6 +969,19 @@ class ActionHandler
                         foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
                         foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
 
+                        break;
+                    }
+
+                    // Banned citizen note
+                    case 15: {
+                        $zones = $this->zone_handler->getZoneWithHiddenItems($citizen->getTown());
+                        if(count($zones) > 0) {
+                            $zone = $this->random_generator->pick($zones);
+                            $tags[] = 'bannote_ok';
+                            $execute_info_cache['zone'] = $zone;
+                        } else {
+                            $tags[] = 'bannote_fail';
+                        }
                         break;
                     }
                 }

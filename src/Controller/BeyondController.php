@@ -700,17 +700,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 }
             }
 
-            // Banished citizen's stach check
-            if($this->zone_handler->hasHiddenItem($new_zone) && $this->random_generator->chance(1)){
-                $this->entity_manager->persist($this->log->outsideFoundHiddenItems($citizen, $zone->getFloor()->getItems()));
-                foreach ($zone->getFloor()->getItems() as $item) {
-                    if($item->getHidden()){
-                        $item->setHidden(false);
-                        $this->entity_manager->persist($item);
-                    }
-                }
-            }
-
             // Set AP and increase walking distance counter
             $this->citizen_handler->setAP($mover, true, -1);
             if (!$citizen->hasRole('ghoul')) {
@@ -724,6 +713,17 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             // This text is a newly added one, but it breaks the "Sneak out of town"
             if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
+
+            // Banished citizen's stash check
+            if(!$citizen->getBanished() && $this->zone_handler->hasHiddenItem($new_zone) && $this->random_generator->chance(0.05)){
+                $this->entity_manager->persist($this->log->outsideFoundHiddenItems($citizen, $new_zone->getFloor()->getItems()->toArray()));
+                foreach ($new_zone->getFloor()->getItems() as $item) {
+                    if($item->getHidden()){
+                        $item->setHidden(false);
+                        $this->entity_manager->persist($item);
+                    }
+                }
+            }
 
             $this->entity_manager->persist($mover);
         }
