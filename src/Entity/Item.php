@@ -48,6 +48,11 @@ class Item
      */
     private $count = 1;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hidden = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class Item
     public function setCount(int $count): self
     {
         $this->count = $count;
+
+        return $this;
+    }
+
+    public function getHidden(): ?bool
+    {
+        return $this->hidden;
+    }
+
+    public function setHidden(bool $hidden): self
+    {
+        $this->hidden = $hidden;
 
         return $this;
     }

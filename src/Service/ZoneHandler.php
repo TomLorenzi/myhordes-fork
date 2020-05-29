@@ -100,6 +100,12 @@ class ZoneHandler
             }
         }
 
+        $wrap = function(array $a) {
+            return implode(', ', array_map(function(ItemPrototype $p) {
+                return "<span><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->trans->trans($p->getLabel(), [], 'items')}</span>";
+            }, $a));
+        };
+
         $zone_update = false;
         $not_up_to_date = !empty($dig_timers);
         while ($not_up_to_date) {
@@ -169,6 +175,19 @@ class ZoneHandler
                     } catch (Exception $e) {
                         $timer->setTimestamp( new DateTime('+1min') );
                     }
+
+                    // Banished citizen's stach check
+                    if(!$timer->getCitizen()->getBanished() && $this->hasHiddenItem($timer->getZone()) && $this->random_generator->chance(0.05)){
+                        $items = $timer->getZone()->getFloor()->getItems();
+                        $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
+                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['%items%' => $wrap($itemsproto) ], 'game');
+                        foreach ($items as $item) {
+                            if($item->getHidden()){
+                                $item->setHidden(false);
+                                $this->entity_manager->persist($item);
+                            }
+                        }
+                    }
                 }
             $not_up_to_date = $dig_timers[0]->getTimestamp() < $up_to;
         }
@@ -176,12 +195,6 @@ class ZoneHandler
         if ($zone_update) $this->entity_manager->persist($zone);
         foreach ($dig_timers as $timer) $this->entity_manager->persist( $timer );
         $this->entity_manager->flush();
-
-        $wrap = function(array $a) {
-            return implode(', ', array_map(function(ItemPrototype $p) {
-                return "<span><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->trans->trans($p->getLabel(), [], 'items')}</span>";
-            }, $a));
-        };
 
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){
@@ -354,6 +367,46 @@ class ZoneHandler
         $cache = [];
         /** @var Item $item */
         foreach ($soul_items as $item)
+            if (!isset($cache[$item->getInventory()->getId()]))
+                $cache[$item->getInventory()->getId()] = $item->getInventory()->getZone();
+        return array_values($cache);
+    }
+
+    public function hasHiddenItem(Zone $zone){
+        // get hidden item count
+        $query = $this->entity_manager->createQueryBuilder()
+            ->select('SUM(i.count)')
+            ->from(Item::class, 'i')
+            ->andWhere('i.inventory = :invs')->setParameter('invs', $zone->getFloor())
+            ->andWhere('i.hidden = true')
+            ->getQuery();
+
+        return $query->getSingleScalarResult() > 0;
+    }
+
+    public function getZoneWithHiddenItems( Town $town ) {
+        // Get all zone inventory IDs
+        // We're just getting IDs, because we don't want to actually hydrate the inventory instances
+        $zone_invs = array_column($this->entity_manager->createQueryBuilder()
+            ->select('i.id')
+            ->from(Inventory::class, 'i')
+            ->join("i.zone", "z")
+            ->andWhere('z.id IN (:zones)')->setParameter('zones', $town->getZones())
+            ->getQuery()
+            ->getScalarResult(), 'id');
+
+        // Get all hidden items within these inventories
+        $hidden_items = $this->entity_manager->createQueryBuilder()
+            ->select('i')
+            ->from(Item::class, 'i')
+            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $zone_invs)
+            ->andWhere('i.hidden = true')
+            ->getQuery()
+            ->getResult();
+
+        $cache = [];
+        /** @var Item $item */
+        foreach ($hidden_items as $item)
             if (!isset($cache[$item->getInventory()->getId()]))
                 $cache[$item->getInventory()->getId()] = $item->getInventory()->getZone();
         return array_values($cache);

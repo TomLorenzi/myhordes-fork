@@ -199,8 +199,13 @@ class MessageController extends AbstractController
     ];
 
     private const HTML_ALLOWED_ADMIN = [
-        'img' => [ 'alt', 'src', 'title'],
-        'admannounce',
+        'img' => [ 'alt', 'src', 'title']
+    ];
+
+    private const HTML_ATTRIB_ALLOWED_ADMIN = [
+        'div.class' => [
+            'adminAnnounce'
+        ]
     ];
 
     private const HTML_ATTRIB_ALLOWED = [
@@ -215,13 +220,16 @@ class MessageController extends AbstractController
 
     private function getAllowedHTML(): array {
         $r = self::HTML_ALLOWED;
+        $a = self::HTML_ATTRIB_ALLOWED;
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
+        if ($user->getRightsElevation() >= User::ROLE_CROW) {
             $r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
+            $a = array_merge( $a, self::HTML_ATTRIB_ALLOWED_ADMIN);
+        }
 
-        return ['nodes' => $r, 'attribs' => self::HTML_ATTRIB_ALLOWED];
+        return ['nodes' => $r, 'attribs' => $a];
     }
 
     private function htmlValidator( array $allowedNodes, ?DOMNode $node, int &$text_length, int $depth = 0 ): bool {
@@ -977,7 +985,12 @@ class MessageController extends AbstractController
         $em->flush();
 
         // Show confirmation
-        $this->addFlash( 'notice', $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game') );
+        if(count($linked_items) > 0)
+            $message = $t->trans("Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.", [], 'game');
+        else
+            $message = $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game');
+        
+        $this->addFlash( 'notice',  $message);
         return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
     }
 

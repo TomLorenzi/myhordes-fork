@@ -3,7 +3,7 @@
 
 namespace App\Translation;
 
-
+use App\Entity\AffectMessage;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
@@ -83,6 +83,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $itemCategory ItemCategory */
             if ($itemCategory->getLabel())
                 $this->insert( $c, $itemCategory->getLabel(), 'items' );
+
+        foreach ($this->em->getRepository(AffectMessage::class)->findAll() as $affectMessage)
+            /** @var $affectMessage AffectMessage */
+            if ($affectMessage->getText())
+                $this->insert( $c, $affectMessage->getText(), 'items' );
 
         //</editor-fold>
 

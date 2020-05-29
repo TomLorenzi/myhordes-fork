@@ -358,8 +358,8 @@ class ItemFixtures extends Fixture
         ['label' =>'Kaputter Stock','icon'=>'staff2','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // -- ---
         ['label' =>'Britney Spears CD','icon'=>'cdbrit','category'=>'furniture','deco'=>3,'heavy'=>false, 'watchpoint' => 0],                                   // -- ---
         ['label' =>'Best of The King CD','icon'=>'cdelvi','category'=>'furniture','deco'=>7,'heavy'=>false, 'watchpoint' => 0],                                 // -- ---
-        ['label' =>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                     // -- ---
-        ['label' =>'Verteidigende HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                   // -- ---
+        ['label' =>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                     // -- ---
+        ['label' =>'Verteidigende HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                   // -- ---
         ['label' =>'Schrödingers Box','icon'=>'catbox','category'=>'box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                          // In Out
         ['label' =>'Geistiger Beistand','icon'=>'chkspk','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // -- ---
         ['label' =>'Fette Python','icon'=>'pet_snake2','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                          // -- ---
@@ -823,6 +823,7 @@ class ItemFixtures extends Fixture
         'water_can_1_#00'  => [ 'can_poison', 'esc_fixed' ],
         'cyanure_#00'      => [ 'can_poison' ],
         'lock_#00'         => [ 'lock' ],
+        'dfhifi_#01'       => [ 'lock' ],
         'pile_#00'       => [ 'hero_find' ],
         'food_bag_#00'   => [ 'hero_find' ],
         'rsc_pack_2_#00' => [ 'hero_find' ],
@@ -1021,8 +1022,8 @@ class ItemFixtures extends Fixture
             array('item' => 'cdphil_#00','count' => '67'),
             array('item' => 'cinema_#00','count' => '53'),
             array('item' => 'maglite_off_#00','count' => '24'),
-            array('item' => 'vodka_de_#00','count' => '6'),
             array('item' => 'vodka_#00','count' => '18'),
+            array('item' => 'vodka_de_#00','count' => '6'),
         ),
         'christmas_dig' => [
             array('item' => 'renne_#00','count' => '14'),

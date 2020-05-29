@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AdminReport;
+use App\Entity\Picto;
+use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
@@ -26,7 +28,7 @@ class AdminUserController extends AdminActionController
      */
     public function users(): Response
     {
-        return $this->render( 'ajax/admin/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
+        return $this->render( 'ajax/admin/users/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
         ]));      
     }
 
@@ -278,5 +280,21 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("jx/admin/users/{id}/pictos/view", name="admin_users_pictos_view", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function users_pictos_view(int $id): Response
+    {
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findByUser($user);
+        return $this->render( 'ajax/admin/users/pictos.html.twig', $this->addDefaultTwigArgs("admin_users_pictos", [
+            'user' => $user,
+            'pictos' => $pictos
+        ]));        
     }
 }

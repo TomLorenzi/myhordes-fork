@@ -38,6 +38,7 @@ class CitizenInspectorCommand extends Command
             ->addArgument('CitizenID', InputArgument::REQUIRED, 'The citizen ID')
 
             ->addOption('set-ap', 'ap',InputOption::VALUE_REQUIRED, 'Sets the current AP.', -1)
+            ->addOption('set-pm', 'pm',InputOption::VALUE_REQUIRED, 'Sets the current PM.', -1)
 
             ->addOption('add-status','sn',InputOption::VALUE_REQUIRED, 'Adds a new status.', '')
             ->addOption('remove-status',null,InputOption::VALUE_REQUIRED, 'Removes an existing status.', '')
@@ -92,6 +93,12 @@ class CitizenInspectorCommand extends Command
             $updated = true;
         }
 
+        $set_pm = $input->getOption('set-pm');
+        if ($set_pm >= 0 && $citizen->hasRole('shaman')) {
+            $citizen->setPm( $set_pm );
+            $updated = true;
+        }
+
         if (($ban = $input->getOption('set-banned')) !== '') {
             $citizen->setBanished($ban);
             $updated = true;
@@ -136,6 +143,11 @@ class CitizenInspectorCommand extends Command
             $output->writeln( "Adding role '<info>{$role->getName()}</info>'.\n" );
             $citizen->addRole( $role );
 
+            if($new_role === 'shaman') {
+                $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+                $citizen->addStatus( $status );
+            }
+
             $updated = true;
         }
 
@@ -149,6 +161,11 @@ class CitizenInspectorCommand extends Command
 
             $output->writeln( "Removing role '<info>{$role->getName()}</info>'.\n" );
             $citizen->removeRole( $role );
+
+            if($rem_role === 'shaman') {
+                $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+                $citizen->removeStatus( $status );
+            }
 
             $updated = true;
         }

@@ -9202,15 +9202,6 @@
         <target>Choisir des armes !</target>
       </segment>
     </unit>
-    <unit id="dGfxw4F" name="2242ddb">
-      <notes>
-        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
-      </notes>
-      <segment>
-        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
-      </segment>
-    </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
       <notes>
         <note category="german">Benutzte Waffe</note>
@@ -10293,7 +10284,7 @@
     </unit>
     <unit id="rGmg51l" name="[nichts]">
       <notes>
-        <note category="german">[nichts]</note>
+        <note category="german">[ nothing ]</note>
       </notes>
       <segment>
         <source>[nichts]</source>
@@ -10716,7 +10707,7 @@
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
       <notes>
-        <note category="german">Neue Nachricht</note>
+        <note category="german">New message</note>
       </notes>
       <segment>
         <source>Neue Nachricht</source>
@@ -10797,7 +10788,7 @@
     </unit>
     <unit id="4gAjVQX" name="Verlassener Bunker">
       <notes>
-        <note category="german">Verlassener Bunker</note>
+        <note category="german">Abandonned Bunker</note>
       </notes>
       <segment>
         <source>Verlassener Bunker</source>
@@ -10806,7 +10797,7 @@
     </unit>
     <unit id="BRZGIi8" name="8183632">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un bunker. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10815,7 +10806,7 @@
     </unit>
     <unit id="oxlDhWv" name="Verlassenes Hotel">
       <notes>
-        <note category="german">Verlassenes Hotel</note>
+        <note category="german">Abandonned Hotel</note>
       </notes>
       <segment>
         <source>Verlassenes Hotel</source>
@@ -10824,7 +10815,7 @@
     </unit>
     <unit id="hP.60KS" name="150bce3">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10833,7 +10824,7 @@
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
       <notes>
-        <note category="german">Verlassenes Hospital</note>
+        <note category="german">Abandonned Hospital</note>
       </notes>
       <segment>
         <source>Verlassenes Hospital</source>
@@ -10842,7 +10833,7 @@
     </unit>
     <unit id="PAKqkOM" name="1a6b1bb">
       <notes>
-        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+        <note category="german">Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10851,7 +10842,7 @@
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
       <notes>
-        <note category="german">%ruin% betreten</note>
+        <note category="german">Enter in %ruin%</note>
       </notes>
       <segment>
         <source>%ruin% betreten</source>
@@ -10860,7 +10851,7 @@
     </unit>
     <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
       <notes>
-        <note category="german">Eine Nachricht hinterlassen</note>
+        <note category="german">Leave a note on their door</note>
       </notes>
       <segment>
         <source>Eine Nachricht hinterlassen</source>
@@ -10869,7 +10860,7 @@
     </unit>
     <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
       <notes>
-        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
+        <note category="german">Click on the objects you wish to send with this message:</note>
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
@@ -10878,7 +10869,7 @@
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
       <notes>
-        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
+        <note category="german">The following objects will be sent:</note>
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
@@ -10887,7 +10878,7 @@
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
       <notes>
-        <note category="german">Kein Gegenstand beigefügt...</note>
+        <note category="german">No objects attached...</note>
       </notes>
       <segment>
         <source>Kein Gegenstand beigefügt...</source>
@@ -10896,7 +10887,7 @@
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
       <notes>
-        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
+        <note category="german">Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</note>
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
@@ -10905,7 +10896,7 @@
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
       <notes>
-        <note category="german">Meine Nachrichten lesen.</note>
+        <note category="german">Read my messages.</note>
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
@@ -10914,7 +10905,7 @@
     </unit>
     <unit id="bYjLN7a" name="Draußen">
       <notes>
-        <note category="german">Draußen</note>
+        <note category="german">Outside</note>
       </notes>
       <segment>
         <source>Draußen</source>
@@ -10923,7 +10914,7 @@
     </unit>
     <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
       <notes>
-        <note category="german">in der Stadt oder am Stadttor</note>
+        <note category="german">in town or at the gates</note>
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
@@ -10932,7 +10923,7 @@
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
-        <note category="german">Seine Seele ansehen</note>
+        <note category="german">See their soul</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -10941,7 +10932,7 @@
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
-        <note category="german">Teilnehmen</note>
+        <note category="german">Help out!</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -10950,7 +10941,7 @@
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
       <notes>
-        <note category="german">Die letzte Zeitung lesen</note>
+        <note category="german">Read the last gazette</note>
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
@@ -10986,20 +10977,146 @@
     </unit>
     <unit id="6kQh7Rd" name="Stadtverteidigung">
       <notes>
-        <note category="german">Stadtverteidigung</note>
+        <note category="german">Defence points</note>
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
-        <target>Défenses de la ville</target>
+        <target>Défenses ville</target>
       </segment>
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
       <notes>
-        <note category="german">Details ansehen</note>
+        <note category="german">Details infos</note>
       </notes>
       <segment>
         <source>Details ansehen</source>
         <target>Voir les détails</target>
+      </segment>
+    </unit>
+    <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
+      <notes>
+        <note category="german">%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
+        <target>%citizen% a fait tomber la pluie et a tué %kills% zombies.</target>
+      </segment>
+    </unit>
+    <unit id="0jW7cq9" name="Stadttor geöffnet">
+      <notes>
+        <note category="german">Stadttor geöffnet</note>
+      </notes>
+      <segment>
+        <source>Stadttor geöffnet</source>
+        <target>Portes ouvertes</target>
+      </segment>
+    </unit>
+    <unit id="rRAcec3" name="Stadttor geschlossen">
+      <notes>
+        <note category="german">Stadttor geschlossen</note>
+      </notes>
+      <segment>
+        <source>Stadttor geschlossen</source>
+        <target>Portes fermées</target>
+      </segment>
+    </unit>
+    <unit id="_DKPL9S" name="Wer ist draußen?">
+      <notes>
+        <note category="german">Wer ist draußen?</note>
+      </notes>
+      <segment>
+        <source>Wer ist draußen?</source>
+        <target>Qui est dehors ?</target>
+      </segment>
+    </unit>
+    <unit id="KVApIB1" name="Lage">
+      <notes>
+        <note category="german">Lage</note>
+      </notes>
+      <segment>
+        <source>Lage</source>
+        <target>État</target>
+      </segment>
+    </unit>
+    <unit id="A7ZG3D1" name="2d5f077">
+      <notes>
+        <note category="german">Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
+        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
+      </segment>
+    </unit>
+    <unit id="9cNHWGl" name="Seelenpunkte">
+      <notes>
+        <note category="german">Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte</source>
+        <target>Valeur de l'âme</target>
+      </segment>
+    </unit>
+    <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
+      <notes>
+        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
+        <target>Nombres de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
+      </segment>
+    </unit>
+    <unit id="k9H0y76" name="d772640">
+      <notes>
+        <note category="german">Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
+        <target>Le citoyen %citizen% a découvert une cache d'objets (probablement celle d'un banni) ! Elle contenait : %items%.</target>
+      </segment>
+    </unit>
+    <unit id="UWWvoug" name="e164c18">
+      <notes>
+        <note category="german">Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
+        <target>Vous passez un peu de temps à cacher les objets que vous avez dans votre sac... Ha Ha... Vous avez utilisé 2 points d'action.</target>
+      </segment>
+    </unit>
+    <unit id="29AAorN" name="Rucksack verstecken">
+      <notes>
+        <note category="german">Rucksack verstecken</note>
+      </notes>
+      <segment>
+        <source>Rucksack verstecken</source>
+        <target>Enterrer son sac</target>
+      </segment>
+    </unit>
+    <unit id="F71fElc" name="f8178fb">
+      <notes>
+        <note category="german">Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+      </notes>
+      <segment>
+        <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Alors que vous commenciez votre fouille, vous avez remarqué une sorte de... cache contenant : %items% ! Hmmm... Ça a probablement été dissimulé là par un **citoyen banni**...</target>
+      </segment>
+    </unit>
+    <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
+      <notes>
+        <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
+        <target>Votre message a bien été envoyé avec les objets que vous avez choisis.</target>
+      </segment>
+    </unit>
+    <unit id="yBmpXGO" name="Behausung wiederverwerten">
+      <notes>
+        <note category="german">Behausung wiederverwerten</note>
+      </notes>
+      <segment>
+        <source>Behausung wiederverwerten</source>
+        <target>Recycler la maison</target>
       </segment>
     </unit>
   </file>

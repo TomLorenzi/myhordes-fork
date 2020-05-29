@@ -502,8 +502,7 @@ footer {
   background: @color; border: 1px solid @myhordes-input-border;
 }
 
-div.town-header,
-div.town-header-hardcore {
+div.town-header {
   &:before {
     position: absolute;
     left: -10px;
@@ -521,13 +520,13 @@ div.town-header {
   &:before {
     background: url("../img/sign_header.jpg") center/cover no-repeat;
   }
-}
-
-div.town-header-hardcore {
-  &:before {
-    background: url("../img/sign_header.jpg") center/cover no-repeat;
+  &.hardcore {
+    &:before {
+      background: url("../img/sign_header_hardcore.jpg") center/cover no-repeat;
+    }
   }
 }
+
 
 div.note {
   .box(); padding: 5px; font-size: 1.2rem; margin: 5px 0;
@@ -621,6 +620,7 @@ ul.inventory {
     &.item { border-color: rgba(0,0,0,0); }
     &.item:not(.locked) { cursor: pointer; }
     &.item.broken { border: 1px dotted #ff0000; }
+    &.item.banished_hidden { opacity: 0.25; }
     &.free, &.item { height: 18px; }
     &.free, &.item:not(.counted) { width: 18px; }
     &.item.counted{
@@ -1011,13 +1011,53 @@ div.rebirth {
 }
 
 div.tooltip {
-  display: none; pointer-events: none; font-size: 1rem; width: 200px; padding: 4px;
-  position: fixed; z-index: 2000; color: black; margin: 20px; box-shadow: 0 0 5px black;
-  background: @myhordes-smalltext; border: 2px solid darken(@myhordes-smalltext, 20%); text-align: justify;
-  outline: 1px solid darken(@myhordes-smalltext, 50%); font-weight: normal; font-variant: normal;
+  display: none;
+  pointer-events: none;
+  font-size: 1rem;
+  width: 200px;
+  padding: 4px;
+  position: fixed;
+  z-index: 2000;
+  color: black;
+  margin: 20px;
+  box-shadow: 0 0 5px black;
+  background: @myhordes-smalltext;
+  border: 2px solid darken(@myhordes-smalltext, 20%);
+  text-align: justify;
+  outline: 1px solid darken(@myhordes-smalltext, 50%);
+  font-weight: normal;
+  font-variant: normal;
   &>h1:first-child {
     font-size: 1.2rem; font-weight: bold; margin: 4px; padding: 0; text-align: center;
     border-bottom: 1px solid darken(@myhordes-smalltext, 20%); font-variant: small-caps;
+  }
+
+  &.help {
+    background-color: #5c2b20;
+    border: 1px solid #ecb98a;
+    color: white;
+    padding-left: 30px;
+    padding-right: 10px;
+    width: 250px;
+    &>h1:first-child {
+      border: none;
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  &.normal {
+    background: #746652;
+    border: 1px solid #ab9d89;
+    border-right-color: black;
+    border-left-color: black;
+    outline: 1px solid #5c2b20;
+    color: #dfdad2;
+    &>h1:first-child {
+      color: white;
+      text-align: right;
+      border-bottom-color: white;
+    }
   }
 }
 
@@ -1058,6 +1098,7 @@ div.item-tag {
   &:after {position: absolute; display: block; content: " "; height: 16px; width: 16px; top: 0; left: 1px; }
   &.item-tag-deco:after { background: url("../img/item/cat_deco.gif") center/contain no-repeat }
   &.item-tag-defense:after { background: url("../img/item/cat_def.gif") center/contain no-repeat }
+  &.item-tag-essential { padding-left: 14px; }
   &.item-tag-essential:after { background: url("../img/item/cat_job.gif") center/contain no-repeat }
   &.item-tag-weapon:after { background: url("../img/item/cat_weapon.gif") center/contain no-repeat }
   &.item-tag-heavy:after { background: url("../img/item/cat_heavy.gif") center/contain no-repeat }
