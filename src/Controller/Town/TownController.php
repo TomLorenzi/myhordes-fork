@@ -1492,6 +1492,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     }
                 }
             }
+
+            foreach ($home->getChest()->getItems() as $item) {
+                $this->inventory_handler->forceMoveItem($citizen->getTown()->getBank(), $item);
+            }
         }
 
         $this->entity_manager->persist($c);
