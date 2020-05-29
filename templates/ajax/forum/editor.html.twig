@@ -41,6 +41,7 @@
                     <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
                     {% if is_granted("ROLE_ADMIN") %}
                         <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin ankündigen'|trans({},'global') }}</span></div>
                     {% endif %}
                     <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
@@ -180,6 +181,7 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
                             case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
                             case 'link': blocks.push( [ match[3], 'a', tag, [ 'href', match[2], 'target','_blank' ]] ); changed = true; break;
                             case 'image': blocks.push( [ '', 'img', tag, [ 'src', match[2], 'alt', match[3] ]] ); changed = true; break;
+                            case 'admannounce': blocks.push( [ match[3], 'div', 'adminAnnounce'] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
                             case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
