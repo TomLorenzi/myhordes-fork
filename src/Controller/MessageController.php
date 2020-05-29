@@ -204,7 +204,7 @@ class MessageController extends AbstractController
 
     private const HTML_ATTRIB_ALLOWED_ADMIN = [
         'div.class' => [
-            'adminAnnounce', 'announce',
+            'adminAnnounce', 'modAnnounce', 'oracleAnnounce',
         ]
     ];
 
