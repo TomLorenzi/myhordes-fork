@@ -199,13 +199,18 @@ class MessageController extends AbstractController
     ];
 
     private const HTML_ALLOWED_ADMIN = [
-        'img' => [ 'alt', 'src', 'title'],
-        'admannounce',
+        'img' => [ 'alt', 'src', 'title']
+    ];
+
+    private const HTML_ATTRIB_ALLOWED_ADMIN = [
+        'div.class' => [
+            'adminAnnounce'
+        ]
     ];
 
     private const HTML_ATTRIB_ALLOWED = [
         'div.class' => [
-            'glory', 'spoiler', 'adminAnnounce',
+            'glory', 'spoiler',
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
@@ -215,13 +220,16 @@ class MessageController extends AbstractController
 
     private function getAllowedHTML(): array {
         $r = self::HTML_ALLOWED;
+        $a = self::HTML_ATTRIB_ALLOWED;
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
+        if ($user->getRightsElevation() >= User::ROLE_CROW) {
             $r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
+            $a = array_merge( $a, self::HTML_ATTRIB_ALLOWED_ADMIN);
+        }
 
-        return ['nodes' => $r, 'attribs' => self::HTML_ATTRIB_ALLOWED];
+        return ['nodes' => $r, 'attribs' => $a];
     }
 
     private function htmlValidator( array $allowedNodes, ?DOMNode $node, int &$text_length, int $depth = 0 ): bool {
