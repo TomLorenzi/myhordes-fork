@@ -205,7 +205,7 @@ class MessageController extends AbstractController
 
     private const HTML_ATTRIB_ALLOWED = [
         'div.class' => [
-            'glory', 'spoiler',
+            'glory', 'spoiler', 'adminAnnounce',
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
