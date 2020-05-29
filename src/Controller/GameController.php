@@ -26,8 +26,10 @@ use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Structures\TownConf;
 use App\Service\LogTemplateHandler;
+use App\Service\TimeKeeperService;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,12 +45,14 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected $entity_manager;
     protected $translator;
     protected $logTemplateHandler;
+    protected $time_keeper;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
+        $this->time_keeper = $tk;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -148,8 +152,6 @@ class GameController extends AbstractController implements GameInterfaceControll
             if(!$citizen->getAlive()) continue;
             $survivors[] = $citizen;
         }
-
-
 
         foreach ($gazette->getVictims() as $citizen) {
             if($citizen->getAlive()) continue;
@@ -396,6 +398,13 @@ class GameController extends AbstractController implements GameInterfaceControll
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizenWithRole' => $citizenWithRole,
+            'clock' => [
+                'desc'      => $this->getActiveCitizen()->getTown()->getName(),
+                'day'       => $this->getActiveCitizen()->getTown()->getDay(),
+                'timestamp' => new DateTime('now'),
+                'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+                'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
+            ],
         ] );
     }
 
