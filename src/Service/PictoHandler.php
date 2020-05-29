@@ -107,7 +107,7 @@ class PictoHandler
         }
 
         // In private towns, we get only 1/3 of all pictos and no rare
-        if($citizen->getTown()->getType()->getName == "custom"){
+        if($citizen->getTown()->getType()->getName() == "custom"){
             $pictos = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
             $keepPictos = [];
             foreach ($pictos as $picto) {

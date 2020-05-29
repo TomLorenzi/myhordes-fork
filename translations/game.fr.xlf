@@ -11110,5 +11110,14 @@
         <target>Votre message a bien été envoyé avec les objets que vous avez choisis.</target>
       </segment>
     </unit>
+    <unit id="yBmpXGO" name="Behausung wiederverwerten">
+      <notes>
+        <note category="german">Behausung wiederverwerten</note>
+      </notes>
+      <segment>
+        <source>Behausung wiederverwerten</source>
+        <target>Behausung wiederverwerten</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
