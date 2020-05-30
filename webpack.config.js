@@ -19,7 +19,9 @@ Encore
 
     .copyFiles({
         from: 'assets/img',
-        to: 'images/[path][name].[hash:8].[ext]',
+        to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+            ? 'images/[path][name].[ext]'
+            : 'images/[path][name].[hash:8].[ext]' ,
     })
 
     /*
