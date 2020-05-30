@@ -243,7 +243,7 @@ class AwardFixtures extends Fixture {
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$award_data) );
 
-        foreach(static::$award_data as $entry) {
+       foreach(static::$award_data as $entry) {
             $entity = $this->entityManager->getRepository(AwardPrototype::class)
                 ->getIndividualAward($entry['associatedpicto'], $entry['unlockquantity']);
 
