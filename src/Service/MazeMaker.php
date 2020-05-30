@@ -151,6 +151,13 @@ class MazeMaker
             if ($exists($x,$y)) $binary[$x][$y] = true;
         };
 
+        // Returns the number of neighbor corridors for a zone
+        $neighbors = function($x,$y) use (&$corridor): int {
+            return
+                ($corridor($x+1,$y) ? 1 : 0) + ($corridor($x-1,$y) ? 1 : 0) +
+                ($corridor($x,$y+1) ? 1 : 0) + ($corridor($x,$y-1) ? 1 : 0);
+        };
+
         $conf =  $this->conf->getTownConfiguration( $base->getTown() );
         $complexity = $conf->get(TownConf::CONF_EXPLORABLES_COMPLEXITY, 0.5);
         $convolution = $conf->get(TownConf::CONF_EXPLORABLES_CONVOLUTION, 0.75);
@@ -202,9 +209,11 @@ class MazeMaker
             $temp  = $graph->createGraphClone();
 
             // Select a random node that is not 0/0 and attempt to remove it
+            // Also do not remove dead ends with only one neighbor; removing them does not increase complexity
             $nid = array_rand($list);
             if ($list[$nid]->getId() === '0/0') continue;
             list($x,$y) = $list[$nid]->getAttribute('pos');
+            if ($neighbors($x,$y) <= 1) continue;
             $temp->getVertex( $list[$nid]->getId() )->destroy();
 
             // Create a connected component graph with all nodes accessible from 0/0
