@@ -715,59 +715,21 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         ], 'desc' => 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...'],
 
         // Explorable Ruins.
-        ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [
-            array('item' => 'food_pims_#00','count' => 76),
-            array('item' => 'food_chick_#00','count' => 60),
-            array('item' => 'food_noodles_#00','count' => 60),
-            array('item' => 'food_bag_#00','count' => 60),
-            array('item' => 'bbplan_u_#00','count' => 26),
-            array('item' => 'bbplan_r_#00','count' => 26),
-            array('item' => 'bbplan_e_#00','count' => 26),
-            array('item' => 'chair_basic_#00','count' => 20),
-            array('item' => 'can_#00','count' => 17),
-            array('item' => 'bag_#00','count' => 17),
-            array('item' => 'table_#00','count' => 17),
-            array('item' => 'distri_#00','count' => 17),
-            array('item' => 'bed_#00','count' => 16),
-            array('item' => 'deco_box_#00','count' => 13),
-            array('item' => 'chest_food_#00','count' => 10),
-            array('item' => 'rlaunc_#00','count' => 17),
-            array('item' => 'bureau_#00','count' => 17),
-            array('item' => 'spices_#00','count' => 17),
-            array('item' => 'food_bar1_#00','count' => 17),
-            array('item' => 'food_bar2_#00','count' => 17),
-            array('item' => 'food_bar3_#00','count' => 17),
-            array('item' => 'concrete_wall_#00','count' => 17),
-            array('item' => 'dish_#00','count' => 17),
-            array('item' => 'food_sandw_#00','count' => 17),
+        ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'bunker', "explorable_desc" => null,
+            "drops" => [
+            // ToDO
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [
-            array('item' => 'food_pims_#00','count' => 76),
-            array('item' => 'food_chick_#00','count' => 60),
-            array('item' => 'food_noodles_#00','count' => 60),
-            array('item' => 'food_bag_#00','count' => 60),
-            array('item' => 'hbplan_u_#00','count' => 26),
-            array('item' => 'hbplan_r_#00','count' => 26),
-            array('item' => 'hbplan_e_#00','count' => 26),
-            array('item' => 'chair_basic_#00','count' => 20),
-            array('item' => 'can_#00','count' => 17),
-            array('item' => 'bag_#00','count' => 17),
-            array('item' => 'table_#00','count' => 17),
-            array('item' => 'distri_#00','count' => 17),
-            array('item' => 'bed_#00','count' => 16),
-            array('item' => 'deco_box_#00','count' => 13),
-            array('item' => 'chest_food_#00','count' => 10),
-            array('item' => 'rlaunc_#00','count' => 17),
-            array('item' => 'bureau_#00','count' => 17),
-            array('item' => 'spices_#00','count' => 17),
-            array('item' => 'food_bar1_#00','count' => 17),
-            array('item' => 'food_bar2_#00','count' => 17),
-            array('item' => 'food_bar3_#00','count' => 17),
-            array('item' => 'concrete_wall_#00','count' => 17),
-            array('item' => 'dish_#00','count' => 17),
-            array('item' => 'food_sandw_#00','count' => 17),
+        ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'hotel', "explorable_desc" => null,
+            "drops" => [
+            // ToDo
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
+        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'hospital', "explorable_desc" => null,
+            "drops" => [
+            // ToDo
+        ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
     ];
 
     public static $room_prototypes = [
@@ -875,6 +837,8 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setIcon( $entry['icon'] )
             ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
             ->setExplorable( $entry['explorable'] ?? 0 )
+            ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
+            ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
             ;
             $manager->persist( $entity );
 

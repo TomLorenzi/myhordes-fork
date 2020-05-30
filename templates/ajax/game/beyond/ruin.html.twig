@@ -3,13 +3,14 @@
     {{ parent() }}
 {% endblock %}
 {# @var citizen \App\Entity\Citizen #}
+{# @var prototype \App\Entity\ZonePrototype #}
 {% block content %}
     <div class="row">
-        <div class="cell rw-12 zone-beyond outerworld"></div>
+        <div class="cell rw-12 zone-beyond explorable-{{ prototype.explorableSkin }}"></div>
     </div>
     <div class="row">
         <div class="cell rw-12 ambiant small">
-            <p>{% trans from 'game' %}Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.{% endtrans %}</p>
+            <p>{{ prototype.explorableDescription|trans({},'game') }}</p>
         </div>
     </div>
 

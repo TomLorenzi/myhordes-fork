@@ -72,7 +72,9 @@
             {% endif %}
             {% if ruin_map_data is defined %}
                 <div class="padded-small cell rw-4 rw-lg-6 rw-md-12">
-                    ADD RUIN RADAR HERE
+                    {% embed "ajax/game/ruin_map.html.twig" with {
+                        'map': ruin_map_data
+                    } %}{% endembed %}
                 </div>
             {% endif %}
             <div class="padded cell rw-8 rw-lg-6 rw-md-12">
@@ -90,6 +92,9 @@
             map.addEventListener('zone-click', function(e) {
                 mark_zone(map,e.detail.x,e.detail.y,true);
             });
+        {% endif %}
+        {% if ruin_map_data is defined %}
+            {% embed "scripts/ruin_map.js.twig" with {'map': ruin_map_data} %}{% endembed %}
         {% endif %}
     </script>
 {% endblock %}

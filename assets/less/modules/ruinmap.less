@@ -1,0 +1,144 @@
+@import (once) "../theme";
+
+div.ruin_map_area {
+  div.map {
+    font-size: 0; background: @myhordes-map-background; overflow: hidden; padding-top: 100%; position: relative;
+    border: 1px solid @myhordes-smalltext;
+    &:before,&:after {
+      display: block; content: " "; position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    &:before {
+      z-index: 3; pointer-events: none;
+      opacity: 0.9; background: radial-gradient(circle, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,1.0) 100%);
+    }
+    &:after {background: url("../../img/noise.gif") repeat; opacity: 0.04; z-index: 5; pointer-events: none }
+    &>.zone-plane, &>.zone-plane-controls {
+      transition: opacity 0.25s ease, transform 0.25s ease, top 0.75s ease, left 0.75s ease; position: absolute;
+    }
+    &>.zone-plane {
+      background: black; z-index: 2;
+      top: -100%; left: -100%; width: 300%; height: 300%; font-size: 0;
+      &>.zone-sub-container {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        &>.zone-subplane {
+          position: relative; display: inline-block; padding: 0; margin: 0; width: 33.3333333%; height: 33.3333333%;
+
+          &.plane-type-bunker-all  { 
+            background: 
+                    url("../../img/explore/bunker/exit.png"), url("../../img/explore/bunker/0001.png"), url("../../img/explore/bunker/0010.png"), 
+                    url("../../img/explore/bunker/0011.png"), url("../../img/explore/bunker/0100.png"), url("../../img/explore/bunker/0101.png"),
+                    url("../../img/explore/bunker/0110.png"), url("../../img/explore/bunker/0111.png"), url("../../img/explore/bunker/1001.png"),
+                    url("../../img/explore/bunker/1010.png"), url("../../img/explore/bunker/1011.png"), url("../../img/explore/bunker/1100.png"), 
+                    url("../../img/explore/bunker/1101.png"), url("../../img/explore/bunker/1110.png"), url("../../img/explore/bunker/1111.png")
+          }
+          &.plane-type-bunker-exit { background: url("../../img/explore/bunker/exit.png") center/cover no-repeat; }
+          &.plane-type-bunker-1    { background: url("../../img/explore/bunker/0010.png") center/cover no-repeat; }
+          &.plane-type-bunker-2    { background: url("../../img/explore/bunker/0100.png") center/cover no-repeat; }
+          &.plane-type-bunker-3    { background: url("../../img/explore/bunker/0110.png") center/cover no-repeat; }
+          &.plane-type-bunker-4    { background: url("../../img/explore/bunker/0001.png") center/cover no-repeat; }
+          &.plane-type-bunker-5    { background: url("../../img/explore/bunker/0011.png") center/cover no-repeat; }
+          &.plane-type-bunker-6    { background: url("../../img/explore/bunker/0101.png") center/cover no-repeat; }
+          &.plane-type-bunker-7    { background: url("../../img/explore/bunker/0111.png") center/cover no-repeat; }
+          &.plane-type-bunker-8    { background: url("../../img/explore/bunker/1000.png") center/cover no-repeat; }
+          &.plane-type-bunker-9    { background: url("../../img/explore/bunker/1010.png") center/cover no-repeat; }
+          &.plane-type-bunker-10   { background: url("../../img/explore/bunker/1100.png") center/cover no-repeat; }
+          &.plane-type-bunker-11   { background: url("../../img/explore/bunker/1110.png") center/cover no-repeat; }
+          &.plane-type-bunker-12   { background: url("../../img/explore/bunker/1001.png") center/cover no-repeat; }
+          &.plane-type-bunker-13   { background: url("../../img/explore/bunker/1011.png") center/cover no-repeat; }
+          &.plane-type-bunker-14   { background: url("../../img/explore/bunker/1101.png") center/cover no-repeat; }
+          &.plane-type-bunker-15   { background: url("../../img/explore/bunker/1111.png") center/cover no-repeat; }
+
+          &.plane-type-hotel-all  {
+            background:
+                    url("../../img/explore/hotel/exit.png"), url("../../img/explore/hotel/0001.png"), url("../../img/explore/hotel/0010.png"),
+                    url("../../img/explore/hotel/0011.png"), url("../../img/explore/hotel/0100.png"), url("../../img/explore/hotel/0101.png"),
+                    url("../../img/explore/hotel/0110.png"), url("../../img/explore/hotel/0111.png"), url("../../img/explore/hotel/1001.png"),
+                    url("../../img/explore/hotel/1010.png"), url("../../img/explore/hotel/1011.png"), url("../../img/explore/hotel/1100.png"),
+                    url("../../img/explore/hotel/1101.png"), url("../../img/explore/hotel/1110.png"), url("../../img/explore/hotel/1111.png")
+          }
+          &.plane-type-hotel-exit { background: url("../../img/explore/hotel/exit.png") center/cover no-repeat; }
+          &.plane-type-hotel-1    { background: url("../../img/explore/hotel/0010.png") center/cover no-repeat; }
+          &.plane-type-hotel-2    { background: url("../../img/explore/hotel/0100.png") center/cover no-repeat; }
+          &.plane-type-hotel-3    { background: url("../../img/explore/hotel/0110.png") center/cover no-repeat; }
+          &.plane-type-hotel-4    { background: url("../../img/explore/hotel/0001.png") center/cover no-repeat; }
+          &.plane-type-hotel-5    { background: url("../../img/explore/hotel/0011.png") center/cover no-repeat; }
+          &.plane-type-hotel-6    { background: url("../../img/explore/hotel/0101.png") center/cover no-repeat; }
+          &.plane-type-hotel-7    { background: url("../../img/explore/hotel/0111.png") center/cover no-repeat; }
+          &.plane-type-hotel-8    { background: url("../../img/explore/hotel/1000.png") center/cover no-repeat; }
+          &.plane-type-hotel-9    { background: url("../../img/explore/hotel/1010.png") center/cover no-repeat; }
+          &.plane-type-hotel-10   { background: url("../../img/explore/hotel/1100.png") center/cover no-repeat; }
+          &.plane-type-hotel-11   { background: url("../../img/explore/hotel/1110.png") center/cover no-repeat; }
+          &.plane-type-hotel-12   { background: url("../../img/explore/hotel/1001.png") center/cover no-repeat; }
+          &.plane-type-hotel-13   { background: url("../../img/explore/hotel/1011.png") center/cover no-repeat; }
+          &.plane-type-hotel-14   { background: url("../../img/explore/hotel/1101.png") center/cover no-repeat; }
+          &.plane-type-hotel-15   { background: url("../../img/explore/hotel/1111.png") center/cover no-repeat; }
+
+          &.plane-type-hospital-all  {
+            background:
+                    url("../../img/explore/hospital/exit.png"), url("../../img/explore/hospital/0001.png"), url("../../img/explore/hospital/0010.png"),
+                    url("../../img/explore/hospital/0011.png"), url("../../img/explore/hospital/0100.png"), url("../../img/explore/hospital/0101.png"),
+                    url("../../img/explore/hospital/0110.png"), url("../../img/explore/hospital/0111.png"), url("../../img/explore/hospital/1001.png"),
+                    url("../../img/explore/hospital/1010.png"), url("../../img/explore/hospital/1011.png"), url("../../img/explore/hospital/1100.png"),
+                    url("../../img/explore/hospital/1101.png"), url("../../img/explore/hospital/1110.png"), url("../../img/explore/hospital/1111.png")
+          }
+          &.plane-type-hospital-exit { background: url("../../img/explore/hospital/exit.png") center/cover no-repeat; }
+          &.plane-type-hospital-1    { background: url("../../img/explore/hospital/0010.png") center/cover no-repeat; }
+          &.plane-type-hospital-2    { background: url("../../img/explore/hospital/0100.png") center/cover no-repeat; }
+          &.plane-type-hospital-3    { background: url("../../img/explore/hospital/0110.png") center/cover no-repeat; }
+          &.plane-type-hospital-4    { background: url("../../img/explore/hospital/0001.png") center/cover no-repeat; }
+          &.plane-type-hospital-5    { background: url("../../img/explore/hospital/0011.png") center/cover no-repeat; }
+          &.plane-type-hospital-6    { background: url("../../img/explore/hospital/0101.png") center/cover no-repeat; }
+          &.plane-type-hospital-7    { background: url("../../img/explore/hospital/0111.png") center/cover no-repeat; }
+          &.plane-type-hospital-8    { background: url("../../img/explore/hospital/1000.png") center/cover no-repeat; }
+          &.plane-type-hospital-9    { background: url("../../img/explore/hospital/1010.png") center/cover no-repeat; }
+          &.plane-type-hospital-10   { background: url("../../img/explore/hospital/1100.png") center/cover no-repeat; }
+          &.plane-type-hospital-11   { background: url("../../img/explore/hospital/1110.png") center/cover no-repeat; }
+          &.plane-type-hospital-12   { background: url("../../img/explore/hospital/1001.png") center/cover no-repeat; }
+          &.plane-type-hospital-13   { background: url("../../img/explore/hospital/1011.png") center/cover no-repeat; }
+          &.plane-type-hospital-14   { background: url("../../img/explore/hospital/1101.png") center/cover no-repeat; }
+          &.plane-type-hospital-15   { background: url("../../img/explore/hospital/1111.png") center/cover no-repeat; }
+
+          &>.actor {
+            overflow: visible;
+            position: absolute;
+            width: 0;
+            height: 0;
+            transform: scale(1.5);
+            &:before { position: absolute; content: " "; width: 24px; height: 24px; left: -12px; top: -12px; }
+            &.citizen:before { background: url("../../img/ruin_map_icon_citizen.gif") center/contain no-repeat; }
+            &.zombie:before { background:  url("../../img/ruin_map_icon_zombie.gif") center/contain no-repeat; }
+          }
+        }
+      }
+    }
+    &>.zone-plane-controls {
+      top: 0; left: 0; width: 100%; height: 100%; z-index: 4;
+      &.hide { opacity: 0; pointer-events: none };
+      &>.action-move {
+        position: absolute; z-index: 4; cursor: pointer;
+        &.on-route { filter: hue-rotate(90deg); }
+        background: url(../../img/227.svg) 50% / contain no-repeat, url(../../img/226.svg) 50% / contain no-repeat;
+        width: 81px; height: 81px;
+        transform-origin: center;
+        top: auto; bottom: auto; left: auto; right: auto;
+
+        &:hover {
+          background: url(../../img/228.svg) 50% no-repeat;
+        }
+        &.action-move-north {
+          top: -5%; left: 50%; transform: translateX(-50%);
+        }
+        &.action-move-east {
+          top: 50%; right: -5%; transform: translateY(-50%) rotate(90deg);
+        }
+        &.action-move-south {
+          left: 50%; bottom: -5%; transform: translateX(-50%) rotate(180deg);
+        }
+        &.action-move-west {
+          top: 50%; left: -5%; transform: translateY(-50%) rotate(270deg);
+        }
+      }
+    };
+  }
+}

@@ -113,12 +113,17 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $ruinZone = $this->getCurrentRuinZone();
 
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
+            'prototype' => $citizen->getZone()->getPrototype(),
             'zone' => $ruinZone,
             'floor' => $ruinZone->getFloor(),
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(false),
-            'ruin_map_data' => [],
+            'move' => $ruinZone->getZombies() <= 0,
+            'zone_zombies' => $ruinZone->getZombies(),
+            'ruin_map_data' => [
+                'zone' => $ruinZone
+            ],
         ]) );
     }
 
@@ -143,6 +148,45 @@ class ExplorationController extends InventoryAwareController implements Explorat
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/explore/move", name="beyond_ruin_move_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function ruin_move_api(JSONRequestParser $parser) {
+        $ruinZone = $this->getCurrentRuinZone();
+        if ($ruinZone->getZombies() > 0)
+            return AjaxResponse::error( BeyondController::ErrorZoneBlocked );
+
+        $dx = (int)$parser->get('x', 0);
+        $dy = (int)$parser->get('y', 0);
+
+        if (abs($dx) + abs($dy) !== 1)
+            return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
+
+        if (
+            ($dx == 1  && !$ruinZone->hasCorridor( RuinZone::CORRIDOR_E )) ||
+            ($dx == -1 && !$ruinZone->hasCorridor( RuinZone::CORRIDOR_W )) ||
+            ($dy == 1  && !$ruinZone->hasCorridor( RuinZone::CORRIDOR_N )) ||
+            ($dy == -1 && !$ruinZone->hasCorridor( RuinZone::CORRIDOR_S ))
+        ) return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
+
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+        $ex->setX( $ex->getX() + $dx );
+        $ex->setY( $ex->getY() - $dy );
+
+        // End the exploration!
+        $this->entity_manager->persist($ex);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        $new_zone = $this->getCurrentRuinZone();
+        return AjaxResponse::success(true, ['next' => ($new_zone->getX() !== 0 || $new_zone->getY() !== 0) ? $new_zone->getCorridor() : 'exit']);
     }
 
     /**
