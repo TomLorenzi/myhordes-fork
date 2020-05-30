@@ -707,16 +707,18 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         }
 
         return [
-            'zones' =>  $zones,
-            'zones_classes' =>  $zones_classes,
-            'town_devast' => $this->getActiveCitizen()->getTown()->getDevastated(),
-            'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ),
-            'pos_x'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getX() : 0,
-            'pos_y'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getY() : 0,
-            'map_x0' => $range_x[0],
-            'map_x1' => $range_x[1],
-            'map_y0' => $range_y[0],
-            'map_y1' => $range_y[1],
+            'map_data' => [
+                'zones' =>  $zones,
+                'zones_classes' =>  $zones_classes,
+                'town_devast' => $this->getActiveCitizen()->getTown()->getDevastated(),
+                'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $this->getActiveCitizen()->getTown() ),
+                'pos_x'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getX() : 0,
+                'pos_y'  => $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getY() : 0,
+                'map_x0' => $range_x[0],
+                'map_x1' => $range_x[1],
+                'map_y0' => $range_y[0],
+                'map_y1' => $range_y[1],
+            ]
         ];
     }
 

@@ -1,5 +1,5 @@
 {# @var routes \App\Entity\ExpeditionRoute[] #}
-const known_routes = { {% for route in routes %}{{ route.id }}: {{ route.data|json_encode|raw }},{% endfor %} }
+const known_routes = { {% for route in map.routes %}{{ route.id }}: {{ route.data|json_encode|raw }},{% endfor %} }
 
 const mark_zone = function(map, x = null, y = null, manual = false) {
     let svg_group = map.querySelector('svg g[x-local-id="map-marker-layer"]');
@@ -16,13 +16,13 @@ const mark_zone = function(map, x = null, y = null, manual = false) {
     const last_zone = $.client.get('marker','routes',null);
     $.client.set('marker','routes',null,false);
     if (last_zone && last_zone[0] === x && last_zone[1] === y && manual) return;
-    if (x === {{ pos_x }} && y === {{ pos_y }}) return;
+    if (x === {{ map.pos_x }} && y === {{ map.pos_y }}) return;
 
     if (x === null || y === null) return;
     $.client.set('marker','routes',[x,y],false);
 
     if (marker_direction) {
-        const d_x = x - {{ pos_x }}; const d_y = {{ pos_y }} - y;
+        const d_x = x - {{ map.pos_x }}; const d_y = {{ map.pos_y }} - y;
         if (d_x !== 0 || d_y !== 0) {
             const angle = Math.round(Math.acos( d_y / Math.sqrt( d_x*d_x + d_y*d_y ) ) * 57.2957795);
             marker_direction.style.transform = 'rotate(' + ((d_x > 0) ? 360 - angle : angle) + 'deg)';
@@ -51,7 +51,7 @@ const render_routes = function(map, target, color, nodes) {
 
     let filtered = [];
     for (let i = 0; i < nodes.length; i++)
-        if (filtered.length == 0 || (nodes[i][0] != filtered[filtered.length-1][0] || nodes[i][1] != filtered[filtered.length-1][1]))
+        if (filtered.length === 0 || (nodes[i][0] !== filtered[filtered.length-1][0] || nodes[i][1] !== filtered[filtered.length-1][1]))
             filtered.push( nodes[i] );
 
     let b = filtered.length >= 2;
@@ -63,9 +63,9 @@ const render_routes = function(map, target, color, nodes) {
         new_point.setAttribute('style', 'fill: ' + color + ';');
         svg_group.appendChild( new_point );
 
-        if (i == 0) continue;
+        if (i === 0) continue;
 
-        if (filtered[i][0] == filtered[i-1][0] || filtered[i][1] == filtered[i-1][1]) {
+        if (filtered[i][0] === filtered[i-1][0] || filtered[i][1] === filtered[i-1][1]) {
             let new_line = document.createElementNS("http://www.w3.org/2000/svg",'line');
             new_line.setAttribute('x1', "" + (filtered[i-1][0] + 0.5)); new_line.setAttribute('y1', "" + (filtered[i-1][1] + 0.5));
             new_line.setAttribute('x2', "" + (filtered[i][0] + 0.5)); new_line.setAttribute('y2', "" + (filtered[i][1] + 0.5));
@@ -89,12 +89,12 @@ const activate_route = function(map, color, id) {
         let nodes = [ ]; let target = []; let maybe = []; let hit = false;
 
         const push = function(x,y) {
-            const d = Math.abs(x - {{ pos_x }}) + Math.abs(y - {{ pos_y }});
+            const d = Math.abs(x - {{ map.pos_x }}) + Math.abs(y - {{ map.pos_y }});
             if ( d === 1 ) {
-                if      (x < {{ pos_x }}) {if (hit) target.push('west');  else maybe.push('west'); }
-                else if (x > {{ pos_x }}) {if (hit) target.push('east');  else maybe.push('east'); }
-                else if (y > {{ pos_y }}) {if (hit) target.push('north'); else maybe.push('north');}
-                else if (y < {{ pos_y }}) {if (hit) target.push('south'); else maybe.push('south');}
+                if      (x < {{ map.pos_x }}) {if (hit) target.push('west');  else maybe.push('west'); }
+                else if (x > {{ map.pos_x }}) {if (hit) target.push('east');  else maybe.push('east'); }
+                else if (y > {{ map.pos_y }}) {if (hit) target.push('north'); else maybe.push('north');}
+                else if (y < {{ map.pos_y }}) {if (hit) target.push('south'); else maybe.push('south');}
             }
             hit = d === 0;
 

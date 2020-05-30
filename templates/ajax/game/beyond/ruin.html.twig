@@ -1,0 +1,101 @@
+{% extends "ajax/game/beyond/beyond.html.twig" %}
+{% block menu_text %}
+    {{ parent() }}
+{% endblock %}
+{# @var citizen \App\Entity\Citizen #}
+{% block content %}
+    <div class="row">
+        <div class="cell rw-12 zone-beyond outerworld"></div>
+    </div>
+    <div class="row">
+        <div class="cell rw-12 ambiant small">
+            <p>{% trans from 'game' %}Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.{% endtrans %}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row">
+            <div class="padded cell rw-6 rw-md-12">
+                <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
+                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': false, 'hidden': false} %}
+                {% endembed %}
+
+                {% if zone.x == 0 and zone.y == 0 %}
+                    <br />
+                    <button id="exit_ruin_button"  >
+                        <img class="icon left" alt="" src="{{ asset('build/images/exit.gif') }}" />
+                        {% trans from 'game' %}Gebäude verlassen{% endtrans %}
+                    </button>
+                {% endif %}
+
+            </div>
+
+            <div class="padded cell rw-6 rw-md-12">
+                <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': false} %}
+                    {% block class %}rucksack{% endblock %}
+                    {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
+                {% endembed %}
+                    <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
+                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': false} %}
+                        {% block class %}desert{% endblock %}
+                        {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
+                    {% endembed %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% embed "scripts/actions.js.twig" %}{% endembed %};
+        {% embed "scripts/inventory.js.twig" %}{% endembed %};
+
+        handleItems(
+            document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked)'),
+            '{{ path('beyond_ruin_item_controller') }}',
+            'down', '{{ path('exploration_dashboard') }}'
+        );
+
+        handleItems(
+            document.querySelectorAll('#drop-all-button'),
+            '{{ path('beyond_ruin_item_controller') }}',
+            'down-all', '{{ path('exploration_dashboard') }}'
+        );
+
+        handleItems(
+            document.querySelectorAll('.desert>.item[x-item-id]:not(.locked)'),
+            '{{ path('beyond_ruin_item_controller') }}',
+            'up', '{{ path('exploration_dashboard') }}'
+        );
+
+        handleHeroicActions(
+            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_ruin_heroic_controller') }}', '{{ path('exploration_dashboard') }}'
+        );
+
+        handleActions(
+            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
+            '{{ path('beyond_ruin_action_controller') }}', '{{ path('exploration_dashboard') }}'
+        );
+
+        handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+
+        handleRecipes(
+            document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
+            '{{ path('beyond_ruin_recipe_controller') }}', '{{ path('exploration_dashboard') }}'
+        );
+
+        {% if zone.x == 0 and zone.y == 0 %}
+            $.html.addEventListenerAll( '#exit_ruin_button', 'click', function() {
+                $.ajax.easySend( '{{ path('beyond_ruin_enter_desert_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    } );
+            } );
+        {% endif %}
+
+    </script>
+{% endblock %}

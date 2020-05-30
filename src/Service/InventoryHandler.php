@@ -300,7 +300,15 @@ class InventoryHandler
             return self::TransferTypeEscort;
 
         // Check if the inventory belongs to the citizens current zone
-        if ($inventory->getZone() && !$citizen_is_at_home && $inventory->getZone()->getId() === $citizen->getZone()->getId())
+        if ($inventory->getZone() && !$citizen_is_at_home &&
+            $inventory->getZone()->getId() === $citizen->getZone()->getId() && !$citizen->activeExplorerStats())
+            return self::TransferTypeLocal;
+
+        // Check if the inventory belongs to the citizens current ruin zone
+        if ($inventory->getRuinZone() && !$citizen_is_at_home &&
+            $inventory->getRuinZone()->getZone()->getId() === $citizen->getZone()->getId() &&
+            ($ex = $citizen->activeExplorerStats()) &&
+            $ex->getX() === $inventory->getRuinZone()->getX() && $ex->getY() === $inventory->getRuinZone()->getY()  )
             return self::TransferTypeLocal;
 
         //ToDo: Check escort
