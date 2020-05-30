@@ -595,7 +595,7 @@ class NightlyHandler
         $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse'];
 
         $aliveCitizenInTown = 0;
-
+        $aliveCitizen = 0;
         foreach ($town->getCitizens() as $citizen) {
 
             if ($citizen->getDailyUpgradeVote()) {
@@ -605,6 +605,8 @@ class NightlyHandler
 
             $citizen->getExpeditionRoutes()->clear();
             if (!$citizen->getAlive()) continue;
+
+            $aliveCitizenInTown++;
 
             if($citizen->getZone() === null)
                 $aliveCitizenInTown++;
@@ -664,8 +666,8 @@ class NightlyHandler
             if($town->getDevastated()){
                 $this->log->debug("Town is devastated, nothing to do.");
             } else {
-                if ($aliveCitizenInTown > 0 && $aliveCitizenInTown <= 10 && !$town->getDevastated()) {
-                    $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, the town is not devastated, setting the town to <info>chaos</info> mode");
+                if ($aliveCitizen > 0 && $aliveCitizen <= 10 && !$town->getDevastated()) {
+                    $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
                     $town->setChaos(true);
                     foreach ($town->getCitizens() as $target_citizen) {
                         $target_citizen->setBanished(false);

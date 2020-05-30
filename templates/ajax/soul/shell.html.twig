@@ -18,16 +18,16 @@
                     <div class="tab-link" x-ajax-href="{{ path('soul_me') }}">{% trans from 'soul' %}Seele{% endtrans %}</div>
                 </div>
                 <div class="cell-small rw-3 rw-lg-5 tab{% if soul_tab == "soul_rps" %} selected{% endif %}">
-                    <div class="tab-link" x-ajax-href="{{ path('soul_rps') }}">{% trans from 'soul' %}Schriften{% endtrans %}</div>
+                    <div class="tab-link" x-ajax-href="{{ path('soul_rps') }}"><img src="{{ asset('build/images/small_rp.gif') }}" /> {% trans from 'soul' %}Schriften{% endtrans %}</div>
                 </div>
                 <div class="cell-small rw-3 rw-lg-5 tab{% if soul_tab == "soul_news" %} selected{% endif %}">
-                    <div class="tab-link" x-ajax-href="{{ path('soul_news') }}">{% trans from 'soul' %}News{% endtrans %}</div>
+                    <div class="tab-link" x-ajax-href="{{ path('soul_news') }}"><img src="{{ asset('build/images/small_world.gif') }}" /> {% trans from 'soul' %}News{% endtrans %}</div>
                 </div>
                 <div class="cell-small rw-3 rw-lg-5 tab{% if soul_tab == "soul_settings" %} selected{% endif %}">
                     <div class="tab-link" x-ajax-href="{{ path('soul_settings') }}">{% trans from 'soul' %}Einstellungen{% endtrans %}</div>
                 </div>
                 <div class="cell rw-2 tab">
-                    <a class="tab-link" target="_self" href="{{ path('auto_logout') }}">{% trans from 'soul' %}Logout{% endtrans %}</a>
+                    <a class="tab-link" target="_self" href="{{ path('auto_logout') }}"><img src="{{ asset('build/images/small_exit.gif') }}" /> {% trans from 'soul' %}Logout{% endtrans %}</a>
                 </div>
             </div>
             {% block soul_content %}

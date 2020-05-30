@@ -154,7 +154,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 }
                 catch (Exception $e) {
                     $entries[$idx]['text'] = "null";
-                }                          
+                }
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
@@ -505,7 +505,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         return AjaxResponse::success( );
     }
 
-    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null): Response {
+    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false): Response {
         $item_id = (int)$parser->get('item', -1);
         $direction = $parser->get('direction', '');
         $allowed_directions = ['up','down'];
@@ -573,7 +573,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                         )) === InventoryHandler::ErrorNone) {
 
                         if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item, !$bank_up ) );
-                        if ($floor_up !== null) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
+                        if ($floor_up !== null) {
+                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
+                        }
                         if ($steal_up !== null) {
 
                             $this->citizen_handler->inflictStatus($citizen, 'tg_steal');
@@ -624,6 +626,11 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                             }
+                        }
+                        if(!$floor_up && $hide) {
+                            $current_item->setHidden(true);
+                        } else {
+                            $current_item->setHidden(false);
                         }
                         if ($current_item->getInventory())
                             $this->entity_manager->persist($current_item);

@@ -375,7 +375,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $message = "";
         switch ($action) {
             case 1:
-                if ($ac->getAp() <= 1 || $this->citizen_handler->isTired( $ac ))
+                // Thrown outside
+                if ($ac->getAp() <= 2 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
                 $this->citizen_handler->setAP($ac, true, -2);
                 $pictoName = "r_cgarb_#00";
@@ -384,6 +385,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->addDisposedBy($ac);
                 break;
             case 2:
+                // Watered
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
                 $this->inventory_handler->forceRemoveItem( $items[0] );
@@ -393,6 +395,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->addDisposedBy($ac);
                 break;
             case 3:
+                // Cooked
                 $town = $ac->getTown();
                 if (!$th->getBuilding($town, 'item_hmeat_#00', true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -405,8 +408,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         foreach ($spawn_items as $item_spec)
-            for ($i = 0; $i < $item_spec['count']; $i++)
-                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $if->createItem( $item_spec['item'] )  );
+            for ($i = 0; $i < $item_spec['count']; $i++) {
+                $new_item = $if->createItem( $item_spec['item'] );
+                $this->inventory_handler->forceMoveItem( $ac->getTown()->getBank(), $new_item  );
+            }
+
         $em->persist( $this->log->citizenDisposal( $ac, $c, $action, $spawn_items ) );
         $c->getHome()->setHoldsBody( false );
 
@@ -1455,5 +1461,55 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         return $this->generic_devour_api( $citizen, $c );
+    }
+
+    /**
+     * @Route("jx/town/visit/{id}/recycle", name="visit_recycle_home", requirements={"id"="\d+"})
+     * @param int $id
+     * @return Response
+     */
+    public function visit_recycle_home(int $id, ItemFactory $if): Response
+    {
+        if ($id === $this->getActiveCitizen()->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        $citizen = $this->getActiveCitizen();
+        /** @var Citizen $c */
+        $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getAlive())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        if ($citizen->getAp() <= 1 || $this->citizen_handler->isTired( $citizen ))
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        if($c->getHome()->getRecycling() >= 15){
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        }
+
+        $this->citizen_handler->setAP($citizen, true, -1);
+        $home = $c->getHome();
+        $home->setRecycling($home->getRecycling() + 1);
+
+        if($home->getRecycling() >= 15 && $home->getPrototype()->getResources()) {
+            // Fetch upgrade resources
+            if ($home->getPrototype()->getResources()) {
+                $entries = $home->getPrototype()->getResources()->getEntries();
+                foreach ($entries as $entry) {
+                    for($i = 0 ; $i < $entry->getChance(); $i++){
+                        $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($entry->getPrototype()->getName()));
+                    }
+                }
+            }
+
+            foreach ($home->getChest()->getItems() as $item) {
+                $this->inventory_handler->forceMoveItem($citizen->getTown()->getBank(), $item);
+            }
+        }
+
+        $this->entity_manager->persist($c);
+        $this->entity_manager->persist($citizen);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 }

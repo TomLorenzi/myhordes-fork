@@ -143,6 +143,11 @@ class CitizenInspectorCommand extends Command
             $output->writeln( "Adding role '<info>{$role->getName()}</info>'.\n" );
             $citizen->addRole( $role );
 
+            if($new_role === 'shaman') {
+                $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+                $citizen->addStatus( $status );
+            }
+
             $updated = true;
         }
 
@@ -156,6 +161,11 @@ class CitizenInspectorCommand extends Command
 
             $output->writeln( "Removing role '<info>{$role->getName()}</info>'.\n" );
             $citizen->removeRole( $role );
+
+            if($rem_role === 'shaman') {
+                $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+                $citizen->removeStatus( $status );
+            }
 
             $updated = true;
         }

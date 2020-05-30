@@ -151,12 +151,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_be_terrorized'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
             'must_not_be_terrorized' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
 
-			'must_be_outside'              => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
-			'must_be_inside'               => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
-			'must_be_at_buried_ruin'       => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
-			'must_be_outside_not_at_doors' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 1 ] ] ],
-			'must_be_outside_3km'          => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 3 ] ] ],
-			'must_be_outside_within_11km'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Hierfür bist du zu weit von der Stadt entfernt ...'],
+		'must_be_outside'              => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
+		'must_be_inside'               => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
+		'must_be_at_buried_ruin'       => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
+		'must_be_outside_not_at_doors' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 1 ] ] ],
+		'must_be_outside_3km'          => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 3 ] ] ],
+		'must_be_outside_within_11km'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Hierfür bist du zu weit von der Stadt entfernt ...'],
 
             'must_have_zombies'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => null  ] ], 'text' => 'Zum Glück sind hier keine Zombies...'],
             'must_be_blocked'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => true ] ], 'text' => 'Das kannst du nicht tun während du umzingelt bist...'],
@@ -287,6 +287,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'casino_dice'   => [ 'custom' => [1], 'status' => [ 'from' => null, 'to' => 'tg_dice' ] ],
             'casino_card'   => [ 'custom' => [2], 'status' => [ 'from' => null, 'to' => 'tg_cards' ] ],
             'casino_guitar' => [ 'custom' => [3] ],
+            'casino_banned_note' => [ 'custom' => [15] ],
 
             'heal_wound'  => [ 'status' => 'heal_wound' ],
             'add_bandage' => [ 'status' => 'add_bandage' ],
@@ -553,7 +554,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'open_xmasbox2'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_1_#00' ],  'spawn' => 'xmas' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_xmasbox1'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => 'xmas' ] ] ],
 
-            'open_metalbox'  => [ 'label' => 'Öffnen', 'meta' => [ 'have_can_opener' ], 'result' => [ 'consume_item', [ 'spawn' => [ 'drug_#00', 'bandage_#00', 'pile_#00', 'pilegun_empty_#00', 'vodka_de_#00', 'pharma_#00', 'explo_#00', 'lights_#00', 'drug_hero_#00', 'rhum_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
+            'open_metalbox'  => [ 'label' => 'Öffnen', 'meta' => [ 'have_can_opener' ], 'result' => [ 'consume_item', [ 'spawn' => [ 'drug_#00', 'bandage_#00', 'vodka_de_#00', 'vodka_#00', 'explo_#00', 'lights_#00', 'drug_hero_#00', 'rhum_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_metalbox2' => [ 'label' => 'Öffnen', 'meta' => [ 'have_can_opener' ], 'result' => [ 'consume_item', [ 'spawn' => [ 'watergun_opt_part_#00', 'pilegun_upkit_#00', 'pocket_belt_#00', 'cutcut_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'big_pgun_part_#00', 'lawn_part_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_catbox'    => [ 'label' => 'Öffnen', 'meta' => [ 'have_can_opener' ], 'result' => [ 'consume_item', [ 'spawn' => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
 
@@ -661,6 +662,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bp_hospital_4' => [ 'label' => 'Lesen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['bp' => ['small_fireworks_#00','small_balloon_#00', 'small_crow_#00', 'small_pmvbig_#00', 'small_coffin_#00'] ] ],                                                                                               'message' => '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>' ],
 
             'read_rp' => [ 'label' => 'Lesen', 'cover' => true, 'meta' => [], 'result' => [ 'consume_item', 'find_rp' ], 'message' => 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>' ],
+
+            'read_banned_note' => [ 'label' => 'Lesen', 'cover' => true, 'meta' => [], 'result' => [ 'consume_item', 'casino_banned_note' ], 'message' => 'Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.<t-bannote_ok>Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...</t-bannote_ok><t-bannote_fail>Leider ist der Inhalt dieses Manuskripts völlig unleserlich.</t-bannote_fail>' ],
 
             'vibrator' => [ 'label' => 'Verwenden', 'meta' => [ 'must_be_inside', 'must_be_terrorized' ], 'result' => [ 'unterrorize', ['item' => ['morph' => 'vibr_empty_#00', 'consume' => false]], ['picto' => ['r_maso_#00']] ], 'message' => 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.' ],
 
@@ -1004,6 +1007,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'rp_manual_#00' => ['read_rp'],
             'lilboo_#00'    => ['read_rp'],
             'rp_twin_#00'   => ['read_rp'],
+
+            'banned_note_#00' => ['read_banned_note'],
 
             'dice_#00'   => ['special_dice'],
             'cards_#00'  => ['special_card'],

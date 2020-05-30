@@ -2319,7 +2319,7 @@
       </notes>
       <segment>
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
-        <target>La zone est épuisée. Vous ne trouverez plus d'objet de valeur ici.</target>
+        <target>La zone est épuisée, on ne pourra plus y trouver que des ressources de mauvaise qualité...</target>
       </segment>
     </unit>
     <unit id="M8h1dhU" name="Stadt betreten">
@@ -8992,7 +8992,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : %ruin% !</target>
+        <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : %ruin%  ! Vous avez utilisé 1 point(s) d'action.</target>
       </segment>
     </unit>
     <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
@@ -11045,6 +11045,78 @@
       <segment>
         <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
         <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
+      </segment>
+    </unit>
+    <unit id="9cNHWGl" name="Seelenpunkte">
+      <notes>
+        <note category="german">Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte</source>
+        <target>Valeur de l'âme</target>
+      </segment>
+    </unit>
+    <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
+      <notes>
+        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
+        <target>Nombres de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
+      </segment>
+    </unit>
+    <unit id="k9H0y76" name="d772640">
+      <notes>
+        <note category="german">Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
+        <target>Le citoyen %citizen% a découvert une cache d'objets (probablement celle d'un banni) ! Elle contenait : %items%.</target>
+      </segment>
+    </unit>
+    <unit id="UWWvoug" name="e164c18">
+      <notes>
+        <note category="german">Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
+        <target>Vous passez un peu de temps à cacher les objets que vous avez dans votre sac... Ha Ha... Vous avez utilisé 2 points d'action.</target>
+      </segment>
+    </unit>
+    <unit id="29AAorN" name="Rucksack verstecken">
+      <notes>
+        <note category="german">Rucksack verstecken</note>
+      </notes>
+      <segment>
+        <source>Rucksack verstecken</source>
+        <target>Enterrer son sac</target>
+      </segment>
+    </unit>
+    <unit id="F71fElc" name="f8178fb">
+      <notes>
+        <note category="german">Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+      </notes>
+      <segment>
+        <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Alors que vous commenciez votre fouille, vous avez remarqué une sorte de... cache contenant : %items% ! Hmmm... Ça a probablement été dissimulé là par un **citoyen banni**...</target>
+      </segment>
+    </unit>
+    <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
+      <notes>
+        <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
+        <target>Votre message a bien été envoyé avec les objets que vous avez choisis.</target>
+      </segment>
+    </unit>
+    <unit id="yBmpXGO" name="Behausung wiederverwerten">
+      <notes>
+        <note category="german">Behausung wiederverwerten</note>
+      </notes>
+      <segment>
+        <source>Behausung wiederverwerten</source>
+        <target>Recycler la maison</target>
       </segment>
     </unit>
   </file>

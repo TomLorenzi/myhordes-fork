@@ -793,5 +793,14 @@
         <target>Neue Update</target>
       </segment>
     </unit>
+    <unit id="fcC4_EM" name="Auszeichnungen">
+      <notes>
+        <note category="german">Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen</source>
+        <target>Auszeichnungen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -94,6 +94,10 @@ class DeathHandler
             $this->zone_handler->handleCitizenCountUpdate( $zone, $ok );
         }
 
+        if($citizen->getBanished()){
+            $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('banned_note_#00'), [$citizen->getHome()->getChest()], true);
+        }
+
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
@@ -195,6 +199,8 @@ class DeathHandler
         if($pictoDeath2 !== null) {
             $this->picto_handler->give_validated_picto($citizen, $pictoDeath2);
         }
+
+        $this->picto_handler->give_validated_picto($citizen, "r_ptame_#00", $this->citizen_handler->getSoulpoints($citizen));
 
         // Now that we are dead, we set persisted = 1 to pictos with persisted = 0
         // according to the day 5 / 8 rule

@@ -12,11 +12,11 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
  */
 class ActionCounter
 {
-    const ActionTypeWell = 1;
+    const ActionTypeWell        = 1;
     const ActionTypeHomeKitchen = 2;
-    const ActionTypeHomeLab = 3;
-    const ActionTypeTrash = 4;
-    const ActionTypeComplaint = 5;
+    const ActionTypeHomeLab     = 3;
+    const ActionTypeTrash       = 4;
+    const ActionTypeComplaint   = 5;
 
     /**
      * @ORM\Id()

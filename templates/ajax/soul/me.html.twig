@@ -9,13 +9,12 @@
                 <div class="overall">
                     {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
                 </div>
-                <div class="top"></div>
                 {% if pictos|length == 0 %}
                 <div class="list empty">
                     {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
                 </div>
                 {% else %}
-                <div class"list">
+                <div class="list">
                     {% for picto in pictos %}
                         <div class="picto{% if picto.rare %} rare{% endif %}">
                             <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />

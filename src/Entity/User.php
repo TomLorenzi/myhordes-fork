@@ -27,6 +27,7 @@ class User implements UserInterface, EquatableInterface
 {
 
     const ROLE_USER      =  0;
+    const ROLE_ORACLE    =  2;
     const ROLE_CROW      =  3;
     const ROLE_ADMIN     =  4;
 

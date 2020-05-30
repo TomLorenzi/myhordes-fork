@@ -17,7 +17,6 @@
     </h5>
 
     <div class="lightbox">
-
         <div class="row">
             {% if (owner.user.avatar) %}
                 <div class="cell rw-12 hide-desktop hide-lg center">
@@ -57,12 +56,10 @@
                 {% endif %}
             </div>
         </div>
-
-
     </div>
 
     <div class="row">
-        <div class="padded cell rw-6">
+        <div class="padded cell rw-6 citizen-home">
             {% if owner.alive or owner.home.holdsBody %}
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
                 {% if owner.alive %}
@@ -137,7 +134,17 @@
                 {% if not has_job %}<li>{{'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!'|trans({}, 'game')}}</li>{% endif %}
                 {% if is_admin %}<li>{{'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?'|trans({}, 'game')}}</li>{% endif %}
             </ul>
-        {% endif %}
+            {% else %}
+                {% if owner.home.prototype.level > 1 and owner.home.recycling < 15 %}
+                <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
+                <button x-recycle-home="1">{{ 'Behausung wiederverwerten'|trans({},'game') }} (<div class="ap">1</div>)</button>
+                {% endif %}
+                {% if owner.home.recycling > 0 and owner.home.recycling < 15 %}
+                <div class="vote-bar">
+                    <div class="vote-progress" style="width: {{owner.home.recycling / 15 * 100}}%;"></div>
+                </div>
+                {% endif %}
+            {% endif %}
         </div>
         <div class="padded cell rw-6 citizen-chest">
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>
@@ -249,6 +256,18 @@
                         } );
                 });
             {% endif %}
+        {% else %}
+            const recycleBtn = document.querySelectorAll('[x-recycle-home]');
+            for (let i = 0; i < recycleBtn.length; i++) {
+                recycleBtn[i].addEventListener('click', function() {
+                    if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        return;
+                    $.ajax.easySend( '{{ path('visit_recycle_home', {id: owner.id}) }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+                        } );
+                });
+            }
         {% endif %}
 
         {% if can_devour and (allow_devour or allow_devour_corpse) %}
