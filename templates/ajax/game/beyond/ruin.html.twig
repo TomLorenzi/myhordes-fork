@@ -44,7 +44,7 @@
             </div>
 
             <div class="padded cell rw-6 rw-md-12">
-                <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                <h5><span class="float-right link" x-ajax-href='{{ path('exploration_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
                 {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': false} %}
                     {% block class %}rucksack{% endblock %}
                     {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
