@@ -184,6 +184,13 @@ ul.escort-action-list {
     background-position: 50%;
     background-image: url(http://fm.omameier.net/css/img/tile0.png);
 
+    &.rz-far { filter: brightness(75%); }
+    &.rz-locked, &.rz-unlocked {
+      &:after { content: " "; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-size: contain; }
+      &.rz-locked:after { background-image: url(http://fm.omameier.net/css/img/doorlock1.png) }
+      &.rz-unlocked:after { background-image: url(http://fm.omameier.net/css/img/doorlock2.png) }
+    }
+
     &.rz-1 { background-image: url(http://fm.omameier.net/css/img/tile2.png); }
     &.rz-2 { background-image: url(http://fm.omameier.net/css/img/tile1.png); }
     &.rz-3 { background-image: url(http://fm.omameier.net/css/img/tile8.png); }

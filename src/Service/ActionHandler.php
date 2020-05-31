@@ -487,12 +487,14 @@ class ActionHandler
         else $ruinZone = null;
 
         $floor_inventory = null;
-        if     (!$citizen->getZone()) $floor_inventory = $citizen->getHome()->getChest();
+        if     (!$citizen->getZone())
+            $floor_inventory = $citizen->getHome()->getChest();
         elseif (!$ruinZone)
             $floor_inventory = ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : null;
+        elseif ($citizen->activeExplorerStats()->getInRoom())
+            $floor_inventory = $ruinZone->getRoomFloor();
         else
             $floor_inventory = $ruinZone->getFloor();
-
 
         $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone) {
             if ($status = $result->getStatus()) {

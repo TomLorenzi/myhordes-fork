@@ -4,7 +4,7 @@
                 <div class="zone-sub-container">
                     {% for plane_y in 1..-1 %}
                         {% for plane_x in -1..1 %}
-                            <div x-plane-x="{{ plane_x }}" x-plane-y="{{ plane_y }}" class="zone-subplane{% if plane_x == 0 and plane_y == 0 %} center plane-type-{{ prototype.explorableSkin }}-{{ (zone.x == 0 and zone.y == 0) ? 'exit' : map.zone.getCorridor }}{% elseif plane_x == -1 and plane_y == -1 %} plane-type-{{ prototype.explorableSkin }}-all{% endif %}">
+                            <div x-plane-x="{{ plane_x }}" x-plane-y="{{ plane_y }}" class="zone-subplane{% if plane_x == 0 and plane_y == 0 %} center plane-type-{{ prototype.explorableSkin }}-{{ map.shifted ? 'room' : ((zone.x == 0 and zone.y == 0) ? 'exit' : map.zone.getCorridor) }}{% elseif plane_x == -1 and plane_y == -1 %} plane-type-{{ prototype.explorableSkin }}-all{% endif %}">
                                 {% if plane_x == 0 and plane_y == 0 %}
                                     <div class="actor citizen" style="left: 50%; top: 50%"></div>
                                     {% if zone_zombies > 0 %}
@@ -22,10 +22,12 @@
         <div class="zone-plane-controls">
             {% if move %}
                 {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
-                    {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}<div x-direction-x="1"  x-direction-y="0"  class="action-move action-move-east"></div>{% endif %}
-                    {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}<div x-direction-x="-1" x-direction-y="0"  class="action-move action-move-west"></div>{% endif %}
-                    {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}<div x-direction-x="0"  x-direction-y="-1" class="action-move action-move-south"></div>{% endif %}
-                    {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}<div x-direction-x="0"  x-direction-y="1"  class="action-move action-move-north"></div>{% endif %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}<div x-direction-x="1"  x-direction-y="0"  class="action-move action-move-east"></div>{% endif %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}<div x-direction-x="-1" x-direction-y="0"  class="action-move action-move-west"></div>{% endif %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}<div x-direction-x="0"  x-direction-y="-1" class="action-move action-move-south"></div>{% endif %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}<div x-direction-x="0"  x-direction-y="1"  class="action-move action-move-north"></div>{% endif %}
+                    {% if map.shifted %}<div class="action-move action-move-unshift"></div>{% endif %}
+
                 {% endif %}
             {% endif %}
         </div>

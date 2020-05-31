@@ -34,4 +34,16 @@ for (let i = 0; i < ruin_map_areas.length; i++) {
     add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-south') );
     add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-east')  );
     add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-west')  );
+
+    let unshift_button = map.querySelector('.zone-plane-controls>.action-move-unshift');
+    if (unshift_button)
+        unshift_button.addEventListener('click', function() {
+            map.querySelector('.zone-plane-controls').classList.add('hide');
+            $.ajax.easySend( '{{ path('beyond_ruin_room_leave_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                }, null, function() {
+                    map.querySelector('.zone-plane-controls').classList.remove('hide');
+                } );
+        });
 }

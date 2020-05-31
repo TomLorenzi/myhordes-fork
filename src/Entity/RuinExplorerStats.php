@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RuinExplorerStatsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -48,6 +50,21 @@ class RuinExplorerStats
      * @ORM\Column(type="boolean")
      */
     private $active;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $inRoom = false;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=RuinZone::class)
+     */
+    private $scavengedRooms;
+
+    public function __construct()
+    {
+        $this->scavengedRooms = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -111,6 +128,44 @@ class RuinExplorerStats
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getInRoom(): ?bool
+    {
+        return $this->inRoom;
+    }
+
+    public function setInRoom(bool $inRoom): self
+    {
+        $this->inRoom = $inRoom;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RuinZone[]
+     */
+    public function getScavengedRooms(): Collection
+    {
+        return $this->scavengedRooms;
+    }
+
+    public function addScavengedRoom(RuinZone $scavengedRoom): self
+    {
+        if (!$this->scavengedRooms->contains($scavengedRoom)) {
+            $this->scavengedRooms[] = $scavengedRoom;
+        }
+
+        return $this;
+    }
+
+    public function removeScavengedRoom(RuinZone $scavengedRoom): self
+    {
+        if ($this->scavengedRooms->contains($scavengedRoom)) {
+            $this->scavengedRooms->removeElement($scavengedRoom);
+        }
 
         return $this;
     }

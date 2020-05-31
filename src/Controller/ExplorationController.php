@@ -114,15 +114,18 @@ class ExplorationController extends InventoryAwareController implements Explorat
 
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
+            'exploration' => $ex,
             'zone' => $ruinZone,
-            'floor' => $ruinZone->getFloor(),
+            'floor' => $ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor(),
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(false),
             'move' => $ruinZone->getZombies() <= 0,
             'zone_zombies' => $ruinZone->getZombies(),
+            'shifted' => $ex->getInRoom(),
             'ruin_map_data' => [
-                'zone' => $ruinZone
+                'zone' => $ruinZone,
+                'shifted' => $ex->getInRoom(),
             ],
         ]) );
     }
@@ -160,6 +163,11 @@ class ExplorationController extends InventoryAwareController implements Explorat
         if ($ruinZone->getZombies() > 0)
             return AjaxResponse::error( BeyondController::ErrorZoneBlocked );
 
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+
+        if ($ex->getInRoom())
+            return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
+
         $dx = (int)$parser->get('x', 0);
         $dy = (int)$parser->get('y', 0);
 
@@ -173,7 +181,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             ($dy == -1 && !$ruinZone->hasCorridor( RuinZone::CORRIDOR_S ))
         ) return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
 
-        $ex = $this->getActiveCitizen()->activeExplorerStats();
+
         $ex->setX( $ex->getX() + $dx );
         $ex->setY( $ex->getY() - $dy );
 
@@ -190,13 +198,63 @@ class ExplorationController extends InventoryAwareController implements Explorat
     }
 
     /**
+     * @Route("api/beyond/explore/shift", name="beyond_ruin_room_enter_controller")
+     * @return Response
+     */
+    public function ruin_room_enter_api() {
+        $ruinZone = $this->getCurrentRuinZone();
+        if ($ruinZone->getZombies() > 0)
+            return AjaxResponse::error( BeyondController::ErrorZoneBlocked );
+
+        if (!$ruinZone->getPrototype() || $ruinZone->getLocked())
+            return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
+
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+
+        if ($ex->getInRoom())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $ex->setInRoom( true );
+        $this->entity_manager->persist($ex);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/explore/unshift", name="beyond_ruin_room_leave_controller")
+     * @return Response
+     */
+    public function ruin_room_leave_api() {
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+
+        if (!$ex->getInRoom())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $ex->setInRoom( false );
+        $this->entity_manager->persist($ex);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/beyond/explore/item", name="beyond_ruin_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
     public function item_explore_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
-        $down_inv = $this->getCurrentRuinZone()->getFloor();
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+        $down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
         $up_inv   = $this->getActiveCitizen()->getInventory();
 
         return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);

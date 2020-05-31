@@ -5,6 +5,7 @@ namespace App\Service;
 
 use App\Entity\Inventory;
 use App\Entity\RuinZone;
+use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -81,6 +82,57 @@ class MazeMaker
         return $graph;
     }
 
+    /**
+     * @param RuinZone[][] $cache
+     * @param callable $get_dist
+     * @param callable $set_dist
+     */
+    private function dykstra( array &$cache, callable $get_dist, callable $set_dist) {
+
+        /**
+         * @param array $c
+         * @param RuinZone $r
+         * @return RuinZone[]
+         */
+        $get_neighbors = function(array &$c, RuinZone $r): array {
+            $neighbors = [];
+            if ($r->getCorridor() === 0) return $neighbors;
+            if ($r->hasCorridor( RuinZone::CORRIDOR_E )) $neighbors[] = $c[$r->getX()+1][$r->getY()];
+            if ($r->hasCorridor( RuinZone::CORRIDOR_W )) $neighbors[] = $c[$r->getX()-1][$r->getY()];
+            if ($r->hasCorridor( RuinZone::CORRIDOR_S )) $neighbors[] = $c[$r->getX()][$r->getY()+1];
+            if ($r->hasCorridor( RuinZone::CORRIDOR_N )) $neighbors[] = $c[$r->getX()][$r->getY()-1];
+            return $neighbors;
+        };
+
+        /** @var RuinZone[] $distance_stack */
+        $distance_stack = [ ];
+
+        // Identify sinks
+        foreach ($cache as &$line)
+            foreach ($line as &$zone) {
+                $dist = $get_dist($zone);
+                foreach ($get_neighbors($cache,$zone) as $n_zone)
+                    if ($get_dist($n_zone) > ($dist+1)) {
+                        $distance_stack[] = $zone;
+                        continue 2;
+                    }
+
+            }
+
+        // Calculate distances
+        while (!empty($distance_stack)) {
+            $current = array_pop($distance_stack);
+            $dist = $get_dist( $current );
+
+            foreach ($get_neighbors($cache,$current) as $neighbor)
+                if ($get_dist( $neighbor ) > ($dist+1)) {
+                    $set_dist( $neighbor, $dist+1 );
+                    $distance_stack[] = $neighbor;
+                }
+        }
+
+    }
+
     public function generateMaze( Zone $base ) {
 
         /** @var RuinZone[][] $cache */
@@ -88,7 +140,19 @@ class MazeMaker
         foreach ($base->getRuinZones() as $ruinZone) {
             if (!isset($cache[$ruinZone->getX()])) $cache[$ruinZone->getX()] = [];
             if (!isset($cache[$ruinZone->getX()][$ruinZone->getY()])) {
-                $cache[$ruinZone->getX()][$ruinZone->getY()] = $ruinZone->setCorridor(RuinZone::CORRIDOR_NONE);
+                $cache[$ruinZone->getX()][$ruinZone->getY()] = $ruinZone
+                    ->setCorridor(RuinZone::CORRIDOR_NONE)
+                    ->setDistance(9999)
+                    ->setRoomDistance(9999)
+                    ->setDigs(0)
+                    ->setPrototype( null )
+                    ->setLocked( false );
+
+                if ($ruinZone->getRoomFloor()) {
+                    $this->entity_manager->remove( $ruinZone->getRoomFloor() );
+                    $ruinZone->setRoomFloor(null);
+                }
+
                 $binary[$ruinZone->getX()][$ruinZone->getY()] = false;
                 $n++;
             }
@@ -98,9 +162,6 @@ class MazeMaker
         $binary[0][1] = true;
 
         $intersections = ['0/1' => [0,1]];
-
-        //$cache[0][0]->setCorridor( RuinZone::CORRIDOR_S );
-        //$cache[0][1]->setCorridor( RuinZone::CORRIDOR_N );
 
         // Returns true if the given coordinates point to an existing zone
         $exists = function(int $x, int $y) use (&$binary): bool {
@@ -200,6 +261,7 @@ class MazeMaker
 
         /** @var Vertex[] $list */
         $graph = $this->graphyfy($binary, $nodes, $list);
+        $removed_nodes = 0;
 
         // While we still have nodes to remove
         while ($remove_nodes > 0 && $tries < 200) {
@@ -233,13 +295,31 @@ class MazeMaker
 
                 // Count down removed nodes
                 $remove_nodes--;
+                $removed_nodes++;
             };
         }
+
+        // Attempt to re-adds nodes without forming new corridor connections
+        // First, identify corridors that can be added back in
+        $add_list = [];
+        foreach ($binary as $x => &$line)
+            foreach ($line as $y => &$entry)
+                if ($neighbors($x,$y) === 1 && !$corridor($x,$y))
+                    $add_list[] = [$x,$y];
+        // Select and add them back in
+        $add_list = $this->random->pick( $add_list, $removed_nodes, true );
+        foreach ($add_list as $add_entry)
+            $add($add_entry[0],$add_entry[1]);
+
+        // Room candidates
+        $room_candidates = [];
 
         // Build the actual map
         foreach ($cache as $x => &$line)
             foreach ($line as $y => &$ruinZone)
                 if ($corridor($x,$y)) {
+
+                    if ($x !== 0 && $y !== 0) $room_candidates[] = $ruinZone;
 
                     if ($corridor($x+1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_E );
                     if ($corridor($x-1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_W );
@@ -247,5 +327,43 @@ class MazeMaker
                     if ($corridor($x,$y-1)) $ruinZone->addCorridor( RuinZone::CORRIDOR_N );
 
                 } else $ruinZone->setCorridor(RuinZone::CORRIDOR_NONE);
+
+        // Calculate distances
+        $cache[0][0]->setDistance(0);
+        $this->dykstra($cache,
+            function (RuinZone $r): int { return $r->getDistance(); },
+            function (RuinZone $r, int $i): void { $r->setDistance( $i ); }
+        );
+
+        // Let's add some rooms!
+        $lock_distance = $conf->get(TownConf::CONF_EXPLORABLES_LOCKDIST,  10);
+        $room_dist     = $conf->get(TownConf::CONF_EXPLORABLES_ROOM_DIST,  4);
+        $room_count    = $conf->get(TownConf::CONF_EXPLORABLES_ROOMS,     10);
+
+        // Get room types
+        $locked_room_types = $this->entity_manager->getRepository(RuinZonePrototype::class)->findLocked();
+        $unlocked_room_types = $this->entity_manager->getRepository(RuinZonePrototype::class)->findUnlocked();
+
+        while ($room_count > 0 && !empty($room_candidates)) {
+            /** @var RuinZone $room_corridor */
+            $room_corridor = $this->random->pick( $room_candidates, 1 );
+            $far = $room_corridor->getDistance() > $lock_distance;
+            $room_corridor
+                ->setRoomDistance(0)
+                ->setDigs( $far ? 5 : 10 )
+                ->setLocked( $far )
+                ->setRoomFloor( (new Inventory())->setRuinZoneRoom( $room_corridor ) )
+                ->setPrototype( $this->random->pick( $far ? $locked_room_types : $unlocked_room_types ) );
+
+            $this->dykstra($cache,
+                function (RuinZone $r): int { return $r->getRoomDistance(); },
+                function (RuinZone $r, int $i): void { $r->setRoomDistance( $i ); }
+            );
+
+            $room_count--;
+            $room_candidates = array_filter( $room_candidates, function(RuinZone $r) use ($room_dist) {
+                return $r->getRoomDistance() >= $room_dist;
+            } );
+        }
     }
 }

@@ -88,6 +88,26 @@ class RuinZone
      */
     private $digs = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $distance;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $locked;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $roomDistance;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Inventory::class, inversedBy="ruinZoneRoom", cascade={"persist", "remove"})
+     */
+    private $roomFloor;
+
     public function __construct()
     {
     }
@@ -225,6 +245,54 @@ class RuinZone
     public function setDigs(int $digs): self
     {
         $this->digs = $digs;
+
+        return $this;
+    }
+
+    public function getDistance(): ?int
+    {
+        return $this->distance;
+    }
+
+    public function setDistance(int $distance): self
+    {
+        $this->distance = $distance;
+
+        return $this;
+    }
+
+    public function getLocked(): ?bool
+    {
+        return $this->locked;
+    }
+
+    public function setLocked(bool $locked): self
+    {
+        $this->locked = $locked;
+
+        return $this;
+    }
+
+    public function getRoomDistance(): ?int
+    {
+        return $this->roomDistance;
+    }
+
+    public function setRoomDistance(int $roomDistance): self
+    {
+        $this->roomDistance = $roomDistance;
+
+        return $this;
+    }
+
+    public function getRoomFloor(): ?Inventory
+    {
+        return $this->roomFloor;
+    }
+
+    public function setRoomFloor(?Inventory $roomFloor): self
+    {
+        $this->roomFloor = $roomFloor;
 
         return $this;
     }

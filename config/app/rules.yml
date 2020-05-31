@@ -13,7 +13,10 @@ parameters:
       explorable_ruin_params:
         complexity: 0.9
         convolution: 0.2
-        cruelty: 0.1
+        cruelty: 0.06
+        rooms: 10
+        room_spacing: 4
+        lock_distance: 10
 
       initial_buildings:  []
       unlocked_buildings: []

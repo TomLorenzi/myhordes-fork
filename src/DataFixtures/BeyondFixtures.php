@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ItemPrototype;
 use App\Entity\RuinZonePrototype;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -9,6 +10,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -734,20 +736,22 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
 
     public static $room_prototypes = [
         [
-            "label" => "Offene Tür",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_NONE,
+            "label" => "Offene Tür"
         ],
         [
             "label" => "Verschlossene Tür (Flaschenöffner)",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_BOTTLE,
+            "lock_mold" => 'prints_#02',
+            "lock_item" => 'classicKey_#00',
         ],
         [
             "label" => "Verschlossene Tür (Schlagschlüssel)",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_BUMP,
+            "lock_mold" => 'prints_#01',
+            "lock_item" => 'bumpKey_#00',
         ],
         [
             "label" => "Verschlossene Tür (Magnetschlüssel)",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_MAGNET,
+            "lock_mold" => 'prints_#00',
+            "lock_item" => 'magneticKey_#00',
         ],
     ];
 
@@ -863,10 +867,18 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             $entity = $this->entityManager->getRepository(RuinZonePrototype::class)->findOneByLabel( $entry['label'] );
             if ($entity === null) $entity = new RuinZonePrototype();
 
+            // Items
+            $lock_mold = ($entry['lock_mold'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_mold']) : null;
+            $lock_item = ($entry['lock_item'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_item']) : null;
+
+            if ( !is_null($entry['lock_mold'] ?? $entry['lock_item'] ?? null) && ($lock_mold === null || $lock_item === null) )
+                throw new Exception('Lock configuration invalid.');
+
             // Set property
             $entity
                 ->setLabel( $entry['label'] )
-                ->setLockType($entry['lock_type'])
+                ->setKeyImprint($lock_mold ?? null)
+                ->setKeyItem($lock_item ?? null)
             ;
             $manager->persist( $entity );
 

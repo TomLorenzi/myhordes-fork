@@ -29,6 +29,18 @@
                     </button>
                 {% endif %}
 
+                {% if zone.prototype %}
+                    <br />
+                    <button id="{{ exploration.inRoom ? 'unshift_button' : 'shift_button' }}"  >
+                        <img class="icon left" alt="" src="{{ asset('build/images/small_enter.gif') }}" />
+                        {% if exploration.inRoom %}
+                            {{ 'Raum verlassen'|trans({},'game') }}
+                        {% else %}
+                            {{ 'Raum betreten'|trans({},'game') }}
+                        {% endif %}
+                    </button>
+                {% endif %}
+
             </div>
 
             <div class="padded cell rw-6 rw-md-12">
@@ -97,6 +109,19 @@
                     } );
             } );
         {% endif %}
+
+        $.html.addEventListenerAll( '#shift_button', 'click', function() {
+            $.ajax.easySend( '{{ path('beyond_ruin_room_enter_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                } );
+        } );
+        $.html.addEventListenerAll( '#unshift_button', 'click', function() {
+            $.ajax.easySend( '{{ path('beyond_ruin_room_leave_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                } );
+        } );
 
     </script>
 {% endblock %}

@@ -319,6 +319,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 'x' => $r->getX(),
                 'y' => $r->getY(),
                 'c' => $r->getCorridor(),
+                'd' => $r->getDistance(),
+                'r' => $r->getPrototype() ? $r->getLocked() : null,
             ];
         }
 
