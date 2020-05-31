@@ -30,6 +30,18 @@
                 {% endif %}
 
                 {% if zone.prototype %}
+
+                    {% if shifted %}
+                        <br />
+                        <button {% if not scavenge %}disabled{% endif%} id="scavenge_button">
+                            {% if scavenge %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
+                            {% else %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                            {% endif %}
+                            {{ 'Raum durchsuchen'|trans({},'game') }}
+                        </button>
+                    {% endif %}
                     <br />
                     <button id="{{ exploration.inRoom ? 'unshift_button' : 'shift_button' }}"  >
                         <img class="icon left" alt="" src="{{ asset('build/images/small_enter.gif') }}" />
@@ -122,6 +134,15 @@
                     $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                 } );
         } );
+
+        {% if scavenge %}
+            $.html.addEventListenerAll( '#scavenge_button', 'click', function() {
+                $.ajax.easySend( '{{ path('beyond_ruin_scavenge_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                    } );
+            } );
+        {% endif %}
 
     </script>
 {% endblock %}

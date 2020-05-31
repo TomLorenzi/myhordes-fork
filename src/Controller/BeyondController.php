@@ -1052,12 +1052,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
 
-        if (!$zone->getPrototype() || $zone->getBuryCount() > 0)
+        if (!$zone->getPrototype() || $zone->getPrototype()->getExplorable() || $zone->getBuryCount() > 0)
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        $scout = $this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
-        ) > 0;
+        //$scout = $this->inventory_handler->countSpecificItems(
+        //    $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+        //) > 0;
 
         //if (!$this->zone_handler->check_cp( $zone ) && !$scout)
         //    return AjaxResponse::error( self::ErrorZoneBlocked );
@@ -1081,7 +1081,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $noPlaceLeftMsg = "";
                 if ($item) {
                     $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
-                    if($inventoryDest == $zone->getFloor()){
+                    if($inventoryDest === $zone->getFloor()){
                         $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
                         $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                     }

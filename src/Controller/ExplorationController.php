@@ -123,6 +123,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'move' => $ruinZone->getZombies() <= 0,
             'zone_zombies' => $ruinZone->getZombies(),
             'shifted' => $ex->getInRoom(),
+            'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
             'ruin_map_data' => [
                 'zone' => $ruinZone,
                 'shifted' => $ex->getInRoom(),
@@ -258,6 +259,59 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $up_inv   = $this->getActiveCitizen()->getInventory();
 
         return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
+    }
+
+    /**
+     * @Route("api/beyond/explore/scavenge", name="beyond_ruin_scavenge_controller")
+     * @param JSONRequestParser $parser
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function scavenge_explore_api(InventoryHandler $handler): Response {
+        $citizen = $this->getActiveCitizen();
+        $ex = $citizen->activeExplorerStats();
+        $ruinZone = $this->getCurrentRuinZone();
+
+        if (!$ex->getInRoom() || $ex->getScavengedRooms()->contains( $ruinZone ))
+            return AjaxResponse::error( BeyondController::ErrorNotDiggable );
+
+        $prototype = null;
+        if ($ruinZone->getDigs() > 0) {
+
+            if ($this->random_generator->chance( 0.75 )) {      // Completely random, should be validated
+                $group = $ruinZone->getZone()->getPrototype()->getDrops();
+                $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
+            }
+
+            if ($prototype) $ruinZone->setDigs( $ruinZone->getDigs() - 1 );
+        }
+
+        if ($prototype) {
+            $item = $this->item_factory->createItem($prototype);
+            $noPlaceLeftMsg = "";
+            $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
+            if ($inventoryDest === $ruinZone->getFloor())
+                $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
+
+            $this->entity_manager->persist($item);
+            $this->entity_manager->persist($citizen->getInventory());
+            $this->entity_manager->persist($ruinZone->getRoomFloor());
+
+            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
+                    '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
+                ], 'game' ) . "$noPlaceLeftMsg");
+        } else $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
+
+        $ex->getScavengedRooms()->add( $ruinZone );
+        $this->entity_manager->persist($ex);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 
     /**
