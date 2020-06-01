@@ -350,7 +350,6 @@ class MazeMaker
             $far = $room_corridor->getDistance() > $lock_distance;
             $room_corridor
                 ->setRoomDistance(0)
-                ->setDigs( $far ? 5 : 10 )
                 ->setLocked( $far )
                 ->setRoomFloor( (new Inventory())->setRuinZoneRoom( $room_corridor ) )
                 ->setPrototype( $this->random->pick( $far ? $locked_room_types : $unlocked_room_types ) );

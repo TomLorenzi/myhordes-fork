@@ -276,15 +276,17 @@ class ExplorationController extends InventoryAwareController implements Explorat
             return AjaxResponse::error( BeyondController::ErrorNotDiggable );
 
         $prototype = null;
-        if ($ruinZone->getDigs() > 0) {
 
-            if ($this->random_generator->chance( 0.75 )) {      // Completely random, should be validated
-                $group = $ruinZone->getZone()->getPrototype()->getDrops();
-                $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
-            }
+        // Calculate chances
+        $d = $ruinZone->getDigs();
+        $chances = 1.0 / ( 1.0 + ( $d / max( 1, $this->getTownConf()->get(TownConf::CONF_EXPLORABLES_ITEM_RATE, 11) - ($d/3.0) ) ) );
 
-            if ($prototype) $ruinZone->setDigs( $ruinZone->getDigs() - 1 );
+        if ($this->random_generator->chance( $chances )) {
+            $group = $ruinZone->getZone()->getPrototype()->getDrops();
+            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
         }
+
+        $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
         if ($prototype) {
             $item = $this->item_factory->createItem($prototype);
