@@ -196,7 +196,11 @@ class ExplorationController extends InventoryAwareController implements Explorat
         }
 
         $new_zone = $this->getCurrentRuinZone();
-        return AjaxResponse::success(true, ['next' => ($new_zone->getX() !== 0 || $new_zone->getY() !== 0) ? $new_zone->getCorridor() : 'exit']);
+        return AjaxResponse::success(true, [
+            'next' => ($new_zone->getX() !== 0 || $new_zone->getY() !== 0) ? $new_zone->getCorridor() : 'exit',
+            'dp' => $new_zone->getDoorPosition(),
+            'l' => $new_zone->getLocked(),
+        ]);
     }
 
     /**

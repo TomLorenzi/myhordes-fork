@@ -16,8 +16,16 @@ for (let i = 0; i < ruin_map_areas.length; i++) {
                     function (data) {
                         if (data.next) {
                             let target = map.querySelector('.zone-subplane[x-plane-x="' + dx + '"][x-plane-y="' + dy + '"]');
-                            if (target)
-                                target.classList.add( 'plane-type-' + data.next );
+                            if (target) {
+                                target.classList.add('plane-type-' + data.next);
+                                target.classList.add('plane-door-' + (data.l ? 'closed' : 'open'))
+                                let decal_layer = target.querySelector('.decals');
+                                if (data.dp > 0 && decal_layer) {
+                                    let door_decal = document.createElement('div');
+                                    door_decal.classList.add('decal-door', 'decal-door-' + data.dp)
+                                    decal_layer.appendChild(door_decal);
+                                }
+                            }
                         }
 
                         zone_plane.style.left = (-100 + dx * -100) + '%';
