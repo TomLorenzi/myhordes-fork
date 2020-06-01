@@ -124,6 +124,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'zone_zombies' => $ruinZone->getZombies(),
             'shifted' => $ex->getInRoom(),
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
+            'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
                 'zone' => $ruinZone,
                 'shifted' => $ex->getInRoom(),
@@ -263,7 +264,6 @@ class ExplorationController extends InventoryAwareController implements Explorat
 
     /**
      * @Route("api/beyond/explore/scavenge", name="beyond_ruin_scavenge_controller")
-     * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @return Response
      */
@@ -278,7 +278,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $prototype = null;
 
         // Calculate chances
-        $d = $ruinZone->getDigs();
+        $d = $ruinZone->getDigs() + 1;
         $chances = 1.0 / ( 1.0 + ( $d / max( 1, $this->getTownConf()->get(TownConf::CONF_EXPLORABLES_ITEM_RATE, 11) - ($d/3.0) ) ) );
 
         if ($this->random_generator->chance( $chances )) {
@@ -306,6 +306,83 @@ class ExplorationController extends InventoryAwareController implements Explorat
 
         $ex->getScavengedRooms()->add( $ruinZone );
         $this->entity_manager->persist($ex);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/explore/imprint", name="beyond_ruin_imprint_controller")
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function imprint_explore_api(InventoryHandler $handler): Response {
+        $citizen = $this->getActiveCitizen();
+        $ex = $citizen->activeExplorerStats();
+        $ruinZone = $this->getCurrentRuinZone();
+
+        if (!$ruinZone->getPrototype() || !$ruinZone->getLocked() || !$ruinZone->getPrototype()->getKeyImprint())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($ex->getInRoom() || $ex->getScavengedRooms()->contains( $ruinZone ))
+            return AjaxResponse::error( BeyondController::ErrorNotDiggable );
+
+        $item = $this->item_factory->createItem($ruinZone->getPrototype()->getKeyImprint());
+        $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
+
+        $this->addFlash( 'notice', $this->translator->trans( 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!', [
+                '%item%' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $item->getPrototype()->getIcon() . '.gif' )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
+            ], 'game' ));
+
+        $ex->getScavengedRooms()->add( $ruinZone );
+        $this->entity_manager->persist($ex);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/explore/unlock", name="beyond_ruin_unlock_controller")
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function unlock_explore_api(InventoryHandler $handler): Response {
+        $citizen = $this->getActiveCitizen();
+        $ex = $citizen->activeExplorerStats();
+        $ruinZone = $this->getCurrentRuinZone();
+
+        if ($ex->getInRoom() || !$ruinZone->getPrototype() || !$ruinZone->getLocked() || !$ruinZone->getPrototype()->getKeyItem())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $prototype = $ruinZone->getPrototype()->getKeyItem();
+        $k_str = "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>";
+
+        $key = $this->inventory_handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest( $ruinZone->getPrototype()->getKeyItem()->getName())] );
+
+        if (empty($key))
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst %item%, um diese Tür zu öffnen.', ['%item%' => $k_str] ) );
+        else $this->inventory_handler->forceRemoveItem( $key[0] );
+
+        $ruinZone->setLocked(false);
+        $ex->getScavengedRooms()->removeElement( $ruinZone );
+
+        $this->entity_manager->persist($ruinZone);
+        $this->entity_manager->persist($citizen);
+        $this->entity_manager->persist($ex);
+
+        $this->addFlash( 'notice', $this->translator->trans( 'Mithilfe des %item% hast du die Tür aufgeschlossen!', [
+            '%item%' => $k_str
+        ], 'game' ));
 
         try {
             $this->entity_manager->flush();

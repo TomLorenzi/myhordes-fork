@@ -43,14 +43,29 @@
                         </button>
                     {% endif %}
                     <br />
-                    <button id="{{ exploration.inRoom ? 'unshift_button' : 'shift_button' }}"  >
-                        <img class="icon left" alt="" src="{{ asset('build/images/small_enter.gif') }}" />
-                        {% if exploration.inRoom %}
+                    <button {% if zone.locked and not shifted %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
+                        {% if not zone.locked or shifted %}
+                            <img class="icon left" alt="" src="{{ asset('build/images/small_enter.gif') }}" />
+                        {% else %}
+                            <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                        {% endif %}
+                        {% if shifted %}
                             {{ 'Raum verlassen'|trans({},'game') }}
                         {% else %}
                             {{ 'Raum betreten'|trans({},'game') }}
                         {% endif %}
                     </button>
+
+                    {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
+                        <button {% if not scavenge or not can_imprint%}disabled{% endif %} id="imprint_button">
+                            <img class="icon left" alt="" src="{{ asset('build/images/item/item_' ~ zone.prototype.keyImprint.icon ~ '.gif') }}" />
+                            {{ 'Abdruck nehmen'|trans({},'game') }}
+                        </button>
+                        <button id="unlock_button">
+                            <img class="icon left" alt="" src="{{ asset('build/images/item/item_' ~ zone.prototype.keyItem.icon ~ '.gif') }}" />
+                            {{ 'Tür aufschließen'|trans({},'game') }}
+                        </button>
+                    {% endif %}
                 {% endif %}
 
             </div>
@@ -122,18 +137,41 @@
             } );
         {% endif %}
 
-        $.html.addEventListenerAll( '#shift_button', 'click', function() {
-            $.ajax.easySend( '{{ path('beyond_ruin_room_enter_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+        {% if zone.prototype %}
+            {% if not zone.locked and not shifted %}
+                $.html.addEventListenerAll( '#shift_button', 'click', function() {
+                    $.ajax.easySend( '{{ path('beyond_ruin_room_enter_controller') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                        } );
                 } );
-        } );
-        $.html.addEventListenerAll( '#unshift_button', 'click', function() {
-            $.ajax.easySend( '{{ path('beyond_ruin_room_leave_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+            {% endif %}
+            {% if shifted %}
+                $.html.addEventListenerAll( '#unshift_button', 'click', function() {
+                    $.ajax.easySend( '{{ path('beyond_ruin_room_leave_controller') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                        } );
                 } );
-        } );
+            {% endif %}
+        {% endif %}
+
+        {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
+            {% if scavenge and can_imprint %}
+                $.html.addEventListenerAll( '#imprint_button', 'click', function() {
+                    $.ajax.easySend( '{{ path('beyond_ruin_imprint_controller') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                        } );
+                } );
+            {% endif %}
+            $.html.addEventListenerAll( '#unlock_button', 'click', function() {
+                $.ajax.easySend( '{{ path('beyond_ruin_unlock_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                    } );
+            } );
+        {% endif %}
 
         {% if scavenge %}
             $.html.addEventListenerAll( '#scavenge_button', 'click', function() {
