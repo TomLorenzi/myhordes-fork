@@ -14,8 +14,8 @@
                                     {% endif %}
                                 {% endif %}
                                 <div class="decals">
-                                    {% if plane_x == 0 and plane_y == 0 %}
-                                        {% if map.zone.doorPosition and not map.shifted > 0 %}
+                                    {% if plane_x == 0 and plane_y == 0 and not map.shifted %}
+                                        {% if map.zone.doorPosition %}
                                             <div class="decal-door decal-door-{{ map.zone.doorPosition }}"></div>
                                         {% endif %}
                                         {% for i in 0..15 %}
