@@ -90,10 +90,70 @@ div.ruin_map_area {
         &>.zone-subplane {
           position: relative; display: inline-block; padding: 0; margin: 0; width: 33.3333333%; height: 33.3333333%;
 
-
-          &.plane-skin-bunker   { .plane-skin('bunker'); }
-          &.plane-skin-hotel    { .plane-skin('hotel'); }
-          &.plane-skin-hospital { .plane-skin('hospital'); }
+          & .decals>.decal-ambient { background-position: center; background-size: contain; background-repeat: no-repeat; }
+          &.plane-skin-bunker   {
+            .plane-skin('bunker');
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-a  { width:  6%; height:  9%; left: 37%; top: 27%; background-image: url("../../img/explore/bunker/wall_barrel_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-a  { width:  6%; height:  9%; left: 58%; top: 27%; background-image: url("../../img/explore/bunker/wall_barrel_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-b  { width: 14%; height: 20%; left: 32%; top: 12%; background-image: url("../../img/explore/bunker/wall_pipe_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-b  { width: 14%; height: 20%; left: 54%; top: 12%; background-image: url("../../img/explore/bunker/wall_pipe_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-4                          { width:  9%; height:  8%; left: 18%; top: 31%; background-image: url("../../img/explore/bunker/wall_hatch_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-7                          { width:  9%; height:  8%; left: 76%; top: 31%; background-image: url("../../img/explore/bunker/wall_hatch_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-10.decal-ambient-variant-a { width:  9%; height:  8%; left: 18%; top: 62%; background-image: url("../../img/explore/bunker/wall_hatch_A.png"); }
+            & .decals>.decal-ambient.decal-ambient-13.decal-ambient-variant-a { width:  9%; height:  8%; left: 76%; top: 62%; background-image: url("../../img/explore/bunker/wall_hatch_H.png"); }
+            & .decals>.decal-ambient.decal-ambient-10.decal-ambient-variant-b { width: 11%; height:  7%; left: 14%; top: 65%; background-image: url("../../img/explore/bunker/wall_gutter_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-13.decal-ambient-variant-b { width: 11%; height:  7%; left: 80%; top: 65%; background-image: url("../../img/explore/bunker/wall_gutter_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-14                         { width:  4%; height: 18%; left: 34%; top: 69%; background-image: url("../../img/explore/bunker/wall_grid_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-16                         { width:  4%; height: 18%; left: 62%; top: 69%; background-image: url("../../img/explore/bunker/wall_grid_D.png"); }
+          }
+          &.plane-skin-hotel    {
+            .plane-skin('hotel');
+            & .decals>.decal-ambient.decal-ambient-1                          { width:  8%; height: 13%; left: 35%; top: 27%; background-image: url("../../img/explore/hotel/wall_flowers_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3                          { width:  8%; height: 13%; left: 57%; top: 27%; background-image: url("../../img/explore/hotel/wall_flowers_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-4.decal-ambient-variant-a  { width:  9%; height: 12%; left: 22%; top: 31%; background-image: url("../../img/explore/hotel/wall_palmtree_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-7.decal-ambient-variant-a  { width:  9%; height: 12%; left: 70%; top: 31%; background-image: url("../../img/explore/hotel/wall_palmtree_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-a  { width: 18%; height:  9%; left: 30%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-b  { width: 18%; height:  9%; left: 30%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-a  { width: 18%; height:  9%; left: 54%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-b  { width: 18%; height:  9%; left: 54%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-a  { width: 32%; height: 25%; left:  5%; top: 37%; background-image: url("../../img/explore/hotel/zone_stain_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-b  { width: 18%; height:  9%; left: 20%; top: 45%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-a  { width: 32%; height: 25%; left: 65%; top: 37%; background-image: url("../../img/explore/hotel/zone_stain_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-b  { width: 18%; height:  9%; left: 75%; top: 45%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-a { width: 18%; height:  9%; left: 30%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-b { width: 18%; height:  9%; left: 30%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-a { width: 18%; height:  9%; left: 54%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-b { width: 18%; height:  9%; left: 54%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-2.decal-ambient-variant-a  { width: 25%; height: 32%; left: 37%; top:  5%; background-image: url("../../img/explore/hotel/zone_stain_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-15.decal-ambient-variant-a { width: 25%; height: 32%; left: 37%; top: 65%; background-image: url("../../img/explore/hotel/zone_stain_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-2.decal-ambient-variant-b  { width:  9%; height: 18%; left: 52%; top:  6%; background-image: url("../../img/explore/hotel/zone_dead_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-15.decal-ambient-variant-b { width:  9%; height: 18%; left: 40%; top: 75%; background-image: url("../../img/explore/hotel/zone_dead_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-4.decal-ambient-variant-b  { width: 14%; height:  8%; left: 13%; top: 34%; background-image: url("../../img/explore/hotel/wall_bench_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-7.decal-ambient-variant-b  { width: 14%; height:  8%; left: 72%; top: 34%; background-image: url("../../img/explore/hotel/wall_bench_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-10                         { width: 14%; height:  8%; left: 13%; top: 58%; background-image: url("../../img/explore/hotel/wall_bench_A.png"); }
+            & .decals>.decal-ambient.decal-ambient-13                         { width: 14%; height:  8%; left: 72%; top: 58%; background-image: url("../../img/explore/hotel/wall_bench_H.png"); }
+          }
+          &.plane-skin-hospital {
+            .plane-skin('hospital');
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-a  { width: 10%; height: 11%; left: 34%; top: 27%; background-image: url("../../img/explore/hospital/wall_dead_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-a  { width: 10%; height: 11%; left: 57%; top: 27%; background-image: url("../../img/explore/hospital/wall_dead_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-b  { width:  7%; height: 17%; left: 37%; top: 15%; background-image: url("../../img/explore/hospital/wall_bed_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-b  { width:  7%; height: 17%; left: 57%; top: 15%; background-image: url("../../img/explore/hospital/wall_bed_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-a  { width: 10%; height:  9%; left: 39%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-b  { width: 10%; height:  9%; left: 39%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-a  { width:  9%; height: 10%; left: 54%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-b  { width:  9%; height: 10%; left: 54%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-a  { width:  9%; height: 10%; left: 20%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-b  { width:  9%; height: 10%; left: 20%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-a  { width:  9%; height: 10%; left: 75%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-b  { width:  9%; height: 10%; left: 75%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-a { width: 10%; height:  9%; left: 39%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-b { width: 10%; height:  9%; left: 39%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-a { width:  9%; height: 10%; left: 54%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-b { width:  9%; height: 10%; left: 54%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-14                         { width:  4%; height:  9%; left: 33%; top: 78%; background-image: url("../../img/explore/hospital/wall_grid_K.png"); }
+            & .decals>.decal-ambient.decal-ambient-16                         { width:  4%; height:  9%; left: 63%; top: 78%; background-image: url("../../img/explore/hospital/wall_grid_J.png"); }
+          }
 
           &>.actor {
             overflow: visible;

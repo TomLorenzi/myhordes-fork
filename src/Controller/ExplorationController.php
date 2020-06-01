@@ -200,6 +200,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'next' => ($new_zone->getX() !== 0 || $new_zone->getY() !== 0) ? $new_zone->getCorridor() : 'exit',
             'dp' => $new_zone->getDoorPosition(),
             'l' => $new_zone->getLocked(),
+            'd' => $new_zone->getDecals(),
         ]);
     }
 

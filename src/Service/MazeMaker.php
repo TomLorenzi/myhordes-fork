@@ -147,7 +147,8 @@ class MazeMaker
                     ->setDigs(0)
                     ->setPrototype( null )
                     ->setLocked( false )
-                    ->setDoorPosition( 0 );
+                    ->setDoorPosition( 0 )
+                    ->setDecals( mt_rand(0,4294967295) );
 
                 if ($ruinZone->getRoomFloor()) {
                     $this->entity_manager->remove( $ruinZone->getRoomFloor() );
@@ -316,8 +317,8 @@ class MazeMaker
         $room_candidates = [];
 
         // Build the actual map
-        foreach ($cache as $x => &$line)
-            foreach ($line as $y => &$ruinZone)
+        foreach ($cache as $x => $line)
+            foreach ($line as $y => $ruinZone)
                 if ($corridor($x,$y)) {
 
                     if ($x !== 0 && $y !== 0) $room_candidates[] = $ruinZone;
@@ -374,5 +375,31 @@ class MazeMaker
                 return $r->getRoomDistance() >= $room_dist;
             } );
         }
+
+        // Place decals
+        foreach ($cache as $x => $line)
+            foreach ($line as $y => $ruinZone) {
+                // Get decal value
+                $decal_filter = 0;
+
+                // Determine possible locations for the decal
+                if (!$ruinZone->hasCorridor( RuinZone::CORRIDOR_E )) $decal_filter |= ((1<< 6) + (1<< 8) + (1<<12));
+                if (!$ruinZone->hasCorridor( RuinZone::CORRIDOR_W )) $decal_filter |= ((1<< 3) + (1<< 7) + (1<< 9));
+                if (!$ruinZone->hasCorridor( RuinZone::CORRIDOR_N )) $decal_filter |= ((1<< 0) + (1<< 1) + (1<< 2));
+                if (!$ruinZone->hasCorridor( RuinZone::CORRIDOR_S )) $decal_filter |= ((1<<13) + (1<<14) + (1<<15));
+
+                // Do not overlay the entrance
+                if ($x === 0 && $y === 0) $decal_filter |= ((1<< 4) + (1<< 5));
+
+                // Do not overlay door with decals!
+                switch ($ruinZone->getDoorPosition()) {
+                    case 1: $decal_filter |= (1<< 3);  break;
+                    case 3: $decal_filter |= (1<< 6);  break;
+                    case 6: $decal_filter |= (1<< 9);  break;
+                    case 8: $decal_filter |= (1<<12); break;
+                }
+
+                $ruinZone->setDecals( $ruinZone->getDecals() & (~$decal_filter) );
+            }
     }
 }

@@ -64,7 +64,7 @@ class RuinZone
     /**
      * @ORM\Column(type="integer")
      */
-    private $zombies;
+    private $zombies = 0;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="ruinZone", cascade={"persist", "remove"})
@@ -91,17 +91,17 @@ class RuinZone
     /**
      * @ORM\Column(type="integer")
      */
-    private $distance;
+    private $distance = 0;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $locked;
+    private $locked = false;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $roomDistance;
+    private $roomDistance = 0;
 
     /**
      * @ORM\OneToOne(targetEntity=Inventory::class, inversedBy="ruinZoneRoom", cascade={"persist", "remove"})
@@ -111,7 +111,12 @@ class RuinZone
     /**
      * @ORM\Column(type="integer")
      */
-    private $doorPosition;
+    private $doorPosition = 0;
+
+    /**
+     * @ORM\Column(type="integer", options={"unsigned":true})
+     */
+    private $decals = 0;
 
     public function __construct()
     {
@@ -310,6 +315,18 @@ class RuinZone
     public function setDoorPosition(int $doorPosition): self
     {
         $this->doorPosition = $doorPosition;
+
+        return $this;
+    }
+
+    public function getDecals(): ?int
+    {
+        return $this->decals;
+    }
+
+    public function setDecals(int $decals): self
+    {
+        $this->decals = $decals;
 
         return $this;
     }

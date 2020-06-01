@@ -18,6 +18,11 @@
                                         {% if map.zone.doorPosition and not map.shifted > 0 %}
                                             <div class="decal-door decal-door-{{ map.zone.doorPosition }}"></div>
                                         {% endif %}
+                                        {% for i in 0..15 %}
+                                            {% if map.zone.decals b-and (2**i) %}
+                                                <div class="decal-ambient decal-ambient-{{ i+1 }} decal-ambient-variant-{{ (map.zone.decals b-and (2**(16+i))) ? 'b' : 'a' }}"></div>
+                                            {% endif %}
+                                        {% endfor %}
                                     {% endif %}
                                 </div>
                             </div>
