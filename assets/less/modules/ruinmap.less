@@ -1,5 +1,71 @@
 @import (once) "../theme";
 
+.plane-skin(@skin) {
+  &.plane-type-all  {
+    background:
+            url("../../img/explore/@{skin}/room.png"),
+            url("../../img/explore/@{skin}/exit.png"), url("../../img/explore/@{skin}/0001.png"), url("../../img/explore/@{skin}/0010.png"),
+            url("../../img/explore/@{skin}/0011.png"), url("../../img/explore/@{skin}/0100.png"), url("../../img/explore/@{skin}/0101.png"),
+            url("../../img/explore/@{skin}/0110.png"), url("../../img/explore/@{skin}/0111.png"), url("../../img/explore/@{skin}/1001.png"),
+            url("../../img/explore/@{skin}/1010.png"), url("../../img/explore/@{skin}/1011.png"), url("../../img/explore/@{skin}/1100.png"),
+            url("../../img/explore/@{skin}/1101.png"), url("../../img/explore/@{skin}/1110.png"), url("../../img/explore/@{skin}/1111.png")
+  }
+  &.plane-type-exit { background: url("../../img/explore/@{skin}/exit.png") center/cover no-repeat; }
+  &.plane-type-room { background: url("../../img/explore/@{skin}/room.png") center/cover no-repeat; }
+  &.plane-type-1    { background: url("../../img/explore/@{skin}/0010.png") center/cover no-repeat; }
+  &.plane-type-2    { background: url("../../img/explore/@{skin}/0100.png") center/cover no-repeat; }
+  &.plane-type-3    { background: url("../../img/explore/@{skin}/0110.png") center/cover no-repeat; }
+  &.plane-type-4    { background: url("../../img/explore/@{skin}/0001.png") center/cover no-repeat; }
+  &.plane-type-5    { background: url("../../img/explore/@{skin}/0011.png") center/cover no-repeat; }
+  &.plane-type-6    { background: url("../../img/explore/@{skin}/0101.png") center/cover no-repeat; }
+  &.plane-type-7    { background: url("../../img/explore/@{skin}/0111.png") center/cover no-repeat; }
+  &.plane-type-8    { background: url("../../img/explore/@{skin}/1000.png") center/cover no-repeat; }
+  &.plane-type-9    { background: url("../../img/explore/@{skin}/1010.png") center/cover no-repeat; }
+  &.plane-type-10   { background: url("../../img/explore/@{skin}/1100.png") center/cover no-repeat; }
+  &.plane-type-11   { background: url("../../img/explore/@{skin}/1110.png") center/cover no-repeat; }
+  &.plane-type-12   { background: url("../../img/explore/@{skin}/1001.png") center/cover no-repeat; }
+  &.plane-type-13   { background: url("../../img/explore/@{skin}/1011.png") center/cover no-repeat; }
+  &.plane-type-14   { background: url("../../img/explore/@{skin}/1101.png") center/cover no-repeat; }
+  &.plane-type-15   { background: url("../../img/explore/@{skin}/1111.png") center/cover no-repeat; }
+
+  &>.decals {
+    position: absolute; left: 0; right: 0; bottom: 0; top: 0;
+    &>* { position: absolute; }
+    &>.decal-door {
+      width: 10%; height: 10%;
+      &:hover { cursor: pointer; filter: drop-shadow(0 0 10px green) }
+      &.decal-door-1,&.decal-door-6 { left:  17% }
+      &.decal-door-3,&.decal-door-8 { right: 17% }
+      &.decal-door-4 { left:  34% }
+      &.decal-door-5 { right: 34% }
+      &.decal-door-2 { left:  45% }
+      &.decal-door-7 { right: 45% }
+      &.decal-door-1,&.decal-door-2,&.decal-door-3 { top:    32% }
+      &.decal-door-6,&.decal-door-7,&.decal-door-8 { bottom: 32% }
+      &.decal-door-4 { top:    45% }
+      &.decal-door-5 { bottom: 45% }
+    }
+  }
+
+  &.plane-door-open>.decals>.decal-door-1 { background: url("../../img/explore/@{skin}/dtlo.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-2 { background: url("../../img/explore/@{skin}/dto.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-3 { background: url("../../img/explore/@{skin}/dtro.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-4 { background: url("../../img/explore/@{skin}/dlo.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-5 { background: url("../../img/explore/@{skin}/dro.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-6 { background: url("../../img/explore/@{skin}/dblo.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-7 { background: url("../../img/explore/@{skin}/dbo.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-8 { background: url("../../img/explore/@{skin}/dbro.png") center/cover no-repeat; }
+
+  &.plane-door-closed>.decals>.decal-door-1 { background: url("../../img/explore/@{skin}/dtlc.png") center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-2 { background: url("../../img/explore/@{skin}/dtc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-3 { background: url("../../img/explore/@{skin}/dtrc.png") center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-4 { background: url("../../img/explore/@{skin}/dlc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-5 { background: url("../../img/explore/@{skin}/drc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-6 { background: url("../../img/explore/@{skin}/dblc.png") center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-7 { background: url("../../img/explore/@{skin}/dbc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-8 { background: url("../../img/explore/@{skin}/dbrc.png") center/cover no-repeat; }
+}
+
 div.ruin_map_area {
   div.map {
     font-size: 0; background: @myhordes-map-background; overflow: hidden; padding-top: 100%; position: relative;
@@ -24,86 +90,10 @@ div.ruin_map_area {
         &>.zone-subplane {
           position: relative; display: inline-block; padding: 0; margin: 0; width: 33.3333333%; height: 33.3333333%;
 
-          &.plane-type-bunker-all  { 
-            background:
-                    url("../../img/explore/bunker/room.png"),
-                    url("../../img/explore/bunker/exit.png"), url("../../img/explore/bunker/0001.png"), url("../../img/explore/bunker/0010.png"), 
-                    url("../../img/explore/bunker/0011.png"), url("../../img/explore/bunker/0100.png"), url("../../img/explore/bunker/0101.png"),
-                    url("../../img/explore/bunker/0110.png"), url("../../img/explore/bunker/0111.png"), url("../../img/explore/bunker/1001.png"),
-                    url("../../img/explore/bunker/1010.png"), url("../../img/explore/bunker/1011.png"), url("../../img/explore/bunker/1100.png"), 
-                    url("../../img/explore/bunker/1101.png"), url("../../img/explore/bunker/1110.png"), url("../../img/explore/bunker/1111.png")
-          }
-          &.plane-type-bunker-exit { background: url("../../img/explore/bunker/exit.png") center/cover no-repeat; }
-          &.plane-type-bunker-room { background: url("../../img/explore/bunker/room.png") center/cover no-repeat; }
-          &.plane-type-bunker-1    { background: url("../../img/explore/bunker/0010.png") center/cover no-repeat; }
-          &.plane-type-bunker-2    { background: url("../../img/explore/bunker/0100.png") center/cover no-repeat; }
-          &.plane-type-bunker-3    { background: url("../../img/explore/bunker/0110.png") center/cover no-repeat; }
-          &.plane-type-bunker-4    { background: url("../../img/explore/bunker/0001.png") center/cover no-repeat; }
-          &.plane-type-bunker-5    { background: url("../../img/explore/bunker/0011.png") center/cover no-repeat; }
-          &.plane-type-bunker-6    { background: url("../../img/explore/bunker/0101.png") center/cover no-repeat; }
-          &.plane-type-bunker-7    { background: url("../../img/explore/bunker/0111.png") center/cover no-repeat; }
-          &.plane-type-bunker-8    { background: url("../../img/explore/bunker/1000.png") center/cover no-repeat; }
-          &.plane-type-bunker-9    { background: url("../../img/explore/bunker/1010.png") center/cover no-repeat; }
-          &.plane-type-bunker-10   { background: url("../../img/explore/bunker/1100.png") center/cover no-repeat; }
-          &.plane-type-bunker-11   { background: url("../../img/explore/bunker/1110.png") center/cover no-repeat; }
-          &.plane-type-bunker-12   { background: url("../../img/explore/bunker/1001.png") center/cover no-repeat; }
-          &.plane-type-bunker-13   { background: url("../../img/explore/bunker/1011.png") center/cover no-repeat; }
-          &.plane-type-bunker-14   { background: url("../../img/explore/bunker/1101.png") center/cover no-repeat; }
-          &.plane-type-bunker-15   { background: url("../../img/explore/bunker/1111.png") center/cover no-repeat; }
 
-          &.plane-type-hotel-all  {
-            background:
-                    url("../../img/explore/hotel/room.png"),
-                    url("../../img/explore/hotel/exit.png"), url("../../img/explore/hotel/0001.png"), url("../../img/explore/hotel/0010.png"),
-                    url("../../img/explore/hotel/0011.png"), url("../../img/explore/hotel/0100.png"), url("../../img/explore/hotel/0101.png"),
-                    url("../../img/explore/hotel/0110.png"), url("../../img/explore/hotel/0111.png"), url("../../img/explore/hotel/1001.png"),
-                    url("../../img/explore/hotel/1010.png"), url("../../img/explore/hotel/1011.png"), url("../../img/explore/hotel/1100.png"),
-                    url("../../img/explore/hotel/1101.png"), url("../../img/explore/hotel/1110.png"), url("../../img/explore/hotel/1111.png")
-          }
-          &.plane-type-hotel-exit { background: url("../../img/explore/hotel/exit.png") center/cover no-repeat; }
-          &.plane-type-hotel-room { background: url("../../img/explore/hotel/room.png") center/cover no-repeat; }
-          &.plane-type-hotel-1    { background: url("../../img/explore/hotel/0010.png") center/cover no-repeat; }
-          &.plane-type-hotel-2    { background: url("../../img/explore/hotel/0100.png") center/cover no-repeat; }
-          &.plane-type-hotel-3    { background: url("../../img/explore/hotel/0110.png") center/cover no-repeat; }
-          &.plane-type-hotel-4    { background: url("../../img/explore/hotel/0001.png") center/cover no-repeat; }
-          &.plane-type-hotel-5    { background: url("../../img/explore/hotel/0011.png") center/cover no-repeat; }
-          &.plane-type-hotel-6    { background: url("../../img/explore/hotel/0101.png") center/cover no-repeat; }
-          &.plane-type-hotel-7    { background: url("../../img/explore/hotel/0111.png") center/cover no-repeat; }
-          &.plane-type-hotel-8    { background: url("../../img/explore/hotel/1000.png") center/cover no-repeat; }
-          &.plane-type-hotel-9    { background: url("../../img/explore/hotel/1010.png") center/cover no-repeat; }
-          &.plane-type-hotel-10   { background: url("../../img/explore/hotel/1100.png") center/cover no-repeat; }
-          &.plane-type-hotel-11   { background: url("../../img/explore/hotel/1110.png") center/cover no-repeat; }
-          &.plane-type-hotel-12   { background: url("../../img/explore/hotel/1001.png") center/cover no-repeat; }
-          &.plane-type-hotel-13   { background: url("../../img/explore/hotel/1011.png") center/cover no-repeat; }
-          &.plane-type-hotel-14   { background: url("../../img/explore/hotel/1101.png") center/cover no-repeat; }
-          &.plane-type-hotel-15   { background: url("../../img/explore/hotel/1111.png") center/cover no-repeat; }
-
-          &.plane-type-hospital-all  {
-            background:
-                    url("../../img/explore/hospital/room.png"),
-                    url("../../img/explore/hospital/exit.png"), url("../../img/explore/hospital/0001.png"), url("../../img/explore/hospital/0010.png"),
-                    url("../../img/explore/hospital/0011.png"), url("../../img/explore/hospital/0100.png"), url("../../img/explore/hospital/0101.png"),
-                    url("../../img/explore/hospital/0110.png"), url("../../img/explore/hospital/0111.png"), url("../../img/explore/hospital/1001.png"),
-                    url("../../img/explore/hospital/1010.png"), url("../../img/explore/hospital/1011.png"), url("../../img/explore/hospital/1100.png"),
-                    url("../../img/explore/hospital/1101.png"), url("../../img/explore/hospital/1110.png"), url("../../img/explore/hospital/1111.png")
-          }
-          &.plane-type-hospital-exit { background: url("../../img/explore/hospital/exit.png") center/cover no-repeat; }
-          &.plane-type-hospital-room { background: url("../../img/explore/hospital/room.png") center/cover no-repeat; }
-          &.plane-type-hospital-1    { background: url("../../img/explore/hospital/0010.png") center/cover no-repeat; }
-          &.plane-type-hospital-2    { background: url("../../img/explore/hospital/0100.png") center/cover no-repeat; }
-          &.plane-type-hospital-3    { background: url("../../img/explore/hospital/0110.png") center/cover no-repeat; }
-          &.plane-type-hospital-4    { background: url("../../img/explore/hospital/0001.png") center/cover no-repeat; }
-          &.plane-type-hospital-5    { background: url("../../img/explore/hospital/0011.png") center/cover no-repeat; }
-          &.plane-type-hospital-6    { background: url("../../img/explore/hospital/0101.png") center/cover no-repeat; }
-          &.plane-type-hospital-7    { background: url("../../img/explore/hospital/0111.png") center/cover no-repeat; }
-          &.plane-type-hospital-8    { background: url("../../img/explore/hospital/1000.png") center/cover no-repeat; }
-          &.plane-type-hospital-9    { background: url("../../img/explore/hospital/1010.png") center/cover no-repeat; }
-          &.plane-type-hospital-10   { background: url("../../img/explore/hospital/1100.png") center/cover no-repeat; }
-          &.plane-type-hospital-11   { background: url("../../img/explore/hospital/1110.png") center/cover no-repeat; }
-          &.plane-type-hospital-12   { background: url("../../img/explore/hospital/1001.png") center/cover no-repeat; }
-          &.plane-type-hospital-13   { background: url("../../img/explore/hospital/1011.png") center/cover no-repeat; }
-          &.plane-type-hospital-14   { background: url("../../img/explore/hospital/1101.png") center/cover no-repeat; }
-          &.plane-type-hospital-15   { background: url("../../img/explore/hospital/1111.png") center/cover no-repeat; }
+          &.plane-skin-bunker   { .plane-skin('bunker'); }
+          &.plane-skin-hotel    { .plane-skin('hotel'); }
+          &.plane-skin-hospital { .plane-skin('hospital'); }
 
           &>.actor {
             overflow: visible;
@@ -119,13 +109,13 @@ div.ruin_map_area {
       }
     }
     &>.zone-plane-controls {
-      top: 0; left: 0; width: 100%; height: 100%; z-index: 4;
-      &.hide { opacity: 0; pointer-events: none };
+      top: 0; left: 0; width: 100%; height: 100%; z-index: 4; pointer-events: none; &:not(.hide)>* { pointer-events: all; }
+      &.hide { opacity: 0;  };
       &>.action-move {
         position: absolute; z-index: 4; cursor: pointer;
         &.on-route { filter: hue-rotate(90deg); }
         background: url(../../img/227.svg) 50% / contain no-repeat, url(../../img/226.svg) 50% / contain no-repeat;
-        width: 81px; height: 81px;
+        width: 81px; height: 41px;
         transform-origin: center;
         top: auto; bottom: auto; left: auto; right: auto;
 
@@ -133,13 +123,13 @@ div.ruin_map_area {
           background: url(../../img/228.svg) 50% no-repeat;
         }
         &.action-move-north {
-          top: -5%; left: 50%; transform: translateX(-50%);
+          top: 2%; left: 50%; transform: translateX(-50%);
         }
         &.action-move-east {
           top: 50%; right: -5%; transform: translateY(-50%) rotate(90deg);
         }
         &.action-move-south, &.action-move-unshift {
-          left: 50%; bottom: -5%; transform: translateX(-50%) rotate(180deg);
+          left: 50%; bottom: 2%; transform: translateX(-50%) rotate(180deg);
         }
         &.action-move-west {
           top: 50%; left: -5%; transform: translateY(-50%) rotate(270deg);

@@ -146,7 +146,8 @@ class MazeMaker
                     ->setRoomDistance(9999)
                     ->setDigs(0)
                     ->setPrototype( null )
-                    ->setLocked( false );
+                    ->setLocked( false )
+                    ->setDoorPosition( 0 );
 
                 if ($ruinZone->getRoomFloor()) {
                     $this->entity_manager->remove( $ruinZone->getRoomFloor() );
@@ -348,11 +349,20 @@ class MazeMaker
             /** @var RuinZone $room_corridor */
             $room_corridor = $this->random->pick( $room_candidates, 1 );
             $far = $room_corridor->getDistance() > $lock_distance;
+
+            // Determine possible locations for the door
+            $valid_locations = [];
+            if ( $room_corridor->hasCorridor( RuinZone::CORRIDOR_E )) $valid_locations = array_merge($valid_locations, [3,8]); else $valid_locations[] = 5;
+            if ( $room_corridor->hasCorridor( RuinZone::CORRIDOR_W )) $valid_locations = array_merge($valid_locations, [1,6]); else $valid_locations[] = 4;
+            if (!$room_corridor->hasCorridor( RuinZone::CORRIDOR_N )) $valid_locations[] = 2;
+            if (!$room_corridor->hasCorridor( RuinZone::CORRIDOR_S )) $valid_locations[] = 7;
+
             $room_corridor
                 ->setRoomDistance(0)
                 ->setLocked( $far )
                 ->setRoomFloor( (new Inventory())->setRuinZoneRoom( $room_corridor ) )
-                ->setPrototype( $this->random->pick( $far ? $locked_room_types : $unlocked_room_types ) );
+                ->setPrototype( $this->random->pick( $far ? $locked_room_types : $unlocked_room_types ) )
+                ->setDoorPosition( $this->random->pick( $valid_locations ) );
 
             $this->dykstra($cache,
                 function (RuinZone $r): int { return $r->getRoomDistance(); },

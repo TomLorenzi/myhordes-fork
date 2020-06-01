@@ -17,7 +17,7 @@ for (let i = 0; i < ruin_map_areas.length; i++) {
                         if (data.next) {
                             let target = map.querySelector('.zone-subplane[x-plane-x="' + dx + '"][x-plane-y="' + dy + '"]');
                             if (target)
-                                target.classList.add( 'plane-type-{{ prototype.explorableSkin }}-' + data.next );
+                                target.classList.add( 'plane-type-' + data.next );
                         }
 
                         zone_plane.style.left = (-100 + dx * -100) + '%';
@@ -34,6 +34,18 @@ for (let i = 0; i < ruin_map_areas.length; i++) {
     add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-south') );
     add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-east')  );
     add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-west')  );
+
+    let shift_buttons = map.querySelectorAll('.zone-sub-container>.zone-subplane.plane-door-open .decal-door');
+    for (let i = 0; i < shift_buttons.length; i++)
+        shift_buttons[i].addEventListener('click', function() {
+            map.querySelector('.zone-plane-controls').classList.add('hide');
+            $.ajax.easySend( '{{ path('beyond_ruin_room_enter_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                }, null, function() {
+                    map.querySelector('.zone-plane-controls').classList.remove('hide');
+                } );
+        });
 
     let unshift_button = map.querySelector('.zone-plane-controls>.action-move-unshift');
     if (unshift_button)

@@ -108,6 +108,11 @@ class RuinZone
      */
     private $roomFloor;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $doorPosition;
+
     public function __construct()
     {
     }
@@ -293,6 +298,18 @@ class RuinZone
     public function setRoomFloor(?Inventory $roomFloor): self
     {
         $this->roomFloor = $roomFloor;
+
+        return $this;
+    }
+
+    public function getDoorPosition(): ?int
+    {
+        return $this->doorPosition;
+    }
+
+    public function setDoorPosition(int $doorPosition): self
+    {
+        $this->doorPosition = $doorPosition;
 
         return $this;
     }
