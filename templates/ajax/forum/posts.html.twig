@@ -61,7 +61,7 @@
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden or is_granted("ROLE_CROW") %}
-            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %} {% if selectedpost == post.id %}forum-post-selected{% endif %}">
+            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %} {% if selectedpost == post.id %}forum-post-selected{% endif %}" id="{{post.id}}">
                 <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
@@ -104,8 +104,8 @@
                 <div class="forum-post-content">
                     {{ post.text|raw }}
                 </div>
-
                 <div class="forum-post-footer right">
+                {% if post.owner.username != 'Der Rabe' %}
                     {% if not is_granted("ROLE_CROW") %}
                         <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
                     {% else %}
@@ -119,6 +119,7 @@
                         </label>
                     <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
                     {% endif %}
+                {% endif %}
                 </div>
             </div>
         {% endif %}
@@ -222,6 +223,10 @@
         let thread_listings = document.querySelectorAll('[x-thread-id="{{ tid }}"]');
         for (let i = 0; i < thread_listings.length; i++)
             thread_listings[i].classList.remove('forum-thread-unread');
+    {% endif %}
+
+    {% if selectedpost > 0 %}
+        document.getElementById({{selectedpost}}).scrollIntoView();
     {% endif %}
 </script>
 
