@@ -584,26 +584,38 @@ class MessageController extends AbstractController
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
 
+        if ($user->getRightsElevation() >= User::ROLE_CROW)
+            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
+        else
+            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
+
         $firstpost = null;
         if($parser->has('firstpost')) {
             $firstpost = $parser->get('firstpost');
+            $postlooked = $em->getRepository(Post::class)->find($firstpost);
             $page = 1;
+            if($postlooked !== null){
+            	do {
+            		if ($user->getRightsElevation() >= User::ROLE_CROW)
+			            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+			        else
+			            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+			        if(!in_array($postlooked, $posts) && $page < $pages)
+			        	$page++;
+            	} while (!in_array($postlooked, $posts));
+            }
+        } else {
+	        if ($parser->has('page'))
+	            $page = min(max(1,$parser->get('page', 1)), $pages);
+	        elseif (!$marker->getPost()) $page = 1;
+	        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
+
+	        if ($user->getRightsElevation() >= User::ROLE_CROW)
+	            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+	        else
+	            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
         }
-        
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
-            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread, $firstpost)-1) / $num_per_page) + 1;
-        else
-            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread, $firstpost)-1) / $num_per_page) + 1;
 
-        if ($parser->has('page'))
-            $page = min(max(1,$parser->get('page', 1)), $pages);
-        elseif (!$marker->getPost()) $page = 1;
-        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
-
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
-            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page, $firstpost);
-        else
-            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page, $firstpost);
 
         $announces = [
             'admin' => [],
@@ -643,7 +655,7 @@ class MessageController extends AbstractController
             'current_page' => $page,
             'pages' => $pages,
             'announces' => $announces,
-            'firstpost' => $firstpost ?? 0
+            'selectedpost' => $firstpost ?? 0,
         ] );
     }
 

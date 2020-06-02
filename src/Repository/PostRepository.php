@@ -23,13 +23,12 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    public function countByThread( Thread $thread , $fromPostId = null): int {
+    public function countByThread( Thread $thread ): int {
         try {
             $q = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
                 ->andWhere('p.thread = :thread')->setParameter('thread', $thread);
 
-            if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
             return $q->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
@@ -37,14 +36,13 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    public function countUnhiddenByThread( Thread $thread , $fromPostId = null): int {
+    public function countUnhiddenByThread( Thread $thread ): int {
         try {
              $q = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
                 ->andWhere('p.thread = :thread')
                 ->andWhere('p.hidden = false')
                 ->setParameter('thread', $thread);
-            if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
             return $q->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
@@ -65,12 +63,11 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByThread(Thread $thread, $number = null, $offset = null, $fromPostId = null)
+    public function findByThread(Thread $thread, $number = null, $offset = null)
     {
         $q = $this->createQueryBuilder('p')
             ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
             ->orderBy('p.date', 'ASC');
-        if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
         return $q
@@ -79,14 +76,13 @@ class PostRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findUnhiddenByThread(Thread $thread, $number = null, $offset = null, $fromPostId = null)
+    public function findUnhiddenByThread(Thread $thread, $number = null, $offset = null)
     {
         $q = $this->createQueryBuilder('p')
             ->andWhere('p.thread = :thread')
             ->andWhere('p.hidden = false')
             ->setParameter('thread', $thread)
             ->orderBy('p.date', 'ASC');
-        if ($fromPostId !== null) $q->andWhere('p.id >= :postId')->setParameter('postId', $fromPostId);
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
         return $q

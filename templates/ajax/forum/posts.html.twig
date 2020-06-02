@@ -61,7 +61,7 @@
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden or is_granted("ROLE_CROW") %}
-            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
+            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %} {% if selectedpost == post.id %}forum-post-selected{% endif %}">
                 <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
@@ -153,7 +153,7 @@
 {{ block('pagenav') }}
 <script>
     const loadPage = function(page) {
-        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page, firstpost: {{firstpost}} } );
+        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
     };
     const reloadPage = function() { loadPage( {{ current_page }} ); };
 
@@ -215,7 +215,7 @@
             {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
             {% endif %}
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ), firstpost: {{firstpost}} } );
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ) } );
             window.scrollTo(window.top);
         })
     {% if pages == current_page %}
