@@ -98,7 +98,7 @@ class PostRepository extends ServiceEntityRepository
             ->andWhere('p.hidden = false')
             ->andWhere('p.text LIKE :markup')
             ->setParameter('thread', $thread)
-            ->setParameter('markup', "%oracleAnnounce%")
+            ->setParameter('markup', "%adminAnnounce%")
             ->orderBy('p.date', 'ASC');
         return $q
             ->getQuery()
