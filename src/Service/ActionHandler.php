@@ -669,6 +669,7 @@ class ActionHandler
                     $kills = min($ruinZone->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
+                        $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }

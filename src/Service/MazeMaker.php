@@ -148,7 +148,8 @@ class MazeMaker
                     ->setPrototype( null )
                     ->setLocked( false )
                     ->setDoorPosition( 0 )
-                    ->setDecals( mt_rand(0,4294967295) );
+                    ->setDecals( mt_rand(0,4294967295) )
+                    ->setZombies(0)->setKilledZombies(0);
 
                 if ($ruinZone->getRoomFloor()) {
                     $this->entity_manager->remove( $ruinZone->getRoomFloor() );
@@ -308,10 +309,14 @@ class MazeMaker
             foreach ($line as $y => &$entry)
                 if ($neighbors($x,$y) === 1 && !$corridor($x,$y))
                     $add_list[] = [$x,$y];
+
         // Select and add them back in
-        $add_list = $this->random->pick( $add_list, $removed_nodes, true );
-        foreach ($add_list as $add_entry)
-            $add($add_entry[0],$add_entry[1]);
+        shuffle($add_list);
+        while ($removed_nodes > 0 && !empty($add_list)) {
+            list($x,$y) = array_pop($add_list);
+            if ($valid($x,$y) && $neighbors($x,$y) === 1)
+                $add($x,$y);
+        }
 
         // Room candidates
         $room_candidates = [];
@@ -401,5 +406,41 @@ class MazeMaker
 
                 $ruinZone->setDecals( $ruinZone->getDecals() & (~$decal_filter) );
             }
+
+        $this->populateMaze( $base, 25 );
+    }
+
+    /**
+     * @param Zone $base
+     * @param int $zeds
+     * @param bool|false $reposition
+     * @param bool $clear_bodies
+     * @param RuinZone[] $skip_zone
+     */
+    public function populateMaze( Zone $base, int $zeds, bool $reposition = false, bool $clear_bodies = true, array $skip_zone = [] ) {
+        /** @var RuinZone[] $ruinZones */
+        $ruinZones = $base->getRuinZones()->getValues();
+        if ($reposition || $clear_bodies)
+            foreach ($ruinZones as $ruinZone) {
+                if ($clear_bodies) $ruinZone->setKilledZombies(0);
+                if ($reposition) {
+                    $zeds += $ruinZone->getZombies();
+                    $ruinZone->setZombies(0);
+                }
+            }
+
+        // We only need to look at relevant ruin zones
+        $ruinZones = array_filter( $ruinZones, function(RuinZone $r) use ($skip_zone) {
+            return $r->getCorridor() > 0 && $r->getZombies() < 4 && !in_array( $r, $skip_zone, true ) && ($r->getX() !== 0 || $r->getY() !== 0);
+        } );
+        shuffle( $ruinZones );
+
+        while ( $zeds > 0 && !empty($ruinZones) ) {
+            $current = array_pop( $ruinZones );
+            $spawn = mt_rand(1, min($zeds, 4 - $current->getZombies()) );
+            $current->setZombies( $current->getZombies() + $spawn );
+            $zeds -= $spawn;
+        }
+
     }
 }

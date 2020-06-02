@@ -118,6 +118,11 @@ class RuinZone
      */
     private $decals = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $killedZombies = 0;
+
     public function __construct()
     {
     }
@@ -327,6 +332,18 @@ class RuinZone
     public function setDecals(int $decals): self
     {
         $this->decals = $decals;
+
+        return $this;
+    }
+
+    public function getKilledZombies(): ?int
+    {
+        return $this->killedZombies;
+    }
+
+    public function setKilledZombies(int $killedZombies): self
+    {
+        $this->killedZombies = $killedZombies;
 
         return $this;
     }
