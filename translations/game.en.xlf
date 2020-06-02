@@ -698,7 +698,7 @@
       </notes>
       <segment>
         <source>Du verfügst über keine geeigneten Gegenstände</source>
-        <target>Du verfügst über keine geeigneten Gegenstände</target>
+        <target>You have no suitable items.</target>
       </segment>
     </unit>
     <unit id="bxRbnw9" name="Herstellen">
@@ -908,7 +908,7 @@
       </notes>
       <segment>
         <source>Rucksack</source>
-        <target>Inventory</target>
+        <target>Rucksack</target>
       </segment>
     </unit>
     <unit id="n__v7g9" name="Truhe">
@@ -1118,7 +1118,7 @@
       </notes>
       <segment>
         <source>Ausbauten</source>
-        <target>Travaux</target>
+        <target>Home Improvements</target>
       </segment>
     </unit>
     <unit id="32LY7bW" name="3f5fb3f">
@@ -1140,7 +1140,7 @@
       </notes>
       <segment>
         <source>Stufe %level%</source>
-        <target>Stufe %level%</target>
+        <target>Level %level%</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
@@ -1372,7 +1372,7 @@
       </notes>
       <segment>
         <source>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</source>
-        <target>Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).</target>
+        <target>Please enter a valid name (between 3 and 32 characters).</target>
       </segment>
     </unit>
     <unit id="ZHTFO77" name="%citizen%s Truhe">
@@ -1532,7 +1532,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?</source>
-        <target>Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?</target>
+        <target>Are you sure you want to break in here and leave an item?</target>
       </segment>
     </unit>
     <unit id="pZ8LEh0" name="Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?">
@@ -1542,7 +1542,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?</source>
-        <target>Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?</target>
+        <target>Are you sure you want to break in here and steal an item?</target>
       </segment>
     </unit>
     <unit id="EB14a2E" name="a4fdb98">
@@ -1653,7 +1653,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target>Vous avez été banni et ne pouvez plus travailler à l'Atelier.</target>
+        <target>You have been shunned from this town and cannot use the Workshop.</target>
       </segment>
     </unit>
     <unit id="x01nfA5" name="ea122a1">
@@ -1673,7 +1673,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du trägst eine Säge bei dir.</source>
-        <target>Du trägst eine Säge bei dir.</target>
+        <target>You have a saw with you.</target>
       </segment>
     </unit>
     <unit id="bwiADmE" name="Die Stadt verfügt über eine Manufaktur.">
@@ -1683,7 +1683,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt verfügt über eine Manufaktur.</source>
-        <target>La ville possède une manufacture.</target>
+        <target>The Town has a Factory.</target>
       </segment>
     </unit>
     <unit id="uLqulMX" name="Vorrat">
@@ -1703,7 +1703,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Umwandlung</source>
-        <target>Objet obtenu</target>
+        <target>Obtained item</target>
       </segment>
     </unit>
     <unit id="cXTeIrr" name="Anzahl">
@@ -1723,7 +1723,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zufälliger Gegenstand</source>
-        <target>Objet aléatoire</target>
+        <target>Random item</target>
       </segment>
     </unit>
     <unit id="5WqPLsh" name="Werkstatt-Register">
@@ -1775,8 +1775,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
                     arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten &lt;div class="ap"&gt;&lt;/div&gt;.</source>
-        <target><![CDATA[Die Stadt hat Sklaverei legalisiert. Ab sofort kannst du trotz deiner Verbannung auf einer Baustelle
-                    arbeiten und erhälst sogar einen Bonus von 50% auf alle investierten <div class="ap"></div>.]]></target>
+        <target><![CDATA[The Town has legalized Slavery. From now on you can go to a construction site despite your banishment to
+        	work and even get a 50% bonus on everyone invested <div class="ap"></div>.]]></target>
       </segment>
     </unit>
     <unit id="ryRHkfD" name="Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.">
@@ -1786,7 +1786,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</target>
+        <target>You have been shunned and can therefore no longer work on a construction site.</target>
       </segment>
     </unit>
     <unit id="m_7J.WC" name="Baustellenregister">
@@ -1826,7 +1826,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</source>
-        <target>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</target>
+        <target>Because of your banishment, you can take a maximum of one ration of water per day.</target>
       </segment>
     </unit>
     <unit id="6KUjC8g" name="Die Stadt verfügt über eine %pumpname%.">
@@ -1966,7 +1966,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zone wurde teilweise erforscht</source>
-        <target>Die Zone wurde teilweise erforscht</target>
+        <target>The zone has been partially explored</target>
       </segment>
     </unit>
     <unit id="iyIDK7q" name="Die Zone wurde erforscht">
@@ -1976,7 +1976,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zone wurde erforscht</source>
-        <target>Die Zone wurde erforscht</target>
+        <target>The zone has been explored</target>
       </segment>
     </unit>
     <unit id="ZOevyFz" name="Die Zone wurde voll und ganz erforscht und kartographiert">
@@ -1986,7 +1986,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zone wurde voll und ganz erforscht und kartographiert</source>
-        <target>Die Zone wurde voll und ganz erforscht und kartographiert</target>
+        <target>The zone has been fully researched and mapped</target>
       </segment>
     </unit>
     <unit id="VG34_F_" name="Punkt(e)">
@@ -2026,7 +2026,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Temporäre Zonenkontrolle</source>
-        <target>Contrôle temporaire</target>
+        <target>Temporary Control</target>
       </segment>
     </unit>
     <unit id="V566.Sb" name="%z% Zombies kontrollieren diese Zone!">
@@ -2406,9 +2406,9 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>These Construction Points can be used in the Workshop and on Construction sites.
+        	 	If possible, Construction Points are always used first before Action Points.
+        	 	 Keep in mind that Construction Points cannot be used when you are exhausted!</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -7446,7 +7446,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</source>
-        <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält %def% Verteidigung dafür.</target>
+        <target>Building the All or Nothing has brought %def% temporary defence points to your town, but everything in the bank was destroyed. Here's hoping that it's enough...</target>
       </segment>
     </unit>
     <unit id="pEq8Vut" name="Headshot">
@@ -7473,7 +7473,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
-        <target>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</target>
+        <target>You have drank today. Another water ration won't allow you to restore any more Small pa.gif today.</target>
       </segment>
     </unit>
     <unit id="9hu_P2F" name="f13ed10">
@@ -7482,7 +7482,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
-        <target>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</target>
+        <target>You have eaten today. An additional food ration won't allow you to restore any more AP today.</target>
       </segment>
     </unit>
     <unit id="GbpuPWq" name="d8005f5">
@@ -7491,7 +7491,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</source>
-        <target>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</target>
+        <target>You spent last night outside, in the chill of the World Beyond. You were able to monitor the winds and the movements of the Hordes. On the strength of your observations, you will receive a searching bonus for the rest of the day.</target>
       </segment>
     </unit>
     <unit id="yuD1sSM" name="45bb090">
@@ -7500,7 +7500,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.</source>
-        <target>Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.</target>
+        <target>Some Medicine you took recently is protecting you from any infections and stopping you from being transformed into a Ghoul.</target>
       </segment>
     </unit>
     <unit id="51LLLLE" name="Du hast deine Heldenfähigkeit &quot;Den Tod besiegen&quot; verwendet!">
@@ -7509,7 +7509,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</source>
-        <target>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</target>
+        <target>You have already used your heroic "Cheat Death" power!</target>
       </segment>
     </unit>
     <unit id="y0fyg0y" name="fc54baa">
@@ -7518,7 +7518,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</source>
-        <target>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</target>
+        <target>You are shattered... Rest up or eat something to recover!</target>
       </segment>
     </unit>
     <unit id="PoxvW0_" name="62457fd">
@@ -7527,7 +7527,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</source>
-        <target>Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.</target>
+        <target>You were involved in an atrocious event and are terrorised! You can no longer decide to stay in a Horde-controlled zone. If you are trapped, you will no longer be able to run away!</target>
       </segment>
     </unit>
     <unit id="Bjszt3B" name="9f21fbd">
@@ -7536,7 +7536,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</source>
-        <target>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</target>
+        <target>You are thirsty... This happens in the morning if you haven't drank the night before, or if you've been walking in the desert for a long time...</target>
       </segment>
     </unit>
     <unit id="E5louWx" name="5a4098f">
@@ -7545,7 +7545,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</source>
-        <target>Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</target>
+        <target>Your thirst has become critical! Drink something quickly or you risk dying!</target>
       </segment>
     </unit>
     <unit id="Y2xlrZs" name="3043837">
@@ -7554,7 +7554,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</source>
-        <target>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</target>
+        <target>You have already taken drugs today. Warning, if you take any more, you run the risk of getting hooked!</target>
       </segment>
     </unit>
     <unit id="UL1uoY5" name="dd7f91a">
@@ -7563,7 +7563,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</source>
-        <target>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</target>
+        <target>You need to score some drugs every day! If you wake up one morning without having take drugs the previous day, you will die!</target>
       </segment>
     </unit>
     <unit id="ztykDm4" name="1d4bff7">
@@ -7590,7 +7590,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</source>
-        <target>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</target>
+        <target>You have a monster headache... There's no way you can stomach another drop of booze until tomorrow.</target>
       </segment>
     </unit>
     <unit id="IYIMtxo" name="81a014d">
@@ -7617,7 +7617,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</source>
-        <target>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</target>
+        <target>You have had an injury healed recently. You cannot be healed again today.</target>
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
@@ -7635,7 +7635,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dazu hast Du nicht das Recht.</source>
-        <target>Dazu hast Du nicht das Recht.</target>
+        <target>You don't have the right to do that.</target>
       </segment>
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
@@ -7644,7 +7644,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
-        <target>Den %rolename% wählen</target>
+        <target>Vote for the %rolename%</target>
       </segment>
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
@@ -7842,7 +7842,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Besessen von einer gequälten Seele</source>
-        <target>Besessen von einer gequälten Seele</target>
+        <target>Possesed by a tortured soul</target>
       </segment>
     </unit>
     <unit id="cxtMADZ" name="6462887">
@@ -8103,7 +8103,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</source>
-        <target>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</target>
+        <target>%citizen% has decided to wait for an escort...</target>
       </segment>
     </unit>
     <unit id="tZT81ei" name="%citizen% hat beschlossen sich wieder allein fortzubewegen.">
@@ -8112,7 +8112,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat beschlossen sich wieder allein fortzubewegen.</source>
-        <target>%citizen% hat beschlossen sich wieder allein fortzubewegen.</target>
+        <target>%citizen% has finally decided to take back their independance.</target>
       </segment>
     </unit>
     <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
@@ -10176,7 +10176,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Basisverteidigung</source>
-        <target>Basisverteidigung</target>
+        <target>Base defence</target>
       </segment>
     </unit>
     <unit id="D3XPl3x" name="Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!">
@@ -10185,7 +10185,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</source>
-        <target>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</target>
+        <target>There is a chance of breaking the object during the attack!</target>
       </segment>
     </unit>
     <unit id="8qoI_l9" name="Es besteht die Chance das Objekt während des Angriffs zu verlieren!">
@@ -10194,7 +10194,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
-        <target>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</target>
+        <target>There is a chance of losing the object during the attack!</target>
       </segment>
     </unit>
     <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
@@ -10203,7 +10203,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
-        <target>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</target>
+        <target>%citizen% made it rain and killed %kills% Zombies.</target>
       </segment>
     </unit>
     <unit id="KVApIB1" name="Lage">
@@ -10212,7 +10212,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Lage</source>
-        <target>Lage</target>
+        <target>Location</target>
       </segment>
     </unit>
     <unit id="0jW7cq9" name="Stadttor geöffnet">
@@ -10221,7 +10221,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadttor geöffnet</source>
-        <target>Stadttor geöffnet</target>
+        <target>Town's gates opened</target>
       </segment>
     </unit>
     <unit id="_DKPL9S" name="Wer ist draußen?">
@@ -10230,7 +10230,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wer ist draußen?</source>
-        <target>Wer ist draußen?</target>
+        <target>Who is outside?</target>
       </segment>
     </unit>
     <unit id="rRAcec3" name="Stadttor geschlossen">
@@ -10239,7 +10239,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadttor geschlossen</source>
-        <target>Stadttor geschlossen</target>
+        <target>Town's gates closed</target>
       </segment>
     </unit>
     <unit id="A7ZG3D1" name="2d5f077">
@@ -10249,6 +10249,78 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
         <target>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</target>
+      </segment>
+    </unit>
+    <unit id="9cNHWGl" name="Seelenpunkte">
+      <notes>
+        <note category="german">Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte</source>
+        <target>Soul Value</target>
+      </segment>
+    </unit>
+    <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
+      <notes>
+        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
+        <target>The number of soul points you have accumulated in the course of your many lives.</target>
+      </segment>
+    </unit>
+    <unit id="k9H0y76" name="d772640">
+      <notes>
+        <note category="german">Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
+        <target>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</target>
+      </segment>
+    </unit>
+    <unit id="UWWvoug" name="e164c18">
+      <notes>
+        <note category="german">Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
+        <target>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
+      <notes>
+        <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
+        <target>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</target>
+      </segment>
+    </unit>
+    <unit id="F71fElc" name="f8178fb">
+      <notes>
+        <note category="german">Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+      </notes>
+      <segment>
+        <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+      </segment>
+    </unit>
+    <unit id="29AAorN" name="Rucksack verstecken">
+      <notes>
+        <note category="german">Rucksack verstecken</note>
+      </notes>
+      <segment>
+        <source>Rucksack verstecken</source>
+        <target>Hide rucksack</target>
+      </segment>
+    </unit>
+    <unit id="yBmpXGO" name="Behausung wiederverwerten">
+      <notes>
+        <note category="german">Behausung wiederverwerten</note>
+      </notes>
+      <segment>
+        <source>Behausung wiederverwerten</source>
+        <target>Behausung wiederverwerten</target>
       </segment>
     </unit>
   </file>

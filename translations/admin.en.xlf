@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>E-Mail</source>
-        <target>Email</target>
+        <target>E-Mail</target>
       </segment>
     </unit>
     <unit id=".Dfg1PE" name="Validiert">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Offene Token erneut ankündigen</source>
-        <target>Offene Token erneut ankündigen</target>
+        <target>Resend the token</target>
       </segment>
     </unit>
     <unit id="2EfsA22" name="Offene Token regenerieren">
@@ -430,7 +430,7 @@
       </notes>
       <segment>
         <source>Offene Token regenerieren</source>
-        <target>Offene Token regenerieren</target>
+        <target>Generate a new token</target>
       </segment>
     </unit>
     <unit id="RHTHUmC" name="Sicherheit">
@@ -732,7 +732,7 @@
     </unit>
     <unit id="h7YL9VW" name="Städte">
       <notes>
-        <note category="german">Städte</note>
+        <note category="german">Towns</note>
       </notes>
       <segment>
         <source>Städte</source>
@@ -741,16 +741,16 @@
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
-        <note category="german">Zukunft</note>
+        <note category="german">Future</note>
       </notes>
       <segment>
         <source>Zukunft</source>
-        <target>Future</target>
+        <target>Updates</target>
       </segment>
     </unit>
     <unit id="q8r8gtq" name="Titel">
       <notes>
-        <note category="german">Titel</note>
+        <note category="german">Title</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -768,11 +768,20 @@
     </unit>
     <unit id="gvEcbOu" name="Neue Update">
       <notes>
-        <note category="german">Neue Update</note>
+        <note category="german">New Update</note>
       </notes>
       <segment>
         <source>Neue Update</source>
         <target>New Update</target>
+      </segment>
+    </unit>
+    <unit id="fcC4_EM" name="Auszeichnungen">
+      <notes>
+        <note category="german">Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen</source>
+        <target>Distinctions</target>
       </segment>
     </unit>
   </file>
