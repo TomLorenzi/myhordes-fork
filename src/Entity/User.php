@@ -128,6 +128,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $heroDaysSpent = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity=HeroSkill::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $heroSkills;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -135,6 +140,7 @@ class User implements UserInterface, EquatableInterface
         $this->pictos = new ArrayCollection();
         $this->bannings = new ArrayCollection();
         $this->pastLifes = new ArrayCollection();
+        $this->heroSkills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -526,5 +532,46 @@ class User implements UserInterface, EquatableInterface
         $this->heroDaysSpent = $heroDaysSpent;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|HeroSkill[]
+     */
+    public function getHeroSkills(): Collection
+    {
+        return $this->heroSkills;
+    }
+
+    public function addHeroSkill(HeroSkill $heroSkill): self
+    {
+        if (!$this->heroSkills->contains($heroSkill)) {
+            $this->heroSkills[] = $heroSkill;
+            $heroSkill->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHeroSkill(HeroSkill $heroSkill): self
+    {
+        if ($this->heroSkills->contains($heroSkill)) {
+            $this->heroSkills->removeElement($heroSkill);
+            // set the owning side to null (unless already changed)
+            if ($heroSkill->getUser() === $this) {
+                $heroSkill->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function hasSkill($skillName): bool
+    {
+        foreach ($this->getHeroSkills() as $skill) {
+            if($skill->getPrototype()->getName() == $skillName)
+                return true;
+        }
+
+        return false;
     }
 }

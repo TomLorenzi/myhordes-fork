@@ -13,6 +13,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\EscortActionGroup;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemCategory;
@@ -182,6 +183,15 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $logtemplate LogEntryTemplate */
             if ($logtemplate->getText())
                 $this->insert( $c, $logtemplate->getText(), 'game' );
+
+        foreach ($this->em->getRepository(HeroSkillPrototype::class)->findAll() as $heroSkill) {
+            /** @var $heroSkill HeroSkillPrototype */
+            if ($heroSkill->getTitle())
+                $this->insert( $c, $heroSkill->getTitle(), 'game' );
+
+            if ($heroSkill->getDescription())
+                $this->insert( $c, $heroSkill->getDescription(), 'game' );
+        }
         //</editor-fold>
     }
 

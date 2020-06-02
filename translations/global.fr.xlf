@@ -1154,5 +1154,14 @@
         <target>Cette discussion comporte %count% annonce(s) officielle(s) des administrateurs de MyHordes :</target>
       </segment>
     </unit>
+    <unit id="wg02Gq4" name="Zitieren">
+      <notes>
+        <note category="german">Zitieren</note>
+      </notes>
+      <segment>
+        <source>Zitieren</source>
+        <target>Citer</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

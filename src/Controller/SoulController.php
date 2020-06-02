@@ -7,6 +7,8 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\HeroSkill;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
@@ -80,10 +82,41 @@ class SoulController extends AbstractController
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
     	$points = $this->user_factory->getPoints($this->getUser());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkill::class)->getLatestForUser($this->getUser());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
+
+        $factor1 = $latestSkill !== null ? $latestSkill->getPrototype()->getDaysNeeded() : 0;
+
+        $progress = ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0;
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
-            'points' => round($points, 0)
+            'points' => round($points, 0),
+            'latestSkill' => $latestSkill,
+            'progress' => $progress
+        ]));
+    }
+
+    /**
+     * @Route("jx/soul/heroskill", name="soul_heroskill")
+     * @return Response
+     */
+    public function soul_heroskill(): Response
+    {
+        // Get all the picto & count points
+        $latestSkill = $this->entity_manager->getRepository(HeroSkill::class)->getLatestForUser($this->getUser());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
+
+        $allSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll();
+
+        $factor1 = $latestSkill !== null ? $latestSkill->getPrototype()->getDaysNeeded() : 0;
+        $progress = ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0;
+
+        return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'latestSkill' => $latestSkill,
+            'nextSkill' => $nextSkill,
+            'progress' => $progress, 
+            'skills' => $allSkills
         ]));
     }
 

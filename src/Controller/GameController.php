@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
@@ -75,6 +76,8 @@ class GameController extends AbstractController implements GameInterfaceControll
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();
+                $entries[$idx]['id'] = $entity->getId();
+                $entries[$idx]['hidden'] = $entity->getHidden();
 
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
@@ -486,6 +489,62 @@ class GameController extends AbstractController implements GameInterfaceControll
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
             $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($spawn)), [$chest]);
+
+        try {
+            $this->entity_manager->persist( $chest );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/game/delete_log_entry", name="delete_log_entry")
+     * @param JSONRequestParser $parser
+     * @param CitizenHandler $ch
+     * @return Response
+     */
+    public function delete_log_entry(JSONRequestParser $parser, CitizenHandler $ch): Response {
+
+        $citizen = $this->getActiveCitizen();
+        $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);
+
+        if(!$citizen->getProfession()->getHeroic() || !$citizen->getUser()->hasSkill('manipulator')){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        if(!$parser->has('log_entry_id'))
+            return AjaxResponse::ErrorInvalidRequest;
+
+        $log = $this->entity_manager->getRepository(TownLogEntry::class)->find($parser->get('log_entry_id'));
+        if($log->getHidden()){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $limit = 0;
+        if($citizen->getUser()->hasSkill('manipulator'))
+            $limit = 2;
+
+        if($citizen->getUser()->hasSkill('treachery'))
+            $limit = 4;
+
+        if($counter->getCount() < $limit){
+            $counter->setCount($counter->getCount() + 1);
+        } else {
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $log->setHidden(true);
+
+        try {
+            $this->entity_manager->persist( $log );
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
 
         try {
             $this->entity_manager->persist( $chest );

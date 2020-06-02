@@ -19,32 +19,14 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
         parent::__construct($registry, HeroSkillPrototype::class);
     }
 
-    // /**
-    //  * @return HeroSkillPrototype[] Returns an array of HeroSkillPrototype objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
+    public function getNextUnlockable(int $currentDays) {
         return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('h.daysNeeded > :days')
+            ->orderBy('h.daysNeeded', 'ASC')
             ->orderBy('h.id', 'ASC')
-            ->setMaxResults(10)
+            ->setParameter('days', $currentDays)
+            ->setMaxResults(1)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getOneOrNullResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?HeroSkillPrototype
-    {
-        return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

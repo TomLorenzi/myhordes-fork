@@ -12,9 +12,12 @@ use App\Entity\CitizenWatch;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Entity\HeroSkill;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
@@ -194,7 +197,38 @@ class NightlyHandler
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
             $citizen->setSurvivedDays( $citizen->getTown()->getDay() );
+
+            // Check hero skills
+            $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getHeroDaysSpent());
             $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
+            if($citizen->getUser()->getHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
+                $skill = new HeroSkill();
+                $skill->setUser($citizen->getUser());
+                $skill->setPrototype($nextSkill);
+                $skill->setDateUnlock(new \DateTime());
+
+                switch($nextSkill->getName()){
+                    case "brothers":
+                        //TODO: add the heroic power
+                        break;
+                    case "largechest1":
+                    case "largechest2":
+                        $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
+                        break;
+                    case "secondwind":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                    case "cheatdeath":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                }
+
+                $this->entity_manager->persist($skill);
+            }
         }
     }
 
@@ -322,7 +356,7 @@ class NightlyHandler
 
         $redSoulCount = $this->town_handler->get_red_soul_count($town);
 
-        $soulFactor += 1 + (0.04 * $redSoulsCount);
+        $soulFactor = 1 + (0.04 * $redSoulCount);
 
         if($town->getType()->getName() !== 'panda')
             $soulFactor = min($soulFactor, 1.2);
