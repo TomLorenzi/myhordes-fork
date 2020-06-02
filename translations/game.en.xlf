@@ -2066,7 +2066,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
+        <target>Toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
       </segment>
     </unit>
     <unit id="Zkh813p" name="c9643dc">
