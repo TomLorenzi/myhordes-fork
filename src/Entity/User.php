@@ -81,7 +81,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="integer")
      */
-    private $soulPoints;
+    private $soulPoints = 0;
     
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user")
@@ -122,6 +122,11 @@ class User implements UserInterface, EquatableInterface
      * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true)
      */
     private $pastLifes;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $heroDaysSpent = 0;
 
     public function __construct()
     {
@@ -507,6 +512,18 @@ class User implements UserInterface, EquatableInterface
                 $pastLife->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHeroDaysSpent(): ?int
+    {
+        return $this->heroDaysSpent;
+    }
+
+    public function setHeroDaysSpent(int $heroDaysSpent): self
+    {
+        $this->heroDaysSpent = $heroDaysSpent;
 
         return $this;
     }

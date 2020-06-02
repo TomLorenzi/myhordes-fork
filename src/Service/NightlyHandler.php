@@ -194,6 +194,7 @@ class NightlyHandler
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
             $citizen->setSurvivedDays( $citizen->getTown()->getDay() );
+            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
         }
     }
 
