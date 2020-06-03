@@ -53,7 +53,7 @@ class InventoryHandler
             if (!empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'pocket_belt_#00' ) ] )))
                 $base += 2;
 
-            if($inventory->getCitizen()->getUser()->hasSkill('largerucksack1'))
+            if($hero && $inventory->getCitizen()->getUser()->hasSkill('largerucksack1'))
                 $base += 1;
 
             return $base;

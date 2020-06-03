@@ -723,6 +723,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'hero_generic_return' => [ 'label' => 'Die Rückkehr des Helden',  'meta' => [ 'must_be_outside', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]] ] ],
             'hero_generic_find'   => [ 'label' => 'Fund', 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target' ] ],
+            'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target' ] ],
             'hero_generic_punch'  => [ 'label' => 'Wildstyle Uppercut', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z'] ] ],
             'hero_generic_ap'     => [ 'label' => 'Zweite Lunge', 'meta' => [ 'no_full_ap', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6' ] ],
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
@@ -802,6 +803,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             ['name' => 'hero_generic_punch', 'unlockable' => false],
             ['name' => 'hero_generic_ap', 'unlockable' => true],
             ['name' => 'hero_generic_immune', 'unlockable' => true],
+            ['name' => 'hero_generic_find_lucky', 'unlockable' => true],
             ['name' => 'hero_generic_rescue', 'unlockable' => false],
         ],
 

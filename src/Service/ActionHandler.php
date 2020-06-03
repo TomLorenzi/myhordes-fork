@@ -346,11 +346,11 @@ class ActionHandler
 
         if (!$citizen->getProfession()->getHeroic()) return;
 
-         foreach ($citizen->getHeroicActions() as $heroic) {
+        foreach ($citizen->getHeroicActions() as $heroic) {
             $mode = $this->evaluate( $citizen, null, null, $heroic->getAction(), $tx );
             if ($mode >= self::ActionValidityAllow) $available[] = $heroic;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $heroic;
-         }
+        }
 
     }
 

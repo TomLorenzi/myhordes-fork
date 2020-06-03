@@ -499,40 +499,6 @@ class GameFactory
             /** @var $heroic_action HeroicActionPrototype */
             $citizen->addHeroicAction( $heroic_action );
 
-        foreach ($user->getHeroSkills() as $skill) {
-            switch($skill->getPrototype()->getName()){
-                case "brothers":
-                    //TODO: add the heroic power
-                    break;
-                case "resourcefulness":
-                    $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'chest_hero_#00' ) );
-                    break;
-                case "largechest1":
-                case "largechest2":
-                    $home->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
-                    break;
-                case "secondwind":
-                    $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
-                    $citizen->addHeroicAction($heroic_action);
-                    $this->entity_manager->persist($citizen);
-                    break;
-                case 'breakfast1':
-                    $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'food_bag_#00' ) );
-                    break;
-                case 'medicine1':
-                    $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'disinfect_#00' ) );
-                    break;
-                case "cheatdeath":
-                    $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
-                    $citizen->addHeroicAction($heroic_action);
-                    $this->entity_manager->persist($citizen);
-                    break;
-                case 'architect':
-                    $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'bplan_c_#00' ) );
-                    break;
-            }
-        }
-
         return $citizen;
     }
 }
