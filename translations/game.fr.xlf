@@ -3646,8 +3646,6 @@
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
       <notes>
-        <note>%citizen% hat der Stadt folgendes gespendet: %item%</note>
-        <note>%citizen% hat der Stadt folgendes gespendet: %item%</note>
         <note category="german">%citizen% hat der Stadt folgendes gespendet: %item%</note>
       </notes>
       <segment>
@@ -9088,24 +9086,6 @@
         <target>Mort à l'extérieur, %citizen% n'aura offert aucun reste à ses concitoyens.</target>
       </segment>
     </unit>
-    <unit id="zeR3KvL" name="8c2d7df">
-      <notes>
-        <note category="german">Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</note>
-      </notes>
-      <segment>
-        <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
-        <target>C'est non sans dégoût que %disposing_citizen% s'est débarrassé(e) du corps inanimé de %citizen%.</target>
-      </segment>
-    </unit>
-    <unit id="g69lh6D" name="a22eaa2">
-      <notes>
-        <note category="german">Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</note>
-      </notes>
-      <segment>
-        <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
-        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été réduit en liquide putride.</target>
-      </segment>
-    </unit>
     <unit id="rFh36Gr" name="Klassischer Editor">
       <notes>
         <note category="german">Klassischer Editor</note>
@@ -11615,6 +11595,42 @@
       <segment>
         <source>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</source>
         <target>Cette entrée du registre a été raturée... Qu'a-t-on pu bien vouloir cacher ?</target>
+      </segment>
+    </unit>
+    <unit id="QSPR33z" name="a72b313">
+      <notes>
+        <note category="german">Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</note>
+      </notes>
+      <segment>
+        <source>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</source>
+        <target>C'est non sans dégoût que %disposing_citizen% s'est débarrassé(e) du corps inanimé de %citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="8xTkhGN" name="3ccf312">
+      <notes>
+        <note category="german">Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
+        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été réduit en liquide putride.</target>
+      </segment>
+    </unit>
+    <unit id="EbN9bpW" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
+      <notes>
+        <note category="german">Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</note>
+      </notes>
+      <segment>
+        <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
+        <target>%citizen% s'est débarrassé du corps de † %disposed%.</target>
+      </segment>
+    </unit>
+    <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
+      <notes>
+        <note category="german">%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
+        <target>%citizen% s'est débarrassé du corps de † %disposed% "en l'arrosant d'eau".</target>
       </segment>
     </unit>
   </file>

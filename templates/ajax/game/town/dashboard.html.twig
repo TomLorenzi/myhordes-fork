@@ -57,7 +57,7 @@
     </div>
 
     <div class="row">
-        <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-md-12">
+        <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-lg-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>
             <ul class="overview-checklist">
                 <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
@@ -79,7 +79,7 @@
             </ul>
         </div>
         {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
-        <div class="padded cell rw-6 rw-md-12">
+        <div class="padded cell rw-6 rw-lg-12">
                 <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
                 <div class="words-of-heroes {{ town.language }}">
                     <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>

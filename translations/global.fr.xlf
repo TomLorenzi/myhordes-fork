@@ -1163,5 +1163,14 @@
         <target>Citer</target>
       </segment>
     </unit>
+    <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
+      <notes>
+        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine weiteren Gegenstände senden.</source>
+        <target>Du kannst keine weiteren Gegenstände senden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
