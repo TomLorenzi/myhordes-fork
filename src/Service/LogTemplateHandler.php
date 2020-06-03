@@ -150,7 +150,7 @@ class LogTemplateHandler
     }
 
     public function bankItemLog( Citizen $citizen, Item $item, bool $toBank ): TownLogEntry {
-        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId());
+        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getPrototype()->getId());
         if ($toBank)
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankGive');
         else
