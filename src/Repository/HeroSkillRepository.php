@@ -23,7 +23,7 @@ class HeroSkillRepository extends ServiceEntityRepository
     public function getLatestForUser(User $user){
         return $this->createQueryBuilder('h')
             ->andWhere('h.user = :user')
-            ->orderBy('h.dateUnlock', 'DESC')
+            ->orderBy('h.prototype', 'DESC')
             ->setParameter('user', $user)
             ->setMaxResults(1)
             ->getQuery()
