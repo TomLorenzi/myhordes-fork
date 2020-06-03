@@ -448,7 +448,7 @@ class CitizenHandler
         $camping_values = [];
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
-        $has_pro_camper = $citizen->getProfession()->getHeroic();
+        $has_pro_camper = $citizen->getProfession()->getHeroic() && $citizen->getUser()->hasSkill('procamp');
 
         // Town type: Pandemonium gets malus of 14, all other types are neutral.
         $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
@@ -482,7 +482,7 @@ class CitizenHandler
         // Ruin in zone.
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
-        // Zombies in zone. Factor -1.4, for CamperPro it will -0.6.
+        // Zombies in zone. Factor -1.4, for CamperPro it is -0.6.
         $factor = $has_pro_camper ? -0.6 : -1.4;
         $camping_values['zombies'] = $factor * $zone->getZombies();
 
