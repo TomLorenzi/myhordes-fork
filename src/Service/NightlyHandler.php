@@ -202,6 +202,7 @@ class NightlyHandler
             $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getHeroDaysSpent());
             $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
             if($citizen->getUser()->getHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
                 $skill = new HeroSkill();
                 $skill->setUser($citizen->getUser());
                 $skill->setPrototype($nextSkill);
