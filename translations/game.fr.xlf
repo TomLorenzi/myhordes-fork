@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target>Votre visite chez %victim% n'est pas passée inaperçue...</target>
+        <target>Votre petite visite chez %victim% n'est pas passée inaperçue... Cet objet a été placé dans votre Coffre, chez vous.</target>
       </segment>
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
@@ -45,7 +45,7 @@
       </notes>
       <segment>
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>Vous avez changé votre annonce.</target>
+        <target>Vous avez modifié votre annonce personnelle. Elle est visible dans l'annuaire des Citoyens.</target>
       </segment>
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
@@ -490,7 +490,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Vous avez besoin d'une ration d'eau pour faire ceci !</target>
+        <target>Vous avez besoin d'Eau Pure (celle d'une gourde par exemple).</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>Cette action est bloquée pendant 15 minutes environ (protection anti-abus).</target>
+        <target>Cette action est bloquée pendant 15 minutes environ (protection anti-abus). Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -9190,7 +9190,7 @@
       </notes>
       <segment>
         <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
-        <target>Ah et oui, pour info, il nous semble utilse de vous signaler que vous avez %deathChance%% de chance de mourir ce soir et %woundAndTerrorChance%% d'être blessé ou terrorisé au cours de cette garde.</target>
+        <target>Ah et oui, pour info, il nous semble utile de vous signaler que vous avez %deathChance%% de chance de mourir ce soir et %woundAndTerrorChance%% d'être blessé ou terrorisé au cours de cette garde.</target>
       </segment>
     </unit>
     <unit id="WEf5fsd" name="Wähle meine Waffen!">
@@ -9478,7 +9478,7 @@
       </notes>
       <segment>
         <source>Sonstige Opfer</source>
-        <target>Autre victimes</target>
+        <target>Autres victimes</target>
       </segment>
     </unit>
     <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
@@ -9532,7 +9532,7 @@
       </notes>
       <segment>
         <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
-        <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
+        <target>Le chantier Tout ou Rien a apporté + [#] points de défense temporaires dans votre ville, mais tout dans la banque a été détruit! Espérons que cela en valait la peine...</target>
       </segment>
     </unit>
     <unit id="vdpIvG7" name="6b9d94e">
@@ -9598,15 +9598,6 @@
         <target>Aucun mort !</target>
       </segment>
     </unit>
-    <unit id="fsTN6v3" name="Votre blessure à l'oeil vous gêne énormément lors de vos fouilles">
-      <notes>
-        <note category="german">Votre blessure à l'oeil vous gêne énormément lors de vos fouilles</note>
-      </notes>
-      <segment>
-        <source>Votre blessure à l'oeil vous gêne énormément lors de vos fouilles</source>
-        <target>Votre blessure à l'oeil vous gêne énormément lors de vos fouilles</target>
-      </segment>
-    </unit>
     <unit id="Tj4dAlQ" name="Umdrehen">
       <notes>
         <note category="german">Umdrehen</note>
@@ -9667,7 +9658,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>Vous avez été transformé en goule !</target>
+        <target>Vous avez été transformé(e) en Goule !</target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
@@ -9721,7 +9712,7 @@
       </notes>
       <segment>
         <source>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</source>
-        <target>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</target>
+        <target>Il y a des traces de sang sur plusieurs mètres, ici : quelqu'un a semble-t-il été littéralement démembré par... quelque chose. Ou quelqu'un... Une goule peut-être ?!</target>
       </segment>
     </unit>
     <unit id="o9GCPjs" name="c5c21d9">

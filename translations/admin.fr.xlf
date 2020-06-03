@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Getrennt</source>
-        <target>Getrennt</target>
+        <target>Déconnecté</target>
       </segment>
     </unit>
     <unit id="RZid5J_" name="Details">
@@ -772,7 +772,7 @@
       </notes>
       <segment>
         <source>Titel</source>
-        <target>Titel</target>
+        <target>Titre</target>
       </segment>
     </unit>
     <unit id="3RZ5Bd4" name="Version">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Neue Update</source>
-        <target>Neue Update</target>
+        <target>Nouvelle mise à jour</target>
       </segment>
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
@@ -799,7 +799,7 @@
       </notes>
       <segment>
         <source>Auszeichnungen</source>
-        <target>Auszeichnungen</target>
+        <target>Distinctions</target>
       </segment>
     </unit>
   </file>

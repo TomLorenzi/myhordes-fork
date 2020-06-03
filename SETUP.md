@@ -63,7 +63,7 @@ You will see this line in the file :
 
 `DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7`
 
-Replace `db_user`, `db_password` with the credentials you used for the new database user. If your database is remote, make sure that the user is accessible and not local, then change then IP address from 127.0.0.1 to you database's address, as well as the port if needed.
+Replace `db_user`, `db_password` with the credentials you used for the new database user. If your database is remote, make sure that the user is accessible and not local, then change the IP address from 127.0.0.1 to you database's address, as well as the port if needed.
 
 `db_name` can be whatever you need.
 
@@ -79,6 +79,25 @@ Save the file.
 
 If you would like to override the application config (for example to create custom game rules for your local installation), copy the `config/app` folder to `config/packages/dev/app`. 
 All config files in there will overwrite default config files without being pushed to the repository.
+
+If you do not run MyHordes within the web root (i.e. you have it running in a folder such as `example.com/myhordes`), you need to create an additional config file in the root directory called `webpack.local.conf`. The content should look like this:
+```javascript
+module.exports = {
+    // Relative path to the build folder from the MyHordes root folder
+    output_path: 'public/build/',
+    
+    // URL to the build folder from webroot
+    public_path: '/myhordes/build/',
+   
+    // Optional; should be set to false on dev servers and omitted (or set to true) on
+    // production servers.
+    // When set to false, massively speeds up yarn asset compilation, but will cause
+    // caching issues when used in a production setup!
+    hash_filenames: false
+};
+```
+
+Edit these settings to fit your environment.
 
 #### MyHordes database setup
 
