@@ -847,7 +847,6 @@ class ActionHandler
                         if($town->getDevastated()) $chances = max(0.1, $chances - 0.2);
 
                         if ($this->random_generator->chance($chances)) {
-
                             if ($drink) $citizen->setWalkingDistance(0);
 
                             if ($drink) {
@@ -856,6 +855,9 @@ class ActionHandler
                                 } else if($this->citizen_handler->hasStatusEffect($citizen, 'thirst2')){
                                     $this->citizen_handler->removeStatus($citizen, 'thirst2');
                                     $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                                } else {
+                                	$this->citizen_handler->removeStatus($citizen, 'thirst1');
+                                	$this->citizen_handler->inflictStatus($citizen, 'hasdrunk');
                                 }
                             } else {
                                 if (!$drink || !$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
@@ -864,11 +866,9 @@ class ActionHandler
                                         $this->citizen_handler->setAP($citizen, false, 6, 0);
                                     $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
                                 }
-                                if ($drink) $this->citizen_handler->removeStatus($citizen, 'thirst1');
-                                $this->citizen_handler->inflictStatus($citizen, $drink ? 'hasdrunk' : 'haseaten');
-
+                               	$this->citizen_handler->inflictStatus($citizen, 'haseaten');
                             }
-
+                            
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
                         } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
