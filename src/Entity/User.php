@@ -89,6 +89,11 @@ class User implements UserInterface, EquatableInterface
     private $pictos;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Award", mappedBy="user")
+     */
+    private $awards;
+
+    /**
      * @ORM\Column(type="string", length=32)
      */
     private $externalId = '';
@@ -107,6 +112,17 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postAsDefault;
+
+    /**
+     * @ORM\Column(type="string", length=128)
+     */
+    private $forumTitle;
+
+    /**
+     * This field matches to the filename of the picto
+     * @ORM\Column(type="string", length=64)
+     */
+    private $forumIcon;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -156,6 +172,26 @@ class User implements UserInterface, EquatableInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getForumIcon(): ?string {
+        return $this->forumIcon;
+    }
+
+    public function setForumIcon(string $value): self {
+        $this->forumIcon = $value;
+
+        return $this;
+    }
+
+    public function getForumTitle(): ?string {
+        return $this->forumTitle;
+    }
+
+    public function setForumTitle(string $value): self {
+        $this->forumTitle = $value;
 
         return $this;
     }
@@ -396,6 +432,34 @@ class User implements UserInterface, EquatableInterface
     public function setExternalId(string $externalId): self
     {
         $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Awards[]
+     */
+    public function getAwards(): Collection {
+        return $this->awards;
+    }
+
+    public function addAward(Award $award): self {
+        if(!$this->awards->contains($award)) {
+            $this->awards[] = $award;
+            $award->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAward(Award $award): self {
+        if ($this->awards->contains($award)) {
+            $this->awards->removeElement($award);
+            // set the owning side to null (unless already changed)
+            if ($award->getUser() === $this) {
+                $award->setUser(null);
+            }
+        }
 
         return $this;
     }
