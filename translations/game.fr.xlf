@@ -11608,5 +11608,14 @@
         <target>de mode Héros</target>
       </segment>
     </unit>
+    <unit id="HYbv76Z" name="32aff0d">
+      <notes>
+        <note category="german">Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</source>
+        <target>Cette entrée du registre a été raturée... Qu'a-t-on pu bien vouloir cacher ?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

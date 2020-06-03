@@ -710,6 +710,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 }
             }
 
+            $this->citizen_handler->inflictStatus($mover, "tg_chk_movewb");
+
             // This text is a newly added one, but it breaks the "Sneak out of town"
             if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );

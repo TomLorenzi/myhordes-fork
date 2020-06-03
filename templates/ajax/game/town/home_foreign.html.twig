@@ -16,6 +16,15 @@
         {% endif %})
     </h5>
 
+    {% if hasClairvoyance %}
+        <div class="clairvoyance">
+            <img src="{{ asset('build/images/heroskill/small_view.gif') }}" /> <strong>{{'Hellseherei'|trans({},'game')}} : </strong>
+            {% if clairvoyanceLevel > 0 %}
+            {% for i in range(1, clairvoyanceLevel) %}<img src="{{ asset('build/images/small_new.gif') }}" alt="*" />{% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+
     <div class="lightbox">
         <div class="row">
             {% if (owner.user.avatar) %}

@@ -24,7 +24,7 @@
         </div>
         <div class="skills-container">
             {% for heroSkill in skills %}
-            <div class="row">
+            <div class="row {% if heroSkill == latestSkill.prototype %}currentSkill{% endif %}">
                 <div class="cell padded rw-4 center">
                     {% if heroSkill.daysNeeded <= app.user.heroDaysSpent %}
                         <img src="{{ asset('build/images/heroskill/'~heroSkill.icon~".gif") }}" /><strong>{{heroSkill.title|trans({}, 'game')}}</strong>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="cell padded rw-8 desc">
                     {% if heroSkill.daysNeeded <= app.user.heroDaysSpent %}
-                        <span {% if heroSkill == latestSkill.prototype %}class="currentSkill"{% endif %}>{{heroSkill.description|trans({}, 'game')}}</span>
+                        <span>{{heroSkill.description|trans({}, 'game')}}</span>
                     {% else %}
                         <span class="small">{{'Diese Fähigkeit wurde noch nicht freigeschaltet...'|trans({}, 'game')}}</span>
                     {% endif %}

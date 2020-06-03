@@ -296,6 +296,28 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $is_admin      = $c->getUser()->getRightsElevation() >= User::ROLE_ADMIN;
         $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal');
 
+        $hasClairvoyance = false;
+        $clairvoyanceLevel = 0;
+
+        if ($user->hasSkill('clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
+            $hasClairvoyance = true;
+            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_forum')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_active')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_workshop')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_build')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_movewb')){
+                $clairvoyanceLevel++;
+            }
+        }
+
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
@@ -323,7 +345,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
-            'hidden' => $hidden
+            'hidden' => $hidden,
+            'hasClairvoyance' => $hasClairvoyance,
+            'clairvoyanceLevel' => $clairvoyanceLevel,
         ]) );
     }
 
@@ -989,7 +1013,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
-        } else {
+        } else if ($was_completed) {
             $newHp = min($building->getPrototype()->getHp(), $building->getHp() + $ap_effect * $hpToAp);
             $building->setHp($newHp);
             if($building->getPrototype()->getDefense() > 0) {
@@ -1000,6 +1024,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_build');
 
         // Give picto to the citizen
         if(!$was_completed){
