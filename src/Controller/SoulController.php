@@ -27,6 +27,7 @@ use Error;
 use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -49,6 +50,7 @@ class SoulController extends AbstractController
 {
     protected $entity_manager;
     protected $user_factory;
+    private $asset;
 
     const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
     const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors + 2;
@@ -59,10 +61,11 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
+        $this->asset = $a;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -168,6 +171,12 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl('soul_rps'));
 
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
+
+        preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
+
+        if(count($matches) > 0) {
+            $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
+        }
 
         return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'page' => $pageContent,
