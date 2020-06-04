@@ -114,13 +114,13 @@ class User implements UserInterface, EquatableInterface
     private $postAsDefault;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, nullable=true)
      */
     private $forumTitle;
 
     /**
      * This field matches to the filename of the picto
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, nullable=true)
      */
     private $forumIcon;
 
