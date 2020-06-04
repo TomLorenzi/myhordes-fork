@@ -2066,7 +2066,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
+        <target>toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
       </segment>
     </unit>
     <unit id="Zkh813p" name="c9643dc">
@@ -9744,7 +9744,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine Nachricht wurde korrekt übermittelt!</source>
-        <target>Votre message a bien été envoyé !</target>
+        <target>Your message has been sent!</target>
       </segment>
     </unit>
     <unit id="g3N1gTc" name="Du kannst nicht mehr als eine Seele tragen.">
@@ -9798,7 +9798,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
-        <target>Chaque 1 %divap% investi en réparation réparera %hprepair% points de dégâts sur ce chantier.</target>
+        <target>Each 1 %divap% invested in reparation will repare %hprepair% damage points on this construction.</target>
       </segment>
     </unit>
     <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
@@ -9807,7 +9807,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Reparatur verbraucht keine Ressourcen.</source>
-        <target>Les réparations ne consomment pas de ressources.</target>
+        <target>Reparations doesn't consume ressources.</target>
       </segment>
     </unit>
     <unit id="BjwWH4y" name="Erhaltene Nachrichten">
@@ -9915,7 +9915,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>J'ai RELU mon message et je VALIDE</target>
+        <target>I have CHECKED this message. CONTINUE</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -9960,7 +9960,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Ce bâtiment délabré semble avoir été un bunker. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+        <target>Bunkers are old refuges built by the military to contain the pandemic. If the soldiers at the time were still human, they would surely have advised their officers against trying to "educate" the first carriers of the virus.</target>
       </segment>
     </unit>
     <unit id="oxlDhWv" name="Verlassenes Hotel">
@@ -10050,7 +10050,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
-        <target>Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</target>
+        <target>The following objects have been sent with this message. They should be in your chest ( assuming nobody has stopped by in the meantime... ).</target>
       </segment>
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
@@ -10293,7 +10293,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
-        <target>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</target>
+        <target>Your message has been sent along with the objects you chose.</target>
       </segment>
     </unit>
     <unit id="F71fElc" name="f8178fb">
