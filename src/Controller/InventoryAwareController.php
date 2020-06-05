@@ -131,6 +131,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
+
         /** @var TownLogEntry $entity */
         foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
             $this->getActiveCitizen()->getTown(),
@@ -160,6 +161,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
+            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($citizen !== null ? $citizen : $this->getActiveCitizen(), 'manipulator'),
         ] );
     }
 

@@ -3,7 +3,7 @@
     <div class="row skills">
         <div class="cell rw-12 center">
             <div class="bar">
-                <div class="progresstext">{{progress|round}}%</div>
+                <div class="progresstext"><span class="text">{{progress|round}}%</span></div>
                 <div class="progressbar left">
                     <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
                 </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="skills-container">
             {% for heroSkill in skills %}
-            <div class="row {% if heroSkill == latestSkill.prototype %}currentSkill{% endif %}">
+            <div class="row {% if heroSkill == latestSkill %}currentSkill{% endif %}">
                 <div class="cell padded rw-4 center">
                     {% if heroSkill.daysNeeded <= app.user.heroDaysSpent %}
                         <img src="{{ asset('build/images/heroskill/'~heroSkill.icon~".gif") }}" /><strong>{{heroSkill.title|trans({}, 'game')}}</strong>

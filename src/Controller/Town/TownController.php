@@ -16,6 +16,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\TownLogEntry;
@@ -195,7 +196,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
-        $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->getUser()->hasSkill('dictator') && !$citizen->getBanished();
+        $skillDictator = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findOneByName('dictator');
+
+        $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->getUser()->getHeroDaysSpent() >= $skillDictator->getDaysNeeded() && !$citizen->getBanished();
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
@@ -302,7 +305,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $hasClairvoyance = false;
         $clairvoyanceLevel = 0;
 
-        if ($user->hasSkill('clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
+        if ($this->citizen_handler->hasSkill($this->getActiveCitizen(), 'clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
             $hasClairvoyance = true;
             if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_forum')){
                 $clairvoyanceLevel++;

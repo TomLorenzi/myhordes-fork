@@ -42,6 +42,7 @@
             width: 614px;
             height: 32px;
             margin: 0 auto;
+            margin-top: 10px;
             .progresstext {
                 background: url('../../img/soul/heroUp_front.gif') center no-repeat;
                 height: 32px;
@@ -49,13 +50,19 @@
                 width: 614px;
                 z-index: 2;
                 position: absolute;
+                color: #f0d79e;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                .text {
+                    visibility: hidden;
+                }
             }
 
             .progressbar {
                 background: url('../../img/soul/heroUp_bg.gif') center repeat-x;
                 height: 30px;
                 overflow: hidden;
-                margin-left: 20px;
+                padding-left: 25px;
+                padding-right: 5px;
                 margin-top: 2px;
                 img {
                     height: 32px;

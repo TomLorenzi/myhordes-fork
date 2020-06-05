@@ -307,7 +307,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Flaschenöffner','icon'=>'classicKey','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             // --
         ['label' =>'Abdruck vom Magnet-Schlüssel','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            //
         ['label' =>'Abdruck vom Schlagschlüssel','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             //
-        ['label' =>'Abdruck vom Dosenöffner','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 //
+        ['label' =>'Abdruck vom Flaschenöffner','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 //
         ['label' =>'Ghul-Serum','icon'=>'vagoul','category'=>'drug_d','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             //
         ['label' =>'Hotel-Bauplan (ungewöhnlich)','icon'=>'hbplan_u','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In ---
         ['label' =>'Hotel-Bauplan (selten)','icon'=>'hbplan_r','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                  // In ---
@@ -645,9 +645,9 @@ class ItemFixtures extends Fixture
         'magneticKey_#00' => 'Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.', // Magnet-Schlüssel
         'bumpKey_#00' => 'Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.', // Schlagschlüssel
         'classicKey_#00' => 'Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.', // Flaschenöffner
-        'prints_#00' => 'Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!', // Abdruck vom Magnet-Schlüssel
+        'prints_#00' => 'Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.', // Abdruck vom Magnet-Schlüssel
         'prints_#01' => 'Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!', // Abdruck vom Schlagschlüssel
-        'prints_#02' => 'Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!', // Abdruck vom Dosenöffner
+        'prints_#02' => 'Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!', // Abdruck vom Flaschenöffner
         'vagoul_#00' => 'Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.', // Ghul-Serum
         'hbplan_u_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (ungewöhnlich)
         'hbplan_r_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hotel-Bauplan (selten)

@@ -10,6 +10,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
@@ -42,6 +43,8 @@ class InventoryHandler
         if ($inventory->getCitizen()) {
             $hero = $inventory->getCitizen()->getProfession() && $inventory->getCitizen()->getProfession()->getHeroic();
             $base = 4 + $this->countEssentialItems($inventory) + ($hero ? 1 : 0);
+            $largerucksack1HS = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findOneByName('largerucksack1');
+
             if (
                 !empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
                 !empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'cart_#00' ) ] ))
@@ -53,7 +56,7 @@ class InventoryHandler
             if (!empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'pocket_belt_#00' ) ] )))
                 $base += 2;
 
-            if($hero && $inventory->getCitizen()->getUser()->hasSkill('largerucksack1'))
+            if($hero && $inventory->getCitizen()->getUser()->getHeroDaysSpent() >= $largerucksack1HS->getDaysNeeded())
                 $base += 1;
 
             return $base;
