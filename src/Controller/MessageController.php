@@ -196,6 +196,7 @@ class MessageController extends AbstractController
         'li' => [],
         'p'  => [],
         'div' => [ 'class', 'x-a', 'x-b' ],
+        'span' => [ 'class' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
         'span' => ['class'],
@@ -217,10 +218,10 @@ class MessageController extends AbstractController
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
-            'citizen'
+             'citizen', 'rpText',
         ],
         'span.class' => [
-            'quoteauthor',
+            'quoteauthor','bad',
         ]
     ];
 

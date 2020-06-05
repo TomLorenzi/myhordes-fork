@@ -28,6 +28,7 @@
                 <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
                 <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
                 {% if is_granted("ROLE_ADMIN") %}
                     <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
@@ -42,39 +43,39 @@
                 <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
             </div>
 
-            <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
+        <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
 
-            <div class="row">
-                <div class="padded cell rw-12">
-                    <ul class="tabs" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
-                        <li x-tab-id="emotes"><i class="fa fa-smile"></i></li>
-                        <li x-tab-id="games"><i class="fa fa-dice"></i></li>
-                    </ul>
-                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
-                        <div class="forum-button-bar">
-                            {% for tag,url in emotes %}
-                                <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
-                            {% endfor %}
-                        </div>
+        <div class="row">
+            <div class="padded cell rw-12">
+                <ul class="tabs" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                    <li x-tab-id="emotes"><i class="fa fa-smile"></i></li>
+                    <li x-tab-id="games"><i class="fa fa-dice"></i></li>
+                </ul>
+                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
+                    <div class="forum-button-bar">
+                        {% for tag,url in emotes %}
+                            <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
+                        {% endfor %}
                     </div>
-                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
-                        <div class="forum-button-bar">
-                            <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
-                            <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
-                        </div>
+                </div>
+                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
+                    <div class="forum-button-bar">
+                        <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
                     </div>
                 </div>
             </div>
@@ -161,6 +162,7 @@
                         const tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
                             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[3], tag, null] ); changed = true; break;
+                            case 'bad': blocks.push( [ match[3], 'span', tag] ); changed = true; break;
                             case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
                             case 'quote': 
                             if(match[2] !== undefined) 
@@ -172,6 +174,10 @@
                             case 'admannounce': blocks.push( [ match[3], 'div', 'adminAnnounce'] ); changed = true; break;
                             case 'modannounce': blocks.push( [ match[3], 'div', 'modAnnounce'] ); changed = true; break;
                             case 'announce': blocks.push( [ match[3], 'div', 'oracleAnnounce'] ); changed = true; break;
+                            case 'rp':
+                            if(match[2] !== undefined) 
+                                blocks.push( [ match[2], 'span', 'quoteauthor'] ); 
+                            blocks.push( [ match[3], 'div', 'rpText'] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
                             case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
