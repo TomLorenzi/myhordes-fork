@@ -176,7 +176,7 @@
                             case 'announce': blocks.push( [ match[3], 'div', 'oracleAnnounce'] ); changed = true; break;
                             case 'rp':
                             if(match[2] !== undefined) 
-                                blocks.push( [ match[2], 'span', 'quoteauthor'] ); 
+                                blocks.push( [ match[2], 'span', 'rpauthor'] ); 
                             blocks.push( [ match[3], 'div', 'rpText'] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
