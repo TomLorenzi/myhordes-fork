@@ -512,6 +512,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                         break;
                     case 'architect':
                         $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
+                        break;
                     case 'luckyfind':
                         $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
                         $citizen->removeHeroicAction($oldfind);
