@@ -843,7 +843,6 @@ class MessageController extends AbstractController
                         $tmp_str .= $dom->saveHTML($child);
 
                     $post->setText( $tmp_str );
-                    file_put_contents("/tmp/dump.txt", "Altered text:\n{$post->getText()}\n", FILE_APPEND);
 
                     $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]";
                 }
