@@ -327,8 +327,10 @@
 
         {% if content is defined %}
         let event = new Event('input');
-
         node_transfer_source.dispatchEvent(event);
+        node_transfer_source.focus();
+        node_transfer_source.setSelectionRange(node_transfer_source.value.length,node_transfer_source.value.length);
+        document.getElementById('forum-editor').scrollIntoView();
         {% endif %}
 
         let closeModal = function() {

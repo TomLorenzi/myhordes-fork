@@ -844,7 +844,7 @@ class MessageController extends AbstractController
 
                     $post->setText( $tmp_str );
 
-                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]";
+                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
                 }
 
             }
