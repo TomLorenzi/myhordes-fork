@@ -203,10 +203,6 @@ class NightlyHandler
             $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
             if($nextSkill !== null && $citizen->getUser()->getHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
-                $skill = new HeroSkill();
-                $skill->setUser($citizen->getUser());
-                $skill->setPrototype($nextSkill);
-                $skill->setDateUnlock(new \DateTime());
 
                 switch($nextSkill->getName()){
                     case "brothers":
@@ -226,6 +222,14 @@ class NightlyHandler
                         $citizen->addHeroicAction($heroic_action);
                         $this->entity_manager->persist($citizen);
                         break;
+                    case 'luckyfind':
+                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
+                        if($citizen->getHeroicActions()->contains($oldfind)) {
+                            // He didn't used the Find, we replace it with the lucky find
+                            $citizen->removeHeroicAction($oldfind);
+                            $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
+                            $citizen->removeHeroicAction($addfind);
+                        }
                 }
 
                 $this->entity_manager->persist($skill);

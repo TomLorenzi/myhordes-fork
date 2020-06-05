@@ -29,4 +29,25 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function getUnlocked(int $currentDays) {
+        return $this->createQueryBuilder('h')
+            ->andWhere('h.daysNeeded <= :days')
+            ->orderBy('h.daysNeeded', 'ASC')
+            ->orderBy('h.id', 'ASC')
+            ->setParameter('days', $currentDays)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getLatestUnlocked(int $currentDays) {
+        return $this->createQueryBuilder('h')
+            ->andWhere('h.daysNeeded <= :days')
+            ->orderBy('h.daysNeeded', 'DESC')
+            ->orderBy('h.id', 'DESC')
+            ->setParameter('days', $currentDays)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

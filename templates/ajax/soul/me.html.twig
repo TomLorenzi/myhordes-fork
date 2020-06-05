@@ -3,7 +3,7 @@
     <div class="row">
         <div class="cell rw-12 center skills">
             <div class="bar">
-                <div class="progresstext">{{progress|round}}%</div>
+                <div class="progresstext"><span class="text">{{progress|round}}%</span></div>
                 <div class="progressbar left">
                     <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
                 </div>
@@ -11,8 +11,8 @@
             <div class="rp-context">
                 {{'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game')}}
                 <strong>{% if latestSkill is not null %}
-                    <img src="{{asset('build/images/heroskill/' ~ latestSkill.prototype.icon ~ '.gif')}}" alt="">
-                    {{latestSkill.prototype.title|trans({}, 'game')}}
+                    <img src="{{asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif')}}" alt="">
+                    {{latestSkill.title|trans({}, 'game')}}
                 {% else %}
                     {{'Niemand'|trans({}, 'game')}}
                 {% endif %}</strong>

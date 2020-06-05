@@ -10,6 +10,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -479,42 +480,45 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $ch->applyProfession( $citizen, $new_profession );
 
-        if($new_profession->getHeroic()) foreach ($citizen->getUser()->getHeroSkills() as $skill) {
-            switch($skill->getPrototype()->getName()){
-                case "brothers":
-                    //TODO: add the heroic power
-                    break;
-                case "resourcefulness":
-                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'chest_hero_#00' ) );
-                    break;
-                case "largechest1":
-                case "largechest2":
-                    $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
-                    break;
-                case "secondwind":
-                    $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
-                    $citizen->addHeroicAction($heroic_action);
-                    $this->entity_manager->persist($citizen);
-                    break;
-                case 'breakfast1':
-                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
-                    break;
-                case 'medicine1':
-                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
-                    break;
-                case "cheatdeath":
-                    $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
-                    $citizen->addHeroicAction($heroic_action);
-                    $this->entity_manager->persist($citizen);
-                    break;
-                case 'architect':
-                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
-                case 'luckyfind':
-                    $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
-                    $citizen->removeHeroicAction($oldfind);
-                    $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
-                    $citizen->removeHeroicAction($addfind);
-                    break;
+        if($new_profession->getHeroic()) {
+            $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getHeroDaysSpent());
+            foreach ($skills as $skill) {
+                switch($skill->getName()){
+                    case "brothers":
+                        //TODO: add the heroic power
+                        break;
+                    case "resourcefulness":
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'chest_hero_#00' ) );
+                        break;
+                    case "largechest1":
+                    case "largechest2":
+                        $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
+                        break;
+                    case "secondwind":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                    case 'breakfast1':
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
+                        break;
+                    case 'medicine1':
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
+                        break;
+                    case "cheatdeath":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                    case 'architect':
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
+                    case 'luckyfind':
+                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
+                        $citizen->removeHeroicAction($oldfind);
+                        $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
+                        $citizen->removeHeroicAction($addfind);
+                        break;
+                }
             }
         }
 
