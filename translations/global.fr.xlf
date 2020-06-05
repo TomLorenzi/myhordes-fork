@@ -1172,5 +1172,14 @@
         <target>Du kannst keine weiteren Gegenstände senden.</target>
       </segment>
     </unit>
+    <unit id="eS7iMaa" name="Rollenspiel">
+      <notes>
+        <note category="german">Rollenspiel</note>
+      </notes>
+      <segment>
+        <source>Rollenspiel</source>
+        <target>Roleplay</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

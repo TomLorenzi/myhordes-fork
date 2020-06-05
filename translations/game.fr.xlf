@@ -11606,7 +11606,7 @@
         <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été réduit en liquide putride.</target>
       </segment>
     </unit>
-    <unit id="EbN9bpW" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
+    <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
       <notes>
         <note category="german">Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</note>
       </notes>

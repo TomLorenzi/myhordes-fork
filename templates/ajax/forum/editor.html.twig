@@ -52,6 +52,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
                 </div>
 
                 <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
@@ -186,6 +187,7 @@
                             case 'admannounce': blocks.push( [ match[3], 'div', 'adminAnnounce'] ); changed = true; break;
                             case 'modannounce': blocks.push( [ match[3], 'div', 'modAnnounce'] ); changed = true; break;
                             case 'announce': blocks.push( [ match[3], 'div', 'oracleAnnounce'] ); changed = true; break;
+                            case 'rp': blocks.push( [ match[3], 'div', 'rpText'] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
                             case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
