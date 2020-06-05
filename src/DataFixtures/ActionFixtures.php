@@ -723,6 +723,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'hero_generic_return' => [ 'label' => 'Die Rückkehr des Helden',  'meta' => [ 'must_be_outside', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]] ] ],
             'hero_generic_find'   => [ 'label' => 'Fund', 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target' ] ],
+            'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target' ] ],
             'hero_generic_punch'  => [ 'label' => 'Wildstyle Uppercut', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z'] ] ],
             'hero_generic_ap'     => [ 'label' => 'Zweite Lunge', 'meta' => [ 'no_full_ap', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6' ] ],
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
@@ -797,7 +798,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         ],
 
         'heroics' => [
-            'hero_generic_return', 'hero_generic_find', 'hero_generic_punch', 'hero_generic_ap', 'hero_generic_immune', 'hero_generic_rescue'
+            ['name' => 'hero_generic_return', 'unlockable' => false],
+            ['name' => 'hero_generic_find', 'unlockable' => false],
+            ['name' => 'hero_generic_punch', 'unlockable' => false],
+            ['name' => 'hero_generic_ap', 'unlockable' => true],
+            ['name' => 'hero_generic_immune', 'unlockable' => true],
+            ['name' => 'hero_generic_find_lucky', 'unlockable' => true],
+            ['name' => 'hero_generic_rescue', 'unlockable' => false],
         ],
 
         'camping' => [
@@ -2325,10 +2332,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['heroics'] as $action) {
 
-            $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneByName( $action );
-            if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action );
+            $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneByName( $action['name'] );
+            if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action['name'] );
+            $action_proto->setUnlockable($action['unlockable']);
 
-            $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+            $action_proto->setAction( $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
             $manager->persist( $action_proto );
         }

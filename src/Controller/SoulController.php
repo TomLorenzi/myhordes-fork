@@ -7,6 +7,8 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\HeroSkill;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
@@ -25,6 +27,7 @@ use Error;
 use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,6 +50,7 @@ class SoulController extends AbstractController
 {
     protected $entity_manager;
     protected $user_factory;
+    private $asset;
 
     const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
     const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors + 2;
@@ -57,10 +61,11 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
+        $this->asset = $a;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -80,10 +85,41 @@ class SoulController extends AbstractController
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
     	$points = $this->user_factory->getPoints($this->getUser());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkill::class)->getLatestForUser($this->getUser());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
+
+        $factor1 = $latestSkill !== null ? $latestSkill->getPrototype()->getDaysNeeded() : 0;
+
+        $progress = $nextSkill !== null ? ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 100;
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
-            'points' => round($points, 0)
+            'points' => round($points, 0),
+            'latestSkill' => $latestSkill,
+            'progress' => $progress
+        ]));
+    }
+
+    /**
+     * @Route("jx/soul/heroskill", name="soul_heroskill")
+     * @return Response
+     */
+    public function soul_heroskill(): Response
+    {
+        // Get all the picto & count points
+        $latestSkill = $this->entity_manager->getRepository(HeroSkill::class)->getLatestForUser($this->getUser());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
+
+        $allSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll();
+
+        $factor1 = $latestSkill !== null ? $latestSkill->getPrototype()->getDaysNeeded() : 0;
+        $progress = $nextSkill !== null ? ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 100;
+
+        return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'latestSkill' => $latestSkill,
+            'nextSkill' => $nextSkill,
+            'progress' => $progress, 
+            'skills' => $allSkills
         ]));
     }
 
@@ -135,6 +171,12 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl('soul_rps'));
 
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
+
+        preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
+
+        if(count($matches) > 0) {
+            $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
+        }
 
         return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'page' => $pageContent,

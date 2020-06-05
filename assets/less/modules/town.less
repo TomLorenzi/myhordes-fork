@@ -143,7 +143,7 @@ div.town-banner {
       background-image: url("../../img/smenu_decharge.gif");
     }
     &.town-addon-catapult > div {
-      background-image: url("../../img/smenu_catapult.gif");
+      background-image: url("../../img/smenu_catapult2.gif");
     }
   }
 }
@@ -351,9 +351,10 @@ div.town-banner {
   background-image: url('../../img/cityBoard.png');
 
   .content {
-    margin: 40px 30px 0 5px;
+    margin: 40px 0 0 5px;
     height: 190px;
     max-height: 190px;
+    max-width: 240px;
     overflow: auto;
     color: #E4E3E8;
     font-size: 1.5rem;
@@ -382,7 +383,7 @@ div.town-banner {
     text-align: right;
     font-size: 1.2rem;
     color: #ddab76;
-    .disabled {
+    &.disabled {
       text-decoration: line-through;
       font-weight: normal;
       color: grey;
@@ -778,5 +779,20 @@ div.town-banner {
       color: #e3c699;
       background-color: #996739;
     }
+  }
+}
+
+.clairvoyance {
+  border: 1px solid #ddab76;
+  font-size: 1.2rem;
+  background-color: #4d5537;
+  margin-bottom: 8px;
+  padding: 5px;
+}
+
+.disposal {
+  font-size: 1.2rem;
+  em {
+    color: #f0d79e;
   }
 }

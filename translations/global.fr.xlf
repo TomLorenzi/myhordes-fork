@@ -1091,5 +1091,86 @@
         <target>Valider</target>
       </segment>
     </unit>
+    <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
+      <notes>
+        <note category="german">Dieses Thema enthält offizielle Ansagen der Website Administratoren.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
+        <target>Ce sujet comporte une ou plusieurs annonces officielles des administrateurs.</target>
+      </segment>
+    </unit>
+    <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
+      <notes>
+        <note category="german">Dieses Thema enthält Ansagen von Community-Vertretern.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
+        <target>Ce sujet comporte une ou plusieurs annonces de représentants de la communauté.</target>
+      </segment>
+    </unit>
+    <unit id="EOVP1fz" name="Admin Ankündigung">
+      <notes>
+        <note category="german">Admin Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Admin Ankündigung</source>
+        <target>Annonce Admin</target>
+      </segment>
+    </unit>
+    <unit id="jszJ4cS" name="Mod Ankündigung">
+      <notes>
+        <note category="german">Mod Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Mod Ankündigung</source>
+        <target>Annonce modérateur</target>
+      </segment>
+    </unit>
+    <unit id="eh2CqIr" name="Orakel Ankündigung">
+      <notes>
+        <note category="german">Orakel Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Orakel Ankündigung</source>
+        <target>Annonce oracle</target>
+      </segment>
+    </unit>
+    <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
+        <target>Cette discussion comporte %count% annonce(s) de représentants de la communauté :</target>
+      </segment>
+    </unit>
+    <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
+        <target>Cette discussion comporte %count% annonce(s) officielle(s) des administrateurs de MyHordes :</target>
+      </segment>
+    </unit>
+    <unit id="wg02Gq4" name="Zitieren">
+      <notes>
+        <note category="german">Zitieren</note>
+      </notes>
+      <segment>
+        <source>Zitieren</source>
+        <target>Citer</target>
+      </segment>
+    </unit>
+    <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
+      <notes>
+        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine weiteren Gegenstände senden.</source>
+        <target>Du kannst keine weiteren Gegenstände senden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

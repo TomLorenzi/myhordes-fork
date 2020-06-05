@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionCounter;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
@@ -52,6 +53,7 @@ class MessageController extends AbstractController
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
+    const ErrorPMItemLimitHit   = ErrorHelper::BaseForumErrors + 4;
 
     private $rand;
     private $asset;
@@ -90,7 +92,7 @@ class MessageController extends AbstractController
         if ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         else $page = 1;
-        
+
         $threads = $em->getRepository(Thread::class)->findByForum($forums[0], $num_per_page, ($page-1)*$num_per_page);
 
         foreach ($threads as $thread) {
@@ -225,8 +227,23 @@ class MessageController extends AbstractController
         $user = $this->getUser();
 
         if ($user->getRightsElevation() >= User::ROLE_CROW) {
-            $r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
-            $a = array_merge( $a, self::HTML_ATTRIB_ALLOWED_ADMIN);
+            foreach (self::HTML_ALLOWED_ADMIN as $key => $value) {
+                if(isset($r[$key])) {
+                    $r[$key] = array_merge($r[$key], self::HTML_ALLOWED_ADMIN[$key]);
+                } else {
+                    $r[$key] = self::HTML_ALLOWED_ADMIN[$key];
+                }
+            }
+
+            //$r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
+            //$a = array_merge( $a, self::HTML_ATTRIB_ALLOWED_ADMIN);
+            foreach (self::HTML_ATTRIB_ALLOWED_ADMIN as $key => $value) {
+                if(isset($a[$key])) {
+                    $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ADMIN[$key]);
+                } else {
+                    $a[$key] = self::HTML_ATTRIB_ALLOWED_ADMIN[$key];
+                }
+            }
         }
 
         return ['nodes' => $r, 'attribs' => $a];
@@ -378,7 +395,7 @@ class MessageController extends AbstractController
                     }
 
                 }
-        }
+            }
 
         return true;
     }
@@ -391,7 +408,7 @@ class MessageController extends AbstractController
         $repo = $this->entityManager->getRepository(Emotes::class);
         foreach($repo->getDefaultEmotes() as $value)
             /** @var $value Emotes */
-            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
+        $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
         return $this->emote_cache;
     }
 
@@ -418,7 +435,7 @@ class MessageController extends AbstractController
         $user = $this->getUser();
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-            
+
         if (!$parser->has_all(['title','text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -451,10 +468,10 @@ class MessageController extends AbstractController
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
 
         $post = (new Post())
-            ->setOwner( $user )
-            ->setText( $text )
-            ->setDate( new DateTime('now') )
-            ->setType($type);
+        ->setOwner( $user )
+        ->setText( $text )
+        ->setDate( new DateTime('now') )
+        ->setType($type);
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len))
@@ -487,20 +504,20 @@ class MessageController extends AbstractController
         $user = $this->getUser();
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-          
+
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
         if ($thread->getLocked())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-        
+
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
             if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return AjaxResponse::error( self::ErrorForumNotFound );
             }      
         } 
-        
+
         /** @var Forum $forum */
         $forum = $thread->getForum();
 
@@ -508,14 +525,14 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $text = $parser->get('text');
-        
+
         if ($user->getRightsElevation() >= User::ROLE_CROW) {
             $type  = $parser->get('type');
         }
         else {
             $type = "USER";
         }
-        
+
         if ($type === "CROW"){
             if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
                 return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
@@ -526,10 +543,10 @@ class MessageController extends AbstractController
         }
 
         $post = (new Post())
-            ->setOwner( $user )
-            ->setText( $text )
-            ->setDate( new DateTime('now') )
-            ->setType($type);
+        ->setOwner( $user )
+        ->setText( $text )
+        ->setDate( new DateTime('now') )
+        ->setType($type);
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len))
@@ -544,18 +561,18 @@ class MessageController extends AbstractController
                     // Give picto if the post is in the town forum
                     $ph->give_picto($citizen, 'r_forum_#00');
                 }
-        }
+            }
 
-        try {
-            $em->persist($thread);
-            $em->persist($forum);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
+            try {
+                $em->persist($thread);
+                $em->persist($forum);
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
 
-        return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
-    }
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+        }
 
     /**
      * @Route("api/forum/{tid<\d+>}/{fid<\d+>}/view", name="forum_viewer_controller")
@@ -583,7 +600,7 @@ class MessageController extends AbstractController
 
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
-        
+
         if ($user->getRightsElevation() >= User::ROLE_CROW)
             $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
         else
@@ -599,10 +616,20 @@ class MessageController extends AbstractController
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
 
-        foreach ($posts as $post)
+
+        $announces = [
+            'admin' => [],
+            'oracle' => []
+        ];
+
+        $announces['admin'] = $em->getRepository(Post::class)->findAdminAnnounces($thread);
+        $announces['oracle'] = $em->getRepository(Post::class)->findOracleAnnounces($thread);
+
+        foreach ($posts as $post){
             /** @var $post Post */
             if ($marker->getPost() === null || $marker->getPost()->getId() < $post->getId())
                 $post->setNew();
+        }
 
         if (!empty($posts)) {
             /** @var Post $read_post */
@@ -627,6 +654,7 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'current_page' => $page,
             'pages' => $pages,
+            'announces' => $announces
         ] );
     }
 
@@ -654,7 +682,7 @@ class MessageController extends AbstractController
                 return new Response('');
             }      
         } 
-        
+
         if ($user->getRightsElevation() >= User::ROLE_CROW)
             $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
         else
@@ -667,6 +695,14 @@ class MessageController extends AbstractController
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
 
+        $announces = [
+            'admin' => [],
+            'oracle' => []
+        ];
+
+        $announces['admin'] = $em->getRepository(Post::class)->findAdminAnnounces($thread);
+        $announces['oracle'] = $em->getRepository(Post::class)->findOracleAnnounces($thread);
+
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
             'locked' => $thread->getLocked(),
@@ -676,6 +712,7 @@ class MessageController extends AbstractController
             'current_page' => $page,
             'pages' => $pages,
             'markedPost' => $pid,
+            'announces' => $announces,
         ] );
     }
 
@@ -688,6 +725,7 @@ class MessageController extends AbstractController
     public function editor_thread_api(int $id, EntityManagerInterface $em): Response {
         $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $id);
         if (count($forums) !== 1) return new Response('');
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $id,
             'tid' => null,
@@ -698,6 +736,70 @@ class MessageController extends AbstractController
         ] );
     }
 
+    public function convert_bbcode(?DOMNode $node){
+        $content = "";
+        foreach ($node->childNodes as $child) {
+            if(isset($child->tagName))
+                switch ($child->tagName) {
+                    case 'br':
+                        $content .= "\n";
+                        break;
+                    case 'hr':
+                        $content .= "{hr}";
+                        break;
+                    case 'div':
+                        if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value) && in_array($child->attributes['class']->value, ['adminAnnounce','modAnnounce','oracleAnnounce','glory','spoiler'])) {
+                            $class = $child->attributes['class']->value;
+                            switch ($class) {
+                                case 'adminAnnounce':
+                                    $class = "admannounce";
+                                    break;
+                                case 'modAnnounce':
+                                    $class = "modannounce";
+                                    break;
+                                case 'oracleAnnounce':
+                                    $class = "announce";
+                                    break;
+                            }
+
+                            $content .= "[$class]" . $this->convert_bbcode($child) . "[/$class]";
+                        }
+                        else
+                            $content .= $child->textContent;
+                        break;
+                    case "p":
+                        $content .= $child->textContent;
+                        break;
+                    case "img":
+                        $content .= "[image={$child->attributes[0]->value}]{$child->attributes[1]->value}[/image]";
+                        break;
+                    case "a":
+                        $content .= "[link={$child->attributes[0]->value}]". $this->convert_bbcode($child) ."[/link]";
+                        break;
+                    case "b":
+                    case "i":
+                    case "u":
+                    case "s":
+                    case "ul":
+                    case "ol":
+                    case "li":
+                        $content .= "[{$child->tagName}]" . $this->convert_bbcode($child) . "[/{$child->tagName}]";
+                        break;
+                    case "blockquote":
+                        //$content .= "[quote]" . $this->convert_bbcode($child) . "[/quote]";
+                        //We remove inner quotes
+                        break;
+                    default:
+                        $content .= $child->textContent;
+                        break;
+                }
+            else
+                $content .= $child->textContent;
+        }
+
+        return $content;
+    }
+
     /**
      * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/editor", name="forum_post_editor_controller")
      * @param int $fid
@@ -705,7 +807,7 @@ class MessageController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em): Response {
+    public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository( Thread::class )->find( $tid );
@@ -716,14 +818,49 @@ class MessageController extends AbstractController
             if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return new Response('');
             }      
-        } 
+        }
 
+        if($parser->has('post')){
+            $post_id = $parser->get('post');
+
+            $post = $em->getRepository(Post::class)->find($post_id);
+            $content = "";
+            if($post->getThread() == $thread) {
+                file_put_contents("/tmp/dump.txt", "Controls as user {$user->getUsername()}\n");
+                file_put_contents("/tmp/dump.txt", "Original text:\n{$post->getText()}\n", FILE_APPEND);
+                // We replace the HTML content with the Twinoid-like syntax
+                $dom = new DOMDocument();
+                libxml_use_internal_errors(true);
+                $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
+                $body = $dom->getElementsByTagName('body');
+                $tx_len = 0;
+                if (!$body || $body->length > 1) {
+                    $content = null;
+                }
+                else if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0), $tx_len)) {
+                    $content = null;
+                } else {
+                    $tmp_str = "";
+                    foreach ($body->item(0)->childNodes as $child)
+                        $tmp_str .= $dom->saveHTML($child);
+
+                    $post->setText( $tmp_str );
+                    file_put_contents("/tmp/dump.txt", "Altered text:\n{$post->getText()}\n", FILE_APPEND);
+
+                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]";
+                }
+
+                file_put_contents("/tmp/dump.txt", "Converted text:\n$content\n", FILE_APPEND);
+            }
+
+        }
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->get_emotes(true),
             'pm' => false,
+            'content' => $content ?? null
         ] );
     }
 
@@ -763,7 +900,7 @@ class MessageController extends AbstractController
         if (!$parser->has('postId')){
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
-        
+
         /** @var User $user */
         $user = $this->getUser();
         $postId = $parser->get('postId');
@@ -781,11 +918,11 @@ class MessageController extends AbstractController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        $newReport = (new AdminReport())
+            $newReport = (new AdminReport())
             ->setSourceUser($user)
             ->setTs(new DateTime('now'))
             ->setPost($post);
-        
+
             try {
                 $em->persist($newReport);
                 $em->flush();
@@ -795,7 +932,7 @@ class MessageController extends AbstractController
             $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
             $this->addFlash('notice', $message);
             return AjaxResponse::success( );
-    }
+        }
 
     /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
@@ -851,6 +988,10 @@ class MessageController extends AbstractController
                     $valid = true;
                 }
 
+                if($sender->getTown()->getChaos() && count($linked_items) > 3) {
+                    return AjaxResponse::error(self::ErrorPMItemLimitHit);
+                }
+
                 if($valid)
                     $linked_items[] = $item;
             }
@@ -870,38 +1011,46 @@ class MessageController extends AbstractController
                     if ($sender->getTown()->getChaos()){
                         if($recipient->getZone())
                             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);   
-                        else
-                            //TODO: add 3 items limit per day
-                            ;
+                        else {
+                            $counter = $sender->getSpecificActionCounter(ActionCounter::ActionTypeSendPMItem);
+                            if($counter->getCount() > 3)
+                                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);   
+                            else if ($counter->getCount() + count($linked_items) > 3)
+                                return AjaxResponse::error(self::ErrorPMItemLimitHit);
+                            else {
+                                $counter->setCount(min($counter->getCount() + count($linked_items), 3));
+                                $em->persist($counter);
+                            }
+                        }
                     }
                 }
 
-            	// Check inventory size
+                // Check inventory size
                 $max_size = $this->inventory_handler->getSize($recipient->getHome()->getChest());
 
-        		if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) >= $max_size) return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
+                if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) >= $max_size) return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
 
                 $thread = new PrivateMessageThread();
                 $thread->setSender($sender)
-                    ->setTitle($title)
-                    ->setLocked(false)
-                    ->setLastMessage(new DateTime('now'))
-                    ->setRecipient($recipient)
+                        ->setTitle($title)
+                        ->setLocked(false)
+                        ->setLastMessage(new DateTime('now'))
+                        ->setRecipient($recipient)
                 ;
 
                 $post = new PrivateMessage();
                 $post->setDate(new DateTime('now'))
-                    ->setText($content)
-                    ->setPrivateMessageThread($thread)
-                    ->setOwner($sender)
-                    ->setNew(true)
-                    ->setRecipient($recipient)
+                        ->setText($content)
+                        ->setPrivateMessageThread($thread)
+                        ->setOwner($sender)
+                        ->setNew(true)
+                        ->setRecipient($recipient)
                 ;
 
                 $items_prototype = [];
 
                 foreach ($linked_items as $item) {
-                	$items_prototype[] = $item->getPrototype()->getId();
+                    $items_prototype[] = $item->getPrototype()->getId();
                     $this->inventory_handler->forceMoveItem($recipient->getHome()->getChest(), $item);
                 }
 
@@ -921,19 +1070,19 @@ class MessageController extends AbstractController
                     if($citizen == $sender) continue;
                     $thread = new PrivateMessageThread();
                     $thread->setSender($sender)
-                        ->setTitle($title)
-                        ->setLocked(false)
-                        ->setLastMessage(new DateTime('now'))
-                        ->setRecipient($citizen);
+                    ->setTitle($title)
+                    ->setLocked(false)
+                    ->setLastMessage(new DateTime('now'))
+                    ->setRecipient($citizen);
                     ;
 
                     $post = new PrivateMessage();
                     $post->setDate(new DateTime('now'))
-                        ->setText($content)
-                        ->setPrivateMessageThread($thread)
-                        ->setOwner($sender)
-                        ->setNew(true)
-                        ->setRecipient($citizen);
+                    ->setText($content)
+                    ->setPrivateMessageThread($thread)
+                    ->setOwner($sender)
+                    ->setNew(true)
+                    ->setRecipient($citizen);
                     ;
 
                     $tx_len = 0;
@@ -964,11 +1113,11 @@ class MessageController extends AbstractController
 
             $post = new PrivateMessage();
             $post->setDate(new DateTime('now'))
-                ->setText($content)
-                ->setPrivateMessageThread($thread)
-                ->setOwner($sender)
-                ->setNew(true)
-                ->setRecipient($recipient)
+            ->setText($content)
+            ->setPrivateMessageThread($thread)
+            ->setOwner($sender)
+            ->setNew(true)
+            ->setRecipient($recipient)
             ;
 
             $tx_len = 0;
@@ -989,7 +1138,7 @@ class MessageController extends AbstractController
             $message = $t->trans("Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.", [], 'game');
         else
             $message = $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game');
-        
+
         $this->addFlash( 'notice',  $message);
         return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
     }
@@ -1032,13 +1181,13 @@ class MessageController extends AbstractController
         $em->flush();
         $items = [];
         foreach ($posts as &$post) {
-        	if($post->getItems() !== null && count($post->getItems()) > 0) {
-        		$items[$post->getId()] = [];
-        		foreach ($post->getItems() as $proto_id) {
-        			$items[$post->getId()][] = $em->getRepository(ItemPrototype::class)->find($proto_id);
-        		}
-        	}
-        	$post->setText($this->prepareEmotes($post->getText()));
+            if($post->getItems() !== null && count($post->getItems()) > 0) {
+                $items[$post->getId()] = [];
+                foreach ($post->getItems() as $proto_id) {
+                    $items[$post->getId()][] = $em->getRepository(ItemPrototype::class)->find($proto_id);
+                }
+            }
+            $post->setText($this->prepareEmotes($post->getText()));
         }
         return $this->render( 'ajax/game/town/posts.html.twig', [
             'thread' => $thread,

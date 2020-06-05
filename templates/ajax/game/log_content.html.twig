@@ -5,7 +5,25 @@
     {% for entry in entries %}
         <div class="log-entry log-entry-type-{{ entry.type }} log-entry-class-{{ entry.class }}">
             <span class="log-part-time">{{ entry.timestamp.format('G:i') }}</span>
-            <span class="log-part-content">{{ entry.text|raw }}</span>
+            {% if app.user.hasSkill('manipulator') and not entry.hidden %}<span class="link remove-entry" x-entry-id="{{ entry.id }}"><img src="{{ asset('build/images/heroskill/small_falsify.gif') }}" alt="[X]" /></span>{% endif %}
+            <span class="log-part-content {% if entry.hidden %}log-part-entry-hidden{% endif %}">{% if entry.hidden %}<img src="{{ asset('build/images/small_warning.gif') }}" />{{'Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?'|trans({}, 'game')}}{% else %}{{ entry.text|raw }}{% endif %}</span>
         </div>
     {% endfor %}
+
+    <script>
+    let remove_log = document.querySelectorAll('.remove-entry');
+        for(let i = 0 ; i < remove_log.length ; i++){
+            remove_log[i].addEventListener('click', function(){
+                $.ajax.background().easySend("{{path('delete_log_entry')}}", {'log_entry_id': this.getAttribute('x-entry-id')}, function(){
+                	let log_boxes = document.querySelectorAll('.log-container');
+                	for (let i = 0; i < log_boxes.length; i++) {
+                		let log = log_boxes[i].querySelector( '.log' );
+                		const url = log.getAttribute('x-log-source');
+                		let content_box = log.querySelectorAll('.log-content');
+                		$.ajax.background().load( content_box[0], url, false, {day: -1} );
+                	}
+                });
+            });
+        }
+    </script>
 {% endif %}

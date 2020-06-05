@@ -243,9 +243,8 @@ class AwardFixtures extends Fixture {
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$award_data) );
 
-        foreach(static::$award_data as $entry) {
-            $entity = $this->entityManager->getRepository(AwardPrototype::class)
-                ->getIndividualAward($entry['associatedpicto'], $entry['unlockquantity']);
+       foreach(static::$award_data as $entry) {
+            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getIndividualAward($entry['associatedpicto'], $entry['unlockquantity']);
 
             if($entity === null) {
                 $entity = new AwardPrototype();
@@ -271,10 +270,10 @@ class AwardFixtures extends Fixture {
 
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
-        $output->writeln( '<info>Installing fixtures: Emotes Database</info>' );
+        $output->writeln( '<info>Installing fixtures: AwardPrototype Database</info>' );
         $output->writeln("");
 
-        $this->insertAwards($manager, $output);
+        //$this->insertAwards($manager, $output);
         $output->writeln("");
     }
 }

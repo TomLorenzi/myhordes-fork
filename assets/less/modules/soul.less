@@ -36,6 +36,49 @@
             }
         }
     }
+
+    .skills {
+        .bar {
+            width: 614px;
+            height: 32px;
+            margin: 0 auto;
+            .progresstext {
+                background: url('../../img/soul/heroUp_front.gif') center no-repeat;
+                height: 32px;
+                line-height: 32px;
+                width: 614px;
+                z-index: 2;
+                position: absolute;
+            }
+
+            .progressbar {
+                background: url('../../img/soul/heroUp_bg.gif') center repeat-x;
+                height: 30px;
+                overflow: hidden;
+                margin-left: 20px;
+                margin-top: 2px;
+                img {
+                    height: 32px;
+                }
+            }
+        }
+
+        .heroProgress {
+            color: #f0d79e;
+            background-color: #4d5537;
+            border: 1px solid #ddab76;
+            outline: 2px solid #5c2b20;
+            text-align: center;
+            margin-top: 4px;
+            font-size: 1.2rem;
+            strong {
+                display: block;
+                font-size: 2rem;
+                color: white;
+            }
+        }
+    }
+
     .distinctions {
         max-width: 240px;
         background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
@@ -178,17 +221,19 @@
         }
     }
 
-    .town-history {
+    .town-history,
+    .skills-history {
         .header {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-variant: small-caps;
             font-weight: bold;
-            color: #f1ddc8;
+            color: white;
             border-bottom: 2px solid #ddab76;
             background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
         }
 
-        .town-container {
+        .town-container,
+        .skills-container {
             background-color: #5c2b20;
             border-bottom: 1px solid #ddab76;
 
@@ -229,6 +274,19 @@
                 .town-name,
                 .town-days {
                     color: #f86;
+                }
+            }
+
+            &.skills-container {
+                .desc {
+                    color: #f0d79e;
+                    font-size: 1.2rem;
+                }
+                .currentSkill {
+                    background: #3b3249;
+                    .desc {
+                        font-style: italic;
+                    }
                 }
             }
         }

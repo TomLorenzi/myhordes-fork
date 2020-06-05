@@ -237,6 +237,9 @@ class CitizenHandler
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
+        } else if($citizen->getProfession()->getHeroic() && $citizen->getUser()->hasSkill('revenge') && $citizen->getTown()->getDay() >= 3) {
+            $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
+            $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
         }
 
         return $action;
@@ -341,16 +344,13 @@ class CitizenHandler
         else {
             $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
 
-            $has_clean_body = true; // TODO: Add hero experience clean body
-            $has_body_armor = true; // TODO: Add hero experience body armor
+            $has_healthy_body = $citizen->getProfession()->getHeroic() && $citizen->getUser()->hasSkill('healthybody');
+            $has_body_armor = $citizen->getProfession()->getHeroic() && $citizen->getUser()->hasSkill('brick');
 
-            if ($citizen->getProfession()->getHeroic() 
-                    && $this->hasStatusEffect( $citizen, 'clean', false ) 
-                    && $has_clean_body)
+            if ($has_healthy_body && $this->hasStatusEffect( $citizen, 'clean', false ))
                 $base += 1;
 
-            if ($citizen->getProfession()->getHeroic() 
-                    && $has_body_armor)
+            if ($has_body_armor)
                 $base += 1;
 
             if (!empty($this->inventory_handler->fetchSpecificItems(
@@ -448,7 +448,7 @@ class CitizenHandler
         $camping_values = [];
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
-        $has_pro_camper = $citizen->getProfession()->getHeroic();
+        $has_pro_camper = $citizen->getProfession()->getHeroic() && $citizen->getUser()->hasSkill('procamp');
 
         // Town type: Pandemonium gets malus of 14, all other types are neutral.
         $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
@@ -482,7 +482,7 @@ class CitizenHandler
         // Ruin in zone.
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
-        // Zombies in zone. Factor -1.4, for CamperPro it will -0.6.
+        // Zombies in zone. Factor -1.4, for CamperPro it is -0.6.
         $factor = $has_pro_camper ? -0.6 : -1.4;
         $camping_values['zombies'] = $factor * $zone->getZombies();
 
@@ -641,6 +641,9 @@ class CitizenHandler
             if($previousWatches === null) {
                 $chances = max($baseChance, $chances - 0.05);
             } else {
+                $factor = 0.1;
+                if($citizen->getProfession()->getHeroic() && $citizen->getUser()->hasSkill('prowatch'))
+                    $factor -= 0.03;
                 $chances = min(1, $chances + 0.1);
             }
         }
@@ -660,6 +663,8 @@ class CitizenHandler
 
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
+
+        $chances = max($baseChance, $chances);
 
         return $chances;
     }

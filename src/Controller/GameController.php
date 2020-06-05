@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -75,6 +77,8 @@ class GameController extends AbstractController implements GameInterfaceControll
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();
+                $entries[$idx]['id'] = $entity->getId();
+                $entries[$idx]['hidden'] = $entity->getHidden();
 
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
@@ -475,6 +479,45 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         $ch->applyProfession( $citizen, $new_profession );
 
+        if($new_profession->getHeroic()) foreach ($citizen->getUser()->getHeroSkills() as $skill) {
+            switch($skill->getPrototype()->getName()){
+                case "brothers":
+                    //TODO: add the heroic power
+                    break;
+                case "resourcefulness":
+                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'chest_hero_#00' ) );
+                    break;
+                case "largechest1":
+                case "largechest2":
+                    $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
+                    break;
+                case "secondwind":
+                    $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
+                    $citizen->addHeroicAction($heroic_action);
+                    $this->entity_manager->persist($citizen);
+                    break;
+                case 'breakfast1':
+                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
+                    break;
+                case 'medicine1':
+                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
+                    break;
+                case "cheatdeath":
+                    $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
+                    $citizen->addHeroicAction($heroic_action);
+                    $this->entity_manager->persist($citizen);
+                    break;
+                case 'architect':
+                    $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
+                case 'luckyfind':
+                    $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
+                    $citizen->removeHeroicAction($oldfind);
+                    $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
+                    $citizen->removeHeroicAction($addfind);
+                    break;
+            }
+        }
+
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
@@ -486,6 +529,62 @@ class GameController extends AbstractController implements GameInterfaceControll
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
             $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($spawn)), [$chest]);
+
+        try {
+            $this->entity_manager->persist( $chest );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/game/delete_log_entry", name="delete_log_entry")
+     * @param JSONRequestParser $parser
+     * @param CitizenHandler $ch
+     * @return Response
+     */
+    public function delete_log_entry(JSONRequestParser $parser, CitizenHandler $ch): Response {
+
+        $citizen = $this->getActiveCitizen();
+        $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);
+
+        if(!$citizen->getProfession()->getHeroic() || !$citizen->getUser()->hasSkill('manipulator')){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        if(!$parser->has('log_entry_id'))
+            return AjaxResponse::ErrorInvalidRequest;
+
+        $log = $this->entity_manager->getRepository(TownLogEntry::class)->find($parser->get('log_entry_id'));
+        if($log->getHidden()){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $limit = 0;
+        if($citizen->getUser()->hasSkill('manipulator'))
+            $limit = 2;
+
+        if($citizen->getUser()->hasSkill('treachery'))
+            $limit = 4;
+
+        if($counter->getCount() < $limit){
+            $counter->setCount($counter->getCount() + 1);
+        } else {
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $log->setHidden(true);
+
+        try {
+            $this->entity_manager->persist( $log );
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
 
         try {
             $this->entity_manager->persist( $chest );

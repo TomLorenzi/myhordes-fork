@@ -493,7 +493,8 @@ class GameFactory
         $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'chest_citizen_#00' ) );
         $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'food_bag_#00' ) );
 
-        $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
+        // Adding default heroic action
+        $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findBy(['unlockable' => false]);
         foreach ($heroic_actions as $heroic_action)
             /** @var $heroic_action HeroicActionPrototype */
             $citizen->addHeroicAction( $heroic_action );

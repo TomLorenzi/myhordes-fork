@@ -7,6 +7,8 @@ namespace App\Command;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\StatusFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -22,11 +24,15 @@ class CitizenInspectorCommand extends Command
 
     private $entityManager;
     private $statusFactory;
+    private $itemFactory;
+    private $inventoryHandler;
 
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf)
+    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih)
     {
         $this->entityManager = $em;
         $this->statusFactory = $sf;
+        $this->inventoryHandler = $ih;
+        $this->itemFactory = $if;
         parent::__construct();
     }
 
@@ -101,6 +107,10 @@ class CitizenInspectorCommand extends Command
 
         if (($ban = $input->getOption('set-banned')) !== '') {
             $citizen->setBanished($ban);
+            if($ban && $citizen->getProfession()->getHeroic() && $citizen->getUser()->hasSkill('revenge') && $citizen->getTown()->getDay() >= 3) {
+                $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
+                $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
+            }
             $updated = true;
         }
 

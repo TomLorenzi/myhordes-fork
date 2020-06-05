@@ -57,7 +57,7 @@
     </div>
 
     <div class="row">
-        <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-md-12">
+        <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-lg-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>
             <ul class="overview-checklist">
                 <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
@@ -78,23 +78,23 @@
                 <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
             </ul>
         </div>
-        <div class="padded cell rw-6 rw-md-12">
-            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
+        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
+        <div class="padded cell rw-6 rw-lg-12">
                 <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
                 <div class="words-of-heroes {{ town.language }}">
                     <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
-                    {% if active_citizen.profession.heroic and not active_citizen.banished %}
+                    {% if can_edit_blackboard %}
                         <div class="content hidden" id="words-of-heroes-editor">
                             <textarea>{{ town.wordsOfHeroes }}</textarea>
                         </div>
                         <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
                         <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
-                    {% else %}
+                    {% elseif citizen.getBanished %}
                         <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
                     {% endif %}
                 </div>
-            {% endif %}
         </div>
+        {% endif %}
     </div>
 
     <div class="row">

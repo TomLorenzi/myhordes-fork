@@ -17,6 +17,8 @@ class ActionCounter
     const ActionTypeHomeLab     = 3;
     const ActionTypeTrash       = 4;
     const ActionTypeComplaint   = 5;
+    const ActionTypeRemoveLog   = 6;
+    const ActionTypeSendPMItem  = 7;
 
     /**
      * @ORM\Id()

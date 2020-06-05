@@ -54,7 +54,7 @@
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                 </div>
 
-                <textarea id="forum-editor-text"></textarea>
+                <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
 
                 <div class="row">
                     <div class="padded cell rw-12">
@@ -151,25 +151,25 @@
                     const regex_wrappers = !secondary ? /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
                     let current_offset = 0;
                     let blocks = [];
-/*
-Blocks structure
-1 - text content,
-2 - HTML tag (wrapping element),
-3 - element class name,
-4 - element attributes (array, optional)
+                    /*
+                    Blocks structure
+                    1 - text content,
+                    2 - HTML tag (wrapping element),
+                    3 - element class name,
+                    4 - element attributes (array, optional)
 
-Attributes structure
-1 - attribute name
-2 - attribute value
-... repeat if necessary
+                    Attributes structure
+                    1 - attribute name
+                    2 - attribute value
+                    ... repeat if necessary
 
-Examples:
-blocks.push( [ 'my text', 'p', null] )
-=> <p>my text</p>
+                    Examples:
+                    blocks.push( [ 'my text', 'p', null] )
+                    => <p>my text</p>
 
-blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
-=> <a class="external" href="https://myhordes.net">my text</a>
- */
+                    blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
+                    => <a class="external" href="https://myhordes.net">my text</a>
+                     */
 
                     for (const match of str.matchAll( regex_wrappers )) {
                         if (current_offset < match.index )
@@ -325,6 +325,12 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
 
         node_transfer_source.addEventListener('input', transfer_to_preview);
 
+        {% if content is defined %}
+        let event = new Event('input');
+
+        node_transfer_source.dispatchEvent(event);
+        {% endif %}
+
         let closeModal = function() {
             document.getElementById('modal-backdrop').classList.remove('active');
             let form = document.getElementById('modal-form');
@@ -403,7 +409,8 @@ blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
                 for (let i = 0; i < inputs.length; i++) {
                     console.log(inputs[i].id);
                     if (inputs[i].id === type.value + '-text') {
-                        tagText = escape(inputs[i].value);
+                        let doc = new DOMParser().parseFromString(inputs[i].value, 'text/html');
+                        tagText = doc.body.textContent || "";
                     }
                     else if (inputs[i].id === type.value + '-link') {
                         tagUrl = encodeURI(inputs[i].value.replace('http:', '').replace('https:', ''));
