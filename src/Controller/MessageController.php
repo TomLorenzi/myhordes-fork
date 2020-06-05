@@ -221,7 +221,7 @@ class MessageController extends AbstractController
              'citizen', 'rpText',
         ],
         'span.class' => [
-            'quoteauthor','bad',
+            'quoteauthor','bad','rpauthor'
         ]
     ];
 
@@ -797,7 +797,7 @@ class MessageController extends AbstractController
                     case "span":
                         if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value)) {
                             if($child->attributes['class']->value !== 'quoteauthor') {
-                                $content .= $this->convert_bbcode($child);
+                                $content .= "[{$child->tagName}={$child->attributes['class']->value}]" . $this->convert_bbcode($child) . "[/{$child->tagName}]";
                             }
                         }
                         break;
