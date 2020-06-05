@@ -11,17 +11,12 @@ require('@fortawesome/fontawesome-free/js/all.js');
 
 // CSS files
 require('../css/app.css');
-require('../css/suneditor.css');
 
 // JavaScript and TypeScript files
 import Client from '../ts/client'
 import Ajax from '../ts/ajax'
 import HTML from '../ts/html'
 
-require('./suneditor.min');
-require('./suneditor.de');
-require('./suneditor.fr');
-require('./suneditor.es');
 require("./attack");
 
 // Get the base URL
