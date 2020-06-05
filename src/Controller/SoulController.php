@@ -95,7 +95,7 @@ class SoulController extends AbstractController
             'pictos' => $pictos,
             'points' => round($points, 0),
             'latestSkill' => $latestSkill,
-            'progress' => $progress
+            'progress' => floor($progress),
         ]));
     }
 
@@ -117,7 +117,7 @@ class SoulController extends AbstractController
         return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'latestSkill' => $latestSkill,
             'nextSkill' => $nextSkill,
-            'progress' => $progress, 
+            'progress' => floor($progress),
             'skills' => $allSkills
         ]));
     }

@@ -49,13 +49,15 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected $translator;
     protected $logTemplateHandler;
     protected $time_keeper;
+    protected $citizen_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
         $this->time_keeper = $tk;
+        $this->citizen_handler = $ch;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -96,6 +98,7 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
+            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($citizen !== null ? $citizen : $this->getActiveCitizen(), 'manipulator'),
         ] );
     }
 
@@ -458,13 +461,12 @@ class GameController extends AbstractController implements GameInterfaceControll
     /**
      * @Route("api/game/job", name="api_jobcenter")
      * @param JSONRequestParser $parser
-     * @param CitizenHandler $ch
      * @param InventoryHandler $invh
      * @param ItemFactory $if
      * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
+    public function job_select_api(JSONRequestParser $parser, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -478,7 +480,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $new_profession = $this->entity_manager->getRepository(CitizenProfession::class)->find( $job_id );
         if (!$new_profession) return AjaxResponse::error(self::ErrorJobInvalid);
 
-        $ch->applyProfession( $citizen, $new_profession );
+        $this->citizen_handler->applyProfession( $citizen, $new_profession );
 
         if($new_profession->getHeroic()) {
             $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getHeroDaysSpent());
@@ -556,7 +558,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $citizen = $this->getActiveCitizen();
         $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);
 
-        if(!$citizen->getProfession()->getHeroic() || !$citizen->getUser()->hasSkill('manipulator')){
+        if(!$citizen->getProfession()->getHeroic() || !$this->citizen_handler->hasSkill($citizen, 'manipulator')){
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 
@@ -569,10 +571,10 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         $limit = 0;
-        if($citizen->getUser()->hasSkill('manipulator'))
+        if($this->citizen_handler->hasSkill($citizen, 'manipulator'))
             $limit = 2;
 
-        if($citizen->getUser()->hasSkill('treachery'))
+        if($this->citizen_handler->hasSkill($citizen, 'treachery'))
             $limit = 4;
 
         if($counter->getCount() < $limit){

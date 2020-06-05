@@ -5,7 +5,7 @@
     {% for entry in entries %}
         <div class="log-entry log-entry-type-{{ entry.type }} log-entry-class-{{ entry.class }}">
             <span class="log-part-time">{{ entry.timestamp.format('G:i') }}</span>
-            {% if app.user.hasSkill('manipulator') and not entry.hidden %}<span class="link remove-entry" x-entry-id="{{ entry.id }}"><img src="{{ asset('build/images/heroskill/small_falsify.gif') }}" alt="[X]" /></span>{% endif %}
+            {% if canHideEntry and not entry.hidden %}<span class="link remove-entry" x-entry-id="{{ entry.id }}"><img src="{{ asset('build/images/heroskill/small_falsify.gif') }}" alt="[X]" /></span>{% endif %}
             <span class="log-part-content {% if entry.hidden %}log-part-entry-hidden{% endif %}">{% if entry.hidden %}<img src="{{ asset('build/images/small_warning.gif') }}" />{{'Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?'|trans({}, 'game')}}{% else %}{{ entry.text|raw }}{% endif %}</span>
         </div>
     {% endfor %}
