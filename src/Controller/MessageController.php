@@ -826,8 +826,6 @@ class MessageController extends AbstractController
             $post = $em->getRepository(Post::class)->find($post_id);
             $content = "";
             if($post->getThread() == $thread) {
-                file_put_contents("/tmp/dump.txt", "Controls as user {$user->getUsername()}\n");
-                file_put_contents("/tmp/dump.txt", "Original text:\n{$post->getText()}\n", FILE_APPEND);
                 // We replace the HTML content with the Twinoid-like syntax
                 $dom = new DOMDocument();
                 libxml_use_internal_errors(true);
@@ -850,7 +848,6 @@ class MessageController extends AbstractController
                     $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]";
                 }
 
-                file_put_contents("/tmp/dump.txt", "Converted text:\n$content\n", FILE_APPEND);
             }
 
         }
