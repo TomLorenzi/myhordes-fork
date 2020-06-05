@@ -793,6 +793,13 @@ class MessageController extends AbstractController
                         //$content .= "[quote]" . $this->convert_bbcode($child) . "[/quote]";
                         //We remove inner quotes
                         break;
+                    case "span":
+                        if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value)) {
+                            if($child->attributes['class']->value !== 'quoteauthor') {
+                                $content .= $this->convert_bbcode($child);
+                            }
+                        }
+                        break;
                     default:
                         $content .= $child->textContent;
                         break;
