@@ -196,6 +196,7 @@ class MessageController extends AbstractController
         'li' => [],
         'p'  => [],
         'div' => [ 'class', 'x-a', 'x-b' ],
+        'span' => [ 'class' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
     ];
@@ -217,7 +218,8 @@ class MessageController extends AbstractController
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
             'citizen', 'rpText',
-        ]
+        ], 
+        'span.class' => [ 'bad' ]
     ];
 
     private function getAllowedHTML(): array {

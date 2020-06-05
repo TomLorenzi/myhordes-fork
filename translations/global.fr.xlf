@@ -1181,5 +1181,23 @@
         <target>Roleplay</target>
       </segment>
     </unit>
+    <unit id="xtJ2E4o" name="Verräter">
+      <notes>
+        <note category="german">Verräter</note>
+      </notes>
+      <segment>
+        <source>Verräter</source>
+        <target>Traître</target>
+      </segment>
+    </unit>
+    <unit id="peFFaP2" name="Liste der Themen aktualisieren">
+      <notes>
+        <note category="german">Liste der Themen aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Liste der Themen aktualisieren</source>
+        <target>Actualiser la liste des sujets</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
