@@ -156,11 +156,16 @@
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
 
+                        console.log(match);
+
                         const tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
                             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[3], tag, null] ); changed = true; break;
                             case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
-                            case 'quote': blocks.push( [ match[3], 'blockquote', null] ); changed = true; break;
+                            case 'quote': 
+                            if(match[2] !== undefined) 
+                                blocks.push( [ match[2], 'span', 'quoteauthor'] ); 
+                            blocks.push( [ match[3], 'blockquote', null] ); changed = true; break;
                             case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
                             case 'link': blocks.push( [ match[3], 'a', tag, [ 'href', match[2], 'target','_blank' ]] ); changed = true; break;
                             case 'image': blocks.push( [ '', 'img', tag, [ 'src', match[2], 'alt', match[3] ]] ); changed = true; break;

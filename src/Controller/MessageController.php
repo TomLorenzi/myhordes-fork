@@ -198,6 +198,7 @@ class MessageController extends AbstractController
         'div' => [ 'class', 'x-a', 'x-b' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
+        'span' => ['class'],
     ];
 
     private const HTML_ALLOWED_ADMIN = [
@@ -217,6 +218,9 @@ class MessageController extends AbstractController
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
             'citizen'
+        ],
+        'span.class' => [
+            'quoteauthor',
         ]
     ];
 
@@ -843,7 +847,6 @@ class MessageController extends AbstractController
                         $tmp_str .= $dom->saveHTML($child);
 
                     $post->setText( $tmp_str );
-
                     $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
                 }
 

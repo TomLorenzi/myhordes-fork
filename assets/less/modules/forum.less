@@ -32,6 +32,15 @@
 
   img { max-height: 480px; max-width: 100%; height: auto !important; width: auto !important; }
 
+  span.quoteauthor {
+    font-weight: bold;
+    margin-left: 40px;
+    font-size: 1.25rem;
+    + blockquote {
+      margin-top: 0;
+    }
+  }
+
   blockquote {
     font-style: italic; border-color: rgba(0,0,0,.6); border-style: dashed; border-width: 0 0 1px 1px;
     padding-left: 10px; font-size: .875em; opacity: .7;
