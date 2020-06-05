@@ -382,6 +382,10 @@ class ItemFixtures extends Fixture
         ['label' =>'Schraubenschlüssel','icon'=>'keymol','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // -- ---
         ['label' =>'Schutzschild','icon'=>'shield','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // -- ---
         ['label' =>'Voodoo-Maske','icon'=>'shaman','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
+        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_3','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
+        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_2','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
+        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_1','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
+        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_off','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
         
         ['label' => 'Super-Flaum-Pulver','icon' => 'firework_powder','category' => 'root_ein','deco' => 5,'heavy' => false, 'watchpoint' => 0],                       // -- ---
         ['label' => 'Flush-Abschussrohr','icon' => 'firework_tube','category' => 'root_ein','deco' => 2,'heavy' => true, 'watchpoint' => 0],                                 // In Out
@@ -727,7 +731,11 @@ class ItemFixtures extends Fixture
         'firework_box_#00' => 'Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.',
         'firework_tube_#00' => 'Mehrere lange Plastikschläuche ohne großes Interesse.',
         'firework_powder_#00' => 'Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.',
-        'potion_#00' => 'Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...'
+        'potion_#00' => 'Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...',
+        'photo_3_#00' => 'Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!',
+        'photo_2_#00' => 'Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!',
+        'photo_1_#00' => 'Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!',
+        'photo_off_#00' => 'Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!',
     ];
     
     public static $item_prototype_properties = [

@@ -8378,5 +8378,23 @@
         <target>Cette empreinte de clé high-tech permettra d'ouvrir les portes sécurisés de niveau 6.2 AOC.</target>
       </segment>
     </unit>
+    <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
+      <notes>
+        <note category="german">Kamera aus Vorkriegs-Tagen</note>
+      </notes>
+      <segment>
+        <source>Kamera aus Vorkriegs-Tagen</source>
+        <target>Appareil photo d'avant-guerre</target>
+      </segment>
+    </unit>
+    <unit id="rUsoPlx" name="efd6bf9">
+      <notes>
+        <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
+      </notes>
+      <segment>
+        <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
+        <target>Cette authentique breloque du siècle dernier aurait, parait-il, à son actif des centaines de rétines brûlées. Son flash mal réglé vous permettra de vous sortir de toutes les situations désespérées en aveuglant les zombies !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

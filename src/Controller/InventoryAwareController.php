@@ -651,7 +651,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                     return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
                 }
                 return AjaxResponse::success();
-            } else
+            } else if (count($errors) > 0)
                 return AjaxResponse::error($errors[0]);
         }
         return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
