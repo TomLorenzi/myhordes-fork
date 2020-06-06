@@ -6328,7 +6328,7 @@
       </notes>
       <segment>
         <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Some of the rooms here are a tight squeeze to say the least, so this would appear to be the perfect tool with which to gain access and get down to some serious rummaging! Unfortunately, your tool is in a wretched state and will give up after one more use.</target>
+        <target>This blank allows you to obtain a bump key, a favourite amongst up-and-coming burglars, which will allow you to open any door in a matter of seconds...</target>
       </segment>
     </unit>
     <unit id="vclIZyk" name="33638dc">
@@ -7817,7 +7817,7 @@
       </notes>
       <segment>
         <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
-        <target>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</target>
+        <target>This hi-tech blank will allow you to open secured doored rated up to level 6.2 AOC.</target>
       </segment>
     </unit>
     <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
@@ -7826,7 +7826,7 @@
       </notes>
       <segment>
         <source>Abdruck vom Flaschenöffner</source>
-        <target>Abdruck vom Flaschenöffner</target>
+        <target>Bottle Opener Blank</target>
       </segment>
     </unit>
     <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
@@ -7835,7 +7835,7 @@
       </notes>
       <segment>
         <source>Kamera aus Vorkriegs-Tagen</source>
-        <target>Kamera aus Vorkriegs-Tagen</target>
+        <target>Pre-war camera</target>
       </segment>
     </unit>
     <unit id="rUsoPlx" name="efd6bf9">
@@ -7844,7 +7844,7 @@
       </notes>
       <segment>
         <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
-        <target>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</target>
+        <target>This authentic curio from the last century, or so it would appear, would have scorched many a retina in its day. Its poorly-calibrated flash could surely get you out of any desperate situations by blinding the zombies!</target>
       </segment>
     </unit>
   </file>
