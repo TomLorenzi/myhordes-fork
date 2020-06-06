@@ -253,10 +253,11 @@ class User implements UserInterface, EquatableInterface
         if ($this->pass === null) return $roles;
         if ($this->rightsElevation >= 4) $roles[] = 'ROLE_ADMIN';
         if ($this->rightsElevation >= 3) $roles[] = 'ROLE_CROW';
-        if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
+        if ($this->rightsElevation >= 2) $roles[] = 'ROLE_ORACLE';
+        if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';    
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
-        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';        
+        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';
         return $roles;
     }
 

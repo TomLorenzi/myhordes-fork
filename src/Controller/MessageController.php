@@ -212,6 +212,10 @@ class MessageController extends AbstractController
         ]
     ];
 
+    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 'div.class' => [ 'oracleAnnounce' ] ];
+
+    private const HTML_ATTRIB_ALLOWED_CROW = [ 'div.class' => [ 'modAnnounce' ] ];
+
     private const HTML_ATTRIB_ALLOWED = [
         'div.class' => [
             'glory', 'spoiler',
@@ -247,6 +251,15 @@ class MessageController extends AbstractController
                     $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ADMIN[$key]);
                 } else {
                     $a[$key] = self::HTML_ATTRIB_ALLOWED_ADMIN[$key];
+                }
+            }
+        }
+        if ($user->getRightsElevation() >= User::ROLE_ORACLE) {
+            foreach (self::HTML_ATTRIB_ALLOWED_ORACLE as $key => $value) {
+                if(isset($a[$key])) {
+                    $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ORACLE[$key]);
+                } else {
+                    $a[$key] = self::HTML_ATTRIB_ALLOWED_ORACLE[$key];
                 }
             }
         }
