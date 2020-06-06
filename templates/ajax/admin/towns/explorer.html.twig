@@ -109,6 +109,10 @@
                                     {{ _self.valuelist('Position'|trans({},'admin'), exploration.ax.x ~ ' / ' ~ exploration.ax.y ) }}
                                     {{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
                                     {{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
+                                    <div class="row">
+                                        <div class="cell rw-4"><b>{{ 'Zeit'|trans({},'admin') }}</b></div>
+                                        <div class="cell rw-8"><span x-countdown="{{ exploration.axt }}">...</span></div>
+                                    </div>
                                 {% endif %}
                                 <h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
                                 {% for x in exploration.x %}

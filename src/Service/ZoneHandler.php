@@ -12,6 +12,8 @@ use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Entity\RuinExplorerStats;
+use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
@@ -49,6 +51,26 @@ class ZoneHandler
         $this->trans = $t;
         $this->log = $lh;
         $this->asset = $a;
+    }
+
+    public function updateRuinZone(?RuinExplorerStats $ex) {
+        if ($ex === null || !$ex->getActive()) return false;
+        if ($ex->getTimeout()->getTimestamp() < time()) {
+            $citizen = $ex->getCitizen();
+            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY());
+
+            foreach ($citizen->getInventory()->getItems() as $item)
+                $this->inventory_handler->moveItem( $citizen, $citizen->getInventory(), $item, [$ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor()] );
+            $this->citizen_handler->inflictWound( $citizen );
+
+            $ex->setActive( false );
+
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->persist( $ex );
+            $this->entity_manager->persist( $ruinZone );
+
+            return true;
+        } else return false;
     }
 
     public function updateZone( Zone $zone, ?DateTime $up_to = null, ?Citizen $active = null ): ?string {

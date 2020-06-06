@@ -168,7 +168,8 @@ div.ruin_map_area {
             height: 0;
             transform: scale(1.5);
             &:before { position: absolute; content: " "; width: 24px; height: 24px; left: -12px; top: -12px; }
-            &.citizen:before { background: url("../../img/explore/you.gif") center/contain no-repeat; }
+            &.citizen:not(.noox):before { background: url("../../img/explore/you.gif") center/contain no-repeat; }
+            &.citizen.noox:before { background: url("../../img/explore/you_noox.gif") center/contain no-repeat; }
             &.zombie:before { background:  url("../../img/explore/zombie.gif") center/contain no-repeat; }
             &.zombody:before { background:  url("../../img/explore/dead.png") center/contain no-repeat; }
           }
@@ -203,5 +204,24 @@ div.ruin_map_area {
         }
       }
     };
+    &>.zone-plane-ui {
+      top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; position: absolute;
+      outline: 1px solid #205319; outline-offset: -4px;
+      &>.name {
+        position: absolute; top: 5px; left: 8px; width: 50%; display: block; z-index: 10; color: #205319;
+        font-size: 1.25rem; text-shadow: 0 0 5px #205319; font-family: "visitor2"; text-align: left;
+        letter-spacing: 0.1rem;
+      }
+      &>.timer {
+        position: absolute; top: 5px; right: 5px; display: block; z-index: 10; color: #205319;
+        font-size: 1.25rem; text-shadow: 0 0 5px #205319; font-family: "visitor2"; text-align: right;
+        letter-spacing: 0.1rem;
+        &>.ox { font-size: 2rem; color: #d7ff5b; }
+      }
+      &>.scanner {
+        position: absolute; width: 13%; height: 9%; background: url("../../img/explore/scanner.gif") center/contain no-repeat;
+        right: 2%; bottom: 2%; opacity: 0.5;
+      }
+    }
   }
 }

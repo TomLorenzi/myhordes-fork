@@ -66,6 +66,11 @@ class RuinExplorerStats
      */
     private $escaping = false;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $timeout;
+
     public function __construct()
     {
         $this->scavengedRooms = new ArrayCollection();
@@ -183,6 +188,18 @@ class RuinExplorerStats
     public function setEscaping(bool $escaping): self
     {
         $this->escaping = $escaping;
+
+        return $this;
+    }
+
+    public function getTimeout(): ?\DateTimeInterface
+    {
+        return $this->timeout;
+    }
+
+    public function setTimeout(\DateTimeInterface $timeout): self
+    {
+        $this->timeout = $timeout;
 
         return $this;
     }

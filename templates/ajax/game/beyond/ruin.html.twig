@@ -61,8 +61,8 @@
                         </button>
                     {% endif %}
                     <br />
-                    <button {% if zone.locked and not shifted %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
-                        {% if not zone.locked or shifted %}
+                    <button {% if (zone_zombies > 0 and not escaping) and zone.locked and not shifted %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
+                        {% if ((zone_zombies <= 0 or escaping) and not zone.locked) or shifted %}
                             <img class="icon left" alt="" src="{{ asset('build/images/small_enter.gif') }}" />
                         {% else %}
                             <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />

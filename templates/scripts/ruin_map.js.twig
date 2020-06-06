@@ -76,4 +76,13 @@ for (let i = 0; i < ruin_map_areas.length; i++) {
                     map.querySelector('.zone-plane-controls').classList.remove('hide');
                 } );
         });
+
+    let ox_display = map.querySelector('.zone-plane-ui .timer *[x-countdown]');
+    if (ox_display) ox_display.addEventListener('countdown', function(e) {
+        ox_display.innerText = Math.floor( Math.max(0, e.detail[0] / 3) );
+        if (e.detail[0] < 60) {
+            let you = map.querySelector('.actor.citizen:not(.noox)');
+            if (you) you.classList.add('noox');
+        }
+    });
 }

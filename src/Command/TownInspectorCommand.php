@@ -243,6 +243,11 @@ class TownInspectorCommand extends Command
             foreach ($town->getZones() as &$zone) if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 $changes = true;
                 $this->mazeMaker->generateMaze( $zone );
+
+                foreach ($zone->getExplorerStats() as $stat) {
+                    $stat->getCitizen()->removeExplorerStat($stat);
+                    $this->entityManager->remove( $stat );
+                }
             }
 
             $this->entityManager->persist( $town );

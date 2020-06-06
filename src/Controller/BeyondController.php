@@ -103,6 +103,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     protected function deferZoneUpdate() {
+        $this->zone_handler->updateRuinZone( $this->getActiveCitizen()->getZone()->activeExplorerStats() );
         $str = $this->zone_handler->updateZone( $this->getActiveCitizen()->getZone(), null, $this->getActiveCitizen() );
         if ($str) $this->addFlash( 'notice', $str );
     }
@@ -593,7 +594,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         // Begin the exploration!
         $this->citizen_handler->setAP( $citizen, true, -1 );
-        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true));
+        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->modify( $citizen->getProfession()->getName() === 'collec' ? '+7min30sec' : '+5min' ) ));
         $this->entity_manager->persist($citizen);
         try {
             $this->entity_manager->flush();

@@ -52,7 +52,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class ExplorationController extends InventoryAwareController implements ExplorationInterfaceController
+class ExplorationController extends InventoryAwareController implements ExplorationInterfaceController, HookedInterfaceController
 {
     protected $game_factory;
     protected $zone_handler;
@@ -77,6 +77,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
      * @param LogTemplateHandler $lh
      * @param ConfMaster $conf
      * @param Packages $a
+     *
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
@@ -89,11 +90,18 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $this->asset = $a;
     }
 
+    public function before(): bool
+    {
+        if ($this->zone_handler->updateRuinZone( $this->getActiveCitizen()->activeExplorerStats() )) {
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {}
+            return false;
+        } else return true;
+    }
+
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
-
-        return parent::addDefaultTwigArgs( $section,array_merge( [
-
-        ], $data) );
+        return parent::addDefaultTwigArgs( $section,array_merge( [], $data) );
     }
 
     protected function getCurrentRuinZone(): RuinZone {
@@ -128,6 +136,8 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
+                'name' => $citizen->getZone()->getPrototype()->getLabel(),
+                'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,
                 'shifted' => $ex->getInRoom(),
             ],
@@ -146,9 +156,8 @@ class ExplorationController extends InventoryAwareController implements Explorat
             return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
 
         // End the exploration!
-        $citizen->removeExplorerStat($ex);
-        $citizen->getZone()->removeExplorerStat($ex);
-        $this->entity_manager->remove($ex);
+        $ex->setActive(false);
+        $this->entity_manager->persist($ex);
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
@@ -168,7 +177,10 @@ class ExplorationController extends InventoryAwareController implements Explorat
         if ($ex->getEscaping() || $ruinZone->getZombies() <= 0)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $ex->setEscaping(true);
+        $ex
+            ->setEscaping(true)
+            ->setTimeout( (new DateTime)->setTimestamp( $ex->getTimeout()->getTimestamp() )->modify( '-' . mt_rand( 15, 24) . 'sec' ) );
+
         $this->entity_manager->persist($ex);
         try {
             $this->entity_manager->flush();
@@ -236,13 +248,13 @@ class ExplorationController extends InventoryAwareController implements Explorat
      */
     public function ruin_room_enter_api() {
         $ruinZone = $this->getCurrentRuinZone();
-        if ($ruinZone->getZombies() > 0)
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+
+        if ($ruinZone->getZombies() > 0 && !$ex->getEscaping())
             return AjaxResponse::error( BeyondController::ErrorZoneBlocked );
 
         if (!$ruinZone->getPrototype() || $ruinZone->getLocked())
             return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
-
-        $ex = $this->getActiveCitizen()->activeExplorerStats();
 
         if ($ex->getInRoom())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -451,5 +463,4 @@ class ExplorationController extends InventoryAwareController implements Explorat
     public function recipe_desert_api(JSONRequestParser $parser, ActionHandler $handler): Response {
         return $this->generic_recipe_api( $parser, $handler);
     }
-
 }
