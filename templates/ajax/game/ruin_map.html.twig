@@ -1,18 +1,10 @@
 <div class="ruin_map_area">
-    <div class="map">
+    <div class="map {{ map.shifted ? 'in_room' : '' }}">
         <div class="zone-plane retro">
                 <div class="zone-sub-container">
                     {% for plane_y in 1..-1 %}
                         {% for plane_x in -1..1 %}
                             <div  x-plane-x="{{ plane_x }}" x-plane-y="{{ plane_y }}" class="plane-skin-{{ prototype.explorableSkin }} zone-subplane {% if plane_x == 0 and plane_y == 0 %}plane-type-{{ map.shifted ? 'room' : ((zone.x == 0 and zone.y == 0) ? 'exit' : map.zone.getCorridor) }} plane-door-{{ map.zone.locked ? 'closed' : 'open' }}{% elseif plane_x == -1 and plane_y == -1 %} plane-type-all{% endif %}">
-                                {% if plane_x == 0 and plane_y == 0 %}
-                                    <div class="actor citizen" style="left: 50%; top: 50%"></div>
-                                    {% if zone_zombies > 0 %}
-                                        {% for n in 1..zone_zombies %}
-                                            <div class="actor zombie" style="left: {{ random([random(25,45),random(55,75)]) }}%; top: {{ random([random(25,45),random(55,75)]) }}%"></div>
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endif %}
                                 <div class="decals">
                                     {% if plane_x == 0 and plane_y == 0 and not map.shifted %}
                                         {% if map.zone.doorPosition %}
@@ -25,6 +17,42 @@
                                         {% endfor %}
                                     {% endif %}
                                 </div>
+                                {% if plane_x == 0 and plane_y == 0 %}
+                                    <div class="actor citizen" style="left: 50%; top: 50%"></div>
+
+                                    {% set positionList = [] %}
+                                    {% if zone_zombies_dead > 0 %}
+                                        {% for n in 1..zone_zombies_dead %}
+                                            {% set positions = [] %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}{% set positions = positions|merge([[random(60,80),random(46,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}{% set positions = positions|merge([[random(20,40),random(46,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}{% set positions = positions|merge([[random(42,58),random(20,40)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}{% set positions = positions|merge([[random(42,58),random(60,80)]]) %}{% endif %}
+                                            {% set positionList = positionList|merge([random( positions )]) %}
+                                        {% endfor %}
+                                        {% set positionList = positionList|sort((a,b) => a[1] <=> b[1]) %}
+                                        {% for n in positionList|keys %}
+                                            <div class="actor zombody {{ random(3)==3 ? 'local' : '' }}" style="left: {{ positionList[n][0] }}%; top: {{ positionList[n][1] }}%"></div>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    {% set positionList = [] %}
+                                    {% if zone_zombies > 0 %}
+                                        {% for n in 1..zone_zombies %}
+                                            {% set positions = [] %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}{% set positions = positions|merge([[random(60,80),random(38,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}{% set positions = positions|merge([[random(20,40),random(38,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}{% set positions = positions|merge([[random(42,58),random(20,40)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}{% set positions = positions|merge([[random(42,58),random(60,80)]]) %}{% endif %}
+                                            {% set positionList = positionList|merge([random( positions )]) %}
+                                        {% endfor %}
+                                        {% set positionList = positionList|sort((a,b) => a[1] <=> b[1]) %}
+                                        {% for n in positionList|keys %}
+                                            <div class="actor zombie {{ random(5)==5 ? 'local' : '' }}" style="left: {{ positionList[n][0] }}%; top: {{ positionList[n][1] }}%"></div>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                {% endif %}
                             </div>
                         {% endfor %}
                     {% endfor %}

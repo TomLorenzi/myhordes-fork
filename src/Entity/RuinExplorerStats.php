@@ -61,6 +61,11 @@ class RuinExplorerStats
      */
     private $scavengedRooms;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $escaping = false;
+
     public function __construct()
     {
         $this->scavengedRooms = new ArrayCollection();
@@ -166,6 +171,18 @@ class RuinExplorerStats
         if ($this->scavengedRooms->contains($scavengedRoom)) {
             $this->scavengedRooms->removeElement($scavengedRoom);
         }
+
+        return $this;
+    }
+
+    public function getEscaping(): ?bool
+    {
+        return $this->escaping;
+    }
+
+    public function setEscaping(bool $escaping): self
+    {
+        $this->escaping = $escaping;
 
         return $this;
     }

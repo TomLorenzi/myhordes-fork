@@ -120,8 +120,10 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(false),
-            'move' => $ruinZone->getZombies() <= 0,
+            'move' => $ruinZone->getZombies() <= 0 || $ex->getEscaping(),
+            'escaping' => $ex->getEscaping(),
             'zone_zombies' => $ruinZone->getZombies(),
+            'zone_zombies_dead' => $ruinZone->getKilledZombies(),
             'shifted' => $ex->getInRoom(),
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
@@ -156,16 +158,38 @@ class ExplorationController extends InventoryAwareController implements Explorat
     }
 
     /**
+     * @Route("api/beyond/explore/escape", name="beyond_ruin_escape_controller")
+     * @return Response
+     */
+    public function ruin_escape_api() {
+        $ruinZone = $this->getCurrentRuinZone();
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+
+        if ($ex->getEscaping() || $ruinZone->getZombies() <= 0)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $ex->setEscaping(true);
+        $this->entity_manager->persist($ex);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/beyond/explore/move", name="beyond_ruin_move_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
     public function ruin_move_api(JSONRequestParser $parser) {
         $ruinZone = $this->getCurrentRuinZone();
-        if ($ruinZone->getZombies() > 0)
-            return AjaxResponse::error( BeyondController::ErrorZoneBlocked );
-
         $ex = $this->getActiveCitizen()->activeExplorerStats();
+
+        if ($ruinZone->getZombies() > 0 && !$ex->getEscaping())
+            return AjaxResponse::error( BeyondController::ErrorZoneBlocked );
 
         if ($ex->getInRoom())
             return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
@@ -184,8 +208,10 @@ class ExplorationController extends InventoryAwareController implements Explorat
         ) return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
 
 
-        $ex->setX( $ex->getX() + $dx );
-        $ex->setY( $ex->getY() - $dy );
+        $ex
+            ->setX( $ex->getX() + $dx )
+            ->setY( $ex->getY() - $dy )
+            ->setEscaping( false );
 
         // End the exploration!
         $this->entity_manager->persist($ex);

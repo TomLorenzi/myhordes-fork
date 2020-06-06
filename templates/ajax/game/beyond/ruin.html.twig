@@ -14,6 +14,24 @@
         </div>
     </div>
 
+    {% if zone_zombies > 0 and not escaping %}
+        <div class="row">
+            <div class="cell rw-12">
+                <div class="zone-blocked-warning">
+                    <b>{% trans with { '%z%': zone_zombies } from 'game' %}%z% Zombies blockieren den Weg!{% endtrans %}</b><br />
+                    <span>
+                        {% trans from 'game' %}
+                            Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...
+                        {% endtrans %}
+                    </span>
+                    <div class="row">
+                        <div class="padded-small cell rw-6"><button id="escape-btn"><img alt="" src="{{ asset('build/images/small_sprint.gif') }}" />{% trans from 'game' %}Flüchten{% endtrans %}</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="row">
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
@@ -176,6 +194,15 @@
         {% if scavenge %}
             $.html.addEventListenerAll( '#scavenge_button', 'click', function() {
                 $.ajax.easySend( '{{ path('beyond_ruin_scavenge_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                    } );
+            } );
+        {% endif %}
+
+        {% if zone_zombies > 0 and not escaping %}
+            $.html.addEventListenerAll( '#escape-btn', 'click', function() {
+                $.ajax.easySend( '{{ path('beyond_ruin_escape_controller') }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                     } );
