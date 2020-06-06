@@ -1019,9 +1019,9 @@
         <target>Unarchive</target>
       </segment>
     </unit>
- <unit id="siULJza" name="Link einfügen">
+    <unit id="siULJza" name="Link einfügen">
       <notes>
-        <note category="german">Link einfügen</note>
+        <note category="german">Insert a link</note>
       </notes>
       <segment>
         <source>Link einfügen</source>
@@ -1030,7 +1030,7 @@
     </unit>
     <unit id="HqBDmKX" name="Bild einfügen">
       <notes>
-        <note category="german">Bild einfügen</note>
+        <note category="german">Insert an image</note>
       </notes>
       <segment>
         <source>Bild einfügen</source>
@@ -1039,7 +1039,7 @@
     </unit>
     <unit id="9H7C4W9" name="Link-Text">
       <notes>
-        <note category="german">Link-Text</note>
+        <note category="german">Link text</note>
       </notes>
       <segment>
         <source>Link-Text</source>
@@ -1048,7 +1048,7 @@
     </unit>
     <unit id="nE4T9Ox" name="Link-URL">
       <notes>
-        <note category="german">Link-URL</note>
+        <note category="german">Link URL</note>
       </notes>
       <segment>
         <source>Link-URL</source>
@@ -1057,7 +1057,7 @@
     </unit>
     <unit id="d1AmbOG" name="Bildtitel">
       <notes>
-        <note category="german">Bildtitel</note>
+        <note category="german">Image title</note>
       </notes>
       <segment>
         <source>Bildtitel</source>
@@ -1066,7 +1066,7 @@
     </unit>
     <unit id="Q0tlYyY" name="Bild-URL">
       <notes>
-        <note category="german">Bild-URL</note>
+        <note category="german">Image URL</note>
       </notes>
       <segment>
         <source>Bild-URL</source>
@@ -1075,7 +1075,7 @@
     </unit>
     <unit id="lqB1Bvf" name="Einfügen">
       <notes>
-        <note category="german">Einfügen</note>
+        <note category="german">Confirm</note>
       </notes>
       <segment>
         <source>Einfügen</source>

@@ -3,7 +3,7 @@
 
 namespace App\Translation;
 
-
+use App\Entity\AffectMessage;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
@@ -13,6 +13,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\EscortActionGroup;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemCategory;
@@ -84,6 +85,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $itemCategory ItemCategory */
             if ($itemCategory->getLabel())
                 $this->insert( $c, $itemCategory->getLabel(), 'items' );
+
+        foreach ($this->em->getRepository(AffectMessage::class)->findAll() as $affectMessage)
+            /** @var $affectMessage AffectMessage */
+            if ($affectMessage->getText())
+                $this->insert( $c, $affectMessage->getText(), 'items' );
 
         //</editor-fold>
 
@@ -181,6 +187,15 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var $logtemplate LogEntryTemplate */
             if ($logtemplate->getText())
                 $this->insert( $c, $logtemplate->getText(), 'game' );
+
+        foreach ($this->em->getRepository(HeroSkillPrototype::class)->findAll() as $heroSkill) {
+            /** @var $heroSkill HeroSkillPrototype */
+            if ($heroSkill->getTitle())
+                $this->insert( $c, $heroSkill->getTitle(), 'game' );
+
+            if ($heroSkill->getDescription())
+                $this->insert( $c, $heroSkill->getDescription(), 'game' );
+        }
         //</editor-fold>
     }
 

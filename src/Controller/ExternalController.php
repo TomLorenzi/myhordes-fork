@@ -584,7 +584,7 @@ class ExternalController extends InventoryAwareController
             if ($building->getComplete()) {
                 $building_data = [
                     'attributes' => [
-                        'name' => T::__($building->getPrototype()->getLabel(), "game"),
+                        'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], "game"),
                         'temporary' => $building->getPrototype()->getTemp(),
                         'id' => $building->getPrototype()->getId(),
                         'img' => $building->getPrototype()->getIcon(),
@@ -599,7 +599,7 @@ class ExternalController extends InventoryAwareController
         foreach ( $inventory->getItems() as $item ) {
             $item_data = [
                 'attributes' => [
-                    'name' => T::__($item->getPrototype()->getLabel(), "game"),
+                    'name' => $this->translator->trans($item->getPrototype()->getLabel(), [], "game"),
                     'count' => $item->getCount(),
                     'id' => $item->getPrototype()->getId(),
                     'img' => $item->getPrototype()->getIcon(),

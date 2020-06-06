@@ -182,7 +182,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 ["name" => "Verbesserter Katapult",'desc' => 'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!', "temporary" => 0,"img" => "item_courroie","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 2,"rsc" => ["courroie_#00" => 1,"wood2_#00" => 2,"metal_#00" => 2,"electro_#00" => 2,], "orderby" => 0],
             ]],
             ["name" => "Scanner",'desc' => 'Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.', "temporary" => 0,"img" => "item_tagger","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 2,"rsc" => ["pile_#00" => 1,"meca_parts_#00" => 1,"electro_#00" => 1,"radio_on_#00" => 2,], "orderby" => 1],
-            // TODO: Unveil zombie count
             ["name" => "Verbesserte Karte",'desc' => 'Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...', "temporary" => 0,"img" => "item_electro","vp" => 0,"ap" => 15, "hp" => 15,"bp" => 1,"rsc" => ["pile_#00" => 2,"metal_#00" => 1,"electro_#00" => 1,"radio_on_#00" => 2,], "orderby" => 2],
             ["name" => "Rechenmaschine",'desc' => 'Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!', "temporary" => 0,"img" => "item_tagger","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 1,"rsc" => ["rustine_#00" => 1,"electro_#00" => 1,], "orderby" => 3],
             ["name" => "Forschungsturm","maxLevel" => 5,'desc' => 'Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.', "temporary" => 0,"img" => "small_gather","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 1,"rsc" => ["electro_#00" => 1,"wood_beam_#00" => 3,"metal_beam_#00" => 1,"table_#00" => 1,], "orderby" => 4,
@@ -326,6 +325,11 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com032' => ['type' => Recipe::ManualAnywhere, 'out' => 'fungus_#00',     'provoking' => 'ryebag_#00', 'in' => ['ryebag_#00', 'lens_#00'] ],
         'com033' => ['type' => Recipe::ManualAnywhere, 'out' => 'lsd_#00',        'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'poison_part_#00'] ],
         'com034' => ['type' => Recipe::ManualAnywhere, 'out' => 'chkspk_#00',     'provoking' => 'chudol_#00', 'in' => ['chudol_#00', 'lsd_#00'] ],
+        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',      'provoking' => 'fruit_part_#00', 'in' => ['fruit_sub_part_#00', 'fruit_part_#00'] ],
+        'com036' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#00',     'provoking' => 'cdelvi_#00', 'in' => ['cdelvi_#00', 'music_#00'] ],
+        'com037' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdphil_#00', 'in' => ['cdphil_#00', 'music_#00'] ],
+        'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdbrit_#00', 'in' => ['cdbrit_#00', 'music_#00'] ],
+        'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#01',     'provoking' => 'hifiev_#00', 'in' => ['hifiev_#00', 'bquies_#00'] ],
     ];
 
     private $entityManager;

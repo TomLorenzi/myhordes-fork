@@ -3,9 +3,33 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
-    <div class="row">
-        <div class="cell padded rw-12 rw-sm-12">
-            COMING SOON.
+    {% if news|length == 0 %}
+        COMING SOON
+    {% else %}
+    <div class="news">
+        <div class="head">
+            <div class="title center"><img src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{news[0].title}}</span><img src="{{ asset('build/images/log/build.gif') }}" /></div>
+        </div>
+        <div class="version">
+            {{"Version"|trans({}, 'soul')}} {{news[0].version}}
+        </div>
+        {% if news|length > 1 %}
+        <div class="row">
+            <div class="center version-list">
+                <p>{{'Hier findet ihr alle vorangegangenen Updates:'|trans({}, 'soul')}}</p>
+                <select id="change_version">
+                    {% for new in news %}
+                        <option value="{{new.id}}">{{new.version}} - {{new.title}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row forum-post">
+            <div class="forum-post-content content">
+                {{news[0].content|raw}}
+            </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}

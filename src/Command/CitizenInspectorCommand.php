@@ -7,6 +7,9 @@ namespace App\Command;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Service\CitizenHandler;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\StatusFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -22,11 +25,17 @@ class CitizenInspectorCommand extends Command
 
     private $entityManager;
     private $statusFactory;
+    private $itemFactory;
+    private $inventoryHandler;
+    private $citizenHandler;
 
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf)
+    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch)
     {
         $this->entityManager = $em;
         $this->statusFactory = $sf;
+        $this->inventoryHandler = $ih;
+        $this->itemFactory = $if;
+        $this->citizenHandler = $ch;
         parent::__construct();
     }
 
@@ -38,6 +47,7 @@ class CitizenInspectorCommand extends Command
             ->addArgument('CitizenID', InputArgument::REQUIRED, 'The citizen ID')
 
             ->addOption('set-ap', 'ap',InputOption::VALUE_REQUIRED, 'Sets the current AP.', -1)
+            ->addOption('set-pm', 'pm',InputOption::VALUE_REQUIRED, 'Sets the current PM.', -1)
 
             ->addOption('add-status','sn',InputOption::VALUE_REQUIRED, 'Adds a new status.', '')
             ->addOption('remove-status',null,InputOption::VALUE_REQUIRED, 'Removes an existing status.', '')
@@ -92,8 +102,18 @@ class CitizenInspectorCommand extends Command
             $updated = true;
         }
 
+        $set_pm = $input->getOption('set-pm');
+        if ($set_pm >= 0 && $citizen->hasRole('shaman')) {
+            $citizen->setPm( $set_pm );
+            $updated = true;
+        }
+
         if (($ban = $input->getOption('set-banned')) !== '') {
             $citizen->setBanished($ban);
+            if($ban && $citizen->getProfession()->getHeroic() && $this->citizenHandler->hasSkill($citizen, 'revenge') && $citizen->getTown()->getDay() >= 3) {
+                $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
+                $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
+            }
             $updated = true;
         }
 
@@ -136,6 +156,11 @@ class CitizenInspectorCommand extends Command
             $output->writeln( "Adding role '<info>{$role->getName()}</info>'.\n" );
             $citizen->addRole( $role );
 
+            if($new_role === 'shaman') {
+                $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+                $citizen->addStatus( $status );
+            }
+
             $updated = true;
         }
 
@@ -149,6 +174,11 @@ class CitizenInspectorCommand extends Command
 
             $output->writeln( "Removing role '<info>{$role->getName()}</info>'.\n" );
             $citizen->removeRole( $role );
+
+            if($rem_role === 'shaman') {
+                $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
+                $citizen->removeStatus( $status );
+            }
 
             $updated = true;
         }

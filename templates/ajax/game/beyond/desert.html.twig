@@ -205,8 +205,13 @@
                         {% endif %}
                     {% endif %}
 
+
                     {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                     {% endembed %}
+
+                    {% if banished or town_chaos %}
+                        <button id="bury_rucksack_button">{{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)</button>
+                    {% endif %}
 
                 {% else %}
 
@@ -268,7 +273,7 @@
                     {% if not citizen_hidden %}
                         <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
                     {% endif %}
-                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden} %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden, show_banished_hidden: (banished or town_chaos)} %}
                         {% block class %}desert{% endblock %}
                         {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
                     {% endembed %}
@@ -704,6 +709,17 @@
               document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
               '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard') }}'
             );
+
+            {% if banished or town_chaos %}
+                let bury_rucksack_button = document.getElementById("bury_rucksack_button")
+                if (bury_rucksack_button) {
+                    handleItems(
+                        document.querySelectorAll('#bury_rucksack_button'),
+                        '{{ path('beyond_bury_rucksack_controller') }}',
+                        'down-all', '{{ path('beyond_dashboard') }}'
+                    );
+                }
+            {% endif %}
 
         {% endif %}
 

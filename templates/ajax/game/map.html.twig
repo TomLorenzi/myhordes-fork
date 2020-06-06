@@ -27,7 +27,7 @@
                                 {% if not map.zones[x][y].tag is null and map.zones[x][y].tag.ref > 0 %}
                                     <div class="tag tag-{{map.zones[x][y].tag.ref}}"></div>
                                 {% endif %}
-                                {% if map.zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
+                                {% if map.zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateCurrent') and map.zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
                                     <div class="count">{% if map.zones[x][y].zombies > 0 %}{{ map.zones[x][y].zombies }}{% endif %}</div>
                                 {% endif %}
                                 {% if in_town and map.zones[x][y].citizens|length != 0 and not chaos %}

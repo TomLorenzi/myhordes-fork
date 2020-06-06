@@ -212,4 +212,22 @@ class Thread
         $this->new = true;
         return $this;
     }
+
+    public function hasAdminAnnounce(): bool {
+        foreach ($this->posts as $post){
+            if (preg_match("/adminAnnounce/m", $post->getText()))
+                return true;
+        }
+
+        return false;
+    }
+
+    public function hasOracleAnnounce(): bool {
+        foreach ($this->posts as $post){
+            if (preg_match("/oracleAnnounce/m", $post->getText()))
+                return true;
+        }
+
+        return false;
+    }
 }

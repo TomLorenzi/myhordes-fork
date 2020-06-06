@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target>Votre visite chez %victim% n'est pas passée inaperçue...</target>
+        <target>Votre petite visite chez %victim% n'est pas passée inaperçue... Cet objet a été placé dans votre Coffre, chez vous.</target>
       </segment>
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
@@ -45,7 +45,7 @@
       </notes>
       <segment>
         <source>Du hast deine Beschreibung geändert.</source>
-        <target>Vous avez changé votre annonce.</target>
+        <target>Vous avez modifié votre annonce personnelle. Elle est visible dans l'annuaire des Citoyens.</target>
       </segment>
     </unit>
     <unit id="f7yKfIC" name="564fe5b">
@@ -490,7 +490,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Vous avez besoin d'une ration d'eau pour faire ceci !</target>
+        <target>Vous avez besoin d'Eau Pure (celle d'une gourde par exemple).</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</source>
-        <target>Cette action est bloquée pendant 15 minutes environ (protection anti-abus).</target>
+        <target>Cette action est bloquée pendant 15 minutes environ (protection anti-abus). Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -1029,8 +1029,6 @@
     </unit>
     <unit id="vwfykUF" name="Du hast %num% anonyme Anzeige(n).">
       <notes>
-        <note>Du hast %num% anonyme Anzeige(n).</note>
-        <note>Du hast %num% anonyme Anzeige(n).</note>
         <note category="german">Du hast %num% anonyme Anzeige(n).</note>
       </notes>
       <segment>
@@ -1040,8 +1038,6 @@
     </unit>
     <unit id="0drragL" name="4a5cb7a">
       <notes>
-        <note>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</note>
-        <note>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</note>
         <note category="german">Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</note>
       </notes>
       <segment>
@@ -1051,8 +1047,6 @@
     </unit>
     <unit id="2zVOnFs" name="14e2896">
       <notes>
-        <note>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
-        <note>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
         <note category="german">In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
       </notes>
       <segment>
@@ -2319,7 +2313,7 @@
       </notes>
       <segment>
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
-        <target>La zone est épuisée. Vous ne trouverez plus d'objet de valeur ici.</target>
+        <target>La zone est épuisée, on ne pourra plus y trouver que des ressources de mauvaise qualité...</target>
       </segment>
     </unit>
     <unit id="M8h1dhU" name="Stadt betreten">
@@ -3652,8 +3646,6 @@
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
       <notes>
-        <note>%citizen% hat der Stadt folgendes gespendet: %item%</note>
-        <note>%citizen% hat der Stadt folgendes gespendet: %item%</note>
         <note category="german">%citizen% hat der Stadt folgendes gespendet: %item%</note>
       </notes>
       <segment>
@@ -4606,7 +4598,7 @@
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Vue d'ensemble</target>
+        <target>Vue d'ensemble de la ville</target>
       </segment>
     </unit>
     <unit id="0.KJY95" name="Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.">
@@ -8992,7 +8984,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : %ruin% !</target>
+        <target>Félicitations, la zone a été entièrement déblayée ! Vous pouvez commencer à fouiller ce qui s'y cachait : %ruin%  ! Vous avez utilisé 1 point(s) d'action.</target>
       </segment>
     </unit>
     <unit id="6NT_khN" name="%citizen% a convaincu %target_citizen% de le suivre.">
@@ -9094,24 +9086,6 @@
         <target>Mort à l'extérieur, %citizen% n'aura offert aucun reste à ses concitoyens.</target>
       </segment>
     </unit>
-    <unit id="zeR3KvL" name="8c2d7df">
-      <notes>
-        <note category="german">Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</note>
-      </notes>
-      <segment>
-        <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
-        <target>C'est non sans dégoût que %disposing_citizen% s'est débarrassé(e) du corps inanimé de %citizen%.</target>
-      </segment>
-    </unit>
-    <unit id="g69lh6D" name="a22eaa2">
-      <notes>
-        <note category="german">Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</note>
-      </notes>
-      <segment>
-        <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
-        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été réduit en liquide putride.</target>
-      </segment>
-    </unit>
     <unit id="rFh36Gr" name="Klassischer Editor">
       <notes>
         <note category="german">Klassischer Editor</note>
@@ -9190,7 +9164,7 @@
       </notes>
       <segment>
         <source>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.</source>
-        <target>Ah et oui, pour info, il nous semble utilse de vous signaler que vous avez %deathChance%% de chance de mourir ce soir et %woundAndTerrorChance%% d'être blessé ou terrorisé au cours de cette garde.</target>
+        <target>Ah et oui, pour info, il nous semble utile de vous signaler que vous avez %deathChance%% de chance de mourir ce soir et %woundAndTerrorChance%% d'être blessé ou terrorisé au cours de cette garde.</target>
       </segment>
     </unit>
     <unit id="WEf5fsd" name="Wähle meine Waffen!">
@@ -9200,15 +9174,6 @@
       <segment>
         <source>Wähle meine Waffen!</source>
         <target>Choisir des armes !</target>
-      </segment>
-    </unit>
-    <unit id="dGfxw4F" name="2242ddb">
-      <notes>
-        <note category="german">Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</note>
-      </notes>
-      <segment>
-        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
       </segment>
     </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
@@ -9487,7 +9452,7 @@
       </notes>
       <segment>
         <source>Sonstige Opfer</source>
-        <target>Autre victimes</target>
+        <target>Autres victimes</target>
       </segment>
     </unit>
     <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
@@ -9541,7 +9506,7 @@
       </notes>
       <segment>
         <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
-        <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
+        <target>Le chantier Tout ou Rien a apporté + [#] points de défense temporaires dans votre ville, mais tout dans la banque a été détruit! Espérons que cela en valait la peine...</target>
       </segment>
     </unit>
     <unit id="vdpIvG7" name="6b9d94e">
@@ -9607,15 +9572,6 @@
         <target>Aucun mort !</target>
       </segment>
     </unit>
-    <unit id="fsTN6v3" name="Votre blessure à l'oeil vous gêne énormément lors de vos fouilles">
-      <notes>
-        <note category="german">Votre blessure à l'oeil vous gêne énormément lors de vos fouilles</note>
-      </notes>
-      <segment>
-        <source>Votre blessure à l'oeil vous gêne énormément lors de vos fouilles</source>
-        <target>Votre blessure à l'oeil vous gêne énormément lors de vos fouilles</target>
-      </segment>
-    </unit>
     <unit id="Tj4dAlQ" name="Umdrehen">
       <notes>
         <note category="german">Umdrehen</note>
@@ -9676,7 +9632,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>Vous avez été transformé en goule !</target>
+        <target>Vous avez été transformé(e) en Goule !</target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
@@ -9730,7 +9686,7 @@
       </notes>
       <segment>
         <source>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</source>
-        <target>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</target>
+        <target>Il y a des traces de sang sur plusieurs mètres, ici : quelqu'un a semble-t-il été littéralement démembré par... quelque chose. Ou quelqu'un... Une goule peut-être ?!</target>
       </segment>
     </unit>
     <unit id="o9GCPjs" name="c5c21d9">
@@ -10941,7 +10897,7 @@
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
-        <note category="german">Teilnehmen</note>
+        <note category="german">Help out!</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -10950,7 +10906,7 @@
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
       <notes>
-        <note category="german">Die letzte Zeitung lesen</note>
+        <note category="german">Read the last gazette</note>
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
@@ -10986,20 +10942,686 @@
     </unit>
     <unit id="6kQh7Rd" name="Stadtverteidigung">
       <notes>
-        <note category="german">Stadtverteidigung</note>
+        <note category="german">Defence points</note>
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
-        <target>Défenses de la ville</target>
+        <target>Défenses ville</target>
       </segment>
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
       <notes>
-        <note category="german">Details ansehen</note>
+        <note category="german">Details infos</note>
       </notes>
       <segment>
         <source>Details ansehen</source>
         <target>Voir les détails</target>
+      </segment>
+    </unit>
+    <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
+      <notes>
+        <note category="german">%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
+        <target>%citizen% a fait tomber la pluie et a tué %kills% zombies.</target>
+      </segment>
+    </unit>
+    <unit id="0jW7cq9" name="Stadttor geöffnet">
+      <notes>
+        <note category="german">Stadttor geöffnet</note>
+      </notes>
+      <segment>
+        <source>Stadttor geöffnet</source>
+        <target>Portes ouvertes</target>
+      </segment>
+    </unit>
+    <unit id="rRAcec3" name="Stadttor geschlossen">
+      <notes>
+        <note category="german">Stadttor geschlossen</note>
+      </notes>
+      <segment>
+        <source>Stadttor geschlossen</source>
+        <target>Portes fermées</target>
+      </segment>
+    </unit>
+    <unit id="_DKPL9S" name="Wer ist draußen?">
+      <notes>
+        <note category="german">Wer ist draußen?</note>
+      </notes>
+      <segment>
+        <source>Wer ist draußen?</source>
+        <target>Qui est dehors ?</target>
+      </segment>
+    </unit>
+    <unit id="KVApIB1" name="Lage">
+      <notes>
+        <note category="german">Lage</note>
+      </notes>
+      <segment>
+        <source>Lage</source>
+        <target>État</target>
+      </segment>
+    </unit>
+    <unit id="A7ZG3D1" name="2d5f077">
+      <notes>
+        <note category="german">Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
+        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
+      </segment>
+    </unit>
+    <unit id="9cNHWGl" name="Seelenpunkte">
+      <notes>
+        <note category="german">Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte</source>
+        <target>Valeur de l'âme</target>
+      </segment>
+    </unit>
+    <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
+      <notes>
+        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
+        <target>Nombres de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
+      </segment>
+    </unit>
+    <unit id="k9H0y76" name="d772640">
+      <notes>
+        <note category="german">Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
+        <target>Le citoyen %citizen% a découvert une cache d'objets (probablement celle d'un banni) ! Elle contenait : %items%.</target>
+      </segment>
+    </unit>
+    <unit id="UWWvoug" name="e164c18">
+      <notes>
+        <note category="german">Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
+        <target>Vous passez un peu de temps à cacher les objets que vous avez dans votre sac... Ha Ha... Vous avez utilisé 2 points d'action.</target>
+      </segment>
+    </unit>
+    <unit id="29AAorN" name="Rucksack verstecken">
+      <notes>
+        <note category="german">Rucksack verstecken</note>
+      </notes>
+      <segment>
+        <source>Rucksack verstecken</source>
+        <target>Enterrer son sac</target>
+      </segment>
+    </unit>
+    <unit id="F71fElc" name="f8178fb">
+      <notes>
+        <note category="german">Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+      </notes>
+      <segment>
+        <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>Alors que vous commenciez votre fouille, vous avez remarqué une sorte de... cache contenant : %items% ! Hmmm... Ça a probablement été dissimulé là par un **citoyen banni**...</target>
+      </segment>
+    </unit>
+    <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
+      <notes>
+        <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
+        <target>Votre message a bien été envoyé avec les objets que vous avez choisis.</target>
+      </segment>
+    </unit>
+    <unit id="yBmpXGO" name="Behausung wiederverwerten">
+      <notes>
+        <note category="german">Behausung wiederverwerten</note>
+      </notes>
+      <segment>
+        <source>Behausung wiederverwerten</source>
+        <target>Recycler la maison</target>
+      </segment>
+    </unit>
+    <unit id="aKJtN4V" name="Tipp-Ex">
+      <notes>
+        <note category="german">Tipp-Ex</note>
+      </notes>
+      <segment>
+        <source>Tipp-Ex</source>
+        <target>Manipulateur</target>
+      </segment>
+    </unit>
+    <unit id="N7td9of" name="ca2c228">
+      <notes>
+        <note category="german">Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</note>
+      </notes>
+      <segment>
+        <source>Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</source>
+        <target>Vous pouvez, 2 fois par partie, raturer une entrée du registre de votre ville (cliquez sur l'icone Falsifier en face de la ligne du registre qui vous gêne...).</target>
+      </segment>
+    </unit>
+    <unit id="v3dbrZx" name="Hellseherei">
+      <notes>
+        <note category="german">Hellseherei</note>
+      </notes>
+      <segment>
+        <source>Hellseherei</source>
+        <target>Clairvoyance</target>
+      </segment>
+    </unit>
+    <unit id="K0VcFBE" name="b8e98fb">
+      <notes>
+        <note category="german">Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</note>
+      </notes>
+      <segment>
+        <source>Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</source>
+        <target>Vous pouvez savoir dans quelle mesure un citoyen est actif ou présent en jeu, simplement en se rendant dans sa maison.</target>
+      </segment>
+    </unit>
+    <unit id="Qs6kA06" name="Rundbrief">
+      <notes>
+        <note category="german">Rundbrief</note>
+      </notes>
+      <segment>
+        <source>Rundbrief</source>
+        <target>Scribe motivé</target>
+      </segment>
+    </unit>
+    <unit id="U85YOFG" name="Freundschaft">
+      <notes>
+        <note category="german">Freundschaft</note>
+      </notes>
+      <segment>
+        <source>Freundschaft</source>
+        <target>Camaraderie</target>
+      </segment>
+    </unit>
+    <unit id="vO7Ba8Y" name="2898f7f">
+      <notes>
+        <note category="german">Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</source>
+        <target>Vous pouvez, 1 fois par partie, offrir un de vos jours de mode héros à un autre citoyen ! Attendez-vous à devenir un véritable messie pour beaucoup de monde... NB : les jours de héros ainsi transmis vous seront retirés, rendez-vous sur la page d'un citoyen pour lui offrir une journée.</target>
+      </segment>
+    </unit>
+    <unit id="m6rV1sV" name="Diktator">
+      <notes>
+        <note category="german">Diktator</note>
+      </notes>
+      <segment>
+        <source>Diktator</source>
+        <target>Dictateur</target>
+      </segment>
+    </unit>
+    <unit id="yIW1YVF" name="9ea7a84">
+      <notes>
+        <note category="german">Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</note>
+      </notes>
+      <segment>
+        <source>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</source>
+        <target>Vous pouvez modifier à volonté le tableau noir placé sur la page de garde de la ville. Permet de recommander un chantier particulier.</target>
+      </segment>
+    </unit>
+    <unit id="aMybzLI" name="Große Truhe">
+      <notes>
+        <note category="german">Große Truhe</note>
+      </notes>
+      <segment>
+        <source>Große Truhe</source>
+        <target>Grand coffre</target>
+      </segment>
+    </unit>
+    <unit id="1QRcfVE" name="Du erhältst einen zusätzlichen Platz in deiner Truhe.">
+      <notes>
+        <note category="german">Du erhältst einen zusätzlichen Platz in deiner Truhe.</note>
+      </notes>
+      <segment>
+        <source>Du erhältst einen zusätzlichen Platz in deiner Truhe.</source>
+        <target>Vous gagnez un emplacement de coffre, dans votre maison.</target>
+      </segment>
+    </unit>
+    <unit id="XE_uE8Y" name="Top in Form">
+      <notes>
+        <note category="german">Top in Form</note>
+      </notes>
+      <segment>
+        <source>Top in Form</source>
+        <target>Corps sain</target>
+      </segment>
+    </unit>
+    <unit id="D31zha8" name="Allwissenheit">
+      <notes>
+        <note category="german">Allwissenheit</note>
+      </notes>
+      <segment>
+        <source>Allwissenheit</source>
+        <target>Omniscience</target>
+      </segment>
+    </unit>
+    <unit id="z2i75b9" name="0e67d77">
+      <notes>
+        <note category="german">Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</note>
+      </notes>
+      <segment>
+        <source>Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</source>
+        <target>Omniscience fonctionne comme Clairvoyance, mais offre une vision d'ensemble de TOUS les citoyens depuis l'annuaire en ville. Cliquez sur l'onglet Omniscience dans la liste des citoyens.</target>
+      </segment>
+    </unit>
+    <unit id="P.sGRq9" name="Einfallsreichtum">
+      <notes>
+        <note category="german">Einfallsreichtum</note>
+      </notes>
+      <segment>
+        <source>Einfallsreichtum</source>
+        <target>Débrouillardise</target>
+      </segment>
+    </unit>
+    <unit id="IvIWgfV" name="Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</source>
+        <target>Vous commencez toutes vos villes avec un objet utile aléatoire.</target>
+      </segment>
+    </unit>
+    <unit id="QOEKzJS" name="Doppelter Boden">
+      <notes>
+        <note category="german">Doppelter Boden</note>
+      </notes>
+      <segment>
+        <source>Doppelter Boden</source>
+        <target>Double fond</target>
+      </segment>
+    </unit>
+    <unit id="hR9jP7b" name="Du bekommst einen weiteren Platz in deiner Truhe.">
+      <notes>
+        <note category="german">Du bekommst einen weiteren Platz in deiner Truhe.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen weiteren Platz in deiner Truhe.</source>
+        <target>Vous gagnez un autre emplacement de coffre.</target>
+      </segment>
+    </unit>
+    <unit id="Y1T4Y0D" name="Schönes Fundstück">
+      <notes>
+        <note category="german">Schönes Fundstück</note>
+      </notes>
+      <segment>
+        <source>Schönes Fundstück</source>
+        <target>Jolies trouvailles</target>
+      </segment>
+    </unit>
+    <unit id="SJGL9Ty" name="a6624c9">
+      <notes>
+        <note category="german">Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</note>
+      </notes>
+      <segment>
+        <source>Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</source>
+        <target>Votre pouvoir de Héros "Trouvaille" vous permet d'obtenir de bien meilleurs objets.</target>
+      </segment>
+    </unit>
+    <unit id="Pxb1j1P" name="Aufgeräumte Tasche">
+      <notes>
+        <note category="german">Aufgeräumte Tasche</note>
+      </notes>
+      <segment>
+        <source>Aufgeräumte Tasche</source>
+        <target>Poches bien rangées</target>
+      </segment>
+    </unit>
+    <unit id="ukODLao" name="Du bekommst einen zusätzlichen Platz in deinem Rucksack.">
+      <notes>
+        <note category="german">Du bekommst einen zusätzlichen Platz in deinem Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen zusätzlichen Platz in deinem Rucksack.</source>
+        <target>Vous disposez d'une place de plus dans votre sac à dos.</target>
+      </segment>
+    </unit>
+    <unit id="zV1VWf6" name="Zweite Lunge">
+      <notes>
+        <note category="german">Zweite Lunge</note>
+      </notes>
+      <segment>
+        <source>Zweite Lunge</source>
+        <target>Second souffle</target>
+      </segment>
+    </unit>
+    <unit id="eGCPfhk" name="1527d2b">
+      <notes>
+        <note category="german">Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</note>
+      </notes>
+      <segment>
+        <source>Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</source>
+        <target>Vous disposez maintenant d'un puissant pouvoir de héros qui vous permet de régénérer à 6 PA et de retirer l'état de Fatigue.</target>
+      </segment>
+    </unit>
+    <unit id="Z9YgscK" name="Weitsichtig">
+      <notes>
+        <note category="german">Weitsichtig</note>
+      </notes>
+      <segment>
+        <source>Weitsichtig</source>
+        <target>Prévoyant</target>
+      </segment>
+    </unit>
+    <unit id="4pAqmIp" name="Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</source>
+        <target>Vous commencez toutes vos villes avec une ration supplémentaire de nourriture.</target>
+      </segment>
+    </unit>
+    <unit id="PwnszRH" name="Panzerschrank">
+      <notes>
+        <note category="german">Panzerschrank</note>
+      </notes>
+      <segment>
+        <source>Panzerschrank</source>
+        <target>Armoire à glace</target>
+      </segment>
+    </unit>
+    <unit id="BY.ydY2" name="53e0ef3">
+      <notes>
+        <note category="german">Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</note>
+      </notes>
+      <segment>
+        <source>Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</source>
+        <target>Votre grande expérience de l'Outre-Monde vous permet de bénéficier à tout moment d'un point de contrôle supplémentaire en extérieur.</target>
+      </segment>
+    </unit>
+    <unit id="QTu6jiF" name="Hinterhältigkeit">
+      <notes>
+        <note category="german">Hinterhältigkeit</note>
+      </notes>
+      <segment>
+        <source>Hinterhältigkeit</source>
+        <target>Perfidie</target>
+      </segment>
+    </unit>
+    <unit id="PgyVB.w" name="5b80459">
+      <notes>
+        <note category="german">Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</note>
+      </notes>
+      <segment>
+        <source>Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</source>
+        <target>Votre pouvoir "Manipulateur" est amélioré : vous pouvez l'utiliser un plus grand nombre de fois par partie !</target>
+      </segment>
+    </unit>
+    <unit id="SJBxB2t" name="d8fa451">
+      <notes>
+        <note category="german">Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</note>
+      </notes>
+      <segment>
+        <source>Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</source>
+        <target>Lorsque vous l'activez, ce nouveau pouvoir de héros permet de ne pas subir les effets de la Soif, de l'Infection (transformation en goule comprise) et de l'Addiction lors de l'attaque suivante. Ce pouvoir n'est valable qu'une seule nuit.</target>
+      </segment>
+    </unit>
+    <unit id="YOrcnrc" name="Süße Rache">
+      <notes>
+        <note category="german">Süße Rache</note>
+      </notes>
+      <segment>
+        <source>Süße Rache</source>
+        <target>Vengeance sordide</target>
+      </segment>
+    </unit>
+    <unit id="_lMBtWk" name="1db7767">
+      <notes>
+        <note category="german">Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</note>
+      </notes>
+      <segment>
+        <source>Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</source>
+        <target>Si vous êtes banni(e) au jour 3 ou après, vous recevez automatiquement du poison pour vous donner l'opportunité de vous venger... Et oui, il ne fallait pas vous embêter !</target>
+      </segment>
+    </unit>
+    <unit id="teacwpj" name="Proficamper">
+      <notes>
+        <note category="german">Proficamper</note>
+      </notes>
+      <segment>
+        <source>Proficamper</source>
+        <target>Campeur professionnel</target>
+      </segment>
+    </unit>
+    <unit id="rcmlJ6d" name="ff04338">
+      <notes>
+        <note category="german">Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</note>
+      </notes>
+      <segment>
+        <source>Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</source>
+        <target>La pénalité due aux campings répétés est réduite pour vous : vous pouvez donc camper plus souvent au cours d'une même ville.</target>
+      </segment>
+    </unit>
+    <unit id="0i6IkRd" name="Erfahrener Junkie">
+      <notes>
+        <note category="german">Erfahrener Junkie</note>
+      </notes>
+      <segment>
+        <source>Erfahrener Junkie</source>
+        <target>Camé prévoyant</target>
+      </segment>
+    </unit>
+    <unit id="xQGVw2P" name="Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</source>
+        <target>Vous démarrez toutes vos villes avec une dose de Paracétoïde dans votre coffre.</target>
+      </segment>
+    </unit>
+    <unit id="Byr6aKi" name="Bürgermeister">
+      <notes>
+        <note category="german">Bürgermeister</note>
+      </notes>
+      <segment>
+        <source>Bürgermeister</source>
+        <target>Maire</target>
+      </segment>
+    </unit>
+    <unit id="Bkj9zxa" name="b5e7d08">
+      <notes>
+        <note category="german">Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</note>
+      </notes>
+      <segment>
+        <source>Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</source>
+        <target>Vous pouvez créer des villes privées depuis la page "Jouer", lorsque vous êtes mort(e).</target>
+      </segment>
+    </unit>
+    <unit id="59iDY2T" name="Architekt">
+      <notes>
+        <note category="german">Architekt</note>
+      </notes>
+      <segment>
+        <source>Architekt</source>
+        <target>Architecte</target>
+      </segment>
+    </unit>
+    <unit id="70rMMrW" name="Du beginnst jede Stadt mit einem Gebäudeplan.">
+      <notes>
+        <note category="german">Du beginnst jede Stadt mit einem Gebäudeplan.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede Stadt mit einem Gebäudeplan.</source>
+        <target>Vous commencez chaque ville avec un plan de bâtiment.</target>
+      </segment>
+    </unit>
+    <unit id="I7tDV2L" name="Profiwächter">
+      <notes>
+        <note category="german">Profiwächter</note>
+      </notes>
+      <segment>
+        <source>Profiwächter</source>
+        <target>Veilleur Pro</target>
+      </segment>
+    </unit>
+    <unit id="G12Hlud" name="Du hast permanent um 5% bessere Chancen auf der Nachtwache.">
+      <notes>
+        <note category="german">Du hast permanent um 5% bessere Chancen auf der Nachtwache.</note>
+      </notes>
+      <segment>
+        <source>Du hast permanent um 5% bessere Chancen auf der Nachtwache.</source>
+        <target>Vous réduisez votre fatigue lors des veilles successives.</target>
+      </segment>
+    </unit>
+    <unit id="MTYSMU0" name="Letzter freigeschalteter Heldenvorteil:">
+      <notes>
+        <note category="german">Letzter freigeschalteter Heldenvorteil:</note>
+      </notes>
+      <segment>
+        <source>Letzter freigeschalteter Heldenvorteil:</source>
+        <target>Dernier pouvoir gagné :</target>
+      </segment>
+    </unit>
+    <unit id="mbDhlAW" name="51b58eb">
+      <notes>
+        <note category="german">Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</source>
+        <target>Vous pouvez maintenant envoyer des Messages privés à tous les citoyens de la ville d'un seul coup (depuis la section Message dans votre maison). Vous pouvez également ouvrir des sujets "RP" sur les forums (merci de ne pas en abuser !).</target>
+      </segment>
+    </unit>
+    <unit id="3THXKcp" name="05dac1f">
+      <notes>
+        <note category="german">Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</note>
+      </notes>
+      <segment>
+        <source>Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</source>
+        <target>Lorsque vous êtes dans l'état "Clair(e)" (c'est à dire, lorsque vous ne consommez pas de drogue), vous bénéficiez d'un bonus de +1 point de contrôle permanent en extérieur.</target>
+      </segment>
+    </unit>
+    <unit id="c6z8t8C" name="1eb4cfe">
+      <notes>
+        <note category="german">Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben. </note>
+      </notes>
+      <segment>
+        <source>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben. </source>
+        <target>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben. </target>
+      </segment>
+    </unit>
+    <unit id="oeIpxYX" name="Alle freigeschalteten Vorteile anzeigen">
+      <notes>
+        <note category="german">Alle freigeschalteten Vorteile anzeigen</note>
+      </notes>
+      <segment>
+        <source>Alle freigeschalteten Vorteile anzeigen</source>
+        <target>Voir les avantages que j'ai gagnés</target>
+      </segment>
+    </unit>
+    <unit id="4dxmR7l" name="%days% Tage">
+      <notes>
+        <note category="german">%days% Tage</note>
+      </notes>
+      <segment>
+        <source>%days% Tage</source>
+        <target>%days% jours</target>
+      </segment>
+    </unit>
+    <unit id="6SYvAH3" name="Beschreibung">
+      <notes>
+        <note category="german">Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Beschreibung</source>
+        <target>Description</target>
+      </segment>
+    </unit>
+    <unit id="1jWc_b3" name="Nächste:">
+      <notes>
+        <note category="german">Nächste:</note>
+      </notes>
+      <segment>
+        <source>Nächste:</source>
+        <target>Prochaine :</target>
+      </segment>
+    </unit>
+    <unit id="luCuBtM" name="Diese Fähigkeit wurde noch nicht freigeschaltet...">
+      <notes>
+        <note category="german">Diese Fähigkeit wurde noch nicht freigeschaltet...</note>
+      </notes>
+      <segment>
+        <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
+        <target>Capacité non-débloquée...</target>
+      </segment>
+    </unit>
+    <unit id="pV4nX2l" name="Fähigkeit">
+      <notes>
+        <note category="german">Fähigkeit</note>
+      </notes>
+      <segment>
+        <source>Fähigkeit</source>
+        <target>Capacité</target>
+      </segment>
+    </unit>
+    <unit id="v432R4L" name="Du hast bisher:">
+      <notes>
+        <note category="german">Du hast bisher:</note>
+      </notes>
+      <segment>
+        <source>Du hast bisher:</source>
+        <target>Vous avez accumulé :</target>
+      </segment>
+    </unit>
+    <unit id="8mlXwLP" name="im Heldenmodus gespielt">
+      <notes>
+        <note category="german">im Heldenmodus gespielt</note>
+      </notes>
+      <segment>
+        <source>im Heldenmodus gespielt</source>
+        <target>de mode Héros</target>
+      </segment>
+    </unit>
+    <unit id="HYbv76Z" name="32aff0d">
+      <notes>
+        <note category="german">Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</source>
+        <target>Cette entrée du registre a été raturée... Qu'a-t-on pu bien vouloir cacher ?</target>
+      </segment>
+    </unit>
+    <unit id="QSPR33z" name="a72b313">
+      <notes>
+        <note category="german">Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</note>
+      </notes>
+      <segment>
+        <source>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</source>
+        <target>C'est non sans dégoût que %disposing_citizen% s'est débarrassé(e) du corps inanimé de %citizen%.</target>
+      </segment>
+    </unit>
+    <unit id="8xTkhGN" name="3ccf312">
+      <notes>
+        <note category="german">Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
+        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été réduit en liquide putride.</target>
+      </segment>
+    </unit>
+    <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
+      <notes>
+        <note category="german">Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</note>
+      </notes>
+      <segment>
+        <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
+        <target>%citizen% s'est débarrassé du corps de † %disposed%.</target>
+      </segment>
+    </unit>
+    <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
+      <notes>
+        <note category="german">%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
+        <target>%citizen% s'est débarrassé du corps de † %disposed% "en l'arrosant d'eau".</target>
       </segment>
     </unit>
   </file>

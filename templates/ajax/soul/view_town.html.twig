@@ -15,15 +15,15 @@
                 <div class="padded cell rw-4">{{'Todesursache'|trans({}, 'soul')}}</div>
                 <div class="padded cell rw-3">{{'Kommentar'|trans({}, 'soul')}}</div>
             </div>
-            {% for citizen in town.citizens|filter(c => not c.alive)|sort((a,b) => b.survivedDays <=> a.survivedDays) %}
-                {% set days = citizen.survivedDays %}
+            {% for citizen in town.citizens|filter(c => c.end is not null)|sort((a,b) => b.day <=> a.day) %}
+                {% set days = citizen.day %}
                 {% set sp = days * ( days + 1 ) / 2 %}
             <div class="row">
-                <div class="padded cell rw-2">{{citizen.survivedDays}}</div>
+                <div class="padded cell rw-2">{{citizen.day}}</div>
                 <div class="padded cell rw-1 town-points bold">+{{sp}}</div>
                 <div class="padded cell rw-2"><span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.username}}</span></div>
                 <div class="padded cell rw-4">
-                    {{citizen.causeOfDeath.label|trans({}, 'game')}}
+                    {{citizen.cod.label|trans({}, 'game')}}
                     {% if not citizen.lastWords is empty %}
                     <img src="{{asset('build/images/log/chat.gif')}}" />
                     {% endif %}

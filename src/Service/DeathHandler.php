@@ -56,6 +56,7 @@ class DeathHandler
         if (is_int($cod)) $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef( $cod );
 
         $rucksack = $citizen->getInventory();
+
         $floor = ($citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest());
         if ($citizen->activeExplorerStats()) {
             $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats());
@@ -65,6 +66,7 @@ class DeathHandler
             // We get his rucksack and drop items into the floor or into his chest (except job item)
             if(!$item->getEssential())
                 $this->inventory_handler->forceMoveItem($floor, $item);
+
 
         foreach ($this->entity_manager->getRepository(DigTimer::class)->findAllByCitizen($citizen) as $dt)
             $remove[] = $dt;
@@ -95,6 +97,10 @@ class DeathHandler
             $citizen->setZone(null);
             $zone->removeCitizen( $citizen );
             $this->zone_handler->handleCitizenCountUpdate( $zone, $ok );
+        }
+
+        if($citizen->getBanished()){
+            $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('banned_note_#00'), [$citizen->getHome()->getChest()], true);
         }
 
         $citizen->setCauseOfDeath($cod);
@@ -198,6 +204,8 @@ class DeathHandler
         if($pictoDeath2 !== null) {
             $this->picto_handler->give_validated_picto($citizen, $pictoDeath2);
         }
+
+        $this->picto_handler->give_validated_picto($citizen, "r_ptame_#00", $this->citizen_handler->getSoulpoints($citizen));
 
         // Now that we are dead, we set persisted = 1 to pictos with persisted = 0
         // according to the day 5 / 8 rule

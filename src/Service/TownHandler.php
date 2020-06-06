@@ -12,7 +12,9 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\Gazette;
+use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Entity\Inventory;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
@@ -177,6 +179,13 @@ class TownHandler
             case "small_crow_#00":
                 $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcrow_#00");
                 $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                break;
+            case "item_electro_#00":
+                $zones = $town->getZones();
+                foreach ($zones as $zone) {
+                    $zone->setZombieStatus(Zone::ZombieStateExact);
+                    $this->entity_manager->persist($zone);
+                }
                 break;
             default: break;
         }
@@ -394,7 +403,21 @@ class TownHandler
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100) / ($has_scope+1)*1);
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100) / ($has_scope+1)*1);
 
-        return min((1 - (($offsetMin + $offsetMax) - 10) / 24) * ($has_scope+1)*1, 1);
+        $soulFactor = 1;
+
+        $redSoulsCount = $this->get_red_soul_count($town);
+
+        $soulFactor += (0.04 * $redSoulsCount);
+
+        if($town->getType()->getName() !== 'panda')
+            $soulFactor = min($soulFactor, 1.2);
+
+        $min = round($min * $soulFactor, 0);
+        $max = round($max * $soulFactor, 0);
+
+        $estimation = min((1 - (($offsetMin + $offsetMax) - 10) / 24) * ($has_scope+1)*1, 1);
+
+        return $estimation;
     }
 
     public function calculate_zombie_attacks(Town &$town, int $future = 2) {
@@ -443,5 +466,59 @@ class TownHandler
         }
 
         return $citizens;
+    }
+
+    public function destroy_building(Town &$town, Building $building, ?callable $trigger_after = null){
+        if(!$building->getComplete()) return;
+
+        $building->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+
+        $this->entity_manager->persist($building);
+
+        foreach ($building->getPrototype()->getChildren() as $childBuilding) {
+            $this->destroy_building($town, $childBuilding);
+        }
+        
+        if($trigger_after) $trigger_after();
+    }
+
+    public function get_red_soul_count(Town &$town){
+        // Get all inventory IDs from the town
+        // We're just getting IDs, because we don't want to actually hydrate the inventory instances
+        $zone_invs = array_column($this->entity_manager->createQueryBuilder()
+            ->select('i.id')
+            ->from(Inventory::class, 'i')
+            ->join("i.zone", "z")
+            ->andWhere('z.id IN (:zones)')->setParameter('zones', $town->getZones())
+            ->getQuery()->getScalarResult(), 'id');
+
+        $chest_invs = array_column($this->entity_manager->createQueryBuilder()
+            ->select('i.id')
+            ->from(Inventory::class, 'i')
+            ->join("i.home", "h")
+            ->join('h.citizen', 'c')
+            ->where('c.id IN (:citizens)')->setParameter('citizens', $town->getCitizens())
+            ->getQuery()->getScalarResult(), 'id');
+
+        $citizens_inv = array_column($this->entity_manager->createQueryBuilder()
+            ->select('i.id')
+            ->from(Inventory::class, 'i')
+            ->join('i.citizen', 'c')
+            ->where('c.id IN (:citizens)')->setParameter('citizens', $town->getCitizens())
+            ->getQuery()->getScalarResult(), 'id');
+
+        // Get all red soul items within these inventories
+        $query = $this->entity_manager->createQueryBuilder()
+            ->select('SUM(i.count)')
+            ->from(Item::class, 'i')
+            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', array_merge($zone_invs, [$town->getBank()->getId()], $chest_invs, $citizens_inv))
+            ->andWhere('i.prototype IN (:protos)')->setParameter('protos', [
+                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_red_#00')
+            ])
+            ->getQuery();
+
+        $redSoulsCount = $query->getSingleScalarResult();
+
+        return $redSoulsCount;
     }
 }
