@@ -593,6 +593,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         // Begin the exploration!
+        $this->picto_handler->give_picto($citizen, 'r_ruine_#00', 1);
         $this->citizen_handler->setAP( $citizen, true, -1 );
         $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->modify( $citizen->getProfession()->getName() === 'collec' ? '+7min30sec' : '+5min' ) ));
         $this->entity_manager->persist($citizen);

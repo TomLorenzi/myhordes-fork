@@ -417,6 +417,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
         else $this->inventory_handler->forceRemoveItem( $key[0] );
 
         $ruinZone->setLocked(false);
+        $this->picto_handler->give_picto($citizen, 'r_door_#00', 1);
         $ex->getScavengedRooms()->removeElement( $ruinZone );
 
         $this->entity_manager->persist($ruinZone);
