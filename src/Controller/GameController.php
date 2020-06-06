@@ -484,6 +484,11 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         if($new_profession->getHeroic()) {
             $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getHeroDaysSpent());
+            $inventory = $citizen->getInventory();
+            $item = $if->createItem( "photo_3_#00" );
+            $item->setEssential(true);
+            $null = null;
+            $invh->transferItem($citizen,$item,$null,$inventory);
             foreach ($skills as $skill) {
                 switch($skill->getName()){
                     case "brothers":
@@ -519,7 +524,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                         $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
                         $citizen->removeHeroicAction($oldfind);
                         $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
-                        $citizen->removeHeroicAction($addfind);
+                        $citizen->removeHeroicAction($newfind);
                         break;
                 }
             }

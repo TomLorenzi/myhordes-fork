@@ -17,87 +17,67 @@
             </div>
         </div>
     {% endif %}
-    <div class="row">
-        <div class="cell rw-12">
-            <ul class="tabs" x-tab-group="forum-editor" x-tab-control>
-                <li x-tab-id="classic">{% trans from 'game' %}Klassischer Editor{% endtrans %}</li>
-                <li x-tab-id="suneditor">{% trans from 'game' %}Grafischer Editor{% endtrans %}</li>
-            </ul>
-        </div>
+    <div class="row classic-editor">
+        <div class="padded cell rw-12">
+            <label>{{ 'Vorschau'|trans({},'global') }}</label>
+            <div id="forum-editor-preview"></div>
+            <br />
+            <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
+            <div class="forum-button-bar">
+                <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
+                <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
+                {% endif %}
+                <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
+            </div>
 
-    </div>
-    <div x-tab-group="forum-editor" x-tab-id="classic" x-tab-target>
-        <div class="row classic-editor">
+        <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
+
+        <div class="row">
             <div class="padded cell rw-12">
-                <label>{{ 'Vorschau'|trans({},'global') }}</label>
-                <div id="forum-editor-preview"></div>
-                <br />
-                <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-                <div class="forum-button-bar">
-                    <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
-                    <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
-                        <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
-                        <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
-                        <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
-                    {% endif %}
-                    <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
-                </div>
-
-                <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
-
-                <div class="row">
-                    <div class="padded cell rw-12">
-                        <ul class="tabs" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
-                            <li x-tab-id="emotes"><i class="fa fa-smile"></i></li>
-                            <li x-tab-id="games"><i class="fa fa-dice"></i></li>
-                        </ul>
-                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
-                            <div class="forum-button-bar">
-                                {% for tag,url in emotes %}
-                                    <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
-                            <div class="forum-button-bar">
-                                <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
-                            </div>
-                        </div>
+                <ul class="tabs" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                    <li x-tab-id="emotes"><i class="fa fa-smile"></i></li>
+                    <li x-tab-id="games"><i class="fa fa-dice"></i></li>
+                </ul>
+                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
+                    <div class="forum-button-bar">
+                        {% for tag,url in emotes %}
+                            <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
+                        {% endfor %}
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div x-tab-group="forum-editor" x-tab-id="suneditor" x-tab-target>
-        <div class="row modern-editor">
-            <div class="padded cell rw-12">
-                <label for="forum-suneditor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-                <textarea id="forum-suneditor-text"></textarea>
+                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
+                    <div class="forum-button-bar">
+                        <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -177,19 +157,27 @@
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
 
+                        console.log(match);
+
                         const tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
                             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[3], tag, null] ); changed = true; break;
                             case 'bad': blocks.push( [ match[3], 'span', tag] ); changed = true; break;
                             case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
-                            case 'quote': blocks.push( [ match[3], 'blockquote', null] ); changed = true; break;
+                            case 'quote': 
+                            if(match[2] !== undefined) 
+                                blocks.push( [ match[2], 'span', 'quoteauthor'] ); 
+                            blocks.push( [ match[3], 'blockquote', null] ); changed = true; break;
                             case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
                             case 'link': blocks.push( [ match[3], 'a', tag, [ 'href', match[2], 'target','_blank' ]] ); changed = true; break;
                             case 'image': blocks.push( [ '', 'img', tag, [ 'src', match[2], 'alt', match[3] ]] ); changed = true; break;
                             case 'admannounce': blocks.push( [ match[3], 'div', 'adminAnnounce'] ); changed = true; break;
                             case 'modannounce': blocks.push( [ match[3], 'div', 'modAnnounce'] ); changed = true; break;
                             case 'announce': blocks.push( [ match[3], 'div', 'oracleAnnounce'] ); changed = true; break;
-                            case 'rp': blocks.push( [ match[3], 'div', 'rpText'] ); changed = true; break;
+                            case 'rp':
+                            if(match[2] !== undefined) 
+                                blocks.push( [ match[2], 'span', 'rpauthor'] ); 
+                            blocks.push( [ match[3], 'div', 'rpText'] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
                             case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
@@ -331,8 +319,10 @@
 
         {% if content is defined %}
         let event = new Event('input');
-
         node_transfer_source.dispatchEvent(event);
+        node_transfer_source.focus();
+        node_transfer_source.setSelectionRange(node_transfer_source.value.length,node_transfer_source.value.length);
+        document.getElementById('forum-editor').scrollIntoView();
         {% endif %}
 
         let closeModal = function() {
@@ -503,92 +493,6 @@
             transfer_to_preview();
         } );
 
-
-        const sun_editor_plugin_base = function(name, title, innerHTML, tag, classNameInternal, classNameExternal) {
-            return {
-                // @Required @Unique
-                // plugin name
-                name: name,
-                // @Required
-                // data display
-                display: 'command',
-
-                // @Options
-                title: title,
-                buttonClass: '',
-                innerHTML: innerHTML,
-
-                // @Required
-                // add function - It is called only once when the plugin is first run.
-                // This function generates HTML to append and register the event.
-                // arguments - (core : core object, targetElement : clicked button element)
-                add: function (core, targetElement) {
-                    const context = core.context;
-                    const new_tag = core.util.createElement(tag);
-                    core.util.addClass(new_tag, classNameInternal);
-                    for (let i = 0; i < classNameExternal.length; i++)
-                        core.util.addClass(new_tag, classNameExternal[i]);
-
-                    // @Required
-                    // Registering a namespace for caching as a plugin name in the context object
-                    context[name + '_command'] = {
-                        targetButton: targetElement,
-                        tag: new_tag
-                    };
-                },
-
-                // @Overriding
-                // Plugins with active methods load immediately when the editor loads.
-                // Called each time the selection is moved.
-                active: function (element) {
-                    if (!element) {
-                        this.util.removeClass(this.context[name + '_command'].targetButton, 'active');
-                    } else if (this.util.hasClass(element, classNameInternal)) {
-                        this.util.addClass(this.context[name + '_command'].targetButton, 'active');
-                        return true;
-                    }
-
-                    return false;
-                },
-            }
-        }
-        const sun_editor_range_prototype = function(name, title, innerHTML, tag, classNameInternal, classNameExternal) {
-            let base = sun_editor_plugin_base(name, title, innerHTML, tag, classNameInternal, classNameExternal);
-            base.action = function () {
-                // @Required
-                // The behavior of the "command plugin" must be defined in the "action" method.
-                const new_tag = this.util.getRangeFormatElement(this.getSelectionNode());
-
-                if (this.util.hasClass(new_tag, classNameInternal)) {
-                    this.detachRangeFormatElement(new_tag, null, null, false, false);
-                } else {
-                    this.applyRangeFormatElement(this.context[name + '_command'].tag.cloneNode(false));
-                }
-            }
-            return base;
-        }
-        const spoiler_command = sun_editor_range_prototype('spoiler','Spoiler','<i class="fas fa-carrot"></i>','div','__se__format__spoiler',['spoiler']);
-        const glory_command   = sun_editor_range_prototype('glory','Glory','<i class="fas fa-crown"></i>','div','__se__format__glory',['glory']);
-
-        const editor = SUNEDITOR.create((document.getElementById('forum-suneditor-text') || 'forum-suneditor-text'),{
-            // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
-            plugins : {
-                spoiler_command,
-                glory_command
-            },
-            buttonList: [
-                ['undo', 'redo'],
-                ['bold', 'underline', 'italic', 'strike'],
-                ['removeFormat'],
-                ['outdent', 'indent', 'list'],
-                ['blockquote', 'link' {% if app.user.rightsElevation >= 4 %}, 'image'{% endif %}],
-                ['spoiler', 'glory'],
-            ],
-            // Insert options
-            // Language global object (default: en)
-            //lang: SUNEDITOR_LANG."{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
-        });
-
         // Post as crow toggle
         {% if is_granted("ROLE_CROW") and not pm %}
         function changeHandler(){
@@ -634,9 +538,7 @@
                 {% endif %}
 
                 // Replace proxies
-                let content_node = document.querySelector('[x-tab-id="classic"].selected')
-                    ? document.getElementById('forum-editor-preview').cloneNode(true)
-                    : document.querySelector('.sun-editor-editable').cloneNode(true);
+                let content_node = document.getElementById('forum-editor-preview').cloneNode(true);
 
                 let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
                 for (let j = 0; j < proxies.length; j++) {

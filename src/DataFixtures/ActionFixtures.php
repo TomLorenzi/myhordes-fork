@@ -711,6 +711,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes' ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],
 
+            'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_2_#00'] , 'zone' => ['escape' => 120] ] ] ], 
+            'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_1_#00'] , 'group' => [[['do_nothing'], 30], [[ 'zone' => ['escape' => 60] ], 60]] ] ] ], 
+            'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [[['do_nothing'], 60], [[ 'zone' => ['escape' => 60] ], 30]] ] ] ], 
+
             'hero_tamer_1'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_2'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_2' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_3'  => [ 'label' => 'Dopen', 'meta' => [ 'must_be_outside', 'must_have_drug' ], 'result' => [ 'consume_drug', 'hero_tamer_3' ], 'message' => 'Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!' ],
@@ -1074,7 +1078,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'soul_blue_#00' => ["purify_soul"],
             'soul_red_#00' => ["purify_soul"],
-            'soul_blue_#01' => ['purify_soul']
+            'soul_blue_#01' => ['purify_soul'],
+
+            'photo_3_#00' => ['flash_photo_3'],
+            'photo_2_#00' => ['flash_photo_2'],
+            'photo_1_#00' => ['flash_photo_1'],
         ],
 
         'items_nw' => [

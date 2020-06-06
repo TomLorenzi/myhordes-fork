@@ -231,8 +231,6 @@ class NightlyHandler
                             $citizen->removeHeroicAction($addfind);
                         }
                 }
-
-                $this->entity_manager->persist($skill);
             }
         }
     }

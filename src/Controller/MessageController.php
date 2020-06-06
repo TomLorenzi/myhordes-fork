@@ -199,6 +199,7 @@ class MessageController extends AbstractController
         'span' => [ 'class' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
+        'span' => ['class'],
     ];
 
     private const HTML_ALLOWED_ADMIN = [
@@ -217,9 +218,11 @@ class MessageController extends AbstractController
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
-            'citizen', 'rpText',
-        ], 
-        'span.class' => [ 'bad' ]
+             'citizen', 'rpText',
+        ],
+        'span.class' => [
+            'quoteauthor','bad','rpauthor'
+        ]
     ];
 
     private function getAllowedHTML(): array {
@@ -791,6 +794,13 @@ class MessageController extends AbstractController
                         //$content .= "[quote]" . $this->convert_bbcode($child) . "[/quote]";
                         //We remove inner quotes
                         break;
+                    case "span":
+                        if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value)) {
+                            if($child->attributes['class']->value !== 'quoteauthor') {
+                                $content .= "[{$child->tagName}={$child->attributes['class']->value}]" . $this->convert_bbcode($child) . "[/{$child->tagName}]";
+                            }
+                        }
+                        break;
                     default:
                         $content .= $child->textContent;
                         break;
@@ -845,9 +855,7 @@ class MessageController extends AbstractController
                         $tmp_str .= $dom->saveHTML($child);
 
                     $post->setText( $tmp_str );
-                    file_put_contents("/tmp/dump.txt", "Altered text:\n{$post->getText()}\n", FILE_APPEND);
-
-                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]";
+                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
                 }
 
             }
