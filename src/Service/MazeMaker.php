@@ -407,7 +407,7 @@ class MazeMaker
                 $ruinZone->setDecals( $ruinZone->getDecals() & (~$decal_filter) );
             }
 
-        $this->populateMaze( $base, 25 );
+        $this->populateMaze( $base, $conf->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) );
     }
 
     /**

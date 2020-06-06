@@ -18,6 +18,9 @@ parameters:
         room_spacing: 4
         lock_distance: 10
         item_fillrate: 11
+        zombies:
+          initial: 25
+          daily: 5
 
       initial_buildings:  []
       unlocked_buildings: []

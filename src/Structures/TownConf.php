@@ -27,6 +27,8 @@ class TownConf extends Conf
     const CONF_EXPLORABLES_ROOM_DIST   = 'explorable_ruin_params.room_spacing';
     const CONF_EXPLORABLES_LOCKDIST    = 'explorable_ruin_params.lock_distance';
     const CONF_EXPLORABLES_ITEM_RATE   = 'explorable_ruin_params.item_fillrate';
+    const CONF_EXPLORABLES_ZOMBIES_INI = 'explorable_ruin_params.zombies.initial';
+    const CONF_EXPLORABLES_ZOMBIES_DAY = 'explorable_ruin_params.zombies.daily';
 
     const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
 
