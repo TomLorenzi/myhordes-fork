@@ -9959,7 +9959,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="BRZGIi8" name="8183632">
       <notes>
-        <note category="german">Ce bâtiment délabré semble avoir été un bunker. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
+        <note category="german">Bunkers are old refuges built by the military to contain the pandemic. If the soldiers at the time were still human, they would surely have advised their officers against trying to "educate" the first carriers of the virus.</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10049,7 +10049,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
       <notes>
-        <note category="german">Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</note>
+        <note category="german">The following objects have been sent with this message. They should be in your chest ( assuming nobody has stopped by in the meantime... ).</note>
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
@@ -10175,7 +10175,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="YuJzi8m" name="Basisverteidigung">
       <notes>
-        <note category="german">Basisverteidigung</note>
+        <note category="german">Base defence</note>
       </notes>
       <segment>
         <source>Basisverteidigung</source>
@@ -10184,7 +10184,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="D3XPl3x" name="Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!">
       <notes>
-        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</note>
+        <note category="german">There is a chance of breaking the object during the attack!</note>
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</source>
@@ -10193,7 +10193,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="8qoI_l9" name="Es besteht die Chance das Objekt während des Angriffs zu verlieren!">
       <notes>
-        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu verlieren!</note>
+        <note category="german">There is a chance of losing the object during the attack!</note>
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
@@ -10202,7 +10202,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
       <notes>
-        <note category="german">%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</note>
+        <note category="german">%citizen% made it rain and killed %kills% Zombies.</note>
       </notes>
       <segment>
         <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
@@ -10211,7 +10211,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="KVApIB1" name="Lage">
       <notes>
-        <note category="german">Lage</note>
+        <note category="german">Location</note>
       </notes>
       <segment>
         <source>Lage</source>
@@ -10220,7 +10220,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="0jW7cq9" name="Stadttor geöffnet">
       <notes>
-        <note category="german">Stadttor geöffnet</note>
+        <note category="german">Town's gates opened</note>
       </notes>
       <segment>
         <source>Stadttor geöffnet</source>
@@ -10229,7 +10229,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="_DKPL9S" name="Wer ist draußen?">
       <notes>
-        <note category="german">Wer ist draußen?</note>
+        <note category="german">Who is outside?</note>
       </notes>
       <segment>
         <source>Wer ist draußen?</source>
@@ -10238,7 +10238,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="rRAcec3" name="Stadttor geschlossen">
       <notes>
-        <note category="german">Stadttor geschlossen</note>
+        <note category="german">Town's gates closed</note>
       </notes>
       <segment>
         <source>Stadttor geschlossen</source>
@@ -10256,7 +10256,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
-        <note category="german">Seelenpunkte</note>
+        <note category="german">Soul Value</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -10265,7 +10265,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
       <notes>
-        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
+        <note category="german">The number of soul points you have accumulated in the course of your many lives.</note>
       </notes>
       <segment>
         <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
@@ -10292,7 +10292,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
       <notes>
-        <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
+        <note category="german">Your message has been sent along with the objects you chose.</note>
       </notes>
       <segment>
         <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
@@ -10310,7 +10310,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="29AAorN" name="Rucksack verstecken">
       <notes>
-        <note category="german">Rucksack verstecken</note>
+        <note category="german">Hide rucksack</note>
       </notes>
       <segment>
         <source>Rucksack verstecken</source>
@@ -10324,6 +10324,546 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Behausung wiederverwerten</source>
         <target>Behausung wiederverwerten</target>
+      </segment>
+    </unit>
+    <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
+      <notes>
+        <note category="german">Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</note>
+      </notes>
+      <segment>
+        <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
+        <target>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</target>
+      </segment>
+    </unit>
+    <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
+      <notes>
+        <note category="german">%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
+        <target>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</target>
+      </segment>
+    </unit>
+    <unit id="aKJtN4V" name="Tipp-Ex">
+      <notes>
+        <note category="german">Tipp-Ex</note>
+      </notes>
+      <segment>
+        <source>Tipp-Ex</source>
+        <target>Manipulator</target>
+      </segment>
+    </unit>
+    <unit id="N7td9of" name="ca2c228">
+      <notes>
+        <note category="german">Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</note>
+      </notes>
+      <segment>
+        <source>Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</source>
+        <target>Twice per game, you can delete an entry in the town register (click on the icon alongside the line you wish to delete...).</target>
+      </segment>
+    </unit>
+    <unit id="v3dbrZx" name="Hellseherei">
+      <notes>
+        <note category="german">Hellseherei</note>
+      </notes>
+      <segment>
+        <source>Hellseherei</source>
+        <target>Clairvoyance</target>
+      </segment>
+    </unit>
+    <unit id="K0VcFBE" name="b8e98fb">
+      <notes>
+        <note category="german">Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</note>
+      </notes>
+      <segment>
+        <source>Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</source>
+        <target>You know how active and present a player is in the game, simply by going to their house.</target>
+      </segment>
+    </unit>
+    <unit id="Qs6kA06" name="Rundbrief">
+      <notes>
+        <note category="german">Rundbrief</note>
+      </notes>
+      <segment>
+        <source>Rundbrief</source>
+        <target>Mr Writer</target>
+      </segment>
+    </unit>
+    <unit id="mbDhlAW" name="51b58eb">
+      <notes>
+        <note category="german">Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</source>
+        <target>Now you can send Private Messages to all the citizens in your town at once (from the Messages section in your House). You can also start "RP" threads in the forums (please do not abuse this !).</target>
+      </segment>
+    </unit>
+    <unit id="U85YOFG" name="Freundschaft">
+      <notes>
+        <note category="german">Freundschaft</note>
+      </notes>
+      <segment>
+        <source>Freundschaft</source>
+        <target>Brothers in Arms</target>
+      </segment>
+    </unit>
+    <unit id="vO7Ba8Y" name="2898f7f">
+      <notes>
+        <note category="german">Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</source>
+        <target>Once per game, you can give 1 Hero day to a fellow citizen ! Just wait, you'll become a veritable messiah for the masses... NB: any hero days you give away will be taken from your total, simply go to another citizen's page to give them a Hero day. Warning: When you donate a Hero day, it is only valid for THAT DAY. It cannot be saved for another time.</target>
+      </segment>
+    </unit>
+    <unit id="m6rV1sV" name="Diktator">
+      <notes>
+        <note category="german">Diktator</note>
+      </notes>
+      <segment>
+        <source>Diktator</source>
+        <target>Dictator</target>
+      </segment>
+    </unit>
+    <unit id="yIW1YVF" name="9ea7a84">
+      <notes>
+        <note category="german">Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</note>
+      </notes>
+      <segment>
+        <source>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</source>
+        <target>You can change what is written on the blackboard on the town's main page.</target>
+      </segment>
+    </unit>
+    <unit id="aMybzLI" name="Große Truhe">
+      <notes>
+        <note category="german">Große Truhe</note>
+      </notes>
+      <segment>
+        <source>Große Truhe</source>
+        <target>Large Chested</target>
+      </segment>
+    </unit>
+    <unit id="1QRcfVE" name="Du erhältst einen zusätzlichen Platz in deiner Truhe.">
+      <notes>
+        <note category="german">Du erhältst einen zusätzlichen Platz in deiner Truhe.</note>
+      </notes>
+      <segment>
+        <source>Du erhältst einen zusätzlichen Platz in deiner Truhe.</source>
+        <target>You have earned an additional storage space in your personal chest, in your house.</target>
+      </segment>
+    </unit>
+    <unit id="XE_uE8Y" name="Top in Form">
+      <notes>
+        <note category="german">Top in Form</note>
+      </notes>
+      <segment>
+        <source>Top in Form</source>
+        <target>Healthy Body</target>
+      </segment>
+    </unit>
+    <unit id="3THXKcp" name="05dac1f">
+      <notes>
+        <note category="german">Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</note>
+      </notes>
+      <segment>
+        <source>Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</source>
+        <target>As long as you stay "Clean" (i.e. you haven't taken any drugs), you have 1 additional control point when you're in the World Beyond.</target>
+      </segment>
+    </unit>
+    <unit id="D31zha8" name="Allwissenheit">
+      <notes>
+        <note category="german">Allwissenheit</note>
+      </notes>
+      <segment>
+        <source>Allwissenheit</source>
+        <target>Omniscience</target>
+      </segment>
+    </unit>
+    <unit id="z2i75b9" name="0e67d77">
+      <notes>
+        <note category="german">Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</note>
+      </notes>
+      <segment>
+        <source>Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</source>
+        <target>Omniscience works like Clairvoyance, except you will be able to see the details of EVERY citizen from the town directory. Click on the Omniscience tab when looking at the list of citizens.</target>
+      </segment>
+    </unit>
+    <unit id="P.sGRq9" name="Einfallsreichtum">
+      <notes>
+        <note category="german">Einfallsreichtum</note>
+      </notes>
+      <segment>
+        <source>Einfallsreichtum</source>
+        <target>Resourcefulness</target>
+      </segment>
+    </unit>
+    <unit id="IvIWgfV" name="Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</source>
+        <target>You will start out in every town with a random useful object.</target>
+      </segment>
+    </unit>
+    <unit id="QOEKzJS" name="Doppelter Boden">
+      <notes>
+        <note category="german">Doppelter Boden</note>
+      </notes>
+      <segment>
+        <source>Doppelter Boden</source>
+        <target>False Bottom</target>
+      </segment>
+    </unit>
+    <unit id="hR9jP7b" name="Du bekommst einen weiteren Platz in deiner Truhe.">
+      <notes>
+        <note category="german">Du bekommst einen weiteren Platz in deiner Truhe.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen weiteren Platz in deiner Truhe.</source>
+        <target>You are given an additional storage compartment in your chest.</target>
+      </segment>
+    </unit>
+    <unit id="Y1T4Y0D" name="Schönes Fundstück">
+      <notes>
+        <note category="german">Schönes Fundstück</note>
+      </notes>
+      <segment>
+        <source>Schönes Fundstück</source>
+        <target>Lucky Find</target>
+      </segment>
+    </unit>
+    <unit id="SJGL9Ty" name="a6624c9">
+      <notes>
+        <note category="german">Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</note>
+      </notes>
+      <segment>
+        <source>Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</source>
+        <target>The Seeker heroic action is upgraded by improving the items available.</target>
+      </segment>
+    </unit>
+    <unit id="Pxb1j1P" name="Aufgeräumte Tasche">
+      <notes>
+        <note category="german">Aufgeräumte Tasche</note>
+      </notes>
+      <segment>
+        <source>Aufgeräumte Tasche</source>
+        <target>A place for everything</target>
+      </segment>
+    </unit>
+    <unit id="ukODLao" name="Du bekommst einen zusätzlichen Platz in deinem Rucksack.">
+      <notes>
+        <note category="german">Du bekommst einen zusätzlichen Platz in deinem Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen zusätzlichen Platz in deinem Rucksack.</source>
+        <target>You have an additional storage compartment in your rucksack.</target>
+      </segment>
+    </unit>
+    <unit id="zV1VWf6" name="Zweite Lunge">
+      <notes>
+        <note category="german">Zweite Lunge</note>
+      </notes>
+      <segment>
+        <source>Zweite Lunge</source>
+        <target>Second wind</target>
+      </segment>
+    </unit>
+    <unit id="eGCPfhk" name="1527d2b">
+      <notes>
+        <note category="german">Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</note>
+      </notes>
+      <segment>
+        <source>Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</source>
+        <target>Now you have an extremely useful power which allows you to restore your energy to 6AP and recover from being Exhausted.</target>
+      </segment>
+    </unit>
+    <unit id="Z9YgscK" name="Weitsichtig">
+      <notes>
+        <note category="german">Weitsichtig</note>
+      </notes>
+      <segment>
+        <source>Weitsichtig</source>
+        <target>Second Breakfast</target>
+      </segment>
+    </unit>
+    <unit id="4pAqmIp" name="Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</source>
+        <target>You will start all towns with an additional Doggy Bag of food.</target>
+      </segment>
+    </unit>
+    <unit id="PwnszRH" name="Panzerschrank">
+      <notes>
+        <note category="german">Panzerschrank</note>
+      </notes>
+      <segment>
+        <source>Panzerschrank</source>
+        <target>Brick S**thouse</target>
+      </segment>
+    </unit>
+    <unit id="BY.ydY2" name="53e0ef3">
+      <notes>
+        <note category="german">Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</note>
+      </notes>
+      <segment>
+        <source>Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</source>
+        <target>Your wealth of experience in the World Beyond has given you a permanent addition of 1 control point.</target>
+      </segment>
+    </unit>
+    <unit id="QTu6jiF" name="Hinterhältigkeit">
+      <notes>
+        <note category="german">Hinterhältigkeit</note>
+      </notes>
+      <segment>
+        <source>Hinterhältigkeit</source>
+        <target>Treachery</target>
+      </segment>
+    </unit>
+    <unit id="PgyVB.w" name="5b80459">
+      <notes>
+        <note category="german">Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</note>
+      </notes>
+      <segment>
+        <source>Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</source>
+        <target>The number of possible Manipulator actions is increased from 2 to 4.</target>
+      </segment>
+    </unit>
+    <unit id="SJBxB2t" name="d8fa451">
+      <notes>
+        <note category="german">Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</note>
+      </notes>
+      <segment>
+        <source>Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</source>
+        <target>When this is activated, this new power means you will no longer be affected by Status Thirst, Infection or Addiction during the next attack (only lasts for one night).</target>
+      </segment>
+    </unit>
+    <unit id="YOrcnrc" name="Süße Rache">
+      <notes>
+        <note category="german">Süße Rache</note>
+      </notes>
+      <segment>
+        <source>Süße Rache</source>
+        <target>Sweet Revenge</target>
+      </segment>
+    </unit>
+    <unit id="_lMBtWk" name="1db7767">
+      <notes>
+        <note category="german">Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</note>
+      </notes>
+      <segment>
+        <source>Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</source>
+        <target>If you are shunned on day 3 or later, you will automatically receive 2 vials of poison with which to exact your revenge... Yeah, they'd better not **** with you now!</target>
+      </segment>
+    </unit>
+    <unit id="teacwpj" name="Proficamper">
+      <notes>
+        <note category="german">Proficamper</note>
+      </notes>
+      <segment>
+        <source>Proficamper</source>
+        <target>Pro Camper</target>
+      </segment>
+    </unit>
+    <unit id="rcmlJ6d" name="ff04338">
+      <notes>
+        <note category="german">Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</note>
+      </notes>
+      <segment>
+        <source>Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</source>
+        <target>Penalties incurred by repeated camping in the World Beyond are reduced for you: therefore you can camp more often during your time in a town.</target>
+      </segment>
+    </unit>
+    <unit id="0i6IkRd" name="Erfahrener Junkie">
+      <notes>
+        <note category="german">Erfahrener Junkie</note>
+      </notes>
+      <segment>
+        <source>Erfahrener Junkie</source>
+        <target>Preventative Medicine</target>
+      </segment>
+    </unit>
+    <unit id="xQGVw2P" name="Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</source>
+        <target>You start out in every town with a sachet of Paracetoid 7g in your rucksack.</target>
+      </segment>
+    </unit>
+    <unit id="Byr6aKi" name="Bürgermeister">
+      <notes>
+        <note category="german">Bürgermeister</note>
+      </notes>
+      <segment>
+        <source>Bürgermeister</source>
+        <target>Mayor</target>
+      </segment>
+    </unit>
+    <unit id="Bkj9zxa" name="b5e7d08">
+      <notes>
+        <note category="german">Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</note>
+      </notes>
+      <segment>
+        <source>Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</source>
+        <target>You can create private towns by simply clicking "Play", when you are dead.</target>
+      </segment>
+    </unit>
+    <unit id="59iDY2T" name="Architekt">
+      <notes>
+        <note category="german">Architekt</note>
+      </notes>
+      <segment>
+        <source>Architekt</source>
+        <target>Architect</target>
+      </segment>
+    </unit>
+    <unit id="70rMMrW" name="Du beginnst jede Stadt mit einem Gebäudeplan.">
+      <notes>
+        <note category="german">Du beginnst jede Stadt mit einem Gebäudeplan.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede Stadt mit einem Gebäudeplan.</source>
+        <target>You begin every town with a Construction Blueprint (common).</target>
+      </segment>
+    </unit>
+    <unit id="I7tDV2L" name="Profiwächter">
+      <notes>
+        <note category="german">Profiwächter</note>
+      </notes>
+      <segment>
+        <source>Profiwächter</source>
+        <target>Pro-Watchman</target>
+      </segment>
+    </unit>
+    <unit id="G12Hlud" name="Du hast permanent um 5% bessere Chancen auf der Nachtwache.">
+      <notes>
+        <note category="german">Du hast permanent um 5% bessere Chancen auf der Nachtwache.</note>
+      </notes>
+      <segment>
+        <source>Du hast permanent um 5% bessere Chancen auf der Nachtwache.</source>
+        <target>You always have 5% better chances at Night Watch.</target>
+      </segment>
+    </unit>
+    <unit id="HYbv76Z" name="32aff0d">
+      <notes>
+        <note category="german">Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</source>
+        <target>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</target>
+      </segment>
+    </unit>
+    <unit id="QSPR33z" name="a72b313">
+      <notes>
+        <note category="german">Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</note>
+      </notes>
+      <segment>
+        <source>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</source>
+        <target>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</target>
+      </segment>
+    </unit>
+    <unit id="8xTkhGN" name="3ccf312">
+      <notes>
+        <note category="german">Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
+        <target>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</target>
+      </segment>
+    </unit>
+    <unit id="v432R4L" name="Du hast bisher:">
+      <notes>
+        <note category="german">Du hast bisher:</note>
+      </notes>
+      <segment>
+        <source>Du hast bisher:</source>
+        <target>You have amassed :</target>
+      </segment>
+    </unit>
+    <unit id="4dxmR7l" name="%days% Tage">
+      <notes>
+        <note category="german">%days% Tage</note>
+      </notes>
+      <segment>
+        <source>%days% Tage</source>
+        <target>%days% Days</target>
+      </segment>
+    </unit>
+    <unit id="8mlXwLP" name="im Heldenmodus gespielt">
+      <notes>
+        <note category="german">im Heldenmodus gespielt</note>
+      </notes>
+      <segment>
+        <source>im Heldenmodus gespielt</source>
+        <target>of Hero mode</target>
+      </segment>
+    </unit>
+    <unit id="pV4nX2l" name="Fähigkeit">
+      <notes>
+        <note category="german">Fähigkeit</note>
+      </notes>
+      <segment>
+        <source>Fähigkeit</source>
+        <target>Skill</target>
+      </segment>
+    </unit>
+    <unit id="6SYvAH3" name="Beschreibung">
+      <notes>
+        <note category="german">Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Beschreibung</source>
+        <target>Description</target>
+      </segment>
+    </unit>
+    <unit id="1jWc_b3" name="Nächste:">
+      <notes>
+        <note category="german">Nächste:</note>
+      </notes>
+      <segment>
+        <source>Nächste:</source>
+        <target>Next :</target>
+      </segment>
+    </unit>
+    <unit id="luCuBtM" name="Diese Fähigkeit wurde noch nicht freigeschaltet...">
+      <notes>
+        <note category="german">Diese Fähigkeit wurde noch nicht freigeschaltet...</note>
+      </notes>
+      <segment>
+        <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
+        <target>Skill not unlocked...</target>
+      </segment>
+    </unit>
+    <unit id="MTYSMU0" name="Letzter freigeschalteter Heldenvorteil:">
+      <notes>
+        <note category="german">Letzter freigeschalteter Heldenvorteil:</note>
+      </notes>
+      <segment>
+        <source>Letzter freigeschalteter Heldenvorteil:</source>
+        <target>Last power earned :</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <notes>
+        <note category="german">Niemand</note>
+      </notes>
+      <segment>
+        <source>Niemand</source>
+        <target>None</target>
+      </segment>
+    </unit>
+    <unit id="oeIpxYX" name="Alle freigeschalteten Vorteile anzeigen">
+      <notes>
+        <note category="german">Alle freigeschalteten Vorteile anzeigen</note>
+      </notes>
+      <segment>
+        <source>Alle freigeschalteten Vorteile anzeigen</source>
+        <target>Show the advantages I've earned</target>
       </segment>
     </unit>
   </file>

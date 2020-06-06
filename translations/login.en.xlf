@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>E-Mail Adresse</source>
-        <target>E-mail address</target>
+        <target>E-Mail address</target>
       </segment>
     </unit>
     <unit id="QNpwRBL" name="wiederholen">
@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>Abbrechen</source>
-        <target>Abort</target>
+        <target>Cancel</target>
       </segment>
     </unit>
     <unit id="yr3nj09" name="Dieses Konto wartet bereits auf eine Passwortzurücksetzung.">

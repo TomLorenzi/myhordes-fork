@@ -7795,7 +7795,7 @@
     </unit>
     <unit id="NEVAuft" name="0671c26">
       <notes>
-        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
+        <note category="german">Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</note>
       </notes>
       <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
@@ -7804,11 +7804,47 @@
     </unit>
     <unit id="hkUU8xN" name="ebaac76">
       <notes>
-        <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
+        <note category="german">&lt;t-stat-up-addict&gt;Bad news! You are now hooked! From now on, you must take at least one drug per day... or DIE!&lt;/t-stat-up-addict&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
         <target><![CDATA[<t-stat-up-addict>Bad news! You are now hooked! From now on, you must take at least one drug per day... or DIE!</t-stat-up-addict>]]></target>
+      </segment>
+    </unit>
+    <unit id="CW6G1J5" name="5e04d7b">
+      <notes>
+        <note category="german">Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
+        <target>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</target>
+      </segment>
+    </unit>
+    <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
+      <notes>
+        <note category="german">Abdruck vom Flaschenöffner</note>
+      </notes>
+      <segment>
+        <source>Abdruck vom Flaschenöffner</source>
+        <target>Abdruck vom Flaschenöffner</target>
+      </segment>
+    </unit>
+    <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
+      <notes>
+        <note category="german">Kamera aus Vorkriegs-Tagen</note>
+      </notes>
+      <segment>
+        <source>Kamera aus Vorkriegs-Tagen</source>
+        <target>Kamera aus Vorkriegs-Tagen</target>
+      </segment>
+    </unit>
+    <unit id="rUsoPlx" name="efd6bf9">
+      <notes>
+        <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
+      </notes>
+      <segment>
+        <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
+        <target>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</target>
       </segment>
     </unit>
   </file>

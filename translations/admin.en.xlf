@@ -741,7 +741,7 @@
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
-        <note category="german">Future</note>
+        <note category="german">Updates</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -777,7 +777,7 @@
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
       <notes>
-        <note category="german">Auszeichnungen</note>
+        <note category="german">Distinctions</note>
       </notes>
       <segment>
         <source>Auszeichnungen</source>
