@@ -750,7 +750,7 @@
     </unit>
     <unit id="h7YL9VW" name="Städte">
       <notes>
-        <note category="german">Städte</note>
+        <note category="german">Towns</note>
       </notes>
       <segment>
         <source>Städte</source>
@@ -759,7 +759,7 @@
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
-        <note category="german">Zukunft</note>
+        <note category="german">Updates</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -768,7 +768,7 @@
     </unit>
     <unit id="q8r8gtq" name="Titel">
       <notes>
-        <note category="german">Titel</note>
+        <note category="german">Title</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -786,7 +786,7 @@
     </unit>
     <unit id="gvEcbOu" name="Neue Update">
       <notes>
-        <note category="german">Neue Update</note>
+        <note category="german">New Update</note>
       </notes>
       <segment>
         <source>Neue Update</source>
@@ -795,11 +795,119 @@
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
       <notes>
-        <note category="german">Auszeichnungen</note>
+        <note category="german">Distinctions</note>
       </notes>
       <segment>
         <source>Auszeichnungen</source>
         <target>Distinctions</target>
+      </segment>
+    </unit>
+    <unit id="Sq.PLVK" name="Ruinenscanner">
+      <notes>
+        <note category="german">Ruinenscanner</note>
+      </notes>
+      <segment>
+        <source>Ruinenscanner</source>
+        <target>Infos sur les ruines</target>
+      </segment>
+    </unit>
+    <unit id="bQMa8Q2" name="Position">
+      <notes>
+        <note category="german">Position</note>
+      </notes>
+      <segment>
+        <source>Position</source>
+        <target>Position</target>
+      </segment>
+    </unit>
+    <unit id="_ZJhoqB" name="Distanz">
+      <notes>
+        <note category="german">Distanz</note>
+      </notes>
+      <segment>
+        <source>Distanz</source>
+        <target>Distance</target>
+      </segment>
+    </unit>
+    <unit id="8N0dl_g" name="Zombies">
+      <notes>
+        <note category="german">Zombies</note>
+      </notes>
+      <segment>
+        <source>Zombies</source>
+        <target>Zombies</target>
+      </segment>
+    </unit>
+    <unit id="QIZzCEw" name="Abdruck">
+      <notes>
+        <note category="german">Abdruck</note>
+      </notes>
+      <segment>
+        <source>Abdruck</source>
+        <target>Abdruck</target>
+      </segment>
+    </unit>
+    <unit id="H716AMr" name="Schlüssel">
+      <notes>
+        <note category="german">Schlüssel</note>
+      </notes>
+      <segment>
+        <source>Schlüssel</source>
+        <target>Schlüssel</target>
+      </segment>
+    </unit>
+    <unit id="Q2ZDp94" name="Durchsucht">
+      <notes>
+        <note category="german">Durchsucht</note>
+      </notes>
+      <segment>
+        <source>Durchsucht</source>
+        <target>Durchsucht</target>
+      </segment>
+    </unit>
+    <unit id="VxMRN_s" name="Aktuelle Sitzung">
+      <notes>
+        <note category="german">Aktuelle Sitzung</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Sitzung</source>
+        <target>Aktuelle Sitzung</target>
+      </segment>
+    </unit>
+    <unit id="ajNZZUO" name="Flucht">
+      <notes>
+        <note category="german">Flucht</note>
+      </notes>
+      <segment>
+        <source>Flucht</source>
+        <target>Flucht</target>
+      </segment>
+    </unit>
+    <unit id="0vxeWOf" name="Raum">
+      <notes>
+        <note category="german">Raum</note>
+      </notes>
+      <segment>
+        <source>Raum</source>
+        <target>Raum</target>
+      </segment>
+    </unit>
+    <unit id="dPJJMfT" name="Zeit">
+      <notes>
+        <note category="german">Zeit</note>
+      </notes>
+      <segment>
+        <source>Zeit</source>
+        <target>Zeit</target>
+      </segment>
+    </unit>
+    <unit id="ILol6i6" name="Alle Sitzungen">
+      <notes>
+        <note category="german">Alle Sitzungen</note>
+      </notes>
+      <segment>
+        <source>Alle Sitzungen</source>
+        <target>Alle Sitzungen</target>
       </segment>
     </unit>
   </file>
