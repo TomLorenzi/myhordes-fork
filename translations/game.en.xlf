@@ -748,7 +748,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
-        <target>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</target>
+        <target>You have been shunned and can therefore neither open nor close the Town's gates.</target>
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</source>
-        <target>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</target>
+        <target>Complaints can lead to your exile or even execution. Maybe you should improve the relationship between yourself and the rest of the Town ...</target>
       </segment>
     </unit>
     <unit id="2zVOnFs" name="14e2896">
@@ -1190,7 +1190,7 @@
       </notes>
       <segment>
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
-        <target>Pour améliorer votre maison, la ville a besoin du chantier suivant :</target>
+        <target>To upgarde your home, the Town need the following construction :</target>
       </segment>
     </unit>
     <unit id="N6UlT0G" name="Für diesen Ausbau benötigst du folgende Gegenstände:">
@@ -1200,7 +1200,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau benötigst du folgende Gegenstände:</source>
-        <target>Cette amélioration nécessite les ressources suivantes :</target>
+        <target>This upgrade require the following ressources :</target>
       </segment>
     </unit>
     <unit id="1XZ6TGN" name="Für diesen Ausbau werden keine Gegenstände benötigt.">
@@ -1743,7 +1743,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target> This is a complete list of everything currently stored in the Bank. These objects are the fruit of the citizens' hard work. These objects are mainly used for the construction of community buildings and to defend the town during the attack of the zombie horde.</target>
+        <target>This is a complete list of everything currently stored in the Bank. These objects are the fruit of the citizens' hard work. These objects are mainly used for the construction of community buildings and to defend the town during the attack of the zombie horde.</target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
@@ -1763,7 +1763,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target> This area allows you to participate in the construction of new buildings. Start by collecting materials in the desert (wood, metal...), then use your Action Points (AP) to help construct whichever building you choose.</target>
+        <target>This area allows you to participate in the construction of new buildings. Start by collecting materials in the desert (wood, metal...), then use your Action Points (AP) to help construct whichever building you choose.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -2166,7 +2166,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In die Stadt zurückkehren</source>
-        <target>Se téléporter en ville</target>
+        <target>Teleport to Town</target>
       </segment>
     </unit>
     <unit id="Dc6dT95" name="a2885f4">
@@ -2216,7 +2216,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zone freiräumen</source>
-        <target>Déblayer la zone</target>
+        <target>Clear the Zone</target>
       </segment>
     </unit>
     <unit id="ftAsu0Q" name="Müll durchwühlen">
@@ -2382,7 +2382,10 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>These are used to move around the World Beyond, the desert which surrounds the town...</target>
+        <target>For many actions, such as exploring the outside world or working on a construction site, 
+                    you need action points. Your action points are replenished every night after the attack. 
+                    You can also refill them by using certain items and once a day by 
+                    eating and drinking</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2430,7 +2433,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Les citoyens ont décidé de vous exclure de la communauté. Certains actions net sont désormais plus disponibles pour vous.</target>
+        <target>Citizens dicided to shun you from the community. Some actions aren't available for you anymore.</target>
       </segment>
     </unit>
     <unit id="Qc.QL70" name="a2b0db7">
@@ -2558,7 +2561,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Umsichtiger Camper</source>
-        <target>Umsichtiger Camper</target>
+        <target>Learned Camper</target>
       </segment>
     </unit>
     <unit id="LoyMaAF" name="Immunisiert">
@@ -2598,7 +2601,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Angststarre</source>
-        <target>Terrified</target>
+        <target>Terrorised</target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2628,7 +2631,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Rauschzustand</source>
-        <target>Rauschzustand</target>
+        <target>Drugged</target>
       </segment>
     </unit>
     <unit id="eIBDvhn" name="Drogenabhängig">
@@ -2648,7 +2651,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Infektion</source>
-        <target>General Infection</target>
+        <target>Infection</target>
       </segment>
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
@@ -2768,7 +2771,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Albi Supermarkt</source>
-        <target>Albi Supermarkt</target>
+        <target>Scottish Smith's Superstore</target>
       </segment>
     </unit>
     <unit id="z79LmBi" name="Alte Höhle">
@@ -2808,7 +2811,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Alter Rangierbahnhof</source>
-        <target>Gare de triage désertée</target>
+        <target>Deserted Freight Yard</target>
       </segment>
     </unit>
     <unit id="gjzBe3w" name="Altes Feldkrankenhaus">
@@ -2898,7 +2901,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Baumarkt</source>
-        <target>Baumarkt</target>
+        <target>Home Depot</target>
       </segment>
     </unit>
     <unit id="ejtguBI" name="Baustellencontainer">
@@ -3058,7 +3061,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jahrmarktstand</source>
-        <target>Stand de fête foraine</target>
+        <target>Fairground Stall</target>
       </segment>
     </unit>
     <unit id="xBqXQ3h" name="Kleines Haus">
@@ -3068,7 +3071,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kleines Haus</source>
-        <target>Kleines Haus</target>
+        <target>Small House</target>
       </segment>
     </unit>
     <unit id="HaU4ESp" name="Kleinwasserkraftwerk">
@@ -3078,7 +3081,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kleinwasserkraftwerk</source>
-        <target>Kleinwasserkraftwerk</target>
+        <target>Water Processing Plant</target>
       </segment>
     </unit>
     <unit id="Dm49uOY" name="Kosmetiklabor">
@@ -3148,7 +3151,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Militärischer Wachposten</source>
-        <target>Militärischer Wachposten</target>
+        <target>Army Outpost</target>
       </segment>
     </unit>
     <unit id="zNUF7cP" name="Postfiliale">
@@ -3168,7 +3171,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Räuberhöhle</source>
-        <target>Caverne de voleurs</target>
+        <target>Once-inhabited Cave</target>
       </segment>
     </unit>
     <unit id="BoMLh_D" name="Schützengraben">
@@ -3208,7 +3211,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Truck 'Rathaus auf Rädern'</source>
-        <target>Truck 'Rathaus auf Rädern'</target>
+        <target>The 'Mayor-Mobile'</target>
       </segment>
     </unit>
     <unit id="OHLvvVZ" name="Umgekippter Laster">
@@ -3238,7 +3241,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verfallenes Bürogebäude</source>
-        <target>Verfallenes Bürogebäude</target>
+        <target>Dilapidated Building</target>
       </segment>
     </unit>
     <unit id="mAr1mWV" name="Verfallene Villa">
@@ -3268,7 +3271,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verlassener Brunnen</source>
-        <target>Verlassener Brunnen</target>
+        <target>Abandonned Well</target>
       </segment>
     </unit>
     <unit id="c9WjvSB" name="Verlassene Silos">
@@ -3318,7 +3321,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Warenlager</source>
-        <target>Warenlager</target>
+        <target>Warehouse</target>
       </segment>
     </unit>
     <unit id="bQ1Prey" name="Zelt eines Bürgers">
@@ -3468,7 +3471,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verrat! %citizen% ist gestorben: %cod%.</source>
-        <target>Verrat! %citizen% ist gestorben: %cod%.</target>
+        <target>Treason! %citizen% has died: %cod%.</target>
       </segment>
     </unit>
     <unit id="EWgulaj" name="98f1530">
@@ -3508,7 +3511,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% est entré dans la ville depuis %direction%.</target>
+        <target>%citizen% has entered the town from %direction%.</target>
       </segment>
     </unit>
     <unit id="PFgh04I" name="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
@@ -3628,7 +3631,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
-        <target>%num% Zombies sind durch unsere Verteidigung gebrochen!</target>
+        <target>%num% Zombies have broken through our defences!</target>
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -3638,7 +3641,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nicht ein Zombie hat die Stadt betreten!</source>
-        <target>Aucun Zombie n'a pu rentrer en ville !</target>
+        <target>No Zombie was able to enter the Town !</target>
       </segment>
     </unit>
     <unit id="qdFcLMD" name="%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.">

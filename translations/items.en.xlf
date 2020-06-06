@@ -3408,7 +3408,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</source>
-        <target>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</target>
+        <target>You poured a {items_consume} into your {item_from} and received {item_to}!</target>
       </segment>
     </unit>
     <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
@@ -3488,7 +3488,7 @@
       </notes>
       <segment>
         <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</target>
+        <target>You have opened the {item}, you have found the: {items_spawn} inside.</target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -3558,7 +3558,7 @@
       </notes>
       <segment>
         <source>Zum Glück sind hier keine Zombies...</source>
-        <target>Zum Glück sind hier keine Zombies...</target>
+        <target>There are no zombies here...</target>
       </segment>
     </unit>
     <unit id="3Kj2SRD" name="Lesen">
@@ -4058,7 +4058,7 @@
       </notes>
       <segment>
         <source>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</source>
-        <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
+        <target>Summoning up all your strength and will, you faced the World Beyond, saved {citizen} and returned unscathed!</target>
       </segment>
     </unit>
     <unit id="vgypnNf" name="%action%: %item%">

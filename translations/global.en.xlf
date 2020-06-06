@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+        <target><![CDATA[Without these, you cannot use external apps. To set an external ID, go into your Soul > Settings and generate an ID.]]></target>
       </segment>
     </unit>
     <unit id="SddpDzy" name="Verzeichnis">
@@ -809,7 +809,7 @@
       </notes>
       <segment>
         <source>Meldungen</source>
-        <target>Meldungen</target>
+        <target>Reports</target>
       </segment>
     </unit>
     <unit id="qyBuyhw" name="Du wurdest aus dem Forum verbannt.">
@@ -908,7 +908,7 @@
       </notes>
       <segment>
         <source>Archivieren</source>
-        <target>Archivieren</target>
+        <target>Archive</target>
       </segment>
     </unit>
     <unit id="_J8vap3" name="Fett">
@@ -1115,7 +1115,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
-        <target>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</target>
+        <target>This thread contains %count% official announcement(s) from MyHordes Administrators :</target>
       </segment>
     </unit>
     <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
@@ -1124,7 +1124,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
-        <target>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</target>
+        <target>This thread contains %count% Aannouncements from community representatives:</target>
       </segment>
     </unit>
     <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
@@ -1133,7 +1133,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
-        <target>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</target>
+        <target>This thread contains announcements from MyHordes Administrators.</target>
       </segment>
     </unit>
     <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
@@ -1142,7 +1142,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
-        <target>Dieses Thema enthält Ansagen von Community-Vertretern.</target>
+        <target>This thread contains announcements from community representatives.</target>
       </segment>
     </unit>
   </file>
