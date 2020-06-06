@@ -9146,7 +9146,7 @@
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+        <target>Vous aussi, vous pouvez défendre la ville ce soir! Rejoignez les Veilleurs! Voulez-vous rejoindre les citoyens les plus suicid... euh ... courageux? Eh bien, n'attendez plus:</target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
@@ -11622,6 +11622,114 @@
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
         <target>%citizen% s'est débarrassé du corps de † %disposed% "en l'arrosant d'eau".</target>
+      </segment>
+    </unit>
+    <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
+      <notes>
+        <note category="german">Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</note>
+      </notes>
+      <segment>
+        <source>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</source>
+        <target>Vous prenez une empreinte de la serrure de cette porte et obtenez %item% !</target>
+      </segment>
+    </unit>
+    <unit id="Rc83IVi" name="Mithilfe des %item% hast du die Tür aufgeschlossen!">
+      <notes>
+        <note category="german">Mithilfe des %item% hast du die Tür aufgeschlossen!</note>
+      </notes>
+      <segment>
+        <source>Mithilfe des %item% hast du die Tür aufgeschlossen!</source>
+        <target>Avec %item%, vous avez déverrouillé la porte !</target>
+      </segment>
+    </unit>
+    <unit id="EaUf6Ab" name="%z% Zombies blockieren den Weg!">
+      <notes>
+        <note category="german">%z% Zombies blockieren den Weg!</note>
+      </notes>
+      <segment>
+        <source>%z% Zombies blockieren den Weg!</source>
+        <target>%z% zombies bloquent le chemin !</target>
+      </segment>
+    </unit>
+    <unit id="M1qRyRo" name="75469b8">
+      <notes>
+        <note category="german">Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</note>
+      </notes>
+      <segment>
+        <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</source>
+        <target>Vous avez été surpris et êtes maintenant entouré de zombies ! Vous pouvez vous échapper, mais vous utiliserez de l'oxygène supplémentaire...</target>
+      </segment>
+    </unit>
+    <unit id="RZlip1S" name="Flüchten">
+      <notes>
+        <note category="german">Flüchten</note>
+      </notes>
+      <segment>
+        <source>Flüchten</source>
+        <target>S'enfuir</target>
+      </segment>
+    </unit>
+    <unit id="_KlLZBG" name="Gebäude verlassen">
+      <notes>
+        <note category="german">Gebäude verlassen</note>
+      </notes>
+      <segment>
+        <source>Gebäude verlassen</source>
+        <target>Quitter le bâtiment</target>
+      </segment>
+    </unit>
+    <unit id="OqMz83X" name="Raum durchsuchen">
+      <notes>
+        <note category="german">Raum durchsuchen</note>
+      </notes>
+      <segment>
+        <source>Raum durchsuchen</source>
+        <target>Chercher dans la pièce</target>
+      </segment>
+    </unit>
+    <unit id="LcBC2EZ" name="Raum verlassen">
+      <notes>
+        <note category="german">Raum verlassen</note>
+      </notes>
+      <segment>
+        <source>Raum verlassen</source>
+        <target>Quitter la pièce</target>
+      </segment>
+    </unit>
+    <unit id="LXYdYwf" name="Raum betreten">
+      <notes>
+        <note category="german">Raum betreten</note>
+      </notes>
+      <segment>
+        <source>Raum betreten</source>
+        <target>Entrer dans la pièce</target>
+      </segment>
+    </unit>
+    <unit id="nnL4vYm" name="Abdruck nehmen">
+      <notes>
+        <note category="german">Abdruck nehmen</note>
+      </notes>
+      <segment>
+        <source>Abdruck nehmen</source>
+        <target>Prendre une empreinte</target>
+      </segment>
+    </unit>
+    <unit id="gi1cmP_" name="Tür aufschließen">
+      <notes>
+        <note category="german">Tür aufschließen</note>
+      </notes>
+      <segment>
+        <source>Tür aufschließen</source>
+        <target>Déverrouiller la porte</target>
+      </segment>
+    </unit>
+    <unit id="ZcFLHOU" name="Sauerstoff">
+      <notes>
+        <note category="german">Sauerstoff</note>
+      </notes>
+      <segment>
+        <source>Sauerstoff</source>
+        <target>Oxygène</target>
       </segment>
     </unit>
   </file>
