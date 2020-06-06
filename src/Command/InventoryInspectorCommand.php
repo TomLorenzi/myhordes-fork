@@ -66,6 +66,11 @@ class InventoryInspectorCommand extends Command
             $output->writeln("<comment>floor</comment> " .
                 "for zone <info>'{$inventory->getZone()->getX()}/{$inventory->getZone()->getY()}' ({$inventory->getZone()->getId()})</info> " .
                 "in town <info>'{$inventory->getZone()->getTown()->getName()}' ({$inventory->getZone()->getTown()->getId()})</info>.\n");
+        if ($inventory->getRuinZone())
+            $output->writeln("<comment>ruin floor</comment> " .
+                "at <info>'{$inventory->getRuinZone()->getX()}/{$inventory->getRuinZone()->getY()}' ({$inventory->getRuinZone()->getId()})</info> " .
+                "for zone <info>'{$inventory->getZone()->getX()}/{$inventory->getZone()->getY()}' ({$inventory->getZone()->getId()})</info> " .
+                "in town <info>'{$inventory->getZone()->getTown()->getName()}' ({$inventory->getZone()->getTown()->getId()})</info>.\n");
 
         $output->writeln('<comment>Inventory content</comment>');
         $table = new Table( $output );

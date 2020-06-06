@@ -52,7 +52,7 @@
             <button x-ajax-href="{{ path('town_planner') }}"><img alt="" src="{{ asset('build/images/item/item_bagxl.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>
         </div>
         <div class="padded cell rw-6 rw-md-12">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos, 'is_shaman': is_shaman} %}
+            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'chaos': chaos, 'is_shaman': is_shaman, 'map': map_data} %}
             {% endembed %}
         </div>
     </div>
@@ -68,7 +68,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/map.js.twig" %}{% endembed %};
+        {% embed "scripts/map.js.twig" with {'map': map_data} %}{% endembed %};
         {% embed "scripts/log.js.twig" %}{% endembed %}
 
         const handleDoor = function(element, action) {

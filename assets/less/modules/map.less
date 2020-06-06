@@ -96,7 +96,7 @@ div.map_area {
     }
     &>.zone-plane-controls {
       top: 0; left: 0; width: 100%; height: 100%; transform: scale(1.2); z-index: 4;
-      &.hide { opacity: 0 };
+      &.hide { opacity: 0; pointer-events: none };
       &>.action-move,&>.marker-direction, &>.scout-sense, &>.scavenger-sense {
         position: absolute; z-index: 4; cursor: pointer;
         &.on-route { filter: hue-rotate(90deg); transform: scale(1.2); }

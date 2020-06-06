@@ -11,6 +11,7 @@ use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
 use App\Entity\PictoPrototype;
+use App\Entity\RuinZone;
 use App\Entity\Soul;
 use App\Entity\TownRankingProxy;
 use Doctrine\ORM\EntityManagerInterface;
@@ -55,16 +56,17 @@ class DeathHandler
         if (is_int($cod)) $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef( $cod );
 
         $rucksack = $citizen->getInventory();
-        echo "Moving rucksack down\n";
+
+        $floor = ($citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest());
+        if ($citizen->activeExplorerStats()) {
+            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats());
+            $floor = $citizen->activeExplorerStats()->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor();
+        }
         foreach ($rucksack->getItems() as $item)
-            /*if ( !$this->inventory_handler->moveItem($citizen, $rucksack, $item, $citizen->getZone() ? [$citizen->getZone()->getFloor()] : [$citizen->getHome()->getChest(), $citizen->getTown()->getBank()]) ) {
-                $this->inventory_handler->forceRemoveItem( $item, PHP_INT_MAX );
-            }*/
             // We get his rucksack and drop items into the floor or into his chest (except job item)
             if(!$item->getEssential())
-                $this->inventory_handler->forceMoveItem($citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest(), $item);
+                $this->inventory_handler->forceMoveItem($floor, $item);
 
-        echo "Deleting timers\n";
 
         foreach ($this->entity_manager->getRepository(DigTimer::class)->findAllByCitizen($citizen) as $dt)
             $remove[] = $dt;
@@ -72,13 +74,11 @@ class DeathHandler
             $remove[] = $et;
         $citizen->getStatus()->clear();
 
-        echo "Deleting escort\n";
         if ($citizen->getEscortSettings()) {
             $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);
         }
 
-        echo "processing death\n";
         $died_outside = $citizen->getZone() !== null;
         if (!$died_outside) {
             $zone = null;
@@ -106,21 +106,18 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        echo "Adding death to gazette\n";
         $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($citizen->getTown(), ($citizen->getTown()->getDay() + ($cod->getId() == CauseOfDeath::NightlyAttack ? 0 : 1)));
         if($gazette !== null){
             $gazette->addVictim($citizen);
             $this->entity_manager->persist($gazette);
         }
 
-        echo "Giving soulpoint\n";
         // Give soul point
         $days = $citizen->getSurvivedDays();
         $nbSoulPoints = $days * ( $days + 1 ) / 2;
 
         $citizen->getUser()->addSoulPoints($nbSoulPoints);
 
-        echo "Giving pictos\n";
         // Add pictos
         if ($citizen->getSurvivedDays()) {
             // Job picto
@@ -210,21 +207,17 @@ class DeathHandler
 
         $this->picto_handler->give_validated_picto($citizen, "r_ptame_#00", $this->citizen_handler->getSoulpoints($citizen));
 
-        echo "Validating pictos\n";
-
         // Now that we are dead, we set persisted = 1 to pictos with persisted = 0
         // according to the day 5 / 8 rule
         $this->picto_handler->validate_picto($citizen);
 
         if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 
-        echo "Creating proxies\n";
         CitizenRankingProxy::fromCitizen( $citizen, true );
         TownRankingProxy::fromTown( $citizen->getTown(), true );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
 
-        echo "Spawn a soul\n";
         // If the town is not small, spawn a soul
         if($citizen->getTown()->getType()->getName() != 'small') {
             $minDistance = max(4, $citizen->getTown()->getDay());

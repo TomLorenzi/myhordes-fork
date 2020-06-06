@@ -58,7 +58,7 @@
       </notes>
       <segment>
         <source>Was für ein Spaß!</source>
-        <target>Was für ein Spaß!</target>
+        <target>What fun!</target>
       </segment>
     </unit>
     <unit id="zcpU78C" name="3649d62">
@@ -68,7 +68,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</target>
+        <target>You have drawn the... You scream as you discover your name is written on the card in blood ! You don't care who is behind this evil joke... You are now terrorised !</target>
       </segment>
     </unit>
     <unit id="NcJ93EV" name="9ae05d1">
@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>You have drawn a card... You scream as you discover your name is written on the card in blood ! You don't care who is behind this evil joke... You are now terrorised !</target>
+        <target>You draw a card ... and find that you have drawn the card with the rules of the game! This amuses you so much that you win 1AP.</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
-        <target>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</target>
+        <target>It's a sign ! It just goes to show that there is no place for morals in this world... You have won 1AP.</target>
       </segment>
     </unit>
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
@@ -98,7 +98,7 @@
       </notes>
       <segment>
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
-        <target>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</target>
+        <target>The Queen of Hearts... The symbol of love... *sigh*... You have won 1AP as compensation for your disillusionment.</target>
       </segment>
     </unit>
     <unit id="9tVy8rd" name="99bed0a">
@@ -168,7 +168,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer 1-PDTG (geladen)</source>
-        <target>Battery Launcher 1-PDTG (loaded)</target>
+        <target>Battery Launcher 1-ITF (loaded)</target>
       </segment>
     </unit>
     <unit id="qtZIobP" name="Taser">
@@ -198,7 +198,7 @@
       </notes>
       <segment>
         <source>Handmixer (geladen)</source>
-        <target>Handmixer (geladen)</target>
+        <target>Handmixer (loaded)</target>
       </segment>
     </unit>
     <unit id="gFqQVpX" name="Kettensäge (geladen)">
@@ -248,7 +248,7 @@
       </notes>
       <segment>
         <source>Großer trockener Stock</source>
-        <target>Großer trockener Stock</target>
+        <target>Staff</target>
       </segment>
     </unit>
     <unit id="DJ1c6UW" name="Jagdmesser">
@@ -258,7 +258,7 @@
       </notes>
       <segment>
         <source>Jagdmesser</source>
-        <target>Jagdmesser</target>
+        <target>Serrated Knife</target>
       </segment>
     </unit>
     <unit id="rdcUdHR" name="Machete">
@@ -368,7 +368,7 @@
       </notes>
       <segment>
         <source>Staubiges Buch</source>
-        <target>Staubiges Buch</target>
+        <target>Dusty Book</target>
       </segment>
     </unit>
     <unit id="CFknR4n" name="Matratze">
@@ -398,7 +398,7 @@
       </notes>
       <segment>
         <source>Perser</source>
-        <target>Perser</target>
+        <target>Persian Rug</target>
       </segment>
     </unit>
     <unit id="baJzgL3" name="Mini Hi-Fi Anlage (defekt)">
@@ -518,7 +518,7 @@
       </notes>
       <segment>
         <source>Großer knuddeliger Kater</source>
-        <target>Großer knuddeliger Kater</target>
+        <target>Fat Cat</target>
       </segment>
     </unit>
     <unit id="IditZFc" name="Zwei-Meter Schlange">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Vibrator (geladen)</source>
-        <target>Vibrator (charged)</target>
+        <target>Pocket Vibrator (charged)</target>
       </segment>
     </unit>
     <unit id="4S_8T7g" name="Anaboles Steroid">
@@ -668,7 +668,7 @@
       </notes>
       <segment>
         <source>Grüne Bierflasche</source>
-        <target>Grüne Bierflasche</target>
+        <target>Green Beer Bottle</target>
       </segment>
     </unit>
     <unit id="S8U3w9C" name="Kanisterpumpe (leer)">
@@ -758,7 +758,7 @@
       </notes>
       <segment>
         <source>Unvollständiger Handmixer</source>
-        <target>Unvollständiger Handmixer</target>
+        <target>Handmixer (incomplete)</target>
       </segment>
     </unit>
     <unit id="sOILTLw" name="Klebeband">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>Handmixer (ohne Strom)</source>
-        <target>Handmixer (ohne Strom)</target>
+        <target>Handmixer (no battery)</target>
       </segment>
     </unit>
     <unit id="hEtEe9i" name="Kettensäge (ohne Strom)">
@@ -1098,7 +1098,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer 1-PDTG (entladen)</source>
-        <target>Battery Launcher 1-PDTG (entladen)</target>
+        <target>Battery Launcher 1-ITF (empty)</target>
       </segment>
     </unit>
     <unit id="VjisjD7" name="Taser (ohne Strom)">
@@ -1118,7 +1118,7 @@
       </notes>
       <segment>
         <source>Elektrischer Bauchmuskeltrainer (ohne Strom)</source>
-        <target>Elektrischer Bauchmuskeltrainer (ohne Strom)</target>
+        <target>EMS System (incomplete)</target>
       </segment>
     </unit>
     <unit id="OI3OQ.V" name="Elektrischer Bauchmuskeltrainer (geladen)">
@@ -1128,7 +1128,7 @@
       </notes>
       <segment>
         <source>Elektrischer Bauchmuskeltrainer (geladen)</source>
-        <target>Elektrischer Bauchmuskeltrainer (geladen)</target>
+        <target>EMS System (charged)</target>
       </segment>
     </unit>
     <unit id="bZVhk3Y" name="Zerstörer (entladen)">
@@ -1428,7 +1428,7 @@
       </notes>
       <segment>
         <source>Gesellschaftsspiel</source>
-        <target>Gesellschaftsspiel</target>
+        <target>Box of Games</target>
       </segment>
     </unit>
     <unit id="t1E42CN" name="Aqua-Splash (zerlegt)">
@@ -1448,7 +1448,7 @@
       </notes>
       <segment>
         <source>Vibrator (entladen)</source>
-        <target>Pocket Vibrator (charged)</target>
+        <target>Pocket Vibrator (incomplete)</target>
       </segment>
     </unit>
     <unit id="PO8Wz9d" name="Knochen mit Fleisch">
@@ -2068,7 +2068,7 @@
       </notes>
       <segment>
         <source>Ätzmittel</source>
-        <target>Ätzmittel</target>
+        <target>Corrosive Liquid</target>
       </segment>
     </unit>
     <unit id="sm0ZoHJ" name="Vorräte eines umsichtigen Bürgers">
@@ -2078,7 +2078,7 @@
       </notes>
       <segment>
         <source>Vorräte eines umsichtigen Bürgers</source>
-        <target>Vorräte eines umsichtigen Bürgers</target>
+        <target>Shrewd Citizen's Stash</target>
       </segment>
     </unit>
     <unit id="vfyB7g4" name="Postpaket">
@@ -2298,7 +2298,7 @@
       </notes>
       <segment>
         <source>Dickflüssige Substanz</source>
-        <target>Thich Solution</target>
+        <target>Thick Solution</target>
       </segment>
     </unit>
     <unit id="n_Aw_Kk" name="Aasbeerenbrei">
@@ -2828,7 +2828,7 @@
       </notes>
       <segment>
         <source>Pfahlwerfer</source>
-        <target>Pfahlwerfer</target>
+        <target>Stake Launcher</target>
       </segment>
     </unit>
     <unit id="xTAAzNO" name="Kalaschni-Splash">
@@ -2848,7 +2848,7 @@
       </notes>
       <segment>
         <source>Schnellgebauter Tisch</source>
-        <target>Hastily-built desk</target>
+        <target>Hastily-built Desk</target>
       </segment>
     </unit>
     <unit id="yikN.Mw" name="Leerer Automat">
@@ -2868,7 +2868,7 @@
       </notes>
       <segment>
         <source>Santas Rentier</source>
-        <target>Santa's reindeer</target>
+        <target>Santa's Reindeer</target>
       </segment>
     </unit>
     <unit id="P24lo3J" name="Osterei">
@@ -2948,7 +2948,7 @@
       </notes>
       <segment>
         <source>Tretmine</source>
-        <target>Tretmine</target>
+        <target>Claymore Mine</target>
       </segment>
     </unit>
     <unit id="ccfd8bG" name="Laserdiode">
@@ -3198,7 +3198,7 @@
       </notes>
       <segment>
         <source>Geistiger Beistand</source>
-        <target>Geistiger Beistand</target>
+        <target>Psychadelic Spiritual Counsel</target>
       </segment>
     </unit>
     <unit id="y7Kt8H7" name="Fette Python">
@@ -3218,7 +3218,7 @@
       </notes>
       <segment>
         <source>Überraschungskiste (3 Geschenke)</source>
-        <target>Überraschungskiste (3 Geschenke)</target>
+        <target>Christmas Present (3)</target>
       </segment>
     </unit>
     <unit id="4j7NxyH" name="Überraschungskiste (2 Geschenke)">
@@ -3228,7 +3228,7 @@
       </notes>
       <segment>
         <source>Überraschungskiste (2 Geschenke)</source>
-        <target>Überraschungskiste (2 Geschenke)</target>
+        <target>Christmas Present (2)</target>
       </segment>
     </unit>
     <unit id="4MUuUVQ" name="Überraschungskiste (1 Geschenk)">
@@ -3238,7 +3238,7 @@
       </notes>
       <segment>
         <source>Überraschungskiste (1 Geschenk)</source>
-        <target>Überraschungskiste (1 Geschenk)</target>
+        <target>Christmas Present (1)</target>
       </segment>
     </unit>
     <unit id="aav5osX" name="Verdächtiger Traubensaft">
@@ -3408,7 +3408,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</source>
-        <target>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</target>
+        <target>You poured a {items_consume} into your {item_from} and received {item_to}!</target>
       </segment>
     </unit>
     <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
@@ -3438,7 +3438,7 @@
       </notes>
       <segment>
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <target>You need a tool to open this...</target>
       </segment>
     </unit>
     <unit id="ohJAffK" name="Essen">
@@ -3488,7 +3488,7 @@
       </notes>
       <segment>
         <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</target>
+        <target>You have opened the {item}, you have found the: {items_spawn} inside.</target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -3518,7 +3518,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
-        <target>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</target>
+        <target>You inserted a {items_consume} into your {item_from} and received a {item_to}!</target>
       </segment>
     </unit>
     <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
@@ -3538,7 +3538,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Hierfür brauchst du einen Kanister.</target>
+        <target>You need a Jerrycan for this.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3548,7 +3548,7 @@
       </notes>
       <segment>
         <source>Waffe einsetzen</source>
-        <target>Waffe einsetzen</target>
+        <target>Attack</target>
       </segment>
     </unit>
     <unit id="LNBNFk1" name="Zum Glück sind hier keine Zombies...">
@@ -3558,7 +3558,7 @@
       </notes>
       <segment>
         <source>Zum Glück sind hier keine Zombies...</source>
-        <target>Zum Glück sind hier keine Zombies...</target>
+        <target>There are no zombies here...</target>
       </segment>
     </unit>
     <unit id="3Kj2SRD" name="Lesen">
@@ -3578,7 +3578,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>]]></target>
+        <target><![CDATA[You examine the document closely... You find a text, seemingly entitled {rp_text}. You read it intently<t-rp_ok>! A new text has been added to your documents !</t-rp_ok><t-rp_fail>... You have already found this book, so it doesn't earn you any additional distinctions.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -3638,7 +3638,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</target>
+        <target>It vibrates, tickles and titillates you and even makes you forget all your worries for a short while. (Requires 1 battery).</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -3648,7 +3648,7 @@
       </notes>
       <segment>
         <source>Das brauchst du gerade nicht ...</source>
-        <target>Das brauchst du gerade nicht ...</target>
+        <target>You don't need that right now ...</target>
       </segment>
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
@@ -3658,7 +3658,7 @@
       </notes>
       <segment>
         <source>Aufstellen</source>
-        <target>Aufstellen</target>
+        <target>Install</target>
       </segment>
     </unit>
     <unit id="Du_7vOz" name="Verbinden">
@@ -3668,7 +3668,7 @@
       </notes>
       <segment>
         <source>Verbinden</source>
-        <target>Verbinden</target>
+        <target>Heal</target>
       </segment>
     </unit>
     <unit id="j6UDssn" name="Reinigen">
@@ -3688,7 +3688,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</source>
-        <target>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</target>
+        <target>You cleaned the contents of the {item} and received a {items_spawn}.</target>
       </segment>
     </unit>
     <unit id="MAqdFU1" name="Hierfür brauchst du eine Micropur Brausetablette.">
@@ -3698,7 +3698,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Micropur Brausetablette.</source>
-        <target>Hierfür brauchst du eine Micropur Brausetablette.</target>
+        <target>You need a Micropur Effervescent Tablet for this.</target>
       </segment>
     </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
@@ -3708,7 +3708,7 @@
       </notes>
       <segment>
         <source>In den Brunnen schütten</source>
-        <target>In den Brunnen schütten</target>
+        <target>Pour into the Well</target>
       </segment>
     </unit>
     <unit id="UbJNeAP" name="34970f4">
@@ -3718,7 +3718,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
-        <target>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</target>
+        <target>You poured the contents of the {item} in den Brunnen geschüttet. The well was replenished with {well} rations of water..</target>
       </segment>
     </unit>
     <unit id="m2_GRND" name="7d11094">
@@ -3728,7 +3728,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
-        <target>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</target>
+        <target>You poured the contents of the {item} in den Brunnen geschüttet. The well was replenished with {well} rations of water.</target>
       </segment>
     </unit>
     <unit id="T9EFRxo" name="Reparieren mit">
@@ -3748,7 +3748,7 @@
       </notes>
       <segment>
         <source>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</source>
-        <target>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</target>
+        <target>You used the {item} to fix {target}. You used {minus_ap} AP.</target>
       </segment>
     </unit>
     <unit id="B7z9gmm" name="Vergiften mit">
@@ -3758,7 +3758,7 @@
       </notes>
       <segment>
         <source>Vergiften mit</source>
-        <target>Vergiften mit</target>
+        <target>Poison with</target>
       </segment>
     </unit>
     <unit id="6wfIVGg" name="Du hast {target} mit {item} vergiftet!">
@@ -3768,7 +3768,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} vergiftet!</source>
-        <target>Du hast {target} mit {item} vergiftet!</target>
+        <target>You poisoned {target} with {item}!</target>
       </segment>
     </unit>
     <unit id="6qvzljH" name="Mithilfe des {item} hast du die Umgebung gescannt.">
@@ -3778,7 +3778,7 @@
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
-        <target>Mithilfe des {item} hast du die Umgebung gescannt.</target>
+        <target>You scanned the area using the {item}.</target>
       </segment>
     </unit>
     <unit id="2lPNuwg" name="Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.">
@@ -3788,7 +3788,7 @@
       </notes>
       <segment>
         <source>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</source>
-        <target>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</target>
+        <target>You used the {item} to uncover part of the ruin.</target>
       </segment>
     </unit>
     <unit id="ufBL9cN" name="Das kannst du nicht tun während du umzingelt bist...">
@@ -3798,7 +3798,7 @@
       </notes>
       <segment>
         <source>Das kannst du nicht tun während du umzingelt bist...</source>
-        <target>Das kannst du nicht tun während du umzingelt bist...</target>
+        <target>You can't do that while you're surrounded...</target>
       </segment>
     </unit>
     <unit id="L22kxoh" name="f3e008d">
@@ -3858,7 +3858,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du Streichhölzer...</source>
-        <target>Hierfür brauchst du Streichhölzer...</target>
+        <target>You need Matches for this...</target>
       </segment>
     </unit>
     <unit id="4Xp26aZ" name="Losschicken">
@@ -3868,7 +3868,7 @@
       </notes>
       <segment>
         <source>Losschicken</source>
-        <target>Losschicken</target>
+        <target>Send back</target>
       </segment>
     </unit>
     <unit id="l2NsvcD" name="Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.">
@@ -3878,7 +3878,7 @@
       </notes>
       <segment>
         <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
-        <target>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</target>
+        <target>You sent the {item} with your items to the Town.</target>
       </segment>
     </unit>
     <unit id="AYQyaTb" name="Dopen">
@@ -3908,7 +3908,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du ein Steroid.</source>
-        <target>Hierfür brauchst du ein Steroid.</target>
+        <target>You need a steroid for this.</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -3938,7 +3938,7 @@
       </notes>
       <segment>
         <source>Tarnen</source>
-        <target>Tarnen</target>
+        <target>Camouflage</target>
       </segment>
     </unit>
     <unit id="zSZ7bky" name="Du bist nun getarnt.">
@@ -3948,7 +3948,7 @@
       </notes>
       <segment>
         <source>Du bist nun getarnt.</source>
-        <target>Du bist nun getarnt.</target>
+        <target>You are now camouflaged.</target>
       </segment>
     </unit>
     <unit id="1Qhkwmq" name="Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.">
@@ -3958,7 +3958,7 @@
       </notes>
       <segment>
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>
-        <target>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</target>
+        <target>Extremely refreshing, and even with a slight touch of cholera.</target>
       </segment>
     </unit>
     <unit id=".jOYrxS" name="Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....">
@@ -3968,7 +3968,7 @@
       </notes>
       <segment>
         <source>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</source>
-        <target>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</target>
+        <target>Still better than what the cooks are preparing in the Town...</target>
       </segment>
     </unit>
     <unit id="Kl2AzsC" name="Du ziehst eine Karte... es ist: {color} {value}.">
@@ -3978,7 +3978,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Du ziehst eine Karte... es ist: {color} {value}.</target>
+        <target>You draw a card ... it is a: {value} of {color}.</target>
       </segment>
     </unit>
     <unit id="m5CJEyF" name="Die Rückkehr des Helden">
@@ -3998,7 +3998,7 @@
       </notes>
       <segment>
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>You are too far from the city for this ...</target>
+        <target>You are too far from the Town for this ...</target>
       </segment>
     </unit>
     <unit id="9XqTW0w" name="Fund">
@@ -4058,7 +4058,7 @@
       </notes>
       <segment>
         <source>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</source>
-        <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
+        <target>Summoning up all your strength and will, you faced the World Beyond, saved {citizen} and returned unscathed!</target>
       </segment>
     </unit>
     <unit id="vgypnNf" name="%action%: %item%">
@@ -4128,7 +4128,7 @@
       </notes>
       <segment>
         <source>Der Batteriewerfer 1-PDTG (geladen) wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.</source>
-        <target>Der Batteriewerfer 1-PDTG (geladen) wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.</target>
+        <target>A little creative recycling of the resources at hand enables the Battery Launcher 1-ITF to use batteries as piercing projectiles.</target>
       </segment>
     </unit>
     <unit id="ngS5oQ6" name="2ba7eab">
@@ -6328,7 +6328,7 @@
       </notes>
       <segment>
         <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Some of the rooms here are a tight squeeze to say the least, so this would appear to be the perfect tool with which to gain access and get down to some serious rummaging! Unfortunately, your tool is in a wretched state and will give up after one more use.</target>
+        <target>This blank allows you to obtain a bump key, a favourite amongst up-and-coming burglars, which will allow you to open any door in a matter of seconds...</target>
       </segment>
     </unit>
     <unit id="vclIZyk" name="33638dc">
@@ -6348,7 +6348,7 @@
       </notes>
       <segment>
         <source>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</source>
-        <target>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</target>
+        <target>This extremely rare serum has been developed from the DNA of an almost immune specimen that has withstood an infectious bite for more than 3 days. It allows a ghoul to return to its normal human state.</target>
       </segment>
     </unit>
     <unit id="tea5si." name="d9a4611">
@@ -6768,7 +6768,7 @@
       </notes>
       <segment>
         <source>Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</source>
-        <target>Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</target>
+        <target>It seems that a neighbour has left a small box with your name on it in front of your house... What could be inside ?</target>
       </segment>
     </unit>
     <unit id="0NzivMi" name="4e62797">
@@ -6788,7 +6788,7 @@
       </notes>
       <segment>
         <source>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</source>
-        <target>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</target>
+        <target>A label from a bottle of something... Hang on, there's something written on the back !</target>
       </segment>
     </unit>
     <unit id="liDUE4L" name="811ca45">
@@ -6808,7 +6808,7 @@
       </notes>
       <segment>
         <source>Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</source>
-        <target>Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</target>
+        <target>Your uniform : torn, dirty and covered in splashes of God-knows-what... You should really think about washing it when you get back to the town.</target>
       </segment>
     </unit>
     <unit id="PnRAHcb" name="3c6105a">
@@ -7048,7 +7048,7 @@
       </notes>
       <segment>
         <source>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</source>
-        <target>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</target>
+        <target>A garland of an apparently ancient tradition. It is recommended to hang it up at home as a decoration, it could be good for the town's morale.</target>
       </segment>
     </unit>
     <unit id="9VFJt3E" name="9e61209">
@@ -7068,7 +7068,7 @@
       </notes>
       <segment>
         <source>Aufbauen</source>
-        <target>Aufbauen</target>
+        <target>Build up</target>
       </segment>
     </unit>
     <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
@@ -7078,7 +7078,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck erheblich verbessert.</source>
-        <target>Du hast das hiesige Versteck erheblich verbessert.</target>
+        <target>You have improved the hiding place considerably.</target>
       </segment>
     </unit>
     <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
@@ -7118,7 +7118,7 @@
       </notes>
       <segment>
         <source>Du hast Dich notdürftig versteckt.</source>
-        <target>Du hast Dich notdürftig versteckt.</target>
+        <target>You have hid yourself temporarily.</target>
       </segment>
     </unit>
     <unit id="XqeL5yu" name="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
@@ -7258,7 +7258,7 @@
       </notes>
       <segment>
         <source>Einrichtungen</source>
-        <target>Einrichtungen</target>
+        <target>Facilities</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -7298,7 +7298,7 @@
       </notes>
       <segment>
         <source>Kaputt</source>
-        <target>Kaputt</target>
+        <target>Broken</target>
       </segment>
     </unit>
     <unit id="5OR30sk" name="01df5c7">
@@ -7307,7 +7307,7 @@
       </notes>
       <segment>
         <source>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</source>
-        <target>__Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</target>
+        <target>You feel that you cannot do better in this zone since you have already done your best.</target>
       </segment>
     </unit>
     <unit id="fZlwOf2" name="Ausweiden">
@@ -7316,7 +7316,7 @@
       </notes>
       <segment>
         <source>Ausweiden</source>
-        <target>Ausweiden</target>
+        <target>Cut</target>
       </segment>
     </unit>
     <unit id="24l83Eh" name="7fe00d0">
@@ -7325,7 +7325,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</target>
+        <target>The butcher took great care of {item} ... You now have {items_spawn} erhalten. Goodbye dear friend!</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -7343,7 +7343,7 @@
       </notes>
       <segment>
         <source>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</source>
-        <target>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</target>
+        <target>You pick up the rubbish that's lying around, tidy up your few remaining possessions and generally try to make the place you call home a little less squalid...</target>
       </segment>
     </unit>
     <unit id="k1XRUwI" name="Duschen">
@@ -7352,7 +7352,7 @@
       </notes>
       <segment>
         <source>Duschen</source>
-        <target>Duschen</target>
+        <target>Take a shower</target>
       </segment>
     </unit>
     <unit id="DEHdLNl" name="a36d6fe">
@@ -7361,7 +7361,7 @@
       </notes>
       <segment>
         <source>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</source>
-        <target>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</target>
+        <target>You jump under the homemade shower without giving it a second thought. The frozen water shocks you but you stay under the weak stream of water for a few moments. In the absence of soap, you rub yourself with a smooth stone, trying to shift the mud and bloodstains. You try to persuade yourself that it feels good.</target>
       </segment>
     </unit>
     <unit id="ZM5U_5i" name="Heilen (5AP)">
@@ -7370,7 +7370,7 @@
       </notes>
       <segment>
         <source>Heilen (5AP)</source>
-        <target>Heilen (5AP)</target>
+        <target>Heal (5AP)</target>
       </segment>
     </unit>
     <unit id="8.uDazR" name="Heilen (6AP)">
@@ -7379,7 +7379,7 @@
       </notes>
       <segment>
         <source>Heilen (6AP)</source>
-        <target>Heilen (6AP)</target>
+        <target>Heal (6AP)</target>
       </segment>
     </unit>
     <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
@@ -7388,7 +7388,7 @@
       </notes>
       <segment>
         <source>Verteidigung organisieren (1 AP)</source>
-        <target>Verteidigung organisieren (1 AP)</target>
+        <target>Organize defences (1 AP)</target>
       </segment>
     </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
@@ -7397,7 +7397,7 @@
       </notes>
       <segment>
         <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
-        <target>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</target>
+        <target>You take a walk round the town to check for weaknesses and kick some dodgy-looking repairs to test their worth. The town has earned +10 temporary defence points.</target>
       </segment>
     </unit>
     <unit id="V1W3ATr" name="Nach Ruinen Ausschau halten">
@@ -7406,7 +7406,7 @@
       </notes>
       <segment>
         <source>Nach Ruinen Ausschau halten</source>
-        <target>Nach Ruinen Ausschau halten</target>
+        <target>Look for ruins</target>
       </segment>
     </unit>
     <unit id="zncq9xv" name="5a70d21">
@@ -7424,7 +7424,7 @@
       </notes>
       <segment>
         <source>Wasserwaffen füllen</source>
-        <target>Wasserwaffen füllen</target>
+        <target>Fill water weapons</target>
       </segment>
     </unit>
     <unit id="5yZkmMK" name="Ins Kino gehen">
@@ -7451,7 +7451,7 @@
       </notes>
       <segment>
         <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
-        <target>Du hast die Seele gereinigt und sie friedlich gemacht.</target>
+        <target>You have purified a lost soul. It evaporates leaving you with an aftertaste of peace and serenity...</target>
       </segment>
     </unit>
     <unit id="YTSbJ8." name="Droge herstellen">
@@ -7460,7 +7460,7 @@
       </notes>
       <segment>
         <source>Droge herstellen</source>
-        <target>Droge herstellen</target>
+        <target>Manufacture drug</target>
       </segment>
     </unit>
     <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
@@ -7478,7 +7478,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
-        <target>Hierfür brauchst du 2x Pharmazeutische Substanz...</target>
+        <target>You need 2x Pharmaceutical Products...</target>
       </segment>
     </unit>
     <unit id="z79RBPW" name="Kochen">
@@ -7517,6 +7517,12 @@
         <target>Compass</target>
       </segment>
     </unit>
+    <unit id="47DEQpj" name="">
+      <segment>
+        <source></source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="txP7Qji" name="Vodka Marinostov">
       <notes>
         <note category="german">Vodka Marinostov</note>
@@ -7532,7 +7538,7 @@
       </notes>
       <segment>
         <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
-        <target>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</target>
+        <target>A pretty violent way to overcome tiredness (and regain your action points)... 85% proof, with random, vaguely organic things floating in it. Cheers !</target>
       </segment>
     </unit>
     <unit id="QwC3IQO" name="Mystischer Trank">
@@ -7541,7 +7547,7 @@
       </notes>
       <segment>
         <source>Mystischer Trank</source>
-        <target>Mystischer Trank</target>
+        <target>Mystic Potion</target>
       </segment>
     </unit>
     <unit id="6IZOpuK" name="29848f3">
@@ -7550,7 +7556,7 @@
       </notes>
       <segment>
         <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
-        <target>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</target>
+        <target>This special batch of water, "holy water" if you will, should allow you to interact with tortured souls without fear... Hopefully...</target>
       </segment>
     </unit>
     <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
@@ -7568,7 +7574,7 @@
       </notes>
       <segment>
         <source>Nickerchen machen</source>
-        <target>Nickerchen machen</target>
+        <target>Take a nap</target>
       </segment>
     </unit>
     <unit id="bFugpqQ" name="7f96c6f">
@@ -7586,7 +7592,7 @@
       </notes>
       <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+        <target>You just drank a shamanic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
       </segment>
     </unit>
     <unit id="qpQMEHf" name="5f07d6b">
@@ -7595,7 +7601,7 @@
       </notes>
       <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
-        <target>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</target>
+        <target>The townsfolk can smell the confidence on you... As you were in fact, already protected.</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
@@ -7604,7 +7610,7 @@
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
-        <target>Angriff und Verteidigung</target>
+        <target>Attack and Defence</target>
       </segment>
     </unit>
     <unit id="s1_qYeB" name="Kreuz">
@@ -7703,7 +7709,7 @@
       </notes>
       <segment>
         <source> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
-        <target> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</target>
+        <target> When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</target>
       </segment>
     </unit>
     <unit id="UGai_eX" name="9e17f97">
@@ -7730,7 +7736,7 @@
       </notes>
       <segment>
         <source>Verteidigung organisieren</source>
-        <target>Verteidigung organisieren</target>
+        <target>Organize defence</target>
       </segment>
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
@@ -7739,7 +7745,7 @@
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
-        <target>Reinigen (Wasser)</target>
+        <target>Clean</target>
       </segment>
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
@@ -7748,16 +7754,97 @@
       </notes>
       <segment>
         <source>Reinigen (Kleidung)</source>
-        <target>Reinigen (Kleidung)</target>
+        <target>Clean</target>
       </segment>
     </unit>
     <unit id="5v3eyG." name="9caf33d">
       <notes>
-        <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
+        <note category="german">You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</note>
       </notes>
       <segment>
         <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
-        <target>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</target>
+        <target>You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</target>
+      </segment>
+    </unit>
+    <unit id="HgUvBW6" name="267bdee">
+      <notes>
+        <note category="german">Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</note>
+      </notes>
+      <segment>
+        <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
+        <target>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</target>
+      </segment>
+    </unit>
+    <unit id="OXWKuXW" name="b549796">
+      <notes>
+        <note category="german">Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
+        <target>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="68c4rQB" name="2cc9126">
+      <notes>
+        <note category="german">Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</note>
+      </notes>
+      <segment>
+        <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
+        <target><![CDATA[Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.<t-bannote_ok>Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...</t-bannote_ok><t-bannote_fail>Leider ist der Inhalt dieses Manuskripts völlig unleserlich.</t-bannote_fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="NEVAuft" name="0671c26">
+      <notes>
+        <note category="german">Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</note>
+      </notes>
+      <segment>
+        <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
+        <target>Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</target>
+      </segment>
+    </unit>
+    <unit id="hkUU8xN" name="ebaac76">
+      <notes>
+        <note category="german">&lt;t-stat-up-addict&gt;Bad news! You are now hooked! From now on, you must take at least one drug per day... or DIE!&lt;/t-stat-up-addict&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
+        <target><![CDATA[<t-stat-up-addict>Bad news! You are now hooked! From now on, you must take at least one drug per day... or DIE!</t-stat-up-addict>]]></target>
+      </segment>
+    </unit>
+    <unit id="CW6G1J5" name="5e04d7b">
+      <notes>
+        <note category="german">Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
+        <target>This hi-tech blank will allow you to open secured doored rated up to level 6.2 AOC.</target>
+      </segment>
+    </unit>
+    <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
+      <notes>
+        <note category="german">Abdruck vom Flaschenöffner</note>
+      </notes>
+      <segment>
+        <source>Abdruck vom Flaschenöffner</source>
+        <target>Bottle Opener Blank</target>
+      </segment>
+    </unit>
+    <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
+      <notes>
+        <note category="german">Kamera aus Vorkriegs-Tagen</note>
+      </notes>
+      <segment>
+        <source>Kamera aus Vorkriegs-Tagen</source>
+        <target>Pre-war camera</target>
+      </segment>
+    </unit>
+    <unit id="rUsoPlx" name="efd6bf9">
+      <notes>
+        <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
+      </notes>
+      <segment>
+        <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
+        <target>This authentic curio from the last century, or so it would appear, would have scorched many a retina in its day. Its poorly-calibrated flash could surely get you out of any desperate situations by blinding the zombies!</target>
       </segment>
     </unit>
   </file>

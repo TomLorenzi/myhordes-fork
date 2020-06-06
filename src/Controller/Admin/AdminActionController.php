@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
@@ -22,11 +23,12 @@ class AdminActionController extends AbstractController
 {
 
     protected $entity_manager;
+    protected $conf;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf)
     {
         $this->entity_manager = $em;
-
+        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array

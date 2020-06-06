@@ -21,6 +21,30 @@ class RuinZonePrototypeRepository extends ServiceEntityRepository
         parent::__construct($registry, RuinZonePrototype::class);
     }
 
+    /**
+     * @return RuinZonePrototype[]
+     */
+    public function findLocked()
+    {
+        return $this->createQueryBuilder('z')
+            ->andWhere('z.keyImprint IS NOT NULL')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @return RuinZonePrototype[]
+     */
+    public function findUnlocked()
+    {
+        return $this->createQueryBuilder('z')
+            ->andWhere('z.keyImprint IS NULL')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return RuinZonePrototype[] Returns an array of RuinZonePrototype objects
     //  */

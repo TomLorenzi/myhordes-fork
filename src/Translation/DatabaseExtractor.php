@@ -40,7 +40,8 @@ class DatabaseExtractor implements ExtractorInterface
     }
 
     private function insert(MessageCatalogue &$c, string $message, string $domain) {
-        $c->set( $message, $this->prefix . $message, $domain );
+        if (!empty($message))
+            $c->set( $message, $this->prefix . $message, $domain );
     }
 
     /**
@@ -157,6 +158,9 @@ class DatabaseExtractor implements ExtractorInterface
 
             if ($zone->getDescription())
                 $this->insert( $c, $zone->getDescription(), 'game' );
+
+            if ($zone->getExplorableDescription())
+                $this->insert( $c, $zone->getExplorableDescription(), 'game' );
         }
 
         foreach ($this->em->getRepository(ZoneTag::class)->findAll() as $zone) {

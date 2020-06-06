@@ -1,11 +1,11 @@
 <div class="map_area {% if default_show_zone %}zone-viewer-mode{% endif %}">
     <div class="map">
-        {% set cellnum = 1+map_x1-map_x0 %}
+        {% set cellnum = 1+map.map_x1-map.map_x0 %}
         {% set size = 100.0/cellnum %}
 
         <div class="scroll-plane" x-default-size="{{ cellnum*20 }}" x-current-scroll-level="{{ default_zoom }}" style="min-width: {{ cellnum*20 }}px">
             <div class="svg">
-                <svg viewBox="{{ map_x0 }} {{ map_y0 }} {{ 1+(map_x1-map_x0) }} {{ 1+(map_y1-map_y0) }}" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="{{ map.map_x0 }} {{ map.map_y0 }} {{ 1+(map.map_x1-map.map_x0) }} {{ 1+(map.map_y1-map.map_y0) }}" xmlns="http://www.w3.org/2000/svg">
                     <g x-local-id="map-marker-layer"></g>
                     <g x-local-id="map-expedition-layer">
                         <g x-local-id="map-expedition-context"></g>
@@ -14,37 +14,37 @@
                     </g>
                 </svg>
             </div>
-            {% for y in map_y1..map_y0 %}
-                {% for x in map_x0..map_x1 %}
-                    {% if zones[x] and zones[x][y] %}
-                        {% set classes = zones_classes[x][y] %}
+            {% for y in map.map_y1..map.map_y0 %}
+                {% for x in map.map_x0..map.map_x1 %}
+                    {% if map.zones[x] and map.zones[x][y] %}
+                        {% set classes = map.zones_classes[x][y] %}
                         <div class="{{ classes|join(' ') }}" style="width: {{ size }}%; padding-top: {{ size }}%" x-zone-x="{{ x }}" x-zone-y="{{ y }}">
                             {% if 'soul' in classes %}
                                 <div class="soul-area"><span></span></div>
                             {% endif %}
                                 <div class="icon"></div>
                                 <div class="overlay"></div>
-                                {% if not zones[x][y].tag is null and zones[x][y].tag.ref > 0 %}
-                                    <div class="tag tag-{{zones[x][y].tag.ref}}"></div>
+                                {% if not map.zones[x][y].tag is null and map.zones[x][y].tag.ref > 0 %}
+                                    <div class="tag tag-{{map.zones[x][y].tag.ref}}"></div>
                                 {% endif %}
-                                {% if zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateCurrent') and zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
-                                    <div class="count">{% if zones[x][y].zombies > 0 %}{{ zones[x][y].zombies }}{% endif %}</div>
+                                {% if map.zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateCurrent') and map.zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
+                                    <div class="count">{% if map.zones[x][y].zombies > 0 %}{{ map.zones[x][y].zombies }}{% endif %}</div>
                                 {% endif %}
-                                {% if in_town and zones[x][y].citizens|length != 0 and not chaos %}
+                                {% if in_town and map.zones[x][y].citizens|length != 0 and not chaos %}
                                     <div class="citizen_marker"></div>
                                 {% endif %}
                                 <div class="tooltip tooltip-map">
-                                    {% if zones[x][y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') and zones[x][y].prototype %}
+                                    {% if map.zones[x][y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') and map.zones[x][y].prototype %}
                                         <div class="row"><div class="cell rw-12 bold">
-                                            {% if zones[x][y].buryCount > 0 %}
+                                            {% if map.zones[x][y].buryCount > 0 %}
                                                 {{ 'Verschüttete Ruine'|trans({},'game') }}
                                             {% else %}
-                                                {{ zones[x][y].prototype.label|trans({}, 'game') }}
+                                                {{ map.zones[x][y].prototype.label|trans({}, 'game') }}
                                             {% endif %}
                                         </div></div>
                                     {% endif %}
                                     {% if x == 0 and y == 0 %}
-                                        <div class="row"><div class="cell rw-12 bold">{{ zones[x][y].town.name }}</div></div>
+                                        <div class="row"><div class="cell rw-12 bold">{{ map.zones[x][y].town.name }}</div></div>
                                     {% endif %}
                                     <div class="row">
                                         <div class="cell rw-6 left">{{ 'Zone'|trans({},'game') }}</div>
@@ -52,10 +52,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="cell rw-6 left">{{ 'Entfernung'|trans({},'game') }}</div>
-                                        <div class="cell rw-6 right"><div class="ap">{{ (x - pos_x)|abs + (y - pos_y)|abs }}</div></div>
+                                        <div class="cell rw-6 right"><div class="ap">{{ (x - map.pos_x)|abs + (y - map.pos_y)|abs }}</div></div>
                                     </div>
-                                    {% if in_town and zones[x][y].citizens|length != 0 %}
-                                        {% for resident in zones[x][y].citizens %}
+                                    {% if in_town and map.zones[x][y].citizens|length != 0 %}
+                                        {% for resident in map.zones[x][y].citizens %}
                                             <div class="row">
                                                 <div class="cell ro-6 rw-6 right">{{ resident.user.username }}</div>
                                             </div>
@@ -74,8 +74,7 @@
 
         <div class="routes-plane hidden">
             <div>
-                {# routes \App\Entity\ExpeditionRoute[] #}
-                {% for route in routes %}
+                {% for route in map.routes %}
                     <div class="row" x-route-id="{{ route.id }}">
                         <div class="padded cell rw-12">
                             {{ route.label }} <div class="float-right"><div class="ap">{{ route.length }}</div></div>
@@ -96,10 +95,10 @@
                     {% for plane_y in 2..-2 %}
                         {% for plane_x in -2..2 %}
                             <div class="zone-subplane{% if plane_x == 0 and plane_y == 0 %} center{% endif %}">
-                                {% if map_x0 <= pos_x + plane_x and map_x1 >= pos_x + plane_x and map_y0 <= pos_y + plane_y and map_y1 >= pos_y + plane_y %}
+                                {% if map.map_x0 <= map.pos_x + plane_x and map.map_x1 >= map.pos_x + plane_x and map.map_y0 <= map.pos_y + plane_y and map.map_y1 >= map.pos_y + plane_y %}
 
                                     {# @var current_surrounding \App\Entity\Zone #}
-                                    {% set current_surrounding = zones[pos_x + plane_x][pos_y + plane_y] %}
+                                    {% set current_surrounding = map.zones[map.pos_x + plane_x][map.pos_y + plane_y] %}
 
                                     {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
                                         {% set ruin_icon = "" %}
@@ -109,7 +108,7 @@
                                             {% set ruin_icon = current_surrounding.prototype.icon %}
                                         {% endif %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ ruin_icon ~ '.gif') }})"></div>
-                                    {% elseif (pos_x + plane_x) == 0 and (pos_y + plane_y) == 0 %}
+                                    {% elseif (map.pos_x + plane_x) == 0 and (map.pos_y + plane_y) == 0 %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/town.gif') }})"></div>
                                     {% endif %}
 
@@ -133,10 +132,10 @@
                 <div class="zone-sub-container censor-master">
                     {% for plane_y in 2..-2 %}
                         {% for plane_x in -2..2 %}
-                            <div class="zone-subplane{% if plane_x == 0 and plane_y == 0 %} center{% endif %}" x-preview-for="{{ pos_x + plane_x }},{{ pos_y + plane_y }}">
-                                {% if map_x0 <= pos_x + plane_x and map_x1 >= pos_x + plane_x and map_y0 <= pos_y + plane_y and map_y1 >= pos_y + plane_y %}
+                            <div class="zone-subplane{% if plane_x == 0 and plane_y == 0 %} center{% endif %}" x-preview-for="{{ map.pos_x + plane_x }},{{ map.pos_y + plane_y }}">
+                                {% if map.map_x0 <= map.pos_x + plane_x and map.map_x1 >= map.pos_x + plane_x and map.map_y0 <= map.pos_y + plane_y and map.map_y1 >= map.pos_y + plane_y %}
                                     {# @var current_surrounding \App\Entity\Zone #}
-                                    {% set current_surrounding = zones[pos_x + plane_x][pos_y + plane_y] %}
+                                    {% set current_surrounding = map.zones[map.pos_x + plane_x][map.pos_y + plane_y] %}
 
                                     {% if current_surrounding.discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateNone') %}
                                         <div class="censor"></div>
@@ -151,52 +150,52 @@
             </div>
 
             <div class="zone-plane-controls">
-                {% if zone.x < map_x1 %}<div class="marker-direction"></div>{% endif %}
+                {% if zone.x < map.map_x1 %}<div class="marker-direction"></div>{% endif %}
                 {% if move %}
                     {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
-                        {% if zone.x < map_x1 %}<div x-direction-x="1"  x-direction-y="0"  x-target-x="{{ zone.x + 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-east"></div>{% endif %}
-                        {% if zone.x > map_x0 %}<div x-direction-x="-1" x-direction-y="0"  x-target-x="{{ zone.x - 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-west"></div>{% endif %}
-                        {% if zone.y > map_y0 %}<div x-direction-x="0"  x-direction-y="-1" x-target-x="{{ zone.x }}" x-target-y="{{ zone.y - 1 }}" class="action-move action-move-south"></div>{% endif %}
-                        {% if zone.y < map_y1 %}<div x-direction-x="0"  x-direction-y="1"  x-target-x="{{ zone.x }}" x-target-y="{{ zone.y + 1 }}" class="action-move action-move-north"></div>{% endif %}
+                        {% if zone.x < map.map_x1 %}<div x-direction-x="1"  x-direction-y="0"  x-target-x="{{ zone.x + 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-east"></div>{% endif %}
+                        {% if zone.x > map.map_x0 %}<div x-direction-x="-1" x-direction-y="0"  x-target-x="{{ zone.x - 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-west"></div>{% endif %}
+                        {% if zone.y > map.map_y0 %}<div x-direction-x="0"  x-direction-y="-1" x-target-x="{{ zone.x }}" x-target-y="{{ zone.y - 1 }}" class="action-move action-move-south"></div>{% endif %}
+                        {% if zone.y < map.map_y1 %}<div x-direction-x="0"  x-direction-y="1"  x-target-x="{{ zone.x }}" x-target-y="{{ zone.y + 1 }}" class="action-move action-move-north"></div>{% endif %}
                     {% endif %}
                     {% if scout_sense  %}
-                        {% if zone.x < map_x1 %}<div class="scout-sense scout-sense-east">
-                            {% set sense = zones[zone.x+1][zone.y].getPersonalScoutEstimation(citizen) %}
+                        {% if zone.x < map.map_x1 %}<div class="scout-sense scout-sense-east">
+                            {% set sense = map.zones[zone.x+1][zone.y].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 14 39" xmlns="http://www.w3.org/2000/svg">
                                 <text x="7" y="24.5" text-anchor="middle" style="font: 12px 'visitor2', sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>
                             </div>{% endif %}
-                        {% if zone.x > map_x0 %}<div class="scout-sense scout-sense-west">
-                            {% set sense = zones[zone.x-1][zone.y].getPersonalScoutEstimation(citizen) %}
+                        {% if zone.x > map.map_x0 %}<div class="scout-sense scout-sense-west">
+                            {% set sense = map.zones[zone.x-1][zone.y].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 14 39" xmlns="http://www.w3.org/2000/svg">
                                 <text x="7" y="24.5" text-anchor="middle"  style="font: 12px 'visitor2', sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>
                             </div>{% endif %}
-                        {% if zone.y > map_y0 %}<div class="scout-sense scout-sense-south">
-                            {% set sense = zones[zone.x][zone.y-1].getPersonalScoutEstimation(citizen) %}
+                        {% if zone.y > map.map_y0 %}<div class="scout-sense scout-sense-south">
+                            {% set sense = map.zones[zone.x][zone.y-1].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 39 14" xmlns="http://www.w3.org/2000/svg">
                                 <text x="19.5" y="12" text-anchor="middle"  style="font: 12px 'visitor2', sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>
                             </div>{% endif %}
-                        {% if zone.y < map_y1 %}<div class="scout-sense scout-sense-north">
-                            {% set sense = zones[zone.x][zone.y+1].getPersonalScoutEstimation(citizen) %}
+                        {% if zone.y < map.map_y1 %}<div class="scout-sense scout-sense-north">
+                            {% set sense = map.zones[zone.x][zone.y+1].getPersonalScoutEstimation(citizen) %}
                             <svg viewBox="0 0 39 14" xmlns="http://www.w3.org/2000/svg">
                                 <text x="19.5" y="12" text-anchor="middle"  style="font: 12px 'visitor2', sans-serif; fill: #a0be40;">{{ sense }}</text>
                             </svg>
                             </div>{% endif %}
                     {% endif %}
                     {% if scavenger_sense %}
-                        {% if zone.x < map_x1 and (zone.x != -1 or zone.y != 0) and zones[zone.x+1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                            <div class="scavenger-sense scavenger-sense-east scavenger-sense-{% if zones[zone.x+1][zone.y].digs > 0 %}1{% else %}0{% endif %}"></div>
+                        {% if zone.x < map.map_x1 and (zone.x != -1 or zone.y != 0) and map.zones[zone.x+1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                            <div class="scavenger-sense scavenger-sense-east scavenger-sense-{% if map.zones[zone.x+1][zone.y].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
-                        {% if zone.x > map_x0 and (zone.x != 1 or zone.y != 0) and zones[zone.x-1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                            <div class="scavenger-sense scavenger-sense-west scavenger-sense-{% if zones[zone.x-1][zone.y].digs > 0 %}1{% else %}0{% endif %}"></div>
+                        {% if zone.x > map.map_x0 and (zone.x != 1 or zone.y != 0) and map.zones[zone.x-1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                            <div class="scavenger-sense scavenger-sense-west scavenger-sense-{% if map.zones[zone.x-1][zone.y].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
-                        {% if zone.y > map_y0 and (zone.x != 0 or zone.y != 1) and zones[zone.x][zone.y-1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                            <div class="scavenger-sense scavenger-sense-south scavenger-sense-{% if zones[zone.x][zone.y-1].digs > 0 %}1{% else %}0{% endif %}"></div>
+                        {% if zone.y > map.map_y0 and (zone.x != 0 or zone.y != 1) and map.zones[zone.x][zone.y-1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                            <div class="scavenger-sense scavenger-sense-south scavenger-sense-{% if map.zones[zone.x][zone.y-1].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
-                        {% if zone.y < map_y1 and (zone.x != 0 or zone.y != -1) and zones[zone.x][zone.y+1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
-                            <div class="scavenger-sense scavenger-sense-north scavenger-sense-{% if zones[zone.x][zone.y+1].digs > 0 %}1{% else %}0{% endif %}"></div>
+                        {% if zone.y < map.map_y1 and (zone.x != 0 or zone.y != -1) and map.zones[zone.x][zone.y+1].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
+                            <div class="scavenger-sense scavenger-sense-north scavenger-sense-{% if map.zones[zone.x][zone.y+1].digs > 0 %}1{% else %}0{% endif %}"></div>
                         {% endif %}
                     {% endif %}
                 {% endif %}
@@ -218,7 +217,7 @@
                     <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-minus"></i></button>
                 </div>
                 <div class="cell rw-6 right">
-                    {% if routes|length > 0 %}
+                    {% if map.routes|length > 0 %}
                         <button x-control="routes" class="small inline">{% trans from 'game' %}Routen{% endtrans %}</button>
                     {% endif %}
                     {% if allow_zone_view %}

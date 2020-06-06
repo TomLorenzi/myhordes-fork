@@ -64,10 +64,10 @@ class RuinZone
     /**
      * @ORM\Column(type="integer")
      */
-    private $zombies;
+    private $zombies = 0;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="zone", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="ruinZone", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $floor;
@@ -88,9 +88,43 @@ class RuinZone
      */
     private $digs = 0;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $distance = 0;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $locked = false;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $roomDistance = 0;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Inventory::class, inversedBy="ruinZoneRoom", cascade={"persist", "remove"})
+     */
+    private $roomFloor;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $doorPosition = 0;
+
+    /**
+     * @ORM\Column(type="integer", options={"unsigned":true})
+     */
+    private $decals = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $killedZombies = 0;
+
     public function __construct()
     {
-        $this->citizens = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -148,7 +182,7 @@ class RuinZone
         if (!array_key_exists($corridor, $check)) {
             return false;
         }
-        $bin = sprintf( "%05d", decbin( $this->corridor ));
+        $bin = sprintf( "%'05d", decbin( $this->corridor ));
         return $bin[$check[$corridor]] == 1;
     }
 
@@ -226,6 +260,90 @@ class RuinZone
     public function setDigs(int $digs): self
     {
         $this->digs = $digs;
+
+        return $this;
+    }
+
+    public function getDistance(): ?int
+    {
+        return $this->distance;
+    }
+
+    public function setDistance(int $distance): self
+    {
+        $this->distance = $distance;
+
+        return $this;
+    }
+
+    public function getLocked(): ?bool
+    {
+        return $this->locked;
+    }
+
+    public function setLocked(bool $locked): self
+    {
+        $this->locked = $locked;
+
+        return $this;
+    }
+
+    public function getRoomDistance(): ?int
+    {
+        return $this->roomDistance;
+    }
+
+    public function setRoomDistance(int $roomDistance): self
+    {
+        $this->roomDistance = $roomDistance;
+
+        return $this;
+    }
+
+    public function getRoomFloor(): ?Inventory
+    {
+        return $this->roomFloor;
+    }
+
+    public function setRoomFloor(?Inventory $roomFloor): self
+    {
+        $this->roomFloor = $roomFloor;
+
+        return $this;
+    }
+
+    public function getDoorPosition(): ?int
+    {
+        return $this->doorPosition;
+    }
+
+    public function setDoorPosition(int $doorPosition): self
+    {
+        $this->doorPosition = $doorPosition;
+
+        return $this;
+    }
+
+    public function getDecals(): ?int
+    {
+        return $this->decals;
+    }
+
+    public function setDecals(int $decals): self
+    {
+        $this->decals = $decals;
+
+        return $this;
+    }
+
+    public function getKilledZombies(): ?int
+    {
+        return $this->killedZombies;
+    }
+
+    public function setKilledZombies(int $killedZombies): self
+    {
+        $this->killedZombies = $killedZombies;
 
         return $this;
     }

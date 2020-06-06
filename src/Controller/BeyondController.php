@@ -16,6 +16,7 @@ use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
+use App\Entity\RuinExplorerStats;
 use App\Entity\ScoutVisit;
 use App\Entity\Town;
 use App\Entity\Zone;
@@ -50,7 +51,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class BeyondController extends InventoryAwareController implements BeyondInterfaceController
+class BeyondController extends InventoryAwareController implements BeyondInterfaceController, HookedInterfaceController
 {
 
     const ErrorNoReturnFromHere     = ErrorHelper::BaseBeyondErrors + 1;
@@ -80,18 +81,21 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param ActionHandler $ah
      * @param TimeKeeperService $tk
      * @param DeathHandler $dh
+     * @param PictoHandler $ph
      * @param TranslatorInterface $translator
      * @param GameFactory $gf
      * @param RandomGenerator $rg
      * @param ItemFactory $if
      * @param ZoneHandler $zh
      * @param LogTemplateHandler $lh
+     * @param ConfMaster $conf
+     * @param Packages $a
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, LogTemplateHandler $lth)
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $lth);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -99,8 +103,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     protected function deferZoneUpdate() {
+        $this->zone_handler->updateRuinZone( $this->getActiveCitizen()->getZone()->activeExplorerStats() );
         $str = $this->zone_handler->updateZone( $this->getActiveCitizen()->getZone(), null, $this->getActiveCitizen() );
         if ($str) $this->addFlash( 'notice', $str );
+    }
+
+    public function before(): bool
+    {
+        $this->deferZoneUpdate();
+        return true;
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
@@ -156,6 +167,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'citizen_hidden' => $citizen_hidden,
             'rucksack_sizes' => $rucksack_sizes,
             'escort_actions' => $escort_actions,
+            'can_explore' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() &&
+                !$this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), ['infection','terror'] ) &&
+                !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) &&
+                !$blocked && !$zone->activeExplorerStats() && !$this->getActiveCitizen()->currentExplorerStats(),
         ], $data, $this->get_map_blob()) );
     }
 
@@ -179,7 +194,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function desert(TownHandler $th): Response
     {
-        $this->deferZoneUpdate();
         $town = $this->getActiveCitizen()->getTown();
         $zone = $this->getActiveCitizen()->getZone();
 
@@ -299,16 +313,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
         }
 
-        $exploration = [];
-        $rz = $zone->getRuinZones();
-        foreach ($rz as $r) {
-            $exploration[] = [
-                'x' => $r->getX(),
-                'y' => $r->getY(),
-                'c' => $r->getCorridor(),
-            ];
-        }
-
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
@@ -337,7 +341,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
-            'exploration' => $exploration,
         ]) );
     }
 
@@ -487,8 +490,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function desert_exit_api(TownHandler $th, string $special = 'normal'): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -591,13 +592,58 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
+     * @Route("api/beyond/desert/enter", name="beyond_desert_enter_ruin_controller")
+     * @return Response
+     */
+    public function ruin_enter_api() {
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $citizen = $this->getActiveCitizen();
+
+        // Make sure the citizen is not wounded, has not already explored the ruin today and no one else is exploring
+        // the ruin right now
+        if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['infection', 'terror'] ) ||
+            $citizen->currentExplorerStats() || $citizen->getZone()->activeExplorerStats())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        // Block exploring if the zone is controlled by zombies
+        if (!$this->zone_handler->check_cp( $citizen->getZone() ))
+            return AjaxResponse::error( self::ErrorZoneBlocked );
+
+        // Make sure the citizen has enough AP
+        if ($this->citizen_handler->isTired( $citizen ) || $citizen->getAp() < 1)
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        // Entering a ruin disables the dig timer
+        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($citizen)) {
+            $dig_timer->setPassive(true);
+            $this->entity_manager->persist( $dig_timer );
+        }
+
+        // Disable escort mode for citizens entering a ruin
+        if ($citizen->getEscortSettings()) {
+            $this->entity_manager->remove( $citizen->getEscortSettings() );
+            $citizen->setEscortSettings(null);
+        }
+
+        // Begin the exploration!
+        $this->picto_handler->give_picto($citizen, 'r_ruine_#00', 1);
+        $this->citizen_handler->setAP( $citizen, true, -1 );
+        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->modify( $citizen->getProfession()->getName() === 'collec' ? '+7min30sec' : '+5min' ) ));
+        $this->entity_manager->persist($citizen);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/beyond/desert/move", name="beyond_desert_move_controller")
      * @param JSONRequestParser $parser
      * @return Response
      */
     public function desert_move_api(JSONRequestParser $parser): Response {
-        $this->deferZoneUpdate();
-
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
 
@@ -759,12 +805,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     /**
      * @Route("api/beyond/desert/action", name="beyond_desert_action_controller")
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
      * @return Response
      */
     public function action_desert_api(JSONRequestParser $parser): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(ItemAction &$a) {
@@ -782,8 +825,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function escort_action_desert_api(JSONRequestParser $parser): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$parser->has_all(['citizen','meta','action'], true))
@@ -819,7 +860,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function heroic_desert_api(JSONRequestParser $parser): Response {
-        $this->deferZoneUpdate();
         $zone = $this->getActiveCitizen()->getZone();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -839,8 +879,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenIsNotEscorted()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -866,8 +904,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function recipe_desert_api(JSONRequestParser $parser, ActionHandler $handler): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(Recipe &$r) {
@@ -885,8 +921,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function item_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
-        $this->deferZoneUpdate();
-
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get('escort', null);
         $citizen = $this->getActiveCitizen();
@@ -911,8 +945,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function escape_desert_api(): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -950,8 +982,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function attack_desert_api(RandomGenerator $generator): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -997,8 +1027,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function desert_dig_api($ext = null): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -1057,19 +1085,17 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function desert_scavenge_api(): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
 
-        if (!$zone->getPrototype() || $zone->getBuryCount() > 0)
+        if (!$zone->getPrototype() || $zone->getPrototype()->getExplorable() || $zone->getBuryCount() > 0)
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        $scout = $this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
-        ) > 0;
+        //$scout = $this->inventory_handler->countSpecificItems(
+        //    $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+        //) > 0;
 
         //if (!$this->zone_handler->check_cp( $zone ) && !$scout)
         //    return AjaxResponse::error( self::ErrorZoneBlocked );
@@ -1093,7 +1119,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $noPlaceLeftMsg = "";
                 if ($item) {
                     $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
-                    if($inventoryDest == $zone->getFloor()){
+                    if($inventoryDest === $zone->getFloor()){
                         $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
                         $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                     }
@@ -1139,8 +1165,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function desert_uncover_api(): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -1191,8 +1215,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function desert_attack_api(int $cid): Response {
-
-        $this->deferZoneUpdate();
         $citizen = $this->getActiveCitizen();
 
         /** @var Citizen|null $target_citizen */
@@ -1210,8 +1232,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function desert_devour_api(int $cid): Response {
-
-        $this->deferZoneUpdate();
         $citizen = $this->getActiveCitizen();
 
         /** @var Citizen|null $target_citizen */
@@ -1232,8 +1252,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function desert_escort_self_api(JSONRequestParser $parser, ConfMaster $conf): Response {
         if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $this->deferZoneUpdate();
 
         if (!$this->activeCitizenIsNotCamping()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1277,8 +1295,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function desert_escort_api(int $cid, JSONRequestParser $parser, ConfMaster $conf): Response {
         if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $this->deferZoneUpdate();
 
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -1338,8 +1354,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get( TownConf::CONF_FEATURE_ESCORT, true ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
@@ -1364,8 +1378,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function desert_shaman_rain(JSONRequestParser $parser): Response {
-        $this->deferZoneUpdate();
-
         if (!$this->activeCitizenCanAct())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
