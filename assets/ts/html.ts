@@ -95,7 +95,7 @@ export default class HTML {
             const s = seconds - h*3600 - m*60;
 
             if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
-            if (custom_handler === 'pre' || custom_handler === 'post')
+            if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post')
                 element.innerHTML =
                     ((h > 0 || force_hours) ? (h + ':') : '') +
                     ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
@@ -107,7 +107,7 @@ export default class HTML {
             if (!no_chk && !document.body.contains(element)) return;
             if ((new Date() > timeout)) {
                 if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [-1,0,0,0]}));
-                if (custom_handler === 'pre' || custom_handler === 'post') element.innerHTML = '--:--';
+                if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post') element.innerHTML = '--:--';
                 element.dispatchEvent(new Event("expire", { bubbles: true, cancelable: true }));
                 if (custom_handler === 'post') element.dispatchEvent(new CustomEvent('countdown', {detail: [-1,0,0,0]}));
             }
