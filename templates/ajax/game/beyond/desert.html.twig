@@ -29,14 +29,6 @@
                         {% endif %}
 
                     </div>
-
-                    {% if exploration %}
-                        <div class="exploration">
-                            {% for rz in exploration %}
-                                <div class="rz {% if rz.r is not null%}rz-{{ rz.r ? 'locked' : 'unlocked' }}{% endif%} rz-{{ rz.d > conf.get(constant('App\\Structures\\TownConf::CONF_EXPLORABLES_LOCKDIST')) ? 'far' : 'close' }} rz-{{ rz.c }}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;"><b style="color: darkred">{{ (rz.c != 0 and rz.z != 0) ? rz.z : '' }}</b></div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
                 {% else %}
                     <p class="beyond-rp">
                         <img alt="" src="{{ asset('build/images/small_rp.gif') }}" />

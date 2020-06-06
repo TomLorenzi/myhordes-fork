@@ -312,19 +312,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $zone_tags = $this->entity_manager->getRepository(ZoneTag::class)->findAll();
         }
 
-        $exploration = [];
-        $rz = $zone->getRuinZones();
-        foreach ($rz as $r) {
-            $exploration[] = [
-                'x' => $r->getX(),
-                'y' => $r->getY(),
-                'c' => $r->getCorridor(),
-                'd' => $r->getDistance(),
-                'r' => $r->getPrototype() ? $r->getLocked() : null,
-                'z' => $r->getZombies(),
-            ];
-        }
-
         return $this->render( 'ajax/game/beyond/desert.html.twig', $this->addDefaultTwigArgs(null, [
             'scout' => $this->getActiveCitizen()->getProfession()->getName() === 'hunter',
             'allow_enter_town' => $can_enter,
@@ -353,7 +340,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
-            'exploration' => $exploration,
         ]) );
     }
 

@@ -22,6 +22,10 @@
             <ul class="tabs" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
                 <li x-tab-id="dash">{{ 'Übersicht'|trans({},'admin') }}</li>
                 <li x-tab-id="estimations">{{ 'Admin-Wachturm'|trans({},'admin') }}</li>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li x-tab-id="explorer">{{ 'Ruinenscanner'|trans({},'admin') }}</li>
+                {% endif %}
+
             </ul>
             {# @var town \App\Entity\Town #}
             <div x-tab-group="admin-town" x-tab-id="dash" x-tab-target>
@@ -68,6 +72,53 @@
                     {% endfor %}
                 </div>
             </div>
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <div x-tab-group="admin-town" x-tab-id="explorer" x-tab-target>
+                    <div class="row">
+                        {% for exploration in explorables %}
+                            <div class="cell rw-6 padded">
+                                <h5>{{ exploration.z.prototype.label|trans({},'game') }} - {{ exploration.z.x }}/{{ exploration.z.y }}</h5>
+                                <div class="adm-exploration">
+                                    {% for rz in exploration.rz %}
+                                        <div class="rz {% if rz.prototype %}rz-{{ rz.locked ? 'locked' : 'unlocked' }}{% endif%} rz-{{ rz.distance > conf.get(constant('App\\Structures\\TownConf::CONF_EXPLORABLES_LOCKDIST')) ? 'far' : 'close' }} rz-{{ rz.corridor }} {% if rz.zombies > 0 %}rz-zeds{% endif %}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;">
+                                            {% if rz.corridor != 0 %}
+                                                <div class="tooltip">
+                                                    {{ _self.valuelist('ID'|trans({},'admin'), rz.id) }}
+                                                    {{ _self.valuelist('Position'|trans({},'admin'), rz.x ~ ' / ' ~ rz.y) }}
+                                                    {{ _self.valuelist('Distanz'|trans({},'admin'), rz.distance) }}
+                                                    {{ _self.valuelist('Zombies'|trans({},'admin'), rz.zombies) }}
+                                                    {% if rz.prototype %}
+                                                        {% if rz.locked %}
+                                                            {{ _self.valuelist('Abdruck'|trans({},'admin'), rz.prototype.keyImprint.label|trans({},'items')) }}
+                                                            {{ _self.valuelist('Schlüssel'|trans({},'admin'), rz.prototype.keyItem.label|trans({},'items')) }}
+                                                        {% else %}
+                                                            {{ _self.valuelist('Durchsucht'|trans({},'admin'), rz.digs) }}
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="cell rw-6 padded">
+                                <h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
+                                {% if exploration.ax %}
+                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.user.username) }}
+                                    {{ _self.valuelist('Position'|trans({},'admin'), exploration.ax.x ~ ' / ' ~ exploration.ax.y ) }}
+                                    {{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
+                                    {{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
+                                {% endif %}
+                                <h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
+                                {% for x in exploration.x %}
+                                    <div>{{ x.citizen.user.username }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
 
             <br />
             <div class="row">
