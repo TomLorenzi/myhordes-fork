@@ -233,6 +233,11 @@ class Citizen
      */
     private $rankingEntry;
 
+    /**
+     * @ORM\OneToMany(targetEntity=RuinExplorerStats::class, mappedBy="citizen", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $explorerStats;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -247,6 +252,7 @@ class Citizen
         $this->disposedBy = new ArrayCollection();
         $this->citizenWatch = new ArrayCollection();
         $this->privateMessageThreads = new ArrayCollection();
+        $this->explorerStats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -1006,5 +1012,58 @@ class Citizen
     public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args) {
         $args->getEntityManager()->persist( CitizenRankingProxy::fromCitizen($this) );
         $args->getEntityManager()->flush();
+    }
+
+    /**
+     * If the citizen is currently exploring a ruin or has explored a ruin at this location today, the relevant
+     * RuinExplorerStats object will be returned. Otherwise, null is returned.
+     * @return RuinExplorerStats|null
+     */
+    public function currentExplorerStats(): ?RuinExplorerStats {
+        if ($this->getZone())
+            foreach ($this->getExplorerStats() as $explorerStat)
+                if ($explorerStat->getZone()->getId() === $this->getZone()->getId())
+                    return $explorerStat;
+        return null;
+    }
+
+    /**
+     * If the citizen is currently exploring a ruin, the relevant RuinExplorerStats object will be returned. Otherwise,
+     * null is returned.
+     * @return RuinExplorerStats|null
+     */
+    public function activeExplorerStats(): ?RuinExplorerStats {
+        return (($ex = $this->currentExplorerStats()) && $ex->getActive()) ? $ex : null;
+    }
+
+    /**
+     * @return Collection|RuinExplorerStats[]
+     */
+    public function getExplorerStats(): Collection
+    {
+        return $this->explorerStats;
+    }
+
+    public function addExplorerStat(RuinExplorerStats $explorerStat): self
+    {
+        if (!$this->explorerStats->contains($explorerStat)) {
+            $this->explorerStats[] = $explorerStat;
+            $explorerStat->setCitizen($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExplorerStat(RuinExplorerStats $explorerStat): self
+    {
+        if ($this->explorerStats->contains($explorerStat)) {
+            $this->explorerStats->removeElement($explorerStat);
+            // set the owning side to null (unless already changed)
+            if ($explorerStat->getCitizen() === $this) {
+                $explorerStat->setCitizen(null);
+            }
+        }
+
+        return $this;
     }
 }

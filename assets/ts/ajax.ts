@@ -2,6 +2,7 @@ import {Const, Global} from "./defaults";
 
 interface ajaxResponse { error: string, success: any }
 interface ajaxCallback { (data: ajaxResponse, code: number): void }
+interface ajaxStack    { (): void }
 
 declare var c: Const;
 declare var $: Global;
@@ -12,6 +13,9 @@ export default class Ajax {
     private defaultNode: HTMLElement;
     private no_load_spinner: boolean;
     private no_history_manipulation: boolean;
+
+    private render_queue: Array<ajaxStack> = [];
+    private render_block_stack: number = 0;
 
     constructor(baseUrl: string) {
         if (baseUrl.length == 0 || baseUrl.slice(-1) != '/')
@@ -40,6 +44,19 @@ export default class Ajax {
 
     background(): Ajax {
         this.no_history_manipulation = this.no_load_spinner = true;
+        return this;
+    }
+
+    push_renderblock(): Ajax {
+        this.render_block_stack++;
+        return this;
+    }
+
+    pop_renderblock(): Ajax {
+        this.render_block_stack--;
+        if (this.render_block_stack < 0) this.render_block_stack = 0;
+        while ( this.render_queue.length > 0 && this.render_block_stack == 0 )
+            this.render_queue.shift()();
         return this;
     }
 
@@ -170,7 +187,12 @@ export default class Ajax {
                 return;
             }
 
-            ajax_instance.render( this.responseURL, target, this.responseXML, false, !no_hist );
+            if (ajax_instance.render_block_stack > 0) {
+                const r_url = this.responseURL;
+                const r_xml = this.responseXML;
+                ajax_instance.render_queue.push( function() { ajax_instance.render( r_url, target, r_xml, false, !no_hist ) } );
+            } else ajax_instance.render( this.responseURL, target, this.responseXML, false, !no_hist );
+
             if (!no_loader) $.html.removeLoadStack();
         });
         request.addEventListener('error', function(e) {

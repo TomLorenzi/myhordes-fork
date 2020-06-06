@@ -307,7 +307,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Flaschenöffner','icon'=>'classicKey','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             // --
         ['label' =>'Abdruck vom Magnet-Schlüssel','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            //
         ['label' =>'Abdruck vom Schlagschlüssel','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             //
-        ['label' =>'Abdruck vom Dosenöffner','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 //
+        ['label' =>'Abdruck vom Flaschenöffner','icon'=>'prints','category'=>'exp_s','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 //
         ['label' =>'Ghul-Serum','icon'=>'vagoul','category'=>'drug_d','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             //
         ['label' =>'Hotel-Bauplan (ungewöhnlich)','icon'=>'hbplan_u','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In ---
         ['label' =>'Hotel-Bauplan (selten)','icon'=>'hbplan_r','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                  // In ---

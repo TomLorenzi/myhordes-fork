@@ -11,6 +11,7 @@ use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
 use App\Entity\PictoPrototype;
+use App\Entity\RuinZone;
 use App\Entity\Soul;
 use App\Entity\TownRankingProxy;
 use Doctrine\ORM\EntityManagerInterface;
@@ -55,13 +56,15 @@ class DeathHandler
         if (is_int($cod)) $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef( $cod );
 
         $rucksack = $citizen->getInventory();
+        $floor = ($citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest());
+        if ($citizen->activeExplorerStats()) {
+            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats());
+            $floor = $citizen->activeExplorerStats()->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor();
+        }
         foreach ($rucksack->getItems() as $item)
-            /*if ( !$this->inventory_handler->moveItem($citizen, $rucksack, $item, $citizen->getZone() ? [$citizen->getZone()->getFloor()] : [$citizen->getHome()->getChest(), $citizen->getTown()->getBank()]) ) {
-                $this->inventory_handler->forceRemoveItem( $item, PHP_INT_MAX );
-            }*/
             // We get his rucksack and drop items into the floor or into his chest (except job item)
             if(!$item->getEssential())
-                $this->inventory_handler->forceMoveItem($citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest(), $item);
+                $this->inventory_handler->forceMoveItem($floor, $item);
 
         foreach ($this->entity_manager->getRepository(DigTimer::class)->findAllByCitizen($citizen) as $dt)
             $remove[] = $dt;

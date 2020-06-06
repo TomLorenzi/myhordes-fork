@@ -24,6 +24,16 @@ Encore
             : 'images/[path][name].[hash:8].[ext]' ,
     })
 
+    .configureFilenames({
+        js: '[name].js',
+        images: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+            ? 'images/[path][name].[ext]'
+            : 'images/[path][name].[hash:8].[ext]',
+        fonts: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+            ? 'fonts/[path][name].[ext]'
+            : 'fonts/[path][name].[hash:8].[ext]'
+    })
+
     /*
      * ENTRY CONFIG
      *
@@ -55,7 +65,7 @@ Encore
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(Encore.isProduction())
+    .enableVersioning((typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames) ? false : Encore.isProduction())
 
     // enables @babel/preset-env polyfills
     .configureBabel(() => {}, {

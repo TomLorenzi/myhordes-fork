@@ -1,0 +1,160 @@
+<div class="ruin_map_area">
+    <div class="map {{ map.shifted ? 'in_room' : '' }}">
+        <div class="zone-plane retro">
+                <div class="zone-sub-container">
+                    {% for plane_y in 1..-1 %}
+                        {% for plane_x in -1..1 %}
+                            <div  x-plane-x="{{ plane_x }}" x-plane-y="{{ plane_y }}" class="plane-skin-{{ prototype.explorableSkin }} zone-subplane {% if plane_x == 0 and plane_y == 0 %}plane-type-{{ map.shifted ? 'room' : ((zone.x == 0 and zone.y == 0) ? 'exit' : map.zone.getCorridor) }} plane-door-{{ map.zone.locked ? 'closed' : 'open' }}{% elseif plane_x == -1 and plane_y == -1 %} plane-type-all{% endif %}">
+                                <div class="decals">
+                                    {% if plane_x == 0 and plane_y == 0 and not map.shifted %}
+                                        {% if map.zone.doorPosition %}
+                                            <div class="decal-door decal-door-{{ map.zone.doorPosition }}"></div>
+                                        {% endif %}
+                                        {% for i in 0..15 %}
+                                            {% if map.zone.decals b-and (2**i) %}
+                                                <div class="decal-ambient decal-ambient-{{ i+1 }} decal-ambient-variant-{{ (map.zone.decals b-and (2**(16+i))) ? 'b' : 'a' }}"></div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                {% if plane_x == 0 and plane_y == 0 %}
+                                    <div class="actor citizen" style="left: 50%; top: 50%"></div>
+
+                                    {% set positionList = [] %}
+                                    {% if zone_zombies_dead > 0 %}
+                                        {% for n in 1..zone_zombies_dead %}
+                                            {% set positions = [] %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}{% set positions = positions|merge([[random(60,80),random(46,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}{% set positions = positions|merge([[random(20,40),random(46,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}{% set positions = positions|merge([[random(42,58),random(20,40)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}{% set positions = positions|merge([[random(42,58),random(60,80)]]) %}{% endif %}
+                                            {% set positionList = positionList|merge([random( positions )]) %}
+                                        {% endfor %}
+                                        {% set positionList = positionList|sort((a,b) => a[1] <=> b[1]) %}
+                                        {% for n in positionList|keys %}
+                                            <div class="actor zombody {{ random(3)==3 ? 'local' : '' }}" style="left: {{ positionList[n][0] }}%; top: {{ positionList[n][1] }}%"></div>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    {% set positionList = [] %}
+                                    {% if zone_zombies > 0 %}
+                                        {% for n in 1..zone_zombies %}
+                                            {% set positions = [] %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}{% set positions = positions|merge([[random(60,80),random(38,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}{% set positions = positions|merge([[random(20,40),random(38,54)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}{% set positions = positions|merge([[random(42,58),random(20,40)]]) %}{% endif %}
+                                            {% if map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}{% set positions = positions|merge([[random(42,58),random(60,80)]]) %}{% endif %}
+                                            {% set positionList = positionList|merge([random( positions )]) %}
+                                        {% endfor %}
+                                        {% set positionList = positionList|sort((a,b) => a[1] <=> b[1]) %}
+                                        {% for n in positionList|keys %}
+                                            <div class="actor zombie {{ random(5)==5 ? 'local' : '' }}" style="left: {{ positionList[n][0] }}%; top: {{ positionList[n][1] }}%"></div>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        <div class="zone-plane-controls">
+            {% if move %}
+                {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}<div x-direction-x="1"  x-direction-y="0"  class="action-move action-move-east"></div>{% endif %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}<div x-direction-x="-1" x-direction-y="0"  class="action-move action-move-west"></div>{% endif %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}<div x-direction-x="0"  x-direction-y="-1" class="action-move action-move-south"></div>{% endif %}
+                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}<div x-direction-x="0"  x-direction-y="1"  class="action-move action-move-north"></div>{% endif %}
+                    {% if map.shifted %}<div class="action-move action-move-unshift"></div>{% endif %}
+
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="zone-plane-ui">
+            <div class="name">{{ map.name|trans({},'game') }}</div>
+            <div class="timer">
+                {{ 'Sauerstoff'|trans({},'game') }}:<br />
+                <div class="ox"><span x-countdown-interval="250" x-countdown-handler="handle" x-countdown="{{ map.timeout }}" x-on-expire="reload">{{ (map.timeout/3)|round(0,'floor') }}</span></div></div>
+            <div class="scanner"></div>
+        </div>
+    </div>
+</div>
+{#
+<script>
+var words = [
+    'Psychoses',
+    'Démence',
+    'Agonie',
+    'Boire',
+    'Dormir',
+    'Sang',
+    'Rage',
+    'Haine',
+    'Tuer',
+    'Tues-les',
+    'Meurtre',
+    'Drogues',
+    'La mort t\'attend',
+    'Tu vas mourir',
+    'Tu mourras cette nuit',
+    'Rejoins les ombres',
+    'Cauchemars',
+    'Mutilations',
+    'Aucun espoir',
+    'Ils t\'espionnent',
+    'Ils veulent ta mort',
+    'Ne leur fais pas confiance',
+    'Enfuis toi loin',
+    'Ne les écoute pas',
+    'Ils te tueront',
+    'Ton voisin veut ta mort',
+    'Ils veulent te pendre',
+    'Ils vont te tuer',
+    'Tu y passeras',
+    'Goûte leur sang',
+    'On t\'observe',
+    'Ils sont FOUS',
+    'On veut ta peau',
+    'Goûte leur chair',
+    'Manges en un',
+    'Tues en un',
+    'Fais lui payer',
+    'Venge-toi',
+    'Trahis-les',
+    'Sans pitié',
+    'Je ne suis pas fou',
+    'Je ne vois rien',
+    'Ils sont fous',
+    'A mort',
+    'Tue les tous',
+    'Ils mourront',
+    'Qu\'ils meurent',
+    'Dévore-les',
+    'Abandonne',
+    'Tout...va...bien...',
+    'Nous étions mieux sans eux',
+];
+
+function pickRandomWord(){
+    var word = words[Math.floor(Math.random() * words.length)];
+
+    var tooltip = document.getElementById('tooltip_container');
+
+    if(tooltip.innerText != "") {
+        var content = document.querySelector("#tooltip_container .tooltip");
+        var oldcontent = content.innerHTML;
+        content.innerHTML = "<div class='row'><div class='cell rw-12'>" + word + "</div></div>";
+        setTimeout(function(){
+            content.innerHTML = oldcontent;
+        }, 500);
+    }
+
+    setTimeout(pickRandomWord, Math.random() * 30000);
+}
+
+setTimeout(pickRandomWord, Math.random() * 30000);
+
+
+</script>
+#}

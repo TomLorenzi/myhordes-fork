@@ -6,38 +6,19 @@ div.zone-beyond {
   height: 80px;
   background-size: cover;
 
-  &.outerworld {
-    background: url("../../img/outerworld.jpg") center/cover no-repeat;
-  }
+  &.outerworld { background: url("../../img/outerworld.jpg") center/cover no-repeat; }
+  &.oldruins { background: url("../../img/oldRuins.jpg") center/cover no-repeat; }
+  &.city { background: url("../../img/city.jpg") center/cover no-repeat; }
+  &.city-open { background: url("../../img/city_open.jpg") center/cover no-repeat; }
 
-  &.oldruins {
-    background: url("../../img/oldRuins.jpg") center/cover no-repeat;
-  }
+  &.night-oldruins { background: url("../../img/night_oldRuins.jpg") center/cover no-repeat; }
+  &.night-outerworld { background: url("../../img/night_outerworld.jpg") center/cover no-repeat; }
+  &.night-city { background: url("../../img/night_city.jpg") center/cover no-repeat; }
+  &.night-city-open { background: url("../../img/night_city_open.jpg") center/cover no-repeat; }
 
-  &.city {
-    background: url("../../img/city.jpg") center/cover no-repeat;
-  }
-
-  &.city-open {
-    background: url("../../img/city_open.jpg") center/cover no-repeat;
-  }
-
-
-  &.night-oldruins {
-    background: url("../../img/night_oldRuins.jpg") center/cover no-repeat;
-  }
-
-  &.night-outerworld {
-    background: url("../../img/night_outerworld.jpg") center/cover no-repeat;
-  }
-
-  &.night-city {
-    background: url("../../img/night_city.jpg") center/cover no-repeat;
-  }
-
-  &.night-city-open {
-    background: url("../../img/night_city_open.jpg") center/cover no-repeat;
-  }
+  &.explorable-bunker { background: url("../../img/explorable_bunker.jpg") center/cover no-repeat; }
+  &.explorable-hotel { background: url("../../img/explorable_hotel.jpg") center/cover no-repeat; }
+  &.explorable-hospital { background: url("../../img/explorable_hospital.jpg") center/cover no-repeat; }
 }
 
 div.zone-camp {
@@ -184,39 +165,5 @@ ul.escort-action-list {
     list-style: none; display: inline-block; padding: 3px; cursor: pointer; border: 1px solid transparent;
     margin: 2px;
     &:hover { border: 1px solid @myhordes-button-color; background: fade(@myhordes-button-color, 50%) }
-  }
-}
-
-/* EXPLORABLE RUIN DEBUG */
-.exploration {
-  position: relative;
-  width: 100%;
-  min-height: 300px;
-
-  & > div {
-    position: absolute;
-    transform: translateX(150px);
-    width: 20px;
-    height: 20px;
-    outline: 1px dotted yellow;
-    background-size: cover;
-    background-position: 50%;
-    background-image: url(http://fm.omameier.net/css/img/tile0.png);
-
-    &.rz-1 { background-image: url(http://fm.omameier.net/css/img/tile2.png); }
-    &.rz-2 { background-image: url(http://fm.omameier.net/css/img/tile1.png); }
-    &.rz-3 { background-image: url(http://fm.omameier.net/css/img/tile8.png); }
-    &.rz-4 { background-image: url(http://fm.omameier.net/css/img/tile3.png); }
-    &.rz-5 { background-image: url(http://fm.omameier.net/css/img/tile9.png); }
-    &.rz-6 { background-image: url(http://fm.omameier.net/css/img/tile5.png); }
-    &.rz-7 { background-image: url(http://fm.omameier.net/css/img/tile13.png); }
-    &.rz-8 { background-image: url(http://fm.omameier.net/css/img/tile4.png); }
-    &.rz-9 { background-image: url(http://fm.omameier.net/css/img/tile6.png); }
-    &.rz-10 { background-image: url(http://fm.omameier.net/css/img/tile11.png); }
-    &.rz-11 { background-image: url(http://fm.omameier.net/css/img/tile12.png); }
-    &.rz-12 { background-image: url(http://fm.omameier.net/css/img/tile10.png); }
-    &.rz-13 { background-image: url(http://fm.omameier.net/css/img/tile14.png); }
-    &.rz-14 { background-image: url(http://fm.omameier.net/css/img/tile15.png); }
-    &.rz-15 { background-image: url(http://fm.omameier.net/css/img/tile7.png); }
   }
 }

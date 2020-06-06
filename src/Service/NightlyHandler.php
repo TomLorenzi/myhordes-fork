@@ -44,10 +44,11 @@ class NightlyHandler
     private $logTemplates;
     private $conf;
     private $action_handler;
+    private $maze;
 
   public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
-                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah)
+                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -62,6 +63,7 @@ class NightlyHandler
         $this->logTemplates = $lh;
         $this->conf = $conf;
         $this->action_handler = $ah;
+        $this->maze = $maze;
     }
 
     private function check_town(Town &$town): bool {
@@ -711,6 +713,18 @@ class NightlyHandler
 
         $reco_counter = [0,0];
         foreach ($town->getZones() as $zone) {
+
+            if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+                foreach ($zone->getExplorerStats() as $ex) {
+                    $ex->getCitizen()->removeExplorerStat( $ex );
+                    $this->entity_manager->remove($ex);
+                }
+                $this->maze->populateMaze(
+                    $zone,
+                    $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_ZOMBIES_DAY, 5),
+                    true, true
+                );
+            }
 
             $distance = sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) );
             if ($zone->getCitizens()->count() || round($distance) <= $discover_range) {

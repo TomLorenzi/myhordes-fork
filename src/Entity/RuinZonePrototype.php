@@ -9,11 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class RuinZonePrototype
 {
-    const LOCKTYPE_NONE     = 0;
-    const LOCKTYPE_BOTTLE   = 1;
-    const LOCKTYPE_BUMP     = 2;
-    const LOCKTYPE_MAGNET   = 3;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -27,9 +22,14 @@ class RuinZonePrototype
     private $label;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=ItemPrototype::class)
      */
-    private $lock_type;
+    private $keyImprint;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ItemPrototype::class)
+     */
+    private $keyItem;
 
 
     public function getId(): ?int
@@ -49,14 +49,26 @@ class RuinZonePrototype
         return $this;
     }
 
-    public function getLockType(): ?int
+    public function getKeyImprint(): ?ItemPrototype
     {
-        return $this->lock_type;
+        return $this->keyImprint;
     }
 
-    public function setLockType(int $lock_type): self
+    public function setKeyImprint(?ItemPrototype $keyImprint): self
     {
-        $this->lock_type = $lock_type;
+        $this->keyImprint = $keyImprint;
+
+        return $this;
+    }
+
+    public function getKeyItem(): ?ItemPrototype
+    {
+        return $this->keyItem;
+    }
+
+    public function setKeyItem(?ItemPrototype $keyItem): self
+    {
+        $this->keyItem = $keyItem;
 
         return $this;
     }
