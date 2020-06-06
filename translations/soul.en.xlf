@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>News</source>
-        <target>News</target>
+        <target>Updates</target>
       </segment>
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
@@ -578,6 +578,24 @@
       <segment>
         <source>Spanisch</source>
         <target>Spanish</target>
+      </segment>
+    </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="737Zdf." name="Hier findet ihr alle vorangegangenen Updates:">
+      <notes>
+        <note category="german">Access previous major updates:</note>
+      </notes>
+      <segment>
+        <source>Hier findet ihr alle vorangegangenen Updates:</source>
+        <target>Access previous major updates:</target>
       </segment>
     </unit>
   </file>

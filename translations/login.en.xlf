@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>E-Mail Adresse</source>
-        <target>E-mail address</target>
+        <target>E-Mail address</target>
       </segment>
     </unit>
     <unit id="QNpwRBL" name="wiederholen">
@@ -388,7 +388,7 @@
       </notes>
       <segment>
         <source>Abbrechen</source>
-        <target>Abort</target>
+        <target>Cancel</target>
       </segment>
     </unit>
     <unit id="yr3nj09" name="Dieses Konto wartet bereits auf eine Passwortzurücksetzung.">
@@ -397,7 +397,7 @@
       </notes>
       <segment>
         <source>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</source>
-        <target>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</target>
+        <target>This account is already waiting for a password reset.</target>
       </segment>
     </unit>
     <unit id="axBQZ1o" name="d8a5e1e">
@@ -406,7 +406,7 @@
       </notes>
       <segment>
         <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
-        <target>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</target>
+        <target>If the email address you entered was correct, you will receive a link to reset your password.</target>
       </segment>
     </unit>
     <unit id="w6NXTHc" name="0e5133b">
@@ -415,7 +415,7 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
-        <target>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</target>
+        <target>Your password has been changed. You can now log in with your new password.</target>
       </segment>
     </unit>
   </file>

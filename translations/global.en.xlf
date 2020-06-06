@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Deine Seele</source>
-        <target>Your soul</target>
+        <target>My soul</target>
       </segment>
     </unit>
     <unit id="lUcvZQo" name="Hilfe">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+        <target><![CDATA[Without these, you cannot use external apps. To set an external ID, go into your Soul > Settings and generate an ID.]]></target>
       </segment>
     </unit>
     <unit id="SddpDzy" name="Verzeichnis">
@@ -697,11 +697,11 @@
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
         <note>Verbesserung des Tages</note>
-        <note category="german">Town upgrades</note>
+        <note category="german">Town Upgrades</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Town upgrades</target>
+        <target>Town Upgrades</target>
       </segment>
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
@@ -809,7 +809,7 @@
       </notes>
       <segment>
         <source>Meldungen</source>
-        <target>Meldungen</target>
+        <target>Reports</target>
       </segment>
     </unit>
     <unit id="qyBuyhw" name="Du wurdest aus dem Forum verbannt.">
@@ -908,7 +908,7 @@
       </notes>
       <segment>
         <source>Archivieren</source>
-        <target>Archivieren</target>
+        <target>Archive</target>
       </segment>
     </unit>
     <unit id="_J8vap3" name="Fett">
@@ -1080,6 +1080,114 @@
       <segment>
         <source>Einfügen</source>
         <target>Confirm</target>
+      </segment>
+    </unit>
+    <unit id="EOVP1fz" name="Admin Ankündigung">
+      <notes>
+        <note category="german">Admin Announcement</note>
+      </notes>
+      <segment>
+        <source>Admin Ankündigung</source>
+        <target>Admin Announcement</target>
+      </segment>
+    </unit>
+    <unit id="jszJ4cS" name="Mod Ankündigung">
+      <notes>
+        <note category="german">Mod Announcement</note>
+      </notes>
+      <segment>
+        <source>Mod Ankündigung</source>
+        <target>Mod Announcement</target>
+      </segment>
+    </unit>
+    <unit id="eh2CqIr" name="Orakel Ankündigung">
+      <notes>
+        <note category="german">Oracle Announcement</note>
+      </notes>
+      <segment>
+        <source>Orakel Ankündigung</source>
+        <target>Oracle Announcement</target>
+      </segment>
+    </unit>
+    <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
+      <notes>
+        <note category="german">This thread contains %count% official announcement(s) from MyHordes Administrators :</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
+        <target>This thread contains %count% official announcement(s) from MyHordes Administrators :</target>
+      </segment>
+    </unit>
+    <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
+      <notes>
+        <note category="german">This thread contains %count% Aannouncements from community representatives:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
+        <target>This thread contains %count% Aannouncements from community representatives:</target>
+      </segment>
+    </unit>
+    <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
+      <notes>
+        <note category="german">This thread contains announcements from MyHordes Administrators.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
+        <target>This thread contains announcements from MyHordes Administrators.</target>
+      </segment>
+    </unit>
+    <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
+      <notes>
+        <note category="german">This thread contains announcements from community representatives.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
+        <target>This thread contains announcements from community representatives.</target>
+      </segment>
+    </unit>
+    <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
+      <notes>
+        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine weiteren Gegenstände senden.</source>
+        <target>You cannot send any more items.</target>
+      </segment>
+    </unit>
+    <unit id="xtJ2E4o" name="Verräter">
+      <notes>
+        <note category="german">Verräter</note>
+      </notes>
+      <segment>
+        <source>Verräter</source>
+        <target>Traitor</target>
+      </segment>
+    </unit>
+    <unit id="eS7iMaa" name="Rollenspiel">
+      <notes>
+        <note category="german">Rollenspiel</note>
+      </notes>
+      <segment>
+        <source>Rollenspiel</source>
+        <target>Roleplay</target>
+      </segment>
+    </unit>
+    <unit id="wg02Gq4" name="Zitieren">
+      <notes>
+        <note category="german">Zitieren</note>
+      </notes>
+      <segment>
+        <source>Zitieren</source>
+        <target>Quote</target>
+      </segment>
+    </unit>
+    <unit id="peFFaP2" name="Liste der Themen aktualisieren">
+      <notes>
+        <note category="german">Liste der Themen aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Liste der Themen aktualisieren</source>
+        <target>Refresh list of Threads</target>
       </segment>
     </unit>
   </file>
