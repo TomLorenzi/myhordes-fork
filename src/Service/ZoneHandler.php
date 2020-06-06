@@ -477,7 +477,7 @@ class ZoneHandler
             }
             else {
                 $attributes['building'] = [
-                    'name' => T::__($zone->getPrototype()->getLabel(), "game"),
+                    'name' => $this->trans->trans($zone->getPrototype()->getLabel(), [], "game"),
                     'type' => $zone->getPrototype()->getId(),
                     'dig' => 0,
                     'empty' => ($zone->getRuinDigs() == 0),

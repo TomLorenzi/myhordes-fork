@@ -26,11 +26,21 @@
 .forum-content-format() {
   b, strong { color: #afb3cf; text-transform: initial; opacity: .8; }
   i, em { color: #f0d79e; opacity: .7; }
-  s, strike, del { color: #cc3300; opacity: .8; }
+  s, strike, del { opacity: .8; }
+  span.bad { color: #ff4111; }
 
   hr { border-color: @myhordes-smalltext }
 
   img { max-height: 480px; max-width: 100%; height: auto !important; width: auto !important; }
+
+  span.quoteauthor {
+    font-weight: bold;
+    margin-left: 40px;
+    font-size: 1.25rem;
+    + blockquote {
+      margin-top: 0;
+    }
+  }
 
   blockquote {
     font-style: italic; border-color: rgba(0,0,0,.6); border-style: dashed; border-width: 0 0 1px 1px;
@@ -63,25 +73,63 @@
     & .glory { margin: 0; &:before { display: none; } }
   }
 
-  .oracleAnnounce {
-    margin: 15px; padding: 8px; padding-left: 24px;
-    background-color: #3b4151; border: 1px solid #6B7087;
-    border-radius: 4px; box-shadow: 0px 0px 2px black; position: relative;
-    background-image: url('../../img/forum/announceBg.png'); background-position: bottom left; background-repeat: no-repeat;
+  span.rpauthor {
+    background-image: url('../../img/forum/rp.png');
+    background-position: 2% 0; background-repeat: no-repeat;
+    height: 27px;
+    margin-left: 20px;
+    padding-left: 24px;
+    display: inline-block;
+    font-style: italic;
+    font-size: 1.25rem;
+    font-weight: bold;
+    + .rpText {
+      margin-top: 0;
+    }
   }
 
-  .modAnnounce {
-    margin: 15px; padding: 8px; padding-left: 24px; padding-top: 20px;
-    color: white; background-color: #5C0000;
-    border: 1px solid #470000; border-radius: 4px;
-    background-image: url('../../img/forum/modAnnounceBg.png'); background-position: 5px 5px; background-repeat: no-repeat;
+  .rpText {
+    margin: 30px 30px 15px; padding: 3px; background-color: #dddbd8; border: 1px solid #efefef; border-top-color: white; border-radius: 6px;
+    box-shadow: 0px 0px 2px black; position: relative; font-style: italic; line-height: 18px; color: #3b4151;
+    &:before {
+      content: ""; display: block; background-image: url('../../img/forum/arrowUp.png');
+      background-position: 2% 0; background-repeat: no-repeat; position: absolute;
+      top: -8px; left: 0; width: 100%; height: 8px;
+    }
   }
 
+  .oracleAnnounce,
+  .modAnnounce,
   .adminAnnounce {
-    margin: 15px; padding: 8px; padding-left: 24px; padding-top: 20px;
-    background-color: #553C53; border: 1px solid #feb500; border-radius: 4px;
+    margin: 0 15px;
+    padding: 8px;
+    padding-left: 24px;
+    background-repeat: no-repeat;
+    border-radius: 4px;
     position: relative;
-    background-image: url('../../img/forum/adminAnnounceBg.png'); background-position: top left; background-repeat: no-repeat;
+    &.oracleAnnounce {
+      background-image: url('../../img/forum/announceBg.png');
+      background-position: bottom left;
+      background-color: #3b4151;
+      border: 1px solid #6B7087;
+      box-shadow: 0px 0px 2px black;
+    }
+    &.modAnnounce {
+      padding-top: 20px;
+      background-image: url('../../img/forum/modAnnounceBg.png'); 
+      background-position: 5px 5px;
+      color: white;
+      background-color: #5C0000;
+      border: 1px solid #470000;
+    }
+
+    &.adminAnnounce {
+      padding-top: 20px;
+      background-color: #553C53;
+      border: 1px solid #feb500;
+      background-image: url('../../img/forum/adminAnnounceBg.png'); background-position: top left;
+      position: relative;
+    }
   }
 
   div.dice-4, div.dice-6, div.dice-8, div.dice-10, div.dice-12, div.dice-20, div.dice-100,
@@ -155,6 +203,7 @@
 
   &.forum-post-hidden>.forum-post-header { background: #ff0000; }
   &.forum-post-new { border-left: 2px solid #ffdc00; margin-left: -2px; };
+  &.forum-post-selected { border-left: 2px solid #0f0; margin-left: -2px; };
   &.forum-post-marked {
     border-right: 2px solid #ff00e1; margin-right: -2px;
     box-shadow: 0 0 3px #ffdc00;
@@ -173,7 +222,6 @@
     padding: 5px;
     background-color: #4a261e;
     font-size: 1rem;
-    font-style: italic;
     color: rgba(0,0,0,0.2);
 
     .action-button { padding-left: 2px;  text-decoration: underline; cursor: pointer; line-height: 16px; opacity: 0.3; }

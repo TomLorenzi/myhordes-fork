@@ -55,7 +55,7 @@
       </notes>
       <segment>
         <source>Hallo %user%!</source>
-        <target>Bonjour %user%!</target>
+        <target>Bonjour %user% !</target>
       </segment>
     </unit>
     <unit id="SWaK66s" name="Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :">

@@ -1,6 +1,26 @@
 {% extends "ajax/soul/shell.html.twig" %}
 {% block soul_content %}
     <div class="row">
+        <div class="cell rw-12 center skills">
+            <div class="bar">
+                <div class="progresstext"><span class="text">{{progress}}%</span></div>
+                <div class="progressbar left">
+                    <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
+                </div>
+            </div>
+            <div class="rp-context">
+                {{'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game')}}
+                <strong>{% if latestSkill is not null %}
+                    <img src="{{asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif')}}" alt="">
+                    {{latestSkill.title|trans({}, 'game')}}
+                {% else %}
+                    {{'Niemand'|trans({}, 'game')}}
+                {% endif %}</strong>
+            </div>
+            <div>
+                <span class="small link" x-ajax-href="{{ path('soul_heroskill') }}">{{'Alle freigeschalteten Vorteile anzeigen'|trans({}, 'game')}}</span>
+            </div>
+        </div>
         <div class="cell rw-5 rw-sm-12 distinctions">
             <div class="distinctions-head center">
                 {{ 'Statistiken'|trans({}, 'global') }}
@@ -22,11 +42,11 @@
                             {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
                             </div>
                             <div class="tooltip">
-                            <h1>{{ picto.label|trans({}, 'game') }}</h1>
-                            {{ picto.description|trans({}, 'game')}}</em>
+                                <h1>{{ picto.label|trans({}, 'game') }}</h1>
+                                {{ picto.description|trans({}, 'game')}}</em>
                             </div>
                         </div>
-                    {% endfor %}
+                        {% endfor %}
                 </div>
                 {% endif %}
             </div>
@@ -68,7 +88,7 @@
                         <div class="row{% if incarnation.town.type.name == 'panda' %} hardcore{% endif %}">
                             <div class="cell padded rw-2 center">
                                 {% if incarnation.town.season is null %}
-                                --
+                                    --
                                 {% else %}
                                     {{ incarnation.town.season }}
                                 {% endif %}
@@ -91,7 +111,7 @@
                             <div class="cell padded rw-2 center town-points bold">
                                 +{{incarnation.points}}
                             </div>
-                    </div>
+                        </div>
 
                     {% else %}
                         <div class="row">
@@ -104,11 +124,11 @@
             </div>
         </div>
     </div>
-{% endblock %}
-{% block js %}
-    {{parent()}}
-    <script>
-        const send_build_request = function(id) {
+    {% endblock %}
+    {% block js %}
+        {{parent()}}
+        <script>
+        const add_comment = function(id) {
             let comment = null;
             let valid = false;
             comment = window.prompt("{{ 'Was sagst du dazu?'|trans({},'game')|e('js') }}", "");
@@ -122,11 +142,11 @@
             $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment: comment},
                 function () {
                     $.ajax.load(null, '{{ path('soul_me') }}', true);
-            } );
+                } );
         };
 
         let buttons = document.querySelectorAll('[x-town-id]');
         for (let i = 0; i < buttons.length; i++)
-            buttons[i].addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); send_build_request( this.getAttribute('x-town-id') ); })
-    </script>
-{% endblock %}
+            buttons[i].addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); add_comment( this.getAttribute('x-town-id') ); })
+        </script>
+        {% endblock %}

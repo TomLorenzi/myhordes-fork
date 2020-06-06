@@ -277,6 +277,7 @@ class TownAddonsController extends TownController
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_workshop');
 
         // Execute recipe and persist
         if (($error = $ah->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )

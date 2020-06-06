@@ -1375,7 +1375,7 @@
       </notes>
       <segment>
         <source>Paracetoid 7g</source>
-        <target>Paracétoïd 7g</target>
+        <target>Paracétoïde 7g</target>
       </segment>
     </unit>
     <unit id="vJEMpEU" name="Unkrautbekämpfungsmittel Ness-Quick">
@@ -2876,8 +2876,6 @@
     </unit>
     <unit id="sDu2xGP" name="Abdruck vom Magnet-Schlüssel">
       <notes>
-        <note>Abdruck vom Magnet-Schlüssel</note>
-        <note>Abdruck vom Magnet-Schlüssel</note>
         <note category="german">Abdruck vom Magnet-Schlüssel</note>
       </notes>
       <segment>
@@ -2887,8 +2885,6 @@
     </unit>
     <unit id="zKuoJUv" name="Abdruck vom Schlagschlüssel">
       <notes>
-        <note>Abdruck vom Schlagschlüssel</note>
-        <note>Abdruck vom Schlagschlüssel</note>
         <note category="german">Abdruck vom Schlagschlüssel</note>
       </notes>
       <segment>
@@ -2896,14 +2892,12 @@
         <target>Empreinte de clé à percussion</target>
       </segment>
     </unit>
-    <unit id="ST6MLb5" name="Abdruck vom Dosenöffner">
+    <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
       <notes>
-        <note>Abdruck vom Dosenöffner</note>
-        <note>Abdruck vom Dosenöffner</note>
-        <note category="german">Abdruck vom Dosenöffner</note>
+        <note category="german">Abdruck vom Flaschenöffner</note>
       </notes>
       <segment>
-        <source>Abdruck vom Dosenöffner</source>
+        <source>Abdruck vom Flaschenöffner</source>
         <target>Empreinte de décapsuleur</target>
       </segment>
     </unit>
@@ -6837,8 +6831,6 @@
     </unit>
     <unit id="vclIZyk" name="33638dc">
       <notes>
-        <note>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</note>
-        <note>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</note>
         <note category="german">Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</note>
       </notes>
       <segment>
@@ -6848,13 +6840,11 @@
     </unit>
     <unit id="1gt825t" name="2c41683">
       <notes>
-        <note>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</note>
-        <note>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</note>
         <note category="german">Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</note>
       </notes>
       <segment>
         <source>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</source>
-        <target>Cette empreinte de clé high-tech permettra d'ouvrir les portes sécurisés de niveau 6.2 AOC. </target>
+        <target>Ce Sérum extrêmement rare a été mis au point à partir de l'ADN d'un spécimen presque immunisé ayant résisté plus de 3 jours à une morsure infectieuse, il permet de rendre à une goule son état d'être humain normal.</target>
       </segment>
     </unit>
     <unit id="tea5si." name="d9a4611">
@@ -8368,6 +8358,42 @@
       <segment>
         <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
         <target><![CDATA[Vous lisez {item} avec la plus grande attention. <t-bannote_ok>Cette note appartenait à un citoyen banni... La seule chose que vous pouvez lire est "{zone}"... Étrange... Vous détruisez la page juste pour être sûr que personne ne la lise...</t-bannote_ok><t-bannote_fail>Pas de chance, le contenu de cette note manuscrite est totalement illisible.</t-bannote_fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="Y1T4Y0D" name="Schönes Fundstück">
+      <notes>
+        <note category="german">Schönes Fundstück</note>
+      </notes>
+      <segment>
+        <source>Schönes Fundstück</source>
+        <target>Trouvaille (améliorée)</target>
+      </segment>
+    </unit>
+    <unit id="CW6G1J5" name="5e04d7b">
+      <notes>
+        <note category="german">Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
+        <target>Cette empreinte de clé high-tech permettra d'ouvrir les portes sécurisés de niveau 6.2 AOC.</target>
+      </segment>
+    </unit>
+    <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
+      <notes>
+        <note category="german">Kamera aus Vorkriegs-Tagen</note>
+      </notes>
+      <segment>
+        <source>Kamera aus Vorkriegs-Tagen</source>
+        <target>Appareil photo d'avant-guerre</target>
+      </segment>
+    </unit>
+    <unit id="rUsoPlx" name="efd6bf9">
+      <notes>
+        <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
+      </notes>
+      <segment>
+        <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
+        <target>Cette authentique breloque du siècle dernier aurait, parait-il, à son actif des centaines de rétines brûlées. Son flash mal réglé vous permettra de vous sortir de toutes les situations désespérées en aveuglant les zombies !</target>
       </segment>
     </unit>
   </file>

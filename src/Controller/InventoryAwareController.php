@@ -131,6 +131,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
+
         /** @var TownLogEntry $entity */
         foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
             $this->getActiveCitizen()->getTown(),
@@ -146,6 +147,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();
+                $entries[$idx]['id'] = $entity->getId();
+                $entries[$idx]['hidden'] = $entity->getHidden();
 
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
@@ -158,6 +161,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
+            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($citizen !== null ? $citizen : $this->getActiveCitizen(), 'manipulator'),
         ] );
     }
 
@@ -647,7 +651,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                     return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
                 }
                 return AjaxResponse::success();
-            } else
+            } else if (count($errors) > 0)
                 return AjaxResponse::error($errors[0]);
         }
         return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);

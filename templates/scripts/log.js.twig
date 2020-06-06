@@ -1,7 +1,6 @@
 (function() {
     let log_boxes = document.querySelectorAll('.log-container');
     for (let i = 0; i < log_boxes.length; i++) {
-
         let log = log_boxes[i].querySelector( '.log' );
 
         const has_preloaded_content = log.getAttribute('x-log-default-provided') == '1';
@@ -44,7 +43,6 @@
 
             control_fwd.addEventListener('click', function() { fun_adjust( 1) });
             control_bwd.addEventListener('click', function() { fun_adjust(-1) });
-
         }
     }
 })();

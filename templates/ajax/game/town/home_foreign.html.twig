@@ -16,6 +16,15 @@
         {% endif %})
     </h5>
 
+    {% if hasClairvoyance %}
+        <div class="clairvoyance">
+            <img src="{{ asset('build/images/heroskill/small_view.gif') }}" /> <strong>{{'Hellseherei'|trans({},'game')}} : </strong>
+            {% if clairvoyanceLevel > 0 %}
+            {% for i in range(1, clairvoyanceLevel) %}<img src="{{ asset('build/images/small_new.gif') }}" alt="*" />{% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+
     <div class="lightbox">
         <div class="row">
             {% if (owner.user.avatar) %}
@@ -106,13 +115,15 @@
                 {% if owner.disposed is null %}
                     {{'Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.'|trans({'%citizen%': "<strong>" ~ owner.user.username ~ "</strong>"}, 'game')|raw}}
                 {% elseif owner.disposed is not null and owner.disposedBy|length > 0 %}
+                <span class="disposal">
                     {% if owner.disposed == constant('App\\Entity\\Citizen::Thrown') %}
-                        {{'Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.'|trans({'%disposing_citizen%': "<strong>" ~ owner.disposedBy[0].user.username ~ "</strong>", '%citizen%': "<strong>" ~ owner.user.username ~ "</strong>"}, 'game')|raw}}
+                        {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.username ~ "</em>", '%citizen%': "<em>" ~ owner.user.username ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
-                        {{'Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.'|trans({'%disposing_citizen%': "<strong>" ~ owner.disposedBy[0].user.username ~ "</strong>", '%citizen%': "<strong>" ~ owner.user.username ~ "</strong>"}, 'game')|raw}}
+                        {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.username ~ "</em>", '%citizen%': "<em>" ~ owner.user.username ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                        Grâce aux efforts de <strong>{{owner.disposedBy[0].user.username}}</strong>, le corps de <strong>{{owner.user.username}}</strong> a été cuisiné en bon p'tit plat.
+                        Grâce aux efforts de <em>{{owner.disposedBy[0].user.username}}</em>, le corps de <em>{{owner.user.username}}</em> a été cuisiné en bon p'tit plat.
                     {% endif %}
+                </span>
                 {% else %}
                     {{ 'Unbekannt'|trans({}, 'game') }}
                 {% endif %}

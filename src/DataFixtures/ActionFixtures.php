@@ -711,6 +711,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes' ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],
 
+            'flash_photo_3' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_2_#00'] , 'zone' => ['escape' => 120] ] ] ], 
+            'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_1_#00'] , 'group' => [[['do_nothing'], 30], [[ 'zone' => ['escape' => 60] ], 60]] ] ] ], 
+            'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [[['do_nothing'], 60], [[ 'zone' => ['escape' => 60] ], 30]] ] ] ], 
+
             'hero_tamer_1'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_2'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_2' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_3'  => [ 'label' => 'Dopen', 'meta' => [ 'must_be_outside', 'must_have_drug' ], 'result' => [ 'consume_drug', 'hero_tamer_3' ], 'message' => 'Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!' ],
@@ -723,6 +727,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'hero_generic_return' => [ 'label' => 'Die Rückkehr des Helden',  'meta' => [ 'must_be_outside', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]] ] ],
             'hero_generic_find'   => [ 'label' => 'Fund', 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target' ] ],
+            'hero_generic_find_lucky'   => [ 'label' => 'Schönes Fundstück', 'target' => ['type' => ItemTargetDefinition::ItemTypeSelectionType, 'property' => 'hero_find_lucky'], 'meta' => [ 'not_yet_hero' ], 'result' => [ 'hero_act', 'spawn_target' ] ],
             'hero_generic_punch'  => [ 'label' => 'Wildstyle Uppercut', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'not_yet_hero'], 'result' => [ 'hero_act', ['zombies' => 'kill_2z'] ] ],
             'hero_generic_ap'     => [ 'label' => 'Zweite Lunge', 'meta' => [ 'no_full_ap', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6' ] ],
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
@@ -797,7 +802,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         ],
 
         'heroics' => [
-            'hero_generic_return', 'hero_generic_find', 'hero_generic_punch', 'hero_generic_ap', 'hero_generic_immune', 'hero_generic_rescue'
+            ['name' => 'hero_generic_return', 'unlockable' => false],
+            ['name' => 'hero_generic_find', 'unlockable' => false],
+            ['name' => 'hero_generic_punch', 'unlockable' => false],
+            ['name' => 'hero_generic_ap', 'unlockable' => true],
+            ['name' => 'hero_generic_immune', 'unlockable' => true],
+            ['name' => 'hero_generic_find_lucky', 'unlockable' => true],
+            ['name' => 'hero_generic_rescue', 'unlockable' => false],
         ],
 
         'camping' => [
@@ -1067,7 +1078,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'soul_blue_#00' => ["purify_soul"],
             'soul_red_#00' => ["purify_soul"],
-            'soul_blue_#01' => ['purify_soul']
+            'soul_blue_#01' => ['purify_soul'],
+
+            'photo_3_#00' => ['flash_photo_3'],
+            'photo_2_#00' => ['flash_photo_2'],
+            'photo_1_#00' => ['flash_photo_1'],
         ],
 
         'items_nw' => [
@@ -2325,10 +2340,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['heroics'] as $action) {
 
-            $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneByName( $action );
-            if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action );
+            $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneByName( $action['name'] );
+            if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action['name'] );
+            $action_proto->setUnlockable($action['unlockable']);
 
-            $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+            $action_proto->setAction( $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
             $manager->persist( $action_proto );
         }
