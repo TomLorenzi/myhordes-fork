@@ -841,7 +841,7 @@
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
         <note>Verbesserung des Tages</note>
-        <note category="german">Town upgrades</note>
+        <note category="german">Town Upgrades</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -1093,7 +1093,7 @@
     </unit>
     <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
       <notes>
-        <note category="german">Dieses Thema enthält offizielle Ansagen der Website Administratoren.</note>
+        <note category="german">This thread contains announcements from MyHordes Administrators.</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
@@ -1102,7 +1102,7 @@
     </unit>
     <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
       <notes>
-        <note category="german">Dieses Thema enthält Ansagen von Community-Vertretern.</note>
+        <note category="german">This thread contains announcements from community representatives.</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
@@ -1111,7 +1111,7 @@
     </unit>
     <unit id="EOVP1fz" name="Admin Ankündigung">
       <notes>
-        <note category="german">Admin Ankündigung</note>
+        <note category="german">Admin Announcement</note>
       </notes>
       <segment>
         <source>Admin Ankündigung</source>
@@ -1120,7 +1120,7 @@
     </unit>
     <unit id="jszJ4cS" name="Mod Ankündigung">
       <notes>
-        <note category="german">Mod Ankündigung</note>
+        <note category="german">Mod Announcement</note>
       </notes>
       <segment>
         <source>Mod Ankündigung</source>
@@ -1129,7 +1129,7 @@
     </unit>
     <unit id="eh2CqIr" name="Orakel Ankündigung">
       <notes>
-        <note category="german">Orakel Ankündigung</note>
+        <note category="german">Oracle Announcement</note>
       </notes>
       <segment>
         <source>Orakel Ankündigung</source>
@@ -1138,7 +1138,7 @@
     </unit>
     <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
+        <note category="german">This thread contains %count% Aannouncements from community representatives:</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
@@ -1147,7 +1147,7 @@
     </unit>
     <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
+        <note category="german">This thread contains %count% official announcement(s) from MyHordes Administrators :</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
@@ -1156,7 +1156,7 @@
     </unit>
     <unit id="wg02Gq4" name="Zitieren">
       <notes>
-        <note category="german">Zitieren</note>
+        <note category="german">Quote</note>
       </notes>
       <segment>
         <source>Zitieren</source>
@@ -1165,7 +1165,7 @@
     </unit>
     <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
       <notes>
-        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
+        <note category="german">You cannot send any more items.</note>
       </notes>
       <segment>
         <source>Du kannst keine weiteren Gegenstände senden.</source>
@@ -1174,7 +1174,7 @@
     </unit>
     <unit id="eS7iMaa" name="Rollenspiel">
       <notes>
-        <note category="german">Rollenspiel</note>
+        <note category="german">Roleplay</note>
       </notes>
       <segment>
         <source>Rollenspiel</source>
@@ -1183,7 +1183,7 @@
     </unit>
     <unit id="xtJ2E4o" name="Verräter">
       <notes>
-        <note category="german">Verräter</note>
+        <note category="german">Traitor</note>
       </notes>
       <segment>
         <source>Verräter</source>
@@ -1192,7 +1192,7 @@
     </unit>
     <unit id="peFFaP2" name="Liste der Themen aktualisieren">
       <notes>
-        <note category="german">Liste der Themen aktualisieren</note>
+        <note category="german">Refresh list of Threads</note>
       </notes>
       <segment>
         <source>Liste der Themen aktualisieren</source>

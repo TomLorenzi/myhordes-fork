@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ActionCounter;
 use App\Entity\AdminReport;
+use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
@@ -433,6 +434,28 @@ class MessageController extends AbstractController
     private function prepareEmotes(string $str): string {
         $emotes = $this->get_emotes();
         return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
+    }
+
+    private function getLockedEmoteTags(User $user): array {
+        $emotes = $this->entityManager->getRepository(Emotes::class)->getUnlockableEmotes();
+        $unlocks = $this->entityManager->getRepository(Award::class)->getAwardsByUser($user);
+        $results = array();
+
+        foreach($emotes as $emote) {
+            /** @var $emote Emotes */
+            $results[] = $emote->getTag();
+        }
+
+        if($unlocks != null) {
+            foreach($unlocks as $entry) {
+                /** @var $entry Award */
+                if(in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
+                    unset($results[array_search($entry, $results)]);
+                }
+            }
+        }
+
+        return array_values($results);
     }
 
     /**

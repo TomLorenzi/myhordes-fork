@@ -8,7 +8,7 @@
       </notes>
       <segment>
         <source>%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>%victim%'s alarm woke up half of the town and scared you to death!</target>
+        <target>%victim%'s alarm woke up half of the town and scared you !</target>
       </segment>
     </unit>
     <unit id="uPyX7.a" name="Mist, dein Einbruch bei %victim% ist aufgeflogen...">
@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target>Dang, your burglary at %victim%'s was noticed...' </target>
+        <target>Votre visite chez %victim% n'est pas passée inaperçue...</target>
       </segment>
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
@@ -28,7 +28,7 @@
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</source>
-        <target>Perfect, nobody saw you robbing from %victim%'s home.</target>
+        <target>Perfect, nobody saw you infiltrating %victim%'s home.</target>
       </segment>
     </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
@@ -78,7 +78,7 @@
       </notes>
       <segment>
         <source>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</source>
-        <target>The construction of the building %building% gave to the following to the town: %list%</target>
+        <target>The construction of the building %building% gave to the following to the town : %list%</target>
       </segment>
     </unit>
     <unit id="RScnWL2" name="ec97dc9">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</source>
-        <target>The construction of the building %building% gave us %num% water rations!</target>
+        <target>Finishing the construction of %building% gave us %num% water rations !</target>
       </segment>
     </unit>
     <unit id="IrDOx2H" name="%citizen% hat das Stadttor %action%.">
@@ -168,7 +168,7 @@
       </notes>
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</source>
-        <target>A new citizen has arrived: %citizen%.</target>
+        <target>A new citizen has arrived : %citizen%.</target>
       </segment>
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine neue Berufung als %profession% gefunden.</source>
-        <target>%citizen% has found thier new calling as a %profession%.</target>
+        <target>%citizen% choose the profession %profession%.</target>
       </segment>
     </unit>
     <unit id="nK4zXOH" name="%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -188,7 +188,7 @@
       </notes>
       <segment>
         <source>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%zombies% tried in vain to break into %citizen%'s house.</target>
+        <target>%zombies% tried in vain to enter into %citizen%'s house.</target>
       </segment>
     </unit>
     <unit id="fPimUWN" name="%num% Zombies">
@@ -218,7 +218,7 @@
       </notes>
       <segment>
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% produced one %list2% from a %list1%.</target>
+        <target>%citizen% produced %list2% from %list1%.</target>
       </segment>
     </unit>
     <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
@@ -228,7 +228,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% came back from the dead and mauled %victim%!</target>
+        <target>%zombie% resurrected and devoured %victim% !</target>
       </segment>
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% came back from the dead and and devastated the construction site for the %building%!</target>
+        <target>%zombie% resurrected and the building %building% has been destroyed !</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -248,7 +248,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% came back from the dead and contaminated the well! This cost us %num% water ration(s)!</target>
+        <target>%zombie% resurrected and infected the well ! This cost us %num% water ration(s) !</target>
       </segment>
     </unit>
     <unit id="ByzkImj" name="8895c43">
@@ -1906,7 +1906,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mein Haus</source>
-        <target>My Home</target>
+        <target>Home</target>
       </segment>
     </unit>
     <unit id="lQNhv.P" name="Brunnen">

@@ -750,7 +750,7 @@
     </unit>
     <unit id="h7YL9VW" name="Städte">
       <notes>
-        <note category="german">Städte</note>
+        <note category="german">Towns</note>
       </notes>
       <segment>
         <source>Städte</source>
@@ -759,7 +759,7 @@
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
-        <note category="german">Zukunft</note>
+        <note category="german">Updates</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -768,7 +768,7 @@
     </unit>
     <unit id="q8r8gtq" name="Titel">
       <notes>
-        <note category="german">Titel</note>
+        <note category="german">Title</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -786,7 +786,7 @@
     </unit>
     <unit id="gvEcbOu" name="Neue Update">
       <notes>
-        <note category="german">Neue Update</note>
+        <note category="german">New Update</note>
       </notes>
       <segment>
         <source>Neue Update</source>
@@ -795,14 +795,18 @@
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
       <notes>
-        <note category="german">Auszeichnungen</note>
+        <note category="german">Distinctions</note>
       </notes>
       <segment>
         <source>Auszeichnungen</source>
         <target>Distinctions</target>
       </segment>
     </unit>
+<<<<<<< HEAD
+    <unit id="Sq.PLVK" name="Ruinenscanner">
+=======
         <unit id="Sq.PLVK" name="Ruinenscanner">
+>>>>>>> 47428bc19a27b8ffc0fe075baeff277126d03693
       <notes>
         <note category="german">Ruinenscanner</note>
       </notes>
