@@ -216,7 +216,7 @@ class CitizenHandler
             foreach ($items as $item) {
                 $source = $item->getInventory();
                 if ($this->inventory_handler->transferItem( $citizen, $item, $source, $bank, InventoryHandler::ModalityImpound ) === InventoryHandler::ErrorNone)
-                    $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $item, true ) );
+                    $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $item->getPrototype(), true ) );
             }
 
             // As he is shunned, we remove all the complaints
