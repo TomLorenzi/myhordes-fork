@@ -903,7 +903,7 @@
     </unit>
     <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
       <notes>
-        <note category="german">Dieser Login ist ausschließlich für Administratoren gedacht.</note>
+        <note category="german">This login is only for Administrators.</note>
       </notes>
       <segment>
         <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
@@ -912,7 +912,7 @@
     </unit>
     <unit id="aZibx3x" name="Server-Log herunterladen">
       <notes>
-        <note category="german">Server-Log herunterladen</note>
+        <note category="german">Download Server logs</note>
       </notes>
       <segment>
         <source>Server-Log herunterladen</source>
@@ -921,7 +921,7 @@
     </unit>
     <unit id="yvg6S11" name="Server-Log ansehen">
       <notes>
-        <note category="german">Server-Log ansehen</note>
+        <note category="german">View Server logs</note>
       </notes>
       <segment>
         <source>Server-Log ansehen</source>
@@ -930,7 +930,7 @@
     </unit>
     <unit id="UYFKH.u" name="Server-Log löschen">
       <notes>
-        <note category="german">Server-Log löschen</note>
+        <note category="german">Clear Server logs</note>
       </notes>
       <segment>
         <source>Server-Log löschen</source>
@@ -939,7 +939,7 @@
     </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
       <notes>
-        <note category="german">Geplante Angriffe</note>
+        <note category="german">Planned Attacks</note>
       </notes>
       <segment>
         <source>Geplante Angriffe</source>
@@ -948,7 +948,7 @@
     </unit>
     <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
       <notes>
-        <note category="german">Überfällig seit %s% Sekunden!</note>
+        <note category="german">Overdue for %s% seconds!</note>
       </notes>
       <segment>
         <source>Überfällig seit %s% Sekunden!</source>
@@ -957,7 +957,7 @@
     </unit>
     <unit id=".vvAKHY" name="Soldatenberuf freischalten">
       <notes>
-        <note category="german">Soldatenberuf freischalten</note>
+        <note category="german">Unlock military profession</note>
       </notes>
       <segment>
         <source>Soldatenberuf freischalten</source>
@@ -966,7 +966,7 @@
     </unit>
     <unit id="rhc00FL" name="999 AP zuweisen">
       <notes>
-        <note category="german">999 AP zuweisen</note>
+        <note category="german">Give 999 AP</note>
       </notes>
       <segment>
         <source>999 AP zuweisen</source>
@@ -975,7 +975,7 @@
     </unit>
     <unit id="hkxRxBa" name="Munition erzeugen">
       <notes>
-        <note category="german">Munition erzeugen</note>
+        <note category="german">Generate ammunition</note>
       </notes>
       <segment>
         <source>Munition erzeugen</source>
@@ -984,7 +984,7 @@
     </unit>
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
       <notes>
-        <note category="german">Admin-Berechtigung setzen</note>
+        <note category="german">Set Admin authorization</note>
       </notes>
       <segment>
         <source>Admin-Berechtigung setzen</source>
@@ -993,7 +993,7 @@
     </unit>
     <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
       <notes>
-        <note category="german">+ 9999 Seelenpunkte</note>
+        <note category="german">+ 9999 Soul points</note>
       </notes>
       <segment>
         <source>+ 9999 Seelenpunkte</source>
@@ -1002,7 +1002,7 @@
     </unit>
     <unit id="WgSXz1." name="Geheime Saison freischalten">
       <notes>
-        <note category="german">Geheime Saison freischalten</note>
+        <note category="german">Unlock Secret Season</note>
       </notes>
       <segment>
         <source>Geheime Saison freischalten</source>
@@ -1011,7 +1011,7 @@
     </unit>
     <unit id="B6BJJfF" name="Computer sagt nein.">
       <notes>
-        <note category="german">Computer sagt nein.</note>
+        <note category="german">Computer says no.</note>
       </notes>
       <segment>
         <source>Computer sagt nein.</source>

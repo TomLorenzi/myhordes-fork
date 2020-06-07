@@ -1068,7 +1068,7 @@
       </notes>
       <segment>
         <source>durch Beruf</source>
-        <target>Heros Bonuses</target>
+        <target>Hero Bonus</target>
       </segment>
     </unit>
     <unit id="d5El4_h" name="durch Ausbauten">
@@ -1926,7 +1926,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bank</source>
-        <target>Bank</target>
+        <target>The Bank</target>
       </segment>
     </unit>
     <unit id="FlZntyi" name="Bürger">
@@ -4041,7 +4041,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Proj.</target>
+        <target>Town Upgrades</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
@@ -4061,7 +4061,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Werkstatt</source>
-        <target>Works</target>
+        <target>Workshop</target>
       </segment>
     </unit>
     <unit id="Wf9i_SY" name="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
@@ -10981,6 +10981,24 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Tür aufschließen</source>
         <target>Unlock the door</target>
+      </segment>
+    </unit>
+    <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
+      <notes>
+        <note category="german">Verbesserung des Tages (building)</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages (building)</source>
+        <target>Proj.</target>
+      </segment>
+    </unit>
+    <unit id="AKS0zA3" name="Werkstatt (building)">
+      <notes>
+        <note category="german">Werkstatt (building)</note>
+      </notes>
+      <segment>
+        <source>Werkstatt (building)</source>
+        <target>Works</target>
       </segment>
     </unit>
   </file>
