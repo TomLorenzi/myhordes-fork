@@ -136,6 +136,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
+                'show_exit_direction' => $citizen->getProfession()->getName() === 'tamer',
                 'name' => $citizen->getZone()->getPrototype()->getLabel(),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,

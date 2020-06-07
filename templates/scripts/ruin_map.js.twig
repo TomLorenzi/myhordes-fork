@@ -85,4 +85,17 @@ for (let i = 0; i < ruin_map_areas.length; i++) {
             if (you) you.classList.add('noox');
         }
     });
+
+    {% if map.show_exit_direction %}
+        let marker_direction = map.querySelector('.marker-direction');
+        if (marker_direction) {
+            const d_x = {{ map.zone.x }} * -1; const d_y = {{ map.zone.y }} * -1;
+            marker_direction.style.display = 'none';
+            if (d_x !== 0 || d_y !== 0) {
+                const angle = Math.round(Math.acos( d_y / Math.sqrt( d_x*d_x + d_y*d_y ) ) * 57.2957795);
+                marker_direction.style.transform = 'rotate(' + ((d_x > 0) ? 360 - angle : angle) + 'deg)';
+                marker_direction.style.display = 'block';
+            }
+        }
+    {% endif %}
 }

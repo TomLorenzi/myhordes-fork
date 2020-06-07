@@ -150,7 +150,7 @@
             </div>
 
             <div class="zone-plane-controls">
-                {% if zone.x < map.map_x1 %}<div class="marker-direction"></div>{% endif %}
+                <div class="marker-direction"></div>
                 {% if move %}
                     {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
                         {% if zone.x < map.map_x1 %}<div x-direction-x="1"  x-direction-y="0"  x-target-x="{{ zone.x + 1 }}" x-target-y="{{ zone.y }}" class="action-move action-move-east"></div>{% endif %}

@@ -60,15 +60,15 @@
             </div>
 
         <div class="zone-plane-controls">
+            {% if map.show_exit_direction %}
+                <div class="marker-direction"></div>
+            {% endif %}
             {% if move %}
-                {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
-                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}<div x-direction-x="1"  x-direction-y="0"  class="action-move action-move-east"></div>{% endif %}
-                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}<div x-direction-x="-1" x-direction-y="0"  class="action-move action-move-west"></div>{% endif %}
-                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}<div x-direction-x="0"  x-direction-y="-1" class="action-move action-move-south"></div>{% endif %}
-                    {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}<div x-direction-x="0"  x-direction-y="1"  class="action-move action-move-north"></div>{% endif %}
-                    {% if map.shifted %}<div class="action-move action-move-unshift"></div>{% endif %}
-
-                {% endif %}
+                {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_E') ) %}<div x-direction-x="1"  x-direction-y="0"  class="action-move action-move-east"></div>{% endif %}
+                {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_W') ) %}<div x-direction-x="-1" x-direction-y="0"  class="action-move action-move-west"></div>{% endif %}
+                {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_S') ) %}<div x-direction-x="0"  x-direction-y="-1" class="action-move action-move-south"></div>{% endif %}
+                {% if not map.shifted and map.zone.hasCorridor( constant('App\\Entity\\RuinZone::CORRIDOR_N') ) %}<div x-direction-x="0"  x-direction-y="1"  class="action-move action-move-north"></div>{% endif %}
+                {% if map.shifted %}<div class="action-move action-move-unshift"></div>{% endif %}
             {% endif %}
         </div>
         <div class="zone-plane-ui">
