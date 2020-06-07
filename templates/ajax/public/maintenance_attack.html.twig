@@ -31,6 +31,11 @@
             <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
             <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
         </div>
+
+        <div class="right">
+            <br />
+            <span class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+        </div>
     </div>
 {% endblock %}
 {% block js %}
