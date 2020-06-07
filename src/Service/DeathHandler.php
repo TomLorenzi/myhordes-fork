@@ -14,6 +14,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Soul;
 use App\Entity\TownRankingProxy;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Structures\BetweenFilter;
 
@@ -28,10 +29,11 @@ class DeathHandler
     private $picto_handler;
     private $log;
     private $random_generator;
+    private $conf;
 
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg)
+        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -42,6 +44,7 @@ class DeathHandler
         $this->picto_handler = $ph;
         $this->log = $lt;
         $this->random_generator = $rg;
+        $this->conf = $conf;
     }
 
     /**
@@ -83,9 +86,10 @@ class DeathHandler
         if (!$died_outside) {
             $zone = null;
             $citizen->getHome()->setHoldsBody( true );
-            $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'),
-                in_array($cod->getRef(), [CauseOfDeath::Hanging, CauseOfDeath::FleshCage]) ? [$citizen->getTown()->getBank()] : [$citizen->getHome()->getChest(),$citizen->getTown()->getBank()]
-            );
+            if ($this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_MODIFIER_BONES_IN_TOWN, false))
+                $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'),
+                    in_array($cod->getRef(), [CauseOfDeath::Hanging, CauseOfDeath::FleshCage]) ? [$citizen->getTown()->getBank()] : [$citizen->getHome()->getChest(),$citizen->getTown()->getBank()]
+                );
         }
         else {
             $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );

@@ -42,6 +42,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_WOUND_TERROR_PENALTY = 'modifiers.wound_terror_penalty';
     const CONF_MODIFIER_ATTACK_PROTECT       = 'modifiers.attack_protection';
     const CONF_MODIFIER_CARRY_EXTRA_BAG      = 'modifiers.carry_extra_bag';
+    const CONF_MODIFIER_BONES_IN_TOWN        = 'modifiers.meaty_bones_within_town';
 
     const CONF_FEATURE_CAMPING        = 'features.camping';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';
