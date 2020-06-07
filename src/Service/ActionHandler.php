@@ -51,12 +51,13 @@ class ActionHandler
     private $assets;
     private $log;
     private $conf;
+    private $maze;
 
 
     public function __construct(
         EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
         RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf)
+        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -73,6 +74,7 @@ class ActionHandler
         $this->picto_handler = $ph;
         $this->log = $lt;
         $this->conf = $conf;
+        $this->maze = $mm;
     }
 
     const ActionValidityNone = 1;
@@ -480,6 +482,7 @@ class ActionHandler
             'casino' => '',
             'zone' => null,
             'well' => 0,
+            'zombies' => 0,
             'message' => [
             	$action->getMessage()
             ],
@@ -708,8 +711,22 @@ class ActionHandler
                         $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
                 }
 
-                if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0)
-                    $base_zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime("+{$zoneEffect->getEscape()}sec") ) );
+                if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0) {
+
+                    if ($ruinZone) {
+                        $z = $ruinZone->getZombies();
+                        $ruinZone->setZombies( 0 );
+                        if ($z > 0) $this->maze->populateMaze( $ruinZone->getZone(), $z, false, false, [$ruinZone] );
+                        $execute_info_cache['zombies'] += $z;
+                        $tags[] = 'reverse-escape';
+                    } else {
+                        $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
+                        $tags[] = 'escape';
+                    }
+
+
+                }
+
 
               if ($zoneEffect->getImproveLevel()) {
                 $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
@@ -1060,6 +1077,7 @@ class ActionHandler
 	                '{ap}'        => $execute_info_cache['ap'],
 	                '{minus_ap}'  => -$execute_info_cache['ap'],
 	                '{well}'      => $execute_info_cache['well'],
+	                '{zombies}'   => $execute_info_cache['zombies'],
 	                '{item}'      => $this->wrap($execute_info_cache['item']),
 	                '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
 	                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
