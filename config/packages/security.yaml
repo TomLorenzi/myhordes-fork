@@ -38,17 +38,20 @@ security:
         - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # AJAX Access
-        - { path: ^/jx/landing, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/jx/public/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/jx/ghost/,  roles: ROLE_USER }
-        - { path: ^/jx/soul/,   roles: ROLE_USER }
-        - { path: ^/jx/admin/,  roles: ROLE_CROW }
+        - { path: ^/jx/landing,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/jx/public/,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/jx/ghost/,      roles: ROLE_USER }
+        - { path: ^/jx/soul/,       roles: ROLE_USER }
+        - { path: ^/jx/admin/dash,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/jx/admin/,      roles: ROLE_CROW }
+        - { path: ^/admin/,         roles: ROLE_CROW }
 
         # API Access
         - { path: ^/api/public/login,  roles: ROLE_REGISTERED }
         - { path: ^/api/public/logout, roles: ROLE_REGISTERED }
         - { path: ^/api/soul/,         roles: ROLE_USER }
         - { path: ^/api/public/,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/admin/login,   roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/admin/,        roles: ROLE_CROW }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
