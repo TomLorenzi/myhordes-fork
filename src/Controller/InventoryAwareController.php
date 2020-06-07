@@ -558,13 +558,16 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $dead = false;
             foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
+
+                    $target_citizen = $inv_target->getCitizen();
+
                     // We pick a read soul in the World Beyond
-                    if(!$this->citizen_handler->hasStatusEffect($citizen, "tg_shaman_immune")) {
+                    if($target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune")) {
                         $dead = true;
                         // He is not immune, he dies.
                         $rem = [];
-                        $this->death_handler->kill( $citizen, CauseOfDeath::Haunted, $rem );
-                        $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
+                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted, $rem );
+                        $this->entity_manager->persist( $this->log->citizenDeath( $target_citizen ) );
 
                         // The red soul vanishes too
                         $this->inventory_handler->forceRemoveItem($current_item);
