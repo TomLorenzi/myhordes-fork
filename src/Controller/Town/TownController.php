@@ -752,10 +752,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @Route("api/town/bank/item", name="town_bank_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
-     * @param BankAntiAbuseService $bankAntiAbuseService
      * @return Response
      */
-    public function item_bank_api(JSONRequestParser $parser, InventoryHandler $handler, BankAntiAbuseService $bankAntiAbuseService): Response {
+    public function item_bank_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $up_inv   = $this->getActiveCitizen()->getInventory();
         $down_inv = $this->getActiveCitizen()->getTown()->getBank();
 
