@@ -4177,7 +4177,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>En fouillant les environs vous découvrez une petite flaque d'eau croupie. Comme vous n'avez guère le choix, vous vous empressez de boire son contenu (ainsi que tout ce qui flotte dedans)... Vous avez récupéré tous vos PA.</target>
+        <target>Wasser suchen</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -4188,7 +4188,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Vous partez en quête de nourriture dans les environs...Après plusieurs longues minutes de recherche, vous finissez par mettre la main sur une poignée de gros vers visqueux qui se tortillent. Néanmoins, votre manuel est formel à leur sujet : ils sont comestibles ! Vous les avalez sans attendre avant qu'ils ne vous échappent. Vous avez récupéré tous vos PA.</target>
+        <target>Essen suchen</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
