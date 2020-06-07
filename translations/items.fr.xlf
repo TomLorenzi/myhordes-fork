@@ -4177,7 +4177,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Wasser suchen</target>
+        <target>Chercher de l'eau</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -4188,7 +4188,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Essen suchen</target>
+        <target>Cherchez de la nourriture</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
