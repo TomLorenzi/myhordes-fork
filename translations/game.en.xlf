@@ -18,7 +18,7 @@
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target>Votre visite chez %victim% n'est pas passée inaperçue...</target>
+        <target>Dang, your burglary at %victim%'s was noticed...'</target>
       </segment>
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
