@@ -155,7 +155,7 @@ class ActionHandler
                     ? $item_condition->getProperty()->getName()
                     : $item_condition->getPrototype()->getName();
 
-                $source = $citizen->getZone() ? [$citizen->getInventory(), $citizen->getZone()->getFloor()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
+                $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
 
                 if (empty($this->inventory_handler->fetchSpecificItems( $source,
                     [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, null, $is_prop)]
