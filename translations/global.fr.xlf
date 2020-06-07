@@ -1169,7 +1169,7 @@
       </notes>
       <segment>
         <source>Du kannst keine weiteren Gegenstände senden.</source>
-        <target>Du kannst keine weiteren Gegenstände senden.</target>
+        <target>Vous ne pouvez plus envoyer d'objets.</target>
       </segment>
     </unit>
     <unit id="eS7iMaa" name="Rollenspiel">

@@ -802,7 +802,11 @@
         <target>Distinctions</target>
       </segment>
     </unit>
+<<<<<<< HEAD
     <unit id="Sq.PLVK" name="Ruinenscanner">
+=======
+        <unit id="Sq.PLVK" name="Ruinenscanner">
+>>>>>>> 47428bc19a27b8ffc0fe075baeff277126d03693
       <notes>
         <note category="german">Ruinenscanner</note>
       </notes>
@@ -844,7 +848,7 @@
       </notes>
       <segment>
         <source>Abdruck</source>
-        <target>Abdruck</target>
+        <target>Empreinte</target>
       </segment>
     </unit>
     <unit id="H716AMr" name="Schlüssel">
@@ -853,7 +857,7 @@
       </notes>
       <segment>
         <source>Schlüssel</source>
-        <target>Schlüssel</target>
+        <target>Clé</target>
       </segment>
     </unit>
     <unit id="Q2ZDp94" name="Durchsucht">
@@ -862,7 +866,7 @@
       </notes>
       <segment>
         <source>Durchsucht</source>
-        <target>Durchsucht</target>
+        <target>Chercher</target>
       </segment>
     </unit>
     <unit id="VxMRN_s" name="Aktuelle Sitzung">
@@ -871,7 +875,7 @@
       </notes>
       <segment>
         <source>Aktuelle Sitzung</source>
-        <target>Aktuelle Sitzung</target>
+        <target>Session actuelle</target>
       </segment>
     </unit>
     <unit id="ajNZZUO" name="Flucht">
@@ -880,7 +884,7 @@
       </notes>
       <segment>
         <source>Flucht</source>
-        <target>Flucht</target>
+        <target>S'enfuir</target>
       </segment>
     </unit>
     <unit id="0vxeWOf" name="Raum">
@@ -889,7 +893,7 @@
       </notes>
       <segment>
         <source>Raum</source>
-        <target>Raum</target>
+        <target>Pièce</target>
       </segment>
     </unit>
     <unit id="dPJJMfT" name="Zeit">
@@ -898,7 +902,7 @@
       </notes>
       <segment>
         <source>Zeit</source>
-        <target>Zeit</target>
+        <target>Temps</target>
       </segment>
     </unit>
     <unit id="ILol6i6" name="Alle Sitzungen">
@@ -907,7 +911,7 @@
       </notes>
       <segment>
         <source>Alle Sitzungen</source>
-        <target>Alle Sitzungen</target>
+        <target>Toutes les sessions</target>
       </segment>
     </unit>
   </file>

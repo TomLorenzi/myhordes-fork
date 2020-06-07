@@ -9146,7 +9146,7 @@
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+        <target>Vous aussi, vous pouvez défendre la ville ce soir! Rejoignez les Veilleurs! Voulez-vous rejoindre les citoyens les plus suicid... euh ... courageux? Eh bien, n'attendez plus:</target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
@@ -11630,7 +11630,7 @@
       </notes>
       <segment>
         <source>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</source>
-        <target>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</target>
+        <target>Vous prenez une empreinte de la serrure de cette porte et obtenez %item% !</target>
       </segment>
     </unit>
     <unit id="Rc83IVi" name="Mithilfe des %item% hast du die Tür aufgeschlossen!">
@@ -11639,7 +11639,7 @@
       </notes>
       <segment>
         <source>Mithilfe des %item% hast du die Tür aufgeschlossen!</source>
-        <target>Mithilfe des %item% hast du die Tür aufgeschlossen!</target>
+        <target>Avec %item%, vous avez déverrouillé la porte !</target>
       </segment>
     </unit>
     <unit id="EaUf6Ab" name="%z% Zombies blockieren den Weg!">
@@ -11648,7 +11648,7 @@
       </notes>
       <segment>
         <source>%z% Zombies blockieren den Weg!</source>
-        <target>%z% Zombies blockieren den Weg!</target>
+        <target>%z% zombies bloquent le chemin !</target>
       </segment>
     </unit>
     <unit id="M1qRyRo" name="75469b8">
@@ -11657,7 +11657,7 @@
       </notes>
       <segment>
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</source>
-        <target>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</target>
+        <target>Vous avez été surpris et êtes maintenant entouré de zombies ! Vous pouvez vous échapper, mais vous utiliserez de l'oxygène supplémentaire...</target>
       </segment>
     </unit>
     <unit id="RZlip1S" name="Flüchten">
@@ -11666,7 +11666,7 @@
       </notes>
       <segment>
         <source>Flüchten</source>
-        <target>Flüchten</target>
+        <target>S'enfuir</target>
       </segment>
     </unit>
     <unit id="_KlLZBG" name="Gebäude verlassen">
@@ -11675,7 +11675,7 @@
       </notes>
       <segment>
         <source>Gebäude verlassen</source>
-        <target>Gebäude verlassen</target>
+        <target>Quitter le bâtiment</target>
       </segment>
     </unit>
     <unit id="OqMz83X" name="Raum durchsuchen">
@@ -11684,7 +11684,7 @@
       </notes>
       <segment>
         <source>Raum durchsuchen</source>
-        <target>Raum durchsuchen</target>
+        <target>Chercher dans la pièce</target>
       </segment>
     </unit>
     <unit id="LcBC2EZ" name="Raum verlassen">
@@ -11693,7 +11693,7 @@
       </notes>
       <segment>
         <source>Raum verlassen</source>
-        <target>Raum verlassen</target>
+        <target>Quitter la pièce</target>
       </segment>
     </unit>
     <unit id="LXYdYwf" name="Raum betreten">
@@ -11702,7 +11702,7 @@
       </notes>
       <segment>
         <source>Raum betreten</source>
-        <target>Raum betreten</target>
+        <target>Entrer dans la pièce</target>
       </segment>
     </unit>
     <unit id="nnL4vYm" name="Abdruck nehmen">
@@ -11711,7 +11711,7 @@
       </notes>
       <segment>
         <source>Abdruck nehmen</source>
-        <target>Abdruck nehmen</target>
+        <target>Prendre une empreinte</target>
       </segment>
     </unit>
     <unit id="gi1cmP_" name="Tür aufschließen">
@@ -11720,7 +11720,7 @@
       </notes>
       <segment>
         <source>Tür aufschließen</source>
-        <target>Tür aufschließen</target>
+        <target>Déverrouiller la porte</target>
       </segment>
     </unit>
     <unit id="ZcFLHOU" name="Sauerstoff">
@@ -11729,7 +11729,7 @@
       </notes>
       <segment>
         <source>Sauerstoff</source>
-        <target>Sauerstoff</target>
+        <target>Oxygène</target>
       </segment>
     </unit>
   </file>
