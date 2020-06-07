@@ -33,8 +33,12 @@
                 {% if is_granted("ROLE_ADMIN") %}
                     <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
+                {% endif %}
+                {% if is_granted("ROLE_CROW") %}
+                <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
+                {% endif %}
+                {% if is_granted("ROLE_ORACLE") %}
+                <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
                 {% endif %}
                 <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>

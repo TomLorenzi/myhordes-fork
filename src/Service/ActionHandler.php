@@ -51,12 +51,13 @@ class ActionHandler
     private $assets;
     private $log;
     private $conf;
+    private $maze;
 
 
     public function __construct(
         EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
         RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf)
+        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -73,6 +74,7 @@ class ActionHandler
         $this->picto_handler = $ph;
         $this->log = $lt;
         $this->conf = $conf;
+        $this->maze = $mm;
     }
 
     const ActionValidityNone = 1;
@@ -153,7 +155,7 @@ class ActionHandler
                     ? $item_condition->getProperty()->getName()
                     : $item_condition->getPrototype()->getName();
 
-                $source = $citizen->getZone() ? [$citizen->getInventory(), $citizen->getZone()->getFloor()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
+                $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
 
                 if (empty($this->inventory_handler->fetchSpecificItems( $source,
                     [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, null, $is_prop)]
@@ -480,6 +482,7 @@ class ActionHandler
             'casino' => '',
             'zone' => null,
             'well' => 0,
+            'zombies' => 0,
             'message' => [
             	$action->getMessage()
             ],
@@ -663,7 +666,7 @@ class ActionHandler
                     $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item, $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item->getPrototype(), $kills ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }
@@ -708,8 +711,22 @@ class ActionHandler
                         $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
                 }
 
-                if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0)
-                    $base_zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime("+{$zoneEffect->getEscape()}sec") ) );
+                if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0) {
+                    $tags[] = 'any-escape';
+                    if ($ruinZone) {
+                        $z = $ruinZone->getZombies();
+                        $ruinZone->setZombies( 0 );
+                        if ($z > 0) $this->maze->populateMaze( $ruinZone->getZone(), $z, false, false, [$ruinZone] );
+                        $execute_info_cache['zombies'] += $z;
+                        $tags[] = 'reverse-escape';
+                    } else {
+                        $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
+                        $tags[] = 'escape';
+                    }
+
+
+                }
+
 
               if ($zoneEffect->getImproveLevel()) {
                 $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
@@ -723,7 +740,7 @@ class ActionHandler
                 $execute_info_cache['well'] += $add;
 
                 if ($add > 0)
-                    $this->entity_manager->persist( $this->log->wellAdd( $citizen, $item, $add) );
+                    $this->entity_manager->persist( $this->log->wellAdd( $citizen, $item->getPrototype(), $add) );
             }
 
             if ($result->getRolePlayText()) {
@@ -841,11 +858,11 @@ class ActionHandler
                         break;
 
                     // Tamer
-                    case 4:case 5: {
-                        $heavy = $result->getCustom() === 5;
+                    case 4:case 5:case 16:case 17: {
+                        $heavy = $result->getCustom() === 5 || $result->getCustom() === 17;
 
                         $source = $citizen->getInventory();
-                        $bank = $citizen->getTown()->getBank();
+                        $bank = ($result->getCustom() === 4 || $result->getCustom() === 5) ? $citizen->getTown()->getBank() : $citizen->getHome()->getChest();
 
                         $heavy_break = false;
                         if (!$heavy)
@@ -923,6 +940,14 @@ class ActionHandler
                             $dig_timer->setPassive(true);
                             $this->entity_manager->persist( $dig_timer );
                         }
+
+                        if ($jumper->getEscortSettings()) {
+                            $remove[] = $jumper->getEscortSettings();
+                            $jumper->setEscortSettings(null);
+                        }
+
+                        if ($jumper->activeExplorerStats())
+                            $jumper->activeExplorerStats()->setActive( false );
 
                         $jumper->setZone(null);
                         $zone->removeCitizen( $jumper );
@@ -1060,6 +1085,7 @@ class ActionHandler
 	                '{ap}'        => $execute_info_cache['ap'],
 	                '{minus_ap}'  => -$execute_info_cache['ap'],
 	                '{well}'      => $execute_info_cache['well'],
+	                '{zombies}'   => $execute_info_cache['zombies'],
 	                '{item}'      => $this->wrap($execute_info_cache['item']),
 	                '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
 	                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",

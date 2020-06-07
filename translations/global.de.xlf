@@ -982,5 +982,176 @@
         <target>Entstauben</target>
       </segment>
     </unit>
+    <unit id="lqB1Bvf" name="Einfügen">
+      <notes>
+        <note category="german">Einfügen</note>
+      </notes>
+      <segment>
+        <source>Einfügen</source>
+        <target>Einfügen</target>
+      </segment>
+    </unit>
+    <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
+      <notes>
+        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine weiteren Gegenstände senden.</source>
+        <target>Du kannst keine weiteren Gegenstände senden.</target>
+      </segment>
+    </unit>
+    <unit id="xtJ2E4o" name="Verräter">
+      <notes>
+        <note category="german">Verräter</note>
+      </notes>
+      <segment>
+        <source>Verräter</source>
+        <target>Verräter</target>
+      </segment>
+    </unit>
+    <unit id="siULJza" name="Link einfügen">
+      <notes>
+        <note category="german">Link einfügen</note>
+      </notes>
+      <segment>
+        <source>Link einfügen</source>
+        <target>Link einfügen</target>
+      </segment>
+    </unit>
+    <unit id="HqBDmKX" name="Bild einfügen">
+      <notes>
+        <note category="german">Bild einfügen</note>
+      </notes>
+      <segment>
+        <source>Bild einfügen</source>
+        <target>Bild einfügen</target>
+      </segment>
+    </unit>
+    <unit id="EOVP1fz" name="Admin Ankündigung">
+      <notes>
+        <note category="german">Admin Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Admin Ankündigung</source>
+        <target>Admin Ankündigung</target>
+      </segment>
+    </unit>
+    <unit id="jszJ4cS" name="Mod Ankündigung">
+      <notes>
+        <note category="german">Mod Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Mod Ankündigung</source>
+        <target>Mod Ankündigung</target>
+      </segment>
+    </unit>
+    <unit id="eh2CqIr" name="Orakel Ankündigung">
+      <notes>
+        <note category="german">Orakel Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Orakel Ankündigung</source>
+        <target>Orakel Ankündigung</target>
+      </segment>
+    </unit>
+    <unit id="eS7iMaa" name="Rollenspiel">
+      <notes>
+        <note category="german">Rollenspiel</note>
+      </notes>
+      <segment>
+        <source>Rollenspiel</source>
+        <target>Rollenspiel</target>
+      </segment>
+    </unit>
+    <unit id="9H7C4W9" name="Link-Text">
+      <notes>
+        <note category="german">Link-Text</note>
+      </notes>
+      <segment>
+        <source>Link-Text</source>
+        <target>Link-Text</target>
+      </segment>
+    </unit>
+    <unit id="nE4T9Ox" name="Link-URL">
+      <notes>
+        <note category="german">Link-URL</note>
+      </notes>
+      <segment>
+        <source>Link-URL</source>
+        <target>Link-URL</target>
+      </segment>
+    </unit>
+    <unit id="d1AmbOG" name="Bildtitel">
+      <notes>
+        <note category="german">Bildtitel</note>
+      </notes>
+      <segment>
+        <source>Bildtitel</source>
+        <target>Bildtitel</target>
+      </segment>
+    </unit>
+    <unit id="Q0tlYyY" name="Bild-URL">
+      <notes>
+        <note category="german">Bild-URL</note>
+      </notes>
+      <segment>
+        <source>Bild-URL</source>
+        <target>Bild-URL</target>
+      </segment>
+    </unit>
+    <unit id="peFFaP2" name="Liste der Themen aktualisieren">
+      <notes>
+        <note category="german">Liste der Themen aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Liste der Themen aktualisieren</source>
+        <target>Liste der Themen aktualisieren</target>
+      </segment>
+    </unit>
+    <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
+      <notes>
+        <note category="german">Dieses Thema enthält offizielle Ansagen der Website Administratoren.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
+        <target>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</target>
+      </segment>
+    </unit>
+    <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
+      <notes>
+        <note category="german">Dieses Thema enthält Ansagen von Community-Vertretern.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
+        <target>Dieses Thema enthält Ansagen von Community-Vertretern.</target>
+      </segment>
+    </unit>
+    <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
+        <target>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</target>
+      </segment>
+    </unit>
+    <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
+        <target>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</target>
+      </segment>
+    </unit>
+    <unit id="wg02Gq4" name="Zitieren">
+      <notes>
+        <note category="german">Zitieren</note>
+      </notes>
+      <segment>
+        <source>Zitieren</source>
+        <target>Zitieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

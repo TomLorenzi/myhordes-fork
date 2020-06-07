@@ -1,0 +1,94 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {% if not is_granted('ROLE_REGISTERED') %}
+        <div class="row">
+            <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
+                <h4>{% trans from 'login' %}Einloggen{% endtrans %}</h4>
+
+                <p class="justify" style="font-weight: bold; color: red">
+                    {{ 'Dieser Login ist ausschließlich für Administratoren gedacht.'|trans({},'admin') }}
+                </p>
+
+                <p class="justify">
+                    {% trans from 'login' %}Bitte gib deinen Spielernamen und dein Passwort ein.{% endtrans %}
+                </p>
+                <form id="login-form">
+                    <div class="row">
+                        <div class="cell padded-small rw-6 rw-md-12"><b><label for="login-name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
+                        <div class="cell padded-small rw-6 rw-md-12"><input name="login_user" id="login-name" type="text" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell padded-small rw-6 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
+                        <div class="cell padded-small rw-6 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">
+                            <button id="login_button">{% trans from 'login' %}Einloggen{% endtrans %}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% else %}
+
+        <div class="row">
+            <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
+                <h4>{% trans from 'admin' %}Admin Dashboard{% endtrans %}</h4>
+                <br />
+                {% if is_granted('ROLE_CROW') %}
+                    {% for action in actions %}
+                        <button x-ajax-href="{{ path('admin_action', {id: action.id}) }}">{{ action.name|trans({},'admin') }}</button>
+                    {% endfor %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <button class="a-log1">{{ 'Server-Log herunterladen'|trans({},'admin') }}</button>
+                        <button class="a-log2">{{ 'Server-Log ansehen'|trans({},'admin') }}</button>
+                        <button class="a-log3">{{ 'Server-Log löschen'|trans({},'admin') }}</button>
+
+                        <br /><br />
+                        <b>{{ 'Geplante Angriffe'|trans({},'admin') }}</b><br />
+                        {% for schedule in schedules %}
+                            <div>
+                                {{ schedule.timestamp|date }}
+                                {% if schedule.timestamp.timestamp < now %}
+                                    <span style="color: red">{{ 'Überfällig seit %s% Sekunden!'|trans({'%s%': now - schedule.timestamp.timestamp},'admin') }}</span>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                    {% endif %}
+                {% else %}
+                    <button class="noa-teaser">{{ 'Soldatenberuf freischalten'|trans({},'admin') }}</button>
+                    <button class="noa-teaser">{{ '999 AP zuweisen'|trans({},'admin') }}</button>
+                    <button class="noa-teaser">{{ 'Munition erzeugen'|trans({},'admin') }}</button>
+                    <button class="noa-teaser">{{ 'Admin-Berechtigung setzen'|trans({},'admin') }}</button>
+                    <button class="noa-teaser">{{ '+ 9999 Seelenpunkte'|trans({},'admin') }}</button>
+                    <button class="noa-teaser">{{ 'Geheime Saison freischalten'|trans({},'admin') }}</button>
+                {% endif %}
+
+            </div>
+        </div>
+
+    {% endif %}
+
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        $.html.addEventListenerAll('#login_button', 'click', function(e) {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('api_admin_login') }}', $.html.serializeForm(document.getElementById('login-form')),
+                function () {
+                    $.ajax.load(null, '{{ path('admin_dashboard') }}', true);
+                }, {'default': '{% trans from 'login' %}Login fehlgeschlagen. Bitte prüfe deine Eingaben.{% endtrans %}'} )
+        });
+        $.html.addEventListenerAll('.noa-teaser', 'click', function() { alert('{{ 'Computer sagt nein.'|trans({},'admin')|e('js') }}'); })
+        {% if is_granted('ROLE_ADMIN') %}
+            $.html.addEventListenerAll('.a-log1', 'click', function() { window.open('{{ path('admin_log') }}') })
+            $.html.addEventListenerAll('.a-log2', 'click', function() { window.open('{{ path('admin_log', {a: 'view'}) }}') })
+            $.html.addEventListenerAll('.a-log3', 'click', function() {
+                $.ajax.easySend( '{{ path('api_admin_clear_log') }}', {}, function () { $.html.message('notice', 'OK.'); } );
+            })
+        {% endif %}
+    </script>
+{% endblock %}

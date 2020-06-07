@@ -59,6 +59,7 @@ parameters:
           transgress: false
         attack_protection: false
         carry_extra_bag: false
+        meaty_bones_within_town: false
 
       features:
         camping: true

@@ -434,8 +434,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @Route("api/beyond/bury_rucksack", name="beyond_bury_rucksack_controller", condition="")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
-     * @param ItemFactory $factory
-     * @param PictoHandler $picto_handler
      * @return Response
      */
     public function bury_rucksack_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
@@ -568,11 +566,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             // Produce log entries
             if ($special !== 'sneak') {
-                if ( $distance > 0 ) {
-                    // $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
-                    // if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $zero_zone, true ) );
-                    // $this->entity_manager->persist( $this->log->outsideMove( $mover, $zero_zone, $zone, false ) );
-                }
                 $this->entity_manager->persist( $this->log->doorPass( $mover, true ) );
                 $this->entity_manager->persist($mover);
             }
@@ -930,7 +923,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $c = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
             if ($c && ($es = $c->getEscortSettings()) && $es->getLeader() && $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess()) {
                 $up_inv   = $c->getInventory();
-                $citizen  = $c;
             }
             else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         } else $up_inv   = $this->getActiveCitizen()->getInventory();
@@ -1120,7 +1112,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 if ($item) {
                     $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
                     if($inventoryDest === $zone->getFloor()){
-                        $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item, true));
+                        $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item->getPrototype(), true));
                         $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                     }
                     $this->entity_manager->persist( $item );
@@ -1223,6 +1215,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if ($target_citizen->activeExplorerStats())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         return $this->generic_attack_api( $citizen, $target_citizen );
     }
 
@@ -1239,6 +1234,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($target_citizen->activeExplorerStats())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         return $this->generic_devour_api( $citizen, $target_citizen );
     }

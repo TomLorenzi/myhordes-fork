@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ActionCounter;
 use App\Entity\AdminReport;
+use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
@@ -212,6 +213,10 @@ class MessageController extends AbstractController
         ]
     ];
 
+    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 'div.class' => [ 'oracleAnnounce' ] ];
+
+    private const HTML_ATTRIB_ALLOWED_CROW = [ 'div.class' => [ 'modAnnounce' ] ];
+
     private const HTML_ATTRIB_ALLOWED = [
         'div.class' => [
             'glory', 'spoiler',
@@ -247,6 +252,15 @@ class MessageController extends AbstractController
                     $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ADMIN[$key]);
                 } else {
                     $a[$key] = self::HTML_ATTRIB_ALLOWED_ADMIN[$key];
+                }
+            }
+        }
+        if ($user->getRightsElevation() >= User::ROLE_ORACLE) {
+            foreach (self::HTML_ATTRIB_ALLOWED_ORACLE as $key => $value) {
+                if(isset($a[$key])) {
+                    $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ORACLE[$key]);
+                } else {
+                    $a[$key] = self::HTML_ATTRIB_ALLOWED_ORACLE[$key];
                 }
             }
         }
@@ -420,6 +434,28 @@ class MessageController extends AbstractController
     private function prepareEmotes(string $str): string {
         $emotes = $this->get_emotes();
         return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
+    }
+
+    private function getLockedEmoteTags(User $user): array {
+        $emotes = $this->entityManager->getRepository(Emotes::class)->getUnlockableEmotes();
+        $unlocks = $this->entityManager->getRepository(Award::class)->getAwardsByUser($user);
+        $results = array();
+
+        foreach($emotes as $emote) {
+            /** @var $emote Emotes */
+            $results[] = $emote->getTag();
+        }
+
+        if($unlocks != null) {
+            foreach($unlocks as $entry) {
+                /** @var $entry Award */
+                if(in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
+                    unset($results[array_search($entry, $results)]);
+                }
+            }
+        }
+
+        return array_values($results);
     }
 
     /**
