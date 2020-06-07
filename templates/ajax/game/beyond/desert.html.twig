@@ -330,7 +330,7 @@
                                                         <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
                                                     </div>
                                                 </li>
-                                            {% elseif citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                            {% elseif other_citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
                                                 <li class="status">
                                                     <img src="{{ asset('build/images/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
                                                     <div class="tooltip">
@@ -475,8 +475,8 @@
                                 </ul>
                             </div>
                             <div class="padded cell rw-4 right">
-                                {% if other_citizen != citizen %}
-                                    <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/fist.gif') }}" /></button>
+                                {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
+                                    <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/fist.gif') }}" /></button>
                                     {% if can_devour_citizen %}
                                         <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /></button>
                                     {% endif %}
