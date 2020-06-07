@@ -414,7 +414,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $key = $this->inventory_handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest( $ruinZone->getPrototype()->getKeyItem()->getName())] );
 
         if (empty($key))
-            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst %item%, um diese Tür zu öffnen.', ['%item%' => $k_str] ) );
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst %item%, um diese Tür zu öffnen.', ['%item%' => $k_str], 'game' ) );
         else $this->inventory_handler->forceRemoveItem( $key[0] );
 
         $ruinZone->setLocked(false);

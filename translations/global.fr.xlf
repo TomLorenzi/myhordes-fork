@@ -840,7 +840,7 @@
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
-        <note category="german">Verbesserung des Tages</note>
+        <note category="german">Town Upgrades</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -849,7 +849,7 @@
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
       <notes>
-        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
+        <note category="german">Use this subject for discussions involving the town upgrades you wish to carry out...</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
@@ -858,7 +858,7 @@
     </unit>
     <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
       <notes>
-        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
+        <note category="german">Use this subject for discussions involving the workshop and production of resources in town...</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
@@ -867,7 +867,7 @@
     </unit>
     <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
       <notes>
-        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
+        <note category="german">Use this subject for discussions involving buildings and construction sites...</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
@@ -1029,7 +1029,7 @@
     </unit>
     <unit id="siULJza" name="Link einfügen">
       <notes>
-        <note category="german">Insert a link</note>
+        <note category="german">Link einfügen</note>
       </notes>
       <segment>
         <source>Link einfügen</source>
@@ -1038,7 +1038,7 @@
     </unit>
     <unit id="HqBDmKX" name="Bild einfügen">
       <notes>
-        <note category="german">Insert an image</note>
+        <note category="german">Bild einfügen</note>
       </notes>
       <segment>
         <source>Bild einfügen</source>
@@ -1047,7 +1047,7 @@
     </unit>
     <unit id="9H7C4W9" name="Link-Text">
       <notes>
-        <note category="german">Link text</note>
+        <note category="german">Link-Text</note>
       </notes>
       <segment>
         <source>Link-Text</source>
@@ -1056,7 +1056,7 @@
     </unit>
     <unit id="nE4T9Ox" name="Link-URL">
       <notes>
-        <note category="german">Link URL</note>
+        <note category="german">Link-URL</note>
       </notes>
       <segment>
         <source>Link-URL</source>
@@ -1065,7 +1065,7 @@
     </unit>
     <unit id="d1AmbOG" name="Bildtitel">
       <notes>
-        <note category="german">Image title</note>
+        <note category="german">Bildtitel</note>
       </notes>
       <segment>
         <source>Bildtitel</source>
@@ -1074,7 +1074,7 @@
     </unit>
     <unit id="Q0tlYyY" name="Bild-URL">
       <notes>
-        <note category="german">Image URL</note>
+        <note category="german">Bild-URL</note>
       </notes>
       <segment>
         <source>Bild-URL</source>
@@ -1083,7 +1083,7 @@
     </unit>
     <unit id="lqB1Bvf" name="Einfügen">
       <notes>
-        <note category="german">Confirm</note>
+        <note category="german">Einfügen</note>
       </notes>
       <segment>
         <source>Einfügen</source>

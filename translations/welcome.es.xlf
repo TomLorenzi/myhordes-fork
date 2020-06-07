@@ -14,7 +14,7 @@
       <notes>
         <note category="german">Willkommen bei MyHordes</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Willkommen bei MyHordes</source>
         <target>Bienvenido a MyHordes</target>
       </segment>
@@ -24,7 +24,7 @@
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" von %motiontwin%.</source>
         <target>MyHordes es una implementación abierta del juego de navegador "Zombinoia" de %motiontwin%,
@@ -37,7 +37,7 @@
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Zum Login</source>
-        <target>Ingresar</target> 
+        <target>Ingresar</target>
       </segment>
     </unit>
     <unit id="RVQn34R" name="dfabf06">
@@ -88,7 +88,7 @@
       <notes>
         <note category="german">Bürger gestorben</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bürger gestorben</source>
         <target>Habitantes muertos</target>
       </segment>
@@ -97,7 +97,7 @@
       <notes>
         <note category="german">Zombies gekillt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zombies gekillt</source>
         <target>Zombies exterminados</target>
       </segment>
@@ -106,7 +106,7 @@
       <notes>
         <note category="german">Akte von Kannibalismus</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Akte von Kannibalismus</source>
         <target>Actos de canibalismo</target>
       </segment>
@@ -115,7 +115,7 @@
       <notes>
         <note category="german">Und das wird kaum besser werden...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Und das wird kaum besser werden...</source>
         <target>Y eso no es todo...</target>
       </segment>
