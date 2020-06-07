@@ -300,8 +300,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'cyanide' => [ 'death' => [ CauseOfDeath::Cyanide ] ],
 
-            'hero_tamer_1' => [ 'custom' => [4] ],
-            'hero_tamer_2' => [ 'custom' => [5] ],
+            'hero_tamer_1'  => [ 'custom' => [4] ],
+            'hero_tamer_2'  => [ 'custom' => [5] ],
+            'hero_tamer_1b' => [ 'custom' => [16] ],
+            'hero_tamer_2b' => [ 'custom' => [17] ],
             'hero_tamer_3' => [ 'item' => [ 'consume' => false, 'morph' => 'tamed_pet_drug_#00' ] ],
 
             'hero_surv_0' => [ 'status' => [ 'from' => null, 'to' => 'tg_sbook' ] ],
@@ -717,8 +719,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'flash_photo_2' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_1_#00'] ,   'group' => [ [['do_nothing'], 30], [[ ['zone' => ['escape' => 60] ]], 60]] ] ],   'message' => '<t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>' ],
             'flash_photo_1' => [ 'label' => 'Benutzen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'photo_off_#00'] , 'group' => [ [['do_nothing'], 60], [[ ['zone' => ['escape' => 60] ]], 30]] ] ],   'message' => '<t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>' ],
 
-            'hero_tamer_1'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
-            'hero_tamer_2'  => [ 'label' => 'Losschicken', 'meta' => [ 'must_be_outside' ], 'result' => [ 'hero_tamer_2' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
+            'hero_tamer_1'   => [ 'label' => 'Zur Bank schicken',  'meta' => [ 'must_be_outside_or_exploring' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
+            'hero_tamer_2'   => [ 'label' => 'Zur Bank schicken',  'meta' => [ 'must_be_outside_or_exploring' ], 'result' => [ 'hero_tamer_2' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
+            'hero_tamer_1b'  => [ 'label' => 'Zur Truhe schicken', 'meta' => [ 'must_be_outside_or_exploring' ], 'result' => [ 'hero_tamer_1b' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
+            'hero_tamer_2b'  => [ 'label' => 'Zur Truhe schicken', 'meta' => [ 'must_be_outside_or_exploring' ], 'result' => [ 'hero_tamer_2b' ], 'confirm' => true, 'message' => '<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>' ],
             'hero_tamer_3'  => [ 'label' => 'Dopen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_drug' ], 'result' => [ 'consume_drug', 'hero_tamer_3' ], 'message' => 'Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!' ],
 
             'hero_surv_1' => [ 'label' => 'Wasser suchen', 'meta' => [ 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
@@ -1064,8 +1068,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'basic_suit_dirt_#00' => [ 'clean_clothes'], // 'campsite_improve', 'campsite_hide', 'campsite_tomb', 'campsite_unhide', 'campsite_untomb' ],
 
-            'tamed_pet_#00'      => [ 'hero_tamer_1', 'hero_tamer_3' ],
-            'tamed_pet_drug_#00' => [ 'hero_tamer_2' ],
+            'tamed_pet_#00'      => [ 'hero_tamer_1', 'hero_tamer_1b', 'hero_tamer_3' ],
+            'tamed_pet_drug_#00' => [ 'hero_tamer_2', 'hero_tamer_2b' ],
 
             'surv_book_#00' => [ 'hero_surv_1', 'hero_surv_2' ],
 

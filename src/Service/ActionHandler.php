@@ -858,11 +858,11 @@ class ActionHandler
                         break;
 
                     // Tamer
-                    case 4:case 5: {
-                        $heavy = $result->getCustom() === 5;
+                    case 4:case 5:case 16:case 17: {
+                        $heavy = $result->getCustom() === 5 || $result->getCustom() === 17;
 
                         $source = $citizen->getInventory();
-                        $bank = $citizen->getTown()->getBank();
+                        $bank = ($result->getCustom() === 4 || $result->getCustom() === 5) ? $citizen->getTown()->getBank() : $citizen->getHome()->getChest();
 
                         $heavy_break = false;
                         if (!$heavy)
