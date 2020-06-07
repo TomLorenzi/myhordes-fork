@@ -75,8 +75,8 @@
 
             {% if is_granted("ROLE_ADMIN") %}
                 <div x-tab-group="admin-town" x-tab-id="explorer" x-tab-target>
-                    <div class="row">
-                        {% for exploration in explorables %}
+                    {% for exploration in explorables %}
+                        <div class="row">
                             <div class="cell rw-6 padded">
                                 <h5>{{ exploration.z.prototype.label|trans({},'game') }} - {{ exploration.z.x }}/{{ exploration.z.y }}</h5>
                                 <div class="adm-exploration">
@@ -119,8 +119,8 @@
                                     <div>{{ x.citizen.user.username }}</div>
                                 {% endfor %}
                             </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
             {% endif %}
 

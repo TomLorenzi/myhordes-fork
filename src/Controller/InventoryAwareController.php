@@ -161,7 +161,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($citizen !== null ? $citizen : $this->getActiveCitizen(), 'manipulator'),
+            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($this->getActiveCitizen(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
         ] );
     }
 
@@ -579,9 +579,9 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                             $current_item, $inv_source, $inv_target, InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
                         )) === InventoryHandler::ErrorNone) {
 
-                        if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item, !$bank_up ) );
+                        if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item->getPrototype(), !$bank_up ) );
                         if ($floor_up !== null) {
-                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item, !$floor_up ) );
+                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item->getPrototype(), !$floor_up ) );
                         }
                         if ($steal_up !== null) {
 
@@ -614,7 +614,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                                 ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                             }
                             if($isSanta){
-                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up, true ) );
+                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, true ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
                                     '%victim%' => $victim_home->getCitizen()->getUser()->getUsername(),
                                     '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );
@@ -622,15 +622,15 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                                 $victim_home,
                                 $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim_home->getCitizen()->getAlive())
                             {
-                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item, $steal_up ) );
+                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up ) );
                                 $this->citizen_handler->inflictStatus( $citizen, 'terror' );
                                 $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                             } elseif (($victim_home->getCitizen()->getAlive() && $this->random_generator->chance(0.5)) || !$victim_home->getCitizen()->getAlive()) {
-                                //TODO: the text is different when looting a dead citizen's house, waiting for the text (should come quickly enough)
-                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item, $steal_up ) );
+                                //TODO: the text is different when looting a dead citizen's house : {citizen} hat bei der Plünderung von † {dead_citizen}(s) Haus diesen Gegenstand gestohlen: {item} ! 
+                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                             } else {
-                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item, $steal_up ) );
+                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                             }
                         }
@@ -943,7 +943,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             if ($trigger_after) $trigger_after($action);
 
             if($action->getName() == 'improve') {
-                $this->entity_manager->persist($this->log->beyondCampingItemImprovement($citizen, $item));
+                $this->entity_manager->persist($this->log->beyondCampingItemImprovement($citizen, $item->getPrototype()));
             }
 
             $this->entity_manager->persist($citizen);

@@ -699,7 +699,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     )) === InventoryHandler::ErrorNone) {
                     $town->setWell( $town->getWell()+1 );
                     try {
-                        $this->entity_manager->persist( $this->log->wellAdd( $citizen, $items[0], 1) );
+                        $this->entity_manager->persist( $this->log->wellAdd( $citizen, $items[0]->getPrototype(), 1) );
                         $this->entity_manager->remove($items[0]);
                         $this->entity_manager->persist($town);
                         $this->entity_manager->flush();

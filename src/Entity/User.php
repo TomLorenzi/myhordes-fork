@@ -127,7 +127,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $language = "de";
+    private $language = null;
 
     /**
      * @ORM\Column(type="smallint")
