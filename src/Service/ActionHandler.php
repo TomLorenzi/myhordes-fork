@@ -941,6 +941,14 @@ class ActionHandler
                             $this->entity_manager->persist( $dig_timer );
                         }
 
+                        if ($jumper->getEscortSettings()) {
+                            $remove[] = $jumper->getEscortSettings();
+                            $jumper->setEscortSettings(null);
+                        }
+
+                        if ($jumper->activeExplorerStats())
+                            $jumper->activeExplorerStats()->setActive( false );
+
                         $jumper->setZone(null);
                         $zone->removeCitizen( $jumper );
 
