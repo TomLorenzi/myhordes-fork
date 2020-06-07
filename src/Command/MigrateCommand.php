@@ -18,11 +18,15 @@ use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
+use App\Service\MazeMaker;
 use App\Service\RandomGenerator;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Application;
@@ -47,8 +51,10 @@ class MigrateCommand extends Command
     private $citizen_handler;
     private $randomizer;
     private $inventory_handler;
+    private $conf;
+    private $maze;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf, MazeMaker $maze)
     {
         $this->kernel = $kernel;
 
@@ -57,6 +63,8 @@ class MigrateCommand extends Command
         $this->randomizer = $rg;
         $this->citizen_handler = $ch;
         $this->inventory_handler = $ih;
+        $this->conf = $conf;
+        $this->maze = $maze;
 
         parent::__construct();
     }
@@ -73,11 +81,13 @@ class MigrateCommand extends Command
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
+
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
             ->addOption('assign-building-defense', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
             ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
+            ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
         ;
     }
 
@@ -330,6 +340,57 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
 
             return 0;
+        }
+
+        if ($input->getOption('place-explorables')) {
+
+            $explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
+
+            /** @var Town[] $towns */
+            $towns = $this->entity_manager->getRepository(Town::class)->findAll();
+            foreach ($towns as $town) {
+
+                $output->writeln("Checking town <info>{$town->getId()}</info>");
+                $n = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_NUM_EXPLORABLE_RUINS);
+
+                $ex = 0;
+                foreach ($town->getZones() as $zone)
+                    if ($zone->getPrototype() && $zone->getPrototype()->getExplorable())
+                        $ex++;
+
+                $output->writeln("Town has <info>{$ex}</info> explorable ruins and needs to have <info>{$n}</info>");
+                $changed = $n > $ex;
+
+                while ($ex < $n) {
+                    $explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
+                    shuffle($explorable_ruins);
+
+                    /** @var ZonePrototype $spawning_ruin */
+                    $spawning_ruin = array_shift($explorable_ruins);
+
+                    $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) {return !$z->getPrototype() && ($z->getX() !== 0 || $z->getY() !== 0);});
+                    shuffle($zone_list);
+
+                    $spawn_zone = $this->randomizer->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $spawning_ruin->getMaxDistance());
+
+                    if ($spawn_zone) {
+                        $output->writeln("Spawning <info>{$spawning_ruin->getLabel()}</info> at <info>{$spawn_zone->getX()} / {$spawn_zone->getY()}</info>");
+                        $spawn_zone->setPrototype($spawning_ruin);
+                        $this->maze->createField( $spawn_zone );
+                        $this->maze->generateMaze( $spawn_zone );
+                    }
+
+                    $ex++;
+
+                }
+
+                if ($changed) {
+                    $this->entity_manager->persist($town);
+                    $this->entity_manager->flush();
+                }
+
+            }
+
         }
 
 
