@@ -40,4 +40,13 @@ class EmotesRepository extends ServiceEntityRepository {
             ->getResult();
     }
 
+    public function getUnlockableEmotes() {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.isActive = true')
+            ->andWhere('a.requiresUnlock = true')
+            ->getQuery()
+            ->getResult();
+
+    }
+
 }
