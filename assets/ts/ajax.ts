@@ -112,7 +112,7 @@ export default class Ajax {
             target.appendChild( style_source[i] );
         for (let i = 0; i < content_source.length; i++) {
             let buttons = content_source[i].querySelectorAll('*[x-ajax-href]');
-            for (let b = 0; b < buttons.length; b++)
+            for (let b = 0; b < buttons.length; b++) {
                 buttons[b].addEventListener('click', function(e) {
                     e.preventDefault();
                     let load_target = document.querySelector(buttons[b].getAttribute('x-ajax-target')) as HTMLElement;
@@ -121,6 +121,14 @@ export default class Ajax {
                     }
                     ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), true )
                 }, {once: true, capture: true});
+                buttons[b].addEventListener('mousedown', function(e: MouseEvent) {
+                    if (e.button === 1) {
+                        e.preventDefault();
+                        window.open(buttons[b].getAttribute('x-ajax-href'), '_blank');
+                    }
+                });
+            }
+
             let countdowns = content_source[i].querySelectorAll('*[x-countdown]');
             for (let c = 0; c < countdowns.length; c++) {
                 if ( countdowns[c].getAttribute('x-on-expire') === 'reload' )
