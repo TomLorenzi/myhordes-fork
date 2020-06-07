@@ -11738,7 +11738,7 @@
       </notes>
       <segment>
         <source>Du benötigst %item%, um diese Tür zu öffnen.</source>
-        <target>Du benötigst %item%, um diese Tür zu öffnen.</target>
+        <target>Vous avez besoin de %item% pour ouvrir cette porte.</target>
       </segment>
     </unit>
   </file>
