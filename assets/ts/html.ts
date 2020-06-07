@@ -55,10 +55,9 @@ export default class HTML {
             setTimeout( function(node) { node.remove(); }, 500, div );
         };
         div.addEventListener('click', f_hide);
-        const timeout_id = setTimeout( f_hide, 5000 );
+        let timeout_id = setTimeout( f_hide, 5000 );
         div.addEventListener('pointerenter', function() { clearTimeout(timeout_id); });
-
-
+        div.addEventListener('pointerleave', function() { timeout_id = setTimeout( f_hide, 5000 ); });
 
         div = document.getElementById('notifications').appendChild( div );
         setTimeout( function(node) { node.classList.add('show'); }, 100, div );
