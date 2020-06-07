@@ -29,14 +29,6 @@
                         {% endif %}
 
                     </div>
-
-                    {% if exploration %}
-                        <div class="exploration">
-                            {% for rz in exploration %}
-                                <div class="rz rz-{{ rz.c }}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;"></div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
                 {% else %}
                     <p class="beyond-rp">
                         <img alt="" src="{{ asset('build/images/small_rp.gif') }}" />
@@ -186,10 +178,9 @@
                         {% endif %}
                         {% if zone.prototype %}
                             {% if zone.prototype.explorable %}
-                                <button id="enter_ruin_button"  >
+                                <button {% if not can_explore%}disabled{% endif%} id="enter_ruin_button"  >
                                     <img class="icon left" alt="" src="{{ asset('build/images/planner.gif') }}" />
-                                    {% set ruin_label = zone.prototype.label|trans({},'game') %}
-                                    {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% betreten{% endtrans %}
+                                    {% trans with {'%ruin%': zone.prototype.label|trans({},'game')} from 'game'  %}%ruin% betreten{% endtrans %}
                                 </button>
                             {% else %}
                                 <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
@@ -214,8 +205,13 @@
                         {% endif %}
                     {% endif %}
 
+
                     {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                     {% endembed %}
+
+                    {% if banished or town_chaos %}
+                        <button id="bury_rucksack_button">{{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)</button>
+                    {% endif %}
 
                 {% else %}
 
@@ -277,7 +273,7 @@
                     {% if not citizen_hidden %}
                         <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}>{% trans from 'game' %}Rucksack auf dem Boden ausleeren{% endtrans %}</button>
                     {% endif %}
-                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden} %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'hidden': citizen_hidden, show_banished_hidden: (banished or town_chaos)} %}
                         {% block class %}desert{% endblock %}
                         {% block title %}{% trans from 'game' %}Am Boden{% endtrans %}{% endblock %}
                     {% endembed %}
@@ -598,6 +594,14 @@
                         $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                     } );
             });
+        {% if can_explore %}
+            $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
+                $.ajax.easySend( '{{ path('beyond_desert_enter_ruin_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                    } );
+            } );
+        {% endif %}
         let dig_r_button = document.getElementById('dig_ruin_button');
         if (dig_r_button)
             dig_r_button.addEventListener('click', function() {
@@ -660,21 +664,19 @@
         {% if allow_floor_access %}
             {% embed "scripts/inventory.js.twig" %}{% endembed %}
 
-            $.html.addEventListenerAll( '.rucksack-escort>.item.plus[x-escort-id]:not(.locked)', 'click', function(e,elem) {
-                const eid = elem.getAttribute('x-escort-id');
-
-                let inv = document.querySelector('._lf_' + eid);
-                if (inv.classList.contains('hidden')) {
-                    let tt = document.querySelectorAll('.tooltip-dummy');
-                    for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
-                    inv.classList.remove('hidden');
-                }
-                else inv.classList.add('hidden');
-
-
-            });
-
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
+                $.html.addEventListenerAll( '.rucksack-escort>.item.plus[x-escort-id]:not(.locked)', 'click', function(e,elem) {
+                    const eid = elem.getAttribute('x-escort-id');
+
+                    let inv = document.querySelector('._lf_' + eid);
+                    if (inv.classList.contains('hidden')) {
+                        let tt = document.querySelectorAll('.tooltip-dummy');
+                        for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
+                        inv.classList.remove('hidden');
+                    }
+                    else inv.classList.add('hidden');
+                });
+
                 $.html.addEventListenerAll( '[x-escort-meta-group][x-escort-meta-action][x-citizen]', 'click', function(e,elem) {
                     let pp = document.querySelector('._ec_' + elem.getAttribute('x-citizen') + '_' + elem.getAttribute('x-escort-meta-action'));
                     if (pp.classList.contains('hidden')) {
@@ -707,6 +709,17 @@
               document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
               '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard') }}'
             );
+
+            {% if banished or town_chaos %}
+                let bury_rucksack_button = document.getElementById("bury_rucksack_button")
+                if (bury_rucksack_button) {
+                    handleItems(
+                        document.querySelectorAll('#bury_rucksack_button'),
+                        '{{ path('beyond_bury_rucksack_controller') }}',
+                        'down-all', '{{ path('beyond_dashboard') }}'
+                    );
+                }
+            {% endif %}
 
         {% endif %}
 

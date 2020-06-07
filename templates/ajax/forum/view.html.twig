@@ -11,7 +11,21 @@
                     {% if thread.locked %}
                         <img alt="" src="{{ asset('build/images/lock.gif') }}" />
                     {% endif %}
-                    <div>{% if thread.posts|length > 1 %}{{ thread.posts|length - 1 }}{% endif %}</div>
+                    <div>{% if thread.hasAdminAnnounce %}
+                        <span>
+                        <img src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
+                        <div class="tooltip forum-tooltip">
+                            {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
+                        </div>
+                        </span>
+                    {% elseif thread.hasOracleAnnounce %}
+                        <span>
+                        <img src="{{ asset('build/images/forum/announce.png') }}" />
+                        <div class="tooltip forum-tooltip">
+                            {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
+                        </div>
+                        </span>
+                    {% endif %}{% if thread.posts|length > 1 %}{{ thread.posts|length - 1 }}{% endif %}</div>
                     <b>{% if thread.translatable %}{{ thread.title|trans({},'global') }}{% else %}{{ thread.title }}{% endif %}</b><br />
                     {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
                     <i>
@@ -40,14 +54,13 @@
 {% block ajax %}
     <div class="row">
         <div class="cell rw-12">
-
             <div class="row">
                 <div class="cell padded rw-4 rw-md-12">
                     <div class="forum-control">
                         <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
-                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /></div>
+                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
                             {% if is_granted("ROLE_BANNED") %}
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
@@ -65,9 +78,7 @@
                 </div>
 
                 <div class="cell padded rw-8 rw-md-12">
-
                     <div id="forum-content">
-
                         <div class="forum-note">
                             <b>{{ 'Bitte halte dich an die Regeln:'|trans({},'global') }}</b>
                             <ul>
@@ -76,8 +87,6 @@
                                 <li>{{ 'Werbung ist verboten (Links etc.)'|trans({},'global') }}</li>
                             </ul>
                         </div>
-
-
                     </div>
                     <div id="forum-editor">
 

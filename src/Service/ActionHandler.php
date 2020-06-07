@@ -4,14 +4,11 @@
 namespace App\Service;
 
 
-use App\Entity\AffectZone;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
-use App\Entity\CitizenRole;
-use App\Entity\CitizenStatus;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
@@ -27,6 +24,7 @@ use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\RolePlayText;
+use App\Entity\RuinZone;
 use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
@@ -169,11 +167,13 @@ class ActionHandler
                         break;
                     case RequireLocation::LocationOutside:case RequireLocation::LocationOutsideFree:
                     case RequireLocation::LocationOutsideRuin:case RequireLocation::LocationOutsideBuried:
+                    case RequireLocation::LocationOutsideOrExploring:
                         if ( !$citizen->getZone() ) $current_state = min( $current_state, $this_state );
                         else {
                             if     ( $location_condition->getLocation() === RequireLocation::LocationOutsideFree   &&  $citizen->getZone()->getPrototype() ) $current_state = min( $current_state, $this_state );
                             elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideRuin   && !$citizen->getZone()->getPrototype() ) $current_state = min( $current_state, $this_state );
                             elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideBuried && (!$citizen->getZone()->getPrototype() || !$citizen->getZone()->getBuryCount()) ) $current_state = min( $current_state, $this_state );
+                            elseif ( $location_condition->getLocation() !== RequireLocation::LocationOutsideOrExploring && $citizen->activeExplorerStats() ) $current_state = min( $current_state, $this_state );
 
                             if ($location_condition->getMinDistance() !== null || $location_condition->getMaxDistance() !== null) {
                                 $dist = round(sqrt( pow($citizen->getZone()->getX(),2) + pow($citizen->getZone()->getY(),2) ));
@@ -182,7 +182,9 @@ class ActionHandler
                             }
                         }
                         break;
-
+                    case RequireLocation::LocationExploring:
+                        if ( !$citizen->activeExplorerStats() ) $current_state = min( $current_state, $this_state );
+                        break;
                     default:
                         break;
                 }
@@ -191,9 +193,14 @@ class ActionHandler
 
             if ($zombie_condition = $meta_requirement->getZombies()) {
                 $cp = 0;
-                $current_zeds = $citizen->getZone() ? $citizen->getZone()->getZombies() : 0;
+                $current_zeds = 0;
 
-                if ( $citizen->getZone() )
+                if ($citizen->activeExplorerStats())
+                    $current_zeds = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats( $citizen->activeExplorerStats() )->getZombies();
+                elseif ($citizen->getZone())
+                    $current_zeds = $citizen->getZone()->getZombies();
+
+                if ( $citizen->getZone() && !$citizen->activeExplorerStats() )
                     foreach ( $citizen->getZone()->getCitizens() as $c )
                         $cp += $this->citizen_handler->getCP( $c );
 
@@ -261,7 +268,7 @@ class ActionHandler
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
      */
-    public function getAvailableItemActions(Citizen $citizen, Item &$item, ?array &$available, ?array &$crossed ) {
+    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed ) {
 
         $available = $crossed = [];
         if ($item->getBroken()) return;
@@ -346,11 +353,11 @@ class ActionHandler
 
         if (!$citizen->getProfession()->getHeroic()) return;
 
-         foreach ($citizen->getHeroicActions() as $heroic) {
+        foreach ($citizen->getHeroicActions() as $heroic) {
             $mode = $this->evaluate( $citizen, null, null, $heroic->getAction(), $tx );
             if ($mode >= self::ActionValidityAllow) $available[] = $heroic;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $heroic;
-         }
+        }
 
     }
 
@@ -393,7 +400,7 @@ class ActionHandler
      * @return string
      */
     private function wrap($o, $c=1) :string {
-        $s = ''; $i = null;
+        $i = null;
         if (is_a($o, ItemPrototype::class)) {
             $s = $this->translator->trans($o->getLabel(), [], 'items');
             $i = 'build/images/item/item_' . $o->getIcon() . '.gif';
@@ -430,6 +437,7 @@ class ActionHandler
      * @param ItemAction $action
      * @param string|null $message
      * @param array|null $remove
+     * @param bool $force Do not check if the action is valid
      * @return int
      */
     public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false ): int {
@@ -472,11 +480,26 @@ class ActionHandler
             'casino' => '',
             'zone' => null,
             'well' => 0,
+            'message' => [
+            	$action->getMessage()
+            ],
         ];
 
-        $item_in_chest = $item && $item->getInventory() && $item->getInventory()->getId() === $citizen->getHome()->getChest()->getId();
+        if ($citizen->activeExplorerStats())
+            $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats());
+        else $ruinZone = null;
 
-        $execute_result = function(Result &$result) use (&$citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $item_in_chest, $town_conf) {
+        $floor_inventory = null;
+        if     (!$citizen->getZone())
+            $floor_inventory = $citizen->getHome()->getChest();
+        elseif (!$ruinZone)
+            $floor_inventory = ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : null;
+        elseif ($citizen->activeExplorerStats()->getInRoom())
+            $floor_inventory = $ruinZone->getRoomFloor();
+        else
+            $floor_inventory = $ruinZone->getFloor();
+
+        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone) {
             if ($status = $result->getStatus()) {
                 if ($status->getResetThirstCounter())
                     $citizen->setWalkingDistance(0);
@@ -537,8 +560,8 @@ class ActionHandler
                 $old_pm = $citizen->getPm();
                 if ($pm->getMax()) {
                     $to = $this->citizen_handler->getMaxPM($citizen) + $pm->getPm();
-                    $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ), null );
-                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm(), $pm->getPm() < 0 ? null : $pm->getBonus() );
+                    $this->citizen_handler->setPM( $citizen, false, max( $old_pm, $to ) );
+                } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm() );
 
                 $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
             }
@@ -596,9 +619,7 @@ class ActionHandler
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
-                            $citizen->getZone()
-                                ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [ $citizen->getZone()->getFloor(), $citizen->getInventory() ] : [ $citizen->getInventory() ])
-                                : ( [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ])
+                        [ $floor_inventory, $citizen->getInventory(), $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
                         , true)) $execute_info_cache['items_spawn'][] = $target;
                 }
             }
@@ -614,15 +635,13 @@ class ActionHandler
                     if ($proto) $tags[] = 'spawned';
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
-                            $citizen->getZone()
-                                ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [ $citizen->getInventory(), $citizen->getZone()->getFloor() ] : [$citizen->getInventory()])
-                                : ( $item_in_chest ? [ $citizen->getHome()->getChest(), $citizen->getInventory(), $citizen->getTown()->getBank() ] : [ $citizen->getInventory(), $citizen->getHome()->getChest(), $citizen->getTown()->getBank() ])
-                        , true)) $execute_info_cache['items_spawn'][] = $proto;
+                            [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
+                            , true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
 
             if ($item_consume = $result->getConsume()) {
-                $source = $citizen->getZone() ? [$citizen->getInventory(), $citizen->getZone()->getFloor()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
+                $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
                 $items = $this->inventory_handler->fetchSpecificItems( $source,
                     [new ItemRequest( $item_consume->getPrototype()->getName(), $item_consume->getCount() )] );
 
@@ -640,11 +659,20 @@ class ActionHandler
 
             if ($zombie_kill = $result->getZombies()) {
 
-                if ($citizen->getZone()) {
+                if ($citizen->getZone() && !$citizen->activeExplorerStats()) {
                     $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item, $kills ) );
+                        $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
+                    }
+                }
+
+                if ($citizen->activeExplorerStats()) {
+                    $kills = min($ruinZone->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
+                    if ($kills > 0) {
+                        $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
+                        $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }
@@ -656,6 +684,10 @@ class ActionHandler
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
 
+            }
+
+            if($town_set = $result->getTown()){
+                $citizen->getTown()->setSoulDefense($citizen->getTown()->getSoulDefense() + $town_set->getAdditionalDefense());
             }
 
             if (($zoneEffect = $result->getZone()) && $base_zone = $citizen->getZone()) {
@@ -836,10 +868,10 @@ class ActionHandler
                     // Survivalist
                     case 6:case 7: {
                         $drink = $result->getCustom() === 6;
-                        $can_fail = $citizen->getTown()->getDay() > 4;
+                        $chances = max(0.1, 1 - ($citizen->getTown()->getDay() * 0.025));
+                        if($town->getDevastated()) $chances = max(0.1, $chances - 0.2);
 
-                        if (!$can_fail || $this->random_generator->chance(0.85)) {
-
+                        if ($this->random_generator->chance($chances)) {
                             if ($drink) $citizen->setWalkingDistance(0);
 
                             if ($drink) {
@@ -848,17 +880,20 @@ class ActionHandler
                                 } else if($this->citizen_handler->hasStatusEffect($citizen, 'thirst2')){
                                     $this->citizen_handler->removeStatus($citizen, 'thirst2');
                                     $this->citizen_handler->inflictStatus($citizen, 'thirst1');
+                                } else {
+                                	$this->citizen_handler->removeStatus($citizen, 'thirst1');
+                                	$this->citizen_handler->inflictStatus($citizen, 'hasdrunk');
                                 }
                             } else {
-                                if (!$drink || !$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
+
+                                if (!$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
                                     $old_ap = $citizen->getAp();
                                     if ($old_ap < 6)
                                         $this->citizen_handler->setAP($citizen, false, 6, 0);
                                     $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
                                 }
-                                if ($drink) $this->citizen_handler->removeStatus($citizen, 'thirst1');
-                                $this->citizen_handler->inflictStatus($citizen, $drink ? 'hasdrunk' : 'haseaten');
 
+                                $this->citizen_handler->inflictStatus($citizen, 'haseaten');
                             }
 
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
@@ -868,7 +903,7 @@ class ActionHandler
                     }
                     // Heroic teleport action
                     case 8:case 9: {
-                        $zone = null; $cp_ok = true;
+                        $zone = null;
                         $jumper = null;
                         if ($result->getCustom() === 8 && $citizen->getZone())
                             $jumper = $citizen;
@@ -963,6 +998,19 @@ class ActionHandler
 
                         break;
                     }
+
+                    // Banned citizen note
+                    case 15: {
+                        $zones = $this->zone_handler->getZoneWithHiddenItems($citizen->getTown());
+                        if(count($zones) > 0) {
+                            $zone = $this->random_generator->pick($zones);
+                            $tags[] = 'bannote_ok';
+                            $execute_info_cache['zone'] = $zone;
+                        } else {
+                            $tags[] = 'bannote_fail';
+                        }
+                        break;
+                    }
                 }
 
                 if ($ap) {
@@ -976,11 +1024,19 @@ class ActionHandler
 
             if ($result_group = $result->getResultGroup()) {
                 $r = $this->random_generator->pickResultsFromGroup( $result_group );
-                foreach ($r as &$sub_result) $execute_result( $sub_result );
+                foreach ($r as $sub_result) $execute_result( $sub_result );
+            }
+
+            if($result->getMessage()){
+            	$index = $result->getMessage()->getOrdering();
+            	while(isset($execute_info_cache['message'][$index]) && !empty($execute_info_cache['message'][$index])) {
+            		$index++;
+            	}
+                $execute_info_cache['message'][$index] = $result->getMessage()->getText();
             }
         };
 
-        foreach ($action->getResults() as &$result) $execute_result( $result );
+        foreach ($action->getResults() as $result) $execute_result( $result ); // Here, we process AffectMessages AND $kill_by_poison var
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
@@ -989,43 +1045,58 @@ class ActionHandler
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         }
 
-        if ($action->getMessage() && !$kill_by_poison) {
-            $message = $this->translator->trans( $action->getMessage(), [
-                '{ap}'        => $execute_info_cache['ap'],
-                '{minus_ap}'  => -$execute_info_cache['ap'],
-                '{well}'      => $execute_info_cache['well'],
-                '{item}'      => $this->wrap($execute_info_cache['item']),
-                '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
-                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
-                '{item_from}' => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
-                '{item_to}'   => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
-                '{target_from}' => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
-                '{target_to}'   => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
-                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
-                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
-                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
-                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
-                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
-                '{casino}'        => $execute_info_cache['casino'],
-            ], 'items' );
+        if ($kill_by_poison) {
+            $execute_info_cache['message'] = [];
+        }
 
-            do {
-                $message = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
-                    [, $tag, $text] = $m;
-                    return in_array( $tag, $tags ) ? $text : '';
-                }, $message, -1, $c);
-                $message = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($tags): string {
-                    [, $tag, $text] = $m;
-                    return !in_array( $tag, $tags ) ? $text : '';
-                }, $message, -1, $d);
-            } while ($c > 0 || $d > 0);
+        if(!empty($execute_info_cache['message'])) {
+        	// We order the messages
+        	ksort($execute_info_cache['message']);
+
+        	// We translate & replace placeholders in each messages
+        	$addedContent = [];
+        	foreach ($execute_info_cache['message'] as $contentMessage) {
+        		$contentMessage = $this->translator->trans( $contentMessage, [
+	                '{ap}'        => $execute_info_cache['ap'],
+	                '{minus_ap}'  => -$execute_info_cache['ap'],
+	                '{well}'      => $execute_info_cache['well'],
+	                '{item}'      => $this->wrap($execute_info_cache['item']),
+	                '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
+	                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
+	                '{item_from}' => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
+	                '{item_to}'   => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
+	                '{target_from}' => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
+	                '{target_to}'   => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
+	                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
+	                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
+	                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
+	                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
+	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
+	                '{casino}'        => $execute_info_cache['casino'],
+	            ], 'items' );
+	        	do {
+	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
+	                    [, $tag, $text] = $m;
+	                    return in_array( $tag, $tags ) ? $text : '';
+	                }, $contentMessage, -1, $c);
+	                $contentMessage = preg_replace_callback( '/<nt-(.*?)>(.*?)<\/nt-\1>/' , function(array $m) use ($tags): string {
+	                    [, $tag, $text] = $m;
+	                    return !in_array( $tag, $tags ) ? $text : '';
+	                }, $contentMessage, -1, $d);
+	            } while ($c > 0 || $d > 0);
+	            $addedContent[] = $contentMessage;
+        	}
+
+        	// We remove empty elements
+        	$addedContent = array_filter($addedContent);
+            $message = implode('<hr />', $addedContent);
         }
 
 
         return self::ErrorNone;
     }
 
-    public function execute_recipe( Citizen &$citizen, Recipe &$recipe, ?array &$remove, ?string &$message ): int {
+    public function execute_recipe( Citizen &$citizen, Recipe $recipe, ?array &$remove, ?string &$message ): int {
         $town = $citizen->getTown();
         $c_inv = $citizen->getInventory();
         $t_inv = $citizen->getTown()->getBank();

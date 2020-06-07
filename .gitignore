@@ -23,6 +23,7 @@ yarn-error.log
 
 # Composer
 composer.phar
+composer.lock
 
 # Local webpack config
 webpack.config.local.js

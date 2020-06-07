@@ -1778,7 +1778,7 @@
       </notes>
       <segment>
         <source>Tunnelratte</source>
-        <target>Foreuse améliorée</target>
+        <target>No Holes Barred</target>
       </segment>
     </unit>
     <unit id="45eKiS1" name="Fundament">
@@ -2164,7 +2164,7 @@
       </notes>
       <segment>
         <source>Verbessert die Stadtverteidigung erheblich.</source>
-        <target>Verbessert die Stadtverteidigung erheblich.</target>
+        <target>Significantly increases the town's defences.</target>
       </segment>
     </unit>
     <unit id="alG3UeZ" name="Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...">
@@ -2191,7 +2191,7 @@
       </notes>
       <segment>
         <source>Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</source>
-        <target>Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</target>
+        <target>Simple concept: sharp pieces of rusty metal fixed all along the tops of the town's walls to make a kind of zombie grater.</target>
       </segment>
     </unit>
     <unit id="nbhWg4T" name="fc48a72">
@@ -2209,7 +2209,7 @@
       </notes>
       <segment>
         <source>Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</source>
-        <target>Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</target>
+        <target>A lump of meat attached to a hook should distract at least a few zombies...</target>
       </segment>
     </unit>
     <unit id="VUO6ZQB" name="5f267a2">
@@ -2218,7 +2218,7 @@
       </notes>
       <segment>
         <source>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</source>
-        <target>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</target>
+        <target>It's even a little more basic than you might imagine - we've run out of wire...</target>
       </segment>
     </unit>
     <unit id="b82mDa7" name="0068ba5">
@@ -2227,7 +2227,7 @@
       </notes>
       <segment>
         <source>Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</source>
-        <target>Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</target>
+        <target>It's too bad for tonight defenses, but building a better wall allows for the addition of numerous upgrades.</target>
       </segment>
     </unit>
     <unit id="Vj7jtcM" name="Was ist besser als eine Mauer?... eine groooße Mauer.">
@@ -2245,7 +2245,7 @@
       </notes>
       <segment>
         <source>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</source>
-        <target>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</target>
+        <target>Lots of metal skewers mounted on the ramparts to make zombie kebabs when darkness falls...</target>
       </segment>
     </unit>
     <unit id="QlkvLUP" name="cda28d7">
@@ -2263,7 +2263,7 @@
       </notes>
       <segment>
         <source>Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</source>
-        <target>Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</target>
+        <target>A wall within the existing walls provides an additional layer of protection against the nocturnal hordes...</target>
       </segment>
     </unit>
     <unit id="v.0jNwa" name="98cd64a">
@@ -2272,7 +2272,7 @@
       </notes>
       <segment>
         <source>Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</source>
-        <target>Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</target>
+        <target>A concrete wall within the existing walls provides an additional layer of protection against the nocturnal hordes...</target>
       </segment>
     </unit>
     <unit id="41kkH05" name="f85a024">
@@ -2281,7 +2281,7 @@
       </notes>
       <segment>
         <source>Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</source>
-        <target>Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</target>
+        <target>By adding an iron frame to the walls, it'll be easy to improve them each day, and without much effort!</target>
       </segment>
     </unit>
     <unit id="CVzqVBH" name="cf31e46">
@@ -2290,7 +2290,7 @@
       </notes>
       <segment>
         <source>Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</source>
-        <target>Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</target>
+        <target>Metallic supports to reinforce the weaker parts of the wall.</target>
       </segment>
     </unit>
     <unit id="AgaRcDn" name="af1210c">
@@ -2299,7 +2299,7 @@
       </notes>
       <segment>
         <source>Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</source>
-        <target>Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</target>
+        <target>Cover a large area of the ground with in shards of sharpened metal and you get the world's largest cheese grater.</target>
       </segment>
     </unit>
     <unit id="DN2044C" name="5a04f76">
@@ -2308,7 +2308,7 @@
       </notes>
       <segment>
         <source>Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</source>
-        <target>Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</target>
+        <target>Lots of holes surrounding the town which have been covered with branches. Now you just need to wait for something to fall into them...</target>
       </segment>
     </unit>
     <unit id="85XW3IL" name="08554a6">
@@ -2407,7 +2407,7 @@
       </notes>
       <segment>
         <source>Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</source>
-        <target>Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</target>
+        <target>Rocket powder, detonators, and clean water are all you need to make a big pile of putrified flesh pulp. A powerful defence, but it can only be used once.</target>
       </segment>
     </unit>
     <unit id="JUzCldV" name="Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).">
@@ -2515,7 +2515,7 @@
       </notes>
       <segment>
         <source>Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</source>
-        <target>Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</target>
+        <target>Thanks to this network of pipes, you can build powerful water-based defences. Furthermore, this system adds a little extra water to the well.</target>
       </segment>
     </unit>
     <unit id="9bvD0a1" name="ddc07e6">
@@ -2524,7 +2524,7 @@
       </notes>
       <segment>
         <source>Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.</source>
-        <target>Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.</target>
+        <target>This revolutionary defensive device fires powerful jets of water vapor into the ranks of zombies approaching our walls. With some additional adjustments, this will be an exceptionally powerful defence!</target>
       </segment>
     </unit>
     <unit id="Owl0YNC" name="d64d4fc">
@@ -2641,7 +2641,7 @@
       </notes>
       <segment>
         <source>Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</source>
-        <target>Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</target>
+        <target>A powerful piece of equipment which uses compressed air to fire balls of bent nails and other rusty metal. Perfect for making holes the size of a fist in whatever (or whomever) you like...</target>
       </segment>
     </unit>
     <unit id="8CKEc8B" name="e894210">
@@ -2650,7 +2650,7 @@
       </notes>
       <segment>
         <source>Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...</source>
-        <target>Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...</target>
+        <target>The Plate Gun fires heavy shards of steel plate straight towards the battlefield. It is butchery the likes of which you hope to never see again, but it is undeniably effective...</target>
       </segment>
     </unit>
     <unit id="BEkfLyg" name="65a6915">
@@ -2713,7 +2713,7 @@
       </notes>
       <segment>
         <source>Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.</source>
-        <target>Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.</target>
+        <target>With a little organisation and a solid table, it is possible to keep a detailed account of what is going on in the construction sites.</target>
       </segment>
     </unit>
     <unit id="DQ5y6Uy" name="de39fa3">
@@ -2875,7 +2875,7 @@
       </notes>
       <segment>
         <source>Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</source>
-        <target>Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</target>
+        <target>Installing spiked poles around the town gives some extra defences at minimal cost, but they might just make the difference some nights...</target>
       </segment>
     </unit>
     <unit id="xAxWKet" name="f3165c3">
@@ -2893,7 +2893,7 @@
       </notes>
       <segment>
         <source>Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.</source>
-        <target>Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.</target>
+        <target>Setting a variety traps all over the place is a great way to take out large numbers of attacking zombies.</target>
       </segment>
     </unit>
     <unit id="mnCx0v1" name="870299c">
@@ -2911,7 +2911,7 @@
       </notes>
       <segment>
         <source>Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.</source>
-        <target>Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.</target>
+        <target>When the proverbial hits the fan, and there's nothing else for it, just pile up everything that comes to hand, and pray that it slows the Hordes down... The good thing is that you can build some really effective traps into it!</target>
       </segment>
     </unit>
     <unit id="_MX84Jw" name="Das wird den Zombies Beine machen - oder besser: ausreißen!">
@@ -2920,7 +2920,7 @@
       </notes>
       <segment>
         <source>Das wird den Zombies Beine machen - oder besser: ausreißen!</source>
-        <target>Das wird den Zombies Beine machen - oder besser: ausreißen!</target>
+        <target>This trap won't kill the zombies, but it will stop them in their tracks!</target>
       </segment>
     </unit>
     <unit id="CQJhZS8" name="Dynamit, Zombies, Blut.">
@@ -2974,7 +2974,7 @@
       </notes>
       <segment>
         <source>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</source>
-        <target>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</target>
+        <target>A spell cast by the shaman causing a disorienting mirage which causes a good number of zombies to get lost in the desert.</target>
       </segment>
     </unit>
     <unit id="e1g.XXY" name="9ab481c">
@@ -3046,7 +3046,7 @@
       </notes>
       <segment>
         <source>Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.</source>
-        <target>Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.</target>
+        <target>This beast-launcher lets you catapult your animal companions a considerable distance so that they can cause even more distress to the attacking horde. Furthermore, the noises made by wingless animals flying at speed is highly entertaining, which will help your fellow watchmen to relax a little.</target>
       </segment>
     </unit>
     <unit id="jIl5TJc" name="8d64086">
@@ -3325,7 +3325,7 @@
       </notes>
       <segment>
         <source>Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</source>
-        <target>There's nothing quite like a solid firework display to pass the long nights in the desert. This miniature version basically involves pointing the firing tubes at the areas surrounding the town and launching fireworks into the horde at midnight..ing the firing tubes at the areas surrounding the town and launching fireworks into the horde at midnight.</target>
+        <target>There's nothing quite like a solid firework display to pass the long nights in the desert. This miniature version basically involves pointing the firing tubes at the areas surrounding the town and launching fireworks into the horde at midnight.</target>
       </segment>
     </unit>
     <unit id="XkiAKmo" name="b3acd86">
@@ -3388,7 +3388,7 @@
       </notes>
       <segment>
         <source>Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.</source>
-        <target>Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.</target>
+        <target>Heavy steel plate fixed to the town gates to add extra zombie-proofing!</target>
       </segment>
     </unit>
     <unit id="V7uUw1K" name="Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.">
@@ -3433,7 +3433,7 @@
       </notes>
       <segment>
         <source>Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.</source>
-        <target>Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.</target>
+        <target>Are you sick of standing in the dust drenched in zombie guts? Tired of tripping over the severed limbs of the zeds you took out? Maybe it's time to rise above the apocalypse and survey the hordes from on high. The construction of the Battlements will allow you to stand watch over the town at night, while getting a little closer to heaven.</target>
       </segment>
     </unit>
     <unit id="MJGPCrn" name="c5996a6">
@@ -3451,7 +3451,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
-        <target>Die Verteidigung der Stadt wird um 12% erhöht.</target>
+        <target>The total defence of the town is permanently increased by 12%.</target>
       </segment>
     </unit>
     <unit id="ZSyuopW" name="Die Verteidigung der Stadt wird um 14% erhöht.">
@@ -3460,7 +3460,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
-        <target>Die Verteidigung der Stadt wird um 14% erhöht.</target>
+        <target>The total defence of the town is permanently increased by 14%.</target>
       </segment>
     </unit>
     <unit id="K_1scXO" name="Zaun (Baustellen)">
@@ -3478,7 +3478,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</target>
+        <target>The building cost (AP) of all construction projects is reduced by 20%.</target>
       </segment>
     </unit>
     <unit id="JLugykh" name="124a889">
@@ -3487,7 +3487,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
+        <target>The building cost (AP) of all construction projects is reduced by 25%.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">

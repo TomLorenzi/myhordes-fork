@@ -138,7 +138,7 @@
     </unit>
     <unit id="HPqIAMR" name="88b4d3a">
       <notes>
-        <note category="german">Do you wish to enter the terrible world of the damned as an inhabitant of the town %town_name%?</note>
+        <note category="german">Do you wish to enter the terrible world of MyHordes as an inhabitant of the town %town_name%?</note>
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten?</source>
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
-        <target>Deine Seele genügt den Anforderungen für diesen Stadttypen.</target>
+        <target>Your soul meets the requirements for this Town type.</target>
       </segment>
     </unit>
     <unit id="Ap6glg5" name="262981c">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
-        <target>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</target>
+        <target>Do you want to enter the terrible world of MyHordes as a citizen of %town_name%</target>
       </segment>
     </unit>
     <unit id="AwZY28C" name="31a3422">
@@ -202,7 +202,7 @@
       </notes>
       <segment>
         <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
-        <target>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</target>
+        <target>MyHordes is currently overrun by zombies! This happens every day!</target>
       </segment>
     </unit>
     <unit id="6YlCau0" name="5a5d604">
@@ -211,7 +211,7 @@
       </notes>
       <segment>
         <source>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</source>
-        <target>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</target>
+        <target>It is impossible to login or even register... The site should be available again in a short while.</target>
       </segment>
     </unit>
     <unit id="QfY5rKB" name="Und ja, es wird Tote geben...">
@@ -220,7 +220,7 @@
       </notes>
       <segment>
         <source>Und ja, es wird Tote geben...</source>
-        <target>Und ja, es wird Tote geben...</target>
+        <target>There'll be some dead bodies too...</target>
       </segment>
     </unit>
   </file>

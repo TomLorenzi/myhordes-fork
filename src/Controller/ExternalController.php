@@ -10,22 +10,17 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
-use App\Exception\DynamicAjaxResetException;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\DeathHandler;
-use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
-use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
-use App\Service\UserFactory;
-use App\Response\AjaxResponse;
 use App\Service\ZoneHandler;
 use App\Translation\T;
 use DateTime;
@@ -33,14 +28,8 @@ use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use SimpleXMLElement;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Validator\Constraints;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -595,7 +584,7 @@ class ExternalController extends InventoryAwareController
             if ($building->getComplete()) {
                 $building_data = [
                     'attributes' => [
-                        'name' => T::__($building->getPrototype()->getLabel(), "game"),
+                        'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], "game"),
                         'temporary' => $building->getPrototype()->getTemp(),
                         'id' => $building->getPrototype()->getId(),
                         'img' => $building->getPrototype()->getIcon(),
@@ -610,7 +599,7 @@ class ExternalController extends InventoryAwareController
         foreach ( $inventory->getItems() as $item ) {
             $item_data = [
                 'attributes' => [
-                    'name' => T::__($item->getPrototype()->getLabel(), "game"),
+                    'name' => $this->translator->trans($item->getPrototype()->getLabel(), [], "game"),
                     'count' => $item->getCount(),
                     'id' => $item->getPrototype()->getId(),
                     'img' => $item->getPrototype()->getIcon(),

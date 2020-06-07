@@ -27,6 +27,7 @@ class User implements UserInterface, EquatableInterface
 {
 
     const ROLE_USER      =  0;
+    const ROLE_ORACLE    =  2;
     const ROLE_CROW      =  3;
     const ROLE_ADMIN     =  4;
 
@@ -80,7 +81,7 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="integer")
      */
-    private $soulPoints;
+    private $soulPoints = 0;
     
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user")
@@ -113,13 +114,13 @@ class User implements UserInterface, EquatableInterface
     private $postAsDefault;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, nullable=true)
      */
     private $forumTitle;
 
     /**
      * This field matches to the filename of the picto
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, nullable=true)
      */
     private $forumIcon;
 
@@ -137,6 +138,11 @@ class User implements UserInterface, EquatableInterface
      * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true)
      */
     private $pastLifes;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $heroDaysSpent = 0;
 
     public function __construct()
     {
@@ -570,6 +576,18 @@ class User implements UserInterface, EquatableInterface
                 $pastLife->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHeroDaysSpent(): ?int
+    {
+        return $this->heroDaysSpent;
+    }
+
+    public function setHeroDaysSpent(int $heroDaysSpent): self
+    {
+        $this->heroDaysSpent = $heroDaysSpent;
 
         return $this;
     }

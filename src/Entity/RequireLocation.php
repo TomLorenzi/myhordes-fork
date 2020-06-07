@@ -22,6 +22,9 @@ class RequireLocation
     const LocationOutsideRuin = 4;
     const LocationOutsideBuried = 5;
 
+    const LocationExploring = 6;
+    const LocationOutsideOrExploring = 7;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

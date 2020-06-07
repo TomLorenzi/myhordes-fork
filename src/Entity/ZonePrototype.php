@@ -63,6 +63,16 @@ class ZonePrototype implements RandomEntry
      */
     private $explorable = false;
 
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $explorableSkin;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $explorableDescription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +182,30 @@ class ZonePrototype implements RandomEntry
     public function setExplorable(bool $explorable): self
     {
         $this->explorable = $explorable;
+
+        return $this;
+    }
+
+    public function getExplorableSkin(): ?string
+    {
+        return $this->explorableSkin;
+    }
+
+    public function setExplorableSkin(?string $explorableSkin): self
+    {
+        $this->explorableSkin = $explorableSkin;
+
+        return $this;
+    }
+
+    public function getExplorableDescription(): ?string
+    {
+        return $this->explorableDescription;
+    }
+
+    public function setExplorableDescription(?string $explorableDescription): self
+    {
+        $this->explorableDescription = $explorableDescription;
 
         return $this;
     }

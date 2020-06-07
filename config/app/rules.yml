@@ -6,8 +6,21 @@ parameters:
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27 }
       population: { min: 40, max:  40 }
+
       ruins: 20
       explorable_ruins: 1
+
+      explorable_ruin_params:
+        complexity: 0.9
+        convolution: 0.2
+        cruelty: 0.06
+        rooms: 10
+        room_spacing: 4
+        lock_distance: 10
+        item_fillrate: 11
+        zombies:
+          initial: 25
+          daily: 5
 
       initial_buildings:  []
       unlocked_buildings: []

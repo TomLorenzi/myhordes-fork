@@ -15,6 +15,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
@@ -73,6 +74,11 @@ class CitizenHandler
         return $all;
     }
 
+    /**
+     * Returns true if a given citizen is wounded
+     * @param Citizen $citizen
+     * @return bool
+     */
     public function isWounded(Citizen $citizen) {
         return $this->hasStatusEffect( $citizen, ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'], false );
     }
@@ -173,11 +179,13 @@ class CitizenHandler
         if ($gallows || $cage) {
             $complaintNeeded = 8;
             // If the citizen is already shunned, we need 6 more complains to hang him
-            if($citizen->getBanished())
+            if($citizen->getBanished() && $gallows)
                 $complaintNeeded = 6;
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
+
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen/*, Complaint::SeverityKill*/) >= $complaintNeeded)
                 $action = $kill = true;
         }
+
 
         if ($action) {
             if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
@@ -220,18 +228,24 @@ class CitizenHandler
 
         if ($kill) {
             $rem = [];
-            if ($cage) {
+            // The gallow is used before the cage
+            if ($gallows) {
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
+                $this->picto_handler->give_picto($citizen, $pictoPrototype);
+
+                // The gallow gets destroyed
+                $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+            } elseif ($cage) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
             }
-            elseif ($gallows) {
-                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
-                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
-                $this->picto_handler->give_picto($citizen, $pictoPrototype);
-            }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
+        } else if($citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'revenge') && $citizen->getTown()->getDay() >= 3) {
+            $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
+            $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
         }
 
         return $action;
@@ -336,16 +350,13 @@ class CitizenHandler
         else {
             $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
 
-            $has_clean_body = true; // TODO: Add hero experience clean body
-            $has_body_armor = true; // TODO: Add hero experience body armor
+            $has_healthy_body = $citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'healthybody');
+            $has_body_armor = $citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'brick');
 
-            if ($citizen->getProfession()->getHeroic() 
-                    && $this->hasStatusEffect( $citizen, 'clean', false ) 
-                    && $has_clean_body)
+            if ($has_healthy_body && $this->hasStatusEffect( $citizen, 'clean', false ))
                 $base += 1;
 
-            if ($citizen->getProfession()->getHeroic() 
-                    && $has_body_armor)
+            if ($has_body_armor)
                 $base += 1;
 
             if (!empty($this->inventory_handler->fetchSpecificItems(
@@ -443,7 +454,7 @@ class CitizenHandler
         $camping_values = [];
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
-        $has_pro_camper = $citizen->getProfession()->getHeroic();
+        $has_pro_camper = $citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'procamp');
 
         // Town type: Pandemonium gets malus of 14, all other types are neutral.
         $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
@@ -477,7 +488,7 @@ class CitizenHandler
         // Ruin in zone.
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
-        // Zombies in zone. Factor -1.4, for CamperPro it will -0.6.
+        // Zombies in zone. Factor -1.4, for CamperPro it is -0.6.
         $factor = $has_pro_camper ? -0.6 : -1.4;
         $camping_values['zombies'] = $factor * $zone->getZombies();
 
@@ -636,6 +647,9 @@ class CitizenHandler
             if($previousWatches === null) {
                 $chances = max($baseChance, $chances - 0.05);
             } else {
+                $factor = 0.1;
+                if($citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'prowatch'))
+                    $factor -= 0.03;
                 $chances = min(1, $chances + 0.1);
             }
         }
@@ -646,7 +660,7 @@ class CitizenHandler
             'terror'    =>  0.45,
             'addict'    =>  0.01,
             'healed'    =>  0.10,
-            'infection' =>  0.20
+            'infection' =>  0.20,
         ];
 
         foreach ($status_effect_list as $status => $value)
@@ -655,6 +669,8 @@ class CitizenHandler
 
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
+
+        $chances = max($baseChance, $chances);
 
         return $chances;
     }
@@ -744,5 +760,16 @@ class CitizenHandler
         }
 
         return false;
+    }
+
+    public function hasSkill(Citizen $citizen, $skill){
+        if(is_string($skill)) {
+            $skill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findOneByName($skill);
+            if($skill === null)
+                return false;
+        }
+
+        $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getHeroDaysSpent());
+        return in_array($skill, $skills);
     }
 }

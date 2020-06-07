@@ -4,12 +4,15 @@
 namespace App\EventSubscriber;
 
 
+use App\Controller\BeyondController;
 use App\Controller\BeyondInterfaceController;
+use App\Controller\ExplorationInterfaceController;
 use App\Controller\ExternalController;
 use App\Controller\GameAliveInterfaceController;
 use App\Controller\GameInterfaceController;
 use App\Controller\GameProfessionInterfaceController;
 use App\Controller\GhostInterfaceController;
+use App\Controller\HookedInterfaceController;
 use App\Controller\LandingController;
 use App\Controller\TownInterfaceController;
 use App\Controller\WebController;
@@ -100,9 +103,13 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                     throw new DynamicAjaxResetException($event->getRequest());
             }
 
-            if ($controller instanceof BeyondInterfaceController) {
+            if ($controller instanceof BeyondInterfaceController && !($controller instanceof ExplorationInterfaceController)) {
                 // This is a beyond controller; it is not available to players inside a town
                 if (!$citizen->getZone())
+                    throw new DynamicAjaxResetException($event->getRequest());
+
+                // Check if the exploration status is set
+                if ($controller instanceof ExplorationInterfaceController xor $citizen->activeExplorerStats())
                     throw new DynamicAjaxResetException($event->getRequest());
             }
 
@@ -110,6 +117,11 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
             $this->em->persist($citizen);
             $this->em->flush();
+
+            // Execute before() on HookedControllers
+            if ($controller instanceof HookedInterfaceController)
+                if (!$controller->before())
+                    throw new DynamicAjaxResetException($event->getRequest());
         }
     }
 

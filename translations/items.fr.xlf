@@ -20,7 +20,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, vous avez fait un triple. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
+        <target>Bravo, vous obtenez un triplet ! Qu'est-ce qu'on s'amuse ! Ca vous fait tellement plaisir que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="rmGP8Al" name="15675e8">
@@ -31,7 +31,7 @@
       </notes>
       <segment>
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, vous avez eu une suite. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
+        <target>Vous formez une suite ! C'est toujours sympa pour le moral. Et ça vous fait tellement plaisir que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="Gk9gFU8" name="8a7fa90">
@@ -42,7 +42,7 @@
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Wow, vous avez tiré 4-2-1. Ça vous fait tellement plaisir que vous gagnez 1 PA !</target>
+        <target>Vous obtenez un 421 du premier coup… Pas mal. D'ailleurs, ça vous remonte tellement le moral que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
@@ -75,7 +75,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Vous tirez une carte... et vous trouvez votre nom inscrit en lettres de sang ! Vous êtes terrorisés !</target>
+        <target>Vous tirez une carte… Vous poussez un hurlement en découvrant votre nom écrit en lettre de sang sur celle-ci ! Vous ignorez qui est à l'origine de cette blague de très mauvais goût... Vous êtes maintenant terrorisé(e) !</target>
       </segment>
     </unit>
     <unit id="NcJ93EV" name="9ae05d1">
@@ -86,7 +86,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Vous tirez une carte... et vous trouvez les règles du jeu. Cela vous fait sourire et vous gagnez 1 PA.</target>
+        <target>Vous tirez la carte ... sur laquelle sont inscrites les règles du jeu. Ca vous fait tellement rire que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
-        <target>Ça doit être un signe! Il n'y a pas de place pour la moralité dans ce monde ... vous obtenez 1PA.</target>
+        <target>C'est un signe ! Comme quoi, le moral ne tient pas à grand chose dans ce monde... Vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
-        <target>Le symbole de l'amour... Votre cœur fond et vous gagnez 1 PA.</target>
+        <target>La Dame de cœur... Symbole de l'amour... *soupir*... Vous gagnez 1 PA en compensation de vos désillusions.</target>
       </segment>
     </unit>
     <unit id="9tVy8rd" name="99bed0a">
@@ -117,7 +117,7 @@
       </notes>
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
-        <target>Vous avez secoué la ville avec votre guitare! Les citoyens ont reçu {ap} PA.</target>
+        <target>Un peu de musique peut séduire les dames et restaure l'esprit ... mais il faudra se contenter du 2ème effet. Votre jeu a généré {ap} points d'action qui seront partagés entre les citoyens.</target>
       </segment>
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
@@ -1375,7 +1375,7 @@
       </notes>
       <segment>
         <source>Paracetoid 7g</source>
-        <target>Paracétoïd 7g</target>
+        <target>Paracétoïde 7g</target>
       </segment>
     </unit>
     <unit id="vJEMpEU" name="Unkrautbekämpfungsmittel Ness-Quick">
@@ -2876,8 +2876,6 @@
     </unit>
     <unit id="sDu2xGP" name="Abdruck vom Magnet-Schlüssel">
       <notes>
-        <note>Abdruck vom Magnet-Schlüssel</note>
-        <note>Abdruck vom Magnet-Schlüssel</note>
         <note category="german">Abdruck vom Magnet-Schlüssel</note>
       </notes>
       <segment>
@@ -2887,8 +2885,6 @@
     </unit>
     <unit id="zKuoJUv" name="Abdruck vom Schlagschlüssel">
       <notes>
-        <note>Abdruck vom Schlagschlüssel</note>
-        <note>Abdruck vom Schlagschlüssel</note>
         <note category="german">Abdruck vom Schlagschlüssel</note>
       </notes>
       <segment>
@@ -2896,14 +2892,12 @@
         <target>Empreinte de clé à percussion</target>
       </segment>
     </unit>
-    <unit id="ST6MLb5" name="Abdruck vom Dosenöffner">
+    <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
       <notes>
-        <note>Abdruck vom Dosenöffner</note>
-        <note>Abdruck vom Dosenöffner</note>
-        <note category="german">Abdruck vom Dosenöffner</note>
+        <note category="german">Abdruck vom Flaschenöffner</note>
       </notes>
       <segment>
-        <source>Abdruck vom Dosenöffner</source>
+        <source>Abdruck vom Flaschenöffner</source>
         <target>Empreinte de décapsuleur</target>
       </segment>
     </unit>
@@ -3756,7 +3750,7 @@
       </notes>
       <segment>
         <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>Vous avez ouvert {item} et avez obtenu {items_spawn} !</target>
+        <target>Vous avez ouvert {item} , vous trouvez : {items_spawn} à l'intérieur.</target>
       </segment>
     </unit>
     <unit id="v4TehoJ" name="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
@@ -3765,7 +3759,7 @@
       </notes>
       <segment>
         <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Vous avez ouvert {item} et avez obtenu {items_spawn} !</target>
+        <target>Vous avez ouvert {item} , vous trouvez : {items_spawn} à l'intérieur.</target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -3774,7 +3768,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert le {item} et y avez trouvé {items_spawn}!</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert {item} , vous trouvez : {items_spawn} à l'intérieur.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -4185,7 +4179,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Chercher de l'eau</target>
+        <target>En fouillant les environs vous découvrez une petite flaque d'eau croupie. Comme vous n'avez guère le choix, vous vous empressez de boire son contenu (ainsi que tout ce qui flotte dedans)... Vous avez récupéré tous vos PA.</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -4196,7 +4190,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Vous cherchez de la nourriture</target>
+        <target>Vous partez en quête de nourriture dans les environs...Après plusieurs longues minutes de recherche, vous finissez par mettre la main sur une poignée de gros vers visqueux qui se tortillent. Néanmoins, votre manuel est formel à leur sujet : ils sont comestibles ! Vous les avalez sans attendre avant qu'ils ne vous échappent. Vous avez récupéré tous vos PA.</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
@@ -4251,7 +4245,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>Vous tirez une carte : {color} {value}.</target>
+        <target>Vous tirez la carte {value} de {color}.</target>
       </segment>
     </unit>
     <unit id="m5CJEyF" name="Die Rückkehr des Helden">
@@ -6766,7 +6760,7 @@
       </notes>
       <segment>
         <source>Hier in dieser Einöde ein Ei zu finden, sollte dich eigentlich glücklich machen. Aber eine Frage lässt dir einfach keine Ruhe: Wo zum Teufel steckt das verdammte Huhn...</source>
-        <target>Un oeuf voilà qui devrait vous réconforter, mais une seule idée hante votre esprit, où est donc cette satanée poule...</target>
+        <target>Un œuf voilà qui devrait vous réconforter, mais une seule idée hante votre esprit, où est donc cette satanée poule...</target>
       </segment>
     </unit>
     <unit id="aQIUoUv" name="536fc9f">
@@ -6837,8 +6831,6 @@
     </unit>
     <unit id="vclIZyk" name="33638dc">
       <notes>
-        <note>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</note>
-        <note>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</note>
         <note category="german">Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</note>
       </notes>
       <segment>
@@ -6848,13 +6840,11 @@
     </unit>
     <unit id="1gt825t" name="2c41683">
       <notes>
-        <note>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</note>
-        <note>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</note>
         <note category="german">Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</note>
       </notes>
       <segment>
         <source>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</source>
-        <target>Cette empreinte de clé high-tech permettra d'ouvrir les portes sécurisés de niveau 6.2 AOC. </target>
+        <target>Ce Sérum extrêmement rare a été mis au point à partir de l'ADN d'un spécimen presque immunisé ayant résisté plus de 3 jours à une morsure infectieuse, il permet de rendre à une goule son état d'être humain normal.</target>
       </segment>
     </unit>
     <unit id="tea5si." name="d9a4611">
@@ -7976,7 +7966,7 @@
       </notes>
       <segment>
         <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
-        <target>Vous avez pris un certain temps pour aider à défendre la ville.</target>
+        <target>Vous faites le tour de la ville pour vérifier l'existence de failles et donnez quelques coups de pied dans des bricoles mal placées. La ville a gagné +10 points de défense temporaires.</target>
       </segment>
     </unit>
     <unit id="V1W3ATr" name="Nach Ruinen Ausschau halten">
@@ -8325,10 +8315,85 @@
         <target>Vous prenez quelques minutes pour nettoyer votre {item}. Vous faites de votre mieux pour retirer les taches de sang qui le parsèment puis vous rafistolez les quelques trous.</target>
       </segment>
     </unit>
-    <unit id="47DEQpj" name="">
+    <unit id="NEVAuft" name="0671c26">
+      <notes>
+        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
+      </notes>
       <segment>
-        <source></source>
-        <target></target>
+        <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
+        <target>Ce médicament a renforcé votre organisme : vous ne subirez ni infection, ni ne serez transformé(e) en Goule. Cet effet se dissipera après l'attaque de ce soir. Note : cet effet ne protège pas des infections provoquées par une blessure non-traitée à minuit.</target>
+      </segment>
+    </unit>
+    <unit id="HgUvBW6" name="267bdee">
+      <notes>
+        <note category="german">Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</note>
+      </notes>
+      <segment>
+        <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
+        <target>Vous utilisez {item}, mais ce produit ne semble avoir aucun effet immédiat notable... Peut-être n'en aviez vous pas vraiment besoin ?</target>
+      </segment>
+    </unit>
+    <unit id="hkUU8xN" name="ebaac76">
+      <notes>
+        <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
+        <target><![CDATA[<t-stat-up-addict>Mauvaise nouvelle ! Vous devenez par la même occasion dépendant(e) ! Vous devrez dorénavant consommer au moins une drogue par jour ou mourir !</t-stat-up-addict>]]></target>
+      </segment>
+    </unit>
+    <unit id="OXWKuXW" name="b549796">
+      <notes>
+        <note category="german">Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
+        <target>Vous installez solidement {item} puis placez dessus quelques débris et branches séchées pour camoufler le tout. Voilà qui devrait améliorer vos chances de vous cacher ici cette nuit. Vous avez utilisé 1 point(s) d'action.</target>
+      </segment>
+    </unit>
+    <unit id="68c4rQB" name="2cc9126">
+      <notes>
+        <note category="german">Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</note>
+      </notes>
+      <segment>
+        <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
+        <target><![CDATA[Vous lisez {item} avec la plus grande attention. <t-bannote_ok>Cette note appartenait à un citoyen banni... La seule chose que vous pouvez lire est "{zone}"... Étrange... Vous détruisez la page juste pour être sûr que personne ne la lise...</t-bannote_ok><t-bannote_fail>Pas de chance, le contenu de cette note manuscrite est totalement illisible.</t-bannote_fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="Y1T4Y0D" name="Schönes Fundstück">
+      <notes>
+        <note category="german">Schönes Fundstück</note>
+      </notes>
+      <segment>
+        <source>Schönes Fundstück</source>
+        <target>Trouvaille (améliorée)</target>
+      </segment>
+    </unit>
+    <unit id="CW6G1J5" name="5e04d7b">
+      <notes>
+        <note category="german">Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
+        <target>Cette empreinte de clé high-tech permettra d'ouvrir les portes sécurisés de niveau 6.2 AOC.</target>
+      </segment>
+    </unit>
+    <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
+      <notes>
+        <note category="german">Kamera aus Vorkriegs-Tagen</note>
+      </notes>
+      <segment>
+        <source>Kamera aus Vorkriegs-Tagen</source>
+        <target>Appareil photo d'avant-guerre</target>
+      </segment>
+    </unit>
+    <unit id="rUsoPlx" name="efd6bf9">
+      <notes>
+        <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
+      </notes>
+      <segment>
+        <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
+        <target>Cette authentique breloque du siècle dernier aurait, parait-il, à son actif des centaines de rétines brûlées. Son flash mal réglé vous permettra de vous sortir de toutes les situations désespérées en aveuglant les zombies !</target>
       </segment>
     </unit>
   </file>

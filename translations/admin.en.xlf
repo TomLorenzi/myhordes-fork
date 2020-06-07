@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>E-Mail</source>
-        <target>Email</target>
+        <target>E-Mail</target>
       </segment>
     </unit>
     <unit id=".Dfg1PE" name="Validiert">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Offene Token erneut ankündigen</source>
-        <target>Offene Token erneut ankündigen</target>
+        <target>Resend the token</target>
       </segment>
     </unit>
     <unit id="2EfsA22" name="Offene Token regenerieren">
@@ -430,7 +430,7 @@
       </notes>
       <segment>
         <source>Offene Token regenerieren</source>
-        <target>Offene Token regenerieren</target>
+        <target>Generate a new token</target>
       </segment>
     </unit>
     <unit id="RHTHUmC" name="Sicherheit">
@@ -512,6 +512,276 @@
       <segment>
         <source>Du hast kein Forum ausgewählt.</source>
         <target>You have not selected a forum.</target>
+      </segment>
+    </unit>
+    <unit id="8KPM2IV" name="Admin-Wachturm">
+      <notes>
+        <note category="german">Admin Watchtower</note>
+      </notes>
+      <segment>
+        <source>Admin-Wachturm</source>
+        <target>Admin Watchtower</target>
+      </segment>
+    </unit>
+    <unit id="OEOXHc." name="ID">
+      <notes>
+        <note category="german">ID</note>
+      </notes>
+      <segment>
+        <source>ID</source>
+        <target>ID</target>
+      </segment>
+    </unit>
+    <unit id="Bfb7kn4" name="Stadtname">
+      <notes>
+        <note category="german">Town's name</note>
+      </notes>
+      <segment>
+        <source>Stadtname</source>
+        <target>Town's name</target>
+      </segment>
+    </unit>
+    <unit id="8qHMcfp" name="Sprache">
+      <notes>
+        <note category="german">Language</note>
+      </notes>
+      <segment>
+        <source>Sprache</source>
+        <target>Language</target>
+      </segment>
+    </unit>
+    <unit id="GwJBg8s" name="Typ">
+      <notes>
+        <note category="german">Type</note>
+      </notes>
+      <segment>
+        <source>Typ</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="W4KIYa7" name="Population">
+      <notes>
+        <note category="german">Population</note>
+      </notes>
+      <segment>
+        <source>Population</source>
+        <target>Population</target>
+      </segment>
+    </unit>
+    <unit id="fmZlI_I" name="Saison">
+      <notes>
+        <note category="german">Saison</note>
+      </notes>
+      <segment>
+        <source>Saison</source>
+        <target>Saison</target>
+      </segment>
+    </unit>
+    <unit id="FQORaiq" name="Tag">
+      <notes>
+        <note category="german">Day</note>
+      </notes>
+      <segment>
+        <source>Tag</source>
+        <target>Day</target>
+      </segment>
+    </unit>
+    <unit id="ZFCeGvS" name="Offen">
+      <notes>
+        <note category="german">Joinable</note>
+      </notes>
+      <segment>
+        <source>Offen</source>
+        <target>Joinable</target>
+      </segment>
+    </unit>
+    <unit id="eoUwOj7" name="Chaos">
+      <notes>
+        <note category="german">Chaos</note>
+      </notes>
+      <segment>
+        <source>Chaos</source>
+        <target>Chaos</target>
+      </segment>
+    </unit>
+    <unit id="QO.RSCl" name="Zerstört">
+      <notes>
+        <note category="german">Devasted</note>
+      </notes>
+      <segment>
+        <source>Zerstört</source>
+        <target>Devasted</target>
+      </segment>
+    </unit>
+    <unit id="vZWh3VH" name="Tor offen">
+      <notes>
+        <note category="german">Gates opened</note>
+      </notes>
+      <segment>
+        <source>Tor offen</source>
+        <target>Gates opened</target>
+      </segment>
+    </unit>
+    <unit id="lQNhv.P" name="Brunnen">
+      <notes>
+        <note category="german">Well rations</note>
+      </notes>
+      <segment>
+        <source>Brunnen</source>
+        <target>Well rations</target>
+      </segment>
+    </unit>
+    <unit id="DNyzXO8" name="Angriff">
+      <notes>
+        <note category="german">Attack</note>
+      </notes>
+      <segment>
+        <source>Angriff</source>
+        <target>Attack</target>
+      </segment>
+    </unit>
+    <unit id="ROsRjPo" name="Bereich Min">
+      <notes>
+        <note category="german">Minimum</note>
+      </notes>
+      <segment>
+        <source>Bereich Min</source>
+        <target>Minimum</target>
+      </segment>
+    </unit>
+    <unit id="nwAUKAU" name="Bereich Max">
+      <notes>
+        <note category="german">Maximum</note>
+      </notes>
+      <segment>
+        <source>Bereich Max</source>
+        <target>Maximum</target>
+      </segment>
+    </unit>
+    <unit id="kc92YAV" name="Stadtübersicht">
+      <notes>
+        <note category="german">Towns Overview</note>
+      </notes>
+      <segment>
+        <source>Stadtübersicht</source>
+        <target>Towns Overview</target>
+      </segment>
+    </unit>
+    <unit id="4Gs3q79" name="Liste aller Städte">
+      <notes>
+        <note category="german">Towns List</note>
+      </notes>
+      <segment>
+        <source>Liste aller Städte</source>
+        <target>Towns List</target>
+      </segment>
+    </unit>
+    <unit id="47Pj4uU" name="Pop.">
+      <notes>
+        <note category="german">Pop.</note>
+      </notes>
+      <segment>
+        <source>Pop.</source>
+        <target>Pop.</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Actions</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Actions</target>
+      </segment>
+    </unit>
+    <unit id="ygfGVvY" name="Tot">
+      <notes>
+        <note category="german">Deaths</note>
+      </notes>
+      <segment>
+        <source>Tot</source>
+        <target>Deaths</target>
+      </segment>
+    </unit>
+    <unit id="sMr3P0Z" name="Getrennt">
+      <notes>
+        <note category="german">Headshoted</note>
+      </notes>
+      <segment>
+        <source>Getrennt</source>
+        <target>Headshoted</target>
+      </segment>
+    </unit>
+    <unit id="RZid5J_" name="Details">
+      <notes>
+        <note category="german">Details</note>
+      </notes>
+      <segment>
+        <source>Details</source>
+        <target>Details</target>
+      </segment>
+    </unit>
+    <unit id="awzJBNC" name="Users">
+      <notes>
+        <note category="german">Users</note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Users</target>
+      </segment>
+    </unit>
+    <unit id="h7YL9VW" name="Städte">
+      <notes>
+        <note category="german">Towns</note>
+      </notes>
+      <segment>
+        <source>Städte</source>
+        <target>Towns</target>
+      </segment>
+    </unit>
+    <unit id="jA6UdTz" name="Zukunft">
+      <notes>
+        <note category="german">Updates</note>
+      </notes>
+      <segment>
+        <source>Zukunft</source>
+        <target>Updates</target>
+      </segment>
+    </unit>
+    <unit id="q8r8gtq" name="Titel">
+      <notes>
+        <note category="german">Title</note>
+      </notes>
+      <segment>
+        <source>Titel</source>
+        <target>Title</target>
+      </segment>
+    </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="gvEcbOu" name="Neue Update">
+      <notes>
+        <note category="german">New Update</note>
+      </notes>
+      <segment>
+        <source>Neue Update</source>
+        <target>New Update</target>
+      </segment>
+    </unit>
+    <unit id="fcC4_EM" name="Auszeichnungen">
+      <notes>
+        <note category="german">Distinctions</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen</source>
+        <target>Distinctions</target>
       </segment>
     </unit>
   </file>

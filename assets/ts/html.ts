@@ -82,6 +82,9 @@ export default class HTML {
 
         const show_secs   = !element.getAttribute('x-countdown-no-seconds');
         const force_hours =  element.getAttribute('x-countdown-force-hours');
+        const custom_handler = element.getAttribute('x-countdown-handler');
+        let interval = element.getAttribute('x-countdown-interval');
+        if (!interval) interval = '1000';
 
         const draw = function() {
             const seconds = Math.floor((timeout.getTime() - (new Date()).getTime())/1000);
@@ -90,21 +93,27 @@ export default class HTML {
             const h = Math.floor(seconds/3600);
             const m = Math.floor((seconds - h*3600)/60);
             const s = seconds - h*3600 - m*60;
-            element.innerHTML =
-                ((h > 0 || force_hours) ? (h + ':') : '') +
-                ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
-                (show_secs ? (':' + (s > 9 ? s : ('0' + s))) : '');
+
+            if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
+            if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post')
+                element.innerHTML =
+                    ((h > 0 || force_hours) ? (h + ':') : '') +
+                    ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
+                    (show_secs ? (':' + (s > 9 ? s : ('0' + s))) : '');
+            if (custom_handler === 'post') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
         };
 
         const f = function(no_chk = false) {
             if (!no_chk && !document.body.contains(element)) return;
             if ((new Date() > timeout)) {
-                element.innerHTML = '--:--';
+                if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [-1,0,0,0]}));
+                if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post') element.innerHTML = '--:--';
                 element.dispatchEvent(new Event("expire", { bubbles: true, cancelable: true }));
+                if (custom_handler === 'post') element.dispatchEvent(new CustomEvent('countdown', {detail: [-1,0,0,0]}));
             }
             else {
                 draw();
-                window.setTimeout(f,1000);
+                window.setTimeout(f,parseInt(interval));
             }
         };
 

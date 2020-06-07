@@ -221,7 +221,7 @@ class DebugCommand extends Command
                         $newTown = $this->game_factory->createTown(null, $townLang, null, $townClass);
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
-                        $this->game_factory->createExplorableMaze($newTown);
+                        //$this->game_factory->createExplorableMaze($newTown);
                     }
                 }
             }

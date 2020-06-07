@@ -1,0 +1,88 @@
+let ruin_map_areas = document.querySelectorAll('.map');
+for (let i = 0; i < ruin_map_areas.length; i++) {
+    let map = ruin_map_areas[i];
+    let zone_plane = map.querySelector('.zone-plane');
+
+    const add_ruin_move_handler = function( element ) {
+        if (element)
+            element.addEventListener('click', function() {
+                const dx = parseInt(element.getAttribute('x-direction-x'));
+                const dy = parseInt(element.getAttribute('x-direction-y'));
+
+                map.querySelector('.zone-plane-controls').classList.add('hide');
+                $.ajax.easySend( '{{ path('beyond_ruin_move_controller') }}', {
+                        x: dx, y: dy
+                    },
+                    function (data) {
+                        if (data.next) {
+                            let target = map.querySelector('.zone-subplane[x-plane-x="' + dx + '"][x-plane-y="' + dy + '"]');
+                            if (target) {
+                                target.classList.add('plane-type-' + data.next);
+                                target.classList.add('plane-door-' + (data.l ? 'closed' : 'open'))
+                                let decal_layer = target.querySelector('.decals');
+                                if (decal_layer) {
+                                    if (data.dp > 0) {
+                                        let door_decal = document.createElement('div');
+                                        door_decal.classList.add('decal-door', 'decal-door-' + data.dp)
+                                        decal_layer.appendChild(door_decal);
+                                    }
+                                    for (let i = 0; i < 16; i++) {
+                                        if ((data.d >> i) & 1) {
+                                            let ambient_decal = document.createElement('div');
+                                            ambient_decal.classList.add('decal-ambient', 'decal-ambient-' + (i+1), 'decal-ambient-variant-' + (((data.d >> (i+16)) & 1) ? 'b' : 'a') )
+                                            decal_layer.appendChild(ambient_decal);
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                        zone_plane.style.left = (-100 + dx * -100) + '%';
+                        zone_plane.style.top =  (-100 + dy *  100) + '%';
+                        setTimeout(function() { $.ajax.pop_renderblock(); }, 750)
+                        $.ajax.background().push_renderblock().load(null, '{{ path('exploration_dashboard') }}', true);
+                    }, null, function() {
+                        map.querySelector('.zone-plane-controls').classList.remove('hide');
+                    } );
+            });
+    }
+
+    add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-north') );
+    add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-south') );
+    add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-east')  );
+    add_ruin_move_handler( map.querySelector('.zone-plane-controls>.action-move-west')  );
+
+    let shift_buttons = map.querySelectorAll('.zone-sub-container>.zone-subplane.plane-door-open .decal-door');
+    for (let i = 0; i < shift_buttons.length; i++)
+        shift_buttons[i].addEventListener('click', function() {
+            map.querySelector('.zone-plane-controls').classList.add('hide');
+            $.ajax.easySend( '{{ path('beyond_ruin_room_enter_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                }, null, function() {
+                    map.querySelector('.zone-plane-controls').classList.remove('hide');
+                } );
+        });
+
+    let unshift_button = map.querySelector('.zone-plane-controls>.action-move-unshift');
+    if (unshift_button)
+        unshift_button.addEventListener('click', function() {
+            map.querySelector('.zone-plane-controls').classList.add('hide');
+            $.ajax.easySend( '{{ path('beyond_ruin_room_leave_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                }, null, function() {
+                    map.querySelector('.zone-plane-controls').classList.remove('hide');
+                } );
+        });
+
+    let ox_display = map.querySelector('.zone-plane-ui .timer *[x-countdown]');
+    if (ox_display) ox_display.addEventListener('countdown', function(e) {
+        ox_display.innerText = Math.floor( Math.max(0, e.detail[0] / 3) );
+        if (e.detail[0] < 60) {
+            let you = map.querySelector('.actor.citizen:not(.noox)');
+            if (you) you.classList.add('noox');
+        }
+    });
+}

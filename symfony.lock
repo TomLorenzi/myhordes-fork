@@ -2,6 +2,9 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
+    "clue/graph": {
+        "version": "v0.9.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -99,6 +102,9 @@
     "gedmo/doctrine-extensions": {
         "version": "v2.4.41"
     },
+    "graphp/algorithms": {
+        "version": "v0.8.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -124,7 +130,7 @@
         "version": "2.8.0"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.4"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.1.0"

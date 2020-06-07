@@ -1,0 +1,227 @@
+@import (once) "../theme";
+
+.plane-skin(@skin) {
+  &.plane-type-all  {
+    background:
+            url("../../img/explore/@{skin}/room.png"),
+            url("../../img/explore/@{skin}/exit.png"), url("../../img/explore/@{skin}/0001.png"), url("../../img/explore/@{skin}/0010.png"),
+            url("../../img/explore/@{skin}/0011.png"), url("../../img/explore/@{skin}/0100.png"), url("../../img/explore/@{skin}/0101.png"),
+            url("../../img/explore/@{skin}/0110.png"), url("../../img/explore/@{skin}/0111.png"), url("../../img/explore/@{skin}/1001.png"),
+            url("../../img/explore/@{skin}/1010.png"), url("../../img/explore/@{skin}/1011.png"), url("../../img/explore/@{skin}/1100.png"),
+            url("../../img/explore/@{skin}/1101.png"), url("../../img/explore/@{skin}/1110.png"), url("../../img/explore/@{skin}/1111.png")
+  }
+  &.plane-type-exit { background: url("../../img/explore/@{skin}/exit.png") center/cover no-repeat; }
+  &.plane-type-room { background: url("../../img/explore/@{skin}/room.png") center/cover no-repeat; }
+  &.plane-type-1    { background: url("../../img/explore/@{skin}/0010.png") center/cover no-repeat; }
+  &.plane-type-2    { background: url("../../img/explore/@{skin}/0100.png") center/cover no-repeat; }
+  &.plane-type-3    { background: url("../../img/explore/@{skin}/0110.png") center/cover no-repeat; }
+  &.plane-type-4    { background: url("../../img/explore/@{skin}/0001.png") center/cover no-repeat; }
+  &.plane-type-5    { background: url("../../img/explore/@{skin}/0011.png") center/cover no-repeat; }
+  &.plane-type-6    { background: url("../../img/explore/@{skin}/0101.png") center/cover no-repeat; }
+  &.plane-type-7    { background: url("../../img/explore/@{skin}/0111.png") center/cover no-repeat; }
+  &.plane-type-8    { background: url("../../img/explore/@{skin}/1000.png") center/cover no-repeat; }
+  &.plane-type-9    { background: url("../../img/explore/@{skin}/1010.png") center/cover no-repeat; }
+  &.plane-type-10   { background: url("../../img/explore/@{skin}/1100.png") center/cover no-repeat; }
+  &.plane-type-11   { background: url("../../img/explore/@{skin}/1110.png") center/cover no-repeat; }
+  &.plane-type-12   { background: url("../../img/explore/@{skin}/1001.png") center/cover no-repeat; }
+  &.plane-type-13   { background: url("../../img/explore/@{skin}/1011.png") center/cover no-repeat; }
+  &.plane-type-14   { background: url("../../img/explore/@{skin}/1101.png") center/cover no-repeat; }
+  &.plane-type-15   { background: url("../../img/explore/@{skin}/1111.png") center/cover no-repeat; }
+
+  &>.actor {
+    &.zombie.local:before { background:  url("../../img/explore/@{skin}/zombie.gif") center/contain no-repeat; }
+    &.zombody.local:before { background:  url("../../img/explore/@{skin}/dead.png") center/contain no-repeat; }
+  }
+
+  &>.decals {
+    position: absolute; left: 0; right: 0; bottom: 0; top: 0;
+    &>* { position: absolute; }
+    &>.decal-door {
+      width: 10%; height: 10%;
+      &:hover { cursor: pointer; filter: drop-shadow(0 0 10px green) }
+      &.decal-door-1,&.decal-door-6 { left:  17% }
+      &.decal-door-3,&.decal-door-8 { right: 17% }
+      &.decal-door-4 { left:  34% }
+      &.decal-door-5 { right: 34% }
+      &.decal-door-2 { left:  45% }
+      &.decal-door-7 { right: 45% }
+      &.decal-door-1,&.decal-door-2,&.decal-door-3 { top:    32% }
+      &.decal-door-6,&.decal-door-7,&.decal-door-8 { bottom: 32% }
+      &.decal-door-4 { top:    45% }
+      &.decal-door-5 { bottom: 45% }
+    }
+  }
+
+  &.plane-door-open>.decals>.decal-door-1 { background: url("../../img/explore/@{skin}/dtlo.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-2 { background: url("../../img/explore/@{skin}/dto.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-3 { background: url("../../img/explore/@{skin}/dtro.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-4 { background: url("../../img/explore/@{skin}/dlo.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-5 { background: url("../../img/explore/@{skin}/dro.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-6 { background: url("../../img/explore/@{skin}/dblo.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-7 { background: url("../../img/explore/@{skin}/dbo.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-8 { background: url("../../img/explore/@{skin}/dbro.png") center/cover no-repeat; }
+
+  &.plane-door-closed>.decals>.decal-door-1 { background: url("../../img/explore/@{skin}/dtlc.png") center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-2 { background: url("../../img/explore/@{skin}/dtc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-3 { background: url("../../img/explore/@{skin}/dtrc.png") center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-4 { background: url("../../img/explore/@{skin}/dlc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-5 { background: url("../../img/explore/@{skin}/drc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-6 { background: url("../../img/explore/@{skin}/dblc.png") center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-7 { background: url("../../img/explore/@{skin}/dbc.png")  center/cover no-repeat; }
+  &.plane-door-closed>.decals>.decal-door-8 { background: url("../../img/explore/@{skin}/dbrc.png") center/cover no-repeat; }
+}
+
+div.ruin_map_area {
+  div.map {
+    font-size: 0; background: @myhordes-map-background; overflow: hidden; padding-top: 100%; position: relative;
+    border: 1px solid @myhordes-smalltext;
+    &:before,&:after {
+      display: block; content: " "; position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    &:before {
+      z-index: 3; pointer-events: none;
+      opacity: 0.9; background: radial-gradient(circle, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,1.0) 100%);
+    }
+    &.in_room:before { opacity: 0.5; }
+    &:after {background: url("../../img/noise.gif") repeat; opacity: 0.04; z-index: 5; pointer-events: none }
+    &>.zone-plane, &>.zone-plane-controls {
+      transition: opacity 0.25s ease, transform 0.25s ease, top 0.75s ease, left 0.75s ease; position: absolute;
+    }
+    &>.zone-plane {
+      background: black; z-index: 2;
+      top: -100%; left: -100%; width: 300%; height: 300%; font-size: 0;
+      &>.zone-sub-container {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        &>.zone-subplane {
+          position: relative; display: inline-block; padding: 0; margin: 0; width: 33.3333333%; height: 33.3333333%;
+
+          & .decals>.decal-ambient { background-position: center; background-size: contain; background-repeat: no-repeat; }
+          &.plane-skin-bunker   {
+            .plane-skin('bunker');
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-a  { width:  6%; height:  9%; left: 37%; top: 27%; background-image: url("../../img/explore/bunker/wall_barrel_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-a  { width:  6%; height:  9%; left: 58%; top: 27%; background-image: url("../../img/explore/bunker/wall_barrel_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-b  { width: 14%; height: 20%; left: 32%; top: 12%; background-image: url("../../img/explore/bunker/wall_pipe_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-b  { width: 14%; height: 20%; left: 54%; top: 12%; background-image: url("../../img/explore/bunker/wall_pipe_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-4                          { width:  9%; height:  8%; left: 18%; top: 31%; background-image: url("../../img/explore/bunker/wall_hatch_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-7                          { width:  9%; height:  8%; left: 76%; top: 31%; background-image: url("../../img/explore/bunker/wall_hatch_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-10.decal-ambient-variant-a { width:  9%; height:  8%; left: 18%; top: 62%; background-image: url("../../img/explore/bunker/wall_hatch_A.png"); }
+            & .decals>.decal-ambient.decal-ambient-13.decal-ambient-variant-a { width:  9%; height:  8%; left: 76%; top: 62%; background-image: url("../../img/explore/bunker/wall_hatch_H.png"); }
+            & .decals>.decal-ambient.decal-ambient-10.decal-ambient-variant-b { width: 11%; height:  7%; left: 14%; top: 65%; background-image: url("../../img/explore/bunker/wall_gutter_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-13.decal-ambient-variant-b { width: 11%; height:  7%; left: 80%; top: 65%; background-image: url("../../img/explore/bunker/wall_gutter_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-14                         { width:  4%; height: 18%; left: 34%; top: 69%; background-image: url("../../img/explore/bunker/wall_grid_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-16                         { width:  4%; height: 18%; left: 62%; top: 69%; background-image: url("../../img/explore/bunker/wall_grid_D.png"); }
+          }
+          &.plane-skin-hotel    {
+            .plane-skin('hotel');
+            & .decals>.decal-ambient.decal-ambient-1                          { width:  8%; height: 13%; left: 35%; top: 27%; background-image: url("../../img/explore/hotel/wall_flowers_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3                          { width:  8%; height: 13%; left: 57%; top: 27%; background-image: url("../../img/explore/hotel/wall_flowers_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-4.decal-ambient-variant-a  { width:  9%; height: 12%; left: 22%; top: 31%; background-image: url("../../img/explore/hotel/wall_palmtree_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-7.decal-ambient-variant-a  { width:  9%; height: 12%; left: 70%; top: 31%; background-image: url("../../img/explore/hotel/wall_palmtree_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-a  { width: 18%; height:  9%; left: 30%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-b  { width: 18%; height:  9%; left: 30%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-a  { width: 18%; height:  9%; left: 54%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-b  { width: 18%; height:  9%; left: 54%; top: 39%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-a  { width: 32%; height: 25%; left:  5%; top: 37%; background-image: url("../../img/explore/hotel/zone_stain_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-b  { width: 18%; height:  9%; left: 20%; top: 45%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-a  { width: 32%; height: 25%; left: 65%; top: 37%; background-image: url("../../img/explore/hotel/zone_stain_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-b  { width: 18%; height:  9%; left: 75%; top: 45%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-a { width: 18%; height:  9%; left: 30%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-b { width: 18%; height:  9%; left: 30%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-a { width: 18%; height:  9%; left: 54%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-b { width: 18%; height:  9%; left: 54%; top: 53%; background-image: url("../../img/explore/hotel/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-2.decal-ambient-variant-a  { width: 25%; height: 32%; left: 37%; top:  5%; background-image: url("../../img/explore/hotel/zone_stain_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-15.decal-ambient-variant-a { width: 25%; height: 32%; left: 37%; top: 65%; background-image: url("../../img/explore/hotel/zone_stain_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-2.decal-ambient-variant-b  { width:  9%; height: 18%; left: 52%; top:  6%; background-image: url("../../img/explore/hotel/zone_dead_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-15.decal-ambient-variant-b { width:  9%; height: 18%; left: 40%; top: 75%; background-image: url("../../img/explore/hotel/zone_dead_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-4.decal-ambient-variant-b  { width: 14%; height:  8%; left: 13%; top: 34%; background-image: url("../../img/explore/hotel/wall_bench_B.png"); }
+            & .decals>.decal-ambient.decal-ambient-7.decal-ambient-variant-b  { width: 14%; height:  8%; left: 72%; top: 34%; background-image: url("../../img/explore/hotel/wall_bench_G.png"); }
+            & .decals>.decal-ambient.decal-ambient-10                         { width: 14%; height:  8%; left: 13%; top: 58%; background-image: url("../../img/explore/hotel/wall_bench_A.png"); }
+            & .decals>.decal-ambient.decal-ambient-13                         { width: 14%; height:  8%; left: 72%; top: 58%; background-image: url("../../img/explore/hotel/wall_bench_H.png"); }
+          }
+          &.plane-skin-hospital {
+            .plane-skin('hospital');
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-a  { width: 10%; height: 11%; left: 34%; top: 27%; background-image: url("../../img/explore/hospital/wall_dead_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-a  { width: 10%; height: 11%; left: 57%; top: 27%; background-image: url("../../img/explore/hospital/wall_dead_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-1.decal-ambient-variant-b  { width:  7%; height: 17%; left: 37%; top: 15%; background-image: url("../../img/explore/hospital/wall_bed_D.png"); }
+            & .decals>.decal-ambient.decal-ambient-3.decal-ambient-variant-b  { width:  7%; height: 17%; left: 57%; top: 15%; background-image: url("../../img/explore/hospital/wall_bed_E.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-a  { width: 10%; height:  9%; left: 39%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-5.decal-ambient-variant-b  { width: 10%; height:  9%; left: 39%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-a  { width:  9%; height: 10%; left: 54%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-6.decal-ambient-variant-b  { width:  9%; height: 10%; left: 54%; top: 39%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-a  { width:  9%; height: 10%; left: 20%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-8.decal-ambient-variant-b  { width:  9%; height: 10%; left: 20%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-a  { width:  9%; height: 10%; left: 75%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-9.decal-ambient-variant-b  { width:  9%; height: 10%; left: 75%; top: 45%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-a { width: 10%; height:  9%; left: 39%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_bottom.png"); }
+            & .decals>.decal-ambient.decal-ambient-11.decal-ambient-variant-b { width: 10%; height:  9%; left: 39%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_top.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-a { width:  9%; height: 10%; left: 54%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_right.png"); }
+            & .decals>.decal-ambient.decal-ambient-12.decal-ambient-variant-b { width:  9%; height: 10%; left: 54%; top: 53%; background-image: url("../../img/explore/hospital/zone_dead_left.png"); }
+            & .decals>.decal-ambient.decal-ambient-14                         { width:  4%; height:  9%; left: 33%; top: 78%; background-image: url("../../img/explore/hospital/wall_grid_K.png"); }
+            & .decals>.decal-ambient.decal-ambient-16                         { width:  4%; height:  9%; left: 63%; top: 78%; background-image: url("../../img/explore/hospital/wall_grid_J.png"); }
+          }
+
+          &>.actor {
+            overflow: visible;
+            position: absolute;
+            width: 0;
+            height: 0;
+            transform: scale(1.5);
+            &:before { position: absolute; content: " "; width: 24px; height: 24px; left: -12px; top: -12px; }
+            &.citizen:not(.noox):before { background: url("../../img/explore/you.gif") center/contain no-repeat; }
+            &.citizen.noox:before { background: url("../../img/explore/you_noox.gif") center/contain no-repeat; }
+            &.zombie:before { background:  url("../../img/explore/zombie.gif") center/contain no-repeat; }
+            &.zombody:before { background:  url("../../img/explore/dead.png") center/contain no-repeat; }
+          }
+        }
+      }
+    }
+    &>.zone-plane-controls {
+      top: 0; left: 0; width: 100%; height: 100%; z-index: 4; pointer-events: none; &:not(.hide)>* { pointer-events: all; }
+      &.hide { opacity: 0;  };
+      &>.action-move {
+        position: absolute; z-index: 4; cursor: pointer;
+        &.on-route { filter: hue-rotate(90deg); }
+        background: url(../../img/227.svg) 50% / contain no-repeat, url(../../img/226.svg) 50% / contain no-repeat;
+        width: 81px; height: 41px;
+        transform-origin: center;
+        top: auto; bottom: auto; left: auto; right: auto;
+
+        &:hover {
+          background: url(../../img/228.svg) 50% no-repeat;
+        }
+        &.action-move-north {
+          top: 2%; left: 50%; transform: translateX(-50%);
+        }
+        &.action-move-east {
+          top: 50%; right: -5%; transform: translateY(-50%) rotate(90deg);
+        }
+        &.action-move-south, &.action-move-unshift {
+          left: 50%; bottom: 2%; transform: translateX(-50%) rotate(180deg);
+        }
+        &.action-move-west {
+          top: 50%; left: -5%; transform: translateY(-50%) rotate(270deg);
+        }
+      }
+    };
+    &>.zone-plane-ui {
+      top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; position: absolute;
+      outline: 1px solid #205319; outline-offset: -4px;
+      &>.name {
+        position: absolute; top: 5px; left: 8px; width: 50%; display: block; z-index: 10; color: #205319;
+        font-size: 1.25rem; text-shadow: 0 0 5px #205319; font-family: "visitor2"; text-align: left;
+        letter-spacing: 0.1rem;
+      }
+      &>.timer {
+        position: absolute; top: 5px; right: 5px; display: block; z-index: 10; color: #205319;
+        font-size: 1.25rem; text-shadow: 0 0 5px #205319; font-family: "visitor2"; text-align: right;
+        letter-spacing: 0.1rem;
+        &>.ox { font-size: 2rem; color: #d7ff5b; }
+      }
+      &>.scanner {
+        position: absolute; width: 13%; height: 9%; background: url("../../img/explore/scanner.gif") center/contain no-repeat;
+        right: 2%; bottom: 2%; opacity: 0.5;
+      }
+    }
+  }
+}
