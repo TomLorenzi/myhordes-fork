@@ -1432,7 +1432,7 @@
       </notes>
       <segment>
         <source>Gemeinschaft</source>
-        <target>Espionnage et ragots de voisinage</target>
+        <target>Spying and neighbourhood gossip</target>
       </segment>
     </unit>
     <unit id="qvB2Xk." name="%citizen% hat bereits %num% Anzeige(n).">
@@ -1916,7 +1916,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Brunnen</source>
-        <target>Well</target>
+        <target>The Well</target>
       </segment>
     </unit>
     <unit id="Z2xHG8j" name="Bank">
@@ -4131,7 +4131,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</source>
-        <target>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</target>
+        <target>Taking a quick look through the window, you can see the following objects:</target>
       </segment>
     </unit>
     <unit id="fIJzVR7" name="44e527a">
