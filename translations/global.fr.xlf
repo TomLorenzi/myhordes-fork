@@ -840,8 +840,7 @@
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
-        <note>Verbesserung des Tages</note>
-        <note category="german">Town Upgrades</note>
+        <note category="german">Verbesserung des Tages</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -850,7 +849,7 @@
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
       <notes>
-        <note category="german">Use this subject for discussions involving the town upgrades you wish to carry out...</note>
+        <note category="german">In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
@@ -859,7 +858,7 @@
     </unit>
     <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
       <notes>
-        <note category="german">Use this subject for discussions involving the workshop and production of resources in town...</note>
+        <note category="german">In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
@@ -868,7 +867,7 @@
     </unit>
     <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
       <notes>
-        <note category="german">Use this subject for discussions involving buildings and construction sites...</note>
+        <note category="german">In diesem Thread dreht sich alles um zukünftige Bauprojekte.</note>
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
@@ -1093,7 +1092,7 @@
     </unit>
     <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
       <notes>
-        <note category="german">This thread contains announcements from MyHordes Administrators.</note>
+        <note category="german">Dieses Thema enthält offizielle Ansagen der Website Administratoren.</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
@@ -1102,7 +1101,7 @@
     </unit>
     <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
       <notes>
-        <note category="german">This thread contains announcements from community representatives.</note>
+        <note category="german">Dieses Thema enthält Ansagen von Community-Vertretern.</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
@@ -1111,7 +1110,7 @@
     </unit>
     <unit id="EOVP1fz" name="Admin Ankündigung">
       <notes>
-        <note category="german">Admin Announcement</note>
+        <note category="german">Admin Ankündigung</note>
       </notes>
       <segment>
         <source>Admin Ankündigung</source>
@@ -1120,7 +1119,7 @@
     </unit>
     <unit id="jszJ4cS" name="Mod Ankündigung">
       <notes>
-        <note category="german">Mod Announcement</note>
+        <note category="german">Mod Ankündigung</note>
       </notes>
       <segment>
         <source>Mod Ankündigung</source>
@@ -1129,7 +1128,7 @@
     </unit>
     <unit id="eh2CqIr" name="Orakel Ankündigung">
       <notes>
-        <note category="german">Oracle Announcement</note>
+        <note category="german">Orakel Ankündigung</note>
       </notes>
       <segment>
         <source>Orakel Ankündigung</source>
@@ -1138,7 +1137,7 @@
     </unit>
     <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
       <notes>
-        <note category="german">This thread contains %count% Aannouncements from community representatives:</note>
+        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
@@ -1147,7 +1146,7 @@
     </unit>
     <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
       <notes>
-        <note category="german">This thread contains %count% official announcement(s) from MyHordes Administrators :</note>
+        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
@@ -1156,7 +1155,7 @@
     </unit>
     <unit id="wg02Gq4" name="Zitieren">
       <notes>
-        <note category="german">Quote</note>
+        <note category="german">Zitieren</note>
       </notes>
       <segment>
         <source>Zitieren</source>
@@ -1165,7 +1164,7 @@
     </unit>
     <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
       <notes>
-        <note category="german">You cannot send any more items.</note>
+        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
       </notes>
       <segment>
         <source>Du kannst keine weiteren Gegenstände senden.</source>
@@ -1174,7 +1173,7 @@
     </unit>
     <unit id="eS7iMaa" name="Rollenspiel">
       <notes>
-        <note category="german">Roleplay</note>
+        <note category="german">Rollenspiel</note>
       </notes>
       <segment>
         <source>Rollenspiel</source>
@@ -1183,7 +1182,7 @@
     </unit>
     <unit id="xtJ2E4o" name="Verräter">
       <notes>
-        <note category="german">Traitor</note>
+        <note category="german">Verräter</note>
       </notes>
       <segment>
         <source>Verräter</source>
@@ -1192,7 +1191,7 @@
     </unit>
     <unit id="peFFaP2" name="Liste der Themen aktualisieren">
       <notes>
-        <note category="german">Refresh list of Threads</note>
+        <note category="german">Liste der Themen aktualisieren</note>
       </notes>
       <segment>
         <source>Liste der Themen aktualisieren</source>

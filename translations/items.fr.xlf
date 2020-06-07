@@ -2894,7 +2894,7 @@
     </unit>
     <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
       <notes>
-        <note category="german">Bottle Opener Blank</note>
+        <note category="german">Abdruck vom Flaschenöffner</note>
       </notes>
       <segment>
         <source>Abdruck vom Flaschenöffner</source>
@@ -2903,8 +2903,6 @@
     </unit>
     <unit id="UH8KN45" name="Ghul-Serum">
       <notes>
-        <note>Ghul-Serum</note>
-        <note>Ghul-Serum</note>
         <note category="german">Ghul-Serum</note>
       </notes>
       <segment>
@@ -8308,7 +8306,7 @@
     </unit>
     <unit id="5v3eyG." name="9caf33d">
       <notes>
-        <note category="german">You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</note>
+        <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
       </notes>
       <segment>
         <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
@@ -8317,7 +8315,7 @@
     </unit>
     <unit id="NEVAuft" name="0671c26">
       <notes>
-        <note category="german">Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</note>
+        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
       </notes>
       <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
@@ -8335,7 +8333,7 @@
     </unit>
     <unit id="hkUU8xN" name="ebaac76">
       <notes>
-        <note category="german">&lt;t-stat-up-addict&gt;Bad news! You are now hooked! From now on, you must take at least one drug per day... or DIE!&lt;/t-stat-up-addict&gt;</note>
+        <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
@@ -8371,7 +8369,7 @@
     </unit>
     <unit id="CW6G1J5" name="5e04d7b">
       <notes>
-        <note category="german">This hi-tech blank will allow you to open secured doored rated up to level 6.2 AOC.</note>
+        <note category="german">Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</note>
       </notes>
       <segment>
         <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
@@ -8380,7 +8378,7 @@
     </unit>
     <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
       <notes>
-        <note category="german">Pre-war camera</note>
+        <note category="german">Kamera aus Vorkriegs-Tagen</note>
       </notes>
       <segment>
         <source>Kamera aus Vorkriegs-Tagen</source>
@@ -8389,7 +8387,7 @@
     </unit>
     <unit id="rUsoPlx" name="efd6bf9">
       <notes>
-        <note category="german">This authentic curio from the last century, or so it would appear, would have scorched many a retina in its day. Its poorly-calibrated flash could surely get you out of any desperate situations by blinding the zombies!</note>
+        <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
       </notes>
       <segment>
         <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>

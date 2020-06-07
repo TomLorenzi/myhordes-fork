@@ -869,6 +869,8 @@ class ItemFixtures extends Fixture
         'pet_rat_#00'          => [ 'pet', 'nw_trebuchet' ],
         'pet_snake_#00'        => [ 'pet', 'nw_trebuchet' ],
         'renne_#00'            => [ 'nw_trebuchet' ],
+        'book_gen_letter_#00'  => [ 'esc_fixed' ],
+        'book_gen_box_#00'     => [ 'esc_fixed' ],
         'postal_box_#00'       => [ 'esc_fixed' ],
         'pocket_belt_#00'      => [ 'esc_fixed' ],
         'bag_#00'              => [ 'esc_fixed' ],
