@@ -7853,7 +7853,7 @@
       </notes>
       <segment>
         <source>Zur Bank schicken</source>
-        <target>Zur Bank schicken</target>
+        <target>Send to the Bank</target>
       </segment>
     </unit>
     <unit id="q1MWl8S" name="Benutzen">
@@ -7862,7 +7862,7 @@
       </notes>
       <segment>
         <source>Benutzen</source>
-        <target>Benutzen</target>
+        <target>To use</target>
       </segment>
     </unit>
     <unit id="Nsd1Ael" name="6fa9fc3">
@@ -7880,7 +7880,7 @@
       </notes>
       <segment>
         <source>Schönes Fundstück</source>
-        <target>Schönes Fundstück</target>
+        <target>Lucky Find</target>
       </segment>
     </unit>
     <unit id="khQvNdC" name="Zur Truhe schicken">
@@ -7889,7 +7889,7 @@
       </notes>
       <segment>
         <source>Zur Truhe schicken</source>
-        <target>Zur Truhe schicken</target>
+        <target>Send to the Chest</target>
       </segment>
     </unit>
     <unit id="sTuI8fr" name="f0c8728">
