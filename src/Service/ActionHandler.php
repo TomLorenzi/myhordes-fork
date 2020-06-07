@@ -712,7 +712,7 @@ class ActionHandler
                 }
 
                 if ($zoneEffect->getEscape() !== null && $zoneEffect->getEscape() > 0) {
-
+                    $tags[] = 'any-escape';
                     if ($ruinZone) {
                         $z = $ruinZone->getZombies();
                         $ruinZone->setZombies( 0 );
