@@ -3468,7 +3468,7 @@
       </notes>
       <segment>
         <source>Einsetzen</source>
-        <target>Assemble</target>
+        <target>Use</target>
       </segment>
     </unit>
     <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
@@ -7068,7 +7068,7 @@
       </notes>
       <segment>
         <source>Aufbauen</source>
-        <target>Build up</target>
+        <target>Install</target>
       </segment>
     </unit>
     <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
