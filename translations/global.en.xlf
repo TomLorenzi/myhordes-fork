@@ -1021,7 +1021,7 @@
     </unit>
     <unit id="siULJza" name="Link einfügen">
       <notes>
-        <note category="german">Insert a link</note>
+        <note category="german">Link einfügen</note>
       </notes>
       <segment>
         <source>Link einfügen</source>
@@ -1030,7 +1030,7 @@
     </unit>
     <unit id="HqBDmKX" name="Bild einfügen">
       <notes>
-        <note category="german">Insert an image</note>
+        <note category="german">Bild einfügen</note>
       </notes>
       <segment>
         <source>Bild einfügen</source>
@@ -1039,7 +1039,7 @@
     </unit>
     <unit id="9H7C4W9" name="Link-Text">
       <notes>
-        <note category="german">Link text</note>
+        <note category="german">Link-Text</note>
       </notes>
       <segment>
         <source>Link-Text</source>
@@ -1048,7 +1048,7 @@
     </unit>
     <unit id="nE4T9Ox" name="Link-URL">
       <notes>
-        <note category="german">Link URL</note>
+        <note category="german">Link-URL</note>
       </notes>
       <segment>
         <source>Link-URL</source>
@@ -1057,7 +1057,7 @@
     </unit>
     <unit id="d1AmbOG" name="Bildtitel">
       <notes>
-        <note category="german">Image title</note>
+        <note category="german">Bildtitel</note>
       </notes>
       <segment>
         <source>Bildtitel</source>
@@ -1066,7 +1066,7 @@
     </unit>
     <unit id="Q0tlYyY" name="Bild-URL">
       <notes>
-        <note category="german">Image URL</note>
+        <note category="german">Bild-URL</note>
       </notes>
       <segment>
         <source>Bild-URL</source>
@@ -1075,7 +1075,7 @@
     </unit>
     <unit id="lqB1Bvf" name="Einfügen">
       <notes>
-        <note category="german">Confirm</note>
+        <note category="german">Einfügen</note>
       </notes>
       <segment>
         <source>Einfügen</source>
@@ -1084,7 +1084,7 @@
     </unit>
     <unit id="EOVP1fz" name="Admin Ankündigung">
       <notes>
-        <note category="german">Admin Announcement</note>
+        <note category="german">Admin Ankündigung</note>
       </notes>
       <segment>
         <source>Admin Ankündigung</source>
@@ -1093,7 +1093,7 @@
     </unit>
     <unit id="jszJ4cS" name="Mod Ankündigung">
       <notes>
-        <note category="german">Mod Announcement</note>
+        <note category="german">Mod Ankündigung</note>
       </notes>
       <segment>
         <source>Mod Ankündigung</source>
@@ -1102,7 +1102,7 @@
     </unit>
     <unit id="eh2CqIr" name="Orakel Ankündigung">
       <notes>
-        <note category="german">Oracle Announcement</note>
+        <note category="german">Orakel Ankündigung</note>
       </notes>
       <segment>
         <source>Orakel Ankündigung</source>
@@ -1111,7 +1111,7 @@
     </unit>
     <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
       <notes>
-        <note category="german">This thread contains %count% official announcement(s) from MyHordes Administrators :</note>
+        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
@@ -1120,7 +1120,7 @@
     </unit>
     <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
       <notes>
-        <note category="german">This thread contains %count% Aannouncements from community representatives:</note>
+        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
@@ -1129,7 +1129,7 @@
     </unit>
     <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
       <notes>
-        <note category="german">This thread contains announcements from MyHordes Administrators.</note>
+        <note category="german">Dieses Thema enthält offizielle Ansagen der Website Administratoren.</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
@@ -1138,7 +1138,7 @@
     </unit>
     <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
       <notes>
-        <note category="german">This thread contains announcements from community representatives.</note>
+        <note category="german">Dieses Thema enthält Ansagen von Community-Vertretern.</note>
       </notes>
       <segment>
         <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>

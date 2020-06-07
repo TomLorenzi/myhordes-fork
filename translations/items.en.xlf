@@ -7759,7 +7759,7 @@
     </unit>
     <unit id="5v3eyG." name="9caf33d">
       <notes>
-        <note category="german">You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</note>
+        <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
       </notes>
       <segment>
         <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
@@ -7795,7 +7795,7 @@
     </unit>
     <unit id="NEVAuft" name="0671c26">
       <notes>
-        <note category="german">Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</note>
+        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
       </notes>
       <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
@@ -7804,7 +7804,7 @@
     </unit>
     <unit id="hkUU8xN" name="ebaac76">
       <notes>
-        <note category="german">&lt;t-stat-up-addict&gt;Bad news! You are now hooked! From now on, you must take at least one drug per day... or DIE!&lt;/t-stat-up-addict&gt;</note>
+        <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
@@ -7845,6 +7845,51 @@
       <segment>
         <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
         <target>This authentic curio from the last century, or so it would appear, would have scorched many a retina in its day. Its poorly-calibrated flash could surely get you out of any desperate situations by blinding the zombies!</target>
+      </segment>
+    </unit>
+    <unit id="oTouBI5" name="Zur Bank schicken">
+      <notes>
+        <note category="german">Zur Bank schicken</note>
+      </notes>
+      <segment>
+        <source>Zur Bank schicken</source>
+        <target>Zur Bank schicken</target>
+      </segment>
+    </unit>
+    <unit id="q1MWl8S" name="Benutzen">
+      <notes>
+        <note category="german">Benutzen</note>
+      </notes>
+      <segment>
+        <source>Benutzen</source>
+        <target>Benutzen</target>
+      </segment>
+    </unit>
+    <unit id="Nsd1Ael" name="6fa9fc3">
+      <notes>
+        <note category="german">&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
+        <target><![CDATA[<t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
+      </segment>
+    </unit>
+    <unit id="Y1T4Y0D" name="Schönes Fundstück">
+      <notes>
+        <note category="german">Schönes Fundstück</note>
+      </notes>
+      <segment>
+        <source>Schönes Fundstück</source>
+        <target>Schönes Fundstück</target>
+      </segment>
+    </unit>
+    <unit id="khQvNdC" name="Zur Truhe schicken">
+      <notes>
+        <note category="german">Zur Truhe schicken</note>
+      </notes>
+      <segment>
+        <source>Zur Truhe schicken</source>
+        <target>Zur Truhe schicken</target>
       </segment>
     </unit>
   </file>

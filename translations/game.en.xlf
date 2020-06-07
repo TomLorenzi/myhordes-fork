@@ -9455,7 +9455,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="rGmg51l" name="[nichts]">
       <notes>
-        <note category="german">[ nothing ]</note>
+        <note category="german">[nichts]</note>
       </notes>
       <segment>
         <source>[nichts]</source>
@@ -9869,7 +9869,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
       <notes>
-        <note category="german">New message</note>
+        <note category="german">Neue Nachricht</note>
       </notes>
       <segment>
         <source>Neue Nachricht</source>
@@ -9950,7 +9950,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="4gAjVQX" name="Verlassener Bunker">
       <notes>
-        <note category="german">Abandonned Bunker</note>
+        <note category="german">Verlassener Bunker</note>
       </notes>
       <segment>
         <source>Verlassener Bunker</source>
@@ -9959,7 +9959,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="BRZGIi8" name="8183632">
       <notes>
-        <note category="german">Bunkers are old refuges built by the military to contain the pandemic. If the soldiers at the time were still human, they would surely have advised their officers against trying to "educate" the first carriers of the virus.</note>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -9968,7 +9968,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="oxlDhWv" name="Verlassenes Hotel">
       <notes>
-        <note category="german">Abandonned Hotel</note>
+        <note category="german">Verlassenes Hotel</note>
       </notes>
       <segment>
         <source>Verlassenes Hotel</source>
@@ -9977,7 +9977,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="hP.60KS" name="150bce3">
       <notes>
-        <note category="german">Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -9986,7 +9986,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
       <notes>
-        <note category="german">Abandonned Hospital</note>
+        <note category="german">Verlassenes Hospital</note>
       </notes>
       <segment>
         <source>Verlassenes Hospital</source>
@@ -9995,7 +9995,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="PAKqkOM" name="1a6b1bb">
       <notes>
-        <note category="german">Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</note>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
@@ -10004,7 +10004,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
       <notes>
-        <note category="german">Enter in %ruin%</note>
+        <note category="german">%ruin% betreten</note>
       </notes>
       <segment>
         <source>%ruin% betreten</source>
@@ -10013,7 +10013,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
       <notes>
-        <note category="german">Leave a note on their door</note>
+        <note category="german">Eine Nachricht hinterlassen</note>
       </notes>
       <segment>
         <source>Eine Nachricht hinterlassen</source>
@@ -10022,7 +10022,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
       <notes>
-        <note category="german">Click on the objects you wish to send with this message:</note>
+        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
@@ -10031,7 +10031,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
       <notes>
-        <note category="german">The following objects will be sent:</note>
+        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
@@ -10040,7 +10040,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
       <notes>
-        <note category="german">No objects attached...</note>
+        <note category="german">Kein Gegenstand beigefügt...</note>
       </notes>
       <segment>
         <source>Kein Gegenstand beigefügt...</source>
@@ -10049,7 +10049,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
       <notes>
-        <note category="german">The following objects have been sent with this message. They should be in your chest ( assuming nobody has stopped by in the meantime... ).</note>
+        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
@@ -10058,7 +10058,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
       <notes>
-        <note category="german">Read my messages.</note>
+        <note category="german">Meine Nachrichten lesen.</note>
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
@@ -10067,7 +10067,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="bYjLN7a" name="Draußen">
       <notes>
-        <note category="german">Outside</note>
+        <note category="german">Draußen</note>
       </notes>
       <segment>
         <source>Draußen</source>
@@ -10076,7 +10076,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
       <notes>
-        <note category="german">in town or at the gates</note>
+        <note category="german">in der Stadt oder am Stadttor</note>
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
@@ -10085,7 +10085,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
       <notes>
-        <note category="german">See their soul</note>
+        <note category="german">Seine Seele ansehen</note>
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
@@ -10130,7 +10130,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
       <notes>
-        <note category="german">Help out!</note>
+        <note category="german">Teilnehmen</note>
       </notes>
       <segment>
         <source>Teilnehmen</source>
@@ -10148,7 +10148,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
       <notes>
-        <note category="german">Read the last gazette</note>
+        <note category="german">Die letzte Zeitung lesen</note>
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
@@ -10157,7 +10157,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="6kQh7Rd" name="Stadtverteidigung">
       <notes>
-        <note category="german">Defence points</note>
+        <note category="german">Stadtverteidigung</note>
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
@@ -10166,7 +10166,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
       <notes>
-        <note category="german">Details infos</note>
+        <note category="german">Details ansehen</note>
       </notes>
       <segment>
         <source>Details ansehen</source>
@@ -10175,7 +10175,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="YuJzi8m" name="Basisverteidigung">
       <notes>
-        <note category="german">Base defence</note>
+        <note category="german">Basisverteidigung</note>
       </notes>
       <segment>
         <source>Basisverteidigung</source>
@@ -10184,7 +10184,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="D3XPl3x" name="Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!">
       <notes>
-        <note category="german">There is a chance of breaking the object during the attack!</note>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</note>
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</source>
@@ -10193,7 +10193,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="8qoI_l9" name="Es besteht die Chance das Objekt während des Angriffs zu verlieren!">
       <notes>
-        <note category="german">There is a chance of losing the object during the attack!</note>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu verlieren!</note>
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
@@ -10202,7 +10202,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
       <notes>
-        <note category="german">%citizen% made it rain and killed %kills% Zombies.</note>
+        <note category="german">%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</note>
       </notes>
       <segment>
         <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
@@ -10211,7 +10211,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="KVApIB1" name="Lage">
       <notes>
-        <note category="german">Location</note>
+        <note category="german">Lage</note>
       </notes>
       <segment>
         <source>Lage</source>
@@ -10220,7 +10220,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="0jW7cq9" name="Stadttor geöffnet">
       <notes>
-        <note category="german">Town's gates opened</note>
+        <note category="german">Stadttor geöffnet</note>
       </notes>
       <segment>
         <source>Stadttor geöffnet</source>
@@ -10229,7 +10229,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="_DKPL9S" name="Wer ist draußen?">
       <notes>
-        <note category="german">Who is outside?</note>
+        <note category="german">Wer ist draußen?</note>
       </notes>
       <segment>
         <source>Wer ist draußen?</source>
@@ -10238,7 +10238,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="rRAcec3" name="Stadttor geschlossen">
       <notes>
-        <note category="german">Town's gates closed</note>
+        <note category="german">Stadttor geschlossen</note>
       </notes>
       <segment>
         <source>Stadttor geschlossen</source>
@@ -10256,7 +10256,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
-        <note category="german">Soul Value</note>
+        <note category="german">Seelenpunkte</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -10265,7 +10265,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
       <notes>
-        <note category="german">The number of soul points you have accumulated in the course of your many lives.</note>
+        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
       </notes>
       <segment>
         <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
@@ -10292,7 +10292,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
       <notes>
-        <note category="german">Your message has been sent along with the objects you chose.</note>
+        <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
       </notes>
       <segment>
         <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
@@ -10310,7 +10310,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="29AAorN" name="Rucksack verstecken">
       <notes>
-        <note category="german">Hide rucksack</note>
+        <note category="german">Rucksack verstecken</note>
       </notes>
       <segment>
         <source>Rucksack verstecken</source>
@@ -10864,6 +10864,123 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Alle freigeschalteten Vorteile anzeigen</source>
         <target>Show the advantages I've earned</target>
+      </segment>
+    </unit>
+    <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
+      <notes>
+        <note category="german">Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</note>
+      </notes>
+      <segment>
+        <source>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</source>
+        <target>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</target>
+      </segment>
+    </unit>
+    <unit id="VBTeiIt" name="Du benötigst %item%, um diese Tür zu öffnen.">
+      <notes>
+        <note category="german">Du benötigst %item%, um diese Tür zu öffnen.</note>
+      </notes>
+      <segment>
+        <source>Du benötigst %item%, um diese Tür zu öffnen.</source>
+        <target>Du benötigst %item%, um diese Tür zu öffnen.</target>
+      </segment>
+    </unit>
+    <unit id="Rc83IVi" name="Mithilfe des %item% hast du die Tür aufgeschlossen!">
+      <notes>
+        <note category="german">Mithilfe des %item% hast du die Tür aufgeschlossen!</note>
+      </notes>
+      <segment>
+        <source>Mithilfe des %item% hast du die Tür aufgeschlossen!</source>
+        <target>Mithilfe des %item% hast du die Tür aufgeschlossen!</target>
+      </segment>
+    </unit>
+    <unit id="ZcFLHOU" name="Sauerstoff">
+      <notes>
+        <note category="german">Sauerstoff</note>
+      </notes>
+      <segment>
+        <source>Sauerstoff</source>
+        <target>Sauerstoff</target>
+      </segment>
+    </unit>
+    <unit id="EaUf6Ab" name="%z% Zombies blockieren den Weg!">
+      <notes>
+        <note category="german">%z% Zombies blockieren den Weg!</note>
+      </notes>
+      <segment>
+        <source>%z% Zombies blockieren den Weg!</source>
+        <target>%z% Zombies blockieren den Weg!</target>
+      </segment>
+    </unit>
+    <unit id="M1qRyRo" name="75469b8">
+      <notes>
+        <note category="german">Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</note>
+      </notes>
+      <segment>
+        <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</source>
+        <target>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</target>
+      </segment>
+    </unit>
+    <unit id="RZlip1S" name="Flüchten">
+      <notes>
+        <note category="german">Flüchten</note>
+      </notes>
+      <segment>
+        <source>Flüchten</source>
+        <target>Flüchten</target>
+      </segment>
+    </unit>
+    <unit id="_KlLZBG" name="Gebäude verlassen">
+      <notes>
+        <note category="german">Gebäude verlassen</note>
+      </notes>
+      <segment>
+        <source>Gebäude verlassen</source>
+        <target>Gebäude verlassen</target>
+      </segment>
+    </unit>
+    <unit id="OqMz83X" name="Raum durchsuchen">
+      <notes>
+        <note category="german">Raum durchsuchen</note>
+      </notes>
+      <segment>
+        <source>Raum durchsuchen</source>
+        <target>Raum durchsuchen</target>
+      </segment>
+    </unit>
+    <unit id="LcBC2EZ" name="Raum verlassen">
+      <notes>
+        <note category="german">Raum verlassen</note>
+      </notes>
+      <segment>
+        <source>Raum verlassen</source>
+        <target>Raum verlassen</target>
+      </segment>
+    </unit>
+    <unit id="LXYdYwf" name="Raum betreten">
+      <notes>
+        <note category="german">Raum betreten</note>
+      </notes>
+      <segment>
+        <source>Raum betreten</source>
+        <target>Raum betreten</target>
+      </segment>
+    </unit>
+    <unit id="nnL4vYm" name="Abdruck nehmen">
+      <notes>
+        <note category="german">Abdruck nehmen</note>
+      </notes>
+      <segment>
+        <source>Abdruck nehmen</source>
+        <target>Abdruck nehmen</target>
+      </segment>
+    </unit>
+    <unit id="gi1cmP_" name="Tür aufschließen">
+      <notes>
+        <note category="german">Tür aufschließen</note>
+      </notes>
+      <segment>
+        <source>Tür aufschließen</source>
+        <target>Tür aufschließen</target>
       </segment>
     </unit>
   </file>

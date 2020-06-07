@@ -288,7 +288,7 @@ class InventoryHandler
 
         // Check if the inventory belongs to a house, and if the house is owned by the citizen
         if ($inventory->getHome() && $inventory->getHome()->getId() === $citizen->getHome()->getId())
-            return $citizen_is_at_home ? self::TransferTypeHome : self::TransferTypeImpound;
+            return $citizen_is_at_home ? self::TransferTypeHome : self::TransferTypeTamer;
 
         // Check if the inventory belongs to a house, and if the house is owned by a different citizen of the same town
         if ($inventory->getHome() && $inventory->getHome()->getId() !== $citizen->getHome()->getId() && $inventory->getHome()->getCitizen()->getTown()->getId() === $citizen->getTown()->getId())

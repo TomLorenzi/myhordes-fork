@@ -1215,6 +1215,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if ($target_citizen->activeExplorerStats())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         return $this->generic_attack_api( $citizen, $target_citizen );
     }
 
@@ -1231,6 +1234,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($target_citizen->activeExplorerStats())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         return $this->generic_devour_api( $citizen, $target_citizen );
     }

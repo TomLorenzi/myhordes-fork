@@ -136,6 +136,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
+                'show_exit_direction' => $citizen->getProfession()->getName() === 'tamer',
                 'name' => $citizen->getZone()->getPrototype()->getLabel(),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,
@@ -413,7 +414,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $key = $this->inventory_handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest( $ruinZone->getPrototype()->getKeyItem()->getName())] );
 
         if (empty($key))
-            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst %item%, um diese Tür zu öffnen.', ['%item%' => $k_str] ) );
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst %item%, um diese Tür zu öffnen.', ['%item%' => $k_str], 'game' ) );
         else $this->inventory_handler->forceRemoveItem( $key[0] );
 
         $ruinZone->setLocked(false);
