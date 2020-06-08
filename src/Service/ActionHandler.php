@@ -889,21 +889,26 @@ class ActionHandler
                         if( $citizen->getTown()->getDevastated() ) $chances = max(0.1, $chances - 0.2);
 
                         if ($this->random_generator->chance($chances)) {
-                            if ($drink) $citizen->setWalkingDistance(0);
 
                             if ($drink) {
+                                $citizen->setWalkingDistance(0);
                                 if($citizen->hasRole('ghoul')){
                                     $this->citizen_handler->inflictWound($citizen);
-                                } else if($this->citizen_handler->hasStatusEffect($citizen, 'thirst2')){
+                                } else if ($this->citizen_handler->hasStatusEffect($citizen, 'thirst2')) {
                                     $this->citizen_handler->removeStatus($citizen, 'thirst2');
                                     $this->citizen_handler->inflictStatus($citizen, 'thirst1');
                                 } else {
                                 	$this->citizen_handler->removeStatus($citizen, 'thirst1');
                                 	$this->citizen_handler->inflictStatus($citizen, 'hasdrunk');
+
+                                    $old_ap = $citizen->getAp();
+                                    if ($old_ap < 6)
+                                        $this->citizen_handler->setAP($citizen, false, 6, 0);
+                                    $execute_info_cache['ap'] += ( $citizen->getAp() - $old_ap );
                                 }
                             } else {
 
-                                if (!$this->citizen_handler->hasStatusEffect($citizen, 'hasdrunk')) {
+                                if (!$this->citizen_handler->hasStatusEffect($citizen, 'haseaten')) {
                                     $old_ap = $citizen->getAp();
                                     if ($old_ap < 6)
                                         $this->citizen_handler->setAP($citizen, false, 6, 0);
