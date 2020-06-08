@@ -916,7 +916,7 @@
       </notes>
       <segment>
         <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
-        <target>Dieser Login ist ausschließlich für Administratoren gedacht.</target>
+        <target>Cette connexion est réservée aux administrateurs.</target>
       </segment>
     </unit>
     <unit id="ZtFgVEb" name="Admin Dashboard">
@@ -925,7 +925,7 @@
       </notes>
       <segment>
         <source>Admin Dashboard</source>
-        <target>Admin Dashboard</target>
+        <target>Tableau de bord administrateur</target>
       </segment>
     </unit>
     <unit id="aZibx3x" name="Server-Log herunterladen">
@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>Server-Log herunterladen</source>
-        <target>Server-Log herunterladen</target>
+        <target>Télécharger le journal du serveur</target>
       </segment>
     </unit>
     <unit id="yvg6S11" name="Server-Log ansehen">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>Server-Log ansehen</source>
-        <target>Server-Log ansehen</target>
+        <target>Afficher le journal du serveur</target>
       </segment>
     </unit>
     <unit id="UYFKH.u" name="Server-Log löschen">
@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>Server-Log löschen</source>
-        <target>Server-Log löschen</target>
+        <target>Effacer le journal du serveur</target>
       </segment>
     </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>Geplante Angriffe</source>
-        <target>Geplante Angriffe</target>
+        <target>Attaques planifiées</target>
       </segment>
     </unit>
     <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Überfällig seit %s% Sekunden!</source>
-        <target>Überfällig seit %s% Sekunden!</target>
+        <target>En retard depuis %s% secondes !</target>
       </segment>
     </unit>
     <unit id=".vvAKHY" name="Soldatenberuf freischalten">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Soldatenberuf freischalten</source>
-        <target>Soldatenberuf freischalten</target>
+        <target>Débloquer la profession militaire</target>
       </segment>
     </unit>
     <unit id="rhc00FL" name="999 AP zuweisen">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>999 AP zuweisen</source>
-        <target>999 AP zuweisen</target>
+        <target>Attribuer 999 PA</target>
       </segment>
     </unit>
     <unit id="hkxRxBa" name="Munition erzeugen">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>Munition erzeugen</source>
-        <target>Munition erzeugen</target>
+        <target>Générer des munitions</target>
       </segment>
     </unit>
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
@@ -1006,7 +1006,7 @@
       </notes>
       <segment>
         <source>Admin-Berechtigung setzen</source>
-        <target>Admin-Berechtigung setzen</target>
+        <target>Définir l'autorisation administrateur</target>
       </segment>
     </unit>
     <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
@@ -1015,7 +1015,7 @@
       </notes>
       <segment>
         <source>+ 9999 Seelenpunkte</source>
-        <target>+ 9999 Seelenpunkte</target>
+        <target>+ 9999 points d'âme</target>
       </segment>
     </unit>
     <unit id="WgSXz1." name="Geheime Saison freischalten">
@@ -1024,7 +1024,7 @@
       </notes>
       <segment>
         <source>Geheime Saison freischalten</source>
-        <target>Geheime Saison freischalten</target>
+        <target>Débloquer la saison secrète</target>
       </segment>
     </unit>
     <unit id="B6BJJfF" name="Computer sagt nein.">
@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>Computer sagt nein.</source>
-        <target>Computer sagt nein.</target>
+        <target>L'ordinateur a dit non.</target>
       </segment>
     </unit>
   </file>
