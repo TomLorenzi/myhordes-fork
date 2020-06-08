@@ -10915,7 +10915,7 @@
       </notes>
       <segment>
         <source>Niemand</source>
-        <target>Niemand</target>
+        <target>Keiner</target>
       </segment>
     </unit>
     <unit id="oeIpxYX" name="Alle freigeschalteten Vorteile anzeigen">
@@ -11006,6 +11006,24 @@
       <segment>
         <source>Du benötigst %item%, um diese Tür zu öffnen.</source>
         <target>Du benötigst %item%, um diese Tür zu öffnen.</target>
+      </segment>
+    </unit>
+    <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
+      <notes>
+        <note category="german">Proj.</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages (building)</source>
+        <target>Verbesserung des Tages (building)</target>
+      </segment>
+    </unit>
+    <unit id="AKS0zA3" name="Werkstatt (building)">
+      <notes>
+        <note category="german">Works</note>
+      </notes>
+      <segment>
+        <source>Werkstatt (building)</source>
+        <target>Werkstatt (building)</target>
       </segment>
     </unit>
   </file>

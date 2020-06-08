@@ -10850,7 +10850,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="gwaSbiX" name="Niemand">
       <notes>
-        <note category="german">Niemand</note>
+        <note category="german">Keiner</note>
       </notes>
       <segment>
         <source>Niemand</source>
