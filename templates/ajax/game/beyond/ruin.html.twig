@@ -61,7 +61,7 @@
                         </button>
                     {% endif %}
                     <br />
-                    <button {% if (zone_zombies > 0 and not escaping) and zone.locked and not shifted %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
+                    <button {% if (zone_zombies > 0 and not escaping) or (zone.locked and not shifted) %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
                         {% if ((zone_zombies <= 0 or escaping) and not zone.locked) or shifted %}
                             <img class="icon left" alt="" src="{{ asset('build/images/small_enter.gif') }}" />
                         {% else %}
@@ -75,10 +75,12 @@
                     </button>
 
                     {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
-                        <button {% if not scavenge or not can_imprint%}disabled{% endif %} id="imprint_button">
-                            <img class="icon left" alt="" src="{{ asset('build/images/item/item_' ~ zone.prototype.keyImprint.icon ~ '.gif') }}" />
-                            {{ 'Abdruck nehmen'|trans({},'game') }}
-                        </button>
+                        {% if can_imprint %}
+                            <button {% if not scavenge %}disabled{% endif %} id="imprint_button">
+                                <img class="icon left" alt="" src="{{ asset('build/images/item/item_' ~ zone.prototype.keyImprint.icon ~ '.gif') }}" />
+                                {{ 'Abdruck nehmen'|trans({},'game') }}
+                            </button>
+                        {% endif %}
                         <button id="unlock_button">
                             <img class="icon left" alt="" src="{{ asset('build/images/item/item_' ~ zone.prototype.keyItem.icon ~ '.gif') }}" />
                             {{ 'Tür aufschließen'|trans({},'game') }}
