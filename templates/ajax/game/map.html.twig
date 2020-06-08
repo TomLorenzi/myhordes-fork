@@ -184,7 +184,7 @@
                             </svg>
                             </div>{% endif %}
                     {% endif %}
-                    {% if scavenger_sense or true %}
+                    {% if scavenger_sense %}
                         {% if zone.x < map.map_x1 and (zone.x != -1 or zone.y != 0) and map.zones[zone.x+1][zone.y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') %}
                             <div class="scavenger-sense scavenger-sense-east scavenger-sense-{% if map.zones[zone.x+1][zone.y].digs > 0 or (map.zones[zone.x+1][zone.y].prototype and map.zones[zone.x+1][zone.y].ruinDigs > 0) %}1{% else %}0{% endif %}"></div>
                         {% endif %}
