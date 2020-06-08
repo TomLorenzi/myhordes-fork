@@ -27,9 +27,10 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
-use App\Structures\TownConf;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
+use App\Service\UserHandler;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use DateTime;
@@ -50,14 +51,16 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected $logTemplateHandler;
     protected $time_keeper;
     protected $citizen_handler;
+    private $user_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
         $this->time_keeper = $tk;
         $this->citizen_handler = $ch;
+        $this->user_handler = $uh;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -98,7 +101,7 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($citizen !== null ? $citizen : $this->getActiveCitizen(), 'manipulator'),
+            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
         ] );
     }
 
@@ -566,7 +569,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $citizen = $this->getActiveCitizen();
         $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);
 
-        if(!$citizen->getProfession()->getHeroic() || !$this->citizen_handler->hasSkill($citizen, 'manipulator')){
+        if(!$citizen->getProfession()->getHeroic() || !$this->user_handler->hasSkill($citizen->getUser(), 'manipulator')){
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 
@@ -579,10 +582,10 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         $limit = 0;
-        if($this->citizen_handler->hasSkill($citizen, 'manipulator'))
+        if($this->user_handler->hasSkill($citizen->getUser(), 'manipulator'))
             $limit = 2;
 
-        if($this->citizen_handler->hasSkill($citizen, 'treachery'))
+        if($this->user_handler->hasSkill($citizen->getUser(), 'treachery'))
             $limit = 4;
 
         if($counter->getCount() < $limit){

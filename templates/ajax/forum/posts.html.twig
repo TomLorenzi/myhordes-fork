@@ -105,22 +105,20 @@
                     {{ post.text|raw }}
                 </div>
                 <div class="forum-post-footer right">
-                {% if post.owner.username != 'Der Rabe' %}
-                    {% if not is_granted("ROLE_CROW") %}
-                        [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
-                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
-                    {% else %}
-                        <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
-                            <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
-                            <ul class="mod-submenu-links">
-                                {% if not post.hidden %}
-                                    <li><a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
-                                {% endif %}
-                            </ul>
-                        </label>
+                {% if not is_granted("ROLE_CROW") %}
                     [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                     [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
-                    {% endif %}
+                {% else %}
+                    <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
+                        <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
+                        <ul class="mod-submenu-links">
+                            {% if not post.hidden %}
+                                <li><a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
+                            {% endif %}
+                        </ul>
+                    </label>
+                [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
+                [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
                 {% endif %}
                 </div>
             </div>

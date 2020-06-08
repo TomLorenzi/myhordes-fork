@@ -24,11 +24,12 @@ class PictoHandler
 
     public function give_picto(Citizen &$citizen, $pictoPrototype, $count = 1){
         if(is_string($pictoPrototype)){
-            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoPrototype);
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
                 return;
         }
-        $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
+        // $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
+        $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 0]);
         if($picto === null) $picto = new Picto();
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(0)
@@ -42,12 +43,15 @@ class PictoHandler
 
     public function give_validated_picto(Citizen &$citizen, $pictoPrototype, $count = 1){
         if(is_string($pictoPrototype)){
-            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoPrototype);
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
                 return;
         }
-        $picto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
+        
+        //$picto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
+        $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 1]);
         if($picto === null) $picto = new Picto();
+
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(1)
             ->setTown($citizen->getTown())
@@ -135,7 +139,7 @@ class PictoHandler
 
     public function has_picto(Citizen $citizen, $pictoPrototype){
         if(is_string($pictoPrototype)){
-            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoPrototype);
+            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
                 return false;
         }

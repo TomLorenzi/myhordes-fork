@@ -717,7 +717,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         ], 'desc' => 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...'],
 
         // Explorable Ruins.
-        ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true,
+        ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
             "explorable_skin" => 'bunker', "explorable_desc" => null,
             "drops" => [
                 array('item' => 'bbplan_u_#00','count' => 13),
@@ -746,7 +746,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'flare_#00','count' => 1),
                 array('item' => 'wood_plate_#00','count' => 1),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true,
+        ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
             "explorable_skin" => 'hotel', "explorable_desc" => null,
             "drops" => [
                 array('item' => 'hbplan_u_#00','count' => 3),
@@ -763,7 +763,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'water_can_3_#00','count' => 2),
                 array('item' => 'water_can_1_#00','count' => 1),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true,
+        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
             "explorable_skin" => 'hospital', "explorable_desc" => null,
             "drops" => [
                 array('item' => 'mbplan_u_#00','count' => 14),

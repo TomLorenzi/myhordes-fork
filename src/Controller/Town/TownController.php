@@ -196,9 +196,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
-        $skillDictator = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findOneByName('dictator');
-
-        $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->getUser()->getHeroDaysSpent() >= $skillDictator->getDaysNeeded() && !$citizen->getBanished();
+        $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator') && !$citizen->getBanished();
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
@@ -305,7 +303,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $hasClairvoyance = false;
         $clairvoyanceLevel = 0;
 
-        if ($this->citizen_handler->hasSkill($this->getActiveCitizen(), 'clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
+        if ($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
             $hasClairvoyance = true;
             if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_forum')){
                 $clairvoyanceLevel++;
@@ -1509,7 +1507,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getAlive())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
-        if ($citizen->getAp() <= 1 || $this->citizen_handler->isTired( $citizen ))
+        if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         if($c->getHome()->getRecycling() >= 15){
