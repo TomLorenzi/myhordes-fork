@@ -1124,7 +1124,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
-        <target>This thread contains %count% Aannouncements from community representatives:</target>
+        <target>This thread contains %count% Announcement(s) from community representatives:</target>
       </segment>
     </unit>
     <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">

@@ -305,8 +305,8 @@ class MazeMaker
         // Attempt to re-adds nodes without forming new corridor connections
         // First, identify corridors that can be added back in
         $add_list = [];
-        foreach ($binary as $x => &$line)
-            foreach ($line as $y => &$entry)
+        foreach ($binary as $x => $line)
+            foreach ($line as $y => $entry)
                 if ($neighbors($x,$y) === 1 && !$corridor($x,$y))
                     $add_list[] = [$x,$y];
 

@@ -103,7 +103,7 @@ class TownHomeController extends TownController
         foreach ($home->getChest()->getItems() as $item)
             $deco += $item->getPrototype()->getDeco();
 
-        $can_send_global_pm = $citizen->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($citizen, 'writer');
+        $can_send_global_pm = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
 
         $possible_dests = [];
         foreach ($town->getCitizens() as $dest) {
@@ -271,7 +271,7 @@ class TownHomeController extends TownController
         $home->setPrototype($next);
 
         // Deduct AP and set the has-upgraded status
-        $this->citizen_handler->deductAPBP( $citizen, -$next->getAp() );
+        $this->citizen_handler->deductAPBP( $citizen, $next->getAp() );
         $ch->inflictStatus( $citizen, 'tg_home_upgrade' );
 
         // Consume items
@@ -381,7 +381,7 @@ class TownHomeController extends TownController
         else $current->setLevel( $current->getLevel()+1 );
 
         // Deduct AP
-        $this->citizen_handler->deductAPBP( $citizen, -$costs->getAp() );
+        $this->citizen_handler->deductAPBP( $citizen, $costs->getAp() );
 
         // Give picto
         $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName("r_hbuild_#00");

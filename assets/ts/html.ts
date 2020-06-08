@@ -156,7 +156,7 @@ export default class HTML {
                 element.style.left = (e.clientX - element.clientWidth - 50) + 'px';
             } else element.style.left = e.clientX + 'px';
         });
-        parent.addEventListener('pointerleave', function(e) {
+        parent.addEventListener('pointerout', function(e) {
             element.style.display = 'none';
             parent.append( element );
         });

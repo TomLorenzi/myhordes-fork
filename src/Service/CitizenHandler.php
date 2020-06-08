@@ -36,9 +36,10 @@ class CitizenHandler
     private $picto_handler;
     private $log;
     private $container;
+    private $user_handler;
 
     public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
-                                PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c)
+                                PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -48,6 +49,7 @@ class CitizenHandler
         $this->item_factory = $if;
         $this->log = $lh;
         $this->container = $c;
+        $this->user_handler = $uh;
     }
 
     /**
@@ -243,7 +245,7 @@ class CitizenHandler
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
-        } else if($citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'revenge') && $citizen->getTown()->getDay() >= 3) {
+        } else if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'revenge') && $citizen->getTown()->getDay() >= 3) {
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
         }
@@ -350,8 +352,8 @@ class CitizenHandler
         else {
             $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
 
-            $has_healthy_body = $citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'healthybody');
-            $has_body_armor = $citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'brick');
+            $has_healthy_body = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'healthybody');
+            $has_body_armor = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'brick');
 
             if ($has_healthy_body && $this->hasStatusEffect( $citizen, 'clean', false ))
                 $base += 1;
@@ -454,7 +456,7 @@ class CitizenHandler
         $camping_values = [];
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
-        $has_pro_camper = $citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'procamp');
+        $has_pro_camper = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'procamp');
 
         // Town type: Pandemonium gets malus of 14, all other types are neutral.
         $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
@@ -648,7 +650,7 @@ class CitizenHandler
                 $chances = max($baseChance, $chances - 0.05);
             } else {
                 $factor = 0.1;
-                if($citizen->getProfession()->getHeroic() && $this->hasSkill($citizen, 'prowatch'))
+                if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
                     $factor -= 0.03;
                 $chances = min(1, $chances + 0.1);
             }
@@ -760,16 +762,5 @@ class CitizenHandler
         }
 
         return false;
-    }
-
-    public function hasSkill(Citizen $citizen, $skill){
-        if(is_string($skill)) {
-            $skill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findOneByName($skill);
-            if($skill === null)
-                return false;
-        }
-
-        $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getHeroDaysSpent());
-        return in_array($skill, $skills);
     }
 }

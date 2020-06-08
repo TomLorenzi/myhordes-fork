@@ -221,6 +221,14 @@ class Town
         return $this->getDay() === 1 && $this->getCitizenCount() < $this->getPopulation();
     }
 
+    public function userInTown(User $user): bool {
+        foreach ($this->getCitizens() as $citizen) {
+            if($citizen->getUser() == $user)
+                return true;
+        }
+        return false;
+    }
+
     /**
      * @return Collection|Citizen[]
      */

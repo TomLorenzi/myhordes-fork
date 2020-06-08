@@ -23,7 +23,7 @@
                                 </div>
                                 {% for town in townClass.towns %}
                                     {# @var town \App\Entity\Town #}
-                                    {% if town.open %}
+                                    {% if town.open and not town.userInTown(app.user) %}
                                         {% set found = true %}
                                         <div class="row town-row">
                                             <div class="padded cell rw-1"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~".png") }}" alt="{{ town.getLanguage }}" /></span></div>

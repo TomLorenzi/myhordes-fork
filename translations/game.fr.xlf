@@ -9334,7 +9334,7 @@
     </unit>
     <unit id="gwaSbiX" name="Niemand">
       <notes>
-        <note category="german">Niemand</note>
+        <note category="german">Keiner</note>
       </notes>
       <segment>
         <source>Niemand</source>
@@ -11634,6 +11634,24 @@
       <segment>
         <source>Du benötigst %item%, um diese Tür zu öffnen.</source>
         <target>Vous avez besoin de %item% pour ouvrir cette porte.</target>
+      </segment>
+    </unit>
+    <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
+      <notes>
+        <note category="german">Verbesserung des Tages (building)</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages (building)</source>
+        <target>Verbesserung des Tages (building)</target>
+      </segment>
+    </unit>
+    <unit id="AKS0zA3" name="Werkstatt (building)">
+      <notes>
+        <note category="german">Werkstatt (building)</note>
+      </notes>
+      <segment>
+        <source>Werkstatt (building)</source>
+        <target>Werkstatt (building)</target>
       </segment>
     </unit>
   </file>

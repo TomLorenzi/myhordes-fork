@@ -901,5 +901,131 @@
         <target>Neue Update</target>
       </segment>
     </unit>
+    <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
+      <notes>
+        <note category="german">This login is only for Administrators.</note>
+      </notes>
+      <segment>
+        <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
+        <target>Dieser Login ist ausschließlich für Administratoren gedacht.</target>
+      </segment>
+    </unit>
+    <unit id="ZtFgVEb" name="Admin Dashboard">
+      <notes>
+        <note category="german">Admin Dashboard</note>
+      </notes>
+      <segment>
+        <source>Admin Dashboard</source>
+        <target>Admin Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="aZibx3x" name="Server-Log herunterladen">
+      <notes>
+        <note category="german">Download Server logs</note>
+      </notes>
+      <segment>
+        <source>Server-Log herunterladen</source>
+        <target>Server-Log herunterladen</target>
+      </segment>
+    </unit>
+    <unit id="yvg6S11" name="Server-Log ansehen">
+      <notes>
+        <note category="german">View Server logs</note>
+      </notes>
+      <segment>
+        <source>Server-Log ansehen</source>
+        <target>Server-Log ansehen</target>
+      </segment>
+    </unit>
+    <unit id="UYFKH.u" name="Server-Log löschen">
+      <notes>
+        <note category="german">Clear Server logs</note>
+      </notes>
+      <segment>
+        <source>Server-Log löschen</source>
+        <target>Server-Log löschen</target>
+      </segment>
+    </unit>
+    <unit id="LzfXrql" name="Geplante Angriffe">
+      <notes>
+        <note category="german">Planned Attacks</note>
+      </notes>
+      <segment>
+        <source>Geplante Angriffe</source>
+        <target>Geplante Angriffe</target>
+      </segment>
+    </unit>
+    <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
+      <notes>
+        <note category="german">Overdue for %s% seconds!</note>
+      </notes>
+      <segment>
+        <source>Überfällig seit %s% Sekunden!</source>
+        <target>Überfällig seit %s% Sekunden!</target>
+      </segment>
+    </unit>
+    <unit id=".vvAKHY" name="Soldatenberuf freischalten">
+      <notes>
+        <note category="german">Unlock military profession</note>
+      </notes>
+      <segment>
+        <source>Soldatenberuf freischalten</source>
+        <target>Soldatenberuf freischalten</target>
+      </segment>
+    </unit>
+    <unit id="rhc00FL" name="999 AP zuweisen">
+      <notes>
+        <note category="german">Give 999 AP</note>
+      </notes>
+      <segment>
+        <source>999 AP zuweisen</source>
+        <target>999 AP zuweisen</target>
+      </segment>
+    </unit>
+    <unit id="hkxRxBa" name="Munition erzeugen">
+      <notes>
+        <note category="german">Generate ammunition</note>
+      </notes>
+      <segment>
+        <source>Munition erzeugen</source>
+        <target>Munition erzeugen</target>
+      </segment>
+    </unit>
+    <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
+      <notes>
+        <note category="german">Set Admin authorization</note>
+      </notes>
+      <segment>
+        <source>Admin-Berechtigung setzen</source>
+        <target>Admin-Berechtigung setzen</target>
+      </segment>
+    </unit>
+    <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
+      <notes>
+        <note category="german">+ 9999 Soul points</note>
+      </notes>
+      <segment>
+        <source>+ 9999 Seelenpunkte</source>
+        <target>+ 9999 Seelenpunkte</target>
+      </segment>
+    </unit>
+    <unit id="WgSXz1." name="Geheime Saison freischalten">
+      <notes>
+        <note category="german">Unlock Secret Season</note>
+      </notes>
+      <segment>
+        <source>Geheime Saison freischalten</source>
+        <target>Geheime Saison freischalten</target>
+      </segment>
+    </unit>
+    <unit id="B6BJJfF" name="Computer sagt nein.">
+      <notes>
+        <note category="german">Computer says no.</note>
+      </notes>
+      <segment>
+        <source>Computer sagt nein.</source>
+        <target>Computer sagt nein.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -31,19 +31,20 @@ class InventoryHandler
     private $entity_manager;
     private $item_factory;
     private $bankAbuseService;
-    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService)
+    private $user_handler;
+    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
         $this->container = $c;
         $this->bankAbuseService = $bankAntiAbuseService;
+        $this->user_handler = $uh;
     }
 
     public function getSize( Inventory $inventory ): int {
         if ($inventory->getCitizen()) {
             $hero = $inventory->getCitizen()->getProfession() && $inventory->getCitizen()->getProfession()->getHeroic();
             $base = 4 + $this->countEssentialItems($inventory) + ($hero ? 1 : 0);
-            $largerucksack1HS = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findOneByName('largerucksack1');
 
             if (
                 !empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
@@ -56,7 +57,7 @@ class InventoryHandler
             if (!empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'pocket_belt_#00' ) ] )))
                 $base += 2;
 
-            if($hero && $inventory->getCitizen()->getUser()->getHeroDaysSpent() >= $largerucksack1HS->getDaysNeeded())
+            if($hero && $this->user_handler->hasSkill($inventory->getCitizen()->getUser(), 'largerucksack1'))
                 $base += 1;
 
             return $base;

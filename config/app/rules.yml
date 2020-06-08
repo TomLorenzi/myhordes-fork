@@ -18,6 +18,7 @@ parameters:
         room_spacing: 4
         lock_distance: 10
         item_fillrate: 11
+        max_distance: 10
         zombies:
           initial: 25
           daily: 5
@@ -98,6 +99,9 @@ parameters:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
       explorable_ruins: 2
+
+      explorable_ruin_params:
+        max_distance: 100
 
     custom:
       allow_local_conf: true

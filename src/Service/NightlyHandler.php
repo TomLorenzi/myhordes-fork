@@ -1175,7 +1175,7 @@ class NightlyHandler
             }
 
             // we remove the votes
-            $votes = $this->entity_manager->getRepository(CitizenVote::class)->findByRole($role);
+            $votes = $this->entity_manager->getRepository(CitizenVote::class)->findBy(['role' => $role]);
             foreach ($votes as $vote) {
                 $this->entity_manager->remove($vote);
             }

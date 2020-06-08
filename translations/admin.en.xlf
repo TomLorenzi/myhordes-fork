@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Ruinenscanner</source>
-        <target>Ruinenscanner</target>
+        <target>Ruins scanner</target>
       </segment>
     </unit>
     <unit id="bQMa8Q2" name="Position">
@@ -808,7 +808,7 @@
       </notes>
       <segment>
         <source>Distanz</source>
-        <target>Distanz</target>
+        <target>Distance</target>
       </segment>
     </unit>
     <unit id="8N0dl_g" name="Zombies">
@@ -826,7 +826,7 @@
       </notes>
       <segment>
         <source>Abdruck</source>
-        <target>Abdruck</target>
+        <target>Footprint</target>
       </segment>
     </unit>
     <unit id="H716AMr" name="Schlüssel">
@@ -835,7 +835,7 @@
       </notes>
       <segment>
         <source>Schlüssel</source>
-        <target>Schlüssel</target>
+        <target>Key</target>
       </segment>
     </unit>
     <unit id="Q2ZDp94" name="Durchsucht">
@@ -844,7 +844,7 @@
       </notes>
       <segment>
         <source>Durchsucht</source>
-        <target>Durchsucht</target>
+        <target>Searched</target>
       </segment>
     </unit>
     <unit id="VxMRN_s" name="Aktuelle Sitzung">
@@ -853,7 +853,7 @@
       </notes>
       <segment>
         <source>Aktuelle Sitzung</source>
-        <target>Aktuelle Sitzung</target>
+        <target>Current session</target>
       </segment>
     </unit>
     <unit id="ajNZZUO" name="Flucht">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Flucht</source>
-        <target>Flucht</target>
+        <target>Flee</target>
       </segment>
     </unit>
     <unit id="0vxeWOf" name="Raum">
@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Raum</source>
-        <target>Raum</target>
+        <target>Room</target>
       </segment>
     </unit>
     <unit id="dPJJMfT" name="Zeit">
@@ -880,7 +880,7 @@
       </notes>
       <segment>
         <source>Zeit</source>
-        <target>Zeit</target>
+        <target>Time</target>
       </segment>
     </unit>
     <unit id="ILol6i6" name="Alle Sitzungen">
@@ -889,7 +889,133 @@
       </notes>
       <segment>
         <source>Alle Sitzungen</source>
-        <target>Alle Sitzungen</target>
+        <target>All Sessions</target>
+      </segment>
+    </unit>
+    <unit id="ZtFgVEb" name="Admin Dashboard">
+      <notes>
+        <note category="german">Admin Dashboard</note>
+      </notes>
+      <segment>
+        <source>Admin Dashboard</source>
+        <target>Admin Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
+      <notes>
+        <note category="german">Dieser Login ist ausschließlich für Administratoren gedacht.</note>
+      </notes>
+      <segment>
+        <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
+        <target>This login is only for Administrators.</target>
+      </segment>
+    </unit>
+    <unit id="aZibx3x" name="Server-Log herunterladen">
+      <notes>
+        <note category="german">Server-Log herunterladen</note>
+      </notes>
+      <segment>
+        <source>Server-Log herunterladen</source>
+        <target>Download Server logs</target>
+      </segment>
+    </unit>
+    <unit id="yvg6S11" name="Server-Log ansehen">
+      <notes>
+        <note category="german">Server-Log ansehen</note>
+      </notes>
+      <segment>
+        <source>Server-Log ansehen</source>
+        <target>View Server logs</target>
+      </segment>
+    </unit>
+    <unit id="UYFKH.u" name="Server-Log löschen">
+      <notes>
+        <note category="german">Server-Log löschen</note>
+      </notes>
+      <segment>
+        <source>Server-Log löschen</source>
+        <target>Clear Server logs</target>
+      </segment>
+    </unit>
+    <unit id="LzfXrql" name="Geplante Angriffe">
+      <notes>
+        <note category="german">Geplante Angriffe</note>
+      </notes>
+      <segment>
+        <source>Geplante Angriffe</source>
+        <target>Planned Attacks</target>
+      </segment>
+    </unit>
+    <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
+      <notes>
+        <note category="german">Überfällig seit %s% Sekunden!</note>
+      </notes>
+      <segment>
+        <source>Überfällig seit %s% Sekunden!</source>
+        <target>Overdue for %s% seconds!</target>
+      </segment>
+    </unit>
+    <unit id=".vvAKHY" name="Soldatenberuf freischalten">
+      <notes>
+        <note category="german">Soldatenberuf freischalten</note>
+      </notes>
+      <segment>
+        <source>Soldatenberuf freischalten</source>
+        <target>Unlock military profession</target>
+      </segment>
+    </unit>
+    <unit id="rhc00FL" name="999 AP zuweisen">
+      <notes>
+        <note category="german">999 AP zuweisen</note>
+      </notes>
+      <segment>
+        <source>999 AP zuweisen</source>
+        <target>Give 999 AP</target>
+      </segment>
+    </unit>
+    <unit id="hkxRxBa" name="Munition erzeugen">
+      <notes>
+        <note category="german">Munition erzeugen</note>
+      </notes>
+      <segment>
+        <source>Munition erzeugen</source>
+        <target>Generate ammunition</target>
+      </segment>
+    </unit>
+    <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
+      <notes>
+        <note category="german">Admin-Berechtigung setzen</note>
+      </notes>
+      <segment>
+        <source>Admin-Berechtigung setzen</source>
+        <target>Set Admin authorization</target>
+      </segment>
+    </unit>
+    <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
+      <notes>
+        <note category="german">+ 9999 Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>+ 9999 Seelenpunkte</source>
+        <target>+ 9999 Soul points</target>
+      </segment>
+    </unit>
+    <unit id="WgSXz1." name="Geheime Saison freischalten">
+      <notes>
+        <note category="german">Geheime Saison freischalten</note>
+      </notes>
+      <segment>
+        <source>Geheime Saison freischalten</source>
+        <target>Unlock Secret Season</target>
+      </segment>
+    </unit>
+    <unit id="B6BJJfF" name="Computer sagt nein.">
+      <notes>
+        <note category="german">Computer sagt nein.</note>
+      </notes>
+      <segment>
+        <source>Computer sagt nein.</source>
+        <target>Computer says no.</target>
       </segment>
     </unit>
   </file>
