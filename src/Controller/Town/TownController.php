@@ -1509,7 +1509,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getAlive())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
-        if ($citizen->getAp() <= 1 || $this->citizen_handler->isTired( $citizen ))
+        if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         if($c->getHome()->getRecycling() >= 15){
