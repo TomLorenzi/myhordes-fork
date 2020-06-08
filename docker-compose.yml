@@ -1,0 +1,57 @@
+version: '3.7'
+services:
+    db:
+        image: mysql
+        command: ["--default-authentication-plugin=mysql_native_password"]
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: myhordes
+            MYSQL_USER: myhordes
+            MYSQL_PASSWORD: myh0rd3s
+        restart: unless-stopped
+        networks:
+            - bridge-network
+
+    php:
+        build:
+            context: ./docker/php
+        volumes:
+            - ./:/var/www/html
+        depends_on:
+            - db
+        restart: unless-stopped
+        networks:
+            - bridge-network
+
+    nginx:
+        build:
+            context: ./docker/nginx
+        ports:
+            - "80:80"
+        depends_on:
+            - php
+        volumes:
+            - ./:/var/www/html
+        links:
+            - php
+        restart: unless-stopped
+        networks:
+            - bridge-network
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        depends_on:
+            - db
+        environment:
+            PMA_HOST: db
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "9000:80"
+        networks:
+            - bridge-network
+
+networks:
+    bridge-network:
+        driver: bridge
