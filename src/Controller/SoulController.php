@@ -18,6 +18,7 @@ use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
+use App\Service\UserHandler;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use DateTime;
@@ -49,6 +50,7 @@ class SoulController extends AbstractController
 {
     protected $entity_manager;
     protected $user_factory;
+    private $user_handler;
     private $asset;
 
     const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
@@ -60,11 +62,12 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
         $this->asset = $a;
+        $this->user_handler = $uh;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -83,7 +86,7 @@ class SoulController extends AbstractController
     {
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
-    	$points = $this->user_factory->getPoints($this->getUser());
+    	$points = $this->user_handler->getPoints($this->getUser());
         $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($this->getUser()->getHeroDaysSpent());
         $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
 

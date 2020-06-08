@@ -103,7 +103,7 @@ class TownHomeController extends TownController
         foreach ($home->getChest()->getItems() as $item)
             $deco += $item->getPrototype()->getDeco();
 
-        $can_send_global_pm = $citizen->getProfession()->getHeroic() && $this->citizen_handler->hasSkill($citizen, 'writer');
+        $can_send_global_pm = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
 
         $possible_dests = [];
         foreach ($town->getCitizens() as $dest) {
