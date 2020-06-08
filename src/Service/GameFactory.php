@@ -252,10 +252,7 @@ class GameFactory
             /** @var ZonePrototype $spawning_ruin */
             $spawning_ruin = array_shift($explorable_ruins);
 
-            $maxDistance = $spawning_ruin->getMaxDistance();
-
-            if($town->getType()->getName() == 'remote')
-                $maxDistance = 10;
+            $maxDistance = $conf->get(TownConf::CONF_EXPLORABLES_MAX_DISTANCE, 100);
 
             $spawn_zone = $this->random_generator->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $maxDistance, ['prototype_id' => null]);
 
