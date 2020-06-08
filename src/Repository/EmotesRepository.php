@@ -32,9 +32,10 @@ class EmotesRepository extends ServiceEntityRepository {
         }
     }
 
-    public function getAllEmotes() {
+    public function getDefaultEmotes() {
         return $this->createQueryBuilder('a')
             ->andWhere('a.isActive = true')
+            ->andWhere('a.requiresUnlock = false')
             ->getQuery()
             ->getResult();
     }

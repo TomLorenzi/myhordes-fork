@@ -384,6 +384,7 @@ class MessageController extends AbstractController
         foreach ($body->item(0)->childNodes as $child)
             $tmp_str .= $dom->saveHTML($child);
 
+        $tmp_str = $this->filterLockedEmotes($user, $tmp_str);
         $post->setText( $tmp_str );
         if ($forum !== null && $forum->getTown()) {
             foreach ( $forum->getTown()->getCitizens() as $citizen )
@@ -412,15 +413,44 @@ class MessageController extends AbstractController
 
         $this->emote_cache = [];
         $repo = $this->entityManager->getRepository(Emotes::class);
-        foreach($repo->getAllEmotes() as $value)
+        foreach($repo->findAll() as $value)
             /** @var $value Emotes */
         $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
         return $this->emote_cache;
     }
 
+    private function getEmotesByUser(User $user, bool $url_only = false): array {
+        $repo = $this->entityManager->getRepository(Emotes::class);
+        $emotes = $repo->getDefaultEmotes();
+        $awards = $this->entityManager->getRepository(Award::class)->getAwardsByUser($user);
+        $results = array();
+
+        foreach($awards as $entry) {
+            /** @var $entry Award */
+            $emote = $repo->findByTag($entry->getPrototype()->getAssociatedTag());
+            if(!in_array($emote, $emotes)) {
+                $emotes[] = $emote;
+            }
+        }
+
+        foreach($emotes as $entry) {
+            /** @var $entry Emotes */
+            $results[$entry->getTag()] = $url_only ? $entry->getPath() : "<img alt='{$entry->getTag()}' src='{$this->asset->getUrl( $entry->getPath() )}'/>";
+        }
+        return $results;
+    }
+
     private function prepareEmotes(string $str): string {
         $emotes = $this->get_emotes();
         return str_replace( array_keys( $emotes ), array_values( $emotes ), $str );
+    }
+
+    private function filterLockedEmotes(User $user, string $text): string {
+        $lockedEmotes = $this->getLockedEmoteTags($user);
+        foreach($lockedEmotes as $emote) {
+            $text = str_replace($emote, '', $text);
+        }
+        return $text;
     }
 
     private function getLockedEmoteTags(User $user): array {
@@ -758,7 +788,7 @@ class MessageController extends AbstractController
             'fid' => $id,
             'tid' => null,
             'pid' => null,
-            'emotes' => $this->get_emotes(true),
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'username' => $this->getUser()->getUsername(),
             'pm' => false,
         ] );
@@ -888,7 +918,7 @@ class MessageController extends AbstractController
             'fid' => $fid,
             'tid' => $tid,
             'pid' => null,
-            'emotes' => $this->get_emotes(true),
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'pm' => false,
             'content' => $content ?? null
         ] );
@@ -1223,7 +1253,7 @@ class MessageController extends AbstractController
             'thread' => $thread,
             'posts' => $posts,
             'items' => $items,
-            'emotes' => $this->get_emotes(true),
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
         ] );
     }
 
@@ -1290,7 +1320,7 @@ class MessageController extends AbstractController
             'fid' => null,
             'tid' => $tid,
             'pid' => null,
-            'emotes' => $this->get_emotes(true),
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'pm' => true,
             'type' => 'pm'
         ] );
@@ -1313,7 +1343,7 @@ class MessageController extends AbstractController
             'fid' => null,
             'tid' => null,
             'pid' => null,
-            'emotes' => $this->get_emotes(true),
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'pm' => true,
             'type' => $type
         ] );
