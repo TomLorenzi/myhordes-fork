@@ -21,8 +21,6 @@
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
       <notes>
-        <note>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</note>
-        <note>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</note>
         <note category="german">Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</note>
       </notes>
       <segment>
@@ -59,8 +57,6 @@
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
       <notes>
-        <note>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</note>
-        <note>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</note>
         <note category="german">%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</note>
       </notes>
       <segment>
@@ -70,8 +66,6 @@
     </unit>
     <unit id="XyE6HNd" name="4d6306a">
       <notes>
-        <note>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</note>
-        <note>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</note>
         <note category="german">Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</note>
       </notes>
       <segment>
@@ -81,8 +75,6 @@
     </unit>
     <unit id="RScnWL2" name="ec97dc9">
       <notes>
-        <note>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
-        <note>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
         <note category="german">Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
       </notes>
       <segment>
@@ -92,8 +84,6 @@
     </unit>
     <unit id="IrDOx2H" name="%citizen% hat das Stadttor %action%.">
       <notes>
-        <note>%citizen% hat das Stadttor %action%.</note>
-        <note>%citizen% hat das Stadttor %action%.</note>
         <note category="german">%citizen% hat das Stadttor %action%.</note>
       </notes>
       <segment>
@@ -103,8 +93,6 @@
     </unit>
     <unit id="7F6V04y" name="geöffnet">
       <notes>
-        <note>geöffnet</note>
-        <note>geöffnet</note>
         <note category="german">geöffnet</note>
       </notes>
       <segment>
@@ -114,8 +102,6 @@
     </unit>
     <unit id="2nMdNJ8" name="geschlossen">
       <notes>
-        <note>geschlossen</note>
-        <note>geschlossen</note>
         <note category="german">geschlossen</note>
       </notes>
       <segment>
@@ -125,8 +111,6 @@
     </unit>
     <unit id="_B_xHpE" name="Das Stadttor wurde automatisch %action%.">
       <notes>
-        <note>Das Stadttor wurde automatisch %action%.</note>
-        <note>Das Stadttor wurde automatisch %action%.</note>
         <note category="german">Das Stadttor wurde automatisch %action%.</note>
       </notes>
       <segment>
@@ -136,8 +120,6 @@
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
       <notes>
-        <note>%citizen% hat die Stadt %action%.</note>
-        <note>%citizen% hat die Stadt %action%.</note>
         <note category="german">%citizen% hat die Stadt %action%.</note>
       </notes>
       <segment>
@@ -147,8 +129,6 @@
     </unit>
     <unit id="RvCIvJN" name="betreten">
       <notes>
-        <note>betreten</note>
-        <note>betreten</note>
         <note category="german">betreten</note>
       </notes>
       <segment>
@@ -158,8 +138,6 @@
     </unit>
     <unit id="N0kS6xp" name="verlassen">
       <notes>
-        <note>verlassen</note>
-        <note>verlassen</note>
         <note category="german">verlassen</note>
       </notes>
       <segment>
@@ -169,8 +147,6 @@
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
       <notes>
-        <note>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
-        <note>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
         <note category="german">Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
       </notes>
       <segment>
@@ -180,8 +156,6 @@
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
       <notes>
-        <note>%citizen% hat seine neue Berufung als %profession% gefunden.</note>
-        <note>%citizen% hat seine neue Berufung als %profession% gefunden.</note>
         <note category="german">%citizen% hat seine neue Berufung als %profession% gefunden.</note>
       </notes>
       <segment>
@@ -191,8 +165,6 @@
     </unit>
     <unit id="nK4zXOH" name="%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
       <notes>
-        <note>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
-        <note>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
         <note category="german">%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
       </notes>
       <segment>
@@ -202,8 +174,6 @@
     </unit>
     <unit id="fPimUWN" name="%num% Zombies">
       <notes>
-        <note>%num% Zombies</note>
-        <note>%num% Zombies</note>
         <note category="german">%num% Zombies</note>
       </notes>
       <segment>
@@ -303,8 +273,6 @@
     </unit>
     <unit id="v7qhwcN" name="Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%">
       <notes>
-        <note>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</note>
-        <note>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</note>
         <note category="german">Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</note>
       </notes>
       <segment>
@@ -314,8 +282,6 @@
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
       <notes>
-        <note>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</note>
-        <note>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</note>
         <note category="german">Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</note>
       </notes>
       <segment>
@@ -325,8 +291,6 @@
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
       <notes>
-        <note>Du kannst die Stadt von hier aus nicht betreten.</note>
-        <note>Du kannst die Stadt von hier aus nicht betreten.</note>
         <note category="german">Du kannst die Stadt von hier aus nicht betreten.</note>
       </notes>
       <segment>
@@ -336,8 +300,7 @@
     </unit>
     <unit id="4rHd9Vd" name="Du kannst diese Zone von hier aus nicht betreten.">
       <notes>
-        <note>Du kannst diese Zone von hier aus nicht betreten.</note>
-        <note>Du kannst diese Zone von hier aus nicht betreten.</note>
+
         <note category="german">Du kannst diese Zone von hier aus nicht betreten.</note>
       </notes>
       <segment>
@@ -347,8 +310,6 @@
     </unit>
     <unit id="E3IPzEv" name="Zombies blockieren deine Zone!">
       <notes>
-        <note>Zombies blockieren deine Zone!</note>
-        <note>Zombies blockieren deine Zone!</note>
         <note category="german">Zombies blockieren deine Zone!</note>
       </notes>
       <segment>
@@ -358,8 +319,6 @@
     </unit>
     <unit id="eDXR6Le" name="a506be7">
       <notes>
-        <note>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</note>
-        <note>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</note>
         <note category="german">Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</note>
       </notes>
       <segment>
@@ -369,8 +328,6 @@
     </unit>
     <unit id="scZCiSc" name="Du kannst nicht angreifen wenn du bereits verwundet bist.">
       <notes>
-        <note>Du kannst nicht angreifen wenn du bereits verwundet bist.</note>
-        <note>Du kannst nicht angreifen wenn du bereits verwundet bist.</note>
         <note category="german">Du kannst nicht angreifen wenn du bereits verwundet bist.</note>
       </notes>
       <segment>
@@ -380,8 +337,6 @@
     </unit>
     <unit id="Lil.cvr" name="Du kannst auf dieser Zone nicht graben.">
       <notes>
-        <note>Du kannst auf dieser Zone nicht graben.</note>
-        <note>Du kannst auf dieser Zone nicht graben.</note>
         <note category="german">Du kannst auf dieser Zone nicht graben.</note>
       </notes>
       <segment>
@@ -391,8 +346,6 @@
     </unit>
     <unit id="MPn9B5E" name="Das Stadttor ist geschlossen!">
       <notes>
-        <note>Das Stadttor ist geschlossen!</note>
-        <note>Das Stadttor ist geschlossen!</note>
         <note category="german">Das Stadttor ist geschlossen!</note>
       </notes>
       <segment>
@@ -402,8 +355,6 @@
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
       <notes>
-        <note>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</note>
-        <note>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</note>
         <note category="german">Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</note>
       </notes>
       <segment>
@@ -413,8 +364,6 @@
     </unit>
     <unit id="7CYUPCo" name="Heute wirst du nichts mehr im Müll finden.">
       <notes>
-        <note>Heute wirst du nichts mehr im Müll finden.</note>
-        <note>Heute wirst du nichts mehr im Müll finden.</note>
         <note category="german">Heute wirst du nichts mehr im Müll finden.</note>
       </notes>
       <segment>
@@ -424,8 +373,6 @@
     </unit>
     <unit id="4cWeVEO" name="Du hast bereits einen Beruf gewählt.">
       <notes>
-        <note>Du hast bereits einen Beruf gewählt.</note>
-        <note>Du hast bereits einen Beruf gewählt.</note>
         <note category="german">Du hast bereits einen Beruf gewählt.</note>
       </notes>
       <segment>
@@ -435,8 +382,6 @@
     </unit>
     <unit id="3fRIOKg" name="Ungültige Auswahl.">
       <notes>
-        <note>Ungültige Auswahl.</note>
-        <note>Ungültige Auswahl.</note>
         <note category="german">Ungültige Auswahl.</note>
       </notes>
       <segment>
@@ -446,8 +391,6 @@
     </unit>
     <unit id="iSpeYjc" name="Der Brunnen ist leer!">
       <notes>
-        <note>Der Brunnen ist leer!</note>
-        <note>Der Brunnen ist leer!</note>
         <note category="german">Der Brunnen ist leer!</note>
       </notes>
       <segment>
@@ -457,8 +400,6 @@
     </unit>
     <unit id="t9s1UYK" name="Du kannst heute keine weiteren Rationen entnehmen.">
       <notes>
-        <note>Du kannst heute keine weiteren Rationen entnehmen.</note>
-        <note>Du kannst heute keine weiteren Rationen entnehmen.</note>
         <note category="german">Du kannst heute keine weiteren Rationen entnehmen.</note>
       </notes>
       <segment>
