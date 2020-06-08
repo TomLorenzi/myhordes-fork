@@ -21,8 +21,6 @@
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
       <notes>
-        <note>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</note>
-        <note>Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</note>
         <note category="german">Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.</note>
       </notes>
       <segment>
@@ -59,8 +57,6 @@
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
       <notes>
-        <note>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</note>
-        <note>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</note>
         <note category="german">%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</note>
       </notes>
       <segment>
@@ -70,8 +66,6 @@
     </unit>
     <unit id="XyE6HNd" name="4d6306a">
       <notes>
-        <note>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</note>
-        <note>Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</note>
         <note category="german">Durch die Konstruktion von %building% hat die Stadt folgende Gegenstände erhalten: %list%</note>
       </notes>
       <segment>
@@ -81,8 +75,6 @@
     </unit>
     <unit id="RScnWL2" name="ec97dc9">
       <notes>
-        <note>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
-        <note>Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
         <note category="german">Durch die Konstruktion von %building% wurde der Brunnen um %num% Rationen Wasser aufgefüllt!</note>
       </notes>
       <segment>
@@ -92,8 +84,6 @@
     </unit>
     <unit id="IrDOx2H" name="%citizen% hat das Stadttor %action%.">
       <notes>
-        <note>%citizen% hat das Stadttor %action%.</note>
-        <note>%citizen% hat das Stadttor %action%.</note>
         <note category="german">%citizen% hat das Stadttor %action%.</note>
       </notes>
       <segment>
@@ -103,8 +93,6 @@
     </unit>
     <unit id="7F6V04y" name="geöffnet">
       <notes>
-        <note>geöffnet</note>
-        <note>geöffnet</note>
         <note category="german">geöffnet</note>
       </notes>
       <segment>
@@ -114,8 +102,6 @@
     </unit>
     <unit id="2nMdNJ8" name="geschlossen">
       <notes>
-        <note>geschlossen</note>
-        <note>geschlossen</note>
         <note category="german">geschlossen</note>
       </notes>
       <segment>
@@ -125,8 +111,6 @@
     </unit>
     <unit id="_B_xHpE" name="Das Stadttor wurde automatisch %action%.">
       <notes>
-        <note>Das Stadttor wurde automatisch %action%.</note>
-        <note>Das Stadttor wurde automatisch %action%.</note>
         <note category="german">Das Stadttor wurde automatisch %action%.</note>
       </notes>
       <segment>
@@ -136,8 +120,6 @@
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
       <notes>
-        <note>%citizen% hat die Stadt %action%.</note>
-        <note>%citizen% hat die Stadt %action%.</note>
         <note category="german">%citizen% hat die Stadt %action%.</note>
       </notes>
       <segment>
@@ -147,8 +129,6 @@
     </unit>
     <unit id="RvCIvJN" name="betreten">
       <notes>
-        <note>betreten</note>
-        <note>betreten</note>
         <note category="german">betreten</note>
       </notes>
       <segment>
@@ -158,8 +138,6 @@
     </unit>
     <unit id="N0kS6xp" name="verlassen">
       <notes>
-        <note>verlassen</note>
-        <note>verlassen</note>
         <note category="german">verlassen</note>
       </notes>
       <segment>
@@ -169,8 +147,6 @@
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
       <notes>
-        <note>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
-        <note>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
         <note category="german">Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</note>
       </notes>
       <segment>
@@ -180,8 +156,6 @@
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
       <notes>
-        <note>%citizen% hat seine neue Berufung als %profession% gefunden.</note>
-        <note>%citizen% hat seine neue Berufung als %profession% gefunden.</note>
         <note category="german">%citizen% hat seine neue Berufung als %profession% gefunden.</note>
       </notes>
       <segment>
@@ -191,8 +165,6 @@
     </unit>
     <unit id="nK4zXOH" name="%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
       <notes>
-        <note>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
-        <note>%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
         <note category="german">%zombies% haben vergeblich versucht, in das Haus von %citizen% einzudringen.</note>
       </notes>
       <segment>
@@ -202,8 +174,6 @@
     </unit>
     <unit id="fPimUWN" name="%num% Zombies">
       <notes>
-        <note>%num% Zombies</note>
-        <note>%num% Zombies</note>
         <note category="german">%num% Zombies</note>
       </notes>
       <segment>
@@ -213,8 +183,6 @@
     </unit>
     <unit id="DyVRMkF" name="%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...">
       <notes>
-        <note>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</note>
-        <note>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</note>
         <note category="german">%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</note>
       </notes>
       <segment>
@@ -224,19 +192,15 @@
     </unit>
     <unit id="0uk_Ijd" name="8121de7">
       <notes>
-        <note>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</note>
-        <note>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</note>
         <note category="german">%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</note>
       </notes>
       <segment>
         <source>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% a produit %list2% a partir de %list1%.</target>
+        <target>%citizen% a produit : %list2% à partir de : %list1%.</target>
       </segment>
     </unit>
     <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
       <notes>
-        <note>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
-        <note>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
         <note category="german">%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
       </notes>
       <segment>
@@ -246,8 +210,6 @@
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
       <notes>
-        <note>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
-        <note>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
         <note category="german">%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
       </notes>
       <segment>
@@ -275,8 +237,6 @@
     </unit>
     <unit id="eJyeGor" name="82478bf">
       <notes>
-        <note>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</note>
-        <note>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</note>
         <note category="german">Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</note>
       </notes>
       <segment>
@@ -286,8 +246,6 @@
     </unit>
     <unit id="F2roj_A" name="3e28238">
       <notes>
-        <note>Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</note>
-        <note>Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</note>
         <note category="german">Durch die Verbesserung von %building% wurdem dem Brunnen %num% Rationen Wasser hinzugefügt.</note>
       </notes>
       <segment>
@@ -297,8 +255,6 @@
     </unit>
     <unit id="Bv9VF1c" name="71ec870">
       <notes>
-        <note>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</note>
-        <note>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</note>
         <note category="german">Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</note>
       </notes>
       <segment>
@@ -308,8 +264,6 @@
     </unit>
     <unit id="icmQw3h" name="07277f1">
       <notes>
-        <note>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</note>
-        <note>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</note>
         <note category="german">Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</note>
       </notes>
       <segment>
@@ -319,8 +273,6 @@
     </unit>
     <unit id="v7qhwcN" name="Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%">
       <notes>
-        <note>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</note>
-        <note>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</note>
         <note category="german">Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</note>
       </notes>
       <segment>
@@ -330,8 +282,6 @@
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
       <notes>
-        <note>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</note>
-        <note>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</note>
         <note category="german">Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</note>
       </notes>
       <segment>
@@ -341,8 +291,6 @@
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
       <notes>
-        <note>Du kannst die Stadt von hier aus nicht betreten.</note>
-        <note>Du kannst die Stadt von hier aus nicht betreten.</note>
         <note category="german">Du kannst die Stadt von hier aus nicht betreten.</note>
       </notes>
       <segment>
@@ -352,8 +300,7 @@
     </unit>
     <unit id="4rHd9Vd" name="Du kannst diese Zone von hier aus nicht betreten.">
       <notes>
-        <note>Du kannst diese Zone von hier aus nicht betreten.</note>
-        <note>Du kannst diese Zone von hier aus nicht betreten.</note>
+
         <note category="german">Du kannst diese Zone von hier aus nicht betreten.</note>
       </notes>
       <segment>
@@ -363,8 +310,6 @@
     </unit>
     <unit id="E3IPzEv" name="Zombies blockieren deine Zone!">
       <notes>
-        <note>Zombies blockieren deine Zone!</note>
-        <note>Zombies blockieren deine Zone!</note>
         <note category="german">Zombies blockieren deine Zone!</note>
       </notes>
       <segment>
@@ -374,8 +319,6 @@
     </unit>
     <unit id="eDXR6Le" name="a506be7">
       <notes>
-        <note>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</note>
-        <note>Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</note>
         <note category="german">Diese Aktion kann nur in Zonen ausgeführt werden, die von Zombies kontrolliert werden.</note>
       </notes>
       <segment>
@@ -385,8 +328,6 @@
     </unit>
     <unit id="scZCiSc" name="Du kannst nicht angreifen wenn du bereits verwundet bist.">
       <notes>
-        <note>Du kannst nicht angreifen wenn du bereits verwundet bist.</note>
-        <note>Du kannst nicht angreifen wenn du bereits verwundet bist.</note>
         <note category="german">Du kannst nicht angreifen wenn du bereits verwundet bist.</note>
       </notes>
       <segment>
@@ -396,8 +337,6 @@
     </unit>
     <unit id="Lil.cvr" name="Du kannst auf dieser Zone nicht graben.">
       <notes>
-        <note>Du kannst auf dieser Zone nicht graben.</note>
-        <note>Du kannst auf dieser Zone nicht graben.</note>
         <note category="german">Du kannst auf dieser Zone nicht graben.</note>
       </notes>
       <segment>
@@ -407,8 +346,6 @@
     </unit>
     <unit id="MPn9B5E" name="Das Stadttor ist geschlossen!">
       <notes>
-        <note>Das Stadttor ist geschlossen!</note>
-        <note>Das Stadttor ist geschlossen!</note>
         <note category="german">Das Stadttor ist geschlossen!</note>
       </notes>
       <segment>
@@ -418,8 +355,6 @@
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
       <notes>
-        <note>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</note>
-        <note>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</note>
         <note category="german">Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</note>
       </notes>
       <segment>
@@ -429,8 +364,6 @@
     </unit>
     <unit id="7CYUPCo" name="Heute wirst du nichts mehr im Müll finden.">
       <notes>
-        <note>Heute wirst du nichts mehr im Müll finden.</note>
-        <note>Heute wirst du nichts mehr im Müll finden.</note>
         <note category="german">Heute wirst du nichts mehr im Müll finden.</note>
       </notes>
       <segment>
@@ -440,8 +373,6 @@
     </unit>
     <unit id="4cWeVEO" name="Du hast bereits einen Beruf gewählt.">
       <notes>
-        <note>Du hast bereits einen Beruf gewählt.</note>
-        <note>Du hast bereits einen Beruf gewählt.</note>
         <note category="german">Du hast bereits einen Beruf gewählt.</note>
       </notes>
       <segment>
@@ -451,8 +382,6 @@
     </unit>
     <unit id="3fRIOKg" name="Ungültige Auswahl.">
       <notes>
-        <note>Ungültige Auswahl.</note>
-        <note>Ungültige Auswahl.</note>
         <note category="german">Ungültige Auswahl.</note>
       </notes>
       <segment>
@@ -462,8 +391,6 @@
     </unit>
     <unit id="iSpeYjc" name="Der Brunnen ist leer!">
       <notes>
-        <note>Der Brunnen ist leer!</note>
-        <note>Der Brunnen ist leer!</note>
         <note category="german">Der Brunnen ist leer!</note>
       </notes>
       <segment>
@@ -473,8 +400,6 @@
     </unit>
     <unit id="t9s1UYK" name="Du kannst heute keine weiteren Rationen entnehmen.">
       <notes>
-        <note>Du kannst heute keine weiteren Rationen entnehmen.</note>
-        <note>Du kannst heute keine weiteren Rationen entnehmen.</note>
         <note category="german">Du kannst heute keine weiteren Rationen entnehmen.</note>
       </notes>
       <segment>
@@ -484,8 +409,6 @@
     </unit>
     <unit id="GNSPYmK" name="Hierfür brauchst du klares Wasser (keine Kanister)!">
       <notes>
-        <note>Hierfür brauchst du klares Wasser (keine Kanister)!</note>
-        <note>Hierfür brauchst du klares Wasser (keine Kanister)!</note>
         <note category="german">Hierfür brauchst du klares Wasser (keine Kanister)!</note>
       </notes>
       <segment>
@@ -495,8 +418,6 @@
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
       <notes>
-        <note>Das Tor ist bereits geschlossen.</note>
-        <note>Das Tor ist bereits geschlossen.</note>
         <note category="german">Das Tor ist bereits geschlossen.</note>
       </notes>
       <segment>
@@ -506,8 +427,6 @@
     </unit>
     <unit id="JsP4vsH" name="Das Tor ist bereits offen.">
       <notes>
-        <note>Das Tor ist bereits offen.</note>
-        <note>Das Tor ist bereits offen.</note>
         <note category="german">Das Tor ist bereits offen.</note>
       </notes>
       <segment>
@@ -517,8 +436,6 @@
     </unit>
     <unit id="GjXgBou" name="Für dieses Gebäude fehlen Baumaterialien.">
       <notes>
-        <note>Für dieses Gebäude fehlen Baumaterialien.</note>
-        <note>Für dieses Gebäude fehlen Baumaterialien.</note>
         <note category="german">Für dieses Gebäude fehlen Baumaterialien.</note>
       </notes>
       <segment>
@@ -528,8 +445,6 @@
     </unit>
     <unit id="P242oK2" name="Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.">
       <notes>
-        <note>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</note>
-        <note>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</note>
         <note category="german">Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</note>
       </notes>
       <segment>
@@ -539,8 +454,6 @@
     </unit>
     <unit id="s1D0Mug" name="Dieser Gegenstand ist außerhalb deiner Reichweite.">
       <notes>
-        <note>Dieser Gegenstand ist außerhalb deiner Reichweite.</note>
-        <note>Dieser Gegenstand ist außerhalb deiner Reichweite.</note>
         <note category="german">Dieser Gegenstand ist außerhalb deiner Reichweite.</note>
       </notes>
       <segment>
@@ -550,8 +463,6 @@
     </unit>
     <unit id="WFi0NxJ" name="Du hast keinen Platz mehr für diesen Gegenstand!">
       <notes>
-        <note>Du hast keinen Platz mehr für diesen Gegenstand!</note>
-        <note>Du hast keinen Platz mehr für diesen Gegenstand!</note>
         <note category="german">Du hast keinen Platz mehr für diesen Gegenstand!</note>
       </notes>
       <segment>
@@ -1996,7 +1907,7 @@
       </notes>
       <segment>
         <source>Eine weitere Ration erhalten</source>
-        <target>Ration supplémentaires !</target>
+        <target>Ration supplémentaire !</target>
       </segment>
     </unit>
     <unit id="eEQntCE" name="Wasser hinzufügen">
@@ -3613,8 +3524,6 @@
     </unit>
     <unit id="bQ1Prey" name="Zelt eines Bürgers">
       <notes>
-        <note>Zelt eines Bürgers</note>
-        <note>Zelt eines Bürgers</note>
         <note category="german">Zelt eines Bürgers</note>
       </notes>
       <segment>
@@ -3624,8 +3533,6 @@
     </unit>
     <unit id="z04UYqm" name="Zerstörte Apotheke">
       <notes>
-        <note>Zerstörte Apotheke</note>
-        <note>Zerstörte Apotheke</note>
         <note category="german">Zerstörte Apotheke</note>
       </notes>
       <segment>
@@ -3635,8 +3542,6 @@
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
       <notes>
-        <note>ZomBIER Bar</note>
-        <note>ZomBIER Bar</note>
         <note category="german">ZomBIER Bar</note>
       </notes>
       <segment>
@@ -3760,7 +3665,7 @@
       </notes>
       <segment>
         <source>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</source>
-        <target>%citizen% n'a plus résisté à la pression et a mis fin à ses jours: %cod%.</target>
+        <target>%citizen% n'a plus résisté à la pression et a mis fin à ses jours : %cod%.</target>
       </segment>
     </unit>
     <unit id="1DaM5oy" name="Verrat! %citizen% ist gestorben: %cod%.">
@@ -3771,7 +3676,7 @@
       </notes>
       <segment>
         <source>Verrat! %citizen% ist gestorben: %cod%.</source>
-        <target>Trahison! %citizen% est décédé: %cod%.</target>
+        <target>Trahison! %citizen% est décédé : %cod%.</target>
       </segment>
     </unit>
     <unit id="EWgulaj" name="98f1530">
@@ -3782,7 +3687,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: %cod%.</source>
-        <target>%citizen% a fait déborder le vase. La ville a décidé de sa mort: %cod%.</target>
+        <target>%citizen% a fait déborder le vase. La ville a décidé de sa mort : %cod%.</target>
       </segment>
     </unit>
     <unit id="VImW6PC" name="%citizen% hat seinen letzten Atemzug getan: %cod%!">
@@ -4402,7 +4307,7 @@
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Votes</target>
+        <target>Les évolutions du jour</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -4411,7 +4316,7 @@
       </notes>
       <segment>
         <source>Werkstatt</source>
-        <target>Atelier</target>
+        <target>L'atelier</target>
       </segment>
     </unit>
     <unit id="fIJzVR7" name="44e527a">
@@ -5065,8 +4970,6 @@
     </unit>
     <unit id="M2sMvSZ" name="f2733ef">
       <notes>
-        <note>Du hattest dich daheim eingebunkert und dachtest so überleben zu können... Als sie vor deiner Türe grunzten und schnüffelten, warst du dann mucksmäuschenstill. Leider hattest du ein Fenster nicht ausreichend vernagelt, sodass sie schließlich in dein Wohnzimmer stolperten. Vor Angst erstarrt hast du dann keinen Ton mehr rausgebracht und musstest ansehen, wie sie dich ins Schlafzimmer zerrten, um sich an deinen inneren Organen zu laben und dich langsam zu verspeisen.</note>
-        <note>Du hattest dich daheim eingebunkert und dachtest so überleben zu können... Als sie vor deiner Türe grunzten und schnüffelten, warst du dann mucksmäuschenstill. Leider hattest du ein Fenster nicht ausreichend vernagelt, sodass sie schließlich in dein Wohnzimmer stolperten. Vor Angst erstarrt hast du dann keinen Ton mehr rausgebracht und musstest ansehen, wie sie dich ins Schlafzimmer zerrten, um sich an deinen inneren Organen zu laben und dich langsam zu verspeisen.</note>
         <note category="german">Du hattest dich daheim eingebunkert und dachtest so überleben zu können... Als sie vor deiner Türe grunzten und schnüffelten, warst du dann mucksmäuschenstill. Leider hattest du ein Fenster nicht ausreichend vernagelt, sodass sie schließlich in dein Wohnzimmer stolperten. Vor Angst erstarrt hast du dann keinen Ton mehr rausgebracht und musstest ansehen, wie sie dich ins Schlafzimmer zerrten, um sich an deinen inneren Organen zu laben und dich langsam zu verspeisen.</note>
       </notes>
       <segment>
@@ -5076,8 +4979,6 @@
     </unit>
     <unit id="sYsJdGM" name="0616d18">
       <notes>
-        <note>Kurz nach Mitternacht wurde es unheimlich still... so, als ob jegliches Leben mit einem Schlag ausgelöscht worden wäre. Die Nacht kam dir noch eisiger als sonst vor... und plötzlich sahst du sie: Dutzende, hunderte, und alle schwankten auf dich zu! Ihre Hände reckten sich nach dir. Sie ergriffen, zogen und rissen dich auseinander... Dann haben sie dich mitgenommmen und sich an dir bis zum frühen Morgen gütlich getan.</note>
-        <note>Kurz nach Mitternacht wurde es unheimlich still... so, als ob jegliches Leben mit einem Schlag ausgelöscht worden wäre. Die Nacht kam dir noch eisiger als sonst vor... und plötzlich sahst du sie: Dutzende, hunderte, und alle schwankten auf dich zu! Ihre Hände reckten sich nach dir. Sie ergriffen, zogen und rissen dich auseinander... Dann haben sie dich mitgenommmen und sich an dir bis zum frühen Morgen gütlich getan.</note>
         <note category="german">Kurz nach Mitternacht wurde es unheimlich still... so, als ob jegliches Leben mit einem Schlag ausgelöscht worden wäre. Die Nacht kam dir noch eisiger als sonst vor... und plötzlich sahst du sie: Dutzende, hunderte, und alle schwankten auf dich zu! Ihre Hände reckten sich nach dir. Sie ergriffen, zogen und rissen dich auseinander... Dann haben sie dich mitgenommmen und sich an dir bis zum frühen Morgen gütlich getan.</note>
       </notes>
       <segment>
@@ -5098,8 +4999,6 @@
     </unit>
     <unit id="qyPgKPu" name="c255c4f">
       <notes>
-        <note>Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.</note>
-        <note>Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.</note>
         <note category="german">Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.</note>
       </notes>
       <segment>
@@ -5109,8 +5008,6 @@
     </unit>
     <unit id="Ms3Esea" name="38cf02a">
       <notes>
-        <note>Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</note>
-        <note>Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</note>
         <note category="german">Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</note>
       </notes>
       <segment>
@@ -5120,8 +5017,6 @@
     </unit>
     <unit id="Ds74xh4" name="7a0d865">
       <notes>
-        <note>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</note>
-        <note>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</note>
         <note category="german">Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</note>
       </notes>
       <segment>
@@ -5131,8 +5026,6 @@
     </unit>
     <unit id="25.Fib." name="a5ebe5c">
       <notes>
-        <note>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</note>
-        <note>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</note>
         <note category="german">Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</note>
       </notes>
       <segment>
@@ -5142,8 +5035,6 @@
     </unit>
     <unit id="q6r0JuY" name="283aad7">
       <notes>
-        <note>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</note>
-        <note>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</note>
         <note category="german">Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</note>
       </notes>
       <segment>
@@ -5153,8 +5044,6 @@
     </unit>
     <unit id="THDibIm" name="f6ab154">
       <notes>
-        <note>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</note>
-        <note>Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</note>
         <note category="german">Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?</note>
       </notes>
       <segment>
@@ -5164,8 +5053,6 @@
     </unit>
     <unit id="MC.0S7d" name="66d9279">
       <notes>
-        <note>Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</note>
-        <note>Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</note>
         <note category="german">Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...</note>
       </notes>
       <segment>
@@ -5230,8 +5117,6 @@
     </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
       <notes>
-        <note>Müllhalde</note>
-        <note>Müllhalde</note>
         <note category="german">Müllhalde</note>
       </notes>
       <segment>
@@ -5241,8 +5126,6 @@
     </unit>
     <unit id="B.iCi_d" name="Sie sind allein in dieser Gegend...">
       <notes>
-        <note>Sie sind allein in dieser Gegend...</note>
-        <note>Du bist allein in dieser Gegend...</note>
         <note category="german">Du bist allein in dieser Gegend...</note>
       </notes>
       <segment>
@@ -5252,8 +5135,6 @@
     </unit>
     <unit id="7Xw94D3" name="Du kannst nur einen Behälter auf einmal tragen.">
       <notes>
-        <note>Du kannst nur einen Behälter auf einmal tragen.</note>
-        <note>Du kannst nur einen Behälter auf einmal tragen.</note>
         <note category="german">Du kannst nur einen Behälter auf einmal tragen.</note>
       </notes>
       <segment>
@@ -5263,8 +5144,6 @@
     </unit>
     <unit id="Pq_GOUr" name="3ed21ba">
       <notes>
-        <note>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
-        <note>Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
         <note category="german">Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.</note>
       </notes>
       <segment>
@@ -5274,8 +5153,6 @@
     </unit>
     <unit id="I0Djxyu" name="0f62850">
       <notes>
-        <note>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
-        <note>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
         <note category="german">Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!</note>
       </notes>
       <segment>
@@ -5285,8 +5162,6 @@
     </unit>
     <unit id="if10dn9" name="09f712e">
       <notes>
-        <note>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</note>
-        <note>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</note>
         <note category="german">Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</note>
       </notes>
       <segment>
@@ -5423,7 +5298,7 @@
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>Le relais des bricoleurs. Véritable petit paradis rempli de trésors inestimables pour un monde comme le nôtre... Leur slogan est tout à fait d'actualité: « Pillez-nous avant que d'autres ne s'en chargent pour vous ! »</target>
+        <target>Le relais des bricoleurs. Véritable petit paradis rempli de trésors inestimables pour un monde comme le nôtre... Leur slogan est tout à fait d'actualité : « Pillez-nous avant que d'autres ne s'en chargent pour vous ! »</target>
       </segment>
     </unit>
     <unit id="bhwk0Sz" name="63b8c04">
@@ -8522,7 +8397,7 @@
       </notes>
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%</source>
-        <target>Vous creusez depuis un certain temps et avez trouvé plusieurs objets: %items%</target>
+        <target>Vous creusez depuis un certain temps et avez trouvé plusieurs objets : %items%</target>
       </segment>
     </unit>
     <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
@@ -8558,7 +8433,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
-        <target>Après quelques efforts, votre expédition a trouvé ce qui suit: %item%!</target>
+        <target>Après quelques efforts, votre expédition a trouvé ce qui suit : %item%!</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -9146,7 +9021,7 @@
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>Vous aussi, vous pouvez défendre la ville ce soir! Rejoignez les Veilleurs! Voulez-vous rejoindre les citoyens les plus suicid... euh ... courageux? Eh bien, n'attendez plus:</target>
+        <target>Vous aussi, vous pouvez défendre la ville ce soir! Rejoignez les Veilleurs! Voulez-vous rejoindre les citoyens les plus suicid... euh ... courageux? Eh bien, n'attendez plus :</target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
@@ -9497,7 +9372,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% a fait ce qui suit: %list2%; les éléments suivants ont été utilisés: %list1%.</target>
+        <target>%citizen% a produit : %list2% à partir de : %list1%.</target>
       </segment>
     </unit>
     <unit id="1c66H6u" name="85ec328">
@@ -9677,7 +9552,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Un crime odieux s'est produit: %attacker% a dévoré %defender% chez lui!</target>
+        <target>Un crime odieux s'est produit : %attacker% a dévoré %defender% chez lui!</target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -9722,7 +9597,7 @@
       </notes>
       <segment>
         <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>%citizen1% et %citizen2% ont été sauvés à la dernière minute lorsqu'ils se sont préparés à se pendre dans leurs maisons hier soir. Commentaire: "Je pensais qu'ils me mangeraient vivant et je ne voulais plus en faire l'expérience". Rétrospectivement, ce fut une mauvaise décision car aucun zombie n'est entré dans la ville la nuit dernière.</target>
+        <target>%citizen1% et %citizen2% ont été sauvés à la dernière minute lorsqu'ils se sont préparés à se pendre dans leurs maisons hier soir. Commentaire : "Je pensais qu'ils me mangeraient vivant et je ne voulais plus en faire l'expérience". Rétrospectivement, ce fut une mauvaise décision car aucun zombie n'est entré dans la ville la nuit dernière.</target>
       </segment>
     </unit>
     <unit id="6iAHRm0" name="ba03d33">
@@ -10010,7 +9885,7 @@
       </notes>
       <segment>
         <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</source>
-        <target>Nous sommes pressés; notre incapacité à construire des défenses satisfaisantes a coûté la vie à %deaths% citoyens la nuit dernière. Pour votre information: La nuit dernière, la ville a été attaquée par %attack% zombies.</target>
+        <target>Nous sommes pressés; notre incapacité à construire des défenses satisfaisantes a coûté la vie à %deaths% citoyens la nuit dernière. Pour votre information : La nuit dernière, la ville a été attaquée par %attack% zombies.</target>
       </segment>
     </unit>
     <unit id="dXpzNiz" name="ffa5094">
@@ -10415,7 +10290,7 @@
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Tout le monde semble tranquillement heureux de la mort de <i class="dagger">†</i> %cadaver1% hier soir ... Cependant, personne n'a expliqué pourquoi. %citizen1% a commenté: "Sa mère était un hamster et son père sentait le sureau".]]></target>
+        <target><![CDATA[Tout le monde semble tranquillement heureux de la mort de <i class="dagger">†</i> %cadaver1% hier soir ... Cependant, personne n'a expliqué pourquoi. %citizen1% a commenté : "Sa mère était un hamster et son père sentait le sureau".]]></target>
       </segment>
     </unit>
     <unit id="IshvSDg" name="3920ab5">
@@ -10829,7 +10704,7 @@
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
-        <target>Cliquez sur les éléments que vous souhaitez joindre à ce message:</target>
+        <target>Cliquez sur les éléments que vous souhaitez joindre à ce message :</target>
       </segment>
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
@@ -10838,7 +10713,7 @@
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
-        <target>Les éléments suivants sont inclus:</target>
+        <target>Les éléments suivants sont inclus :</target>
       </segment>
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
@@ -11747,7 +11622,7 @@
       </notes>
       <segment>
         <source>Verbesserung des Tages (building)</source>
-        <target>Verbesserung des Tages (building)</target>
+        <target>Votes</target>
       </segment>
     </unit>
     <unit id="AKS0zA3" name="Werkstatt (building)">
@@ -11756,7 +11631,7 @@
       </notes>
       <segment>
         <source>Werkstatt (building)</source>
-        <target>Werkstatt (building)</target>
+        <target>Atelier</target>
       </segment>
     </unit>
   </file>
