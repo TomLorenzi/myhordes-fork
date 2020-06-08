@@ -409,8 +409,6 @@
     </unit>
     <unit id="GNSPYmK" name="Hierfür brauchst du klares Wasser (keine Kanister)!">
       <notes>
-        <note>Hierfür brauchst du klares Wasser (keine Kanister)!</note>
-        <note>Hierfür brauchst du klares Wasser (keine Kanister)!</note>
         <note category="german">Hierfür brauchst du klares Wasser (keine Kanister)!</note>
       </notes>
       <segment>
@@ -420,8 +418,6 @@
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
       <notes>
-        <note>Das Tor ist bereits geschlossen.</note>
-        <note>Das Tor ist bereits geschlossen.</note>
         <note category="german">Das Tor ist bereits geschlossen.</note>
       </notes>
       <segment>
@@ -431,8 +427,6 @@
     </unit>
     <unit id="JsP4vsH" name="Das Tor ist bereits offen.">
       <notes>
-        <note>Das Tor ist bereits offen.</note>
-        <note>Das Tor ist bereits offen.</note>
         <note category="german">Das Tor ist bereits offen.</note>
       </notes>
       <segment>
@@ -442,8 +436,6 @@
     </unit>
     <unit id="GjXgBou" name="Für dieses Gebäude fehlen Baumaterialien.">
       <notes>
-        <note>Für dieses Gebäude fehlen Baumaterialien.</note>
-        <note>Für dieses Gebäude fehlen Baumaterialien.</note>
         <note category="german">Für dieses Gebäude fehlen Baumaterialien.</note>
       </notes>
       <segment>
@@ -453,8 +445,6 @@
     </unit>
     <unit id="P242oK2" name="Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.">
       <notes>
-        <note>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</note>
-        <note>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</note>
         <note category="german">Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</note>
       </notes>
       <segment>
@@ -464,8 +454,6 @@
     </unit>
     <unit id="s1D0Mug" name="Dieser Gegenstand ist außerhalb deiner Reichweite.">
       <notes>
-        <note>Dieser Gegenstand ist außerhalb deiner Reichweite.</note>
-        <note>Dieser Gegenstand ist außerhalb deiner Reichweite.</note>
         <note category="german">Dieser Gegenstand ist außerhalb deiner Reichweite.</note>
       </notes>
       <segment>
@@ -475,8 +463,6 @@
     </unit>
     <unit id="WFi0NxJ" name="Du hast keinen Platz mehr für diesen Gegenstand!">
       <notes>
-        <note>Du hast keinen Platz mehr für diesen Gegenstand!</note>
-        <note>Du hast keinen Platz mehr für diesen Gegenstand!</note>
         <note category="german">Du hast keinen Platz mehr für diesen Gegenstand!</note>
       </notes>
       <segment>
@@ -1921,7 +1907,7 @@
       </notes>
       <segment>
         <source>Eine weitere Ration erhalten</source>
-        <target>Ration supplémentaires !</target>
+        <target>Ration supplémentaire !</target>
       </segment>
     </unit>
     <unit id="eEQntCE" name="Wasser hinzufügen">
@@ -3538,8 +3524,6 @@
     </unit>
     <unit id="bQ1Prey" name="Zelt eines Bürgers">
       <notes>
-        <note>Zelt eines Bürgers</note>
-        <note>Zelt eines Bürgers</note>
         <note category="german">Zelt eines Bürgers</note>
       </notes>
       <segment>
@@ -3549,8 +3533,6 @@
     </unit>
     <unit id="z04UYqm" name="Zerstörte Apotheke">
       <notes>
-        <note>Zerstörte Apotheke</note>
-        <note>Zerstörte Apotheke</note>
         <note category="german">Zerstörte Apotheke</note>
       </notes>
       <segment>
@@ -3560,8 +3542,6 @@
     </unit>
     <unit id="4N3cahH" name="ZomBIER Bar">
       <notes>
-        <note>ZomBIER Bar</note>
-        <note>ZomBIER Bar</note>
         <note category="german">ZomBIER Bar</note>
       </notes>
       <segment>
@@ -4327,7 +4307,7 @@
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Votes</target>
+        <target>Les évolutions du jour</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -4336,7 +4316,7 @@
       </notes>
       <segment>
         <source>Werkstatt</source>
-        <target>Atelier</target>
+        <target>L'atelier</target>
       </segment>
     </unit>
     <unit id="fIJzVR7" name="44e527a">
@@ -11642,7 +11622,7 @@
       </notes>
       <segment>
         <source>Verbesserung des Tages (building)</source>
-        <target>Verbesserung des Tages (building)</target>
+        <target>Votes</target>
       </segment>
     </unit>
     <unit id="AKS0zA3" name="Werkstatt (building)">
@@ -11651,7 +11631,7 @@
       </notes>
       <segment>
         <source>Werkstatt (building)</source>
-        <target>Werkstatt (building)</target>
+        <target>Atelier</target>
       </segment>
     </unit>
   </file>
