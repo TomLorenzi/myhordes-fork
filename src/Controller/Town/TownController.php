@@ -71,13 +71,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
             if ($b->getPrototype()->getMaxLevel() > 0)
-                $addons['upgrade']  = [T::__('Verbesserung des Tages', 'game'), 'town_upgrades'];
+                $addons['upgrade']  = [T::__('Verbesserung des Tages (building)', 'game'), 'town_upgrades'];
 
             if ($b->getPrototype()->getName() === 'item_tagger_#00')
                 $addons['watchtower'] = [T::__('Wachturm', 'game'), 'town_watchtower'];
 
             if ($b->getPrototype()->getName() === 'small_refine_#00')
-                $addons['workshop'] = [T::__('Werkstatt', 'game'), 'town_workshop'];
+                $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop'];
 
             if ($b->getPrototype()->getName() === 'small_round_path_#00')
                 $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch'];

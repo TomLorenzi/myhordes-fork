@@ -1068,7 +1068,7 @@
       </notes>
       <segment>
         <source>durch Beruf</source>
-        <target>Heros Bonuses</target>
+        <target>Hero Bonus</target>
       </segment>
     </unit>
     <unit id="d5El4_h" name="durch Ausbauten">
@@ -1432,7 +1432,7 @@
       </notes>
       <segment>
         <source>Gemeinschaft</source>
-        <target>Espionnage et ragots de voisinage</target>
+        <target>Spying and neighbourhood gossip</target>
       </segment>
     </unit>
     <unit id="qvB2Xk." name="%citizen% hat bereits %num% Anzeige(n).">
@@ -1916,7 +1916,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Brunnen</source>
-        <target>Well</target>
+        <target>The Well</target>
       </segment>
     </unit>
     <unit id="Z2xHG8j" name="Bank">
@@ -1926,7 +1926,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bank</source>
-        <target>Bank</target>
+        <target>The Bank</target>
       </segment>
     </unit>
     <unit id="FlZntyi" name="Bürger">
@@ -4041,7 +4041,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Proj.</target>
+        <target>Town Upgrades</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
@@ -4061,7 +4061,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Werkstatt</source>
-        <target>Works</target>
+        <target>Workshop</target>
       </segment>
     </unit>
     <unit id="Wf9i_SY" name="Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!">
@@ -4131,7 +4131,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</source>
-        <target>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</target>
+        <target>Taking a quick look through the window, you can see the following objects:</target>
       </segment>
     </unit>
     <unit id="fIJzVR7" name="44e527a">
@@ -8424,7 +8424,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zone reinigen</source>
-        <target>Clean the zone</target>
+        <target>Make it rain</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -10872,7 +10872,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</source>
-        <target>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</target>
+        <target>You take an impression of the lock on this door and receive %item%!</target>
       </segment>
     </unit>
     <unit id="VBTeiIt" name="Du benötigst %item%, um diese Tür zu öffnen.">
@@ -10881,7 +10881,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du benötigst %item%, um diese Tür zu öffnen.</source>
-        <target>Du benötigst %item%, um diese Tür zu öffnen.</target>
+        <target>You need %item% to open this door.</target>
       </segment>
     </unit>
     <unit id="Rc83IVi" name="Mithilfe des %item% hast du die Tür aufgeschlossen!">
@@ -10890,7 +10890,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mithilfe des %item% hast du die Tür aufgeschlossen!</source>
-        <target>Mithilfe des %item% hast du die Tür aufgeschlossen!</target>
+        <target>You unlocked the door with the %item%!</target>
       </segment>
     </unit>
     <unit id="ZcFLHOU" name="Sauerstoff">
@@ -10899,7 +10899,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sauerstoff</source>
-        <target>Sauerstoff</target>
+        <target>Oxygen</target>
       </segment>
     </unit>
     <unit id="EaUf6Ab" name="%z% Zombies blockieren den Weg!">
@@ -10908,7 +10908,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%z% Zombies blockieren den Weg!</source>
-        <target>%z% Zombies blockieren den Weg!</target>
+        <target>%z% Zombies are blocking the way!</target>
       </segment>
     </unit>
     <unit id="M1qRyRo" name="75469b8">
@@ -10917,7 +10917,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</source>
-        <target>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</target>
+        <target>You were surprised and are now surrounded by the zombies! You can escape, but you will use additional oxygen ...</target>
       </segment>
     </unit>
     <unit id="RZlip1S" name="Flüchten">
@@ -10926,7 +10926,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Flüchten</source>
-        <target>Flüchten</target>
+        <target>Flee</target>
       </segment>
     </unit>
     <unit id="_KlLZBG" name="Gebäude verlassen">
@@ -10935,7 +10935,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gebäude verlassen</source>
-        <target>Gebäude verlassen</target>
+        <target>Leave building</target>
       </segment>
     </unit>
     <unit id="OqMz83X" name="Raum durchsuchen">
@@ -10944,7 +10944,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Raum durchsuchen</source>
-        <target>Raum durchsuchen</target>
+        <target>Search room</target>
       </segment>
     </unit>
     <unit id="LcBC2EZ" name="Raum verlassen">
@@ -10953,7 +10953,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Raum verlassen</source>
-        <target>Raum verlassen</target>
+        <target>Leave room</target>
       </segment>
     </unit>
     <unit id="LXYdYwf" name="Raum betreten">
@@ -10962,7 +10962,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Raum betreten</source>
-        <target>Raum betreten</target>
+        <target>Enter room</target>
       </segment>
     </unit>
     <unit id="nnL4vYm" name="Abdruck nehmen">
@@ -10971,7 +10971,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Abdruck nehmen</source>
-        <target>Abdruck nehmen</target>
+        <target>Take an impression</target>
       </segment>
     </unit>
     <unit id="gi1cmP_" name="Tür aufschließen">
@@ -10980,7 +10980,25 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Tür aufschließen</source>
-        <target>Tür aufschließen</target>
+        <target>Unlock the door</target>
+      </segment>
+    </unit>
+    <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
+      <notes>
+        <note category="german">Verbesserung des Tages (building)</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages (building)</source>
+        <target>Proj.</target>
+      </segment>
+    </unit>
+    <unit id="AKS0zA3" name="Werkstatt (building)">
+      <notes>
+        <note category="german">Werkstatt (building)</note>
+      </notes>
+      <segment>
+        <source>Werkstatt (building)</source>
+        <target>Works</target>
       </segment>
     </unit>
   </file>
