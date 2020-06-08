@@ -558,10 +558,11 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             $errors = [];
             $item_count = count($items);
             $dead = false;
+
+            $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
+
             foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
-
-                    $target_citizen = $inv_target->getCitizen();
 
                     // We pick a read soul in the World Beyond
                     if($target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune")) {
@@ -581,13 +582,13 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                             $current_item, $inv_source, $inv_target, InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
                         )) === InventoryHandler::ErrorNone) {
 
-                        if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
+                        if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
                         if ($floor_up !== null) {
-                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
+                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
                         }
                         if ($steal_up !== null) {
 
-                            $this->citizen_handler->inflictStatus($citizen, 'tg_steal');
+                            $this->citizen_handler->inflictStatus($target_citizen, 'tg_steal');
                             $victim_home = $steal_up ? $inv_source->getHome() : $inv_target->getHome();
 
                             // Give picto steal
