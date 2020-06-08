@@ -172,7 +172,6 @@
                     &lt;/p&gt;</source>
         <target><![CDATA[<p>
           Votre ville est <strong>attaquée</strong> par des hordes de zombies ! Il en vient de partout, vous entendez des citoyens <strong>hurler</strong> dans la nuit, des bruits de tôle que l'on frappe... Des <strong>grognements</strong> affamés par centaines... Que va-t-il advenir ?!</p>
-
           <p>Allez-vous mourir cette nuit ?!</p>]]></target>
       </segment>
     </unit>
