@@ -886,7 +886,7 @@ class ActionHandler
                     case 6:case 7: {
                         $drink = $result->getCustom() === 6;
                         $chances = max(0.1, 1 - ($citizen->getTown()->getDay() * 0.025));
-                        if($town->getDevastated()) $chances = max(0.1, $chances - 0.2);
+                        if( $citizen->getTown()->getDevastated() ) $chances = max(0.1, $chances - 0.2);
 
                         if ($this->random_generator->chance($chances)) {
                             if ($drink) $citizen->setWalkingDistance(0);
