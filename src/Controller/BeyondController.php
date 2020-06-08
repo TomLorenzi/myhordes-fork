@@ -742,7 +742,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             // Set AP and increase walking distance counter
             $this->citizen_handler->setAP($mover, true, -1);
-            if (!$citizen->hasRole('ghoul')) {
+            if (!$mover->hasRole('ghoul')) {
                 $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
                 if ($mover->getWalkingDistance() > 10) {
                     $this->citizen_handler->increaseThirstLevel( $mover );
@@ -757,8 +757,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
 
             // Banished citizen's stash check
-            if(!$citizen->getBanished() && $this->zone_handler->hasHiddenItem($new_zone) && $this->random_generator->chance(0.05)){
-                $this->entity_manager->persist($this->log->outsideFoundHiddenItems($citizen, $new_zone->getFloor()->getItems()->toArray()));
+            if(!$mover->getBanished() && $this->zone_handler->hasHiddenItem($new_zone) && $this->random_generator->chance(0.05)){
+                $this->entity_manager->persist($this->log->outsideFoundHiddenItems($mover, $new_zone->getFloor()->getItems()->toArray()));
                 foreach ($new_zone->getFloor()->getItems() as $item) {
                     if($item->getHidden()){
                         $item->setHidden(false);
