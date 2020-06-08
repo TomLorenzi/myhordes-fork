@@ -8424,7 +8424,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zone reinigen</source>
-        <target>Clean the zone</target>
+        <target>Make it rain</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
