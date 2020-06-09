@@ -87,7 +87,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'xanax_#00','count' => 12),
             array('item' => 'drug_#00','count' => 12),
             array('item' => 'fungus_#00','count' => 3),
-            array('item' => 'vodka_de_#00','count' => 2),
+            array('item' => 'vodka_#00','count' => 2),
         ], 'desc' => 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?'],
         ["label" => "Altes Flugfeld",'icon' => 'aerodrome',"camping" => 7,"min_dist" => 12, "max_dist" => 21, "chance" => 129, "drops" => [
             array('item' => 'metal_beam_#00','count' => 62),
@@ -152,7 +152,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'rhum_#00','count' => 27),
             array('item' => 'pharma_#00','count' => 17),
             array('item' => 'drug_#00','count' => 7),
-            array('item' => 'vodka_de_#00','count' => 4),
+            array('item' => 'vodka_#00','count' => 4),
             array('item' => 'coffee_machine_part_#00','count' => 1),
         ], 'desc' => 'Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!'],
         ["label" => "Autobahnraststätte",'icon' => 'autobahn',"camping" => 7,"min_dist" => 8, "max_dist" => 16, "chance" => 460, "drops" => [
@@ -179,7 +179,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'oilcan_#00','count' => 6),
             array('item' => 'repair_one_#00','count' => 5),
             array('item' => 'jerrycan_#00','count' => 4),
-            array('item' => 'vodka_de_#00','count' => 4),
+            array('item' => 'vodka_#00','count' => 4),
             array('item' => 'engine_part_#00','count' => 2),
             array('item' => 'rhum_#00','count' => 1),
         ], 'desc' => 'Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.'],
@@ -247,7 +247,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'big_pgun_part_#00','count' => 13),
             array('item' => 'sport_elec_empty_#00','count' => 13),
             array('item' => 'radius_mk2_part_#00','count' => 9),
-            array('item' => 'vodka_de_#00','count' => 5),
+            array('item' => 'vodka_#00','count' => 5),
             array('item' => 'chest_xl_#00','count' => 1),
         ], 'desc' => 'Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !'],
         ["label" => "Dunkler Hain",'icon' => 'woods',"camping" => 7,"min_dist" => 2, "max_dist" => 7, "chance" => 70, "drops" => [
@@ -371,7 +371,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'drug_random_#00','count' => 5),
             array('item' => 'bed_#00','count' => 3),
             array('item' => 'chainsaw_part_#00','count' => 3),
-            array('item' => 'vodka_de_#00','count' => 3),
+            array('item' => 'vodka_#00','count' => 3),
             array('item' => 'saw_tool_part_#00','count' => 3),
         ], 'desc' => 'Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.'],
         ["label" => "Höhle",'icon' => 'cave2',"camping" => 7,"min_dist" => 3, "max_dist" => 9, "chance" => 73, "drops" => [
@@ -614,7 +614,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'bed_#00','count' => 6),
             array('item' => 'lamp_#00','count' => 6),
             array('item' => 'carpet_#00','count' => 4),
-            array('item' => 'vodka_de_#00','count' => 3),
+            array('item' => 'vodka_#00','count' => 3),
             array('item' => 'rhum_#00','count' => 2),
             array('item' => 'pet_dog_#00','count' => 2),
         ], 'desc' => 'Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.'],
@@ -689,7 +689,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'chest_citizen_#00','count' => 6),
             array('item' => 'watergun_opt_part_#00','count' => 3),
             array('item' => 'door_carpet_#00','count' => 3),
-            array('item' => 'vodka_de_#00','count' => 3),
+            array('item' => 'vodka_#00','count' => 3),
             array('item' => 'chama_tasty_#00','count' => 2),
             array('item' => 'bagxl_#00','count' => 2),
         ], 'desc' => 'Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: \'Shenji\''],
@@ -713,7 +713,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'drug_#00','count' => 17),
             array('item' => 'jerrycan_#00','count' => 16),
             array('item' => 'can_opener_#00','count' => 13),
-            array('item' => 'vodka_de_#00','count' => 10)
+            array('item' => 'vodka_#00','count' => 10)
         ], 'desc' => 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...'],
 
         // Explorable Ruins.
