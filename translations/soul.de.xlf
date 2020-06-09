@@ -571,5 +571,23 @@
         <target>Es sind in dieser Stadt noch ein paar Bürger übrig...</target>
       </segment>
     </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="737Zdf." name="Hier findet ihr alle vorangegangenen Updates:">
+      <notes>
+        <note category="german">Hier findet ihr alle vorangegangenen Updates:</note>
+      </notes>
+      <segment>
+        <source>Hier findet ihr alle vorangegangenen Updates:</source>
+        <target>Hier findet ihr alle vorangegangenen Updates:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

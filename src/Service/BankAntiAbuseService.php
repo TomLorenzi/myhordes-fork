@@ -36,7 +36,6 @@ class BankAntiAbuseService {
         }
 
         $this->em->persist($bankAntiAbuse);
-        $this->em->flush();
     }
 
     public function allowedToTake(Citizen $citizen): bool {

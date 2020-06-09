@@ -1,0 +1,87 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-12">
+            {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    {{ 'Status'|trans({}, 'admin') }}
+                </div>
+                <div class="cell padded rw-5 rw-sm-12">
+                    <input disabled style="width: 25em;" value="{% if banned %}{{ 'Verbannt bis '|trans({}, 'admin') }}{{ activeBan.banEnd|date('d.m.Y h:i:s') }}{% else %}{{ "--" }}{% endif %}" />
+                </div>
+                {% if banned %}
+                <div class="cell padded rw-2 rw-sm-12">
+                    <button id="x-lift-ban">{{ 'Aufheben'|trans({}, 'admin') }}</button>
+                </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    {{ 'Letzte Verbannung'|trans({}, 'admin') }}
+                </div>
+                <div class="cell padded rw-5 rw-sm-12">
+                    <input disabled style="width: 25em;" value="{% if banCount > 0 %}{{ lastBan.banStart|date('d.m.Y') }} -- {{ 'Verbannungen'|trans({}, 'admin') }}: {{ banCount }}{% else %}{{ "--" }}{% endif %}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    {{ 'Verbannen'|trans({}, 'admin') }}
+                </div>
+                <div class="cell padded rw-5 rw-sm-12">
+                    <select name="duration" id="ban-duration">
+                        <optgroup label={{ 'Dauer'|trans({}, 'admin') }}>
+                            <option value="1">{{ '1 Tag'|trans({}, 'admin') }}</option>
+                            <option value="3">{{ '3 Tage'|trans({}, 'admin') }}</option>
+                            <option value="5">{{ '5 Tage'|trans({}, 'admin') }}</option>
+                            <option value="7">{{ '7 Tage'|trans({}, 'admin') }}</option>
+                            <option value="15">{{ '15 Tage'|trans({}, 'admin') }}</option>
+                            <option value="30">{{ '30 Tage'|trans({}, 'admin') }}</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="cell padded ro-2 rw-1 rw-sm-12">
+                        {{ 'Grund'|trans({}, 'admin') }}
+                    </div>
+                    <div class="cell padded rw-5 rw-sm-12">
+                        <textarea id="ban-reason"></textarea>                       
+                    </div>
+                </div>
+                <div class="row">               
+                    <div class="cell padded ro-3 rw-5 rw-sm-12">
+                        <button id="x-confirm-ban">{{ 'Verbannen'|trans({}, 'admin') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+            document.getElementById('x-confirm-ban').addEventListener('click', function(e) {
+            e.preventDefault();
+            let target_payload = {                
+                duration: document.getElementById('ban-duration').value,
+                reason: document.getElementById('ban-reason').value,
+            };
+
+            $.ajax.easySend( '{{ path('admin_users_ban', { 'id': user.Id }) }}', target_payload,
+                function () {
+                    $.ajax.load(null, '{{ path('admin_users_ban_view', { 'id': user.Id }) }}', true);
+                } )
+        });
+        {% if banned %}
+        document.getElementById('x-lift-ban').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            $.ajax.easySend( '{{ path('admin_users_ban_lift', { 'id': user.Id }) }}', [],
+                function () {
+                    $.ajax.load(null, '{{ path('admin_users_ban_view', { 'id': user.Id }) }}', true);
+                } )
+        });
+        {% endif %}
+    </script>
+{% endblock %}

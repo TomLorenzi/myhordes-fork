@@ -34,6 +34,11 @@ class HeroicActionPrototype
      */
     private $action;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $unlockable = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +64,18 @@ class HeroicActionPrototype
     public function setAction(?ItemAction $action): self
     {
         $this->action = $action;
+
+        return $this;
+    }
+
+    public function getUnlockable(): ?bool
+    {
+        return $this->unlockable;
+    }
+
+    public function setUnlockable(bool $unlockable): self
+    {
+        $this->unlockable = $unlockable;
 
         return $this;
     }

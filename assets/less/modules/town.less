@@ -54,7 +54,7 @@ div.town-banner {
   color: @myhordes-cell-header-text-color;
   font-variant: small-caps;
   &>.cell {
-    &>div:first-child { width: 100%; padding-top: 55.1724138% }
+    &>div:first-child { width: 100%; padding-top: 55.1724138%; border: 1px solid black; }
     &>div:last-child {
       font-size: 1.1rem; padding: 1px 4px; background: @myhordes-cell-header-background-color; height: 20px;
       &>img { vertical-align: bottom };
@@ -65,8 +65,8 @@ div.town-banner {
       outline: 1px solid @myhordes-input-border;
     }
     &.selected {
-      &>div:first-child { filter: contrast( 120% ) brightness( 120% ); }
-      &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%);color: @myhordes-input-border; };
+      &>div:first-child { background-color: #965C36 !important; }
+      &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%); color: @myhordes-input-border; border: 1px solid #693e29; text-decoration: underline; };
     }
   }
   &:not(.night)>.town-menu-house>div:first-child { background: url("../../img/menu_home.gif") center/cover no-repeat }
@@ -97,11 +97,11 @@ div.town-banner {
 
     & > div {
       padding: 0; margin: 0; background-repeat: no-repeat; background-position: center; background-size: cover;
-      height: 40px; width: 40px;
+      height: 40px; width: 40px; border:1px solid @myhordes-panel-bg;
     }
 
     &:not(.selected):not(.town-addon-empty):hover > div {
-      filter: brightness(120%);
+      border:1px solid @myhordes-input-border;
       cursor: pointer;
     }
 
@@ -143,12 +143,13 @@ div.town-banner {
       background-image: url("../../img/smenu_decharge.gif");
     }
     &.town-addon-catapult > div {
-      background-image: url("../../img/smenu_catapult.gif");
+      background-image: url("../../img/smenu_catapult2.gif");
     }
   }
 }
 
-.town-upgrades {
+.town-upgrades,
+.citizen-home {
   p {
     margin: 0;
   }
@@ -203,7 +204,7 @@ div.town-banner {
     margin-top: .25em;
     height: 1.25em;
     border: 1px solid #ddab76;
-    background-color: #773939;
+    background-color: #5c2b20;
     position: relative;
 
     & > * {
@@ -213,12 +214,12 @@ div.town-banner {
       left: 1px;
     }
     & .watchtower-prediction-progress {
-      background-color: #5c2b20;
+      background-color: #b37c4a; border-right: 1px solid #ddab76;
     }
 
     & .watchtower-prediction-text {
       min-width: 4em;
-      color: #ddab76;
+      color: #ffffff;
       line-height: 1.25em;
       text-align: center;
       font-size: 1rem;
@@ -322,8 +323,13 @@ div.town-banner {
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   font-size: 1.2rem;
   .attack-estimation, .deco-estimation {
-    border-left:1px dashed #fff;
-    border-right:1px dashed #fff;
+    border-left:1px dashed #7e4d2a;
+    border-right:1px solid #ddab76;
+    &.attack-estimation {
+      .help {
+        color: white;
+      }
+    }
   }
 
   em {
@@ -345,9 +351,10 @@ div.town-banner {
   background-image: url('../../img/cityBoard.png');
 
   .content {
-    margin: 40px 30px 0 5px;
+    margin: 40px 0 0 5px;
     height: 190px;
     max-height: 190px;
+    max-width: 240px;
     overflow: auto;
     color: #E4E3E8;
     font-size: 1.5rem;
@@ -376,7 +383,7 @@ div.town-banner {
     text-align: right;
     font-size: 1.2rem;
     color: #ddab76;
-    .disabled {
+    &.disabled {
       text-decoration: line-through;
       font-weight: normal;
       color: grey;
@@ -436,7 +443,7 @@ div.town-banner {
 .defense-detail {
   em {
     font-size: 1.2rem;
-    color: @myhordes-smalltext;
+    color: #f0d79e;
   }
 }
 
@@ -756,5 +763,36 @@ div.town-banner {
   .list {
     overflow-y: scroll;
     max-height: 200px;
+  }
+}
+
+.town-summary {
+  font-size: 1.3rem;
+  div {
+    border-bottom: 1px solid #b37c4a;
+    &.row-header {
+      background-color: #b37c4a;
+      font-weight: bold;
+    }
+
+    &.row-detail {
+      color: #e3c699;
+      background-color: #996739;
+    }
+  }
+}
+
+.clairvoyance {
+  border: 1px solid #ddab76;
+  font-size: 1.2rem;
+  background-color: #4d5537;
+  margin-bottom: 8px;
+  padding: 5px;
+}
+
+.disposal {
+  font-size: 1.2rem;
+  em {
+    color: #f0d79e;
   }
 }

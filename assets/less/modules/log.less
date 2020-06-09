@@ -4,7 +4,7 @@
   background: @myhordes-cell-header-background-color; border: 1px solid @myhordes-input-border;
   padding: 4px;
   &>.log-content {
-    font-size: 1.2rem; color: #ffe3bf; max-height: 300px; overflow-y: auto;
+    font-size: 1.2rem; color: #f0d79e; max-height: 300px; overflow-y: auto;
     &>.log-spinner, &>.log-complete-link { padding: 5px; }
     &>.log-complete-link { cursor: pointer; text-decoration: underline; display: inline-block; }
     &>.log-entry {
@@ -18,6 +18,11 @@
       }
       &>span.log-part-content {
         &>span { color: white; font-weight: bold; &>img { vertical-align: text-top } }
+        &.log-part-entry-hidden {
+          background-color: #4d5537;
+          color: #98a675;
+          font-weight: bold;
+        }
       }
 
       &.log-entry-class-0 {}

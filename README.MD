@@ -44,7 +44,6 @@ bin/console app:schedule --now -vvv
 # Don't let debug users die
 bin/console app:debug --everyone-drink <town.id>
 
-
 # Every commands
 bin/console app:citizen --help
 bin/console app:create-town --help
@@ -57,6 +56,16 @@ bin/console app:towns --help
 bin/console app:users --help
 
 ```
+
+## Using Docker
+* Run *./docker/setup.sh* wait for completion.
+*yarn* can have hard times to install the packages on the container. Run *yarn install* host side to prevent any freeze (or uncomment the line in setup.sh).
+* Run *./docker/setup.sh* to setup the db / install PHP packages.
+* MyHordes will be accessible by default using the following addresses: *http://127.0.0.1/* - *http://localhost/*
+
+Note 1: If you are running Windows, execute the shell scripts through a proper terminal (Git bash, Windows 10 bash, Cmder, ...)
+
+Note 2: you can change the port by editing *docker/nginx/default.conf* and *docker-compose.yml*
 
 ## Configuration
 

@@ -27,6 +27,7 @@ class User implements UserInterface, EquatableInterface
 {
 
     const ROLE_USER      =  0;
+    const ROLE_ORACLE    =  2;
     const ROLE_CROW      =  3;
     const ROLE_ADMIN     =  4;
 
@@ -80,12 +81,17 @@ class User implements UserInterface, EquatableInterface
     /**
      * @ORM\Column(type="integer")
      */
-    private $soulPoints;
+    private $soulPoints = 0;
     
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user")
      */
     private $pictos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Award", mappedBy="user")
+     */
+    private $awards;
 
     /**
      * @ORM\Column(type="string", length=32)
@@ -108,9 +114,20 @@ class User implements UserInterface, EquatableInterface
     private $postAsDefault;
 
     /**
+     * @ORM\Column(type="string", length=128, nullable=true)
+     */
+    private $forumTitle;
+
+    /**
+     * This field matches to the filename of the picto
+     * @ORM\Column(type="string", length=64, nullable=true)
+     */
+    private $forumIcon;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $language = "de";
+    private $language = null;
 
     /**
      * @ORM\Column(type="smallint")
@@ -121,6 +138,11 @@ class User implements UserInterface, EquatableInterface
      * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true)
      */
     private $pastLifes;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $heroDaysSpent = 0;
 
     public function __construct()
     {
@@ -144,6 +166,26 @@ class User implements UserInterface, EquatableInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getForumIcon(): ?string {
+        return $this->forumIcon;
+    }
+
+    public function setForumIcon(string $value): self {
+        $this->forumIcon = $value;
+
+        return $this;
+    }
+
+    public function getForumTitle(): ?string {
+        return $this->forumTitle;
+    }
+
+    public function setForumTitle(string $value): self {
+        $this->forumTitle = $value;
 
         return $this;
     }
@@ -211,10 +253,11 @@ class User implements UserInterface, EquatableInterface
         if ($this->pass === null) return $roles;
         if ($this->rightsElevation >= 4) $roles[] = 'ROLE_ADMIN';
         if ($this->rightsElevation >= 3) $roles[] = 'ROLE_CROW';
-        if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';        
+        if ($this->rightsElevation >= 2) $roles[] = 'ROLE_ORACLE';
+        if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
-        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';        
+        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';
         return $roles;
     }
 
@@ -389,6 +432,34 @@ class User implements UserInterface, EquatableInterface
     }
 
     /**
+     * @return Collection|Awards[]
+     */
+    public function getAwards(): Collection {
+        return $this->awards;
+    }
+
+    public function addAward(Award $award): self {
+        if(!$this->awards->contains($award)) {
+            $this->awards[] = $award;
+            $award->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAward(Award $award): self {
+        if ($this->awards->contains($award)) {
+            $this->awards->removeElement($award);
+            // set the owning side to null (unless already changed)
+            if ($award->getUser() === $this) {
+                $award->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * @return Collection|Pictos[]
      */
     public function getPictos(): Collection
@@ -506,6 +577,18 @@ class User implements UserInterface, EquatableInterface
                 $pastLife->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHeroDaysSpent(): ?int
+    {
+        return $this->heroDaysSpent;
+    }
+
+    public function setHeroDaysSpent(int $heroDaysSpent): self
+    {
+        $this->heroDaysSpent = $heroDaysSpent;
 
         return $this;
     }

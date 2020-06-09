@@ -25,10 +25,11 @@ class PostRepository extends ServiceEntityRepository
 
     public function countByThread( Thread $thread ): int {
         try {
-            return $this->createQueryBuilder('p')
+            $q = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
-                ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
-                ->getQuery()
+                ->andWhere('p.thread = :thread')->setParameter('thread', $thread);
+
+            return $q->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;
@@ -37,12 +38,12 @@ class PostRepository extends ServiceEntityRepository
 
     public function countUnhiddenByThread( Thread $thread ): int {
         try {
-            return $this->createQueryBuilder('p')
+             $q = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
                 ->andWhere('p.thread = :thread')
                 ->andWhere('p.hidden = false')
-                ->setParameter('thread', $thread)
-                ->getQuery()
+                ->setParameter('thread', $thread);
+            return $q->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;
@@ -84,6 +85,36 @@ class PostRepository extends ServiceEntityRepository
             ->orderBy('p.date', 'ASC');
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
+        return $q
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findAdminAnnounces(Thread $thread)
+    {
+        $q = $this->createQueryBuilder('p')
+            ->andWhere('p.thread = :thread')
+            ->andWhere('p.hidden = false')
+            ->andWhere('p.text LIKE :markup')
+            ->setParameter('thread', $thread)
+            ->setParameter('markup', "%adminAnnounce%")
+            ->orderBy('p.date', 'ASC');
+        return $q
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findOracleAnnounces(Thread $thread)
+    {
+        $q = $this->createQueryBuilder('p')
+            ->andWhere('p.thread = :thread')
+            ->andWhere('p.hidden = false')
+            ->andWhere('p.text LIKE :markup')
+            ->setParameter('thread', $thread)
+            ->setParameter('markup', "%oracleAnnounce%")
+            ->orderBy('p.date', 'ASC');
         return $q
             ->getQuery()
             ->getResult()

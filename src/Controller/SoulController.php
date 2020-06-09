@@ -4,9 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
+use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\Town;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
@@ -17,6 +18,7 @@ use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
+use App\Service\UserHandler;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use DateTime;
@@ -25,7 +27,9 @@ use Error;
 use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -46,6 +50,8 @@ class SoulController extends AbstractController
 {
     protected $entity_manager;
     protected $user_factory;
+    private $user_handler;
+    private $asset;
 
     const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
     const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors + 2;
@@ -56,10 +62,12 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
+        $this->asset = $a;
+        $this->user_handler = $uh;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -78,11 +86,42 @@ class SoulController extends AbstractController
     {
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
-    	$points = $this->user_factory->getPoints($this->getUser());
+    	$points = $this->user_handler->getPoints($this->getUser());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($this->getUser()->getHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
+
+        $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
+
+        $progress = $nextSkill !== null ? ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
-            'points' => round($points, 0)
+            'points' => round($points, 0),
+            'latestSkill' => $latestSkill,
+            'progress' => floor($progress),
+        ]));
+    }
+
+    /**
+     * @Route("jx/soul/heroskill", name="soul_heroskill")
+     * @return Response
+     */
+    public function soul_heroskill(): Response
+    {
+        // Get all the picto & count points
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($this->getUser()->getHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
+
+        $allSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll();
+
+        $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
+        $progress = $nextSkill !== null ? ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+
+        return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'latestSkill' => $latestSkill,
+            'nextSkill' => $nextSkill,
+            'progress' => floor($progress),
+            'skills' => $allSkills
         ]));
     }
 
@@ -92,7 +131,10 @@ class SoulController extends AbstractController
      */
     public function soul_news(): Response
     {
-        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", null) );
+        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($this->getUser()->getLanguage());
+        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
+            'news' => $news
+        ]) );
     }
 
     /**
@@ -132,6 +174,12 @@ class SoulController extends AbstractController
 
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
 
+        preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
+
+        if(count($matches) > 0) {
+            $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
+        }
+
         return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'page' => $pageContent,
             'rp' => $rp,
@@ -145,7 +193,7 @@ class SoulController extends AbstractController
      */
     public function soul_view_town(int $id): Response
     {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         if($town === null){
             return $this->redirect($this->generateUrl('soul_me'));
         }
@@ -567,5 +615,93 @@ class SoulController extends AbstractController
         	'user' => $user,
             'town' => $town,
         )));
+    }
+
+    /**
+     * @Route("api/soul/unsubscribe", name="api_unsubscribe")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param SessionInterface $session
+     * @param TranslatorInterface $trans
+     * @return Response
+     */
+    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session, TranslatorInterface $trans): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+
+
+        if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
+            $last_words = $parser->get('lastwords');
+        else $last_words = $trans->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
+
+        // Here, we delete picto with persisted = 0,
+        // and definitively validate picto with persisted = 1
+        /** @var Picto[] $pendingPictosOfUser */
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            if($pendingPicto->getPersisted() == 0)
+                $this->entity_manager->remove($pendingPicto);
+            else {
+                $pendingPicto->setPersisted(2);
+                $this->entity_manager->persist($pendingPicto);
+            }
+        }
+
+          /** @var User|null $user */
+        if ($active = $nextDeath->getCitizen()) {
+            $active->setActive(false);
+            $active->setLastWords($last_words);
+            $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
+            $this->entity_manager->persist( $active );
+        }
+        
+        $nextDeath->setConfirmed(true)->setLastWords( $last_words );
+
+        $this->entity_manager->persist( $nextDeath );
+        $this->entity_manager->flush();
+
+        if ($session->has('_town_lang')) {
+            $session->remove('_town_lang');
+            return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
+        } else return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/soul/death", name="soul_death")
+     * @return Response
+     */
+    public function soul_deathpage(): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
+            return $this->redirect($this->generateUrl('initial_landing'));
+
+        $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($user, $nextDeath->getTown());
+        $pictosWonDuringTown = [];
+        $pictosNotWonDuringTown = [];
+
+        foreach ($pictosDuringTown as $picto)
+            if ($picto->getPersisted() > 0)
+                $pictosWonDuringTown[] = $picto;
+            else
+                $pictosNotWonDuringTown[] = $picto;
+
+        return $this->render( 'ajax/soul/death.html.twig', [
+            'citizen' => $nextDeath,
+            'sp' => $nextDeath->getPoints(),
+            'pictos' => $pictosWonDuringTown,
+            'gazette' => $nextDeath->getTown() !== null,
+            'denied_pictos' => $pictosNotWonDuringTown
+        ] );
     }
 }

@@ -1,0 +1,112 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {# @var user \App\Entity\User#}
+    <div class="row soul">
+        <div class="cell padded header rw-12">
+            {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-9 rw-sm-12">
+                    {{ user.username }}
+                </div>
+
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="cell padded rw-3 rw-sm-12">
+                        <b>{{ 'E-Mail'|trans({}, 'admin') }}</b>
+                    </div>
+                    <div class="cell padded rw-9 rw-sm-12">
+                        {{ user.email }}
+                    </div>
+                {% endif %}
+
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Validiert'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-9 rw-sm-12">
+                    {% if user.validated %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}
+                </div>
+
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Berechtigungsstufe'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-9 rw-sm-12">
+                    {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
+                    {% else                             %} {{ user.rightsElevation }} {% endif %}
+                </div>
+
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="cell padded rw-3 rw-sm-12">
+                        <b>{{ 'Validierungstokens'|trans({}, 'admin') }}</b>
+                    </div>
+                    <div class="cell padded rw-9 rw-sm-12">
+                        {% if validations|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                        {% for token in validations %}
+                            {# @var token \App\Entity\UserPendingValidation #}
+                            <div>{{ token.pkey }}
+                                ({% if     token.type ==  constant('App\\Entity\\UserPendingValidation::EMailValidation') %} EMailValidation
+                                {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
+                                {% else                                                                                  %} {{ token.type }} {% endif %})
+                                <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b><label for="administer-user">{{ 'User administrieren'|trans({}, 'admin') }}</label></b>
+                </div>
+                <div class="cell padded rw-9 rw-sm-12">
+                    <select id="administer-user">
+                        <option value="">-</option>
+                        <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
+                            {% if is_granted("ROLE_ADMIN") %}
+                                {% if user.validated %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
+                                {% else %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
+                                {% endif %}
+                            {% endif %}
+                            {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
+                                <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
+                                <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
+                            {% endif %}
+                        </optgroup>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
+                                <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
+                                <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
+                            </optgroup>
+                        {% endif %}
+                    </select>
+                    <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        document.getElementById('execute_button').addEventListener('click', function() {
+            if (!document.getElementById('administer-user').value) return;
+            $.ajax.easySend( document.getElementById('administer-user').value, {},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
+                } );
+        });
+
+        {% if is_granted("ROLE_ADMIN") %}
+            $.html.addEventListenerAll('[x-delete-token]', 'click', function(e,elem) {
+                $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'delete_token'}) }}', {tid: elem.getAttribute('x-delete-token')},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
+                    } );
+            });
+        {% endif %}
+    </script>
+{% endblock %}

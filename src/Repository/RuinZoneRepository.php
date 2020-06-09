@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\RuinExplorerStats;
 use App\Entity\Zone;
 use App\Entity\RuinZone;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -49,6 +50,11 @@ class RuinZoneRepository extends ServiceEntityRepository
         } catch (NonUniqueResultException $e) {
             return null;
         }
+    }
+
+    public function findOneByExplorerStats(RuinExplorerStats $ex): ?RuinZone
+    {
+        return $ex->getActive() ? $this->findOneByPosition( $ex->getZone(), $ex->getX(), $ex->getY() ) : null;
     }
 
     // /**

@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
+use App\Entity\HeroicActionPrototype;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -24,10 +27,13 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
-use App\Structures\TownConf;
 use App\Service\LogTemplateHandler;
+use App\Service\TimeKeeperService;
+use App\Service\UserHandler;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,12 +49,18 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected $entity_manager;
     protected $translator;
     protected $logTemplateHandler;
+    protected $time_keeper;
+    protected $citizen_handler;
+    private $user_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
+        $this->time_keeper = $tk;
+        $this->citizen_handler = $ch;
+        $this->user_handler = $uh;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -71,6 +83,8 @@ class GameController extends AbstractController implements GameInterfaceControll
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();
+                $entries[$idx]['id'] = $entity->getId();
+                $entries[$idx]['hidden'] = $entity->getHidden();
 
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
@@ -87,6 +101,7 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
+            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
         ] );
     }
 
@@ -115,10 +130,13 @@ class GameController extends AbstractController implements GameInterfaceControll
     public function landing(): Response
     {
         if (!$this->getActiveCitizen()->getAlive())
-            return $this->redirect($this->generateUrl('game_death'));
+            return $this->redirect($this->generateUrl('soul_death'));
         elseif ($this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_jobs'));
-        elseif ($this->getActiveCitizen()->getZone()) return $this->redirect($this->generateUrl('beyond_dashboard'));
+        elseif ($this->getActiveCitizen()->getZone() && !$this->getActiveCitizen()->activeExplorerStats())
+            return $this->redirect($this->generateUrl('beyond_dashboard'));
+        elseif ($this->getActiveCitizen()->getZone() && $this->getActiveCitizen()->activeExplorerStats())
+            return $this->redirect($this->generateUrl('exploration_dashboard'));
         else return $this->redirect($this->generateUrl('town_dashboard'));
     }
 
@@ -127,7 +145,7 @@ class GameController extends AbstractController implements GameInterfaceControll
      * @return Response
      */
     public function newspaper(): Response {
-        if (!$this->getActiveCitizen()->getAlive() || $this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
+        if ($this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
         $in_town = $this->getActiveCitizen()->getZone() === null;
@@ -148,8 +166,6 @@ class GameController extends AbstractController implements GameInterfaceControll
             if(!$citizen->getAlive()) continue;
             $survivors[] = $citizen;
         }
-
-
 
         foreach ($gazette->getVictims() as $citizen) {
             if($citizen->getAlive()) continue;
@@ -387,13 +403,22 @@ class GameController extends AbstractController implements GameInterfaceControll
             'textClass' => $textClass,
         ];
 
+        $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
+
         return $this->render( 'ajax/game/newspaper.html.twig', [
-            'show_register'  => $in_town,
+            'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
-            'log' => $in_town ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
+            'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizenWithRole' => $citizenWithRole,
+            'clock' => [
+                'desc'      => $this->getActiveCitizen()->getTown()->getName(),
+                'day'       => $this->getActiveCitizen()->getTown()->getDay(),
+                'timestamp' => new DateTime('now'),
+                'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+                'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
+            ],
         ] );
     }
 
@@ -436,49 +461,18 @@ class GameController extends AbstractController implements GameInterfaceControll
         ] );
     }
 
-    /**
-     * @Route("jx/game/death", name="game_death")
-     * @param CitizenHandler $ch
-     * @return Response
-     */
-    public function death(CitizenHandler $ch): Response
-    {
-        if ($this->getActiveCitizen()->getAlive())
-            return $this->redirect($this->generateUrl('game_landing'));
-
-        $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($this->getUser(), $this->getActiveCitizen()->getTown());
-        $pictosWonDuringTown = array();
-        $pictosNotWonDuringTown = array();
-
-        foreach ($pictosDuringTown as $picto) {
-            if($picto->getPersisted() > 0) {
-                $pictosWonDuringTown[] = $picto;
-            } else {
-                $pictosNotWonDuringTown[] = $picto;
-            }
-        }
-
-        return $this->render( 'ajax/game/death.html.twig', [
-            'citizen' => $this->getActiveCitizen(),
-            'sp' => $ch->getSoulpoints($this->getActiveCitizen()),
-            'pictos' => $pictosWonDuringTown,
-            'denied_pictos' => $pictosNotWonDuringTown
-        ] );
-    }
-
     const ErrorJobAlreadySelected = ErrorHelper::BaseJobErrors + 1;
     const ErrorJobInvalid         = ErrorHelper::BaseJobErrors + 2;
 
     /**
      * @Route("api/game/job", name="api_jobcenter")
      * @param JSONRequestParser $parser
-     * @param CitizenHandler $ch
      * @param InventoryHandler $invh
      * @param ItemFactory $if
      * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, CitizenHandler $ch, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
+    public function job_select_api(JSONRequestParser $parser, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -492,7 +486,55 @@ class GameController extends AbstractController implements GameInterfaceControll
         $new_profession = $this->entity_manager->getRepository(CitizenProfession::class)->find( $job_id );
         if (!$new_profession) return AjaxResponse::error(self::ErrorJobInvalid);
 
-        $ch->applyProfession( $citizen, $new_profession );
+        $this->citizen_handler->applyProfession( $citizen, $new_profession );
+
+        if($new_profession->getHeroic()) {
+            $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getHeroDaysSpent());
+            $inventory = $citizen->getInventory();
+            $item = $if->createItem( "photo_3_#00" );
+            $item->setEssential(true);
+            $null = null;
+            $invh->transferItem($citizen,$item,$null,$inventory);
+            foreach ($skills as $skill) {
+                switch($skill->getName()){
+                    case "brothers":
+                        //TODO: add the heroic power
+                        break;
+                    case "resourcefulness":
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'chest_hero_#00' ) );
+                        break;
+                    case "largechest1":
+                    case "largechest2":
+                        $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
+                        break;
+                    case "secondwind":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                    case 'breakfast1':
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
+                        break;
+                    case 'medicine1':
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
+                        break;
+                    case "cheatdeath":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                    case 'architect':
+                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
+                        break;
+                    case 'luckyfind':
+                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
+                        $citizen->removeHeroicAction($oldfind);
+                        $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
+                        $citizen->removeHeroicAction($newfind);
+                        break;
+                }
+            }
+        }
 
         try {
             $this->entity_manager->persist( $citizen );
@@ -517,53 +559,58 @@ class GameController extends AbstractController implements GameInterfaceControll
     }
 
     /**
-     * @Route("api/game/unsubscribe", name="api_unsubscribe")
-     * @param EntityManagerInterface $em
+     * @Route("api/game/delete_log_entry", name="delete_log_entry")
+     * @param JSONRequestParser $parser
+     * @param CitizenHandler $ch
      * @return Response
      */
-    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session): Response {
-        if ($this->getActiveCitizen()->getAlive())
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    public function delete_log_entry(JSONRequestParser $parser, CitizenHandler $ch): Response {
 
-        /** @var User|null $user */
-        $user = $this->getUser();
-        $active = $em->getRepository(Citizen::class)->findActiveByUser($user);
+        $citizen = $this->getActiveCitizen();
+        $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);
 
-        if (!$active || $active->getId() !== $this->getActiveCitizen()->getId())
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $last_words = $parser->get('lastwords');
-
-        $active->setActive(false);
-        if($active->getCauseOfDeath()->getRef() != CauseOfDeath::Poison && $active->getCauseOfDeath()->getRef() != CauseOfDeath::GhulEaten)
-            $active->setLastWords($last_words);
-        else
-            $active->setLastWords($this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game"));
-
-        // Here, we delete picto with persisted = 0,
-        // and definitively validate picto with persisted = 1
-        /** @var Picto[] $pendingPictosOfUser */
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
-        foreach ($pendingPictosOfUser as $pendingPicto) {
-            if($pendingPicto->getPersisted() == 0)
-                $this->entity_manager->remove($pendingPicto);
-            else {
-                $pendingPicto
-                    ->setPersisted(2)
-                    ->setTownEntry( ($pendingPicto->getTown() && $pendingPicto->getTown()->getRankingEntry()) ? $pendingPicto->getTown()->getRankingEntry() : null );
-                $this->entity_manager->persist($pendingPicto);
-            }
+        if(!$citizen->getProfession()->getHeroic() || !$this->user_handler->hasSkill($citizen->getUser(), 'manipulator')){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 
-        CitizenRankingProxy::fromCitizen( $active );
+        if(!$parser->has('log_entry_id'))
+            return AjaxResponse::ErrorInvalidRequest;
 
-        $this->entity_manager->persist( $active );
-        $this->entity_manager->flush();
+        $log = $this->entity_manager->getRepository(TownLogEntry::class)->find($parser->get('log_entry_id'));
+        if($log->getHidden()){
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
 
-        if ($session->has('_town_lang')) {
-            $session->remove('_town_lang');
-            return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
-        } else return AjaxResponse::success();
+        $limit = 0;
+        if($this->user_handler->hasSkill($citizen->getUser(), 'manipulator'))
+            $limit = 2;
+
+        if($this->user_handler->hasSkill($citizen->getUser(), 'treachery'))
+            $limit = 4;
+
+        if($counter->getCount() < $limit){
+            $counter->setCount($counter->getCount() + 1);
+        } else {
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+        }
+
+        $log->setHidden(true);
+
+        try {
+            $this->entity_manager->persist( $log );
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        try {
+            $this->entity_manager->persist( $chest );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            
+        }
+
+        return AjaxResponse::success();
     }
-
 }

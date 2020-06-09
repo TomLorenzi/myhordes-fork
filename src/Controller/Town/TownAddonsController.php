@@ -277,6 +277,7 @@ class TownAddonsController extends TownController
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_workshop');
 
         // Execute recipe and persist
         if (($error = $ah->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )
@@ -562,9 +563,8 @@ class TownAddonsController extends TownController
             	if($item->getPrototype()->getWatchpoint() <= 0)
             		continue;
             	$watchers[$watcher->getId()]['items'][] = array(
-                    'icon' => $item->getPrototype()->getIcon(),
-                    'label' => $item->getPrototype()->getLabel(),
-                    'defImpact' => $this->citizen_handler->getNightWatchItemDefense($item, $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory)
+                    'prototype' => $item->getPrototype(),
+                    'defImpact' => $this->citizen_handler->getNightWatchItemDefense($item, $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory),
                 );
             }
         }

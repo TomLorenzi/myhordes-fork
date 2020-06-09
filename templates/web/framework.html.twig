@@ -59,7 +59,7 @@
                     <ul>
                     {% for adminAction in adminActions %}
                         {# @var adminAction \App\Entity\AdminAction #}
-                        <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name }}</span></a><br>
+                        <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a><br>
                     {% endfor %}
                     </ul>
                 </div>
@@ -126,7 +126,7 @@
             	</div>
                 <strong>Thanks to</strong>
                 <div class="content">
-                <i>MisterD</i>, <i>Mondi</i>
+                    <i>MisterD</i>, <i>Mondi</i>, <i>Schroedinger</i>, <i>Kitsune</i>, <i>Dylan57</i>
             	</div>
             </div>
         </div>

@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>Hallo %name%!</source>
-        <target>Bienvenue %name%!</target>
+        <target>Bienvenue %name% !</target>
       </segment>
     </unit>
     <unit id="UA_FeeT" name="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">

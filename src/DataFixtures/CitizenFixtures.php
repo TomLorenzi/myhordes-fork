@@ -73,6 +73,9 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_hero'],
         ['name' => 'tg_chk_forum'],
         ['name' => 'tg_chk_active'],
+        ['name' => 'tg_chk_workshop'],
+        ['name' => 'tg_chk_build'],
+        ['name' => 'tg_chk_movewb'],
         ['name' => 'tg_hide'],
         ['name' => 'tg_tomb'],
         ['name' => 'tg_home_clean'],
@@ -81,11 +84,12 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_home_heal_2'],
         ['name' => 'tg_home_defbuff'],
         ['name' => 'tg_rested' ],
-        ['name' => 'tg_immune' ],
+        ['name' => 'tg_shaman_immune' ],
         ['name' => 'tg_shaman_heal' ],
         ['name' => 'tg_ghoul_eat' ],
         ['name' => 'tg_no_hangover' ],
         ['name' => 'tg_ghoul_corpse' ],
+        ['name' => 'tg_betadrug' ],
     ];
 
     public static $causes_of_death = [

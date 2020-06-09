@@ -1,0 +1,143 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+
+
+    {% macro valuelist(prop,val) %}
+        <div class="row">
+            <div class="cell rw-4"><b>{{ prop }}</b></div>
+            <div class="cell rw-8">
+                {% if val is same as( true) %}
+                    {{ 'Ja'|trans({},'admin') }}
+                {% elseif val is same as( false)  %}
+                    {{ 'Nein'|trans({},'admin') }}
+                {% else %}
+                    {{ val }}
+                {% endif %}
+            </div>
+        </div>
+    {% endmacro %}
+
+    <div class="row">
+        <div class="cell padded rw-12">
+            <ul class="tabs" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
+                <li x-tab-id="dash">{{ 'Übersicht'|trans({},'admin') }}</li>
+                <li x-tab-id="estimations">{{ 'Admin-Wachturm'|trans({},'admin') }}</li>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li x-tab-id="explorer">{{ 'Ruinenscanner'|trans({},'admin') }}</li>
+                {% endif %}
+
+            </ul>
+            {# @var town \App\Entity\Town #}
+            <div x-tab-group="admin-town" x-tab-id="dash" x-tab-target>
+                <div class="row">
+                    <div class="cell rw-12 padded">
+                        {{ _self.valuelist('ID'|trans({},'admin'),         town.id) }}
+                        {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name) }}
+                        {{ _self.valuelist('Sprache'|trans({},'admin'),    town.language) }}
+                        {{ _self.valuelist('Typ'|trans({},'admin'),        town.type.label|trans({},'game')) }}
+                        {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
+                        {{ _self.valuelist('Saison'|trans({},'admin'),     town.season ? town.season.number : '--') }}
+                        {{ _self.valuelist('Tag'|trans({},'admin'),        town.day) }}
+                        {{ _self.valuelist('Offen'|trans({},'admin'),      town.open) }}
+                        {{ _self.valuelist('Chaos'|trans({},'admin'),      town.chaos) }}
+                        {{ _self.valuelist('Zerstört'|trans({},'admin'),   town.devastated) }}
+                        {{ _self.valuelist('Tor offen'|trans({},'admin'),  town.door) }}
+                        {{ _self.valuelist('Brunnen'|trans({},'admin'),    town.well) }}
+                    </div>
+                </div>
+
+            </div>
+
+            <div x-tab-group="admin-town" x-tab-id="estimations" x-tab-target>
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="cell rw-1 padded"></div>
+                        <div class="cell rw-1 padded">{{ 'ID'|trans({},'admin') }}</div>
+                        <div class="cell rw-1 padded">{{ 'Tag'|trans({},'admin') }}</div>
+                        <div class="cell rw-2 padded">{{ 'Angriff'|trans({},'admin') }}</div>
+                        <div class="cell rw-2 padded">{{ 'Bereich Min'|trans({},'admin') }}</div>
+                        <div class="cell rw-2 padded">{{ 'Bereich Max'|trans({},'admin') }}</div>
+                    </div>
+                    {% for est in town.zombieEstimations %}
+                        <div class="row {% if est.day == town.day %}bold{% endif %}">
+                            <div class="padded cell rw-1">{% if est.day == town.day %}<i class="fa fa-arrow-right"></i>{% endif %}</div>
+                            <div class="padded cell rw-1">{{ est.id }}</div>
+                            <div class="padded cell rw-1">{{ est.day }}</div>
+                            {% if is_granted("ROLE_ADMIN") or est.day < town.day %}
+                                <div class="padded cell rw-2">{{ est.zombies }}</div>
+                                <div class="padded cell rw-2">{{ est.offsetMin }}%</div>
+                                <div class="padded cell rw-2">{{ est.offsetMax }}%</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <div x-tab-group="admin-town" x-tab-id="explorer" x-tab-target>
+                    {% for exploration in explorables %}
+                        <div class="row">
+                            <div class="cell rw-6 padded">
+                                <h5>{{ exploration.z.prototype.label|trans({},'game') }} - {{ exploration.z.x }}/{{ exploration.z.y }}</h5>
+                                <div class="adm-exploration">
+                                    {% for rz in exploration.rz %}
+                                        <div class="rz {% if rz.prototype %}rz-{{ rz.locked ? 'locked' : 'unlocked' }}{% endif%} rz-{{ rz.distance > conf.get(constant('App\\Structures\\TownConf::CONF_EXPLORABLES_LOCKDIST')) ? 'far' : 'close' }} rz-{{ rz.corridor }} {% if rz.zombies > 0 %}rz-zeds{% endif %}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;">
+                                            {% if rz.corridor != 0 %}
+                                                <div class="tooltip">
+                                                    {{ _self.valuelist('ID'|trans({},'admin'), rz.id) }}
+                                                    {{ _self.valuelist('Position'|trans({},'admin'), rz.x ~ ' / ' ~ rz.y) }}
+                                                    {{ _self.valuelist('Distanz'|trans({},'admin'), rz.distance) }}
+                                                    {{ _self.valuelist('Zombies'|trans({},'admin'), rz.zombies) }}
+                                                    {% if rz.prototype %}
+                                                        {% if rz.locked %}
+                                                            {{ _self.valuelist('Abdruck'|trans({},'admin'), rz.prototype.keyImprint.label|trans({},'items')) }}
+                                                            {{ _self.valuelist('Schlüssel'|trans({},'admin'), rz.prototype.keyItem.label|trans({},'items')) }}
+                                                        {% else %}
+                                                            {{ _self.valuelist('Durchsucht'|trans({},'admin'), rz.digs) }}
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="cell rw-6 padded">
+                                <h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
+                                {% if exploration.ax %}
+                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.user.username) }}
+                                    {{ _self.valuelist('Position'|trans({},'admin'), exploration.ax.x ~ ' / ' ~ exploration.ax.y ) }}
+                                    {{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
+                                    {{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
+                                    <div class="row">
+                                        <div class="cell rw-4"><b>{{ 'Zeit'|trans({},'admin') }}</b></div>
+                                        <div class="cell rw-8"><span x-countdown="{{ exploration.axt }}">...</span></div>
+                                    </div>
+                                {% endif %}
+                                <h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
+                                {% for x in exploration.x %}
+                                    <div>{{ x.citizen.user.username }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <br />
+            <div class="row">
+                <div class="cell rw-3 ro-9">
+                    <button x-ajax-href="{{ path('admin_town_list') }}">{{ 'Stadtübersicht'|trans({},'admin') }}</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
+{% block js %}
+    <script>
+    </script>
+{% endblock %}

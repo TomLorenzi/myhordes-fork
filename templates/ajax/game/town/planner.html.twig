@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="padded cell rw-12">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true} %}
+            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'map': map_data} %}
             {% endembed %}
         </div>
     </div>
@@ -48,7 +48,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/map.js.twig" %}{% endembed %}
+        {% embed "scripts/map.js.twig" with {'map': map_data} %}{% endembed %}
 
         let map = document.querySelector('.map_area');
         let save_button = document.getElementById('save_button');

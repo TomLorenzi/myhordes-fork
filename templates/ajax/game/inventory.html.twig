@@ -1,6 +1,9 @@
 {% if escort is not defined %}
     {% set escort = null %}
 {% endif %}
+{% if show_banished_hidden is not defined %}
+    {% set show_banished_hidden = false %}
+{% endif %}
 {% if bankmode is defined and bankmode %}
     <input type="text" name="banksearch" id="banksearch" placeholder="{{ 'Gegenstände suchen'|trans({},'items') }}"/>
 {% endif %}
@@ -8,7 +11,9 @@
     {% if bankmode is not defined or not bankmode %}
         <li class="title">{% block title %}{% endblock %}</li>
         {% for item in items %}
-            {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort} %}{% endembed %}
+            {% if not item.hidden or show_banished_hidden %}
+                {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort} %}{% endembed %}
+            {% endif %}
         {% endfor %}
         {% if items|length < size %}
             {% for i in range(0, size - items|length - 1) %}

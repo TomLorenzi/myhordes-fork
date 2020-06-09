@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\CitizenRankingProxy;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
@@ -32,6 +33,13 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      */
     public function welcome(EntityManagerInterface $em, ConfMaster $conf): Response
     {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         return $this->render( 'ajax/ghost/intro.html.twig', [
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
@@ -47,6 +55,13 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      * @return Response
      */
     public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $log) {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         if (!$parser->has('town')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $town_id = (int)$parser->get('town', -1);
         if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -105,7 +120,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
                         $em->flush();
-                        $factory->createExplorableMaze($newTown);
+                        //$factory->createExplorableMaze($newTown);
                     }
                 }
             }

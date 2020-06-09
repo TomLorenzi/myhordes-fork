@@ -3,1637 +3,1473 @@
   <file id="buildings.es">
     <unit id="dFL__mK" name="Wassergraben">
       <notes>
-        <note>Wassergraben</note>
         <note category="german">Wassergraben</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wassergraben</source>
         <target>Gran charco</target>
       </segment>
     </unit>
     <unit id="pmF7FgU" name="Großer Graben">
       <notes>
-        <note>Großer Graben</note>
         <note category="german">Großer Graben</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Großer Graben</source>
         <target>Zanja periférica</target>
       </segment>
     </unit>
     <unit id="39k_QT1" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.">
       <notes>
-        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.</source>
         <target>La zanja periférica aporta 23 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="mkCln4o" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.">
       <notes>
-        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.</source>
         <target>La zanja periférica aporta 44 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="7ohJiNu" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.">
       <notes>
-        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.</source>
         <target>La zanja periférica aporta 76 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="wvQCfMZ" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.">
       <notes>
-        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.</source>
         <target>La zanja periférica aporta 109 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="HL3IJ3X" name="Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.">
       <notes>
-        <note>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</note>
         <note category="german">Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.</source>
         <target>La zanja periférica aporta 160 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="wlt3nkJ" name="Rasierklingenmauer">
       <notes>
-        <note>Rasierklingenmauer</note>
         <note category="german">Rasierklingenmauer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rasierklingenmauer</source>
         <target>Muro de faquir</target>
       </segment>
     </unit>
     <unit id="nDqxP50" name="Pfahlgraben">
       <notes>
-        <note>Pfahlgraben</note>
         <note category="german">Pfahlgraben</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Pfahlgraben</source>
         <target>Zanja trampa</target>
       </segment>
     </unit>
     <unit id="CrQIj8M" name="Köder">
       <notes>
-        <note>Köder</note>
         <note category="german">Köder</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Köder</source>
         <target>Cebo</target>
       </segment>
     </unit>
     <unit id="I6Ou0iS" name="Stacheldraht">
       <notes>
-        <note>Stacheldraht</note>
         <note category="german">Stacheldraht</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Stacheldraht</source>
         <target>Alambre de púas</target>
       </segment>
     </unit>
     <unit id="N_IRvC9" name="Weiterentwickelte Stadtmauer">
       <notes>
-        <note>Weiterentwickelte Stadtmauer</note>
         <note category="german">Weiterentwickelte Stadtmauer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Weiterentwickelte Stadtmauer</source>
         <target>Muralla mejorada</target>
       </segment>
     </unit>
     <unit id="HbQ4h88" name="Groooße Mauer">
       <notes>
-        <note>Groooße Mauer</note>
         <note category="german">Groooße Mauer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Groooße Mauer</source>
         <target>Murazo</target>
       </segment>
     </unit>
     <unit id="rrm6H8d" name="Zackenmauer">
       <notes>
-        <note>Zackenmauer</note>
         <note category="german">Zackenmauer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zackenmauer</source>
         <target>Muralla con púas</target>
       </segment>
     </unit>
     <unit id="2g3app1" name="Dritte Schicht">
       <notes>
-        <note>Dritte Schicht</note>
         <note category="german">Dritte Schicht</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dritte Schicht</source>
         <target>Tercera capa</target>
       </segment>
     </unit>
     <unit id="9lvn8i4" name="Zweite Schicht">
       <notes>
-        <note>Zweite Schicht</note>
         <note category="german">Zweite Schicht</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zweite Schicht</source>
         <target>Segunda capa</target>
       </segment>
     </unit>
     <unit id="Y45k2Pv" name="Betonschicht">
       <notes>
-        <note>Betonschicht</note>
         <note category="german">Betonschicht</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Betonschicht</source>
         <target>Capa de hormigón</target>
       </segment>
     </unit>
     <unit id="jULo0MF" name="Entwicklungsfähige Stadtmauer">
       <notes>
-        <note>Entwicklungsfähige Stadtmauer</note>
         <note category="german">Entwicklungsfähige Stadtmauer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Entwicklungsfähige Stadtmauer</source>
         <target>Muralla evolutiva</target>
       </segment>
     </unit>
     <unit id="i.v_PDf" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.">
       <notes>
-        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.</source>
         <target>La muralla aporta 85 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="jlp8Fv_" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.">
       <notes>
-        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.</source>
         <target>La muralla aporta 120 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="is67H0y" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.">
       <notes>
-        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.</source>
         <target>La muralla aporta 170 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="V.Pp1rj" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.">
       <notes>
-        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.</source>
         <target>La muralla aporta 235 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="HaXbtuP" name="Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.">
       <notes>
-        <note>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</note>
         <note category="german">Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.</source>
         <target>La muralla aporta 315 puntos de defensa.</target>
       </segment>
     </unit>
     <unit id="lgS6PS2" name="Verstärkende Balken">
       <notes>
-        <note>Verstärkende Balken</note>
         <note category="german">Verstärkende Balken</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verstärkende Balken</source>
         <target>Parches de metal</target>
       </segment>
     </unit>
     <unit id="GP9xakw" name="Zombiereibe">
       <notes>
-        <note>Zombiereibe</note>
         <note category="german">Zombiereibe</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zombiereibe</source>
         <target>Raspa-Zombies</target>
       </segment>
     </unit>
     <unit id="FMhDGIY" name="Fallgruben">
       <notes>
-        <note>Fallgruben</note>
         <note category="german">Fallgruben</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Fallgruben</source>
         <target>Trampas clásicas</target>
       </segment>
     </unit>
     <unit id="rCdMakD" name="Zaun">
       <notes>
-        <note>Zaun</note>
         <note category="german">Zaun</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zaun</source>
         <target>Valla de madera</target>
       </segment>
     </unit>
     <unit id="1VFjm8C" name="Holzzaun">
       <notes>
-        <note>Holzzaun</note>
         <note category="german">Holzzaun</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Holzzaun</source>
         <target>Empalizadas</target>
       </segment>
     </unit>
     <unit id="sUMdYSq" name="Sperrholz">
       <notes>
-        <note>Sperrholz</note>
         <note category="german">Sperrholz</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sperrholz</source>
         <target>Contrachapado</target>
       </segment>
     </unit>
     <unit id="XQiF0XP" name="Rüstungsplatten 3.0">
       <notes>
-        <note>Rüstungsplatten 3.0</note>
         <note category="german">Rüstungsplatten 3.0</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rüstungsplatten 3.0</source>
         <target>Tabique grueso</target>
       </segment>
     </unit>
     <unit id="00gaKK_" name="Extramauer">
       <notes>
-        <note>Extramauer</note>
         <note category="german">Extramauer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Extramauer</source>
         <target>Muro extra</target>
       </segment>
     </unit>
     <unit id="zlG5ILw" name="Rüstungsplatten">
       <notes>
-        <note>Rüstungsplatten</note>
         <note category="german">Rüstungsplatten</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rüstungsplatten</source>
         <target>Tabique de madera</target>
       </segment>
     </unit>
     <unit id="95xxaU2" name="Rüstungsplatten 2.0">
       <notes>
-        <note>Rüstungsplatten 2.0</note>
         <note category="german">Rüstungsplatten 2.0</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rüstungsplatten 2.0</source>
         <target>Tabique de metal</target>
       </segment>
     </unit>
     <unit id="XbhNL1e" name="Einseifer">
       <notes>
-        <note>Einseifer</note>
         <note category="german">Einseifer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einseifer</source>
         <target>Muralla enjabonada</target>
       </segment>
     </unit>
     <unit id="3q79VCE" name="Spraykanone">
       <notes>
-        <note>Spraykanone</note>
         <note category="german">Spraykanone</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Spraykanone</source>
         <target>Cañón aspirina</target>
       </segment>
     </unit>
     <unit id="2NZcCax" name="Säurespray">
       <notes>
-        <note>Säurespray</note>
         <note category="german">Säurespray</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Säurespray</source>
         <target>Pulverizador de ácido</target>
       </segment>
     </unit>
     <unit id="i0za.Ug" name="Zerstäuber">
       <notes>
-        <note>Zerstäuber</note>
         <note category="german">Zerstäuber</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zerstäuber</source>
         <target>Vaporizador</target>
       </segment>
     </unit>
     <unit id="uQSIZwY" name="Verstärkte Stadtmauer">
       <notes>
-        <note>Verstärkte Stadtmauer</note>
         <note category="german">Verstärkte Stadtmauer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verstärkte Stadtmauer</source>
         <target>Muralla</target>
       </segment>
     </unit>
     <unit id="2gSRbEU" name="Minen">
       <notes>
-        <note>Minen</note>
         <note category="german">Minen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Minen</source>
         <target>Minas de agua</target>
       </segment>
     </unit>
     <unit id="rCKz3m3" name="Wasserfilter">
       <notes>
-        <note>Wasserfilter</note>
         <note category="german">Wasserfilter</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserfilter</source>
         <target>Filtro de agua</target>
       </segment>
     </unit>
     <unit id="14diVFD" name="Wasserreiniger">
       <notes>
-        <note>Wasserreiniger</note>
         <note category="german">Wasserreiniger</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserreiniger</source>
         <target>Purificador de agua</target>
       </segment>
     </unit>
     <unit id="MHnbW88" name="Dünger">
       <notes>
-        <note>Dünger</note>
         <note category="german">Dünger</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dünger</source>
         <target>Fertilizante</target>
       </segment>
     </unit>
     <unit id="kP2Srb9" name="Granatapfel">
       <notes>
-        <note>Granatapfel</note>
         <note category="german">Granatapfel</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Granatapfel</source>
         <target>Pomelo explosivo</target>
       </segment>
     </unit>
     <unit id="ruRpI7F" name="Gemüsebeet">
       <notes>
-        <note>Gemüsebeet</note>
         <note category="german">Gemüsebeet</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Gemüsebeet</source>
         <target>Huerta</target>
       </segment>
     </unit>
     <unit id="aMK4lTK" name="Projekt Eden">
       <notes>
-        <note>Projekt Eden</note>
         <note category="german">Projekt Eden</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Projekt Eden</source>
         <target>Proyecto Edén</target>
       </segment>
     </unit>
     <unit id="g7vkdOB" name="Brunnenbohrer">
       <notes>
-        <note>Brunnenbohrer</note>
         <note category="german">Brunnenbohrer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Brunnenbohrer</source>
         <target>Taladro</target>
       </segment>
     </unit>
     <unit id="18uh4Vj" name="Kärcher">
       <notes>
-        <note>Kärcher</note>
         <note category="german">Kärcher</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kärcher</source>
         <target>Vaporizador pro</target>
       </segment>
     </unit>
     <unit id="CfQ_Bib" name="Kreischender Rotor">
       <notes>
-        <note>Kreischender Rotor</note>
         <note category="german">Kreischender Rotor</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kreischender Rotor</source>
         <target>Prensadora</target>
       </segment>
     </unit>
     <unit id="OcCCWxy" name="Sprinkleranlage">
       <notes>
-        <note>Sprinkleranlage</note>
         <note category="german">Sprinkleranlage</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sprinkleranlage</source>
         <target>Regaderas automáticas</target>
       </segment>
     </unit>
     <unit id="MULCyIk" name="Dusche">
       <notes>
-        <note>Dusche</note>
         <note category="german">Dusche</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dusche</source>
         <target>Duchas</target>
       </segment>
     </unit>
     <unit id="7j0r7B9" name="Wasserleitungsnetz">
       <notes>
-        <note>Wasserleitungsnetz</note>
         <note category="german">Wasserleitungsnetz</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserleitungsnetz</source>
         <target>Red hidráulica</target>
       </segment>
     </unit>
     <unit id="Rhgjmll" name="Wasserturm">
       <notes>
-        <note>Wasserturm</note>
         <note category="german">Wasserturm</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserturm</source>
         <target>Sistema de riego</target>
       </segment>
     </unit>
     <unit id="_TjOaCj" name="37ac031">
       <notes>
-        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</source>
         <target>La defensa de los sistemas de riego se multiplica por 1.8 (126 pts) pero consumen 2 raciones del pozo cada noche.</target>
       </segment>
     </unit>
     <unit id="L6.6ahS" name="3d8658d">
       <notes>
-        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</source>
         <target>La defensa de los sistemas de riego se multiplica por 2.6 (182 pts) pero consumen 4 raciones del pozo cada noche.</target>
       </segment>
     </unit>
     <unit id="P7EINL." name="6f7c0d3">
       <notes>
-        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</source>
         <target>La defensa de los sistemas de riego se multiplica por 3.4 (238 pts) pero consumen 5 raciones del pozo cada noche.</target>
       </segment>
     </unit>
     <unit id="Y_jBf_Y" name="c9e1750">
       <notes>
-        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</source>
         <target>La defensa de los sistemas de riego se multiplica por 4.2 (294 pts) pero consumen 9 raciones del pozo cada noche.</target>
       </segment>
     </unit>
     <unit id="94xxibL" name="a56e37e">
       <notes>
-        <note>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</note>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</source>
         <target>La defensa de los sistemas de riego se multiplica por 5 (350 pts) pero consumen 12 raciones del pozo cada noche.</target>
       </segment>
     </unit>
     <unit id="aD._KEu" name="Wasserfänger">
       <notes>
-        <note>Wasserfänger</note>
         <note category="german">Wasserfänger</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserfänger</source>
         <target>Perforador tectónico</target>
       </segment>
     </unit>
     <unit id="ABN1XUN" name="Wasserkanone">
       <notes>
-        <note>Wasserkanone</note>
         <note category="german">Wasserkanone</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserkanone</source>
         <target>Manguerazo</target>
       </segment>
     </unit>
     <unit id="gCJBWWD" name="Schleuse">
       <notes>
-        <note>Schleuse</note>
         <note category="german">Schleuse</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schleuse</source>
         <target>Arroyos</target>
       </segment>
     </unit>
     <unit id="qo4gzuN" name="Wasserfall">
       <notes>
-        <note>Wasserfall</note>
         <note category="german">Wasserfall</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserfall</source>
         <target>Cortina de agua</target>
       </segment>
     </unit>
     <unit id="bZnWnKs" name="Wünschelrakete">
       <notes>
-        <note>Wünschelrakete</note>
         <note category="german">Wünschelrakete</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wünschelrakete</source>
         <target>Lanza-cohetes</target>
       </segment>
     </unit>
     <unit id="kBVya6M" name="Wünschelrute">
       <notes>
-        <note>Wünschelrute</note>
         <note category="german">Wünschelrute</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wünschelrute</source>
         <target>Detector de agua</target>
       </segment>
     </unit>
     <unit id="FL6iCcw" name="Apfelbaum">
       <notes>
-        <note>Apfelbaum</note>
         <note category="german">Apfelbaum</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Apfelbaum</source>
         <target>Manzano</target>
       </segment>
     </unit>
     <unit id="sfG6Jkq" name="Pumpe">
       <notes>
-        <note>Pumpe</note>
         <note category="german">Pumpe</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Pumpe</source>
         <target>Bomba de agua</target>
       </segment>
     </unit>
     <unit id="soE_FyU" name="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
       <notes>
-        <note>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
         <target>Añade 5 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
       <notes>
-        <note>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt</source>
         <target>Añade 20 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="IAeAAwG" name="Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt">
       <notes>
-        <note>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt</source>
         <target>Añade 30 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="cLG_5i1" name="Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt">
       <notes>
-        <note>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</note>
         <note category="german">Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt</source>
         <target>Añade 40 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="Mjl71we" name="Kremato-Cue">
       <notes>
-        <note>Kremato-Cue</note>
         <note category="german">Kremato-Cue</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kremato-Cue</source>
         <target>Cremato bar</target>
       </segment>
     </unit>
     <unit id="j.YCYvG" name="Metzgerei">
       <notes>
-        <note>Metzgerei</note>
         <note category="german">Metzgerei</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Metzgerei</source>
         <target>Carnicería</target>
       </segment>
     </unit>
     <unit id="aejltM1" name="Verteidigungsanlage">
       <notes>
-        <note>Verteidigungsanlage</note>
         <note category="german">Verteidigungsanlage</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verteidigungsanlage</source>
         <target>Defensas Max</target>
       </segment>
     </unit>
     <unit id="u73yQTm" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.">
       <notes>
-        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
       <notes>
-        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
       <notes>
-        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
       <notes>
-        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
       <notes>
-        <note>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</note>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
         <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
       <notes>
-        <note>Steinkanone</note>
         <note category="german">Steinkanone</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Steinkanone</source>
         <target>Cañón de rocas</target>
       </segment>
     </unit>
     <unit id="u_k83kB" name="Selbstgebaute Railgun">
       <notes>
-        <note>Selbstgebaute Railgun</note>
         <note category="german">Selbstgebaute Railgun</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Selbstgebaute Railgun</source>
         <target>Perforador</target>
       </segment>
     </unit>
     <unit id="Vj3WnMj" name="Blechplattenwerfer">
       <notes>
-        <note>Blechplattenwerfer</note>
         <note category="german">Blechplattenwerfer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Blechplattenwerfer</source>
         <target>Lanza láminas</target>
       </segment>
     </unit>
     <unit id="CAZwcmO" name="Brutale Kanone">
       <notes>
-        <note>Brutale Kanone</note>
         <note category="german">Brutale Kanone</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Brutale Kanone</source>
         <target>Cañón brutal</target>
       </segment>
     </unit>
     <unit id="ZyMPQfA" name="Kanonenhügel">
       <notes>
-        <note>Kanonenhügel</note>
         <note category="german">Kanonenhügel</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kanonenhügel</source>
         <target>Montículos</target>
       </segment>
     </unit>
     <unit id="fXSFcSL" name="Holzbalkendrehkreuz">
       <notes>
-        <note>Holzbalkendrehkreuz</note>
         <note category="german">Holzbalkendrehkreuz</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Holzbalkendrehkreuz</source>
         <target>Torniquete</target>
       </segment>
     </unit>
     <unit id="G2Xnwsv" name="Manufaktur">
       <notes>
-        <note>Manufaktur</note>
         <note category="german">Manufaktur</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Manufaktur</source>
         <target>Fábrica</target>
       </segment>
     </unit>
     <unit id="885G31O" name="Kreischende Sägen">
       <notes>
-        <note>Kreischende Sägen</note>
         <note category="german">Kreischende Sägen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kreischende Sägen</source>
         <target>Sierra aulladora</target>
       </segment>
     </unit>
     <unit id="EicSNbc" name="Bauhaus">
       <notes>
-        <note>Bauhaus</note>
         <note category="german">Bauhaus</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bauhaus</source>
         <target>Estudio de arquitectos</target>
       </segment>
     </unit>
     <unit id="apLtnCI" name="be80c53">
       <notes>
-        <note>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
         <target>El pueblo recibirá 4 planos comunes después del ataque (¿y una sorpresa quizás?)</target>
       </segment>
     </unit>
     <unit id="GIcE44t" name="bfa9448">
       <notes>
-        <note>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
         <target>El pueblo recibirá 2 planos comunes y 2 inusuales después del ataque (¿y una sorpresa quizás?)</target>
       </segment>
     </unit>
     <unit id="4TGJ0Dx" name="ec0b7ad">
       <notes>
-        <note>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
         <target>El pueblo recibirá 2 planos inusuales y 2 raros después del ataque (¿y una sorpresa quizás?)</target>
       </segment>
     </unit>
     <unit id="erBRQsV" name="Baustellenbuch">
       <notes>
-        <note>Baustellenbuch</note>
         <note category="german">Baustellenbuch</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Baustellenbuch</source>
         <target>Registro de obras</target>
       </segment>
     </unit>
     <unit id="Cou_v9E" name="Galgen">
       <notes>
-        <note>Galgen</note>
         <note category="german">Galgen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Galgen</source>
         <target>Horca</target>
       </segment>
     </unit>
     <unit id="3ZbLUsz" name="Kleines Cafe">
       <notes>
-        <note>Kleines Cafe</note>
         <note category="german">Kleines Cafe</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kleines Cafe</source>
         <target>Cafetería</target>
       </segment>
     </unit>
     <unit id="fIiQQtV" name="Sarg-Katapult">
       <notes>
-        <note>Sarg-Katapult</note>
         <note category="german">Sarg-Katapult</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sarg-Katapult</source>
         <target>Lanza Muertos</target>
       </segment>
     </unit>
     <unit id="Ddy6W0H" name="Kleiner Friedhof">
       <notes>
-        <note>Kleiner Friedhof</note>
         <note category="german">Kleiner Friedhof</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kleiner Friedhof</source>
         <target>Defensa post-hortem</target>
       </segment>
     </unit>
     <unit id="FN3dAwg" name="Hühnerstall">
       <notes>
-        <note>Hühnerstall</note>
         <note category="german">Hühnerstall</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hühnerstall</source>
         <target>Gallinero</target>
       </segment>
     </unit>
     <unit id="rvXKPYg" name="Schlachthof">
       <notes>
-        <note>Schlachthof</note>
         <note category="german">Schlachthof</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schlachthof</source>
         <target>Matadero</target>
       </segment>
     </unit>
     <unit id="Fs4XN5W" name="Pentagon">
       <notes>
-        <note>Pentagon</note>
         <note category="german">Pentagon</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Pentagon</source>
         <target>Soporte de defensas</target>
       </segment>
     </unit>
     <unit id="NBHNMKt" name="Kantine">
       <notes>
-        <note>Kantine</note>
         <note category="german">Kantine</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kantine</source>
         <target>Cafetería central</target>
       </segment>
     </unit>
     <unit id="jaLVdqp" name="Bollwerk">
       <notes>
-        <note>Bollwerk</note>
         <note category="german">Bollwerk</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bollwerk</source>
         <target>Protección civil</target>
       </segment>
     </unit>
     <unit id="zkW4TlC" name="Baumarkt">
       <notes>
-        <note>Baumarkt</note>
         <note category="german">Baumarkt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Baumarkt</source>
         <target>Despacho de vivienda</target>
       </segment>
     </unit>
     <unit id="YpxBmf9" name="Krankenstation">
       <notes>
-        <note>Krankenstation</note>
         <note category="german">Krankenstation</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Krankenstation</source>
         <target>Enfermería</target>
       </segment>
     </unit>
     <unit id="e2uWnIv" name="Labor">
       <notes>
-        <note>Labor</note>
         <note category="german">Labor</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Labor</source>
         <target>Laboratorio central</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
       <notes>
-        <note>Werkstatt</note>
         <note category="german">Werkstatt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Werkstatt</source>
         <target>Taller</target>
       </segment>
     </unit>
     <unit id="FXAUu02" name="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
       <notes>
-        <note>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
         <target>Los costos en PA de todas las obras se reducen en 5%.</target>
       </segment>
     </unit>
     <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
       <notes>
-        <note>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
         <target>Los costos en PA de todas las obras se reducen en 10%.</target>
       </segment>
     </unit>
     <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
       <notes>
-        <note>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
         <target>Los costos en PA de todas las obras se reducen en 15%.</target>
       </segment>
     </unit>
     <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
       <notes>
-        <note>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
         <target>Los costos en PA de todas las obras se reducen en 20%.</target>
       </segment>
     </unit>
     <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
       <notes>
-        <note>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
         <target>Los costos en PA de todas las obras se reducen en 25%.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">
       <notes>
-        <note>Scanner</note>
         <note category="german">Scanner</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Scanner</source>
         <target>Radar</target>
       </segment>
     </unit>
     <unit id="fxriL78" name="Verbesserte Karte">
       <notes>
-        <note>Verbesserte Karte</note>
         <note category="german">Verbesserte Karte</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verbesserte Karte</source>
         <target>Mapa mejorado</target>
       </segment>
     </unit>
     <unit id="wBOW_40" name="Rechenmaschine">
       <notes>
-        <note>Rechenmaschine</note>
         <note category="german">Rechenmaschine</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rechenmaschine</source>
         <target>Pronosticador</target>
       </segment>
     </unit>
     <unit id="kOf03MZ" name="Forschungsturm">
       <notes>
-        <note>Forschungsturm</note>
         <note category="german">Forschungsturm</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Forschungsturm</source>
         <target>Barómetro</target>
       </segment>
     </unit>
     <unit id="3BWnOol" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.">
       <notes>
-        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.</source>
         <target>Las posibilidades de regeneración de una zona del desierto pasan a 37%.</target>
       </segment>
     </unit>
     <unit id="wn7xMlO" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.">
       <notes>
-        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.</source>
         <target>Las posibilidades de regeneración de una zona del desierto pasan a 49%.</target>
       </segment>
     </unit>
     <unit id="hOAn2zi" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.">
       <notes>
-        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.</source>
         <target>Las posibilidades de regeneración de una zona del desierto pasan a 61%.</target>
       </segment>
     </unit>
     <unit id="4qtyyT_" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.">
       <notes>
-        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.</source>
         <target>Las posibilidades de regeneración de una zona del desierto pasan a 73%.</target>
       </segment>
     </unit>
     <unit id="EII..O4" name="Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.">
       <notes>
-        <note>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</note>
         <note category="german">Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.</source>
         <target>Las posibilidades de regeneración de una zona del desierto pasan a 85%.</target>
       </segment>
     </unit>
     <unit id="iJl3i40" name="Verteidigungspfähle">
       <notes>
-        <note>Verteidigungspfähle</note>
         <note category="german">Verteidigungspfähle</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verteidigungspfähle</source>
         <target>Estacas</target>
       </segment>
     </unit>
     <unit id="ZwtYGJS" name="Notfallabstützung">
       <notes>
-        <note>Notfallabstützung</note>
         <note category="german">Notfallabstützung</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Notfallabstützung</source>
         <target>Barreras de madera</target>
       </segment>
     </unit>
     <unit id="CZ3TwGn" name="Guerilla">
       <notes>
-        <note>Guerilla</note>
         <note category="german">Guerilla</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Guerilla</source>
         <target>Trampas de guerrilla</target>
       </segment>
     </unit>
     <unit id="2oexLnE" name="Trümmerberg">
       <notes>
-        <note>Trümmerberg</note>
         <note category="german">Trümmerberg</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Trümmerberg</source>
         <target>Montículo espinado</target>
       </segment>
     </unit>
     <unit id="fhLdJ84" name="Abfallberg">
       <notes>
-        <note>Abfallberg</note>
         <note category="german">Abfallberg</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Abfallberg</source>
         <target>Montaña de basura</target>
       </segment>
     </unit>
     <unit id="Rj.C34H" name="Wolfsfalle">
       <notes>
-        <note>Wolfsfalle</note>
         <note category="german">Wolfsfalle</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wolfsfalle</source>
         <target>Obstáculos</target>
       </segment>
     </unit>
     <unit id="mdZatxx" name="Sprengfalle">
       <notes>
-        <note>Sprengfalle</note>
         <note category="german">Sprengfalle</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sprengfalle</source>
         <target>Polvorín</target>
       </segment>
     </unit>
     <unit id="Bomnue9" name="Nackte Panik">
       <notes>
-        <note>Nackte Panik</note>
         <note category="german">Nackte Panik</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nackte Panik</source>
         <target>Ataque de pánico</target>
       </segment>
     </unit>
     <unit id="0lzRs8w" name="Dollhouse">
       <notes>
-        <note>Dollhouse</note>
         <note category="german">Dollhouse</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dollhouse</source>
         <target>Fiesta en casa</target>
       </segment>
     </unit>
     <unit id="thcdfWu" name="Heiliger Regen">
       <notes>
-        <note>Heiliger Regen</note>
         <note category="german">Heiliger Regen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Heiliger Regen</source>
         <target>Chaparrón bendito</target>
       </segment>
     </unit>
     <unit id="kDKItz." name="Voodoo-Puppe">
       <notes>
-        <note>Voodoo-Puppe</note>
         <note category="german">Voodoo-Puppe</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Voodoo-Puppe</source>
         <target>Muñecaza de vudú</target>
       </segment>
     </unit>
     <unit id="Pb0lyLQ" name="Spirituelles Wunder">
       <notes>
-        <note>Spirituelles Wunder</note>
         <note category="german">Spirituelles Wunder</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Spirituelles Wunder</source>
         <target>Espejismo místico</target>
       </segment>
     </unit>
     <unit id="5CaCw2S" name="Bokors Guillotine">
       <notes>
-        <note>Bokors Guillotine</note>
         <note category="german">Bokors Guillotine</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bokors Guillotine</source>
         <target>Muerte a la Bokor</target>
       </segment>
     </unit>
     <unit id="vSThV6l" name="Notfallkonstruktion">
       <notes>
-        <note>Notfallkonstruktion</note>
         <note category="german">Notfallkonstruktion</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Notfallkonstruktion</source>
         <target>Defensas de urgencia</target>
       </segment>
     </unit>
     <unit id="aPBadh7" name="Verbesserter Katapult">
       <notes>
-        <note>Verbesserter Katapult</note>
         <note category="german">Verbesserter Katapult</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verbesserter Katapult</source>
         <target>Catapulta mejorada</target>
       </segment>
     </unit>
     <unit id="GWsFaiN" name="Katapult">
       <notes>
-        <note>Katapult</note>
         <note category="german">Katapult</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Katapult</source>
         <target>Catapulta</target>
       </segment>
     </unit>
     <unit id="d_fImyz" name="Kleine Waffenschmiede">
       <notes>
-        <note>Kleine Waffenschmiede</note>
         <note category="german">Kleine Waffenschmiede</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kleine Waffenschmiede</source>
         <target>Armería</target>
       </segment>
     </unit>
     <unit id="IILr3kv" name="Schwedische Schreinerei">
       <notes>
-        <note>Schwedische Schreinerei</note>
         <note category="german">Schwedische Schreinerei</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schwedische Schreinerei</source>
         <target>Taller sueco</target>
       </segment>
     </unit>
     <unit id="Vw74UDb" name="Schießstand">
       <notes>
-        <note>Schießstand</note>
         <note category="german">Schießstand</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schießstand</source>
         <target>Torre de tiro</target>
       </segment>
     </unit>
     <unit id="sgVOApH" name="Kleiner Tribok">
       <notes>
-        <note>Kleiner Tribok</note>
         <note category="german">Kleiner Tribok</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kleiner Tribok</source>
         <target>Lanza-mascotas</target>
       </segment>
     </unit>
     <unit id="rDDj6vk" name="Wächter-Turm">
       <notes>
-        <note>Wächter-Turm</note>
         <note category="german">Wächter-Turm</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wächter-Turm</source>
         <target>Torre de guardia</target>
       </segment>
     </unit>
     <unit id="NIEy.oJ" name="Krähennest">
       <notes>
-        <note>Krähennest</note>
         <note category="german">Krähennest</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Krähennest</source>
         <target>Torre de exploración</target>
       </segment>
     </unit>
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
-        <note>Wachturm</note>
         <note category="german">Wachturm</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wachturm</source>
         <target>Torre de vigilancia</target>
       </segment>
     </unit>
     <unit id="Sy.Q4GU" name="1bbcaa3">
       <notes>
-        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</source>
         <target>Cada mañana, detecta todos los zombies a 3 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="NZeNsxy" name="72834b1">
       <notes>
-        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</source>
         <target>Cada mañana, detecta todos los zombies a 6 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="wGZu2sa" name="e1df3f0">
       <notes>
-        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</source>
         <target>Cada mañana, detecta todos los zombies a 10 km del pueblo.</target>
       </segment>
     </unit>
     <unit id="h1r5RdI" name="8125fb1">
       <notes>
-        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
         <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 1km del pueblo.</target>
       </segment>
     </unit>
     <unit id="N0sOdNf" name="27f10d9">
       <notes>
-        <note>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</source>
         <target>Detecta zombies a 10 km + permite ingresar gratuitamente a los habitantes a 2km del pueblo.</target>
       </segment>
     </unit>
     <unit id="2B9BF5F" name="Bohrturm">
       <notes>
-        <note>Bohrturm</note>
         <note category="german">Bohrturm</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bohrturm</source>
         <target>Extractor mecánico</target>
       </segment>
     </unit>
     <unit id="ukqZW.g" name="Falsche Stadt">
       <notes>
-        <note>Falsche Stadt</note>
         <note category="german">Falsche Stadt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Falsche Stadt</source>
         <target>Pueblo falso</target>
       </segment>
     </unit>
     <unit id="0dmkB9a" name="Wasserhahn">
       <notes>
-        <note>Wasserhahn</note>
         <note category="german">Wasserhahn</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wasserhahn</source>
         <target>Grifería</target>
       </segment>
     </unit>
     <unit id="BlCgW4T" name="Großer Umbau">
       <notes>
-        <note>Großer Umbau</note>
         <note category="german">Großer Umbau</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Großer Umbau</source>
         <target>Mudanza general</target>
       </segment>
     </unit>
     <unit id="zaMjBQ." name="Vogelscheuche">
       <notes>
-        <note>Vogelscheuche</note>
         <note category="german">Vogelscheuche</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Vogelscheuche</source>
         <target>Campo de espantapájaros</target>
       </segment>
     </unit>
     <unit id="WP.9MMH" name="Fleischkäfig">
       <notes>
-        <note>Fleischkäfig</note>
         <note category="german">Fleischkäfig</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Fleischkäfig</source>
         <target>Cajita feliz</target>
       </segment>
     </unit>
     <unit id="lFBoBtv" name="Bürgergericht">
       <notes>
-        <note>Bürgergericht</note>
         <note category="german">Bürgergericht</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bürgergericht</source>
         <target>Dictadura del héroe</target>
       </segment>
     </unit>
     <unit id="ksEwaBK" name="Befestigungen">
       <notes>
-        <note>Befestigungen</note>
         <note category="german">Befestigungen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Befestigungen</source>
         <target>Fortificaciones</target>
       </segment>
     </unit>
     <unit id="k0lGB7h" name="Holzabfall">
       <notes>
-        <note>Holzabfall</note>
         <note category="german">Holzabfall</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Holzabfall</source>
         <target>Vertedero de madera</target>
       </segment>
     </unit>
     <unit id="EdJMx7W" name="Metallabfall">
       <notes>
-        <note>Metallabfall</note>
         <note category="german">Metallabfall</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Metallabfall</source>
         <target>Vertedero de metal</target>
       </segment>
     </unit>
     <unit id="_vBaevU" name="Tierabfälle">
       <notes>
-        <note>Tierabfälle</note>
         <note category="german">Tierabfälle</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Tierabfälle</source>
         <target>Vertedero de animales</target>
       </segment>
     </unit>
     <unit id="dBs_6pB" name="Müll für Alle">
       <notes>
-        <note>Müll für Alle</note>
         <note category="german">Müll für Alle</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Müll für Alle</source>
         <target>Vertedero libre</target>
       </segment>
     </unit>
     <unit id="NNvtYXk" name="Waffenabfall">
       <notes>
-        <note>Waffenabfall</note>
         <note category="german">Waffenabfall</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Waffenabfall</source>
         <target>Vertedero de armas</target>
       </segment>
     </unit>
     <unit id="SrT9K6G" name="Biomüll">
       <notes>
-        <note>Biomüll</note>
         <note category="german">Biomüll</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Biomüll</source>
         <target>Vertedero de comida</target>
       </segment>
     </unit>
     <unit id="KRW3IVw" name="Rüstungsabfall">
       <notes>
-        <note>Rüstungsabfall</note>
         <note category="german">Rüstungsabfall</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Rüstungsabfall</source>
         <target>Vertedero de defensas</target>
       </segment>
     </unit>
     <unit id="9.Bs0jf" name="Verbesserte Müllhalde">
       <notes>
-        <note>Verbesserte Müllhalde</note>
         <note category="german">Verbesserte Müllhalde</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verbesserte Müllhalde</source>
         <target>Verterdero mejorado</target>
       </segment>
     </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
       <notes>
-        <note>Müllhalde</note>
         <note category="german">Müllhalde</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Müllhalde</source>
         <target>Vertedero público</target>
       </segment>
     </unit>
     <unit id="QNQV_hH" name="Leuchtturm">
       <notes>
-        <note>Leuchtturm</note>
         <note category="german">Leuchtturm</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Leuchtturm</source>
         <target>Faro</target>
       </segment>
     </unit>
     <unit id="MwGqzqF" name="Altar">
       <notes>
-        <note>Altar</note>
         <note category="german">Altar</note>
       </notes>
       <segment>
@@ -1643,487 +1479,438 @@
     </unit>
     <unit id="Uqbfdqj" name="Riesige Sandburg">
       <notes>
-        <note>Riesige Sandburg</note>
         <note category="german">Riesige Sandburg</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Riesige Sandburg</source>
         <target>Castillo de arena</target>
       </segment>
     </unit>
     <unit id="Pp2_CqH" name="Leuchtfeuer">
       <notes>
-        <note>Leuchtfeuer</note>
         <note category="german">Leuchtfeuer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Leuchtfeuer</source>
         <target>Fogata</target>
       </segment>
     </unit>
     <unit id="9zmUkLt" name="Ministerium für Sklaverei">
       <notes>
-        <note>Ministerium für Sklaverei</note>
         <note category="german">Ministerium für Sklaverei</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ministerium für Sklaverei</source>
         <target>Ministerio de la esclavitud</target>
       </segment>
     </unit>
     <unit id="J1OKCl2" name="Reaktor">
       <notes>
-        <note>Reaktor</note>
         <note category="german">Reaktor</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Reaktor</source>
         <target>Reactor</target>
       </segment>
     </unit>
     <unit id="3zCLWcZ" name="Labyrinth">
       <notes>
-        <note>Labyrinth</note>
         <note category="german">Labyrinth</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Labyrinth</source>
         <target>Laberinto</target>
       </segment>
     </unit>
     <unit id="EUDSTNQ" name="Alles oder nichts">
       <notes>
-        <note>Alles oder nichts</note>
         <note category="german">Alles oder nichts</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Alles oder nichts</source>
         <target>Todo o nada</target>
       </segment>
     </unit>
     <unit id="PXNOlXe" name="Riesiger KVF">
       <notes>
-        <note>Riesiger KVF</note>
         <note category="german">Riesiger KVF</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Riesiger KVF</source>
         <target>COSA gigante</target>
       </segment>
     </unit>
     <unit id="GKI2tai" name="Riesenrad">
       <notes>
-        <note>Riesenrad</note>
         <note category="german">Riesenrad</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Riesenrad</source>
         <target>Gran noria de Znarf</target>
       </segment>
     </unit>
     <unit id="oemK25y" name="Feuerwerk">
       <notes>
-        <note>Feuerwerk</note>
         <note category="german">Feuerwerk</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Feuerwerk</source>
         <target>Fuegos artificiales</target>
       </segment>
     </unit>
     <unit id="0iB.kKU" name="Krähenstatue">
       <notes>
-        <note>Krähenstatue</note>
         <note category="german">Krähenstatue</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Krähenstatue</source>
         <target>Estatua del cuervo</target>
       </segment>
     </unit>
     <unit id="bhbqmFu" name="Kino">
       <notes>
-        <note>Kino</note>
         <note category="german">Kino</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kino</source>
         <target>Cine</target>
       </segment>
     </unit>
     <unit id="gEG0Yxp" name="Luftschlag">
       <notes>
-        <note>Luftschlag</note>
         <note category="german">Luftschlag</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Luftschlag</source>
         <target>Ataque aéreo</target>
       </segment>
     </unit>
     <unit id="20Mg3eL" name="Heißluftballon">
       <notes>
-        <note>Heißluftballon</note>
         <note category="german">Heißluftballon</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Heißluftballon</source>
         <target>Globo aerostático</target>
       </segment>
     </unit>
     <unit id="sEt2j5e" name="Tunnelratte">
       <notes>
-        <note>Tunnelratte</note>
         <note category="german">Tunnelratte</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Tunnelratte</source>
         <target>Extractor con poder animal</target>
       </segment>
     </unit>
     <unit id="45eKiS1" name="Fundament">
       <notes>
-        <note>Fundament</note>
         <note category="german">Fundament</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Fundament</source>
         <target>Cimientos</target>
       </segment>
     </unit>
     <unit id="oqi.Bcz" name="Torpanzerung">
       <notes>
-        <note>Torpanzerung</note>
         <note category="german">Torpanzerung</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Torpanzerung</source>
         <target>Refuerzos metálicos</target>
       </segment>
     </unit>
     <unit id="TsPH66_" name="Automatiktür">
       <notes>
-        <note>Automatiktür</note>
         <note category="german">Automatiktür</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Automatiktür</source>
         <target>Cierre de último minuto</target>
       </segment>
     </unit>
     <unit id="ZyEH3qK" name="Kolbenschließmechanismus">
       <notes>
-        <note>Kolbenschließmechanismus</note>
         <note category="german">Kolbenschließmechanismus</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Kolbenschließmechanismus</source>
         <target>Cierre automático</target>
       </segment>
     </unit>
     <unit id="aNUYPPj" name="Ventilationssystem">
       <notes>
-        <note>Ventilationssystem</note>
         <note category="german">Ventilationssystem</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ventilationssystem</source>
         <target>Conducto de ventilación</target>
       </segment>
     </unit>
     <unit id="tl._DOx" name="Portal">
       <notes>
-        <note>Portal</note>
         <note category="german">Portal</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Portal</source>
         <target>Seguro para puerta</target>
       </segment>
     </unit>
     <unit id="7I8s6VU" name="Feldbett">
       <notes>
-        <note>Feldbett</note>
         <note category="german">Feldbett</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Feldbett</source>
         <target>Camastro</target>
       </segment>
     </unit>
     <unit id="6VkIdiO" name="Zelt">
       <notes>
-        <note>Zelt</note>
         <note category="german">Zelt</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zelt</source>
         <target>Tienda</target>
       </segment>
     </unit>
     <unit id="ERgjYMQ" name="Baracke">
       <notes>
-        <note>Baracke</note>
         <note category="german">Baracke</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Baracke</source>
         <target>Cuchitril</target>
       </segment>
     </unit>
     <unit id="0TTwMvT" name="Hütte">
       <notes>
-        <note>Hütte</note>
         <note category="german">Hütte</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hütte</source>
         <target>Barraca</target>
       </segment>
     </unit>
     <unit id="UJdq1Y9" name="Haus">
       <notes>
-        <note>Haus</note>
         <note category="german">Haus</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Haus</source>
         <target>Casa</target>
       </segment>
     </unit>
     <unit id=".xY6IFq" name="Umzäuntes Haus">
       <notes>
-        <note>Umzäuntes Haus</note>
         <note category="german">Umzäuntes Haus</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Umzäuntes Haus</source>
         <target>Casa enrejada</target>
       </segment>
     </unit>
     <unit id="Puc93rh" name="Befestigte Unterkunft">
       <notes>
-        <note>Befestigte Unterkunft</note>
         <note category="german">Befestigte Unterkunft</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Befestigte Unterkunft</source>
         <target>Fuerte</target>
       </segment>
     </unit>
     <unit id="TLVi.09" name="Bunker">
       <notes>
-        <note>Bunker</note>
         <note category="german">Bunker</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bunker</source>
         <target>Bunker nuclear</target>
       </segment>
     </unit>
     <unit id="EQFRE1h" name="Schloss">
       <notes>
-        <note>Schloss</note>
         <note category="german">Schloss</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schloss</source>
         <target>Castillo</target>
       </segment>
     </unit>
     <unit id="eUUzMiR" name="Großer Vorhang">
       <notes>
-        <note>Großer Vorhang</note>
         <note category="german">Großer Vorhang</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Großer Vorhang</source>
         <target>Gran cortina</target>
       </segment>
     </unit>
     <unit id="3Gfr9md" name="4440c27">
       <notes>
-        <note>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</note>
         <note category="german">Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</source>
         <target>Un viejo pedazo de tela manchada. Nada más práctico para ocultar tus objetos de las miradas entrometidas de tus vecinos.</target>
       </segment>
     </unit>
     <unit id="7Bfx_db" name="Hobbylabor">
       <notes>
-        <note>Hobbylabor</note>
         <note category="german">Hobbylabor</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hobbylabor</source>
         <target>Sótano laboratorio</target>
       </segment>
     </unit>
     <unit id="P0f3sQx" name="f0abf03">
       <notes>
-        <note>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</note>
         <note category="german">Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</source>
         <target>Un minúsculo agujero que apesta a gato muerto en medio de tu 'sala', pero donde puedes llevar a cabo tus experimentos científicos (cada nivel aumenta en 25% las posibilidades de obtener una buena sustancia estimulante)...</target>
       </segment>
     </unit>
     <unit id="qeyHLmY" name="Küche">
       <notes>
-        <note>Küche</note>
         <note category="german">Küche</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Küche</source>
         <target>Cocina</target>
       </segment>
     </unit>
     <unit id="BL3_hNZ" name="f8d2ad1">
       <notes>
-        <note>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</note>
         <note category="german">In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</source>
         <target>La cocina está equipada con lo más mínimo para preparar raciones de calidad (cada nivel aumenta en 33% las posibilidades de obtener un buen platillo).</target>
       </segment>
     </unit>
     <unit id="N8dpSCq" name="Primitives Alarmsystem">
       <notes>
-        <note>Primitives Alarmsystem</note>
         <note category="german">Primitives Alarmsystem</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Primitives Alarmsystem</source>
         <target>Alarma rudimentaria</target>
       </segment>
     </unit>
     <unit id="x6GQTRQ" name="df8648b">
       <notes>
-        <note>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</note>
         <note category="german">Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</source>
         <target>Es un sistema muy simple: chatarra y latas unidas por un hilo, pero su eficacia despertando a los demás durante un intento de robo es indiscutible...</target>
       </segment>
     </unit>
     <unit id="Dy4Ru5R" name="Ruheecke">
       <notes>
-        <note>Ruheecke</note>
         <note category="german">Ruheecke</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ruheecke</source>
         <target>Rincón para siesta</target>
       </segment>
     </unit>
     <unit id="RR.D4lZ" name="eefcc52">
       <notes>
-        <note>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</note>
         <note category="german">Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</source>
         <target>Solo se trata de un hoyo en el suelo cubierto por cartones, pero es muy útil para echarse una siestecilla cuando es necesario (cada nivel aumenta en 33% las posibilidades de dormir bien).</target>
       </segment>
     </unit>
     <unit id="ASpYRZf" name="Türschloss">
       <notes>
-        <note>Türschloss</note>
         <note category="german">Türschloss</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Türschloss</source>
         <target>Cerrojo</target>
       </segment>
     </unit>
     <unit id="cv5fZ5I" name="Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.">
       <notes>
-        <note>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</note>
         <note category="german">Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.</source>
         <target>Este sistema rudimentario pero eficaz impedirá que te roben un objeto.</target>
       </segment>
     </unit>
     <unit id="_XJvPlM" name="61daef0">
       <notes>
-        <note>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</note>
         <note category="german">Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</source>
         <target>Cuando los muros no bastan, una valla no está de más. Una defensa indispensable.</target>
       </segment>
     </unit>
     <unit id="_ZwT1d7" name="Stauraum">
       <notes>
-        <note>Stauraum</note>
         <note category="german">Stauraum</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Stauraum</source>
         <target>Compartimentos</target>
       </segment>
     </unit>
     <unit id="ukY3L6h" name="Deine persönliche Truhe vergrößert sich. ">
       <notes>
-        <note>Deine persönliche Truhe vergrößert sich. </note>
         <note category="german">Deine persönliche Truhe vergrößert sich. </note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Deine persönliche Truhe vergrößert sich. </source>
         <target>Agrega un espacio en tu baúl personal.</target>
       </segment>
     </unit>
     <unit id="9vHiNcG" name="Verstärkungen">
       <notes>
-        <note>Verstärkungen</note>
         <note category="german">Verstärkungen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verstärkungen</source>
         <target>Refuerzos</target>
       </segment>
     </unit>
     <unit id="_a49kpt" name="1bac838">
       <notes>
-        <note>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</note>
         <note category="german">Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</source>
         <target>Un poco de bricolaje con lo que tienes a la mano y aumentamos su duración de vida... un poco al menos (cada nivel agrega 1 pt de defensa).</target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
       <notes>
-        <note>Verteidigung</note>
         <note category="german">Verteidigung</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verteidigung</source>
         <target>Defensa</target>
       </segment>
     </unit>
     <unit id="6lSJGc4" name="Brustwehr">
       <notes>
-        <note>Brustwehr</note>
         <note category="german">Brustwehr</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Brustwehr</source>
         <target>Almenas</target>
       </segment>
     </unit>
     <unit id="Pnjrt1t" name="Hammam">
       <notes>
-        <note>Hammam</note>
         <note category="german">Hammam</note>
       </notes>
       <segment>
@@ -2135,7 +1922,7 @@
       <notes>
         <note category="german">Temporäre Konstruktion!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Temporäre Konstruktion!</source>
         <target>¡Construcción temporal!</target>
       </segment>
@@ -2144,7 +1931,7 @@
       <notes>
         <note category="german">Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</source>
         <target>Esta construcción es de un solo uso. Será destruida esta noche, después del ataque de los zombies.</target>
       </segment>
@@ -2153,7 +1940,7 @@
       <notes>
         <note category="german">Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn ihr wollt, könnt irh sie morgen nochmal bauen.</source>
         <target>Puedes volver a iniciar su construcción el día siguiente si lo deseas.</target>
       </segment>
@@ -2162,16 +1949,16 @@
       <notes>
         <note category="german">Verbessert die Stadtverteidigung erheblich.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verbessert die Stadtverteidigung erheblich.</source>
         <target>Aumenta significativamente las defensas del pueblo.</target>
-     </segment>
+      </segment>
     </unit>
     <unit id="alG3UeZ" name="Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...">
       <notes>
         <note category="german">Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...</source>
         <target>¿Quieres mejorar la zanja periférica? ¡Llénala con agua!</target>
       </segment>
@@ -2180,7 +1967,7 @@
       <notes>
         <note category="german">Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</source>
         <target>Una gran zanja alrededor del pueblo. Es muy interesante y eficaz a largo plazo porque podremos llenarla con varias cosas para hacerla más letal.</target>
       </segment>
@@ -2189,7 +1976,7 @@
       <notes>
         <note category="german">Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</source>
         <target>Un concepto simple: Colocar un montón de chatarra afilada frente a la muralla. Solo queda esperar a que los zombies se peguen a ella como moscas.</target>
       </segment>
@@ -2198,7 +1985,7 @@
       <notes>
         <note category="german">Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</source>
         <target>¿Ideas para mejorar la zanja periférica? Coloca un montón de estacas afiladas en el fondo.</target>
       </segment>
@@ -2207,7 +1994,7 @@
       <notes>
         <note category="german">Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</source>
         <target>Un pedazo de carne enganchado al alambre de púas para detener a algunos zombies.</target>
       </segment>
@@ -2216,7 +2003,7 @@
       <notes>
         <note category="german">Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</source>
         <target>Esperamos que sirva, no sabemos cómo fue hecho, puesto que en el pueblo no había alambres.</target>
       </segment>
@@ -2225,7 +2012,7 @@
       <notes>
         <note category="german">Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</source>
         <target>Tal vez sea demasiado pronto, pero una muralla como esta nos permitirá agregarle muchas mejoras.</target>
       </segment>
@@ -2234,7 +2021,7 @@
       <notes>
         <note category="german">Was ist besser als eine Mauer?... eine groooße Mauer.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Was ist besser als eine Mauer?... eine groooße Mauer.</source>
         <target>¿Qué es mejor que un muro? ¡Un gran muro!</target>
       </segment>
@@ -2243,7 +2030,7 @@
       <notes>
         <note category="german">Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</source>
         <target>Hierros puntiagudos colocados sobre las murallas esperando encontrar unas bonitas brochetas de zombies por la mañana.</target>
       </segment>
@@ -2252,7 +2039,7 @@
       <notes>
         <note category="german">Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</source>
         <target>Con una tercera capa de materiales, la muralla será mucho más resistente...</target>
       </segment>
@@ -2261,7 +2048,7 @@
       <notes>
         <note category="german">Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</source>
         <target>Una segunda capa de materiales en la muralla mejorará su resistencia a los ataques de esos monstruos.</target>
       </segment>
@@ -2270,7 +2057,7 @@
       <notes>
         <note category="german">Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</source>
         <target>Una capa de hormigón le dará una gran resistencia a la muralla.</target>
       </segment>
@@ -2279,7 +2066,7 @@
       <notes>
         <note category="german">Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</source>
         <target>Colocándole una estructura de metal, podremos mejorar la muralla cada día sin mucho esfuerzo.</target>
       </segment>
@@ -2288,7 +2075,7 @@
       <notes>
         <note category="german">Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</source>
         <target>Placas de metal para reforzar las partes débiles de la muralla.</target>
       </segment>
@@ -2297,7 +2084,7 @@
       <notes>
         <note category="german">Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</source>
         <target>Cubriendo el terreno con un montón de trozos de metal afilado construirás el mayor rallador de zombies del mundo.</target>
       </segment>
@@ -2306,7 +2093,7 @@
       <notes>
         <note category="german">Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</source>
         <target>Un montón de hoyos disimulados con telas y tierra. Esperemos a que algún zombie caiga en ellos...</target>
       </segment>
@@ -2315,7 +2102,7 @@
       <notes>
         <note category="german">Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</source>
         <target>Colocadas alrededor del pueblo deberían (en teoría) detener el paso de los zombies durante el ataque.</target>
       </segment>
@@ -2324,7 +2111,7 @@
       <notes>
         <note category="german">Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</source>
         <target>Puede parecer muy simple pero estarás contento de tener uno cuando, Carlos, tu antiguo vecino, venga para comerte los sesos.</target>
       </segment>
@@ -2333,7 +2120,7 @@
       <notes>
         <note category="german">Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</source>
         <target>No tiene nada de tecnología, pero te ayudará a seguir vivo.</target>
       </segment>
@@ -2342,7 +2129,7 @@
       <notes>
         <note category="german">Simpel aber stabil: Was will man mehr?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Simpel aber stabil: Was will man mehr?</source>
         <target>Más simple, imposible. Pero que protege... protege.</target>
       </segment>
@@ -2351,7 +2138,7 @@
       <notes>
         <note category="german">Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</source>
         <target>Lo colocaste porque no tenías nada mejor que hacer, sabiendo que será inútil, pero insistes. Bueno pues, adelante...</target>
       </segment>
@@ -2360,7 +2147,7 @@
       <notes>
         <note category="german">Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</source>
         <target>Quien tuvo la idea no es precisamente un genio, pero todo el mundo piensa que un muro más no está mal.</target>
       </segment>
@@ -2369,7 +2156,7 @@
       <notes>
         <note category="german">Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</source>
         <target>¿Por qué a nadie se le ocurrió antes? En vez de perder el tiempo lavándose con un jabón, ¿no sería mejor frotarlo contra las paredes del pueblo para que los zombies resbalen al intentar trepar? Eso junto con el raspa-zombies sería muy divertido.</target>
       </segment>
@@ -2378,7 +2165,7 @@
       <notes>
         <note category="german">Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</source>
         <target>Muchos no lo saben pero los zombies tienen un cerebro, y eso es bueno. Este simpático cañón está hecho para hacérselos explotar.</target>
       </segment>
@@ -2387,7 +2174,7 @@
       <notes>
         <note category="german">Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</source>
         <target>Esto no hará que los zombies se vean mejor al entrar al pueblo.</target>
       </segment>
@@ -2396,7 +2183,7 @@
       <notes>
         <note category="german">Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</source>
         <target>Un pequeño sistema hidráulico concebido para lanzar vapor de agua (y otros productos químicos en él).</target>
       </segment>
@@ -2405,7 +2192,7 @@
       <notes>
         <note category="german">Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</source>
         <target>Mezcla pólvora, dispositivos detonadores y agua pura para obtener una enorme sopa de cuerpos putrefactos esta noche. Una defensa potente pero de un solo uso.</target>
       </segment>
@@ -2414,7 +2201,7 @@
       <notes>
         <note category="german">Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).</source>
         <target>Aumenta considerablemente la eficacia del purificador. (Producción elevada).</target>
       </segment>
@@ -2423,7 +2210,7 @@
       <notes>
         <note category="german">Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.</source>
         <target>Convierte el agua de los bidones encontrados en el desierto en raciones de agua potable. (Producción media).</target>
       </segment>
@@ -2432,7 +2219,7 @@
       <notes>
         <note category="german">Verbessert die Ausbeute des Gemüsebeets erheblich.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verbessert die Ausbeute des Gemüsebeets erheblich.</source>
         <target>Aumenta considerablemente la producción de tu huerta.</target>
       </segment>
@@ -2441,7 +2228,7 @@
       <notes>
         <note category="german">Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</source>
         <target>La naturaleza nos da sorpresas, a veces explosivas.</target>
       </segment>
@@ -2450,7 +2237,7 @@
       <notes>
         <note category="german">Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</source>
         <target>Cultiva vegetales con aspecto poco comestible y llenos de gusanos. Un manjar.</target>
       </segment>
@@ -2459,7 +2246,7 @@
       <notes>
         <note category="german">Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</source>
         <target>Una solución radical cuando no queda agua: Perforar la capa freática con dinamita para extraer agua del subsuelo.</target>
       </segment>
@@ -2468,7 +2255,7 @@
       <notes>
         <note category="german">Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</source>
         <target>Un taladro artesanal que permitirá encontrar agua más profundo en el suelo y así aumentar las reservas de agua disponibles.</target>
       </segment>
@@ -2477,7 +2264,7 @@
       <notes>
         <note category="german">Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.</source>
         <target>Esta máquina consume una gran cantidad de agua pura y la proyecta en forma de un fino vapor caliente sobre el pueblo durante el ataque. Esperamos que sea del agrado de los amiguitos putrefactos que nos visitan.</target>
       </segment>
@@ -2486,7 +2273,7 @@
       <notes>
         <note category="german">Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!</source>
         <target>Dos grandes placas a cada lado de la entrada y un poderoso sistema de pistones. Cuando es accionado, aplasta instantáneamente todo lo que se encuentre entre ellos.</target>
       </segment>
@@ -2495,7 +2282,7 @@
       <notes>
         <note category="german">Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</source>
         <target>Tradicionalmente orientado a la jardinería, hoy se ha convertido en un arma mortal contra los muertos vivientes. Requiere una reserva de agua importante.</target>
       </segment>
@@ -2504,7 +2291,7 @@
       <notes>
         <note category="german">Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!</source>
         <target>"¡Hey muchachos, oléis muy mal! ¿Una ducha?"</target>
       </segment>
@@ -2513,7 +2300,7 @@
       <notes>
         <note category="german">Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</source>
         <target>Gracias a esta red de tubos, puedes construir poderosas defensas de agua en el pueblo. Además el sistema aporta una cantidad de agua al pozo.</target>
       </segment>
@@ -2522,7 +2309,7 @@
       <notes>
         <note category="german">Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.</source>
         <target>Este revolucionario sistema proyecta poderosos chorros de vapor de agua sobre las turbas de zombies que se acerquen a tus murallas. ¡Con algunos ajustes adicionales, será una defensa excepcional!</target>
       </segment>
@@ -2531,7 +2318,7 @@
       <notes>
         <note category="german">Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.</source>
         <target>Cuando se trata de agua cada gota cuenta. Esta construcción extrae agua de las profundidades y aporta +2 raciones al pozo y puede ser reconstruido cada día.</target>
       </segment>
@@ -2540,7 +2327,7 @@
       <notes>
         <note category="german">Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.</source>
         <target>Esos hediondos zombies necesitan un chorrito de agua.</target>
       </segment>
@@ -2549,7 +2336,7 @@
       <notes>
         <note category="german">Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?</source>
         <target>Las aguas residuales del pueblo pueden servir aún. Basta con conectar los inodoros de cada habitante a un ingenioso sistema de tubos y abrir las válvulas durante el ataque. Por favor, no tirar el papel en el inodoro, puede tapar las canalizaciones y causar una explosión.</target>
       </segment>
@@ -2558,7 +2345,7 @@
       <notes>
         <note category="german">Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.</source>
         <target>Era usado como decoración en algún restaurante japonés, pero aquí sirve para hacer mucho daño a los amigos zombies.</target>
       </segment>
@@ -2567,7 +2354,7 @@
       <notes>
         <note category="german">Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</source>
         <target>La innovación: apunta hacia el suelo. Surgió como muchos inventos de un error. Alguien quiso salir del pueblo propulsado por un cohete, la máquina giró hacia abajo y terminó con la cabeza metida en un río subterráneo.'</target>
       </segment>
@@ -2576,7 +2363,7 @@
       <notes>
         <note category="german">Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</source>
         <target>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</target>
       </segment>
@@ -2585,7 +2372,7 @@
       <notes>
         <note category="german">Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?</source>
         <target>El pobre árbol está muy seco pero produce unas bonitas manzanas azules... Ehh... ¡¿Azules?!</target>
       </segment>
@@ -2594,7 +2381,7 @@
       <notes>
         <note category="german">Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</source>
         <target>No, no es de las que explotan, sino de las que bombean. Este dispositivo libera todas las construcciones relacionadas con agua. También aumenta las reservas subterráneas del pozo.</target>
       </segment>
@@ -2603,7 +2390,7 @@
       <notes>
         <note category="german">Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...</source>
         <target>Bueno, todos sabemos lo que es un crematorio, todos sabemos lo que es una barbacoa. Entonces es fácil adivinar la función de este lugar. Ahora dejadnos comer...</target>
       </segment>
@@ -2612,7 +2399,7 @@
       <notes>
         <note category="german">In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...</source>
         <target>Permite transformar a tus fieles amigos (gatos, perros, serpientes...) en raciones. Y pensar que algunos prefieren ser vegetarianos...</target>
       </segment>
@@ -2621,7 +2408,7 @@
       <notes>
         <note category="german">Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!</source>
         <target>Un ingenioso sistema que optimiza el uso de placas de defensa (láminas de metal u otros). ¡Cada objeto de defensa en el Almacén da más puntos de defensa!</target>
       </segment>
@@ -2630,7 +2417,7 @@
       <notes>
         <note category="german">Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!</source>
         <target>Una torre mecánica que lanza rocas a gran velocidad en dirección del portal. Se activa a la hora del ataque y dispara sin cesar durante varios minutos. Si pensabas dormir en silencio, olvídalo.</target>
       </segment>
@@ -2639,7 +2426,7 @@
       <notes>
         <note category="german">Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</source>
         <target>Un poderoso mecanismo de aire comprimido que dispara bolas clavos torcidos y chatarra puntiaguda. Perfecto para perforar cualquier cosa... o a cualquiera.</target>
       </segment>
@@ -2648,7 +2435,7 @@
       <notes>
         <note category="german">Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...</source>
         <target>Lanza pesadas láminas de metal en línea recta hacia el campo de batalla: una masacre asegurada, muy eficaz.</target>
       </segment>
@@ -2657,7 +2444,7 @@
       <notes>
         <note category="german">Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.</source>
         <target>Una máquina muy buena para matar, pero que deberás cargar cada día.</target>
       </segment>
@@ -2666,7 +2453,7 @@
       <notes>
         <note category="german">Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.</source>
         <target>Varios montículos de tierra reforzados con vigas de madera. Indispensable para construir torres de defensa.</target>
       </segment>
@@ -2675,7 +2462,7 @@
       <notes>
         <note category="german">Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.</source>
         <target>Largas vigas de metal fijadas a un eje. Gira, y muy rápido.</target>
       </segment>
@@ -2684,7 +2471,7 @@
       <notes>
         <note category="german">Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.</source>
         <target>Esta versión mejorada del taller reduce en 1 PA el costo de todas las transformaciones realizadas en él.</target>
       </segment>
@@ -2693,7 +2480,7 @@
       <notes>
         <note category="german">Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...</source>
         <target>Sierras circulares giratorias activadas por un ingenioso sistema de elásticos. El ruido que produce hace pensar en desgarradores gritos humanos</target>
       </segment>
@@ -2702,7 +2489,7 @@
       <notes>
         <note category="german">Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.</source>
         <target>Cuando los habitantes más inteligentes se reúnen grandes ideas surgen. Para eso es necesario una oficina. Este lugar le permite al pueblo recibir un plano de construcción (simple) cada día en el Almacén.</target>
       </segment>
@@ -2711,7 +2498,7 @@
       <notes>
         <note category="german">Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.</source>
         <target>Organización y una buena mesa bastan para tener un registro preciso de todo lo que sucede en las obras.</target>
       </segment>
@@ -2720,7 +2507,7 @@
       <notes>
         <note category="german">An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...</source>
         <target>¿Para qué contentarse con desterrar a los habitantes indeseables si podemos darnos el gusto de colgarlos? Dijo alguien por ahí. Fue así que se construyó esta bonita horca. Atención: Dado que la estructura no es muy estable, solo puede ser usada UNA VEZ y para UNA PERSONA. Después habrá que construir otra de nuevo.</target>
       </segment>
@@ -2729,7 +2516,7 @@
       <notes>
         <note category="german">Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.</source>
         <target>Nada mejor que una tabla de madera para comer un trozo de pan seco, imaginando que es uno de esos buenos restaurantes que solías frecuentar.</target>
       </segment>
@@ -2738,7 +2525,7 @@
       <notes>
         <note category="german">Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.</source>
         <target>Sirve para lanzar un montón de cosas al Ultramundo. Ideal para abastecer las expediciones en el desierto.</target>
       </segment>
@@ -2747,7 +2534,7 @@
       <notes>
         <note category="german">Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.</source>
         <target>¡Traed aquí todos vuestros muertos! Usad sus cuerpos para reforzar las defensas. Cada cadáver da +10 puntos de defensa al pueblo. ¡Ja! Algunos compañeros son más útiles muertos que vivos.</target>
       </segment>
@@ -2756,7 +2543,7 @@
       <notes>
         <note category="german">Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.</source>
         <target>Si extrañas el sabor de las buenas tortillas con champiñones, tocino y tomates, esta construcción no te servirá. Bueno, los huevos sí tendrás. Si quieres hongos, será mejor pedírselos a los zombies allá afuera.</target>
       </segment>
@@ -2765,7 +2552,7 @@
       <notes>
         <note category="german">Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.</source>
         <target>Un matadero instalado junto al portal y cuya entrada da hacia el Ultramundo. El inconveniente es siempre encontrar alguien que se atreva a atraer a los zombies agitando los brazos.</target>
       </segment>
@@ -2774,7 +2561,7 @@
       <notes>
         <note category="german">Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).</source>
         <target>Una estructura mejorada para aumentar la eficacia de las defensas (las defensas totales del pueblo aumentan +10%).</target>
       </segment>
@@ -2783,7 +2570,7 @@
       <notes>
         <note category="german">Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.</source>
         <target>Mejora la producción de las "cocinas personales" construidas por los Héroes de tu pueblo.</target>
       </segment>
@@ -2792,7 +2579,7 @@
       <notes>
         <note category="german">Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</source>
         <target>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</target>
       </segment>
@@ -2801,7 +2588,7 @@
       <notes>
         <note category="german">Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.</source>
         <target>Este ambicioso proyecto tiene por objetivo reforzar nuestras defensas ubicando mejor las viviendas de los habitantes. Con esta construcción, 80% de las defensas personales cuentan para el pueblo, en lugar del 40% habitual.</target>
       </segment>
@@ -2810,7 +2597,7 @@
       <notes>
         <note category="german">Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.</source>
         <target>En caso de pequeñas heridas o los traumatismos irreparables, podrás acudir aquí. Pero tendrás que coserte para cerrar tus heridas tú mismo porque el personal no está incluido.</target>
       </segment>
@@ -2819,7 +2606,7 @@
       <notes>
         <note category="german">Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.</source>
         <target>Mejora la producción de los "laboratorios personales" construidos por los Héroes de tu pueblo.</target>
       </segment>
@@ -2828,7 +2615,7 @@
       <notes>
         <note category="german">Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.</source>
         <target>El progreso de tu pueblo depende de la construcción de un sucio y desordenado taller. Es indispensable para construir los edificios avanzados.</target>
       </segment>
@@ -2837,7 +2624,7 @@
       <notes>
         <note category="german">Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.</source>
         <target>Este radar casero (si es bien utilizado) permite reducir a la mitad la dificultad de calcular el ataque nocturno. Se requieren 2 veces menos habitantes para obtener un pronóstico. ¡Muy útil!</target>
       </segment>
@@ -2846,7 +2633,7 @@
       <notes>
         <note category="german">Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...</source>
         <target>Estos ajustes electrónicos mejoran la lectura del mapa del Ultramundo. La cantidad exacta de zombies en cada zona es visible más claramente. Indispensable para no hacerse atrapar tontamente.</target>
       </segment>
@@ -2855,7 +2642,7 @@
       <notes>
         <note category="german">Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!</source>
         <target>Es una maquinita muy especial que te brinda una estimación más o menos acertada de los ataques... del DÍA SIGUIENTE.</target>
       </segment>
@@ -2864,7 +2651,7 @@
       <notes>
         <note category="german">Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</source>
         <target>Detecta los fenómenos meteorológicos anormales que sacuden el desierto y en la noche indica en el boletín la región del desierto afectada. Así, te ayudará cada día a encontrar objetos en zonas consideradas como "agotadas".</target>
       </segment>
@@ -2873,7 +2660,7 @@
       <notes>
         <note category="german">Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</source>
         <target>Plantar estacas de madera afiladas alrededor del pueblo es una alternativa de bajo coste, pero que puede ser decisiva como defensa, a veces...</target>
       </segment>
@@ -2882,7 +2669,7 @@
       <notes>
         <note category="german">Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</source>
         <target>En caso de peligro siempre es bueno colocar algunas barreras de madera en varios lugares.</target>
       </segment>
@@ -2891,7 +2678,7 @@
       <notes>
         <note category="german">Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.</source>
         <target>Colocar una variedad de trampas en varios lugares es una buena manera de diezmar el ataque de los zombies.</target>
       </segment>
@@ -2900,7 +2687,7 @@
       <notes>
         <note category="german">Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!</source>
         <target>Cuando tienes un montículo formado, es fácil colocarle puntas tan oxidadas como mortales.</target>
       </segment>
@@ -2909,7 +2696,7 @@
       <notes>
         <note category="german">Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.</source>
         <target>Cuando todo parece estar perdido, forma una barrera con todo lo que encuentres y cruza los dedos para que detenga a los zombies. También te da la ventaja de poder colocar trampas dentro de ella.</target>
       </segment>
@@ -2918,7 +2705,7 @@
       <notes>
         <note category="german">Das wird den Zombies Beine machen - oder besser: ausreißen!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das wird den Zombies Beine machen - oder besser: ausreißen!</source>
         <target>No matará a los zombies pero detendrá su avance.</target>
       </segment>
@@ -2927,7 +2714,7 @@
       <notes>
         <note category="german">Dynamit, Zombies, Blut.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dynamit, Zombies, Blut.</source>
         <target>Dinamita, zombies, sangre.</target>
       </segment>
@@ -2936,7 +2723,7 @@
       <notes>
         <note category="german">Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.</source>
         <target>En una situación realmente desesperada, puedes por supuesto chillar como un loco. Lo bueno es que si todos hacen lo mismo, los zombies quedarán desconcertados y ganaréis algunos puntos de defensa... Una vergonzosa manera de defenderse, ¿no crees?</target>
       </segment>
@@ -2945,7 +2732,7 @@
       <notes>
         <note category="german">Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.</source>
         <target>Armar una buena parranda es una buena manera de olvidar lo que sucede afuera. Afortunadamente los zombies no tardarán en llegar para poner un poco de orden.</target>
       </segment>
@@ -2954,7 +2741,7 @@
       <notes>
         <note category="german">Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</source>
         <target>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</target>
       </segment>
@@ -2963,7 +2750,7 @@
       <notes>
         <note category="german">Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</source>
         <target>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</target>
       </segment>
@@ -2972,7 +2759,7 @@
       <notes>
         <note category="german">Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</source>
         <target>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</target>
       </segment>
@@ -2981,7 +2768,7 @@
       <notes>
         <note category="german">Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</source>
         <target>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</target>
       </segment>
@@ -2990,7 +2777,7 @@
       <notes>
         <note category="german">Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!</source>
         <target>Cuando el peligro es inminente, a veces es necesario construir defensas capaces de resistir solo una noche. ¡Pero evita despilfarrar recursos del pueblo construyendo obras temporales por doquier!</target>
       </segment>
@@ -2999,7 +2786,7 @@
       <notes>
         <note category="german">Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!</source>
         <target>Algunas mejoras técnicas reducen el costo en PA para lanzar un objeto.</target>
       </segment>
@@ -3008,7 +2795,7 @@
       <notes>
         <note category="german">Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</source>
         <target>Sirve para lanzar un montón de cosas al Ultramundo. Ideal para abastecer las expediciones en el desierto.</target>
       </segment>
@@ -3017,7 +2804,7 @@
       <notes>
         <note category="german">Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</source>
         <target>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</target>
       </segment>
@@ -3026,7 +2813,7 @@
       <notes>
         <note category="german">Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</source>
         <target>Esta tienda hará que todos tus materiales ganen 20% de eficacia. ¡Los suecos son unos genios!'</target>
       </segment>
@@ -3035,7 +2822,7 @@
       <notes>
         <note category="german">Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</source>
         <target>Una torre de tiro de globos de agua en la muralla será la parte más divertida de ser centinela.</target>
       </segment>
@@ -3044,7 +2831,7 @@
       <notes>
         <note category="german">Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.</source>
         <target>Con este lanzador podrás utilizar a tus amigos animales como proyectiles para distraer a las hordas de zombies. Además, el ruido que hacen los animales volando por los aires servirá para animar a todo el pueblo.</target>
       </segment>
@@ -3053,7 +2840,7 @@
       <notes>
         <note category="german">Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.</source>
         <target>La instalación de una gran y bella torre central hará muy felices a los Héroes Guardianes. Esta construcción da +10 puntos de defensa por guardián en el pueblo y les permite aportar aún más defensas a cambio de PA.</target>
       </segment>
@@ -3062,7 +2849,7 @@
       <notes>
         <note category="german">Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).</source>
         <target>No es realmente una torre, es más bien un gran poste, a cuya cima todo Explorador puede trepar para detectar un edificio en el Ultramundo (1 vez por día y por Héroe).</target>
       </segment>
@@ -3071,7 +2858,7 @@
       <notes>
         <note category="german">Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.</source>
         <target>Situada cerca de la entrada permite tener una estimación del ataque de los zombies para que los habitantes estén mejor preparados. Libera igualmente todas las construcciones relacionadas a situaciones de urgencia.</target>
       </segment>
@@ -3080,7 +2867,7 @@
       <notes>
         <note category="german">Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.</source>
         <target>Permite extraer una gran cantidad de agua de las capas freáticas más profundas. Aporta 50 de raciones de agua al pozo.</target>
       </segment>
@@ -3089,7 +2876,7 @@
       <notes>
         <note category="german">Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...</source>
         <target>Los zombies pueden ser a veces tan tontos... Si construyes un pueblo falso en otro lugar, desviarás una buena parte del ataque hacia allá.</target>
       </segment>
@@ -3098,7 +2885,7 @@
       <notes>
         <note category="german">Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</source>
         <target>Con esta válvula unida al pozo, podrás recuperar el agua desperdiciada por el sistema de filtrado (sin extraer agua potable) y usarla para llenar GRATUITAMENTE todas tus armas de agua.</target>
       </segment>
@@ -3107,7 +2894,7 @@
       <notes>
         <note category="german">Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!</source>
         <target>Este proyecto delirante pretende reestructurar el pueblo entero: juntar las casas, desaparecer las calles, instalar torres sobre los techos... ¡Qué genios!</target>
       </segment>
@@ -3116,7 +2903,7 @@
       <notes>
         <note category="german">Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.</source>
         <target>Todos esos espantapájaros funcionarían mejor si llevaran la ropa de los habitantes, pero eso sería convertir al pueblo en un campo de nudistas.</target>
       </segment>
@@ -3125,7 +2912,7 @@
       <notes>
         <note category="german">Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.</source>
         <target>La justicia popular es el pilar de la democracia en tu pueblo. Cuando un compañero es desterrado, es enviado a una jaula situada estratégicamente a la vista de todos en la entrada del pueblo. Sus gritos servirán para atraer a los zombies. Cada desterrado colocado ahí aumenta la defensa temporal del pueblo.</target>
       </segment>
@@ -3134,7 +2921,7 @@
       <notes>
         <note category="german">Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.</source>
         <target>El Héroe siempre tiene la razón, eso todos lo saben. Para que quede claro, las denuncias que ellos hacen contra otros habitantes cuentan doble.</target>
       </segment>
@@ -3143,7 +2930,7 @@
       <notes>
         <note category="german">Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.</source>
         <target>¡Por fin! Una construcción que beneficia directamente a los habitantes. Todas las viviendas reciben +4 de defensa.</target>
       </segment>
@@ -3152,7 +2939,7 @@
       <notes>
         <note category="german">Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.</source>
         <target>Permite la destrucción de madera en el vertedero.</target>
       </segment>
@@ -3161,7 +2948,7 @@
       <notes>
         <note category="german">Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.</source>
         <target>Permite la destrucción de metal en el vertedero.</target>
       </segment>
@@ -3170,7 +2957,7 @@
       <notes>
         <note category="german">Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.</source>
         <target>Permite sacrificar animales inocentes en el vertedero.</target>
       </segment>
@@ -3179,7 +2966,7 @@
       <notes>
         <note category="german">Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...</source>
         <target>Reduce el coste del uso del vertedero a 0 PA. Cuidado con construir esto en tu pueblo si hay canallas en él, podrían arruinar vuestras... bueno, ya lo veréis.</target>
       </segment>
@@ -3188,7 +2975,7 @@
       <notes>
         <note category="german">Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.</source>
         <target>Permite la destrucción de armas en el vertedero.</target>
       </segment>
@@ -3197,7 +2984,7 @@
       <notes>
         <note category="german">Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.</source>
         <target>Permite la destrucción de comida en el vertedero.</target>
       </segment>
@@ -3206,7 +2993,7 @@
       <notes>
         <note category="german">Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.</source>
         <target>Aumenta el rendimiento de los objetos de defensa tirados al vertedero.</target>
       </segment>
@@ -3215,7 +3002,7 @@
       <notes>
         <note category="german">Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</source>
         <target>Aumenta el rendimiento de todos los objetos tirados al vertedero en +1 puntos de defensa temporal.</target>
       </segment>
@@ -3224,7 +3011,7 @@
       <notes>
         <note category="german">Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).</source>
         <target>Montañas y montañas de desechos alrededor del pueblo. No será muy agradable para los turistas, pero te permite transformar objetos simples en defensas temporales (válidas por una sola noche).</target>
       </segment>
@@ -3233,7 +3020,7 @@
       <notes>
         <note category="german">Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.</source>
         <target>Este magnífico faro iluminará tus largas noches de angustia. Las probabilidades de sobrevivir aumentan para todos los habitantes campistas.</target>
       </segment>
@@ -3242,7 +3029,7 @@
       <notes>
         <note category="german">Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.</source>
         <target>El Cuervo estará tan complacido con este altar en su honor que liberará de su condena a todos los habitantes desterrados del pueblo.</target>
       </segment>
@@ -3251,7 +3038,7 @@
       <notes>
         <note category="german">Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
         <target>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
       </segment>
@@ -3260,7 +3047,7 @@
       <notes>
         <note category="german">Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.</source>
         <target>Una gran fogata lejos del pueblo para despistar a los zombies de nuestras humildes casas.</target>
       </segment>
@@ -3269,7 +3056,7 @@
       <notes>
         <note category="german">Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).</source>
         <target>Desde aquí es posible hacer que los desterrados trabajen en las construcciones. Los PA que ellos invierten hacen ganar +50% de PA adicionales a las obras. Por ejemplo: Por 6 PA invertidos, el proyecto gana 9.</target>
       </segment>
@@ -3278,7 +3065,7 @@
       <notes>
         <note category="german">Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</source>
         <target>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</target>
       </segment>
@@ -3287,7 +3074,7 @@
       <notes>
         <note category="german">Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.</source>
         <target>Los zombies son malos pero también un poco tontos a veces. ¿Qué tal si hacemos un pequeño laberinto en la entrada del pueblo para que se pierdan durante el ataque? Es muy eficaz, pero cada habitante que desee entrar al pueblo deberá gastar 1 PA desde ese momento.</target>
       </segment>
@@ -3296,7 +3083,7 @@
       <notes>
         <note category="german">Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</source>
         <target>Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y darán +1 punto de defensa temporal a cada uno.</target>
       </segment>
@@ -3305,7 +3092,7 @@
       <notes>
         <note category="german">Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
         <target>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
       </segment>
@@ -3314,7 +3101,7 @@
       <notes>
         <note category="german">Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
         <target>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
       </segment>
@@ -3323,7 +3110,7 @@
       <notes>
         <note category="german">Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</source>
         <target>Nada más bello que un buen espectáculo de fuegos artificiales en el desierto. La variación que aplicamos es que orientamos los tubos hacia el exterior del pueblo, más precisamente hacia las turbas de zombies.</target>
       </segment>
@@ -3332,7 +3119,7 @@
       <notes>
         <note category="german">Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
         <target>¡Gloria al Cuervo! Gloria a su benevolencia. Líbranos del spam y perdona a los trolls como nosotros perdonamos a quienes nos han trolleado. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
@@ -3341,7 +3128,7 @@
       <notes>
         <note category="german">Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</source>
         <target>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</target>
       </segment>
@@ -3350,7 +3137,7 @@
       <notes>
         <note category="german">Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.</source>
         <target>Cuatro cohetes serán lanzados hacia los cuatro puntos cardinales alrededor del pueblo (norte, sur, este y oeste) masacrando a todos los zombies que se encuentren ahí.</target>
       </segment>
@@ -3359,7 +3146,7 @@
       <notes>
         <note category="german">Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.</source>
         <target>Un inmenso globo que se eleva hasta el cielo, el tiempo suficiente para que un "voluntario" pueda observar y anotar todo lo que hay alrededor del pueblo. Esta construcción permite revelar la totalidad del Ultramundo.</target>
       </segment>
@@ -3368,7 +3155,7 @@
       <notes>
         <note category="german">Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment>
         <source>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</source>
         <target>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</target>
       </segment>
@@ -3377,7 +3164,7 @@
       <notes>
         <note category="german">Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).</source>
         <target>Los cimientos permiten la construcción de Proyectos Delirantes (aquellos que exigen mucho trabajo pero que resultan ser muy poderosos).</target>
       </segment>
@@ -3386,7 +3173,7 @@
       <notes>
         <note category="german">Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.</source>
         <target>Placas de metal clavadas sobre el Portal para mejorar su resistencia.</target>
       </segment>
@@ -3395,7 +3182,7 @@
       <notes>
         <note category="german">Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.</source>
         <target>El Portal se cierra automáticamente un minuto antes del ataque.</target>
       </segment>
@@ -3404,7 +3191,7 @@
       <notes>
         <note category="german">Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.</source>
         <target>Gracias a un sistema de pistones, este sistema cierra automáticamente el Portal y bloquea su apertura media hora antes del ataque.</target>
       </segment>
@@ -3413,7 +3200,7 @@
       <notes>
         <note category="german">Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!</source>
         <target>Un pasaje secreto permite a los Héroes entrar y salir del pueblo sin pasar por el Portal.</target>
       </segment>
@@ -3422,7 +3209,7 @@
       <notes>
         <note category="german">Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.</source>
         <target>Un sistema muy rústico que impide la apertura del Portal 20 minutos antes del ataque zombie. El Portal deberá sin embargo ser cerrado manualmente.</target>
       </segment>
@@ -3431,7 +3218,7 @@
       <notes>
         <note category="german">Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.</source>
         <target>¿Te enferma la idea de estar varado en la arena rodeado de zombies? ¿Cansado de viajar entre costillas, carne y puros huesos de zombie? ¡Quizás sea hora de saltar y sobrevivir al apocalipsis desde arriba! La construcción Almenas te permitirá pasar las noches de vigilia como centinela, un poco más cerca del cielo que del infierno.</target>
       </segment>
@@ -3440,10 +3227,10 @@
       <notes>
         <note category="german">Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</source>
         <target>Un lugar de calma y relajación, epecialmente preprado para favorecer la transición de las almas hacia el otro lado.</target>
-     </segment>
+      </segment>
     </unit>
     <unit id="R_OfhbT" name="Die Verteidigung der Stadt wird um 12% erhöht.">
       <notes>

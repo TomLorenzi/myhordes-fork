@@ -20,6 +20,17 @@ class TownConf extends Conf
     const CONF_DEFAULT_CHEST_ITEMS   = 'initial_chest';
     const CONF_DISTRIBUTION_DISTANCE = 'distribution_distance';
 
+    const CONF_EXPLORABLES_COMPLEXITY   = 'explorable_ruin_params.complexity';
+    const CONF_EXPLORABLES_CONVOLUTION  = 'explorable_ruin_params.convolution';
+    const CONF_EXPLORABLES_CRUELTY      = 'explorable_ruin_params.cruelty';
+    const CONF_EXPLORABLES_ROOMS        = 'explorable_ruin_params.rooms';
+    const CONF_EXPLORABLES_ROOM_DIST    = 'explorable_ruin_params.room_spacing';
+    const CONF_EXPLORABLES_LOCKDIST     = 'explorable_ruin_params.lock_distance';
+    const CONF_EXPLORABLES_ITEM_RATE    = 'explorable_ruin_params.item_fillrate';
+    const CONF_EXPLORABLES_MAX_DISTANCE = 'explorable_ruin_params.max_distance';
+    const CONF_EXPLORABLES_ZOMBIES_INI  = 'explorable_ruin_params.zombies.initial';
+    const CONF_EXPLORABLES_ZOMBIES_DAY  = 'explorable_ruin_params.zombies.daily';
+
     const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
 
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
@@ -32,6 +43,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_WOUND_TERROR_PENALTY = 'modifiers.wound_terror_penalty';
     const CONF_MODIFIER_ATTACK_PROTECT       = 'modifiers.attack_protection';
     const CONF_MODIFIER_CARRY_EXTRA_BAG      = 'modifiers.carry_extra_bag';
+    const CONF_MODIFIER_BONES_IN_TOWN        = 'modifiers.meaty_bones_within_town';
 
     const CONF_FEATURE_CAMPING        = 'features.camping';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';

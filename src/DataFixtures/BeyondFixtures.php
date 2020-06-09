@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ItemPrototype;
 use App\Entity\RuinZonePrototype;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -9,6 +10,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -124,7 +126,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'wire_#00','count' => 6),
             array('item' => 'bagxl_#00','count' => 5),
         ], 'desc' => 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.'],
-        ["label" => "Atombunker",'icon' => 'bunker',"camping" => 15,"min_dist" => 10, "max_dist" => 19, "chance" => 499, "drops" => [
+        ["label" => "Atombunker",'icon' => 'bunker',"camping" => 15,"min_dist" => 10, "max_dist" => 13, "chance" => 499, "drops" => [
             array('item' => 'drug_hero_#00','count' => 127),
             array('item' => 'tagger_#00','count' => 66),
             array('item' => 'chest_#00','count' => 60),
@@ -715,77 +717,95 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         ], 'desc' => 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...'],
 
         // Explorable Ruins.
-        ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [
-            array('item' => 'food_pims_#00','count' => 76),
-            array('item' => 'food_chick_#00','count' => 60),
-            array('item' => 'food_noodles_#00','count' => 60),
-            array('item' => 'food_bag_#00','count' => 60),
-            array('item' => 'bbplan_u_#00','count' => 26),
-            array('item' => 'bbplan_r_#00','count' => 26),
-            array('item' => 'bbplan_e_#00','count' => 26),
-            array('item' => 'chair_basic_#00','count' => 20),
-            array('item' => 'can_#00','count' => 17),
-            array('item' => 'bag_#00','count' => 17),
-            array('item' => 'table_#00','count' => 17),
-            array('item' => 'distri_#00','count' => 17),
-            array('item' => 'bed_#00','count' => 16),
-            array('item' => 'deco_box_#00','count' => 13),
-            array('item' => 'chest_food_#00','count' => 10),
-            array('item' => 'rlaunc_#00','count' => 17),
-            array('item' => 'bureau_#00','count' => 17),
-            array('item' => 'spices_#00','count' => 17),
-            array('item' => 'food_bar1_#00','count' => 17),
-            array('item' => 'food_bar2_#00','count' => 17),
-            array('item' => 'food_bar3_#00','count' => 17),
-            array('item' => 'concrete_wall_#00','count' => 17),
-            array('item' => 'dish_#00','count' => 17),
-            array('item' => 'food_sandw_#00','count' => 17),
+        ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'bunker', "explorable_desc" => null,
+            "drops" => [
+                array('item' => 'bbplan_u_#00','count' => 13),
+                array('item' => 'bbplan_r_#00','count' => 5),
+                array('item' => 'bbplan_e_#00','count' => 6),
+                array('item' => 'water_#00','count' => 4),
+                array('item' => 'concrete_wall_#00','count' => 21),
+                array('item' => 'wood_bad_#00','count' => 4),
+                array('item' => 'kalach_#01','count' => 2),
+                array('item' => 'meca_parts_#00','count' => 11),
+                array('item' => 'wood2_#00','count' => 6),
+                array('item' => 'metal_#00','count' => 8),
+                array('item' => 'deto_#00','count' => 1),
+                array('item' => 'magneticKey_#00','count' => 9),
+                array('item' => 'money_#00','count' => 1),
+                array('item' => 'pile_#00','count' => 2),
+                array('item' => 'out_def_#00','count' => 1),
+                array('item' => 'big_pgun_empty_#00','count' => 3),
+                array('item' => 'gun_#00','count' => 5),
+                array('item' => 'wood_log_#00','count' => 8),
+                array('item' => 'water_cup_part_#00','count' => 3),
+                array('item' => 'metal_bad_#00','count' => 2),
+                array('item' => 'metal_beam_#00','count' => 3),
+                array('item' => 'electro_box_#00','count' => 1),
+                array('item' => 'machine_gun_#00','count' => 1),
+                array('item' => 'flare_#00','count' => 1),
+                array('item' => 'wood_plate_#00','count' => 1),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [
-            array('item' => 'food_pims_#00','count' => 76),
-            array('item' => 'food_chick_#00','count' => 60),
-            array('item' => 'food_noodles_#00','count' => 60),
-            array('item' => 'food_bag_#00','count' => 60),
-            array('item' => 'hbplan_u_#00','count' => 26),
-            array('item' => 'hbplan_r_#00','count' => 26),
-            array('item' => 'hbplan_e_#00','count' => 26),
-            array('item' => 'chair_basic_#00','count' => 20),
-            array('item' => 'can_#00','count' => 17),
-            array('item' => 'bag_#00','count' => 17),
-            array('item' => 'table_#00','count' => 17),
-            array('item' => 'distri_#00','count' => 17),
-            array('item' => 'bed_#00','count' => 16),
-            array('item' => 'deco_box_#00','count' => 13),
-            array('item' => 'chest_food_#00','count' => 10),
-            array('item' => 'rlaunc_#00','count' => 17),
-            array('item' => 'bureau_#00','count' => 17),
-            array('item' => 'spices_#00','count' => 17),
-            array('item' => 'food_bar1_#00','count' => 17),
-            array('item' => 'food_bar2_#00','count' => 17),
-            array('item' => 'food_bar3_#00','count' => 17),
-            array('item' => 'concrete_wall_#00','count' => 17),
-            array('item' => 'dish_#00','count' => 17),
-            array('item' => 'food_sandw_#00','count' => 17),
+        ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'hotel', "explorable_desc" => null,
+            "drops" => [
+                array('item' => 'hbplan_u_#00','count' => 3),
+                array('item' => 'hbplan_r_#00','count' => 2),
+                array('item' => 'hbplan_e_#00','count' => 1),
+                array('item' => 'water_#00','count' => 9),
+                array('item' => 'drug_random_#00','count' => 7),
+                array('item' => 'xanax_#00','count' => 5),
+                array('item' => 'cyanure_#00','count' => 4),
+                array('item' => 'disinfect_#00','count' => 4),
+                array('item' => 'bumpKey_#00','count' => 3),
+                array('item' => 'classicKey_#00','count' => 3),
+                array('item' => 'pharma_#00','count' => 3),
+                array('item' => 'water_can_3_#00','count' => 2),
+                array('item' => 'water_can_1_#00','count' => 1),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 25, "chance" => 0, "explorable" => true, "drops" => [], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
+        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'hospital', "explorable_desc" => null,
+            "drops" => [
+                array('item' => 'mbplan_u_#00','count' => 14),
+                array('item' => 'mbplan_r_#00','count' => 8),
+                array('item' => 'mbplan_e_#00','count' => 3),
+                array('item' => 'water_#00','count' => 9),
+                array('item' => 'drug_random_#00','count' => 10),
+                array('item' => 'out_def_#00','count' => 14),
+                array('item' => 'drug_#00','count' => 3),
+                array('item' => 'xanax_#00','count' => 16),
+                array('item' => 'water_can_empty_#00','count' => 4),
+                array('item' => 'magneticKey_#00','count' => 9),
+                array('item' => 'pc_#00','count' => 2),
+                array('item' => 'drug_water_#00','count' => 3),
+                array('item' => 'vagoul_#00','count' => 2),
+                array('item' => 'distri_#00','count' => 2),
+                array('item' => 'disinfect_#00','count' => 6),
+                array('item' => 'pharma_#00','count' => 3),
+                array('item' => 'pile_#00','count' => 1),
+                array('item' => 'chainsaw_empty_#00','count' => 2),
+                array('item' => 'bureau_#00','count' => 1),
+        ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
     ];
 
     public static $room_prototypes = [
         [
-            "label" => "Offene Tür",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_NONE,
+            "label" => "Offene Tür"
         ],
         [
             "label" => "Verschlossene Tür (Flaschenöffner)",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_BOTTLE,
+            "lock_mold" => 'prints_#02',
+            "lock_item" => 'classicKey_#00',
         ],
         [
             "label" => "Verschlossene Tür (Schlagschlüssel)",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_BUMP,
+            "lock_mold" => 'prints_#01',
+            "lock_item" => 'bumpKey_#00',
         ],
         [
             "label" => "Verschlossene Tür (Magnetschlüssel)",
-            "lock_type" => RuinZonePrototype::LOCKTYPE_MAGNET,
+            "lock_mold" => 'prints_#00',
+            "lock_item" => 'magneticKey_#00',
         ],
     ];
 
@@ -875,6 +895,8 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setIcon( $entry['icon'] )
             ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
             ->setExplorable( $entry['explorable'] ?? 0 )
+            ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
+            ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
             ;
             $manager->persist( $entity );
 
@@ -899,10 +921,18 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             $entity = $this->entityManager->getRepository(RuinZonePrototype::class)->findOneByLabel( $entry['label'] );
             if ($entity === null) $entity = new RuinZonePrototype();
 
+            // Items
+            $lock_mold = ($entry['lock_mold'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_mold']) : null;
+            $lock_item = ($entry['lock_item'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_item']) : null;
+
+            if ( !is_null($entry['lock_mold'] ?? $entry['lock_item'] ?? null) && ($lock_mold === null || $lock_item === null) )
+                throw new Exception('Lock configuration invalid.');
+
             // Set property
             $entity
                 ->setLabel( $entry['label'] )
-                ->setLockType($entry['lock_type'])
+                ->setKeyImprint($lock_mold ?? null)
+                ->setKeyItem($lock_item ?? null)
             ;
             $manager->persist( $entity );
 
