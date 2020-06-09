@@ -1,14 +1,12 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
-
-
     {% macro valuelist(prop,val) %}
         <div class="row">
             <div class="cell rw-4"><b>{{ prop }}</b></div>
             <div class="cell rw-8">
-                {% if val is same as( true) %}
+                {% if val is same as(true) %}
                     {{ 'Ja'|trans({},'admin') }}
-                {% elseif val is same as( false)  %}
+                {% elseif val is same as(false)  %}
                     {{ 'Nein'|trans({},'admin') }}
                 {% else %}
                     {{ val }}
@@ -21,6 +19,7 @@
         <div class="cell padded rw-12">
             <ul class="tabs" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
                 <li x-tab-id="dash">{{ 'Übersicht'|trans({},'admin') }}</li>
+                <li x-tab-id="register">{{ 'Stadtregister'|trans({},'admin') }}</li>
                 <li x-tab-id="estimations">{{ 'Admin-Wachturm'|trans({},'admin') }}</li>
                 {% if is_granted("ROLE_ADMIN") %}
                     <li x-tab-id="explorer">{{ 'Ruinenscanner'|trans({},'admin') }}</li>
@@ -45,7 +44,11 @@
                         {{ _self.valuelist('Brunnen'|trans({},'admin'),    town.well) }}
                     </div>
                 </div>
+            </div>
 
+            <div x-tab-group="admin-town" x-tab-id="register" x-tab-target>
+            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
+            {% endembed %}
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="estimations" x-tab-target>
@@ -139,5 +142,54 @@
 {% endblock %}
 {% block js %}
     <script>
+        (function() {
+            let log_boxes = document.querySelectorAll('.log-container');
+            for (let i = 0; i < log_boxes.length; i++) {
+                let log = log_boxes[i].querySelector( '.log' );
+
+                const has_preloaded_content = log.getAttribute('x-log-default-provided') == '1';
+                const url = log.getAttribute('x-log-source');
+                let content_box = log.querySelectorAll('.log-content');
+
+                const fun_refresh = function(d,bg) {
+                    if (bg) $.ajax.background().load( content_box[0], url, false, {day: d, town: {{town.id}}} );
+                    else $.ajax.load( content_box[0], url, false, {day: d, town: {{town.id}}} )
+                };
+
+                let refresh_button = log.querySelector('.log-complete-link');
+                if (refresh_button) refresh_button.addEventListener('click', function() {
+                    let spinner = log.querySelector('.log-spinner');
+                    refresh_button.classList.add('hidden');
+                    if (spinner) spinner.classList.remove('hidden');
+
+                    fun_refresh(-1,true);
+                });
+
+                if (!has_preloaded_content) fun_refresh(-1,true);
+
+                let control_tab = log_boxes[i].querySelector( '.log-day-select .tab' );
+                if (control_tab) {
+                    const min = parseInt(control_tab.getAttribute( 'x-page-min' ));
+                    const max = parseInt(control_tab.getAttribute( 'x-page-max' ));
+                    let   cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
+
+                    let control_fwd = control_tab.querySelector( 'div.control:first-child' );
+                    let control_bwd = control_tab.querySelector( 'div.control:last-child' );
+                    let label       = control_tab.querySelector( 'span' );
+
+                    const fun_adjust = function(dif) {
+                        if ((dif > 0 && cur <= (max-dif)) || (dif < 0 && cur >= (min-dif))) {
+                            cur += dif;
+                            label.innerText = ('' + cur);
+                            fun_refresh(cur,false);
+                        }
+                    };
+
+                    control_fwd.addEventListener('click', function() { fun_adjust( 1) });
+                    control_bwd.addEventListener('click', function() { fun_adjust(-1) });
+                }
+            }
+        })();
+
     </script>
 {% endblock %}

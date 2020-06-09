@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ActionCounter;
 use App\Entity\AdminReport;
 use App\Entity\Award;
+use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\Emotes;
 use App\Entity\Forum;
@@ -803,7 +804,7 @@ class MessageController extends AbstractController
             'pid' => null,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'username' => $this->getUser()->getUsername(),
-            'pm' => false,
+            'forum' => true,
         ] );
     }
 
@@ -932,7 +933,7 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'pm' => false,
+            'forum' => true,
             'content' => $content ?? null
         ] );
     }
@@ -1334,15 +1335,14 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'pm' => true,
+            'forum' => false,
             'type' => 'pm'
         ] );
     }
 
     /**
      * @Route("api/town/house/pm/{type}/editor", name="home_new_post_editor_controller")
-     * @param int $fid
-     * @param int $tid
+     * @param string $type
      * @param EntityManagerInterface $em
      * @return Response
      */
@@ -1357,8 +1357,59 @@ class MessageController extends AbstractController
             'tid' => null,
             'pid' => null,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'pm' => true,
-            'type' => $type
+            'forum' => false,
+            'type' => $type,
+            'target_url' => 'town_house_send_pm_controller',
         ] );
+    }
+
+    /**
+     * @Route("api/admin/changelogs/editor", name="admin_new_changelog_editor_controller")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function admin_new_changelog_editor_controller(EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => null,
+            'pid' => null,
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'forum' => false,
+            'type' => 'changelog',
+            'target_url' => 'admin_changelog_new_changelog',
+        ] );
+    }
+
+    /**
+     * @Route("api/admin/changelogs/new_changelog", name="admin_changelog_new_changelog")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @param Translator $t
+     * @return Response
+     */
+    public function create_changelog_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+        $title     = $parser->get('title', '');
+        $content   = $parser->get('content', '');
+        $version   = $parser->get('version', '');
+        $lang      = $parser->get('lang', 'de');
+        $author    = $this->getUser();
+
+        if(empty($title) || empty($content) || empty($version)) {
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        }
+
+        $change = new Changelog();
+        $change->setTitle($title)->setText($content)->setVersion($version)->setLang($lang)->setAuthor($author);
+
+        $tx_len = 0;
+        if (!$this->preparePost($this->getUser(),null,$change,$tx_len))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $em->persist($change);
+        $em->flush();
+
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_changelogs')] );
     }
 }

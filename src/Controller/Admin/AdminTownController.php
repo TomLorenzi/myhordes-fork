@@ -58,7 +58,9 @@ class AdminTownController extends AdminActionController
         return $this->render( 'ajax/admin/towns/explorer.html.twig', [
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
-            'explorables' => $explorables
+            'explorables' => $explorables,
+            'log' => $this->renderLog( -1, $town, false, null, null )->getContent(),
+            'day' => $town->getDay()
         ]);
     }
 }

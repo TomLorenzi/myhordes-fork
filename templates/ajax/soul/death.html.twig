@@ -18,7 +18,7 @@
                 <div class="cell rw-6 rw-sm-12">
                     <img class="fit" alt="" src="{{ asset('build/images/death/' ~ citizen.cod.icon ~ '.jpg') }}" />
                     <div class="small-note">{{ citizen.cod.description|trans({},'game') }}</div>
-                    <button x-ajax-href="{{ path('game_newspaper') }}" {% if not gazette %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
+                    <button {% if gazette %}x-ajax-href="{{ path('game_newspaper') }}"{% else %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
                 </div>
                 <div class="cell rw-6 rw-sm-12">
                     <div class="death_list">

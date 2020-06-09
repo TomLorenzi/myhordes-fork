@@ -1,6 +1,11 @@
 {% extends "ajax/soul/shell.html.twig" %}
 {% block soul_content %}
     <div class="row skills">
+        <div class="row skillBack">
+            <label class="button" x-ajax-href="{{ path('soul_me') }}">
+                {{'Komm zurück zu meiner Seele'|trans({}, 'game')}}
+            </label>
+        </div>
         <div class="cell rw-12 center">
             <div class="bar">
                 <div class="progresstext"><span class="text">{{progress|round}}%</span></div>
@@ -24,8 +29,8 @@
         </div>
         <div class="skills-container">
             {% for heroSkill in skills %}
-            <div class="row {% if heroSkill == latestSkill %}currentSkill{% endif %}">
-                <div class="cell padded rw-4 center">
+            <div class="row skillRow {% if heroSkill == latestSkill %}currentSkill{% endif %}">
+                <div class="cell padded rw-4 center skill">
                     {% if heroSkill.daysNeeded <= app.user.heroDaysSpent %}
                         <img src="{{ asset('build/images/heroskill/'~heroSkill.icon~".gif") }}" /> <strong>{{heroSkill.title|trans({}, 'game')}}</strong>
                     {% elseif heroSkill == nextSkill %}
