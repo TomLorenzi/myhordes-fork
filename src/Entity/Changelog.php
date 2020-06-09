@@ -30,12 +30,18 @@ class Changelog
     /**
      * @ORM\Column(type="text")
      */
-    private $content;
+    private $text;
 
     /**
      * @ORM\Column(type="string", length=8)
      */
     private $lang = "de";
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
 
     public function getId(): ?int
     {
@@ -66,14 +72,14 @@ class Changelog
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getText(): ?string
     {
-        return $this->content;
+        return $this->text;
     }
 
-    public function setContent(string $content): self
+    public function setText(string $text): self
     {
-        $this->content = $content;
+        $this->text = $text;
 
         return $this;
     }
@@ -86,6 +92,18 @@ class Changelog
     public function setLang(string $lang): self
     {
         $this->lang = $lang;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
