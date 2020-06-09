@@ -361,18 +361,22 @@
 }
 
 .forum-thread {
-  padding: 5px; cursor: pointer; position: relative;
-  &>div { float: right; font-size: 1.3em; }
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+  color: #eba475;
+  font-style: italic;
   &:nth-child(2n) { background: rgba(0,0,0,0.05) }
-  &.selected { background: rgba(255, 160, 57, 0.39) }
+  &.selected { background: rgba(255, 160, 57, 0.39); color: white; }
   img {
     vertical-align: middle;
     margin-right: 1em;
   }
   &.forum-thread-unread {
-    padding-left: 18px;
+    font-weight: bold;
+    font-style: normal;
     &:before {
-      display: block; content: " "; width: 8px; height: 8px; border-radius: 4px; top: 9px; left: 5px;
+      display: block; content: " "; width: 12px; height: 12px; border-radius: 6px; top: 9px; left: -5px;
       background: #ffbf00; border: 1px solid #212121; box-shadow: 0 0 3px rgba(0,0,0,0.1); position: absolute;
     }
   }
