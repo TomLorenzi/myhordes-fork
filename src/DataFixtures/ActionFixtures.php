@@ -810,8 +810,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'nw_empty_dildo'        => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'vibr_empty_#00',          'consume' => false]] ] ],
             'nw_empty_watercan'     => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'water_can_empty_#00',     'consume' => false]] ] ],
             'nw_empty_kalach'       => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'kalach_#01',              'consume' => false]] ] ],
-            'nw_meat'               => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'undef_#00',               'consume' => false]] ] ],
-            'nw_meat_tasty'         => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'meat_#00',                'consume' => false]] ] ],
+            'nw_meat'               => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'undef_#00',               'consume' => false]], ['picto' => ['r_animal_#00']] ] ],
+            'nw_meat_tasty'         => [ 'label' => '', 'meta' => [], 'result' => [ ['item' => ['morph' => 'meat_#00',                'consume' => false]], ['picto' => ['r_animal_#00']] ] ],
         ],
 
         'heroics' => [
@@ -1039,6 +1039,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'guitar_#00' => ['special_guitar'],
 
             'rhum_#00'     => ['alcohol'],
+            'vodka_#00' => ['alcohol'],
             'vodka_de_#00' => ['alcohol'],
             'fest_#00'     => ['alcohol'],
             'hmbrew_#00'   => ['alcohol_dx'],
