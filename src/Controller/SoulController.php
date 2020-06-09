@@ -696,11 +696,26 @@ class SoulController extends AbstractController
             else
                 $pictosNotWonDuringTown[] = $picto;
 
+        $canSeeGazette = $nextDeath->getTown() !== null;
+        if($canSeeGazette){
+            $citizensAlive = false;
+            foreach ($nextDeath->getTown()->getCitizens() as $citizen) {
+                if($citizen->getCod() === null){
+                    $citizensAlive = true;
+                    break;
+                }
+            }
+            if(!$citizensAlive && $nextDeath->getCod()->getRef() != CauseOfDeath::Radiations) {
+                $canSeeGazette = false;
+            }
+        }
+
+
         return $this->render( 'ajax/soul/death.html.twig', [
             'citizen' => $nextDeath,
             'sp' => $nextDeath->getPoints(),
             'pictos' => $pictosWonDuringTown,
-            'gazette' => $nextDeath->getTown() !== null,
+            'gazette' => $canSeeGazette,
             'denied_pictos' => $pictosNotWonDuringTown
         ] );
     }
