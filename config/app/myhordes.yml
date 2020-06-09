@@ -1,5 +1,9 @@
 parameters:
+  local:
   myhordes:
+    fatalmail:
+      target: ~
+      source: ~
     soulpoints:
       limits:
         remote: 0 # 100

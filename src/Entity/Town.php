@@ -137,6 +137,16 @@ class Town
      */
     private $rankingEntry;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=AttackSchedule::class)
+     */
+    private $lastAttack;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $attackFails = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -583,6 +593,30 @@ class Town
     public function lifeCycle_createTownRankingProxy(LifecycleEventArgs $args) {
         $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
         $args->getEntityManager()->flush();
+    }
+
+    public function getLastAttack(): ?AttackSchedule
+    {
+        return $this->lastAttack;
+    }
+
+    public function setLastAttack(?AttackSchedule $lastAttack): self
+    {
+        $this->lastAttack = $lastAttack;
+
+        return $this;
+    }
+
+    public function getAttackFails(): ?int
+    {
+        return $this->attackFails;
+    }
+
+    public function setAttackFails(int $attackFails): self
+    {
+        $this->attackFails = $attackFails;
+
+        return $this;
     }
 
 }
