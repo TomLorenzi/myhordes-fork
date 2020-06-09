@@ -118,11 +118,11 @@ class SchedulerCommand extends Command
                     $fmt = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_TARGET, null);
                     $fms = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_SOURCE, 'fatalmail@localhost');
                     if ($fmt) {
-                        $message = "-- Automatic Report --\n" .
-                            "Fatal Error during nightly attack on MyHordes\n" .
-                            "Unable to process town {$town->getId()}\n" .
-                            "'{$e->getMessage()}' in {$e->getFile()} [{$e->getLine()}]\n" .
-                            "{$e->getTraceAsString()}";
+                        $message = "-- Automatic Report --\r\n\r\n" .
+                            "Fatal Error during nightly attack on MyHordes\r\n\r\n" .
+                            "Unable to process town `{$town->getId()}`\r\n\r\n" .
+                            "`{$e->getMessage()}` in `{$e->getFile()} [{$e->getLine()}]`\r\n\r\n" .
+                            "```{$e->getTraceAsString()}```";
 
                         mail(
                             $fmt,
