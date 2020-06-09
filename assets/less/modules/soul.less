@@ -1,37 +1,69 @@
 .soul {
+
+    .me {
+        margin-top: -20px; // Cancel tabs margin-bottom for soul page
+    }
+
+    .header {
+        padding: 9px 4px 10px 8px !important;
+    }
+
     .tabs {
         font-size: 1.2rem;
         color: #ddab76;
         border-bottom: 1px solid #ddab76;
-        background-color: #5c2b20;
+        margin-bottom: 20px;
+        background: url(../../img/soul/tabs-header.jpg) left / cover;
 
         h4.soul-name {
             margin: 2px 4px;
             display: inline-block;
         }
+
+        .soulNameDiv {
+            width:auto;
+        }
+
         .tab {
+            float:right;
+            padding-top: 9px;
             .tab-link {
-                display: block;
-                text-align: center;
-                margin: 4px 2px 0;
-                padding: 2px 4px;
-                border: 1px solid #ddab76;
-                border-bottom: none;
-                background-color: #7e4d2a;
+                float: right;
+                height: 21px;
+                margin-right: 0px;
+                margin-left: 2px;
+                margin-top: 3px;
+                font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+                white-space: nowrap;
+                background-image: url(../../img/soul/tab.gif);
+                background-position: top left;
+                background-repeat: no-repeat;
+                border-left: 1px solid #694023;
+                border-right: 1px solid #694023;
                 cursor: pointer;
-                text-decoration: none;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                line-height: 2.3rem;
-                min-height: 27px;
-                &>img { vertical-align: sub; }
+
+                font-family: Arial;
+                font-size: 7.5pt;
+                color: #f0d79e;
+                padding-left: 4px;
+                padding-right: 4px;
+                padding-top: 3px;
+                text-decoration: underline;
+                font-variant: small-caps;
+            }
+            &:hover {
+                .tab-link {
+                    outline: 1px solid #f0d79e;
+                    text-decoration: underline;
+                }
             }
 
-            &.selected, &:hover {
+            &.selected {
                 .tab-link {
-                    background-color: lighten(#7e4d2a, 20%);
-                    color: white;
-                    font-weight: bold;
+                    text-decoration: none;
+                    margin-top: 3px;
+                    padding-top: 5px;
+                    background-image: url(../../img/soul/tab_active.gif);
                 }
             }
         }
@@ -82,6 +114,16 @@
                 display: block;
                 font-size: 2rem;
                 color: white;
+            }
+        }
+
+        .skillBack {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ddab76;
+            
+            label {
+                max-width: 250px;
             }
         }
     }
@@ -190,8 +232,13 @@
         }
     }
 
-    .block {
+    .night {
+        background: url("../../img/soul/soul_night.jpg") bottom/100% no-repeat;
+        width: auto;
+        height: 197px;
+    }
 
+    .block {
     }
 
     .score, .current {
@@ -228,14 +275,22 @@
         }
     }
 
+    .town-history > .header {
+        font-size: 8pt;
+    }
+
+    .skills-history > .header {
+        font-size: 10pt;
+    }
+
     .town-history,
     .skills-history {
         .header {
-            font-size: 1.2rem;
-            font-variant: small-caps;
             font-weight: bold;
+            font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+            padding-bottom: 0px !important;
             color: white;
-            border-bottom: 2px solid #ddab76;
+            border-bottom: 2px solid #f0d79e;
             background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
         }
 
@@ -285,14 +340,21 @@
             }
 
             &.skills-container {
-                .desc {
+                .skillRow {
+                    border-bottom: 1px solid #7e4d2a;
+                }
+
+                .desc {    
+                    font-size: 9pt;
                     color: #f0d79e;
-                    font-size: 1.2rem;
+                    min-height: 34px;
+                    border-left: 1px solid #7e4d2a;
+                    border-right: 1px solid #7e4d2a;
                 }
                 .currentSkill {
                     background: #3b3249;
                     .desc {
-                        font-style: italic;
+                        font-style: italic;    
                     }
                 }
             }

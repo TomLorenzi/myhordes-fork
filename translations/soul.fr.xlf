@@ -12,7 +12,6 @@
     </unit>
     <unit id="wvl2WtX" name="E-Mail-Adresse">
       <notes>
-        <note>E-Mail-Adresse</note>
         <note category="german">E-Mail-Adresse</note>
       </notes>
       <segment>
@@ -22,7 +21,6 @@
     </unit>
     <unit id="1fRghxK" name="Externe ID für Apps">
       <notes>
-        <note>Externe ID für Apps</note>
         <note category="german">Externe ID für Apps</note>
       </notes>
       <segment>
@@ -32,7 +30,6 @@
     </unit>
     <unit id="44idCpa" name="Neue ID generieren">
       <notes>
-        <note>Neue ID generieren</note>
         <note category="german">Neue ID generieren</note>
       </notes>
       <segment>
@@ -42,7 +39,6 @@
     </unit>
     <unit id="E1Sq9FV" name="ID löschen">
       <notes>
-        <note>ID löschen</note>
         <note category="german">ID löschen</note>
       </notes>
       <segment>
@@ -52,7 +48,6 @@
     </unit>
     <unit id="Jh3UFwC" name="df31751">
       <notes>
-        <note>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
         <note category="german">Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
       </notes>
       <segment>
@@ -62,7 +57,6 @@
     </unit>
     <unit id="2.gcbi0" name="Seele">
       <notes>
-        <note>Seele</note>
         <note category="german">Seele</note>
       </notes>
       <segment>
@@ -72,7 +66,6 @@
     </unit>
     <unit id="aXUvIxO" name="News">
       <notes>
-        <note>News</note>
         <note category="german">News</note>
       </notes>
       <segment>
@@ -82,7 +75,6 @@
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
       <notes>
-        <note>Einstellungen</note>
         <note category="german">Einstellungen</note>
       </notes>
       <segment>
@@ -92,7 +84,6 @@
     </unit>
     <unit id="0FJ_Sz1" name="Logout">
       <notes>
-        <note>Logout</note>
         <note category="german">Logout</note>
       </notes>
       <segment>

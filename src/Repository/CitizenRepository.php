@@ -24,6 +24,21 @@ class CitizenRepository extends ServiceEntityRepository
         parent::__construct($registry, Citizen::class);
     }
 
+    public function findInTown(User $user, Town $town): ?Citizen
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->andWhere('c.user = :user')
+                ->andWhere('c.town = :town')
+                ->setParameter('user', $user)
+                ->setParameter('town', $town)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
     public function findActiveByUser(User $user): ?Citizen
     {
         try {

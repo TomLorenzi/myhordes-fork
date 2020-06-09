@@ -1,12 +1,16 @@
 {% extends "ajax/soul/shell.html.twig" %}
 {% block soul_content %}
-    <div class="row">
+    <div class="row me">
+        <div class="cell rw-12 center night hide-md hide-lg hide-sm"></div>
         <div class="cell rw-12 center skills">
             <div class="bar">
-                <div class="progresstext"><span class="text">{{progress}}%</span></div>
-                <div class="progressbar left">
-                    <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
+                <div class="hide-lg hide-sm hide-md">
+                    <div class="progresstext"><span class="text">{{progress}}%</span></div>
+                    <div class="progressbar left">
+                        <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
+                    </div>
                 </div>
+
             </div>
             <div class="rp-context">
                 {{'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game')}}

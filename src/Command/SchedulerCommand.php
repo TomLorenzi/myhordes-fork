@@ -8,9 +8,11 @@ use App\Entity\AttackSchedule;
 use App\Entity\Inventory;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Service\ConfMaster;
 use App\Service\GameValidator;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
+use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -34,13 +36,15 @@ class SchedulerCommand extends Command
     private $night;
     private $locksmith;
     private $trans;
+    private $conf;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator)
+    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf)
     {
         $this->entityManager = $em;
         $this->night = $nh;
         $this->locksmith = $ls;
         $this->trans = $translator;
+        $this->conf = $conf->getGlobalConf();
         parent::__construct();
     }
 
@@ -76,18 +80,68 @@ class SchedulerCommand extends Command
             $progress = new ProgressBar( $output->section() );
             $progress->start( count($towns) );
 
+            $has_fails = false;
+
             foreach ( $towns as $town ) {
+
+                if ($town->getAttackFails() >= 3 || ($town->getLastAttack() && $town->getLastAttack()->getId() === $s->getId()))
+                    continue;
+
                 $this->trans->setLocale($town->getLanguage() ?? 'de');
 
-                /** @var Town $town */
-                if ($this->night->advance_day($town)) {
-                    foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
+                try {
+                    /** @var Town $town */
+                    $town->setAttackFails($town->getAttackFails() + 1);
                     $this->entityManager->persist($town);
+                    $this->entityManager->flush();
+
+                    if ($this->night->advance_day($town)) {
+                        foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
+
+                        $town->setLastAttack($s)->setAttackFails(0);
+
+                        $this->entityManager->persist($town);
+                        $this->entityManager->flush();
+
+                    } else {
+
+                        $town->setAttackFails(0);
+                        $this->entityManager->persist($town);
+                        $this->entityManager->flush();
+
+                    }
+                } catch (Exception $e) {
+
+                    $has_fails = true;
+                    $output->writeln("<error>Failed to process town {$town->getId()}!</error>");
+
+                    $fmt = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_TARGET, null);
+                    $fms = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_SOURCE, 'fatalmail@localhost');
+                    if ($fmt) {
+                        $message = "-- Automatic Report --\r\n\r\n" .
+                            "Fatal Error during nightly attack on MyHordes\r\n\r\n" .
+                            "Unable to process town `{$town->getId()}`\r\n\r\n" .
+                            "`{$e->getMessage()}` in `{$e->getFile()} [{$e->getLine()}]`\r\n\r\n" .
+                            "```{$e->getTraceAsString()}```";
+
+                        mail(
+                            $fmt,
+                            "MH-FatalMail {$town->getId()} {$town->getDay()}-{$town->getAttackFails()}", $message,
+                            [
+                                'MIME-Version' => '1.0',
+                                'Content-type' => 'text/plain; charset=UTF-8',
+                                'From' => $fms
+                            ]
+                        );
+                    }
+
+                    return false;
                 }
+
                 $progress->advance();
             }
 
-            $s->setCompleted( true );
+            $s->setCompleted( !$has_fails );
             $this->entityManager->persist($s);
             $progress->finish();
 

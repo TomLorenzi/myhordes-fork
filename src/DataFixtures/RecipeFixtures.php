@@ -333,6 +333,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com037' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdphil_#00', 'in' => ['cdphil_#00', 'music_#00'] ],
         'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdbrit_#00', 'in' => ['cdbrit_#00', 'music_#00'] ],
         'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#01',     'provoking' => 'hifiev_#00', 'in' => ['hifiev_#00', 'bquies_#00'] ],
+        'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',    'provoking' => 'diode_#00', 'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
     ];
 
     private $entityManager;
