@@ -4,9 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Entity\AttackSchedule;
 use App\Entity\User;
+use App\Entity\Town;
+use App\Entity\TownLogEntry;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\JSONRequestParser;
+use App\Service\LogTemplateHandler;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +18,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -21,7 +27,10 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class AdminActionController extends AbstractController
 {
     protected $entity_manager;
+    protected $logTemplateHandler;
     protected $conf;
+    protected $translator;
+
 
     public static function getAdminActions(): array {
         return [
@@ -32,10 +41,13 @@ class AdminActionController extends AbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator)
     {
         $this->entity_manager = $em;
         $this->conf = $conf;
+        $this->logTemplateHandler = $lth;
+        $this->translator = $translator;
+
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array
@@ -45,6 +57,42 @@ class AdminActionController extends AbstractController
         $data["admin_tab"] = $section;
 
         return $data;
+    }
+
+    protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {
+        $entries = [];
+        /** @var TownLogEntry $entity */
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($town, $day, null, $zone, $type, $max ) as $idx => $entity) {
+                /** @var LogEntryTemplate $template */
+                $template = $entity->getLogEntryTemplate();
+                if (!$template)
+                    continue;
+                $entityVariables = $entity->getVariables();
+                if (!$entityVariables)
+                    continue;
+                $entries[$idx]['timestamp'] = $entity->getTimestamp();
+                $entries[$idx]['class'] = $template->getClass();
+                $entries[$idx]['type'] = $template->getType();
+                $entries[$idx]['id'] = $entity->getId();
+                $entries[$idx]['hidden'] = $entity->getHidden();
+
+                $variableTypes = $template->getVariableTypes();
+                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+
+                try {
+                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
+                }
+                catch (Exception $e) {
+                    $entries[$idx]['text'] = "null";
+                }             
+            }
+
+        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
+
+        return $this->render( 'ajax/game/log_content.html.twig', [
+            'entries' => $entries,
+            'canHideEntry' => false,
+        ] );
     }
 
     /**
@@ -123,5 +171,16 @@ class AdminActionController extends AbstractController
             default: break;
         }
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+    }
+
+    /**
+     * @Route("api/admin/raventimes/log", name="admin_newspaper_log_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function log_newspaper_api(JSONRequestParser $parser): Response {
+        $town_id = $parser->get('town', -1);
+        $town = $this->entity_manager->getRepository(Town::class)->find($town_id);
+        return $this->renderLog((int)$parser->get('day', -1), $town, false, null, null);
     }
 }
