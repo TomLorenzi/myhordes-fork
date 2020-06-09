@@ -339,8 +339,7 @@
         node_transfer_source.addEventListener('input', transfer_to_preview);
 
         {% if content is defined %}
-        let event = new Event('input');
-        node_transfer_source.dispatchEvent(event);
+        transfer_to_preview();
         node_transfer_source.focus();
         node_transfer_source.setSelectionRange(node_transfer_source.value.length,node_transfer_source.value.length);
         document.getElementById('forum-editor').scrollIntoView();
@@ -452,9 +451,9 @@
                         content.substr(s_end);
 
                     node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
-                    window.setTimeout(function () {
+                    //window.setTimeout(function () {
                         node_transfer_source.focus()
-                    }, 10)
+                    //}, 10);
                     transfer_to_preview();
                 }
             });
@@ -476,7 +475,9 @@
                 content.substr( s_end );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10 );
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-node]', 'click', function (e,elem) {
@@ -494,7 +495,9 @@
                 content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10 );
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {
