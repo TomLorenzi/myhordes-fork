@@ -66,6 +66,7 @@
     </div>
 {% endblock %}
 {% block js %}
+    {{parent()}}
     <script>
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
             const id = elem.getAttribute('x-town-toggle');
