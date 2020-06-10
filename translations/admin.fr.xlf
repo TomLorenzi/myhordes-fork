@@ -1036,5 +1036,14 @@
         <target>L'ordinateur a dit non.</target>
       </segment>
     </unit>
+    <unit id="nq1XXly" name="Stadtregister">
+      <notes>
+        <note category="german">Stadtregister</note>
+      </notes>
+      <segment>
+        <source>Stadtregister</source>
+        <target>Registre de la ville</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -10549,5 +10549,32 @@
         <target>Atelier</target>
       </segment>
     </unit>
+    <unit id="2IRYW.2" name="06db8c8">
+      <notes>
+        <note category="german">%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</note>
+      </notes>
+      <segment>
+        <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
+        <target>%actor% a subtilisé %item% pendant le pillage de la maison de † %victim% !</target>
+      </segment>
+    </unit>
+    <unit id="VTcxe_c" name="Quarantäne">
+      <notes>
+        <note category="german">Quarantäne</note>
+      </notes>
+      <segment>
+        <source>Quarantäne</source>
+        <target>Quarantaine</target>
+      </segment>
+    </unit>
+    <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
+      <notes>
+        <note category="german">Komm zurück zu meiner Seele</note>
+      </notes>
+      <segment>
+        <source>Komm zurück zu meiner Seele</source>
+        <target>Revenir à mon âme</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
