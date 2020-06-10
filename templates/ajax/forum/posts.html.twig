@@ -158,19 +158,19 @@
     };
     const reloadPage = function() { loadPage( {{ current_page }} ); };
 
-    let report_buttons = document.querySelectorAll('[x-forum-action="report-post"');
+    let report_buttons = document.querySelectorAll('[x-forum-action="report-post"]');
     for (let i = 0; i < report_buttons.length; i++)
         report_buttons[i].addEventListener('click', function() {
             $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) }, reloadPage );
         })
 
-    let quote_buttons = document.querySelectorAll('[x-forum-action="quote-post"');
+    let quote_buttons = document.querySelectorAll('[x-forum-action="quote-post"]');
     for (let i = 0; i < quote_buttons.length; i++)
         quote_buttons[i].addEventListener('click', function() {
             $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {post: this.getAttribute('x-post-id')} )
         })
     {% if is_granted("ROLE_CROW") %}
-        let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"');
+        let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');
         for (let i = 0; i < del_buttons.length; i++)
             del_buttons[i].addEventListener('click', function() {
                 let reason = prompt('{{ 'Grund'|trans({},'admin') }}', '');
