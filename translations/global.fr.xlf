@@ -1216,5 +1216,14 @@
         <target>Langue</target>
       </segment>
     </unit>
+    <unit id="81XajEF" name="Vertraulich">
+      <notes>
+        <note category="german">Vertraulich</note>
+      </notes>
+      <segment>
+        <source>Vertraulich</source>
+        <target>Aparté</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
