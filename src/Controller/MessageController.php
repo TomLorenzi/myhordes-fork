@@ -210,13 +210,21 @@ class MessageController extends AbstractController
 
     private const HTML_ATTRIB_ALLOWED_ADMIN = [
         'div.class' => [
-            'adminAnnounce', 'modAnnounce', 'oracleAnnounce',
+            'adminAnnounce',
         ]
     ];
 
-    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 'div.class' => [ 'oracleAnnounce' ] ];
+    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 
+        'div.class' => [ 
+            'oracleAnnounce'
+        ]
+    ];
 
-    private const HTML_ATTRIB_ALLOWED_CROW = [ 'div.class' => [ 'modAnnounce' ] ];
+    private const HTML_ATTRIB_ALLOWED_CROW = [ 
+        'div.class' => [ 
+            'modAnnounce'
+        ]
+    ];
 
     private const HTML_ATTRIB_ALLOWED = [
         'div.class' => [
@@ -237,7 +245,7 @@ class MessageController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW) {
+        if ($user->getRightsElevation() >= User::ROLE_ADMIN) {
             foreach (self::HTML_ALLOWED_ADMIN as $key => $value) {
                 if(isset($r[$key])) {
                     $r[$key] = array_merge($r[$key], self::HTML_ALLOWED_ADMIN[$key]);
@@ -246,13 +254,21 @@ class MessageController extends AbstractController
                 }
             }
 
-            //$r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
-            //$a = array_merge( $a, self::HTML_ATTRIB_ALLOWED_ADMIN);
             foreach (self::HTML_ATTRIB_ALLOWED_ADMIN as $key => $value) {
                 if(isset($a[$key])) {
                     $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ADMIN[$key]);
                 } else {
                     $a[$key] = self::HTML_ATTRIB_ALLOWED_ADMIN[$key];
+                }
+            }
+        }
+
+        if ($user->getRightsElevation() >= User::ROLE_CROW) {
+            foreach (self::HTML_ATTRIB_ALLOWED_CROW as $key => $value) {
+                if(isset($a[$key])) {
+                    $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_CROW[$key]);
+                } else {
+                    $a[$key] = self::HTML_ATTRIB_ALLOWED_CROW[$key];
                 }
             }
         }
