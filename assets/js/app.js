@@ -16,6 +16,8 @@ require('../css/app.css');
 import Client from '../ts/client'
 import Ajax from '../ts/ajax'
 import HTML from '../ts/html'
+const matchAll = require('string.prototype.matchall');
+matchAll.shim();
 
 require("./attack");
 
@@ -26,7 +28,7 @@ const url = base_node.length === 0 ? '' : base_node[0].getAttribute('href');
 let $ = {
     ajax: new Ajax(url),
     html: new HTML(),
-    client: new Client(),
+    client: new Client()
 };
 window.$ = $;
 
