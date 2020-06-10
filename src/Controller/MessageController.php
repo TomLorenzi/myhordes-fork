@@ -828,9 +828,9 @@ class MessageController extends AbstractController
 
     public function convert_bbcode(?DOMNode $node){
         $content = "";
+        $precision = "";
         foreach ($node->childNodes as $child) {
             if(isset($child->tagName)) {
-                file_put_contents("/tmp/dump.txt", "Parsing node {$child->tagName}\n", FILE_APPEND);
                 switch ($child->tagName) {
                     case 'br':
                         $content .= "\n";
@@ -840,7 +840,9 @@ class MessageController extends AbstractController
                         break;
                     case 'div':
                     case 'span':
-                        if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value) && in_array($child->attributes['class']->value, ['adminAnnounce','modAnnounce','oracleAnnounce','glory','spoiler', 'bad'])) {
+                    	if($child->tagName == "span" && $child->attributes['class']->value == "rpauthor")
+							$precision = $child->textContent;
+                        else if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value) && in_array($child->attributes['class']->value, ['adminAnnounce','modAnnounce','oracleAnnounce','glory','spoiler', 'bad', 'rpText'])) {
                             $class = $child->attributes['class']->value;
                             switch ($class) {
                                 case 'adminAnnounce':
@@ -852,9 +854,15 @@ class MessageController extends AbstractController
                                 case 'oracleAnnounce':
                                     $class = "announce";
                                     break;
+                                case 'rpText':
+                                	$class = 'rp';
+                                	break;
                             }
 
-                            $content .= "[$class]" . $this->convert_bbcode($child) . "[/$class]";
+                            $content .= "[$class";
+                            if(!empty($precision))
+                            	$content .= "=$precision";
+                            $content .= "]" . $this->convert_bbcode($child) . "[/$class]";
                         }
                         else
                             $content .= $child->textContent;
@@ -1029,7 +1037,6 @@ class MessageController extends AbstractController
                 else if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0), $tx_len)) {
                     $content = null;
                 } else {
-                    file_put_contents("/tmp/dump.txt", "let's parse to bbcode !\n");
                     $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
                 }
 
