@@ -15,6 +15,22 @@
             <div class="cell rw-8 padded">
                 <input type="text" id="forum-editor-title" />
             </div>
+            {% if type is defined and type == "changelog" %}
+            <div class="cell rw-4 padded">
+                <label for="forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+            </div>
+            <div class="cell rw-8 padded">
+                <input type="text" id="forum-editor-version" />
+            </div>
+            <div class="cell rw-4 padded">
+                <label for="forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
+            </div>
+            <div class="cell rw-8 padded">
+                <select id="forum-editor-lang">
+                    
+                </select>
+            </div>
+            {% endif %}
         </div>
     {% endif %}
     <div class="row classic-editor">
@@ -88,7 +104,7 @@
     </div>
     <div class="row">
         <div class="padded cell rw-12 right">
-            {% if not pm and is_granted("ROLE_CROW") %}
+            {% if forum and is_granted("ROLE_CROW") %}
                 <div id="crowpost" class="forum-checkbox">
                     <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                     <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
@@ -323,8 +339,7 @@
         node_transfer_source.addEventListener('input', transfer_to_preview);
 
         {% if content is defined %}
-        let event = new Event('input');
-        node_transfer_source.dispatchEvent(event);
+        transfer_to_preview();
         node_transfer_source.focus();
         node_transfer_source.setSelectionRange(node_transfer_source.value.length,node_transfer_source.value.length);
         document.getElementById('forum-editor').scrollIntoView();
@@ -436,9 +451,9 @@
                         content.substr(s_end);
 
                     node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
-                    window.setTimeout(function () {
+                    //window.setTimeout(function () {
                         node_transfer_source.focus()
-                    }, 10)
+                    //}, 10);
                     transfer_to_preview();
                 }
             });
@@ -460,7 +475,9 @@
                 content.substr( s_end );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10 );
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-node]', 'click', function (e,elem) {
@@ -478,7 +495,9 @@
                 content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10 );
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {
@@ -499,7 +518,7 @@
         } );
 
         // Post as crow toggle
-        {% if is_granted("ROLE_CROW") and not pm %}
+        {% if is_granted("ROLE_CROW") and forum %}
         function changeHandler(){
             switch (document.querySelector("input[name=post-type]:checked").value) {
                 case "USER":
@@ -538,7 +557,7 @@
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
-                {% if not pm %}
+                {% if forum %}
                     let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
                 {% endif %}
 
@@ -552,8 +571,8 @@
                     proxies[j].parentNode.removeChild(proxies[j]);
                 }
 
-                {% if pm %}
-                    target_url = '{{ path('town_house_send_pm_controller') }}';
+                {% if not forum %}
+                    target_url = '{{ path(target_url) }}';
                     target_payload = {
                         'content': content_node.innerHTML,
                         'type': "{{ type }}",
@@ -571,6 +590,9 @@
                                     target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
                                 }
                             }
+                        {% elseif type == "changelog" %}
+                            target_payload.version = document.getElementById('forum-editor-version').value;
+                            target_payload.lang = document.getElementById('forum-editor-lang').value;
                         {% endif %}
                     {% endif %}
                 {% else %}
@@ -597,5 +619,17 @@
                 );
             });
         }
+
+        {% if type is defined and type == "changelog" %}
+            let lang_selector = document.getElementById('forum-editor-lang');
+            if(lang_selector) {
+                for(let prop in window.c.langs) {
+                    let option = document.createElement("option");
+                    option.text = window.c.langs[prop];
+                    option.value = prop;
+                    lang_selector.add(option);
+                }
+            }
+        {% endif %}
     })();
 </script>

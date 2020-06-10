@@ -5,6 +5,9 @@ namespace App\Structures;
 
 class MyHordesConf extends Conf
 {
+    const CONF_FATAL_MAIL_TARGET = 'fatalmail.target';
+    const CONF_FATAL_MAIL_SOURCE = 'fatalmail.source';
+
     const CONF_SOULPOINT_LIMIT_REMOTE = 'soulpoints.limits.remote';
     const CONF_SOULPOINT_LIMIT_PANDA  = 'soulpoints.limits.panda';
     const CONF_SOULPOINT_LIMIT_BACK_TO_SMALL  = 'soulpoints.limits.return_small';

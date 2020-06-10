@@ -15,8 +15,8 @@ class ConfMaster
 
     private $global_conf;
 
-    public function __construct( array $global, array $rules) {
-        $this->global = $global;
+    public function __construct( array $global, array $local, array $rules) {
+        $this->global = array_merge($global,$local);
         $this->game_rules = $rules;
     }
 
