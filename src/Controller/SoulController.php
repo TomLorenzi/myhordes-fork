@@ -14,13 +14,14 @@ use App\Entity\Picto;
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayTextPage;
 use App\Exception\DynamicAjaxResetException;
+use App\Response\AjaxResponse;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
-use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
+use App\Service\TimeKeeperService;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Error;
@@ -50,6 +51,7 @@ class SoulController extends AbstractController
 {
     protected $entity_manager;
     protected $user_factory;
+    protected $time_keeper;
     private $user_handler;
     private $asset;
 
@@ -62,12 +64,13 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->user_handler = $uh;
+        $this->time_keeper = $tk;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -709,6 +712,7 @@ class SoulController extends AbstractController
         $pictosNotWonDuringTown = [];
 
         foreach ($pictosDuringTown as $picto)
+            if ($picto->getRepository()->getName() == "r_ptame_#00") continue;
             if ($picto->getPersisted() > 0)
                 $pictosWonDuringTown[] = $picto;
             else
