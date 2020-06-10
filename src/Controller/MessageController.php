@@ -860,8 +860,10 @@ class MessageController extends AbstractController
                             }
 
                             $content .= "[$class";
-                            if(!empty($precision))
+                            if(!empty($precision)) {
                             	$content .= "=$precision";
+                            	$precision = "";
+                            }
                             $content .= "]" . $this->convert_bbcode($child) . "[/$class]";
                         }
                         else
