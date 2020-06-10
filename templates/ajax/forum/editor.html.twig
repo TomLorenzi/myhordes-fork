@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
+        <textarea id="forum-editor-text"></textarea>
 
         <div class="row">
             <div class="padded cell rw-12">
@@ -177,8 +177,6 @@
                     for (const match of str.matchAll( regex_wrappers )) {
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
-
-                        console.log(match);
 
                         const tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
@@ -338,13 +336,6 @@
 
         node_transfer_source.addEventListener('input', transfer_to_preview);
 
-        {% if content is defined %}
-        transfer_to_preview();
-        node_transfer_source.focus();
-        node_transfer_source.setSelectionRange(node_transfer_source.value.length,node_transfer_source.value.length);
-        document.getElementById('forum-editor').scrollIntoView();
-        {% endif %}
-
         let closeModal = function() {
             document.getElementById('modal-backdrop').classList.remove('active');
             let form = document.getElementById('modal-form');
@@ -421,7 +412,6 @@
                 let inputs = submitted.getElementsByTagName('input');
                 var tagText, tagUrl;
                 for (let i = 0; i < inputs.length; i++) {
-                    console.log(inputs[i].id);
                     if (inputs[i].id === type.value + '-text') {
                         let doc = new DOMParser().parseFromString(inputs[i].value, 'text/html');
                         tagText = doc.body.textContent || "";

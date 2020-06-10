@@ -105,10 +105,7 @@
                     {{ post.text|raw }}
                 </div>
                 <div class="forum-post-footer right">
-                {% if not is_granted("ROLE_CROW") %}
-                    [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
-                    [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
-                {% else %}
+                {% if is_granted("ROLE_CROW") %}
                     <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
                         <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
                         <ul class="mod-submenu-links">
@@ -117,9 +114,9 @@
                             {% endif %}
                         </ul>
                     </label>
+                {% endif %}
                 [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                 [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
-                {% endif %}
                 </div>
             </div>
         {% endif %}
@@ -167,7 +164,29 @@
     let quote_buttons = document.querySelectorAll('[x-forum-action="quote-post"]');
     for (let i = 0; i < quote_buttons.length; i++)
         quote_buttons[i].addEventListener('click', function() {
-            $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {post: this.getAttribute('x-post-id')} )
+        	let editor = document.getElementById('forum-editor');
+        	if(editor && editor.innerHTML == "") {
+            	$.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false )
+        	}
+        	//{post: this.getAttribute('x-post-id')}
+        	setTimeout(function(){
+	    		$.ajax.easySend('{{ url('forum_post_quote', {fid: fid, tid: tid}) }}', {post: quote_buttons[i].getAttribute('x-post-id')}, function(text){
+	        		let textEditor = document.getElementById("forum-editor-text");
+	        		let newValue = textEditor.value + "\n" + text.content;
+	        		newValue = newValue.trim() + "\n";
+	        		textEditor.value = newValue;
+	        		textEditor.focus();
+	        		textEditor.setSelectionRange(textEditor.value.length,textEditor.value.length);
+	        		document.getElementById('forum-editor').scrollIntoView();
+	        		// trigger "input" event
+	        		var event = new Event('input', {
+					    bubbles: true,
+					    cancelable: true,
+					});
+
+					textEditor.dispatchEvent(event);
+	        	});
+        	}, 10);
         })
     {% if is_granted("ROLE_CROW") %}
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');
