@@ -1198,5 +1198,23 @@
         <target>Actualiser la liste des sujets</target>
       </segment>
     </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="8qHMcfp" name="Sprache">
+      <notes>
+        <note category="german">Sprache</note>
+      </notes>
+      <segment>
+        <source>Sprache</source>
+        <target>Langue</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

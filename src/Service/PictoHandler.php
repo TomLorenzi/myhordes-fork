@@ -29,7 +29,15 @@ class PictoHandler
                 return;
         }
         // $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
-        $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 0]);
+        // $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 0]);
+        $picto = null;
+        foreach ($citizen->getUser()->getPictos() as $citizenPicto) {
+            if($citizenPicto->getPersisted() !== 0) continue;
+            if($citizenPicto->getPrototype() !== $pictoPrototype) continue;
+            if($citizenPicto->getTown() !== $citizen->getTown()) continue;
+            $picto = $citizenPicto;
+            break;
+        }
         if($picto === null) $picto = new Picto();
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(0)
@@ -38,7 +46,8 @@ class PictoHandler
             ->setCount($picto->getCount()+$count);
 
         $this->entity_manager->persist($picto);
-        $this->entity_manager->flush();
+
+        //$this->entity_manager->flush();
     }
 
     public function give_validated_picto(Citizen &$citizen, $pictoPrototype, $count = 1){
@@ -49,7 +58,16 @@ class PictoHandler
         }
         
         //$picto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
-        $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 1]);
+        //$picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 1]);
+        $picto = null;
+        foreach ($citizen->getUser()->getPictos() as $citizenPicto) {
+            if($citizenPicto->getPersisted() !== 1) continue;
+            if($citizenPicto->getPrototype() !== $pictoPrototype) continue;
+            if($citizenPicto->getTown() !== $citizen->getTown()) continue;
+            $picto = $citizenPicto;
+            break;
+        }
+
         if($picto === null) $picto = new Picto();
 
         $picto->setPrototype($pictoPrototype)
@@ -59,7 +77,7 @@ class PictoHandler
             ->setCount($picto->getCount()+$count);
 
         $this->entity_manager->persist($picto);
-        $this->entity_manager->flush();
+        // $this->entity_manager->flush();
     }
 
     public function validate_picto(Citizen $citizen){
@@ -134,7 +152,7 @@ class PictoHandler
             }
         }
 
-        $this->entity_manager->flush();
+        // $this->entity_manager->flush();
     }
 
     public function has_picto(Citizen $citizen, $pictoPrototype){

@@ -147,6 +147,24 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("jx/soul/coalitions", name="soul_coalitions")
+     * @return Response
+     */
+    public function soul_coalitions(): Response
+    {
+        return $this->render( 'ajax/soul/coalitions.html.twig', $this->addDefaultTwigArgs("soul_coalitions", null) );
+    }
+
+    /**
+     * @Route("jx/soul/season", name="soul_season")
+     * @return Response
+     */
+    public function soul_season(): Response
+    {
+        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", null) );
+    }
+
+    /**
      * @Route("jx/soul/rps", name="soul_rps")
      * @return Response
      */
