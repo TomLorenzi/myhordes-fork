@@ -598,5 +598,23 @@
         <target>Access previous major updates:</target>
       </segment>
     </unit>
+    <unit id="lJGEo3w" name="Koalition">
+      <notes>
+        <note category="german">Coalition</note>
+      </notes>
+      <segment>
+        <source>Koalition</source>
+        <target>Coalition</target>
+      </segment>
+    </unit>
+    <unit id="svF8aFT" name="Saison 15">
+      <notes>
+        <note category="german">Season 15</note>
+      </notes>
+      <segment>
+        <source>Saison 15</source>
+        <target>Season 15</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

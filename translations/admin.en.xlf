@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Version</source>
-        <target>Version</target>
+        <target>Update</target>
       </segment>
     </unit>
     <unit id="gvEcbOu" name="Neue Update">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Munition erzeugen</source>
-        <target>Generate ammunition</target>
+        <target>Generate ammunitions</target>
       </segment>
     </unit>
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
@@ -1016,6 +1016,15 @@
       <segment>
         <source>Computer sagt nein.</source>
         <target>Computer says no.</target>
+      </segment>
+    </unit>
+    <unit id="nq1XXly" name="Stadtregister">
+      <notes>
+        <note category="german">Town registry</note>
+      </notes>
+      <segment>
+        <source>Stadtregister</source>
+        <target>Town registry</target>
       </segment>
     </unit>
   </file>
