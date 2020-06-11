@@ -67,8 +67,31 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         return $this->render( 'ajax/ghost/create_town.html.twig', [
-            'townClasses' => $em->getRepository(TownClass::class)->findAll(),
+            'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
         ]);
+    }
+
+    /**
+     * @Route("api/ghost/create_town", name="ghost_process_create_town")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
+
+        if(!$uh->hasSkill($user, 'mayor')){
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('initial_landing')] );
+        }
+
+        
+
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('game_jobs')] );
     }
 
     /**
@@ -145,7 +168,6 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
                         $em->flush();
-                        //$factory->createExplorableMaze($newTown);
                     }
                 }
             }

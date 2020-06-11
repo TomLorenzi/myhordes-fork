@@ -211,5 +211,491 @@
         <target>Avec quelques cadavres en plus...</target>
       </segment>
     </unit>
+    <unit id="L4_Jvrm" name="Privatstadt gründen">
+      <notes>
+        <note category="german">Privatstadt gründen</note>
+      </notes>
+      <segment>
+        <source>Privatstadt gründen</source>
+        <target>Créer une ville privée</target>
+      </segment>
+    </unit>
+    <unit id="pUImk8L" name="Zugangscode">
+      <notes>
+        <note category="german">Zugangscode</note>
+      </notes>
+      <segment>
+        <source>Zugangscode</source>
+        <target>Code d'accès</target>
+      </segment>
+    </unit>
+    <unit id=".x7RJF5" name="Stadttyp">
+      <notes>
+        <note category="german">Stadttyp</note>
+      </notes>
+      <segment>
+        <source>Stadttyp</source>
+        <target>Type de ville</target>
+      </segment>
+    </unit>
+    <unit id="KOB6h9k" name="Ghule">
+      <notes>
+        <note category="german">Ghule</note>
+      </notes>
+      <segment>
+        <source>Ghule</source>
+        <target>Type de goule</target>
+      </segment>
+    </unit>
+    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
+      <notes>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
+        <target>La goule a un fonctionnement normal et apparaîtra selon les règles propres au type de ville choisi.</target>
+      </segment>
+    </unit>
+    <unit id="pySO60X" name="Normal">
+      <notes>
+        <note category="german">Normal</note>
+      </notes>
+      <segment>
+        <source>Normal</source>
+        <target>Normal</target>
+      </segment>
+    </unit>
+    <unit id="jNQMs2P" name="fead058">
+      <notes>
+        <note category="german">Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
+      </notes>
+      <segment>
+        <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
+        <target>Le rythme d'apparition est inchangé mais une goule ne pourra réduire sa voracité qu'en dévorant un citoyen.</target>
+      </segment>
+    </unit>
+    <unit id="aQ_K79K" name="Blutdurst">
+      <notes>
+        <note category="german">Blutdurst</note>
+      </notes>
+      <segment>
+        <source>Blutdurst</source>
+        <target>Soif de sang</target>
+      </segment>
+    </unit>
+    <unit id="Zj_q.r8" name="f806eb4">
+      <notes>
+        <note category="german">Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</note>
+      </notes>
+      <segment>
+        <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
+        <target>Ville de bisounours : pas de goule possible.</target>
+      </segment>
+    </unit>
+    <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
+      <notes>
+        <note category="german">Stadt der Kuscheltiere</note>
+      </notes>
+      <segment>
+        <source>Stadt der Kuscheltiere</source>
+        <target>Ville de bisounours</target>
+      </segment>
+    </unit>
+    <unit id="oix8aY3" name="5d9dd6d">
+      <notes>
+        <note category="german">Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</note>
+      </notes>
+      <segment>
+        <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
+        <target>Valeur normale comprise entre 100 et 180. Valeur réduite d'un tier si pandémonium. Valeur maximale à 300.</target>
+      </segment>
+    </unit>
+    <unit id="9XUKXXI" name="Einstellungen">
+      <notes>
+        <note category="german">Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Einstellungen</source>
+        <target>Réglages</target>
+      </segment>
+    </unit>
+    <unit id="0beSyHH" name="XML Feed für diese Stadt deaktivieren">
+      <notes>
+        <note category="german">XML Feed für diese Stadt deaktivieren</note>
+      </notes>
+      <segment>
+        <source>XML Feed für diese Stadt deaktivieren</source>
+        <target>Désactiver le flux XML pour cette ville</target>
+      </segment>
+    </unit>
+    <unit id="QI93AMS" name="Event-Stadt">
+      <notes>
+        <note category="german">Event-Stadt</note>
+      </notes>
+      <segment>
+        <source>Event-Stadt</source>
+        <target>Villes event</target>
+      </segment>
+    </unit>
+    <unit id="_GOkdZm" name="Spezialregeln">
+      <notes>
+        <note category="german">Spezialregeln</note>
+      </notes>
+      <segment>
+        <source>Spezialregeln</source>
+        <target>Spezialregeln</target>
+      </segment>
+    </unit>
+    <unit id="9qD2u0I" name="Keine Spezialregeln">
+      <notes>
+        <note category="german">Keine Spezialregeln</note>
+      </notes>
+      <segment>
+        <source>Keine Spezialregeln</source>
+        <target>Règles spéciales</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <notes>
+        <note category="german">Keine</note>
+      </notes>
+      <segment>
+        <source>Keine</source>
+        <target>Aucune</target>
+      </segment>
+    </unit>
+    <unit id="LDmQN2V" name="94fc68e">
+      <notes>
+        <note category="german">Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</note>
+      </notes>
+      <segment>
+        <source>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</source>
+        <target>Aucun chantier n'est préalablement débloqué, tout est à trouver dans le désert !</target>
+      </segment>
+    </unit>
+    <unit id="KzRE1mD" name="Keine Startgebäude">
+      <notes>
+        <note category="german">Keine Startgebäude</note>
+      </notes>
+      <segment>
+        <source>Keine Startgebäude</source>
+        <target>Aucun chantier de départ</target>
+      </segment>
+    </unit>
+    <unit id="lU_pn2u" name="528f88a">
+      <notes>
+        <note category="german">Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</note>
+      </notes>
+      <segment>
+        <source>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</source>
+        <target>Chaque nourriture ou drogue avalée a une petite chance de provoquer une infection.</target>
+      </segment>
+    </unit>
+    <unit id="gQkxXIB" name="Kontaminierte Zone">
+      <notes>
+        <note category="german">Kontaminierte Zone</note>
+      </notes>
+      <segment>
+        <source>Kontaminierte Zone</source>
+        <target>Zone contaminée</target>
+      </segment>
+    </unit>
+    <unit id="w9rtgEq" name="Stadtmodifikationen">
+      <notes>
+        <note category="german">Stadtmodifikationen</note>
+      </notes>
+      <segment>
+        <source>Stadtmodifikationen</source>
+        <target>Modifications de la ville</target>
+      </segment>
+    </unit>
+    <unit id="dhtPmmZ" name="Exploration:">
+      <notes>
+        <note category="german">Exploration:</note>
+      </notes>
+      <segment>
+        <source>Exploration:</source>
+        <target>Exploration :</target>
+      </segment>
+    </unit>
+    <unit id="i9uL7bg" name="Begehbare Ruinen aktivieren">
+      <notes>
+        <note category="german">Begehbare Ruinen aktivieren</note>
+      </notes>
+      <segment>
+        <source>Begehbare Ruinen aktivieren</source>
+        <target>Active les explorations de bâtiments avancées.</target>
+      </segment>
+    </unit>
+    <unit id="DxyIzHy" name="Seelen &amp; Schamane:">
+      <notes>
+        <note category="german">Seelen &amp; Schamane:</note>
+      </notes>
+      <segment>
+        <source>Seelen &amp; Schamane:</source>
+        <target><![CDATA[Âmes & chamans :]]></target>
+      </segment>
+    </unit>
+    <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
+      <notes>
+        <note category="german">Verlorene Seelen und Schamanen aktivieren</note>
+      </notes>
+      <segment>
+        <source>Verlorene Seelen und Schamanen aktivieren</source>
+        <target>Active les âmes errantes et le chaman.</target>
+      </segment>
+    </unit>
+    <unit id="KwchNgg" name="Eskorte:">
+      <notes>
+        <note category="german">Eskorte:</note>
+      </notes>
+      <segment>
+        <source>Eskorte:</source>
+        <target>Escortes :</target>
+      </segment>
+    </unit>
+    <unit id="siVFR7b" name="Eskorten aktivieren">
+      <notes>
+        <note category="german">Eskorten aktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorten aktivieren</source>
+        <target>Active les escortes citoyennes.</target>
+      </segment>
+    </unit>
+    <unit id="M7KjFnf" name="Verbannung:">
+      <notes>
+        <note category="german">Verbannung:</note>
+      </notes>
+      <segment>
+        <source>Verbannung:</source>
+        <target>Bannissements :</target>
+      </segment>
+    </unit>
+    <unit id="QosET96" name="Verbannung aktivieren">
+      <notes>
+        <note category="german">Verbannung aktivieren</note>
+      </notes>
+      <segment>
+        <source>Verbannung aktivieren</source>
+        <target>Active les citoyens bannis.</target>
+      </segment>
+    </unit>
+    <unit id="hR9OXtO" name="Nachtmodus:">
+      <notes>
+        <note category="german">Nachtmodus:</note>
+      </notes>
+      <segment>
+        <source>Nachtmodus:</source>
+        <target>Mode nuit :</target>
+      </segment>
+    </unit>
+    <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
+      <notes>
+        <note category="german">Nachtmodus aktivieren (schwerer)</note>
+      </notes>
+      <segment>
+        <source>Nachtmodus aktivieren (schwerer)</source>
+        <target>Active le mode nuit plus difficile</target>
+      </segment>
+    </unit>
+    <unit id="Ip2o27i" name="Camping:">
+      <notes>
+        <note category="german">Camping:</note>
+      </notes>
+      <segment>
+        <source>Camping:</source>
+        <target>Camping :</target>
+      </segment>
+    </unit>
+    <unit id="PWZojkF" name="Camping in der Wildnis aktivieren">
+      <notes>
+        <note category="german">Camping in der Wildnis aktivieren</note>
+      </notes>
+      <segment>
+        <source>Camping in der Wildnis aktivieren</source>
+        <target>Active le camping sauvage.</target>
+      </segment>
+    </unit>
+    <unit id="8h7b0Dd" name="Ghule:">
+      <notes>
+        <note category="german">Ghule:</note>
+      </notes>
+      <segment>
+        <source>Ghule:</source>
+        <target>Goules :</target>
+      </segment>
+    </unit>
+    <unit id="Rsw_o_o" name="Ghule aktivieren">
+      <notes>
+        <note category="german">Ghule aktivieren</note>
+      </notes>
+      <segment>
+        <source>Ghule aktivieren</source>
+        <target>Active les goules.</target>
+      </segment>
+    </unit>
+    <unit id="rBxUVmT" name="Gebäudeschaden:">
+      <notes>
+        <note category="german">Gebäudeschaden:</note>
+      </notes>
+      <segment>
+        <source>Gebäudeschaden:</source>
+        <target>Usure des bâtiments :</target>
+      </segment>
+    </unit>
+    <unit id="k.ofzD6" name="Gebäudeschaden aktivieren">
+      <notes>
+        <note category="german">Gebäudeschaden aktivieren</note>
+      </notes>
+      <segment>
+        <source>Gebäudeschaden aktivieren</source>
+        <target>Active l'usure des bâtiments en pandémonium</target>
+      </segment>
+    </unit>
+    <unit id="BZ2yast" name="Nachtwache:">
+      <notes>
+        <note category="german">Nachtwache:</note>
+      </notes>
+      <segment>
+        <source>Nachtwache:</source>
+        <target>Veilles :</target>
+      </segment>
+    </unit>
+    <unit id="85ixbKa" name="Nachtwache aktivieren">
+      <notes>
+        <note category="german">Nachtwache aktivieren</note>
+      </notes>
+      <segment>
+        <source>Nachtwache aktivieren</source>
+        <target>Active les veilleurs</target>
+      </segment>
+    </unit>
+    <unit id="aOW2H78" name="Verbesserte Müllhalde:">
+      <notes>
+        <note category="german">Verbesserte Müllhalde:</note>
+      </notes>
+      <segment>
+        <source>Verbesserte Müllhalde:</source>
+        <target>Décharge améliorée :</target>
+      </segment>
+    </unit>
+    <unit id="ZqzbCRl" name="Verbesserte Müllhalde aktivieren">
+      <notes>
+        <note category="german">Verbesserte Müllhalde aktivieren</note>
+      </notes>
+      <segment>
+        <source>Verbesserte Müllhalde aktivieren</source>
+        <target>Active la décharge améliorée.</target>
+      </segment>
+    </unit>
+    <unit id="0B82Z13" name="Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt">
+      <notes>
+        <note category="german">Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</note>
+      </notes>
+      <segment>
+        <source>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</source>
+        <target>Activer/désactiver des mods de jeu spécifiquement sur cette ville.</target>
+      </segment>
+    </unit>
+    <unit id="BpFg4zU" name="Angriffe">
+      <notes>
+        <note category="german">Angriffe</note>
+      </notes>
+      <segment>
+        <source>Angriffe</source>
+        <target>Les attaques</target>
+      </segment>
+    </unit>
+    <unit id="0AcV_6s" name="Stärke der Angriffe">
+      <notes>
+        <note category="german">Stärke der Angriffe</note>
+      </notes>
+      <segment>
+        <source>Stärke der Angriffe</source>
+        <target>Gestion des attaques</target>
+      </segment>
+    </unit>
+    <unit id="mkXpu2_" name="Leiche Angriffe">
+      <notes>
+        <note category="german">Leiche Angriffe</note>
+      </notes>
+      <segment>
+        <source>Leiche Angriffe</source>
+        <target>Attaques douces</target>
+      </segment>
+    </unit>
+    <unit id="MKxsVor" name="Schwere Angriffe">
+      <notes>
+        <note category="german">Schwere Angriffe</note>
+      </notes>
+      <segment>
+        <source>Schwere Angriffe</source>
+        <target>Attaques violentes</target>
+      </segment>
+    </unit>
+    <unit id="ROOTy.N" name="Achtung!">
+      <notes>
+        <note category="german">Achtung!</note>
+      </notes>
+      <segment>
+        <source>Achtung!</source>
+        <target>Attention !</target>
+      </segment>
+    </unit>
+    <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
+      <notes>
+        <note category="german">Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</note>
+      </notes>
+      <segment>
+        <source>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</source>
+        <target>Si la ville n'est pas remplie dans moins de 2 jours, elle sera annulée.</target>
+      </segment>
+    </unit>
+    <unit id="JmzKQyu" name="ba95582">
+      <notes>
+        <note category="german">Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</note>
+      </notes>
+      <segment>
+        <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
+        <target>Vous pouvez dès à présent vous incarner dans le monde de Hordes pour tenter de survivre à nouveau. Qui sait ce qui vous attend dans cette nouvelle vie ?</target>
+      </segment>
+    </unit>
+    <unit id="iita2xJ" name="83fa5e3">
+      <notes>
+        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</note>
+      </notes>
+      <segment>
+        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
+        <target>Les villes privées vous permettent de jouer facilement entre amis, ou dans le cadre de villes "à thèmes".</target>
+      </segment>
+    </unit>
+    <unit id="1zFAtcT" name="Wasservorrat">
+      <notes>
+        <note category="german">Wasservorrat</note>
+      </notes>
+      <segment>
+        <source>Wasservorrat</source>
+        <target>Réserve d'eau</target>
+      </segment>
+    </unit>
+    <unit id="qakF4ad" name="Diese Stadt gründen">
+      <notes>
+        <note category="german">Diese Stadt gründen</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt gründen</source>
+        <target>Créer cette ville</target>
+      </segment>
+    </unit>
+    <unit id="ijucPI." name="Platzreservierung">
+      <notes>
+        <note category="german">Platzreservierung</note>
+      </notes>
+      <segment>
+        <source>Platzreservierung</source>
+        <target>Réserver les places</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
