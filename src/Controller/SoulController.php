@@ -767,12 +767,13 @@ class SoulController extends AbstractController
         $pictosWonDuringTown = [];
         $pictosNotWonDuringTown = [];
 
-        foreach ($pictosDuringTown as $picto)
-            if ($picto->getRepository()->getName() == "r_ptame_#00") continue;
+        foreach ($pictosDuringTown as $picto) {
+            if ($picto->getPrototype()->getName() == "r_ptame_#00") continue;
             if ($picto->getPersisted() > 0)
                 $pictosWonDuringTown[] = $picto;
             else
                 $pictosNotWonDuringTown[] = $picto;
+        }
 
         $canSeeGazette = $nextDeath->getTown() !== null;
         if($canSeeGazette){

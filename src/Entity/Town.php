@@ -147,6 +147,11 @@ class Town
      */
     private $attackFails = 0;
 
+    /**
+     * @ORM\Column(type="string", length=90, nullable=true)
+     */
+    private $password;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -615,6 +620,18 @@ class Town
     public function setAttackFails(int $attackFails): self
     {
         $this->attackFails = $attackFails;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }
