@@ -30,8 +30,8 @@
 
     {% if not voted_building is null %}
         <div class="voted-building">
-            {{'Deine Mitbürger empfehlen dich, die Baustelle zu bauen:'|trans({}, 'game')}}<br />
-            <span class="name">{{voted_building.prototype.label|trans({}, 'buildings')}}</span>
+            {{'Das folgende Bauprojekt wurde empfohlen:'|trans({}, 'game')}}<br />
+            <strong class="name">{{voted_building.prototype.label|trans({}, 'buildings')}}</strong>
         </div>
     {% endif %}
 
@@ -56,7 +56,7 @@
                     </span>
                 {% endif %}
                 {% if canVote and not building.complete %}
-                    <span class="vote" x-building-id="{{ building.id }}">[ <span class="link">Voter</span> ]</span>
+                    <span class="vote" x-building-id="{{ building.id }}">[ <span class="link">{{'Abstimmen'|trans({}, 'game')}}</span> ]</span>
                 {% endif %}
                 {% if (building.complete and building.defense > 0) or (not building.complete and building.prototype.defense > 0) %}
                     <div class="float-right defense{% if building.complete and building.defense != building.prototype.defense %}-broken{% endif %}">

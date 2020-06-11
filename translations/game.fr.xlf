@@ -10576,15 +10576,6 @@
         <target>Revenir à mon âme</target>
       </segment>
     </unit>
-    <unit id="akn9z5g" name="Deine Mitbürger empfehlen dich, die Baustelle zu bauen:">
-      <notes>
-        <note category="german">Deine Mitbürger empfehlen dich, die Baustelle zu bauen:</note>
-      </notes>
-      <segment>
-        <source>Deine Mitbürger empfehlen dich, die Baustelle zu bauen:</source>
-        <target>Vos concitoyens vous recommandent de construire le chanier :</target>
-      </segment>
-    </unit>
     <unit id="OAGjXFG" name="Alle">
       <notes>
         <note category="german">Alle</note>
@@ -10592,6 +10583,15 @@
       <segment>
         <source>Alle</source>
         <target>Tout</target>
+      </segment>
+    </unit>
+    <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
+      <notes>
+        <note category="german">Das folgende Bauprojekt wurde empfohlen:</note>
+      </notes>
+      <segment>
+        <source>Das folgende Bauprojekt wurde empfohlen:</source>
+        <target>Le projet suivant a été recommandé :</target>
       </segment>
     </unit>
   </file>

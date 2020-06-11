@@ -242,7 +242,7 @@
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
             {% endif %}
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ) } );
-            window.scrollTo(window.top);
+            document.querySelector('.forum-post').scrollIntoView();
         })
     {% if pages == current_page %}
         let thread_listings = document.querySelectorAll('[x-thread-id="{{ tid }}"]');
