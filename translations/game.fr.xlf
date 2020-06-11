@@ -10594,5 +10594,41 @@
         <target>Le projet suivant a été recommandé :</target>
       </segment>
     </unit>
+    <unit id="iita2xJ" name="83fa5e3">
+      <notes>
+        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</note>
+      </notes>
+      <segment>
+        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
+        <target>Les villes privées vous permettent de jouer facilement entre amis, ou dans le cadre de villes "à thèmes".</target>
+      </segment>
+    </unit>
+    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
+      <notes>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
+        <target>La goule a un fonctionnement normal et apparaîtra selon les règles propres au type de ville choisi.</target>
+      </segment>
+    </unit>
+    <unit id="1zFAtcT" name="Wasservorrat">
+      <notes>
+        <note category="german">Wasservorrat</note>
+      </notes>
+      <segment>
+        <source>Wasservorrat</source>
+        <target>Réserve d'eau</target>
+      </segment>
+    </unit>
+    <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
+      <notes>
+        <note category="german">Die Liste der eingeschriebenen Spieler ansehen.</note>
+      </notes>
+      <segment>
+        <source>Die Liste der eingeschriebenen Spieler ansehen.</source>
+        <target>Voir la liste des citoyens inscrits.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

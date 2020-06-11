@@ -211,5 +211,104 @@
         <target>Avec quelques cadavres en plus...</target>
       </segment>
     </unit>
+    <unit id="pUImk8L" name="Zugangscode">
+      <notes>
+        <note category="german">Zugangscode</note>
+      </notes>
+      <segment>
+        <source>Zugangscode</source>
+        <target>Code d'accès</target>
+      </segment>
+    </unit>
+    <unit id=".x7RJF5" name="Stadttyp">
+      <notes>
+        <note category="german">Stadttyp</note>
+      </notes>
+      <segment>
+        <source>Stadttyp</source>
+        <target>Type de ville</target>
+      </segment>
+    </unit>
+    <unit id="KOB6h9k" name="Ghule">
+      <notes>
+        <note category="german">Ghule</note>
+      </notes>
+      <segment>
+        <source>Ghule</source>
+        <target>Type de goule</target>
+      </segment>
+    </unit>
+    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
+      <notes>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
+        <target>La goule a un fonctionnement normal et apparaîtra selon les règles propres au type de ville choisi.</target>
+      </segment>
+    </unit>
+    <unit id="pySO60X" name="Normal">
+      <notes>
+        <note category="german">Normal</note>
+      </notes>
+      <segment>
+        <source>Normal</source>
+        <target>Normale</target>
+      </segment>
+    </unit>
+    <unit id="jNQMs2P" name="fead058">
+      <notes>
+        <note category="german">Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
+      </notes>
+      <segment>
+        <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
+        <target>Le rythme d'apparition est inchangé mais une goule ne pourra réduire sa voracité qu'en dévorant un citoyen.</target>
+      </segment>
+    </unit>
+    <unit id="aQ_K79K" name="Blutdurst">
+      <notes>
+        <note category="german">Blutdurst</note>
+      </notes>
+      <segment>
+        <source>Blutdurst</source>
+        <target>Soif de sang</target>
+      </segment>
+    </unit>
+    <unit id="Zj_q.r8" name="f806eb4">
+      <notes>
+        <note category="german">Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</note>
+      </notes>
+      <segment>
+        <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
+        <target>Ville de bisounours : pas de goule possible.</target>
+      </segment>
+    </unit>
+    <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
+      <notes>
+        <note category="german">Stadt der Kuscheltiere</note>
+      </notes>
+      <segment>
+        <source>Stadt der Kuscheltiere</source>
+        <target>Ville de bisounours</target>
+      </segment>
+    </unit>
+    <unit id="ROOTy.N" name="Achtung!">
+      <notes>
+        <note category="german">Achtung!</note>
+      </notes>
+      <segment>
+        <source>Achtung!</source>
+        <target>Attention !</target>
+      </segment>
+    </unit>
+    <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
+      <notes>
+        <note category="german">Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</note>
+      </notes>
+      <segment>
+        <source>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</source>
+        <target>Si la ville n'est pas remplie dans moins de 2 jours, elle sera annulée.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

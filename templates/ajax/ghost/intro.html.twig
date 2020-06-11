@@ -29,7 +29,7 @@
                                             <div class="padded cell rw-1"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~".png") }}" alt="{{ town.getLanguage }}" /></span></div>
                                             <div class="padded cell rw-5">{{ town.getName }}</div>
                                             <div class="padded cell rw-2">{{ town.citizens|length }}/{{ town.population }}</div>
-                                            <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /></div>
+                                            <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div>
                                             <div class="padded cell rw-3"><button {% if joinable %}x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}"{% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>{% trans from 'ghost' %}Beitreten{% endtrans %}</button></div>
                                             <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden">
                                                 <ul class="citizen-list">
