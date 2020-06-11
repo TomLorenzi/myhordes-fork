@@ -68,13 +68,13 @@
             </div>
         </div>
 
-        <textarea id="forum-editor-text">{% if content is defined %}{{content}}{% endif %}</textarea>
+        <textarea id="forum-editor-text"></textarea>
 
         <div class="row">
             <div class="padded cell rw-12">
-                <ul class="tabs" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
-                    <li x-tab-id="emotes"><i class="fa fa-smile"></i></li>
-                    <li x-tab-id="games"><i class="fa fa-dice"></i></li>
+                <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                    <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
+                    <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
                 </ul>
                 <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
                     <div class="forum-button-bar">
@@ -151,8 +151,8 @@
             const parseRangeBlocks = function(elem, secondary = false) {
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
-                    const str = elem.textContent;
-                    const regex_wrappers = !secondary ? /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
+                    let str = elem.textContent;
+                    let regex_wrappers = !secondary ? /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
                     let current_offset = 0;
                     let blocks = [];
                     /*
@@ -175,13 +175,11 @@
                     => <a class="external" href="https://myhordes.net">my text</a>
                      */
 
-                    for (const match of str.matchAll( regex_wrappers )) {
+                    for (let match of str.matchAll( regex_wrappers )) {
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
 
-                        console.log(match);
-
-                        const tag = match[1].toLowerCase();
+                        let tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
                             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[3], tag, null] ); changed = true; break;
                             case 'bad': blocks.push( [ match[3], 'span', tag] ); changed = true; break;
@@ -224,12 +222,12 @@
             }
             const parseInsets = function(elem, listspace = false) {
                 if (elem.nodeType === Node.TEXT_NODE) {
-                    const str = elem.textContent;
-                    const regex_wrappers = /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
+                    let str = elem.textContent;
+                    let regex_wrappers = /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
                     let current_offset = 0;
                     let blocks = [];
 
-                    for (const match_r of str.matchAll( regex_wrappers )) {
+                    for (let match_r of str.matchAll( regex_wrappers )) {
 
                         let match = [match_r[0], undefined, undefined];
                         if      (match_r[1] !== undefined) match = [ match_r[0], match_r[1], undefined ];
@@ -239,7 +237,7 @@
                         if (current_offset < match_r.index )
                             blocks.push(str.substr(current_offset,match_r.index-current_offset));
 
-                        const tag = match[1].toLowerCase();
+                        let tag = match[1].toLowerCase();
                         switch (tag) {
                             case 'hr': blocks.push( [ '', tag, null] ); break;
                             case 'br': blocks.push( listspace ? null : [ '', tag, null] ); break;
@@ -282,12 +280,12 @@
 
             const parseEmotes = function(elem) {
                 if (elem.nodeType === Node.TEXT_NODE) {
-                    const str = elem.textContent;
-                    const regex_wrappers = /(?::(\w+?):)|([:;].)/g;
+                    let str = elem.textContent;
+                    let regex_wrappers = /(?::(\w+?):)|([:;].)/g;
                     let current_offset = 0;
                     let blocks = [];
 
-                    for (const match of str.matchAll( regex_wrappers )) {
+                    for (let match of str.matchAll( regex_wrappers )) {
 
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
@@ -340,13 +338,6 @@
 
         node_transfer_source.addEventListener('input', transfer_to_preview);
 
-        {% if content is defined %}
-        transfer_to_preview();
-        node_transfer_source.focus();
-        node_transfer_source.setSelectionRange(node_transfer_source.value.length,node_transfer_source.value.length);
-        document.getElementById('forum-editor').scrollIntoView();
-        {% endif %}
-
         let closeModal = function() {
             document.getElementById('modal-backdrop').classList.remove('active');
             let form = document.getElementById('modal-form');
@@ -360,10 +351,10 @@
             e.preventDefault();
             e.stopPropagation();
 
-            const tag = elem.getAttribute('x-text-modal-node');
-            const content = node_transfer_source.value;
-            const s_start = node_transfer_source.selectionStart;
-            const s_end = node_transfer_source.selectionEnd;
+            let tag = elem.getAttribute('x-text-modal-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
             let title, form, formType, label1, label2, input1, input2;
 
             form = document.createElement('div');
@@ -419,11 +410,10 @@
 
             document.getElementById('modal-button-ok').addEventListener('click', function processModal() {
                 let submitted = document.getElementById('modal-form');
-                const type = document.getElementById('form-type');
+                let type = document.getElementById('form-type');
                 let inputs = submitted.getElementsByTagName('input');
                 var tagText, tagUrl;
                 for (let i = 0; i < inputs.length; i++) {
-                    console.log(inputs[i].id);
                     if (inputs[i].id === type.value + '-text') {
                         let doc = new DOMParser().parseFromString(inputs[i].value, 'text/html');
                         tagText = doc.body.textContent || "";
@@ -464,10 +454,10 @@
             e.preventDefault();
             e.stopPropagation();
 
-            const tag = elem.getAttribute('x-text-wrap-node');
-            const content = node_transfer_source.value;
-            const s_start = node_transfer_source.selectionStart;
-            const s_end = node_transfer_source.selectionEnd;
+            let tag = elem.getAttribute('x-text-wrap-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
 
             node_transfer_source.value =
                 content.substr( 0, s_start ) +
@@ -486,10 +476,10 @@
             e.preventDefault();
             e.stopPropagation();
 
-            const tag = elem.getAttribute('x-text-insert-node');
-            const content = node_transfer_source.value;
-            const s_start = node_transfer_source.selectionStart;
-            const s_end = node_transfer_source.selectionEnd;
+            let tag = elem.getAttribute('x-text-insert-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
 
             node_transfer_source.value =
                 content.substr( 0, s_start ) +
@@ -506,16 +496,17 @@
             e.preventDefault();
             e.stopPropagation();
 
-            const tag = elem.getAttribute('x-text-insert-emote');
-            const content = node_transfer_source.value;
-            const s_start = node_transfer_source.selectionStart;
-            const s_end = node_transfer_source.selectionEnd;
+            let tag = elem.getAttribute('x-text-insert-emote');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
 
-            node_transfer_source.value =
-                content.substr( 0, s_start ) + tag + content.substr( s_start );
+            node_transfer_source.value = content.substr( 0, s_start ) + tag + content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10);
             transfer_to_preview();
         } );
 

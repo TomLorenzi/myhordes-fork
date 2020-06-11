@@ -195,7 +195,10 @@ export default class HTML {
                     hide_group( group );
                     for (let bi = 0; bi < buttons.length; bi++) buttons[bi].classList.remove('selected');
                     buttons[b].classList.add('selected');
-                    let targets = element.querySelectorAll('*[x-tab-target][x-tab-group=' + group + '][x-tab-id= ' + id + ']');
+                    let selector = '*[x-tab-target][x-tab-group=' + group + ']';
+                    if(id != 'all')
+                        selector += '[x-tab-id= ' + id + ']';
+                    let targets = element.querySelectorAll(selector);
                     for (let t = 0; t < targets.length; t++)
                         (<HTMLElement>targets[t]).style.display = null;
                     $.client.set( group, 'tabState', id, true );

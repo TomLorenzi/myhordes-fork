@@ -2,7 +2,7 @@
 {% block ajax %}
     <div class="row">
         <div class="cell padded header rw-12">
-            <h4>{% trans from 'ghost' %}Wähle eine Stadt{% endtrans %}</h4>
+            <h4>{% trans from 'ghost' %}Wähle eine Stadt{% endtrans %}{% if canCreateTown %}<span class="link float-right" x-ajax-href="{{ path('ghost_create_town') }}">Créer une ville</span>{% endif %}</h4>
             <div class="row">
                 <div class="cell rw-8 rw-md-12">
                     {% for townClass in townClasses %}
@@ -66,6 +66,7 @@
     </div>
 {% endblock %}
 {% block js %}
+    {{parent()}}
     <script>
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
             const id = elem.getAttribute('x-town-toggle');

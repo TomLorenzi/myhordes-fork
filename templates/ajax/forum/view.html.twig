@@ -127,7 +127,7 @@
                 })            
         {% endif %}
 
-        let thread_buttons = document.querySelectorAll('[x-thread-id');
+        let thread_buttons = document.querySelectorAll('[x-thread-id]');
         for (let i = 0; i < thread_buttons.length; i++)
             thread_buttons[i].addEventListener('click', function() {
                 for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');

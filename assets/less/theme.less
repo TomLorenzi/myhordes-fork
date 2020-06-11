@@ -910,17 +910,53 @@ div.ox      { .icon_div("../img/oxygen_small.gif", middle, 0); }
 div.defense { .icon_div("../img/small_def.gif", middle, 2px);font-weight: bold; }
 div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); color:#f18766;font-weight: bold; }
 
-ul.tabs {
-  padding: 0; list-style: none; border-bottom: 2px solid @myhordes-smalltext;
-  background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
-  overflow: hidden; font-size: 0; margin-top: 5px;
-  > li {
-    border: 1px solid @myhordes-smalltext; margin: 0 2px; padding: 3px 6px; display: inline-block; font-size: 1.2rem;
-    font-variant: small-caps; cursor: pointer; position: relative; top: 1px; background: @myhordes-cell-header-background-color;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5);
-    &, & *{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    &.selected { cursor: default; background: @myhordes-smalltext; top: 3px; color: black;}
+.tabs {
+  font-size: 1.2rem; color: #ddab76; border-bottom: 1px solid #ddab76;
+  margin-bottom: 20px; padding: 0 5px; position: relative; top: -2px; margin-left: -2px;
+  &:not(.plain) {
+    background: url(../img/panel_00.png) -6px -7px no-repeat, url(../img/panel_02.png) right -4px top -7px no-repeat, url(../img/soul/tabs-header.jpg) left / cover;
+    &::after { position: absolute; content: " "; top: 0; left: 27px; right: 28px; height: 3px; background: url(../img/panel_01.png) 0 -6px repeat-x; }
   }
+
+  min-height: 34px;
+
+  &>.tab-floater {
+    &.tab { padding-top: 0 !important; }
+    min-height: 32px;
+    &::before, &::after {content: " "; clear: both;}
+    &::before { display: table;}
+    &::after {display: block; height: 0;}
+  }
+
+  h4.soul-name { margin: 2px 4px; display: inline-block; }
+
+  .tab {
+    &.inline { display: inline; }
+    &:not(.left) { float: right; }
+    &:not(.tab-floater) { padding-top: 9px };
+    overflow: hidden;
+
+    .tab-link {
+      float: right; height: 21px; margin-right: 0px; margin-left: 2px;
+      margin-top: 3px; white-space: nowrap; background-image: url(../img/tab.gif);
+      background-position: top left; background-repeat: no-repeat;
+      border-left: 1px solid #694023; border-right: 1px solid #694023;
+      cursor: pointer;
+
+      font-family: Arial, sans-serif; font-size: 1rem; font-variant: small-caps;
+      color: #f0d79e; padding: 2px 4px 0; text-decoration: underline;
+    }
+
+    &:not(.tab-floater):hover .tab-link { outline: 1px solid #f0d79e; text-decoration: underline; }
+    &.selected {
+      position: relative; top: 2px;
+      .tab-link {
+        text-decoration: none;
+        color: white; background-image: url(../img/tab_active.gif);
+      }
+    }
+  }
+  &.plain .tab { float: left; }
 }
 
 span.icon {

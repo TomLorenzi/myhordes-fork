@@ -9,11 +9,11 @@
     {# @var chest \App\Entity\Inventory #}
     {# @var def \App\Structures\HomeDefenseSummary #}
 
-    <ul class="tabs" x-tab-group="home-main" x-tab-control x-tab-default="{{ tab }}">
-        <li x-tab-id="dash">{% trans from 'game' %}Truhe und Aktionen{% endtrans %}</li>
-        <li x-tab-id="messages">{% if new_message %}<img src="{{ asset('build/images/anim_icon_mail.gif') }}" /> {% endif %}{% trans from 'game' %}Nachrichten{% endtrans %}</li>
-        <li x-tab-id="values">{% trans with {'%type%': home.prototype.label|trans({},'buildings')} from 'game' %}Mein(e) %type%{% endtrans %}</li>
-        <li x-tab-id="build">{% trans from 'game' %}Bauarbeiten{% endtrans %}</li>
+    <ul class="tabs plain" x-tab-group="home-main" x-tab-control x-tab-default="{{ tab }}">
+        <li class="tab" x-tab-id="dash"><div class="tab-link">{% trans from 'game' %}Truhe und Aktionen{% endtrans %}</div></li>
+        <li class="tab" x-tab-id="messages"><div class="tab-link">{% if new_message %}<img src="{{ asset('build/images/anim_icon_mail.gif') }}" /> {% endif %}{% trans from 'game' %}Nachrichten{% endtrans %}</div></li>
+        <li class="tab" x-tab-id="values"><div class="tab-link">{% trans with {'%type%': home.prototype.label|trans({},'buildings')} from 'game' %}Mein(e) %type%{% endtrans %}</div></li>
+        <li class="tab" x-tab-id="build"><div class="tab-link">{% trans from 'game' %}Bauarbeiten{% endtrans %}</div></li>
     </ul>
 
     <div x-tab-group="home-main" x-tab-id="dash" x-tab-target>
@@ -85,12 +85,12 @@
     </div>
 
     <div x-tab-group="home-main" x-tab-id="messages" x-tab-target class="messages">
-        <ul class="tabs" x-tab-group="home-messages" x-tab-control x-tab-default="{{ subtab }}">
-            <li x-tab-id="received" id='received_tab'>{% trans from 'game' %}Erhaltene Nachrichten{% endtrans %}</li>
-            <li x-tab-id="archives" id='archives_tab'><img src="{{ asset("build/images/small_archive.gif") }}" alt="" />{% trans from 'game' %}Archiv{% endtrans %}</li>
-            <li x-tab-id="write" id="new_pm_tab"><img src="{{ asset("build/images/small_mail.gif") }}" alt="" /> {% trans from 'game' %}Eine Nachricht schreiben{% endtrans %}</li>
+        <ul class="tabs plain" x-tab-group="home-messages" x-tab-control x-tab-default="{{ subtab }}">
+            <li class="tab" x-tab-id="received" id='received_tab'><div class="tab-link">{% trans from 'game' %}Erhaltene Nachrichten{% endtrans %}</div></li>
+            <li class="tab" x-tab-id="archives" id='archives_tab'><div class="tab-link"><img src="{{ asset("build/images/small_archive.gif") }}" alt="" />{% trans from 'game' %}Archiv{% endtrans %}</div></li>
+            <li class="tab" x-tab-id="write" id="new_pm_tab"><div class="tab-link"><img src="{{ asset("build/images/small_mail.gif") }}" alt="" /> {% trans from 'game' %}Eine Nachricht schreiben{% endtrans %}</div></li>
             {% if can_send_global_pm %}
-            <li x-tab-id="write-to-all" id="new_global_pm_tab"><img src="{{ asset("build/images/star.gif") }}" alt="" /> {% trans from 'game' %}Schreiben Sie an alle{% endtrans %}</li>
+                <li class="tab" x-tab-id="write-to-all" id="new_global_pm_tab"><div class="tab-link"><img src="{{ asset("build/images/star.gif") }}" alt="" /> {% trans from 'game' %}Schreiben Sie an alle{% endtrans %}</div></li>
             {% endif %}
         </ul>
         <div x-tab-group="home-messages" x-tab-id="received" x-tab-target>

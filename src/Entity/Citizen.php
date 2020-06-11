@@ -238,6 +238,12 @@ class Citizen
      */
     private $explorerStats;
 
+    /**
+     * @ORM\OneToOne(targetEntity=BuildingVote::class, mappedBy="citizen", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $buildingVote;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -1062,6 +1068,23 @@ class Citizen
             if ($explorerStat->getCitizen() === $this) {
                 $explorerStat->setCitizen(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getBuildingVote(): ?BuildingVote
+    {
+        return $this->buildingVote;
+    }
+
+    public function setBuildingVote(BuildingVote $buildingVote): self
+    {
+        $this->buildingVote = $buildingVote;
+
+        // set the owning side of the relation if necessary
+        if ($buildingVote->getCitizen() !== $this) {
+            $buildingVote->setCitizen($this);
         }
 
         return $this;

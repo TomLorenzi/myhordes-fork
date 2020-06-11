@@ -14,13 +14,14 @@ use App\Entity\Picto;
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayTextPage;
 use App\Exception\DynamicAjaxResetException;
+use App\Response\AjaxResponse;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
-use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
+use App\Service\TimeKeeperService;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Error;
@@ -50,6 +51,7 @@ class SoulController extends AbstractController
 {
     protected $entity_manager;
     protected $user_factory;
+    protected $time_keeper;
     private $user_handler;
     private $asset;
 
@@ -62,12 +64,13 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->user_handler = $uh;
+        $this->time_keeper = $tk;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -84,6 +87,10 @@ class SoulController extends AbstractController
      */
     public function soul_me(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
     	$points = $this->user_handler->getPoints($this->getUser());
@@ -108,6 +115,10 @@ class SoulController extends AbstractController
      */
     public function soul_heroskill(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         // Get all the picto & count points
         $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($this->getUser()->getHeroDaysSpent());
         $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
@@ -131,6 +142,14 @@ class SoulController extends AbstractController
      */
     public function soul_news(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($this->getUser()->getLanguage());
         return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
             'news' => $news
@@ -143,6 +162,14 @@ class SoulController extends AbstractController
      */
     public function soul_settings(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
     }
 
@@ -152,6 +179,14 @@ class SoulController extends AbstractController
      */
     public function soul_coalitions(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         return $this->render( 'ajax/soul/coalitions.html.twig', $this->addDefaultTwigArgs("soul_coalitions", null) );
     }
 
@@ -161,6 +196,10 @@ class SoulController extends AbstractController
      */
     public function soul_season(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", null) );
     }
 
@@ -170,6 +209,10 @@ class SoulController extends AbstractController
      */
     public function soul_rps(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         $rps = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($this->getUser());
         return $this->render( 'ajax/soul/rps.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'rps' => $rps
@@ -182,6 +225,10 @@ class SoulController extends AbstractController
      */
     public function soul_view_rp(int $id, int $page): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->find($id);
         if($rp === null || !$this->getUser()->getFoundTexts()->contains($rp)){
             return $this->redirect($this->generateUrl('soul_rps'));
@@ -211,6 +258,10 @@ class SoulController extends AbstractController
      */
     public function soul_view_town(int $id): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         if($town === null){
             return $this->redirect($this->generateUrl('soul_me'));
@@ -222,7 +273,7 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("jx/soul/town/add_comment", name="soul_add_comment")
+     * @Route("api/soul/town/add_comment", name="soul_add_comment")
      * @param JSONRequestParser $parser
      * @return Response
      */
@@ -600,13 +651,17 @@ class SoulController extends AbstractController
      */
     public function soul_visit(int $id): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
     	if($user === null || $user === $this->getUser()){
             return $this->redirect($this->generateUrl('soul_me'));
         }
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
-    	$points = $this->user_factory->getPoints($user);
+    	$points = $this->user_handler->getPoints($user);
 
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
@@ -623,6 +678,10 @@ class SoulController extends AbstractController
      */
     public function soul_view_town_foreign(int $id, int $idtown): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+        
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
     	if ($user === null) return $this->redirect($this->generateUrl('soul_me'));
         $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
@@ -708,11 +767,13 @@ class SoulController extends AbstractController
         $pictosWonDuringTown = [];
         $pictosNotWonDuringTown = [];
 
-        foreach ($pictosDuringTown as $picto)
+        foreach ($pictosDuringTown as $picto) {
+            if ($picto->getPrototype()->getName() == "r_ptame_#00") continue;
             if ($picto->getPersisted() > 0)
                 $pictosWonDuringTown[] = $picto;
             else
                 $pictosNotWonDuringTown[] = $picto;
+        }
 
         $canSeeGazette = $nextDeath->getTown() !== null;
         if($canSeeGazette){

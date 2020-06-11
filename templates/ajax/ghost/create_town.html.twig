@@ -1,0 +1,154 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded header rw-12">
+            <h4>Créer une ville</h4>
+            <div class="row">
+                <div class="cell rw-8 rw-md-12">
+                    <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'game')}}</div>
+
+                    <div class="row">
+                        <div class="cell padded rw-4">
+                            <label for="password">{{'Zugangscode'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <input type="text" name="password" id="password"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell padded rw-4">
+                            <label for="type">{{'Stadttyp'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select name="type" id="type">
+                                {% for townClass in townClasses %}
+                                    <option value="{{townClass.name}}">{{townClass.label|trans({}, 'game')}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell padded rw-4">
+                            <label for="ghoulType">{{'Ghule'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select name="ghoulType" id="ghoulType">
+                                <option value="0" title="{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="1" title="{{'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.'|trans({}, 'ghost')}}">{{'Blutdurst'|trans({}, 'ghost')}}</option>
+                                <option value="2" title="{{'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.'|trans({}, 'ghost')}}">{{'Stadt der Kuscheltiere'|trans({}, 'ghost')}}</option>
+                            </select>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <div class="help" id="helpGhoul">{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'game')}}</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell padded rw-4">
+                            <label for="water">{{"Wasservorrat"|trans({}, 'game')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <input type="text" name="water" id="water"/>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <div class="help">Valeur normale comprise entre 100 et 180. Valeur réduite d'un tier si pandémonium. Valeur maximale à 300.</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell padded rw-4">
+                            <label>Réglages</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <input type="checkbox" name="disablexml" id="disablexml" /> <label for="disablexml">Désactiver le flux Xml pour cette ville</label>
+                        </div>
+                    </div>
+
+                    <h5>Villes event</h5>
+                    <div class="row">
+                        <div class="cell padded rw-4">
+                            <label for="rules">Règles spéciales</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select id="rules" name="rules" multiple>
+                                <option value="none" title="Pas de règles spéciales">Aucune</option>
+                                <option value="nobuilding" title="Aucun chantier n'est préalablement débloqué, tout est à trouver dans le désert !">Aucun chantier de départ</option>
+                                <option value="poison" title="Chaque nourriture ou drogue avalée a une petite change de provoquer une infection">Zone contaminée</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h5>Modes de ville</h5>
+                    <div class="row">
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="etl" id="etl" checked/> <label for="etl"><strong>Exploration :</strong> Active les explorations de bâtiments avancés</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="shaman" id="shaman" checked/> <label for="shaman"><strong>Âmes &amp; Chamane :</strong> Active les âmes errantes et le chaman</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="follow" id="follow" checked/> <label for="follow"><strong>Escortes :</strong> Active les escortes citoyennes</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="banned" id="banned" checked/> <label for="banned"><strong>Bannis :</strong> Active les citoyens bannis</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="nightmode" id="nightmode" checked/> <label for="nightmode"><strong>Mode nuit :</strong> Active le mode nuit</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="camp" id="camp" checked/> <label for="camp"><strong>Camping :</strong> Active le camping sauvage</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="ghouls" id="ghouls" checked/> <label for="ghouls"><strong>Goules :</strong> Active les goules</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="buildingdamages" id="buildingdamages" checked/> <label for="buildingdamages"><strong>Dégâts aux bâtiments :</strong> Active l'usure des bâtiments en pandémonium</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="nightwatch" id="nightwatch" checked/> <label for="nightwatch"><strong>Veilles :</strong> Active les veilleurs</label>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <input type="checkbox" name="improveddump" id="improveddump" checked/> <label for="improveddump"><strong>Décharge améliorée :</strong> Active la décharge améliorée</label>
+                        </div>
+                    </div>
+                    <div class="help">
+                        Activer/désactiver des MODS de jeu spécifiquement sur cette ville.
+                    </div>
+                    <h5>Les attaques</h5>
+                    <div class="row">
+                        <div class="cell padded rw-4">
+                            <label for="attack">Gestion des attaques</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select name="attack" id="attack">
+                                <option value="normal">Normales</option>
+                                <option value="easy">Attaques douces</option>
+                                <option value="hard">Attaques violentes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="warning">
+                        <strong>{{'Achtung!'|trans({}, 'ghost')}}</strong> {{'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.'|trans({}, 'ghost')}}
+                    </div>
+                </div>
+
+                <div class="cell rw-4 rw-md-12">
+                    ADD HELP CONTENT HERE
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{parent()}}
+    <script>
+        let ghoulTypeSelect = document.getElementById("ghoulType");
+        if(ghoulType) ghoulType.addEventListener('change', function(){
+            document.getElementById("helpGhoul").innerText = document.querySelector('#ghoulType option:checked').getAttribute('title');
+        });
+    </script>
+{% endblock %}

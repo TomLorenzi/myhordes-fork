@@ -3,7 +3,7 @@
     <div class="row soul">
         <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0">
             <div class="row tabs">
-                <div class="cell-small rw-8 rw-lg-24">
+                <div class="cell-small rw-8 rw-lg-12">
                     {% if user.avatar %}
                         <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
                     {% endif %}

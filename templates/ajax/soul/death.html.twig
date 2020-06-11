@@ -86,6 +86,7 @@
     </div>
 {% endblock %}
 {% block js %}
+    {{parent()}}
     <script>
         document.getElementById('rebirth_btn').addEventListener('click', function() {
             if (confirm('{{ 'Bist du sicher?'|trans({},'global') }}')) {

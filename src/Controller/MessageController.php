@@ -210,13 +210,21 @@ class MessageController extends AbstractController
 
     private const HTML_ATTRIB_ALLOWED_ADMIN = [
         'div.class' => [
-            'adminAnnounce', 'modAnnounce', 'oracleAnnounce',
+            'adminAnnounce',
         ]
     ];
 
-    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 'div.class' => [ 'oracleAnnounce' ] ];
+    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 
+        'div.class' => [ 
+            'oracleAnnounce'
+        ]
+    ];
 
-    private const HTML_ATTRIB_ALLOWED_CROW = [ 'div.class' => [ 'modAnnounce' ] ];
+    private const HTML_ATTRIB_ALLOWED_CROW = [ 
+        'div.class' => [ 
+            'modAnnounce'
+        ]
+    ];
 
     private const HTML_ATTRIB_ALLOWED = [
         'div.class' => [
@@ -237,7 +245,7 @@ class MessageController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW) {
+        if ($user->getRightsElevation() >= User::ROLE_ADMIN) {
             foreach (self::HTML_ALLOWED_ADMIN as $key => $value) {
                 if(isset($r[$key])) {
                     $r[$key] = array_merge($r[$key], self::HTML_ALLOWED_ADMIN[$key]);
@@ -246,13 +254,21 @@ class MessageController extends AbstractController
                 }
             }
 
-            //$r = array_merge( $r, self::HTML_ALLOWED_ADMIN );
-            //$a = array_merge( $a, self::HTML_ATTRIB_ALLOWED_ADMIN);
             foreach (self::HTML_ATTRIB_ALLOWED_ADMIN as $key => $value) {
                 if(isset($a[$key])) {
                     $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ADMIN[$key]);
                 } else {
                     $a[$key] = self::HTML_ATTRIB_ALLOWED_ADMIN[$key];
+                }
+            }
+        }
+
+        if ($user->getRightsElevation() >= User::ROLE_CROW) {
+            foreach (self::HTML_ATTRIB_ALLOWED_CROW as $key => $value) {
+                if(isset($a[$key])) {
+                    $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_CROW[$key]);
+                } else {
+                    $a[$key] = self::HTML_ATTRIB_ALLOWED_CROW[$key];
                 }
             }
         }
@@ -812,8 +828,9 @@ class MessageController extends AbstractController
 
     public function convert_bbcode(?DOMNode $node){
         $content = "";
+        $precision = "";
         foreach ($node->childNodes as $child) {
-            if(isset($child->tagName))
+            if(isset($child->tagName)) {
                 switch ($child->tagName) {
                     case 'br':
                         $content .= "\n";
@@ -822,7 +839,10 @@ class MessageController extends AbstractController
                         $content .= "{hr}";
                         break;
                     case 'div':
-                        if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value) && in_array($child->attributes['class']->value, ['adminAnnounce','modAnnounce','oracleAnnounce','glory','spoiler'])) {
+                    case 'span':
+                    	if($child->tagName == "span" && $child->attributes['class']->value == "rpauthor")
+							$precision = $child->textContent;
+                        else if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value) && in_array($child->attributes['class']->value, ['adminAnnounce','modAnnounce','oracleAnnounce','glory','spoiler', 'bad', 'rpText'])) {
                             $class = $child->attributes['class']->value;
                             switch ($class) {
                                 case 'adminAnnounce':
@@ -834,15 +854,23 @@ class MessageController extends AbstractController
                                 case 'oracleAnnounce':
                                     $class = "announce";
                                     break;
+                                case 'rpText':
+                                	$class = 'rp';
+                                	break;
                             }
 
-                            $content .= "[$class]" . $this->convert_bbcode($child) . "[/$class]";
+                            $content .= "[$class";
+                            if(!empty($precision)) {
+                            	$content .= "=$precision";
+                            	$precision = "";
+                            }
+                            $content .= "]" . $this->convert_bbcode($child) . "[/$class]";
                         }
                         else
                             $content .= $child->textContent;
                         break;
                     case "p":
-                        $content .= $child->textContent;
+                        $content .= $this->convert_bbcode($child);
                         break;
                     case "img":
                         $content .= "[image={$child->attributes[0]->value}]{$child->attributes[1]->value}[/image]";
@@ -863,19 +891,13 @@ class MessageController extends AbstractController
                         //$content .= "[quote]" . $this->convert_bbcode($child) . "[/quote]";
                         //We remove inner quotes
                         break;
-                    case "span":
-                        if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value)) {
-                            if($child->attributes['class']->value !== 'quoteauthor') {
-                                $content .= "[{$child->tagName}={$child->attributes['class']->value}]" . $this->convert_bbcode($child) . "[/{$child->tagName}]";
-                            }
-                        }
-                        break;
                     default:
                         $content .= $child->textContent;
                         break;
                 }
-            else
+            } else {
                 $content .= $child->textContent;
+            }
         }
 
         return $content;
@@ -901,42 +923,12 @@ class MessageController extends AbstractController
             }      
         }
 
-        if($parser->has('post')){
-            $post_id = $parser->get('post');
-
-            $post = $em->getRepository(Post::class)->find($post_id);
-            $content = "";
-            if($post->getThread() == $thread) {
-                // We replace the HTML content with the Twinoid-like syntax
-                $dom = new DOMDocument();
-                libxml_use_internal_errors(true);
-                $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
-                $body = $dom->getElementsByTagName('body');
-                $tx_len = 0;
-                if (!$body || $body->length > 1) {
-                    $content = null;
-                }
-                else if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0), $tx_len)) {
-                    $content = null;
-                } else {
-                    $tmp_str = "";
-                    foreach ($body->item(0)->childNodes as $child)
-                        $tmp_str .= $dom->saveHTML($child);
-
-                    $post->setText( $tmp_str );
-                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
-                }
-
-            }
-
-        }
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'forum' => true,
-            'content' => $content ?? null
+            'forum' => true
         ] );
     }
 
@@ -1009,6 +1001,51 @@ class MessageController extends AbstractController
             $this->addFlash('notice', $message);
             return AjaxResponse::success( );
         }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/quote_post", name="forum_post_quote")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function forum_post_quote_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+        $user = $this->getUser();
+
+        $thread = $em->getRepository( Thread::class )->find( $tid );
+        if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1){
+            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
+                return new Response('');
+            }      
+        }
+
+        if($parser->has('post')){
+            $post_id = $parser->get('post');
+
+            $post = $em->getRepository(Post::class)->find($post_id);
+            $content = "";
+            if($post->getThread() == $thread) {
+                // We replace the HTML content with the Twinoid-like syntax
+                $dom = new DOMDocument();
+                libxml_use_internal_errors(true);
+                $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
+                $body = $dom->getElementsByTagName('body');
+                $tx_len = 0;
+                if (!$body || $body->length > 1) {
+                    $content = null;
+                }
+                else if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0), $tx_len)) {
+                    $content = null;
+                } else {
+                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
+                }
+
+            }
+        }
+        return AjaxResponse::success( true, ['content' => $content ?? ""] );
+    }
 
     /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")

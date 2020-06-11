@@ -41,10 +41,12 @@
                 <div class="list">
                     {% for picto in pictos %}
                         <div class="picto{% if picto.rare %} rare{% endif %}">
-                            <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
-                            <div class="counter">
-                            {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
-                            </div>
+                            <span>
+                                <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
+                                <div class="counter">
+                                {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
+                                </div>
+                            </span>
                             <div class="tooltip">
                                 <h1>{{ picto.label|trans({}, 'game') }}</h1>
                                 {{ picto.description|trans({}, 'game')}}</em>
