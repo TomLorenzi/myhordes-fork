@@ -17,12 +17,12 @@
 
     <div class="row">
         <div class="cell padded rw-12">
-            <ul class="tabs" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
-                <li x-tab-id="dash">{{ 'Übersicht'|trans({},'admin') }}</li>
-                <li x-tab-id="register">{{ 'Stadtregister'|trans({},'admin') }}</li>
-                <li x-tab-id="estimations">{{ 'Admin-Wachturm'|trans({},'admin') }}</li>
+            <ul class="tabs plain" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
+                <li class="tab" x-tab-id="dash"><div class="tab-link">{{ 'Übersicht'|trans({},'admin') }}</div></li>
+                <li class="tab" x-tab-id="register"><div class="tab-link">{{ 'Stadtregister'|trans({},'admin') }}</div></li>
+                <li class="tab" x-tab-id="estimations"><div class="tab-link">{{ 'Admin-Wachturm'|trans({},'admin') }}</div></li>
                 {% if is_granted("ROLE_ADMIN") %}
-                    <li x-tab-id="explorer">{{ 'Ruinenscanner'|trans({},'admin') }}</li>
+                    <li class="tab" x-tab-id="explorer"><div class="tab-link">{{ 'Ruinenscanner'|trans({},'admin') }}</div></li>
                 {% endif %}
 
             </ul>

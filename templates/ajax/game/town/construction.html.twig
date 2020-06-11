@@ -133,12 +133,15 @@
     {% endmacro %}
 
     {# @var root_cats \App\Entity\Building[] #}
-    <ul class="buildings-tabs tabs" x-tab-group="buildings" x-tab-control>
-        <li x-tab-id="all">{% trans from 'game' %}Alle{% endtrans %}</li>
-    {% for building in root_cats %}
-        <li x-tab-id="type_{{ building.prototype.icon }}">{{building.prototype.label|trans({}, 'buildings')}}</li>
-    {% endfor %}
-    </ul>
+    <div class="hide-sm hide-md hide-lg">
+        <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
+            <li class="tab" x-tab-id="all"><div class="tab-link">{% trans from 'game' %}Alle{% endtrans %}</div></li>
+            {% for building in root_cats %}
+                <li class="tab" x-tab-id="type_{{ building.prototype.icon }}"><div class="tab-link">{{building.prototype.label|trans({}, 'buildings')}}</div></li>
+            {% endfor %}
+        </ul>
+    </div>
+
 
     {% for building in root_cats %}
         <div x-tab-group="buildings" x-tab-id="type_{{ building.prototype.icon }}" x-tab-target class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp, canvote, voted_building) }}</div>

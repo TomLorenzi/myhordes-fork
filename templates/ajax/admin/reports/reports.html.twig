@@ -3,9 +3,9 @@
     <div class="row">
 
         <div class="cell rw-12">
-            <ul class="tabs" x-tab-group="admin-forum" x-tab-control x-tab-default="dash">
-                <li x-tab-id="dash">{% trans from 'admin' %}Übersicht{% endtrans %}</li>
-                <li x-tab-id="forum">{% trans from 'admin' %}Gewähltes Forum{% endtrans %}</li>
+            <ul class="tabs plain" x-tab-group="admin-forum" x-tab-control x-tab-default="dash">
+                <li class="tab" x-tab-id="dash"><div class="tab-link">{% trans from 'admin' %}Übersicht{% endtrans %}</div></li>
+                <li class="tab" x-tab-id="forum"><div class="tab-link">{% trans from 'admin' %}Gewähltes Forum{% endtrans %}</div></li>
             </ul>
 
             <div x-tab-group="admin-forum" x-tab-id="dash" x-tab-target>

@@ -5,14 +5,14 @@
     <div class="row">
         <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
     </div>
-    <ul class="row tabs">
-        <li class="cell rw-2 tab selected">
+    <ul class="tabs plain">
+        <li class="tab selected">
             <div class="tab-link" x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
         </li>
         {% if not citizen.town.chaos %}
             {% for name,role in votesNeeded %}
                 {% if role %}
-                <li class="cell rw-3 tab">
+                <li class="tab">
                     <div class="tab-link" x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}"><img src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}</div>
                 </li>
                 {% endif %}

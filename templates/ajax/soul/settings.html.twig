@@ -1,155 +1,159 @@
 {% extends "ajax/soul/shell.html.twig" %}
 {% block soul_content %}
-    <h5>{{ 'Dein Profil'|trans({},'soul') }}</h5>
     <div class="row">
-        <div class="padded cell rw-3 rw-lg-4 rw-md-12">
-            {% if app.user.avatar is not null %}
-                <div class="center">
-                    {% if not app.user.avatar.classic %}
-                        <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
-                    {% endif %}
-                    <div class="avatar">
-                        <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
-                    </div>
-                    {% if not app.user.avatar.classic %}
-                        <br /><br />
-                        <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                        <div class="avatar small">
-                            <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
-                        </div>
-                    {% endif %}
-                </div>
-            {% else %}
-                <div class="help">
-                    {{ 'Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen'|trans({},'soul') }}
-                </div>
-            {% endif %}
-        </div>
-        <div class="padded cell rw-9 rw-lg-8 rw-md-12">
-            <input class="hidden" type="file" id="avatar_file_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
-
-            {% if app.user.avatar is not null %}
-                <label class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
-                <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
-
-                {% if not app.user.avatar.classic %}
-                    <button class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
-                    <div id="avatar_com_edit" class="row hidden hide-mobile">
-                        <div class="padded cell rw-6">
-                            <div class="help">
-                                {% trans from 'soul' %}
-                                    Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
-                                {% endtrans %}
-                            </div>
-                        </div>
-                        <div class="padded cell rw-6 center">
-                            <div class="avatar full">
-                                <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
+        <div class="cell rw-12 padded">
+            <h5>{{ 'Dein Profil'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="padded cell rw-3 rw-lg-4 rw-md-12">
+                    {% if app.user.avatar is not null %}
+                        <div class="center">
+                            {% if not app.user.avatar.classic %}
+                                <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
+                            {% endif %}
+                            <div class="avatar">
                                 <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
                             </div>
-                            <div class="right">
-                                <button id="avatar_com_save" class="inline small">{{ 'Speichern'|trans({},'global') }}</button>
-                                <button x-avatar-com-toggle class="inline small">{{ 'Abbrechen'|trans({},'global') }}</button>
+                            {% if not app.user.avatar.classic %}
+                                <br /><br />
+                                <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
+                                <div class="avatar small">
+                                    <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="help">
+                            {{ 'Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen'|trans({},'soul') }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="padded cell rw-9 rw-lg-8 rw-md-12">
+                    <input class="hidden" type="file" id="avatar_file_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
+
+                    {% if app.user.avatar is not null %}
+                        <label class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
+                        <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
+
+                        {% if not app.user.avatar.classic %}
+                            <button class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
+                            <div id="avatar_com_edit" class="row hidden hide-mobile">
+                                <div class="padded cell rw-6">
+                                    <div class="help">
+                                        {% trans from 'soul' %}
+                                            Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
+                                        {% endtrans %}
+                                    </div>
+                                </div>
+                                <div class="padded cell rw-6 center">
+                                    <div class="avatar full">
+                                        <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
+                                        <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
+                                    </div>
+                                    <div class="right">
+                                        <button id="avatar_com_save" class="inline small">{{ 'Speichern'|trans({},'global') }}</button>
+                                        <button x-avatar-com-toggle class="inline small">{{ 'Abbrechen'|trans({},'global') }}</button>
+                                    </div>
+                                </div>
                             </div>
+
+                        {% endif %}
+                    {% else %}
+                        <label class="button" for="avatar_file_select">{{ 'Profilbild hochladen'|trans({},'soul') }}</label>
+                    {% endif %}
+                </div>
+            </div>
+
+            <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <div class="note note-lightest">
+                        <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen'|trans({}, 'soul') }}</label>
+                    </div>
+                </div>
+            </div>
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <h5>{{ 'Standardrolle im Forum'|trans({},'soul') }}</h5>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <div class="note note-lightest">
+                            <input x-default-role-setting {% if app.user.postAsDefault == "DEV" %}checked{% endif%} type="checkbox" id="setting_default_forum_role">&nbsp;<label for="setting_default_forum_role">{{ 'Standardmäßig als dev posten'|trans({}, 'soul') }}</label>
                         </div>
                     </div>
-
-                {% endif %}
-            {% else %}
-                <label class="button" for="avatar_file_select">{{ 'Profilbild hochladen'|trans({},'soul') }}</label>
+                </div>
             {% endif %}
-        </div>
-    </div>
 
-    <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
-    <div class="row">
-        <div class="padded cell rw-12">
-            <div class="note note-lightest">
-                <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen'|trans({}, 'soul') }}</label>
-            </div>
-        </div>
-    </div>
-
-    {% if is_granted("ROLE_ADMIN") %}
-    <h5>{{ 'Standardrolle im Forum'|trans({},'soul') }}</h5>
-    <div class="row">
-        <div class="padded cell rw-12">
-            <div class="note note-lightest">
-                <input x-default-role-setting {% if app.user.postAsDefault == "DEV" %}checked{% endif%} type="checkbox" id="setting_default_forum_role">&nbsp;<label for="setting_default_forum_role">{{ 'Standardmäßig als dev posten'|trans({}, 'soul') }}</label>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-
-    <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
-    <div class="row">
-        <div class="cell padded rw-4 rw-sm-12">
-            <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
-        </div>
-        <div class="cell padded rw-8 rw-sm-12">
-            <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="cell padded rw-4 rw-sm-12">
-            {% trans from 'soul' %}Passwort ändern{% endtrans %}
-        </div>
-        <div class="cell rw-8 rw-sm-12">
+            <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
             <div class="row">
-                <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
-                <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
-            </div>
-
-        </div>
-    </div>
-    {% if app.user.language is defined %}
-        {% set preferredLanguage = app.user.language %}
-    {% else %}
-        {% set preferredLanguage = 'de' %}
-    {% endif %}
-    <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
-    <div class="row">
-        <div class="padded cell rw-12">
-            <div class="language-picker">
-                <div class="note note-lightest">
-                    <input x-lang-setting {% if preferredLanguage == 'de' %}checked{% endif%} value="de" type="radio" name="setting_preferred_language" id="setting_preferred_language_de">&nbsp;<label for="setting_preferred_language_de">{{ 'Deutsch'|trans({}, 'soul') }}</label>
+                <div class="cell padded rw-4 rw-sm-12">
+                    <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
                 </div>
-                <div class="note note-lightest">
-                    <input x-lang-setting {% if preferredLanguage == 'fr' %}checked{% endif%} value="fr" type="radio" name="setting_preferred_language" id="setting_preferred_language_fr">&nbsp;<label for="setting_preferred_language_fr">{{ 'Französisch'|trans({}, 'soul') }}</label>
-                </div>
-                <div class="note note-lightest">
-                    <input x-lang-setting {% if preferredLanguage == 'en' %}checked{% endif%} value="en" type="radio" name="setting_preferred_language" id="setting_preferred_language_en">&nbsp;<label for="setting_preferred_language_en">{{ 'Englisch'|trans({}, 'soul') }}</label>
-                </div>
-                <div class="note note-lightest">
-                    <input x-lang-setting {% if preferredLanguage == 'es' %}checked{% endif%} value="es" type="radio" name="setting_preferred_language" id="setting_preferred_language_es">&nbsp;<label for="setting_preferred_language_es">{{ 'Spanisch'|trans({}, 'soul') }}</label>
+                <div class="cell padded rw-8 rw-sm-12">
+                    <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="row">
+                <div class="cell padded rw-4 rw-sm-12">
+                    {% trans from 'soul' %}Passwort ändern{% endtrans %}
+                </div>
+                <div class="cell rw-8 rw-sm-12">
+                    <div class="row">
+                        <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                        <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
+                        <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                        <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+                    </div>
 
-    <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
-    <div class="row">
-        <div class="cell padded rw-4 rw-sm-12">
-            <label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label>
-        </div>
-        <div class="cell padded rw-4 rw-sm-12">
-            <input id="app_ext" type="text" disabled value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
-        </div>
-        <div class="cell padded rw-4 rw-sm-12">
-            <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>
-            <button id="delete-external-id">{{ 'ID löschen'|trans({}, 'soul') }}</button>
-            <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
-        </div>
-    </div>
+                </div>
+            </div>
+            {% if app.user.language is defined %}
+                {% set preferredLanguage = app.user.language %}
+            {% else %}
+                {% set preferredLanguage = 'de' %}
+            {% endif %}
+            <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <div class="language-picker">
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'de' %}checked{% endif%} value="de" type="radio" name="setting_preferred_language" id="setting_preferred_language_de">&nbsp;<label for="setting_preferred_language_de">{{ 'Deutsch'|trans({}, 'soul') }}</label>
+                        </div>
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'fr' %}checked{% endif%} value="fr" type="radio" name="setting_preferred_language" id="setting_preferred_language_fr">&nbsp;<label for="setting_preferred_language_fr">{{ 'Französisch'|trans({}, 'soul') }}</label>
+                        </div>
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'en' %}checked{% endif%} value="en" type="radio" name="setting_preferred_language" id="setting_preferred_language_en">&nbsp;<label for="setting_preferred_language_en">{{ 'Englisch'|trans({}, 'soul') }}</label>
+                        </div>
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'es' %}checked{% endif%} value="es" type="radio" name="setting_preferred_language" id="setting_preferred_language_es">&nbsp;<label for="setting_preferred_language_es">{{ 'Spanisch'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
-    <div class="row">
-        <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
-        <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
-        <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+            <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="cell padded rw-4 rw-sm-12">
+                    <label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label>
+                </div>
+                <div class="cell padded rw-4 rw-sm-12">
+                    <input id="app_ext" type="text" disabled value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
+                </div>
+                <div class="cell padded rw-4 rw-sm-12">
+                    <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>
+                    <button id="delete-external-id">{{ 'ID löschen'|trans({}, 'soul') }}</button>
+                    <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
+                </div>
+            </div>
+
+            <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
+                <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 {% block js %}
