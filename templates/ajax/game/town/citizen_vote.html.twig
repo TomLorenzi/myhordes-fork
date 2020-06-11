@@ -67,7 +67,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        const send_build_request = function(citizen_id) {
+        const send_vote_request = function(citizen_id) {
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
 
@@ -79,6 +79,6 @@
 
         let buttons = document.querySelectorAll('[x-citizen-id]');
         for (let i = 0; i < buttons.length; i++)
-            buttons[i].addEventListener('click', function() { send_build_request( this.getAttribute('x-citizen-id') ); })
+            buttons[i].addEventListener('click', function() { send_vote_request( this.getAttribute('x-citizen-id') ); })
     </script>
 {% endblock %}

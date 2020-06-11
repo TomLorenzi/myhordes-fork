@@ -7,6 +7,7 @@ use App\Controller\TownInterfaceController;
 use App\Entity\ActionCounter;
 use App\Entity\BankAntiAbuse;
 use App\Entity\Building;
+use App\Entity\BuildingVote;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
@@ -1016,6 +1017,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
+            $votes = $building->getBuildingVotes();
+            foreach ($votes as $vote) {
+                $this->entity_manager->remove($vote);
+            }
         } else if ($was_completed) {
             $newHp = min($building->getPrototype()->getHp(), $building->getHp() + $ap_effect * $hpToAp);
             $building->setHp($newHp);
@@ -1099,9 +1104,18 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                         $items[$ressource->getPrototype()->getId()] = $this->inventory_handler->countSpecificItems( $this->getActiveCitizen()->getTown()->getBank(), $ressource->getPrototype() );
         }
 
-        foreach ($buildings as $building)
-            if ($building->getPrototype()->getParent())
+        $votedBuilding = null; $max_votes = -1;
+        foreach ($buildings as $building) {
+            if ($building->getPrototype()->getParent()) {
                 $dict[$building->getPrototype()->getParent()->getId()][] = $building;
+            }
+
+            $v = $building->getBuildingVotes()->count();
+            if ($v > $max_votes) {
+                $votedBuilding = $building;
+                $max_votes = $v;
+            }
+        }
 
         return $this->render( 'ajax/game/town/construction.html.twig', $this->addDefaultTwigArgs('constructions', [
             'root_cats'  => $root,
@@ -1111,8 +1125,43 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'workshopBonus' => $workshopBonus,
             'hpToAp' => $hpToAp,
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeConstruction, 10 )->getContent(),
-            'day' => $this->getActiveCitizen()->getTown()->getDay()
+            'day' => $this->getActiveCitizen()->getTown()->getDay(),
+            'canvote' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
+            'voted_building' => $votedBuilding,
         ]) );
+    }
+
+    /**
+     * @Route("api/town/constructions/vote", name="town_constructions_vote_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function upgrades_votes_api(JSONRequestParser $parser): Response {
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        if ($citizen->getBuildingVote() || $citizen->getBanished())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$parser->has_all(['id'], true))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $id = (int)$parser->get('id');
+
+        /** @var Building $building */
+        $building = $this->entity_manager->getRepository(Building::class)->find($id);
+        if (!$building || $building->getComplete() || $building->getTown()->getId() !== $town->getId())
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        try {
+            $citizen->setBuildingVote( (new BuildingVote())->setBuilding( $building ) );
+            $this->citizen_handler->inflictStatus($citizen, 'tg_build_vote');
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 
     /**

@@ -80,9 +80,15 @@ class Building
      */
     private $defense = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity=BuildingVote::class, mappedBy="building")
+     */
+    private $buildingVotes;
+
     public function __construct()
     {
         $this->dailyUpgradeVotes = new ArrayCollection();
+        $this->buildingVotes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -237,6 +243,37 @@ class Building
     public function setDefense(int $defense): self
     {
         $this->defense = $defense;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|BuildingVote[]
+     */
+    public function getBuildingVotes(): Collection
+    {
+        return $this->buildingVotes;
+    }
+
+    public function addBuildingVote(BuildingVote $buildingVote): self
+    {
+        if (!$this->buildingVotes->contains($buildingVote)) {
+            $this->buildingVotes[] = $buildingVote;
+            $buildingVote->setBuilding($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBuildingVote(BuildingVote $buildingVote): self
+    {
+        if ($this->buildingVotes->contains($buildingVote)) {
+            $this->buildingVotes->removeElement($buildingVote);
+            // set the owning side to null (unless already changed)
+            if ($buildingVote->getBuilding() === $this) {
+                $buildingVote->setBuilding(null);
+            }
+        }
 
         return $this;
     }
