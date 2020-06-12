@@ -343,7 +343,7 @@
       </notes>
       <segment>
         <source>Spezialregeln</source>
-        <target>Spezialregeln</target>
+        <target>Règles spéciales</target>
       </segment>
     </unit>
     <unit id="9qD2u0I" name="Keine Spezialregeln">
@@ -352,7 +352,7 @@
       </notes>
       <segment>
         <source>Keine Spezialregeln</source>
-        <target>Règles spéciales</target>
+        <target>Aucune règle spéciale</target>
       </segment>
     </unit>
     <unit id="ilcgFcS" name="Keine">
