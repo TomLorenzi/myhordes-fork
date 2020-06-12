@@ -1264,13 +1264,16 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
     private function door_is_locked(TownHandler $th): bool {
         $town = $this->getActiveCitizen()->getTown();
-        if ( !$town->getDoor() && (($s = $this->time_keeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
-            if ($th->getBuilding( $town, 'small_door_closed_#02', true )) {
-                if ($s <= 60) return true;
-            } elseif ($th->getBuilding( $town, 'small_door_closed_#01', true )) {
-                if ($s <= 1800) return true;
-            } elseif ($th->getBuilding( $town, 'small_door_closed_#00', true )) {
-                if ($s <= 1200) return true;
+        if ( !$town->getDoor() ) {
+            if($town->getType()->getName() === 'custom' && $town->isOpen()) return true;
+            if((($s = $this->time_keeper->secondsUntilNextAttack(null, true)) <= 1800)) {
+                if ($th->getBuilding( $town, 'small_door_closed_#02', true )) {
+                    if ($s <= 60) return true;
+                } elseif ($th->getBuilding( $town, 'small_door_closed_#01', true )) {
+                    if ($s <= 1800) return true;
+                } elseif ($th->getBuilding( $town, 'small_door_closed_#00', true )) {
+                    if ($s <= 1200) return true;
+                }
             }
         }
         return false;
@@ -1291,7 +1294,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'def'               => $th->calculate_town_def($town, $defSummary),
-            'town'              =>  $town,
+            'town'              => $town,
             'door_locked'       => $door_locked,
             'can_go_out'        => $can_go_out,
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,

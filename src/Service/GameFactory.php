@@ -181,7 +181,7 @@ class GameFactory
             /** @var BuildingPrototype $proto */
             $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype );
             $b = $this->town_handler->addBuilding( $town, $proto );
-            $b->setAp( $proto->getAp() )->setComplete( true );
+            $b->setAp( $proto->getAp() )->setComplete( true )->setHp($proto->getHp());
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
