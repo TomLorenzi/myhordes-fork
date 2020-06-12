@@ -32,6 +32,7 @@ class AdminActionHandler
     private $log;
     private $requiredRole = [
         'headshot' => 'ROLE_ADMIN',
+        'suicid' => 'ROLE_CROW',
         'confirmDeath' => 'ROLE_ADMIN',
         'pinThread' => 'ROLE_ADMIN',
         'unpinThread' => 'ROLE_ADMIN',
@@ -332,5 +333,28 @@ class AdminActionHandler
             return false;
         }
         return true;
+    }
+
+    public function suicid(int $sourceUser): string
+    {
+        if(!$this->hasRights($sourceUser, 'suicid'))
+            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');   
+
+        $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+        /**
+        * @var Citizen
+        */
+        $citizen = $user->getAliveCitizen();
+        if (isset($citizen)) {
+            $rem = [];
+            $this->death_handler->kill( $citizen, CauseOfDeath::Strangulation, $rem );
+            $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
+            $this->entity_manager->flush();
+            $message = $this->translator->trans('Du hast dich umgebracht.', [], 'admin');
+        }
+        else {
+            $message = $this->translator->trans('Du gehörst keiner Stadt an.', [], 'admin');
+        }
+        return $message;
     }
 }

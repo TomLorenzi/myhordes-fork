@@ -706,5 +706,14 @@
         <target>Qu'attendez-vous ?</target>
       </segment>
     </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Nom de la ville</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

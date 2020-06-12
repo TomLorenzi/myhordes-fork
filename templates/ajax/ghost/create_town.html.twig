@@ -11,6 +11,16 @@
             <div class="row">
                 <div class="cell padded rw-8 rw-md-12">
                     <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
+                    {% if is_granted('ROLE_CROW') %}
+                    <div class="row">
+                        <div class="cell padded rw-4 note note-lightest">
+                            <label for="townname">{{'Name der Stadt'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <input type="text" name="townname" id="townname" />
+                        </div>
+                    </div>
+                    {% endif %}
 
                     <div class="row">
                         <div class="cell padded rw-4 note note-lightest">
@@ -135,6 +145,18 @@
                         </div>
                     </div>
 
+                    {% if is_granted('ROLE_CROW') %}
+                    <h5>{{'Spiel-Optionen'|trans({}, 'ghost')}}</h5>
+                    <div class="row">
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="allpictos" id="allpictos" checked/> <label for="allpictos"><strong>{{'Abstimmung aller Piktogramme:'|trans({}, 'ghost')}}</strong> {{'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="allsoulpoints" id="allsoulpoints" checked/> <label for="allsoulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
+                        </div>
+                    </div>
+                    {% endif %}
+
                     <div class="warning">
                         <strong>{{'Achtung!'|trans({}, 'ghost')}}</strong> {{'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.'|trans({}, 'ghost')}}
                     </div>
@@ -177,6 +199,15 @@
 
         let createtownbtn = document.getElementById('create-town-btn');
         if(createtownbtn) createtownbtn.addEventListener('click', function(){
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+
+            let payload = {};
+
+            $.ajax.send( '{{ path('ghost_process_create_town') }}', payload,
+                function () {
+                    $.ajax.load(null, '{{ path('game_jobs') }}', true);
+            } );
         });
     </script>
 {% endblock %}

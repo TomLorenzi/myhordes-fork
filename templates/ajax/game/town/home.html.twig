@@ -58,6 +58,10 @@
                 <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                 {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                 {% endembed %}
+
+                {% if is_granted('ROLE_CROW') %}
+                    <button id="suicid"><img src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
+                {% endif %}
             </div>
 
             <div class="padded cell rw-6 rw-md-12">
@@ -625,5 +629,16 @@
                 });
             }
         });
+
+            {% if is_granted('ROLE_CROW') %}
+                let suicidbtn = document.getElementById('suicid');
+                if(suicidbtn) suicidbtn.addEventListener('click', function(){
+                    if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                        $.ajax.easySend( '{{ path('town_home_suicid') }}', {},
+                            function () {
+                                $.ajax.load(null, '{{ path('game_landing') }}', true);
+                            } );
+                });
+            {% endif %}
     </script>
 {% endblock %}
