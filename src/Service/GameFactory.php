@@ -144,7 +144,7 @@ class GameFactory
         return $resolution;
     }
 
-    public function createTown( ?string $name, ?string $language, ?int $population, string $type ): ?Town {
+    public function createTown( ?string $name, ?string $language, ?int $population, string $type, $customConf = [] ): ?Town {
         if (!$this->validator->validateTownType($type))
             return null;
 
@@ -153,9 +153,11 @@ class GameFactory
         // Initial: Create town
         $town = new Town();
         $town
-            ->setType( $townClass );
+            ->setType($townClass)
+            ->setConf($customConf);
 
         $conf = $this->conf->getTownConfiguration($town);
+
 
         if ($population === null) $population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
         if ($population <= 0 || $population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))

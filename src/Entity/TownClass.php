@@ -49,6 +49,11 @@ class TownClass
      */
     private $rankedTowns;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $hasPreset = true;
+
     public function __construct()
     {
         $this->towns = new ArrayCollection();
@@ -142,6 +147,18 @@ class TownClass
                 $rankedTown->setType(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHasPreset(): ?bool
+    {
+        return $this->hasPreset;
+    }
+
+    public function setHasPreset(?bool $hasPreset): self
+    {
+        $this->hasPreset = $hasPreset;
 
         return $this;
     }

@@ -22,6 +22,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
+use App\Service\AdminActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
@@ -402,6 +403,17 @@ class TownHomeController extends TownController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/suicid", name="town_home_suicid")
+     * @return Response
+     */
+    public function suicid(AdminActionHandler $admh): Response
+    {
+        $message = $admh->suicid($this->getUser()->getId());
+        $this->addFlash('notice', $message);
         return AjaxResponse::success();
     }
 }

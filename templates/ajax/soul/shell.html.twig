@@ -1,6 +1,7 @@
-{% extends "ajax/ajax.html.twig" %}
+{% extends "ajax/game/game.html.twig" %}
 {% block menu_text %}
     {{ parent() }}
+    <li class="town-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
 {% block ajax %}
     <div class="row soul">

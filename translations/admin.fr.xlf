@@ -1045,5 +1045,32 @@
         <target>Registre de la ville</target>
       </segment>
     </unit>
+    <unit id="yu8TLDr" name="Du hast dich umgebracht.">
+      <notes>
+        <note category="german">Du hast dich umgebracht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dich umgebracht.</source>
+        <target>Vous vous êtes suicidé.</target>
+      </segment>
+    </unit>
+    <unit id="jnQ5tRO" name="Selbstmord begehen">
+      <notes>
+        <note category="german">Selbstmord begehen</note>
+      </notes>
+      <segment>
+        <source>Selbstmord begehen</source>
+        <target>Se suicider</target>
+      </segment>
+    </unit>
+    <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
+      <notes>
+        <note category="german">Du gehörst keiner Stadt an.</note>
+      </notes>
+      <segment>
+        <source>Du gehörst keiner Stadt an.</source>
+        <target>Du gehörst keiner Stadt an.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
