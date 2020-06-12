@@ -661,7 +661,7 @@ class SoulController extends AbstractController
         }
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
-    	$points = $this->user_factory->getPoints($user);
+    	$points = $this->user_handler->getPoints($user);
 
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
