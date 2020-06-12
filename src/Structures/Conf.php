@@ -37,6 +37,7 @@ class Conf
     }
 
     public function import( array $data ): self {
+        $this->complete = false;
         if (!$this->is_complete)
             $this->deep_merge( $this->data, $data );
         return $this;
@@ -45,6 +46,7 @@ class Conf
     public function complete(): self {
         if ($this->is_complete) return $this;
         $this->is_complete = true;
+        $this->flat = [];
         $this->flatten($this->data, $this->flat);
         return $this;
     }

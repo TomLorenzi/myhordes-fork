@@ -26,7 +26,7 @@ class ConfMaster
 
     public function getTownConfiguration( Town $town ): TownConf {
         $tc = new TownConf( [$this->game_rules['default'], $this->game_rules[$town->getType()->getName()]] );
-        if ($tc->get(TownConf::CONF_ALLOW_LOCAL, false) && $town->getConf()) $tc->import( $town->getConf() );
+        if ($tc->complete()->get(TownConf::CONF_ALLOW_LOCAL, false) && $town->getConf()) $tc->import( $town->getConf() );
         return $tc->complete();
     }
 
