@@ -50,16 +50,16 @@ class TownConf extends Conf
     const CONF_FEATURE_WORDS_OF_HEROS  = 'features.words_of_heros';
     const CONF_FEATURE_ESCORT          = 'features.escort.enabled';
     const CONF_FEATURE_ESCORT_SIZE     = 'features.escort.max';
-    const CONF_FEATURE_XML             = 'feature.xml_feed';
-    const CONF_FEATURE_GHOUL_MODE      = 'feature.ghoul_mode';
-    const CONF_FEATURE_ALL_POISON      = 'feature.all_poison';
-    const CONF_FEATURE_SHUN            = 'feature.shun';
-    const CONF_FEATURE_GHOUL           = 'feature.ghoul';
-    const CONF_FEATURE_NIGHTWATCH      = 'feature.nightwatch';
-    const CONF_FEATURE_IMPROVEDDUMP    = 'feature.improveddump';
-    const CONF_FEATURE_ATTACKS         = 'feature.attacks';
-    const CONF_FEATURE_GIVE_ALL_PICTOS = 'feature.give_all_pictos';
-    const CONF_FEATURE_GIVE_SOULPOINTS = 'feature.give_soulpoints';
+    const CONF_FEATURE_XML             = 'features.xml_feed';
+    const CONF_FEATURE_GHOUL_MODE      = 'features.ghoul_mode';
+    const CONF_FEATURE_ALL_POISON      = 'features.all_poison';
+    const CONF_FEATURE_SHUN            = 'features.shun';
+    const CONF_FEATURE_GHOUL           = 'features.ghoul';
+    const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch';
+    const CONF_FEATURE_IMPROVEDDUMP    = 'features.improveddump';
+    const CONF_FEATURE_ATTACKS         = 'features.attacks';
+    const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
+    const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
 
     public function __construct(array $data)
     {

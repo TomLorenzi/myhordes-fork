@@ -146,30 +146,30 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $customConf[TownConf::CONF_WELL_MAX] = $well;
         }
 
-        // $customConf[TownConf::CONF_FEATURE_XML] = !$disablexml;
-        // $customConf[TownConf::CONF_FEATURE_GHOUL_MODE] = $ghoulType;
+        $customConf[TownConf::CONF_FEATURE_XML] = !$disablexml;
+        $customConf[TownConf::CONF_FEATURE_GHOUL_MODE] = $ghoulType;
         switch($rules) {
             case 'nobuilding':
                 $customConf[TownConf::CONF_BUILDINGS_UNLOCKED] = [];
                 break;
             case 'poison':
-                // $customConf[TownConf::CONF_FEATURE_ALL_POISON] = true;
+                $customConf[TownConf::CONF_FEATURE_ALL_POISON] = true;
                 break;
         }
 
         $customConf[TownConf::CONF_FEATURE_NIGHTMODE] = $nightmode;
         if (!$ruins) $customConf[TownConf::CONF_NUM_EXPLORABLE_RUINS] = 0;
-        //$customConf[TownConf::CONF_SHAMAN_ROLE] = $shaman;
+        $customConf[TownConf::CONF_SHAMAN_ROLE] = $shaman;
         $customConf[TownConf::CONF_FEATURE_ESCORT] = $escorts;
-        //$customConf[TownConf::CONF_FEATURE_SHUN] = $shunned;
+        $customConf[TownConf::CONF_FEATURE_SHUN] = $shunned;
         $customConf[TownConf::CONF_FEATURE_NIGHTMODE] = $nightmode;
         $customConf[TownConf::CONF_FEATURE_CAMPING] = $camp;
-        // $customConf[TownConf::CONF_FEATURE_GHOUL] = $ghouls;
-        // $customConf[TownConf::CONF_FEATURE_NIGHTWATCH] = $nightwatch;
-        // $customConf[TownConf::CONF_FEATURE_IMPROVEDDUMP] = $improveddump;
-        // $customConf[TownConf::CONF_FEATURE_ATTACKS] = $attacks;
-        // $customConf[TownConf::CONF_FEATURE_GIVE_ALL_PICTOS] = $allpictos;
-        // $customConf[TownConf::CONF_FEATURE_GIVE_SOULPOINTS] = $allsoulpoints;
+        $customConf[TownConf::CONF_FEATURE_GHOUL] = $ghouls;
+        $customConf[TownConf::CONF_FEATURE_NIGHTWATCH] = $nightwatch;
+        $customConf[TownConf::CONF_FEATURE_IMPROVEDDUMP] = $improveddump;
+        $customConf[TownConf::CONF_FEATURE_ATTACKS] = $attacks;
+        $customConf[TownConf::CONF_FEATURE_GIVE_ALL_PICTOS] = $allpictos;
+        $customConf[TownConf::CONF_FEATURE_GIVE_SOULPOINTS] = $allsoulpoints;
 
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf);
         $town->setPassword($password);

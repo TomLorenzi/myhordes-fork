@@ -588,8 +588,8 @@
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                             Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+        <target>Choisissez la partie de votre photo de profil à utiliser pour l'affichage compressé.
+                                            Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.</target>
       </segment>
     </unit>
   </file>

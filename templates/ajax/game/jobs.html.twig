@@ -24,7 +24,7 @@
             {% if app.request.locale != 'de' %}
                 {% set img='welcome1_' ~ app.request.locale ~ '.jpg' %}
             {% endif %}
-            <img style="width: 100%" alt="" src="{{ asset('build/images/professions/select/' ~ img) }}">
+            <img style="width: 100%; border: 1px solid #5c2b20;" alt="" src="{{ asset('build/images/professions/select/' ~ img) }}">
             {{ block('jobhelp') }}
         </div>
         <div class="cell padded header rw-8 rw-md-12">
@@ -34,14 +34,12 @@
                     {# @var job \App\Entity\CitizenProfession #}
                     <div class="padded cell rw-4 rw-lg-6">
                         <label for="jb_{{ job.name }}">
-                            <img style="width: 100%" alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/select/' ~ job.icon ~ '.gif') }}">
+                            <img style="width: 100%; opacity: .6;" alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/select/' ~ job.icon ~ '.gif') }}">
                         </label>
                         <div>
                             <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
                             <label for="jb_{{ job.name }}">
-                                {% if job.heroic %}
-                                    <img alt="{{ 'Held'|trans({},'game') }}" src="{{ asset('build/images/professions/hero.gif') }}">
-                                {% endif %}
+                                    <img src="{{ asset('build/images/professions/' ~ job.icon ~ '.gif') }}">
                                 <b>{{ job.label|trans({}, 'game') }}</b>
                             </label>
                         </div>
