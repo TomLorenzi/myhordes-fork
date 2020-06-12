@@ -80,7 +80,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($b->getPrototype()->getName() === 'small_refine_#00')
                 $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop'];
 
-            if ($b->getPrototype()->getName() === 'small_round_path_#00')
+            if ($b->getPrototype()->getName() === 'small_round_path_#00' && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
                 $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch'];
 
             if ($b->getPrototype()->getName() === 'small_trash_#00')
@@ -1111,7 +1111,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
 
             $v = $building->getBuildingVotes()->count();
-            if ($v > $max_votes) {
+            if ($v > 0 && $v > $max_votes) {
                 $votedBuilding = $building;
                 $max_votes = $v;
             }

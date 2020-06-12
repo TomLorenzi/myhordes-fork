@@ -121,7 +121,7 @@
                             <input type="checkbox" name="escorts" id="escorts" checked/> <label for="escorts"><strong>{{'Eskorte:'|trans({}, 'ghost')}}</strong> {{'Eskorten aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="shunned" id="shunned" checked/> <label for="shunned"><strong>{{'Verbannung:'|trans({}, 'ghost')}}</strong> {{'Verbannung aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="shun" id="shun" checked/> <label for="shun"><strong>{{'Verbannung:'|trans({}, 'ghost')}}</strong> {{'Verbannung aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
                             <input type="checkbox" name="nightmode" id="nightmode" checked/> <label for="nightmode"><strong>{{'Nachtmodus:'|trans({}, 'ghost')}}</strong> {{'Nachtmodus aktivieren (schwerer)'|trans({}, 'ghost')}}</label>
@@ -166,7 +166,7 @@
                             <input type="checkbox" name="allpictos" id="allpictos" checked/> <label for="allpictos"><strong>{{'Abstimmung aller Piktogramme:'|trans({}, 'ghost')}}</strong> {{'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="allsoulpoints" id="allsoulpoints" checked/> <label for="allsoulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="soulpoints" id="soulpoints" checked/> <label for="soulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
                         </div>
                     </div>
                     {% endif %}
@@ -234,7 +234,7 @@
             payload.ruins           = document.getElementById('explorableruins').checked;
             payload.shaman          = document.getElementById('shaman').checked;
             payload.escorts         = document.getElementById('escorts').checked;
-            payload.shunned         = document.getElementById('shunned').checked;
+            payload.shun            = document.getElementById('shun').checked;
             payload.nightmode       = document.getElementById('nightmode').checked;
             payload.camp            = document.getElementById('camp').checked;
             payload.ghouls          = document.getElementById('ghouls').checked;
@@ -246,7 +246,7 @@
 
             {% if is_granted('ROLE_CROW') %}
             payload.allpictos = document.getElementById('allpictos').checked;
-            payload.allsoulpoints = document.getElementById('allsoulpoints').checked;
+            payload.soulpoints = document.getElementById('soulpoints').checked;
             {% endif %}
 
             $.ajax.send( '{{ path('ghost_process_create_town') }}', payload,

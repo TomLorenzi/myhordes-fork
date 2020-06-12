@@ -115,7 +115,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
         if(!$uh->hasSkill($user, 'mayor')){
-            return AjaxResponse::success( false, ['url' => $this->generateUrl('initial_landing')] );
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
         }
 
         $townname = $parser->get('townName', '');
@@ -126,50 +126,64 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $well = $parser->get('well', '');
         $disablexml = $parser->get('disablexml', '');
         $rules = $parser->get('rules', '');
-        $ruins = $parser->get('ruins', '');
-        $shaman = $parser->get('shaman', '');
-        $escorts = $parser->get('escorts', '');
-        $shunned = $parser->get('shunned', '');
-        $nightmode = $parser->get('nightmode', '');
-        $camp = $parser->get('camp', '');
-        $ghouls = $parser->get('ghouls', '');
-        $buildingdamages = $parser->get('buildingdamages', '');
-        $nightwatch = $parser->get('nightwatch', '');
-        $improveddump = $parser->get('improveddump', '');
+        $ruins = boolval($parser->get('ruins', ''));
+        $shaman = boolval($parser->get('shaman', ''));
+        $escorts = boolval($parser->get('escorts', ''));
+        $shun = boolval($parser->get('shun', ''));
+        $nightmode = boolval($parser->get('nightmode', ''));
+        $camp = boolval($parser->get('camp', ''));
+        $ghouls = boolval($parser->get('ghouls', ''));
+        $buildingdamages = boolval($parser->get('buildingdamages', ''));
+        $nightwatch = boolval($parser->get('nightwatch', ''));
+        $improveddump = boolval($parser->get('improveddump', ''));
         $attacks = $parser->get('attacks', '');
         $allpictos = $parser->get('allpictos', '');
-        $allsoulpoints = $parser->get('allsoulpoints', '');
+        $soulpoints = $parser->get('soulpoints', '');
 
-        $customConf = [];
+        // Initial: Create town setting from selected type
+        $town = new Town();
+        $town
+            ->setType($em->getRepository(TownClass::class)->findOneBy(['name' => $townType]));
+
+        $conf = $conf->getTownConfiguration($town);
+
+        $customConf = $conf->getData();
+
+        /*$customConf = [
+            'features' => []
+        ];*/
+
         if(!empty($well) && is_numeric($well) && $well <= 300){
-            $customConf[TownConf::CONF_WELL_MIN] = $well;
-            $customConf[TownConf::CONF_WELL_MAX] = $well;
+            $customConf['well'] = [
+                'min' => $well,
+                'max' => $well
+            ];
         }
 
-        $customConf[TownConf::CONF_FEATURE_XML] = !$disablexml;
-        $customConf[TownConf::CONF_FEATURE_GHOUL_MODE] = $ghoulType;
+        if(!empty($disablexml)) $customConf['features']['xml_feed'] = !$disablexml;
+        if(!empty($ghoulType)) $customConf['features']['ghoul_mode'] = $ghoulType;
         switch($rules) {
             case 'nobuilding':
-                $customConf[TownConf::CONF_BUILDINGS_UNLOCKED] = [];
+                $customConf['features']['unlocked_buildings'] = [];
                 break;
             case 'poison':
-                $customConf[TownConf::CONF_FEATURE_ALL_POISON] = true;
+                $customConf['features']['all_poison'] = true;
                 break;
         }
 
-        $customConf[TownConf::CONF_FEATURE_NIGHTMODE] = $nightmode;
-        if (!$ruins) $customConf[TownConf::CONF_NUM_EXPLORABLE_RUINS] = 0;
-        $customConf[TownConf::CONF_SHAMAN_ROLE] = $shaman;
-        $customConf[TownConf::CONF_FEATURE_ESCORT] = $escorts;
-        $customConf[TownConf::CONF_FEATURE_SHUN] = $shunned;
-        $customConf[TownConf::CONF_FEATURE_NIGHTMODE] = $nightmode;
-        $customConf[TownConf::CONF_FEATURE_CAMPING] = $camp;
-        $customConf[TownConf::CONF_FEATURE_GHOUL] = $ghouls;
-        $customConf[TownConf::CONF_FEATURE_NIGHTWATCH] = $nightwatch;
-        $customConf[TownConf::CONF_FEATURE_IMPROVEDDUMP] = $improveddump;
-        $customConf[TownConf::CONF_FEATURE_ATTACKS] = $attacks;
-        $customConf[TownConf::CONF_FEATURE_GIVE_ALL_PICTOS] = $allpictos;
-        $customConf[TownConf::CONF_FEATURE_GIVE_SOULPOINTS] = $allsoulpoints;
+        if (!$ruins) $customConf['features'][''] = 0;
+        $customConf['features']['shaman'] = $shaman;
+        $customConf['features']['escort'] = ['enabled' => $escorts];
+        $customConf['features']['shun'] = $shun;
+        $customConf['features']['nightmode'] = $nightmode;
+        $customConf['features']['camping'] = $camp;
+        $customConf['features']['ghoul'] = $ghouls;
+        $customConf['features']['nightwatch'] = $nightwatch;
+        $customConf['features']['improveddump'] = $improveddump;
+        $customConf['features']['attacks'] = $attacks;
+
+        $customConf['features']['give_all_pictos'] = $allpictos;
+        $customConf['features']['give_soulpoints'] = $soulpoints;
 
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf);
         $town->setPassword($password);

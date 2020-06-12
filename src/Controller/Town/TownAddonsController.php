@@ -431,7 +431,7 @@ class TownAddonsController extends TownController
     public function addon_nightwatch(TownHandler $th): Response
     {
         $town = $this->getActiveCitizen()->getTown();
-        if (!$th->getBuilding($town, 'small_round_path_#00', true))
+        if (!$th->getBuilding($town, 'small_round_path_#00', true) || !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
         $has_shooting_gallery = (bool)$th->getBuilding($town, 'small_tourello_#00', true);

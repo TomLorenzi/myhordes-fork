@@ -119,10 +119,12 @@ class DeathHandler
         }
 
         // Give soul point
-        $days = $citizen->getSurvivedDays();
-        $nbSoulPoints = $days * ( $days + 1 ) / 2;
+        if($citizen->getTown()->getType()->getName() !== 'custom' || $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, false)) {
+            $days = $citizen->getSurvivedDays();
+            $nbSoulPoints = $days * ( $days + 1 ) / 2;
 
-        $citizen->getUser()->addSoulPoints($nbSoulPoints);
+            $citizen->getUser()->addSoulPoints($nbSoulPoints);
+        }
 
         // Add pictos
         if ($citizen->getSurvivedDays()) {

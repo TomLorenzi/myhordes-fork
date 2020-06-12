@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -15,11 +16,12 @@ use Doctrine\ORM\Query\Expr\Join;
 class PictoHandler
 {
     private $entity_manager;
+    private $conf;
 
-    public function __construct(
-        EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf)
     {
         $this->entity_manager = $em;
+        $this->conf = $conf;
     }
 
     public function give_picto(Citizen &$citizen, $pictoPrototype, $count = 1){
@@ -28,8 +30,6 @@ class PictoHandler
             if($pictoPrototype === null)
                 return;
         }
-        // $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
-        // $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 0]);
         $picto = null;
         foreach ($citizen->getUser()->getPictos() as $citizenPicto) {
             if($citizenPicto->getPersisted() !== 0) continue;
@@ -47,7 +47,6 @@ class PictoHandler
 
         $this->entity_manager->persist($picto);
 
-        //$this->entity_manager->flush();
     }
 
     public function give_validated_picto(Citizen &$citizen, $pictoPrototype, $count = 1){
@@ -57,8 +56,6 @@ class PictoHandler
                 return;
         }
         
-        //$picto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pictoPrototype);
-        //$picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), 'prototype' => $pictoPrototype, 'persisted' => 1]);
         $picto = null;
         foreach ($citizen->getUser()->getPictos() as $citizenPicto) {
             if($citizenPicto->getPersisted() !== 1) continue;
@@ -77,7 +74,6 @@ class PictoHandler
             ->setCount($picto->getCount()+$count);
 
         $this->entity_manager->persist($picto);
-        // $this->entity_manager->flush();
     }
 
     public function validate_picto(Citizen $citizen){
@@ -128,15 +124,18 @@ class PictoHandler
 	        }
         }
 
-        // In private towns, we get only 1/3 of all pictos and no rare
-        if($citizen->getTown()->getType()->getName() == "custom"){
+        $conf = $this->conf->getTownConfiguration($citizen->getTown());
+
+        // In private towns, we get only 1/3 of all pictos and no rare, unless it is specified otherwise
+        if($citizen->getTown()->getType()->getName() == "custom" && !$conf->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, false)){
             $pictos = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
             $keepPictos = [];
             foreach ($pictos as $picto) {
-                if($picto->getRare() && $picto->getPrototype()->getName() !== "r_ptame_#00"){
+                if($picto->getRare()){
                     $this->entity_manager->remove($picto);
                     continue;
                 }
+                
                 if($picto->getPrototype()->getName() !== "r_ptame_#00")
                     $keepPictos[] = $picto;
                 else {
@@ -151,8 +150,6 @@ class PictoHandler
                 $this->entity_manager->remove($keepPictos[$i]);
             }
         }
-
-        // $this->entity_manager->flush();
     }
 
     public function has_picto(Citizen $citizen, $pictoPrototype){

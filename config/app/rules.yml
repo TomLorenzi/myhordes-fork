@@ -69,6 +69,7 @@ parameters:
           enabled: true
           max: 4
         nightmode: true
+        shaman: true
         xml_feed: true
         ghoul_mode: normal
         all_poison: false
@@ -102,6 +103,7 @@ parameters:
         camping: false
         words_of_heros: false
         nightwatch: false
+        shaman: false
 
     remote:
 
